@@ -489,7 +489,7 @@ class FunctionPlan:
         #  An enum of this class, and the name Qt has for the
         #  combinations of a flags enum of it, are bound in the body of
         #  the class alone, so a function reaches them through the class.
-        maker = '%s.%s' % (viewer.getDottedName(), maker)
+        maker = '%s.%s' % (viewer.getLocalName(), maker)
       return dict(
           kind=kind, annotation=found['shown'], words=words,
           entry=found['entry'], maker=maker,

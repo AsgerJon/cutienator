@@ -352,8 +352,57 @@ class ClassGenerator:
 
   def isNested(self) -> bool:
     """Says whether Qt writes the class inside another class. Such a
-    class is written inside the cute class of that class, in its file."""
-    return True if '::' in self.getClassName() else False
+    class is written inside the cute class of that class, in its file.
+    A class Qt writes inside a namespace and no class, as
+    'Qt3DCore::QEntity', is not: it has a file of its own."""
+    return self.getCuteName().isNested()
+
+  def _isClassName(self, name: str) -> bool:
+    """Says whether a name, seen from the part of the class being
+    written, stands for a class of the tree, and not for a namespace."""
+    try:
+      self._keyOf(name)
+    except LookupError:
+      return False
+    return True
+
+  def getLocalName(self, className: Optional[str] = None) -> str:
+    """Gives the name by which the file of the class reaches its cute
+    class, as 'CuteName.getLocalName' does: 'QEntity' for
+    'Qt3DCore::QEntity'; of the class being written when none is
+    named."""
+    return self.getCuteName(className).getLocalName()
+
+  def getImportName(self, className: str) -> Tuple[str, str]:
+    """
+    Gives what a file brings in to reach the cute class of a class of
+    Qt, and from which part: the class itself, as ('QtGui', 'QFont');
+    for a class Qt writes inside another, the outermost class around
+    it, as ('QtCore', 'QMetaObject') for 'QMetaObject::Connection'; for
+    a class Qt writes inside a namespace and no class, the outermost
+    namespace, as ('Qt3DCore', 'Qt3DCore') for 'Qt3DCore::QEntity'.
+    Bringing in a namespace brings in no file of a class.
+    """
+    cuteName = self.getCuteName(className)
+    top, spaceName = cuteName.getTopClassName(), cuteName.getSpaceName()
+    asked = spaceName.split('::')[0] if spaceName else top
+    return self.getPartName(top), asked
+
+  def getWaitKey(self, boundName: str) -> str:
+    """
+    Gives what a 'WAIT' bound at a name of the file stands for, the name
+    Qt has for its late class with dots for '::': for a class this one
+    is written inside, bound at its local name, as 'QTransform' for
+    'Qt3DCore::QTransform', that class's full name,
+    'Qt3DCore.QTransform'; for any other, the bound name itself.
+    """
+    pieces = self.getClassName().split('::')
+    for depth in range(1, len(pieces)):
+      around = '::'.join(pieces[:depth])
+      if self._isClassName(around) and (
+          self.getLocalName(around) == boundName):
+        return around.replace('::', '.')
+    return boundName
 
   def getInnerGenerators(self) -> Tuple[Any, ...]:
     """
@@ -425,7 +474,8 @@ class ClassGenerator:
     className = className or self.getClassName()
     #  A class written inside another has no file of its own: it stands
     #  in the file of the outermost class around it.
-    return '_%s' % self.getStem(className.split('::')[0])
+    return '_%s' % self.getStem(
+        self.getCuteName(className).getTopClassName())
 
   def getClassFile(self) -> str:
     """
@@ -473,7 +523,12 @@ class ClassGenerator:
         self.getClassName(), self.getPartName())
     if not parents or not self._isCute(parents[0]):
       return None
-    if '::' in parents[0] or not self._isMadeBefore(parents[0]):
+    #  A class Qt writes inside another class is made after the class
+    #  around it, in its file, so nothing is built on it. A class Qt
+    #  writes inside a namespace alone has a file of its own.
+    if self.getCuteName(parents[0]).isNested():
+      return None
+    if not self._isMadeBefore(parents[0]):
       return None
     return parents[0]
 
@@ -825,7 +880,8 @@ class ClassGenerator:
       return there in tree.getNeededParts(here)
     #  A class written inside another is made right before the
     #  outermost class around it, whose file brings it in.
-    mine, theirs = className.split('::')[0], otherName.split('::')[0]
+    mine = self.getCuteName().getTopClassName()
+    theirs = self.getCuteName(otherName).getTopClassName()
     if mine == theirs:
       return len(otherName) > len(className)
     makeOrder = tree.getMakeOrder()
@@ -844,7 +900,8 @@ class ClassGenerator:
         self.getClassName(), self.getPartName())
     return (*(
         parent for parent in parents[1:]
-        if self._isCute(parent) and '::' not in parent
+        if self._isCute(parent)
+        and not self.getCuteName(parent).isNested()
         and self._isMadeBefore(parent)
     ),)
 
@@ -860,7 +917,8 @@ class ClassGenerator:
     builtOn.extend(self.getFurtherBaseNames())
     for name in builtOn:
       for parent in tree.getParents(name, partName):
-        if self._isCute(parent) and '::' not in parent:
+        if self._isCute(parent) and (
+            not self.getCuteName(parent).isNested()):
           if parent not in builtOn:
             builtOn.append(parent)
     return (*builtOn,)

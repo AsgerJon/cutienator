@@ -279,8 +279,36 @@ class Summon:
 
   @classmethod
   def _createQtSharedObjectFolder(cls, ) -> None:
-    """Asks 'qmake6' where Qt keeps its shared objects and remembers it."""
-    answer = cls._run('qmake6', '-query', 'QT_INSTALL_LIBS')
+    """
+    Asks 'qmake6' where Qt keeps its shared objects and remembers it.
+    Where 'qmake6' is not there, as on a machine with Qt and without its
+    development files, the folder is found among the usual folders of
+    'System.getUsualQtFolders': the first that holds the shared object
+    of QtCore.
+
+    Raises
+    ------
+
+    FileNotFoundError
+      There is no 'qmake6', and no usual folder holds the shared object
+      of QtCore. The message names every folder looked in.
+    """
+    try:
+      answer = cls._run('qmake6', '-query', 'QT_INSTALL_LIBS')
+    except FileNotFoundError:
+      system = System.getHere()
+      coreName = system.getQtFileName('QtCore')
+      looked = system.getUsualQtFolders()
+      for folder in looked:
+        if os.path.exists(os.path.join(folder, coreName)):
+          cls.__qt_shared_object_folder__ = folder
+          return
+      infoSpec = """No Qt is found here. 'qmake6' is not installed to say
+      where Qt is, and none of the usual folders holds '%s': %s. Install
+      Qt %s, from Qt's own installer or the system's packages."""
+      info = infoSpec % (
+          coreName, ', '.join(looked) or 'none is there', '6.12')
+      raise FileNotFoundError(' '.join(info.split())) from None
     cls.__qt_shared_object_folder__ = answer.strip()
 
   @classmethod
@@ -353,8 +381,17 @@ class Summon:
 
   @classmethod
   def _createQtProgramFolder(cls, ) -> None:
-    """Asks 'qmake6' where Qt keeps its programs and remembers it."""
-    answer = cls._run('qmake6', '-query', 'QT_INSTALL_BINS')
+    """
+    Asks 'qmake6' where Qt keeps its programs and remembers it. Where
+    'qmake6' is not there, it is the folder 'bin' beside the folder of
+    the shared objects, as Qt's own installer lays it out.
+    """
+    try:
+      answer = cls._run('qmake6', '-query', 'QT_INSTALL_BINS')
+    except FileNotFoundError:
+      folder = os.path.dirname(cls.getQtSharedObjectFolder())
+      cls.__qt_program_folder__ = os.path.join(folder, 'bin')
+      return
     cls.__qt_program_folder__ = answer.strip()
 
   @classmethod

@@ -48,6 +48,11 @@ for part in (QtCore, QtGui, QtWidgets):
 held = sorted(name.rpartition('._')[2] for name in sys.modules
               if name in classFiles)
 print('class files brought in:', ' '.join(held))
+spaces = sorted(
+    name for part in (QtCore, QtGui, QtWidgets)
+    for name in getattr(part, '__space_packages__', ())
+    if '%s.%s' % (part.__name__, name) in sys.modules)
+print('namespaces brought in:', ' '.join(spaces))
 print('waits for QFont:', 'QFont' in MetaCute.getStillWaiting())
 print('setFont is there:', hasattr(QWidget, 'setFont'))
 try:
@@ -103,12 +108,15 @@ class TestPackages(BaseTest):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   def test_every_name_of_a_package_gives_its_class(self) -> None:
-    """Each name a package lists gives a class of that name."""
+    """Each name a package lists gives a class of that name, or the
+    package of a namespace of that name, as 'Qt'."""
     for package in (QtCore, QtGui, QtWidgets):
       self.assertEqual(dir(package), sorted(package.__all__))
       for name in package.__all__:
         with self.subTest(package=package.__name__, name=name):
-          self.assertEqual(getattr(package, name).__name__, name)
+          found = getattr(package, name)
+          shown = found.__name__.rpartition('.')[2]
+          self.assertEqual(shown, name)
 
   def test_a_class_is_kept_once_brought_in(self) -> None:
     """Asked for twice, it is the same class."""
@@ -163,8 +171,9 @@ class TestPackages(BaseTest):
 
   def test_a_class_file_brings_in_what_its_class_is_built_on(self) -> None:
     """The file of 'QWidget' brings in the files of 'QObject' and
-    'QPaintDevice', which it is built on, the namespace 'Qt', and the
-    file of each class that
+    'QPaintDevice', which it is built on, the package of the namespace
+    'Qt', which brings in the file of its enums, and the file of each
+    class that
     holds an enum or a class it or 'QObject' names: 'QPalette',
     'QSizePolicy' and 'QMetaObject'. It brings in no other class. A
     signature naming another class waits until a program brings that
@@ -172,7 +181,8 @@ class TestPackages(BaseTest):
     on the class all the while, and refuses every call until then."""
     expected = [
       'class files brought in: q_list q_meta_object q_object '
-      'q_paint_device q_palette q_size_policy q_widget qt',
+      'q_paint_device q_palette q_size_policy q_widget',
+      'namespaces brought in: Qt',
       'waits for QFont: True',
       'setFont is there: True',
       'setFont refuses: DispatchException',

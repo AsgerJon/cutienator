@@ -220,8 +220,6 @@ class Rituals:
   #  The part 'callFrom' found for a ritual several parts list, under
   #  the part it was seen from and the name of the ritual.
   __seen_parts__ = dict()  # type: Dict[Tuple[str, str], str]
-  #  Whether the system was readied for opening a target file.
-  __opening_ready__ = False
 
   #  The texts a program was started with, each time they were handed to
   #  Qt, kept so that Python never removes them.
@@ -424,10 +422,17 @@ class Rituals:
     as QtUiPlugin, its folder of header files is in Qt's header folder.
     The ritual files of the others are not built here.
     """
-    headers = Summon.getQtHeaderFolder()
+    try:
+      headers = Summon.getQtHeaderFolder()
+    except FileNotFoundError:
+      #  No 'qmake6', so no development files of Qt: a part of header
+      #  files alone, which only a build needs, does not count.
+      headers = None
     found = []  # type: List[str]
     for part in cls.getRitualParts():
-      if cls._findQtFile(part) is not None or os.path.isdir(
+      if cls._findQtFile(part) is not None:
+        found.append(part)
+      elif headers is not None and os.path.isdir(
           os.path.join(headers, part)):
         found.append(part)
     return (*found,)
@@ -865,9 +870,12 @@ class Rituals:
       infoSpec = """The shared object '%s' is missing. Call
       'Rituals.summon()' first."""
       raise FileNotFoundError(' '.join((infoSpec % target).split()))
-    if not cls.__opening_ready__:
-      System.getHere().prepareOpening()
-      cls.__opening_ready__ = True
+    #  The Qt of this machine is opened first, where it is: the shared
+    #  object of the part and of each part it sees first. Each of them
+    #  finds what it needs itself.
+    seen = (*cls.getPartsFirst(partName), partName)
+    qtFiles = cls._findSharedObjects(seen)
+    System.getHere().prepareOpening(*dict.fromkeys(qtFiles))
     opened = ctypes.CDLL(target)
     words = cls.__row_words__
     missing = set()  # type: Set[str]

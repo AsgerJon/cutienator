@@ -10,7 +10,7 @@ from abc import abstractmethod
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional, Tuple
+  from typing import List, Optional, Tuple
 
   Paths = Tuple[str, ...]
 
@@ -385,13 +385,54 @@ class System:
     raise self._refuse('buildsObjectiveC')
 
   @abstractmethod
-  def prepareOpening(self) -> None:
+  def prepareOpening(self, *qtFiles: str) -> None:
     """
     Does what this system needs done in Python before a built file can
     be opened and find its Qt. 'Rituals' calls it right before it opens
-    the shared object of rituals.
+    the shared object of rituals of a part.
+
+    Parameters
+    ----------
+
+    *qtFiles : str
+      The full path of the Qt shared object of the part, and of each
+      part it sees first, found where 'Summon.getQtSharedObjectFolder'
+      says Qt is.
     """
     raise self._refuse('prepareOpening')
+
+  @abstractmethod
+  def getUsualQtFolders(self) -> Paths:
+    """
+    Gives the folders where a usual install of Qt keeps its shared
+    objects on this system, in the order they are looked in when
+    'qmake6' is not there to say; see
+    'Summon.getQtSharedObjectFolder'. A folder that is not there is not
+    given.
+    """
+    raise self._refuse('getUsualQtFolders')
+
+  @staticmethod
+  def _findInstallerFolders(kitName: str, *roots: str) -> Paths:
+    """
+    Gives the folders Qt's own installer puts a Qt into, as
+    '~/Qt/6.12.0/gcc_64', for one kit of Qt: under each root, each
+    version that is there, the newest first.
+    """
+    found = []  # type: List[str]
+    for root in roots:
+      root = os.path.expanduser(root)
+      if not os.path.isdir(root):
+        continue
+      versions = []
+      for name in os.listdir(root):
+        pieces = name.split('.')
+        if all(piece.isdigit() for piece in pieces):
+          folder = os.path.join(root, name, kitName)
+          if os.path.isdir(folder):
+            versions.append(((*(int(p) for p in pieces),), folder))
+      found.extend(folder for _, folder in sorted(versions, reverse=True))
+    return (*found,)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PARENT METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

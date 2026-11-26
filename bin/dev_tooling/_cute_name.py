@@ -110,8 +110,53 @@ class CuteName:
     return self.getName().rpartition('::')[0]
 
   def isNested(self) -> bool:
-    """Says whether Qt writes the name inside a class."""
-    return True if '::' in self.getName() else False
+    """Says whether Qt writes the name inside a class, as
+    'QMetaObject::Connection'. One Qt writes only inside a namespace,
+    as 'Qt3DCore::QEntity', is not: it is a class of its own file."""
+    return True if self.getHolderName() else False
+
+  def getHolderName(self) -> str:
+    """
+    Gives the class Qt writes the name inside, the nearest: 'QMetaObject'
+    for 'QMetaObject::Connection', 'Qt3DCore::QTransform' for a class
+    inside that one; '' for a name Qt writes inside no class, as
+    'QSize', 'Qt3DCore::QEntity' or 'QV4::Heap::Base'. What is a class
+    is asked of the tree, through the viewer.
+    """
+    pieces = self.getName().split('::')
+    for depth in range(len(pieces) - 1, 0, -1):
+      if self.getViewer()._isClassName('::'.join(pieces[:depth])):
+        return '::'.join(pieces[:depth])
+    return ''
+
+  def getTopClassName(self) -> str:
+    """
+    Gives the class whose file holds the cute class of the name: the
+    outermost class Qt writes it inside, as 'QMetaObject' for
+    'QMetaObject::Connection', or the name itself for one Qt writes
+    inside no class, as 'QSize' or 'Qt3DCore::QEntity'.
+    """
+    pieces = self.getName().split('::')
+    for depth in range(1, len(pieces)):
+      if self.getViewer()._isClassName('::'.join(pieces[:depth])):
+        return '::'.join(pieces[:depth])
+    return self.getName()
+
+  def getSpaceName(self) -> str:
+    """Gives the namespace Qt writes the name inside, as 'Qt3DCore' for
+    'Qt3DCore::QEntity' and 'QV4::Heap' for 'QV4::Heap::Base'; '' for a
+    name inside no namespace."""
+    return self.getTopClassName().rpartition('::')[0]
+
+  def getLocalName(self) -> str:
+    """Gives the name by which the file of its top class reaches the cute
+    class: its dotted name without its namespace, as 'QEntity' for
+    'Qt3DCore::QEntity' and 'QMetaObject.Connection' for
+    'QMetaObject::Connection'."""
+    spaceName = self.getSpaceName()
+    local = self.getName()[len(spaceName) + 2:] if spaceName else (
+        self.getName())
+    return local.replace('::', '.')
 
   def isCute(self) -> bool:
     """Says whether the name, seen from the part of the viewer, stands
@@ -138,22 +183,26 @@ class CuteName:
     viewer, otherName = self.getViewer(), self.getName()
     className = viewer.getClassName()
     if otherName == className:
-      name = viewer.getDottedName()
+      name = viewer.getLocalName()
       return dict(
           entry='THIS', name=name, late=False, bring='', hint='',
           holder=name)
     if not self.isCute():
       return None
-    mine, theirs = className.split('::')[0], otherName.split('::')[0]
+    mine = viewer.getCuteName().getTopClassName()
+    theirs = self.getTopClassName()
     if className.startswith('%s::' % otherName):
       #  A class this one is written inside is made after it, in this
       #  very file, so it waits and nothing is brought in for it.
-      if '::' in otherName:
+      if self.isNested():
         return 'names a class it is written two deep inside'
+      local = self.getLocalName()
       return dict(
-          entry=otherName, name=otherName, late=True, bring='', hint='',
-          holder=otherName)
-    ownerName = self.getOwnerName()
+          entry=local, name=local, late=True, bring='', hint='',
+          holder=local)
+    if not self.isNested() and self.getSpaceName():
+      return self._findSpacedEntry()
+    ownerName = self.getHolderName()
     if not ownerName:
       #  A class this one is not built on is a late class: its file is
       #  brought in by the program that uses it, not by this one. A
@@ -180,14 +229,37 @@ class CuteName:
       infoSpec = """names '%s', which stands beside this class inside
       '%s' and cannot be named from here"""
       return ' '.join((infoSpec % (otherName, mine)).split())
-    for depth in range(1, otherName.count('::') + 1):
-      if not viewer._isCute('::'.join(otherName.split('::')[:depth])):
+    top = self.getTopClassName()
+    pieces = otherName.split('::')
+    for depth in range(top.count('::') + 1, len(pieces)):
+      if not viewer._isCute('::'.join(pieces[:depth])):
         return None
     #  A class written inside another class is reached through that
     #  class, as Qt writes it, so the file of that class is brought in.
     viewer._note('owners', theirs)
     return dict(
         entry=dotted, name=dotted, late=False, bring='', hint='',
+        holder=dotted)
+
+  def _findSpacedEntry(self) -> Any:
+    """
+    Says how the body of the viewer names the cute class of a class Qt
+    writes inside a namespace and no class, as 'Qt3DCore::QEntity': by
+    the name Python reaches it by, 'Qt3DCore.QEntity', through the
+    package of its namespace, which the file brings in at its top.
+    Bringing in that package brings in no file of a class. A class this
+    one is not built on waits in its signatures, as 'WAIT' names it
+    right there, 'WAIT['Qt3DCore.QEntity']', since no line of a class
+    body can bind a dotted name.
+    """
+    viewer, otherName = self.getViewer(), self.getName()
+    dotted = self.getDottedName()
+    builtOn = otherName in viewer._getBuiltOn()
+    if not builtOn:
+      viewer._note('top', 'WAIT')
+    entry = dotted if builtOn else "WAIT['%s']" % dotted
+    return dict(
+        entry=entry, name=dotted, late=False, bring=otherName, hint='',
         holder=dotted)
 
   def findEnumEntry(self, flags: bool) -> Optional[Record]:
@@ -242,14 +314,15 @@ class CuteName:
     if not viewer._isCute(ownerName):
       return None
     className = viewer.getClassName()
-    if ownerName.split('::')[0] == className.split('::')[0]:
+    ownerTop = viewer.getCuteName(ownerName).getTopClassName()
+    if ownerTop == viewer.getCuteName().getTopClassName():
       #  An enum of the class this one is written inside, or of a class
       #  beside it: a class body does not see the names of the body
       #  around it, and that class is not made yet.
       return None
     #  The enum stands inside its class, as Qt writes it, so the file of
     #  that class is brought in for it.
-    viewer._note('owners', ownerName.split('::')[0])
+    viewer._note('owners', ownerTop)
     entry = '%s.%s' % (viewer.getDottedName(ownerName), ownName)
     return dict(
         entry=entry, shown=entry, owner=ownerName, generator=generator)
@@ -273,7 +346,7 @@ class CuteName:
     if not listed and not self.isCute():
       return None
     partName = 'QtCore' if holder == 'Qt' else viewer.getPartName(
-        holder.split('::')[0])
+        viewer.getCuteName(holder).getTopClassName())
     return '%s:%s' % (partName, what.replace('::', '.'))
 
 

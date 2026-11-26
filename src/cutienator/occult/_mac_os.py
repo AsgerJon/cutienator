@@ -3,6 +3,7 @@
 #  Copyright (c) 2026 Asger Jon Vistisen
 from __future__ import annotations
 
+import ctypes
 import os
 
 from typing import TYPE_CHECKING
@@ -197,11 +198,32 @@ class MacOS(System):
         '-framework', 'Metal', '-framework', 'QuartzCore', '-lobjc')
     return ('-Wl,-rpath,%s' % qtFolder, *apple)
 
-  def prepareOpening(self) -> None:
+  def prepareOpening(self, *qtFiles: str) -> None:
     """
-    Does nothing: on macOS the built file carries the folder of its Qt,
-    which 'getLinkerFlags' had the linker write into it.
+    Opens the Qt shared object of the part, and of each part it sees
+    first, by its full path, before the built file is opened. The built
+    file carries the folder of the Qt it was built against, which on
+    another machine is not there. macOS gives a built file a framework
+    that is open already when its name fits, so it uses this Qt,
+    wherever it is. A static library is passed over.
     """
+    for qtFile in qtFiles:
+      if not qtFile.endswith('.a'):
+        ctypes.CDLL(qtFile, mode=ctypes.RTLD_GLOBAL)
+
+  def getUsualQtFolders(self) -> Paths:
+    """
+    Gives where a usual install of Qt keeps its frameworks on macOS:
+    under '~/Qt', as Qt's own installer puts it, the newest version
+    first, as '~/Qt/6.12.0/macos/lib'; then where Homebrew puts it,
+    '/opt/homebrew/opt/qt/lib' on Apple silicon and
+    '/usr/local/opt/qt/lib' on an Intel Mac.
+    """
+    found = [
+        os.path.join(folder, 'lib')
+        for folder in self._findInstallerFolders('macos', '~/Qt')]
+    found.extend(('/opt/homebrew/opt/qt/lib', '/usr/local/opt/qt/lib'))
+    return (*(f for f in found if os.path.isdir(f)),)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

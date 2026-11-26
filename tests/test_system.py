@@ -31,11 +31,12 @@ class TestSystem(BaseTest):
   - The answers of all three systems are tested everywhere: what
     'Windows' says of a file name or a flag is text, and can be read on
     Linux as well.
-  - Only 'Windows.prepareOpening' does something, and only Windows can
-    do it. Here the two things it calls are replaced for the length of
-    one test, so the test sees what it would have told Python. That it
-    works for real is tested by 'TestQObject' in the rows that run on
-    Windows.
+  - 'prepareOpening' opens the Qt files it is handed on Linux and macOS,
+    and tells Python of Qt's folder on Windows, once for each folder.
+    Here what Windows calls is replaced for the length of one test, and
+    so is the set of folders it told, so the test sees what it would
+    have told Python. That it works for real is tested by 'TestQObject'
+    in the rows that run on Windows.
   - 'System.getHere()' keeps its answer for the whole program. A test
     that makes it answer anew puts the kept answer back before it ends.
   """
@@ -170,11 +171,65 @@ class TestSystem(BaseTest):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   def test_linux_and_mac_prepare_nothing(self) -> None:
-    """On Linux and macOS nothing is done before a file is opened."""
+    """On Linux and macOS, handed no Qt file, nothing is done."""
     before = dict(os.environ)
     self.assertIsNone(Linux().prepareOpening())
     self.assertIsNone(MacOS().prepareOpening())
     self.assertEqual(dict(os.environ), before)
+
+  def test_a_static_library_is_not_opened(self) -> None:
+    """A static library is joined into the built file: there is nothing
+    to open, so it is passed over."""
+    static = os.path.join('nowhere', 'libQt6AxContainer.a')
+    self.assertIsNone(Linux().prepareOpening(static))
+    self.assertIsNone(MacOS().prepareOpening(static))
+
+  def test_the_installer_folders_newest_first(self) -> None:
+    """The folders of Qt's own installer, the newest version first, and
+    nothing that is no version."""
+    with tempfile.TemporaryDirectory() as root:
+      for name in ('6.10.1', '6.12.0', '6.9.3', 'Tools'):
+        os.makedirs(os.path.join(root, name, 'gcc_64'))
+      found = System._findInstallerFolders('gcc_64', root)
+    names = [os.path.basename(os.path.dirname(f)) for f in found]
+    self.assertEqual(names, ['6.12.0', '6.10.1', '6.9.3'])
+
+  def test_qt_is_found_without_qmake6(self) -> None:
+    """Where 'qmake6' is not there, Qt is the first usual folder that
+    holds the shared object of QtCore."""
+    here = System.getHere()
+
+    def noQmake(*command: str) -> str:
+      raise FileNotFoundError('qmake6 is not there in this test')
+
+    with tempfile.TemporaryDirectory() as folder:
+      empty = os.path.join(folder, 'empty')
+      full = os.path.join(folder, 'full')
+      os.makedirs(empty)
+      os.makedirs(full)
+      open(os.path.join(full, here.getQtFileName('QtCore')), 'w').close()
+      with mock.patch.object(Summon, '_run', staticmethod(noQmake)):
+        with mock.patch.object(
+            type(here), 'getUsualQtFolders', lambda self: (empty, full)):
+          with mock.patch.object(
+              Summon, '__qt_shared_object_folder__', None):
+            self.assertEqual(Summon.getQtSharedObjectFolder(), full)
+
+  def test_no_qt_found_says_where_it_looked(self) -> None:
+    """Without 'qmake6' and without Qt in a usual folder, the lookup
+    fails, naming 'qmake6'."""
+    here = System.getHere()
+
+    def noQmake(*command: str) -> str:
+      raise FileNotFoundError('qmake6 is not there in this test')
+
+    with mock.patch.object(Summon, '_run', staticmethod(noQmake)):
+      with mock.patch.object(
+          type(here), 'getUsualQtFolders', lambda self: ()):
+        with mock.patch.object(Summon, '__qt_shared_object_folder__', None):
+          with self.assertRaises(FileNotFoundError) as context:
+            Summon.getQtSharedObjectFolder()
+    self.assertIn('qmake6', str(context.exception))
 
   def test_windows_tells_python_of_the_qt_folder(self) -> None:
     """From Python 3.8 on, Windows hands the folder of Qt's DLLs over."""
@@ -185,7 +240,8 @@ class TestSystem(BaseTest):
           os, 'add_dll_directory', told.append, create=True,
       ):
         with mock.patch.object(sys, 'version_info', (3, 8, 0)):
-          Windows().prepareOpening()
+          with mock.patch.object(Windows, '__told_folders__', set()):
+            Windows().prepareOpening()
     self.assertEqual(told, [folder])
 
   def test_windows_puts_the_qt_folder_first_in_path(self) -> None:
@@ -195,7 +251,8 @@ class TestSystem(BaseTest):
     with mock.patch.object(Summon, 'getQtProgramFolder', lambda: 'qt/bin'):
       with mock.patch.object(os, 'environ', environment):
         with mock.patch.object(sys, 'version_info', (3, 7, 9)):
-          Windows().prepareOpening()
+          with mock.patch.object(Windows, '__told_folders__', set()):
+            Windows().prepareOpening()
     expected = os.pathsep.join((folder, 'elsewhere'))
     self.assertEqual(environment, dict(PATH=expected))
 

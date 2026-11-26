@@ -12,10 +12,10 @@ from worktoy.waitaminute import MissingVariable, TypeException
 
 from . import DependencyTree
 from ._class_generator import ClassGenerator
-from .class_tables import LISTED_FIRST
+from .class_tables import ENUM_SPACES, LISTED_FIRST
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import List, Optional, Tuple
+  from typing import Dict, List, Optional, Tuple
 
   Key = Tuple[str, str]
   Entries = Tuple[Tuple[str, str], ...]
@@ -194,6 +194,55 @@ class PackageGenerator:
         if part == partName and '::' not in name
         and (part, name) in cuteKeys),)
 
+  def _createViewer(self) -> ClassGenerator:
+    """Gives a 'ClassGenerator' of the part, of no class, which says what
+    a name of Qt is, a class or a namespace; see 'CuteName'."""
+    viewer = ClassGenerator()
+    viewer.setDependencyTree(self.getDependencyTree())
+    viewer.setPartName(self.getPartName())
+    viewer.setCuteNames(*self.getCuteNames())
+    return viewer
+
+  def getSpaceClasses(self) -> Dict[str, Tuple[str, ...]]:
+    """
+    Gives, for each namespace of the part, the cute classes Qt writes
+    right inside it and inside no class, in the order the tree makes
+    them: {'Qt3DCore': ('Qt3DCore::QNode', 'Qt3DCore::QEntity', ...)}.
+    """
+    tree, partName = self.getDependencyTree(), self.getPartName()
+    cuteKeys, viewer = {*self.getCuteNames()}, self._createViewer()
+    found = dict()  # type: Dict[str, List[str]]
+    for part, name in tree.getMakeOrder():
+      if part != partName or '::' not in name or (
+          (part, name) not in cuteKeys):
+        continue
+      cuteName = viewer.getCuteName(name)
+      if not cuteName.isNested():
+        found.setdefault(cuteName.getSpaceName(), []).append(name)
+    return {space: (*names,) for space, names in found.items()}
+
+  def getSpaceNames(self) -> Tuple[str, ...]:
+    """
+    Gives every namespace of the part that is a package, in alphabetical
+    order: each that holds a cute class, each namespace around those,
+    as 'QV4' around 'QV4::Heap', and each whose enums the table
+    'ENUM_SPACES' names, as 'Qt'.
+    """
+    spaces = [*self.getSpaceClasses()]
+    enumSpaces = ENUM_SPACES.get(self.getPartName(), ())
+    spaces.extend(name for name, _ in enumSpaces)
+    found = set()
+    for space in spaces:
+      pieces = space.split('::')
+      found.update('::'.join(pieces[:n]) for n in range(1, len(pieces) + 1))
+    return (*sorted(found),)
+
+  def getSpaceFile(self, spaceName: str) -> str:
+    """Gives the path of the '__init__.py' of the package of a namespace
+    of the part, as '.../cutienator/QtQml/QV4/Heap/__init__.py'."""
+    return os.path.join(
+        self.getPackageFolder(), *spaceName.split('::'), '__init__.py')
+
   def getEntries(self) -> Entries:
     """
     Gives every name the package lists, each with the stem of its file,
@@ -265,8 +314,10 @@ class PackageGenerator:
       infoSpec = """The part '%s' has no cute class to list."""
       raise ValueError(infoSpec % partName)
     lines = ['', 'import importlib', 'from typing import TYPE_CHECKING', '']
+    spaces = [n for n in self.getSpaceNames() if '::' not in n]
     lines.append('__all__ = (')
     lines.extend("    '%s'," % name for name, _ in files)
+    lines.extend("    '%s'," % name for name in spaces)
     lines.extend((')', ''))
     #  The cute things, for whoever reads the file without running it.
     lines.append('if TYPE_CHECKING:  # pragma: no cover, no mutate')
@@ -274,14 +325,21 @@ class PackageGenerator:
     lines.append('')
     lines.extend(
         '  from .%s import %s' % (stem, name) for name, stem in files)
+    lines.extend('  from . import %s' % name for name in spaces)
     #  The ugly things, for Python when it runs.
     lines.extend((
         'else:',
         '  #  Where each class is: the file that is brought in the first',
         '  #  time the class is asked for.', '  __class_files__ = {'))
     lines.extend("      '%s': '%s'," % pair for pair in files)
+    lines.append('  }')
+    if spaces:
+      lines.extend((
+          '  #  The namespaces of the part, each a package of its own.',
+          '  __space_packages__ = (%s)' % ''.join(
+              "'%s', " % name for name in spaces).rstrip()))
     lines.extend((
-        '  }', '', '',
+        '', '',
         '  def __getattr__(name: str) -> Any:',
         '    """',
         '    Brings in a class of this part the first time it is asked for,',
@@ -298,6 +356,12 @@ class PackageGenerator:
         '    AttributeError',
         '      The part has no class of that name.',
         '    """',
+        *(() if not spaces else (
+            '    if name in __space_packages__:',
+            "      value = importlib.import_module('.%s' % name, __name__)",
+            '      globals()[name] = value',
+            '      return value',
+        )),
         '    try:',
         '      fileName = __class_files__[name]',
         '    except KeyError:',
@@ -314,6 +378,129 @@ class PackageGenerator:
     ))
     heading = '\n'.join(self.getHeading())
     return '%s\n%s\n' % (heading, '\n'.join(lines))
+
+  def getSpaceText(self, spaceName: str) -> str:
+    """
+    Gives the whole text of the '__init__.py' of the package of one
+    namespace of the part, without writing it. The package holds the
+    cute classes Qt writes right inside the namespace, each brought in
+    from its file in the folder of the part the first time it is asked
+    for, as 'Qt3DCore.QEntity'; the namespaces right inside it, each a
+    package of its own; and, for a namespace of 'ENUM_SPACES', its
+    enums and the names of their members, as 'Qt.AlignLeft'.
+
+    Raises
+    ------
+
+    ValueError
+      The part has no such namespace.
+    """
+    if spaceName not in self.getSpaceNames():
+      infoSpec = """The part '%s' has no namespace '%s'."""
+      raise ValueError(infoSpec % (self.getPartName(), spaceName))
+    partName, depth = self.getPartName(), spaceName.count('::') + 1
+    dotted, up = spaceName.replace('::', '.'), '.' * (depth + 1)
+    viewer = self._createViewer()
+    files = [
+        (viewer.getCuteName(name).getPythonName(), viewer.getFileStem(name))
+        for name in self.getSpaceClasses().get(spaceName, ())]
+    inner = [
+        name.rpartition('::')[2] for name in self.getSpaceNames()
+        if name.rpartition('::')[0] == spaceName]
+    enumStem = dict(ENUM_SPACES.get(partName, ())).get(spaceName, '')
+    outermost = spaceName.split('::')[0]
+    example = '%s.%s' % (dotted, files[0][0]) if files else ''
+    lines = [
+        '"""',
+        "The namespace '%s' of Qt, a package of 'cutienator.%s':" % (
+            spaceName, partName),
+        'what Qt writes inside it, under the names C++ has for it.',
+        '',
+        '  from cutienator.%s import %s' % (partName, outermost),
+        *(('  %s' % example,) if example else ()),
+        '',
+        'A class is brought in the first time it is asked for.',
+        '"""',
+        '#  Apache-2.0 license',
+        '#  Copyright (c) 2026 Asger Jon Vistisen',
+        '#  Written by dev_tooling.PackageGenerator. Changes made here are',
+        '#  lost.',
+        'from __future__ import annotations',
+        '',
+        'import importlib',
+        'from typing import TYPE_CHECKING',
+        '',
+    ]
+    if enumStem:
+      lines.extend((
+          'from %s%s import %s as _Enums' % (up, enumStem, outermost),
+          '',
+          '#  The enums of the namespace, and the names of their',
+          '#  members, as names of the package itself, where C++ has',
+          "#  them: 'Qt.AlignLeft'.",
+          'globals().update({',
+          '    name: value for name, value in _Enums.__dict__.items()',
+          "    if not name.startswith('_')})",
+          '',
+      ))
+    lines.append('__all__ = (')
+    lines.extend("    '%s'," % name for name, _ in files)
+    lines.extend("    '%s'," % name for name in inner)
+    lines.extend((')', ''))
+    lines.append('if TYPE_CHECKING:  # pragma: no cover, no mutate')
+    lines.append('  from typing import Any, List')
+    lines.append('')
+    lines.extend(
+        '  from %s%s import %s' % (up, stem, name) for name, stem in files)
+    lines.extend('  from . import %s' % name for name in inner)
+    lines.extend((
+        'else:',
+        '  #  Where each class is: the file in the folder of the part',
+        '  #  that is brought in the first time the class is asked for.',
+        '  __class_files__ = {'))
+    lines.extend("      '%s': '%s'," % pair for pair in files)
+    lines.extend((
+        '  }',
+        '  #  The namespaces right inside this one, each a package.',
+        '  __space_packages__ = (%s)' % ''.join(
+            "'%s', " % name for name in inner).rstrip(),
+        '', '',
+        '  def __getattr__(name: str) -> Any:',
+        '    """',
+        '    Brings in a class or a namespace of this namespace the',
+        "    first time it is asked for, as by '%s'. Python calls" % (
+            example or 'from cutienator.%s import %s' % (
+                partName, outermost)),
+        '    this for a'
+        ' name the package does not hold yet, and what it gives is kept',
+        '    here for the next time.',
+        '',
+        '    Raises',
+        '    ------',
+        '',
+        '    AttributeError',
+        '      The namespace has nothing of that name.',
+        '    """',
+        '    if name in __space_packages__:',
+        "      value = importlib.import_module('.%s' % name, __name__)",
+        '    else:',
+        '      try:',
+        '        fileName = __class_files__[name]',
+        '      except KeyError:',
+        "        infoSpec = \"\"\"module '%s' has no attribute '%s'\"\"\"",
+        '        raise AttributeError(infoSpec % (__name__, name))'
+        ' from None',
+        "      module = importlib.import_module("
+        "'%s%%s' %% fileName, __name__)" % up,
+        '      value = getattr(module, name)',
+        '    globals()[name] = value',
+        '    return value',
+        '', '',
+        '  def __dir__() -> List[str]:',
+        '    """Names everything of the namespace, brought in or not."""',
+        '    return [*__all__]',
+    ))
+    return '%s\n' % '\n'.join(lines)
 
   def getStaleFiles(self) -> Tuple[str, ...]:
     """
@@ -401,7 +588,13 @@ class PackageGenerator:
       The full path of the file, which now exists.
     """
     text = self.getPackageText()
+    spaces = {name: self.getSpaceText(name) for name in self.getSpaceNames()}
     os.makedirs(self.getPackageFolder(), exist_ok=True)
     with open(self.getPackageFile(), 'w') as file:
       file.write(text)
+    for spaceName, spaceText in spaces.items():
+      spaceFile = self.getSpaceFile(spaceName)
+      os.makedirs(os.path.dirname(spaceFile), exist_ok=True)
+      with open(spaceFile, 'w') as file:
+        file.write(spaceText)
     return self.getPackageFile()

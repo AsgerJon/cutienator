@@ -63,6 +63,9 @@ class Windows(System):
   #  Class Variables
   #  What 'sys.platform' is on Windows, also on a 64-bit one.
   __platform_name__ = 'win32'
+  #  The folders Python was told to look in for DLLs, so that each is
+  #  told once, however many parts are opened.
+  __told_folders__ = set()
 
   #  Fallback Variables
 
@@ -167,7 +170,7 @@ class Windows(System):
     """
     return ()
 
-  def prepareOpening(self) -> None:
+  def prepareOpening(self, *qtFiles: str) -> None:
     """
     Tells Python where the DLLs of Qt are, so that the built file finds
     the Qt it was built against once it is opened.
@@ -180,6 +183,9 @@ class Windows(System):
     the folder is put first in 'PATH' for this Python and the programs
     it starts.
 
+    The Qt files of the part are found in that folder by the DLLs
+    themselves, so they are not opened here.
+
     Raises
     ------
 
@@ -187,11 +193,26 @@ class Windows(System):
       'qmake6' is not installed.
     """
     folder = os.path.normpath(Summon.getQtProgramFolder())
+    if folder in self.__told_folders__:
+      return
+    self.__told_folders__.add(folder)
     if sys.version_info >= (3, 8):
       os.add_dll_directory(folder)
     else:
       known = os.environ.get('PATH', '')
       os.environ['PATH'] = os.pathsep.join((folder, known))
+
+  def getUsualQtFolders(self) -> Paths:
+    """
+    Gives where a usual install of Qt keeps what the linker is handed on
+    Windows: under 'C:\\Qt', as Qt's own installer puts it, the newest
+    version first, as 'C:\\Qt\\6.12.0\\msvc2022_64\\lib'. Its DLLs are
+    in the folder 'bin' beside it.
+    """
+    found = [
+        os.path.join(folder, 'lib')
+        for folder in self._findInstallerFolders('msvc2022_64', 'C:\\Qt')]
+    return (*(f for f in found if os.path.isdir(f)),)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

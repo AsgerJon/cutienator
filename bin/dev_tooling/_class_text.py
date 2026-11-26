@@ -187,10 +187,13 @@ class ClassText:
     #  class that holds an enum or a class this file names, are asked of
     #  the package of their part, the cute way. The package brings in
     #  the one file each of them is in, and no other.
-    asked = {viewer.getPartName(n) for n in classes}
+    #  Each by what its file is reached through: a class Qt writes inside
+    #  a namespace by that namespace, one inside a class by that class.
+    asking = {viewer.getImportName(n) for n in classes}
+    asked = {partName for partName, _ in asking}
     asked.add('QtCore')
     for partName in viewer.getImportOrder(asked):
-      names = sorted(n for n in classes if viewer.getPartName(n) == partName)
+      names = sorted({n for p, n in asking if p == partName})
       if partName == 'QtCore':
         #  'QList' and 'QStringList' are classes of QtCore the tree
         #  knows nothing of: cutienator writes them by hand.
@@ -216,9 +219,10 @@ class ClassText:
     #  A type checker is shown each class the cute way, from the
     #  package of its part. Python never runs these lines, so they
     #  bring nothing in.
-    shown = {viewer.getPartName(n) for n in hinted}
+    showing = {viewer.getImportName(n) for n in hinted} - asking
+    shown = {partName for partName, _ in showing}
     for partName in viewer.getImportOrder(shown):
-      names = [n for n in hinted if viewer.getPartName(n) == partName]
+      names = sorted({n for p, n in showing if p == partName})
       lines.extend(self._writeAsking(partName, names, '  '))
     if late:
       lines.append('else:')
@@ -227,7 +231,8 @@ class ClassText:
       naming it waits until then; see 'WAIT'."""
       lines.extend(self._wrapWords(infoSpec, '  #  '))
       for lateName in late:
-        lines.append("  %s = WAIT['%s']" % (lateName, lateName))
+        lines.append("  %s = WAIT['%s']" % (
+            lateName, viewer.getWaitKey(lateName)))
     if 'NoneType' in top:
       lines.append('')
       infoSpec = """The class of None, for a signature that takes None in
@@ -274,9 +279,8 @@ class ClassText:
     class Qt writes inside another is brought in with that class, as
     'from ..QtCore import QMetaObject' for 'QMetaObject::Connection'.
     """
-    viewer = self.getViewer()
-    asked = otherName.split('::')[0]
-    return self._writeAsking(viewer.getPartName(asked), [asked], indent)[0]
+    partName, asked = self.getViewer().getImportName(otherName)
+    return self._writeAsking(partName, [asked], indent)[0]
 
   def _countNotWritten(self) -> List[Tuple[int, str]]:
     """Gives how many functions of the class have no ritual, for each
@@ -446,7 +450,8 @@ class ClassText:
       lines.extend(self._wrapWords(infoSpec, '  #  '))
       lines.append('  if not TYPE_CHECKING:')
       for lateName in late:
-        lines.append("    %s = WAIT['%s']" % (lateName, lateName))
+        lines.append("    %s = WAIT['%s']" % (
+            lateName, viewer.getWaitKey(lateName)))
     generators = viewer.getEnumGenerators()
     if generators:
       infoSpec = """The enums Qt writes inside %s, each a class in here
@@ -663,7 +668,7 @@ class ClassText:
     annotation = 'None' if gives is None else gives['annotation']
     if function.get('inPlace'):
       #  'a += b' gives 'a' itself back, in C++ and in Python.
-      annotation = viewer.getDottedName()
+      annotation = viewer.getLocalName()
     whole = '  def %s(%s) -> %s:' % (
         function['pythonName'], ', '.join(shown), annotation)
     if len(whole) <= _width():
@@ -758,7 +763,7 @@ class ClassText:
   def _writeBody(self, function: Record) -> List[str]:
     """Gives the lines of one function below its docstring."""
     viewer = self.getViewer()
-    plan, className = function['plan'], viewer.getDottedName()
+    plan, className = function['plan'], viewer.getLocalName()
     kind, gives = function['kind'], function['gives']
     lines = self._wrapCpp(plan['function'], '    #  ', '    #      ')
     stacked = len(function['signatures']) > 1
@@ -1167,7 +1172,9 @@ class ClassText:
     """Gives the class statement and everything below it."""
     viewer = self.getViewer()
     baseName, pythonName = viewer.getBaseName(), viewer.getPythonName()
-    bases = [*filter(None, (baseName,)), *viewer.getFurtherBaseNames()]
+    bases = [
+        viewer.getDottedName(name) for name in (
+            *filter(None, (baseName,)), *viewer.getFurtherBaseNames())]
     functions = viewer.getFunctions()
     lines = []  # type: List[str]
     if not bases:
@@ -1213,7 +1220,8 @@ class ClassText:
       infoSpec = """Qt writes '%s' inside another class, so it has no
       file of its own: the generator of '%s' writes it."""
       className = viewer.getClassName()
-      info = infoSpec % (className, className.split('::')[0])
+      info = infoSpec % (
+          className, viewer.getCuteName().getTopClassName())
       raise ValueError(' '.join(info.split()))
     className = viewer.getClassName()
     opening = ['"""', '%s binding of the Qt C++' % className, '"""']

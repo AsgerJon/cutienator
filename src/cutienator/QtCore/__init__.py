@@ -16,7 +16,6 @@ import importlib
 from typing import TYPE_CHECKING
 
 __all__ = (
-    'Qt',
     'QList',
     'QStringList',
     'QMap',
@@ -140,12 +139,12 @@ __all__ = (
     'QXmlStreamNamespaceDeclaration',
     'QMetaObject',
     'QObject',
+    'QIODevice',
     'QDataStream',
+    'QModelIndex',
     'QDateTime',
     'QLocale',
-    'QModelIndex',
     'QEvent',
-    'QIODevice',
     'QJsonArray',
     'QJsonObject',
     'QCborStreamWriter',
@@ -153,12 +152,10 @@ __all__ = (
     'QMetaType',
     'QPersistentModelIndex',
     'QVariant',
-    'QTimeZone',
     'QBasicTimer',
     'QCborStreamReader',
     'QCborValue',
     'QCollator',
-    'QDate',
     'QEventLoop',
     'QMetaMethod',
     'QMetaProperty',
@@ -166,6 +163,7 @@ __all__ = (
     'QSocketNotifier',
     'QTextStream',
     'QThread',
+    'QTimeZone',
     'QAbstractEventDispatcher',
     'QAbstractItemModel',
     'QCalendar',
@@ -174,6 +172,7 @@ __all__ = (
     'QCborMap',
     'QCborValueConstRef',
     'QChildEvent',
+    'QDate',
     'QEasingCurve',
     'QJsonDocument',
     'QJsonValue',
@@ -299,12 +298,12 @@ __all__ = (
     'QVariantMap',
     'QVariantHash',
     'QFileInfoList',
+    'Qt',
 )
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Any, List
 
-  from ._qt import Qt
   from ._q_list import QList
   from ._q_string_list import QStringList
   from ._q_map import QMap
@@ -428,12 +427,12 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   from ._q_xml_stream_namespace_declaration import QXmlStreamNamespaceDeclaration
   from ._q_meta_object import QMetaObject
   from ._q_object import QObject
+  from ._q_i_o_device import QIODevice
   from ._q_data_stream import QDataStream
+  from ._q_model_index import QModelIndex
   from ._q_date_time import QDateTime
   from ._q_locale import QLocale
-  from ._q_model_index import QModelIndex
   from ._q_event import QEvent
-  from ._q_i_o_device import QIODevice
   from ._q_json_array import QJsonArray
   from ._q_json_object import QJsonObject
   from ._q_cbor_stream_writer import QCborStreamWriter
@@ -441,12 +440,10 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   from ._q_meta_type import QMetaType
   from ._q_persistent_model_index import QPersistentModelIndex
   from ._q_variant import QVariant
-  from ._q_time_zone import QTimeZone
   from ._q_basic_timer import QBasicTimer
   from ._q_cbor_stream_reader import QCborStreamReader
   from ._q_cbor_value import QCborValue
   from ._q_collator import QCollator
-  from ._q_date import QDate
   from ._q_event_loop import QEventLoop
   from ._q_meta_method import QMetaMethod
   from ._q_meta_property import QMetaProperty
@@ -454,6 +451,7 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   from ._q_socket_notifier import QSocketNotifier
   from ._q_text_stream import QTextStream
   from ._q_thread import QThread
+  from ._q_time_zone import QTimeZone
   from ._q_abstract_event_dispatcher import QAbstractEventDispatcher
   from ._q_abstract_item_model import QAbstractItemModel
   from ._q_calendar import QCalendar
@@ -462,6 +460,7 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   from ._q_cbor_map import QCborMap
   from ._q_cbor_value_const_ref import QCborValueConstRef
   from ._q_child_event import QChildEvent
+  from ._q_date import QDate
   from ._q_easing_curve import QEasingCurve
   from ._q_json_document import QJsonDocument
   from ._q_json_value import QJsonValue
@@ -587,11 +586,11 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   from ._q_variant import QVariantMap
   from ._q_variant import QVariantHash
   from ._q_file_info import QFileInfoList
+  from . import Qt
 else:
   #  Where each class is: the file that is brought in the first
   #  time the class is asked for.
   __class_files__ = {
-      'Qt': '_qt',
       'QList': '_q_list',
       'QStringList': '_q_string_list',
       'QMap': '_q_map',
@@ -715,12 +714,12 @@ else:
       'QXmlStreamNamespaceDeclaration': '_q_xml_stream_namespace_declaration',
       'QMetaObject': '_q_meta_object',
       'QObject': '_q_object',
+      'QIODevice': '_q_i_o_device',
       'QDataStream': '_q_data_stream',
+      'QModelIndex': '_q_model_index',
       'QDateTime': '_q_date_time',
       'QLocale': '_q_locale',
-      'QModelIndex': '_q_model_index',
       'QEvent': '_q_event',
-      'QIODevice': '_q_i_o_device',
       'QJsonArray': '_q_json_array',
       'QJsonObject': '_q_json_object',
       'QCborStreamWriter': '_q_cbor_stream_writer',
@@ -728,12 +727,10 @@ else:
       'QMetaType': '_q_meta_type',
       'QPersistentModelIndex': '_q_persistent_model_index',
       'QVariant': '_q_variant',
-      'QTimeZone': '_q_time_zone',
       'QBasicTimer': '_q_basic_timer',
       'QCborStreamReader': '_q_cbor_stream_reader',
       'QCborValue': '_q_cbor_value',
       'QCollator': '_q_collator',
-      'QDate': '_q_date',
       'QEventLoop': '_q_event_loop',
       'QMetaMethod': '_q_meta_method',
       'QMetaProperty': '_q_meta_property',
@@ -741,6 +738,7 @@ else:
       'QSocketNotifier': '_q_socket_notifier',
       'QTextStream': '_q_text_stream',
       'QThread': '_q_thread',
+      'QTimeZone': '_q_time_zone',
       'QAbstractEventDispatcher': '_q_abstract_event_dispatcher',
       'QAbstractItemModel': '_q_abstract_item_model',
       'QCalendar': '_q_calendar',
@@ -749,6 +747,7 @@ else:
       'QCborMap': '_q_cbor_map',
       'QCborValueConstRef': '_q_cbor_value_const_ref',
       'QChildEvent': '_q_child_event',
+      'QDate': '_q_date',
       'QEasingCurve': '_q_easing_curve',
       'QJsonDocument': '_q_json_document',
       'QJsonValue': '_q_json_value',
@@ -875,6 +874,8 @@ else:
       'QVariantHash': '_q_variant',
       'QFileInfoList': '_q_file_info',
   }
+  #  The namespaces of the part, each a package of its own.
+  __space_packages__ = ('Qt',)
 
 
   def __getattr__(name: str) -> Any:
@@ -891,6 +892,10 @@ else:
     AttributeError
       The part has no class of that name.
     """
+    if name in __space_packages__:
+      value = importlib.import_module('.%s' % name, __name__)
+      globals()[name] = value
+      return value
     try:
       fileName = __class_files__[name]
     except KeyError:

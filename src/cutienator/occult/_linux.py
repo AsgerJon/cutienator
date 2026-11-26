@@ -3,6 +3,7 @@
 #  Copyright (c) 2026 Asger Jon Vistisen
 from __future__ import annotations
 
+import ctypes
 import os
 
 from typing import TYPE_CHECKING
@@ -166,11 +167,46 @@ class Linux(System):
         '-Wl,--version-script=%s' % offers, '-Wl,--as-needed',
     )
 
-  def prepareOpening(self) -> None:
+  def prepareOpening(self, *qtFiles: str) -> None:
     """
-    Does nothing: on Linux the built file carries the folder of its Qt,
-    which 'getLinkerFlags' had the linker write into it.
+    Opens the Qt shared object of the part, and of each part it sees
+    first, by its full path, before the built file is opened. The built
+    file carries the folder of the Qt it was built against, which on
+    another machine is not there. Linux gives a built file what is open
+    already when the name fits, so it uses this Qt, wherever it is.
+    Each Qt shared object finds what it needs itself, in its own folder.
+    A static library is joined into the built file, and is passed over.
     """
+    for qtFile in qtFiles:
+      if not qtFile.endswith('.a'):
+        ctypes.CDLL(qtFile, mode=ctypes.RTLD_GLOBAL)
+
+  def getUsualQtFolders(self) -> Paths:
+    """
+    Gives where a usual install of Qt keeps its shared objects on
+    Linux: under '~/Qt' and '/opt/Qt', as Qt's own installer puts it,
+    the newest version first, as '~/Qt/6.12.0/gcc_64/lib'; then the
+    folder of 'libQt6Core.so.6' as the system's own search finds it,
+    which is where a distribution installs it, as '/usr/lib'.
+    """
+    found = [
+        os.path.join(folder, 'lib') for folder in self._findInstallerFolders(
+            'gcc_64', '~/Qt', '/opt/Qt')]
+    try:
+      ctypes.CDLL(self.getQtFileName('QtCore'))
+    except OSError:
+      return (*found,)
+    #  The system's search opened it: its path is in the map of what
+    #  this process has open, as the file the name leads to, as
+    #  'libQt6Core.so.6.12.0' for 'libQt6Core.so.6'.
+    coreName = self.getQtFileName('QtCore')
+    with open('/proc/self/maps') as file:
+      for line in file:
+        path = line.split()[-1] if line.strip() else ''
+        if os.path.basename(path).startswith(coreName):
+          found.append(os.path.dirname(path))
+          break
+    return (*(f for f in found if os.path.isdir(f)),)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #

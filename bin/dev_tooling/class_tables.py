@@ -57,12 +57,18 @@ APPLICATION_NAME = 'QCoreApplication'
 
 #  The names the package of a part lists before its cute classes, each
 #  with the stem of its file: what no generator of classes writes. In
-#  QtCore the namespace 'Qt', which 'NamespaceGenerator' writes, and the
-#  lists and maps of Qt, which cutienator has by hand.
+#  QtCore the lists and maps of Qt, which cutienator has by hand.
 LISTED_FIRST = dict(
     QtCore=(
-        ('Qt', '_qt'), ('QList', '_q_list'),
-        ('QStringList', '_q_string_list'), ('QMap', '_q_map'),
-        ('QHash', '_q_hash'),
+        ('QList', '_q_list'), ('QStringList', '_q_string_list'),
+        ('QMap', '_q_map'), ('QHash', '_q_hash'),
     ),
+)
+
+#  The namespaces of a part whose enums 'NamespaceGenerator' writes,
+#  each with the stem of the file of its enums. Each namespace is a
+#  package of its part, which binds those enums as its own names; see
+#  'PackageGenerator'.
+ENUM_SPACES = dict(
+    QtCore=(('Qt', '_qt'),),
 )

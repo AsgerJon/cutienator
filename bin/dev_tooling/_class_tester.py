@@ -417,9 +417,11 @@ for dotted, qtName in %r:
   assert cls.__qt_class__ == qtName, cls.__qt_class__
   assert cls.__qualname__ == dotted, cls.__qualname__
 """
-    #  The class, and each class Qt writes inside it, where C++ has it.
+    #  The class, and each class Qt writes inside it, where C++ has it,
+    #  as its file names it: a class Qt writes inside a namespace stands
+    #  in its file under its own name.
     expected = [
-        (one.getDottedName(), one.getClassName())
+        (one.getLocalName(), one.getClassName())
         for one in generator.getAllGenerators()
     ]
     code = codeSpec % (moduleName, expected)
