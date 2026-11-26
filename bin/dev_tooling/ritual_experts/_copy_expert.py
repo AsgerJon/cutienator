@@ -633,11 +633,10 @@ class CopyExpert(ReachExpert):
     lines = [
         "//  Qt's own code, from here to the line of dashes: taken from",
         "//  Qt's source, because Qt's library carries it under no name.",
-        '//  Copyright (C) The Qt Company Ltd. It is licensed',
-        '//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so',
-        '//  here. Each function is as Qt wrote it, with the word',
-        "//  'inline' put before it where Qt did not write it.",
     ]
+    #  Where the notice of its licenses goes, once the files the code
+    #  comes from are known.
+    noticeAt = len(lines)
     #  Qt's literals of text, as u"..."_s and "..."_L1, are found only
     #  where their namespace is taken in, as the files of the code did.
     literals = []  # type: List[str]
@@ -711,9 +710,81 @@ class CopyExpert(ReachExpert):
           self._spellInclude(line, definition['path'])
           for line in definition['includes'])
       kept.extend(line for line in spelled if line not in lost)
+    lines[noticeAt:noticeAt] = self.writeLicenseNotice(
+        *dict.fromkeys(path for path, _ in written))
     lines.append(marker)
     self.__source_text__ = '\n'.join(lines)
     self.__source_includes__ = (*kept,)
+
+  #  The license each file of Qt's source gives, read once for each.
+  __file_licenses__ = dict()  # type: Dict[str, str]
+
+  @classmethod
+  def findLicense(cls, path: str) -> str:
+    """
+    Gives the license a file of Qt's source gives in its own SPDX line,
+    as 'LicenseRef-Qt-Commercial OR GPL-3.0-only'. A file Qt generates,
+    as a D-Bus adaptor, may give none: then the files beside it say it,
+    the first of them that gives one, in alphabetical order. Where none
+    does, it is 'NOASSERTION', SPDX's own word for a license nobody
+    says.
+    """
+    if path in cls.__file_licenses__:
+      return cls.__file_licenses__[path]
+    found = cls._readLicense(path)
+    if found is None:
+      folder = os.path.dirname(path)
+      names = sorted(os.listdir(folder)) if os.path.isdir(folder) else []
+      for name in names:
+        if name.endswith(('.cpp', '.h', '.mm')):
+          found = cls._readLicense(os.path.join(folder, name))
+          if found is not None:
+            break
+    cls.__file_licenses__[path] = found or 'NOASSERTION'
+    return cls.__file_licenses__[path]
+
+  @staticmethod
+  def _readLicense(path: str) -> Optional[str]:
+    """Gives what the SPDX line of a file says, or None for a file that
+    has no such line among its first lines, or is not there."""
+    try:
+      with open(path, errors='replace') as file:
+        head = [file.readline() for _ in range(40)]
+    except OSError:
+      return None
+    for line in head:
+      found = re.search(
+          r'SPDX-License-Identifier:\s*(.+?)\s*(?:\*/)?\s*$', line)
+      if found:
+        return found.group(1)
+    return None
+
+  @classmethod
+  def writeLicenseNotice(cls, *paths: str) -> List[str]:
+    """
+    Gives the lines of the notice above code taken from Qt's source:
+    that it stays under the license of each file it comes from, and
+    each of those licenses once, as the files' own SPDX lines have
+    them, in the order the files come.
+    """
+    licenses = [*dict.fromkeys(cls.findLicense(path) for path in paths)]
+    lines = [
+        '//  Copyright (C) The Qt Company Ltd. It stays under the license',
+        '//  of each file it comes from, as its own SPDX line has it:',
+    ]
+    for one in licenses:
+      words, line = one.split(), '//   '
+      for word in words:
+        if len(line) + len(word) + 1 > 77:
+          lines.append(line)
+          line = '//     '
+        line = '%s %s' % (line, word)
+      lines.append(line)
+    lines.extend((
+        '//  Each function is as Qt wrote it, with the word',
+        "//  'inline' put before it where Qt did not write it.",
+    ))
+    return lines
 
   def _spellInclude(self, line: str, sourcePath: str) -> str:
     """

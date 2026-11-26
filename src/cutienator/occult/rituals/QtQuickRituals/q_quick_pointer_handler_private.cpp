@@ -170,9 +170,10 @@ void ritual_own_ZN27QQuickPointerHandlerPrivate16onEnabledChangedEv(
 //  Qt's own code, from here to the line of dashes: taken from
 //  Qt's source, because the template is defined in Qt's .cpp and
 //  Qt's library carries no instance of it under a name.
-//  Copyright (C) The Qt Company Ltd. It is licensed
-//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
-//  here.
+//  Copyright (C) The Qt Company Ltd. It stays under the license
+//  of each file it comes from, as its own SPDX line has it:
+//    LicenseRef-Qt-Commercial OR LGPL-3.0-only OR GPL-2.0-only OR
+//      GPL-3.0-only
 //  from ../qtdeclarative/src/quick/handlers/qquickpointerhandler.cpp,
 //  line 937
 template <typename TEventPoint>

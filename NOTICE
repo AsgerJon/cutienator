@@ -1,0 +1,42 @@
+cutienator
+Copyright (c) 2025-2026 Asger Jon Vistisen
+
+cutienator is licensed Apache-2.0; see LICENSE.
+
+Code taken from Qt
+------------------
+
+The ritual files, the C++ in 'src/cutienator/occult/rituals', are
+written by the dev tooling of cutienator, and 2,111 of them also hold
+code taken from Qt's own source: code Qt's libraries carry under no
+name, so that a ritual can call it. That code is Copyright (C) The Qt
+Company Ltd., and it stays under the license of the file of Qt it
+comes from. Each such ritual file names that license in the notice
+above the code taken, as the file of Qt says it in its own SPDX line.
+The texts of the licenses are in the folder LICENSES.
+
+Most of it is licensed as most of Qt is, and all of it in QtCore,
+QtGui and QtWidgets:
+
+  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only
+
+The ritual files of these parts hold code Qt licenses GPL-3.0-only:
+
+  QtCanvasPainter, QtCharts, QtChartsQml, QtCoap, QtDataVisualization,
+  QtGraphs, QtGraphsWidgets, QtGrpc, QtHttpServer, QtLottie, QtMqtt,
+  QtNetworkAuth, QtQuick3D, QtQuick3DHelpers, QtQuick3DParticles,
+  QtQuick3DPhysics, QtQuick3DRuntimeRender, QtQuick3DUtils,
+  QtQuick3DXr, QtWaylandCompositor
+
+and those of these GPL-3.0-only WITH Qt-GPL-exception-1.0:
+
+  QtDesigner, QtQmlCompiler
+
+A library summoned from the ritual files of such a part holds that
+code, and so is under GPL-3.0-only, with the exception where Qt gives
+it, when it is given to anyone. So is that part of Qt itself: Qt gives
+these parts no LGPL.
+
+The SPDX lines of Qt name 'LicenseRef-Qt-Commercial' as well, the
+license Qt sells. cutienator has no such license, and gives the code
+taken from Qt under the other licenses of each line only.

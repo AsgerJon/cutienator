@@ -32,9 +32,11 @@
 
 //  Qt's own code, from here to the line of dashes: taken from
 //  Qt's source, because Qt's library carries it under no name.
-//  Copyright (C) The Qt Company Ltd. It is licensed
-//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
-//  here. Each function is as Qt wrote it, with the word
+//  Copyright (C) The Qt Company Ltd. It stays under the license
+//  of each file it comes from, as its own SPDX line has it:
+//    LicenseRef-Qt-Commercial OR LGPL-3.0-only OR GPL-2.0-only OR
+//      GPL-3.0-only
+//  Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
 //  from ../qtdeclarative/src/quickcontrolsimpl/qquickiconlabel.cpp, line 312, as local:qquickiconlabel.cpp:itemChangeTypes
