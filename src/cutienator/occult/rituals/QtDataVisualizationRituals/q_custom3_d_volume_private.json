@@ -2,7 +2,7 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of QtDataV",
     "isualization/6.12.0/QtDataVisualization/private/qcustom3dvolume_p.",
-    "h, Qt 6.12.0. Changes made here are lost."
+    "h, Qt 6.12.0. Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZNK22QCustom3DVolumePrivate10metaObjectEv": [
@@ -13,6 +13,16 @@
     ],
     "ritual_ZN22QCustom3DVolumePrivate11qt_metacallEN11QMetaObject4CallEiPPv": [
       "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN22QCustom3DVolumePrivate2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN22QCustom3DVolumePrivateC1EP15QCustom3DVolume": [
+      "address", "address"
+    ],
+    "ritual_ZN22QCustom3DVolumePrivateC1EP15QCustom3DVolumeRK9QVector3DS4_RK11QQuaternioniiiP5QListIhEN6QImage6FormatERKS8_IjE": [
+      "address", "address", "address", "address", "address", "int", "int",
+      "int", "address", "int", "address"
     ],
     "ritual_ZN22QCustom3DVolumePrivateD1Ev": ["nothing", "address"],
     "ritual_ZN22QCustom3DVolumePrivate14resetDirtyBitsEv": [

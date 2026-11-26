@@ -7,6 +7,9 @@
   "rows": {
     "ritual_ZN22QQuickPopupItemPrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK22QQuickPopupItemPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN22QQuickPopupItemPrivateC1EP11QQuickPopup": [
+      "address", "address"
+    ],
     "ritual_ZN22QQuickPopupItemPrivate3getEP15QQuickPopupItem": [
       "address", "address"
     ],

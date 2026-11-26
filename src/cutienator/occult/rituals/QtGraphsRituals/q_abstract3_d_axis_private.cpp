@@ -209,6 +209,24 @@ inline const QLoggingCategory &lcAProperties3D()
     return category;
 }
 
+//  from ../qtgraphs/src/graphs3d/axis/qabstract3daxis.cpp, line 657, as _ZN22QAbstract3DAxisPrivateC1EN15QAbstract3DAxis8AxisTypeE
+inline QAbstract3DAxisPrivate::QAbstract3DAxisPrivate(QAbstract3DAxis::AxisType type)
+    : m_orientation(QAbstract3DAxis::AxisOrientation::None)
+    , m_type(type)
+    , m_isDefaultAxis(false)
+    , m_min(0.0f)
+    , m_max(10.0f)
+    , m_autoAdjust(true)
+    , m_scaleLabelsByCount(false)
+    , m_labelSize(1.0)
+    , m_labelAutoAngle(0.0f)
+    , m_titleOffset(0.0f)
+    , m_titleVisible(false)
+    , m_labelsVisible(true)
+    , m_titleFixed(true)
+
+{}
+
 //  from ../qtgraphs/src/graphs3d/axis/qabstract3daxis.cpp, line 676, as _ZN22QAbstract3DAxisPrivate14setOrientationEN15QAbstract3DAxis15AxisOrientationE
 inline void QAbstract3DAxisPrivate::setOrientation(QAbstract3DAxis::AxisOrientation orientation)
 {
@@ -366,6 +384,14 @@ extern "C" Q_DECL_EXPORT
 const QAbstract3DAxis *ritual_ZNK22QAbstract3DAxisPrivate6q_funcEv(
     const QAbstract3DAxisPrivate *self) {
   return self->q_func();
+}
+
+//  QAbstract3DAxisPrivate::QAbstract3DAxisPrivate(QAbstract3DAxis::AxisType
+//      type)
+extern "C" Q_DECL_EXPORT
+QAbstract3DAxisPrivate *ritual_ZN22QAbstract3DAxisPrivateC1EN15QAbstract3DAxis8AxisTypeE(
+    QAbstract3DAxis::AxisType type) {
+  return new CuteQAbstract3DAxisPrivate(type);
 }
 
 //  QAbstract3DAxisPrivate::~QAbstract3DAxisPrivate()

@@ -21,6 +21,26 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from ../qtdeclarative/src/qml/qml/qqmlvaluetypeproxybinding.cpp, line 31, as _ZN25QQmlValueTypeProxyBinding10setEnabledEb6QFlagsIN16QQmlPropertyData9WriteFlagEE
+inline void QQmlValueTypeProxyBinding::setEnabled(bool e, QQmlPropertyData::WriteFlags flags)
+{
+    QQmlAbstractBinding *b = m_bindings.data();
+    while (b) {
+        b->setEnabled(e, flags);
+        b = b->nextBinding();
+    }
+}
+
+//  from ../qtdeclarative/src/qml/qml/qqmlvaluetypeproxybinding.cpp, line 22, as _ZN25QQmlValueTypeProxyBindingD1Ev
+inline QQmlValueTypeProxyBinding::~QQmlValueTypeProxyBinding()
+{
+    QQmlAbstractBinding *binding = m_bindings.data();
+    while (binding) {
+        binding->setAddedToObject(false);
+        binding = binding->nextBinding();
+    }
+}
+
 //  from ../qtdeclarative/src/qml/qml/qqmlvaluetypeproxybinding.cpp, line 14, as _ZN25QQmlValueTypeProxyBindingC1EP7QObject17QQmlPropertyIndex
 inline QQmlValueTypeProxyBinding::QQmlValueTypeProxyBinding(QObject *o, QQmlPropertyIndex index)
     : QQmlAbstractBinding(),
@@ -62,26 +82,6 @@ inline void QQmlValueTypeProxyBinding::removeBindings(quint32 mask)
             lastBinding = binding;
             binding = binding->nextBinding();
         }
-    }
-}
-
-//  from ../qtdeclarative/src/qml/qml/qqmlvaluetypeproxybinding.cpp, line 31, as _ZN25QQmlValueTypeProxyBinding10setEnabledEb6QFlagsIN16QQmlPropertyData9WriteFlagEE
-inline void QQmlValueTypeProxyBinding::setEnabled(bool e, QQmlPropertyData::WriteFlags flags)
-{
-    QQmlAbstractBinding *b = m_bindings.data();
-    while (b) {
-        b->setEnabled(e, flags);
-        b = b->nextBinding();
-    }
-}
-
-//  from ../qtdeclarative/src/qml/qml/qqmlvaluetypeproxybinding.cpp, line 22, as _ZN25QQmlValueTypeProxyBindingD1Ev
-inline QQmlValueTypeProxyBinding::~QQmlValueTypeProxyBinding()
-{
-    QQmlAbstractBinding *binding = m_bindings.data();
-    while (binding) {
-        binding->setAddedToObject(false);
-        binding = binding->nextBinding();
     }
 }
 //  -----------------------------------------------------------------------

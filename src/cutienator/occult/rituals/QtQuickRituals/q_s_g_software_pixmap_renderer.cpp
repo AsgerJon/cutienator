@@ -30,6 +30,13 @@ inline QSGSoftwarePixmapRenderer::~QSGSoftwarePixmapRenderer()
 
 }
 
+//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarepixmaprenderer.cpp, line 16, as _ZN25QSGSoftwarePixmapRendererC1EP16QSGRenderContext
+inline QSGSoftwarePixmapRenderer::QSGSoftwarePixmapRenderer(QSGRenderContext *context)
+    : QSGAbstractSoftwareRenderer(context)
+{
+
+}
+
 //  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarepixmaprenderer.cpp, line 27, as _ZN25QSGSoftwarePixmapRenderer11renderSceneEv
 inline void QSGSoftwarePixmapRenderer::renderScene()
 {
@@ -360,6 +367,14 @@ public:
   }
 #endif  // !defined(QT_NO_QOBJECT)
 };
+
+//  QSGSoftwarePixmapRenderer::QSGSoftwarePixmapRenderer(QSGRenderContext
+//      *context)
+extern "C" Q_DECL_EXPORT
+QSGSoftwarePixmapRenderer *ritual_ZN25QSGSoftwarePixmapRendererC1EP16QSGRenderContext(
+    QSGRenderContext *context) {
+  return new CuteQSGSoftwarePixmapRenderer(context);
+}
 
 //  QSGSoftwarePixmapRenderer::~QSGSoftwarePixmapRenderer()
 extern "C" Q_DECL_EXPORT

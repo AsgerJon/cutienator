@@ -1,15 +1,28 @@
 //  Written by dev_tooling.RitualGenerator from the records of QtDataVisualiz
 //  ation/6.12.0/QtDataVisualization/private/scatteritemmodelhandler_p.h, Qt
-//  6.12.0. Changes made here are lost.
+//  6.12.0.
+//  Edited by hand on 2026-11-26: moc's output for 'ScatterItemModelHandler'
+//  is pasted in, cut from what the moc of Qt 6.12.0 writes for its header:
+//  Qt's library keeps it to itself; added are 2 rituals that lean on what
+//  moc writes for a class of the part Qt keeps to itself, whose ritual file
+//  carries moc's output, drafted by a copy of the generator that lets those
+//  names through. A copy of a meta-object is a second one: 'qobject_cast'
+//  between it and Qt's own does not match. Kept as it is when the generator
+//  runs again.
 #include <QtDataVisualization/6.12.0/QtDataVisualization/private/datavisualizationglobal_p.h>
 #include <QtDataVisualization/QtDataVisualization>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtDataVisualization/6.12.0/QtDataVisualization/private/scatteritemmodelhandler_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 #include <QtCore/qabstractitemmodel.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
 #include <QtDataVisualization/private/scatteritemmodelhandler_p.h>
 #include <QtGui/qquaternion.h>
 #include <QtDataVisualization/private/abstractitemmodelhandler_p.h>
@@ -58,42 +71,127 @@ static inline QQuaternion toQuaternion(const QVariant &variant)
     return QQuaternion();
 }
 
-//  from ../qtdatavis3d/src/datavisualization/data/scatteritemmodelhandler.cpp, line 52, as _ZN23ScatterItemModelHandler18handleRowsInsertedERK11QModelIndexii
-inline void ScatterItemModelHandler::handleRowsInserted(const QModelIndex &parent, int start, int end)
-{
-    // Do nothing if full reset already pending
-    if (!m_fullReset) {
-        if (!m_proxy->itemCount() || m_itemModel->columnCount() > 1) {
-            // If inserting into an empty array, do full asynchronous reset to avoid multiple
-            // separate inserts when initializing the model.
-            // If the data model is multi-column, do full asynchronous reset to simplify things
-            AbstractItemModelHandler::handleRowsInserted(parent, start, end);
-        } else {
-            QScatterDataArray array(end - start + 1);
-            int count = 0;
-            for (int i = start; i <= end; i++)
-                modelPosToScatterItem(i, 0, array[count++]);
+//  from QtDataVisualization__ScatterItemModelHandler.cpp, line 1, as moc:ScatterItemModelHandler
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN23ScatterItemModelHandlerE_t {};
+} // unnamed namespace
 
-            m_proxy->insertItems(start, array);
+template <> constexpr inline auto ScatterItemModelHandler::qt_create_metaobjectdata<qt_meta_tag_ZN23ScatterItemModelHandlerE_t>()
+{
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "ScatterItemModelHandler",
+        "handleDataChanged",
+        "",
+        "QModelIndex",
+        "topLeft",
+        "bottomRight",
+        "QList<int>",
+        "roles",
+        "handleRowsInserted",
+        "parent",
+        "start",
+        "end",
+        "handleRowsRemoved"
+    };
+
+    QtMocHelpers::UintData qt_methods {
+        // Slot 'handleDataChanged'
+        QtMocHelpers::SlotData<void(const QModelIndex &, const QModelIndex &, const QList<int> &)>(1, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { 0x80000000 | 3, 4 }, { 0x80000000 | 3, 5 }, { 0x80000000 | 6, 7 },
+        }}),
+        // Slot 'handleDataChanged'
+        QtMocHelpers::SlotData<void(const QModelIndex &, const QModelIndex &)>(1, 2, QMC::AccessPublic | QMC::MethodCloned, QMetaType::Void, {{
+            { 0x80000000 | 3, 4 }, { 0x80000000 | 3, 5 },
+        }}),
+        // Slot 'handleRowsInserted'
+        QtMocHelpers::SlotData<void(const QModelIndex &, int, int)>(8, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { 0x80000000 | 3, 9 }, { QMetaType::Int, 10 }, { QMetaType::Int, 11 },
+        }}),
+        // Slot 'handleRowsRemoved'
+        QtMocHelpers::SlotData<void(const QModelIndex &, int, int)>(12, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { 0x80000000 | 3, 9 }, { QMetaType::Int, 10 }, { QMetaType::Int, 11 },
+        }}),
+    };
+    QtMocHelpers::UintData qt_properties {
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    return QtMocHelpers::metaObjectData<ScatterItemModelHandler, qt_meta_tag_ZN23ScatterItemModelHandlerE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums);
+}
+Q_CONSTINIT const QMetaObject ScatterItemModelHandler::staticMetaObject = { {
+    QMetaObject::SuperData::link<AbstractItemModelHandler::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN23ScatterItemModelHandlerE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN23ScatterItemModelHandlerE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN23ScatterItemModelHandlerE_t>.metaTypes,
+    nullptr
+} };
+
+void ScatterItemModelHandler::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<ScatterItemModelHandler *>(_o);
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        switch (_id) {
+        case 0: _t->handleDataChanged((*reinterpret_cast<std::add_pointer_t<QModelIndex>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<QModelIndex>>(_a[2])),(*reinterpret_cast<std::add_pointer_t<QList<int>>>(_a[3]))); break;
+        case 1: _t->handleDataChanged((*reinterpret_cast<std::add_pointer_t<QModelIndex>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<QModelIndex>>(_a[2]))); break;
+        case 2: _t->handleRowsInserted((*reinterpret_cast<std::add_pointer_t<QModelIndex>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<int>>(_a[2])),(*reinterpret_cast<std::add_pointer_t<int>>(_a[3]))); break;
+        case 3: _t->handleRowsRemoved((*reinterpret_cast<std::add_pointer_t<QModelIndex>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<int>>(_a[2])),(*reinterpret_cast<std::add_pointer_t<int>>(_a[3]))); break;
+        default: ;
+        }
+    }
+    if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        switch (_id) {
+        default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
+        case 0:
+            switch (*reinterpret_cast<int*>(_a[1])) {
+            default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
+            case 2:
+                *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType::fromType< QList<int> >(); break;
+            }
+            break;
         }
     }
 }
 
-//  from ../qtdatavis3d/src/datavisualization/data/scatteritemmodelhandler.cpp, line 72, as _ZN23ScatterItemModelHandler17handleRowsRemovedERK11QModelIndexii
-inline void ScatterItemModelHandler::handleRowsRemoved(const QModelIndex &parent, int start, int end)
+const QMetaObject *ScatterItemModelHandler::metaObject() const
 {
-    Q_UNUSED(parent);
-
-    // Do nothing if full reset already pending
-    if (!m_fullReset) {
-        if (m_itemModel->columnCount() > 1) {
-            // If the data model is multi-column, do full asynchronous reset to simplify things
-            AbstractItemModelHandler::handleRowsRemoved(parent, start, end);
-        } else {
-            m_proxy->removeItems(start, end - start + 1);
-        }
-    }
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
 }
+
+void *ScatterItemModelHandler::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN23ScatterItemModelHandlerE_t>.strings))
+        return static_cast<void*>(this);
+    return AbstractItemModelHandler::qt_metacast(_clname);
+}
+
+int ScatterItemModelHandler::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = AbstractItemModelHandler::qt_metacall(_c, _id, _a);
+    if (_id < 0)
+        return _id;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        if (_id < 4)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 4;
+    }
+    if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        if (_id < 4)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 4;
+    }
+    return _id;
+}
+QT_WARNING_POP
 
 //  from ../qtdatavis3d/src/datavisualization/data/scatteritemmodelhandler.cpp, line 172, as _ZN23ScatterItemModelHandler12resolveModelEv
 inline void ScatterItemModelHandler::resolveModel()
@@ -140,6 +238,243 @@ inline void ScatterItemModelHandler::resolveModel()
     }
 
     m_proxy->resetArray(m_proxyArray);
+}
+
+//  from ../qtdatavis3d/src/datavisualization/data/scatteritemmodelhandler.cpp, line 29, as _ZN23ScatterItemModelHandler17handleDataChangedERK11QModelIndexS2_RK5QListIiE
+inline void ScatterItemModelHandler::handleDataChanged(const QModelIndex &topLeft,
+                                                const QModelIndex &bottomRight,
+                                                const QList<int> &roles)
+{
+    // Do nothing if full reset already pending
+    if (!m_fullReset) {
+        if (m_itemModel->columnCount() > 1) {
+            // If the data model is multi-column, do full asynchronous reset to simplify things
+            AbstractItemModelHandler::handleDataChanged(topLeft, bottomRight, roles);
+        } else {
+            int start = qMin(topLeft.row(), bottomRight.row());
+            int end = qMax(topLeft.row(), bottomRight.row());
+
+            QScatterDataArray array(end - start + 1);
+            int count = 0;
+            for (int i = start; i <= end; i++)
+                modelPosToScatterItem(i, 0, array[count++]);
+
+            m_proxy->setItems(start, array);
+        }
+    }
+}
+
+//  from ../qtdatavis3d/src/datavisualization/data/scatteritemmodelhandler.cpp, line 72, as _ZN23ScatterItemModelHandler17handleRowsRemovedERK11QModelIndexii
+inline void ScatterItemModelHandler::handleRowsRemoved(const QModelIndex &parent, int start, int end)
+{
+    Q_UNUSED(parent);
+
+    // Do nothing if full reset already pending
+    if (!m_fullReset) {
+        if (m_itemModel->columnCount() > 1) {
+            // If the data model is multi-column, do full asynchronous reset to simplify things
+            AbstractItemModelHandler::handleRowsRemoved(parent, start, end);
+        } else {
+            m_proxy->removeItems(start, end - start + 1);
+        }
+    }
+}
+
+//  from ../qtdatavis3d/src/datavisualization/data/scatteritemmodelhandler.cpp, line 52, as _ZN23ScatterItemModelHandler18handleRowsInsertedERK11QModelIndexii
+inline void ScatterItemModelHandler::handleRowsInserted(const QModelIndex &parent, int start, int end)
+{
+    // Do nothing if full reset already pending
+    if (!m_fullReset) {
+        if (!m_proxy->itemCount() || m_itemModel->columnCount() > 1) {
+            // If inserting into an empty array, do full asynchronous reset to avoid multiple
+            // separate inserts when initializing the model.
+            // If the data model is multi-column, do full asynchronous reset to simplify things
+            AbstractItemModelHandler::handleRowsInserted(parent, start, end);
+        } else {
+            QScatterDataArray array(end - start + 1);
+            int count = 0;
+            for (int i = start; i <= end; i++)
+                modelPosToScatterItem(i, 0, array[count++]);
+
+            m_proxy->insertItems(start, array);
+        }
+    }
+}
+
+//  from ../qtdatavis3d/src/datavisualization/data/scatteritemmodelhandler.cpp, line 25, as _ZN23ScatterItemModelHandlerD0Ev
+inline ScatterItemModelHandler::~ScatterItemModelHandler()
+{
+}
+
+//  from ../qtdatavis3d/src/datavisualization/data/abstractitemmodelhandler.cpp, line 22, as _ZN24AbstractItemModelHandler12setItemModelEP18QAbstractItemModel
+inline void AbstractItemModelHandler::setItemModel(QAbstractItemModel *itemModel)
+{
+    if (itemModel != m_itemModel.data()) {
+        if (!m_itemModel.isNull())
+            QObject::disconnect(m_itemModel, 0, this, 0);
+
+        m_itemModel = itemModel;
+
+        if (!m_itemModel.isNull()) {
+            QObject::connect(m_itemModel.data(), &QAbstractItemModel::columnsInserted,
+                             this, &AbstractItemModelHandler::handleColumnsInserted);
+            QObject::connect(m_itemModel.data(), &QAbstractItemModel::columnsMoved,
+                             this, &AbstractItemModelHandler::handleColumnsMoved);
+            QObject::connect(m_itemModel.data(), &QAbstractItemModel::columnsRemoved,
+                             this, &AbstractItemModelHandler::handleColumnsRemoved);
+            QObject::connect(m_itemModel.data(), &QAbstractItemModel::dataChanged,
+                             this, &AbstractItemModelHandler::handleDataChanged);
+            QObject::connect(m_itemModel.data(), &QAbstractItemModel::layoutChanged,
+                             this, &AbstractItemModelHandler::handleLayoutChanged);
+            QObject::connect(m_itemModel.data(), &QAbstractItemModel::modelReset,
+                             this, &AbstractItemModelHandler::handleModelReset);
+            QObject::connect(m_itemModel.data(), &QAbstractItemModel::rowsInserted,
+                             this, &AbstractItemModelHandler::handleRowsInserted);
+            QObject::connect(m_itemModel.data(), &QAbstractItemModel::rowsMoved,
+                             this, &AbstractItemModelHandler::handleRowsMoved);
+            QObject::connect(m_itemModel.data(), &QAbstractItemModel::rowsRemoved,
+                             this, &AbstractItemModelHandler::handleRowsRemoved);
+        }
+        if (!m_resolveTimer.isActive())
+            m_resolveTimer.start(0);
+
+        emit itemModelChanged(itemModel);
+    }
+}
+
+//  from ../qtdatavis3d/src/datavisualization/data/abstractitemmodelhandler.cpp, line 166, as _ZN24AbstractItemModelHandler15handleRowsMovedERK11QModelIndexiiS2_i
+inline void AbstractItemModelHandler::handleRowsMoved(const QModelIndex &sourceParent,
+                                               int sourceStart,
+                                               int sourceEnd,
+                                               const QModelIndex &destinationParent,
+                                               int destinationRow)
+{
+    Q_UNUSED(sourceParent);
+    Q_UNUSED(sourceStart);
+    Q_UNUSED(sourceEnd);
+    Q_UNUSED(destinationParent);
+    Q_UNUSED(destinationRow);
+
+    // Default handling for rowsMoved is to do full reset, as it cannot be optimized
+    // in a general case, where we do not know which row/column/index the item model item
+    // actually ended up to in the proxy.
+    if (!m_resolveTimer.isActive()) {
+        m_fullReset = true;
+        m_resolveTimer.start(0);
+    }
+}
+
+//  from ../qtdatavis3d/src/datavisualization/data/abstractitemmodelhandler.cpp, line 142, as _ZN24AbstractItemModelHandler16handleModelResetEv
+inline void AbstractItemModelHandler::handleModelReset()
+{
+    // Data cleared, reset array
+    if (!m_resolveTimer.isActive()) {
+        m_fullReset = true;
+        m_resolveTimer.start(0);
+    }
+}
+
+//  from ../qtdatavis3d/src/datavisualization/data/abstractitemmodelhandler.cpp, line 77, as _ZN24AbstractItemModelHandler18handleColumnsMovedERK11QModelIndexiiS2_i
+inline void AbstractItemModelHandler::handleColumnsMoved(const QModelIndex &sourceParent,
+                                                  int sourceStart,
+                                                  int sourceEnd,
+                                                  const QModelIndex &destinationParent,
+                                                  int destinationColumn)
+{
+    Q_UNUSED(sourceParent);
+    Q_UNUSED(sourceStart);
+    Q_UNUSED(sourceEnd);
+    Q_UNUSED(destinationParent);
+    Q_UNUSED(destinationColumn);
+
+    // Manipulating columns changes all rows in proxies that map rows/columns directly,
+    // and its effects are not clearly defined in others -> always do full reset.
+    if (!m_resolveTimer.isActive()) {
+        m_fullReset = true;
+        m_resolveTimer.start(0);
+    }
+}
+
+//  from ../qtdatavis3d/src/datavisualization/data/abstractitemmodelhandler.cpp, line 129, as _ZN24AbstractItemModelHandler19handleLayoutChangedERK5QListI21QPersistentModelIndexEN18QAbstractItemModel16LayoutChangeHintE
+inline void AbstractItemModelHandler::handleLayoutChanged(const QList<QPersistentModelIndex> &parents,
+                                                   QAbstractItemModel::LayoutChangeHint hint)
+{
+    Q_UNUSED(parents);
+    Q_UNUSED(hint);
+
+    // Resolve entire model if layout changes
+    if (!m_resolveTimer.isActive()) {
+        m_fullReset = true;
+        m_resolveTimer.start(0);
+    }
+}
+
+//  from ../qtdatavis3d/src/datavisualization/data/abstractitemmodelhandler.cpp, line 97, as _ZN24AbstractItemModelHandler20handleColumnsRemovedERK11QModelIndexii
+inline void AbstractItemModelHandler::handleColumnsRemoved(const QModelIndex &parent,
+                                                    int start, int end)
+{
+    Q_UNUSED(parent);
+    Q_UNUSED(start);
+    Q_UNUSED(end);
+
+    // Manipulating columns changes all rows in proxies that map rows/columns directly,
+    // and its effects are not clearly defined in others -> always do full reset.
+    if (!m_resolveTimer.isActive()) {
+        m_fullReset = true;
+        m_resolveTimer.start(0);
+    }
+}
+
+//  from ../qtdatavis3d/src/datavisualization/data/abstractitemmodelhandler.cpp, line 202, as _ZN24AbstractItemModelHandler20handleMappingChangedEv
+inline void AbstractItemModelHandler::handleMappingChanged()
+{
+    if (!m_resolveTimer.isActive())
+        m_resolveTimer.start(0);
+}
+
+//  from ../qtdatavis3d/src/datavisualization/data/abstractitemmodelhandler.cpp, line 208, as _ZN24AbstractItemModelHandler20handlePendingResolveEv
+inline void AbstractItemModelHandler::handlePendingResolve()
+{
+    resolveModel();
+    m_fullReset = false;
+}
+
+//  from ../qtdatavis3d/src/datavisualization/data/abstractitemmodelhandler.cpp, line 62, as _ZN24AbstractItemModelHandler21handleColumnsInsertedERK11QModelIndexii
+inline void AbstractItemModelHandler::handleColumnsInserted(const QModelIndex &parent,
+                                                     int start, int end)
+{
+    Q_UNUSED(parent);
+    Q_UNUSED(start);
+    Q_UNUSED(end);
+
+    // Manipulating columns changes all rows in proxies that map rows/columns directly,
+    // and its effects are not clearly defined in others -> always do full reset.
+    if (!m_resolveTimer.isActive()) {
+        m_fullReset = true;
+        m_resolveTimer.start(0);
+    }
+}
+
+//  from ../qtdatavis3d/src/datavisualization/data/abstractitemmodelhandler.cpp, line 57, as _ZNK24AbstractItemModelHandler9itemModelEv
+inline QAbstractItemModel *AbstractItemModelHandler::itemModel() const
+{
+    return m_itemModel.data();
+}
+
+//  from ../qtdatavis3d/src/datavisualization/data/abstractitemmodelhandler.cpp, line 8, as _ZN24AbstractItemModelHandlerC2EP7QObject
+inline AbstractItemModelHandler::AbstractItemModelHandler(QObject *parent)
+    : QObject(parent),
+      resolvePending(0),
+      m_fullReset(true)
+{
+    m_resolveTimer.setSingleShot(true);
+    QObject::connect(&m_resolveTimer, &QTimer::timeout,
+                     this, &AbstractItemModelHandler::handlePendingResolve);
+}
+
+//  from ../qtdatavis3d/src/datavisualization/data/abstractitemmodelhandler.cpp, line 18, as _ZN24AbstractItemModelHandlerD2Ev
+inline AbstractItemModelHandler::~AbstractItemModelHandler()
+{
 }
 
 //  from ../qtdatavis3d/src/datavisualization/data/scatteritemmodelhandler.cpp, line 122, as _ZN23ScatterItemModelHandler21modelPosToScatterItemEiiR16QScatterDataItem
@@ -192,14 +527,16 @@ inline void ScatterItemModelHandler::modelPosToScatterItem(int modelRow, int mod
     item.setPosition(QVector3D(xPos, yPos, zPos));
 }
 
-//  from ../qtdatavis3d/src/datavisualization/data/abstractitemmodelhandler.cpp, line 151, as _ZN24AbstractItemModelHandler18handleRowsInsertedERK11QModelIndexii
-inline void AbstractItemModelHandler::handleRowsInserted(const QModelIndex &parent, int start, int end)
+//  from ../qtdatavis3d/src/datavisualization/data/abstractitemmodelhandler.cpp, line 112, as _ZN24AbstractItemModelHandler17handleDataChangedERK11QModelIndexS2_RK5QListIiE
+inline void AbstractItemModelHandler::handleDataChanged(const QModelIndex &topLeft,
+                                                 const QModelIndex &bottomRight,
+                                                 const QList<int> &roles)
 {
-    Q_UNUSED(parent);
-    Q_UNUSED(start);
-    Q_UNUSED(end);
+    Q_UNUSED(topLeft);
+    Q_UNUSED(bottomRight);
+    Q_UNUSED(roles);
 
-    // Default handling for rowsInserted is to do full reset, as it cannot be optimized
+    // Default handling for dataChanged is to do full reset, as it cannot be optimized
     // in a general case, where we do not know which row/column/index the item model item
     // actually ended up to in the proxy.
     if (!m_resolveTimer.isActive()) {
@@ -222,6 +559,38 @@ inline void AbstractItemModelHandler::handleRowsRemoved(const QModelIndex &paren
         m_fullReset = true;
         m_resolveTimer.start(0);
     }
+}
+
+//  from ../qtdatavis3d/src/datavisualization/data/abstractitemmodelhandler.cpp, line 151, as _ZN24AbstractItemModelHandler18handleRowsInsertedERK11QModelIndexii
+inline void AbstractItemModelHandler::handleRowsInserted(const QModelIndex &parent, int start, int end)
+{
+    Q_UNUSED(parent);
+    Q_UNUSED(start);
+    Q_UNUSED(end);
+
+    // Default handling for rowsInserted is to do full reset, as it cannot be optimized
+    // in a general case, where we do not know which row/column/index the item model item
+    // actually ended up to in the proxy.
+    if (!m_resolveTimer.isActive()) {
+        m_fullReset = true;
+        m_resolveTimer.start(0);
+    }
+}
+
+//  from ../qtdatavis3d/src/datavisualization/data/scatteritemmodelhandler.cpp, line 10, as _ZN23ScatterItemModelHandlerC1EP26QItemModelScatterDataProxyP7QObject
+inline ScatterItemModelHandler::ScatterItemModelHandler(QItemModelScatterDataProxy *proxy, QObject *parent)
+    : AbstractItemModelHandler(parent),
+      m_proxy(proxy),
+      m_proxyArray(0),
+      m_xPosRole(noRoleIndex),
+      m_yPosRole(noRoleIndex),
+      m_zPosRole(noRoleIndex),
+      m_rotationRole(noRoleIndex),
+      m_haveXPosPattern(false),
+      m_haveYPosPattern(false),
+      m_haveZPosPattern(false),
+      m_haveRotationPattern(false)
+{
 }
 //  -----------------------------------------------------------------------
 
@@ -645,6 +1014,24 @@ int ritual_ZN23ScatterItemModelHandler11qt_metacallEN11QMetaObject4CallEiPPv(
     int a1,
     void **a2) {
   return self->qt_metacall(a0, a1, a2);
+}
+
+//  QString ScatterItemModelHandler::tr(const char *s, const char *c, int n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN23ScatterItemModelHandler2trEPKcS1_i(
+    const char *s,
+    const char *c,
+    int n) {
+  return new QString(ScatterItemModelHandler::tr(s, c, n));
+}
+
+//  ScatterItemModelHandler::ScatterItemModelHandler(QItemModelScatterDataPro
+//      xy *proxy, QObject *parent)
+extern "C" Q_DECL_EXPORT
+ScatterItemModelHandler *ritual_ZN23ScatterItemModelHandlerC1EP26QItemModelScatterDataProxyP7QObject(
+    QItemModelScatterDataProxy *proxy,
+    QObject *parent) {
+  return new CuteScatterItemModelHandler(proxy, parent);
 }
 
 //  ScatterItemModelHandler::~ScatterItemModelHandler()

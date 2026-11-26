@@ -45,24 +45,6 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from ../qt3d/src/render/backend/entity.cpp, line 43, as _ZN10Qt3DRender6Render13EntityPrivateC1Ev
-namespace Qt3DRender::Render {
-using namespace Qt3DCore;
-inline EntityPrivate::EntityPrivate()
-    : Qt3DCore::QBackendNodePrivate(Entity::ReadOnly)
-{
-}
-}  // namespace Qt3DRender::Render
-
-//  from ../qt3d/src/render/backend/entity.cpp, line 48, as _ZN10Qt3DRender6Render13EntityPrivate3getEPNS0_6EntityE
-namespace Qt3DRender::Render {
-using namespace Qt3DCore;
-inline EntityPrivate *EntityPrivate::get(Entity *node)
-{
-    return node->d_func();
-}
-}  // namespace Qt3DRender::Render
-
 //  from ../qt3d/src/render/backend/entity.cpp, line 53, as _ZN10Qt3DRender6Render13EntityPrivate14componentAddedEPN8Qt3DCore5QNodeE
 namespace Qt3DRender::Render {
 using namespace Qt3DCore;
@@ -81,6 +63,24 @@ inline void EntityPrivate::componentRemoved(Qt3DCore::QNode *frontend)
 {
     Q_Q(Entity);
     q->removeComponent(frontend->id());
+}
+}  // namespace Qt3DRender::Render
+
+//  from ../qt3d/src/render/backend/entity.cpp, line 43, as _ZN10Qt3DRender6Render13EntityPrivateC1Ev
+namespace Qt3DRender::Render {
+using namespace Qt3DCore;
+inline EntityPrivate::EntityPrivate()
+    : Qt3DCore::QBackendNodePrivate(Entity::ReadOnly)
+{
+}
+}  // namespace Qt3DRender::Render
+
+//  from ../qt3d/src/render/backend/entity.cpp, line 48, as _ZN10Qt3DRender6Render13EntityPrivate3getEPNS0_6EntityE
+namespace Qt3DRender::Render {
+using namespace Qt3DCore;
+inline EntityPrivate *EntityPrivate::get(Entity *node)
+{
+    return node->d_func();
 }
 }  // namespace Qt3DRender::Render
 //  -----------------------------------------------------------------------

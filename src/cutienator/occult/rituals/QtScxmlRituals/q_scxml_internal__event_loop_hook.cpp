@@ -1,14 +1,26 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtScxml/6.12.0/QtScxml/private/qscxmlstatemachine_p.h, Qt 6.12.0. Changes
-//  made here are lost.
+//  QtScxml/6.12.0/QtScxml/private/qscxmlstatemachine_p.h, Qt 6.12.0.
+//  Edited by hand on 2026-11-26: moc's output for
+//  'QScxmlInternal::EventLoopHook' is pasted in, cut from what the moc of Qt
+//  6.12.0 writes for its header: Qt's library keeps it to itself; added are
+//  2 rituals that lean on what moc writes for a class of the part Qt keeps
+//  to itself, whose ritual file carries moc's output, drafted by a copy of
+//  the generator that lets those names through. A copy of a meta-object is a
+//  second one: 'qobject_cast' between it and Qt's own does not match. Kept
+//  as it is when the generator runs again.
 #include <QtScxml/6.12.0/QtScxml/private/qscxmlglobals_p.h>
 #include <QtScxml/QtScxml>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtScxml/6.12.0/QtScxml/private/qscxmlstatemachine_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
 #include <QtScxml/private/qscxmlstatemachine_p.h>
 #include <QtScxml/private/qscxmlexecutablecontent_p.h>
 #include <QtScxml/private/qscxmlevent_p.h>
@@ -30,6 +42,90 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from QtScxml__QScxmlInternal_EventLoopHook.cpp, line 1, as moc:QScxmlInternal::EventLoopHook
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN14QScxmlInternal13EventLoopHookE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto QScxmlInternal::EventLoopHook::qt_create_metaobjectdata<qt_meta_tag_ZN14QScxmlInternal13EventLoopHookE_t>()
+{
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "QScxmlInternal::EventLoopHook",
+        "doProcessEvents",
+        ""
+    };
+
+    QtMocHelpers::UintData qt_methods {
+        // Method 'doProcessEvents'
+        QtMocHelpers::MethodData<void()>(1, 2, QMC::AccessPublic, QMetaType::Void),
+    };
+    QtMocHelpers::UintData qt_properties {
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    return QtMocHelpers::metaObjectData<EventLoopHook, qt_meta_tag_ZN14QScxmlInternal13EventLoopHookE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums);
+}
+Q_CONSTINIT const QMetaObject QScxmlInternal::EventLoopHook::staticMetaObject = { {
+    QMetaObject::SuperData::link<QObject::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN14QScxmlInternal13EventLoopHookE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN14QScxmlInternal13EventLoopHookE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN14QScxmlInternal13EventLoopHookE_t>.metaTypes,
+    nullptr
+} };
+
+void QScxmlInternal::EventLoopHook::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<EventLoopHook *>(_o);
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        switch (_id) {
+        case 0: _t->doProcessEvents(); break;
+        default: ;
+        }
+    }
+    (void)_a;
+}
+
+const QMetaObject *QScxmlInternal::EventLoopHook::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *QScxmlInternal::EventLoopHook::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN14QScxmlInternal13EventLoopHookE_t>.strings))
+        return static_cast<void*>(this);
+    return QObject::qt_metacast(_clname);
+}
+
+int QScxmlInternal::EventLoopHook::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QObject::qt_metacall(_c, _id, _a);
+    if (_id < 0)
+        return _id;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        if (_id < 1)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 1;
+    }
+    if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        if (_id < 1)
+            *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
+        _id -= 1;
+    }
+    return _id;
+}
+QT_WARNING_POP
+
 //  from ../qtscxml/src/scxml/qscxmlstatemachine.cpp, line 229, as _ZN14QScxmlInternal13EventLoopHook10timerEventEP11QTimerEvent
 namespace QScxmlInternal {
 inline void EventLoopHook::timerEvent(QTimerEvent *timerEvent)
@@ -44,6 +140,14 @@ inline void EventLoopHook::timerEvent(QTimerEvent *timerEvent)
             return;
         }
     }
+}
+}  // namespace QScxmlInternal
+
+//  from ../qtscxml/src/scxml/qscxmlstatemachine.cpp, line 224, as _ZN14QScxmlInternal13EventLoopHook15doProcessEventsEv
+namespace QScxmlInternal {
+inline void EventLoopHook::doProcessEvents()
+{
+    smp->processEvents();
 }
 }  // namespace QScxmlInternal
 
@@ -257,6 +361,24 @@ int ritual_ZN14QScxmlInternal13EventLoopHook11qt_metacallEN11QMetaObject4CallEiP
     int a1,
     void **a2) {
   return self->qt_metacall(a0, a1, a2);
+}
+
+//  QString QScxmlInternal::EventLoopHook::tr(const char *s, const char *c,
+//      int n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN14QScxmlInternal13EventLoopHook2trEPKcS2_i(
+    const char *s,
+    const char *c,
+    int n) {
+  return new QString(QScxmlInternal::EventLoopHook::tr(s, c, n));
+}
+
+//  QScxmlInternal::EventLoopHook::EventLoopHook(QScxmlStateMachinePrivate
+//      *smp)
+extern "C" Q_DECL_EXPORT
+QScxmlInternal::EventLoopHook *ritual_ZN14QScxmlInternal13EventLoopHookC1EP25QScxmlStateMachinePrivate(
+    QScxmlStateMachinePrivate *smp) {
+  return new CuteQScxmlInternal_EventLoopHook(smp);
 }
 
 //  void QScxmlInternal::EventLoopHook::queueProcessEvents()

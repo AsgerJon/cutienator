@@ -1,16 +1,29 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtPositioning/6.12.0/QtPositioning/private/qnmeapositioninfosource_p.h,
-//  Qt 6.12.0. Changes made here are lost.
+//  Qt 6.12.0.
+//  Edited by hand on 2026-11-26: moc's output for
+//  'QNmeaPositionInfoSourcePrivate' is pasted in, cut from what the moc of
+//  Qt 6.12.0 writes for its header: Qt's library keeps it to itself; added
+//  are 2 rituals that lean on what moc writes for a class of the part Qt
+//  keeps to itself, whose ritual file carries moc's output, drafted by a
+//  copy of the generator that lets those names through. A copy of a meta-
+//  object is a second one: 'qobject_cast' between it and Qt's own does not
+//  match. Kept as it is when the generator runs again.
 #include <QtPositioning/6.12.0/QtPositioning/private/qpositioningglobal_p.h>
 #include <QtPositioning/QtPositioning>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtPositioning/6.12.0/QtPositioning/private/qnmeapositioninfosource_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 #include <QtCore/qbytearrayview.h>
 #include <QtPositioning/qgeopositioninfo.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
 #include <QtPositioning/private/qnmeapositioninfosource_p.h>
 #include <QtPositioning/private/qgeopositioninfo_p.h>
 #include <QtPositioning/private/qlocationutils_p.h>
@@ -52,18 +65,113 @@ inline QGeoPositionInfoPrivateNmea::~QGeoPositionInfoPrivateNmea()
 }
 #endif  // USE_POSITION_NMEA_PIMPL
 
+//  from QtPositioning__QNmeaPositionInfoSourcePrivate.cpp, line 1, as moc:QNmeaPositionInfoSourcePrivate
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN30QNmeaPositionInfoSourcePrivateE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto QNmeaPositionInfoSourcePrivate::qt_create_metaobjectdata<qt_meta_tag_ZN30QNmeaPositionInfoSourcePrivateE_t>()
+{
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "QNmeaPositionInfoSourcePrivate",
+        "readyRead",
+        "",
+        "emitPendingUpdate",
+        "sourceDataClosed",
+        "updateRequestTimeout"
+    };
+
+    QtMocHelpers::UintData qt_methods {
+        // Slot 'readyRead'
+        QtMocHelpers::SlotData<void()>(1, 2, QMC::AccessPublic, QMetaType::Void),
+        // Slot 'emitPendingUpdate'
+        QtMocHelpers::SlotData<void()>(3, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'sourceDataClosed'
+        QtMocHelpers::SlotData<void()>(4, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'updateRequestTimeout'
+        QtMocHelpers::SlotData<void()>(5, 2, QMC::AccessPrivate, QMetaType::Void),
+    };
+    QtMocHelpers::UintData qt_properties {
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    return QtMocHelpers::metaObjectData<QNmeaPositionInfoSourcePrivate, qt_meta_tag_ZN30QNmeaPositionInfoSourcePrivateE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums);
+}
+Q_CONSTINIT const QMetaObject QNmeaPositionInfoSourcePrivate::staticMetaObject = { {
+    QMetaObject::SuperData::link<QObject::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN30QNmeaPositionInfoSourcePrivateE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN30QNmeaPositionInfoSourcePrivateE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN30QNmeaPositionInfoSourcePrivateE_t>.metaTypes,
+    nullptr
+} };
+
+void QNmeaPositionInfoSourcePrivate::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<QNmeaPositionInfoSourcePrivate *>(_o);
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        switch (_id) {
+        case 0: _t->readyRead(); break;
+        case 1: _t->emitPendingUpdate(); break;
+        case 2: _t->sourceDataClosed(); break;
+        case 3: _t->updateRequestTimeout(); break;
+        default: ;
+        }
+    }
+    (void)_a;
+}
+
+const QMetaObject *QNmeaPositionInfoSourcePrivate::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *QNmeaPositionInfoSourcePrivate::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN30QNmeaPositionInfoSourcePrivateE_t>.strings))
+        return static_cast<void*>(this);
+    return QObject::qt_metacast(_clname);
+}
+
+int QNmeaPositionInfoSourcePrivate::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QObject::qt_metacall(_c, _id, _a);
+    if (_id < 0)
+        return _id;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        if (_id < 4)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 4;
+    }
+    if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        if (_id < 4)
+            *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
+        _id -= 4;
+    }
+    return _id;
+}
+QT_WARNING_POP
+
 //  from ../qtpositioning/src/positioning/qnmeapositioninfosource.cpp, line 677, as _ZN30QNmeaPositionInfoSourcePrivate10timerEventEP11QTimerEvent
 inline void QNmeaPositionInfoSourcePrivate::timerEvent(QTimerEvent *)
 {
     emitPendingUpdate();
 }
 
-//  from ../qtpositioning/src/positioning/qnmeapositioninfosource.cpp, line 262, as _ZN20QNmeaSimulatedReaderC1EP30QNmeaPositionInfoSourcePrivate
-inline QNmeaSimulatedReader::QNmeaSimulatedReader(QNmeaPositionInfoSourcePrivate *sourcePrivate)
-        : QNmeaReader(sourcePrivate),
-        m_currTimerId(-1),
-        m_hasValidDateTime(false)
+//  from ../qtpositioning/src/positioning/qnmeapositioninfosource.cpp, line 497, as _ZN30QNmeaPositionInfoSourcePrivate16sourceDataClosedEv
+inline void QNmeaPositionInfoSourcePrivate::sourceDataClosed()
 {
+    if (m_nmeaReader && m_device && m_device->bytesAvailable())
+        m_nmeaReader->readAvailableData();
 }
 
 //  from ../qtpositioning/src/positioning/qnmeapositioninfosource.cpp, line 682, as _ZN30QNmeaPositionInfoSourcePrivate17emitPendingUpdateEv
@@ -82,6 +190,48 @@ inline void QNmeaPositionInfoSourcePrivate::emitPendingUpdate()
         }
         m_noUpdateLastInterval = true;
     }
+}
+
+//  from ../qtpositioning/src/positioning/qnmeapositioninfosource.cpp, line 622, as _ZN30QNmeaPositionInfoSourcePrivate20updateRequestTimeoutEv
+inline void QNmeaPositionInfoSourcePrivate::updateRequestTimeout()
+{
+    m_requestTimer->stop();
+    m_source->setError(QGeoPositionInfoSource::UpdateTimeoutError);
+}
+
+//  from ../qtpositioning/src/positioning/qnmeapositioninfosource.cpp, line 503, as _ZN30QNmeaPositionInfoSourcePrivate9readyReadEv
+inline void QNmeaPositionInfoSourcePrivate::readyRead()
+{
+    if (m_nmeaReader)
+        m_nmeaReader->readAvailableData();
+}
+
+//  from ../qtpositioning/src/positioning/qnmeapositioninfosource.cpp, line 262, as _ZN20QNmeaSimulatedReaderC1EP30QNmeaPositionInfoSourcePrivate
+inline QNmeaSimulatedReader::QNmeaSimulatedReader(QNmeaPositionInfoSourcePrivate *sourcePrivate)
+        : QNmeaReader(sourcePrivate),
+        m_currTimerId(-1),
+        m_hasValidDateTime(false)
+{
+}
+
+//  from ../qtpositioning/src/positioning/qnmeapositioninfosource.cpp, line 453, as _ZN30QNmeaPositionInfoSourcePrivateC1EP23QNmeaPositionInfoSourceNS0_10UpdateModeE
+inline QNmeaPositionInfoSourcePrivate::QNmeaPositionInfoSourcePrivate(QNmeaPositionInfoSource *parent, QNmeaPositionInfoSource::UpdateMode updateMode)
+        : QObject(parent),
+        m_updateMode(updateMode),
+        m_device(0),
+        m_invokedStart(false),
+        m_positionError(QGeoPositionInfoSource::UnknownSourceError),
+        m_userEquivalentRangeError(qQNaN()),
+        m_source(parent),
+        m_nmeaReader(0),
+        m_updateTimer(0),
+        m_requestTimer(0),
+        m_horizontalAccuracy(qQNaN()),
+        m_verticalAccuracy(qQNaN()),
+        m_noUpdateLastInterval(false),
+        m_updateTimeoutSent(false),
+        m_connectedReadyRead(false)
+{
 }
 
 //  from ../qtpositioning/src/positioning/qnmeapositioninfosource.cpp, line 472, as _ZN30QNmeaPositionInfoSourcePrivateD1Ev
@@ -400,6 +550,26 @@ int ritual_ZN30QNmeaPositionInfoSourcePrivate11qt_metacallEN11QMetaObject4CallEi
     int a1,
     void **a2) {
   return self->qt_metacall(a0, a1, a2);
+}
+
+//  QString QNmeaPositionInfoSourcePrivate::tr(const char *s, const char *c,
+//      int n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN30QNmeaPositionInfoSourcePrivate2trEPKcS1_i(
+    const char *s,
+    const char *c,
+    int n) {
+  return new QString(QNmeaPositionInfoSourcePrivate::tr(s, c, n));
+}
+
+//  QNmeaPositionInfoSourcePrivate::QNmeaPositionInfoSourcePrivate(QNmeaPosit
+//      ionInfoSource *parent, QNmeaPositionInfoSource::UpdateMode
+//      updateMode)
+extern "C" Q_DECL_EXPORT
+QNmeaPositionInfoSourcePrivate *ritual_ZN30QNmeaPositionInfoSourcePrivateC1EP23QNmeaPositionInfoSourceNS0_10UpdateModeE(
+    QNmeaPositionInfoSource *parent,
+    QNmeaPositionInfoSource::UpdateMode updateMode) {
+  return new CuteQNmeaPositionInfoSourcePrivate(parent, updateMode);
 }
 
 //  QNmeaPositionInfoSourcePrivate::~QNmeaPositionInfoSourcePrivate()

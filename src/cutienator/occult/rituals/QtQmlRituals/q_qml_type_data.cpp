@@ -341,128 +341,6 @@ inline bool QQmlPropertyCacheCreatorBase::canCreateClassNameTypeByUrl(const QUrl
     });
 }
 
-//  from ../qtdeclarative/src/qml/qml/qqmltypedata.cpp, line 815, as _ZN12QQmlTypeData14loadFromSourceEv
-inline bool QQmlTypeData::loadFromSource()
-{
-    assertTypeLoaderThread();
-
-    m_document.reset(
-            new QmlIR::Document(urlString(), finalUrlString(), m_typeLoader->isDebugging()));
-    m_document->jsModule.sourceTimeStamp = m_backupSourceCode.sourceTimeStamp();
-    QmlIR::IRBuilder compiler;
-
-    QString sourceError;
-    const QString source = m_backupSourceCode.readAll(&sourceError);
-    if (!sourceError.isEmpty()) {
-        setError(sourceError);
-        return false;
-    }
-
-    if (!compiler.generateFromQml(source, finalUrlString(), m_document.data())) {
-        QList<QQmlError> errors;
-        errors.reserve(compiler.errors.size());
-        for (const QQmlJS::DiagnosticMessage &msg : std::as_const(compiler.errors)) {
-            QQmlError e;
-            e.setUrl(url());
-            e.setLine(qmlConvertSourceCoordinate<quint32, int>(msg.loc.startLine));
-            e.setColumn(qmlConvertSourceCoordinate<quint32, int>(msg.loc.startColumn));
-            e.setDescription(msg.message);
-            errors << e;
-        }
-        setError(errors);
-        return false;
-    }
-    return true;
-}
-
-//  from ../qtdeclarative/src/qml/qml/qqmltypedata.cpp, line 860, as _ZN12QQmlTypeData18continueLoadFromIREv
-inline void QQmlTypeData::continueLoadFromIR()
-{
-    assertTypeLoaderThread();
-
-    for (auto const& object: std::as_const(m_document->objects)) {
-        for (auto it = object->inlineComponentsBegin(); it != object->inlineComponentsEnd(); ++it) {
-            QString const nameString = m_document->stringAt(it->nameIndex);
-            auto importUrl = finalUrl();
-            importUrl.setFragment(nameString);
-            auto import = new QQmlImportInstance(); // Note: The cache takes ownership of the QQmlImportInstance
-            m_importCache->addInlineComponentImport(import, nameString, importUrl);
-        }
-    }
-
-    m_typeReferences.collectFromObjects(m_document->objects.constBegin(), m_document->objects.constEnd());
-    m_importCache->setBaseUrl(finalUrl(), finalUrlString());
-
-    // For remote URLs, we don't delay the loading of the implicit import
-    // because the loading probably requires an asynchronous fetch of the
-    // qmldir (so we can't load it just in time).
-    if (!finalUrl().scheme().isEmpty()) {
-        QUrl qmldirUrl = finalUrl().resolved(QUrl(QLatin1String("qmldir")));
-        if (!QQmlImports::isLocal(qmldirUrl)) {
-            if (!loadImplicitImport())
-                return;
-            // This qmldir is for the implicit import
-            auto implicitImport = std::make_shared<PendingImport>();
-            implicitImport->uri = QLatin1String(".");
-            implicitImport->version = QTypeRevision();
-            QList<QQmlError> errors;
-
-            if (!fetchQmldir(qmldirUrl, implicitImport, 1, &errors)) {
-                setError(errors);
-                return;
-            }
-        }
-    }
-
-    QList<QQmlError> errors;
-
-    for (const QV4::CompiledData::Import *import : std::as_const(m_document->imports)) {
-        if (!addImport(import, {}, &errors)) {
-            Q_ASSERT(errors.size());
-
-            // We're only interested in the chronoligically last error. The previous
-            // errors might be from unsuccessfully trying to load a module from the
-            // resource file system.
-            QQmlError error = errors.first();
-            error.setUrl(m_importCache->baseUrl());
-            error.setLine(qmlConvertSourceCoordinate<quint32, int>(import->location.line()));
-            error.setColumn(qmlConvertSourceCoordinate<quint32, int>(import->location.column()));
-            setError(error);
-            return;
-        }
-    }
-}
-
-//  from ../qtdeclarative/src/qml/qml/qqmltypedata.cpp, line 62, as _ZN12QQmlTypeData20tryLoadFromDiskCacheEv
-inline bool QQmlTypeData::tryLoadFromDiskCache()
-{
-    assertTypeLoaderThread();
-
-    if (!m_backupSourceCode.isCacheable())
-        return false;
-
-    if (!m_typeLoader->readCacheFile())
-        return false;
-
-    auto unit = QQml::makeRefPointer<QV4::CompiledData::CompilationUnit>();
-    {
-        QString error;
-        const auto sourceChecksum = [this]() { return m_backupSourceCode.checksum(); };
-        if (!unit->loadFromDisk(url(), m_backupSourceCode.sourceTimeStamp(), sourceChecksum,
-                                &error)) {
-            qCDebug(DBG_DISK_CACHE) << "Error loading" << urlString() << "from disk cache:" << error;
-            return false;
-        }
-    }
-
-    if (unit->unitData()->flags & QV4::CompiledData::Unit::PendingTypeCompilation) {
-        restoreIR(unit);
-        return true;
-    }
-
-    return loadFromDiskCache(unit);
-}
-
 //  from ../qtdeclarative/src/qml/qml/qqmltypedata.cpp, line 994, as _ZN12QQmlTypeData12resolveTypesEv
 inline bool QQmlTypeData::resolveTypes()
 {
@@ -601,6 +479,128 @@ inline bool QQmlTypeData::resolveTypes()
 
     m_typesResolved = true;
     return true;
+}
+
+//  from ../qtdeclarative/src/qml/qml/qqmltypedata.cpp, line 815, as _ZN12QQmlTypeData14loadFromSourceEv
+inline bool QQmlTypeData::loadFromSource()
+{
+    assertTypeLoaderThread();
+
+    m_document.reset(
+            new QmlIR::Document(urlString(), finalUrlString(), m_typeLoader->isDebugging()));
+    m_document->jsModule.sourceTimeStamp = m_backupSourceCode.sourceTimeStamp();
+    QmlIR::IRBuilder compiler;
+
+    QString sourceError;
+    const QString source = m_backupSourceCode.readAll(&sourceError);
+    if (!sourceError.isEmpty()) {
+        setError(sourceError);
+        return false;
+    }
+
+    if (!compiler.generateFromQml(source, finalUrlString(), m_document.data())) {
+        QList<QQmlError> errors;
+        errors.reserve(compiler.errors.size());
+        for (const QQmlJS::DiagnosticMessage &msg : std::as_const(compiler.errors)) {
+            QQmlError e;
+            e.setUrl(url());
+            e.setLine(qmlConvertSourceCoordinate<quint32, int>(msg.loc.startLine));
+            e.setColumn(qmlConvertSourceCoordinate<quint32, int>(msg.loc.startColumn));
+            e.setDescription(msg.message);
+            errors << e;
+        }
+        setError(errors);
+        return false;
+    }
+    return true;
+}
+
+//  from ../qtdeclarative/src/qml/qml/qqmltypedata.cpp, line 860, as _ZN12QQmlTypeData18continueLoadFromIREv
+inline void QQmlTypeData::continueLoadFromIR()
+{
+    assertTypeLoaderThread();
+
+    for (auto const& object: std::as_const(m_document->objects)) {
+        for (auto it = object->inlineComponentsBegin(); it != object->inlineComponentsEnd(); ++it) {
+            QString const nameString = m_document->stringAt(it->nameIndex);
+            auto importUrl = finalUrl();
+            importUrl.setFragment(nameString);
+            auto import = new QQmlImportInstance(); // Note: The cache takes ownership of the QQmlImportInstance
+            m_importCache->addInlineComponentImport(import, nameString, importUrl);
+        }
+    }
+
+    m_typeReferences.collectFromObjects(m_document->objects.constBegin(), m_document->objects.constEnd());
+    m_importCache->setBaseUrl(finalUrl(), finalUrlString());
+
+    // For remote URLs, we don't delay the loading of the implicit import
+    // because the loading probably requires an asynchronous fetch of the
+    // qmldir (so we can't load it just in time).
+    if (!finalUrl().scheme().isEmpty()) {
+        QUrl qmldirUrl = finalUrl().resolved(QUrl(QLatin1String("qmldir")));
+        if (!QQmlImports::isLocal(qmldirUrl)) {
+            if (!loadImplicitImport())
+                return;
+            // This qmldir is for the implicit import
+            auto implicitImport = std::make_shared<PendingImport>();
+            implicitImport->uri = QLatin1String(".");
+            implicitImport->version = QTypeRevision();
+            QList<QQmlError> errors;
+
+            if (!fetchQmldir(qmldirUrl, implicitImport, 1, &errors)) {
+                setError(errors);
+                return;
+            }
+        }
+    }
+
+    QList<QQmlError> errors;
+
+    for (const QV4::CompiledData::Import *import : std::as_const(m_document->imports)) {
+        if (!addImport(import, {}, &errors)) {
+            Q_ASSERT(errors.size());
+
+            // We're only interested in the chronoligically last error. The previous
+            // errors might be from unsuccessfully trying to load a module from the
+            // resource file system.
+            QQmlError error = errors.first();
+            error.setUrl(m_importCache->baseUrl());
+            error.setLine(qmlConvertSourceCoordinate<quint32, int>(import->location.line()));
+            error.setColumn(qmlConvertSourceCoordinate<quint32, int>(import->location.column()));
+            setError(error);
+            return;
+        }
+    }
+}
+
+//  from ../qtdeclarative/src/qml/qml/qqmltypedata.cpp, line 62, as _ZN12QQmlTypeData20tryLoadFromDiskCacheEv
+inline bool QQmlTypeData::tryLoadFromDiskCache()
+{
+    assertTypeLoaderThread();
+
+    if (!m_backupSourceCode.isCacheable())
+        return false;
+
+    if (!m_typeLoader->readCacheFile())
+        return false;
+
+    auto unit = QQml::makeRefPointer<QV4::CompiledData::CompilationUnit>();
+    {
+        QString error;
+        const auto sourceChecksum = [this]() { return m_backupSourceCode.checksum(); };
+        if (!unit->loadFromDisk(url(), m_backupSourceCode.sourceTimeStamp(), sourceChecksum,
+                                &error)) {
+            qCDebug(DBG_DISK_CACHE) << "Error loading" << urlString() << "from disk cache:" << error;
+            return false;
+        }
+    }
+
+    if (unit->unitData()->flags & QV4::CompiledData::Unit::PendingTypeCompilation) {
+        restoreIR(unit);
+        return true;
+    }
+
+    return loadFromDiskCache(unit);
 }
 
 //  from ../qtdeclarative/src/qml/qml/qqmltypedata.cpp, line 50, as _ZNK12QQmlTypeData15compilationUnitEv

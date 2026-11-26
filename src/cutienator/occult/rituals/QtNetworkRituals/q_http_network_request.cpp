@@ -167,10 +167,32 @@ inline void QHttpNetworkHeaderPrivate::clearHeaders()
     parser.clearHeaders();
 }
 
-//  from src/network/access/qhttpnetworkheader.cpp, line 68, as _ZNK25QHttpNetworkHeaderPrivateeqERKS_
-inline bool QHttpNetworkHeaderPrivate::operator==(const QHttpNetworkHeaderPrivate &other) const
+//  from src/network/access/qhttpnetworkheader.cpp, line 48, as _ZN25QHttpNetworkHeaderPrivate14setHeaderFieldERK10QByteArrayS2_
+inline void QHttpNetworkHeaderPrivate::setHeaderField(const QByteArray &name, const QByteArray &data)
 {
-   return (url == other.url);
+    parser.setHeaderField(name, data);
+}
+
+//  from src/network/access/qhttpnetworkheader.cpp, line 29, as _ZN25QHttpNetworkHeaderPrivate16setContentLengthEx
+inline void QHttpNetworkHeaderPrivate::setContentLength(qint64 length)
+{
+    setHeaderField("Content-Length", QByteArray::number(length));
+}
+
+//  from src/network/access/qhttpnetworkheader.cpp, line 12, as _ZN25QHttpNetworkHeaderPrivateC2ERK4QUrl
+inline QHttpNetworkHeaderPrivate::QHttpNetworkHeaderPrivate(const QUrl &newUrl)
+    :url(newUrl)
+{
+}
+
+//  from src/network/access/qhttpnetworkheader.cpp, line 34, as _ZNK25QHttpNetworkHeaderPrivate11headerFieldE14QByteArrayViewRK10QByteArray
+inline QByteArray QHttpNetworkHeaderPrivate::headerField(QByteArrayView name, const QByteArray &defaultValue) const
+{
+    QList<QByteArray> allValues = headerFieldValues(name);
+    if (allValues.isEmpty())
+        return defaultValue;
+    else
+        return allValues.join(", ");
 }
 
 //  from src/network/access/qhttpnetworkheader.cpp, line 17, as _ZNK25QHttpNetworkHeaderPrivate13contentLengthEv
@@ -186,32 +208,28 @@ inline qint64 QHttpNetworkHeaderPrivate::contentLength() const
     return -1; // the header field is not set
 }
 
-//  from src/network/access/qhttpnetworkheader.cpp, line 29, as _ZN25QHttpNetworkHeaderPrivate16setContentLengthEx
-inline void QHttpNetworkHeaderPrivate::setContentLength(qint64 length)
+//  from src/network/access/qhttpnetworkheader.cpp, line 68, as _ZNK25QHttpNetworkHeaderPrivateeqERKS_
+inline bool QHttpNetworkHeaderPrivate::operator==(const QHttpNetworkHeaderPrivate &other) const
 {
-    setHeaderField("Content-Length", QByteArray::number(length));
-}
-
-//  from src/network/access/qhttpnetworkheader.cpp, line 34, as _ZNK25QHttpNetworkHeaderPrivate11headerFieldE14QByteArrayViewRK10QByteArray
-inline QByteArray QHttpNetworkHeaderPrivate::headerField(QByteArrayView name, const QByteArray &defaultValue) const
-{
-    QList<QByteArray> allValues = headerFieldValues(name);
-    if (allValues.isEmpty())
-        return defaultValue;
-    else
-        return allValues.join(", ");
-}
-
-//  from src/network/access/qhttpnetworkheader.cpp, line 48, as _ZN25QHttpNetworkHeaderPrivate14setHeaderFieldERK10QByteArrayS2_
-inline void QHttpNetworkHeaderPrivate::setHeaderField(const QByteArray &name, const QByteArray &data)
-{
-    parser.setHeaderField(name, data);
+   return (url == other.url);
 }
 
 //  from src/network/access/qhttpnetworkheader.cpp, line 43, as _ZNK25QHttpNetworkHeaderPrivate17headerFieldValuesE14QByteArrayView
 inline QList<QByteArray> QHttpNetworkHeaderPrivate::headerFieldValues(QByteArrayView name) const
 {
     return parser.headerFieldValues(name);
+}
+
+//  from src/network/access/qhttpnetworkrequest.cpp, line 178, as _ZN19QHttpNetworkRequestC1ERK4QUrlNS_9OperationENS_8PriorityE
+inline QHttpNetworkRequest::QHttpNetworkRequest(const QUrl &url, Operation operation, Priority priority)
+    : d(new QHttpNetworkRequestPrivate(operation, priority, url))
+{
+}
+
+//  from src/network/access/qhttpnetworkrequest.cpp, line 183, as _ZN19QHttpNetworkRequestC1ERKS_
+inline QHttpNetworkRequest::QHttpNetworkRequest(const QHttpNetworkRequest &other)
+    : QHttpNetworkHeader(other), d(other.d)
+{
 }
 
 //  from src/network/access/qhttpnetworkrequest.cpp, line 279, as _ZN19QHttpNetworkRequestaSERKS_
@@ -701,6 +719,24 @@ public:
   }
 #endif  // QT_CONFIG(http)
 };
+
+//  QHttpNetworkRequest::QHttpNetworkRequest(const QUrl &url, Operation
+//      operation, Priority priority)
+extern "C" Q_DECL_EXPORT
+QHttpNetworkRequest *ritual_ZN19QHttpNetworkRequestC1ERK4QUrlNS_9OperationENS_8PriorityE(
+    const QUrl *url,
+    QHttpNetworkRequest::Operation operation,
+    QHttpNetworkRequest::Priority priority) {
+  return new CuteQHttpNetworkRequest(*url, operation, priority);
+}
+
+//  QHttpNetworkRequest::QHttpNetworkRequest(const QHttpNetworkRequest
+//      &other)
+extern "C" Q_DECL_EXPORT
+QHttpNetworkRequest *ritual_ZN19QHttpNetworkRequestC1ERKS_(
+    const QHttpNetworkRequest *other) {
+  return new CuteQHttpNetworkRequest(*other);
+}
 
 //  QHttpNetworkRequest::~QHttpNetworkRequest()
 extern "C" Q_DECL_EXPORT

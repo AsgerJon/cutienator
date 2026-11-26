@@ -43,16 +43,16 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from src/widgets/widgets/qtoolbarlayout.cpp, line 36, as _ZN12QToolBarItemC1EP7QWidget
-inline QToolBarItem::QToolBarItem(QWidget *widget)
-    : QWidgetItem(widget), action(nullptr), customWidget(false)
-{
-}
-
 //  from src/widgets/widgets/qtoolbarlayout.cpp, line 41, as _ZNK12QToolBarItem7isEmptyEv
 inline bool QToolBarItem::isEmpty() const
 {
     return action == nullptr || !action->isVisible();
+}
+
+//  from src/widgets/widgets/qtoolbarlayout.cpp, line 36, as _ZN12QToolBarItemC1EP7QWidget
+inline QToolBarItem::QToolBarItem(QWidget *widget)
+    : QWidgetItem(widget), action(nullptr), customWidget(false)
+{
 }
 //  -----------------------------------------------------------------------
 

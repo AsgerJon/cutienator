@@ -2,7 +2,7 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of QtLabsP",
     "latform/6.12.0/QtLabsPlatform/private/qquicklabsplatformfiledialog",
-    "_p.h, Qt 6.12.0. Changes made here are lost."
+    "_p.h, Qt 6.12.0. Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZNK32QQuickLabsPlatformFileNameFilter10metaObjectEv": [
@@ -14,11 +14,20 @@
     "ritual_ZN32QQuickLabsPlatformFileNameFilter11qt_metacallEN11QMetaObject4CallEiPPv": [
       "int", "address", "int", "int", "address"
     ],
+    "ritual_ZN32QQuickLabsPlatformFileNameFilter2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
     "ritual_ZN32QQuickLabsPlatformFileNameFilter22qt_qmlMarker_anonymousEv": [
       "nothing", "address"
     ],
+    "ritual_ZN32QQuickLabsPlatformFileNameFilterC1EP7QObject": [
+      "address", "address"
+    ],
     "ritual_ZNK32QQuickLabsPlatformFileNameFilter5indexEv": [
       "int", "address"
+    ],
+    "ritual_ZN32QQuickLabsPlatformFileNameFilter8setIndexEi": [
+      "nothing", "address", "int"
     ],
     "ritual_ZNK32QQuickLabsPlatformFileNameFilter4nameEv": [
       "text", "address"
@@ -31,6 +40,9 @@
     ],
     "ritual_ZN32QQuickLabsPlatformFileNameFilter10setOptionsERK14QSharedPointerI18QFileDialogOptionsE": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN32QQuickLabsPlatformFileNameFilter6updateERK7QString": [
+      "nothing", "address", "text"
     ],
     "ritual_ZN32QQuickLabsPlatformFileNameFilter11nameChangedERK7QString": [
       "nothing", "address", "text"

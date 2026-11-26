@@ -1,6 +1,12 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtWidgets/6.12.0/QtWidgets/private/qlistwidget_p.h, Qt 6.12.0. Changes
-//  made here are lost.
+//  QtWidgets/6.12.0/QtWidgets/private/qlistwidget_p.h, Qt 6.12.0.
+//  Edited by hand on 2026-11-26: moc's output for 'QListModel' is pasted in,
+//  cut from what the moc of Qt 6.12.0 writes for its header: Qt's library
+//  keeps it to itself; added are 2 rituals that lean on what moc writes for
+//  a class of the part Qt keeps to itself, whose ritual file carries moc's
+//  output, drafted by a copy of the generator that lets those names through.
+//  A copy of a meta-object is a second one: 'qobject_cast' between it and
+//  Qt's own does not match. Kept as it is when the generator runs again.
 #include <QtGui/qtguiglobal.h>
 #include <QtCore/qglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
@@ -25,6 +31,10 @@
 #include <QtCore/QList>
 #include <QtWidgets/QListWidgetItem>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
 #include <QtWidgets/qlistwidget.h>
 #include <QtWidgets/private/qlistview_p.h>
 #include <QtWidgets/private/qwidgetitemdata_p.h>
@@ -38,6 +48,71 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  from QtWidgets__QListModel.cpp, line 1, as moc:QListModel
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN10QListModelE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto QListModel::qt_create_metaobjectdata<qt_meta_tag_ZN10QListModelE_t>()
+{
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "QListModel"
+    };
+
+    QtMocHelpers::UintData qt_methods {
+    };
+    QtMocHelpers::UintData qt_properties {
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    return QtMocHelpers::metaObjectData<QListModel, qt_meta_tag_ZN10QListModelE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums);
+}
+Q_CONSTINIT const QMetaObject QListModel::staticMetaObject = { {
+    QMetaObject::SuperData::link<QAbstractListModel::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN10QListModelE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN10QListModelE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN10QListModelE_t>.metaTypes,
+    nullptr
+} };
+
+void QListModel::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<QListModel *>(_o);
+    (void)_t;
+    (void)_c;
+    (void)_id;
+    (void)_a;
+}
+
+const QMetaObject *QListModel::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *QListModel::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN10QListModelE_t>.strings))
+        return static_cast<void*>(this);
+    return QAbstractListModel::qt_metacast(_clname);
+}
+
+int QListModel::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QAbstractListModel::qt_metacall(_c, _id, _a);
+    return _id;
+}
+QT_WARNING_POP
 
 //  from src/widgets/itemviews/qlistwidget.cpp, line 221, as _ZN10QListModel10insertRowsEiiRK11QModelIndex
 inline bool QListModel::insertRows(int row, int count, const QModelIndex &parent)
@@ -78,36 +153,20 @@ inline bool QListModel::removeRows(int row, int count, const QModelIndex &parent
     return true;
 }
 
-//  from src/widgets/itemviews/qlistwidget.cpp, line 148, as _ZNK10QListModel8rowCountERK11QModelIndex
-inline int QListModel::rowCount(const QModelIndex &parent) const
+//  from src/widgets/itemviews/qlistwidget.cpp, line 423, as _ZN10QListModel12dropMimeDataEPK9QMimeDataN2Qt10DropActionEiiRK11QModelIndex
+#if QT_CONFIG(draganddrop)
+inline bool QListModel::dropMimeData(const QMimeData *data, Qt::DropAction action,
+                              int row, int column, const QModelIndex &index)
 {
-    return parent.isValid() ? 0 : items.size();
-}
+    Q_UNUSED(column);
+    if (index.isValid())
+        row = index.row();
+    else if (row == -1)
+        row = items.size();
 
-//  from src/widgets/itemviews/qlistwidget.cpp, line 172, as _ZNK10QListModel5indexEiiRK11QModelIndex
-inline QModelIndex QListModel::index(int row, int column, const QModelIndex &parent) const
-{
-    if (hasIndex(row, column, parent))
-        return createIndex(row, column, items.at(row));
-    return QModelIndex();
+    return view()->dropMimeData(row, data, action);
 }
-
-//  from src/widgets/itemviews/qlistwidget.cpp, line 179, as _ZNK10QListModel4dataERK11QModelIndexi
-inline QVariant QListModel::data(const QModelIndex &index, int role) const
-{
-    if (!index.isValid() || index.row() >= items.size())
-        return QVariant();
-    return items.at(index.row())->data(role);
-}
-
-//  from src/widgets/itemviews/qlistwidget.cpp, line 186, as _ZN10QListModel7setDataERK11QModelIndexRK8QVarianti
-inline bool QListModel::setData(const QModelIndex &index, const QVariant &value, int role)
-{
-    if (!index.isValid() || index.row() >= items.size())
-        return false;
-    items.at(index.row())->setData(role, value);
-    return true;
-}
+#endif  // QT_CONFIG(draganddrop)
 
 //  from src/widgets/itemviews/qlistwidget.cpp, line 194, as _ZN10QListModel13clearItemDataERK11QModelIndex
 inline bool QListModel::clearItemData(const QModelIndex &index)
@@ -122,42 +181,6 @@ inline bool QListModel::clearItemData(const QModelIndex &index)
     item->d->values.clear();
     emit dataChanged(index, index, QList<int> {});
     return true;
-}
-
-//  from src/widgets/itemviews/qlistwidget.cpp, line 268, as _ZN10QListModel8moveRowsERK11QModelIndexiiS2_i
-inline bool QListModel::moveRows(const QModelIndex &sourceParent, int sourceRow, int count, const QModelIndex &destinationParent, int destinationChild)
-{
-    if (sourceRow < 0
-        || sourceRow + count - 1 >= rowCount(sourceParent)
-        || destinationChild < 0
-        || destinationChild > rowCount(destinationParent)
-        || sourceRow == destinationChild
-        || sourceRow == destinationChild - 1
-        || count <= 0
-        || sourceParent.isValid()
-        || destinationParent.isValid()) {
-        return false;
-    }
-    if (!beginMoveRows(QModelIndex(), sourceRow, sourceRow + count - 1, QModelIndex(), destinationChild))
-        return false;
-
-    int fromRow = sourceRow;
-    if (destinationChild < sourceRow)
-        fromRow += count - 1;
-    else
-        destinationChild--;
-    while (count--)
-        items.move(fromRow, destinationChild);
-    endMoveRows();
-    return true;
-}
-
-//  from src/widgets/itemviews/qlistwidget.cpp, line 295, as _ZNK10QListModel5flagsERK11QModelIndex
-inline Qt::ItemFlags QListModel::flags(const QModelIndex &index) const
-{
-    if (!index.isValid() || index.row() >= items.size() || index.model() != this)
-        return Qt::ItemIsDropEnabled; // we allow drops outside the items
-    return items.at(index.row())->flags();
 }
 
 //  from src/widgets/itemviews/qlistwidget.cpp, line 302, as _ZN10QListModel4sortEiN2Qt9SortOrderE
@@ -193,18 +216,48 @@ inline void QListModel::sort(int column, Qt::SortOrder order)
     emit layoutChanged({}, QAbstractItemModel::VerticalSortHint);
 }
 
-//  from src/widgets/itemviews/qlistwidget.cpp, line 423, as _ZN10QListModel12dropMimeDataEPK9QMimeDataN2Qt10DropActionEiiRK11QModelIndex
-#if QT_CONFIG(draganddrop)
-inline bool QListModel::dropMimeData(const QMimeData *data, Qt::DropAction action,
-                              int row, int column, const QModelIndex &index)
+//  from src/widgets/itemviews/qlistwidget.cpp, line 186, as _ZN10QListModel7setDataERK11QModelIndexRK8QVarianti
+inline bool QListModel::setData(const QModelIndex &index, const QVariant &value, int role)
 {
-    Q_UNUSED(column);
-    if (index.isValid())
-        row = index.row();
-    else if (row == -1)
-        row = items.size();
+    if (!index.isValid() || index.row() >= items.size())
+        return false;
+    items.at(index.row())->setData(role, value);
+    return true;
+}
 
-    return view()->dropMimeData(row, data, action);
+//  from src/widgets/itemviews/qlistwidget.cpp, line 268, as _ZN10QListModel8moveRowsERK11QModelIndexiiS2_i
+inline bool QListModel::moveRows(const QModelIndex &sourceParent, int sourceRow, int count, const QModelIndex &destinationParent, int destinationChild)
+{
+    if (sourceRow < 0
+        || sourceRow + count - 1 >= rowCount(sourceParent)
+        || destinationChild < 0
+        || destinationChild > rowCount(destinationParent)
+        || sourceRow == destinationChild
+        || sourceRow == destinationChild - 1
+        || count <= 0
+        || sourceParent.isValid()
+        || destinationParent.isValid()) {
+        return false;
+    }
+    if (!beginMoveRows(QModelIndex(), sourceRow, sourceRow + count - 1, QModelIndex(), destinationChild))
+        return false;
+
+    int fromRow = sourceRow;
+    if (destinationChild < sourceRow)
+        fromRow += count - 1;
+    else
+        destinationChild--;
+    while (count--)
+        items.move(fromRow, destinationChild);
+    endMoveRows();
+    return true;
+}
+
+//  from src/widgets/itemviews/qlistwidget.cpp, line 440, as _ZNK10QListModel20supportedDragActionsEv
+#if QT_CONFIG(draganddrop)
+inline Qt::DropActions QListModel::supportedDragActions() const
+{
+    return view()->supportedDragActions();
 }
 #endif  // QT_CONFIG(draganddrop)
 
@@ -216,13 +269,79 @@ inline Qt::DropActions QListModel::supportedDropActions() const
 }
 #endif  // QT_CONFIG(draganddrop)
 
-//  from src/widgets/itemviews/qlistwidget.cpp, line 440, as _ZNK10QListModel20supportedDragActionsEv
-#if QT_CONFIG(draganddrop)
-inline Qt::DropActions QListModel::supportedDragActions() const
+//  from src/widgets/itemviews/qlistwidget.cpp, line 179, as _ZNK10QListModel4dataERK11QModelIndexi
+inline QVariant QListModel::data(const QModelIndex &index, int role) const
 {
-    return view()->supportedDragActions();
+    if (!index.isValid() || index.row() >= items.size())
+        return QVariant();
+    return items.at(index.row())->data(role);
 }
-#endif  // QT_CONFIG(draganddrop)
+
+//  from src/widgets/itemviews/qlistwidget.cpp, line 295, as _ZNK10QListModel5flagsERK11QModelIndex
+inline Qt::ItemFlags QListModel::flags(const QModelIndex &index) const
+{
+    if (!index.isValid() || index.row() >= items.size() || index.model() != this)
+        return Qt::ItemIsDropEnabled; // we allow drops outside the items
+    return items.at(index.row())->flags();
+}
+
+//  from src/widgets/itemviews/qlistwidget.cpp, line 172, as _ZNK10QListModel5indexEiiRK11QModelIndex
+inline QModelIndex QListModel::index(int row, int column, const QModelIndex &parent) const
+{
+    if (hasIndex(row, column, parent))
+        return createIndex(row, column, items.at(row));
+    return QModelIndex();
+}
+
+//  from src/widgets/itemviews/qlistwidget.cpp, line 208, as _ZNK10QListModel8itemDataERK11QModelIndex
+inline QMap<int, QVariant> QListModel::itemData(const QModelIndex &index) const
+{
+    QMap<int, QVariant> roles;
+    if (!index.isValid() || index.row() >= items.size())
+        return roles;
+    QListWidgetItem *itm = items.at(index.row());
+    for (int i = 0; i < itm->d->values.size(); ++i) {
+        roles.insert(itm->d->values.at(i).role,
+                     itm->d->values.at(i).value);
+    }
+    return roles;
+}
+
+//  from src/widgets/itemviews/qlistwidget.cpp, line 408, as _ZNK10QListModel8mimeDataERK5QListI11QModelIndexE
+inline QMimeData *QListModel::mimeData(const QModelIndexList &indexes) const
+{
+    QList<QListWidgetItem*> itemlist;
+    const int indexesCount = indexes.size();
+    itemlist.reserve(indexesCount);
+    for (int i = 0; i < indexesCount; ++i)
+        itemlist << at(indexes.at(i).row());
+
+    cachedIndexes = indexes;
+    QMimeData *mimeData = view()->mimeData(itemlist);
+    cachedIndexes.clear();
+    return mimeData;
+}
+
+//  from src/widgets/itemviews/qlistwidget.cpp, line 148, as _ZNK10QListModel8rowCountERK11QModelIndex
+inline int QListModel::rowCount(const QModelIndex &parent) const
+{
+    return parent.isValid() ? 0 : items.size();
+}
+
+//  from src/widgets/itemviews/qlistwidget.cpp, line 395, as _ZNK10QListModel9mimeTypesEv
+inline QStringList QListModel::mimeTypes() const
+{
+    const QListWidget *view = this->view();
+    if (view)
+        return view->mimeTypes();
+    return {};
+}
+
+//  from src/widgets/itemviews/qlistwidget.cpp, line 26, as _ZN10QListModelC1EP11QListWidget
+inline QListModel::QListModel(QListWidget *parent)
+    : QAbstractListModel(parent)
+{
+}
 
 //  from src/widgets/itemviews/qlistwidget.cpp, line 31, as _ZN10QListModelD1Ev
 inline QListModel::~QListModel()
@@ -1470,6 +1589,23 @@ int ritual_ZN10QListModel11qt_metacallEN11QMetaObject4CallEiPPv(
     void **a2) {
   return self->qt_metacall(a0, a1, a2);
 }
+
+//  QString QListModel::tr(const char *s, const char *c, int n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN10QListModel2trEPKcS1_i(
+    const char *s,
+    const char *c,
+    int n) {
+  return new QString(QListModel::tr(s, c, n));
+}
+
+#if QT_CONFIG(draganddrop)
+//  QListModel::QListModel(QListWidget *parent)
+extern "C" Q_DECL_EXPORT
+QListModel *ritual_ZN10QListModelC1EP11QListWidget(QListWidget *parent) {
+  return new CuteQListModel(parent);
+}
+#endif  // QT_CONFIG(draganddrop)
 
 //  QListModel::~QListModel()
 extern "C" Q_DECL_EXPORT

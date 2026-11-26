@@ -1,6 +1,13 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtWidgets/6.12.0/QtWidgets/private/qcombobox_p.h, Qt 6.12.0. Changes made
-//  here are lost.
+//  QtWidgets/6.12.0/QtWidgets/private/qcombobox_p.h, Qt 6.12.0.
+//  Edited by hand on 2026-11-26: moc's output for 'QComboMenuDelegate' is
+//  pasted in, cut from what the moc of Qt 6.12.0 writes for its header: Qt's
+//  library keeps it to itself; added are 2 rituals that lean on what moc
+//  writes for a class of the part Qt keeps to itself, whose ritual file
+//  carries moc's output, drafted by a copy of the generator that lets those
+//  names through. A copy of a meta-object is a second one: 'qobject_cast'
+//  between it and Qt's own does not match. Kept as it is when the generator
+//  runs again.
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #if QT_CONFIG(combobox)
@@ -10,12 +17,17 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtWidgets/6.12.0/QtWidgets/private/qcombobox_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 #include <QtWidgets/qstyleoption.h>
 #include <QtCore/qabstractitemmodel.h>
 #include <QtCore/qsize.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
 #include <QtWidgets/private/qcombobox_p.h>
 #include <QtWidgets/qstylepainter.h>
 #include <QtGui/qpa/qplatformtheme.h>
@@ -80,6 +92,71 @@
 
 using namespace Qt::StringLiterals;
 
+//  from QtWidgets__QComboMenuDelegate.cpp, line 1, as moc:QComboMenuDelegate
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN18QComboMenuDelegateE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto QComboMenuDelegate::qt_create_metaobjectdata<qt_meta_tag_ZN18QComboMenuDelegateE_t>()
+{
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "QComboMenuDelegate"
+    };
+
+    QtMocHelpers::UintData qt_methods {
+    };
+    QtMocHelpers::UintData qt_properties {
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    return QtMocHelpers::metaObjectData<QComboMenuDelegate, qt_meta_tag_ZN18QComboMenuDelegateE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums);
+}
+Q_CONSTINIT const QMetaObject QComboMenuDelegate::staticMetaObject = { {
+    QMetaObject::SuperData::link<QAbstractItemDelegate::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN18QComboMenuDelegateE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN18QComboMenuDelegateE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN18QComboMenuDelegateE_t>.metaTypes,
+    nullptr
+} };
+
+void QComboMenuDelegate::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<QComboMenuDelegate *>(_o);
+    (void)_t;
+    (void)_c;
+    (void)_id;
+    (void)_a;
+}
+
+const QMetaObject *QComboMenuDelegate::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *QComboMenuDelegate::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN18QComboMenuDelegateE_t>.strings))
+        return static_cast<void*>(this);
+    return QAbstractItemDelegate::qt_metacast(_clname);
+}
+
+int QComboMenuDelegate::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QAbstractItemDelegate::qt_metacall(_c, _id, _a);
+    return _id;
+}
+QT_WARNING_POP
+
 //  from src/widgets/widgets/qcombobox.cpp, line 331, as _ZN18QComboMenuDelegate11editorEventEP6QEventP18QAbstractItemModelRK20QStyleOptionViewItemRK11QModelIndex
 inline bool QComboMenuDelegate::editorEvent(QEvent *event, QAbstractItemModel *model,
                                      const QStyleOptionViewItem &option, const QModelIndex &index)
@@ -130,11 +207,9 @@ inline bool QComboMenuDelegate::editorEvent(QEvent *event, QAbstractItemModel *m
     return model->setData(index, newState, Qt::CheckStateRole);
 }
 
-//  from src/widgets/widgets/qcombobox.cpp, line 392, as _ZN17QComboBoxDelegate11isSeparatorERK11QModelIndex
-inline bool QComboBoxDelegate::isSeparator(const QModelIndex &index)
-{
-    return index.data(Qt::AccessibleDescriptionRole).toString() == "separator"_L1;
-}
+//  from src/widgets/widgets/qcombobox.cpp, line 232, as _ZN18QComboMenuDelegateD0Ev
+inline QComboMenuDelegate::~QComboMenuDelegate()
+    = default;
 
 //  from src/widgets/widgets/qcombobox.cpp, line 235, as _ZNK18QComboMenuDelegate5paintEP8QPainterRK20QStyleOptionViewItemRK11QModelIndex
 inline void QComboMenuDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option,
@@ -152,6 +227,18 @@ inline QSize QComboMenuDelegate::sizeHint(const QStyleOptionViewItem &option,
     const QStyleOptionMenuItem opt = getStyleOption(option, index);
     return mCombo->style()->sizeFromContents(QStyle::CT_MenuItem, &opt,
                                              option.rect.size(), mCombo);
+}
+
+//  from src/widgets/widgets/qcombobox.cpp, line 392, as _ZN17QComboBoxDelegate11isSeparatorERK11QModelIndex
+inline bool QComboBoxDelegate::isSeparator(const QModelIndex &index)
+{
+    return index.data(Qt::AccessibleDescriptionRole).toString() == "separator"_L1;
+}
+
+//  from src/widgets/widgets/qcombobox.cpp, line 227, as _ZN18QComboMenuDelegateC1EP7QObjectP9QComboBox
+inline QComboMenuDelegate::QComboMenuDelegate(QObject *parent, QComboBox *cmb)
+    : QAbstractItemDelegate(parent), mCombo(cmb), pressedIndex(-1)
+{
 }
 
 //  from src/widgets/widgets/qcombobox.cpp, line 251, as _ZNK18QComboMenuDelegate14getStyleOptionERK20QStyleOptionViewItemRK11QModelIndex
@@ -689,6 +776,23 @@ int ritual_ZN18QComboMenuDelegate11qt_metacallEN11QMetaObject4CallEiPPv(
     int a1,
     void **a2) {
   return self->qt_metacall(a0, a1, a2);
+}
+
+//  QString QComboMenuDelegate::tr(const char *s, const char *c, int n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN18QComboMenuDelegate2trEPKcS1_i(
+    const char *s,
+    const char *c,
+    int n) {
+  return new QString(QComboMenuDelegate::tr(s, c, n));
+}
+
+//  QComboMenuDelegate::QComboMenuDelegate(QObject *parent, QComboBox *cmb)
+extern "C" Q_DECL_EXPORT
+QComboMenuDelegate *ritual_ZN18QComboMenuDelegateC1EP7QObjectP9QComboBox(
+    QObject *parent,
+    QComboBox *cmb) {
+  return new CuteQComboMenuDelegate(parent, cmb);
 }
 
 //  QComboMenuDelegate::~QComboMenuDelegate()

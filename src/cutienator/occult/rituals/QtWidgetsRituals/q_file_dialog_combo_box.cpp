@@ -1,6 +1,11 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtWidgets/6.12.0/QtWidgets/private/qfiledialog_p.h, Qt 6.12.0. Changes
-//  made here are lost.
+//  QtWidgets/6.12.0/QtWidgets/private/qfiledialog_p.h, Qt 6.12.0.
+//  Edited by hand on 2026-11-26: added are 1 rituals that lean on what moc
+//  writes for a class of the part Qt keeps to itself, whose ritual file
+//  carries moc's output, drafted by a copy of the generator that lets those
+//  names through. A copy of a meta-object is a second one: 'qobject_cast'
+//  between it and Qt's own does not match. Kept as it is when the generator
+//  runs again.
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #if QT_CONFIG(filedialog)
@@ -315,6 +320,26 @@ inline void QUrlModel::setUrl(const QModelIndex &index, const QUrl &url, const Q
     }
 }
 
+//  from src/widgets/dialogs/qsidebar.cpp, line 353, as _ZN9QUrlModel7changedERK7QString
+inline void QUrlModel::changed(const QString &path)
+{
+    for (int i = 0; i < rowCount(); ++i) {
+        QModelIndex idx = index(i, 0);
+        if (idx.data(UrlRole).toUrl().toLocalFile() == path) {
+            setData(idx, idx.data(UrlRole).toUrl());
+        }
+    }
+}
+
+//  from src/widgets/dialogs/qfiledialog.cpp, line 4044, as _ZN19QFileDialogComboBox20setFileDialogPrivateEP18QFileDialogPrivate
+inline void QFileDialogComboBox::setFileDialogPrivate(QFileDialogPrivate *d_pointer) {
+    d_ptr = d_pointer;
+    urlModel = new QUrlModel(this);
+    urlModel->showFullPath = true;
+    urlModel->setFileSystemModel(d_ptr->model);
+    setModel(urlModel);
+}
+
 //  from src/widgets/dialogs/qfiledialog.cpp, line 1904, as _ZN19QFileDialogComboBox10setHistoryERK5QListI7QStringE
 inline void QFileDialogComboBox::setHistory(const QStringList &paths)
 {
@@ -340,6 +365,15 @@ QFileDialogComboBox *ritual_ZN19QFileDialogComboBoxC1EP7QWidget(
   return new QFileDialogComboBox(parent);
 }
 #endif  // defined(Q_OS_LINUX)
+
+//  void QFileDialogComboBox::setFileDialogPrivate(QFileDialogPrivate
+//      *d_pointer)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QFileDialogComboBox20setFileDialogPrivateEP18QFileDialogPrivate(
+    QFileDialogComboBox *self,
+    QFileDialogPrivate *d_pointer) {
+  self->setFileDialogPrivate(d_pointer);
+}
 
 //  void QFileDialogComboBox::showPopup()
 extern "C" Q_DECL_EXPORT

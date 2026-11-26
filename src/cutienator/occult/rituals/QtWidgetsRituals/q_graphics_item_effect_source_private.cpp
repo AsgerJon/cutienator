@@ -221,6 +221,18 @@ inline QPixmap QGraphicsItemEffectSourcePrivate::pixmap(Qt::CoordinateSystem sys
 }
 #endif  // QT_CONFIG(graphicseffect)
 
+//  from src/widgets/effects/qgraphicseffect.cpp, line 355, as _ZNK28QGraphicsEffectSourcePrivate15invalidateCacheENS_16InvalidateReasonE
+inline void QGraphicsEffectSourcePrivate::invalidateCache(InvalidateReason reason) const
+{
+    if (m_cachedMode != QGraphicsEffect::PadToEffectiveBoundingRect
+        && (reason == EffectRectChanged
+            || (reason == TransformChanged && m_cachedSystem == Qt::LogicalCoordinates))) {
+        return;
+    }
+
+    QPixmapCache::remove(m_cacheKey);
+}
+
 //  from src/widgets/graphicsview/qgraphicsitem.cpp, line 11062, as _ZNK32QGraphicsItemEffectSourcePrivate16paddedEffectRectEN2Qt16CoordinateSystemEN15QGraphicsEffect13PixmapPadModeERK6QRectFPb
 #if QT_CONFIG(graphicseffect)
 inline QRectF QGraphicsItemEffectSourcePrivate::paddedEffectRect(Qt::CoordinateSystem system, QGraphicsEffect::PixmapPadMode mode, const QRectF &sourceRect, bool *unpadded) const

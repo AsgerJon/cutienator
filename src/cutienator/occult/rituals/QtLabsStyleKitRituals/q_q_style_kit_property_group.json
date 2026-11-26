@@ -2,7 +2,7 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of QtLabsS",
     "tyleKit/6.12.0/QtLabsStyleKit/private/qqstylekitcontrolproperties_",
-    "p.h, Qt 6.12.0. Changes made here are lost."
+    "p.h, Qt 6.12.0. Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZNK23QQStyleKitPropertyGroup10metaObjectEv": [
@@ -14,6 +14,12 @@
     "ritual_ZN23QQStyleKitPropertyGroup11qt_metacallEN11QMetaObject4CallEiPPv": [
       "int", "address", "int", "int", "address"
     ],
+    "ritual_ZN23QQStyleKitPropertyGroup2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN23QQStyleKitPropertyGroupC1EN4QQSK13PropertyGroupEP7QObject": [
+      "address", "int", "address"
+    ],
     "ritual_ZNK23QQStyleKitPropertyGroup14propertyPathIdEN4QQSK8PropertyEN14PropertyPathId4FlagE": [
       "address", "address", "int", "int"
     ],
@@ -24,6 +30,9 @@
       "address", "address"
     ],
     "ritual_ZNK23QQStyleKitPropertyGroup9pathFlagsEv": ["int", "address"],
+    "ritual_ZN23QQStyleKitPropertyGroup41emitChangedForAllStylePropertiesRecursiveE6QFlagsINS_8EmitFlagEE": [
+      "nothing", "address", "int"
+    ],
     "ritual_ZN23QQStyleKitPropertyGroup17shouldEmitLocallyEv": [
       "bool", "address"
     ],

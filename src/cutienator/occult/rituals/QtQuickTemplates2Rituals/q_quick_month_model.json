@@ -2,7 +2,7 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of QtQuick",
     "Templates2/6.12.0/QtQuickTemplates2/private/qquickmonthmodel_p.h,",
-    "Qt 6.12.0. Changes made here are lost."
+    "Qt 6.12.0. Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZNK16QQuickMonthModel10metaObjectEv": ["address", "address"],
@@ -24,6 +24,9 @@
     "ritual_ZN16QQuickMonthModel13localeChangedEv": ["nothing", "address"],
     "ritual_ZN16QQuickMonthModel12titleChangedEv": ["nothing", "address"],
     "ritual_ZN16QQuickMonthModel6d_funcEv": ["address", "address"],
-    "ritual_ZNK16QQuickMonthModel6d_funcEv": ["address", "address"]
+    "ritual_ZNK16QQuickMonthModel6d_funcEv": ["address", "address"],
+    "ritual_own_ZNK16QQuickMonthModel8rowCountERK11QModelIndex": [
+      "int", "address", "address"
+    ]
   }
 }

@@ -5,9 +5,11 @@
 #include <QtGui/QtGui>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGui/6.12.0/QtGui/private/qtexturefilehandler_p.h>
-#include <QtGui/6.12.0/QtGui/private/qtexturefiledata_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qbytearray.h>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtGui/6.12.0/QtGui/private/qtexturefiledata_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGui/private/qtexturefilereader_p.h>
@@ -56,6 +58,15 @@ public:
     return {};
   }
 };
+
+//  QTextureFileHandler::QTextureFileHandler(QIODevice *device, const
+//      QByteArray &logName)
+extern "C" Q_DECL_EXPORT
+QTextureFileHandler *ritual_ZN19QTextureFileHandlerC1EP9QIODeviceRK10QByteArray(
+    QIODevice *device,
+    const QByteArray *logName) {
+  return new CuteQTextureFileHandler(device, *logName);
+}
 
 //  QTextureFileHandler::~QTextureFileHandler()
 extern "C" Q_DECL_EXPORT

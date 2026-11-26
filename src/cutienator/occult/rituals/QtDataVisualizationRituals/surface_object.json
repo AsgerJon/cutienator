@@ -5,6 +5,9 @@
     "Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN13SurfaceObjectC1EP17Surface3DRenderer": [
+      "address", "address"
+    ],
     "ritual_ZN13SurfaceObjectD1Ev": ["nothing", "address"],
     "ritual_ZN13SurfaceObject9smoothUVsERK5QListIPS0_I16QSurfaceDataItemEES6_": [
       "nothing", "address", "address", "address"

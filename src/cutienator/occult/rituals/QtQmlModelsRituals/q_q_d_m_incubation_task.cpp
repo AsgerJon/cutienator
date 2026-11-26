@@ -136,6 +136,20 @@ inline void QQDMIncubationTask::setInitialState(QObject *o)
     vdm->setInitialState(this, o);
 }
 
+//  from ../qtdeclarative/src/qmlmodels/qqmldelegatemodel.cpp, line 1237, as _ZN24QQmlDelegateModelPrivate15setInitialStateEP18QQDMIncubationTaskP7QObject
+inline void QQmlDelegateModelPrivate::setInitialState(QQDMIncubationTask *incubationTask, QObject *o)
+{
+    QQmlDelegateModelItem *cacheItem = incubationTask->incubating;
+    incubationTask->initializeRequiredProperties(
+            incubationTask->incubating, o, m_adaptorModel.delegateModelAccess);
+    cacheItem->setObject(o);
+
+    if (QQuickPackage *package = qmlobject_cast<QQuickPackage *>(o))
+        emitInitPackage(incubationTask, package);
+    else
+        emitInitItem(incubationTask, o);
+}
+
 //  from ../qtdeclarative/src/qmlmodels/qqmldelegatemodel.cpp, line 1190, as _ZN24QQmlDelegateModelPrivate22incubatorStatusChangedEP18QQDMIncubationTaskN13QQmlIncubator6StatusE
 inline void QQmlDelegateModelPrivate::incubatorStatusChanged(QQDMIncubationTask *incubationTask, QQmlIncubator::Status status)
 {
@@ -172,58 +186,6 @@ inline void QQmlDelegateModelPrivate::incubatorStatusChanged(QQDMIncubationTask 
             delete cacheItem;
         }
     }
-}
-
-//  from ../qtdeclarative/src/qmlmodels/qqmldelegatemodel.cpp, line 1237, as _ZN24QQmlDelegateModelPrivate15setInitialStateEP18QQDMIncubationTaskP7QObject
-inline void QQmlDelegateModelPrivate::setInitialState(QQDMIncubationTask *incubationTask, QObject *o)
-{
-    QQmlDelegateModelItem *cacheItem = incubationTask->incubating;
-    incubationTask->initializeRequiredProperties(
-            incubationTask->incubating, o, m_adaptorModel.delegateModelAccess);
-    cacheItem->setObject(o);
-
-    if (QQuickPackage *package = qmlobject_cast<QQuickPackage *>(o))
-        emitInitPackage(incubationTask, package);
-    else
-        emitInitItem(incubationTask, o);
-}
-
-//  from ../qtdeclarative/src/qmlmodels/qqmldelegatemodel.cpp, line 1180, as _ZN24QQmlDelegateModelPrivate15removeCacheItemEP21QQmlDelegateModelItem
-inline void QQmlDelegateModelPrivate::removeCacheItem(QQmlDelegateModelItem *cacheItem)
-{
-    int cidx = m_cache.lastIndexOf(cacheItem);
-    if (cidx >= 0) {
-        m_compositor.clearFlags(Compositor::Cache, cidx, 1, Compositor::CacheFlag);
-        m_cache.removeAt(cidx);
-    }
-    Q_ASSERT(m_cache.size() == m_compositor.count(Compositor::Cache));
-}
-
-//  from ../qtdeclarative/src/qmlmodels/qqmldelegatemodel.cpp, line 1096, as _ZN24QQmlDelegateModelPrivate16releaseIncubatorEP18QQDMIncubationTask
-inline void QQmlDelegateModelPrivate::releaseIncubator(QQDMIncubationTask *incubationTask)
-{
-    Q_Q(QQmlDelegateModel);
-    if (!incubationTask->isError())
-        incubationTask->clear();
-    m_finishedIncubating.append(incubationTask);
-    if (!m_incubatorCleanupScheduled) {
-        m_incubatorCleanupScheduled = true;
-        QCoreApplication::postEvent(q, new QEvent(QEvent::User));
-    }
-}
-
-//  from ../qtdeclarative/src/qmlmodels/qqmldelegatemodel.cpp, line 915, as _ZN24QQmlDelegateModelPrivate18emitCreatedPackageEP18QQDMIncubationTaskP13QQuickPackage
-inline void QQmlDelegateModelPrivate::emitCreatedPackage(QQDMIncubationTask *incubationTask, QQuickPackage *package)
-{
-    for (int i = 1; i < m_groupCount; ++i)
-        QQmlDelegateModelGroupPrivate::get(m_groups[i])->createdPackage(incubationTask->index[i], package);
-}
-
-//  from ../qtdeclarative/src/qmlmodels/qqmldelegatemodel.cpp, line 927, as _ZN24QQmlDelegateModelPrivate21emitDestroyingPackageEP13QQuickPackage
-inline void QQmlDelegateModelPrivate::emitDestroyingPackage(QQuickPackage *package)
-{
-    for (int i = 1; i < m_groupCount; ++i)
-        QQmlDelegateModelGroupPrivate::get(m_groups[i])->destroyingPackage(package);
 }
 
 //  from ../qtdeclarative/src/qmlmodels/qqmldelegatemodel.cpp, line 1004, as _ZN18QQDMIncubationTask28initializeRequiredPropertiesEP21QQmlDelegateModelItemP7QObjectN17QQmlDelegateModel19DelegateModelAccessE
@@ -314,11 +276,49 @@ inline void QQmlDelegateModelPrivate::emitInitPackage(QQDMIncubationTask *incuba
         QQmlDelegateModelGroupPrivate::get(m_groups[i])->initPackage(incubationTask->index[i], package);
 }
 
-//  from ../qtdeclarative/src/qmlmodels/qqmldelegatemodel.cpp, line 2994, as _ZN29QQmlDelegateModelGroupPrivate14createdPackageEiP13QQuickPackage
-inline void QQmlDelegateModelGroupPrivate::createdPackage(int index, QQuickPackage *package)
+//  from ../qtdeclarative/src/qmlmodels/qqmldelegatemodel.cpp, line 1180, as _ZN24QQmlDelegateModelPrivate15removeCacheItemEP21QQmlDelegateModelItem
+inline void QQmlDelegateModelPrivate::removeCacheItem(QQmlDelegateModelItem *cacheItem)
+{
+    int cidx = m_cache.lastIndexOf(cacheItem);
+    if (cidx >= 0) {
+        m_compositor.clearFlags(Compositor::Cache, cidx, 1, Compositor::CacheFlag);
+        m_cache.removeAt(cidx);
+    }
+    Q_ASSERT(m_cache.size() == m_compositor.count(Compositor::Cache));
+}
+
+//  from ../qtdeclarative/src/qmlmodels/qqmldelegatemodel.cpp, line 1096, as _ZN24QQmlDelegateModelPrivate16releaseIncubatorEP18QQDMIncubationTask
+inline void QQmlDelegateModelPrivate::releaseIncubator(QQDMIncubationTask *incubationTask)
+{
+    Q_Q(QQmlDelegateModel);
+    if (!incubationTask->isError())
+        incubationTask->clear();
+    m_finishedIncubating.append(incubationTask);
+    if (!m_incubatorCleanupScheduled) {
+        m_incubatorCleanupScheduled = true;
+        QCoreApplication::postEvent(q, new QEvent(QEvent::User));
+    }
+}
+
+//  from ../qtdeclarative/src/qmlmodels/qqmldelegatemodel.cpp, line 915, as _ZN24QQmlDelegateModelPrivate18emitCreatedPackageEP18QQDMIncubationTaskP13QQuickPackage
+inline void QQmlDelegateModelPrivate::emitCreatedPackage(QQDMIncubationTask *incubationTask, QQuickPackage *package)
+{
+    for (int i = 1; i < m_groupCount; ++i)
+        QQmlDelegateModelGroupPrivate::get(m_groups[i])->createdPackage(incubationTask->index[i], package);
+}
+
+//  from ../qtdeclarative/src/qmlmodels/qqmldelegatemodel.cpp, line 927, as _ZN24QQmlDelegateModelPrivate21emitDestroyingPackageEP13QQuickPackage
+inline void QQmlDelegateModelPrivate::emitDestroyingPackage(QQuickPackage *package)
+{
+    for (int i = 1; i < m_groupCount; ++i)
+        QQmlDelegateModelGroupPrivate::get(m_groups[i])->destroyingPackage(package);
+}
+
+//  from ../qtdeclarative/src/qmlmodels/qqmldelegatemodel.cpp, line 3000, as _ZN29QQmlDelegateModelGroupPrivate11initPackageEiP13QQuickPackage
+inline void QQmlDelegateModelGroupPrivate::initPackage(int index, QQuickPackage *package)
 {
     for (GroupEmitterListIt it = emitters.begin(), end = emitters.end(); it != end; ++it)
-        it->createdPackage(index, package);
+        it->initPackage(index, package);
 }
 
 //  from ../qtdeclarative/src/qmlmodels/qqmllistcompositor.cpp, line 316, as _ZNK18QQmlListCompositor5countENS_5GroupE
@@ -409,6 +409,14 @@ bool ritual_take_QQDMIncubationTask(
     const char *key,
     void *call) {
   return static_cast<CuteQQDMIncubationTask *>(self)->take(key, call);
+}
+
+//  void QQDMIncubationTask::setInitialState(QObject *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN18QQDMIncubationTask15setInitialStateEP7QObject(
+    QQDMIncubationTask *self,
+    QObject *a0) {
+  self->QQDMIncubationTask::setInitialState(a0);
 }
 
 #endif  // QT_CONFIG(qml_delegate_model)

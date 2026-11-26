@@ -2,7 +2,7 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtQuickEffects/6.12.0/QtQuickEffects/private/qgfxsourceproxy_p.h,",
-    "Qt 6.12.0. Changes made here are lost."
+    "Qt 6.12.0. Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZNK17QGfxSourceProxyME10metaObjectEv": ["address", "address"],
@@ -12,11 +12,25 @@
     "ritual_ZN17QGfxSourceProxyME11qt_metacallEN11QMetaObject4CallEiPPv": [
       "int", "address", "int", "int", "address"
     ],
+    "ritual_ZN17QGfxSourceProxyME2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN17QGfxSourceProxyMEC1EP10QQuickItem": ["address", "address"],
     "ritual_ZN17QGfxSourceProxyMED1Ev": ["nothing", "address"],
     "ritual_ZNK17QGfxSourceProxyME5inputEv": ["address", "address"],
+    "ritual_ZN17QGfxSourceProxyME8setInputEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QGfxSourceProxyME10resetInputEv": ["nothing", "address"],
     "ritual_ZNK17QGfxSourceProxyME6outputEv": ["address", "address"],
     "ritual_ZNK17QGfxSourceProxyME10sourceRectEv": ["address", "address"],
+    "ritual_ZN17QGfxSourceProxyME13setSourceRectERK6QRectF": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK17QGfxSourceProxyME8isActiveEv": ["bool", "address"],
+    "ritual_ZN17QGfxSourceProxyME16setInterpolationENS_13InterpolationE": [
+      "nothing", "address", "int"
+    ],
     "ritual_ZNK17QGfxSourceProxyME13interpolationEv": ["int", "address"],
     "ritual_ZN17QGfxSourceProxyME12updatePolishEv": ["nothing", "address"],
     "ritual_ZN17QGfxSourceProxyME12inputChangedEv": ["nothing", "address"],
@@ -29,9 +43,16 @@
       "nothing", "address"
     ],
     "ritual_ZN17QGfxSourceProxyME8repolishEv": ["nothing", "address"],
+    "ritual_ZN17QGfxSourceProxyME9setOutputEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QGfxSourceProxyME8useProxyEv": ["nothing", "address"],
     "ritual_ZN17QGfxSourceProxyME9findLayerEP10QQuickItem": [
       "address", "address"
     ],
-    "ritual_take_QGfxSourceProxyME": ["bool", "address", "chars", "address"]
+    "ritual_take_QGfxSourceProxyME": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN17QGfxSourceProxyME12updatePolishEv": [
+      "nothing", "address"
+    ]
   }
 }

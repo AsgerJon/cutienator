@@ -60,6 +60,23 @@ inline void QCoapResourceDiscoveryReplyPrivate::_q_setContent(const QHostAddress
     }
 }
 
+//  from ../qtcoap/src/coap/qcoapreply.cpp, line 62, as _ZN17QCoapReplyPrivate13_q_setContentERK12QHostAddressRK12QCoapMessageN6QtCoap12ResponseCodeE
+inline void QCoapReplyPrivate::_q_setContent(const QHostAddress &, const QCoapMessage &msg,
+                                      QtCoap::ResponseCode code)
+{
+    Q_Q(QCoapReply);
+
+    if (q->isFinished())
+        return;
+
+    message = msg;
+    responseCode = code;
+    seekBuffer(0);
+
+    if (QtCoap::isError(responseCode))
+        _q_setError(responseCode);
+}
+
 //  from ../qtcoap/src/coap/qcoapresourcediscoveryreply.cpp, line 104, as _ZN34QCoapResourceDiscoveryReplyPrivate25resourcesFromCoreLinkListERK12QHostAddressRK10QByteArray
 inline QList<QCoapResource>
 QCoapResourceDiscoveryReplyPrivate::resourcesFromCoreLinkList(const QHostAddress &sender,

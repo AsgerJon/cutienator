@@ -44,43 +44,6 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from ../qtdeclarative/src/quick/util/qquickanimation.cpp, line 848, as _ZN16QActionAnimationC1Ev
-inline QActionAnimation::QActionAnimation()
-    : QAbstractAnimationJob(), animAction(nullptr)
-{
-}
-
-//  from ../qtdeclarative/src/quick/util/qquickanimation.cpp, line 853, as _ZN16QActionAnimationC1EP24QAbstractAnimationAction
-inline QActionAnimation::QActionAnimation(QAbstractAnimationAction *action)
-    : QAbstractAnimationJob(), animAction(action)
-{
-}
-
-//  from ../qtdeclarative/src/quick/util/qquickanimation.cpp, line 858, as _ZN16QActionAnimationD1Ev
-inline QActionAnimation::~QActionAnimation()
-{
-    delete animAction;
-}
-
-//  from ../qtdeclarative/src/quick/util/qquickanimation.cpp, line 863, as _ZNK16QActionAnimation8durationEv
-inline int QActionAnimation::duration() const
-{
-    return 0;
-}
-
-//  from ../qtdeclarative/src/quick/util/qquickanimation.cpp, line 868, as _ZN16QActionAnimation13setAnimActionEP24QAbstractAnimationAction
-inline void QActionAnimation::setAnimAction(QAbstractAnimationAction *action)
-{
-    if (isRunning())
-        stop();
-    animAction = action;
-}
-
-//  from ../qtdeclarative/src/quick/util/qquickanimation.cpp, line 875, as _ZN16QActionAnimation17updateCurrentTimeEi
-inline void QActionAnimation::updateCurrentTime(int)
-{
-}
-
 //  from ../qtdeclarative/src/quick/util/qquickanimation.cpp, line 879, as _ZN16QActionAnimation11updateStateEN21QAbstractAnimationJob5StateES1_
 inline void QActionAnimation::updateState(State newState, State oldState)
 {
@@ -91,6 +54,17 @@ inline void QActionAnimation::updateState(State newState, State oldState)
             animAction->doAction();
         }
     }
+}
+
+//  from ../qtdeclarative/src/quick/util/qquickanimation.cpp, line 875, as _ZN16QActionAnimation17updateCurrentTimeEi
+inline void QActionAnimation::updateCurrentTime(int)
+{
+}
+
+//  from ../qtdeclarative/src/quick/util/qquickanimation.cpp, line 858, as _ZN16QActionAnimationD2Ev
+inline QActionAnimation::~QActionAnimation()
+{
+    delete animAction;
 }
 
 //  from ../qtdeclarative/src/quick/util/qquickanimation.cpp, line 890, as _ZNK16QActionAnimation14debugAnimationE6QDebug
@@ -105,6 +79,32 @@ inline void QActionAnimation::debugAnimation(QDebug d) const
             ++indentLevel;
         animAction->debugAction(d, indentLevel);
     }
+}
+
+//  from ../qtdeclarative/src/quick/util/qquickanimation.cpp, line 863, as _ZNK16QActionAnimation8durationEv
+inline int QActionAnimation::duration() const
+{
+    return 0;
+}
+
+//  from ../qtdeclarative/src/quick/util/qquickanimation.cpp, line 848, as _ZN16QActionAnimationC1Ev
+inline QActionAnimation::QActionAnimation()
+    : QAbstractAnimationJob(), animAction(nullptr)
+{
+}
+
+//  from ../qtdeclarative/src/quick/util/qquickanimation.cpp, line 853, as _ZN16QActionAnimationC1EP24QAbstractAnimationAction
+inline QActionAnimation::QActionAnimation(QAbstractAnimationAction *action)
+    : QAbstractAnimationJob(), animAction(action)
+{
+}
+
+//  from ../qtdeclarative/src/quick/util/qquickanimation.cpp, line 868, as _ZN16QActionAnimation13setAnimActionEP24QAbstractAnimationAction
+inline void QActionAnimation::setAnimAction(QAbstractAnimationAction *action)
+{
+    if (isRunning())
+        stop();
+    animAction = action;
 }
 //  -----------------------------------------------------------------------
 

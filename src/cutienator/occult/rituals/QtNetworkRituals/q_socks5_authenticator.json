@@ -5,6 +5,7 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN20QSocks5AuthenticatorC1Ev": ["address"],
     "ritual_ZN20QSocks5AuthenticatorD1Ev": ["nothing", "address"],
     "ritual_ZN20QSocks5Authenticator8methodIdEv": ["char", "address"],
     "ritual_ZN20QSocks5Authenticator17beginAuthenticateEP10QTcpSocketPb": [

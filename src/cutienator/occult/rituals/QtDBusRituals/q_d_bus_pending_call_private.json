@@ -2,13 +2,16 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtDBus/6.12.0/QtDBus/private/qdbuspendingcall_p.h, Qt 6.12.0.",
-    "Changes made here are lost."
+    "Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZN23QDBusPendingCallPrivateC1ERK12QDBusMessageP22QDBusConnectionPrivate": [
       "address", "address", "address"
     ],
     "ritual_ZN23QDBusPendingCallPrivate15waitForFinishedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QDBusPendingCallPrivate22waitForFinishedWithGuiEv": [
       "nothing", "address"
     ],
     "ritual_ZN23QDBusPendingCallPrivate12setMetaTypesEiPK9QMetaType": [

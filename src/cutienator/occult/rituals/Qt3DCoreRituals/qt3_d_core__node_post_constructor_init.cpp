@@ -1,14 +1,26 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  Qt3DCore/6.12.0/Qt3DCore/private/qnode_p.h, Qt 6.12.0. Changes made here
-//  are lost.
+//  Qt3DCore/6.12.0/Qt3DCore/private/qnode_p.h, Qt 6.12.0.
+//  Edited by hand on 2026-11-26: moc's output for
+//  'Qt3DCore::NodePostConstructorInit' is pasted in, cut from what the moc
+//  of Qt 6.12.0 writes for its header: Qt's library keeps it to itself;
+//  added are 2 rituals that lean on what moc writes for a class of the part
+//  Qt keeps to itself, whose ritual file carries moc's output, drafted by a
+//  copy of the generator that lets those names through. A copy of a meta-
+//  object is a second one: 'qobject_cast' between it and Qt's own does not
+//  match. Kept as it is when the generator runs again.
 #include <Qt3DCore/6.12.0/Qt3DCore/private/qt3dcore_global_p.h>
 #include <Qt3DCore/Qt3DCore>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <Qt3DCore/6.12.0/Qt3DCore/private/qnode_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
 #include <Qt3DCore/qnode.h>
 #include <Qt3DCore/private/qnode_p.h>
 #include <Qt3DCore/private/qscene_p.h>
@@ -35,6 +47,117 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  from Qt3DCore__Qt3DCore_NodePostConstructorInit.cpp, line 1, as moc:Qt3DCore::NodePostConstructorInit
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN8Qt3DCore23NodePostConstructorInitE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto Qt3DCore::NodePostConstructorInit::qt_create_metaobjectdata<qt_meta_tag_ZN8Qt3DCore23NodePostConstructorInitE_t>()
+{
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "Qt3DCore::NodePostConstructorInit",
+        "processNodes",
+        ""
+    };
+
+    QtMocHelpers::UintData qt_methods {
+        // Slot 'processNodes'
+        QtMocHelpers::SlotData<void()>(1, 2, QMC::AccessPublic, QMetaType::Void),
+    };
+    QtMocHelpers::UintData qt_properties {
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    return QtMocHelpers::metaObjectData<NodePostConstructorInit, qt_meta_tag_ZN8Qt3DCore23NodePostConstructorInitE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums);
+}
+Q_CONSTINIT const QMetaObject Qt3DCore::NodePostConstructorInit::staticMetaObject = { {
+    QMetaObject::SuperData::link<QObject::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN8Qt3DCore23NodePostConstructorInitE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN8Qt3DCore23NodePostConstructorInitE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN8Qt3DCore23NodePostConstructorInitE_t>.metaTypes,
+    nullptr
+} };
+
+void Qt3DCore::NodePostConstructorInit::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<NodePostConstructorInit *>(_o);
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        switch (_id) {
+        case 0: _t->processNodes(); break;
+        default: ;
+        }
+    }
+    (void)_a;
+}
+
+const QMetaObject *Qt3DCore::NodePostConstructorInit::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *Qt3DCore::NodePostConstructorInit::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN8Qt3DCore23NodePostConstructorInitE_t>.strings))
+        return static_cast<void*>(this);
+    return QObject::qt_metacast(_clname);
+}
+
+int Qt3DCore::NodePostConstructorInit::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QObject::qt_metacall(_c, _id, _a);
+    if (_id < 0)
+        return _id;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        if (_id < 1)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 1;
+    }
+    if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        if (_id < 1)
+            *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
+        _id -= 1;
+    }
+    return _id;
+}
+QT_WARNING_POP
+
+//  from ../qt3d/src/core/nodes/qnode.cpp, line 887, as _ZN8Qt3DCore23NodePostConstructorInit12processNodesEv
+namespace Qt3DCore {
+inline void NodePostConstructorInit::processNodes()
+{
+    Q_ASSERT(thread() == QThread::currentThread());
+    m_requestedProcessing = false;
+    while (!m_nodesToConstruct.empty()) {
+        auto node = m_nodesToConstruct.takeFirst();
+        node->_q_postConstructorInit();
+    }
+}
+}  // namespace Qt3DCore
+
+//  from ../qt3d/src/core/nodes/qnode.cpp, line 838, as _ZN8Qt3DCore23NodePostConstructorInitD0Ev
+namespace Qt3DCore {
+inline NodePostConstructorInit::~NodePostConstructorInit() {}
+}  // namespace Qt3DCore
+
+//  from ../qt3d/src/core/nodes/qnode.cpp, line 832, as _ZN8Qt3DCore23NodePostConstructorInitC1EP7QObject
+namespace Qt3DCore {
+inline NodePostConstructorInit::NodePostConstructorInit(QObject *parent)
+    : QObject(parent)
+    , m_requestedProcessing(false)
+{
+}
+}  // namespace Qt3DCore
 
 //  from ../qt3d/src/core/nodes/qnode.cpp, line 875, as _ZN8Qt3DCore23NodePostConstructorInit10removeNodeEPNS_5QNodeE
 namespace Qt3DCore {
@@ -259,6 +382,24 @@ int ritual_ZN8Qt3DCore23NodePostConstructorInit11qt_metacallEN11QMetaObject4Call
     int a1,
     void **a2) {
   return self->qt_metacall(a0, a1, a2);
+}
+
+//  QString Qt3DCore::NodePostConstructorInit::tr(const char *s, const char
+//      *c, int n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN8Qt3DCore23NodePostConstructorInit2trEPKcS2_i(
+    const char *s,
+    const char *c,
+    int n) {
+  return new QString(Qt3DCore::NodePostConstructorInit::tr(s, c, n));
+}
+
+//  Qt3DCore::NodePostConstructorInit::NodePostConstructorInit(QObject
+//      *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DCore::NodePostConstructorInit *ritual_ZN8Qt3DCore23NodePostConstructorInitC1EP7QObject(
+    QObject *parent) {
+  return new CuteQt3DCore_NodePostConstructorInit(parent);
 }
 
 //  Qt3DCore::NodePostConstructorInit::~NodePostConstructorInit()

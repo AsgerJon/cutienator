@@ -2,15 +2,41 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtWidgets/6.12.0/QtWidgets/private/qlistwidget_p.h, Qt 6.12.0.",
-    "Changes made here are lost."
+    "Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZN18QListWidgetPrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK18QListWidgetPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK18QListWidgetPrivate9listModelEv": ["address", "address"],
+    "ritual_ZN18QListWidgetPrivate5setupEv": ["nothing", "address"],
     "ritual_ZN18QListWidgetPrivate16clearConnectionsEv": [
       "nothing", "address"
     ],
+    "ritual_ZN18QListWidgetPrivate15emitItemPressedERK11QModelIndex": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QListWidgetPrivate15emitItemClickedERK11QModelIndex": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QListWidgetPrivate21emitItemDoubleClickedERK11QModelIndex": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QListWidgetPrivate17emitItemActivatedERK11QModelIndex": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QListWidgetPrivate15emitItemEnteredERK11QModelIndex": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QListWidgetPrivate15emitItemChangedERK11QModelIndex": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QListWidgetPrivate22emitCurrentItemChangedERK11QModelIndexS2_": [
+      "nothing", "address", "address", "address"
+    ],
     "ritual_ZN18QListWidgetPrivate4sortEv": ["nothing", "address"],
+    "ritual_ZN18QListWidgetPrivate11dataChangedERK11QModelIndexS2_": [
+      "nothing", "address", "address", "address"
+    ],
     "ritual_take_QListWidgetPrivate": ["bool", "address", "chars", "address"]
   }
 }

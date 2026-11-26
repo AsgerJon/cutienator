@@ -72,6 +72,15 @@ inline BackendNode::~BackendNode()
 }
 }  // namespace Qt3DAnimation::Animation
 
+//  from ../qt3d/src/animation/backend/skeleton.cpp, line 22, as _ZN13Qt3DAnimation9Animation8SkeletonC1Ev
+namespace Qt3DAnimation::Animation {
+using namespace Qt3DCore;
+inline Skeleton::Skeleton()
+    : BackendNode(Qt3DCore::QBackendNode::ReadWrite)
+{
+}
+}  // namespace Qt3DAnimation::Animation
+
 //  from ../qt3d/src/animation/backend/skeleton.cpp, line 27, as _ZN13Qt3DAnimation9Animation8Skeleton7cleanupEv
 namespace Qt3DAnimation::Animation {
 using namespace Qt3DCore;
@@ -82,6 +91,12 @@ inline void Skeleton::cleanup()
 }
 }  // namespace Qt3DAnimation::Animation
 //  -----------------------------------------------------------------------
+
+//  Qt3DAnimation::Animation::Skeleton::Skeleton()
+extern "C" Q_DECL_EXPORT
+Qt3DAnimation::Animation::Skeleton *ritual_ZN13Qt3DAnimation9Animation8SkeletonC1Ev() {
+  return new Qt3DAnimation::Animation::Skeleton();
+}
 
 //  void Qt3DAnimation::Animation::Skeleton::cleanup()
 extern "C" Q_DECL_EXPORT

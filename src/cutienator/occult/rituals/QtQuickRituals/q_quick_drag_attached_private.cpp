@@ -1,6 +1,11 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtQuick/6.12.0/QtQuick/private/qquickdrag_p_p.h, Qt 6.12.0. Changes made
-//  here are lost.
+//  QtQuick/6.12.0/QtQuick/private/qquickdrag_p_p.h, Qt 6.12.0.
+//  Edited by hand on 2026-11-26: added are 2 rituals that lean on what moc
+//  writes for a class of the part Qt keeps to itself, whose ritual file
+//  carries moc's output, drafted by a copy of the generator that lets those
+//  names through. A copy of a meta-object is a second one: 'qobject_cast'
+//  between it and Qt's own does not match. Kept as it is when the generator
+//  runs again.
 #include <QtQuick/qtquickglobal.h>
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
 #if QT_CONFIG(quick_draganddrop)
@@ -149,6 +154,35 @@ inline void QQuickDragAttachedPrivate::deliverEvent(QQuickWindow *window, QEvent
     inEvent = true;
     QQuickWindowPrivate::get(window)->deliveryAgentPrivate()->deliverDragEvent(&dragGrabber, event);
     inEvent = false;
+}
+
+//  from ../qtdeclarative/src/quick/items/qquickdrag.cpp, line 588, as _ZN25QQuickDragAttachedPrivate5startE6QFlagsIN2Qt10DropActionEE
+inline void QQuickDragAttachedPrivate::start(Qt::DropActions supportedActions)
+{
+    Q_Q(QQuickDragAttached);
+    Q_ASSERT(!active);
+
+    if (!mimeData)
+        mimeData = new QQuickDragMimeData;
+    if (!listening) {
+        QQuickItemPrivate::get(attachedItem)->addItemChangeListener(
+                this, QQuickItemPrivate::Geometry | QQuickItemPrivate::Parent);
+        listening = true;
+    }
+
+    mimeData->m_supportedActions = supportedActions;
+    active = true;
+    itemMoved = false;
+    dragRestarted = false;
+
+    deliverEnterEvent();
+
+    if (target != dragGrabber.target()) {
+        target = dragGrabber.target();
+        emit q->targetChanged();
+    }
+
+    emit q->activeChanged();
 }
 
 //  from ../qtdeclarative/src/quick/items/qquickdrag.cpp, line 870, as _ZN25QQuickDragAttachedPrivate9startDragE6QFlagsIN2Qt10DropActionEE7QPixmap
@@ -386,6 +420,12 @@ QQuickDragAttachedPrivate *ritual_ZN25QQuickDragAttachedPrivate3getEP18QQuickDra
   return QQuickDragAttachedPrivate::get(attached);
 }
 
+//  QQuickDragAttachedPrivate::QQuickDragAttachedPrivate()
+extern "C" Q_DECL_EXPORT
+QQuickDragAttachedPrivate *ritual_ZN25QQuickDragAttachedPrivateC1Ev() {
+  return new CuteQQuickDragAttachedPrivate();
+}
+
 //  void QQuickDragAttachedPrivate::itemGeometryChanged(QQuickItem *a0,
 //      QQuickGeometryChange a1, const QRectF &a2)
 extern "C" Q_DECL_EXPORT
@@ -450,6 +490,14 @@ void ritual_ZN25QQuickDragAttachedPrivate12deliverEventEP12QQuickWindowP6QEvent(
     QQuickWindow *window,
     QEvent *event) {
   self->deliverEvent(window, event);
+}
+
+//  void QQuickDragAttachedPrivate::start(Qt::DropActions supportedActions)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QQuickDragAttachedPrivate5startE6QFlagsIN2Qt10DropActionEE(
+    QQuickDragAttachedPrivate *self,
+    int supportedActions) {
+  self->start(QFlags<Qt::DropAction>::fromInt(supportedActions));
 }
 
 //  Qt::DropAction QQuickDragAttachedPrivate::startDrag(Qt::DropActions

@@ -1,6 +1,13 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtGraphs/6.12.0/QtGraphs/private/arearenderer_p.h, Qt 6.12.0. Changes
-//  made here are lost.
+//  QtGraphs/6.12.0/QtGraphs/private/arearenderer_p.h, Qt 6.12.0.
+//  Edited by hand on 2026-11-26: moc's output for 'AreaRenderer' is pasted
+//  in, cut from what the moc of Qt 6.12.0 writes for its header: Qt's
+//  library keeps it to itself; added are 1 rituals that lean on what moc
+//  writes for a class of the part Qt keeps to itself, whose ritual file
+//  carries moc's output, drafted by a copy of the generator that lets those
+//  names through. A copy of a meta-object is a second one: 'qobject_cast'
+//  between it and Qt's own does not match. Kept as it is when the generator
+//  runs again.
 #include <QtGui/qtguiglobal.h>
 #include <QtQuick/qtquickglobal.h>
 #include <QtGraphs/qgraphsglobal.h>
@@ -11,6 +18,7 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGraphs/6.12.0/QtGraphs/private/arearenderer_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 #include <QtCore/qrect.h>
 #include <QtCore/qpoint.h>
 #include <QtCore/qvariant.h>
@@ -19,19 +27,10 @@
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <QtGraphs/qabstractaxis.h>
-#if QT_CONFIG(graphs_2d_bar)
-#include <QtGraphs/QBarCategoryAxis>
-#endif
-#include <QtGraphs/QGraphsTheme>
-#include <QtGraphs/private/axisrenderer_p.h>
-#include <QtGraphs/private/qabstractaxis_p.h>
-#include <QtGraphs/private/qdatetimeaxis_p.h>
-#include <QtGraphs/private/qgraphsview_p.h>
-#include <QtGraphs/private/qvalueaxis_p.h>
-#include <QtGraphs/private/qlogvalueaxis_p.h>
-#include <QtQuick/private/qquickdraghandler_p.h>
-#include <QtGui/qfontmetrics.h>
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
 #include <QtGraphs/qareaseries.h>
 #if QT_CONFIG(graphs_2d_spline)
 #include <QtGraphs/qsplineseries.h>
@@ -51,6 +50,19 @@
 #include <QtGui/QRadialGradient>
 #include <QtGui/QConicalGradient>
 #endif
+#include <QtGraphs/qabstractaxis.h>
+#if QT_CONFIG(graphs_2d_bar)
+#include <QtGraphs/QBarCategoryAxis>
+#endif
+#include <QtGraphs/QGraphsTheme>
+#include <QtGraphs/private/axisrenderer_p.h>
+#include <QtGraphs/private/qabstractaxis_p.h>
+#include <QtGraphs/private/qdatetimeaxis_p.h>
+#include <QtGraphs/private/qgraphsview_p.h>
+#include <QtGraphs/private/qvalueaxis_p.h>
+#include <QtGraphs/private/qlogvalueaxis_p.h>
+#include <QtQuick/private/qquickdraghandler_p.h>
+#include <QtGui/qfontmetrics.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -59,6 +71,77 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  from QtGraphs__AreaRenderer.cpp, line 1, as moc:AreaRenderer
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN12AreaRendererE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto AreaRenderer::qt_create_metaobjectdata<qt_meta_tag_ZN12AreaRendererE_t>()
+{
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "AreaRenderer"
+    };
+
+    QtMocHelpers::UintData qt_methods {
+    };
+    QtMocHelpers::UintData qt_properties {
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    return QtMocHelpers::metaObjectData<AreaRenderer, qt_meta_tag_ZN12AreaRendererE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums);
+}
+Q_CONSTINIT const QMetaObject AreaRenderer::staticMetaObject = { {
+    QMetaObject::SuperData::link<QQuickItem::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN12AreaRendererE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN12AreaRendererE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN12AreaRendererE_t>.metaTypes,
+    nullptr
+} };
+
+void AreaRenderer::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<AreaRenderer *>(_o);
+    (void)_t;
+    (void)_c;
+    (void)_id;
+    (void)_a;
+}
+
+const QMetaObject *AreaRenderer::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *AreaRenderer::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN12AreaRendererE_t>.strings))
+        return static_cast<void*>(this);
+    return QQuickItem::qt_metacast(_clname);
+}
+
+int AreaRenderer::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QQuickItem::qt_metacall(_c, _id, _a);
+    return _id;
+}
+QT_WARNING_POP
+
+//  from ../qtgraphs/src/graphs2d/qsgrenderer/arearenderer.cpp, line 68, as _ZN12AreaRendererD0Ev
+inline AreaRenderer::~AreaRenderer()
+{
+    qDeleteAll(m_groups);
+}
 
 //  from ../qtgraphs/src/graphs2d/qsgrenderer/axisrenderer.cpp, line 193, as _ZNK12AxisRenderer8getAxisXEP15QAbstractSeries
 inline const AxisRenderer::AxisProperties &AxisRenderer::getAxisX(QAbstractSeries *series) const
@@ -1081,6 +1164,15 @@ int ritual_ZN12AreaRenderer11qt_metacallEN11QMetaObject4CallEiPPv(
     int a1,
     void **a2) {
   return self->qt_metacall(a0, a1, a2);
+}
+
+//  QString AreaRenderer::tr(const char *s, const char *c, int n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN12AreaRenderer2trEPKcS1_i(
+    const char *s,
+    const char *c,
+    int n) {
+  return new QString(AreaRenderer::tr(s, c, n));
 }
 
 //  AreaRenderer::~AreaRenderer()

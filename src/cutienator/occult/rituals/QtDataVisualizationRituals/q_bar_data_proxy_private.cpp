@@ -1,18 +1,30 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtDataVisualization/6.12.0/QtDataVisualization/private/qbardataproxy_p.h,
-//  Qt 6.12.0. Changes made here are lost.
+//  Qt 6.12.0.
+//  Edited by hand on 2026-11-26: moc's output for 'QBarDataProxyPrivate' is
+//  pasted in, cut from what the moc of Qt 6.12.0 writes for its header: Qt's
+//  library keeps it to itself; added are 2 rituals that lean on what moc
+//  writes for a class of the part Qt keeps to itself, whose ritual file
+//  carries moc's output, drafted by a copy of the generator that lets those
+//  names through. A copy of a meta-object is a second one: 'qobject_cast'
+//  between it and Qt's own does not match. Kept as it is when the generator
+//  runs again.
 #include <QtDataVisualization/6.12.0/QtDataVisualization/private/datavisualizationglobal_p.h>
 #include <QtDataVisualization/QtDataVisualization>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtDataVisualization/6.12.0/QtDataVisualization/private/qbardataproxy_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <QtDataVisualization/qbardataitem.h>
 #include <QtCore/qstring.h>
+#include <QtDataVisualization/qbardataitem.h>
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
 #include <QtCore/QPair>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
 #include <QtDataVisualization/private/qbardataproxy_p.h>
 #include <QtDataVisualization/private/qbar3dseries_p.h>
 #include <QtDataVisualization/private/qabstractdataproxy_p.h>
@@ -26,6 +38,71 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from QtDataVisualization__QBarDataProxyPrivate.cpp, line 1, as moc:QBarDataProxyPrivate
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN20QBarDataProxyPrivateE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto QBarDataProxyPrivate::qt_create_metaobjectdata<qt_meta_tag_ZN20QBarDataProxyPrivateE_t>()
+{
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "QBarDataProxyPrivate"
+    };
+
+    QtMocHelpers::UintData qt_methods {
+    };
+    QtMocHelpers::UintData qt_properties {
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    return QtMocHelpers::metaObjectData<QBarDataProxyPrivate, qt_meta_tag_ZN20QBarDataProxyPrivateE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums);
+}
+Q_CONSTINIT const QMetaObject QBarDataProxyPrivate::staticMetaObject = { {
+    QMetaObject::SuperData::link<QAbstractDataProxyPrivate::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN20QBarDataProxyPrivateE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN20QBarDataProxyPrivateE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN20QBarDataProxyPrivateE_t>.metaTypes,
+    nullptr
+} };
+
+void QBarDataProxyPrivate::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<QBarDataProxyPrivate *>(_o);
+    (void)_t;
+    (void)_c;
+    (void)_id;
+    (void)_a;
+}
+
+const QMetaObject *QBarDataProxyPrivate::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *QBarDataProxyPrivate::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN20QBarDataProxyPrivateE_t>.strings))
+        return static_cast<void*>(this);
+    return QAbstractDataProxyPrivate::qt_metacast(_clname);
+}
+
+int QBarDataProxyPrivate::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QAbstractDataProxyPrivate::qt_metacall(_c, _id, _a);
+    return _id;
+}
+QT_WARNING_POP
+
 //  from ../qtdatavis3d/src/datavisualization/data/qbardataproxy.cpp, line 757, as _ZN20QBarDataProxyPrivate9setSeriesEP17QAbstract3DSeries
 inline void QBarDataProxyPrivate::setSeries(QAbstract3DSeries *series)
 {
@@ -34,11 +111,39 @@ inline void QBarDataProxyPrivate::setSeries(QAbstract3DSeries *series)
     emit qptr()->seriesChanged(barSeries);
 }
 
+//  from ../qtdatavis3d/src/datavisualization/data/qbardataproxy.cpp, line 535, as _ZN20QBarDataProxyPrivateD0Ev
+inline QBarDataProxyPrivate::~QBarDataProxyPrivate()
+{
+    clearArray();
+}
+
+//  from ../qtdatavis3d/src/datavisualization/data/qabstractdataproxy.cpp, line 84, as _ZN25QAbstractDataProxyPrivateC2EP18QAbstractDataProxyNS0_8DataTypeE
+inline QAbstractDataProxyPrivate::QAbstractDataProxyPrivate(QAbstractDataProxy *q,
+                                                     QAbstractDataProxy::DataType type)
+    : QObject(0),
+      q_ptr(q),
+      m_type(type),
+      m_series(0)
+{
+}
+
+//  from ../qtdatavis3d/src/datavisualization/data/qabstractdataproxy.cpp, line 93, as _ZN25QAbstractDataProxyPrivateD2Ev
+inline QAbstractDataProxyPrivate::~QAbstractDataProxyPrivate()
+{
+}
+
 //  from ../qtdatavis3d/src/datavisualization/data/qabstractdataproxy.cpp, line 97, as _ZN25QAbstractDataProxyPrivate9setSeriesEP17QAbstract3DSeries
 inline void QAbstractDataProxyPrivate::setSeries(QAbstract3DSeries *series)
 {
     q_ptr->setParent(series);
     m_series = series;
+}
+
+//  from ../qtdatavis3d/src/datavisualization/data/qbardataproxy.cpp, line 529, as _ZN20QBarDataProxyPrivateC1EP13QBarDataProxy
+inline QBarDataProxyPrivate::QBarDataProxyPrivate(QBarDataProxy *q)
+    : QAbstractDataProxyPrivate(q, QAbstractDataProxy::DataTypeBar),
+      m_dataArray(new QBarDataArray)
+{
 }
 
 //  from ../qtdatavis3d/src/datavisualization/data/qbardataproxy.cpp, line 540, as _ZN20QBarDataProxyPrivate10resetArrayEP5QListIPS0_I12QBarDataItemEEPKS0_I7QStringES9_
@@ -476,6 +581,22 @@ int ritual_ZN20QBarDataProxyPrivate11qt_metacallEN11QMetaObject4CallEiPPv(
     int a1,
     void **a2) {
   return self->qt_metacall(a0, a1, a2);
+}
+
+//  QString QBarDataProxyPrivate::tr(const char *s, const char *c, int n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN20QBarDataProxyPrivate2trEPKcS1_i(
+    const char *s,
+    const char *c,
+    int n) {
+  return new QString(QBarDataProxyPrivate::tr(s, c, n));
+}
+
+//  QBarDataProxyPrivate::QBarDataProxyPrivate(QBarDataProxy *q)
+extern "C" Q_DECL_EXPORT
+QBarDataProxyPrivate *ritual_ZN20QBarDataProxyPrivateC1EP13QBarDataProxy(
+    QBarDataProxy *q) {
+  return new CuteQBarDataProxyPrivate(q);
 }
 
 //  QBarDataProxyPrivate::~QBarDataProxyPrivate()

@@ -41,6 +41,12 @@ inline bool QGeoShapePrivate::operator==(const QGeoShapePrivate &other) const
 {
     return type == other.type;
 }
+
+//  from ../qtpositioning/src/positioning/qgeoshape.cpp, line 25, as _ZN16QGeoShapePrivateC1EN9QGeoShape9ShapeTypeE
+inline QGeoShapePrivate::QGeoShapePrivate(QGeoShape::ShapeType type)
+:   type(type)
+{
+}
 //  -----------------------------------------------------------------------
 
 //  A QGeoShapePrivate that Python can take functions over in. Every QGeoShapePrivate
@@ -168,6 +174,13 @@ public:
     return {};
   }
 };
+
+//  QGeoShapePrivate::QGeoShapePrivate(QGeoShape::ShapeType type)
+extern "C" Q_DECL_EXPORT
+QGeoShapePrivate *ritual_ZN16QGeoShapePrivateC1EN9QGeoShape9ShapeTypeE(
+    QGeoShape::ShapeType type) {
+  return new CuteQGeoShapePrivate(type);
+}
 
 //  QGeoShapePrivate::~QGeoShapePrivate()
 extern "C" Q_DECL_EXPORT

@@ -39,6 +39,15 @@ QTimerPrivate *ritual_ZN13QTimerPrivateC1EP6QTimer(QTimer *qq) {
   return new QTimerPrivate(qq);
 }
 
+//  QTimerPrivate::QTimerPrivate(std::chrono::nanoseconds nsec, QChronoTimer
+//      *qq)
+extern "C" Q_DECL_EXPORT
+QTimerPrivate *ritual_ZN13QTimerPrivateC1ENSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEP12QChronoTimer(
+    long long nsec,
+    QChronoTimer *qq) {
+  return new QTimerPrivate(std::chrono::nanoseconds(nsec), qq);
+}
+
 //  QTimerPrivate::~QTimerPrivate()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN13QTimerPrivateD1Ev(QTimerPrivate *self) {

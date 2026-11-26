@@ -2,7 +2,7 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtQuick/6.12.0/QtQuick/private/qquickpositioners_p.h, Qt 6.12.0.",
-    "Changes made here are lost."
+    "Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZNK24QQuickPositionerAttached10metaObjectEv": [
@@ -14,12 +14,27 @@
     "ritual_ZN24QQuickPositionerAttached11qt_metacallEN11QMetaObject4CallEiPPv": [
       "int", "address", "int", "int", "address"
     ],
+    "ritual_ZN24QQuickPositionerAttached2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN24QQuickPositionerAttachedC1EP7QObject": [
+      "address", "address"
+    ],
     "ritual_ZNK24QQuickPositionerAttached5indexEv": ["int", "address"],
+    "ritual_ZN24QQuickPositionerAttached8setIndexEi": [
+      "nothing", "address", "int"
+    ],
     "ritual_ZNK24QQuickPositionerAttached11isFirstItemEv": [
       "bool", "address"
     ],
+    "ritual_ZN24QQuickPositionerAttached14setIsFirstItemEb": [
+      "nothing", "address", "bool"
+    ],
     "ritual_ZNK24QQuickPositionerAttached10isLastItemEv": [
       "bool", "address"
+    ],
+    "ritual_ZN24QQuickPositionerAttached13setIsLastItemEb": [
+      "nothing", "address", "bool"
     ],
     "ritual_ZN24QQuickPositionerAttached12indexChangedEv": [
       "nothing", "address"

@@ -1,8 +1,8 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "QtGraphs/6.12.0/QtGraphs/private/axisticker_p.h, Qt 6.12.0.",
-    "Changes made here are lost."
+    "QtGraphs/6.12.0/QtGraphs/private/axisticker_p.h, Qt 6.12.0. Edited",
+    "by hand: see the ritual file."
   ],
   "parts first": [
     "QtGraphs", "QtCore", "QtGui", "QtQuick", "QtQml", "QtQmlIntegration"
@@ -15,24 +15,63 @@
     "ritual_ZN10AxisTicker11qt_metacallEN11QMetaObject4CallEiPPv": [
       "int", "address", "int", "int", "address"
     ],
+    "ritual_ZN10AxisTicker2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN10AxisTickerC1EP10QQuickItem": ["address", "address"],
     "ritual_ZN10AxisTickerD1Ev": ["nothing", "address"],
     "ritual_ZN10AxisTicker12setupShadersEv": ["nothing", "address"],
     "ritual_ZNK10AxisTicker11iResolutionEv": ["address", "address"],
     "ritual_ZNK10AxisTicker9smoothingEv": ["double", "address"],
+    "ritual_ZN10AxisTicker12setSmoothingEd": [
+      "nothing", "address", "double"
+    ],
     "ritual_ZNK10AxisTicker5origoEv": ["int", "address"],
+    "ritual_ZN10AxisTicker8setOrigoEi": ["nothing", "address", "int"],
     "ritual_ZNK10AxisTicker15subTicksVisibleEv": ["bool", "address"],
+    "ritual_ZN10AxisTicker18setSubTicksVisibleEb": [
+      "nothing", "address", "bool"
+    ],
     "ritual_ZNK10AxisTicker7spacingEv": ["double", "address"],
+    "ritual_ZN10AxisTicker10setSpacingEd": ["nothing", "address", "double"],
     "ritual_ZNK10AxisTicker12displacementEv": ["double", "address"],
+    "ritual_ZN10AxisTicker15setDisplacementEd": [
+      "nothing", "address", "double"
+    ],
     "ritual_ZNK10AxisTicker12subTickColorEv": ["address", "address"],
+    "ritual_ZN10AxisTicker15setSubTickColorE6QColor": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK10AxisTicker9tickColorEv": ["address", "address"],
+    "ritual_ZN10AxisTicker12setTickColorE6QColor": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK10AxisTicker16subTickLineWidthEv": ["double", "address"],
+    "ritual_ZN10AxisTicker19setSubTickLineWidthEd": [
+      "nothing", "address", "double"
+    ],
     "ritual_ZNK10AxisTicker13tickLineWidthEv": ["double", "address"],
+    "ritual_ZN10AxisTicker16setTickLineWidthEd": [
+      "nothing", "address", "double"
+    ],
     "ritual_ZNK10AxisTicker12subTickScaleEv": ["double", "address"],
+    "ritual_ZN10AxisTicker15setSubTickScaleEd": [
+      "nothing", "address", "double"
+    ],
     "ritual_ZNK10AxisTicker13subTickLengthEv": ["double", "address"],
+    "ritual_ZN10AxisTicker16setSubTickLengthEd": [
+      "nothing", "address", "double"
+    ],
     "ritual_ZNK10AxisTicker12isHorizontalEv": ["bool", "address"],
+    "ritual_ZN10AxisTicker15setIsHorizontalEb": [
+      "nothing", "address", "bool"
+    ],
     "ritual_ZNK10AxisTicker9isFlippedEv": ["bool", "address"],
+    "ritual_ZN10AxisTicker10setFlippedEb": ["nothing", "address", "bool"],
     "ritual_ZNK10AxisTicker13isLogarithmicEv": ["bool", "address"],
+    "ritual_ZN10AxisTicker14setLogarithmicEb": [
+      "nothing", "address", "bool"
+    ],
     "ritual_ZNK10AxisTicker4baseEv": ["double", "address"],
+    "ritual_ZN10AxisTicker7setBaseEd": ["nothing", "address", "double"],
     "ritual_ZN10AxisTicker17componentCompleteEv": ["nothing", "address"],
     "ritual_ZN10AxisTicker14geometryChangeERK6QRectFS2_": [
       "nothing", "address", "address", "address"
@@ -58,6 +97,9 @@
     "ritual_ZN10AxisTicker18logarithmicChangedEv": ["nothing", "address"],
     "ritual_ZN10AxisTicker11baseChangedEv": ["nothing", "address"],
     "ritual_take_AxisTicker": ["bool", "address", "chars", "address"],
-    "ritual_own_ZN10AxisTicker17componentCompleteEv": ["nothing", "address"]
+    "ritual_own_ZN10AxisTicker17componentCompleteEv": ["nothing", "address"],
+    "ritual_own_ZN10AxisTicker14geometryChangeERK6QRectFS2_": [
+      "nothing", "address", "address", "address"
+    ]
   }
 }

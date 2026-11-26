@@ -25,6 +25,7 @@
 #include <QtGui/QImage>
 #include <QtGui/QPainter>
 #include <QtCore/QTime>
+#include <QtDataVisualization/private/abstractobjecthelper_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -145,6 +146,50 @@ inline void SeriesRenderCache::cleanup(TextureHelper *texHelper)
         texHelper->deleteTexture(&m_singleHighlightGradientTexture);
         texHelper->deleteTexture(&m_multiHighlightGradientTexture);
     }
+}
+
+//  from ../qtdatavis3d/src/datavisualization/utils/abstractobjecthelper.cpp, line 8, as _ZN20AbstractObjectHelperC2Ev
+inline AbstractObjectHelper::AbstractObjectHelper()
+    : m_vertexbuffer(0),
+      m_normalbuffer(0),
+      m_uvbuffer(0),
+      m_elementbuffer(0),
+      m_indexCount(0),
+      m_meshDataLoaded(false)
+{
+    initializeOpenGLFunctions();
+}
+
+//  from ../qtdatavis3d/src/datavisualization/utils/abstractobjecthelper.cpp, line 19, as _ZN20AbstractObjectHelperD2Ev
+inline AbstractObjectHelper::~AbstractObjectHelper()
+{
+    if (QOpenGLContext::currentContext()) {
+        glDeleteBuffers(1, &m_vertexbuffer);
+        glDeleteBuffers(1, &m_uvbuffer);
+        glDeleteBuffers(1, &m_normalbuffer);
+        glDeleteBuffers(1, &m_elementbuffer);
+    }
+}
+
+//  from ../qtdatavis3d/src/datavisualization/utils/surfaceobject.cpp, line 25, as _ZN13SurfaceObjectD1Ev
+inline SurfaceObject::~SurfaceObject()
+{
+    if (QOpenGLContext::currentContext()) {
+        glDeleteBuffers(1, &m_gridElementbuffer);
+        glDeleteBuffers(1, &m_uvTextureBuffer);
+    }
+}
+
+//  from ../qtdatavis3d/src/datavisualization/utils/surfaceobject.cpp, line 861, as _ZN13SurfaceObject5uvBufEv
+inline GLuint SurfaceObject::uvBuf()
+{
+    if (!m_meshDataLoaded)
+        qFatal("No loaded object");
+
+    if (m_returnTextureBuffer)
+        return m_uvTextureBuffer;
+    else
+        return m_uvbuffer;
 }
 //  -----------------------------------------------------------------------
 

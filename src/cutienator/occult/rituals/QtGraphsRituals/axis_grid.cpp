@@ -1,6 +1,12 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtGraphs/6.12.0/QtGraphs/private/axisgrid_p.h, Qt 6.12.0. Changes made
-//  here are lost.
+//  QtGraphs/6.12.0/QtGraphs/private/axisgrid_p.h, Qt 6.12.0.
+//  Edited by hand on 2026-11-26: moc's output for 'AxisGrid' is pasted in,
+//  cut from what the moc of Qt 6.12.0 writes for its header: Qt's library
+//  keeps it to itself; added are 20 rituals that lean on what moc writes for
+//  a class of the part Qt keeps to itself, whose ritual file carries moc's
+//  output, drafted by a copy of the generator that lets those names through.
+//  A copy of a meta-object is a second one: 'qobject_cast' between it and
+//  Qt's own does not match. Kept as it is when the generator runs again.
 #include <QtQuick/qtquickglobal.h>
 #include <QtGui/qtguiglobal.h>
 #include <QtGraphs/qgraphsglobal.h>
@@ -11,6 +17,7 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGraphs/6.12.0/QtGraphs/private/axisgrid_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 #include <QtGui/qvectornd.h>
 #include <QtCore/qpoint.h>
 #include <QtGui/qcolor.h>
@@ -21,6 +28,10 @@
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
 #include <QtGraphs/private/axisgrid_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
@@ -31,12 +42,423 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from ../qtgraphs/src/graphs2d/axis/axisgrid.cpp, line 17, as _ZN8AxisGrid17componentCompleteEv
-inline void AxisGrid::componentComplete()
+//  from QtGraphs__AxisGrid.cpp, line 1, as moc:AxisGrid
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN8AxisGridE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto AxisGrid::qt_create_metaobjectdata<qt_meta_tag_ZN8AxisGridE_t>()
 {
-    QQuickShaderEffect::componentComplete();
-    setupShaders();
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "AxisGrid",
+        "iResolutionChanged",
+        "",
+        "smoothingChanged",
+        "origoChanged",
+        "gridVisibilityChanged",
+        "gridWidthChanged",
+        "gridHeightChanged",
+        "gridMovementChanged",
+        "subGridColorChanged",
+        "gridColorChanged",
+        "plotAreaBackgroundColorChanged",
+        "subGridLineWidthChanged",
+        "gridLineWidthChanged",
+        "verticalSubGridScaleChanged",
+        "horizontalSubGridScaleChanged",
+        "verticalLogarithmicChanged",
+        "logarithmic",
+        "horizontalLogarithmicChanged",
+        "verticalBaseChanged",
+        "base",
+        "horizontalBaseChanged",
+        "iResolution",
+        "QVector3D",
+        "smoothing",
+        "origo",
+        "gridVisibility",
+        "QVector4D",
+        "gridWidth",
+        "gridHeight",
+        "gridMovement",
+        "QPointF",
+        "subGridColor",
+        "QColor",
+        "gridColor",
+        "plotAreaBackgroundColor",
+        "subGridLineWidth",
+        "gridLineWidth",
+        "verticalSubGridScale",
+        "horizontalSubGridScale",
+        "verticalLogarithmic",
+        "horizontalLogarithmic",
+        "verticalBase",
+        "horizontalBase"
+    };
+
+    QtMocHelpers::UintData qt_methods {
+        // Signal 'iResolutionChanged'
+        QtMocHelpers::SignalData<void()>(1, 2, QMC::AccessPublic, QMetaType::Void),
+        // Signal 'smoothingChanged'
+        QtMocHelpers::SignalData<void()>(3, 2, QMC::AccessPublic, QMetaType::Void),
+        // Signal 'origoChanged'
+        QtMocHelpers::SignalData<void()>(4, 2, QMC::AccessPublic, QMetaType::Void),
+        // Signal 'gridVisibilityChanged'
+        QtMocHelpers::SignalData<void()>(5, 2, QMC::AccessPublic, QMetaType::Void),
+        // Signal 'gridWidthChanged'
+        QtMocHelpers::SignalData<void()>(6, 2, QMC::AccessPublic, QMetaType::Void),
+        // Signal 'gridHeightChanged'
+        QtMocHelpers::SignalData<void()>(7, 2, QMC::AccessPublic, QMetaType::Void),
+        // Signal 'gridMovementChanged'
+        QtMocHelpers::SignalData<void()>(8, 2, QMC::AccessPublic, QMetaType::Void),
+        // Signal 'subGridColorChanged'
+        QtMocHelpers::SignalData<void()>(9, 2, QMC::AccessPublic, QMetaType::Void),
+        // Signal 'gridColorChanged'
+        QtMocHelpers::SignalData<void()>(10, 2, QMC::AccessPublic, QMetaType::Void),
+        // Signal 'plotAreaBackgroundColorChanged'
+        QtMocHelpers::SignalData<void()>(11, 2, QMC::AccessPublic, QMetaType::Void),
+        // Signal 'subGridLineWidthChanged'
+        QtMocHelpers::SignalData<void()>(12, 2, QMC::AccessPublic, QMetaType::Void),
+        // Signal 'gridLineWidthChanged'
+        QtMocHelpers::SignalData<void()>(13, 2, QMC::AccessPublic, QMetaType::Void),
+        // Signal 'verticalSubGridScaleChanged'
+        QtMocHelpers::SignalData<void()>(14, 2, QMC::AccessPublic, QMetaType::Void),
+        // Signal 'horizontalSubGridScaleChanged'
+        QtMocHelpers::SignalData<void()>(15, 2, QMC::AccessPublic, QMetaType::Void),
+        // Signal 'verticalLogarithmicChanged'
+        QtMocHelpers::RevisionedSignalData<void(bool)>(16, 2, QMC::AccessPublic, 0x60c, QMetaType::Void, {{
+            { QMetaType::Bool, 17 },
+        }}),
+        // Signal 'horizontalLogarithmicChanged'
+        QtMocHelpers::RevisionedSignalData<void(bool)>(18, 2, QMC::AccessPublic, 0x60c, QMetaType::Void, {{
+            { QMetaType::Bool, 17 },
+        }}),
+        // Signal 'verticalBaseChanged'
+        QtMocHelpers::RevisionedSignalData<void(qreal)>(19, 2, QMC::AccessPublic, 0x60c, QMetaType::Void, {{
+            { QMetaType::QReal, 20 },
+        }}),
+        // Signal 'horizontalBaseChanged'
+        QtMocHelpers::RevisionedSignalData<void(qreal)>(21, 2, QMC::AccessPublic, 0x60c, QMetaType::Void, {{
+            { QMetaType::QReal, 20 },
+        }}),
+    };
+    QtMocHelpers::UintData qt_properties {
+        // property 'iResolution'
+        QtMocHelpers::PropertyData<QVector3D>(22, 0x80000000 | 23, QMC::DefaultPropertyFlags | QMC::EnumOrFlag | QMC::Final, 0),
+        // property 'smoothing'
+        QtMocHelpers::PropertyData<qreal>(24, QMetaType::QReal, QMC::DefaultPropertyFlags | QMC::Writable | QMC::StdCppSet | QMC::Final, 1),
+        // property 'origo'
+        QtMocHelpers::PropertyData<int>(25, QMetaType::Int, QMC::DefaultPropertyFlags | QMC::Writable | QMC::StdCppSet | QMC::Final, 2),
+        // property 'gridVisibility'
+        QtMocHelpers::PropertyData<QVector4D>(26, 0x80000000 | 27, QMC::DefaultPropertyFlags | QMC::Writable | QMC::EnumOrFlag | QMC::StdCppSet | QMC::Final, 3),
+        // property 'gridWidth'
+        QtMocHelpers::PropertyData<qreal>(28, QMetaType::QReal, QMC::DefaultPropertyFlags | QMC::Writable | QMC::StdCppSet | QMC::Final, 4),
+        // property 'gridHeight'
+        QtMocHelpers::PropertyData<qreal>(29, QMetaType::QReal, QMC::DefaultPropertyFlags | QMC::Writable | QMC::StdCppSet | QMC::Final, 5),
+        // property 'gridMovement'
+        QtMocHelpers::PropertyData<QPointF>(30, 0x80000000 | 31, QMC::DefaultPropertyFlags | QMC::Writable | QMC::EnumOrFlag | QMC::StdCppSet | QMC::Final, 6),
+        // property 'subGridColor'
+        QtMocHelpers::PropertyData<QColor>(32, 0x80000000 | 33, QMC::DefaultPropertyFlags | QMC::Writable | QMC::EnumOrFlag | QMC::StdCppSet | QMC::Final, 7),
+        // property 'gridColor'
+        QtMocHelpers::PropertyData<QColor>(34, 0x80000000 | 33, QMC::DefaultPropertyFlags | QMC::Writable | QMC::EnumOrFlag | QMC::StdCppSet | QMC::Final, 8),
+        // property 'plotAreaBackgroundColor'
+        QtMocHelpers::PropertyData<QColor>(35, 0x80000000 | 33, QMC::DefaultPropertyFlags | QMC::Writable | QMC::EnumOrFlag | QMC::StdCppSet | QMC::Final, 9),
+        // property 'subGridLineWidth'
+        QtMocHelpers::PropertyData<qreal>(36, QMetaType::QReal, QMC::DefaultPropertyFlags | QMC::Writable | QMC::StdCppSet | QMC::Final, 10),
+        // property 'gridLineWidth'
+        QtMocHelpers::PropertyData<qreal>(37, QMetaType::QReal, QMC::DefaultPropertyFlags | QMC::Writable | QMC::StdCppSet | QMC::Final, 11),
+        // property 'verticalSubGridScale'
+        QtMocHelpers::PropertyData<qreal>(38, QMetaType::QReal, QMC::DefaultPropertyFlags | QMC::Writable | QMC::StdCppSet | QMC::Final, 12),
+        // property 'horizontalSubGridScale'
+        QtMocHelpers::PropertyData<qreal>(39, QMetaType::QReal, QMC::DefaultPropertyFlags | QMC::Writable | QMC::StdCppSet | QMC::Final, 13),
+        // property 'verticalLogarithmic'
+        QtMocHelpers::PropertyData<bool>(40, QMetaType::Bool, QMC::DefaultPropertyFlags | QMC::Writable | QMC::StdCppSet, 14, 0x60c),
+        // property 'horizontalLogarithmic'
+        QtMocHelpers::PropertyData<bool>(41, QMetaType::Bool, QMC::DefaultPropertyFlags | QMC::Writable | QMC::StdCppSet, 15, 0x60c),
+        // property 'verticalBase'
+        QtMocHelpers::PropertyData<qreal>(42, QMetaType::QReal, QMC::DefaultPropertyFlags | QMC::Writable | QMC::StdCppSet, 16, 0x60c),
+        // property 'horizontalBase'
+        QtMocHelpers::PropertyData<qreal>(43, QMetaType::QReal, QMC::DefaultPropertyFlags | QMC::Writable | QMC::StdCppSet, 17, 0x60c),
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    return QtMocHelpers::metaObjectData<AxisGrid, qt_meta_tag_ZN8AxisGridE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums);
 }
+Q_CONSTINIT const QMetaObject AxisGrid::staticMetaObject = { {
+    QMetaObject::SuperData::link<QQuickShaderEffect::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN8AxisGridE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN8AxisGridE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN8AxisGridE_t>.metaTypes,
+    nullptr
+} };
+
+void AxisGrid::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<AxisGrid *>(_o);
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        switch (_id) {
+        case 0: _t->iResolutionChanged(); break;
+        case 1: _t->smoothingChanged(); break;
+        case 2: _t->origoChanged(); break;
+        case 3: _t->gridVisibilityChanged(); break;
+        case 4: _t->gridWidthChanged(); break;
+        case 5: _t->gridHeightChanged(); break;
+        case 6: _t->gridMovementChanged(); break;
+        case 7: _t->subGridColorChanged(); break;
+        case 8: _t->gridColorChanged(); break;
+        case 9: _t->plotAreaBackgroundColorChanged(); break;
+        case 10: _t->subGridLineWidthChanged(); break;
+        case 11: _t->gridLineWidthChanged(); break;
+        case 12: _t->verticalSubGridScaleChanged(); break;
+        case 13: _t->horizontalSubGridScaleChanged(); break;
+        case 14: _t->verticalLogarithmicChanged((*reinterpret_cast<std::add_pointer_t<bool>>(_a[1]))); break;
+        case 15: _t->horizontalLogarithmicChanged((*reinterpret_cast<std::add_pointer_t<bool>>(_a[1]))); break;
+        case 16: _t->verticalBaseChanged((*reinterpret_cast<std::add_pointer_t<qreal>>(_a[1]))); break;
+        case 17: _t->horizontalBaseChanged((*reinterpret_cast<std::add_pointer_t<qreal>>(_a[1]))); break;
+        default: ;
+        }
+    }
+    if (_c == QMetaObject::IndexOfMethod) {
+        if (QtMocHelpers::indexOfMethod<void (AxisGrid::*)()>(_a, &AxisGrid::iResolutionChanged, 0))
+            return;
+        if (QtMocHelpers::indexOfMethod<void (AxisGrid::*)()>(_a, &AxisGrid::smoothingChanged, 1))
+            return;
+        if (QtMocHelpers::indexOfMethod<void (AxisGrid::*)()>(_a, &AxisGrid::origoChanged, 2))
+            return;
+        if (QtMocHelpers::indexOfMethod<void (AxisGrid::*)()>(_a, &AxisGrid::gridVisibilityChanged, 3))
+            return;
+        if (QtMocHelpers::indexOfMethod<void (AxisGrid::*)()>(_a, &AxisGrid::gridWidthChanged, 4))
+            return;
+        if (QtMocHelpers::indexOfMethod<void (AxisGrid::*)()>(_a, &AxisGrid::gridHeightChanged, 5))
+            return;
+        if (QtMocHelpers::indexOfMethod<void (AxisGrid::*)()>(_a, &AxisGrid::gridMovementChanged, 6))
+            return;
+        if (QtMocHelpers::indexOfMethod<void (AxisGrid::*)()>(_a, &AxisGrid::subGridColorChanged, 7))
+            return;
+        if (QtMocHelpers::indexOfMethod<void (AxisGrid::*)()>(_a, &AxisGrid::gridColorChanged, 8))
+            return;
+        if (QtMocHelpers::indexOfMethod<void (AxisGrid::*)()>(_a, &AxisGrid::plotAreaBackgroundColorChanged, 9))
+            return;
+        if (QtMocHelpers::indexOfMethod<void (AxisGrid::*)()>(_a, &AxisGrid::subGridLineWidthChanged, 10))
+            return;
+        if (QtMocHelpers::indexOfMethod<void (AxisGrid::*)()>(_a, &AxisGrid::gridLineWidthChanged, 11))
+            return;
+        if (QtMocHelpers::indexOfMethod<void (AxisGrid::*)()>(_a, &AxisGrid::verticalSubGridScaleChanged, 12))
+            return;
+        if (QtMocHelpers::indexOfMethod<void (AxisGrid::*)()>(_a, &AxisGrid::horizontalSubGridScaleChanged, 13))
+            return;
+        if (QtMocHelpers::indexOfMethod<void (AxisGrid::*)(bool )>(_a, &AxisGrid::verticalLogarithmicChanged, 14))
+            return;
+        if (QtMocHelpers::indexOfMethod<void (AxisGrid::*)(bool )>(_a, &AxisGrid::horizontalLogarithmicChanged, 15))
+            return;
+        if (QtMocHelpers::indexOfMethod<void (AxisGrid::*)(qreal )>(_a, &AxisGrid::verticalBaseChanged, 16))
+            return;
+        if (QtMocHelpers::indexOfMethod<void (AxisGrid::*)(qreal )>(_a, &AxisGrid::horizontalBaseChanged, 17))
+            return;
+    }
+    if (_c == QMetaObject::ReadProperty) {
+        void *_v = _a[0];
+        switch (_id) {
+        case 0: *reinterpret_cast<QVector3D*>(_v) = _t->iResolution(); break;
+        case 1: *reinterpret_cast<qreal*>(_v) = _t->smoothing(); break;
+        case 2: *reinterpret_cast<int*>(_v) = _t->origo(); break;
+        case 3: *reinterpret_cast<QVector4D*>(_v) = _t->gridVisibility(); break;
+        case 4: *reinterpret_cast<qreal*>(_v) = _t->gridWidth(); break;
+        case 5: *reinterpret_cast<qreal*>(_v) = _t->gridHeight(); break;
+        case 6: *reinterpret_cast<QPointF*>(_v) = _t->gridMovement(); break;
+        case 7: *reinterpret_cast<QColor*>(_v) = _t->subGridColor(); break;
+        case 8: *reinterpret_cast<QColor*>(_v) = _t->gridColor(); break;
+        case 9: *reinterpret_cast<QColor*>(_v) = _t->plotAreaBackgroundColor(); break;
+        case 10: *reinterpret_cast<qreal*>(_v) = _t->subGridLineWidth(); break;
+        case 11: *reinterpret_cast<qreal*>(_v) = _t->gridLineWidth(); break;
+        case 12: *reinterpret_cast<qreal*>(_v) = _t->verticalSubGridScale(); break;
+        case 13: *reinterpret_cast<qreal*>(_v) = _t->horizontalSubGridScale(); break;
+        case 14: *reinterpret_cast<bool*>(_v) = _t->isVerticalLogarithmic(); break;
+        case 15: *reinterpret_cast<bool*>(_v) = _t->isHorizontalLogarithmic(); break;
+        case 16: *reinterpret_cast<qreal*>(_v) = _t->verticalBase(); break;
+        case 17: *reinterpret_cast<qreal*>(_v) = _t->horizontalBase(); break;
+        default: break;
+        }
+    }
+    if (_c == QMetaObject::WriteProperty) {
+        void *_v = _a[0];
+        switch (_id) {
+        case 1: _t->setSmoothing(*reinterpret_cast<qreal*>(_v)); break;
+        case 2: _t->setOrigo(*reinterpret_cast<int*>(_v)); break;
+        case 3: _t->setGridVisibility(*reinterpret_cast<QVector4D*>(_v)); break;
+        case 4: _t->setGridWidth(*reinterpret_cast<qreal*>(_v)); break;
+        case 5: _t->setGridHeight(*reinterpret_cast<qreal*>(_v)); break;
+        case 6: _t->setGridMovement(*reinterpret_cast<QPointF*>(_v)); break;
+        case 7: _t->setSubGridColor(*reinterpret_cast<QColor*>(_v)); break;
+        case 8: _t->setGridColor(*reinterpret_cast<QColor*>(_v)); break;
+        case 9: _t->setPlotAreaBackgroundColor(*reinterpret_cast<QColor*>(_v)); break;
+        case 10: _t->setSubGridLineWidth(*reinterpret_cast<qreal*>(_v)); break;
+        case 11: _t->setGridLineWidth(*reinterpret_cast<qreal*>(_v)); break;
+        case 12: _t->setVerticalSubGridScale(*reinterpret_cast<qreal*>(_v)); break;
+        case 13: _t->setHorizontalSubGridScale(*reinterpret_cast<qreal*>(_v)); break;
+        case 14: _t->setVerticalLogarithmic(*reinterpret_cast<bool*>(_v)); break;
+        case 15: _t->setHorizontalLogarithmic(*reinterpret_cast<bool*>(_v)); break;
+        case 16: _t->setVerticalBase(*reinterpret_cast<qreal*>(_v)); break;
+        case 17: _t->setHorizontalBase(*reinterpret_cast<qreal*>(_v)); break;
+        default: break;
+        }
+    }
+}
+
+const QMetaObject *AxisGrid::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *AxisGrid::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN8AxisGridE_t>.strings))
+        return static_cast<void*>(this);
+    return QQuickShaderEffect::qt_metacast(_clname);
+}
+
+int AxisGrid::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QQuickShaderEffect::qt_metacall(_c, _id, _a);
+    if (_id < 0)
+        return _id;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        if (_id < 18)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 18;
+    }
+    if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        if (_id < 18)
+            *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
+        _id -= 18;
+    }
+    if (_c == QMetaObject::ReadProperty || _c == QMetaObject::WriteProperty
+            || _c == QMetaObject::ResetProperty || _c == QMetaObject::BindableProperty
+            || _c == QMetaObject::RegisterPropertyMetaType) {
+        qt_static_metacall(this, _c, _id, _a);
+        _id -= 18;
+    }
+    return _id;
+}
+
+// SIGNAL 0
+void AxisGrid::iResolutionChanged()
+{
+    QMetaObject::activate(this, &staticMetaObject, 0, nullptr);
+}
+
+// SIGNAL 1
+void AxisGrid::smoothingChanged()
+{
+    QMetaObject::activate(this, &staticMetaObject, 1, nullptr);
+}
+
+// SIGNAL 2
+void AxisGrid::origoChanged()
+{
+    QMetaObject::activate(this, &staticMetaObject, 2, nullptr);
+}
+
+// SIGNAL 3
+void AxisGrid::gridVisibilityChanged()
+{
+    QMetaObject::activate(this, &staticMetaObject, 3, nullptr);
+}
+
+// SIGNAL 4
+void AxisGrid::gridWidthChanged()
+{
+    QMetaObject::activate(this, &staticMetaObject, 4, nullptr);
+}
+
+// SIGNAL 5
+void AxisGrid::gridHeightChanged()
+{
+    QMetaObject::activate(this, &staticMetaObject, 5, nullptr);
+}
+
+// SIGNAL 6
+void AxisGrid::gridMovementChanged()
+{
+    QMetaObject::activate(this, &staticMetaObject, 6, nullptr);
+}
+
+// SIGNAL 7
+void AxisGrid::subGridColorChanged()
+{
+    QMetaObject::activate(this, &staticMetaObject, 7, nullptr);
+}
+
+// SIGNAL 8
+void AxisGrid::gridColorChanged()
+{
+    QMetaObject::activate(this, &staticMetaObject, 8, nullptr);
+}
+
+// SIGNAL 9
+void AxisGrid::plotAreaBackgroundColorChanged()
+{
+    QMetaObject::activate(this, &staticMetaObject, 9, nullptr);
+}
+
+// SIGNAL 10
+void AxisGrid::subGridLineWidthChanged()
+{
+    QMetaObject::activate(this, &staticMetaObject, 10, nullptr);
+}
+
+// SIGNAL 11
+void AxisGrid::gridLineWidthChanged()
+{
+    QMetaObject::activate(this, &staticMetaObject, 11, nullptr);
+}
+
+// SIGNAL 12
+void AxisGrid::verticalSubGridScaleChanged()
+{
+    QMetaObject::activate(this, &staticMetaObject, 12, nullptr);
+}
+
+// SIGNAL 13
+void AxisGrid::horizontalSubGridScaleChanged()
+{
+    QMetaObject::activate(this, &staticMetaObject, 13, nullptr);
+}
+
+// SIGNAL 14
+void AxisGrid::verticalLogarithmicChanged(bool _t1)
+{
+    QMetaObject::activate<void>(this, &staticMetaObject, 14, nullptr, _t1);
+}
+
+// SIGNAL 15
+void AxisGrid::horizontalLogarithmicChanged(bool _t1)
+{
+    QMetaObject::activate<void>(this, &staticMetaObject, 15, nullptr, _t1);
+}
+
+// SIGNAL 16
+void AxisGrid::verticalBaseChanged(qreal _t1)
+{
+    QMetaObject::activate<void>(this, &staticMetaObject, 16, nullptr, _t1);
+}
+
+// SIGNAL 17
+void AxisGrid::horizontalBaseChanged(qreal _t1)
+{
+    QMetaObject::activate<void>(this, &staticMetaObject, 17, nullptr, _t1);
+}
+QT_WARNING_POP
 
 //  from ../qtgraphs/src/graphs2d/axis/axisgrid.cpp, line 23, as _ZN8AxisGrid14geometryChangeERK6QRectFS2_
 inline void AxisGrid::geometryChange(const QRectF &newGeometry, const QRectF &oldGeometry)
@@ -45,6 +467,22 @@ inline void AxisGrid::geometryChange(const QRectF &newGeometry, const QRectF &ol
     emit iResolutionChanged();
 
     QQuickShaderEffect::geometryChange(newGeometry, oldGeometry);
+}
+
+//  from ../qtgraphs/src/graphs2d/axis/axisgrid.cpp, line 17, as _ZN8AxisGrid17componentCompleteEv
+inline void AxisGrid::componentComplete()
+{
+    QQuickShaderEffect::componentComplete();
+    setupShaders();
+}
+
+//  from ../qtgraphs/src/graphs2d/axis/axisgrid.cpp, line 15, as _ZN8AxisGridD0Ev
+inline AxisGrid::~AxisGrid() {}
+
+//  from ../qtgraphs/src/graphs2d/axis/axisgrid.cpp, line 10, as _ZN8AxisGridC1EP10QQuickItem
+inline AxisGrid::AxisGrid(QQuickItem *parent) :
+      QQuickShaderEffect(parent)
+{
 }
 
 //  from ../qtgraphs/src/graphs2d/axis/axisgrid.cpp, line 31, as _ZN8AxisGrid12setupShadersEv
@@ -66,10 +504,28 @@ inline qreal AxisGrid::smoothing() const
     return m_smoothing;
 }
 
+//  from ../qtgraphs/src/graphs2d/axis/axisgrid.cpp, line 47, as _ZN8AxisGrid12setSmoothingEd
+inline void AxisGrid::setSmoothing(qreal newSmoothing)
+{
+    if (QtPrivate::fuzzyCompare(m_smoothing, newSmoothing))
+        return;
+    m_smoothing = newSmoothing;
+    emit smoothingChanged();
+}
+
 //  from ../qtgraphs/src/graphs2d/axis/axisgrid.cpp, line 55, as _ZNK8AxisGrid5origoEv
 inline int AxisGrid::origo() const
 {
     return m_origo;
+}
+
+//  from ../qtgraphs/src/graphs2d/axis/axisgrid.cpp, line 60, as _ZN8AxisGrid8setOrigoEi
+inline void AxisGrid::setOrigo(int newOrigo)
+{
+    if (m_origo == newOrigo)
+        return;
+    m_origo = newOrigo;
+    emit origoChanged();
 }
 
 //  from ../qtgraphs/src/graphs2d/axis/axisgrid.cpp, line 68, as _ZNK8AxisGrid14gridVisibilityEv
@@ -78,10 +534,28 @@ inline QVector4D AxisGrid::gridVisibility() const
     return m_gridVisibility;
 }
 
+//  from ../qtgraphs/src/graphs2d/axis/axisgrid.cpp, line 73, as _ZN8AxisGrid17setGridVisibilityERK9QVector4D
+inline void AxisGrid::setGridVisibility(const QVector4D &newGridVisibility)
+{
+    if (m_gridVisibility == newGridVisibility)
+        return;
+    m_gridVisibility = newGridVisibility;
+    emit gridVisibilityChanged();
+}
+
 //  from ../qtgraphs/src/graphs2d/axis/axisgrid.cpp, line 81, as _ZNK8AxisGrid9gridWidthEv
 inline qreal AxisGrid::gridWidth() const
 {
     return m_gridWidth;
+}
+
+//  from ../qtgraphs/src/graphs2d/axis/axisgrid.cpp, line 86, as _ZN8AxisGrid12setGridWidthEd
+inline void AxisGrid::setGridWidth(qreal newGridWidth)
+{
+    if (QtPrivate::fuzzyCompare(m_gridWidth, newGridWidth))
+        return;
+    m_gridWidth = newGridWidth;
+    emit gridWidthChanged();
 }
 
 //  from ../qtgraphs/src/graphs2d/axis/axisgrid.cpp, line 94, as _ZNK8AxisGrid10gridHeightEv
@@ -90,10 +564,28 @@ inline qreal AxisGrid::gridHeight() const
     return m_gridHeight;
 }
 
+//  from ../qtgraphs/src/graphs2d/axis/axisgrid.cpp, line 99, as _ZN8AxisGrid13setGridHeightEd
+inline void AxisGrid::setGridHeight(qreal newGridHeight)
+{
+    if (QtPrivate::fuzzyCompare(m_gridHeight, newGridHeight))
+        return;
+    m_gridHeight = newGridHeight;
+    emit gridHeightChanged();
+}
+
 //  from ../qtgraphs/src/graphs2d/axis/axisgrid.cpp, line 107, as _ZNK8AxisGrid12gridMovementEv
 inline QPointF AxisGrid::gridMovement() const
 {
     return m_gridMovement;
+}
+
+//  from ../qtgraphs/src/graphs2d/axis/axisgrid.cpp, line 112, as _ZN8AxisGrid15setGridMovementE7QPointF
+inline void AxisGrid::setGridMovement(QPointF newGridMovement)
+{
+    if (m_gridMovement == newGridMovement)
+        return;
+    m_gridMovement = newGridMovement;
+    emit gridMovementChanged();
 }
 
 //  from ../qtgraphs/src/graphs2d/axis/axisgrid.cpp, line 120, as _ZNK8AxisGrid12subGridColorEv
@@ -102,10 +594,28 @@ inline QColor AxisGrid::subGridColor() const
     return m_subGridColor;
 }
 
+//  from ../qtgraphs/src/graphs2d/axis/axisgrid.cpp, line 125, as _ZN8AxisGrid15setSubGridColorE6QColor
+inline void AxisGrid::setSubGridColor(QColor newSubGridColor)
+{
+    if (m_subGridColor == newSubGridColor)
+        return;
+    m_subGridColor = newSubGridColor;
+    emit subGridColorChanged();
+}
+
 //  from ../qtgraphs/src/graphs2d/axis/axisgrid.cpp, line 133, as _ZNK8AxisGrid9gridColorEv
 inline QColor AxisGrid::gridColor() const
 {
     return m_gridColor;
+}
+
+//  from ../qtgraphs/src/graphs2d/axis/axisgrid.cpp, line 138, as _ZN8AxisGrid12setGridColorE6QColor
+inline void AxisGrid::setGridColor(QColor newGridColor)
+{
+    if (m_gridColor == newGridColor)
+        return;
+    m_gridColor = newGridColor;
+    emit gridColorChanged();
 }
 
 //  from ../qtgraphs/src/graphs2d/axis/axisgrid.cpp, line 146, as _ZNK8AxisGrid23plotAreaBackgroundColorEv
@@ -114,10 +624,28 @@ inline QColor AxisGrid::plotAreaBackgroundColor() const
     return m_plotAreaBackgroundColor;
 }
 
+//  from ../qtgraphs/src/graphs2d/axis/axisgrid.cpp, line 151, as _ZN8AxisGrid26setPlotAreaBackgroundColorE6QColor
+inline void AxisGrid::setPlotAreaBackgroundColor(QColor color)
+{
+    if (m_plotAreaBackgroundColor == color)
+        return;
+    m_plotAreaBackgroundColor = color;
+    emit plotAreaBackgroundColorChanged();
+}
+
 //  from ../qtgraphs/src/graphs2d/axis/axisgrid.cpp, line 159, as _ZNK8AxisGrid16subGridLineWidthEv
 inline qreal AxisGrid::subGridLineWidth() const
 {
     return m_subGridLineWidth;
+}
+
+//  from ../qtgraphs/src/graphs2d/axis/axisgrid.cpp, line 164, as _ZN8AxisGrid19setSubGridLineWidthEd
+inline void AxisGrid::setSubGridLineWidth(qreal newSubGridLineWidth)
+{
+    if (QtPrivate::fuzzyCompare(m_subGridLineWidth, newSubGridLineWidth))
+        return;
+    m_subGridLineWidth = newSubGridLineWidth;
+    emit subGridLineWidthChanged();
 }
 
 //  from ../qtgraphs/src/graphs2d/axis/axisgrid.cpp, line 172, as _ZNK8AxisGrid13gridLineWidthEv
@@ -126,10 +654,28 @@ inline qreal AxisGrid::gridLineWidth() const
     return m_gridLineWidth;
 }
 
+//  from ../qtgraphs/src/graphs2d/axis/axisgrid.cpp, line 177, as _ZN8AxisGrid16setGridLineWidthEd
+inline void AxisGrid::setGridLineWidth(qreal newGridLineWidth)
+{
+    if (QtPrivate::fuzzyCompare(m_gridLineWidth, newGridLineWidth))
+        return;
+    m_gridLineWidth = newGridLineWidth;
+    emit gridLineWidthChanged();
+}
+
 //  from ../qtgraphs/src/graphs2d/axis/axisgrid.cpp, line 185, as _ZNK8AxisGrid20verticalSubGridScaleEv
 inline qreal AxisGrid::verticalSubGridScale() const
 {
     return m_verticalSubGridScale;
+}
+
+//  from ../qtgraphs/src/graphs2d/axis/axisgrid.cpp, line 190, as _ZN8AxisGrid23setVerticalSubGridScaleEd
+inline void AxisGrid::setVerticalSubGridScale(qreal newVerticalSubGridScale)
+{
+    if (QtPrivate::fuzzyCompare(m_verticalSubGridScale, newVerticalSubGridScale))
+        return;
+    m_verticalSubGridScale = newVerticalSubGridScale;
+    emit verticalSubGridScaleChanged();
 }
 
 //  from ../qtgraphs/src/graphs2d/axis/axisgrid.cpp, line 198, as _ZNK8AxisGrid22horizontalSubGridScaleEv
@@ -138,10 +684,28 @@ inline qreal AxisGrid::horizontalSubGridScale() const
     return m_horizontalSubGridScale;
 }
 
+//  from ../qtgraphs/src/graphs2d/axis/axisgrid.cpp, line 203, as _ZN8AxisGrid25setHorizontalSubGridScaleEd
+inline void AxisGrid::setHorizontalSubGridScale(qreal newHorizontalSubGridScale)
+{
+    if (QtPrivate::fuzzyCompare(m_horizontalSubGridScale, newHorizontalSubGridScale))
+        return;
+    m_horizontalSubGridScale = newHorizontalSubGridScale;
+    emit horizontalSubGridScaleChanged();
+}
+
 //  from ../qtgraphs/src/graphs2d/axis/axisgrid.cpp, line 211, as _ZNK8AxisGrid21isVerticalLogarithmicEv
 inline bool AxisGrid::isVerticalLogarithmic() const
 {
     return m_isVerticalLogarithmic;
+}
+
+//  from ../qtgraphs/src/graphs2d/axis/axisgrid.cpp, line 216, as _ZN8AxisGrid22setVerticalLogarithmicEb
+inline void AxisGrid::setVerticalLogarithmic(bool newLogarithmic)
+{
+    if (m_isVerticalLogarithmic == newLogarithmic)
+        return;
+    m_isVerticalLogarithmic = newLogarithmic;
+    emit verticalLogarithmicChanged(newLogarithmic);
 }
 
 //  from ../qtgraphs/src/graphs2d/axis/axisgrid.cpp, line 224, as _ZNK8AxisGrid23isHorizontalLogarithmicEv
@@ -150,10 +714,28 @@ inline bool AxisGrid::isHorizontalLogarithmic() const
     return m_isHorizontalLogarithmic;
 }
 
+//  from ../qtgraphs/src/graphs2d/axis/axisgrid.cpp, line 229, as _ZN8AxisGrid24setHorizontalLogarithmicEb
+inline void AxisGrid::setHorizontalLogarithmic(bool newLogarithmic)
+{
+    if (m_isHorizontalLogarithmic == newLogarithmic)
+        return;
+    m_isHorizontalLogarithmic = newLogarithmic;
+    emit horizontalLogarithmicChanged(newLogarithmic);
+}
+
 //  from ../qtgraphs/src/graphs2d/axis/axisgrid.cpp, line 237, as _ZNK8AxisGrid12verticalBaseEv
 inline qreal AxisGrid::verticalBase() const
 {
     return m_verticalBase;
+}
+
+//  from ../qtgraphs/src/graphs2d/axis/axisgrid.cpp, line 242, as _ZN8AxisGrid15setVerticalBaseEd
+inline void AxisGrid::setVerticalBase(qreal newBase)
+{
+    if (qFuzzyCompare(m_verticalBase, newBase))
+        return;
+    m_verticalBase = newBase;
+    emit verticalBaseChanged(newBase);
 }
 
 //  from ../qtgraphs/src/graphs2d/axis/axisgrid.cpp, line 250, as _ZNK8AxisGrid14horizontalBaseEv
@@ -161,12 +743,22 @@ inline qreal AxisGrid::horizontalBase() const
 {
     return m_horizontalBase;
 }
+
+//  from ../qtgraphs/src/graphs2d/axis/axisgrid.cpp, line 255, as _ZN8AxisGrid17setHorizontalBaseEd
+inline void AxisGrid::setHorizontalBase(qreal newBase)
+{
+    if (qFuzzyCompare(m_horizontalBase, newBase))
+        return;
+    m_horizontalBase = newBase;
+    emit verticalBaseChanged(newBase);
+}
 //  -----------------------------------------------------------------------
 
 //  Only a class built on AxisGrid may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
 struct OwnAxisGrid : AxisGrid {
   using AxisGrid::componentComplete;
+  using AxisGrid::geometryChange;
 };
 
 //  A AxisGrid that Python can take functions over in. Every AxisGrid
@@ -972,6 +1564,18 @@ int ritual_ZN8AxisGrid11qt_metacallEN11QMetaObject4CallEiPPv(
   return self->qt_metacall(a0, a1, a2);
 }
 
+//  QString AxisGrid::tr(const char *s, const char *c, int n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN8AxisGrid2trEPKcS1_i(const char *s, const char *c, int n) {
+  return new QString(AxisGrid::tr(s, c, n));
+}
+
+//  AxisGrid::AxisGrid(QQuickItem *parent)
+extern "C" Q_DECL_EXPORT
+AxisGrid *ritual_ZN8AxisGridC1EP10QQuickItem(QQuickItem *parent) {
+  return new CuteAxisGrid(parent);
+}
+
 //  AxisGrid::~AxisGrid()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN8AxisGridD1Ev(AxisGrid *self) {
@@ -996,10 +1600,22 @@ qreal ritual_ZNK8AxisGrid9smoothingEv(const AxisGrid *self) {
   return self->smoothing();
 }
 
+//  void AxisGrid::setSmoothing(qreal newSmoothing)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8AxisGrid12setSmoothingEd(AxisGrid *self, qreal newSmoothing) {
+  self->setSmoothing(newSmoothing);
+}
+
 //  int AxisGrid::origo() const
 extern "C" Q_DECL_EXPORT
 int ritual_ZNK8AxisGrid5origoEv(const AxisGrid *self) {
   return self->origo();
+}
+
+//  void AxisGrid::setOrigo(int newOrigo)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8AxisGrid8setOrigoEi(AxisGrid *self, int newOrigo) {
+  self->setOrigo(newOrigo);
 }
 
 //  QVector4D AxisGrid::gridVisibility() const
@@ -1008,10 +1624,24 @@ QVector4D *ritual_ZNK8AxisGrid14gridVisibilityEv(const AxisGrid *self) {
   return new QVector4D(self->gridVisibility());
 }
 
+//  void AxisGrid::setGridVisibility(const QVector4D &newGridVisibility)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8AxisGrid17setGridVisibilityERK9QVector4D(
+    AxisGrid *self,
+    const QVector4D *newGridVisibility) {
+  self->setGridVisibility(*newGridVisibility);
+}
+
 //  qreal AxisGrid::gridWidth() const
 extern "C" Q_DECL_EXPORT
 qreal ritual_ZNK8AxisGrid9gridWidthEv(const AxisGrid *self) {
   return self->gridWidth();
+}
+
+//  void AxisGrid::setGridWidth(qreal newGridWidth)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8AxisGrid12setGridWidthEd(AxisGrid *self, qreal newGridWidth) {
+  self->setGridWidth(newGridWidth);
 }
 
 //  qreal AxisGrid::gridHeight() const
@@ -1020,10 +1650,26 @@ qreal ritual_ZNK8AxisGrid10gridHeightEv(const AxisGrid *self) {
   return self->gridHeight();
 }
 
+//  void AxisGrid::setGridHeight(qreal newGridHeight)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8AxisGrid13setGridHeightEd(
+    AxisGrid *self,
+    qreal newGridHeight) {
+  self->setGridHeight(newGridHeight);
+}
+
 //  QPointF AxisGrid::gridMovement() const
 extern "C" Q_DECL_EXPORT
 QPointF *ritual_ZNK8AxisGrid12gridMovementEv(const AxisGrid *self) {
   return new QPointF(self->gridMovement());
+}
+
+//  void AxisGrid::setGridMovement(QPointF newGridMovement)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8AxisGrid15setGridMovementE7QPointF(
+    AxisGrid *self,
+    const QPointF *newGridMovement) {
+  self->setGridMovement(*newGridMovement);
 }
 
 //  QColor AxisGrid::subGridColor() const
@@ -1032,10 +1678,26 @@ QColor *ritual_ZNK8AxisGrid12subGridColorEv(const AxisGrid *self) {
   return new QColor(self->subGridColor());
 }
 
+//  void AxisGrid::setSubGridColor(QColor newSubGridColor)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8AxisGrid15setSubGridColorE6QColor(
+    AxisGrid *self,
+    const QColor *newSubGridColor) {
+  self->setSubGridColor(*newSubGridColor);
+}
+
 //  QColor AxisGrid::gridColor() const
 extern "C" Q_DECL_EXPORT
 QColor *ritual_ZNK8AxisGrid9gridColorEv(const AxisGrid *self) {
   return new QColor(self->gridColor());
+}
+
+//  void AxisGrid::setGridColor(QColor newGridColor)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8AxisGrid12setGridColorE6QColor(
+    AxisGrid *self,
+    const QColor *newGridColor) {
+  self->setGridColor(*newGridColor);
 }
 
 //  QColor AxisGrid::plotAreaBackgroundColor() const
@@ -1045,10 +1707,26 @@ QColor *ritual_ZNK8AxisGrid23plotAreaBackgroundColorEv(
   return new QColor(self->plotAreaBackgroundColor());
 }
 
+//  void AxisGrid::setPlotAreaBackgroundColor(QColor color)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8AxisGrid26setPlotAreaBackgroundColorE6QColor(
+    AxisGrid *self,
+    const QColor *color) {
+  self->setPlotAreaBackgroundColor(*color);
+}
+
 //  qreal AxisGrid::subGridLineWidth() const
 extern "C" Q_DECL_EXPORT
 qreal ritual_ZNK8AxisGrid16subGridLineWidthEv(const AxisGrid *self) {
   return self->subGridLineWidth();
+}
+
+//  void AxisGrid::setSubGridLineWidth(qreal newSubGridLineWidth)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8AxisGrid19setSubGridLineWidthEd(
+    AxisGrid *self,
+    qreal newSubGridLineWidth) {
+  self->setSubGridLineWidth(newSubGridLineWidth);
 }
 
 //  qreal AxisGrid::gridLineWidth() const
@@ -1057,10 +1735,26 @@ qreal ritual_ZNK8AxisGrid13gridLineWidthEv(const AxisGrid *self) {
   return self->gridLineWidth();
 }
 
+//  void AxisGrid::setGridLineWidth(qreal newGridLineWidth)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8AxisGrid16setGridLineWidthEd(
+    AxisGrid *self,
+    qreal newGridLineWidth) {
+  self->setGridLineWidth(newGridLineWidth);
+}
+
 //  qreal AxisGrid::verticalSubGridScale() const
 extern "C" Q_DECL_EXPORT
 qreal ritual_ZNK8AxisGrid20verticalSubGridScaleEv(const AxisGrid *self) {
   return self->verticalSubGridScale();
+}
+
+//  void AxisGrid::setVerticalSubGridScale(qreal newVerticalSubGridScale)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8AxisGrid23setVerticalSubGridScaleEd(
+    AxisGrid *self,
+    qreal newVerticalSubGridScale) {
+  self->setVerticalSubGridScale(newVerticalSubGridScale);
 }
 
 //  qreal AxisGrid::horizontalSubGridScale() const
@@ -1069,10 +1763,26 @@ qreal ritual_ZNK8AxisGrid22horizontalSubGridScaleEv(const AxisGrid *self) {
   return self->horizontalSubGridScale();
 }
 
+//  void AxisGrid::setHorizontalSubGridScale(qreal newHorizontalSubGridScale)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8AxisGrid25setHorizontalSubGridScaleEd(
+    AxisGrid *self,
+    qreal newHorizontalSubGridScale) {
+  self->setHorizontalSubGridScale(newHorizontalSubGridScale);
+}
+
 //  bool AxisGrid::isVerticalLogarithmic() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK8AxisGrid21isVerticalLogarithmicEv(const AxisGrid *self) {
   return self->isVerticalLogarithmic();
+}
+
+//  void AxisGrid::setVerticalLogarithmic(bool newLogarithmic)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8AxisGrid22setVerticalLogarithmicEb(
+    AxisGrid *self,
+    bool newLogarithmic) {
+  self->setVerticalLogarithmic(newLogarithmic);
 }
 
 //  bool AxisGrid::isHorizontalLogarithmic() const
@@ -1081,16 +1791,36 @@ bool ritual_ZNK8AxisGrid23isHorizontalLogarithmicEv(const AxisGrid *self) {
   return self->isHorizontalLogarithmic();
 }
 
+//  void AxisGrid::setHorizontalLogarithmic(bool newLogarithmic)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8AxisGrid24setHorizontalLogarithmicEb(
+    AxisGrid *self,
+    bool newLogarithmic) {
+  self->setHorizontalLogarithmic(newLogarithmic);
+}
+
 //  qreal AxisGrid::verticalBase() const
 extern "C" Q_DECL_EXPORT
 qreal ritual_ZNK8AxisGrid12verticalBaseEv(const AxisGrid *self) {
   return self->verticalBase();
 }
 
+//  void AxisGrid::setVerticalBase(qreal newBase)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8AxisGrid15setVerticalBaseEd(AxisGrid *self, qreal newBase) {
+  self->setVerticalBase(newBase);
+}
+
 //  qreal AxisGrid::horizontalBase() const
 extern "C" Q_DECL_EXPORT
 qreal ritual_ZNK8AxisGrid14horizontalBaseEv(const AxisGrid *self) {
   return self->horizontalBase();
+}
+
+//  void AxisGrid::setHorizontalBase(qreal newBase)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8AxisGrid17setHorizontalBaseEd(AxisGrid *self, qreal newBase) {
+  self->setHorizontalBase(newBase);
 }
 
 //  void AxisGrid::componentComplete()
@@ -1562,6 +2292,18 @@ bool ritual_take_AxisGrid(AxisGrid *self, const char *key, void *call) {
 extern "C" Q_DECL_EXPORT
 void ritual_own_ZN8AxisGrid17componentCompleteEv(AxisGrid *self) {
   static_cast<OwnAxisGrid *>(self)->OwnAxisGrid::componentComplete();
+}
+
+//  void AxisGrid::geometryChange(const QRectF &newGeometry, const QRectF
+//      &oldGeometry)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN8AxisGrid14geometryChangeERK6QRectFS2_(
+    AxisGrid *self,
+    const QRectF *newGeometry,
+    const QRectF *oldGeometry) {
+  static_cast<OwnAxisGrid *>(self)->OwnAxisGrid::geometryChange(
+      *newGeometry,
+      *oldGeometry);
 }
 
 #endif  // (QT_CONFIG(graphs_2d)) && (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom)))

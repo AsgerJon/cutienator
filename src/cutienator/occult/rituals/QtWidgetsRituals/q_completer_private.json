@@ -2,13 +2,16 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtWidgets/6.12.0/QtWidgets/private/qcompleter_p.h, Qt 6.12.0.",
-    "Changes made here are lost."
+    "Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZN17QCompleterPrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK17QCompleterPrivate6q_funcEv": ["address", "address"],
     "ritual_ZN17QCompleterPrivateC1Ev": ["address"],
     "ritual_ZN17QCompleterPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN17QCompleterPrivate4initEP18QAbstractItemModel": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN17QCompleterPrivate9showPopupERK5QRect": [
       "nothing", "address", "address"
     ],

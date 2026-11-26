@@ -10,6 +10,7 @@
   "rows": {
     "ritual_ZN24QScatterDataProxyPrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK24QScatterDataProxyPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN24QScatterDataProxyPrivateC1Ev": ["address"],
     "ritual_ZN24QScatterDataProxyPrivateD1Ev": ["nothing", "address"],
     "ritual_ZN24QScatterDataProxyPrivate10resetArrayEO5QListI16QScatterDataItemE": [
       "nothing", "address", "address"

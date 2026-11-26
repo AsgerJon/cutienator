@@ -250,6 +250,20 @@ inline bool QWebSocketHandshakeResponse::isValid() const
     return m_isValid;
 }
 
+//  from ../qtwebsockets/src/websockets/qwebsocketserver_p.cpp, line 28, as _ZN23QWebSocketServerPrivateC1ERK7QStringNS_7SslModeE
+inline QWebSocketServerPrivate::QWebSocketServerPrivate(const QString &serverName,
+                                                 QWebSocketServerPrivate::SslMode secureMode) :
+    QObjectPrivate(),
+    m_pTcpServer(nullptr),
+    m_serverName(serverName),
+    m_secureMode(secureMode),
+    m_pendingConnections(),
+    m_error(QWebSocketProtocol::CloseCodeNormal),
+    m_errorString(),
+    m_maxPendingConnections(30),
+    m_handshakeTimeout(10000)
+{}
+
 //  from ../qtwebsockets/src/websockets/qwebsocketserver_p.cpp, line 120, as _ZN23QWebSocketServerPrivate5closeEb
 inline void QWebSocketServerPrivate::close(bool aboutToDestroy)
 {
@@ -557,6 +571,15 @@ extern "C" Q_DECL_EXPORT
 const QWebSocketServer *ritual_ZNK23QWebSocketServerPrivate6q_funcEv(
     const QWebSocketServerPrivate *self) {
   return self->q_func();
+}
+
+//  QWebSocketServerPrivate::QWebSocketServerPrivate(const QString
+//      &serverName, SslMode secureMode)
+extern "C" Q_DECL_EXPORT
+QWebSocketServerPrivate *ritual_ZN23QWebSocketServerPrivateC1ERK7QStringNS_7SslModeE(
+    const QString *serverName,
+    QWebSocketServerPrivate::SslMode secureMode) {
+  return new CuteQWebSocketServerPrivate(*serverName, secureMode);
 }
 
 //  QWebSocketServerPrivate::~QWebSocketServerPrivate()

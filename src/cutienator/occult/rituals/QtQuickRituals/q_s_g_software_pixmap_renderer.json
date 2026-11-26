@@ -5,6 +5,9 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN25QSGSoftwarePixmapRendererC1EP16QSGRenderContext": [
+      "address", "address"
+    ],
     "ritual_ZN25QSGSoftwarePixmapRendererD1Ev": ["nothing", "address"],
     "ritual_ZN25QSGSoftwarePixmapRenderer11renderSceneEv": [
       "nothing", "address"

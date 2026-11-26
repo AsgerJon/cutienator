@@ -1,6 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtQml/6.12.0/QtQml/private/qv4regexpobject_p.h, Qt 6.12.0. Changes made
-//  here are lost.
+//  QtQml/6.12.0/QtQml/private/qv4regexpobject_p.h, Qt 6.12.0. Edited by hand
+//  on 2026-11-25, mended on 2026-11-26: added by hand, instances of
+//  templates of the class: 1. Kept as it is when the generator runs again.
 #include <QtCore/qglobal.h>
 #include <QtQml/6.12.0/QtQml/private/qtqmlglobal_p.h>
 #include <QtQml/QtQml>
@@ -102,4 +103,11 @@ QV4::ReturnedValue ritual_ZN3QV412RegExpObject11builtinExecEPNS_15ExecutionEngin
     QV4::ExecutionEngine *engine,
     const QV4::String *s) {
   return self->builtinExec(engine, s);
+}
+
+//  QV4::Heap::RegExp * QV4::RegExpObject::value<QV4::Heap::RegExp>() const
+extern "C" Q_DECL_EXPORT
+QV4::Heap::RegExp * ritual_ZNK3QV412RegExpObject5valueINS_4Heap6RegExpEEEPT_v(
+    const QV4::RegExpObject *self) {
+  return self->value<QV4::Heap::RegExp>();
 }

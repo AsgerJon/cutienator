@@ -194,6 +194,17 @@ inline QAccessible::State QAccessibleMdiSubWindow::state() const
 #endif  // QT_CONFIG(mdiarea)
 #endif  // QT_CONFIG(accessibility)
 
+//  from src/widgets/accessible/qaccessiblewidgets.cpp, line 395, as _ZN23QAccessibleMdiSubWindowC1EP7QWidget
+#if QT_CONFIG(accessibility)
+#if QT_CONFIG(mdiarea)
+inline QAccessibleMdiSubWindow::QAccessibleMdiSubWindow(QWidget *widget)
+    : QAccessibleWidgetV2(widget, QAccessible::Window)
+{
+    Q_ASSERT(qobject_cast<QMdiSubWindow *>(widget));
+}
+#endif  // QT_CONFIG(mdiarea)
+#endif  // QT_CONFIG(accessibility)
+
 //  from src/widgets/accessible/qaccessiblewidgets.cpp, line 473, as _ZNK23QAccessibleMdiSubWindow12mdiSubWindowEv
 #if QT_CONFIG(accessibility)
 #if QT_CONFIG(mdiarea)
@@ -762,6 +773,17 @@ public:
   }
 #endif  // QT_CONFIG(accessibility)
 };
+
+#if QT_CONFIG(accessibility)
+#if QT_CONFIG(mdiarea)
+//  QAccessibleMdiSubWindow::QAccessibleMdiSubWindow(QWidget *widget)
+extern "C" Q_DECL_EXPORT
+QAccessibleMdiSubWindow *ritual_ZN23QAccessibleMdiSubWindowC1EP7QWidget(
+    QWidget *widget) {
+  return new CuteQAccessibleMdiSubWindow(widget);
+}
+#endif  // QT_CONFIG(mdiarea)
+#endif  // QT_CONFIG(accessibility)
 
 //  QString QAccessibleMdiSubWindow::text(QAccessible::Text textType) const
 extern "C" Q_DECL_EXPORT

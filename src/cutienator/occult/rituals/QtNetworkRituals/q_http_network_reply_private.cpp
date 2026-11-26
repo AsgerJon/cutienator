@@ -10,6 +10,7 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtNetwork/6.12.0/QtNetwork/private/qhttpnetworkreply_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qurl.h>
 #include <QtCore/qbytearrayview.h>
 #include <QtCore/qbytearray.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -165,6 +166,66 @@ inline QHttpHeaders QHttpNetworkRequest::header() const
 inline QList<QByteArray> QHttpNetworkHeaderPrivate::headerFieldValues(QByteArrayView name) const
 {
     return parser.headerFieldValues(name);
+}
+
+//  from src/network/access/qhttpnetworkheader.cpp, line 48, as _ZN25QHttpNetworkHeaderPrivate14setHeaderFieldERK10QByteArrayS2_
+inline void QHttpNetworkHeaderPrivate::setHeaderField(const QByteArray &name, const QByteArray &data)
+{
+    parser.setHeaderField(name, data);
+}
+
+//  from src/network/access/qhttpnetworkheader.cpp, line 29, as _ZN25QHttpNetworkHeaderPrivate16setContentLengthEx
+inline void QHttpNetworkHeaderPrivate::setContentLength(qint64 length)
+{
+    setHeaderField("Content-Length", QByteArray::number(length));
+}
+
+//  from src/network/access/qhttpnetworkrequest.cpp, line 23, as _ZN26QHttpNetworkRequestPrivateC1ERKS_
+inline QHttpNetworkRequestPrivate::QHttpNetworkRequestPrivate(const QHttpNetworkRequestPrivate &other) // = default
+    : QHttpNetworkHeaderPrivate(other),
+      operation(other.operation),
+      customVerb(other.customVerb),
+      fullLocalServerName(other.fullLocalServerName),
+      priority(other.priority),
+      uploadByteDevice(other.uploadByteDevice),
+      autoDecompress(other.autoDecompress),
+      pipeliningAllowed(other.pipeliningAllowed),
+      http2Allowed(other.http2Allowed),
+      http2Direct(other.http2Direct),
+      h2cAllowed(other.h2cAllowed),
+      withCredentials(other.withCredentials),
+      ssl(other.ssl),
+      preConnect(other.preConnect),
+      needResendWithCredentials(other.needResendWithCredentials),
+      redirectCount(other.redirectCount),
+      redirectPolicy(other.redirectPolicy),
+      peerVerifyName(other.peerVerifyName)
+{
+}
+
+//  from src/network/access/qhttpnetworkreply.cpp, line 303, as _ZN24QHttpNetworkReplyPrivateC1ERK4QUrl
+inline QHttpNetworkReplyPrivate::QHttpNetworkReplyPrivate(const QUrl &newUrl)
+    : QHttpNetworkHeaderPrivate(newUrl)
+    , state(NothingDoneState)
+    , ssl(false),
+      bodyLength(0), contentRead(0), totalProgress(0),
+      chunkedTransferEncoding(false),
+      connectionCloseEnabled(true),
+      forceConnectionCloseEnabled(false),
+      lastChunkRead(false),
+      currentChunkSize(0), currentChunkRead(0), readBufferMaxSize(0),
+      totallyUploadedData(0),
+      removedContentLength(-1),
+      connection(nullptr),
+      autoDecompress(false), responseData(), requestIsPrepared(false)
+      ,pipeliningUsed(false), h2Used(false), downstreamLimited(false)
+      ,userProvidedDownloadBuffer(nullptr)
+
+{
+    QString scheme = newUrl.scheme();
+    if (scheme == "preconnect-http"_L1 || scheme == "preconnect-https"_L1)
+        // make sure we do not close the socket after preconnecting
+        connectionCloseEnabled = false;
 }
 
 //  from src/network/access/qhttpnetworkreply.cpp, line 327, as _ZN24QHttpNetworkReplyPrivateD1Ev
@@ -614,6 +675,13 @@ inline void QHttpNetworkReplyPrivate::removeAutoDecompressHeader()
     }
 }
 //  -----------------------------------------------------------------------
+
+//  QHttpNetworkReplyPrivate::QHttpNetworkReplyPrivate(const QUrl &newUrl)
+extern "C" Q_DECL_EXPORT
+QHttpNetworkReplyPrivate *ritual_ZN24QHttpNetworkReplyPrivateC1ERK4QUrl(
+    const QUrl *newUrl) {
+  return new QHttpNetworkReplyPrivate(*newUrl);
+}
 
 //  QHttpNetworkReplyPrivate::~QHttpNetworkReplyPrivate()
 extern "C" Q_DECL_EXPORT

@@ -1,15 +1,28 @@
 //  Written by dev_tooling.RitualGenerator from the records of QtQuickControl
 //  s2FusionStyleImpl/6.12.0/QtQuickControls2FusionStyleImpl/private/qquickfu
-//  sionbusyindicator_p.h, Qt 6.12.0. Changes made here are lost.
+//  sionbusyindicator_p.h, Qt 6.12.0.
+//  Edited by hand on 2026-11-26: moc's output for
+//  'QQuickFusionBusyIndicator' is pasted in, cut from what the moc of Qt
+//  6.12.0 writes for its header: Qt's library keeps it to itself; added are
+//  2 rituals that lean on what moc writes for a class of the part Qt keeps
+//  to itself, whose ritual file carries moc's output, drafted by a copy of
+//  the generator that lets those names through. A copy of a meta-object is a
+//  second one: 'qobject_cast' between it and Qt's own does not match. Kept
+//  as it is when the generator runs again.
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtQuickControls2FusionStyleImpl/QtQuickControls2FusionStyleImpl>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQuickControls2FusionStyleImpl/6.12.0/QtQuickControls2FusionStyleImpl/private/qquickfusionbusyindicator_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 #include <QtGui/qcolor.h>
 #include <QtQuick/QtQuick>
 #include <QtQuick/qquickitem.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
 #include <QtQuickControls2FusionStyleImpl/private/qquickfusionbusyindicator_p.h>
 #include <QtGui/qpainter.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -20,6 +33,130 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  from QtQuickControls2FusionStyleImpl__QQuickFusionBusyIndicator.cpp, line 1, as moc:QQuickFusionBusyIndicator
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN25QQuickFusionBusyIndicatorE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto QQuickFusionBusyIndicator::qt_create_metaobjectdata<qt_meta_tag_ZN25QQuickFusionBusyIndicatorE_t>()
+{
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "QQuickFusionBusyIndicator",
+        "QML.Element",
+        "BusyIndicatorImpl",
+        "QML.AddedInVersion",
+        "515",
+        "color",
+        "QColor",
+        "running"
+    };
+
+    QtMocHelpers::UintData qt_methods {
+    };
+    QtMocHelpers::UintData qt_properties {
+        // property 'color'
+        QtMocHelpers::PropertyData<QColor>(5, 0x80000000 | 6, QMC::DefaultPropertyFlags | QMC::Writable | QMC::EnumOrFlag | QMC::StdCppSet | QMC::Final),
+        // property 'running'
+        QtMocHelpers::PropertyData<bool>(7, QMetaType::Bool, QMC::DefaultPropertyFlags | QMC::Writable | QMC::StdCppSet),
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    QtMocHelpers::UintData qt_constructors {};
+    QtMocHelpers::ClassInfos qt_classinfo({
+            {    1,    2 },
+            {    3,    4 },
+    });
+    return QtMocHelpers::metaObjectData<QQuickFusionBusyIndicator, void>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums, qt_constructors, qt_classinfo);
+}
+Q_CONSTINIT const QMetaObject QQuickFusionBusyIndicator::staticMetaObject = { {
+    QMetaObject::SuperData::link<QQuickPaintedItem::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN25QQuickFusionBusyIndicatorE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN25QQuickFusionBusyIndicatorE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN25QQuickFusionBusyIndicatorE_t>.metaTypes,
+    nullptr
+} };
+
+void QQuickFusionBusyIndicator::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<QQuickFusionBusyIndicator *>(_o);
+    if (_c == QMetaObject::ReadProperty) {
+        void *_v = _a[0];
+        switch (_id) {
+        case 0: *reinterpret_cast<QColor*>(_v) = _t->color(); break;
+        case 1: *reinterpret_cast<bool*>(_v) = _t->isRunning(); break;
+        default: break;
+        }
+    }
+    if (_c == QMetaObject::WriteProperty) {
+        void *_v = _a[0];
+        switch (_id) {
+        case 0: _t->setColor(*reinterpret_cast<QColor*>(_v)); break;
+        case 1: _t->setRunning(*reinterpret_cast<bool*>(_v)); break;
+        default: break;
+        }
+    }
+}
+
+const QMetaObject *QQuickFusionBusyIndicator::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *QQuickFusionBusyIndicator::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN25QQuickFusionBusyIndicatorE_t>.strings))
+        return static_cast<void*>(this);
+    return QQuickPaintedItem::qt_metacast(_clname);
+}
+
+int QQuickFusionBusyIndicator::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QQuickPaintedItem::qt_metacall(_c, _id, _a);
+    if (_id < 0)
+        return _id;
+    if (_c == QMetaObject::ReadProperty || _c == QMetaObject::WriteProperty
+            || _c == QMetaObject::ResetProperty || _c == QMetaObject::BindableProperty
+            || _c == QMetaObject::RegisterPropertyMetaType) {
+        qt_static_metacall(this, _c, _id, _a);
+        _id -= 2;
+    }
+    return _id;
+}
+QT_WARNING_POP
+
+//  from ../qtdeclarative/src/quickcontrols/fusion/impl/qquickfusionbusyindicator.cpp, line 74, as _ZN25QQuickFusionBusyIndicator10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE
+inline void QQuickFusionBusyIndicator::itemChange(ItemChange change, const ItemChangeData &data)
+{
+    QQuickPaintedItem::itemChange(change, data);
+
+    switch (change) {
+    case ItemOpacityHasChanged:
+        // If running is set to false and then true within a short period (QTBUG-85860), our
+        // OpacityAnimator cancels the 1 => 0 animation (which was for running being set to false),
+        // setting opacity to 0 and hence visible to false. This happens _after_ setRunning(true)
+        // was called, because the properties were set synchronously but the animation is
+        // asynchronous. To account for this situation, we only hide ourselves if we're not running.
+        if (qFuzzyIsNull(data.realValue) && !m_running)
+            setVisible(false);
+        break;
+    case ItemVisibleHasChanged:
+        update();
+        break;
+    default:
+        break;
+    }
+}
 
 //  from ../qtdeclarative/src/quickcontrols/fusion/impl/qquickfusionbusyindicator.cpp, line 46, as _ZN25QQuickFusionBusyIndicator5paintEP8QPainter
 inline void QQuickFusionBusyIndicator::paint(QPainter *painter)
@@ -50,27 +187,10 @@ inline void QQuickFusionBusyIndicator::paint(QPainter *painter)
     painter->drawArc(bounds, 0, 20 * 16);
 }
 
-//  from ../qtdeclarative/src/quickcontrols/fusion/impl/qquickfusionbusyindicator.cpp, line 74, as _ZN25QQuickFusionBusyIndicator10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE
-inline void QQuickFusionBusyIndicator::itemChange(ItemChange change, const ItemChangeData &data)
+//  from ../qtdeclarative/src/quickcontrols/fusion/impl/qquickfusionbusyindicator.cpp, line 11, as _ZN25QQuickFusionBusyIndicatorC1EP10QQuickItem
+inline QQuickFusionBusyIndicator::QQuickFusionBusyIndicator(QQuickItem *parent)
+    : QQuickPaintedItem(parent)
 {
-    QQuickPaintedItem::itemChange(change, data);
-
-    switch (change) {
-    case ItemOpacityHasChanged:
-        // If running is set to false and then true within a short period (QTBUG-85860), our
-        // OpacityAnimator cancels the 1 => 0 animation (which was for running being set to false),
-        // setting opacity to 0 and hence visible to false. This happens _after_ setRunning(true)
-        // was called, because the properties were set synchronously but the animation is
-        // asynchronous. To account for this situation, we only hide ourselves if we're not running.
-        if (qFuzzyIsNull(data.realValue) && !m_running)
-            setVisible(false);
-        break;
-    case ItemVisibleHasChanged:
-        update();
-        break;
-    default:
-        break;
-    }
 }
 
 //  from ../qtdeclarative/src/quickcontrols/fusion/impl/qquickfusionbusyindicator.cpp, line 16, as _ZNK25QQuickFusionBusyIndicator5colorEv
@@ -138,6 +258,23 @@ int ritual_ZN25QQuickFusionBusyIndicator11qt_metacallEN11QMetaObject4CallEiPPv(
     int a1,
     void **a2) {
   return self->qt_metacall(a0, a1, a2);
+}
+
+//  QString QQuickFusionBusyIndicator::tr(const char *s, const char *c, int
+//      n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN25QQuickFusionBusyIndicator2trEPKcS1_i(
+    const char *s,
+    const char *c,
+    int n) {
+  return new QString(QQuickFusionBusyIndicator::tr(s, c, n));
+}
+
+//  QQuickFusionBusyIndicator::QQuickFusionBusyIndicator(QQuickItem *parent)
+extern "C" Q_DECL_EXPORT
+QQuickFusionBusyIndicator *ritual_ZN25QQuickFusionBusyIndicatorC1EP10QQuickItem(
+    QQuickItem *parent) {
+  return new QQuickFusionBusyIndicator(parent);
 }
 
 //  QColor QQuickFusionBusyIndicator::color() const

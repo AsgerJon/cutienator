@@ -7,9 +7,7 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQuick/6.12.0/QtQuick/private/qquickanimation_p_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
-#if QT_CONFIG(easingcurve)
 #include <QtCore/qeasingcurve.h>
-#endif
 #include <QtCore/qdebug.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -47,26 +45,6 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from ../qtdeclarative/src/quick/util/qquickanimation.cpp, line 2045, as _ZN23QQuickBulkValueAnimatorC1Ev
-inline QQuickBulkValueAnimator::QQuickBulkValueAnimator()
-    : QAbstractAnimationJob(), animValue(nullptr), fromIsSourced(nullptr), m_duration(250)
-{
-}
-
-//  from ../qtdeclarative/src/quick/util/qquickanimation.cpp, line 2050, as _ZN23QQuickBulkValueAnimatorD1Ev
-inline QQuickBulkValueAnimator::~QQuickBulkValueAnimator()
-{
-    delete animValue;
-}
-
-//  from ../qtdeclarative/src/quick/util/qquickanimation.cpp, line 2055, as _ZN23QQuickBulkValueAnimator12setAnimValueEP22QQuickBulkValueUpdater
-inline void QQuickBulkValueAnimator::setAnimValue(QQuickBulkValueUpdater *value)
-{
-    if (isRunning())
-        stop();
-    animValue = value;
-}
-
 //  from ../qtdeclarative/src/quick/util/qquickanimation.cpp, line 2062, as _ZN23QQuickBulkValueAnimator17updateCurrentTimeEi
 inline void QQuickBulkValueAnimator::updateCurrentTime(int currentTime)
 {
@@ -89,6 +67,12 @@ inline void QQuickBulkValueAnimator::topLevelAnimationLoopChanged()
     QAbstractAnimationJob::topLevelAnimationLoopChanged();
 }
 
+//  from ../qtdeclarative/src/quick/util/qquickanimation.cpp, line 2050, as _ZN23QQuickBulkValueAnimatorD2Ev
+inline QQuickBulkValueAnimator::~QQuickBulkValueAnimator()
+{
+    delete animValue;
+}
+
 //  from ../qtdeclarative/src/quick/util/qquickanimation.cpp, line 2082, as _ZNK23QQuickBulkValueAnimator14debugAnimationE6QDebug
 inline void QQuickBulkValueAnimator::debugAnimation(QDebug d) const
 {
@@ -101,6 +85,20 @@ inline void QQuickBulkValueAnimator::debugAnimation(QDebug d) const
             ++indentLevel;
         animValue->debugUpdater(d, indentLevel);
     }
+}
+
+//  from ../qtdeclarative/src/quick/util/qquickanimation.cpp, line 2045, as _ZN23QQuickBulkValueAnimatorC1Ev
+inline QQuickBulkValueAnimator::QQuickBulkValueAnimator()
+    : QAbstractAnimationJob(), animValue(nullptr), fromIsSourced(nullptr), m_duration(250)
+{
+}
+
+//  from ../qtdeclarative/src/quick/util/qquickanimation.cpp, line 2055, as _ZN23QQuickBulkValueAnimator12setAnimValueEP22QQuickBulkValueUpdater
+inline void QQuickBulkValueAnimator::setAnimValue(QQuickBulkValueUpdater *value)
+{
+    if (isRunning())
+        stop();
+    animValue = value;
 }
 //  -----------------------------------------------------------------------
 

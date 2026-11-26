@@ -43,6 +43,12 @@ inline void QSctpServerPrivate::configureCreatedSocket()
 inline QSctpServerPrivate::~QSctpServerPrivate()
 {
 }
+
+//  from src/network/socket/qsctpserver.cpp, line 69, as _ZN18QSctpServerPrivateC1Ev
+inline QSctpServerPrivate::QSctpServerPrivate()
+    : maximumChannelCount(0)
+{
+}
 //  -----------------------------------------------------------------------
 
 //  A QSctpServerPrivate that Python can take functions over in. Every QSctpServerPrivate
@@ -213,6 +219,12 @@ extern "C" Q_DECL_EXPORT
 const QSctpServer *ritual_ZNK18QSctpServerPrivate6q_funcEv(
     const QSctpServerPrivate *self) {
   return self->q_func();
+}
+
+//  QSctpServerPrivate::QSctpServerPrivate()
+extern "C" Q_DECL_EXPORT
+QSctpServerPrivate *ritual_ZN18QSctpServerPrivateC1Ev() {
+  return new CuteQSctpServerPrivate();
 }
 
 //  QSctpServerPrivate::~QSctpServerPrivate()

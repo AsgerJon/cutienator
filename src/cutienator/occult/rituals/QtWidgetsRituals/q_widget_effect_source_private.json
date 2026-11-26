@@ -5,6 +5,9 @@
     "made here are lost."
   ],
   "rows": {
+    "ritual_ZN26QWidgetEffectSourcePrivateC1EP7QWidget": [
+      "address", "address"
+    ],
     "ritual_ZN26QWidgetEffectSourcePrivate6detachEv": ["nothing", "address"],
     "ritual_ZNK26QWidgetEffectSourcePrivate12graphicsItemEv": [
       "address", "address"

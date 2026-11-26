@@ -1,6 +1,12 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtWidgets/6.12.0/QtWidgets/private/qsidebar_p.h, Qt 6.12.0. Changes made
-//  here are lost.
+//  QtWidgets/6.12.0/QtWidgets/private/qsidebar_p.h, Qt 6.12.0.
+//  Edited by hand on 2026-11-26: moc's output for 'QSidebar' is pasted in,
+//  cut from what the moc of Qt 6.12.0 writes for its header: Qt's library
+//  keeps it to itself; added are 4 rituals that lean on what moc writes for
+//  a class of the part Qt keeps to itself, whose ritual file carries moc's
+//  output, drafted by a copy of the generator that lets those names through.
+//  A copy of a meta-object is a second one: 'qobject_cast' between it and
+//  Qt's own does not match. Kept as it is when the generator runs again.
 #include <QtGui/qtguiglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
@@ -11,6 +17,7 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtWidgets/6.12.0/QtWidgets/private/qsidebar_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 #include <QtCore/qurl.h>
 #include <QtCore/qsize.h>
 #include <QtCore/qpoint.h>
@@ -18,12 +25,15 @@
 #include <QtCore/qrect.h>
 #include <QtCore/qitemselectionmodel.h>
 #include <QtGui/qregion.h>
-#include <QtCore/qstring.h>
 #include <QtCore/qvariant.h>
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
 #include <QtWidgets/private/qsidebar_p.h>
 #include <QtWidgets/qaction.h>
 #include <QtCore/qurl.h>
@@ -58,6 +68,152 @@ static bool hasSupportedFormat(const QMimeData *data)
 }
 #endif  // QT_CONFIG(draganddrop)
 
+//  from QtWidgets__QSidebar.cpp, line 1, as moc:QSidebar
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN8QSidebarE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto QSidebar::qt_create_metaobjectdata<qt_meta_tag_ZN8QSidebarE_t>()
+{
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "QSidebar",
+        "goToUrl",
+        "",
+        "QUrl",
+        "url",
+        "clicked",
+        "QModelIndex",
+        "index",
+        "showContextMenu",
+        "QPoint",
+        "position",
+        "removeEntry"
+    };
+
+    QtMocHelpers::UintData qt_methods {
+        // Signal 'goToUrl'
+        QtMocHelpers::SignalData<void(const QUrl &)>(1, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { 0x80000000 | 3, 4 },
+        }}),
+        // Slot 'clicked'
+        QtMocHelpers::SlotData<void(const QModelIndex &)>(5, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { 0x80000000 | 6, 7 },
+        }}),
+        // Slot 'showContextMenu'
+        QtMocHelpers::SlotData<void(const QPoint &)>(8, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { 0x80000000 | 9, 10 },
+        }}),
+        // Slot 'removeEntry'
+        QtMocHelpers::SlotData<void()>(11, 2, QMC::AccessPrivate, QMetaType::Void),
+    };
+    QtMocHelpers::UintData qt_properties {
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    return QtMocHelpers::metaObjectData<QSidebar, qt_meta_tag_ZN8QSidebarE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums);
+}
+Q_CONSTINIT const QMetaObject QSidebar::staticMetaObject = { {
+    QMetaObject::SuperData::link<QListView::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN8QSidebarE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN8QSidebarE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN8QSidebarE_t>.metaTypes,
+    nullptr
+} };
+
+void QSidebar::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<QSidebar *>(_o);
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        switch (_id) {
+        case 0: _t->goToUrl((*reinterpret_cast<std::add_pointer_t<QUrl>>(_a[1]))); break;
+        case 1: _t->clicked((*reinterpret_cast<std::add_pointer_t<QModelIndex>>(_a[1]))); break;
+        case 2: _t->showContextMenu((*reinterpret_cast<std::add_pointer_t<QPoint>>(_a[1]))); break;
+        case 3: _t->removeEntry(); break;
+        default: ;
+        }
+    }
+    if (_c == QMetaObject::IndexOfMethod) {
+        if (QtMocHelpers::indexOfMethod<void (QSidebar::*)(const QUrl & )>(_a, &QSidebar::goToUrl, 0))
+            return;
+    }
+}
+
+const QMetaObject *QSidebar::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *QSidebar::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN8QSidebarE_t>.strings))
+        return static_cast<void*>(this);
+    return QListView::qt_metacast(_clname);
+}
+
+int QSidebar::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QListView::qt_metacall(_c, _id, _a);
+    if (_id < 0)
+        return _id;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        if (_id < 4)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 4;
+    }
+    if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        if (_id < 4)
+            *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
+        _id -= 4;
+    }
+    return _id;
+}
+
+// SIGNAL 0
+void QSidebar::goToUrl(const QUrl & _t1)
+{
+    QMetaObject::activate<void>(this, &staticMetaObject, 0, nullptr, _t1);
+}
+QT_WARNING_POP
+
+//  from src/widgets/dialogs/qsidebar.cpp, line 458, as _ZN8QSidebar11removeEntryEv
+inline void QSidebar::removeEntry()
+{
+    const QList<QModelIndex> idxs = selectionModel()->selectedIndexes();
+    // Create a list of QPersistentModelIndex as the removeRow() calls below could
+    // invalidate the indexes in "idxs"
+    const QList<QPersistentModelIndex> persIndexes(idxs.cbegin(), idxs.cend());
+    for (const QPersistentModelIndex &persistent : persIndexes) {
+        if (!persistent.data(QUrlModel::UrlRole).toUrl().path().isEmpty())
+            model()->removeRow(persistent.row());
+    }
+}
+
+//  from src/widgets/dialogs/qsidebar.cpp, line 485, as _ZN8QSidebar12focusInEventEP11QFocusEvent
+inline void QSidebar::focusInEvent(QFocusEvent *event)
+{
+    QAbstractScrollArea::focusInEvent(event);
+    viewport()->update();
+}
+
+//  from src/widgets/dialogs/qsidebar.cpp, line 399, as _ZN8QSidebar14dragEnterEventEP15QDragEnterEvent
+#if QT_CONFIG(draganddrop)
+inline void QSidebar::dragEnterEvent(QDragEnterEvent *event)
+{
+    if (urlModel->canDrop(event))
+        QListView::dragEnterEvent(event);
+}
+#endif  // QT_CONFIG(draganddrop)
+
 //  from src/widgets/dialogs/qsidebar.cpp, line 438, as _ZN8QSidebar15showContextMenuERK6QPoint
 #if QT_CONFIG(menu)
 inline void QSidebar::showContextMenu(const QPoint &position)
@@ -75,6 +231,58 @@ inline void QSidebar::showContextMenu(const QPoint &position)
 }
 #endif  // QT_CONFIG(menu)
 
+//  from src/widgets/dialogs/qsidebar.cpp, line 494, as _ZN8QSidebar5eventEP6QEvent
+inline bool QSidebar::event(QEvent * event)
+{
+    if (event->type() == QEvent::KeyRelease) {
+        QKeyEvent *ke = static_cast<QKeyEvent *>(event);
+        if (ke->key() == Qt::Key_Delete) {
+            removeEntry();
+            return true;
+        }
+    }
+    return QListView::event(event);
+}
+
+//  from src/widgets/dialogs/qsidebar.cpp, line 475, as _ZN8QSidebar7clickedERK11QModelIndex
+inline void QSidebar::clicked(const QModelIndex &index)
+{
+    QUrl url = model()->index(index.row(), 0).data(QUrlModel::UrlRole).toUrl();
+    selectUrl(url);
+}
+
+//  from src/widgets/dialogs/qsidebar.cpp, line 406, as _ZNK8QSidebar8sizeHintEv
+inline QSize QSidebar::sizeHint() const
+{
+    if (model())
+        return QListView::sizeHintForIndex(model()->index(0, 0)) + QSize(2 * frameWidth(), 2 * frameWidth());
+    return QListView::sizeHint();
+}
+
+//  from src/widgets/dialogs/qsidebar.cpp, line 286, as _ZN9QUrlModel18setFileSystemModelEP16QFileSystemModel
+inline void QUrlModel::setFileSystemModel(QFileSystemModel *model)
+{
+    if (model == fileSystemModel)
+        return;
+    if (fileSystemModel != nullptr) {
+        for (auto &conn : modelConnections)
+            disconnect(conn);
+    }
+    fileSystemModel = model;
+    if (fileSystemModel != nullptr) {
+        modelConnections = {
+            connect(model, &QFileSystemModel::dataChanged,
+                    this, &QUrlModel::dataChanged),
+            connect(model, &QFileSystemModel::layoutChanged,
+                    this, &QUrlModel::layoutChanged),
+            connect(model, &QFileSystemModel::rowsRemoved,
+                    this, &QUrlModel::layoutChanged),
+        };
+    }
+    clear();
+    insertColumns(0, 1);
+}
+
 //  from src/widgets/dialogs/qsidebar.cpp, line 217, as _ZN9QUrlModel7setUrlsERK5QListI4QUrlE
 inline void QUrlModel::setUrls(const QList<QUrl> &list)
 {
@@ -82,6 +290,24 @@ inline void QUrlModel::setUrls(const QList<QUrl> &list)
     invalidUrls.clear();
     watching.clear();
     addUrls(list, 0);
+}
+
+//  from src/widgets/dialogs/qsidebar.cpp, line 43, as _ZN9QUrlModelC1EP7QObject
+inline QUrlModel::QUrlModel(QObject *parent) : QStandardItemModel(parent), showFullPath(false), fileSystemModel(nullptr)
+{
+}
+
+//  from src/widgets/dialogs/qsidebar.cpp, line 23, as _ZNK16QSideBarDelegate15initStyleOptionEP20QStyleOptionViewItemRK11QModelIndex
+inline void QSideBarDelegate::initStyleOption(QStyleOptionViewItem *option,
+                                         const QModelIndex &index) const
+{
+    QStyledItemDelegate::initStyleOption(option,index);
+    QVariant value = index.data(QUrlModel::EnabledRole);
+    if (value.isValid()) {
+        //If the bookmark/entry is not enabled then we paint it in gray
+        if (!qvariant_cast<bool>(value))
+            option->state &= ~QStyle::State_Enabled;
+    }
 }
 
 //  from src/widgets/dialogs/qsidebar.cpp, line 231, as _ZN9QUrlModel7addUrlsERK5QListI4QUrlEib
@@ -137,42 +363,57 @@ inline QList<QUrl> QUrlModel::urls() const
     return list;
 }
 
-//  from src/widgets/dialogs/qsidebar.cpp, line 406, as _ZNK8QSidebar8sizeHintEv
-inline QSize QSidebar::sizeHint() const
-{
-    if (model())
-        return QListView::sizeHintForIndex(model()->index(0, 0)) + QSize(2 * frameWidth(), 2 * frameWidth());
-    return QListView::sizeHint();
-}
-
-//  from src/widgets/dialogs/qsidebar.cpp, line 494, as _ZN8QSidebar5eventEP6QEvent
-inline bool QSidebar::event(QEvent * event)
-{
-    if (event->type() == QEvent::KeyRelease) {
-        QKeyEvent *ke = static_cast<QKeyEvent *>(event);
-        if (ke->key() == Qt::Key_Delete) {
-            removeEntry();
-            return true;
-        }
-    }
-    return QListView::event(event);
-}
-
-//  from src/widgets/dialogs/qsidebar.cpp, line 485, as _ZN8QSidebar12focusInEventEP11QFocusEvent
-inline void QSidebar::focusInEvent(QFocusEvent *event)
-{
-    QAbstractScrollArea::focusInEvent(event);
-    viewport()->update();
-}
-
-//  from src/widgets/dialogs/qsidebar.cpp, line 399, as _ZN8QSidebar14dragEnterEventEP15QDragEnterEvent
+//  from src/widgets/dialogs/qsidebar.cpp, line 110, as _ZN9QUrlModel7canDropEP15QDragEnterEvent
 #if QT_CONFIG(draganddrop)
-inline void QSidebar::dragEnterEvent(QDragEnterEvent *event)
+inline bool QUrlModel::canDrop(QDragEnterEvent *event)
 {
-    if (urlModel->canDrop(event))
-        QListView::dragEnterEvent(event);
+    if (!hasSupportedFormat(event->mimeData()))
+        return false;
+
+    const QList<QUrl> list = event->mimeData()->urls();
+    for (const auto &url : list) {
+        const QModelIndex idx = fileSystemModel->index(url.toLocalFile());
+        if (!fileSystemModel->isDir(idx))
+            return false;
+    }
+    return true;
 }
 #endif  // QT_CONFIG(draganddrop)
+
+//  from src/widgets/dialogs/qsidebar.cpp, line 312, as _ZN9QUrlModel11dataChangedERK11QModelIndexS2_
+inline void QUrlModel::dataChanged(const QModelIndex &topLeft, const QModelIndex &bottomRight)
+{
+    QModelIndex parent = topLeft.parent();
+    for (int i = 0; i < watching.size(); ++i) {
+        QModelIndex index = watching.at(i).index;
+        if (index.model() && topLeft.model()) {
+            Q_ASSERT(index.model() == topLeft.model());
+        }
+        if (   index.row() >= topLeft.row()
+            && index.row() <= bottomRight.row()
+            && index.column() >= topLeft.column()
+            && index.column() <= bottomRight.column()
+            && index.parent() == parent) {
+                changed(watching.at(i).path);
+        }
+    }
+}
+
+//  from src/widgets/dialogs/qsidebar.cpp, line 333, as _ZN9QUrlModel13layoutChangedEv
+inline void QUrlModel::layoutChanged()
+{
+    QStringList paths;
+    paths.reserve(watching.size());
+    for (const WatchItem &item : std::as_const(watching))
+        paths.append(item.path);
+    watching.clear();
+    for (const auto &path : paths) {
+        QModelIndex newIndex = fileSystemModel->index(path);
+        watching.append({newIndex, path});
+        if (newIndex.isValid())
+            changed(path);
+     }
+}
 
 //  from src/widgets/dialogs/qsidebar.cpp, line 166, as _ZN9QUrlModel6setUrlERK11QModelIndexRK4QUrlS2_
 inline void QUrlModel::setUrl(const QModelIndex &index, const QUrl &url, const QModelIndex &dirIndex)
@@ -226,39 +467,68 @@ inline void QUrlModel::setUrl(const QModelIndex &index, const QUrl &url, const Q
     }
 }
 
-//  from src/widgets/dialogs/qsidebar.cpp, line 458, as _ZN8QSidebar11removeEntryEv
-inline void QSidebar::removeEntry()
+//  from src/widgets/dialogs/qsidebar.cpp, line 353, as _ZN9QUrlModel7changedERK7QString
+inline void QUrlModel::changed(const QString &path)
 {
-    const QList<QModelIndex> idxs = selectionModel()->selectedIndexes();
-    // Create a list of QPersistentModelIndex as the removeRow() calls below could
-    // invalidate the indexes in "idxs"
-    const QList<QPersistentModelIndex> persIndexes(idxs.cbegin(), idxs.cend());
-    for (const QPersistentModelIndex &persistent : persIndexes) {
-        if (!persistent.data(QUrlModel::UrlRole).toUrl().path().isEmpty())
-            model()->removeRow(persistent.row());
+    for (int i = 0; i < rowCount(); ++i) {
+        QModelIndex idx = index(i, 0);
+        if (idx.data(UrlRole).toUrl().toLocalFile() == path) {
+            setData(idx, idx.data(UrlRole).toUrl());
+        }
     }
 }
 
-//  from src/widgets/dialogs/qsidebar.cpp, line 110, as _ZN9QUrlModel7canDropEP15QDragEnterEvent
+//  from src/widgets/dialogs/qsidebar.cpp, line 368, as _ZN8QSidebarC1EP7QWidget
+inline QSidebar::QSidebar(QWidget *parent) : QListView(parent)
+{
+}
+
+//  from src/widgets/dialogs/qsidebar.cpp, line 372, as _ZN8QSidebar15setModelAndUrlsEP16QFileSystemModelRK5QListI4QUrlE
+inline void QSidebar::setModelAndUrls(QFileSystemModel *model, const QList<QUrl> &newUrls)
+{
+    setUniformItemSizes(true);
+    urlModel = new QUrlModel(this);
+    urlModel->setFileSystemModel(model);
+    setModel(urlModel);
+    setItemDelegate(new QSideBarDelegate(this));
+
+    connect(selectionModel(), &QItemSelectionModel::currentChanged,
+            this, &QSidebar::clicked);
 #if QT_CONFIG(draganddrop)
-inline bool QUrlModel::canDrop(QDragEnterEvent *event)
-{
-    if (!hasSupportedFormat(event->mimeData()))
-        return false;
-
-    const QList<QUrl> list = event->mimeData()->urls();
-    for (const auto &url : list) {
-        const QModelIndex idx = fileSystemModel->index(url.toLocalFile());
-        if (!fileSystemModel->isDir(idx))
-            return false;
-    }
-    return true;
+    setDragDropMode(QAbstractItemView::DragDrop);
+#endif
+#if QT_CONFIG(menu)
+    setContextMenuPolicy(Qt::CustomContextMenu);
+    connect(this, &QSidebar::customContextMenuRequested,
+            this, &QSidebar::showContextMenu);
+#endif
+    urlModel->setUrls(newUrls);
+    setCurrentIndex(this->model()->index(0,0));
 }
-#endif  // QT_CONFIG(draganddrop)
 
 //  from src/widgets/dialogs/qsidebar.cpp, line 394, as _ZN8QSidebarD1Ev
 inline QSidebar::~QSidebar()
 {
+}
+
+//  from src/widgets/dialogs/qsidebar.cpp, line 413, as _ZN8QSidebar9selectUrlERK4QUrl
+inline void QSidebar::selectUrl(const QUrl &url)
+{
+    disconnect(selectionModel(), &QItemSelectionModel::currentChanged,
+               this, &QSidebar::clicked);
+
+    selectionModel()->clear();
+    for (int i = 0; i < model()->rowCount(); ++i) {
+        if (model()->index(i, 0).data(QUrlModel::UrlRole).toUrl() == url) {
+            emit goToUrl(url);
+            selectionModel()->setCurrentIndex(model()->index(i, 0),
+                                              QItemSelectionModel::SelectCurrent);
+            break;
+        }
+    }
+
+    connect(selectionModel(), &QItemSelectionModel::currentChanged,
+            this, &QSidebar::clicked);
 }
 //  -----------------------------------------------------------------------
 
@@ -2331,6 +2601,16 @@ int ritual_ZN8QSidebar11qt_metacallEN11QMetaObject4CallEiPPv(
   return self->qt_metacall(a0, a1, a2);
 }
 
+#if QT_CONFIG(draganddrop)
+#if QT_CONFIG(menu)
+//  QString QSidebar::tr(const char *s, const char *c, int n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN8QSidebar2trEPKcS1_i(const char *s, const char *c, int n) {
+  return new QString(QSidebar::tr(s, c, n));
+}
+#endif  // QT_CONFIG(menu)
+#endif  // QT_CONFIG(draganddrop)
+
 //  void QSidebar::goToUrl(const QUrl &url)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN8QSidebar7goToUrlERK4QUrl(QSidebar *self, const QUrl *url) {
@@ -2355,6 +2635,32 @@ void ritual_ZN8QSidebar7goToUrlERK4QUrl(QSidebar *self, const QUrl *url) {
   static_cast<QObject *>(self)->qt_metacall(
       QMetaObject::InvokeMetaMethod, index, arguments);
 }
+
+#if QT_CONFIG(draganddrop)
+#if QT_CONFIG(menu)
+//  QSidebar::QSidebar(QWidget *parent)
+extern "C" Q_DECL_EXPORT
+QSidebar *ritual_ZN8QSidebarC1EP7QWidget(QWidget *parent) {
+  return new CuteQSidebar(parent);
+}
+#endif  // QT_CONFIG(menu)
+#endif  // QT_CONFIG(draganddrop)
+
+#if QT_CONFIG(draganddrop)
+#if QT_CONFIG(menu)
+#if defined(Q_OS_LINUX)
+//  void QSidebar::setModelAndUrls(QFileSystemModel *model, const QList<QUrl>
+//      &newUrls)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QSidebar15setModelAndUrlsEP16QFileSystemModelRK5QListI4QUrlE(
+    QSidebar *self,
+    QFileSystemModel *model,
+    const QList<QUrl> *newUrls) {
+  self->setModelAndUrls(model, *newUrls);
+}
+#endif  // defined(Q_OS_LINUX)
+#endif  // QT_CONFIG(menu)
+#endif  // QT_CONFIG(draganddrop)
 
 //  QSidebar::~QSidebar()
 extern "C" Q_DECL_EXPORT
@@ -2394,6 +2700,16 @@ extern "C" Q_DECL_EXPORT
 QList<QUrl> *ritual_ZNK8QSidebar4urlsEv(const QSidebar *self) {
   return new QList<QUrl>(self->urls());
 }
+
+#if QT_CONFIG(draganddrop)
+#if QT_CONFIG(menu)
+//  void QSidebar::selectUrl(const QUrl &url)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QSidebar9selectUrlERK4QUrl(QSidebar *self, const QUrl *url) {
+  self->selectUrl(*url);
+}
+#endif  // QT_CONFIG(menu)
+#endif  // QT_CONFIG(draganddrop)
 
 //  bool QSidebar::event(QEvent *e)
 extern "C" Q_DECL_EXPORT

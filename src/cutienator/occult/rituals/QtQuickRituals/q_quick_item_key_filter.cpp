@@ -118,6 +118,17 @@ inline QVariant QQuickItemKeyFilter::inputMethodQuery(Qt::InputMethodQuery query
     return QVariant();
 }
 #endif  // QT_CONFIG(im)
+
+//  from ../qtdeclarative/src/quick/items/qquickitem.cpp, line 298, as _ZN19QQuickItemKeyFilterC1EP10QQuickItem
+inline QQuickItemKeyFilter::QQuickItemKeyFilter(QQuickItem *item)
+: m_processPost(false), m_next(nullptr)
+{
+    QQuickItemPrivate *p = item?QQuickItemPrivate::get(item):nullptr;
+    if (p) {
+        m_next = p->extra.value().keyHandler;
+        p->extra->keyHandler = this;
+    }
+}
 //  -----------------------------------------------------------------------
 
 //  A QQuickItemKeyFilter that Python can take functions over in. Every QQuickItemKeyFilter
@@ -243,6 +254,15 @@ public:
     QQuickItemKeyFilter::componentComplete();
   }
 };
+
+#if QT_CONFIG(im)
+//  QQuickItemKeyFilter::QQuickItemKeyFilter(QQuickItem *a0)
+extern "C" Q_DECL_EXPORT
+QQuickItemKeyFilter *ritual_ZN19QQuickItemKeyFilterC1EP10QQuickItem(
+    QQuickItem *a0) {
+  return new CuteQQuickItemKeyFilter(a0);
+}
+#endif  // QT_CONFIG(im)
 
 //  QQuickItemKeyFilter::~QQuickItemKeyFilter()
 extern "C" Q_DECL_EXPORT

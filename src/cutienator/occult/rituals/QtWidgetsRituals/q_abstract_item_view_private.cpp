@@ -88,6 +88,16 @@
 #  include <QtCore/qt_windows.h>
 #endif
 #endif
+#include <QtWidgets/qframe.h>
+#include <QtGui/qbitmap.h>
+#include <QtWidgets/qdrawutil.h>
+#include <QtGui/qevent.h>
+#include <QtGui/qpainter.h>
+#include <QtWidgets/qstyle.h>
+#include <QtWidgets/qstyleoption.h>
+#include <QtWidgets/qstylepainter.h>
+#include <QtWidgets/qapplication.h>
+#include <QtWidgets/private/qframe_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -383,6 +393,23 @@ inline bool QAbstractScrollAreaPrivate::canStartScrollingAt(const QPoint &startP
     return true;
 }
 #endif  // QT_CONFIG(scrollarea)
+
+//  from src/widgets/widgets/qframe.cpp, line 19, as _ZN13QFramePrivateC2Ev
+inline QFramePrivate::QFramePrivate()
+    : frect(0, 0, 0, 0),
+      frameStyle(QFrame::NoFrame | QFrame::Plain),
+      lineWidth(1),
+      midLineWidth(0),
+      frameWidth(0),
+      leftFrameWidth(0), rightFrameWidth(0),
+      topFrameWidth(0), bottomFrameWidth(0)
+{
+}
+
+//  from src/widgets/widgets/qframe.cpp, line 30, as _ZN13QFramePrivateD2Ev
+inline QFramePrivate::~QFramePrivate()
+{
+}
 
 //  from src/widgets/itemviews/qabstractitemview.cpp, line 100, as _ZN24QAbstractItemViewPrivate4initEv
 inline void QAbstractItemViewPrivate::init()

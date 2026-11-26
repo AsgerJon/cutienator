@@ -154,16 +154,23 @@ inline bool QGeoShapePrivate::operator==(const QGeoShapePrivate &other) const
     return type == other.type;
 }
 
+//  from ../qtpositioning/src/positioning/qgeorectangle.cpp, line 881, as _ZN20QGeoRectanglePrivateC1Ev
+inline QGeoRectanglePrivate::QGeoRectanglePrivate()
+:   QGeoShapePrivate(QGeoShape::RectangleType)
+{
+}
+
+//  from ../qtpositioning/src/positioning/qgeorectangle.cpp, line 886, as _ZN20QGeoRectanglePrivateC1ERK14QGeoCoordinateS2_
+inline QGeoRectanglePrivate::QGeoRectanglePrivate(const QGeoCoordinate &topLeft,
+                                               const QGeoCoordinate &bottomRight)
+:   QGeoShapePrivate(QGeoShape::RectangleType), topLeft(topLeft), bottomRight(bottomRight)
+{
+}
+
 //  from ../qtpositioning/src/positioning/qgeorectangle.cpp, line 892, as _ZN20QGeoRectanglePrivateC1ERKS_
 inline QGeoRectanglePrivate::QGeoRectanglePrivate(const QGeoRectanglePrivate &other)
 :   QGeoShapePrivate(QGeoShape::RectangleType), topLeft(other.topLeft),
     bottomRight(other.bottomRight)
-{
-}
-
-//  from ../qtpositioning/src/positioning/qgeorectangle.cpp, line 881, as _ZN20QGeoRectanglePrivateC1Ev
-inline QGeoRectanglePrivate::QGeoRectanglePrivate()
-:   QGeoShapePrivate(QGeoShape::RectangleType)
 {
 }
 
@@ -343,6 +350,23 @@ public:
 extern "C" Q_DECL_EXPORT
 QGeoRectanglePrivate *ritual_ZN20QGeoRectanglePrivateC1Ev() {
   return new CuteQGeoRectanglePrivate();
+}
+
+//  QGeoRectanglePrivate::QGeoRectanglePrivate(const QGeoCoordinate &topLeft,
+//      const QGeoCoordinate &bottomRight)
+extern "C" Q_DECL_EXPORT
+QGeoRectanglePrivate *ritual_ZN20QGeoRectanglePrivateC1ERK14QGeoCoordinateS2_(
+    const QGeoCoordinate *topLeft,
+    const QGeoCoordinate *bottomRight) {
+  return new CuteQGeoRectanglePrivate(*topLeft, *bottomRight);
+}
+
+//  QGeoRectanglePrivate::QGeoRectanglePrivate(const QGeoRectanglePrivate
+//      &other)
+extern "C" Q_DECL_EXPORT
+QGeoRectanglePrivate *ritual_ZN20QGeoRectanglePrivateC1ERKS_(
+    const QGeoRectanglePrivate *other) {
+  return new CuteQGeoRectanglePrivate(*other);
 }
 
 //  QGeoRectanglePrivate::~QGeoRectanglePrivate()

@@ -2,7 +2,7 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtGraphs/6.12.0/QtGraphs/private/axisrenderer_p.h, Qt 6.12.0.",
-    "Changes made here are lost."
+    "Edited by hand: see the ritual file."
   ],
   "parts first": [
     "QtGraphs", "QtCore", "QtGui", "QtQuick", "QtQml", "QtQmlIntegration"
@@ -15,6 +15,8 @@
     "ritual_ZN12AxisRenderer11qt_metacallEN11QMetaObject4CallEiPPv": [
       "int", "address", "int", "int", "address"
     ],
+    "ritual_ZN12AxisRenderer2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN12AxisRendererC1EP10QQuickItem": ["address", "address"],
     "ritual_ZN12AxisRendererD1Ev": ["nothing", "address"],
     "ritual_ZN12AxisRenderer10initializeEv": ["nothing", "address"],
     "ritual_ZN12AxisRenderer11handleWheelEP11QWheelEvent": [
@@ -26,6 +28,15 @@
     "ritual_ZN12AxisRenderer15handlePinchGrabEN15QPointingDevice14GrabTransitionE11QEventPoint": [
       "nothing", "address", "int", "address"
     ],
+    "ritual_ZN12AxisRenderer17populateAxisItemsEv": ["nothing", "address"],
+    "ritual_ZN12AxisRenderer17updateAxisTickersEv": ["nothing", "address"],
+    "ritual_ZN12AxisRenderer23updateAxisTickersShadowEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN12AxisRenderer14updateAxisGridEv": ["nothing", "address"],
+    "ritual_ZN12AxisRenderer20updateAxisGridShadowEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN12AxisRenderer16updateAxisTitlesEv": ["nothing", "address"],
     "ritual_ZNK12AxisRenderer12hasAxisTitleERKNS_14AxisPropertiesE": [
       "bool", "address", "address"
@@ -33,9 +44,13 @@
     "ritual_ZNK12AxisRenderer19isAxisBottomOrRightERKNS_14AxisPropertiesE": [
       "bool", "address", "address"
     ],
+    "ritual_ZN12AxisRenderer22updateAxisMeasurementsEv": [
+      "nothing", "address"
+    ],
     "ritual_ZNK12AxisRenderer16formatValueLabelEdiRK7QStringc": [
       "text", "address", "double", "int", "text", "char"
     ],
+    "ritual_ZN12AxisRenderer17createDragHandlerEv": ["nothing", "address"],
     "ritual_ZN12AxisRenderer17deleteDragHandlerEv": ["nothing", "address"],
     "ritual_ZN12AxisRenderer20onTranslationChangedE9QVector2D": [
       "nothing", "address", "address"

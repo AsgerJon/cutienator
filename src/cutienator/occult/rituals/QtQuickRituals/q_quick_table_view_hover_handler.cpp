@@ -1,6 +1,13 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtQuick/6.12.0/QtQuick/private/qquicktableview_p_p.h, Qt 6.12.0. Changes
-//  made here are lost.
+//  QtQuick/6.12.0/QtQuick/private/qquicktableview_p_p.h, Qt 6.12.0.
+//  Edited by hand on 2026-11-26: moc's output for
+//  'QQuickTableViewHoverHandler' is pasted in, cut from what the moc of Qt
+//  6.12.0 writes for its header: Qt's library keeps it to itself; added are
+//  2 rituals that lean on what moc writes for a class of the part Qt keeps
+//  to itself, whose ritual file carries moc's output, drafted by a copy of
+//  the generator that lets those names through. A copy of a meta-object is a
+//  second one: 'qobject_cast' between it and Qt's own does not match. Kept
+//  as it is when the generator runs again.
 #include <QtQuick/qtquickglobal.h>
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
 #if QT_CONFIG(quick_tableview)
@@ -9,9 +16,155 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQuick/6.12.0/QtQuick/private/qquicktableview_p_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 #include <QtGui/qeventpoint.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
+#include <QtQuick/private/qquicktableview_p.h>
+#include <QtQuick/private/qquicktableview_p_p.h>
+#include <QtCore/qdir.h>
+#include <QtCore/qmimedata.h>
+#include <QtCore/qtimer.h>
+#include <QtQml/private/qqmlincubator_p.h>
+#include <QtQml/qqmlinfo.h>
+#include <QtQmlModels/private/qqmlchangeset_p.h>
+#include <QtQmlModels/private/qqmldelegatecomponent_p.h>
+#include <QtQmlModels/private/qqmldelegatemodel_p.h>
+#include <QtQmlModels/private/qqmldelegatemodel_p_p.h>
+#include <QtQuick/qquickitemgrabresult.h>
+#include <QtQuick/private/qquickflickable_p_p.h>
+#include <QtQuick/private/qquickitemviewfxitem_p_p.h>
+#include <QtQuick/private/qquicktaphandler_p.h>
+#include <QtCore/qtyperevision.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+
+//  Qt's own code, from here to the line of dashes: taken from
+//  Qt's source, because Qt's library carries it under no name.
+//  Copyright (C) The Qt Company Ltd. It is licensed
+//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
+//  here. Each function is as Qt wrote it, with the word
+//  'inline' put before it where Qt did not write it.
+
+//  from QtQuick__QQuickTableViewHoverHandler.cpp, line 1, as moc:QQuickTableViewHoverHandler
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN27QQuickTableViewHoverHandlerE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto QQuickTableViewHoverHandler::qt_create_metaobjectdata<qt_meta_tag_ZN27QQuickTableViewHoverHandlerE_t>()
+{
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "QQuickTableViewHoverHandler"
+    };
+
+    QtMocHelpers::UintData qt_methods {
+    };
+    QtMocHelpers::UintData qt_properties {
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    return QtMocHelpers::metaObjectData<QQuickTableViewHoverHandler, qt_meta_tag_ZN27QQuickTableViewHoverHandlerE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums);
+}
+Q_CONSTINIT const QMetaObject QQuickTableViewHoverHandler::staticMetaObject = { {
+    QMetaObject::SuperData::link<QQuickHoverHandler::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN27QQuickTableViewHoverHandlerE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN27QQuickTableViewHoverHandlerE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN27QQuickTableViewHoverHandlerE_t>.metaTypes,
+    nullptr
+} };
+
+void QQuickTableViewHoverHandler::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<QQuickTableViewHoverHandler *>(_o);
+    (void)_t;
+    (void)_c;
+    (void)_id;
+    (void)_a;
+}
+
+const QMetaObject *QQuickTableViewHoverHandler::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *QQuickTableViewHoverHandler::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN27QQuickTableViewHoverHandlerE_t>.strings))
+        return static_cast<void*>(this);
+    return QQuickHoverHandler::qt_metacast(_clname);
+}
+
+int QQuickTableViewHoverHandler::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QQuickHoverHandler::qt_metacall(_c, _id, _a);
+    return _id;
+}
+QT_WARNING_POP
+
+//  from ../qtdeclarative/src/quick/items/qquicktableview.cpp, line 7195, as _ZN27QQuickTableViewHoverHandler16handleEventPointEP13QPointerEventR11QEventPoint
+inline void QQuickTableViewHoverHandler::handleEventPoint(QPointerEvent *event, QEventPoint &point)
+{
+    QQuickHoverHandler::handleEventPoint(event, point);
+
+    auto tableView = static_cast<QQuickTableView *>(parentItem()->parent());
+#if QT_CONFIG(cursor)
+    auto tableViewPrivate = QQuickTableViewPrivate::get(tableView);
+#endif
+
+    const QPoint cell = tableView->cellAtPosition(point.position(), true);
+    const auto item = tableView->itemAtCell(cell);
+    if (!item) {
+        m_row = -1;
+        m_column = -1;
+#if QT_CONFIG(cursor)
+        tableViewPrivate->updateCursor();
+#endif
+        return;
+    }
+
+    const QPointF itemPos = item->mapFromItem(tableView->contentItem(), point.position());
+    const bool hoveringRow = (itemPos.y() < margin() || itemPos.y() > item->height() - margin());
+    const bool hoveringColumn = (itemPos.x() < margin() || itemPos.x() > item->width() - margin());
+    m_row = hoveringRow ? itemPos.y() < margin() ? cell.y() - 1 : cell.y() : -1;
+    m_column = hoveringColumn ? itemPos.x() < margin() ? cell.x() - 1 : cell.x() : -1;
+#if QT_CONFIG(cursor)
+    tableViewPrivate->updateCursor();
+#endif
+}
+
+//  from ../qtdeclarative/src/quick/items/qquicktableview.cpp, line 7177, as _ZN27QQuickTableViewHoverHandlerC1EP15QQuickTableView
+inline QQuickTableViewHoverHandler::QQuickTableViewHoverHandler(QQuickTableView *view)
+    : QQuickHoverHandler(view->contentItem())
+{
+    setMargin(5);
+
+    connect(this, &QQuickHoverHandler::hoveredChanged, this, [this] {
+        if (!isHoveringGrid())
+            return;
+        m_row = -1;
+        m_column = -1;
+#if QT_CONFIG(cursor)
+        auto tableView = static_cast<QQuickTableView *>(parentItem()->parent());
+        auto tableViewPrivate = QQuickTableViewPrivate::get(tableView);
+        tableViewPrivate->updateCursor();
+#endif
+    });
+}
+//  -----------------------------------------------------------------------
 
 //  A QQuickTableViewHoverHandler that Python can take functions over in. Every QQuickTableViewHoverHandler
 //  Python makes is one. Each function below asks the Python
@@ -357,6 +510,24 @@ int ritual_ZN27QQuickTableViewHoverHandler11qt_metacallEN11QMetaObject4CallEiPPv
     int a1,
     void **a2) {
   return self->qt_metacall(a0, a1, a2);
+}
+
+//  QString QQuickTableViewHoverHandler::tr(const char *s, const char *c, int
+//      n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN27QQuickTableViewHoverHandler2trEPKcS1_i(
+    const char *s,
+    const char *c,
+    int n) {
+  return new QString(QQuickTableViewHoverHandler::tr(s, c, n));
+}
+
+//  QQuickTableViewHoverHandler::QQuickTableViewHoverHandler(QQuickTableView
+//      *view)
+extern "C" Q_DECL_EXPORT
+QQuickTableViewHoverHandler *ritual_ZN27QQuickTableViewHoverHandlerC1EP15QQuickTableView(
+    QQuickTableView *view) {
+  return new CuteQQuickTableViewHoverHandler(view);
 }
 
 //  bool QQuickTableViewHoverHandler::isHoveringGrid() const

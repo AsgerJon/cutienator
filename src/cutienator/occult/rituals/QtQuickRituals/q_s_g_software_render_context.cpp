@@ -1,17 +1,29 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtQuick/6.12.0/QtQuick/private/qsgsoftwarecontext_p.h, Qt 6.12.0. Changes
-//  made here are lost.
+//  QtQuick/6.12.0/QtQuick/private/qsgsoftwarecontext_p.h, Qt 6.12.0.
+//  Edited by hand on 2026-11-26: moc's output for 'QSGSoftwareRenderContext'
+//  is pasted in, cut from what the moc of Qt 6.12.0 writes for its header:
+//  Qt's library keeps it to itself; added are 3 rituals that lean on what
+//  moc writes for a class of the part Qt keeps to itself, whose ritual file
+//  carries moc's output, drafted by a copy of the generator that lets those
+//  names through. A copy of a meta-object is a second one: 'qobject_cast'
+//  between it and Qt's own does not match. Kept as it is when the generator
+//  runs again.
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
 #include <QtQuick/QtQuick>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQuick/6.12.0/QtQuick/private/qsgsoftwarecontext_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 #include <QtGui/qimage.h>
 #include <QtQuick/qquickgraphicsconfiguration.h>
 #include <QtGui/qrawfont.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
 #include <QtQuick/private/qsgsoftwarecontext_p.h>
 #include <QtQuick/private/qsgsoftwareinternalrectanglenode_p.h>
 #include <QtQuick/private/qsgsoftwareinternalimagenode_p.h>
@@ -40,6 +52,71 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from QtQuick__QSGSoftwareRenderContext.cpp, line 1, as moc:QSGSoftwareRenderContext
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN24QSGSoftwareRenderContextE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto QSGSoftwareRenderContext::qt_create_metaobjectdata<qt_meta_tag_ZN24QSGSoftwareRenderContextE_t>()
+{
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "QSGSoftwareRenderContext"
+    };
+
+    QtMocHelpers::UintData qt_methods {
+    };
+    QtMocHelpers::UintData qt_properties {
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    return QtMocHelpers::metaObjectData<QSGSoftwareRenderContext, qt_meta_tag_ZN24QSGSoftwareRenderContextE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums);
+}
+Q_CONSTINIT const QMetaObject QSGSoftwareRenderContext::staticMetaObject = { {
+    QMetaObject::SuperData::link<QSGRenderContext::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN24QSGSoftwareRenderContextE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN24QSGSoftwareRenderContextE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN24QSGSoftwareRenderContextE_t>.metaTypes,
+    nullptr
+} };
+
+void QSGSoftwareRenderContext::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<QSGSoftwareRenderContext *>(_o);
+    (void)_t;
+    (void)_c;
+    (void)_id;
+    (void)_a;
+}
+
+const QMetaObject *QSGSoftwareRenderContext::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *QSGSoftwareRenderContext::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN24QSGSoftwareRenderContextE_t>.strings))
+        return static_cast<void*>(this);
+    return QSGRenderContext::qt_metacast(_clname);
+}
+
+int QSGSoftwareRenderContext::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QSGRenderContext::qt_metacall(_c, _id, _a);
+    return _id;
+}
+QT_WARNING_POP
+
 //  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarecontext.cpp, line 93, as _ZN24QSGSoftwareRenderContext10invalidateEv
 inline void QSGSoftwareRenderContext::invalidate()
 {
@@ -61,6 +138,12 @@ inline void QSGSoftwareRenderContext::invalidate()
     emit invalidated();
 }
 
+//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarecontext.cpp, line 118, as _ZN24QSGSoftwareRenderContext14createRendererEN20QSGRendererInterface10RenderModeE
+inline QSGRenderer *QSGSoftwareRenderContext::createRenderer(QSGRendererInterface::RenderMode)
+{
+    return new QSGSoftwareRenderer(this);
+}
+
 //  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarecontext.cpp, line 124, as _ZN24QSGSoftwareRenderContext15renderNextFrameEP11QSGRenderer
 inline void QSGSoftwareRenderContext::renderNextFrame(QSGRenderer *renderer)
 {
@@ -71,12 +154,6 @@ inline void QSGSoftwareRenderContext::renderNextFrame(QSGRenderer *renderer)
 inline QSGTexture *QSGSoftwareRenderContext::createTexture(const QImage &image, uint flags) const
 {
     return new QSGSoftwarePixmapTexture(image, flags);
-}
-
-//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarecontext.cpp, line 118, as _ZN24QSGSoftwareRenderContext14createRendererEN20QSGRendererInterface10RenderModeE
-inline QSGRenderer *QSGSoftwareRenderContext::createRenderer(QSGRendererInterface::RenderMode)
-{
-    return new QSGSoftwareRenderer(this);
 }
 
 //  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarecontext.cpp, line 129, as _ZNK24QSGSoftwareRenderContext14maxTextureSizeEv
@@ -97,6 +174,14 @@ inline QSGSoftwarePixmapTexture::QSGSoftwarePixmapTexture(const QImage &image, u
         //Force opaque texture
         m_pixmap = QPixmap::fromImage(image.convertToFormat(QImage::Format_RGB32), Qt::NoFormatConversion);
     }
+}
+
+//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarecontext.cpp, line 28, as _ZN24QSGSoftwareRenderContextC1EP10QSGContext
+inline QSGSoftwareRenderContext::QSGSoftwareRenderContext(QSGContext *ctx)
+    : QSGRenderContext(ctx)
+    , m_initialized(false)
+    , m_activePainter(nullptr)
+{
 }
 
 //  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarecontext.cpp, line 85, as _ZN24QSGSoftwareRenderContext18initializeIfNeededEv
@@ -587,6 +672,22 @@ int ritual_ZN24QSGSoftwareRenderContext11qt_metacallEN11QMetaObject4CallEiPPv(
   return self->qt_metacall(a0, a1, a2);
 }
 
+//  QString QSGSoftwareRenderContext::tr(const char *s, const char *c, int n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN24QSGSoftwareRenderContext2trEPKcS1_i(
+    const char *s,
+    const char *c,
+    int n) {
+  return new QString(QSGSoftwareRenderContext::tr(s, c, n));
+}
+
+//  QSGSoftwareRenderContext::QSGSoftwareRenderContext(QSGContext *ctx)
+extern "C" Q_DECL_EXPORT
+QSGSoftwareRenderContext *ritual_ZN24QSGSoftwareRenderContextC1EP10QSGContext(
+    QSGContext *ctx) {
+  return new CuteQSGSoftwareRenderContext(ctx);
+}
+
 //  void QSGSoftwareRenderContext::initializeIfNeeded()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN24QSGSoftwareRenderContext18initializeIfNeededEv(
@@ -658,6 +759,16 @@ void ritual_own_ZN24QSGSoftwareRenderContext15renderNextFrameEP11QSGRenderer(
     QSGSoftwareRenderContext *self,
     QSGRenderer *renderer) {
   self->QSGSoftwareRenderContext::renderNextFrame(renderer);
+}
+
+//  QSGTexture *QSGSoftwareRenderContext::createTexture(const QImage &image,
+//      uint flags) const
+extern "C" Q_DECL_EXPORT
+QSGTexture *ritual_own_ZNK24QSGSoftwareRenderContext13createTextureERK6QImagej(
+    const QSGSoftwareRenderContext *self,
+    const QImage *image,
+    uint flags) {
+  return self->QSGSoftwareRenderContext::createTexture(*image, flags);
 }
 
 //  QSGRenderer *QSGSoftwareRenderContext::createRenderer(QSGRendererInterfac

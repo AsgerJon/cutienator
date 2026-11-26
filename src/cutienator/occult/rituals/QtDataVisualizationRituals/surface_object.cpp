@@ -68,6 +68,29 @@ inline AbstractObjectHelper::~AbstractObjectHelper()
     }
 }
 
+//  from ../qtdatavis3d/src/datavisualization/utils/abstractobjecthelper.cpp, line 43, as _ZN20AbstractObjectHelper5uvBufEv
+inline GLuint AbstractObjectHelper::uvBuf()
+{
+    if (!m_meshDataLoaded)
+        qFatal("No loaded object");
+    return m_uvbuffer;
+}
+
+//  from ../qtdatavis3d/src/datavisualization/utils/surfaceobject.cpp, line 11, as _ZN13SurfaceObjectC1EP17Surface3DRenderer
+inline SurfaceObject::SurfaceObject(Surface3DRenderer *renderer)
+    : m_axisCacheX(renderer->m_axisCacheX),
+      m_axisCacheY(renderer->m_axisCacheY),
+      m_axisCacheZ(renderer->m_axisCacheZ),
+      m_renderer(renderer)
+{
+    glGenBuffers(1, &m_vertexbuffer);
+    glGenBuffers(1, &m_normalbuffer);
+    glGenBuffers(1, &m_uvbuffer);
+    glGenBuffers(1, &m_elementbuffer);
+    glGenBuffers(1, &m_gridElementbuffer);
+    glGenBuffers(1, &m_uvTextureBuffer);
+}
+
 //  from ../qtdatavis3d/src/datavisualization/utils/surfaceobject.cpp, line 277, as _ZN13SurfaceObject9smoothUVsERK5QListIPS0_I16QSurfaceDataItemEES6_
 inline void SurfaceObject::smoothUVs(const QSurfaceDataArray &dataArray,
                               const QSurfaceDataArray &modelArray)
@@ -714,6 +737,13 @@ public:
     return SurfaceObject::uvBuf();
   }
 };
+
+//  SurfaceObject::SurfaceObject(Surface3DRenderer *renderer)
+extern "C" Q_DECL_EXPORT
+SurfaceObject *ritual_ZN13SurfaceObjectC1EP17Surface3DRenderer(
+    Surface3DRenderer *renderer) {
+  return new CuteSurfaceObject(renderer);
+}
 
 //  SurfaceObject::~SurfaceObject()
 extern "C" Q_DECL_EXPORT

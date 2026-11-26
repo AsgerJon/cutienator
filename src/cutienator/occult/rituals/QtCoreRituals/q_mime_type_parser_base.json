@@ -5,6 +5,7 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN19QMimeTypeParserBaseC1Ev": ["address"],
     "ritual_ZN19QMimeTypeParserBaseD1Ev": ["nothing", "address"],
     "ritual_ZN19QMimeTypeParserBase11parseNumberE11QStringViewPiP7QString": [
       "bool", "text", "address", "address"

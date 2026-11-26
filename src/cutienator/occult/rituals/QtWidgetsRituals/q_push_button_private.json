@@ -7,6 +7,7 @@
   "rows": {
     "ritual_ZN18QPushButtonPrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK18QPushButtonPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN18QPushButtonPrivateC1Ev": ["address"],
     "ritual_ZN18QPushButtonPrivate4initEv": ["nothing", "address"],
     "ritual_ZN18QPushButtonPrivate3getEP11QPushButton": [
       "address", "address"

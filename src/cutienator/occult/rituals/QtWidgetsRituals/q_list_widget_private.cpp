@@ -1,6 +1,11 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtWidgets/6.12.0/QtWidgets/private/qlistwidget_p.h, Qt 6.12.0. Changes
-//  made here are lost.
+//  QtWidgets/6.12.0/QtWidgets/private/qlistwidget_p.h, Qt 6.12.0.
+//  Edited by hand on 2026-11-26: added are 10 rituals that lean on what moc
+//  writes for a class of the part Qt keeps to itself, whose ritual file
+//  carries moc's output, drafted by a copy of the generator that lets those
+//  names through. A copy of a meta-object is a second one: 'qobject_cast'
+//  between it and Qt's own does not match. Kept as it is when the generator
+//  runs again.
 #include <QtGui/qtguiglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
@@ -414,6 +419,18 @@ inline void QListModel::ensureSorted(int column, Qt::SortOrder order, int start,
         sort(column, order);
 }
 
+//  from src/widgets/itemviews/qlistwidget.cpp, line 26, as _ZN10QListModelC1EP11QListWidget
+inline QListModel::QListModel(QListWidget *parent)
+    : QAbstractListModel(parent)
+{
+}
+
+//  from src/widgets/itemviews/qlistwidget.cpp, line 50, as _ZNK10QListModel2atEi
+inline QListWidgetItem *QListModel::at(int row) const
+{
+    return items.value(row);
+}
+
 //  from src/widgets/itemviews/qlistview.cpp, line 2216, as _ZN17QListModeViewBase6dropOnEP10QDropEventPiS2_P11QModelIndex
 #if QT_CONFIG(draganddrop)
 inline bool QListModeViewBase::dropOn(QDropEvent *event, int *dropRow, int *dropCol, QModelIndex *dropIndex)
@@ -487,6 +504,32 @@ inline void QAbstractItemViewPrivate::doDelayedItemsLayout(int delay)
     }
 }
 
+//  from src/widgets/itemviews/qlistwidget.cpp, line 1079, as _ZN18QListWidgetPrivate5setupEv
+inline void QListWidgetPrivate::setup()
+{
+    Q_Q(QListWidget);
+    q->QListView::setModel(new QListModel(q));
+    // view signals
+    connections = {
+        QObjectPrivate::connect(q, &QListWidget::pressed,
+                                this, &QListWidgetPrivate::emitItemPressed),
+        QObjectPrivate::connect(q, &QListWidget::clicked,
+                                this, &QListWidgetPrivate::emitItemClicked),
+        QObjectPrivate::connect(q, &QListWidget::doubleClicked,
+                                this, &QListWidgetPrivate::emitItemDoubleClicked),
+        QObjectPrivate::connect(q, &QListWidget::activated,
+                                this, &QListWidgetPrivate::emitItemActivated),
+        QObjectPrivate::connect(q, &QListWidget::entered,
+                                this, &QListWidgetPrivate::emitItemEntered),
+        QObjectPrivate::connect(model, &QAbstractItemModel::dataChanged,
+                                this, &QListWidgetPrivate::emitItemChanged),
+        QObjectPrivate::connect(model, &QAbstractItemModel::dataChanged,
+                                this, &QListWidgetPrivate::dataChanged),
+        QObjectPrivate::connect(model, &QAbstractItemModel::columnsRemoved,
+                                this, &QListWidgetPrivate::sort)
+    };
+}
+
 //  from src/widgets/itemviews/qlistwidget.cpp, line 1104, as _ZN18QListWidgetPrivate16clearConnectionsEv
 inline void QListWidgetPrivate::clearConnections()
 {
@@ -496,11 +539,81 @@ inline void QListWidgetPrivate::clearConnections()
         QObject::disconnect(connection);
 }
 
+//  from src/widgets/itemviews/qlistwidget.cpp, line 1112, as _ZN18QListWidgetPrivate15emitItemPressedERK11QModelIndex
+inline void QListWidgetPrivate::emitItemPressed(const QModelIndex &index)
+{
+    Q_Q(QListWidget);
+    emit q->itemPressed(listModel()->at(index.row()));
+}
+
+//  from src/widgets/itemviews/qlistwidget.cpp, line 1118, as _ZN18QListWidgetPrivate15emitItemClickedERK11QModelIndex
+inline void QListWidgetPrivate::emitItemClicked(const QModelIndex &index)
+{
+    Q_Q(QListWidget);
+    emit q->itemClicked(listModel()->at(index.row()));
+}
+
+//  from src/widgets/itemviews/qlistwidget.cpp, line 1124, as _ZN18QListWidgetPrivate21emitItemDoubleClickedERK11QModelIndex
+inline void QListWidgetPrivate::emitItemDoubleClicked(const QModelIndex &index)
+{
+    Q_Q(QListWidget);
+    emit q->itemDoubleClicked(listModel()->at(index.row()));
+}
+
+//  from src/widgets/itemviews/qlistwidget.cpp, line 1130, as _ZN18QListWidgetPrivate17emitItemActivatedERK11QModelIndex
+inline void QListWidgetPrivate::emitItemActivated(const QModelIndex &index)
+{
+    Q_Q(QListWidget);
+    emit q->itemActivated(listModel()->at(index.row()));
+}
+
+//  from src/widgets/itemviews/qlistwidget.cpp, line 1136, as _ZN18QListWidgetPrivate15emitItemEnteredERK11QModelIndex
+inline void QListWidgetPrivate::emitItemEntered(const QModelIndex &index)
+{
+    Q_Q(QListWidget);
+    emit q->itemEntered(listModel()->at(index.row()));
+}
+
+//  from src/widgets/itemviews/qlistwidget.cpp, line 1142, as _ZN18QListWidgetPrivate15emitItemChangedERK11QModelIndex
+inline void QListWidgetPrivate::emitItemChanged(const QModelIndex &index)
+{
+    Q_Q(QListWidget);
+    emit q->itemChanged(listModel()->at(index.row()));
+}
+
+//  from src/widgets/itemviews/qlistwidget.cpp, line 1148, as _ZN18QListWidgetPrivate22emitCurrentItemChangedERK11QModelIndexS2_
+inline void QListWidgetPrivate::emitCurrentItemChanged(const QModelIndex &current,
+                                                const QModelIndex &previous)
+{
+    Q_Q(QListWidget);
+    QPersistentModelIndex persistentCurrent = current;
+    QListWidgetItem *currentItem = listModel()->at(persistentCurrent.row());
+    emit q->currentItemChanged(currentItem, listModel()->at(previous.row()));
+
+    //persistentCurrent is invalid if something changed the model in response
+    //to the currentItemChanged signal emission and the item was removed
+    if (!persistentCurrent.isValid()) {
+        currentItem = nullptr;
+    }
+
+    emit q->currentTextChanged(currentItem ? currentItem->text() : QString());
+    emit q->currentRowChanged(persistentCurrent.row());
+}
+
 //  from src/widgets/itemviews/qlistwidget.cpp, line 1166, as _ZN18QListWidgetPrivate4sortEv
 inline void QListWidgetPrivate::sort()
 {
     if (sortingEnabled)
         model->sort(0, sortOrder);
+}
+
+//  from src/widgets/itemviews/qlistwidget.cpp, line 1172, as _ZN18QListWidgetPrivate11dataChangedERK11QModelIndexS2_
+inline void QListWidgetPrivate::dataChanged(const QModelIndex &topLeft,
+                                     const QModelIndex &bottomRight)
+{
+    if (sortingEnabled && topLeft.isValid() && bottomRight.isValid())
+        listModel()->ensureSorted(topLeft.column(), sortOrder,
+                              topLeft.row(), bottomRight.row());
 }
 //  -----------------------------------------------------------------------
 
@@ -1289,6 +1402,19 @@ const QListWidget *ritual_ZNK18QListWidgetPrivate6q_funcEv(
   return self->q_func();
 }
 
+//  QListModel *QListWidgetPrivate::listModel() const
+extern "C" Q_DECL_EXPORT
+QListModel *ritual_ZNK18QListWidgetPrivate9listModelEv(
+    const QListWidgetPrivate *self) {
+  return self->listModel();
+}
+
+//  void QListWidgetPrivate::setup()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QListWidgetPrivate5setupEv(QListWidgetPrivate *self) {
+  self->setup();
+}
+
 //  void QListWidgetPrivate::clearConnections()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN18QListWidgetPrivate16clearConnectionsEv(
@@ -1296,10 +1422,78 @@ void ritual_ZN18QListWidgetPrivate16clearConnectionsEv(
   self->clearConnections();
 }
 
+//  void QListWidgetPrivate::emitItemPressed(const QModelIndex &index)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QListWidgetPrivate15emitItemPressedERK11QModelIndex(
+    QListWidgetPrivate *self,
+    const QModelIndex *index) {
+  self->emitItemPressed(*index);
+}
+
+//  void QListWidgetPrivate::emitItemClicked(const QModelIndex &index)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QListWidgetPrivate15emitItemClickedERK11QModelIndex(
+    QListWidgetPrivate *self,
+    const QModelIndex *index) {
+  self->emitItemClicked(*index);
+}
+
+//  void QListWidgetPrivate::emitItemDoubleClicked(const QModelIndex &index)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QListWidgetPrivate21emitItemDoubleClickedERK11QModelIndex(
+    QListWidgetPrivate *self,
+    const QModelIndex *index) {
+  self->emitItemDoubleClicked(*index);
+}
+
+//  void QListWidgetPrivate::emitItemActivated(const QModelIndex &index)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QListWidgetPrivate17emitItemActivatedERK11QModelIndex(
+    QListWidgetPrivate *self,
+    const QModelIndex *index) {
+  self->emitItemActivated(*index);
+}
+
+//  void QListWidgetPrivate::emitItemEntered(const QModelIndex &index)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QListWidgetPrivate15emitItemEnteredERK11QModelIndex(
+    QListWidgetPrivate *self,
+    const QModelIndex *index) {
+  self->emitItemEntered(*index);
+}
+
+//  void QListWidgetPrivate::emitItemChanged(const QModelIndex &index)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QListWidgetPrivate15emitItemChangedERK11QModelIndex(
+    QListWidgetPrivate *self,
+    const QModelIndex *index) {
+  self->emitItemChanged(*index);
+}
+
+//  void QListWidgetPrivate::emitCurrentItemChanged(const QModelIndex
+//      &current, const QModelIndex &previous)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QListWidgetPrivate22emitCurrentItemChangedERK11QModelIndexS2_(
+    QListWidgetPrivate *self,
+    const QModelIndex *current,
+    const QModelIndex *previous) {
+  self->emitCurrentItemChanged(*current, *previous);
+}
+
 //  void QListWidgetPrivate::sort()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN18QListWidgetPrivate4sortEv(QListWidgetPrivate *self) {
   self->sort();
+}
+
+//  void QListWidgetPrivate::dataChanged(const QModelIndex &topLeft, const
+//      QModelIndex &bottomRight)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QListWidgetPrivate11dataChangedERK11QModelIndexS2_(
+    QListWidgetPrivate *self,
+    const QModelIndex *topLeft,
+    const QModelIndex *bottomRight) {
+  self->dataChanged(*topLeft, *bottomRight);
 }
 
 //  a Python function taken by a CuteQListWidgetPrivate, for the function

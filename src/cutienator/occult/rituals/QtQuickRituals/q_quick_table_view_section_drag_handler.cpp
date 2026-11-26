@@ -1,6 +1,13 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtQuick/6.12.0/QtQuick/private/qquicktableview_p_p.h, Qt 6.12.0. Changes
-//  made here are lost.
+//  QtQuick/6.12.0/QtQuick/private/qquicktableview_p_p.h, Qt 6.12.0.
+//  Edited by hand on 2026-11-26: moc's output for
+//  'QQuickTableViewSectionDragHandler' is pasted in, cut from what the moc
+//  of Qt 6.12.0 writes for its header: Qt's library keeps it to itself;
+//  added are 2 rituals that lean on what moc writes for a class of the part
+//  Qt keeps to itself, whose ritual file carries moc's output, drafted by a
+//  copy of the generator that lets those names through. A copy of a meta-
+//  object is a second one: 'qobject_cast' between it and Qt's own does not
+//  match. Kept as it is when the generator runs again.
 #include <QtQuick/qtquickglobal.h>
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
 #if QT_CONFIG(quick_tableview)
@@ -10,10 +17,15 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQuick/6.12.0/QtQuick/private/qquicktableview_p_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 #include <QtGui/qeventpoint.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
 #include <QtQuick/private/qquicktableview_p.h>
 #include <QtQuick/private/qquicktableview_p_p.h>
 #include <QtCore/qdir.h>
@@ -39,6 +51,71 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from QtQuick__QQuickTableViewSectionDragHandler.cpp, line 1, as moc:QQuickTableViewSectionDragHandler
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN33QQuickTableViewSectionDragHandlerE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto QQuickTableViewSectionDragHandler::qt_create_metaobjectdata<qt_meta_tag_ZN33QQuickTableViewSectionDragHandlerE_t>()
+{
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "QQuickTableViewSectionDragHandler"
+    };
+
+    QtMocHelpers::UintData qt_methods {
+    };
+    QtMocHelpers::UintData qt_properties {
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    return QtMocHelpers::metaObjectData<QQuickTableViewSectionDragHandler, qt_meta_tag_ZN33QQuickTableViewSectionDragHandlerE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums);
+}
+Q_CONSTINIT const QMetaObject QQuickTableViewSectionDragHandler::staticMetaObject = { {
+    QMetaObject::SuperData::link<QQuickTableViewPointerHandler::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN33QQuickTableViewSectionDragHandlerE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN33QQuickTableViewSectionDragHandlerE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN33QQuickTableViewSectionDragHandlerE_t>.metaTypes,
+    nullptr
+} };
+
+void QQuickTableViewSectionDragHandler::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<QQuickTableViewSectionDragHandler *>(_o);
+    (void)_t;
+    (void)_c;
+    (void)_id;
+    (void)_a;
+}
+
+const QMetaObject *QQuickTableViewSectionDragHandler::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *QQuickTableViewSectionDragHandler::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN33QQuickTableViewSectionDragHandlerE_t>.strings))
+        return static_cast<void*>(this);
+    return QQuickTableViewPointerHandler::qt_metacast(_clname);
+}
+
+int QQuickTableViewSectionDragHandler::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QQuickTableViewPointerHandler::qt_metacall(_c, _id, _a);
+    return _id;
+}
+QT_WARNING_POP
+
 //  from ../qtdeclarative/src/quick/items/qquicktableview.cpp, line 7235, as _ZN29QQuickTableViewPointerHandler15wantsEventPointEPK13QPointerEventRK11QEventPoint
 inline bool QQuickTableViewPointerHandler::wantsEventPoint(const QPointerEvent *event, const QEventPoint &point)
 {
@@ -55,6 +132,113 @@ inline bool QQuickTableViewPointerHandler::wantsEventPoint(const QPointerEvent *
     return !tableView->isMoving();
 }
 
+//  from ../qtdeclarative/src/quick/items/qquicktableview.cpp, line 7521, as _ZN33QQuickTableViewSectionDragHandler16handleEventPointEP13QPointerEventR11QEventPoint
+#if QT_CONFIG(quick_draganddrop)
+inline void QQuickTableViewSectionDragHandler::handleEventPoint(QPointerEvent *event, QEventPoint &point)
+{
+    QQuickSinglePointHandler::handleEventPoint(event, point);
+
+    auto *tableView = static_cast<QQuickTableView *>(parentItem()->parent());
+    auto *tableViewPrivate = QQuickTableViewPrivate::get(tableView);
+    const auto *activeHandler = tableViewPrivate->activePointerHandler();
+    if (activeHandler && !qobject_cast<const QQuickTableViewSectionDragHandler *>(activeHandler))
+        return;
+
+    if (m_state == DraggingFinished) {
+       if (m_scrollTimer.isActive())
+           m_scrollTimer.stop();
+       resetDragData();
+    }
+
+    if (point.state() == QEventPoint::Pressed) {
+        // Reset the information in the drag handler
+        resetDragData();
+        // Activate the passive grab to get further move updates
+        setPassiveGrab(event, point, true);
+        // Disable flicking while dragging. TableView uses filtering instead of
+        // pointer handlers to do flicking, so setting an exclusive grab (together
+        // with grab permissions) doens't work ATM.
+        auto *tableView = static_cast<QQuickTableView *>(parentItem()->parent());
+        tableView->setFiltersChildMouseEvents(false);
+        m_state = Tracking;
+    } else if (point.state() == QEventPoint::Released) {
+        // Reset the information in the drag handler
+        if (m_scrollTimer.isActive())
+            m_scrollTimer.stop();
+        resetDragData();
+    } else if (point.state() == QEventPoint::Updated) {
+        // Check to see that the movement can be considered as dragging
+        const qreal distX = point.position().x() - point.pressPosition().x();
+        const qreal distY = point.position().y() - point.pressPosition().y();
+        const qreal dragDist = qSqrt(distX * distX + distY * distY);
+        if (dragDist > qApp->styleHints()->startDragDistance()) {
+            switch (m_state) {
+                case Tracking: {
+                    // Grab the image for dragging header
+                    const QPoint cell = tableView->cellAtPosition(point.position(), true);
+                    auto *item = tableView->itemAtCell(cell);
+                    if (!item)
+                        break;
+                    if (m_drag.isNull()) {
+                        m_drag = new QDrag(item);
+                        connect(m_drag.data(), &QDrag::actionChanged, this,
+                                &QQuickTableViewSectionDragHandler::handleDragDropAction);
+                    }
+                    // Connect the timer for scroling
+                    QObject::connect(&m_scrollTimer, &QTimer::timeout, this, [&]{
+                        const QSizeF dist = tableViewPrivate->scrollTowardsPoint(m_dragPoint, m_step);
+                        m_dragPoint.rx() += dist.width() > 0 ? m_step.width() : -m_step.width();
+                        m_dragPoint.ry() += dist.height() > 0 ? m_step.height() : -m_step.height();
+                        m_step = QSizeF(qAbs(dist.width() * 0.010), qAbs(dist.height() * 0.010));
+                    });
+                    // Set the drop area
+                    if (m_dropArea.isNull()) {
+                        m_dropArea = new QQuickDropArea(tableView);
+                        m_dropArea->setSize(tableView->size());
+                        connect(m_dropArea, &QQuickDropArea::positionChanged, this,
+                                &QQuickTableViewSectionDragHandler::handleDrag);
+                        connect(m_dropArea, &QQuickDropArea::dropped, this,
+                                &QQuickTableViewSectionDragHandler::handleDrop);
+                    }
+                    // Grab the image of the section
+                    m_grabResult = item->grabToImage();
+                    connect(m_grabResult.data(), &QQuickItemGrabResult::ready, this,
+                            &QQuickTableViewSectionDragHandler::grabSection);
+                    // Update source depending on the type of orientation
+                    m_source = (m_sectionOrientation == Qt::Horizontal) ? cell.x() : cell.y();
+                    m_state = DraggingStarted;
+                    // Set drag handler as active and it further handles section pointer events
+                    tableViewPrivate->setActivePointerHandler(this);
+                }
+                break;
+
+                case DraggingStarted: {
+                    if (m_drag && m_drag->mimeData()) {
+                        if (auto *item = qobject_cast<QQuickItem *>(m_drag->source())) {
+                            m_state = Dragging;
+                            const QPointF itemPos = item->mapFromItem(tableView->contentItem(), point.position());
+                            Q_UNUSED(itemPos);
+                            m_drag->setHotSpot(m_sectionOrientation == Qt::Horizontal ? QPoint(item->width()/2, itemPos.y()) : QPoint(itemPos.x(), item->height()/2));
+                            m_drag->exec();
+                            // If the state still remains dragging, means the drop happened outside the corresponding section handler's
+                            // drop area, better clear all the state.
+                            if (m_state == Dragging)
+                                resetDragData();
+                            // Reset the active handler
+                            tableViewPrivate->setActivePointerHandler(nullptr);
+                        }
+                    }
+                }
+                break;
+
+                default:
+                    break;
+            }
+        }
+    }
+}
+#endif  // QT_CONFIG(quick_draganddrop)
+
 //  from ../qtdeclarative/src/quick/items/qquicktableview.cpp, line 7227, as _ZN29QQuickTableViewPointerHandlerC2EP15QQuickTableView
 inline QQuickTableViewPointerHandler::QQuickTableViewPointerHandler(QQuickTableView *view)
     : QQuickSinglePointHandler(view->contentItem())
@@ -63,6 +247,15 @@ inline QQuickTableViewPointerHandler::QQuickTableViewPointerHandler(QQuickTableV
     // any drag handler inside the delegate, from stealing the drag.
     setGrabPermissions(QQuickPointerHandler::CanTakeOverFromAnything);
 }
+
+//  from ../qtdeclarative/src/quick/items/qquicktableview.cpp, line 7390, as _ZN33QQuickTableViewSectionDragHandlerC1EP15QQuickTableView
+#if QT_CONFIG(quick_draganddrop)
+inline QQuickTableViewSectionDragHandler::QQuickTableViewSectionDragHandler(QQuickTableView *view)
+    : QQuickTableViewPointerHandler(view)
+{
+    setObjectName("tableViewDragHandler");
+}
+#endif  // QT_CONFIG(quick_draganddrop)
 
 //  from ../qtdeclarative/src/quick/items/qquicktableview.cpp, line 7396, as _ZN33QQuickTableViewSectionDragHandlerD1Ev
 #if QT_CONFIG(quick_draganddrop)
@@ -557,6 +750,26 @@ int ritual_ZN33QQuickTableViewSectionDragHandler11qt_metacallEN11QMetaObject4Cal
     void **a2) {
   return self->qt_metacall(a0, a1, a2);
 }
+
+//  QString QQuickTableViewSectionDragHandler::tr(const char *s, const char
+//      *c, int n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN33QQuickTableViewSectionDragHandler2trEPKcS1_i(
+    const char *s,
+    const char *c,
+    int n) {
+  return new QString(QQuickTableViewSectionDragHandler::tr(s, c, n));
+}
+
+#if QT_CONFIG(quick_draganddrop)
+//  QQuickTableViewSectionDragHandler::QQuickTableViewSectionDragHandler(QQui
+//      ckTableView *view)
+extern "C" Q_DECL_EXPORT
+QQuickTableViewSectionDragHandler *ritual_ZN33QQuickTableViewSectionDragHandlerC1EP15QQuickTableView(
+    QQuickTableView *view) {
+  return new CuteQQuickTableViewSectionDragHandler(view);
+}
+#endif  // QT_CONFIG(quick_draganddrop)
 
 //  QQuickTableViewSectionDragHandler::~QQuickTableViewSectionDragHandler()
 extern "C" Q_DECL_EXPORT

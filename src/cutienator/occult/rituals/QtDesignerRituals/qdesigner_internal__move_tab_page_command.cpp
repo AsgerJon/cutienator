@@ -115,6 +115,23 @@ inline void TabWidgetCommand::init(QTabWidget *tabWidget)
 }
 }  // namespace qdesigner_internal
 
+//  from ../qttools/src/designer/src/lib/shared/qdesigner_command.cpp, line 1084, as _ZN18qdesigner_internal16TabWidgetCommandD2Ev
+namespace qdesigner_internal {
+using namespace Qt::StringLiterals;
+inline TabWidgetCommand::~TabWidgetCommand() = default;
+}  // namespace qdesigner_internal
+
+//  from ../qttools/src/designer/src/lib/shared/qdesigner_command.cpp, line 1196, as _ZN18qdesigner_internal18MoveTabPageCommandC1EP28QDesignerFormWindowInterface
+namespace qdesigner_internal {
+using namespace Qt::StringLiterals;
+inline MoveTabPageCommand::MoveTabPageCommand(QDesignerFormWindowInterface *formWindow) :
+    TabWidgetCommand(formWindow),
+    m_newIndex(-1),
+    m_oldIndex(-1)
+{
+}
+}  // namespace qdesigner_internal
+
 //  from ../qttools/src/designer/src/lib/shared/qdesigner_command.cpp, line 1205, as _ZN18qdesigner_internal18MoveTabPageCommand4initEP10QTabWidgetP7QWidgetRK5QIconRK7QStringii
 namespace qdesigner_internal {
 using namespace Qt::StringLiterals;
@@ -234,6 +251,14 @@ public:
   }
 #endif  // QT_CONFIG(undocommand)
 };
+
+//  qdesigner_internal::MoveTabPageCommand::MoveTabPageCommand(QDesignerFormW
+//      indowInterface *formWindow)
+extern "C" Q_DECL_EXPORT
+qdesigner_internal::MoveTabPageCommand *ritual_ZN18qdesigner_internal18MoveTabPageCommandC1EP28QDesignerFormWindowInterface(
+    QDesignerFormWindowInterface *formWindow) {
+  return new Cuteqdesigner_internal_MoveTabPageCommand(formWindow);
+}
 
 //  qdesigner_internal::MoveTabPageCommand::~MoveTabPageCommand()
 extern "C" Q_DECL_EXPORT

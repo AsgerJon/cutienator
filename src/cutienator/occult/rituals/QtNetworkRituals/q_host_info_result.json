@@ -2,7 +2,7 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtNetwork/6.12.0/QtNetwork/private/qhostinfo_p.h, Qt 6.12.0.",
-    "Changes made here are lost."
+    "Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZNK15QHostInfoResult10metaObjectEv": ["address", "address"],
@@ -12,13 +12,20 @@
     "ritual_ZN15QHostInfoResult11qt_metacallEN11QMetaObject4CallEiPPv": [
       "int", "address", "int", "int", "address"
     ],
+    "ritual_ZN15QHostInfoResult2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
     "ritual_ZN15QHostInfoResultD1Ev": ["nothing", "address"],
+    "ritual_ZN15QHostInfoResult16postResultsReadyERK9QHostInfo": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN15QHostInfoResult12resultsReadyERK9QHostInfo": [
       "nothing", "address", "address"
     ],
     "ritual_ZN15QHostInfoResult24finalizePostResultsReadyERK9QHostInfo": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN15QHostInfoResultC1EPS_": ["address", "address"],
     "ritual_take_QHostInfoResult": ["bool", "address", "chars", "address"]
   }
 }

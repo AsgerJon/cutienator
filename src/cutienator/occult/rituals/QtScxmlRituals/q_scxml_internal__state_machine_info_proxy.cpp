@@ -1,13 +1,162 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtScxml/6.12.0/QtScxml/private/qscxmlstatemachine_p.h, Qt 6.12.0. Changes
-//  made here are lost.
+//  QtScxml/6.12.0/QtScxml/private/qscxmlstatemachine_p.h, Qt 6.12.0.
+//  Edited by hand on 2026-11-26: moc's output for
+//  'QScxmlInternal::StateMachineInfoProxy' is pasted in, cut from what the
+//  moc of Qt 6.12.0 writes for its header: Qt's library keeps it to itself;
+//  added are 2 rituals that lean on what moc writes for a class of the part
+//  Qt keeps to itself, whose ritual file carries moc's output, drafted by a
+//  copy of the generator that lets those names through. A copy of a meta-
+//  object is a second one: 'qobject_cast' between it and Qt's own does not
+//  match. Kept as it is when the generator runs again.
 #include <QtScxml/6.12.0/QtScxml/private/qscxmlglobals_p.h>
 #include <QtScxml/QtScxml>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtScxml/6.12.0/QtScxml/private/qscxmlstatemachine_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+
+//  Qt's own code, from here to the line of dashes: taken from
+//  Qt's source, because Qt's library carries it under no name.
+//  Copyright (C) The Qt Company Ltd. It is licensed
+//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
+//  here. Each function is as Qt wrote it, with the word
+//  'inline' put before it where Qt did not write it.
+
+//  from QtScxml__QScxmlInternal_StateMachineInfoProxy.cpp, line 1, as moc:QScxmlInternal::StateMachineInfoProxy
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN14QScxmlInternal21StateMachineInfoProxyE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto QScxmlInternal::StateMachineInfoProxy::qt_create_metaobjectdata<qt_meta_tag_ZN14QScxmlInternal21StateMachineInfoProxyE_t>()
+{
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "QScxmlInternal::StateMachineInfoProxy",
+        "statesEntered",
+        "",
+        "QList<QScxmlStateMachineInfo::StateId>",
+        "states",
+        "statesExited",
+        "transitionsTriggered",
+        "QList<QScxmlStateMachineInfo::TransitionId>",
+        "transitions"
+    };
+
+    QtMocHelpers::UintData qt_methods {
+        // Signal 'statesEntered'
+        QtMocHelpers::SignalData<void(const QList<QScxmlStateMachineInfo::StateId> &)>(1, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { 0x80000000 | 3, 4 },
+        }}),
+        // Signal 'statesExited'
+        QtMocHelpers::SignalData<void(const QList<QScxmlStateMachineInfo::StateId> &)>(5, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { 0x80000000 | 3, 4 },
+        }}),
+        // Signal 'transitionsTriggered'
+        QtMocHelpers::SignalData<void(const QList<QScxmlStateMachineInfo::TransitionId> &)>(6, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { 0x80000000 | 7, 8 },
+        }}),
+    };
+    QtMocHelpers::UintData qt_properties {
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    return QtMocHelpers::metaObjectData<StateMachineInfoProxy, qt_meta_tag_ZN14QScxmlInternal21StateMachineInfoProxyE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums);
+}
+Q_CONSTINIT const QMetaObject QScxmlInternal::StateMachineInfoProxy::staticMetaObject = { {
+    QMetaObject::SuperData::link<QObject::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN14QScxmlInternal21StateMachineInfoProxyE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN14QScxmlInternal21StateMachineInfoProxyE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN14QScxmlInternal21StateMachineInfoProxyE_t>.metaTypes,
+    nullptr
+} };
+
+void QScxmlInternal::StateMachineInfoProxy::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<StateMachineInfoProxy *>(_o);
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        switch (_id) {
+        case 0: _t->statesEntered((*reinterpret_cast<std::add_pointer_t<QList<QScxmlStateMachineInfo::StateId>>>(_a[1]))); break;
+        case 1: _t->statesExited((*reinterpret_cast<std::add_pointer_t<QList<QScxmlStateMachineInfo::StateId>>>(_a[1]))); break;
+        case 2: _t->transitionsTriggered((*reinterpret_cast<std::add_pointer_t<QList<QScxmlStateMachineInfo::TransitionId>>>(_a[1]))); break;
+        default: ;
+        }
+    }
+    if (_c == QMetaObject::IndexOfMethod) {
+        if (QtMocHelpers::indexOfMethod<void (StateMachineInfoProxy::*)(const QList<QScxmlStateMachineInfo::StateId> & )>(_a, &StateMachineInfoProxy::statesEntered, 0))
+            return;
+        if (QtMocHelpers::indexOfMethod<void (StateMachineInfoProxy::*)(const QList<QScxmlStateMachineInfo::StateId> & )>(_a, &StateMachineInfoProxy::statesExited, 1))
+            return;
+        if (QtMocHelpers::indexOfMethod<void (StateMachineInfoProxy::*)(const QList<QScxmlStateMachineInfo::TransitionId> & )>(_a, &StateMachineInfoProxy::transitionsTriggered, 2))
+            return;
+    }
+}
+
+const QMetaObject *QScxmlInternal::StateMachineInfoProxy::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *QScxmlInternal::StateMachineInfoProxy::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN14QScxmlInternal21StateMachineInfoProxyE_t>.strings))
+        return static_cast<void*>(this);
+    return QObject::qt_metacast(_clname);
+}
+
+int QScxmlInternal::StateMachineInfoProxy::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QObject::qt_metacall(_c, _id, _a);
+    if (_id < 0)
+        return _id;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        if (_id < 3)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 3;
+    }
+    if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        if (_id < 3)
+            *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
+        _id -= 3;
+    }
+    return _id;
+}
+
+// SIGNAL 0
+void QScxmlInternal::StateMachineInfoProxy::statesEntered(const QList<QScxmlStateMachineInfo::StateId> & _t1)
+{
+    QMetaObject::activate<void>(this, &staticMetaObject, 0, nullptr, _t1);
+}
+
+// SIGNAL 1
+void QScxmlInternal::StateMachineInfoProxy::statesExited(const QList<QScxmlStateMachineInfo::StateId> & _t1)
+{
+    QMetaObject::activate<void>(this, &staticMetaObject, 1, nullptr, _t1);
+}
+
+// SIGNAL 2
+void QScxmlInternal::StateMachineInfoProxy::transitionsTriggered(const QList<QScxmlStateMachineInfo::TransitionId> & _t1)
+{
+    QMetaObject::activate<void>(this, &staticMetaObject, 2, nullptr, _t1);
+}
+QT_WARNING_POP
+//  -----------------------------------------------------------------------
 
 //  A QScxmlInternal::StateMachineInfoProxy that Python can take functions over in. Every QScxmlInternal::StateMachineInfoProxy
 //  Python makes is one. Each function below asks the Python
@@ -201,6 +350,24 @@ int ritual_ZN14QScxmlInternal21StateMachineInfoProxy11qt_metacallEN11QMetaObject
     int a1,
     void **a2) {
   return self->qt_metacall(a0, a1, a2);
+}
+
+//  QString QScxmlInternal::StateMachineInfoProxy::tr(const char *s, const
+//      char *c, int n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN14QScxmlInternal21StateMachineInfoProxy2trEPKcS2_i(
+    const char *s,
+    const char *c,
+    int n) {
+  return new QString(QScxmlInternal::StateMachineInfoProxy::tr(s, c, n));
+}
+
+//  QScxmlInternal::StateMachineInfoProxy::StateMachineInfoProxy(QObject
+//      *parent)
+extern "C" Q_DECL_EXPORT
+QScxmlInternal::StateMachineInfoProxy *ritual_ZN14QScxmlInternal21StateMachineInfoProxyC1EP7QObject(
+    QObject *parent) {
+  return new CuteQScxmlInternal_StateMachineInfoProxy(parent);
 }
 
 //  void QScxmlInternal::StateMachineInfoProxy::statesEntered(const

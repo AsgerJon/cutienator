@@ -11,6 +11,7 @@
     "ritual_ZNK30QQuickMessageDialogImplPrivate6q_funcEv": [
       "address", "address"
     ],
+    "ritual_ZN30QQuickMessageDialogImplPrivateC1Ev": ["address"],
     "ritual_ZN30QQuickMessageDialogImplPrivate3getEP23QQuickMessageDialogImpl": [
       "address", "address"
     ],

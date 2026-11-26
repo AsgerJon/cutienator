@@ -1,11 +1,16 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtNetwork/6.12.0/QtNetwork/private/qnetworkreplyimpl_p.h, Qt 6.12.0.
-//  Changes made here are lost.
+//  Edited by hand on 2026-11-26: added are 10 rituals whose code, copied
+//  from Qt's source, reads constant data Qt keeps to itself
+//  ('QNetworkReplyPrivate::progressSignalInterval'), copied with it 'inline'
+//  from Qt's source, drafted by a copy of the generator that takes it along.
+//  Kept as it is when the generator runs again.
 #include <QtNetwork/6.12.0/QtNetwork/private/qtnetworkglobal_p.h>
 #include <QtNetwork/QtNetwork>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtNetwork/6.12.0/QtNetwork/private/qnetworkreplyimpl_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtNetwork/qnetworkrequest.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qurl.h>
 #include <QtNetwork/qsslerror.h>
@@ -73,6 +78,9 @@ inline QNetworkReplyPrivate::QNetworkReplyPrivate()
     attributes.insert(QNetworkRequest::ConnectionEncryptedAttribute, false);
 }
 
+//  from src/network/access/qnetworkreply.cpp, line 15, as _ZN20QNetworkReplyPrivate22progressSignalIntervalE
+inline const int QNetworkReplyPrivate::progressSignalInterval = 100;
+
 //  from src/network/access/qnetworkrequest.cpp, line 1885, as _ZN22QNetworkHeadersPrivate5toIntE14QByteArrayView
 inline std::optional<qint64> QNetworkHeadersPrivate::toInt(QByteArrayView value)
 {
@@ -124,6 +132,113 @@ inline QNetworkReplyImplPrivate::QNetworkReplyImplPrivate()
 {
     if (request.attribute(QNetworkRequest::EmitAllUploadProgressSignalsAttribute).toBool() == true)
         emitAllUploadProgressSignals = true;
+}
+
+//  from src/network/access/qnetworkreplyimpl.cpp, line 38, as _ZN24QNetworkReplyImplPrivate17_q_startOperationEv
+inline void QNetworkReplyImplPrivate::_q_startOperation()
+{
+    // ensure this function is only being called once
+    if (state == Working || state == Finished) {
+        qDebug() << "QNetworkReplyImpl::_q_startOperation was called more than once" << url;
+        return;
+    }
+    state = Working;
+
+    // note: if that method is called directly, it cannot happen that the backend is 0,
+    // because we just checked via a qobject_cast that we got a http backend (see
+    // QNetworkReplyImplPrivate::setup())
+    if (!backend) {
+        error(QNetworkReplyImpl::ProtocolUnknownError,
+              QCoreApplication::translate("QNetworkReply", "Protocol \"%1\" is unknown").arg(url.scheme())); // not really true!;
+        finished();
+        return;
+    }
+
+    if (!backend->start()) {
+        qWarning("Backend start failed");
+        state = Working;
+        error(QNetworkReplyImpl::UnknownNetworkError,
+              QCoreApplication::translate("QNetworkReply", "backend start error."));
+        finished();
+        return;
+    }
+
+    // Prepare timer for progress notifications
+    downloadProgressSignalChoke.start();
+    uploadProgressSignalChoke.invalidate();
+
+    if (backend && backend->isSynchronous()) {
+        state = Finished;
+        q_func()->setFinished(true);
+    } else {
+        if (state != Finished) {
+            if (operation == QNetworkAccessManager::GetOperation)
+                pendingNotifications.push_back(NotifyDownstreamReadyWrite);
+
+            handleNotifications();
+        }
+    }
+}
+
+//  from src/network/access/qnetworkreplyimpl.cpp, line 83, as _ZN24QNetworkReplyImplPrivate16_q_copyReadyReadEv
+inline void QNetworkReplyImplPrivate::_q_copyReadyRead()
+{
+    Q_Q(QNetworkReplyImpl);
+    if (state != Working)
+        return;
+    if (!copyDevice || !q->isOpen())
+        return;
+
+    // FIXME Optimize to use download buffer if it is a QBuffer.
+    // Needs to be done where sendCacheContents() (?) of HTTP is emitting
+    // metaDataChanged ?
+    qint64 lastBytesDownloaded = bytesDownloaded;
+    forever {
+        qint64 bytesToRead = nextDownstreamBlockSize();
+        if (bytesToRead == 0)
+            // we'll be called again, eventually
+            break;
+
+        bytesToRead = qBound<qint64>(1, bytesToRead, copyDevice->bytesAvailable());
+        qint64 bytesActuallyRead = copyDevice->read(buffer.reserve(bytesToRead), bytesToRead);
+        if (bytesActuallyRead == -1) {
+            buffer.chop(bytesToRead);
+            break;
+        }
+        buffer.chop(bytesToRead - bytesActuallyRead);
+
+        if (!copyDevice->isSequential() && copyDevice->atEnd()) {
+            bytesDownloaded += bytesActuallyRead;
+            break;
+        }
+
+        bytesDownloaded += bytesActuallyRead;
+    }
+
+    if (bytesDownloaded == lastBytesDownloaded) {
+        // we didn't read anything
+        return;
+    }
+
+    const auto totalSizeOpt = QNetworkHeadersPrivate::toInt(
+            headers().value(QHttpHeaders::WellKnownHeader::ContentLength));
+
+    pauseNotificationHandling();
+    // emit readyRead before downloadProgress in case this will cause events to be
+    // processed and we get into a recursive call (as in QProgressDialog).
+    emit q->readyRead();
+    if (downloadProgressSignalChoke.isValid() &&
+        downloadProgressSignalChoke.elapsed() >= progressSignalInterval) {
+        downloadProgressSignalChoke.start();
+        emit q->downloadProgress(bytesDownloaded, totalSizeOpt.value_or(-1));
+    }
+    resumeNotificationHandling();
+}
+
+//  from src/network/access/qnetworkreplyimpl.cpp, line 137, as _ZN24QNetworkReplyImplPrivate26_q_copyReadChannelFinishedEv
+inline void QNetworkReplyImplPrivate::_q_copyReadChannelFinished()
+{
+    _q_copyReadyRead();
 }
 
 //  from src/network/access/qnetworkreplyimpl.cpp, line 159, as _ZN24QNetworkReplyImplPrivate21_q_bufferOutgoingDataEv
@@ -188,6 +303,79 @@ inline void QNetworkReplyImplPrivate::_q_bufferOutgoingDataFinished()
     QMetaObject::invokeMethod(q, "_q_startOperation", Qt::QueuedConnection);
 }
 
+//  from src/network/access/qnetworkreplyimpl.cpp, line 202, as _ZN24QNetworkReplyImplPrivate5setupEN21QNetworkAccessManager9OperationERK15QNetworkRequestP9QIODevice
+inline void QNetworkReplyImplPrivate::setup(QNetworkAccessManager::Operation op, const QNetworkRequest &req,
+                                     QIODevice *data)
+{
+    Q_Q(QNetworkReplyImpl);
+
+    outgoingData = data;
+    request = req;
+    originalRequest = req;
+    url = request.url();
+    operation = op;
+
+    q->QIODevice::open(QIODevice::ReadOnly);
+    // Internal code that does a HTTP reply for the synchronous Ajax
+    // in Qt WebKit.
+    QVariant synchronousHttpAttribute = req.attribute(
+            static_cast<QNetworkRequest::Attribute>(QNetworkRequest::SynchronousRequestAttribute));
+    // The synchronous HTTP is a corner case, we will put all upload data in one big QByteArray in the outgoingDataBuffer.
+    // Yes, this is not the most efficient thing to do, but on the other hand synchronous XHR needs to die anyway.
+    if (synchronousHttpAttribute.toBool() && outgoingData) {
+        outgoingDataBuffer = std::make_shared<QRingBuffer>();
+        qint64 previousDataSize = 0;
+        do {
+            previousDataSize = outgoingDataBuffer->size();
+            outgoingDataBuffer->append(outgoingData->readAll());
+        } while (outgoingDataBuffer->size() != previousDataSize);
+    }
+
+    if (backend)
+        backend->setSynchronous(synchronousHttpAttribute.toBool());
+
+
+    if (outgoingData && backend && !backend->isSynchronous()) {
+        // there is data to be uploaded, e.g. HTTP POST.
+
+        if (!backend->needsResetableUploadData() || !outgoingData->isSequential()) {
+            // backend does not need upload buffering or
+            // fixed size non-sequential
+            // just start the operation
+            QMetaObject::invokeMethod(q, "_q_startOperation", Qt::QueuedConnection);
+        } else {
+            bool bufferingDisallowed =
+                    req.attribute(QNetworkRequest::DoNotBufferUploadDataAttribute,
+                                  false).toBool();
+
+            if (bufferingDisallowed) {
+                // if a valid content-length header for the request was supplied, we can disable buffering
+                // if not, we will buffer anyway
+                const auto sizeOpt = QNetworkHeadersPrivate::toInt(
+                        headers().value(QHttpHeaders::WellKnownHeader::ContentLength));
+
+                if (sizeOpt) {
+                    QMetaObject::invokeMethod(q, "_q_startOperation", Qt::QueuedConnection);
+                } else {
+                    state = Buffering;
+                    QMetaObject::invokeMethod(q, "_q_bufferOutgoingData", Qt::QueuedConnection);
+                }
+            } else {
+                // _q_startOperation will be called when the buffering has finished.
+                state = Buffering;
+                QMetaObject::invokeMethod(q, "_q_bufferOutgoingData", Qt::QueuedConnection);
+            }
+        }
+    } else {
+        // for HTTP, we want to send out the request as fast as possible to the network, without
+        // invoking methods in a QueuedConnection
+        if (backend && backend->isSynchronous())
+            _q_startOperation();
+        else
+            QMetaObject::invokeMethod(q, "_q_startOperation", Qt::QueuedConnection);
+    }
+}
+
 //  from src/network/access/qnetworkreplyimpl.cpp, line 310, as _ZN24QNetworkReplyImplPrivate25pauseNotificationHandlingEv
 inline void QNetworkReplyImplPrivate::pauseNotificationHandling()
 {
@@ -213,6 +401,30 @@ inline void QNetworkReplyImplPrivate::backendNotify(InternalNotifications notifi
 
     if (pendingNotifications.size() == 1)
         QCoreApplication::postEvent(q, new QEvent(QEvent::NetworkReplyUpdated));
+}
+
+//  from src/network/access/qnetworkreplyimpl.cpp, line 285, as _ZN24QNetworkReplyImplPrivate19handleNotificationsEv
+inline void QNetworkReplyImplPrivate::handleNotifications()
+{
+    if (notificationHandlingPaused)
+        return;
+
+     for (InternalNotifications notification : std::exchange(pendingNotifications, {})) {
+        if (state != Working)
+            return;
+        switch (notification) {
+        case NotifyDownstreamReadyWrite:
+            if (copyDevice) {
+                _q_copyReadyRead();
+            } else if (backend) {
+                if (backend->bytesAvailable() > 0)
+                    readFromBackend();
+                else if (backend->wantToRead())
+                    readFromBackend();
+            }
+            break;
+        }
+    }
 }
 
 //  from src/network/access/qnetworkreplyimpl.cpp, line 331, as _ZN24QNetworkReplyImplPrivate11createCacheEv
@@ -271,6 +483,27 @@ inline bool QNetworkReplyImplPrivate::isCachingEnabled() const
     return (cacheEnabled && networkCache() != nullptr);
 }
 
+//  from src/network/access/qnetworkreplyimpl.cpp, line 383, as _ZN24QNetworkReplyImplPrivate18emitUploadProgressExx
+inline void QNetworkReplyImplPrivate::emitUploadProgress(qint64 bytesSent, qint64 bytesTotal)
+{
+    Q_Q(QNetworkReplyImpl);
+    bytesUploaded = bytesSent;
+
+    if (!emitAllUploadProgressSignals) {
+        //choke signal emissions, except the first and last signals which are unconditional
+        if (uploadProgressSignalChoke.isValid()) {
+            if (bytesSent != bytesTotal && uploadProgressSignalChoke.elapsed() < progressSignalInterval) {
+                return;
+            }
+        }
+        uploadProgressSignalChoke.start();
+    }
+
+    pauseNotificationHandling();
+    emit q->uploadProgress(bytesSent, bytesTotal);
+    resumeNotificationHandling();
+}
+
 //  from src/network/access/qnetworkreplyimpl.cpp, line 404, as _ZNK24QNetworkReplyImplPrivate23nextDownstreamBlockSizeEv
 inline qint64 QNetworkReplyImplPrivate::nextDownstreamBlockSize() const
 {
@@ -321,6 +554,81 @@ inline void QNetworkReplyImplPrivate::initCacheSaveDevice()
     }
 }
 
+//  from src/network/access/qnetworkreplyimpl.cpp, line 481, as _ZN24QNetworkReplyImplPrivate35appendDownstreamDataSignalEmissionsEv
+inline void QNetworkReplyImplPrivate::appendDownstreamDataSignalEmissions()
+{
+    Q_Q(QNetworkReplyImpl);
+
+    const auto totalSizeOpt = QNetworkHeadersPrivate::toInt(
+            headers().value(QHttpHeaders::WellKnownHeader::ContentLength));
+    pauseNotificationHandling();
+    // important: At the point of this readyRead(), the data parameter list must be empty,
+    // else implicit sharing will trigger memcpy when the user is reading data!
+    emit q->readyRead();
+    // emit readyRead before downloadProgress in case this will cause events to be
+    // processed and we get into a recursive call (as in QProgressDialog).
+    if (downloadProgressSignalChoke.isValid() &&
+        downloadProgressSignalChoke.elapsed() >= progressSignalInterval) {
+        downloadProgressSignalChoke.start();
+        emit q->downloadProgress(bytesDownloaded, totalSizeOpt.value_or(-1));
+    }
+
+    resumeNotificationHandling();
+    // do we still have room in the buffer?
+    if (nextDownstreamBlockSize() > 0)
+        backendNotify(QNetworkReplyImplPrivate::NotifyDownstreamReadyWrite);
+}
+
+//  from src/network/access/qnetworkreplyimpl.cpp, line 454, as _ZN24QNetworkReplyImplPrivate20appendDownstreamDataER15QByteDataBuffer
+inline void QNetworkReplyImplPrivate::appendDownstreamData(QByteDataBuffer &data)
+{
+    Q_Q(QNetworkReplyImpl);
+    if (!q->isOpen())
+        return;
+
+    if (cacheEnabled && !cacheSaveDevice) {
+        initCacheSaveDevice();
+    }
+
+    qint64 bytesWritten = 0;
+    for (qsizetype i = 0; i < data.bufferCount(); ++i) {
+        QByteArray const &item = data[i];
+
+        if (cacheSaveDevice)
+            cacheSaveDevice->write(item.constData(), item.size());
+        buffer.append(item);
+
+        bytesWritten += item.size();
+    }
+    data.clear();
+
+    bytesDownloaded += bytesWritten;
+
+    appendDownstreamDataSignalEmissions();
+}
+
+//  from src/network/access/qnetworkreplyimpl.cpp, line 506, as _ZN24QNetworkReplyImplPrivate20appendDownstreamDataEP9QIODevice
+inline void QNetworkReplyImplPrivate::appendDownstreamData(QIODevice *data)
+{
+    Q_Q(QNetworkReplyImpl);
+    if (!q->isOpen())
+        return;
+
+    // read until EOF from data
+    if (Q_UNLIKELY(copyDevice)) {
+        qCritical("QNetworkReplyImpl: copy from QIODevice already in progress -- "
+                  "backend probably needs to be fixed");
+        return;
+    }
+
+    copyDevice = data;
+    q->connect(copyDevice, SIGNAL(readyRead()), SLOT(_q_copyReadyRead()));
+    q->connect(copyDevice, SIGNAL(readChannelFinished()), SLOT(_q_copyReadChannelFinished()));
+
+    // start the copy:
+    _q_copyReadyRead();
+}
+
 //  from src/network/access/qnetworkreplyimpl.cpp, line 548, as _ZN24QNetworkReplyImplPrivate17setDownloadBufferE14QSharedPointerIcEx
 inline void QNetworkReplyImplPrivate::setDownloadBuffer(QSharedPointer<char> sp, qint64 size)
 {
@@ -353,6 +661,37 @@ inline char* QNetworkReplyImplPrivate::getDownloadBuffer(qint64 size)
     }
 
     return downloadBuffer;
+}
+
+//  from src/network/access/qnetworkreplyimpl.cpp, line 560, as _ZN24QNetworkReplyImplPrivate34appendDownstreamDataDownloadBufferExx
+inline void QNetworkReplyImplPrivate::appendDownstreamDataDownloadBuffer(qint64 bytesReceived, qint64 bytesTotal)
+{
+    Q_Q(QNetworkReplyImpl);
+    if (!q->isOpen())
+        return;
+
+    if (cacheEnabled && !cacheSaveDevice)
+        initCacheSaveDevice();
+
+    if (cacheSaveDevice && bytesReceived == bytesTotal) {
+        // Write everything in one go if we use a download buffer. might be more performant.
+        cacheSaveDevice->write(downloadBuffer, bytesTotal);
+    }
+
+    bytesDownloaded = bytesReceived;
+
+    downloadBufferCurrentSize = bytesReceived;
+
+    // Only emit readyRead when actual data is there
+    // emit readyRead before downloadProgress in case this will cause events to be
+    // processed and we get into a recursive call (as in QProgressDialog).
+    if (bytesDownloaded > 0)
+        emit q->readyRead();
+    if (downloadProgressSignalChoke.isValid() &&
+        downloadProgressSignalChoke.elapsed() >= progressSignalInterval) {
+        downloadProgressSignalChoke.start();
+        emit q->downloadProgress(bytesDownloaded, bytesTotal);
+    }
 }
 
 //  from src/network/access/qnetworkreplyimpl.cpp, line 590, as _ZN24QNetworkReplyImplPrivate8finishedEv
@@ -571,6 +910,27 @@ QNetworkReplyImplPrivate *ritual_ZN24QNetworkReplyImplPrivateC1Ev() {
   return new CuteQNetworkReplyImplPrivate();
 }
 
+//  void QNetworkReplyImplPrivate::_q_startOperation()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QNetworkReplyImplPrivate17_q_startOperationEv(
+    QNetworkReplyImplPrivate *self) {
+  self->_q_startOperation();
+}
+
+//  void QNetworkReplyImplPrivate::_q_copyReadyRead()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QNetworkReplyImplPrivate16_q_copyReadyReadEv(
+    QNetworkReplyImplPrivate *self) {
+  self->_q_copyReadyRead();
+}
+
+//  void QNetworkReplyImplPrivate::_q_copyReadChannelFinished()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QNetworkReplyImplPrivate26_q_copyReadChannelFinishedEv(
+    QNetworkReplyImplPrivate *self) {
+  self->_q_copyReadChannelFinished();
+}
+
 //  void QNetworkReplyImplPrivate::_q_bufferOutgoingData()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN24QNetworkReplyImplPrivate21_q_bufferOutgoingDataEv(
@@ -583,6 +943,17 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN24QNetworkReplyImplPrivate29_q_bufferOutgoingDataFinishedEv(
     QNetworkReplyImplPrivate *self) {
   self->_q_bufferOutgoingDataFinished();
+}
+
+//  void QNetworkReplyImplPrivate::setup(QNetworkAccessManager::Operation op,
+//      const QNetworkRequest &request, QIODevice *outgoingData)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QNetworkReplyImplPrivate5setupEN21QNetworkAccessManager9OperationERK15QNetworkRequestP9QIODevice(
+    QNetworkReplyImplPrivate *self,
+    QNetworkAccessManager::Operation op,
+    const QNetworkRequest *request,
+    QIODevice *outgoingData) {
+  self->setup(op, *request, outgoingData);
 }
 
 //  void QNetworkReplyImplPrivate::pauseNotificationHandling()
@@ -606,6 +977,13 @@ void ritual_ZN24QNetworkReplyImplPrivate13backendNotifyENS_21InternalNotificatio
     QNetworkReplyImplPrivate *self,
     QNetworkReplyImplPrivate::InternalNotifications notification) {
   self->backendNotify(notification);
+}
+
+//  void QNetworkReplyImplPrivate::handleNotifications()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QNetworkReplyImplPrivate19handleNotificationsEv(
+    QNetworkReplyImplPrivate *self) {
+  self->handleNotifications();
 }
 
 //  void QNetworkReplyImplPrivate::createCache()
@@ -637,6 +1015,16 @@ bool ritual_ZNK24QNetworkReplyImplPrivate16isCachingEnabledEv(
   return self->isCachingEnabled();
 }
 
+//  void QNetworkReplyImplPrivate::emitUploadProgress(qint64 bytesSent,
+//      qint64 bytesTotal)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QNetworkReplyImplPrivate18emitUploadProgressExx(
+    QNetworkReplyImplPrivate *self,
+    qint64 bytesSent,
+    qint64 bytesTotal) {
+  self->emitUploadProgress(bytesSent, bytesTotal);
+}
+
 //  qint64 QNetworkReplyImplPrivate::nextDownstreamBlockSize() const
 extern "C" Q_DECL_EXPORT
 qint64 ritual_ZNK24QNetworkReplyImplPrivate23nextDownstreamBlockSizeEv(
@@ -649,6 +1037,30 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN24QNetworkReplyImplPrivate19initCacheSaveDeviceEv(
     QNetworkReplyImplPrivate *self) {
   self->initCacheSaveDevice();
+}
+
+//  void QNetworkReplyImplPrivate::appendDownstreamDataSignalEmissions()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QNetworkReplyImplPrivate35appendDownstreamDataSignalEmissionsEv(
+    QNetworkReplyImplPrivate *self) {
+  self->appendDownstreamDataSignalEmissions();
+}
+
+//  void QNetworkReplyImplPrivate::appendDownstreamData(QByteDataBuffer
+//      &data)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QNetworkReplyImplPrivate20appendDownstreamDataER15QByteDataBuffer(
+    QNetworkReplyImplPrivate *self,
+    QByteDataBuffer *data) {
+  self->appendDownstreamData(*data);
+}
+
+//  void QNetworkReplyImplPrivate::appendDownstreamData(QIODevice *data)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QNetworkReplyImplPrivate20appendDownstreamDataEP9QIODevice(
+    QNetworkReplyImplPrivate *self,
+    QIODevice *data) {
+  self->appendDownstreamData(data);
 }
 
 //  void QNetworkReplyImplPrivate::setDownloadBuffer(QSharedPointer<char> sp,
@@ -667,6 +1079,16 @@ char *ritual_ZN24QNetworkReplyImplPrivate17getDownloadBufferEx(
     QNetworkReplyImplPrivate *self,
     qint64 size) {
   return self->getDownloadBuffer(size);
+}
+
+//  void QNetworkReplyImplPrivate::appendDownstreamDataDownloadBuffer(qint64
+//      a0, qint64 a1)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QNetworkReplyImplPrivate34appendDownstreamDataDownloadBufferExx(
+    QNetworkReplyImplPrivate *self,
+    qint64 a0,
+    qint64 a1) {
+  self->appendDownstreamDataDownloadBuffer(a0, a1);
 }
 
 //  void QNetworkReplyImplPrivate::finished()

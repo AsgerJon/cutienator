@@ -2,7 +2,7 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtQuick/6.12.0/QtQuick/private/qquickrhiitem_p.h, Qt 6.12.0.",
-    "Changes made here are lost."
+    "Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZNK17QQuickRhiItemNode10metaObjectEv": ["address", "address"],
@@ -11,6 +11,12 @@
     ],
     "ritual_ZN17QQuickRhiItemNode11qt_metacallEN11QMetaObject4CallEiPPv": [
       "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN17QQuickRhiItemNode2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN17QQuickRhiItemNodeC1EP13QQuickRhiItem": [
+      "address", "address"
     ],
     "ritual_ZNK17QQuickRhiItemNode7textureEv": ["address", "address"],
     "ritual_ZN17QQuickRhiItemNode4syncEv": ["nothing", "address"],

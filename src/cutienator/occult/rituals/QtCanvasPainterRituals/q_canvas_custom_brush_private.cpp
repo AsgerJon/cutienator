@@ -31,6 +31,13 @@ inline QCanvasBrushPrivate *QCanvasCustomBrushPrivate::clone()
     return new QCanvasCustomBrushPrivate(*this);
 }
 
+//  from ../qtcanvaspainter/src/canvaspainter/qcanvascustombrush.cpp, line 543, as _ZNK25QCanvasCustomBrushPrivate11createPaintEP14QCanvasPainter
+inline QCPaint QCanvasCustomBrushPrivate::createPaint(QCanvasPainter *) const
+{
+    QCPaint empty;
+    return empty;
+}
+
 //  from ../qtcanvaspainter/src/canvaspainter/qcanvascustombrush.cpp, line 328, as _ZNK25QCanvasCustomBrushPrivate6equalsERK19QCanvasBrushPrivate
 inline bool QCanvasCustomBrushPrivate::equals(const QCanvasBrushPrivate &other) const noexcept
 {
@@ -48,13 +55,6 @@ inline bool QCanvasCustomBrushPrivate::equals(const QCanvasBrushPrivate &other) 
         return false;
 
     return true;
-}
-
-//  from ../qtcanvaspainter/src/canvaspainter/qcanvascustombrush.cpp, line 543, as _ZNK25QCanvasCustomBrushPrivate11createPaintEP14QCanvasPainter
-inline QCPaint QCanvasCustomBrushPrivate::createPaint(QCanvasPainter *) const
-{
-    QCPaint empty;
-    return empty;
 }
 //  -----------------------------------------------------------------------
 

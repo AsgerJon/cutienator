@@ -20,6 +20,9 @@
 #include <QtGraphs/private/baritemmodelhandler_p.h>
 #include <QtGraphs/private/qitemmodelbardataproxy_p.h>
 #include <QtGraphs/private/qgraphs3dlogging_p.h>
+#include <QtGraphs/private/abstractitemmodelhandler_p.h>
+#include <QtGraphs/private/qabstract3dseries_p.h>
+#include <QtGraphs/private/qabstractdataproxy_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -63,6 +66,39 @@ inline QItemModelBarDataProxyPrivate::~QItemModelBarDataProxyPrivate()
 {
     delete m_itemModelHandler;
 }
+
+//  from ../qtgraphs/src/graphs3d/data/abstractitemmodelhandler.cpp, line 10, as _ZN24AbstractItemModelHandlerC2EP7QObject
+inline AbstractItemModelHandler::AbstractItemModelHandler(QObject *parent)
+    : QObject(parent)
+    , resolvePending(0)
+    , m_fullReset(true)
+{
+    m_resolveTimer.setSingleShot(true);
+    QObject::connect(&m_resolveTimer,
+                     &QTimer::timeout,
+                     this,
+                     &AbstractItemModelHandler::handlePendingResolve);
+}
+
+//  from ../qtgraphs/src/graphs3d/data/abstractitemmodelhandler.cpp, line 22, as _ZN24AbstractItemModelHandlerD2Ev
+inline AbstractItemModelHandler::~AbstractItemModelHandler() {}
+
+//  from ../qtgraphs/src/graphs3d/data/qabstractdataproxy.cpp, line 89, as _ZN25QAbstractDataProxyPrivate9setSeriesEP17QAbstract3DSeries
+inline void QAbstractDataProxyPrivate::setSeries(QAbstract3DSeries *series)
+{
+    Q_Q(QAbstractDataProxy);
+    q->setParent(series);
+    m_series = series;
+}
+
+//  from ../qtgraphs/src/graphs3d/data/qabstractdataproxy.cpp, line 82, as _ZN25QAbstractDataProxyPrivateC2EN18QAbstractDataProxy8DataTypeE
+inline QAbstractDataProxyPrivate::QAbstractDataProxyPrivate(QAbstractDataProxy::DataType type)
+    : m_type(type)
+    , m_series(0)
+{}
+
+//  from ../qtgraphs/src/graphs3d/data/qabstractdataproxy.cpp, line 87, as _ZN25QAbstractDataProxyPrivateD2Ev
+inline QAbstractDataProxyPrivate::~QAbstractDataProxyPrivate() {}
 //  -----------------------------------------------------------------------
 
 //  A QItemModelBarDataProxyPrivate that Python can take functions over in. Every QItemModelBarDataProxyPrivate

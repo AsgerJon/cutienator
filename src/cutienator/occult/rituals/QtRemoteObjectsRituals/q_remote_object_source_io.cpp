@@ -1,6 +1,12 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtRemoteObjects/6.12.0/QtRemoteObjects/private/qremoteobjectsourceio_p.h,
-//  Qt 6.12.0. Changes made here are lost.
+//  Qt 6.12.0.
+//  Edited by hand on 2026-11-26: added are 1 rituals that lean on what moc
+//  writes for a class of the part Qt keeps to itself, whose ritual file
+//  carries moc's output, drafted by a copy of the generator that lets those
+//  names through. A copy of a meta-object is a second one: 'qobject_cast'
+//  between it and Qt's own does not match. Kept as it is when the generator
+//  runs again.
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtRemoteObjects/QtRemoteObjects>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -10,7 +16,6 @@
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <QtCore/qloggingcategory.h>
 #include <QtCore/qabstractitemmodel.h>
 #include <QtCore/qbytearrayview.h>
 #include <QtRemoteObjects/private/qremoteobjectcontainers_p.h>
@@ -29,6 +34,7 @@
 #include <QtRemoteObjects/qtremoteobjectglobal.h>
 #include <QtRemoteObjects/private/qconnection_local_backend_p.h>
 #include <QtCore/qstringlist.h>
+#include <QtCore/qloggingcategory.h>
 #include <QtRemoteObjects/qremoteobjectsource.h>
 #include <QtRemoteObjects/private/qremoteobjectsource_p.h>
 #include <QtRemoteObjects/qremoteobjectnode.h>
@@ -53,12 +59,37 @@
 
 using namespace QRemoteObjectStringLiterals;
 
-//  from ../qtremoteobjects/src/remoteobjects/qtremoteobjectglobal.cpp, line 13, as _Z15QT_REMOTEOBJECTv
-inline const QLoggingCategory &QT_REMOTEOBJECT()
+//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectpacket.cpp, line 358, as local:qremoteobjectpacket.cpp:deserializeQVariantList
+namespace QRemoteObjectPackets {
+using namespace QtRemoteObjects;
+inline bool deserializeQVariantList(QDataStream &s, QVariantList &l)
 {
-    static const QLoggingCategory category("qt.remoteobjects", QtWarningMsg);
-    return category;
+    // note: optimized version of: QDataStream operator>>(QDataStream& s, QList<T>& l)
+    quint32 c;
+    s >> c;
+
+    const qsizetype count = static_cast<qsizetype>(c);
+    const qsizetype listSize = l.size();
+    if (listSize < count)
+        l.reserve(count);
+    else if (listSize > count)
+        l.resize(count);
+
+    for (int i = 0; i < l.size(); ++i)
+    {
+        if (s.atEnd())
+            return false;
+        s >> l[i];
+    }
+    for (auto i = l.size(); i < count; ++i)
+    {
+        if (s.atEnd())
+            return false;
+        s >> l.emplace_back();
+    }
+    return true;
 }
+}  // namespace QRemoteObjectPackets
 
 //  from ../qtremoteobjects/src/remoteobjects/qremoteobjectpacket.cpp, line 1101, as _ZN20QRemoteObjectPackets16DataStreamPacketC1Et
 namespace QRemoteObjectPackets {
@@ -80,6 +111,237 @@ inline void QRemoteObjectSourceIo::handleConnection()
 
     QtROServerIoDevice *conn = m_server->nextPendingConnection();
     newConnection(conn);
+}
+
+//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectsourceio.cpp, line 135, as _ZN21QRemoteObjectSourceIo18onServerDisconnectEP7QObject
+inline void QRemoteObjectSourceIo::onServerDisconnect(QObject *conn)
+{
+    QtROIoDeviceBase *connection = qobject_cast<QtROIoDeviceBase*>(conn);
+    m_connections.remove(connection);
+
+    qRODebug(this) << "OnServerDisconnect";
+
+    for (QRemoteObjectRootSource *root : std::as_const(m_sourceRoots))
+        root->removeListener(connection);
+
+    const QUrl location = m_registryMapping.value(connection);
+    emit serverRemoved(location);
+    m_registryMapping.remove(connection);
+    connection->close();
+    connection->deleteLater();
+}
+
+//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectsourceio.cpp, line 36, as _ZN21QRemoteObjectSourceIoD0Ev
+inline QRemoteObjectSourceIo::~QRemoteObjectSourceIo()
+{
+    qDeleteAll(m_sourceRoots.values());
+}
+
+//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectpacket.cpp, line 849, as _ZN20QRemoteObjectPackets16QDataStreamCodec25serializeObjectListPacketERK5QListINS_10ObjectInfoEE
+namespace QRemoteObjectPackets {
+using namespace QtRemoteObjects;
+inline void QDataStreamCodec::serializeObjectListPacket(const ObjectInfoList &objects)
+{
+    m_packet.setId(ObjectList);
+    m_packet << objects;
+    m_packet.finishPacket();
+}
+}  // namespace QRemoteObjectPackets
+
+//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectpacket.cpp, line 856, as _ZN20QRemoteObjectPackets16QDataStreamCodec27deserializeObjectListPacketER11QDataStreamR5QListINS_10ObjectInfoEE
+namespace QRemoteObjectPackets {
+using namespace QtRemoteObjects;
+inline void QDataStreamCodec::deserializeObjectListPacket(QDataStream &in, ObjectInfoList &objects)
+{
+    in >> objects;
+}
+}  // namespace QRemoteObjectPackets
+
+//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectpacket.cpp, line 338, as _ZN20QRemoteObjectPackets16QDataStreamCodec19serializeInitPacketEPK23QRemoteObjectRootSource
+namespace QRemoteObjectPackets {
+using namespace QtRemoteObjects;
+inline void QDataStreamCodec::serializeInitPacket(const QRemoteObjectRootSource *source)
+{
+    m_packet.setId(InitPacket);
+    m_packet << source->name();
+    serializeProperties(source);
+    m_packet.finishPacket();
+}
+}  // namespace QRemoteObjectPackets
+
+//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectpacket.cpp, line 393, as _ZN20QRemoteObjectPackets16QDataStreamCodec26serializeInitDynamicPacketEPK23QRemoteObjectRootSource
+namespace QRemoteObjectPackets {
+using namespace QtRemoteObjects;
+inline void QDataStreamCodec::serializeInitDynamicPacket(const QRemoteObjectRootSource *source)
+{
+    m_packet.setId(InitDynamicPacket);
+    m_packet << source->name();
+    serializeDefinition(m_packet, source);
+    serializeProperties(source);
+    m_packet.finishPacket();
+}
+}  // namespace QRemoteObjectPackets
+
+//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectpacket.cpp, line 833, as _ZN20QRemoteObjectPackets16QDataStreamCodec29serializePropertyChangePacketEP23QRemoteObjectSourceBasei
+namespace QRemoteObjectPackets {
+using namespace QtRemoteObjects;
+inline void QDataStreamCodec::serializePropertyChangePacket(QRemoteObjectSourceBase *source, int signalIndex)
+{
+    int internalIndex = source->m_api->propertyRawIndexFromSignal(signalIndex);
+    m_packet.setId(PropertyChangePacket);
+    m_packet << source->name();
+    m_packet << internalIndex;
+    serializeProperty(source, internalIndex);
+    m_packet.finishPacket();
+}
+}  // namespace QRemoteObjectPackets
+
+//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectpacket.cpp, line 843, as _ZN20QRemoteObjectPackets16QDataStreamCodec31deserializePropertyChangePacketER11QDataStreamRiR8QVariant
+namespace QRemoteObjectPackets {
+using namespace QtRemoteObjects;
+inline void QDataStreamCodec::deserializePropertyChangePacket(QDataStream& in, int &index, QVariant &value)
+{
+    in >> index;
+    in >> value;
+}
+}  // namespace QRemoteObjectPackets
+
+//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectpacket.cpp, line 281, as _ZN20QRemoteObjectPackets16QDataStreamCodec17serializePropertyEPK23QRemoteObjectSourceBasei
+namespace QRemoteObjectPackets {
+using namespace QtRemoteObjects;
+inline void QDataStreamCodec::serializeProperty(const QRemoteObjectSourceBase *source, int internalIndex)
+{
+    serializeProperty(m_packet, source, internalIndex);
+}
+}  // namespace QRemoteObjectPackets
+
+//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectpacket.cpp, line 861, as _ZN20QRemoteObjectPackets16QDataStreamCodec19serializePingPacketERK7QString
+namespace QRemoteObjectPackets {
+using namespace QtRemoteObjects;
+inline void QDataStreamCodec::serializePingPacket(const QString &name)
+{
+    m_packet.setId(Ping);
+    m_packet << name;
+    m_packet.finishPacket();
+}
+}  // namespace QRemoteObjectPackets
+
+//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectpacket.cpp, line 868, as _ZN20QRemoteObjectPackets16QDataStreamCodec19serializePongPacketERK7QString
+namespace QRemoteObjectPackets {
+using namespace QtRemoteObjects;
+inline void QDataStreamCodec::serializePongPacket(const QString &name)
+{
+    m_packet.setId(Pong);
+    m_packet << name;
+    m_packet.finishPacket();
+}
+}  // namespace QRemoteObjectPackets
+
+//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectpacket.cpp, line 792, as _ZN20QRemoteObjectPackets16QDataStreamCodec21serializeInvokePacketERK7QStringiiRK5QListI8QVariantEii
+namespace QRemoteObjectPackets {
+using namespace QtRemoteObjects;
+inline void QDataStreamCodec::serializeInvokePacket(const QString &name, int call, int index, const QVariantList &args, int serialId, int propertyIndex)
+{
+    m_packet.setId(InvokePacket);
+    m_packet << name;
+    m_packet << call;
+    m_packet << index;
+
+    m_packet << quint32(args.size());
+    for (const auto &arg : args)
+        m_packet << encodeVariant(arg);
+
+    m_packet << serialId;
+    m_packet << propertyIndex;
+    m_packet.finishPacket();
+}
+}  // namespace QRemoteObjectPackets
+
+//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectpacket.cpp, line 808, as _ZN20QRemoteObjectPackets16QDataStreamCodec23deserializeInvokePacketER11QDataStreamRiS3_R5QListI8QVariantES3_S3_
+namespace QRemoteObjectPackets {
+using namespace QtRemoteObjects;
+inline void QDataStreamCodec::deserializeInvokePacket(QDataStream& in, int &call, int &index, QVariantList &args, int &serialId, int &propertyIndex)
+{
+    in >> call;
+    in >> index;
+    const bool success = deserializeQVariantList(in, args);
+    Q_ASSERT(success);
+    Q_UNUSED(success)
+    in >> serialId;
+    in >> propertyIndex;
+}
+}  // namespace QRemoteObjectPackets
+
+//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectpacket.cpp, line 819, as _ZN20QRemoteObjectPackets16QDataStreamCodec26serializeInvokeReplyPacketERK7QStringiRK8QVariant
+namespace QRemoteObjectPackets {
+using namespace QtRemoteObjects;
+inline void QDataStreamCodec::serializeInvokeReplyPacket(const QString &name, int ackedSerialId, const QVariant &value)
+{
+    m_packet.setId(InvokeReplyPacket);
+    m_packet << name;
+    m_packet << ackedSerialId;
+    m_packet << value;
+    m_packet.finishPacket();
+}
+}  // namespace QRemoteObjectPackets
+
+//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectpacket.cpp, line 331, as _ZN20QRemoteObjectPackets16QDataStreamCodec24serializeHandshakePacketEv
+namespace QRemoteObjectPackets {
+using namespace QtRemoteObjects;
+inline void QDataStreamCodec::serializeHandshakePacket()
+{
+    m_packet.setId(Handshake);
+    m_packet << QString(protocolVersion);
+    m_packet.finishPacket();
+}
+}  // namespace QRemoteObjectPackets
+
+//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectpacket.cpp, line 784, as _ZN20QRemoteObjectPackets16QDataStreamCodec27serializeRemoveObjectPacketERK7QString
+namespace QRemoteObjectPackets {
+using namespace QtRemoteObjects;
+inline void QDataStreamCodec::serializeRemoveObjectPacket(const QString &name)
+{
+    m_packet.setId(RemoveObject);
+    m_packet << name;
+    m_packet.finishPacket();
+}
+}  // namespace QRemoteObjectPackets
+
+//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectpacket.cpp, line 771, as _ZN20QRemoteObjectPackets16QDataStreamCodec24serializeAddObjectPacketERK7QStringb
+namespace QRemoteObjectPackets {
+using namespace QtRemoteObjects;
+inline void QDataStreamCodec::serializeAddObjectPacket(const QString &name, bool isDynamic)
+{
+    m_packet.setId(AddObject);
+    m_packet << name;
+    m_packet << isDynamic;
+    m_packet.finishPacket();
+}
+}  // namespace QRemoteObjectPackets
+
+//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectpacket.cpp, line 779, as _ZN20QRemoteObjectPackets16QDataStreamCodec26deserializeAddObjectPacketER11QDataStreamRb
+namespace QRemoteObjectPackets {
+using namespace QtRemoteObjects;
+inline void QDataStreamCodec::deserializeAddObjectPacket(QDataStream &ds, bool &isDynamic)
+{
+    ds >> isDynamic;
+}
+}  // namespace QRemoteObjectPackets
+
+//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectpacket.cpp, line 828, as _ZN20QRemoteObjectPackets16QDataStreamCodec28deserializeInvokeReplyPacketER11QDataStreamRiR8QVariant
+namespace QRemoteObjectPackets {
+using namespace QtRemoteObjects;
+inline void QDataStreamCodec::deserializeInvokeReplyPacket(QDataStream& in, int &ackedSerialId, QVariant &value){
+    in >> ackedSerialId;
+    in >> value;
+}
+}  // namespace QRemoteObjectPackets
+
+//  from ../qtremoteobjects/src/remoteobjects/qtremoteobjectglobal.cpp, line 13, as _Z15QT_REMOTEOBJECTv
+inline const QLoggingCategory &QT_REMOTEOBJECT()
+{
+    static const QLoggingCategory category("qt.remoteobjects", QtWarningMsg);
+    return category;
 }
 
 //  from ../qtremoteobjects/src/remoteobjects/qremoteobjectsource.cpp, line 526, as _ZN13DynamicApiMapC1EP7QObjectPK11QMetaObjectRK7QStringS7_
@@ -181,6 +443,20 @@ inline bool QRemoteObjectSourceIo::disableRemoting(QObject *object)
 
     delete source;
     return true;
+}
+
+//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectsourceio.cpp, line 91, as _ZN21QRemoteObjectSourceIo16setSocketOptionsE6QFlagsIN12QLocalServer12SocketOptionEE
+inline void QRemoteObjectSourceIo::setSocketOptions(QLocalServer::SocketOptions options)
+{
+    if (!m_server.isNull()) {
+        LocalServerImpl *server = qobject_cast<LocalServerImpl *>(m_server.get());
+        if (server != nullptr) {
+            server->setSocketOptions(options);
+        } else {
+            qROWarning(this)
+                    << "Attempting to set socket options to a backend that is non-localserver";
+        }
+    }
 }
 
 //  from ../qtremoteobjects/src/remoteobjects/qremoteobjectsourceio.cpp, line 303, as _ZNK21QRemoteObjectSourceIo13serverAddressEv
@@ -397,6 +673,16 @@ bool ritual_ZN21QRemoteObjectSourceIo15disableRemotingEP7QObject(
     QRemoteObjectSourceIo *self,
     QObject *object) {
   return self->disableRemoting(object);
+}
+
+//  void QRemoteObjectSourceIo::setSocketOptions(QLocalServer::SocketOptions
+//      options)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QRemoteObjectSourceIo16setSocketOptionsE6QFlagsIN12QLocalServer12SocketOptionEE(
+    QRemoteObjectSourceIo *self,
+    int options) {
+  self->setSocketOptions(
+      QFlags<QLocalServer::SocketOption>::fromInt(options));
 }
 
 //  QUrl QRemoteObjectSourceIo::serverAddress() const

@@ -1,11 +1,20 @@
 //  Written by dev_tooling.RitualGenerator from the records of QtRemoteObject
 //  s/6.12.0/QtRemoteObjects/private/qremoteobjectregistrysource_p.h, Qt
-//  6.12.0. Changes made here are lost.
+//  6.12.0.
+//  Edited by hand on 2026-11-26: moc's output for 'QRegistrySource' is
+//  pasted in, cut from what the moc of Qt 6.12.0 writes for its header: Qt's
+//  library keeps it to itself; added are 2 rituals that lean on what moc
+//  writes for a class of the part Qt keeps to itself, whose ritual file
+//  carries moc's output, drafted by a copy of the generator that lets those
+//  names through. A copy of a meta-object is a second one: 'qobject_cast'
+//  between it and Qt's own does not match. Kept as it is when the generator
+//  runs again.
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtRemoteObjects/QtRemoteObjects>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtRemoteObjects/6.12.0/QtRemoteObjects/private/qremoteobjectregistrysource_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 #include <QtRemoteObjects/qtremoteobjectglobal.h>
 #include <QtCore/qurl.h>
 #include <QtCore/qmetaobject.h>
@@ -14,6 +23,10 @@
 #include <iterator>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
 #include <QtCore/qloggingcategory.h>
 #include <QtRemoteObjects/private/qremoteobjectregistrysource_p.h>
 #include <QtCore/qdatastream.h>
@@ -26,11 +39,254 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from QtRemoteObjects__QRegistrySource.cpp, line 1, as moc:QRegistrySource
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN15QRegistrySourceE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto QRegistrySource::qt_create_metaobjectdata<qt_meta_tag_ZN15QRegistrySourceE_t>()
+{
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "QRegistrySource",
+        "RemoteObject Type",
+        "Registry",
+        "remoteObjectAdded",
+        "",
+        "QRemoteObjectSourceLocation",
+        "entry",
+        "remoteObjectRemoved",
+        "addSource",
+        "removeSource",
+        "removeServer",
+        "QUrl",
+        "url",
+        "sourceLocations",
+        "QRemoteObjectSourceLocations"
+    };
+
+    QtMocHelpers::UintData qt_methods {
+        // Signal 'remoteObjectAdded'
+        QtMocHelpers::SignalData<void(const QRemoteObjectSourceLocation &)>(3, 4, QMC::AccessPublic, QMetaType::Void, {{
+            { 0x80000000 | 5, 6 },
+        }}),
+        // Signal 'remoteObjectRemoved'
+        QtMocHelpers::SignalData<void(const QRemoteObjectSourceLocation &)>(7, 4, QMC::AccessPublic, QMetaType::Void, {{
+            { 0x80000000 | 5, 6 },
+        }}),
+        // Slot 'addSource'
+        QtMocHelpers::SlotData<void(const QRemoteObjectSourceLocation &)>(8, 4, QMC::AccessPublic, QMetaType::Void, {{
+            { 0x80000000 | 5, 6 },
+        }}),
+        // Slot 'removeSource'
+        QtMocHelpers::SlotData<void(const QRemoteObjectSourceLocation &)>(9, 4, QMC::AccessPublic, QMetaType::Void, {{
+            { 0x80000000 | 5, 6 },
+        }}),
+        // Slot 'removeServer'
+        QtMocHelpers::SlotData<void(const QUrl &)>(10, 4, QMC::AccessPublic, QMetaType::Void, {{
+            { 0x80000000 | 11, 12 },
+        }}),
+    };
+    QtMocHelpers::UintData qt_properties {
+        // property 'sourceLocations'
+        QtMocHelpers::PropertyData<QRemoteObjectSourceLocations>(13, 0x80000000 | 14, QMC::DefaultPropertyFlags | QMC::EnumOrFlag),
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    QtMocHelpers::UintData qt_constructors {};
+    QtMocHelpers::ClassInfos qt_classinfo({
+            {    1,    2 },
+    });
+    return QtMocHelpers::metaObjectData<QRegistrySource, qt_meta_tag_ZN15QRegistrySourceE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums, qt_constructors, qt_classinfo);
+}
+Q_CONSTINIT const QMetaObject QRegistrySource::staticMetaObject = { {
+    QMetaObject::SuperData::link<QObject::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN15QRegistrySourceE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN15QRegistrySourceE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN15QRegistrySourceE_t>.metaTypes,
+    nullptr
+} };
+
+void QRegistrySource::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<QRegistrySource *>(_o);
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        switch (_id) {
+        case 0: _t->remoteObjectAdded((*reinterpret_cast<std::add_pointer_t<QRemoteObjectSourceLocation>>(_a[1]))); break;
+        case 1: _t->remoteObjectRemoved((*reinterpret_cast<std::add_pointer_t<QRemoteObjectSourceLocation>>(_a[1]))); break;
+        case 2: _t->addSource((*reinterpret_cast<std::add_pointer_t<QRemoteObjectSourceLocation>>(_a[1]))); break;
+        case 3: _t->removeSource((*reinterpret_cast<std::add_pointer_t<QRemoteObjectSourceLocation>>(_a[1]))); break;
+        case 4: _t->removeServer((*reinterpret_cast<std::add_pointer_t<QUrl>>(_a[1]))); break;
+        default: ;
+        }
+    }
+    if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        switch (_id) {
+        default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
+        case 0:
+            switch (*reinterpret_cast<int*>(_a[1])) {
+            default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
+            case 0:
+                *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType::fromType< QRemoteObjectSourceLocation >(); break;
+            }
+            break;
+        case 1:
+            switch (*reinterpret_cast<int*>(_a[1])) {
+            default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
+            case 0:
+                *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType::fromType< QRemoteObjectSourceLocation >(); break;
+            }
+            break;
+        case 2:
+            switch (*reinterpret_cast<int*>(_a[1])) {
+            default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
+            case 0:
+                *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType::fromType< QRemoteObjectSourceLocation >(); break;
+            }
+            break;
+        case 3:
+            switch (*reinterpret_cast<int*>(_a[1])) {
+            default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
+            case 0:
+                *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType::fromType< QRemoteObjectSourceLocation >(); break;
+            }
+            break;
+        }
+    }
+    if (_c == QMetaObject::IndexOfMethod) {
+        if (QtMocHelpers::indexOfMethod<void (QRegistrySource::*)(const QRemoteObjectSourceLocation & )>(_a, &QRegistrySource::remoteObjectAdded, 0))
+            return;
+        if (QtMocHelpers::indexOfMethod<void (QRegistrySource::*)(const QRemoteObjectSourceLocation & )>(_a, &QRegistrySource::remoteObjectRemoved, 1))
+            return;
+    }
+    if (_c == QMetaObject::RegisterPropertyMetaType) {
+        switch (_id) {
+        default: *reinterpret_cast<int*>(_a[0]) = -1; break;
+        case 0:
+            *reinterpret_cast<int*>(_a[0]) = qRegisterMetaType< QRemoteObjectSourceLocations >(); break;
+        }
+    }
+    if (_c == QMetaObject::ReadProperty) {
+        void *_v = _a[0];
+        switch (_id) {
+        case 0: *reinterpret_cast<QRemoteObjectSourceLocations*>(_v) = _t->sourceLocations(); break;
+        default: break;
+        }
+    }
+}
+
+const QMetaObject *QRegistrySource::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *QRegistrySource::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN15QRegistrySourceE_t>.strings))
+        return static_cast<void*>(this);
+    return QObject::qt_metacast(_clname);
+}
+
+int QRegistrySource::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QObject::qt_metacall(_c, _id, _a);
+    if (_id < 0)
+        return _id;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        if (_id < 5)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 5;
+    }
+    if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        if (_id < 5)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 5;
+    }
+    if (_c == QMetaObject::ReadProperty || _c == QMetaObject::WriteProperty
+            || _c == QMetaObject::ResetProperty || _c == QMetaObject::BindableProperty
+            || _c == QMetaObject::RegisterPropertyMetaType) {
+        qt_static_metacall(this, _c, _id, _a);
+        _id -= 1;
+    }
+    return _id;
+}
+
+// SIGNAL 0
+void QRegistrySource::remoteObjectAdded(const QRemoteObjectSourceLocation & _t1)
+{
+    QMetaObject::activate<void>(this, &staticMetaObject, 0, nullptr, _t1);
+}
+
+// SIGNAL 1
+void QRegistrySource::remoteObjectRemoved(const QRemoteObjectSourceLocation & _t1)
+{
+    QMetaObject::activate<void>(this, &staticMetaObject, 1, nullptr, _t1);
+}
+QT_WARNING_POP
+
 //  from ../qtremoteobjects/src/remoteobjects/qtremoteobjectglobal.cpp, line 13, as _Z15QT_REMOTEOBJECTv
 inline const QLoggingCategory &QT_REMOTEOBJECT()
 {
     static const QLoggingCategory category("qt.remoteobjects", QtWarningMsg);
     return category;
+}
+
+//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectregistrysource.cpp, line 25, as _ZN15QRegistrySource12removeServerERK4QUrl
+inline void QRegistrySource::removeServer(const QUrl &url)
+{
+    for (auto it = m_sourceLocations.begin(), end = m_sourceLocations.end(); it != end; /* erasing */) {
+        if (it.value().hostUrl == url)
+            it = m_sourceLocations.erase(it);
+        else
+            ++it;
+    }
+}
+
+//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectregistrysource.cpp, line 52, as _ZN15QRegistrySource12removeSourceERKSt4pairI7QString31QRemoteObjectSourceLocationInfoE
+inline void QRegistrySource::removeSource(const QRemoteObjectSourceLocation &entry)
+{
+    if (m_sourceLocations.contains(entry.first) && m_sourceLocations[entry.first].hostUrl == entry.second.hostUrl) {
+        m_sourceLocations.remove(entry.first);
+        emit remoteObjectRemoved(entry);
+    }
+}
+
+//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectregistrysource.cpp, line 35, as _ZN15QRegistrySource9addSourceERKSt4pairI7QString31QRemoteObjectSourceLocationInfoE
+inline void QRegistrySource::addSource(const QRemoteObjectSourceLocation &entry)
+{
+    qCDebug(QT_REMOTEOBJECT) << "An entry was added to the RegistrySource" << entry;
+    if (m_sourceLocations.contains(entry.first)) {
+        if (m_sourceLocations[entry.first].hostUrl == entry.second.hostUrl)
+            qCWarning(QT_REMOTEOBJECT) << "Node warning: Ignoring Source" << entry.first
+                                       << "as this Node already has a Source by that name.";
+        else
+            qCWarning(QT_REMOTEOBJECT) << "Node warning: Ignoring Source" << entry.first
+                                       << "as another source (" << m_sourceLocations[entry.first]
+                                       << ") has already registered that name.";
+        return;
+    }
+    m_sourceLocations[entry.first] = entry.second;
+    emit remoteObjectAdded(entry);
+}
+
+//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectregistrysource.cpp, line 15, as _ZN15QRegistrySourceD0Ev
+inline QRegistrySource::~QRegistrySource()
+{
+}
+
+//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectregistrysource.cpp, line 10, as _ZN15QRegistrySourceC1EP7QObject
+inline QRegistrySource::QRegistrySource(QObject *parent)
+    : QObject(parent)
+{
 }
 
 //  from ../qtremoteobjects/src/remoteobjects/qremoteobjectregistrysource.cpp, line 19, as _ZNK15QRegistrySource15sourceLocationsEv
@@ -231,6 +487,21 @@ int ritual_ZN15QRegistrySource11qt_metacallEN11QMetaObject4CallEiPPv(
     int a1,
     void **a2) {
   return self->qt_metacall(a0, a1, a2);
+}
+
+//  QString QRegistrySource::tr(const char *s, const char *c, int n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN15QRegistrySource2trEPKcS1_i(
+    const char *s,
+    const char *c,
+    int n) {
+  return new QString(QRegistrySource::tr(s, c, n));
+}
+
+//  QRegistrySource::QRegistrySource(QObject *parent)
+extern "C" Q_DECL_EXPORT
+QRegistrySource *ritual_ZN15QRegistrySourceC1EP7QObject(QObject *parent) {
+  return new CuteQRegistrySource(parent);
 }
 
 //  QRegistrySource::~QRegistrySource()

@@ -5,6 +5,7 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN24QHttpNetworkReplyPrivateC1ERK4QUrl": ["address", "address"],
     "ritual_ZN24QHttpNetworkReplyPrivateD1Ev": ["nothing", "address"],
     "ritual_ZN24QHttpNetworkReplyPrivate10readStatusEP9QIODevice": [
       "long long", "address", "address"

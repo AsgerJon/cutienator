@@ -14,9 +14,7 @@
 #include <QtCore/qvariant.h>
 #include <QtCore/qrect.h>
 #include <QtCore/qstring.h>
-#if QT_CONFIG(accessibility)
 #include <QtGui/qaccessible.h>
-#endif
 #include <QtGui/qcolor.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -88,35 +86,6 @@
 
 using namespace Qt::StringLiterals;
 
-//  from src/widgets/accessible/qaccessiblewidgets.cpp, line 296, as _ZN24QAccessibleStackedWidgetC1EP7QWidget
-#if QT_CONFIG(accessibility)
-#if QT_CONFIG(stackedwidget)
-inline QAccessibleStackedWidget::QAccessibleStackedWidget(QWidget *widget)
-    : QAccessibleWidgetV2(widget, QAccessible::LayeredPane)
-{
-    Q_ASSERT(qobject_cast<QStackedWidget *>(widget));
-}
-#endif  // QT_CONFIG(stackedwidget)
-#endif  // QT_CONFIG(accessibility)
-
-//  from src/widgets/accessible/qaccessiblewidgets.cpp, line 302, as _ZNK24QAccessibleStackedWidget7childAtEii
-#if QT_CONFIG(accessibility)
-#if QT_CONFIG(stackedwidget)
-inline QAccessibleInterface *QAccessibleStackedWidget::childAt(int x, int y) const
-{
-    if (!stackedWidget()->isVisible())
-        return nullptr;
-    QWidget *currentWidget = stackedWidget()->currentWidget();
-    if (!currentWidget)
-        return nullptr;
-    QPoint position = currentWidget->mapFromGlobal(QPoint(x, y));
-    if (currentWidget->rect().contains(position))
-        return child(stackedWidget()->currentIndex());
-    return nullptr;
-}
-#endif  // QT_CONFIG(stackedwidget)
-#endif  // QT_CONFIG(accessibility)
-
 //  from src/widgets/accessible/qaccessiblewidgets.cpp, line 315, as _ZNK24QAccessibleStackedWidget10childCountEv
 #if QT_CONFIG(accessibility)
 #if QT_CONFIG(stackedwidget)
@@ -149,6 +118,35 @@ inline QAccessibleInterface *QAccessibleStackedWidget::child(int index) const
     if (index < 0 || index >= stackedWidget()->count())
         return nullptr;
     return QAccessible::queryAccessibleInterface(stackedWidget()->widget(index));
+}
+#endif  // QT_CONFIG(stackedwidget)
+#endif  // QT_CONFIG(accessibility)
+
+//  from src/widgets/accessible/qaccessiblewidgets.cpp, line 302, as _ZNK24QAccessibleStackedWidget7childAtEii
+#if QT_CONFIG(accessibility)
+#if QT_CONFIG(stackedwidget)
+inline QAccessibleInterface *QAccessibleStackedWidget::childAt(int x, int y) const
+{
+    if (!stackedWidget()->isVisible())
+        return nullptr;
+    QWidget *currentWidget = stackedWidget()->currentWidget();
+    if (!currentWidget)
+        return nullptr;
+    QPoint position = currentWidget->mapFromGlobal(QPoint(x, y));
+    if (currentWidget->rect().contains(position))
+        return child(stackedWidget()->currentIndex());
+    return nullptr;
+}
+#endif  // QT_CONFIG(stackedwidget)
+#endif  // QT_CONFIG(accessibility)
+
+//  from src/widgets/accessible/qaccessiblewidgets.cpp, line 296, as _ZN24QAccessibleStackedWidgetC1EP7QWidget
+#if QT_CONFIG(accessibility)
+#if QT_CONFIG(stackedwidget)
+inline QAccessibleStackedWidget::QAccessibleStackedWidget(QWidget *widget)
+    : QAccessibleWidgetV2(widget, QAccessible::LayeredPane)
+{
+    Q_ASSERT(qobject_cast<QStackedWidget *>(widget));
 }
 #endif  // QT_CONFIG(stackedwidget)
 #endif  // QT_CONFIG(accessibility)

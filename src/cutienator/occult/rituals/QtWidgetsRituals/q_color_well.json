@@ -2,7 +2,7 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtWidgets/6.12.0/QtWidgets/private/qcolorwell_p.h, Qt 6.12.0.",
-    "Changes made here are lost."
+    "Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZNK10QColorWell10metaObjectEv": ["address", "address"],
@@ -11,6 +11,10 @@
     ],
     "ritual_ZN10QColorWell11qt_metacallEN11QMetaObject4CallEiPPv": [
       "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN10QColorWell2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN10QColorWellC1EP7QWidgetiiPKj": [
+      "address", "address", "int", "int", "address"
     ],
     "ritual_ZN10QColorWell9rgbValuesEv": ["address", "address"],
     "ritual_ZN10QColorWell17paintCellContentsEP8QPainteriiRK5QRect": [
@@ -56,6 +60,9 @@
       "nothing", "address", "address"
     ],
     "ritual_own_ZN10QColorWell13dragMoveEventEP14QDragMoveEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN10QColorWell9dropEventEP10QDropEvent": [
       "nothing", "address", "address"
     ]
   }

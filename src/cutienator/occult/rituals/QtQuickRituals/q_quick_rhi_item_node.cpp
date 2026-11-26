@@ -1,14 +1,26 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtQuick/6.12.0/QtQuick/private/qquickrhiitem_p.h, Qt 6.12.0. Changes made
-//  here are lost.
+//  QtQuick/6.12.0/QtQuick/private/qquickrhiitem_p.h, Qt 6.12.0.
+//  Edited by hand on 2026-11-26: moc's output for 'QQuickRhiItemNode' is
+//  pasted in, cut from what the moc of Qt 6.12.0 writes for its header: Qt's
+//  library keeps it to itself; added are 2 rituals that lean on what moc
+//  writes for a class of the part Qt keeps to itself, whose ritual file
+//  carries moc's output, drafted by a copy of the generator that lets those
+//  names through. A copy of a meta-object is a second one: 'qobject_cast'
+//  between it and Qt's own does not match. Kept as it is when the generator
+//  runs again.
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
 #include <QtQuick/QtQuick>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQuick/6.12.0/QtQuick/private/qquickrhiitem_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
 #include <QtQuick/private/qquickrhiitem_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
@@ -19,10 +31,128 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from QtQuick__QQuickRhiItemNode.cpp, line 1, as moc:QQuickRhiItemNode
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN17QQuickRhiItemNodeE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto QQuickRhiItemNode::qt_create_metaobjectdata<qt_meta_tag_ZN17QQuickRhiItemNodeE_t>()
+{
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "QQuickRhiItemNode",
+        "render",
+        ""
+    };
+
+    QtMocHelpers::UintData qt_methods {
+        // Slot 'render'
+        QtMocHelpers::SlotData<void()>(1, 2, QMC::AccessPublic, QMetaType::Void),
+    };
+    QtMocHelpers::UintData qt_properties {
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    return QtMocHelpers::metaObjectData<QQuickRhiItemNode, qt_meta_tag_ZN17QQuickRhiItemNodeE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums);
+}
+Q_CONSTINIT const QMetaObject QQuickRhiItemNode::staticMetaObject = { {
+    QMetaObject::SuperData::link<QSGTextureProvider::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN17QQuickRhiItemNodeE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN17QQuickRhiItemNodeE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN17QQuickRhiItemNodeE_t>.metaTypes,
+    nullptr
+} };
+
+void QQuickRhiItemNode::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<QQuickRhiItemNode *>(_o);
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        switch (_id) {
+        case 0: _t->render(); break;
+        default: ;
+        }
+    }
+    (void)_a;
+}
+
+const QMetaObject *QQuickRhiItemNode::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *QQuickRhiItemNode::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN17QQuickRhiItemNodeE_t>.strings))
+        return static_cast<void*>(this);
+    if (!strcmp(_clname, "QSGSimpleTextureNode"))
+        return static_cast< QSGSimpleTextureNode*>(this);
+    return QSGTextureProvider::qt_metacast(_clname);
+}
+
+int QQuickRhiItemNode::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QSGTextureProvider::qt_metacall(_c, _id, _a);
+    if (_id < 0)
+        return _id;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        if (_id < 1)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 1;
+    }
+    if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        if (_id < 1)
+            *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
+        _id -= 1;
+    }
+    return _id;
+}
+QT_WARNING_POP
+
+//  from ../qtdeclarative/src/quick/items/qquickrhiitem.cpp, line 389, as _ZN17QQuickRhiItemNode6renderEv
+inline void QQuickRhiItemNode::render()
+{
+    // called before Qt Quick starts recording its main render pass
+
+    if (!isValid() || !m_renderPending)
+        return;
+
+    QRhiCommandBuffer *cb = queryCommandBuffer();
+    if (!cb)
+        return;
+
+    m_renderPending = false;
+    m_renderer->render(cb);
+
+    markDirty(QSGNode::DirtyMaterial);
+    emit textureChanged();
+}
+
 //  from ../qtdeclarative/src/quick/items/qquickrhiitem.cpp, line 175, as _ZNK17QQuickRhiItemNode7textureEv
 inline QSGTexture *QQuickRhiItemNode::texture() const
 {
     return m_sgTexture.get();
+}
+
+//  from ../qtdeclarative/src/quick/items/qquickrhiitem.cpp, line 163, as _ZN17QQuickRhiItemNodeC1EP13QQuickRhiItem
+inline QQuickRhiItemNode::QQuickRhiItemNode(QQuickRhiItem *item)
+    : m_item(item)
+{
+    m_window = m_item->window();
+    connect(m_window, &QQuickWindow::beforeRendering, this, &QQuickRhiItemNode::render,
+            Qt::DirectConnection);
+    connect(m_window, &QQuickWindow::screenChanged, this, [this]() {
+        if (m_window->effectiveDevicePixelRatio() != m_dpr)
+            m_item->update();
+    }, Qt::DirectConnection);
 }
 
 //  from ../qtdeclarative/src/quick/items/qquickrhiitem.cpp, line 198, as _ZN17QQuickRhiItemNode4syncEv
@@ -478,6 +608,22 @@ int ritual_ZN17QQuickRhiItemNode11qt_metacallEN11QMetaObject4CallEiPPv(
     int a1,
     void **a2) {
   return self->qt_metacall(a0, a1, a2);
+}
+
+//  QString QQuickRhiItemNode::tr(const char *s, const char *c, int n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN17QQuickRhiItemNode2trEPKcS1_i(
+    const char *s,
+    const char *c,
+    int n) {
+  return new QString(QQuickRhiItemNode::tr(s, c, n));
+}
+
+//  QQuickRhiItemNode::QQuickRhiItemNode(QQuickRhiItem *item)
+extern "C" Q_DECL_EXPORT
+QQuickRhiItemNode *ritual_ZN17QQuickRhiItemNodeC1EP13QQuickRhiItem(
+    QQuickRhiItem *item) {
+  return new CuteQQuickRhiItemNode(item);
 }
 
 //  QSGTexture *QQuickRhiItemNode::texture() const

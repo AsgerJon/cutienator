@@ -11,6 +11,11 @@
     "ritual_ZN18QQDMIncubationTask15setInitialStateEP7QObject": [
       "nothing", "address", "address"
     ],
-    "ritual_take_QQDMIncubationTask": ["bool", "address", "chars", "address"]
+    "ritual_take_QQDMIncubationTask": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN18QQDMIncubationTask15setInitialStateEP7QObject": [
+      "nothing", "address", "address"
+    ]
   }
 }

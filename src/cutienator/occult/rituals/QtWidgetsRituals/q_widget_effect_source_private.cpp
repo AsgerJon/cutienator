@@ -192,6 +192,18 @@ inline QPixmap QWidgetEffectSourcePrivate::pixmap(Qt::CoordinateSystem system, Q
     return pixmap;
 }
 #endif  // QT_CONFIG(graphicseffect)
+
+//  from src/widgets/effects/qgraphicseffect.cpp, line 355, as _ZNK28QGraphicsEffectSourcePrivate15invalidateCacheENS_16InvalidateReasonE
+inline void QGraphicsEffectSourcePrivate::invalidateCache(InvalidateReason reason) const
+{
+    if (m_cachedMode != QGraphicsEffect::PadToEffectiveBoundingRect
+        && (reason == EffectRectChanged
+            || (reason == TransformChanged && m_cachedSystem == Qt::LogicalCoordinates))) {
+        return;
+    }
+
+    QPixmapCache::remove(m_cacheKey);
+}
 //  -----------------------------------------------------------------------
 
 //  A QWidgetEffectSourcePrivate that Python can take functions over in. Every QWidgetEffectSourcePrivate
@@ -454,6 +466,15 @@ public:
   }
 #endif  // QT_CONFIG(graphicseffect)
 };
+
+#if QT_CONFIG(graphicseffect)
+//  QWidgetEffectSourcePrivate::QWidgetEffectSourcePrivate(QWidget *widget)
+extern "C" Q_DECL_EXPORT
+QWidgetEffectSourcePrivate *ritual_ZN26QWidgetEffectSourcePrivateC1EP7QWidget(
+    QWidget *widget) {
+  return new CuteQWidgetEffectSourcePrivate(widget);
+}
+#endif  // QT_CONFIG(graphicseffect)
 
 //  void QWidgetEffectSourcePrivate::detach()
 extern "C" Q_DECL_EXPORT

@@ -1,6 +1,13 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtBluetooth/6.12.0/QtBluetooth/private/battery1_p.h, Qt 6.12.0. Changes
-//  made here are lost.
+//  QtBluetooth/6.12.0/QtBluetooth/private/battery1_p.h, Qt 6.12.0.
+//  Edited by hand on 2026-11-26: moc's output for
+//  'QtBluetoothPrivate::OrgBluezBattery1Interface' is pasted in, cut from
+//  what the moc of Qt 6.12.0 writes for its header: Qt's library keeps it to
+//  itself; added are 2 rituals that lean on what moc writes for a class of
+//  the part Qt keeps to itself, whose ritual file carries moc's output,
+//  drafted by a copy of the generator that lets those names through. A copy
+//  of a meta-object is a second one: 'qobject_cast' between it and Qt's own
+//  does not match. Kept as it is when the generator runs again.
 #include <QtBluetooth/qtbluetoothglobal.h>
 #include <QtBluetooth/6.12.0/QtBluetooth/private/qtbluetoothglobal_p.h>
 #if QT_CONFIG(bluez)
@@ -9,9 +16,15 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtBluetooth/6.12.0/QtBluetooth/private/battery1_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
+#include <QtDBus/qdbusconnection.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
 #include <QtBluetooth/private/battery1_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
@@ -21,6 +34,93 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  from QtBluetooth__QtBluetoothPrivate_OrgBluezBattery1Interface.cpp, line 1, as moc:QtBluetoothPrivate::OrgBluezBattery1Interface
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN18QtBluetoothPrivate25OrgBluezBattery1InterfaceE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto QtBluetoothPrivate::OrgBluezBattery1Interface::qt_create_metaobjectdata<qt_meta_tag_ZN18QtBluetoothPrivate25OrgBluezBattery1InterfaceE_t>()
+{
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "QtBluetoothPrivate::OrgBluezBattery1Interface",
+        "Percentage"
+    };
+
+    QtMocHelpers::UintData qt_methods {
+    };
+    QtMocHelpers::UintData qt_properties {
+        // property 'Percentage'
+        QtMocHelpers::PropertyData<uchar>(1, QMetaType::UChar, QMC::DefaultPropertyFlags),
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    return QtMocHelpers::metaObjectData<OrgBluezBattery1Interface, qt_meta_tag_ZN18QtBluetoothPrivate25OrgBluezBattery1InterfaceE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums);
+}
+Q_CONSTINIT const QMetaObject QtBluetoothPrivate::OrgBluezBattery1Interface::staticMetaObject = { {
+    QMetaObject::SuperData::link<QDBusAbstractInterface::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN18QtBluetoothPrivate25OrgBluezBattery1InterfaceE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN18QtBluetoothPrivate25OrgBluezBattery1InterfaceE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN18QtBluetoothPrivate25OrgBluezBattery1InterfaceE_t>.metaTypes,
+    nullptr
+} };
+
+void QtBluetoothPrivate::OrgBluezBattery1Interface::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<OrgBluezBattery1Interface *>(_o);
+    if (_c == QMetaObject::ReadProperty) {
+        void *_v = _a[0];
+        switch (_id) {
+        case 0: *reinterpret_cast<uchar*>(_v) = _t->percentage(); break;
+        default: break;
+        }
+    }
+}
+
+const QMetaObject *QtBluetoothPrivate::OrgBluezBattery1Interface::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *QtBluetoothPrivate::OrgBluezBattery1Interface::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN18QtBluetoothPrivate25OrgBluezBattery1InterfaceE_t>.strings))
+        return static_cast<void*>(this);
+    return QDBusAbstractInterface::qt_metacast(_clname);
+}
+
+int QtBluetoothPrivate::OrgBluezBattery1Interface::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QDBusAbstractInterface::qt_metacall(_c, _id, _a);
+    if (_id < 0)
+        return _id;
+    if (_c == QMetaObject::ReadProperty || _c == QMetaObject::WriteProperty
+            || _c == QMetaObject::ResetProperty || _c == QMetaObject::BindableProperty
+            || _c == QMetaObject::RegisterPropertyMetaType) {
+        qt_static_metacall(this, _c, _id, _a);
+        _id -= 1;
+    }
+    return _id;
+}
+QT_WARNING_POP
+
+//  from ../qtconnectivity/src/bluetooth/bluez/battery1.cpp, line 20, as _ZN18QtBluetoothPrivate25OrgBluezBattery1InterfaceC1ERK7QStringS3_RK15QDBusConnectionP7QObject
+namespace QtBluetoothPrivate {
+inline OrgBluezBattery1Interface::OrgBluezBattery1Interface(const QString &service, const QString &path, const QDBusConnection &connection, QObject *parent)
+    : QDBusAbstractInterface(service, path, staticInterfaceName(), connection, parent)
+{
+}
+}  // namespace QtBluetoothPrivate
 
 //  from ../qtconnectivity/src/bluetooth/bluez/battery1.cpp, line 25, as _ZN18QtBluetoothPrivate25OrgBluezBattery1InterfaceD1Ev
 namespace QtBluetoothPrivate {
@@ -238,11 +338,41 @@ int ritual_ZN18QtBluetoothPrivate25OrgBluezBattery1Interface11qt_metacallEN11QMe
   return self->qt_metacall(a0, a1, a2);
 }
 
+//  QString QtBluetoothPrivate::OrgBluezBattery1Interface::tr(const char *s,
+//      const char *c, int n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN18QtBluetoothPrivate25OrgBluezBattery1Interface2trEPKcS2_i(
+    const char *s,
+    const char *c,
+    int n) {
+  return new QString(
+      QtBluetoothPrivate::OrgBluezBattery1Interface::tr(
+          s,
+          c,
+          n));
+}
+
 //  const char
 //      *QtBluetoothPrivate::OrgBluezBattery1Interface::staticInterfaceName()
 extern "C" Q_DECL_EXPORT
 const char *ritual_ZN18QtBluetoothPrivate25OrgBluezBattery1Interface19staticInterfaceNameEv() {
   return QtBluetoothPrivate::OrgBluezBattery1Interface::staticInterfaceName();
+}
+
+//  QtBluetoothPrivate::OrgBluezBattery1Interface::OrgBluezBattery1Interface(
+//      const QString &service, const QString &path, const QDBusConnection
+//      &connection, QObject *parent)
+extern "C" Q_DECL_EXPORT
+QtBluetoothPrivate::OrgBluezBattery1Interface *ritual_ZN18QtBluetoothPrivate25OrgBluezBattery1InterfaceC1ERK7QStringS3_RK15QDBusConnectionP7QObject(
+    const QString *service,
+    const QString *path,
+    const QDBusConnection *connection,
+    QObject *parent) {
+  return new CuteQtBluetoothPrivate_OrgBluezBattery1Interface(
+      *service,
+      *path,
+      *connection,
+      parent);
 }
 
 //  QtBluetoothPrivate::OrgBluezBattery1Interface::~OrgBluezBattery1Interface

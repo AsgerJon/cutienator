@@ -1,6 +1,11 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtQuick/6.12.0/QtQuick/private/qsgsoftwarepublicnodes_p.h, Qt 6.12.0.
-//  Changes made here are lost.
+//  Edited by hand on 2026-11-26: added are 2 rituals that lean on what moc
+//  writes for a class of the part Qt keeps to itself, whose ritual file
+//  carries moc's output, drafted by a copy of the generator that lets those
+//  names through. A copy of a meta-object is a second one: 'qobject_cast'
+//  between it and Qt's own does not match. Kept as it is when the generator
+//  runs again.
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
 #include <QtQuick/QtQuick>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -71,12 +76,25 @@ inline void QSGSoftwareNinePatchNode::update()
 {
 }
 
+//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarepublicnodes.cpp, line 117, as _ZN24QSGSoftwareNinePatchNodeC1Ev
+inline QSGSoftwareNinePatchNode::QSGSoftwareNinePatchNode()
+{
+    setMaterial((QSGMaterial*)1);
+    setGeometry((QSGGeometry*)1);
+}
+
 //  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarepublicnodes.cpp, line 179, as _ZNK24QSGSoftwareNinePatchNode6boundsEv
 inline QRectF QSGSoftwareNinePatchNode::bounds() const
 {
     return m_bounds;
 }
 //  -----------------------------------------------------------------------
+
+//  QSGSoftwareNinePatchNode::QSGSoftwareNinePatchNode()
+extern "C" Q_DECL_EXPORT
+QSGSoftwareNinePatchNode *ritual_ZN24QSGSoftwareNinePatchNodeC1Ev() {
+  return new QSGSoftwareNinePatchNode();
+}
 
 //  void QSGSoftwareNinePatchNode::setTexture(QSGTexture *texture)
 extern "C" Q_DECL_EXPORT
@@ -133,6 +151,14 @@ extern "C" Q_DECL_EXPORT
 bool ritual_ZNK24QSGSoftwareNinePatchNode8isOpaqueEv(
     const QSGSoftwareNinePatchNode *self) {
   return self->isOpaque();
+}
+
+//  void QSGSoftwareNinePatchNode::setTexture(QSGTexture *texture)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN24QSGSoftwareNinePatchNode10setTextureEP10QSGTexture(
+    QSGSoftwareNinePatchNode *self,
+    QSGTexture *texture) {
+  self->QSGSoftwareNinePatchNode::setTexture(texture);
 }
 
 //  void QSGSoftwareNinePatchNode::setBounds(const QRectF &bounds)

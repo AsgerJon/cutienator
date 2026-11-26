@@ -5,6 +5,9 @@
     "Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN20QNmeaSatelliteReaderC1EP31QNmeaSatelliteInfoSourcePrivate": [
+      "address", "address"
+    ],
     "ritual_ZN20QNmeaSatelliteReaderD1Ev": ["nothing", "address"],
     "ritual_ZN20QNmeaSatelliteReader17readAvailableDataEv": [
       "nothing", "address"

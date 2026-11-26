@@ -2,10 +2,17 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of QtDataV",
     "isualization/6.12.0/QtDataVisualization/private/scatterobjectbuffe",
-    "rhelper_p.h, Qt 6.12.0. Changes made here are lost."
+    "rhelper_p.h, Qt 6.12.0. Edited by hand: see the ritual file."
   ],
   "rows": {
+    "ritual_ZN25ScatterObjectBufferHelperC1Ev": ["address"],
     "ritual_ZN25ScatterObjectBufferHelperD1Ev": ["nothing", "address"],
+    "ritual_ZN25ScatterObjectBufferHelper8fullLoadEP24ScatterSeriesRenderCached": [
+      "nothing", "address", "address", "double"
+    ],
+    "ritual_ZN25ScatterObjectBufferHelper6updateEP24ScatterSeriesRenderCached": [
+      "nothing", "address", "address", "double"
+    ],
     "ritual_ZN25ScatterObjectBufferHelper9updateUVsEP24ScatterSeriesRenderCache": [
       "nothing", "address", "address"
     ],

@@ -1,6 +1,12 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtBluetooth/6.12.0/QtBluetooth/private/qbluetoothsocket_dummy_p.h, Qt
-//  6.12.0. Changes made here are lost.
+//  6.12.0.
+//  Edited by hand on 2026-11-26: added are 1 rituals that lean on what moc
+//  writes for a class of the part Qt keeps to itself, whose ritual file
+//  carries moc's output, drafted by a copy of the generator that lets those
+//  names through. A copy of a meta-object is a second one: 'qobject_cast'
+//  between it and Qt's own does not match. Kept as it is when the generator
+//  runs again.
 #include <QtBluetooth/qtbluetoothglobal.h>
 #include <QtBluetooth/6.12.0/QtBluetooth/private/qtbluetoothglobal_p.h>
 #if __has_include(<QtBluetooth/6.12.0/QtBluetooth/private/qbluetoothsocket_dummy_p.h>)
@@ -32,6 +38,11 @@
 inline QBluetoothSocketBasePrivate::~QBluetoothSocketBasePrivate()
 {
 
+}
+
+//  from ../qtconnectivity/src/bluetooth/qbluetoothsocket_dummy.cpp, line 20, as _ZN28QBluetoothSocketPrivateDummyD1Ev
+inline QBluetoothSocketPrivateDummy::~QBluetoothSocketPrivateDummy()
+{
 }
 
 //  from ../qtconnectivity/src/bluetooth/qbluetoothsocket_dummy.cpp, line 30, as _ZN28QBluetoothSocketPrivateDummy22connectToServiceHelperERK17QBluetoothAddresst6QFlagsIN13QIODeviceBase12OpenModeFlagEE
@@ -201,6 +212,13 @@ inline qint64 QBluetoothSocketPrivateDummy::bytesToWrite() const
     return 0;
 }
 //  -----------------------------------------------------------------------
+
+//  QBluetoothSocketPrivateDummy::~QBluetoothSocketPrivateDummy()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QBluetoothSocketPrivateDummyD1Ev(
+    QBluetoothSocketPrivateDummy *self) {
+  delete self;
+}
 
 //  void QBluetoothSocketPrivateDummy::connectToServiceHelper(const
 //      QBluetoothAddress &address, quint16 port, QIODevice::OpenMode

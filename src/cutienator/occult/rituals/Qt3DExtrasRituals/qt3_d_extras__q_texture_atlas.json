@@ -2,7 +2,7 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
     "Qt3DExtras/6.12.0/Qt3DExtras/private/qtextureatlas_p.h, Qt 6.12.0.",
-    "Changes made here are lost."
+    "Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZNK10Qt3DExtras13QTextureAtlas10metaObjectEv": [
@@ -13,6 +13,12 @@
     ],
     "ritual_ZN10Qt3DExtras13QTextureAtlas11qt_metacallEN11QMetaObject4CallEiPPv": [
       "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN10Qt3DExtras13QTextureAtlas2trEPKcS2_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN10Qt3DExtras13QTextureAtlasC1EPN8Qt3DCore5QNodeE": [
+      "address", "address"
     ],
     "ritual_ZN10Qt3DExtras13QTextureAtlasD1Ev": ["nothing", "address"],
     "ritual_ZNK10Qt3DExtras13QTextureAtlas11pixelFormatEv": [

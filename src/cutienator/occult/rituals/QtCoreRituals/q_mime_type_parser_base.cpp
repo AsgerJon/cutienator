@@ -193,6 +193,12 @@ public:
 #endif  // QT_CONFIG(mimetype)
 };
 
+//  QMimeTypeParserBase::QMimeTypeParserBase()
+extern "C" Q_DECL_EXPORT
+QMimeTypeParserBase *ritual_ZN19QMimeTypeParserBaseC1Ev() {
+  return new CuteQMimeTypeParserBase();
+}
+
 //  QMimeTypeParserBase::~QMimeTypeParserBase()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN19QMimeTypeParserBaseD1Ev(QMimeTypeParserBase *self) {

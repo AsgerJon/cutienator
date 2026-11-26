@@ -30,6 +30,7 @@
 #include <QtRemoteObjects/qtremoteobjectglobal.h>
 #include <QtRemoteObjects/private/qconnection_local_backend_p.h>
 #include <QtCore/qstringlist.h>
+#include <QtCore/qloggingcategory.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -154,6 +155,13 @@ inline QRemoteObjectSourceBase::QRemoteObjectSourceBase(QObject *obj, Private *d
 inline QRemoteObjectSourceBase::~QRemoteObjectSourceBase()
 {
     delete m_api;
+}
+
+//  from ../qtremoteobjects/src/remoteobjects/qtremoteobjectglobal.cpp, line 13, as _Z15QT_REMOTEOBJECTv
+inline const QLoggingCategory &QT_REMOTEOBJECT()
+{
+    static const QLoggingCategory category("qt.remoteobjects", QtWarningMsg);
+    return category;
 }
 //  -----------------------------------------------------------------------
 

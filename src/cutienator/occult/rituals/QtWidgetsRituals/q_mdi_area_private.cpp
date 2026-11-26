@@ -91,6 +91,16 @@
 #include <QtWidgets/QMenu>
 #endif
 #include <QtWidgets/QProxyStyle>
+#include <QtWidgets/qframe.h>
+#include <QtGui/qbitmap.h>
+#include <QtWidgets/qdrawutil.h>
+#include <QtGui/qevent.h>
+#include <QtGui/qpainter.h>
+#include <QtWidgets/qstyle.h>
+#include <QtWidgets/qstyleoption.h>
+#include <QtWidgets/qstylepainter.h>
+#include <QtWidgets/qapplication.h>
+#include <QtWidgets/private/qframe_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -539,6 +549,89 @@ inline void QMdiAreaPrivate::showRubberBandFor(QMdiSubWindow *subWindow)
 }
 #endif  // QT_CONFIG(rubberband)
 
+//  from src/widgets/widgets/qframe.cpp, line 19, as _ZN13QFramePrivateC2Ev
+inline QFramePrivate::QFramePrivate()
+    : frect(0, 0, 0, 0),
+      frameStyle(QFrame::NoFrame | QFrame::Plain),
+      lineWidth(1),
+      midLineWidth(0),
+      frameWidth(0),
+      leftFrameWidth(0), rightFrameWidth(0),
+      topFrameWidth(0), bottomFrameWidth(0)
+{
+}
+
+//  from src/widgets/widgets/qframe.cpp, line 30, as _ZN13QFramePrivateD2Ev
+inline QFramePrivate::~QFramePrivate()
+{
+}
+
+//  from src/widgets/widgets/qmdiarea.cpp, line 1132, as _ZN15QMdiAreaPrivate16updateScrollBarsEv
+inline void QMdiAreaPrivate::updateScrollBars()
+{
+    if (ignoreGeometryChange || !scrollBarsEnabled())
+        return;
+
+    Q_Q(QMdiArea);
+    QSize maxSize = q->maximumViewportSize();
+    QSize hbarExtent = hbar->sizeHint();
+    QSize vbarExtent = vbar->sizeHint();
+
+    if (q->style()->styleHint(QStyle::SH_ScrollView_FrameOnlyAroundContents, nullptr, q)) {
+        const int doubleFrameWidth = frameWidth * 2;
+        if (hbarpolicy == Qt::ScrollBarAlwaysOn)
+            maxSize.rheight() -= doubleFrameWidth;
+        if (vbarpolicy == Qt::ScrollBarAlwaysOn)
+            maxSize.rwidth() -= doubleFrameWidth;
+        hbarExtent.rheight() += doubleFrameWidth;
+        vbarExtent.rwidth() += doubleFrameWidth;
+    }
+
+    const QRect childrenRect = active && active->isMaximized()
+                               ? active->geometry() : viewport->childrenRect();
+    bool useHorizontalScrollBar = useScrollBar(childrenRect, maxSize, Qt::Horizontal);
+    bool useVerticalScrollBar = useScrollBar(childrenRect, maxSize, Qt::Vertical);
+
+    if (useHorizontalScrollBar && !useVerticalScrollBar) {
+        const QSize max = maxSize - QSize(0, hbarExtent.height());
+        useVerticalScrollBar = useScrollBar(childrenRect, max, Qt::Vertical);
+    }
+
+    if (useVerticalScrollBar && !useHorizontalScrollBar) {
+        const QSize max = maxSize - QSize(vbarExtent.width(), 0);
+        useHorizontalScrollBar = useScrollBar(childrenRect, max, Qt::Horizontal);
+    }
+
+    if (useHorizontalScrollBar && hbarpolicy != Qt::ScrollBarAlwaysOn)
+        maxSize.rheight() -= hbarExtent.height();
+    if (useVerticalScrollBar && vbarpolicy != Qt::ScrollBarAlwaysOn)
+        maxSize.rwidth() -= vbarExtent.width();
+
+    QRect viewportRect(QPoint(0, 0), maxSize);
+    const int startX = q->isLeftToRight() ? childrenRect.left() : viewportRect.right()
+                                                                  - childrenRect.right();
+
+    const auto singleStep = defaultSingleStep();
+
+    // Horizontal scroll bar.
+    if (isSubWindowsTiled && hbar->value() != 0)
+        hbar->setValue(0);
+    const int xOffset = startX + hbar->value();
+    hbar->setRange(qMin(0, xOffset),
+                   qMax(0, xOffset + childrenRect.width() - viewportRect.width()));
+    hbar->setPageStep(childrenRect.width());
+    hbar->setSingleStep(childrenRect.width() / singleStep);
+
+    // Vertical scroll bar.
+    if (isSubWindowsTiled && vbar->value() != 0)
+        vbar->setValue(0);
+    const int yOffset = childrenRect.top() + vbar->value();
+    vbar->setRange(qMin(0, yOffset),
+                   qMax(0, yOffset + childrenRect.height() - viewportRect.height()));
+    vbar->setPageStep(childrenRect.height());
+    vbar->setSingleStep(childrenRect.height() / singleStep);
+}
+
 //  from src/widgets/widgets/qmdisubwindow.cpp, line 1965, as _ZN20QMdiSubWindowPrivate14setFocusWidgetEv
 inline void QMdiSubWindowPrivate::setFocusWidget()
 {
@@ -693,71 +786,14 @@ inline QStyleOptionTitleBar QMdiSubWindowPrivate::titleBarOptions() const
     return titleBarOptions;
 }
 
-//  from src/widgets/widgets/qmdiarea.cpp, line 1132, as _ZN15QMdiAreaPrivate16updateScrollBarsEv
-inline void QMdiAreaPrivate::updateScrollBars()
+//  from src/widgets/widgets/qabstractscrollarea.cpp, line 1485, as _ZNK26QAbstractScrollAreaPrivate17defaultSingleStepEv
+#if QT_CONFIG(scrollarea)
+inline int QAbstractScrollAreaPrivate::defaultSingleStep() const
 {
-    if (ignoreGeometryChange || !scrollBarsEnabled())
-        return;
-
-    Q_Q(QMdiArea);
-    QSize maxSize = q->maximumViewportSize();
-    QSize hbarExtent = hbar->sizeHint();
-    QSize vbarExtent = vbar->sizeHint();
-
-    if (q->style()->styleHint(QStyle::SH_ScrollView_FrameOnlyAroundContents, nullptr, q)) {
-        const int doubleFrameWidth = frameWidth * 2;
-        if (hbarpolicy == Qt::ScrollBarAlwaysOn)
-            maxSize.rheight() -= doubleFrameWidth;
-        if (vbarpolicy == Qt::ScrollBarAlwaysOn)
-            maxSize.rwidth() -= doubleFrameWidth;
-        hbarExtent.rheight() += doubleFrameWidth;
-        vbarExtent.rwidth() += doubleFrameWidth;
-    }
-
-    const QRect childrenRect = active && active->isMaximized()
-                               ? active->geometry() : viewport->childrenRect();
-    bool useHorizontalScrollBar = useScrollBar(childrenRect, maxSize, Qt::Horizontal);
-    bool useVerticalScrollBar = useScrollBar(childrenRect, maxSize, Qt::Vertical);
-
-    if (useHorizontalScrollBar && !useVerticalScrollBar) {
-        const QSize max = maxSize - QSize(0, hbarExtent.height());
-        useVerticalScrollBar = useScrollBar(childrenRect, max, Qt::Vertical);
-    }
-
-    if (useVerticalScrollBar && !useHorizontalScrollBar) {
-        const QSize max = maxSize - QSize(vbarExtent.width(), 0);
-        useHorizontalScrollBar = useScrollBar(childrenRect, max, Qt::Horizontal);
-    }
-
-    if (useHorizontalScrollBar && hbarpolicy != Qt::ScrollBarAlwaysOn)
-        maxSize.rheight() -= hbarExtent.height();
-    if (useVerticalScrollBar && vbarpolicy != Qt::ScrollBarAlwaysOn)
-        maxSize.rwidth() -= vbarExtent.width();
-
-    QRect viewportRect(QPoint(0, 0), maxSize);
-    const int startX = q->isLeftToRight() ? childrenRect.left() : viewportRect.right()
-                                                                  - childrenRect.right();
-
-    const auto singleStep = defaultSingleStep();
-
-    // Horizontal scroll bar.
-    if (isSubWindowsTiled && hbar->value() != 0)
-        hbar->setValue(0);
-    const int xOffset = startX + hbar->value();
-    hbar->setRange(qMin(0, xOffset),
-                   qMax(0, xOffset + childrenRect.width() - viewportRect.width()));
-    hbar->setPageStep(childrenRect.width());
-    hbar->setSingleStep(childrenRect.width() / singleStep);
-
-    // Vertical scroll bar.
-    if (isSubWindowsTiled && vbar->value() != 0)
-        vbar->setValue(0);
-    const int yOffset = childrenRect.top() + vbar->value();
-    vbar->setRange(qMin(0, yOffset),
-                   qMax(0, yOffset + childrenRect.height() - viewportRect.height()));
-    vbar->setPageStep(childrenRect.height());
-    vbar->setSingleStep(childrenRect.height() / singleStep);
+    auto *platformTheme = QGuiApplicationPrivate::platformTheme();
+    return platformTheme->themeHint(QPlatformTheme::ScrollSingleStepDistance).value<int>();
 }
+#endif  // QT_CONFIG(scrollarea)
 
 //  from src/widgets/widgets/qmdisubwindow.cpp, line 2012, as _ZN20QMdiSubWindowPrivate12restoreFocusEv
 inline bool QMdiSubWindowPrivate::restoreFocus()
@@ -775,14 +811,43 @@ inline bool QMdiSubWindowPrivate::restoreFocus()
     return candidate->hasFocus();
 }
 
-//  from src/widgets/widgets/qabstractscrollarea.cpp, line 1485, as _ZNK26QAbstractScrollAreaPrivate17defaultSingleStepEv
-#if QT_CONFIG(scrollarea)
-inline int QAbstractScrollAreaPrivate::defaultSingleStep() const
+//  from src/widgets/widgets/qmdiarea.cpp, line 620, as _ZN15QMdiAreaPrivateC1Ev
+inline QMdiAreaPrivate::QMdiAreaPrivate()
+    : cascader(nullptr),
+      regularTiler(nullptr),
+      iconTiler(nullptr),
+      placer(nullptr),
+#if QT_CONFIG(rubberband)
+      rubberBand(nullptr),
+#endif
+#if QT_CONFIG(tabbar)
+      tabBar(nullptr),
+#endif
+      activationOrder(QMdiArea::CreationOrder),
+      viewMode(QMdiArea::SubWindowView),
+#if QT_CONFIG(tabbar)
+      documentMode(false),
+      tabsClosable(false),
+      tabsMovable(false),
+#endif
+#if QT_CONFIG(tabwidget)
+      tabShape(QTabWidget::Rounded),
+      tabPosition(QTabWidget::North),
+#endif
+      ignoreGeometryChange(false),
+      ignoreWindowStateChange(false),
+      isActivated(false),
+      isSubWindowsTiled(false),
+      showActiveWindowMaximized(false),
+      tileCalledFromResizeEvent(false),
+      updatesDisabledByUs(false),
+      inViewModeChange(false),
+      indexToNextWindow(-1),
+      indexToPreviousWindow(-1),
+      indexToHighlighted(-1),
+      indexToLastActiveTab(-1)
 {
-    auto *platformTheme = QGuiApplicationPrivate::platformTheme();
-    return platformTheme->themeHint(QPlatformTheme::ScrollSingleStepDistance).value<int>();
 }
-#endif  // QT_CONFIG(scrollarea)
 
 //  from src/widgets/widgets/qmdiarea.cpp, line 757, as _ZN15QMdiAreaPrivate11_q_closeTabEi
 inline void QMdiAreaPrivate::_q_closeTab(int index)
@@ -1422,6 +1487,14 @@ const QMdiArea *ritual_ZNK15QMdiAreaPrivate6q_funcEv(
     const QMdiAreaPrivate *self) {
   return self->q_func();
 }
+
+#if QT_CONFIG(scrollarea)
+//  QMdiAreaPrivate::QMdiAreaPrivate()
+extern "C" Q_DECL_EXPORT
+QMdiAreaPrivate *ritual_ZN15QMdiAreaPrivateC1Ev() {
+  return new CuteQMdiAreaPrivate();
+}
+#endif  // QT_CONFIG(scrollarea)
 
 //  void QMdiAreaPrivate::_q_closeTab(int index)
 extern "C" Q_DECL_EXPORT

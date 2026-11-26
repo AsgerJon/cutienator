@@ -2,7 +2,7 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtScxml/6.12.0/QtScxml/private/qscxmlstatemachine_p.h, Qt 6.12.0.",
-    "Changes made here are lost."
+    "Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZNK14QScxmlInternal16ScxmlEventRouter10metaObjectEv": [
@@ -14,10 +14,28 @@
     "ritual_ZN14QScxmlInternal16ScxmlEventRouter11qt_metacallEN11QMetaObject4CallEiPPv": [
       "int", "address", "int", "int", "address"
     ],
+    "ritual_ZN14QScxmlInternal16ScxmlEventRouter2trEPKcS2_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN14QScxmlInternal16ScxmlEventRouterC1EP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZN14QScxmlInternal16ScxmlEventRouter14connectToEventERK5QListI7QStringEPK7QObjectPKcN2Qt14ConnectionTypeE": [
+      "address", "address", "address", "address", "chars", "int"
+    ],
+    "ritual_ZN14QScxmlInternal16ScxmlEventRouter5routeERK5QListI7QStringEP11QScxmlEvent": [
+      "nothing", "address", "address", "address"
+    ],
     "ritual_ZN14QScxmlInternal16ScxmlEventRouter13eventOccurredERK11QScxmlEvent": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN14QScxmlInternal16ScxmlEventRouter5childERK7QString": [
+      "address", "address", "text"
+    ],
     "ritual_ZN14QScxmlInternal16ScxmlEventRouter16disconnectNotifyERK11QMetaMethod": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN14QScxmlInternal16ScxmlEventRouter16disconnectNotifyERK11QMetaMethod": [
       "nothing", "address", "address"
     ]
   }

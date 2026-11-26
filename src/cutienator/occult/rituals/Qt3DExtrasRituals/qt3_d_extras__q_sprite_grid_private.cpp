@@ -105,7 +105,24 @@ inline void QAbstractSpriteSheetPrivate::init()
     m_textureTransform.setToIdentity();
 }
 }  // namespace Qt3DExtras
+
+//  from ../qt3d/src/extras/defaults/qspritegrid.cpp, line 16, as _ZN10Qt3DExtras18QSpriteGridPrivateC1Ev
+namespace Qt3DExtras {
+using namespace Qt3DCore;
+inline QSpriteGridPrivate::QSpriteGridPrivate()
+    : QAbstractSpriteSheetPrivate()
+    , m_numColumns(1)
+    , m_numRows(1)
+{
+}
+}  // namespace Qt3DExtras
 //  -----------------------------------------------------------------------
+
+//  Qt3DExtras::QSpriteGridPrivate::QSpriteGridPrivate()
+extern "C" Q_DECL_EXPORT
+Qt3DExtras::QSpriteGridPrivate *ritual_ZN10Qt3DExtras18QSpriteGridPrivateC1Ev() {
+  return new Qt3DExtras::QSpriteGridPrivate();
+}
 
 //  int Qt3DExtras::QSpriteGridPrivate::maxIndex() const
 extern "C" Q_DECL_EXPORT

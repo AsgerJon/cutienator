@@ -99,12 +99,46 @@ inline QOpenGLVersionFunctionsStorage::~QOpenGLVersionFunctionsStorage()
     }
 #endif
 }
+
+//  from src/opengl/qopenglversionfunctions.cpp, line 118, as _ZN31QAbstractOpenGLFunctionsPrivate23insertExternalFunctionsEP14QOpenGLContextP24QAbstractOpenGLFunctions
+inline void QAbstractOpenGLFunctionsPrivate::insertExternalFunctions(QOpenGLContext *context, QAbstractOpenGLFunctions *f)
+{
+    Q_ASSERT(context);
+    QOpenGLContextVersionData::forContext(context)->externalFunctions.insert(f);
+}
+
+//  from src/opengl/qopenglversionfunctions.cpp, line 124, as _ZN31QAbstractOpenGLFunctionsPrivate23removeExternalFunctionsEP14QOpenGLContextP24QAbstractOpenGLFunctions
+inline void QAbstractOpenGLFunctionsPrivate::removeExternalFunctions(QOpenGLContext *context, QAbstractOpenGLFunctions *f)
+{
+    Q_ASSERT(context);
+    QOpenGLContextVersionData::forContext(context)->externalFunctions.remove(f);
+}
 //  -----------------------------------------------------------------------
 
 //  QAbstractOpenGLFunctionsPrivate::QAbstractOpenGLFunctionsPrivate()
 extern "C" Q_DECL_EXPORT
 QAbstractOpenGLFunctionsPrivate *ritual_ZN31QAbstractOpenGLFunctionsPrivateC1Ev() {
   return new QAbstractOpenGLFunctionsPrivate();
+}
+
+//  void
+//      QAbstractOpenGLFunctionsPrivate::insertExternalFunctions(QOpenGLConte
+//      xt *context, QAbstractOpenGLFunctions *f)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN31QAbstractOpenGLFunctionsPrivate23insertExternalFunctionsEP14QOpenGLContextP24QAbstractOpenGLFunctions(
+    QOpenGLContext *context,
+    QAbstractOpenGLFunctions *f) {
+  QAbstractOpenGLFunctionsPrivate::insertExternalFunctions(context, f);
+}
+
+//  void
+//      QAbstractOpenGLFunctionsPrivate::removeExternalFunctions(QOpenGLConte
+//      xt *context, QAbstractOpenGLFunctions *f)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN31QAbstractOpenGLFunctionsPrivate23removeExternalFunctionsEP14QOpenGLContextP24QAbstractOpenGLFunctions(
+    QOpenGLContext *context,
+    QAbstractOpenGLFunctions *f) {
+  QAbstractOpenGLFunctionsPrivate::removeExternalFunctions(context, f);
 }
 
 //  QAbstractOpenGLFunctionsPrivate

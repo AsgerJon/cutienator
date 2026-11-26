@@ -11,6 +11,7 @@
     "ritual_ZNK32QQuickAbstractColorPickerPrivate6q_funcEv": [
       "address", "address"
     ],
+    "ritual_ZN32QQuickAbstractColorPickerPrivateC1Ev": ["address"],
     "ritual_ZN32QQuickAbstractColorPickerPrivate3getEP25QQuickAbstractColorPicker": [
       "address", "address"
     ],

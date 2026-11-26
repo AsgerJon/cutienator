@@ -1,6 +1,11 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtGui/6.12.0/QtGui/private/qdbusmenubar_p.h, Qt 6.12.0. Changes made here
-//  are lost.
+//  QtGui/6.12.0/QtGui/private/qdbusmenubar_p.h, Qt 6.12.0.
+//  Edited by hand on 2026-11-26: added are 2 rituals that lean on what moc
+//  writes for a class of the part Qt keeps to itself, whose ritual file
+//  carries moc's output, drafted by a copy of the generator that lets those
+//  names through. A copy of a meta-object is a second one: 'qobject_cast'
+//  between it and Qt's own does not match. Kept as it is when the generator
+//  runs again.
 #include <QtGui/qtguiglobal.h>
 #include <QtGui/6.12.0/QtGui/private/qtguiglobal_p.h>
 #if 1 && defined(Q_OS_UNIX) && (QT_CONFIG(xcb) || !defined(Q_OS_MACOS)) && (QT_CONFIG(xcb) || !(defined(Q_OS_IOS) || defined(Q_OS_TVOS) || defined(Q_OS_VISIONOS)))
@@ -17,11 +22,36 @@
 #include <QtGui/private/qguiapplication_p.h>
 #include <QtGui/private/qdesktopunixservices_p.h>
 #include <QtGui/qpa/qplatformintegration.h>
-#include <QtGui/private/qdbusmenuregistrarproxy_p.h>
+#include <QtGui/private/qdbusmenutypes_p.h>
+#include <QDBusConnection>
+#include <QDBusMetaType>
+#include <QtGui/QImage>
+#include <QtGui/QIcon>
+#include <QtGui/QImage>
+#include <QtGui/QPixmap>
+#include <QtCore/QDebug>
+#include <QtCore/QtEndian>
+#include <QtCore/QBuffer>
+#if QT_CONFIG(shortcut)
+#  include <QtGui/private/qkeysequence_p.h>
+#endif
+#include <QtGui/qpa/qplatformmenu.h>
+#include <QtGui/private/qdbusplatformmenu_p.h>
+#include <QtCore/QMetaObject>
+#include <QtCore/QByteArray>
+#include <QtCore/QList>
+#include <QtCore/QMap>
+#include <QtCore/QString>
+#include <QtCore/QStringList>
+#include <QtCore/QVariant>
+#include <QtCore/QLocale>
+#include <QtGui/private/qdbusmenuadaptor_p.h>
+#include <QtGui/private/qdbusplatformmenu_p.h>
 #include <QtGui/private/qdbusplatformmenu_p.h>
 #include <QtCore/QDateTime>
 #include <QtCore/QDebug>
 #include <QtGui/QWindow>
+#include <QtGui/private/qdbusmenuregistrarproxy_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -56,15 +86,14 @@ inline void QDBusMenuBar::removeMenu(QPlatformMenu *menu)
     m_menu->emitUpdated();
 }
 
-//  from src/gui/platform/unix/dbusmenu/qdbusmenuregistrarproxy.cpp, line 20, as _ZN27QDBusMenuRegistrarInterfaceC1ERK7QStringS2_RK15QDBusConnectionP7QObject
-inline QDBusMenuRegistrarInterface::QDBusMenuRegistrarInterface(const QString &service, const QString &path, const QDBusConnection &connection, QObject *parent)
-    : QDBusAbstractInterface(service, path, staticInterfaceName(), connection, parent)
+//  from src/gui/platform/unix/dbusmenu/qdbusmenubar.cpp, line 91, as _ZN12QDBusMenuBar14handleReparentEP7QWindow
+inline void QDBusMenuBar::handleReparent(QWindow *newParentWindow)
 {
-}
-
-//  from src/gui/platform/unix/dbusmenu/qdbusmenuregistrarproxy.cpp, line 25, as _ZN27QDBusMenuRegistrarInterfaceD1Ev
-inline QDBusMenuRegistrarInterface::~QDBusMenuRegistrarInterface()
-{
+    if (newParentWindow) {
+        unregisterMenuBar();
+        m_window = newParentWindow;
+        registerMenuBar();
+    }
 }
 
 //  from src/gui/platform/unix/dbusmenu/qdbusmenubar.cpp, line 85, as _ZN12QDBusMenuBar8syncMenuEP13QPlatformMenu
@@ -74,14 +103,50 @@ inline void QDBusMenuBar::syncMenu(QPlatformMenu *menu)
     updateMenuItem(menuItem, menu);
 }
 
-//  from src/gui/platform/unix/dbusmenu/qdbusmenubar.cpp, line 91, as _ZN12QDBusMenuBar14handleReparentEP7QWindow
-inline void QDBusMenuBar::handleReparent(QWindow *newParentWindow)
+//  from src/gui/platform/unix/dbusmenu/qdbusmenubar.cpp, line 36, as _ZN12QDBusMenuBarD0Ev
+inline QDBusMenuBar::~QDBusMenuBar()
 {
-    if (newParentWindow) {
-        unregisterMenuBar();
-        m_window = newParentWindow;
-        registerMenuBar();
-    }
+    unregisterMenuBar();
+    delete m_menuAdaptor;
+    delete m_menu;
+    qDeleteAll(m_menuItems);
+}
+
+//  from src/gui/platform/unix/dbusmenu/qdbusmenutypes.cpp, line 145, as _ZN13QDBusMenuItem17registerDBusTypesEv
+inline void QDBusMenuItem::registerDBusTypes()
+{
+    qDBusRegisterMetaType<QDBusMenuItem>();
+    qDBusRegisterMetaType<QDBusMenuItemList>();
+    qDBusRegisterMetaType<QDBusMenuItemKeys>();
+    qDBusRegisterMetaType<QDBusMenuItemKeysList>();
+    qDBusRegisterMetaType<QDBusMenuLayoutItem>();
+    qDBusRegisterMetaType<QDBusMenuLayoutItemList>();
+    qDBusRegisterMetaType<QDBusMenuEvent>();
+    qDBusRegisterMetaType<QDBusMenuEventList>();
+    qDBusRegisterMetaType<QDBusMenuShortcut>();
+}
+
+//  from src/gui/platform/unix/dbusmenu/qdbusmenuadaptor.cpp, line 29, as _ZN16QDBusMenuAdaptorC1EP17QDBusPlatformMenu
+inline QDBusMenuAdaptor::QDBusMenuAdaptor(QDBusPlatformMenu *topLevelMenu)
+    : QDBusAbstractAdaptor(topLevelMenu)
+    , m_topLevelMenu(topLevelMenu)
+{
+    setAutoRelaySignals(true);
+}
+
+//  from src/gui/platform/unix/dbusmenu/qdbusplatformmenu.cpp, line 130, as _ZN17QDBusPlatformMenuC1Ev
+inline QDBusPlatformMenu::QDBusPlatformMenu()
+    : m_isEnabled(true)
+    , m_isVisible(true)
+    , m_revision(1)
+    , m_containingMenuItem(nullptr)
+{
+}
+
+//  from src/gui/platform/unix/dbusmenu/qdbusmenubar.cpp, line 108, as _ZNK12QDBusMenuBar10createMenuEv
+inline QPlatformMenu *QDBusMenuBar::createMenu() const
+{
+    return new QDBusPlatformMenu;
 }
 
 //  from src/gui/platform/unix/dbusmenu/qdbusmenubar.cpp, line 100, as _ZNK12QDBusMenuBar10menuForTagEy
@@ -93,27 +158,15 @@ inline QPlatformMenu *QDBusMenuBar::menuForTag(quintptr tag) const
     return nullptr;
 }
 
-//  from src/gui/platform/unix/dbusmenu/qdbusmenubar.cpp, line 108, as _ZNK12QDBusMenuBar10createMenuEv
-inline QPlatformMenu *QDBusMenuBar::createMenu() const
+//  from src/gui/platform/unix/dbusmenu/qdbusmenuregistrarproxy.cpp, line 20, as _ZN27QDBusMenuRegistrarInterfaceC1ERK7QStringS2_RK15QDBusConnectionP7QObject
+inline QDBusMenuRegistrarInterface::QDBusMenuRegistrarInterface(const QString &service, const QString &path, const QDBusConnection &connection, QObject *parent)
+    : QDBusAbstractInterface(service, path, staticInterfaceName(), connection, parent)
 {
-    return new QDBusPlatformMenu;
 }
 
-//  from src/gui/platform/unix/dbusmenu/qdbusmenubar.cpp, line 44, as _ZN12QDBusMenuBar15menuItemForMenuEP13QPlatformMenu
-inline QDBusPlatformMenuItem *QDBusMenuBar::menuItemForMenu(QPlatformMenu *menu)
+//  from src/gui/platform/unix/dbusmenu/qdbusmenuregistrarproxy.cpp, line 25, as _ZN27QDBusMenuRegistrarInterfaceD1Ev
+inline QDBusMenuRegistrarInterface::~QDBusMenuRegistrarInterface()
 {
-    if (!menu)
-        return nullptr;
-    quintptr tag = menu->tag();
-    const auto it = m_menuItems.constFind(tag);
-    if (it != m_menuItems.cend()) {
-        return *it;
-    } else {
-        QDBusPlatformMenuItem *item = new QDBusPlatformMenuItem;
-        updateMenuItem(item, menu);
-        m_menuItems.insert(tag, item);
-        return item;
-    }
 }
 
 //  from src/gui/platform/unix/dbusmenu/qdbusplatformmenu.cpp, line 206, as _ZN17QDBusPlatformMenu11emitUpdatedEv
@@ -123,17 +176,6 @@ inline void QDBusPlatformMenu::emitUpdated()
         emit updated(++m_revision, m_containingMenuItem->dbusID());
     else
         emit updated(++m_revision, 0);
-}
-
-//  from src/gui/platform/unix/dbusmenu/qdbusmenubar.cpp, line 60, as _ZN12QDBusMenuBar14updateMenuItemEP21QDBusPlatformMenuItemP13QPlatformMenu
-inline void QDBusMenuBar::updateMenuItem(QDBusPlatformMenuItem *item, QPlatformMenu *menu)
-{
-    const QDBusPlatformMenu *ourMenu = qobject_cast<const QDBusPlatformMenu *>(menu);
-    item->setText(ourMenu->text());
-    item->setIcon(ourMenu->icon());
-    item->setEnabled(ourMenu->isEnabled());
-    item->setVisible(ourMenu->isVisible());
-    item->setMenu(menu);
 }
 
 //  from src/gui/platform/unix/dbusmenu/qdbusmenubar.cpp, line 141, as _ZN12QDBusMenuBar17unregisterMenuBarEv
@@ -162,13 +204,44 @@ inline void QDBusMenuBar::unregisterMenuBar()
     }
 }
 
-//  from src/gui/platform/unix/dbusmenu/qdbusplatformmenu.cpp, line 130, as _ZN17QDBusPlatformMenuC1Ev
-inline QDBusPlatformMenu::QDBusPlatformMenu()
-    : m_isEnabled(true)
-    , m_isVisible(true)
-    , m_revision(1)
-    , m_containingMenuItem(nullptr)
+//  from src/gui/platform/unix/dbusmenu/qdbusmenubar.cpp, line 60, as _ZN12QDBusMenuBar14updateMenuItemEP21QDBusPlatformMenuItemP13QPlatformMenu
+inline void QDBusMenuBar::updateMenuItem(QDBusPlatformMenuItem *item, QPlatformMenu *menu)
 {
+    const QDBusPlatformMenu *ourMenu = qobject_cast<const QDBusPlatformMenu *>(menu);
+    item->setText(ourMenu->text());
+    item->setIcon(ourMenu->icon());
+    item->setEnabled(ourMenu->isEnabled());
+    item->setVisible(ourMenu->isVisible());
+    item->setMenu(menu);
+}
+
+//  from src/gui/platform/unix/dbusmenu/qdbusmenubar.cpp, line 113, as _ZN12QDBusMenuBar15registerMenuBarEv
+inline void QDBusMenuBar::registerMenuBar()
+{
+    static uint menuBarId = 0;
+
+    QDBusConnection connection = QDBusConnection::sessionBus();
+    m_objectPath = QStringLiteral("/MenuBar/%1").arg(++menuBarId);
+    if (!connection.registerObject(m_objectPath, m_menu))
+        return;
+
+    if (QGuiApplication::platformName() == "xcb"_L1) {
+        m_windowId = m_window->winId();
+        QDBusMenuRegistrarInterface registrar(REGISTRAR_SERVICE, REGISTRAR_PATH, connection, this);
+        QDBusPendingReply<> r = registrar.RegisterWindow(m_windowId, QDBusObjectPath(m_objectPath));
+        r.waitForFinished();
+        if (r.isError()) {
+            qWarning("Failed to register window menu, reason: %s (\"%s\")",
+                     qUtf8Printable(r.error().name()), qUtf8Printable(r.error().message()));
+            connection.unregisterObject(m_objectPath);
+            m_windowId = 0;
+            return;
+        }
+    }
+
+    const auto unixServices = dynamic_cast<QDesktopUnixServices *>(
+            QGuiApplicationPrivate::platformIntegration()->services());
+    unixServices->registerDBusMenuForWindow(m_window, connection.baseService(), m_objectPath);
 }
 //  -----------------------------------------------------------------------
 
@@ -531,6 +604,12 @@ QPlatformMenu *ritual_ZNK12QDBusMenuBar10createMenuEv(
   return self->createMenu();
 }
 
+//  void QDBusMenuBar::registerMenuBar()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12QDBusMenuBar15registerMenuBarEv(QDBusMenuBar *self) {
+  self->registerMenuBar();
+}
+
 //  a Python function taken by a CuteQDBusMenuBar, for the function named by
 //      the key
 extern "C" Q_DECL_EXPORT
@@ -539,6 +618,14 @@ bool ritual_take_QDBusMenuBar(
     const char *key,
     void *call) {
   return static_cast<CuteQDBusMenuBar *>(self)->take(key, call);
+}
+
+//  void QDBusMenuBar::handleReparent(QWindow *newParentWindow)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN12QDBusMenuBar14handleReparentEP7QWindow(
+    QDBusMenuBar *self,
+    QWindow *newParentWindow) {
+  self->QDBusMenuBar::handleReparent(newParentWindow);
 }
 
 //  QPlatformMenu *QDBusMenuBar::menuForTag(quintptr tag) const

@@ -83,6 +83,34 @@ inline int QSGStyledTextMaterial::compare(const QSGMaterial *o) const
     return diff;
 }
 
+//  from ../qtdeclarative/src/quick/scenegraph/qsgdefaultglyphnode_p.cpp, line 343, as _ZN19QSGTextMaskMaterial4initEN11QFontEngine11GlyphFormatE
+inline void QSGTextMaskMaterial::init(QFontEngine::GlyphFormat glyphFormat)
+{
+    Q_ASSERT(m_font.isValid());
+
+    setFlag(Blending, true);
+
+    Q_ASSERT(m_rc);
+    m_rhi = m_rc->rhi();
+
+    updateCache(glyphFormat);
+}
+
+//  from ../qtdeclarative/src/quick/scenegraph/qsgdefaultglyphnode_p.cpp, line 499, as _ZNK19QSGTextMaskMaterial4typeEv
+inline QSGMaterialType *QSGTextMaskMaterial::type() const
+{
+    static QSGMaterialType argb, rgb, gray;
+    switch (glyphCache()->glyphFormat()) {
+    case QFontEngine::Format_ARGB:
+        return &argb;
+    case QFontEngine::Format_A32:
+        return &rgb;
+    case QFontEngine::Format_A8:
+    default:
+        return &gray;
+    }
+}
+
 //  from ../qtdeclarative/src/quick/scenegraph/qsgdefaultglyphnode_p.cpp, line 552, as _ZNK19QSGTextMaskMaterial7compareEPK11QSGMaterial
 inline int QSGTextMaskMaterial::compare(const QSGMaterial *o) const
 {

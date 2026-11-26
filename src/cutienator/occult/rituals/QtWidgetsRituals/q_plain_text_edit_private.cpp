@@ -1,6 +1,11 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtWidgets/6.12.0/QtWidgets/private/qplaintextedit_p.h, Qt 6.12.0. Changes
-//  made here are lost.
+//  QtWidgets/6.12.0/QtWidgets/private/qplaintextedit_p.h, Qt 6.12.0.
+//  Edited by hand on 2026-11-26: added are 1 rituals that lean on what moc
+//  writes for a class of the part Qt keeps to itself, whose ritual file
+//  carries moc's output, drafted by a copy of the generator that lets those
+//  names through. A copy of a meta-object is a second one: 'qobject_cast'
+//  between it and Qt's own does not match. Kept as it is when the generator
+//  runs again.
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #if QT_CONFIG(textedit)
@@ -11,6 +16,7 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtWidgets/6.12.0/QtWidgets/private/qplaintextedit_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 #include <QtCore/qrect.h>
 #include <QtCore/qpoint.h>
 #include <QtGui/QtGui>
@@ -307,6 +313,68 @@ inline QPlainTextEditPrivate::QPlainTextEditPrivate()
     , pageUpDownLastCursorYIsValid(false)
     , placeholderTextShown(false)
 {
+}
+
+//  from src/widgets/widgets/qplaintextedit.cpp, line 739, as _ZN21QPlainTextEditPrivate4initERK7QString
+inline void QPlainTextEditPrivate::init(const QString &txt)
+{
+    Q_Q(QPlainTextEdit);
+    control = new QPlainTextEditControl(q);
+
+    QTextDocument *doc = new QTextDocument(control);
+    QAbstractTextDocumentLayout *layout = new QPlainTextDocumentLayout(doc);
+    doc->setDocumentLayout(layout);
+    control->setDocument(doc);
+
+    control->setPalette(q->palette());
+
+    QObjectPrivate::connect(vbar, &QAbstractSlider::actionTriggered,
+                            this, &QPlainTextEditPrivate::verticalScrollbarActionTriggered);
+    QObject::connect(control, &QWidgetTextControl::microFocusChanged, q,
+                     [q](){q->updateMicroFocus(); });
+    QObjectPrivate::connect(control, &QWidgetTextControl::documentSizeChanged,
+                            this, &QPlainTextEditPrivate::adjustScrollbars);
+    QObject::connect(control, &QWidgetTextControl::blockCountChanged,
+                     q, &QPlainTextEdit::blockCountChanged);
+    QObjectPrivate::connect(control, &QWidgetTextControl::updateRequest,
+                            this, &QPlainTextEditPrivate::repaintContents);
+    QObject::connect(control, &QWidgetTextControl::modificationChanged,
+                     q, &QPlainTextEdit::modificationChanged);
+    QObject::connect(control, &QWidgetTextControl::textChanged, q, &QPlainTextEdit::textChanged);
+    QObject::connect(control, &QWidgetTextControl::undoAvailable, q, &QPlainTextEdit::undoAvailable);
+    QObject::connect(control, &QWidgetTextControl::redoAvailable, q, &QPlainTextEdit::redoAvailable);
+    QObject::connect(control, &QWidgetTextControl::copyAvailable, q, &QPlainTextEdit::copyAvailable);
+    QObject::connect(control, &QWidgetTextControl::selectionChanged, q, &QPlainTextEdit::selectionChanged);
+    QObjectPrivate::connect(control, &QWidgetTextControl::cursorPositionChanged,
+                            this, &QPlainTextEditPrivate::cursorPositionChanged);
+    QObjectPrivate::connect(control, &QWidgetTextControl::textChanged,
+                            this, &QPlainTextEditPrivate::updatePlaceholderVisibility);
+    QObject::connect(control, &QWidgetTextControl::textChanged, q, [q](){q->updateMicroFocus(); });
+
+    // set a null page size initially to avoid any relayouting until the textedit
+    // is shown. relayoutDocument() will take care of setting the page size to the
+    // viewport dimensions later.
+    doc->setTextWidth(-1);
+    doc->documentLayout()->setPaintDevice(viewport);
+    doc->setDefaultFont(q->font());
+
+
+    if (!txt.isEmpty())
+        control->setPlainText(txt);
+
+    hbar->setSingleStep(defaultSingleStep());
+    vbar->setSingleStep(1);
+
+    viewport->setBackgroundRole(QPalette::Base);
+    q->setAcceptDrops(true);
+    q->setFocusPolicy(Qt::StrongFocus);
+    q->setAttribute(Qt::WA_KeyCompression);
+    q->setAttribute(Qt::WA_InputMethodEnabled);
+    q->setInputMethodHints(Qt::ImhMultiLine);
+
+#ifndef QT_NO_CURSOR
+    viewport->setCursor(Qt::IBeamCursor);
+#endif
 }
 
 //  from src/widgets/widgets/qplaintextedit.cpp, line 812, as _ZN21QPlainTextEditPrivate15repaintContentsERK6QRectF
@@ -1067,6 +1135,18 @@ QPlainTextEditPrivate *ritual_ZN21QPlainTextEditPrivateC1Ev() {
   return new CuteQPlainTextEditPrivate();
 }
 #endif  // QT_CONFIG(scrollarea)
+
+#if QT_CONFIG(scrollbar)
+#if QT_CONFIG(scrollarea)
+//  void QPlainTextEditPrivate::init(const QString &txt)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QPlainTextEditPrivate4initERK7QString(
+    QPlainTextEditPrivate *self,
+    const QString *txt) {
+  self->init(*txt);
+}
+#endif  // QT_CONFIG(scrollarea)
+#endif  // QT_CONFIG(scrollbar)
 
 //  void QPlainTextEditPrivate::repaintContents(const QRectF &contentsRect)
 extern "C" Q_DECL_EXPORT

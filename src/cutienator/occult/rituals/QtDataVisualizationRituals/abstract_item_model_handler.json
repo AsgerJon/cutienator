@@ -2,7 +2,7 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of QtDataV",
     "isualization/6.12.0/QtDataVisualization/private/abstractitemmodelh",
-    "andler_p.h, Qt 6.12.0. Changes made here are lost."
+    "andler_p.h, Qt 6.12.0. Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZNK24AbstractItemModelHandler10metaObjectEv": [
@@ -13,6 +13,12 @@
     ],
     "ritual_ZN24AbstractItemModelHandler11qt_metacallEN11QMetaObject4CallEiPPv": [
       "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN24AbstractItemModelHandler2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN24AbstractItemModelHandlerC1EP7QObject": [
+      "address", "address"
     ],
     "ritual_ZN24AbstractItemModelHandlerD1Ev": ["nothing", "address"],
     "ritual_ZN24AbstractItemModelHandler12setItemModelEP18QAbstractItemModel": [
@@ -62,6 +68,9 @@
     ],
     "ritual_take_AbstractItemModelHandler": [
       "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN24AbstractItemModelHandler12setItemModelEP18QAbstractItemModel": [
+      "nothing", "address", "address"
     ],
     "ritual_own_ZNK24AbstractItemModelHandler9itemModelEv": [
       "address", "address"

@@ -5,6 +5,9 @@
     "Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DExtras37QNormalDiffuseMapAlphaMaterialPrivateC1Ev": [
+      "address"
+    ],
     "ritual_ZN10Qt3DExtras37QNormalDiffuseMapAlphaMaterialPrivate4initEv": [
       "nothing", "address"
     ],

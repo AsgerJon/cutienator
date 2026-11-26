@@ -2,7 +2,7 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtQuick3DXr/6.12.0/QtQuick3DXr/private/qquick3dxrvirtualmouse_p.h,",
-    "Qt 6.12.0. Changes made here are lost."
+    "Qt 6.12.0. Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZNK22QQuick3DXrVirtualMouse10metaObjectEv": [
@@ -14,6 +14,10 @@
     "ritual_ZN22QQuick3DXrVirtualMouse11qt_metacallEN11QMetaObject4CallEiPPv": [
       "int", "address", "int", "int", "address"
     ],
+    "ritual_ZN22QQuick3DXrVirtualMouse2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN22QQuick3DXrVirtualMouseC1EP7QObject": ["address", "address"],
     "ritual_ZNK22QQuick3DXrVirtualMouse16rightMouseButtonEv": [
       "bool", "address"
     ],

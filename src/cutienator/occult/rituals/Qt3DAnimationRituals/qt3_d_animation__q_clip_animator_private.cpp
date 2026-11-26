@@ -50,6 +50,23 @@ inline bool QClipAnimatorPrivate::canPlay() const
     return false;
 }
 }  // namespace Qt3DAnimation
+
+//  from ../qt3d/src/animation/frontend/qabstractclipanimator.cpp, line 23, as _ZNK13Qt3DAnimation28QAbstractClipAnimatorPrivate7canPlayEv
+namespace Qt3DAnimation {
+inline bool QAbstractClipAnimatorPrivate::canPlay() const
+{
+    return true;
+}
+}  // namespace Qt3DAnimation
+
+//  from ../qt3d/src/animation/frontend/qclipanimator.cpp, line 14, as _ZN13Qt3DAnimation20QClipAnimatorPrivateC1Ev
+namespace Qt3DAnimation {
+inline QClipAnimatorPrivate::QClipAnimatorPrivate()
+    : Qt3DAnimation::QAbstractClipAnimatorPrivate()
+    , m_clip(nullptr)
+{
+}
+}  // namespace Qt3DAnimation
 //  -----------------------------------------------------------------------
 
 //  A Qt3DAnimation::QClipAnimatorPrivate that Python can take functions over in. Every Qt3DAnimation::QClipAnimatorPrivate
@@ -112,6 +129,12 @@ public:
     Qt3DCore::QNodePrivate::update();
   }
 };
+
+//  Qt3DAnimation::QClipAnimatorPrivate::QClipAnimatorPrivate()
+extern "C" Q_DECL_EXPORT
+Qt3DAnimation::QClipAnimatorPrivate *ritual_ZN13Qt3DAnimation20QClipAnimatorPrivateC1Ev() {
+  return new CuteQt3DAnimation_QClipAnimatorPrivate();
+}
 
 //  bool Qt3DAnimation::QClipAnimatorPrivate::canPlay() const
 extern "C" Q_DECL_EXPORT

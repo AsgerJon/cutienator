@@ -532,3 +532,329 @@ QtQuick3DXr QQuick3DXrInputManagerPrivate q_quick3_d_xr_input_manager_private__o
 QtQuickNativeStyle QQC2::QMacStyle q_q_c2__q_mac_style__objc EDITED written by hand: 27 rituals of Objective-C++ from Qt's own '.mm' code
 QtQuickNativeStyle QQuickStyleConstants q_quick_style_constants__objc EDITED written by hand: 4 rituals of Objective-C++ from Qt's own '.mm' code
 QtGraphs QQuickGraphsSurface q_quick_graphs_surface EDITED added by hand on 2026-11-25/26: 1 ritual for a function the generator leaves out; compiled and linked against the full Linux kit on 2026-11-26, with Summon's order of headers
+# Rituals added by hand on 2026-11-26 that lean on what Qt's moc
+# writes for classes Qt keeps to itself: the ritual file of each such
+# class carries moc's output for it (moc of Qt 6.12.0), the rituals
+# were drafted by a copy of the generator that lets those names
+# through, and every part's library built against the full kit:
+Qt3DCore Qt3DCore::NodePostConstructorInit qt3_d_core__node_post_constructor_init EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+Qt3DCore Qt3DCore::QDownloadNetworkWorker qt3_d_core__q_download_network_worker EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+Qt3DExtras Qt3DExtras::DistanceFieldTextRenderer qt3_d_extras__distance_field_text_renderer EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+Qt3DExtras Qt3DExtras::DistanceFieldTextRendererPrivate qt3_d_extras__distance_field_text_renderer_private EDITED added by hand on 2026-11-26: 1 ritual leaning on what moc writes
+Qt3DExtras Qt3DExtras::QText2DMaterial qt3_d_extras__q_text2_d_material EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+Qt3DExtras Qt3DExtras::QTextureAtlas qt3_d_extras__q_texture_atlas EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+Qt3DInput Qt3DInput::Input::KeyboardMouseGenericDeviceIntegration qt3_d_input__input__keyboard_mouse_generic_device_integration EDITED added by hand on 2026-11-26: moc's output for the class, and 3 rituals leaning on what moc writes
+Qt3DLogic Qt3DLogic::Logic::Executor qt3_d_logic__logic__executor EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+Qt3DLogic Qt3DLogic::QLogicAspectPrivate qt3_d_logic__q_logic_aspect_private EDITED added by hand on 2026-11-26: 1 ritual leaning on what moc writes
+Qt3DQuickScene2D Qt3DRender::Quick::QScene2DPrivate qt3_d_render__quick__q_scene2_d_private EDITED added by hand on 2026-11-26: 1 ritual leaning on what moc writes
+Qt3DQuickScene2D Qt3DRender::Quick::Scene2DManager qt3_d_render__quick__scene2_d_manager EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+Qt3DQuickScene2D Qt3DRender::Render::Quick::RenderQmlEventHandler qt3_d_render__render__quick__render_qml_event_handler EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+Qt3DQuickScene3D Qt3DRender::Scene3DRenderer qt3_d_render__scene3_d_renderer EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtBluetooth DarwinBluetooth::LECBManagerNotifier darwin_bluetooth__l_e_c_b_manager_notifier EDITED added by hand on 2026-11-26: moc's output for the class, and 1 ritual leaning on what moc writes
+QtBluetooth QBluetoothSocketBasePrivate q_bluetooth_socket_base_private EDITED added by hand on 2026-11-26: moc's output for the class, and 1 ritual leaning on what moc writes
+QtBluetooth QBluetoothSocketPrivateBluez q_bluetooth_socket_private_bluez EDITED added by hand on 2026-11-26: 1 ritual leaning on what moc writes
+QtBluetooth QBluetoothSocketPrivateBluezDBus q_bluetooth_socket_private_bluez_d_bus EDITED added by hand on 2026-11-26: 1 ritual leaning on what moc writes
+QtBluetooth QBluetoothSocketPrivateDummy q_bluetooth_socket_private_dummy EDITED added by hand on 2026-11-26: 1 ritual leaning on what moc writes
+QtBluetooth QLowEnergyControllerPrivate q_low_energy_controller_private EDITED added by hand on 2026-11-26: 1 ritual leaning on what moc writes
+QtBluetooth QLowEnergyControllerPrivateCommon q_low_energy_controller_private_common EDITED added by hand on 2026-11-26: 1 ritual leaning on what moc writes
+QtBluetooth QLowEnergyServicePrivate q_low_energy_service_private EDITED added by hand on 2026-11-26: moc's output for the class, and 5 rituals leaning on what moc writes
+QtBluetooth QtBluetoothPrivate::OrgBluezAdapter1Interface qt_bluetooth_private__org_bluez_adapter1_interface EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtBluetooth QtBluetoothPrivate::OrgBluezBattery1Interface qt_bluetooth_private__org_bluez_battery1_interface EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtBluetooth QtBluetoothPrivate::OrgBluezGattCharacteristic1Adaptor qt_bluetooth_private__org_bluez_gatt_characteristic1_adaptor EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtBluetooth QtBluetoothPrivate::OrgBluezGattCharacteristic1Interface qt_bluetooth_private__org_bluez_gatt_characteristic1_interface EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtBluetooth QtBluetoothPrivate::OrgBluezGattDescriptor1Adaptor qt_bluetooth_private__org_bluez_gatt_descriptor1_adaptor EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtBluetooth QtBluetoothPrivate::OrgBluezGattDescriptor1Interface qt_bluetooth_private__org_bluez_gatt_descriptor1_interface EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtBluetooth QtBluetoothPrivate::OrgBluezGattManager1Interface qt_bluetooth_private__org_bluez_gatt_manager1_interface EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtBluetooth QtBluetoothPrivate::OrgBluezGattService1Adaptor qt_bluetooth_private__org_bluez_gatt_service1_adaptor EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtBluetooth QtBluetoothPrivate::OrgBluezGattService1Interface qt_bluetooth_private__org_bluez_gatt_service1_interface EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtBluetooth QtBluetoothPrivate::OrgBluezLEAdvertisingManager1Interface qt_bluetooth_private__org_bluez_l_e_advertising_manager1_interface EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtBluetooth QtBluetoothPrivate::OrgBluezProfile1Interface qt_bluetooth_private__org_bluez_profile1_interface EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtBluetooth QtBluetoothPrivate::OrgBluezProfileManager1Interface qt_bluetooth_private__org_bluez_profile_manager1_interface EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtBluetooth QtBluetoothPrivate::OrgFreedesktopDBusPropertiesAdaptor qt_bluetooth_private__org_freedesktop_d_bus_properties_adaptor EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtBluetooth QtBluetoothPrivate::OrgFreedesktopDBusPropertiesInterface qt_bluetooth_private__org_freedesktop_d_bus_properties_interface EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtChartsQml DeclarativeCategoryAxis declarative_category_axis EDITED added by hand on 2026-11-26: moc's output for the class, and 3 rituals leaning on what moc writes
+QtChartsQml DeclarativePieSeries declarative_pie_series EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtCharts GLWidget g_l_widget EDITED added by hand on 2026-11-26: moc's output for the class, and 3 rituals leaning on what moc writes
+QtCoap QCoapInternalMessage q_coap_internal_message EDITED added by hand on 2026-11-26: moc's output for the class, and 4 rituals leaning on what moc writes
+QtCoap QCoapQUdpConnectionPrivate q_coap_q_udp_connection_private EDITED added by hand on 2026-11-26: 1 ritual leaning on what moc writes
+QtCore QAnimationTimer q_animation_timer EDITED added by hand on 2026-11-26: moc's output for the class, and 8 rituals leaning on what moc writes
+QtCore QByteDeviceWrappingIoDevice q_byte_device_wrapping_io_device EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtCore QDefaultAnimationDriver q_default_animation_driver EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtCore QFileSystemWatcherEngine q_file_system_watcher_engine EDITED added by hand on 2026-11-26: moc's output for the class, and 1 ritual leaning on what moc writes
+QtCore QInotifyFileSystemWatcherEngine q_inotify_file_system_watcher_engine EDITED added by hand on 2026-11-26: moc's output for the class, and 3 rituals leaning on what moc writes
+QtCore QNonContiguousByteDeviceByteArrayImpl q_non_contiguous_byte_device_byte_array_impl EDITED added by hand on 2026-11-26: moc's output for the class, and 3 rituals leaning on what moc writes
+QtCore QNonContiguousByteDeviceIoDeviceImpl q_non_contiguous_byte_device_io_device_impl EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtCore QNonContiguousByteDeviceRingBufferImpl q_non_contiguous_byte_device_ring_buffer_impl EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtCore QPollingFileSystemWatcherEngine q_polling_file_system_watcher_engine EDITED added by hand on 2026-11-26: 1 ritual leaning on what moc writes
+QtCore QSingleShotTimer q_single_shot_timer EDITED added by hand on 2026-11-26: moc's output for the class, and 5 rituals leaning on what moc writes
+QtDBus QDBusPendingCallPrivate q_d_bus_pending_call_private EDITED added by hand on 2026-11-26: 1 ritual leaning on what moc writes
+QtDBus QDBusPendingCallWatcherHelper q_d_bus_pending_call_watcher_helper EDITED added by hand on 2026-11-26: moc's output for the class, and 3 rituals leaning on what moc writes
+QtDataVisualization Abstract3DRenderer abstract3_d_renderer EDITED added by hand on 2026-11-26: 1 ritual leaning on what moc writes
+QtDataVisualization AbstractItemModelHandler abstract_item_model_handler EDITED added by hand on 2026-11-26: moc's output for the class, and 3 rituals leaning on what moc writes
+QtDataVisualization AxisRenderCache axis_render_cache EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtDataVisualization BarItemModelHandler bar_item_model_handler EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtDataVisualization Bars3DRenderer bars3_d_renderer EDITED added by hand on 2026-11-26: 1 ritual leaning on what moc writes
+QtDataVisualization CameraHelper camera_helper EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtDataVisualization Q3DBarsPrivate q3_d_bars_private EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtDataVisualization Q3DCameraPrivate q3_d_camera_private EDITED added by hand on 2026-11-26: moc's output for the class, and 9 rituals leaning on what moc writes
+QtDataVisualization Q3DInputHandlerPrivate q3_d_input_handler_private EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtDataVisualization Q3DScatterPrivate q3_d_scatter_private EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtDataVisualization Q3DSurfacePrivate q3_d_surface_private EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtDataVisualization QAbstract3DAxisPrivate q_abstract3_d_axis_private EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtDataVisualization QAbstract3DGraphPrivate q_abstract3_d_graph_private EDITED added by hand on 2026-11-26: moc's output for the class, and 3 rituals leaning on what moc writes
+QtDataVisualization QAbstract3DSeriesPrivate q_abstract3_d_series_private EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtDataVisualization QAbstractDataProxyPrivate q_abstract_data_proxy_private EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtDataVisualization QBar3DSeriesPrivate q_bar3_d_series_private EDITED added by hand on 2026-11-26: moc's output for the class, and 3 rituals leaning on what moc writes
+QtDataVisualization QBarDataProxyPrivate q_bar_data_proxy_private EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtDataVisualization QCategory3DAxisPrivate q_category3_d_axis_private EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtDataVisualization QCustom3DItemPrivate q_custom3_d_item_private EDITED added by hand on 2026-11-26: moc's output for the class, and 3 rituals leaning on what moc writes
+QtDataVisualization QCustom3DLabelPrivate q_custom3_d_label_private EDITED added by hand on 2026-11-26: moc's output for the class, and 1 ritual leaning on what moc writes
+QtDataVisualization QCustom3DVolumePrivate q_custom3_d_volume_private EDITED added by hand on 2026-11-26: moc's output for the class, and 3 rituals leaning on what moc writes
+QtDataVisualization QHeightMapSurfaceDataProxyPrivate q_height_map_surface_data_proxy_private EDITED added by hand on 2026-11-26: moc's output for the class, and 1 ritual leaning on what moc writes
+QtDataVisualization QItemModelBarDataProxyPrivate q_item_model_bar_data_proxy_private EDITED added by hand on 2026-11-26: moc's output for the class, and 3 rituals leaning on what moc writes
+QtDataVisualization QItemModelScatterDataProxyPrivate q_item_model_scatter_data_proxy_private EDITED added by hand on 2026-11-26: moc's output for the class, and 3 rituals leaning on what moc writes
+QtDataVisualization QItemModelSurfaceDataProxyPrivate q_item_model_surface_data_proxy_private EDITED added by hand on 2026-11-26: moc's output for the class, and 3 rituals leaning on what moc writes
+QtDataVisualization QLogValue3DAxisFormatterPrivate q_log_value3_d_axis_formatter_private EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtDataVisualization QScatter3DSeriesPrivate q_scatter3_d_series_private EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtDataVisualization QScatterDataProxyPrivate q_scatter_data_proxy_private EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtDataVisualization QSurface3DSeriesPrivate q_surface3_d_series_private EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtDataVisualization QSurfaceDataProxyPrivate q_surface_data_proxy_private EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtDataVisualization QTouch3DInputHandlerPrivate q_touch3_d_input_handler_private EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtDataVisualization QValue3DAxisFormatterPrivate q_value3_d_axis_formatter_private EDITED added by hand on 2026-11-26: moc's output for the class, and 4 rituals leaning on what moc writes
+QtDataVisualization QValue3DAxisPrivate q_value3_d_axis_private EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtDataVisualization ScatterItemModelHandler scatter_item_model_handler EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtDataVisualization SelectionPointer selection_pointer EDITED added by hand on 2026-11-26: moc's output for the class, and 1 ritual leaning on what moc writes
+QtDataVisualization SurfaceItemModelHandler surface_item_model_handler EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtDataVisualization ThemeManager theme_manager EDITED added by hand on 2026-11-26: moc's output for the class, and 5 rituals leaning on what moc writes
+QtDesigner QAbstractFormBuilderGadget q_abstract_form_builder_gadget EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtDesigner qdesigner_internal::HtmlHighlighter qdesigner_internal__html_highlighter EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtDesigner qdesigner_internal::MenuActionLineEdit qdesigner_internal__menu_action_line_edit EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtDesigner qdesigner_internal::PromotionModel qdesigner_internal__promotion_model EDITED added by hand on 2026-11-26: moc's output for the class, and 3 rituals leaning on what moc writes
+QtDesigner qdesigner_internal::PropertyLineEdit qdesigner_internal__property_line_edit EDITED added by hand on 2026-11-26: moc's output for the class, and 3 rituals leaning on what moc writes
+QtDesigner qdesigner_internal::SignatureModel qdesigner_internal__signature_model EDITED added by hand on 2026-11-26: moc's output for the class, and 3 rituals leaning on what moc writes
+QtDesigner qdesigner_internal::SignaturePanel qdesigner_internal__signature_panel EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtDesigner qdesigner_internal::SpecialMenuAction qdesigner_internal__special_menu_action EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtGraphs AreaRenderer area_renderer EDITED added by hand on 2026-11-26: moc's output for the class, and 1 ritual leaning on what moc writes
+QtGraphs AxisGrid axis_grid EDITED added by hand on 2026-11-26: moc's output for the class, and 20 rituals leaning on what moc writes
+QtGraphs AxisLine axis_line EDITED added by hand on 2026-11-26: moc's output for the class, and 7 rituals leaning on what moc writes
+QtGraphs AxisRenderer axis_renderer EDITED added by hand on 2026-11-26: moc's output for the class, and 9 rituals leaning on what moc writes
+QtGraphs AxisTicker axis_ticker EDITED added by hand on 2026-11-26: moc's output for the class, and 18 rituals leaning on what moc writes
+QtGraphs BarsRenderer bars_renderer EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtGraphs QCustomSeriesData q_custom_series_data EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtGraphs QGraphAnimation q_graph_animation EDITED added by hand on 2026-11-26: moc's output for the class, and 3 rituals leaning on what moc writes
+QtGraphs QGraphTransition q_graph_transition EDITED added by hand on 2026-11-26: 2 rituals leaning on what moc writes
+QtGraphs QQuickGraphsColor q_quick_graphs_color EDITED added by hand on 2026-11-26: moc's output for the class, and 3 rituals leaning on what moc writes
+QtGraphs QQuickGraphsTextureData q_quick_graphs_texture_data EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtGraphs QXYPoint q_x_y_point EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtGraphs QXYSeriesAnimation q_x_y_series_animation EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtGui QDBusMenuBar q_d_bus_menu_bar EDITED added by hand on 2026-11-26: 2 rituals leaning on what moc writes
+QtGui QDBusMenuConnection q_d_bus_menu_connection EDITED added by hand on 2026-11-26: moc's output for the class, and 1 ritual leaning on what moc writes
+QtGui QDBusMenuRegistrarInterface q_d_bus_menu_registrar_interface EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtGui QShapedPixmapWindow q_shaped_pixmap_window EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtGui QXdgNotificationInterface q_xdg_notification_interface EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtHelp QHelpCollectionHandler q_help_collection_handler EDITED added by hand on 2026-11-26: moc's output for the class, and 16 rituals leaning on what moc writes
+QtHelp QHelpDBReader q_help_d_b_reader EDITED added by hand on 2026-11-26: moc's output for the class, and 5 rituals leaning on what moc writes
+QtHttpServer QHttpServerResponderPrivate q_http_server_responder_private EDITED added by hand on 2026-11-26: 8 rituals leaning on what moc writes
+QtHttpServer QHttpServerStream q_http_server_stream EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtLabsPlatform QQuickLabsPlatformFileDialog q_quick_labs_platform_file_dialog EDITED added by hand on 2026-11-26: 3 rituals leaning on what moc writes
+QtLabsPlatform QQuickLabsPlatformFileNameFilter q_quick_labs_platform_file_name_filter EDITED added by hand on 2026-11-26: moc's output for the class, and 4 rituals leaning on what moc writes
+QtLabsPlatform QQuickLabsPlatformStandardPaths q_quick_labs_platform_standard_paths EDITED added by hand on 2026-11-26: moc's output for the class, and 3 rituals leaning on what moc writes
+QtLabsStyleKitImpl QQStyleKitLayoutItem q_q_style_kit_layout_item EDITED added by hand on 2026-11-26: moc's output for the class, and 11 rituals leaning on what moc writes
+QtLabsStyleKit QQSK q_q_s_k EDITED added by hand on 2026-11-26: moc's output for the class, and 1 ritual leaning on what moc writes
+QtLabsStyleKit QQStyleKit q_q_style_kit EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtLabsStyleKit QQStyleKitCustomTheme q_q_style_kit_custom_theme EDITED added by hand on 2026-11-26: moc's output for the class, and 4 rituals leaning on what moc writes
+QtLabsStyleKit QQStyleKitDelegate q_q_style_kit_delegate EDITED added by hand on 2026-11-26: moc's output for the class, and 6 rituals leaning on what moc writes
+QtLabsStyleKit QQStyleKitFont q_q_style_kit_font EDITED added by hand on 2026-11-26: moc's output for the class, and 17 rituals leaning on what moc writes
+QtLabsStyleKit QQStyleKitPalette q_q_style_kit_palette EDITED added by hand on 2026-11-26: moc's output for the class, and 17 rituals leaning on what moc writes
+QtLabsStyleKit QQStyleKitPropertyGroup q_q_style_kit_property_group EDITED added by hand on 2026-11-26: moc's output for the class, and 3 rituals leaning on what moc writes
+QtLabsStyleKit QQStyleKitTheme q_q_style_kit_theme EDITED added by hand on 2026-11-26: 1 ritual leaning on what moc writes
+QtLabsStyleKit QQStyleKitVariation q_q_style_kit_variation EDITED added by hand on 2026-11-26: 1 ritual leaning on what moc writes
+QtLabsStyleKit QQStyleKitVariationAttached q_q_style_kit_variation_attached EDITED added by hand on 2026-11-26: moc's output for the class, and 4 rituals leaning on what moc writes
+QtLocation QDeclarativeGeoMapPainterPath q_declarative_geo_map_painter_path EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtMultimediaQuick QQuickImageCapture q_quick_image_capture EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtMultimediaQuick QQuickVideoSink q_quick_video_sink EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtNetwork QAbstractSocketEngine q_abstract_socket_engine EDITED added by hand on 2026-11-26: moc's output for the class, and 1 ritual leaning on what moc writes
+QtNetwork QHostInfoResult q_host_info_result EDITED added by hand on 2026-11-26: moc's output for the class, and 3 rituals leaning on what moc writes
+QtNetwork QHttp2ProtocolHandler q_http2_protocol_handler EDITED added by hand on 2026-11-26: 2 rituals leaning on what moc writes
+QtNetwork QHttpNetworkConnectionChannel q_http_network_connection_channel EDITED added by hand on 2026-11-26: 9 rituals leaning on what moc writes
+QtNetwork QNetworkAccessFileBackend q_network_access_file_backend EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtNetwork QNetworkFile q_network_file EDITED added by hand on 2026-11-26: moc's output for the class, and 3 rituals leaning on what moc writes
+QtNetwork QNetworkReplyDataImpl q_network_reply_data_impl EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtNetwork QNonContiguousByteDeviceThreadForwardImpl q_non_contiguous_byte_device_thread_forward_impl EDITED added by hand on 2026-11-26: moc's output for the class, and 4 rituals leaning on what moc writes
+QtNfc QNearFieldManagerPrivate q_near_field_manager_private EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtNfc QNearFieldTargetPrivate q_near_field_target_private EDITED added by hand on 2026-11-26: moc's output for the class, and 7 rituals leaning on what moc writes
+QtOpcUa QOpcUaInternalDataTypeNode q_opc_ua_internal_data_type_node EDITED added by hand on 2026-11-26: moc's output for the class, and 4 rituals leaning on what moc writes
+QtPositioning QNmeaPositionInfoSourcePrivate q_nmea_position_info_source_private EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtPositioning QNmeaSatelliteInfoSourcePrivate q_nmea_satellite_info_source_private EDITED added by hand on 2026-11-26: moc's output for the class, and 4 rituals leaning on what moc writes
+QtQmlCore QQmlBluetoothPermission q_qml_bluetooth_permission EDITED added by hand on 2026-11-26: moc's output for the class, and 3 rituals leaning on what moc writes
+QtQmlCore QQmlCalendarPermission q_qml_calendar_permission EDITED added by hand on 2026-11-26: moc's output for the class, and 3 rituals leaning on what moc writes
+QtQmlCore QQmlCameraPermission q_qml_camera_permission EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtQmlCore QQmlContactsPermission q_qml_contacts_permission EDITED added by hand on 2026-11-26: moc's output for the class, and 3 rituals leaning on what moc writes
+QtQmlCore QQmlMicrophonePermission q_qml_microphone_permission EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtQmlCore QQmlQLocationPermission q_qml_q_location_permission EDITED added by hand on 2026-11-26: moc's output for the class, and 4 rituals leaning on what moc writes
+QtQmlModels QQmlDMObjectData q_qml_d_m_object_data EDITED added by hand on 2026-11-26: moc's output for the class, and 3 rituals leaning on what moc writes
+QtQmlModels QQmlDMObjectDataMetaObject q_qml_d_m_object_data_meta_object EDITED added by hand on 2026-11-26: 1 ritual leaning on what moc writes
+QtQmlModels QQmlDelegateModelParts q_qml_delegate_model_parts EDITED added by hand on 2026-11-26: moc's output for the class, and 1 ritual leaning on what moc writes
+QtQmlModels QQmlListElement q_qml_list_element EDITED added by hand on 2026-11-26: moc's output for the class, and 1 ritual leaning on what moc writes
+QtQmlModels QQmlObjectModelAttached q_qml_object_model_attached EDITED added by hand on 2026-11-26: moc's output for the class, and 3 rituals leaning on what moc writes
+QtQmlModels QQmlSortFilterProxyModelPrivate q_qml_sort_filter_proxy_model_private EDITED added by hand on 2026-11-26: 1 ritual leaning on what moc writes
+QtQmlModels QQmlSorterCompositor q_qml_sorter_compositor EDITED added by hand on 2026-11-26: moc's output for the class, and 5 rituals leaning on what moc writes
+QtQmlModels VDMObjectDelegateDataType v_d_m_object_delegate_data_type EDITED added by hand on 2026-11-26: 5 rituals leaning on what moc writes
+QtQml QQmlDelayedCallQueue q_qml_delayed_call_queue EDITED added by hand on 2026-11-26: moc's output for the class, and 3 rituals leaning on what moc writes
+QtQml QQmlTypeLoaderNetworkReplyProxy q_qml_type_loader_network_reply_proxy EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtQml QQmlTypeNotAvailable q_qml_type_not_available EDITED added by hand on 2026-11-26: moc's output for the class, and 1 ritual leaning on what moc writes
+QtQuick3DParticles QQuick3DParticleSystemAnimation q_quick3_d_particle_system_animation EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtQuick3DParticles QQuick3DParticleSystemUpdate q_quick3_d_particle_system_update EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtQuick3DPhysics QAbstractPhysicsBody q_abstract_physics_body EDITED added by hand on 2026-11-26: moc's output for the class, and 3 rituals leaning on what moc writes
+QtQuick3D QQuick3DPropertyWatcher q_quick3_d_property_watcher EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtQuick3D QSSGCleanupObject q_s_s_g_cleanup_object EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtQuick3DXr QQuick3DXrAbstractHapticEffect q_quick3_d_xr_abstract_haptic_effect EDITED added by hand on 2026-11-26: moc's output for the class, and 1 ritual leaning on what moc writes
+QtQuick3DXr QQuick3DXrActionMapper q_quick3_d_xr_action_mapper EDITED added by hand on 2026-11-26: moc's output for the class, and 6 rituals leaning on what moc writes
+QtQuick3DXr QQuick3DXrHandInput q_quick3_d_xr_hand_input EDITED added by hand on 2026-11-26: moc's output for the class, and 5 rituals leaning on what moc writes
+QtQuick3DXr QQuick3DXrHapticFeedback q_quick3_d_xr_haptic_feedback EDITED added by hand on 2026-11-26: 1 ritual leaning on what moc writes
+QtQuick3DXr QQuick3DXrSimpleHapticEffect q_quick3_d_xr_simple_haptic_effect EDITED added by hand on 2026-11-26: moc's output for the class, and 4 rituals leaning on what moc writes
+QtQuick3DXr QQuick3DXrSpatialAnchor q_quick3_d_xr_spatial_anchor EDITED added by hand on 2026-11-26: moc's output for the class, and 10 rituals leaning on what moc writes
+QtQuick3DXr QQuick3DXrVirtualMouse q_quick3_d_xr_virtual_mouse EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtQuickControls2BasicStyleImpl QQuickBasicDial q_quick_basic_dial EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtQuickControls2FluentWinUI3StyleImpl QQuickFluentWinUI3FocusStroke q_quick_fluent_win_u_i3_focus_stroke EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtQuickControls2FusionStyleImpl QQuickFusionBusyIndicator q_quick_fusion_busy_indicator EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtQuickControls2FusionStyleImpl QQuickFusionDial q_quick_fusion_dial EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtQuickControls2FusionStyleImpl QQuickFusionKnob q_quick_fusion_knob EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtQuickControls2UniversalStyleImpl QQuickUniversalFocusRectangle q_quick_universal_focus_rectangle EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtQuickDialogs2QuickImpl QQuickFileDialogDelegatePrivate q_quick_file_dialog_delegate_private EDITED added by hand on 2026-11-26: 1 ritual leaning on what moc writes
+QtQuickDialogs2QuickImpl QQuickFileDialogTapHandler q_quick_file_dialog_tap_handler EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtQuickEffects QGfxSourceProxyME q_gfx_source_proxy_m_e EDITED added by hand on 2026-11-26: moc's output for the class, and 9 rituals leaning on what moc writes
+QtQuickParticles QQuickItemParticleAttached q_quick_item_particle_attached EDITED added by hand on 2026-11-26: moc's output for the class, and 4 rituals leaning on what moc writes
+QtQuickParticles QQuickParticleSystemAnimation q_quick_particle_system_animation EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtQuick QQuickBorderImageMesh q_quick_border_image_mesh EDITED added by hand on 2026-11-26: moc's output for the class, and 5 rituals leaning on what moc writes
+QtQuick QQuickCanvasContext q_quick_canvas_context EDITED added by hand on 2026-11-26: moc's output for the class, and 1 ritual leaning on what moc writes
+QtQuick QQuickContext2DImageTexture q_quick_context2_d_image_texture EDITED added by hand on 2026-11-26: 1 ritual leaning on what moc writes
+QtQuick QQuickDefaultTextureFactory q_quick_default_texture_factory EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtQuick QQuickDesignerCustomParserObject q_quick_designer_custom_parser_object EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtQuick QQuickDragAttachedPrivate q_quick_drag_attached_private EDITED added by hand on 2026-11-26: 2 rituals leaning on what moc writes
+QtQuick QQuickDragMimeData q_quick_drag_mime_data EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtQuick QQuickDropAreaDrag q_quick_drop_area_drag EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtQuick QQuickEnterKeyAttached q_quick_enter_key_attached EDITED added by hand on 2026-11-26: moc's output for the class, and 4 rituals leaning on what moc writes
+QtQuick QQuickGrabGestureEvent q_quick_grab_gesture_event EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtQuick QQuickGraphicsInfo q_quick_graphics_info EDITED added by hand on 2026-11-26: moc's output for the class, and 4 rituals leaning on what moc writes
+QtQuick QQuickGridViewAttached q_quick_grid_view_attached EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtQuick QQuickLayoutMirroringAttached q_quick_layout_mirroring_attached EDITED added by hand on 2026-11-26: moc's output for the class, and 4 rituals leaning on what moc writes
+QtQuick QQuickPathViewAttached q_quick_path_view_attached EDITED added by hand on 2026-11-26: moc's output for the class, and 3 rituals leaning on what moc writes
+QtQuick QQuickPathViewPrivate q_quick_path_view_private EDITED added by hand on 2026-11-26: 11 rituals leaning on what moc writes
+QtQuick QQuickPositionerAttached q_quick_positioner_attached EDITED added by hand on 2026-11-26: moc's output for the class, and 5 rituals leaning on what moc writes
+QtQuick QQuickPre64TextEdit q_quick_pre64_text_edit EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtQuick QQuickPre64TextInput q_quick_pre64_text_input EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtQuick QQuickRhiItemNode q_quick_rhi_item_node EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtQuick QQuickSmoothedAnimationPrivate q_quick_smoothed_animation_private EDITED added by hand on 2026-11-26: 1 ritual leaning on what moc writes
+QtQuick QQuickTableViewHoverHandler q_quick_table_view_hover_handler EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtQuick QQuickTableViewPointerHandler q_quick_table_view_pointer_handler EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtQuick QQuickTableViewResizeHandler q_quick_table_view_resize_handler EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtQuick QQuickTableViewSectionDragHandler q_quick_table_view_section_drag_handler EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtQuick QQuickTableViewTapHandler q_quick_table_view_tap_handler EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtQuick QQuickTextUtil q_quick_text_util EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtQuick QQuickViewTransitionAttached q_quick_view_transition_attached EDITED added by hand on 2026-11-26: moc's output for the class, and 3 rituals leaning on what moc writes
+QtQuick QSGBatchRenderer::ShaderManager q_s_g_batch_renderer__shader_manager EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtQuick QSGCompressedAtlasTexture::Atlas q_s_g_compressed_atlas_texture__atlas EDITED added by hand on 2026-11-26: 1 ritual leaning on what moc writes
+QtQuick QSGCompressedAtlasTexture::Texture q_s_g_compressed_atlas_texture__texture EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtQuick QSGRhiAtlasTexture::Atlas q_s_g_rhi_atlas_texture__atlas EDITED added by hand on 2026-11-26: 1 ritual leaning on what moc writes
+QtQuick QSGRhiAtlasTexture::AtlasBase q_s_g_rhi_atlas_texture__atlas_base EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtQuick QSGRhiAtlasTexture::Manager q_s_g_rhi_atlas_texture__manager EDITED added by hand on 2026-11-26: moc's output for the class, and 1 ritual leaning on what moc writes
+QtQuick QSGRhiAtlasTexture::Texture q_s_g_rhi_atlas_texture__texture EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtQuick QSGRhiAtlasTexture::TextureBase q_s_g_rhi_atlas_texture__texture_base EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtQuick QSGSoftwareContext q_s_g_software_context EDITED added by hand on 2026-11-26: 4 rituals leaning on what moc writes
+QtQuick QSGSoftwareNinePatchNode q_s_g_software_nine_patch_node EDITED added by hand on 2026-11-26: 2 rituals leaning on what moc writes
+QtQuick QSGSoftwarePainterNode q_s_g_software_painter_node EDITED added by hand on 2026-11-26: 2 rituals leaning on what moc writes
+QtQuick QSGSoftwarePixmapTexture q_s_g_software_pixmap_texture EDITED added by hand on 2026-11-26: moc's output for the class, and 3 rituals leaning on what moc writes
+QtQuick QSGSoftwareRenderContext q_s_g_software_render_context EDITED added by hand on 2026-11-26: moc's output for the class, and 3 rituals leaning on what moc writes
+QtQuick QSmoothedAnimation q_smoothed_animation EDITED added by hand on 2026-11-26: 1 ritual leaning on what moc writes
+QtQuick QSmoothedAnimationTimer q_smoothed_animation_timer EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtQuickTemplates2 QQuickCalendar q_quick_calendar EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtQuickTemplates2 QQuickDayOfWeekModel q_quick_day_of_week_model EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtQuickTemplates2 QQuickMonthModel q_quick_month_model EDITED added by hand on 2026-11-26: 1 ritual leaning on what moc writes
+QtQuickTemplates2 QQuickWeekNumberModel q_quick_week_number_model EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtRemoteObjects HeaderWatcher header_watcher EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtRemoteObjects LocalClientIo local_client_io EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtRemoteObjects LocalServerImpl local_server_impl EDITED added by hand on 2026-11-26: moc's output for the class, and 3 rituals leaning on what moc writes
+QtRemoteObjects LocalServerIo local_server_io EDITED added by hand on 2026-11-26: moc's output for the class, and 5 rituals leaning on what moc writes
+QtRemoteObjects ProxyInfo proxy_info EDITED added by hand on 2026-11-26: moc's output for the class, and 3 rituals leaning on what moc writes
+QtRemoteObjects QConnectedReplicaImplementation q_connected_replica_implementation EDITED added by hand on 2026-11-26: 2 rituals leaning on what moc writes
+QtRemoteObjects QRegistrySource q_registry_source EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtRemoteObjects QRemoteObjectPendingCallWatcherHelper q_remote_object_pending_call_watcher_helper EDITED added by hand on 2026-11-26: moc's output for the class, and 3 rituals leaning on what moc writes
+QtRemoteObjects QRemoteObjectSourceIo q_remote_object_source_io EDITED added by hand on 2026-11-26: 1 ritual leaning on what moc writes
+QtRemoteObjects QtROExternalIoDevice qt_r_o_external_io_device EDITED added by hand on 2026-11-26: moc's output for the class, and 1 ritual leaning on what moc writes
+QtRemoteObjects RowWatcher row_watcher EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtRemoteObjects SizeWatcher size_watcher EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtRemoteObjects TcpClientIo tcp_client_io EDITED added by hand on 2026-11-26: moc's output for the class, and 7 rituals leaning on what moc writes
+QtRemoteObjects TcpServerImpl tcp_server_impl EDITED added by hand on 2026-11-26: moc's output for the class, and 6 rituals leaning on what moc writes
+QtRemoteObjects TcpServerIo tcp_server_io EDITED added by hand on 2026-11-26: moc's output for the class, and 5 rituals leaning on what moc writes
+QtScxml QScxmlInternal::EventLoopHook q_scxml_internal__event_loop_hook EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtScxml QScxmlInternal::ScxmlEventRouter q_scxml_internal__scxml_event_router EDITED added by hand on 2026-11-26: moc's output for the class, and 6 rituals leaning on what moc writes
+QtScxml QScxmlInternal::StateMachineInfoProxy q_scxml_internal__state_machine_info_proxy EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtSerialBus QModbusRtuSerialClientPrivate q_modbus_rtu_serial_client_private EDITED added by hand on 2026-11-26: 1 ritual leaning on what moc writes
+QtSerialBus Timer timer EDITED added by hand on 2026-11-26: moc's output for the class, and 3 rituals leaning on what moc writes
+QtWaylandCompositor QWaylandInputMethodControl q_wayland_input_method_control EDITED added by hand on 2026-11-26: moc's output for the class, and 4 rituals leaning on what moc writes
+QtWaylandCompositor QtWayland::IviSurfaceIntegration qt_wayland__ivi_surface_integration EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtWaylandCompositor QtWayland::WlShellIntegration qt_wayland__wl_shell_integration EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtWaylandCompositor QtWayland::XdgPopupIntegration qt_wayland__xdg_popup_integration EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtWaylandCompositor QtWayland::XdgToplevelIntegration qt_wayland__xdg_toplevel_integration EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtWebSockets QWebSocketDataProcessor q_web_socket_data_processor EDITED added by hand on 2026-11-26: moc's output for the class, and 6 rituals leaning on what moc writes
+QtWebSockets QWebSocketHandshakeResponse q_web_socket_handshake_response EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtWebSockets QWebSocketPrivate q_web_socket_private EDITED added by hand on 2026-11-26: 1 ritual leaning on what moc writes
+QtWidgets QAbstractScrollAreaFilter q_abstract_scroll_area_filter EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtWidgets QAbstractScrollAreaPrivate q_abstract_scroll_area_private EDITED added by hand on 2026-11-26: 1 ritual leaning on what moc writes
+QtWidgets QAccessibleColorWell q_accessible_color_well EDITED added by hand on 2026-11-26: 4 rituals leaning on what moc writes
+QtWidgets QCalendarPopup q_calendar_popup EDITED added by hand on 2026-11-26: moc's output for the class, and 4 rituals leaning on what moc writes
+QtWidgets QColorWell q_color_well EDITED added by hand on 2026-11-26: moc's output for the class, and 3 rituals leaning on what moc writes
+QtWidgets QColumnViewGrip q_column_view_grip EDITED added by hand on 2026-11-26: moc's output for the class, and 6 rituals leaning on what moc writes
+QtWidgets QColumnViewPrivate q_column_view_private EDITED added by hand on 2026-11-26: 6 rituals leaning on what moc writes
+QtWidgets QComboBoxDelegate q_combo_box_delegate EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtWidgets QComboBoxPrivate q_combo_box_private EDITED added by hand on 2026-11-26: 1 ritual leaning on what moc writes
+QtWidgets QComboMenuDelegate q_combo_menu_delegate EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtWidgets QCompleterPrivate q_completer_private EDITED added by hand on 2026-11-26: 1 ritual leaning on what moc writes
+QtWidgets QCompletionModel q_completion_model EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtWidgets QDateTimeEditPrivate q_date_time_edit_private EDITED added by hand on 2026-11-26: 1 ritual leaning on what moc writes
+QtWidgets QExpandingLineEdit q_expanding_line_edit EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtWidgets QFileDialogComboBox q_file_dialog_combo_box EDITED added by hand on 2026-11-26: 1 ritual leaning on what moc writes
+QtWidgets QGestureManager q_gesture_manager EDITED added by hand on 2026-11-26: moc's output for the class, and 1 ritual leaning on what moc writes
+QtWidgets QItemEditorDateTimeEdit q_item_editor_date_time_edit EDITED added by hand on 2026-11-26: moc's output for the class, and 1 ritual leaning on what moc writes
+QtWidgets QLineEditIconButton q_line_edit_icon_button EDITED added by hand on 2026-11-26: moc's output for the class, and 4 rituals leaning on what moc writes
+QtWidgets QLineEditPrivate q_line_edit_private EDITED added by hand on 2026-11-26: 3 rituals leaning on what moc writes
+QtWidgets QListModel q_list_model EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtWidgets QListWidgetPrivate q_list_widget_private EDITED added by hand on 2026-11-26: 10 rituals leaning on what moc writes
+QtWidgets QPlainTextEditControl q_plain_text_edit_control EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtWidgets QPlainTextEditPrivate q_plain_text_edit_private EDITED added by hand on 2026-11-26: 1 ritual leaning on what moc writes
+QtWidgets QScrollerPrivate q_scroller_private EDITED added by hand on 2026-11-26: moc's output for the class, and 1 ritual leaning on what moc writes
+QtWidgets QSidebar q_sidebar EDITED added by hand on 2026-11-26: moc's output for the class, and 4 rituals leaning on what moc writes
+QtWidgets QTableModel q_table_model EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtWidgets QTableWidgetMimeData q_table_widget_mime_data EDITED added by hand on 2026-11-26: moc's output for the class, and 1 ritual leaning on what moc writes
+QtWidgets QTableWidgetPrivate q_table_widget_private EDITED added by hand on 2026-11-26: 10 rituals leaning on what moc writes
+QtWidgets QToolBarExtension q_tool_bar_extension EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtWidgets QToolBarLayout q_tool_bar_layout EDITED added by hand on 2026-11-26: 2 rituals leaning on what moc writes
+QtWidgets QToolBarSeparator q_tool_bar_separator EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtWidgets QTreeModel q_tree_model EDITED added by hand on 2026-11-26: moc's output for the class, and 3 rituals leaning on what moc writes
+QtWidgets QTreeWidgetPrivate q_tree_widget_private EDITED added by hand on 2026-11-26: 15 rituals leaning on what moc writes
+QtWidgets QUrlModel q_url_model EDITED added by hand on 2026-11-26: moc's output for the class, and 3 rituals leaning on what moc writes
+QtWidgets QWellArray q_well_array EDITED added by hand on 2026-11-26: moc's output for the class, and 5 rituals leaning on what moc writes
+QtWidgets QWidgetAnimator q_widget_animator EDITED added by hand on 2026-11-26: moc's output for the class, and 2 rituals leaning on what moc writes
+QtDataVisualization Drawer drawer EDITED added by hand on 2026-11-26: moc's output for the class, and 4 rituals leaning on what moc writes; 'initResources' and its 'Q_CONSTRUCTOR_FUNCTION' are left out of the code taken from drawer.cpp, as Qt's own library registers those resources
+# Rituals added by hand on 2026-11-26 whose code reads constant data Qt
+# keeps to itself, copied with it 'inline' from Qt's source:
+QtDataVisualization ScatterObjectBufferHelper scatter_object_buffer_helper EDITED added by hand on 2026-11-26: 2 rituals reading ScatterObjectBufferHelper::itemScaler
+QtNetwork QNetworkReplyImpl q_network_reply_impl EDITED added by hand on 2026-11-26: 1 ritual reading QNetworkReplyPrivate::progressSignalInterval
+QtNetwork QNetworkReplyImplPrivate q_network_reply_impl_private EDITED added by hand on 2026-11-26: 10 rituals reading QNetworkReplyPrivate::progressSignalInterval
+QtNetwork QSslConfigurationPrivate q_ssl_configuration_private EDITED added by hand on 2026-11-26: 1 ritual reading QSslConfigurationPrivate::defaultSslOptions
+QtRemoteObjects QInProcessReplicaImplementation q_in_process_replica_implementation EDITED added by hand on 2026-11-26: 2 rituals reading QRemoteObjectSourceBase::qobjectPropertyOffset
+# Rituals added by hand on 2026-11-25 and 2026-11-26 whose files the
+# check first refused, mended by hand on 2026-11-26 (pointers to
+# members declared as C++ declares them, a number passed as it is,
+# types named in full, a header pulled in), with the rituals that
+# reach what Qt keeps to itself left out:
+QtCore QAssociativeIterable q_associative_iterable EDITED added by hand on 2026-11-25/26: 4 instances of templates of the class; compiled and linked against the full Linux kit on 2026-11-26
+QtCore QPropertyObserver q_property_observer EDITED added by hand on 2026-11-25/26: 5 instances of templates of the class; compiled and linked against the full Linux kit on 2026-11-26
+QtCore QRandomGenerator q_random_generator EDITED added by hand on 2026-11-25/26: 2 instances of templates of the class; compiled and linked against the full Linux kit on 2026-11-26
+QtMultimedia QtMultimediaPrivate::QRtAudioEngineVoiceCompare qt_multimedia_private__q_rt_audio_engine_voice_compare EDITED added by hand on 2026-11-25/26: 4 instances of templates of the class, 1 ritual for functions the generator leaves out; compiled and linked against the full Linux kit on 2026-11-26
+QtQmlModels QQmlDelegateModel q_qml_delegate_model EDITED added by hand on 2026-11-25/26: 7 instances of templates of the class; compiled and linked against the full Linux kit on 2026-11-26
+QtQml QQmlPrivate::AOTCompiledContext q_qml_private__a_o_t_compiled_context EDITED added by hand on 2026-11-25/26: 8 instances of templates of the class; compiled and linked against the full Linux kit on 2026-11-26
+QtQml QV4::RegExpObject q_v4__reg_exp_object EDITED added by hand on 2026-11-25/26: 1 instance of templates of the class; compiled and linked against the full Linux kit on 2026-11-26
+QtQuick QQuickPalette q_quick_palette EDITED added by hand on 2026-11-25/26: 1 ritual for functions the generator leaves out; compiled and linked against the full Linux kit on 2026-11-26
+QtQuick QQuickTextUtil q_quick_text_util EDITED added by hand on 2026-11-25/26: 3 instances of templates of the class; compiled and linked against the full Linux kit on 2026-11-26

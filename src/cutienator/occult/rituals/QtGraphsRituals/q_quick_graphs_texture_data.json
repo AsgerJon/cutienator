@@ -2,7 +2,7 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtGraphs/6.12.0/QtGraphs/private/qquickgraphstexturedata_p.h, Qt",
-    "6.12.0. Changes made here are lost."
+    "6.12.0. Edited by hand: see the ritual file."
   ],
   "parts first": [
     "QtGraphs", "QtCore", "QtGui", "QtQuick", "QtQml", "QtQmlIntegration"
@@ -17,6 +17,10 @@
     "ritual_ZN23QQuickGraphsTextureData11qt_metacallEN11QMetaObject4CallEiPPv": [
       "int", "address", "int", "int", "address"
     ],
+    "ritual_ZN23QQuickGraphsTextureData2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN23QQuickGraphsTextureDataC1Ev": ["address"],
     "ritual_ZN23QQuickGraphsTextureDataD1Ev": ["nothing", "address"],
     "ritual_ZN23QQuickGraphsTextureData17linearInterpolateE6QColorS0_f": [
       "address", "address", "address", "address", "float"

@@ -2,7 +2,7 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtGui/6.12.0/QtGui/private/qdbusmenuregistrarproxy_p.h, Qt 6.12.0.",
-    "Changes made here are lost."
+    "Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZNK27QDBusMenuRegistrarInterface10metaObjectEv": [
@@ -14,8 +14,14 @@
     "ritual_ZN27QDBusMenuRegistrarInterface11qt_metacallEN11QMetaObject4CallEiPPv": [
       "int", "address", "int", "int", "address"
     ],
+    "ritual_ZN27QDBusMenuRegistrarInterface2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
     "ritual_ZN27QDBusMenuRegistrarInterface19staticInterfaceNameEv": [
       "chars"
+    ],
+    "ritual_ZN27QDBusMenuRegistrarInterfaceC1ERK7QStringS2_RK15QDBusConnectionP7QObject": [
+      "address", "text", "text", "address", "address"
     ],
     "ritual_ZN27QDBusMenuRegistrarInterfaceD1Ev": ["nothing", "address"],
     "ritual_ZN27QDBusMenuRegistrarInterface16GetMenuForWindowEj": [

@@ -1,12 +1,24 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/6.12.0/QtWidgets/private/qwidgetanimator_p.h, Qt 6.12.0.
-//  Changes made here are lost.
+//  Edited by hand on 2026-11-26: moc's output for 'QWidgetAnimator' is
+//  pasted in, cut from what the moc of Qt 6.12.0 writes for its header: Qt's
+//  library keeps it to itself; added are 2 rituals that lean on what moc
+//  writes for a class of the part Qt keeps to itself, whose ritual file
+//  carries moc's output, drafted by a copy of the generator that lets those
+//  names through. A copy of a meta-object is a second one: 'qobject_cast'
+//  between it and Qt's own does not match. Kept as it is when the generator
+//  runs again.
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/QtWidgets>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtWidgets/6.12.0/QtWidgets/private/qwidgetanimator_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
 #include <QtWidgets/private/qmainwindowlayout_p.h>
 #if QT_CONFIG(dockwidget)
 #include <QtWidgets/private/qdockarealayout_p.h>
@@ -98,6 +110,79 @@ static bool defaultWidgetAction(QToolBarItem *item)
     QWidgetAction *a = qobject_cast<QWidgetAction*>(item->action);
     return a != nullptr && a->defaultWidget() == item->widget();
 }
+
+//  from QtWidgets__QWidgetAnimator.cpp, line 1, as moc:QWidgetAnimator
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN15QWidgetAnimatorE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto QWidgetAnimator::qt_create_metaobjectdata<qt_meta_tag_ZN15QWidgetAnimatorE_t>()
+{
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "QWidgetAnimator",
+        "AnimationRule",
+        "Run",
+        "Stop"
+    };
+
+    QtMocHelpers::UintData qt_methods {
+    };
+    QtMocHelpers::UintData qt_properties {
+    };
+    QtMocHelpers::UintData qt_enums {
+        // enum 'AnimationRule'
+        QtMocHelpers::EnumData<enum AnimationRule>(1, 1, QMC::EnumIsScoped).add({
+            {    2, AnimationRule::Run },
+            {    3, AnimationRule::Stop },
+        }),
+    };
+    return QtMocHelpers::metaObjectData<QWidgetAnimator, qt_meta_tag_ZN15QWidgetAnimatorE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums);
+}
+Q_CONSTINIT const QMetaObject QWidgetAnimator::staticMetaObject = { {
+    QMetaObject::SuperData::link<QObject::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN15QWidgetAnimatorE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN15QWidgetAnimatorE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN15QWidgetAnimatorE_t>.metaTypes,
+    nullptr
+} };
+
+void QWidgetAnimator::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<QWidgetAnimator *>(_o);
+    (void)_t;
+    (void)_c;
+    (void)_id;
+    (void)_a;
+}
+
+const QMetaObject *QWidgetAnimator::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *QWidgetAnimator::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN15QWidgetAnimatorE_t>.strings))
+        return static_cast<void*>(this);
+    return QObject::qt_metacast(_clname);
+}
+
+int QWidgetAnimator::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QObject::qt_metacall(_c, _id, _a);
+    return _id;
+}
+QT_WARNING_POP
 
 //  from src/widgets/widgets/qmainwindowlayout.cpp, line 2749, as _ZN17QMainWindowLayout17animationFinishedEP7QWidget
 inline void QMainWindowLayout::animationFinished(QWidget *widget)
@@ -364,6 +449,15 @@ inline bool QToolBarLayout::layoutActions(const QSize &size)
     return ranOutOfSpace;
 }
 
+//  from src/widgets/widgets/qwidgetanimator.cpp, line 18, as _ZN15QWidgetAnimatorC1EP17QMainWindowLayout
+inline QWidgetAnimator::QWidgetAnimator(QMainWindowLayout *layout)
+#if QT_CONFIG(mainwindow)
+: m_mainWindowLayout(layout)
+#endif
+{
+    Q_UNUSED(layout);
+}
+
 //  from src/widgets/widgets/qwidgetanimator.cpp, line 78, as _ZNK15QWidgetAnimator9animatingEv
 inline bool QWidgetAnimator::animating() const
 {
@@ -395,6 +489,22 @@ int ritual_ZN15QWidgetAnimator11qt_metacallEN11QMetaObject4CallEiPPv(
     int a1,
     void **a2) {
   return self->qt_metacall(a0, a1, a2);
+}
+
+//  QString QWidgetAnimator::tr(const char *s, const char *c, int n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN15QWidgetAnimator2trEPKcS1_i(
+    const char *s,
+    const char *c,
+    int n) {
+  return new QString(QWidgetAnimator::tr(s, c, n));
+}
+
+//  QWidgetAnimator::QWidgetAnimator(QMainWindowLayout *layout)
+extern "C" Q_DECL_EXPORT
+QWidgetAnimator *ritual_ZN15QWidgetAnimatorC1EP17QMainWindowLayout(
+    QMainWindowLayout *layout) {
+  return new QWidgetAnimator(layout);
 }
 
 //  bool QWidgetAnimator::animating() const

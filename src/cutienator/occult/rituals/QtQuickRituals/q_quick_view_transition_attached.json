@@ -2,7 +2,7 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtQuick/6.12.0/QtQuick/private/qquickitemviewtransition_p.h, Qt",
-    "6.12.0. Changes made here are lost."
+    "6.12.0. Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZNK28QQuickViewTransitionAttached10metaObjectEv": [
@@ -14,11 +14,17 @@
     "ritual_ZN28QQuickViewTransitionAttached11qt_metacallEN11QMetaObject4CallEiPPv": [
       "int", "address", "int", "int", "address"
     ],
+    "ritual_ZN28QQuickViewTransitionAttached2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
     "ritual_ZN28QQuickViewTransitionAttached24qt_qmlMarker_uncreatableEv": [
       "nothing", "address"
     ],
     "ritual_ZN28QQuickViewTransitionAttached21qt_qmlMarker_attachedEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN28QQuickViewTransitionAttachedC1EP7QObject": [
+      "address", "address"
     ],
     "ritual_ZNK28QQuickViewTransitionAttached5indexEv": ["int", "address"],
     "ritual_ZNK28QQuickViewTransitionAttached4itemEv": [
@@ -31,6 +37,9 @@
       "address", "address"
     ],
     "ritual_ZN28QQuickViewTransitionAttached11targetItemsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QQuickViewTransitionAttached21qmlAttachedPropertiesEP7QObject": [
       "address", "address"
     ],
     "ritual_ZN28QQuickViewTransitionAttached12indexChangedEv": [

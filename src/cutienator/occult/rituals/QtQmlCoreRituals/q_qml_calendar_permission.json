@@ -2,7 +2,7 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtQmlCore/6.12.0/QtQmlCore/private/qqmlpermissions_p.h, Qt 6.12.0.",
-    "Changes made here are lost."
+    "Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZNK22QQmlCalendarPermission10metaObjectEv": [
@@ -14,13 +14,20 @@
     "ritual_ZN22QQmlCalendarPermission11qt_metacallEN11QMetaObject4CallEiPPv": [
       "int", "address", "int", "int", "address"
     ],
+    "ritual_ZN22QQmlCalendarPermission2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
     "ritual_ZNK22QQmlCalendarPermission6statusEv": ["int", "address"],
+    "ritual_ZN22QQmlCalendarPermission7requestEv": ["nothing", "address"],
     "ritual_ZN22QQmlCalendarPermission20qmlExtendedNamespaceEv": ["address"],
     "ritual_ZN22QQmlCalendarPermission30qt_qmlMarker_extendedNamespaceEv": [
       "nothing", "address"
     ],
     "ritual_ZNK22QQmlCalendarPermission10accessModeEv": [
       "unsigned char", "address"
+    ],
+    "ritual_ZN22QQmlCalendarPermission13setAccessModeERKN19QCalendarPermission10AccessModeE": [
+      "nothing", "address", "address"
     ],
     "ritual_take_QQmlCalendarPermission": [
       "bool", "address", "chars", "address"

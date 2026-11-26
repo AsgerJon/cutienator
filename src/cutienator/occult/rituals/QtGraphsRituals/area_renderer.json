@@ -2,7 +2,7 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtGraphs/6.12.0/QtGraphs/private/arearenderer_p.h, Qt 6.12.0.",
-    "Changes made here are lost."
+    "Edited by hand: see the ritual file."
   ],
   "parts first": [
     "QtGraphs", "QtCore", "QtGui", "QtQuick", "QtQml", "QtQmlIntegration"
@@ -15,6 +15,7 @@
     "ritual_ZN12AreaRenderer11qt_metacallEN11QMetaObject4CallEiPPv": [
       "int", "address", "int", "int", "address"
     ],
+    "ritual_ZN12AreaRenderer2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN12AreaRendererD1Ev": ["nothing", "address"],
     "ritual_ZN12AreaRenderer19resetShapePathCountEv": ["nothing", "address"],
     "ritual_ZNK12AreaRenderer13paintSnapshotEv": ["address", "address"],

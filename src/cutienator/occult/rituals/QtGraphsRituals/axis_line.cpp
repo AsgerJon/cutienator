@@ -1,6 +1,12 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtGraphs/6.12.0/QtGraphs/private/axisline_p.h, Qt 6.12.0. Changes made
-//  here are lost.
+//  QtGraphs/6.12.0/QtGraphs/private/axisline_p.h, Qt 6.12.0.
+//  Edited by hand on 2026-11-26: moc's output for 'AxisLine' is pasted in,
+//  cut from what the moc of Qt 6.12.0 writes for its header: Qt's library
+//  keeps it to itself; added are 7 rituals that lean on what moc writes for
+//  a class of the part Qt keeps to itself, whose ritual file carries moc's
+//  output, drafted by a copy of the generator that lets those names through.
+//  A copy of a meta-object is a second one: 'qobject_cast' between it and
+//  Qt's own does not match. Kept as it is when the generator runs again.
 #include <QtQuick/qtquickglobal.h>
 #include <QtGui/qtguiglobal.h>
 #include <QtGraphs/qgraphsglobal.h>
@@ -11,6 +17,7 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGraphs/6.12.0/QtGraphs/private/axisline_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 #include <QtGui/qvectornd.h>
 #include <QtGui/qcolor.h>
 #include <QtCore/qrect.h>
@@ -21,6 +28,10 @@
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
 #include <QtGraphs/private/axisline_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
@@ -31,12 +42,190 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from ../qtgraphs/src/graphs2d/axis/axisline.cpp, line 18, as _ZN8AxisLine17componentCompleteEv
-inline void AxisLine::componentComplete()
+//  from QtGraphs__AxisLine.cpp, line 1, as moc:AxisLine
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN8AxisLineE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto AxisLine::qt_create_metaobjectdata<qt_meta_tag_ZN8AxisLineE_t>()
 {
-    QQuickShaderEffect::componentComplete();
-    setupShaders();
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "AxisLine",
+        "iResolutionChanged",
+        "",
+        "smoothingChanged",
+        "colorChanged",
+        "lineWidthChanged",
+        "isHorizontalChanged",
+        "iResolution",
+        "QVector3D",
+        "smoothing",
+        "color",
+        "QColor",
+        "lineWidth",
+        "isHorizontal"
+    };
+
+    QtMocHelpers::UintData qt_methods {
+        // Signal 'iResolutionChanged'
+        QtMocHelpers::SignalData<void()>(1, 2, QMC::AccessPublic, QMetaType::Void),
+        // Signal 'smoothingChanged'
+        QtMocHelpers::SignalData<void()>(3, 2, QMC::AccessPublic, QMetaType::Void),
+        // Signal 'colorChanged'
+        QtMocHelpers::SignalData<void()>(4, 2, QMC::AccessPublic, QMetaType::Void),
+        // Signal 'lineWidthChanged'
+        QtMocHelpers::SignalData<void()>(5, 2, QMC::AccessPublic, QMetaType::Void),
+        // Signal 'isHorizontalChanged'
+        QtMocHelpers::SignalData<void()>(6, 2, QMC::AccessPublic, QMetaType::Void),
+    };
+    QtMocHelpers::UintData qt_properties {
+        // property 'iResolution'
+        QtMocHelpers::PropertyData<QVector3D>(7, 0x80000000 | 8, QMC::DefaultPropertyFlags | QMC::EnumOrFlag | QMC::Final, 0),
+        // property 'smoothing'
+        QtMocHelpers::PropertyData<qreal>(9, QMetaType::QReal, QMC::DefaultPropertyFlags | QMC::Writable | QMC::StdCppSet | QMC::Final, 1),
+        // property 'color'
+        QtMocHelpers::PropertyData<QColor>(10, 0x80000000 | 11, QMC::DefaultPropertyFlags | QMC::Writable | QMC::EnumOrFlag | QMC::StdCppSet | QMC::Final, 2),
+        // property 'lineWidth'
+        QtMocHelpers::PropertyData<qreal>(12, QMetaType::QReal, QMC::DefaultPropertyFlags | QMC::Writable | QMC::StdCppSet | QMC::Final, 3),
+        // property 'isHorizontal'
+        QtMocHelpers::PropertyData<bool>(13, QMetaType::Bool, QMC::DefaultPropertyFlags | QMC::Writable | QMC::StdCppSet | QMC::Final, 4),
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    return QtMocHelpers::metaObjectData<AxisLine, qt_meta_tag_ZN8AxisLineE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums);
 }
+Q_CONSTINIT const QMetaObject AxisLine::staticMetaObject = { {
+    QMetaObject::SuperData::link<QQuickShaderEffect::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN8AxisLineE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN8AxisLineE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN8AxisLineE_t>.metaTypes,
+    nullptr
+} };
+
+void AxisLine::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<AxisLine *>(_o);
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        switch (_id) {
+        case 0: _t->iResolutionChanged(); break;
+        case 1: _t->smoothingChanged(); break;
+        case 2: _t->colorChanged(); break;
+        case 3: _t->lineWidthChanged(); break;
+        case 4: _t->isHorizontalChanged(); break;
+        default: ;
+        }
+    }
+    if (_c == QMetaObject::IndexOfMethod) {
+        if (QtMocHelpers::indexOfMethod<void (AxisLine::*)()>(_a, &AxisLine::iResolutionChanged, 0))
+            return;
+        if (QtMocHelpers::indexOfMethod<void (AxisLine::*)()>(_a, &AxisLine::smoothingChanged, 1))
+            return;
+        if (QtMocHelpers::indexOfMethod<void (AxisLine::*)()>(_a, &AxisLine::colorChanged, 2))
+            return;
+        if (QtMocHelpers::indexOfMethod<void (AxisLine::*)()>(_a, &AxisLine::lineWidthChanged, 3))
+            return;
+        if (QtMocHelpers::indexOfMethod<void (AxisLine::*)()>(_a, &AxisLine::isHorizontalChanged, 4))
+            return;
+    }
+    if (_c == QMetaObject::ReadProperty) {
+        void *_v = _a[0];
+        switch (_id) {
+        case 0: *reinterpret_cast<QVector3D*>(_v) = _t->iResolution(); break;
+        case 1: *reinterpret_cast<qreal*>(_v) = _t->smoothing(); break;
+        case 2: *reinterpret_cast<QColor*>(_v) = _t->color(); break;
+        case 3: *reinterpret_cast<qreal*>(_v) = _t->lineWidth(); break;
+        case 4: *reinterpret_cast<bool*>(_v) = _t->isHorizontal(); break;
+        default: break;
+        }
+    }
+    if (_c == QMetaObject::WriteProperty) {
+        void *_v = _a[0];
+        switch (_id) {
+        case 1: _t->setSmoothing(*reinterpret_cast<qreal*>(_v)); break;
+        case 2: _t->setColor(*reinterpret_cast<QColor*>(_v)); break;
+        case 3: _t->setLineWidth(*reinterpret_cast<qreal*>(_v)); break;
+        case 4: _t->setIsHorizontal(*reinterpret_cast<bool*>(_v)); break;
+        default: break;
+        }
+    }
+}
+
+const QMetaObject *AxisLine::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *AxisLine::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN8AxisLineE_t>.strings))
+        return static_cast<void*>(this);
+    return QQuickShaderEffect::qt_metacast(_clname);
+}
+
+int AxisLine::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QQuickShaderEffect::qt_metacall(_c, _id, _a);
+    if (_id < 0)
+        return _id;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        if (_id < 5)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 5;
+    }
+    if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        if (_id < 5)
+            *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
+        _id -= 5;
+    }
+    if (_c == QMetaObject::ReadProperty || _c == QMetaObject::WriteProperty
+            || _c == QMetaObject::ResetProperty || _c == QMetaObject::BindableProperty
+            || _c == QMetaObject::RegisterPropertyMetaType) {
+        qt_static_metacall(this, _c, _id, _a);
+        _id -= 5;
+    }
+    return _id;
+}
+
+// SIGNAL 0
+void AxisLine::iResolutionChanged()
+{
+    QMetaObject::activate(this, &staticMetaObject, 0, nullptr);
+}
+
+// SIGNAL 1
+void AxisLine::smoothingChanged()
+{
+    QMetaObject::activate(this, &staticMetaObject, 1, nullptr);
+}
+
+// SIGNAL 2
+void AxisLine::colorChanged()
+{
+    QMetaObject::activate(this, &staticMetaObject, 2, nullptr);
+}
+
+// SIGNAL 3
+void AxisLine::lineWidthChanged()
+{
+    QMetaObject::activate(this, &staticMetaObject, 3, nullptr);
+}
+
+// SIGNAL 4
+void AxisLine::isHorizontalChanged()
+{
+    QMetaObject::activate(this, &staticMetaObject, 4, nullptr);
+}
+QT_WARNING_POP
 
 //  from ../qtgraphs/src/graphs2d/axis/axisline.cpp, line 24, as _ZN8AxisLine14geometryChangeERK6QRectFS2_
 inline void AxisLine::geometryChange(const QRectF &newGeometry, const QRectF &oldGeometry)
@@ -45,6 +234,23 @@ inline void AxisLine::geometryChange(const QRectF &newGeometry, const QRectF &ol
     emit iResolutionChanged();
 
     QQuickShaderEffect::geometryChange(newGeometry, oldGeometry);
+}
+
+//  from ../qtgraphs/src/graphs2d/axis/axisline.cpp, line 18, as _ZN8AxisLine17componentCompleteEv
+inline void AxisLine::componentComplete()
+{
+    QQuickShaderEffect::componentComplete();
+    setupShaders();
+}
+
+//  from ../qtgraphs/src/graphs2d/axis/axisline.cpp, line 16, as _ZN8AxisLineD0Ev
+inline AxisLine::~AxisLine() {}
+
+//  from ../qtgraphs/src/graphs2d/axis/axisline.cpp, line 10, as _ZN8AxisLineC1EP10QQuickItem
+inline AxisLine::AxisLine(QQuickItem *parent) :
+      QQuickShaderEffect(parent)
+{
+
 }
 
 //  from ../qtgraphs/src/graphs2d/axis/axisline.cpp, line 32, as _ZN8AxisLine12setupShadersEv
@@ -71,10 +277,28 @@ inline qreal AxisLine::smoothing() const
     return m_smoothing;
 }
 
+//  from ../qtgraphs/src/graphs2d/axis/axisline.cpp, line 53, as _ZN8AxisLine12setSmoothingEd
+inline void AxisLine::setSmoothing(qreal newSmoothing)
+{
+    if (QtPrivate::fuzzyCompare(m_smoothing, newSmoothing))
+        return;
+    m_smoothing = newSmoothing;
+    emit smoothingChanged();
+}
+
 //  from ../qtgraphs/src/graphs2d/axis/axisline.cpp, line 61, as _ZNK8AxisLine5colorEv
 inline QColor AxisLine::color() const
 {
     return m_color;
+}
+
+//  from ../qtgraphs/src/graphs2d/axis/axisline.cpp, line 66, as _ZN8AxisLine8setColorE6QColor
+inline void AxisLine::setColor(QColor newColor)
+{
+    if (m_color == newColor)
+        return;
+    m_color = newColor;
+    emit colorChanged();
 }
 
 //  from ../qtgraphs/src/graphs2d/axis/axisline.cpp, line 74, as _ZNK8AxisLine9lineWidthEv
@@ -83,10 +307,28 @@ inline qreal AxisLine::lineWidth() const
     return m_lineWidth;
 }
 
+//  from ../qtgraphs/src/graphs2d/axis/axisline.cpp, line 79, as _ZN8AxisLine12setLineWidthEd
+inline void AxisLine::setLineWidth(qreal newLineWidth)
+{
+    if (QtPrivate::fuzzyCompare(m_lineWidth, newLineWidth))
+        return;
+    m_lineWidth = newLineWidth;
+    emit lineWidthChanged();
+}
+
 //  from ../qtgraphs/src/graphs2d/axis/axisline.cpp, line 87, as _ZNK8AxisLine12isHorizontalEv
 inline bool AxisLine::isHorizontal() const
 {
     return m_isHorizontal;
+}
+
+//  from ../qtgraphs/src/graphs2d/axis/axisline.cpp, line 92, as _ZN8AxisLine15setIsHorizontalEb
+inline void AxisLine::setIsHorizontal(bool newIsHorizontal)
+{
+    if (m_isHorizontal == newIsHorizontal)
+        return;
+    m_isHorizontal = newIsHorizontal;
+    emit isHorizontalChanged();
 }
 //  -----------------------------------------------------------------------
 
@@ -94,6 +336,7 @@ inline bool AxisLine::isHorizontal() const
 //  This one is, and makes them free for the rituals to call.
 struct OwnAxisLine : AxisLine {
   using AxisLine::componentComplete;
+  using AxisLine::geometryChange;
 };
 
 //  A AxisLine that Python can take functions over in. Every AxisLine
@@ -899,6 +1142,18 @@ int ritual_ZN8AxisLine11qt_metacallEN11QMetaObject4CallEiPPv(
   return self->qt_metacall(a0, a1, a2);
 }
 
+//  QString AxisLine::tr(const char *s, const char *c, int n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN8AxisLine2trEPKcS1_i(const char *s, const char *c, int n) {
+  return new QString(AxisLine::tr(s, c, n));
+}
+
+//  AxisLine::AxisLine(QQuickItem *parent)
+extern "C" Q_DECL_EXPORT
+AxisLine *ritual_ZN8AxisLineC1EP10QQuickItem(QQuickItem *parent) {
+  return new CuteAxisLine(parent);
+}
+
 //  AxisLine::~AxisLine()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN8AxisLineD1Ev(AxisLine *self) {
@@ -923,10 +1178,24 @@ qreal ritual_ZNK8AxisLine9smoothingEv(const AxisLine *self) {
   return self->smoothing();
 }
 
+//  void AxisLine::setSmoothing(qreal newSmoothing)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8AxisLine12setSmoothingEd(AxisLine *self, qreal newSmoothing) {
+  self->setSmoothing(newSmoothing);
+}
+
 //  QColor AxisLine::color() const
 extern "C" Q_DECL_EXPORT
 QColor *ritual_ZNK8AxisLine5colorEv(const AxisLine *self) {
   return new QColor(self->color());
+}
+
+//  void AxisLine::setColor(QColor newColor)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8AxisLine8setColorE6QColor(
+    AxisLine *self,
+    const QColor *newColor) {
+  self->setColor(*newColor);
 }
 
 //  qreal AxisLine::lineWidth() const
@@ -935,10 +1204,24 @@ qreal ritual_ZNK8AxisLine9lineWidthEv(const AxisLine *self) {
   return self->lineWidth();
 }
 
+//  void AxisLine::setLineWidth(qreal newLineWidth)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8AxisLine12setLineWidthEd(AxisLine *self, qreal newLineWidth) {
+  self->setLineWidth(newLineWidth);
+}
+
 //  bool AxisLine::isHorizontal() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK8AxisLine12isHorizontalEv(const AxisLine *self) {
   return self->isHorizontal();
+}
+
+//  void AxisLine::setIsHorizontal(bool newIsHorizontal)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8AxisLine15setIsHorizontalEb(
+    AxisLine *self,
+    bool newIsHorizontal) {
+  self->setIsHorizontal(newIsHorizontal);
 }
 
 //  void AxisLine::componentComplete()
@@ -1088,6 +1371,18 @@ bool ritual_take_AxisLine(AxisLine *self, const char *key, void *call) {
 extern "C" Q_DECL_EXPORT
 void ritual_own_ZN8AxisLine17componentCompleteEv(AxisLine *self) {
   static_cast<OwnAxisLine *>(self)->OwnAxisLine::componentComplete();
+}
+
+//  void AxisLine::geometryChange(const QRectF &newGeometry, const QRectF
+//      &oldGeometry)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN8AxisLine14geometryChangeERK6QRectFS2_(
+    AxisLine *self,
+    const QRectF *newGeometry,
+    const QRectF *oldGeometry) {
+  static_cast<OwnAxisLine *>(self)->OwnAxisLine::geometryChange(
+      *newGeometry,
+      *oldGeometry);
 }
 
 #endif  // (QT_CONFIG(graphs_2d)) && (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom)))

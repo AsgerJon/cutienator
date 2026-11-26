@@ -2,7 +2,7 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of QtDataV",
     "isualization/6.12.0/QtDataVisualization/private/q3dcamera_p.h, Qt",
-    "6.12.0. Changes made here are lost."
+    "6.12.0. Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZNK16Q3DCameraPrivate10metaObjectEv": ["address", "address"],
@@ -12,6 +12,10 @@
     "ritual_ZN16Q3DCameraPrivate11qt_metacallEN11QMetaObject4CallEiPPv": [
       "int", "address", "int", "int", "address"
     ],
+    "ritual_ZN16Q3DCameraPrivate2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN16Q3DCameraPrivateC1EP9Q3DCamera": ["address", "address"],
     "ritual_ZN16Q3DCameraPrivateD1Ev": ["nothing", "address"],
     "ritual_ZN16Q3DCameraPrivate4syncER9Q3DCamera": [
       "nothing", "address", "address"
@@ -22,13 +26,34 @@
     "ritual_ZN16Q3DCameraPrivate12setYRotationEf": [
       "nothing", "address", "float"
     ],
+    "ritual_ZN16Q3DCameraPrivate15setMinXRotationEf": [
+      "nothing", "address", "float"
+    ],
     "ritual_ZNK16Q3DCameraPrivate12minXRotationEv": ["float", "address"],
+    "ritual_ZN16Q3DCameraPrivate15setMinYRotationEf": [
+      "nothing", "address", "float"
+    ],
     "ritual_ZNK16Q3DCameraPrivate12minYRotationEv": ["float", "address"],
+    "ritual_ZN16Q3DCameraPrivate15setMaxXRotationEf": [
+      "nothing", "address", "float"
+    ],
     "ritual_ZNK16Q3DCameraPrivate12maxXRotationEv": ["float", "address"],
+    "ritual_ZN16Q3DCameraPrivate15setMaxYRotationEf": [
+      "nothing", "address", "float"
+    ],
     "ritual_ZNK16Q3DCameraPrivate12maxYRotationEv": ["float", "address"],
+    "ritual_ZN16Q3DCameraPrivate16updateViewMatrixEf": [
+      "nothing", "address", "float"
+    ],
     "ritual_ZNK16Q3DCameraPrivate10viewMatrixEv": ["address", "address"],
+    "ritual_ZN16Q3DCameraPrivate13setViewMatrixERK10QMatrix4x4": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK16Q3DCameraPrivate29isViewMatrixAutoUpdateEnabledEv": [
       "bool", "address"
+    ],
+    "ritual_ZN16Q3DCameraPrivate30setViewMatrixAutoUpdateEnabledEb": [
+      "nothing", "address", "bool"
     ],
     "ritual_ZN16Q3DCameraPrivate18setBaseOrientationERK9QVector3DS2_S2_": [
       "nothing", "address", "address", "address", "address"

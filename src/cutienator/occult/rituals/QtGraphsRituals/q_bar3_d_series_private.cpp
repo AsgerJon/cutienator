@@ -228,6 +228,16 @@ inline void QAbstract3DSeriesPrivate::setDataProxy(QAbstractDataProxy *proxy)
     }
 }
 
+//  from ../qtgraphs/src/graphs3d/data/qbar3dseries.cpp, line 748, as _ZN19QBar3DSeriesPrivateC1Ev
+inline QBar3DSeriesPrivate::QBar3DSeriesPrivate()
+    : QAbstract3DSeriesPrivate(QAbstract3DSeries::SeriesType::Bar)
+    , m_selectedBar(QQuickGraphsBars::invalidSelectionPosition())
+{
+    m_itemLabelFormat = QStringLiteral("@valueLabel");
+    m_mesh = QAbstract3DSeries::Mesh::BevelBar;
+    m_valueColoring = false;
+}
+
 //  from ../qtgraphs/src/graphs3d/data/qbar3dseries.cpp, line 951, as _ZN19QBar3DSeriesPrivate14setSelectedBarE6QPoint
 inline void QBar3DSeriesPrivate::setSelectedBar(QPoint position)
 {
@@ -516,6 +526,12 @@ extern "C" Q_DECL_EXPORT
 QBar3DSeriesPrivate *ritual_ZN19QBar3DSeriesPrivate3getEP12QBar3DSeries(
     QBar3DSeries *item) {
   return QBar3DSeriesPrivate::get(item);
+}
+
+//  QBar3DSeriesPrivate::QBar3DSeriesPrivate()
+extern "C" Q_DECL_EXPORT
+QBar3DSeriesPrivate *ritual_ZN19QBar3DSeriesPrivateC1Ev() {
+  return new CuteQBar3DSeriesPrivate();
 }
 
 //  QBar3DSeriesPrivate::~QBar3DSeriesPrivate()

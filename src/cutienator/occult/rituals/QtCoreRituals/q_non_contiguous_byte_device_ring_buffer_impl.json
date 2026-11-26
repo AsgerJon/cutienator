@@ -2,7 +2,7 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtCore/6.12.0/QtCore/private/qnoncontiguousbytedevice_p.h, Qt",
-    "6.12.0. Changes made here are lost."
+    "6.12.0. Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZNK38QNonContiguousByteDeviceRingBufferImpl10metaObjectEv": [
@@ -13,6 +13,12 @@
     ],
     "ritual_ZN38QNonContiguousByteDeviceRingBufferImpl11qt_metacallEN11QMetaObject4CallEiPPv": [
       "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN38QNonContiguousByteDeviceRingBufferImpl2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN38QNonContiguousByteDeviceRingBufferImplC1ESt10shared_ptrI11QRingBufferE": [
+      "address", "address"
     ],
     "ritual_ZN38QNonContiguousByteDeviceRingBufferImplD1Ev": [
       "nothing", "address"

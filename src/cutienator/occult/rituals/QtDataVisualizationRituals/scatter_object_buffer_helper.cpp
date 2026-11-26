@@ -1,6 +1,11 @@
 //  Written by dev_tooling.RitualGenerator from the records of QtDataVisualiz
 //  ation/6.12.0/QtDataVisualization/private/scatterobjectbufferhelper_p.h,
-//  Qt 6.12.0. Changes made here are lost.
+//  Qt 6.12.0.
+//  Edited by hand on 2026-11-26: added are 2 rituals whose code, copied from
+//  Qt's source, reads constant data Qt keeps to itself
+//  ('ScatterObjectBufferHelper::itemScaler'), copied with it 'inline' from
+//  Qt's source, drafted by a copy of the generator that takes it along. Kept
+//  as it is when the generator runs again.
 #include <QtDataVisualization/6.12.0/QtDataVisualization/private/datavisualizationglobal_p.h>
 #include <QtDataVisualization/QtDataVisualization>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -49,6 +54,261 @@ inline AbstractObjectHelper::AbstractObjectHelper()
 //  from ../qtdatavis3d/src/datavisualization/utils/scatterobjectbufferhelper.cpp, line 22, as _ZN25ScatterObjectBufferHelperD2Ev
 inline ScatterObjectBufferHelper::~ScatterObjectBufferHelper()
 {
+}
+
+//  from ../qtdatavis3d/src/datavisualization/utils/scatterobjectbufferhelper.cpp, line 15, as _ZN25ScatterObjectBufferHelper10itemScalerE
+inline const GLfloat ScatterObjectBufferHelper::itemScaler = 3.0f;
+
+//  from ../qtdatavis3d/src/datavisualization/utils/abstractobjecthelper.cpp, line 19, as _ZN20AbstractObjectHelperD2Ev
+inline AbstractObjectHelper::~AbstractObjectHelper()
+{
+    if (QOpenGLContext::currentContext()) {
+        glDeleteBuffers(1, &m_vertexbuffer);
+        glDeleteBuffers(1, &m_uvbuffer);
+        glDeleteBuffers(1, &m_normalbuffer);
+        glDeleteBuffers(1, &m_elementbuffer);
+    }
+}
+
+//  from ../qtdatavis3d/src/datavisualization/utils/scatterobjectbufferhelper.cpp, line 17, as _ZN25ScatterObjectBufferHelperC1Ev
+inline ScatterObjectBufferHelper::ScatterObjectBufferHelper()
+    : m_scaleY(0.0f)
+{
+}
+
+//  from ../qtdatavis3d/src/datavisualization/utils/scatterobjectbufferhelper.cpp, line 26, as _ZN25ScatterObjectBufferHelper8fullLoadEP24ScatterSeriesRenderCached
+inline void ScatterObjectBufferHelper::fullLoad(ScatterSeriesRenderCache *cache, qreal dotScale)
+{
+    m_indexCount = 0;
+
+    ObjectHelper *dotObj = cache->object();
+    const ScatterRenderItemArray &renderArray = cache->renderArray();
+    const uint renderArraySize = renderArray.size();
+
+    if (renderArraySize == 0)
+        return;  // No use to go forward
+
+    uint itemCount = 0;
+    QQuaternion seriesRotation(cache->meshRotation());
+
+    if (m_meshDataLoaded) {
+        // Delete old data
+        glDeleteBuffers(1, &m_vertexbuffer);
+        glDeleteBuffers(1, &m_uvbuffer);
+        glDeleteBuffers(1, &m_normalbuffer);
+        glDeleteBuffers(1, &m_elementbuffer);
+        m_vertexbuffer = 0;
+        m_uvbuffer = 0;
+        m_normalbuffer = 0;
+        m_elementbuffer = 0;
+        m_meshDataLoaded = false;
+    }
+
+    // Index vertices
+    const QList<GLuint> indices = dotObj->indices();
+    const QList<QVector3D> indexed_vertices = dotObj->indexedvertices();
+    const QList<QVector2D> indexed_uvs = dotObj->indexedUVs();
+    const QList<QVector3D> indexed_normals = dotObj->indexedNormals();
+    const int indicesCount = indices.size();
+    const int verticeCount = indexed_vertices.size();
+    const int uvsCount = indexed_uvs.size();
+    const int normalsCount = indexed_normals.size();
+
+    float itemSize = cache->itemSize() / itemScaler;
+    if (itemSize == 0.0f)
+        itemSize = dotScale;
+    QVector3D modelScaler(itemSize, itemSize, itemSize);
+    QMatrix4x4 modelMatrix;
+    if (!seriesRotation.isIdentity()) {
+        QMatrix4x4 matrix;
+        matrix.rotate(seriesRotation);
+        modelMatrix = matrix.transposed();
+    }
+    modelMatrix.scale(modelScaler);
+
+    QList<QVector3D> scaled_vertices;
+    scaled_vertices.resize(verticeCount);
+    for (int i = 0; i < verticeCount; i++)
+        scaled_vertices[i] = (QVector4D(indexed_vertices[i]) * modelMatrix).toVector3D();
+
+    QList<GLuint> buffered_indices;
+    QList<QVector3D> buffered_vertices;
+    QList<QVector2D> buffered_uvs;
+    QList<QVector3D> buffered_normals;
+
+    buffered_indices.resize(indicesCount * renderArraySize);
+    buffered_vertices.resize(verticeCount * renderArraySize);
+    buffered_normals.resize(normalsCount * renderArraySize);
+    buffered_uvs.resize(uvsCount * renderArraySize);
+
+    if (cache->colorStyle() == Q3DTheme::ColorStyleRangeGradient)
+        createRangeGradientUVs(cache, buffered_uvs);
+    else if (cache->colorStyle() == Q3DTheme::ColorStyleObjectGradient)
+        createObjectGradientUVs(cache, buffered_uvs, indexed_vertices);
+
+    QVector2D dummyUV(0.0f, 0.0f);
+
+    cache->bufferIndices().resize(renderArraySize);
+
+    for (uint i = 0; i < renderArraySize; i++) {
+        const ScatterRenderItem &item = renderArray.at(i);
+        if (!item.isVisible())
+            continue;
+        else
+            cache->bufferIndices()[i] = itemCount;
+
+        int offset = itemCount * verticeCount;
+        if (item.rotation().isIdentity()) {
+            for (int j = 0; j < verticeCount; j++) {
+                buffered_vertices[j + offset] = scaled_vertices[j] + item.translation();
+                buffered_normals[j + offset] = indexed_normals[j];
+            }
+        } else {
+            QMatrix4x4 matrix;
+            QQuaternion totalRotation = seriesRotation * item.rotation();
+            matrix.rotate(totalRotation);
+            matrix.scale(modelScaler);
+            QMatrix4x4 itModelMatrix = matrix.inverted();
+            modelMatrix = matrix.transposed(); // Because of row-column major difference
+
+            for (int j = 0; j < verticeCount; j++) {
+                buffered_vertices[j + offset]
+                        = (QVector4D(indexed_vertices[j]) * modelMatrix).toVector3D()
+                        + item.translation();
+                buffered_normals[j + offset]
+                        = (QVector4D(indexed_normals[j]) * itModelMatrix).toVector3D();
+            }
+        }
+
+        if (cache->colorStyle() == Q3DTheme::ColorStyleUniform) {
+            offset = itemCount * uvsCount;
+            for (int j = 0; j < uvsCount; j++)
+                buffered_uvs[j + offset] = dummyUV;
+        }
+
+        int offsetVertice = itemCount * verticeCount;
+        offset = itemCount * indicesCount;
+        for (int j = 0; j < indicesCount; j++)
+            buffered_indices[j + offset] = GLuint(indices[j] + offsetVertice);
+
+        itemCount++;
+    }
+
+    m_indexCount = indicesCount * itemCount;
+
+    if (itemCount > 0) {
+        glGenBuffers(1, &m_vertexbuffer);
+        glBindBuffer(GL_ARRAY_BUFFER, m_vertexbuffer);
+        glBufferData(GL_ARRAY_BUFFER, verticeCount * itemCount * sizeof(QVector3D),
+                     &buffered_vertices.at(0),
+                     GL_STATIC_DRAW);
+
+        glGenBuffers(1, &m_normalbuffer);
+        glBindBuffer(GL_ARRAY_BUFFER, m_normalbuffer);
+        glBufferData(GL_ARRAY_BUFFER, normalsCount * itemCount * sizeof(QVector3D),
+                     &buffered_normals.at(0),
+                     GL_STATIC_DRAW);
+
+        glGenBuffers(1, &m_uvbuffer);
+        glBindBuffer(GL_ARRAY_BUFFER, m_uvbuffer);
+        glBufferData(GL_ARRAY_BUFFER, uvsCount * itemCount * sizeof(QVector2D),
+                     &buffered_uvs.at(0), GL_STATIC_DRAW);
+
+        glGenBuffers(1, &m_elementbuffer);
+        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_elementbuffer);
+        glBufferData(GL_ELEMENT_ARRAY_BUFFER, indicesCount * itemCount * sizeof(GLint),
+                     &buffered_indices.at(0), GL_STATIC_DRAW);
+
+        glBindBuffer(GL_ARRAY_BUFFER, 0);
+        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+
+        m_meshDataLoaded = true;
+    }
+}
+
+//  from ../qtdatavis3d/src/datavisualization/utils/scatterobjectbufferhelper.cpp, line 286, as _ZN25ScatterObjectBufferHelper6updateEP24ScatterSeriesRenderCached
+inline void ScatterObjectBufferHelper::update(ScatterSeriesRenderCache *cache, qreal dotScale)
+{
+    ObjectHelper *dotObj = cache->object();
+    const ScatterRenderItemArray &renderArray = cache->renderArray();
+    const bool updateAll = (cache->updateIndices().size() == 0);
+    const int updateSize = updateAll ? renderArray.size() : cache->updateIndices().size();
+    QQuaternion seriesRotation(cache->meshRotation());
+
+    if (!updateSize)
+        return;
+
+    // Index vertices
+    const QList<QVector3D> indexed_vertices = dotObj->indexedvertices();
+    int verticeCount = indexed_vertices.size();
+
+    float itemSize = cache->itemSize() / itemScaler;
+    if (itemSize == 0.0f)
+        itemSize = dotScale;
+    QVector3D modelScaler(itemSize, itemSize, itemSize);
+    QMatrix4x4 modelMatrix;
+    if (!seriesRotation.isIdentity()) {
+        QMatrix4x4 matrix;
+        matrix.rotate(seriesRotation);
+        modelMatrix = matrix.transposed();
+    }
+    modelMatrix.scale(modelScaler);
+
+    QList<QVector3D> scaled_vertices;
+    scaled_vertices.resize(verticeCount);
+    for (int i = 0; i < verticeCount; i++)
+        scaled_vertices[i] = (QVector4D(indexed_vertices[i]) * modelMatrix).toVector3D();
+
+    QList<QVector3D> buffered_vertices;
+    buffered_vertices.resize(verticeCount * updateSize);
+
+    int itemCount = 0;
+    for (int i = 0; i < updateSize; i++) {
+        int index = updateAll ? i : cache->updateIndices().at(i);
+        const ScatterRenderItem &item = renderArray.at(index);
+        if (!item.isVisible())
+            continue;
+
+        const int offset = itemCount * verticeCount;
+        if (item.rotation().isIdentity()) {
+            for (int j = 0; j < verticeCount; j++)
+                buffered_vertices[j + offset] = scaled_vertices[j] + item.translation();
+        } else {
+            QMatrix4x4 matrix;
+            matrix.rotate(seriesRotation * item.rotation());
+            modelMatrix = matrix.transposed();
+            modelMatrix.scale(modelScaler);
+
+            for (int j = 0; j < verticeCount; j++) {
+                buffered_vertices[j + offset]
+                        = (QVector4D(indexed_vertices[j]) * modelMatrix).toVector3D()
+                        + item.translation();
+            }
+        }
+        itemCount++;
+    }
+
+    glBindBuffer(GL_ARRAY_BUFFER, m_vertexbuffer);
+    int sizeOfItem = verticeCount * sizeof(QVector3D);
+    if (updateAll) {
+        if (itemCount) {
+            glBufferData(GL_ARRAY_BUFFER, itemCount * sizeOfItem,
+                         &buffered_vertices.at(0), GL_STATIC_DRAW);
+        }
+    } else {
+        itemCount = 0;
+        for (int i = 0; i < updateSize; i++) {
+            int index = updateAll ? i : cache->updateIndices().at(i);
+            if (renderArray.at(index).isVisible()) {
+                glBufferSubData(GL_ARRAY_BUFFER, cache->bufferIndices().at(index) * sizeOfItem,
+                                sizeOfItem, &buffered_vertices.at(itemCount * verticeCount));
+                itemCount++;
+            }
+        }
+    }
+    glBindBuffer(GL_ARRAY_BUFFER, 0);
+
+    m_meshDataLoaded = true;
 }
 
 //  from ../qtdatavis3d/src/datavisualization/utils/scatterobjectbufferhelper.cpp, line 175, as _ZN25ScatterObjectBufferHelper9updateUVsEP24ScatterSeriesRenderCache
@@ -196,11 +456,37 @@ public:
   }
 };
 
+//  ScatterObjectBufferHelper::ScatterObjectBufferHelper()
+extern "C" Q_DECL_EXPORT
+ScatterObjectBufferHelper *ritual_ZN25ScatterObjectBufferHelperC1Ev() {
+  return new CuteScatterObjectBufferHelper();
+}
+
 //  ScatterObjectBufferHelper::~ScatterObjectBufferHelper()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN25ScatterObjectBufferHelperD1Ev(
     ScatterObjectBufferHelper *self) {
   delete self;
+}
+
+//  void ScatterObjectBufferHelper::fullLoad(ScatterSeriesRenderCache *cache,
+//      qreal dotScale)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25ScatterObjectBufferHelper8fullLoadEP24ScatterSeriesRenderCached(
+    ScatterObjectBufferHelper *self,
+    ScatterSeriesRenderCache *cache,
+    qreal dotScale) {
+  self->fullLoad(cache, dotScale);
+}
+
+//  void ScatterObjectBufferHelper::update(ScatterSeriesRenderCache *cache,
+//      qreal dotScale)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25ScatterObjectBufferHelper6updateEP24ScatterSeriesRenderCached(
+    ScatterObjectBufferHelper *self,
+    ScatterSeriesRenderCache *cache,
+    qreal dotScale) {
+  self->update(cache, dotScale);
 }
 
 //  void ScatterObjectBufferHelper::updateUVs(ScatterSeriesRenderCache

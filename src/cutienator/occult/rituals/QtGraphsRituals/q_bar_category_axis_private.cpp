@@ -117,6 +117,24 @@ inline const QLoggingCategory &lcAxis2D()
     return category;
 }
 
+//  from ../qtgraphs/src/graphs2d/axis/qabstractaxis.cpp, line 699, as _ZN20QAbstractAxisPrivateD1Ev
+inline QAbstractAxisPrivate::~QAbstractAxisPrivate()
+{
+    Q_Q(QAbstractAxis);
+    if (m_graph)
+        m_graph->removeAxis(q, true);
+}
+
+//  from ../qtgraphs/src/graphs2d/axis/barcategoryaxis/qbarcategoryaxis.cpp, line 494, as _ZN23QBarCategoryAxisPrivateC1Ev
+inline QBarCategoryAxisPrivate::QBarCategoryAxisPrivate()
+    : m_min(0.0)
+    , m_max(0.0)
+    , m_count(0)
+    , m_labelPosition(QBarCategoryAxis::LabelPosition::Center)
+{
+
+}
+
 //  from ../qtgraphs/src/graphs2d/axis/barcategoryaxis/qbarcategoryaxis.cpp, line 577, as _ZN23QBarCategoryAxisPrivate8setRangeERK7QStringS2_
 inline void  QBarCategoryAxisPrivate::setRange(const QString &minCategory, const QString &maxCategory)
 {
@@ -273,6 +291,12 @@ public:
     QBarCategoryAxisPrivate::setRange(min, max);
   }
 };
+
+//  QBarCategoryAxisPrivate::QBarCategoryAxisPrivate()
+extern "C" Q_DECL_EXPORT
+QBarCategoryAxisPrivate *ritual_ZN23QBarCategoryAxisPrivateC1Ev() {
+  return new CuteQBarCategoryAxisPrivate();
+}
 
 //  QBarCategoryAxisPrivate::~QBarCategoryAxisPrivate()
 extern "C" Q_DECL_EXPORT

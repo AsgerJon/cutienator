@@ -1,6 +1,12 @@
 //  Written by dev_tooling.RitualGenerator from the records of QtDataVisualiz
 //  ation/6.12.0/QtDataVisualization/private/abstract3drenderer_p.h, Qt
-//  6.12.0. Changes made here are lost.
+//  6.12.0.
+//  Edited by hand on 2026-11-26: added are 1 rituals that lean on what moc
+//  writes for a class of the part Qt keeps to itself, whose ritual file
+//  carries moc's output, drafted by a copy of the generator that lets those
+//  names through. A copy of a meta-object is a second one: 'qobject_cast'
+//  between it and Qt's own does not match. Kept as it is when the generator
+//  runs again.
 #include <QtDataVisualization/6.12.0/QtDataVisualization/private/datavisualizationglobal_p.h>
 #include <QtDataVisualization/QtDataVisualization>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -15,6 +21,19 @@
 #include <QtCore/qlist.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtDataVisualization/private/abstract3drenderer_p.h>
+#include <QtDataVisualization/private/texturehelper_p.h>
+#include <QtDataVisualization/private/q3dcamera_p.h>
+#include <QtDataVisualization/private/q3dtheme_p.h>
+#include <QtDataVisualization/private/qvalue3daxisformatter_p.h>
+#include <QtDataVisualization/private/shaderhelper_p.h>
+#include <QtDataVisualization/private/qcustom3ditem_p.h>
+#include <QtDataVisualization/private/qcustom3dlabel_p.h>
+#include <QtDataVisualization/private/qcustom3dvolume_p.h>
+#include <QtDataVisualization/private/scatter3drenderer_p.h>
+#include <QtCore/qmath.h>
+#include <QtGui/QOffscreenSurface>
+#include <QtCore/QThread>
 #include <QtDataVisualization/private/texturehelper_p.h>
 #include <QtDataVisualization/private/utils_p.h>
 #include <QtGui/QImage>
@@ -40,23 +59,17 @@
 #include <QtDataVisualization/private/utils_p.h>
 #include <QtCore/qmath.h>
 #include <QtDataVisualization/private/customrenderitem_p.h>
-#include <QtDataVisualization/private/abstract3drenderer_p.h>
-#include <QtDataVisualization/private/texturehelper_p.h>
-#include <QtDataVisualization/private/q3dcamera_p.h>
-#include <QtDataVisualization/private/q3dtheme_p.h>
-#include <QtDataVisualization/private/qvalue3daxisformatter_p.h>
-#include <QtDataVisualization/private/shaderhelper_p.h>
-#include <QtDataVisualization/private/qcustom3ditem_p.h>
-#include <QtDataVisualization/private/qcustom3dlabel_p.h>
-#include <QtDataVisualization/private/qcustom3dvolume_p.h>
-#include <QtDataVisualization/private/scatter3drenderer_p.h>
-#include <QtCore/qmath.h>
-#include <QtGui/QOffscreenSurface>
-#include <QtCore/QThread>
+#include <QtDataVisualization/private/axisrendercache_p.h>
+#include <QtGui/QFontMetrics>
 #include <QtDataVisualization/private/seriesrendercache_p.h>
 #include <QtDataVisualization/private/abstract3drenderer_p.h>
 #include <QtDataVisualization/private/texturehelper_p.h>
 #include <QtDataVisualization/private/utils_p.h>
+#include <QtDataVisualization/private/qcustom3ditem_p.h>
+#include <QtDataVisualization/private/qcustom3dlabel_p.h>
+#include <QtDataVisualization/private/utils_p.h>
+#include <QtDataVisualization/private/qvalue3daxisformatter_p.h>
+#include <QtDataVisualization/private/qvalue3daxis_p.h>
 #include <QtDataVisualization/private/utils_p.h>
 #include <QtGui/QPainter>
 #include <QtGui/QOpenGLContext>
@@ -65,13 +78,6 @@
 #include <QtCore/QCoreApplication>
 #include <QtCore/QRegularExpression>
 #include <QtCore/QLocale>
-#include <QtDataVisualization/private/axisrendercache_p.h>
-#include <QtGui/QFontMetrics>
-#include <QtDataVisualization/private/qvalue3daxisformatter_p.h>
-#include <QtDataVisualization/private/qvalue3daxis_p.h>
-#include <QtDataVisualization/private/qcustom3ditem_p.h>
-#include <QtDataVisualization/private/qcustom3dlabel_p.h>
-#include <QtDataVisualization/private/utils_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -92,6 +98,867 @@ struct ObjectHelperRef {
 
 //  from ../qtdatavis3d/src/datavisualization/utils/utils.cpp, line 18, as local:utils.cpp:MIN_POWER
 #define MIN_POWER 2
+
+//  from ../qtdatavis3d/src/datavisualization/engine/abstract3drenderer.cpp, line 760, as _ZN18Abstract3DRenderer10cleanCacheEP17SeriesRenderCache
+inline void Abstract3DRenderer::cleanCache(SeriesRenderCache *cache)
+{
+    m_renderCacheList.remove(cache->series());
+    cache->cleanup(m_textureHelper);
+    delete cache;
+}
+
+//  from ../qtdatavis3d/src/datavisualization/engine/abstract3drenderer.cpp, line 518, as _ZN18Abstract3DRenderer11updatePolarEb
+inline void Abstract3DRenderer::updatePolar(bool enable)
+{
+    m_polarGraph = enable;
+    for (auto cache: m_renderCacheList)
+        cache->setDataDirty(true);
+}
+
+//  from ../qtdatavis3d/src/datavisualization/engine/abstract3drenderer.cpp, line 345, as _ZN18Abstract3DRenderer11updateSceneEP8Q3DScene
+inline void Abstract3DRenderer::updateScene(Q3DScene *scene)
+{
+    m_viewport = scene->d_ptr->glViewport();
+    m_secondarySubViewport = scene->d_ptr->glSecondarySubViewport();
+
+    if (m_primarySubViewport != scene->d_ptr->glPrimarySubViewport()) {
+        // Resize of primary subviewport means resizing shadow and selection buffers
+        m_primarySubViewport = scene->d_ptr->glPrimarySubViewport();
+        handleResize();
+    }
+
+    if (m_devicePixelRatio != scene->devicePixelRatio()) {
+        m_devicePixelRatio = scene->devicePixelRatio();
+        handleResize();
+    }
+
+    QPoint logicalPixelPosition = scene->selectionQueryPosition();
+    m_inputPosition = QPoint(logicalPixelPosition.x() * m_devicePixelRatio,
+                             logicalPixelPosition.y() * m_devicePixelRatio);
+
+    QPoint logicalGraphPosition = scene->graphPositionQuery();
+    m_graphPositionQuery = QPoint(logicalGraphPosition.x() * m_devicePixelRatio,
+                                  logicalGraphPosition.y() * m_devicePixelRatio);
+
+    // Synchronize the renderer scene to controller scene
+    scene->d_ptr->sync(*m_cachedScene->d_ptr);
+
+    updateCameraViewport();
+
+    if (Q3DScene::invalidSelectionPoint() == logicalPixelPosition) {
+        updateSelectionState(SelectNone);
+    } else {
+        if (scene->isSlicingActive()) {
+            if (scene->isPointInPrimarySubView(logicalPixelPosition))
+                updateSelectionState(SelectOnOverview);
+            else if (scene->isPointInSecondarySubView(logicalPixelPosition))
+                updateSelectionState(SelectOnSlice);
+            else
+                updateSelectionState(SelectNone);
+        } else {
+            updateSelectionState(SelectOnScene);
+        }
+    }
+
+    if (Q3DScene::invalidSelectionPoint() != logicalGraphPosition)
+        m_graphPositionQueryPending = true;
+
+    // Queue up another render when we have a query that needs resolving.
+    // This is needed because QtQuick scene graph can sometimes do a sync without following it up
+    // with a render.
+    if (m_graphPositionQueryPending || m_selectionState != SelectNone)
+        emit needRender();
+}
+
+//  from ../qtdatavis3d/src/datavisualization/engine/abstract3drenderer.cpp, line 336, as _ZN18Abstract3DRenderer11updateThemeEP8Q3DTheme
+inline void Abstract3DRenderer::updateTheme(Q3DTheme *theme)
+{
+    // Synchronize the controller theme with renderer
+    bool updateDrawer = theme->d_ptr->sync(*m_cachedTheme->d_ptr);
+
+    if (updateDrawer)
+        m_drawer->setTheme(m_cachedTheme);
+}
+
+//  from ../qtdatavis3d/src/datavisualization/engine/abstract3drenderer.cpp, line 542, as _ZN18Abstract3DRenderer12handleResizeEv
+inline void Abstract3DRenderer::handleResize()
+{
+    if (m_primarySubViewport.width() == 0 || m_primarySubViewport.height() == 0)
+        return;
+
+    // Recalculate zoom
+    calculateZoomLevel();
+
+    // Re-init selection buffer
+    initSelectionBuffer();
+
+    // Re-init depth buffer
+    updateDepthBuffer();
+
+    initCursorPositionBuffer();
+}
+
+//  from ../qtdatavis3d/src/datavisualization/engine/abstract3drenderer.cpp, line 530, as _ZN18Abstract3DRenderer12updateMarginEf
+inline void Abstract3DRenderer::updateMargin(float margin)
+{
+    m_requestedMargin = margin;
+}
+
+//  from ../qtdatavis3d/src/datavisualization/engine/abstract3drenderer.cpp, line 684, as _ZN18Abstract3DRenderer12updateSeriesERK5QListIP17QAbstract3DSeriesE
+inline void Abstract3DRenderer::updateSeries(const QList<QAbstract3DSeries *> &seriesList)
+{
+    for (auto cache: m_renderCacheList)
+        cache->setValid(false);
+
+    m_visibleSeriesCount = 0;
+    int seriesCount = seriesList.size();
+    for (int i = 0; i < seriesCount; i++) {
+        QAbstract3DSeries *series = seriesList.at(i);
+        SeriesRenderCache *cache = m_renderCacheList.value(series);
+        bool newSeries = false;
+        if (!cache) {
+            cache = createNewCache(series);
+            m_renderCacheList[series] = cache;
+            newSeries = true;
+        }
+        cache->setValid(true);
+        cache->populate(newSeries);
+        if (cache->isVisible())
+            m_visibleSeriesCount++;
+    }
+
+    // Remove non-valid objects from the cache list
+    for (auto cache: m_renderCacheList) {
+        if (!cache->isValid())
+            cleanCache(cache);
+    }
+}
+
+//  from ../qtdatavis3d/src/datavisualization/engine/abstract3drenderer.cpp, line 1129, as _ZN18Abstract3DRenderer13addCustomItemEP13QCustom3DItem
+inline CustomRenderItem *Abstract3DRenderer::addCustomItem(QCustom3DItem *item)
+{
+    CustomRenderItem *newItem = new CustomRenderItem();
+    newItem->setRenderer(this);
+    newItem->setItemPointer(item); // Store pointer for render item updates
+    if (!newItem->setMesh(item->meshFile())) {
+        delete newItem;
+        return nullptr;
+    }
+    newItem->setOrigPosition(item->position());
+    newItem->setOrigScaling(item->scaling());
+    newItem->setScalingAbsolute(item->isScalingAbsolute());
+    newItem->setPositionAbsolute(item->isPositionAbsolute());
+    QImage textureImage = item->d_ptr->textureImage();
+    bool facingCamera = false;
+    GLuint texture = 0;
+    if (item->d_ptr->m_isLabelItem) {
+        QCustom3DLabel *labelItem = static_cast<QCustom3DLabel *>(item);
+        newItem->setLabelItem(true);
+        float pointSize = labelItem->font().pointSizeF();
+        // Check do we have custom visuals or need to use theme
+        if (!labelItem->dptr()->m_customVisuals) {
+            // Recreate texture using theme
+            labelItem->dptr()->createTextureImage(m_cachedTheme->labelBackgroundColor(),
+                                                  m_cachedTheme->labelTextColor(),
+                                                  m_cachedTheme->isLabelBackgroundEnabled(),
+                                                  m_cachedTheme->isLabelBorderEnabled());
+            pointSize = m_cachedTheme->font().pointSizeF();
+            textureImage = item->d_ptr->textureImage();
+        }
+        // Calculate scaling based on text (texture size), font size and asked scaling
+        float scaledFontSize = (0.05f + pointSize / 500.0f) / float(textureImage.height());
+        QVector3D scaling = newItem->origScaling();
+        scaling.setX(scaling.x() * textureImage.width() * scaledFontSize);
+        scaling.setY(scaling.y() * textureImage.height() * scaledFontSize);
+        newItem->setOrigScaling(scaling);
+        // Check if facing camera
+        facingCamera = labelItem->isFacingCamera();
+    } else if (item->d_ptr->m_isVolumeItem && !m_isOpenGLES) {
+        QCustom3DVolume *volumeItem = static_cast<QCustom3DVolume *>(item);
+        newItem->setTextureWidth(volumeItem->textureWidth());
+        newItem->setTextureHeight(volumeItem->textureHeight());
+        newItem->setTextureDepth(volumeItem->textureDepth());
+        if (volumeItem->textureFormat() == QImage::Format_Indexed8)
+            newItem->setColorTable(volumeItem->colorTable());
+        newItem->setTextureFormat(volumeItem->textureFormat());
+        newItem->setVolume(true);
+        newItem->setBlendNeeded(true);
+        texture = m_textureHelper->create3DTexture(volumeItem->textureData(),
+                                                   volumeItem->textureWidth(),
+                                                   volumeItem->textureHeight(),
+                                                   volumeItem->textureDepth(),
+                                                   volumeItem->textureFormat());
+        newItem->setSliceIndexX(volumeItem->sliceIndexX());
+        newItem->setSliceIndexY(volumeItem->sliceIndexY());
+        newItem->setSliceIndexZ(volumeItem->sliceIndexZ());
+        newItem->setAlphaMultiplier(volumeItem->alphaMultiplier());
+        newItem->setPreserveOpacity(volumeItem->preserveOpacity());
+        newItem->setUseHighDefShader(volumeItem->useHighDefShader());
+
+        newItem->setDrawSlices(volumeItem->drawSlices());
+        newItem->setDrawSliceFrames(volumeItem->drawSliceFrames());
+        newItem->setSliceFrameColor(volumeItem->sliceFrameColor());
+        newItem->setSliceFrameWidths(volumeItem->sliceFrameWidths());
+        newItem->setSliceFrameGaps(volumeItem->sliceFrameGaps());
+        newItem->setSliceFrameThicknesses(volumeItem->sliceFrameThicknesses());
+    }
+    recalculateCustomItemScalingAndPos(newItem);
+    newItem->setRotation(item->rotation());
+
+    // In OpenGL ES we simply draw volumes as regular custom item placeholders.
+    if (!item->d_ptr->m_isVolumeItem || m_isOpenGLES)
+    {
+        newItem->setBlendNeeded(textureImage.hasAlphaChannel());
+        texture = m_textureHelper->create2DTexture(textureImage, true, true, true);
+    }
+    newItem->setTexture(texture);
+    item->d_ptr->clearTextureImage();
+    newItem->setVisible(item->isVisible());
+    newItem->setShadowCasting(item->isShadowCasting());
+    newItem->setFacingCamera(facingCamera);
+    m_customRenderCache.insert(item, newItem);
+    return newItem;
+}
+
+//  from ../qtdatavis3d/src/datavisualization/engine/abstract3drenderer.cpp, line 177, as _ZN18Abstract3DRenderer14contextCleanupEv
+inline void Abstract3DRenderer::contextCleanup()
+{
+    if (QOpenGLContext::currentContext())
+        m_textureHelper->glDeleteFramebuffers(1, &m_cursorPositionFrameBuffer);
+}
+
+//  from ../qtdatavis3d/src/datavisualization/engine/abstract3drenderer.cpp, line 755, as _ZN18Abstract3DRenderer14createNewCacheEP17QAbstract3DSeries
+inline SeriesRenderCache *Abstract3DRenderer::createNewCache(QAbstract3DSeries *series)
+{
+    return new SeriesRenderCache(series, this);
+}
+
+//  from ../qtdatavis3d/src/datavisualization/engine/abstract3drenderer.cpp, line 571, as _ZN18Abstract3DRenderer14updateAxisTypeEN15QAbstract3DAxis15AxisOrientationENS0_8AxisTypeE
+inline void Abstract3DRenderer::updateAxisType(QAbstract3DAxis::AxisOrientation orientation,
+                                        QAbstract3DAxis::AxisType type)
+{
+    axisCacheForOrientation(orientation).setType(type);
+}
+
+//  from ../qtdatavis3d/src/datavisualization/engine/abstract3drenderer.cpp, line 399, as _ZN18Abstract3DRenderer14updateTexturesEv
+inline void Abstract3DRenderer::updateTextures()
+{
+    m_axisCacheX.updateTextures();
+    m_axisCacheY.updateTextures();
+    m_axisCacheZ.updateTextures();
+}
+
+//  from ../qtdatavis3d/src/datavisualization/engine/abstract3drenderer.cpp, line 677, as _ZN18Abstract3DRenderer15fixMeshFileNameER7QStringN17QAbstract3DSeries4MeshE
+inline void Abstract3DRenderer::fixMeshFileName(QString &fileName, QAbstract3DSeries::Mesh mesh)
+{
+    // Default implementation does nothing.
+    Q_UNUSED(fileName);
+    Q_UNUSED(mesh);
+}
+
+//  from ../qtdatavis3d/src/datavisualization/engine/abstract3drenderer.cpp, line 589, as _ZN18Abstract3DRenderer15updateAxisRangeEN15QAbstract3DAxis15AxisOrientationEff
+inline void Abstract3DRenderer::updateAxisRange(QAbstract3DAxis::AxisOrientation orientation,
+                                         float min, float max)
+{
+    AxisRenderCache &cache = axisCacheForOrientation(orientation);
+    cache.setMin(min);
+    cache.setMax(max);
+
+    for (auto cache: m_renderCacheList)
+        cache->setDataDirty(true);
+}
+
+//  from ../qtdatavis3d/src/datavisualization/engine/abstract3drenderer.cpp, line 577, as _ZN18Abstract3DRenderer15updateAxisTitleEN15QAbstract3DAxis15AxisOrientationERK7QString
+inline void Abstract3DRenderer::updateAxisTitle(QAbstract3DAxis::AxisOrientation orientation,
+                                         const QString &title)
+{
+    axisCacheForOrientation(orientation).setTitle(title);
+}
+
+//  from ../qtdatavis3d/src/datavisualization/engine/abstract3drenderer.cpp, line 306, as _ZN18Abstract3DRenderer16initLabelShadersERK7QStringS2_
+inline void Abstract3DRenderer::initLabelShaders(const QString &vertexShader, const QString &fragmentShader)
+{
+    delete m_labelShader;
+    m_labelShader = new ShaderHelper(this, vertexShader, fragmentShader);
+    m_labelShader->initialize();
+}
+
+//  from ../qtdatavis3d/src/datavisualization/engine/abstract3drenderer.cpp, line 183, as _ZN18Abstract3DRenderer16initializeOpenGLEv
+inline void Abstract3DRenderer::initializeOpenGL()
+{
+    m_context = QOpenGLContext::currentContext();
+
+    // Set OpenGL features
+    glEnable(GL_DEPTH_TEST);
+    glDepthFunc(GL_LESS);
+    glEnable(GL_CULL_FACE);
+    glCullFace(GL_BACK);
+
+#if !QT_CONFIG(opengles2)
+    if (!m_isOpenGLES) {
+        glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
+        glHint(GL_LINE_SMOOTH_HINT, GL_NICEST);
+        glHint(GL_POLYGON_SMOOTH_HINT, GL_NICEST);
+    }
+#endif
+
+    m_textureHelper = new TextureHelper();
+    m_drawer->initializeOpenGL();
+
+    axisCacheForOrientation(QAbstract3DAxis::AxisOrientationX).setDrawer(m_drawer);
+    axisCacheForOrientation(QAbstract3DAxis::AxisOrientationY).setDrawer(m_drawer);
+    axisCacheForOrientation(QAbstract3DAxis::AxisOrientationZ).setDrawer(m_drawer);
+
+    initLabelShaders(QStringLiteral(":/shaders/vertexLabel"),
+                     QStringLiteral(":/shaders/fragmentLabel"));
+
+    initCursorPositionShaders(QStringLiteral(":/shaders/vertexPosition"),
+                              QStringLiteral(":/shaders/fragmentPositionMap"));
+
+    loadLabelMesh();
+    loadPositionMapperMesh();
+
+    QObject::connect(m_context.data(), &QOpenGLContext::aboutToBeDestroyed,
+                     this, &Abstract3DRenderer::contextCleanup);
+}
+
+//  from ../qtdatavis3d/src/datavisualization/engine/abstract3drenderer.cpp, line 583, as _ZN18Abstract3DRenderer16updateAxisLabelsEN15QAbstract3DAxis15AxisOrientationERK5QListI7QStringE
+inline void Abstract3DRenderer::updateAxisLabels(QAbstract3DAxis::AxisOrientation orientation,
+                                          const QStringList &labels)
+{
+    axisCacheForOrientation(orientation).setLabels(labels);
+}
+
+//  from ../qtdatavis3d/src/datavisualization/engine/abstract3drenderer.cpp, line 713, as _ZN18Abstract3DRenderer16updateCustomDataERK5QListIP13QCustom3DItemE
+inline void Abstract3DRenderer::updateCustomData(const QList<QCustom3DItem *> &customItems)
+{
+    if (customItems.isEmpty() && m_customRenderCache.isEmpty())
+        return;
+
+    for (auto item: m_customRenderCache)
+        item->setValid(false);
+
+    int itemCount = customItems.size();
+    // Check custom item list for items that are not yet in render item cache
+    for (int i = 0; i < itemCount; i++) {
+        QCustom3DItem *item = customItems.at(i);
+        CustomRenderItem *renderItem = m_customRenderCache.value(item);
+        if (!renderItem)
+            renderItem = addCustomItem(item);
+        if (renderItem) {
+            renderItem->setValid(true);
+            renderItem->setIndex(i); // always update index, as it must match the custom item index
+        }
+    }
+
+    // Check render item cache and remove items that are not in customItems list anymore
+    for (auto renderItem: m_customRenderCache) {
+        if (!renderItem->isValid()) {
+            m_customRenderCache.remove(renderItem->itemPointer());
+            GLuint texture = renderItem->texture();
+            m_textureHelper->deleteTexture(&texture);
+            delete renderItem;
+        }
+    }
+
+    m_customItemDrawOrder.clear();
+    m_customItemDrawOrder = QList<QCustom3DItem *>(customItems);
+}
+
+//  from ../qtdatavis3d/src/datavisualization/engine/abstract3drenderer.cpp, line 1282, as _ZN18Abstract3DRenderer16updateCustomItemEP16CustomRenderItem
+inline void Abstract3DRenderer::updateCustomItem(CustomRenderItem *renderItem)
+{
+    QCustom3DItem *item = renderItem->itemPointer();
+    if (item->d_ptr->m_dirtyBits.meshDirty) {
+        renderItem->setMesh(item->meshFile());
+        item->d_ptr->m_dirtyBits.meshDirty = false;
+    }
+    if (item->d_ptr->m_dirtyBits.positionDirty) {
+        renderItem->setOrigPosition(item->position());
+        renderItem->setPositionAbsolute(item->isPositionAbsolute());
+        if (!item->d_ptr->m_dirtyBits.scalingDirty)
+            recalculateCustomItemScalingAndPos(renderItem);
+        item->d_ptr->m_dirtyBits.positionDirty = false;
+    }
+    if (item->d_ptr->m_dirtyBits.scalingDirty) {
+        QVector3D scaling = item->scaling();
+        renderItem->setOrigScaling(scaling);
+        renderItem->setScalingAbsolute(item->isScalingAbsolute());
+        // In case we have label item, we need to recreate texture for scaling adjustment
+        if (item->d_ptr->m_isLabelItem) {
+            QCustom3DLabel *labelItem = static_cast<QCustom3DLabel *>(item);
+            float pointSize = labelItem->font().pointSizeF();
+            // Check do we have custom visuals or need to use theme
+            if (labelItem->dptr()->m_customVisuals) {
+                // Recreate texture
+                labelItem->dptr()->createTextureImage();
+            } else {
+                // Recreate texture using theme
+                labelItem->dptr()->createTextureImage(m_cachedTheme->labelBackgroundColor(),
+                                                      m_cachedTheme->labelTextColor(),
+                                                      m_cachedTheme->isLabelBackgroundEnabled(),
+                                                      m_cachedTheme->isLabelBorderEnabled());
+                pointSize = m_cachedTheme->font().pointSizeF();
+            }
+            QImage textureImage = item->d_ptr->textureImage();
+            // Calculate scaling based on text (texture size), font size and asked scaling
+            float scaledFontSize = (0.05f + pointSize / 500.0f) / float(textureImage.height());
+            scaling.setX(scaling.x() * textureImage.width() * scaledFontSize);
+            scaling.setY(scaling.y() * textureImage.height() * scaledFontSize);
+            item->d_ptr->clearTextureImage();
+            renderItem->setOrigScaling(scaling);
+        }
+        recalculateCustomItemScalingAndPos(renderItem);
+        item->d_ptr->m_dirtyBits.scalingDirty = false;
+    }
+    if (item->d_ptr->m_dirtyBits.rotationDirty) {
+        renderItem->setRotation(item->rotation());
+        item->d_ptr->m_dirtyBits.rotationDirty = false;
+    }
+    if (item->d_ptr->m_dirtyBits.textureDirty) {
+        QImage textureImage = item->d_ptr->textureImage();
+        if (item->d_ptr->m_isLabelItem) {
+            QCustom3DLabel *labelItem = static_cast<QCustom3DLabel *>(item);
+            // Check do we have custom visuals or need to use theme
+            if (!labelItem->dptr()->m_customVisuals) {
+                // Recreate texture using theme
+                labelItem->dptr()->createTextureImage(m_cachedTheme->labelBackgroundColor(),
+                                                      m_cachedTheme->labelTextColor(),
+                                                      m_cachedTheme->isLabelBackgroundEnabled(),
+                                                      m_cachedTheme->isLabelBorderEnabled());
+                textureImage = item->d_ptr->textureImage();
+            }
+        } else if (!item->d_ptr->m_isVolumeItem || m_isOpenGLES) {
+            renderItem->setBlendNeeded(textureImage.hasAlphaChannel());
+            GLuint oldTexture = renderItem->texture();
+            m_textureHelper->deleteTexture(&oldTexture);
+            GLuint texture = m_textureHelper->create2DTexture(textureImage, true, true, true);
+            renderItem->setTexture(texture);
+        }
+        item->d_ptr->clearTextureImage();
+        item->d_ptr->m_dirtyBits.textureDirty = false;
+    }
+    if (item->d_ptr->m_dirtyBits.visibleDirty) {
+        renderItem->setVisible(item->isVisible());
+        item->d_ptr->m_dirtyBits.visibleDirty = false;
+    }
+    if (item->d_ptr->m_dirtyBits.shadowCastingDirty) {
+        renderItem->setShadowCasting(item->isShadowCasting());
+        item->d_ptr->m_dirtyBits.shadowCastingDirty = false;
+    }
+    if (item->d_ptr->m_isLabelItem) {
+        QCustom3DLabel *labelItem = static_cast<QCustom3DLabel *>(item);
+        if (labelItem->dptr()->m_facingCameraDirty) {
+            renderItem->setFacingCamera(labelItem->isFacingCamera());
+            labelItem->dptr()->m_facingCameraDirty = false;
+        }
+    } else if (item->d_ptr->m_isVolumeItem && !m_isOpenGLES) {
+        QCustom3DVolume *volumeItem = static_cast<QCustom3DVolume *>(item);
+        if (volumeItem->dptr()->m_dirtyBitsVolume.colorTableDirty) {
+            renderItem->setColorTable(volumeItem->colorTable());
+            volumeItem->dptr()->m_dirtyBitsVolume.colorTableDirty = false;
+        }
+        if (volumeItem->dptr()->m_dirtyBitsVolume.textureDimensionsDirty
+                || volumeItem->dptr()->m_dirtyBitsVolume.textureDataDirty
+                || volumeItem->dptr()->m_dirtyBitsVolume.textureFormatDirty) {
+            GLuint oldTexture = renderItem->texture();
+            m_textureHelper->deleteTexture(&oldTexture);
+            GLuint texture = m_textureHelper->create3DTexture(volumeItem->textureData(),
+                                                              volumeItem->textureWidth(),
+                                                              volumeItem->textureHeight(),
+                                                              volumeItem->textureDepth(),
+                                                              volumeItem->textureFormat());
+            renderItem->setTexture(texture);
+            renderItem->setTextureWidth(volumeItem->textureWidth());
+            renderItem->setTextureHeight(volumeItem->textureHeight());
+            renderItem->setTextureDepth(volumeItem->textureDepth());
+            renderItem->setTextureFormat(volumeItem->textureFormat());
+            volumeItem->dptr()->m_dirtyBitsVolume.textureDimensionsDirty = false;
+            volumeItem->dptr()->m_dirtyBitsVolume.textureDataDirty = false;
+            volumeItem->dptr()->m_dirtyBitsVolume.textureFormatDirty = false;
+        }
+        if (volumeItem->dptr()->m_dirtyBitsVolume.slicesDirty) {
+            renderItem->setDrawSlices(volumeItem->drawSlices());
+            renderItem->setDrawSliceFrames(volumeItem->drawSliceFrames());
+            renderItem->setSliceFrameColor(volumeItem->sliceFrameColor());
+            renderItem->setSliceFrameWidths(volumeItem->sliceFrameWidths());
+            renderItem->setSliceFrameGaps(volumeItem->sliceFrameGaps());
+            renderItem->setSliceFrameThicknesses(volumeItem->sliceFrameThicknesses());
+            renderItem->setSliceIndexX(volumeItem->sliceIndexX());
+            renderItem->setSliceIndexY(volumeItem->sliceIndexY());
+            renderItem->setSliceIndexZ(volumeItem->sliceIndexZ());
+            volumeItem->dptr()->m_dirtyBitsVolume.slicesDirty = false;
+        }
+        if (volumeItem->dptr()->m_dirtyBitsVolume.alphaDirty) {
+            renderItem->setAlphaMultiplier(volumeItem->alphaMultiplier());
+            renderItem->setPreserveOpacity(volumeItem->preserveOpacity());
+            volumeItem->dptr()->m_dirtyBitsVolume.alphaDirty = false;
+        }
+        if (volumeItem->dptr()->m_dirtyBitsVolume.shaderDirty) {
+            renderItem->setUseHighDefShader(volumeItem->useHighDefShader());
+            volumeItem->dptr()->m_dirtyBitsVolume.shaderDirty = false;
+        }
+    }
+}
+
+//  from ../qtdatavis3d/src/datavisualization/engine/abstract3drenderer.cpp, line 504, as _ZN18Abstract3DRenderer17updateAspectRatioEf
+inline void Abstract3DRenderer::updateAspectRatio(float ratio)
+{
+    m_graphAspectRatio = ratio;
+    for (auto cache: m_renderCacheList)
+        cache->setDataDirty(true);
+}
+
+//  from ../qtdatavis3d/src/datavisualization/engine/abstract3drenderer.cpp, line 748, as _ZN18Abstract3DRenderer17updateCustomItemsEv
+inline void Abstract3DRenderer::updateCustomItems()
+{
+    // Check all items
+    for (auto item: m_customRenderCache)
+        updateCustomItem(item);
+}
+
+//  from ../qtdatavis3d/src/datavisualization/engine/abstract3drenderer.cpp, line 783, as _ZN18Abstract3DRenderer18lowerShadowQualityEv
+inline void Abstract3DRenderer::lowerShadowQuality()
+{
+    QAbstract3DGraph::ShadowQuality newQuality = QAbstract3DGraph::ShadowQualityNone;
+
+    switch (m_cachedShadowQuality) {
+    case QAbstract3DGraph::ShadowQualityHigh:
+        qWarning("Creating high quality shadows failed. Changing to medium quality.");
+        newQuality = QAbstract3DGraph::ShadowQualityMedium;
+        break;
+    case QAbstract3DGraph::ShadowQualityMedium:
+        qWarning("Creating medium quality shadows failed. Changing to low quality.");
+        newQuality = QAbstract3DGraph::ShadowQualityLow;
+        break;
+    case QAbstract3DGraph::ShadowQualityLow:
+        qWarning("Creating low quality shadows failed. Switching shadows off.");
+        newQuality = QAbstract3DGraph::ShadowQualityNone;
+        break;
+    case QAbstract3DGraph::ShadowQualitySoftHigh:
+        qWarning("Creating soft high quality shadows failed. Changing to soft medium quality.");
+        newQuality = QAbstract3DGraph::ShadowQualitySoftMedium;
+        break;
+    case QAbstract3DGraph::ShadowQualitySoftMedium:
+        qWarning("Creating soft medium quality shadows failed. Changing to soft low quality.");
+        newQuality = QAbstract3DGraph::ShadowQualitySoftLow;
+        break;
+    case QAbstract3DGraph::ShadowQualitySoftLow:
+        qWarning("Creating soft low quality shadows failed. Switching shadows off.");
+        newQuality = QAbstract3DGraph::ShadowQualityNone;
+        break;
+    default:
+        // You'll never get here
+        break;
+    }
+
+    emit requestShadowQuality(newQuality);
+    updateShadowQuality(newQuality);
+}
+
+//  from ../qtdatavis3d/src/datavisualization/engine/abstract3drenderer.cpp, line 668, as _ZN18Abstract3DRenderer18modifiedSeriesListERK5QListIP17QAbstract3DSeriesE
+inline void Abstract3DRenderer::modifiedSeriesList(const QList<QAbstract3DSeries *> &seriesList)
+{
+    for (auto series: seriesList) {
+        SeriesRenderCache *cache = m_renderCacheList.value(series, 0);
+        if (cache)
+            cache->setDataDirty(true);
+    }
+}
+
+//  from ../qtdatavis3d/src/datavisualization/engine/abstract3drenderer.cpp, line 620, as _ZN18Abstract3DRenderer18updateAxisReversedEN15QAbstract3DAxis15AxisOrientationEb
+inline void Abstract3DRenderer::updateAxisReversed(QAbstract3DAxis::AxisOrientation orientation,
+                                            bool enable)
+{
+    axisCacheForOrientation(orientation).setReversed(enable);
+    for (auto cache: m_renderCacheList)
+        cache->setDataDirty(true);
+}
+
+//  from ../qtdatavis3d/src/datavisualization/engine/abstract3drenderer.cpp, line 253, as _ZN18Abstract3DRenderer19initGradientShadersERK7QStringS2_
+inline void Abstract3DRenderer::initGradientShaders(const QString &vertexShader,
+                                             const QString &fragmentShader)
+{
+    // Do nothing by default
+    Q_UNUSED(vertexShader);
+    Q_UNUSED(fragmentShader);
+}
+
+//  from ../qtdatavis3d/src/datavisualization/engine/abstract3drenderer.cpp, line 628, as _ZN18Abstract3DRenderer19updateAxisFormatterEN15QAbstract3DAxis15AxisOrientationEP21QValue3DAxisFormatter
+inline void Abstract3DRenderer::updateAxisFormatter(QAbstract3DAxis::AxisOrientation orientation,
+                                             QValue3DAxisFormatter *formatter)
+{
+    AxisRenderCache &cache = axisCacheForOrientation(orientation);
+    if (cache.ctrlFormatter() != formatter) {
+        delete cache.formatter();
+        cache.setFormatter(formatter->createNewInstance());
+        cache.setCtrlFormatter(formatter);
+    }
+    formatter->d_ptr->populateCopy(*(cache.formatter()));
+    cache.markPositionsDirty();
+
+    for (auto cache: m_renderCacheList)
+        cache->setDataDirty(true);
+}
+
+//  from ../qtdatavis3d/src/datavisualization/engine/abstract3drenderer.cpp, line 498, as _ZN18Abstract3DRenderer19updateSelectionModeE6QFlagsIN16QAbstract3DGraph13SelectionFlagEE
+inline void Abstract3DRenderer::updateSelectionMode(QAbstract3DGraph::SelectionFlags mode)
+{
+    m_cachedSelectionMode = mode;
+    m_selectionDirty = true;
+}
+
+//  from ../qtdatavis3d/src/datavisualization/engine/abstract3drenderer.cpp, line 660, as _ZN18Abstract3DRenderer20updateAxisTitleFixedEN15QAbstract3DAxis15AxisOrientationEb
+inline void Abstract3DRenderer::updateAxisTitleFixed(QAbstract3DAxis::AxisOrientation orientation,
+                                              bool fixed)
+{
+    AxisRenderCache &cache = axisCacheForOrientation(orientation);
+    if (cache.isTitleFixed() != fixed)
+        cache.setTitleFixed(fixed);
+}
+
+//  from ../qtdatavis3d/src/datavisualization/engine/abstract3drenderer.cpp, line 248, as _ZN18Abstract3DRenderer20updateSelectionStateENS_14SelectionStateE
+inline void Abstract3DRenderer::updateSelectionState(SelectionState state)
+{
+    m_selectionState = state;
+}
+
+//  from ../qtdatavis3d/src/datavisualization/engine/abstract3drenderer.cpp, line 273, as _ZN18Abstract3DRenderer21initCustomItemShadersERK7QStringS2_
+inline void Abstract3DRenderer::initCustomItemShaders(const QString &vertexShader,
+                                               const QString &fragmentShader)
+{
+    delete m_customItemShader;
+    m_customItemShader = new ShaderHelper(this, vertexShader, fragmentShader);
+    m_customItemShader->initialize();
+}
+
+//  from ../qtdatavis3d/src/datavisualization/engine/abstract3drenderer.cpp, line 614, as _ZN18Abstract3DRenderer21updateAxisLabelFormatEN15QAbstract3DAxis15AxisOrientationERK7QString
+inline void Abstract3DRenderer::updateAxisLabelFormat(QAbstract3DAxis::AxisOrientation orientation,
+                                               const QString &format)
+{
+    axisCacheForOrientation(orientation).setLabelFormat(format);
+}
+
+//  from ../qtdatavis3d/src/datavisualization/engine/abstract3drenderer.cpp, line 600, as _ZN18Abstract3DRenderer22updateAxisSegmentCountEN15QAbstract3DAxis15AxisOrientationEi
+inline void Abstract3DRenderer::updateAxisSegmentCount(QAbstract3DAxis::AxisOrientation orientation,
+                                                int count)
+{
+    AxisRenderCache &cache = axisCacheForOrientation(orientation);
+    cache.setSegmentCount(count);
+}
+
+//  from ../qtdatavis3d/src/datavisualization/engine/abstract3drenderer.cpp, line 535, as _ZN18Abstract3DRenderer22updateOptimizationHintE6QFlagsIN16QAbstract3DGraph16OptimizationHintEE
+inline void Abstract3DRenderer::updateOptimizationHint(QAbstract3DGraph::OptimizationHints hint)
+{
+    m_cachedOptimizationHint = hint;
+    for (auto cache: m_renderCacheList)
+        cache->setDataDirty(true);
+}
+
+//  from ../qtdatavis3d/src/datavisualization/engine/abstract3drenderer.cpp, line 525, as _ZN18Abstract3DRenderer23updateRadialLabelOffsetEf
+inline void Abstract3DRenderer::updateRadialLabelOffset(float offset)
+{
+    m_radialLabelOffset = offset;
+}
+
+//  from ../qtdatavis3d/src/datavisualization/engine/abstract3drenderer.cpp, line 322, as _ZN18Abstract3DRenderer24initCursorPositionBufferEv
+inline void Abstract3DRenderer::initCursorPositionBuffer()
+{
+    m_textureHelper->deleteTexture(&m_cursorPositionTexture);
+    m_textureHelper->glDeleteFramebuffers(1, &m_cursorPositionFrameBuffer);
+    m_cursorPositionFrameBuffer = 0;
+
+    if (m_primarySubViewport.size().isEmpty())
+        return;
+
+    m_cursorPositionTexture =
+            m_textureHelper->createCursorPositionTexture(m_primarySubViewport.size(),
+                                                         m_cursorPositionFrameBuffer);
+}
+
+//  from ../qtdatavis3d/src/datavisualization/engine/abstract3drenderer.cpp, line 281, as _ZN18Abstract3DRenderer24initVolumeTextureShadersERK7QStringS2_S2_S2_S2_S2_
+inline void Abstract3DRenderer::initVolumeTextureShaders(const QString &vertexShader,
+                                                  const QString &fragmentShader,
+                                                  const QString &fragmentLowDefShader,
+                                                  const QString &sliceShader,
+                                                  const QString &sliceFrameVertexShader,
+                                                  const QString &sliceFrameShader)
+{
+
+    delete m_volumeTextureShader;
+    m_volumeTextureShader = new ShaderHelper(this, vertexShader, fragmentShader);
+    m_volumeTextureShader->initialize();
+
+    delete m_volumeTextureLowDefShader;
+    m_volumeTextureLowDefShader = new ShaderHelper(this, vertexShader, fragmentLowDefShader);
+    m_volumeTextureLowDefShader->initialize();
+
+    delete m_volumeTextureSliceShader;
+    m_volumeTextureSliceShader = new ShaderHelper(this, vertexShader, sliceShader);
+    m_volumeTextureSliceShader->initialize();
+
+    delete m_volumeSliceFrameShader;
+    m_volumeSliceFrameShader = new ShaderHelper(this, sliceFrameVertexShader, sliceFrameShader);
+    m_volumeSliceFrameShader->initialize();
+}
+
+//  from ../qtdatavis3d/src/datavisualization/engine/abstract3drenderer.cpp, line 482, as _ZN18Abstract3DRenderer25handleShadowQualityChangeEv
+inline void Abstract3DRenderer::handleShadowQualityChange()
+{
+    reInitShaders();
+
+    if (m_cachedScene->activeLight()->isAutoPosition()
+            || m_cachedShadowQuality > QAbstract3DGraph::ShadowQualityNone) {
+        m_cachedScene->d_ptr->setLightPositionRelativeToCamera(defaultLightPos);
+        emit needRender();
+    }
+    if (m_isOpenGLES && m_cachedShadowQuality != QAbstract3DGraph::ShadowQualityNone) {
+        emit requestShadowQuality(QAbstract3DGraph::ShadowQualityNone);
+        qWarning("Shadows are not yet supported for OpenGL ES2");
+        m_cachedShadowQuality = QAbstract3DGraph::ShadowQualityNone;
+    }
+}
+
+//  from ../qtdatavis3d/src/datavisualization/engine/abstract3drenderer.cpp, line 313, as _ZN18Abstract3DRenderer25initCursorPositionShadersERK7QStringS2_
+inline void Abstract3DRenderer::initCursorPositionShaders(const QString &vertexShader,
+                                                   const QString &fragmentShader)
+{
+    // Init the shader
+    delete m_cursorPositionShader;
+    m_cursorPositionShader = new ShaderHelper(this, vertexShader, fragmentShader);
+    m_cursorPositionShader->initialize();
+}
+
+//  from ../qtdatavis3d/src/datavisualization/engine/abstract3drenderer.cpp, line 607, as _ZN18Abstract3DRenderer25updateAxisSubSegmentCountEN15QAbstract3DAxis15AxisOrientationEi
+inline void Abstract3DRenderer::updateAxisSubSegmentCount(QAbstract3DAxis::AxisOrientation orientation,
+                                                   int count)
+{
+    AxisRenderCache &cache = axisCacheForOrientation(orientation);
+    cache.setSubSegmentCount(count);
+}
+
+//  from ../qtdatavis3d/src/datavisualization/engine/abstract3drenderer.cpp, line 652, as _ZN18Abstract3DRenderer25updateAxisTitleVisibilityEN15QAbstract3DAxis15AxisOrientationEb
+inline void Abstract3DRenderer::updateAxisTitleVisibility(QAbstract3DAxis::AxisOrientation orientation,
+                                                   bool visible)
+{
+    AxisRenderCache &cache = axisCacheForOrientation(orientation);
+    if (cache.isTitleVisible() != visible)
+        cache.setTitleVisible(visible);
+}
+
+//  from ../qtdatavis3d/src/datavisualization/engine/abstract3drenderer.cpp, line 1417, as _ZN18Abstract3DRenderer25updateCustomItemPositionsEv
+inline void Abstract3DRenderer::updateCustomItemPositions()
+{
+    for (auto renderItem: m_customRenderCache)
+        recalculateCustomItemScalingAndPos(renderItem);
+}
+
+//  from ../qtdatavis3d/src/datavisualization/engine/abstract3drenderer.cpp, line 644, as _ZN18Abstract3DRenderer27updateAxisLabelAutoRotationEN15QAbstract3DAxis15AxisOrientationEf
+inline void Abstract3DRenderer::updateAxisLabelAutoRotation(QAbstract3DAxis::AxisOrientation orientation,
+                                                     float angle)
+{
+    AxisRenderCache &cache = axisCacheForOrientation(orientation);
+    if (cache.labelAutoRotation() != angle)
+        cache.setLabelAutoRotation(angle);
+}
+
+//  from ../qtdatavis3d/src/datavisualization/engine/abstract3drenderer.cpp, line 511, as _ZN18Abstract3DRenderer27updateHorizontalAspectRatioEf
+inline void Abstract3DRenderer::updateHorizontalAspectRatio(float ratio)
+{
+    m_graphHorizontalAspectRatio = ratio;
+    for (auto cache: m_renderCacheList)
+        cache->setDataDirty(true);
+}
+
+//  from ../qtdatavis3d/src/datavisualization/engine/abstract3drenderer.cpp, line 261, as _ZN18Abstract3DRenderer29initStaticSelectedItemShadersERK7QStringS2_S2_S2_
+inline void Abstract3DRenderer::initStaticSelectedItemShaders(const QString &vertexShader,
+                                                       const QString &fragmentShader,
+                                                       const QString &gradientVertexShader,
+                                                       const QString &gradientFragmentShader)
+{
+    // Do nothing by default
+    Q_UNUSED(vertexShader);
+    Q_UNUSED(fragmentShader);
+    Q_UNUSED(gradientVertexShader);
+    Q_UNUSED(gradientFragmentShader);
+}
+
+//  from ../qtdatavis3d/src/datavisualization/engine/abstract3drenderer.cpp, line 221, as _ZN18Abstract3DRenderer6renderEj
+inline void Abstract3DRenderer::render(const GLuint defaultFboHandle)
+{
+    if (defaultFboHandle) {
+        glDepthMask(true);
+        glEnable(GL_DEPTH_TEST);
+        glDepthFunc(GL_LESS);
+        glEnable(GL_CULL_FACE);
+        glCullFace(GL_BACK);
+        glDisable(GL_BLEND); // For QtQuick2 blending is enabled by default, but we don't want it to be
+    }
+
+    // Clear the graph background to the theme color
+    glViewport(m_viewport.x(),
+               m_viewport.y(),
+               m_viewport.width(),
+               m_viewport.height());
+    glScissor(m_viewport.x(),
+              m_viewport.y(),
+              m_viewport.width(),
+              m_viewport.height());
+    glEnable(GL_SCISSOR_TEST);
+    QVector4D clearColor = Utils::vectorFromColor(m_cachedTheme->windowColor());
+    glClearColor(clearColor.x(), clearColor.y(), clearColor.z(), 1.0f);
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
+    glDisable(GL_SCISSOR_TEST);
+}
+
+//  from ../qtdatavis3d/src/datavisualization/engine/abstract3drenderer.cpp, line 129, as _ZN18Abstract3DRendererD0Ev
+inline Abstract3DRenderer::~Abstract3DRenderer()
+{
+    contextCleanup();
+    delete m_drawer;
+    delete m_cachedScene;
+    delete m_cachedTheme;
+    delete m_selectionLabelItem;
+    delete m_customItemShader;
+    delete m_volumeTextureShader;
+    delete m_volumeTextureLowDefShader;
+    delete m_volumeSliceFrameShader;
+    delete m_volumeTextureSliceShader;
+    delete m_labelShader;
+    delete m_cursorPositionShader;
+
+    for (auto cache: m_renderCacheList) {
+        cache->cleanup(m_textureHelper);
+        delete cache;
+    }
+    m_renderCacheList.clear();
+
+    for (auto item: m_customRenderCache) {
+        GLuint texture = item->texture();
+        m_textureHelper->deleteTexture(&texture);
+        delete item;
+    }
+    m_customRenderCache.clear();
+
+    ObjectHelper::releaseObjectHelper(this, m_backgroundObj);
+    ObjectHelper::releaseObjectHelper(this, m_gridLineObj);
+    ObjectHelper::releaseObjectHelper(this, m_labelObj);
+    ObjectHelper::releaseObjectHelper(this, m_positionMapperObj);
+
+    if (m_textureHelper) {
+        m_textureHelper->deleteTexture(&m_depthTexture);
+        m_textureHelper->deleteTexture(&m_cursorPositionTexture);
+        delete m_textureHelper;
+    }
+
+    m_axisCacheX.clearLabels();
+    m_axisCacheY.clearLabels();
+    m_axisCacheZ.clearLabels();
+
+#if !QT_CONFIG(opengles2)
+    delete m_funcs_2_1;
+#endif
+}
 
 //  from ../qtdatavis3d/src/datavisualization/utils/texturehelper.cpp, line 325, as _ZN13TextureHelper13deleteTextureEPj
 inline void TextureHelper::deleteTexture(GLuint *texture)
@@ -388,827 +1255,6 @@ inline void CustomRenderItem::setMinBounds(const QVector3D &bounds)
     m_minBoundsNormal = 0.5f * (m_minBoundsNormal + oneVector);
 }
 
-//  from ../qtdatavis3d/src/datavisualization/engine/abstract3drenderer.cpp, line 748, as _ZN18Abstract3DRenderer17updateCustomItemsEv
-inline void Abstract3DRenderer::updateCustomItems()
-{
-    // Check all items
-    for (auto item: m_customRenderCache)
-        updateCustomItem(item);
-}
-
-//  from ../qtdatavis3d/src/datavisualization/engine/abstract3drenderer.cpp, line 1417, as _ZN18Abstract3DRenderer25updateCustomItemPositionsEv
-inline void Abstract3DRenderer::updateCustomItemPositions()
-{
-    for (auto renderItem: m_customRenderCache)
-        recalculateCustomItemScalingAndPos(renderItem);
-}
-
-//  from ../qtdatavis3d/src/datavisualization/engine/abstract3drenderer.cpp, line 755, as _ZN18Abstract3DRenderer14createNewCacheEP17QAbstract3DSeries
-inline SeriesRenderCache *Abstract3DRenderer::createNewCache(QAbstract3DSeries *series)
-{
-    return new SeriesRenderCache(series, this);
-}
-
-//  from ../qtdatavis3d/src/datavisualization/engine/abstract3drenderer.cpp, line 760, as _ZN18Abstract3DRenderer10cleanCacheEP17SeriesRenderCache
-inline void Abstract3DRenderer::cleanCache(SeriesRenderCache *cache)
-{
-    m_renderCacheList.remove(cache->series());
-    cache->cleanup(m_textureHelper);
-    delete cache;
-}
-
-//  from ../qtdatavis3d/src/datavisualization/engine/abstract3drenderer.cpp, line 221, as _ZN18Abstract3DRenderer6renderEj
-inline void Abstract3DRenderer::render(const GLuint defaultFboHandle)
-{
-    if (defaultFboHandle) {
-        glDepthMask(true);
-        glEnable(GL_DEPTH_TEST);
-        glDepthFunc(GL_LESS);
-        glEnable(GL_CULL_FACE);
-        glCullFace(GL_BACK);
-        glDisable(GL_BLEND); // For QtQuick2 blending is enabled by default, but we don't want it to be
-    }
-
-    // Clear the graph background to the theme color
-    glViewport(m_viewport.x(),
-               m_viewport.y(),
-               m_viewport.width(),
-               m_viewport.height());
-    glScissor(m_viewport.x(),
-              m_viewport.y(),
-              m_viewport.width(),
-              m_viewport.height());
-    glEnable(GL_SCISSOR_TEST);
-    QVector4D clearColor = Utils::vectorFromColor(m_cachedTheme->windowColor());
-    glClearColor(clearColor.x(), clearColor.y(), clearColor.z(), 1.0f);
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
-    glDisable(GL_SCISSOR_TEST);
-}
-
-//  from ../qtdatavis3d/src/datavisualization/engine/abstract3drenderer.cpp, line 336, as _ZN18Abstract3DRenderer11updateThemeEP8Q3DTheme
-inline void Abstract3DRenderer::updateTheme(Q3DTheme *theme)
-{
-    // Synchronize the controller theme with renderer
-    bool updateDrawer = theme->d_ptr->sync(*m_cachedTheme->d_ptr);
-
-    if (updateDrawer)
-        m_drawer->setTheme(m_cachedTheme);
-}
-
-//  from ../qtdatavis3d/src/datavisualization/engine/abstract3drenderer.cpp, line 498, as _ZN18Abstract3DRenderer19updateSelectionModeE6QFlagsIN16QAbstract3DGraph13SelectionFlagEE
-inline void Abstract3DRenderer::updateSelectionMode(QAbstract3DGraph::SelectionFlags mode)
-{
-    m_cachedSelectionMode = mode;
-    m_selectionDirty = true;
-}
-
-//  from ../qtdatavis3d/src/datavisualization/engine/abstract3drenderer.cpp, line 535, as _ZN18Abstract3DRenderer22updateOptimizationHintE6QFlagsIN16QAbstract3DGraph16OptimizationHintEE
-inline void Abstract3DRenderer::updateOptimizationHint(QAbstract3DGraph::OptimizationHints hint)
-{
-    m_cachedOptimizationHint = hint;
-    for (auto cache: m_renderCacheList)
-        cache->setDataDirty(true);
-}
-
-//  from ../qtdatavis3d/src/datavisualization/engine/abstract3drenderer.cpp, line 345, as _ZN18Abstract3DRenderer11updateSceneEP8Q3DScene
-inline void Abstract3DRenderer::updateScene(Q3DScene *scene)
-{
-    m_viewport = scene->d_ptr->glViewport();
-    m_secondarySubViewport = scene->d_ptr->glSecondarySubViewport();
-
-    if (m_primarySubViewport != scene->d_ptr->glPrimarySubViewport()) {
-        // Resize of primary subviewport means resizing shadow and selection buffers
-        m_primarySubViewport = scene->d_ptr->glPrimarySubViewport();
-        handleResize();
-    }
-
-    if (m_devicePixelRatio != scene->devicePixelRatio()) {
-        m_devicePixelRatio = scene->devicePixelRatio();
-        handleResize();
-    }
-
-    QPoint logicalPixelPosition = scene->selectionQueryPosition();
-    m_inputPosition = QPoint(logicalPixelPosition.x() * m_devicePixelRatio,
-                             logicalPixelPosition.y() * m_devicePixelRatio);
-
-    QPoint logicalGraphPosition = scene->graphPositionQuery();
-    m_graphPositionQuery = QPoint(logicalGraphPosition.x() * m_devicePixelRatio,
-                                  logicalGraphPosition.y() * m_devicePixelRatio);
-
-    // Synchronize the renderer scene to controller scene
-    scene->d_ptr->sync(*m_cachedScene->d_ptr);
-
-    updateCameraViewport();
-
-    if (Q3DScene::invalidSelectionPoint() == logicalPixelPosition) {
-        updateSelectionState(SelectNone);
-    } else {
-        if (scene->isSlicingActive()) {
-            if (scene->isPointInPrimarySubView(logicalPixelPosition))
-                updateSelectionState(SelectOnOverview);
-            else if (scene->isPointInSecondarySubView(logicalPixelPosition))
-                updateSelectionState(SelectOnSlice);
-            else
-                updateSelectionState(SelectNone);
-        } else {
-            updateSelectionState(SelectOnScene);
-        }
-    }
-
-    if (Q3DScene::invalidSelectionPoint() != logicalGraphPosition)
-        m_graphPositionQueryPending = true;
-
-    // Queue up another render when we have a query that needs resolving.
-    // This is needed because QtQuick scene graph can sometimes do a sync without following it up
-    // with a render.
-    if (m_graphPositionQueryPending || m_selectionState != SelectNone)
-        emit needRender();
-}
-
-//  from ../qtdatavis3d/src/datavisualization/engine/abstract3drenderer.cpp, line 399, as _ZN18Abstract3DRenderer14updateTexturesEv
-inline void Abstract3DRenderer::updateTextures()
-{
-    m_axisCacheX.updateTextures();
-    m_axisCacheY.updateTextures();
-    m_axisCacheZ.updateTextures();
-}
-
-//  from ../qtdatavis3d/src/datavisualization/engine/abstract3drenderer.cpp, line 253, as _ZN18Abstract3DRenderer19initGradientShadersERK7QStringS2_
-inline void Abstract3DRenderer::initGradientShaders(const QString &vertexShader,
-                                             const QString &fragmentShader)
-{
-    // Do nothing by default
-    Q_UNUSED(vertexShader);
-    Q_UNUSED(fragmentShader);
-}
-
-//  from ../qtdatavis3d/src/datavisualization/engine/abstract3drenderer.cpp, line 261, as _ZN18Abstract3DRenderer29initStaticSelectedItemShadersERK7QStringS2_S2_S2_
-inline void Abstract3DRenderer::initStaticSelectedItemShaders(const QString &vertexShader,
-                                                       const QString &fragmentShader,
-                                                       const QString &gradientVertexShader,
-                                                       const QString &gradientFragmentShader)
-{
-    // Do nothing by default
-    Q_UNUSED(vertexShader);
-    Q_UNUSED(fragmentShader);
-    Q_UNUSED(gradientVertexShader);
-    Q_UNUSED(gradientFragmentShader);
-}
-
-//  from ../qtdatavis3d/src/datavisualization/engine/abstract3drenderer.cpp, line 273, as _ZN18Abstract3DRenderer21initCustomItemShadersERK7QStringS2_
-inline void Abstract3DRenderer::initCustomItemShaders(const QString &vertexShader,
-                                               const QString &fragmentShader)
-{
-    delete m_customItemShader;
-    m_customItemShader = new ShaderHelper(this, vertexShader, fragmentShader);
-    m_customItemShader->initialize();
-}
-
-//  from ../qtdatavis3d/src/datavisualization/engine/abstract3drenderer.cpp, line 281, as _ZN18Abstract3DRenderer24initVolumeTextureShadersERK7QStringS2_S2_S2_S2_S2_
-inline void Abstract3DRenderer::initVolumeTextureShaders(const QString &vertexShader,
-                                                  const QString &fragmentShader,
-                                                  const QString &fragmentLowDefShader,
-                                                  const QString &sliceShader,
-                                                  const QString &sliceFrameVertexShader,
-                                                  const QString &sliceFrameShader)
-{
-
-    delete m_volumeTextureShader;
-    m_volumeTextureShader = new ShaderHelper(this, vertexShader, fragmentShader);
-    m_volumeTextureShader->initialize();
-
-    delete m_volumeTextureLowDefShader;
-    m_volumeTextureLowDefShader = new ShaderHelper(this, vertexShader, fragmentLowDefShader);
-    m_volumeTextureLowDefShader->initialize();
-
-    delete m_volumeTextureSliceShader;
-    m_volumeTextureSliceShader = new ShaderHelper(this, vertexShader, sliceShader);
-    m_volumeTextureSliceShader->initialize();
-
-    delete m_volumeSliceFrameShader;
-    m_volumeSliceFrameShader = new ShaderHelper(this, sliceFrameVertexShader, sliceFrameShader);
-    m_volumeSliceFrameShader->initialize();
-}
-
-//  from ../qtdatavis3d/src/datavisualization/engine/abstract3drenderer.cpp, line 306, as _ZN18Abstract3DRenderer16initLabelShadersERK7QStringS2_
-inline void Abstract3DRenderer::initLabelShaders(const QString &vertexShader, const QString &fragmentShader)
-{
-    delete m_labelShader;
-    m_labelShader = new ShaderHelper(this, vertexShader, fragmentShader);
-    m_labelShader->initialize();
-}
-
-//  from ../qtdatavis3d/src/datavisualization/engine/abstract3drenderer.cpp, line 313, as _ZN18Abstract3DRenderer25initCursorPositionShadersERK7QStringS2_
-inline void Abstract3DRenderer::initCursorPositionShaders(const QString &vertexShader,
-                                                   const QString &fragmentShader)
-{
-    // Init the shader
-    delete m_cursorPositionShader;
-    m_cursorPositionShader = new ShaderHelper(this, vertexShader, fragmentShader);
-    m_cursorPositionShader->initialize();
-}
-
-//  from ../qtdatavis3d/src/datavisualization/engine/abstract3drenderer.cpp, line 322, as _ZN18Abstract3DRenderer24initCursorPositionBufferEv
-inline void Abstract3DRenderer::initCursorPositionBuffer()
-{
-    m_textureHelper->deleteTexture(&m_cursorPositionTexture);
-    m_textureHelper->glDeleteFramebuffers(1, &m_cursorPositionFrameBuffer);
-    m_cursorPositionFrameBuffer = 0;
-
-    if (m_primarySubViewport.size().isEmpty())
-        return;
-
-    m_cursorPositionTexture =
-            m_textureHelper->createCursorPositionTexture(m_primarySubViewport.size(),
-                                                         m_cursorPositionFrameBuffer);
-}
-
-//  from ../qtdatavis3d/src/datavisualization/engine/abstract3drenderer.cpp, line 571, as _ZN18Abstract3DRenderer14updateAxisTypeEN15QAbstract3DAxis15AxisOrientationENS0_8AxisTypeE
-inline void Abstract3DRenderer::updateAxisType(QAbstract3DAxis::AxisOrientation orientation,
-                                        QAbstract3DAxis::AxisType type)
-{
-    axisCacheForOrientation(orientation).setType(type);
-}
-
-//  from ../qtdatavis3d/src/datavisualization/engine/abstract3drenderer.cpp, line 577, as _ZN18Abstract3DRenderer15updateAxisTitleEN15QAbstract3DAxis15AxisOrientationERK7QString
-inline void Abstract3DRenderer::updateAxisTitle(QAbstract3DAxis::AxisOrientation orientation,
-                                         const QString &title)
-{
-    axisCacheForOrientation(orientation).setTitle(title);
-}
-
-//  from ../qtdatavis3d/src/datavisualization/engine/abstract3drenderer.cpp, line 589, as _ZN18Abstract3DRenderer15updateAxisRangeEN15QAbstract3DAxis15AxisOrientationEff
-inline void Abstract3DRenderer::updateAxisRange(QAbstract3DAxis::AxisOrientation orientation,
-                                         float min, float max)
-{
-    AxisRenderCache &cache = axisCacheForOrientation(orientation);
-    cache.setMin(min);
-    cache.setMax(max);
-
-    for (auto cache: m_renderCacheList)
-        cache->setDataDirty(true);
-}
-
-//  from ../qtdatavis3d/src/datavisualization/engine/abstract3drenderer.cpp, line 600, as _ZN18Abstract3DRenderer22updateAxisSegmentCountEN15QAbstract3DAxis15AxisOrientationEi
-inline void Abstract3DRenderer::updateAxisSegmentCount(QAbstract3DAxis::AxisOrientation orientation,
-                                                int count)
-{
-    AxisRenderCache &cache = axisCacheForOrientation(orientation);
-    cache.setSegmentCount(count);
-}
-
-//  from ../qtdatavis3d/src/datavisualization/engine/abstract3drenderer.cpp, line 607, as _ZN18Abstract3DRenderer25updateAxisSubSegmentCountEN15QAbstract3DAxis15AxisOrientationEi
-inline void Abstract3DRenderer::updateAxisSubSegmentCount(QAbstract3DAxis::AxisOrientation orientation,
-                                                   int count)
-{
-    AxisRenderCache &cache = axisCacheForOrientation(orientation);
-    cache.setSubSegmentCount(count);
-}
-
-//  from ../qtdatavis3d/src/datavisualization/engine/abstract3drenderer.cpp, line 614, as _ZN18Abstract3DRenderer21updateAxisLabelFormatEN15QAbstract3DAxis15AxisOrientationERK7QString
-inline void Abstract3DRenderer::updateAxisLabelFormat(QAbstract3DAxis::AxisOrientation orientation,
-                                               const QString &format)
-{
-    axisCacheForOrientation(orientation).setLabelFormat(format);
-}
-
-//  from ../qtdatavis3d/src/datavisualization/engine/abstract3drenderer.cpp, line 620, as _ZN18Abstract3DRenderer18updateAxisReversedEN15QAbstract3DAxis15AxisOrientationEb
-inline void Abstract3DRenderer::updateAxisReversed(QAbstract3DAxis::AxisOrientation orientation,
-                                            bool enable)
-{
-    axisCacheForOrientation(orientation).setReversed(enable);
-    for (auto cache: m_renderCacheList)
-        cache->setDataDirty(true);
-}
-
-//  from ../qtdatavis3d/src/datavisualization/engine/abstract3drenderer.cpp, line 628, as _ZN18Abstract3DRenderer19updateAxisFormatterEN15QAbstract3DAxis15AxisOrientationEP21QValue3DAxisFormatter
-inline void Abstract3DRenderer::updateAxisFormatter(QAbstract3DAxis::AxisOrientation orientation,
-                                             QValue3DAxisFormatter *formatter)
-{
-    AxisRenderCache &cache = axisCacheForOrientation(orientation);
-    if (cache.ctrlFormatter() != formatter) {
-        delete cache.formatter();
-        cache.setFormatter(formatter->createNewInstance());
-        cache.setCtrlFormatter(formatter);
-    }
-    formatter->d_ptr->populateCopy(*(cache.formatter()));
-    cache.markPositionsDirty();
-
-    for (auto cache: m_renderCacheList)
-        cache->setDataDirty(true);
-}
-
-//  from ../qtdatavis3d/src/datavisualization/engine/abstract3drenderer.cpp, line 644, as _ZN18Abstract3DRenderer27updateAxisLabelAutoRotationEN15QAbstract3DAxis15AxisOrientationEf
-inline void Abstract3DRenderer::updateAxisLabelAutoRotation(QAbstract3DAxis::AxisOrientation orientation,
-                                                     float angle)
-{
-    AxisRenderCache &cache = axisCacheForOrientation(orientation);
-    if (cache.labelAutoRotation() != angle)
-        cache.setLabelAutoRotation(angle);
-}
-
-//  from ../qtdatavis3d/src/datavisualization/engine/abstract3drenderer.cpp, line 652, as _ZN18Abstract3DRenderer25updateAxisTitleVisibilityEN15QAbstract3DAxis15AxisOrientationEb
-inline void Abstract3DRenderer::updateAxisTitleVisibility(QAbstract3DAxis::AxisOrientation orientation,
-                                                   bool visible)
-{
-    AxisRenderCache &cache = axisCacheForOrientation(orientation);
-    if (cache.isTitleVisible() != visible)
-        cache.setTitleVisible(visible);
-}
-
-//  from ../qtdatavis3d/src/datavisualization/engine/abstract3drenderer.cpp, line 660, as _ZN18Abstract3DRenderer20updateAxisTitleFixedEN15QAbstract3DAxis15AxisOrientationEb
-inline void Abstract3DRenderer::updateAxisTitleFixed(QAbstract3DAxis::AxisOrientation orientation,
-                                              bool fixed)
-{
-    AxisRenderCache &cache = axisCacheForOrientation(orientation);
-    if (cache.isTitleFixed() != fixed)
-        cache.setTitleFixed(fixed);
-}
-
-//  from ../qtdatavis3d/src/datavisualization/engine/abstract3drenderer.cpp, line 1129, as _ZN18Abstract3DRenderer13addCustomItemEP13QCustom3DItem
-inline CustomRenderItem *Abstract3DRenderer::addCustomItem(QCustom3DItem *item)
-{
-    CustomRenderItem *newItem = new CustomRenderItem();
-    newItem->setRenderer(this);
-    newItem->setItemPointer(item); // Store pointer for render item updates
-    if (!newItem->setMesh(item->meshFile())) {
-        delete newItem;
-        return nullptr;
-    }
-    newItem->setOrigPosition(item->position());
-    newItem->setOrigScaling(item->scaling());
-    newItem->setScalingAbsolute(item->isScalingAbsolute());
-    newItem->setPositionAbsolute(item->isPositionAbsolute());
-    QImage textureImage = item->d_ptr->textureImage();
-    bool facingCamera = false;
-    GLuint texture = 0;
-    if (item->d_ptr->m_isLabelItem) {
-        QCustom3DLabel *labelItem = static_cast<QCustom3DLabel *>(item);
-        newItem->setLabelItem(true);
-        float pointSize = labelItem->font().pointSizeF();
-        // Check do we have custom visuals or need to use theme
-        if (!labelItem->dptr()->m_customVisuals) {
-            // Recreate texture using theme
-            labelItem->dptr()->createTextureImage(m_cachedTheme->labelBackgroundColor(),
-                                                  m_cachedTheme->labelTextColor(),
-                                                  m_cachedTheme->isLabelBackgroundEnabled(),
-                                                  m_cachedTheme->isLabelBorderEnabled());
-            pointSize = m_cachedTheme->font().pointSizeF();
-            textureImage = item->d_ptr->textureImage();
-        }
-        // Calculate scaling based on text (texture size), font size and asked scaling
-        float scaledFontSize = (0.05f + pointSize / 500.0f) / float(textureImage.height());
-        QVector3D scaling = newItem->origScaling();
-        scaling.setX(scaling.x() * textureImage.width() * scaledFontSize);
-        scaling.setY(scaling.y() * textureImage.height() * scaledFontSize);
-        newItem->setOrigScaling(scaling);
-        // Check if facing camera
-        facingCamera = labelItem->isFacingCamera();
-    } else if (item->d_ptr->m_isVolumeItem && !m_isOpenGLES) {
-        QCustom3DVolume *volumeItem = static_cast<QCustom3DVolume *>(item);
-        newItem->setTextureWidth(volumeItem->textureWidth());
-        newItem->setTextureHeight(volumeItem->textureHeight());
-        newItem->setTextureDepth(volumeItem->textureDepth());
-        if (volumeItem->textureFormat() == QImage::Format_Indexed8)
-            newItem->setColorTable(volumeItem->colorTable());
-        newItem->setTextureFormat(volumeItem->textureFormat());
-        newItem->setVolume(true);
-        newItem->setBlendNeeded(true);
-        texture = m_textureHelper->create3DTexture(volumeItem->textureData(),
-                                                   volumeItem->textureWidth(),
-                                                   volumeItem->textureHeight(),
-                                                   volumeItem->textureDepth(),
-                                                   volumeItem->textureFormat());
-        newItem->setSliceIndexX(volumeItem->sliceIndexX());
-        newItem->setSliceIndexY(volumeItem->sliceIndexY());
-        newItem->setSliceIndexZ(volumeItem->sliceIndexZ());
-        newItem->setAlphaMultiplier(volumeItem->alphaMultiplier());
-        newItem->setPreserveOpacity(volumeItem->preserveOpacity());
-        newItem->setUseHighDefShader(volumeItem->useHighDefShader());
-
-        newItem->setDrawSlices(volumeItem->drawSlices());
-        newItem->setDrawSliceFrames(volumeItem->drawSliceFrames());
-        newItem->setSliceFrameColor(volumeItem->sliceFrameColor());
-        newItem->setSliceFrameWidths(volumeItem->sliceFrameWidths());
-        newItem->setSliceFrameGaps(volumeItem->sliceFrameGaps());
-        newItem->setSliceFrameThicknesses(volumeItem->sliceFrameThicknesses());
-    }
-    recalculateCustomItemScalingAndPos(newItem);
-    newItem->setRotation(item->rotation());
-
-    // In OpenGL ES we simply draw volumes as regular custom item placeholders.
-    if (!item->d_ptr->m_isVolumeItem || m_isOpenGLES)
-    {
-        newItem->setBlendNeeded(textureImage.hasAlphaChannel());
-        texture = m_textureHelper->create2DTexture(textureImage, true, true, true);
-    }
-    newItem->setTexture(texture);
-    item->d_ptr->clearTextureImage();
-    newItem->setVisible(item->isVisible());
-    newItem->setShadowCasting(item->isShadowCasting());
-    newItem->setFacingCamera(facingCamera);
-    m_customRenderCache.insert(item, newItem);
-    return newItem;
-}
-
-//  from ../qtdatavis3d/src/datavisualization/engine/abstract3drenderer.cpp, line 1282, as _ZN18Abstract3DRenderer16updateCustomItemEP16CustomRenderItem
-inline void Abstract3DRenderer::updateCustomItem(CustomRenderItem *renderItem)
-{
-    QCustom3DItem *item = renderItem->itemPointer();
-    if (item->d_ptr->m_dirtyBits.meshDirty) {
-        renderItem->setMesh(item->meshFile());
-        item->d_ptr->m_dirtyBits.meshDirty = false;
-    }
-    if (item->d_ptr->m_dirtyBits.positionDirty) {
-        renderItem->setOrigPosition(item->position());
-        renderItem->setPositionAbsolute(item->isPositionAbsolute());
-        if (!item->d_ptr->m_dirtyBits.scalingDirty)
-            recalculateCustomItemScalingAndPos(renderItem);
-        item->d_ptr->m_dirtyBits.positionDirty = false;
-    }
-    if (item->d_ptr->m_dirtyBits.scalingDirty) {
-        QVector3D scaling = item->scaling();
-        renderItem->setOrigScaling(scaling);
-        renderItem->setScalingAbsolute(item->isScalingAbsolute());
-        // In case we have label item, we need to recreate texture for scaling adjustment
-        if (item->d_ptr->m_isLabelItem) {
-            QCustom3DLabel *labelItem = static_cast<QCustom3DLabel *>(item);
-            float pointSize = labelItem->font().pointSizeF();
-            // Check do we have custom visuals or need to use theme
-            if (labelItem->dptr()->m_customVisuals) {
-                // Recreate texture
-                labelItem->dptr()->createTextureImage();
-            } else {
-                // Recreate texture using theme
-                labelItem->dptr()->createTextureImage(m_cachedTheme->labelBackgroundColor(),
-                                                      m_cachedTheme->labelTextColor(),
-                                                      m_cachedTheme->isLabelBackgroundEnabled(),
-                                                      m_cachedTheme->isLabelBorderEnabled());
-                pointSize = m_cachedTheme->font().pointSizeF();
-            }
-            QImage textureImage = item->d_ptr->textureImage();
-            // Calculate scaling based on text (texture size), font size and asked scaling
-            float scaledFontSize = (0.05f + pointSize / 500.0f) / float(textureImage.height());
-            scaling.setX(scaling.x() * textureImage.width() * scaledFontSize);
-            scaling.setY(scaling.y() * textureImage.height() * scaledFontSize);
-            item->d_ptr->clearTextureImage();
-            renderItem->setOrigScaling(scaling);
-        }
-        recalculateCustomItemScalingAndPos(renderItem);
-        item->d_ptr->m_dirtyBits.scalingDirty = false;
-    }
-    if (item->d_ptr->m_dirtyBits.rotationDirty) {
-        renderItem->setRotation(item->rotation());
-        item->d_ptr->m_dirtyBits.rotationDirty = false;
-    }
-    if (item->d_ptr->m_dirtyBits.textureDirty) {
-        QImage textureImage = item->d_ptr->textureImage();
-        if (item->d_ptr->m_isLabelItem) {
-            QCustom3DLabel *labelItem = static_cast<QCustom3DLabel *>(item);
-            // Check do we have custom visuals or need to use theme
-            if (!labelItem->dptr()->m_customVisuals) {
-                // Recreate texture using theme
-                labelItem->dptr()->createTextureImage(m_cachedTheme->labelBackgroundColor(),
-                                                      m_cachedTheme->labelTextColor(),
-                                                      m_cachedTheme->isLabelBackgroundEnabled(),
-                                                      m_cachedTheme->isLabelBorderEnabled());
-                textureImage = item->d_ptr->textureImage();
-            }
-        } else if (!item->d_ptr->m_isVolumeItem || m_isOpenGLES) {
-            renderItem->setBlendNeeded(textureImage.hasAlphaChannel());
-            GLuint oldTexture = renderItem->texture();
-            m_textureHelper->deleteTexture(&oldTexture);
-            GLuint texture = m_textureHelper->create2DTexture(textureImage, true, true, true);
-            renderItem->setTexture(texture);
-        }
-        item->d_ptr->clearTextureImage();
-        item->d_ptr->m_dirtyBits.textureDirty = false;
-    }
-    if (item->d_ptr->m_dirtyBits.visibleDirty) {
-        renderItem->setVisible(item->isVisible());
-        item->d_ptr->m_dirtyBits.visibleDirty = false;
-    }
-    if (item->d_ptr->m_dirtyBits.shadowCastingDirty) {
-        renderItem->setShadowCasting(item->isShadowCasting());
-        item->d_ptr->m_dirtyBits.shadowCastingDirty = false;
-    }
-    if (item->d_ptr->m_isLabelItem) {
-        QCustom3DLabel *labelItem = static_cast<QCustom3DLabel *>(item);
-        if (labelItem->dptr()->m_facingCameraDirty) {
-            renderItem->setFacingCamera(labelItem->isFacingCamera());
-            labelItem->dptr()->m_facingCameraDirty = false;
-        }
-    } else if (item->d_ptr->m_isVolumeItem && !m_isOpenGLES) {
-        QCustom3DVolume *volumeItem = static_cast<QCustom3DVolume *>(item);
-        if (volumeItem->dptr()->m_dirtyBitsVolume.colorTableDirty) {
-            renderItem->setColorTable(volumeItem->colorTable());
-            volumeItem->dptr()->m_dirtyBitsVolume.colorTableDirty = false;
-        }
-        if (volumeItem->dptr()->m_dirtyBitsVolume.textureDimensionsDirty
-                || volumeItem->dptr()->m_dirtyBitsVolume.textureDataDirty
-                || volumeItem->dptr()->m_dirtyBitsVolume.textureFormatDirty) {
-            GLuint oldTexture = renderItem->texture();
-            m_textureHelper->deleteTexture(&oldTexture);
-            GLuint texture = m_textureHelper->create3DTexture(volumeItem->textureData(),
-                                                              volumeItem->textureWidth(),
-                                                              volumeItem->textureHeight(),
-                                                              volumeItem->textureDepth(),
-                                                              volumeItem->textureFormat());
-            renderItem->setTexture(texture);
-            renderItem->setTextureWidth(volumeItem->textureWidth());
-            renderItem->setTextureHeight(volumeItem->textureHeight());
-            renderItem->setTextureDepth(volumeItem->textureDepth());
-            renderItem->setTextureFormat(volumeItem->textureFormat());
-            volumeItem->dptr()->m_dirtyBitsVolume.textureDimensionsDirty = false;
-            volumeItem->dptr()->m_dirtyBitsVolume.textureDataDirty = false;
-            volumeItem->dptr()->m_dirtyBitsVolume.textureFormatDirty = false;
-        }
-        if (volumeItem->dptr()->m_dirtyBitsVolume.slicesDirty) {
-            renderItem->setDrawSlices(volumeItem->drawSlices());
-            renderItem->setDrawSliceFrames(volumeItem->drawSliceFrames());
-            renderItem->setSliceFrameColor(volumeItem->sliceFrameColor());
-            renderItem->setSliceFrameWidths(volumeItem->sliceFrameWidths());
-            renderItem->setSliceFrameGaps(volumeItem->sliceFrameGaps());
-            renderItem->setSliceFrameThicknesses(volumeItem->sliceFrameThicknesses());
-            renderItem->setSliceIndexX(volumeItem->sliceIndexX());
-            renderItem->setSliceIndexY(volumeItem->sliceIndexY());
-            renderItem->setSliceIndexZ(volumeItem->sliceIndexZ());
-            volumeItem->dptr()->m_dirtyBitsVolume.slicesDirty = false;
-        }
-        if (volumeItem->dptr()->m_dirtyBitsVolume.alphaDirty) {
-            renderItem->setAlphaMultiplier(volumeItem->alphaMultiplier());
-            renderItem->setPreserveOpacity(volumeItem->preserveOpacity());
-            volumeItem->dptr()->m_dirtyBitsVolume.alphaDirty = false;
-        }
-        if (volumeItem->dptr()->m_dirtyBitsVolume.shaderDirty) {
-            renderItem->setUseHighDefShader(volumeItem->useHighDefShader());
-            volumeItem->dptr()->m_dirtyBitsVolume.shaderDirty = false;
-        }
-    }
-}
-
-//  from ../qtdatavis3d/src/datavisualization/engine/abstract3drenderer.cpp, line 504, as _ZN18Abstract3DRenderer17updateAspectRatioEf
-inline void Abstract3DRenderer::updateAspectRatio(float ratio)
-{
-    m_graphAspectRatio = ratio;
-    for (auto cache: m_renderCacheList)
-        cache->setDataDirty(true);
-}
-
-//  from ../qtdatavis3d/src/datavisualization/engine/abstract3drenderer.cpp, line 511, as _ZN18Abstract3DRenderer27updateHorizontalAspectRatioEf
-inline void Abstract3DRenderer::updateHorizontalAspectRatio(float ratio)
-{
-    m_graphHorizontalAspectRatio = ratio;
-    for (auto cache: m_renderCacheList)
-        cache->setDataDirty(true);
-}
-
-//  from ../qtdatavis3d/src/datavisualization/engine/abstract3drenderer.cpp, line 518, as _ZN18Abstract3DRenderer11updatePolarEb
-inline void Abstract3DRenderer::updatePolar(bool enable)
-{
-    m_polarGraph = enable;
-    for (auto cache: m_renderCacheList)
-        cache->setDataDirty(true);
-}
-
-//  from ../qtdatavis3d/src/datavisualization/engine/abstract3drenderer.cpp, line 525, as _ZN18Abstract3DRenderer23updateRadialLabelOffsetEf
-inline void Abstract3DRenderer::updateRadialLabelOffset(float offset)
-{
-    m_radialLabelOffset = offset;
-}
-
-//  from ../qtdatavis3d/src/datavisualization/engine/abstract3drenderer.cpp, line 530, as _ZN18Abstract3DRenderer12updateMarginEf
-inline void Abstract3DRenderer::updateMargin(float margin)
-{
-    m_requestedMargin = margin;
-}
-
-//  from ../qtdatavis3d/src/datavisualization/engine/abstract3drenderer.cpp, line 177, as _ZN18Abstract3DRenderer14contextCleanupEv
-inline void Abstract3DRenderer::contextCleanup()
-{
-    if (QOpenGLContext::currentContext())
-        m_textureHelper->glDeleteFramebuffers(1, &m_cursorPositionFrameBuffer);
-}
-
-//  from ../qtdatavis3d/src/datavisualization/engine/abstract3drenderer.cpp, line 183, as _ZN18Abstract3DRenderer16initializeOpenGLEv
-inline void Abstract3DRenderer::initializeOpenGL()
-{
-    m_context = QOpenGLContext::currentContext();
-
-    // Set OpenGL features
-    glEnable(GL_DEPTH_TEST);
-    glDepthFunc(GL_LESS);
-    glEnable(GL_CULL_FACE);
-    glCullFace(GL_BACK);
-
-#if !QT_CONFIG(opengles2)
-    if (!m_isOpenGLES) {
-        glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
-        glHint(GL_LINE_SMOOTH_HINT, GL_NICEST);
-        glHint(GL_POLYGON_SMOOTH_HINT, GL_NICEST);
-    }
-#endif
-
-    m_textureHelper = new TextureHelper();
-    m_drawer->initializeOpenGL();
-
-    axisCacheForOrientation(QAbstract3DAxis::AxisOrientationX).setDrawer(m_drawer);
-    axisCacheForOrientation(QAbstract3DAxis::AxisOrientationY).setDrawer(m_drawer);
-    axisCacheForOrientation(QAbstract3DAxis::AxisOrientationZ).setDrawer(m_drawer);
-
-    initLabelShaders(QStringLiteral(":/shaders/vertexLabel"),
-                     QStringLiteral(":/shaders/fragmentLabel"));
-
-    initCursorPositionShaders(QStringLiteral(":/shaders/vertexPosition"),
-                              QStringLiteral(":/shaders/fragmentPositionMap"));
-
-    loadLabelMesh();
-    loadPositionMapperMesh();
-
-    QObject::connect(m_context.data(), &QOpenGLContext::aboutToBeDestroyed,
-                     this, &Abstract3DRenderer::contextCleanup);
-}
-
-//  from ../qtdatavis3d/src/datavisualization/engine/abstract3drenderer.cpp, line 482, as _ZN18Abstract3DRenderer25handleShadowQualityChangeEv
-inline void Abstract3DRenderer::handleShadowQualityChange()
-{
-    reInitShaders();
-
-    if (m_cachedScene->activeLight()->isAutoPosition()
-            || m_cachedShadowQuality > QAbstract3DGraph::ShadowQualityNone) {
-        m_cachedScene->d_ptr->setLightPositionRelativeToCamera(defaultLightPos);
-        emit needRender();
-    }
-    if (m_isOpenGLES && m_cachedShadowQuality != QAbstract3DGraph::ShadowQualityNone) {
-        emit requestShadowQuality(QAbstract3DGraph::ShadowQualityNone);
-        qWarning("Shadows are not yet supported for OpenGL ES2");
-        m_cachedShadowQuality = QAbstract3DGraph::ShadowQualityNone;
-    }
-}
-
-//  from ../qtdatavis3d/src/datavisualization/engine/abstract3drenderer.cpp, line 542, as _ZN18Abstract3DRenderer12handleResizeEv
-inline void Abstract3DRenderer::handleResize()
-{
-    if (m_primarySubViewport.width() == 0 || m_primarySubViewport.height() == 0)
-        return;
-
-    // Recalculate zoom
-    calculateZoomLevel();
-
-    // Re-init selection buffer
-    initSelectionBuffer();
-
-    // Re-init depth buffer
-    updateDepthBuffer();
-
-    initCursorPositionBuffer();
-}
-
-//  from ../qtdatavis3d/src/datavisualization/engine/abstract3drenderer.cpp, line 783, as _ZN18Abstract3DRenderer18lowerShadowQualityEv
-inline void Abstract3DRenderer::lowerShadowQuality()
-{
-    QAbstract3DGraph::ShadowQuality newQuality = QAbstract3DGraph::ShadowQualityNone;
-
-    switch (m_cachedShadowQuality) {
-    case QAbstract3DGraph::ShadowQualityHigh:
-        qWarning("Creating high quality shadows failed. Changing to medium quality.");
-        newQuality = QAbstract3DGraph::ShadowQualityMedium;
-        break;
-    case QAbstract3DGraph::ShadowQualityMedium:
-        qWarning("Creating medium quality shadows failed. Changing to low quality.");
-        newQuality = QAbstract3DGraph::ShadowQualityLow;
-        break;
-    case QAbstract3DGraph::ShadowQualityLow:
-        qWarning("Creating low quality shadows failed. Switching shadows off.");
-        newQuality = QAbstract3DGraph::ShadowQualityNone;
-        break;
-    case QAbstract3DGraph::ShadowQualitySoftHigh:
-        qWarning("Creating soft high quality shadows failed. Changing to soft medium quality.");
-        newQuality = QAbstract3DGraph::ShadowQualitySoftMedium;
-        break;
-    case QAbstract3DGraph::ShadowQualitySoftMedium:
-        qWarning("Creating soft medium quality shadows failed. Changing to soft low quality.");
-        newQuality = QAbstract3DGraph::ShadowQualitySoftLow;
-        break;
-    case QAbstract3DGraph::ShadowQualitySoftLow:
-        qWarning("Creating soft low quality shadows failed. Switching shadows off.");
-        newQuality = QAbstract3DGraph::ShadowQualityNone;
-        break;
-    default:
-        // You'll never get here
-        break;
-    }
-
-    emit requestShadowQuality(newQuality);
-    updateShadowQuality(newQuality);
-}
-
-//  from ../qtdatavis3d/src/datavisualization/utils/texturehelper.cpp, line 44, as _ZN13TextureHelper15create2DTextureERK6QImagebbbb
-inline GLuint TextureHelper::create2DTexture(const QImage &image, bool useTrilinearFiltering,
-                                      bool convert, bool smoothScale, bool clampY)
-{
-    if (image.isNull())
-        return 0;
-
-    QImage texImage = image;
-
-    if (Utils::isOpenGLES()) {
-        GLuint imageWidth = Utils::getNearestPowerOfTwo(image.width());
-        GLuint imageHeight = Utils::getNearestPowerOfTwo(image.height());
-        if (smoothScale) {
-            texImage = image.scaled(imageWidth, imageHeight, Qt::IgnoreAspectRatio,
-                                    Qt::SmoothTransformation);
-        } else {
-            texImage = image.scaled(imageWidth, imageHeight, Qt::IgnoreAspectRatio);
-        }
-    }
-
-    GLuint textureId;
-    glGenTextures(1, &textureId);
-    glBindTexture(GL_TEXTURE_2D, textureId);
-    if (convert)
-        texImage = convertToGLFormat(texImage);
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, texImage.width(), texImage.height(),
-                 0, GL_RGBA, GL_UNSIGNED_BYTE, texImage.bits());
-    if (smoothScale)
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-    else
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-    if (useTrilinearFiltering) {
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
-        glGenerateMipmap(GL_TEXTURE_2D);
-    } else {
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-    }
-    if (clampY)
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
-    glBindTexture(GL_TEXTURE_2D, 0);
-
-    return textureId;
-}
-
-//  from ../qtdatavis3d/src/datavisualization/engine/q3dcamera.cpp, line 820, as _ZN16Q3DCameraPrivate13setViewMatrixERK10QMatrix4x4
-inline void Q3DCameraPrivate::setViewMatrix(const QMatrix4x4 &viewMatrix)
-{
-    if (m_viewMatrix != viewMatrix) {
-        m_viewMatrix = viewMatrix;
-        q_ptr->setDirty(true);
-        emit viewMatrixChanged(m_viewMatrix);
-    }
-}
-
-//  from ../qtdatavis3d/src/datavisualization/engine/seriesrendercache.cpp, line 13, as _ZN17SeriesRenderCacheC1EP17QAbstract3DSeriesP18Abstract3DRenderer
-inline SeriesRenderCache::SeriesRenderCache(QAbstract3DSeries *series, Abstract3DRenderer *renderer)
-    : m_series(series),
-      m_object(0),
-      m_mesh(QAbstract3DSeries::MeshCube),
-      m_baseUniformTexture(0),
-      m_baseGradientTexture(0),
-      m_gradientImage(0),
-      m_singleHighlightGradientTexture(0),
-      m_multiHighlightGradientTexture(0),
-      m_valid(false),
-      m_visible(false),
-      m_renderer(renderer),
-      m_objectDirty(true),
-      m_staticObjectUVDirty(false)
-{
-}
-
-//  from ../qtdatavis3d/src/datavisualization/utils/utils.cpp, line 32, as _ZN5Utils15vectorFromColorERK6QColor
-inline QVector4D Utils::vectorFromColor(const QColor &color)
-{
-    return QVector4D(color.redF(), color.greenF(), color.blueF(), color.alphaF());
-}
-
-//  from ../qtdatavis3d/src/datavisualization/engine/drawer.cpp, line 61, as _ZN6Drawer8setThemeEP8Q3DTheme
-inline void Drawer::setTheme(Q3DTheme *theme)
-{
-    m_theme = theme;
-    m_scaledFontSize = 0.05f + m_theme->font().pointSizeF() / 500.0f;
-    emit drawerChanged();
-}
-
-//  from ../qtdatavis3d/src/datavisualization/engine/axisrendercache.cpp, line 147, as _ZN15AxisRenderCache14updateTexturesEv
-inline void AxisRenderCache::updateTextures()
-{
-    m_font = m_drawer->font();
-
-    if (m_title.isEmpty())
-        m_titleItem.clear();
-    else
-        m_drawer->generateLabelItem(m_titleItem, m_title);
-
-    int widest = maxLabelWidth(m_labels);
-
-    for (int i = 0; i < m_labels.size(); i++) {
-        if (m_labels.at(i).isEmpty())
-            m_labelItems[i]->clear();
-        else
-            m_drawer->generateLabelItem(*m_labelItems[i], m_labels.at(i), widest);
-    }
-}
-
 //  from ../qtdatavis3d/src/datavisualization/utils/shaderhelper.cpp, line 81, as _ZN12ShaderHelper10initializeEv
 inline void ShaderHelper::initialize()
 {
@@ -1310,68 +1356,48 @@ inline ShaderHelper::~ShaderHelper()
     delete m_program;
 }
 
-//  from ../qtdatavis3d/src/datavisualization/utils/texturehelper.cpp, line 217, as _ZN13TextureHelper27createCursorPositionTextureERK5QSizeRj
-inline GLuint TextureHelper::createCursorPositionTexture(const QSize &size, GLuint &frameBuffer)
+//  from ../qtdatavis3d/src/datavisualization/utils/texturehelper.cpp, line 44, as _ZN13TextureHelper15create2DTextureERK6QImagebbbb
+inline GLuint TextureHelper::create2DTexture(const QImage &image, bool useTrilinearFiltering,
+                                      bool convert, bool smoothScale, bool clampY)
 {
-    GLuint textureid;
-    glGenTextures(1, &textureid);
-    glBindTexture(GL_TEXTURE_2D, textureid);
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, size.width(), size.height(), 0, GL_RGBA,
-                 GL_UNSIGNED_BYTE, NULL);
+    if (image.isNull())
+        return 0;
+
+    QImage texImage = image;
+
+    if (Utils::isOpenGLES()) {
+        GLuint imageWidth = Utils::getNearestPowerOfTwo(image.width());
+        GLuint imageHeight = Utils::getNearestPowerOfTwo(image.height());
+        if (smoothScale) {
+            texImage = image.scaled(imageWidth, imageHeight, Qt::IgnoreAspectRatio,
+                                    Qt::SmoothTransformation);
+        } else {
+            texImage = image.scaled(imageWidth, imageHeight, Qt::IgnoreAspectRatio);
+        }
+    }
+
+    GLuint textureId;
+    glGenTextures(1, &textureId);
+    glBindTexture(GL_TEXTURE_2D, textureId);
+    if (convert)
+        texImage = convertToGLFormat(texImage);
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, texImage.width(), texImage.height(),
+                 0, GL_RGBA, GL_UNSIGNED_BYTE, texImage.bits());
+    if (smoothScale)
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    else
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+    if (useTrilinearFiltering) {
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+        glGenerateMipmap(GL_TEXTURE_2D);
+    } else {
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+    }
+    if (clampY)
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
     glBindTexture(GL_TEXTURE_2D, 0);
 
-    glGenFramebuffers(1, &frameBuffer);
-    glBindFramebuffer(GL_FRAMEBUFFER, frameBuffer);
-    glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D,
-                           textureid, 0);
-
-    GLenum status = glCheckFramebufferStatus(GL_FRAMEBUFFER);
-    if (status != GL_FRAMEBUFFER_COMPLETE) {
-        qCritical() << "Cursor position mapper frame buffer creation failed:" << status;
-        glDeleteTextures(1, &textureid);
-        textureid = 0;
-    }
-    glBindFramebuffer(GL_FRAMEBUFFER, 0);
-
-    return textureid;
-}
-
-//  from ../qtdatavis3d/src/datavisualization/engine/axisrendercache.cpp, line 49, as _ZN15AxisRenderCache7setTypeEN15QAbstract3DAxis8AxisTypeE
-inline void AxisRenderCache::setType(QAbstract3DAxis::AxisType type)
-{
-    m_type = type;
-
-    // If type is set, it means completely new axis instance, so clear all old data
-    m_labels.clear();
-    m_title.clear();
-    m_min = 0.0f;
-    m_max = 10.0f;
-    m_segmentCount = 5;
-    m_subSegmentCount = 1;
-    m_labelFormat.clear();
-
-    m_titleItem.clear();
-    for (auto label: m_labelItems)
-        delete label;
-    m_labelItems.clear();
-}
-
-//  from ../qtdatavis3d/src/datavisualization/engine/axisrendercache.cpp, line 68, as _ZN15AxisRenderCache8setTitleERK7QString
-inline void AxisRenderCache::setTitle(const QString &title)
-{
-    if (m_title != title) {
-        m_title = title;
-        // Generate axis label texture
-        if (m_drawer)
-            m_drawer->generateLabelItem(m_titleItem, title);
-    }
-}
-
-//  from ../qtdatavis3d/src/datavisualization/axis/qvalue3daxisformatter.cpp, line 364, as _ZN28QValue3DAxisFormatterPrivate12populateCopyER21QValue3DAxisFormatter
-inline void QValue3DAxisFormatterPrivate::populateCopy(QValue3DAxisFormatter &copy)
-{
-    recalculate();
-    q_ptr->populateCopy(copy);
+    return textureId;
 }
 
 //  from ../qtdatavis3d/src/datavisualization/utils/texturehelper.cpp, line 87, as _ZN13TextureHelper15create3DTextureEPK5QListIhEiiiN6QImage6FormatE
@@ -1419,6 +1445,148 @@ inline GLuint TextureHelper::create3DTexture(const QList<uchar> *data, int width
     glDisable(GL_TEXTURE_3D);
 #endif
     return textureId;
+}
+
+//  from ../qtdatavis3d/src/datavisualization/utils/texturehelper.cpp, line 217, as _ZN13TextureHelper27createCursorPositionTextureERK5QSizeRj
+inline GLuint TextureHelper::createCursorPositionTexture(const QSize &size, GLuint &frameBuffer)
+{
+    GLuint textureid;
+    glGenTextures(1, &textureid);
+    glBindTexture(GL_TEXTURE_2D, textureid);
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, size.width(), size.height(), 0, GL_RGBA,
+                 GL_UNSIGNED_BYTE, NULL);
+    glBindTexture(GL_TEXTURE_2D, 0);
+
+    glGenFramebuffers(1, &frameBuffer);
+    glBindFramebuffer(GL_FRAMEBUFFER, frameBuffer);
+    glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D,
+                           textureid, 0);
+
+    GLenum status = glCheckFramebufferStatus(GL_FRAMEBUFFER);
+    if (status != GL_FRAMEBUFFER_COMPLETE) {
+        qCritical() << "Cursor position mapper frame buffer creation failed:" << status;
+        glDeleteTextures(1, &textureid);
+        textureid = 0;
+    }
+    glBindFramebuffer(GL_FRAMEBUFFER, 0);
+
+    return textureid;
+}
+
+//  from ../qtdatavis3d/src/datavisualization/utils/texturehelper.cpp, line 37, as _ZN13TextureHelperD1Ev
+inline TextureHelper::~TextureHelper()
+{
+#if !QT_CONFIG(opengles2)
+    delete m_openGlFunctions_2_1;
+#endif
+}
+
+//  from ../qtdatavis3d/src/datavisualization/engine/axisrendercache.cpp, line 166, as _ZN15AxisRenderCache11clearLabelsEv
+inline void AxisRenderCache::clearLabels()
+{
+    m_titleItem.clear();
+    for (int i = 0; i < m_labels.size(); i++)
+        m_labelItems[i]->clear();
+}
+
+//  from ../qtdatavis3d/src/datavisualization/engine/axisrendercache.cpp, line 147, as _ZN15AxisRenderCache14updateTexturesEv
+inline void AxisRenderCache::updateTextures()
+{
+    m_font = m_drawer->font();
+
+    if (m_title.isEmpty())
+        m_titleItem.clear();
+    else
+        m_drawer->generateLabelItem(m_titleItem, m_title);
+
+    int widest = maxLabelWidth(m_labels);
+
+    for (int i = 0; i < m_labels.size(); i++) {
+        if (m_labels.at(i).isEmpty())
+            m_labelItems[i]->clear();
+        else
+            m_drawer->generateLabelItem(*m_labelItems[i], m_labels.at(i), widest);
+    }
+}
+
+//  from ../qtdatavis3d/src/datavisualization/engine/axisrendercache.cpp, line 49, as _ZN15AxisRenderCache7setTypeEN15QAbstract3DAxis8AxisTypeE
+inline void AxisRenderCache::setType(QAbstract3DAxis::AxisType type)
+{
+    m_type = type;
+
+    // If type is set, it means completely new axis instance, so clear all old data
+    m_labels.clear();
+    m_title.clear();
+    m_min = 0.0f;
+    m_max = 10.0f;
+    m_segmentCount = 5;
+    m_subSegmentCount = 1;
+    m_labelFormat.clear();
+
+    m_titleItem.clear();
+    for (auto label: m_labelItems)
+        delete label;
+    m_labelItems.clear();
+}
+
+//  from ../qtdatavis3d/src/datavisualization/engine/axisrendercache.cpp, line 68, as _ZN15AxisRenderCache8setTitleERK7QString
+inline void AxisRenderCache::setTitle(const QString &title)
+{
+    if (m_title != title) {
+        m_title = title;
+        // Generate axis label texture
+        if (m_drawer)
+            m_drawer->generateLabelItem(m_titleItem, title);
+    }
+}
+
+//  from ../qtdatavis3d/src/datavisualization/engine/axisrendercache.cpp, line 41, as _ZN15AxisRenderCache9setDrawerEP6Drawer
+inline void AxisRenderCache::setDrawer(Drawer *drawer)
+{
+    m_drawer = drawer;
+    m_font = m_drawer->font();
+    if (m_drawer)
+        updateTextures();
+}
+
+//  from ../qtdatavis3d/src/datavisualization/engine/axisrendercache.cpp, line 78, as _ZN15AxisRenderCache9setLabelsERK5QListI7QStringE
+inline void AxisRenderCache::setLabels(const QStringList &labels)
+{
+    if (m_labels != labels) {
+        int newSize(labels.size());
+        int oldSize(m_labels.size());
+
+        for (int i = newSize; i < oldSize; i++)
+            delete m_labelItems.takeLast();
+
+        m_labelItems.reserve(newSize);
+
+        int widest = maxLabelWidth(labels);
+
+        for (int i = 0; i < newSize; i++) {
+            if (i >= oldSize)
+                m_labelItems.append(new LabelItem);
+            if (m_drawer) {
+                if (labels.at(i).isEmpty()) {
+                    m_labelItems[i]->clear();
+                } else if (i >= oldSize || labels.at(i) != m_labels.at(i)
+                           || m_labelItems[i]->size().width() != widest) {
+                    m_drawer->generateLabelItem(*m_labelItems[i], labels.at(i), widest);
+                }
+            }
+        }
+        m_labels = labels;
+    }
+}
+
+//  from ../qtdatavis3d/src/datavisualization/engine/axisrendercache.cpp, line 32, as _ZN15AxisRenderCacheD1Ev
+inline AxisRenderCache::~AxisRenderCache()
+{
+    for (auto label: m_labelItems)
+        delete label;
+    m_titleItem.clear();
+
+    delete m_formatter;
 }
 
 //  from ../qtdatavis3d/src/datavisualization/data/customrenderitem.cpp, line 51, as _ZN16CustomRenderItem13setColorTableERK5QListIjE
@@ -1488,6 +1656,34 @@ inline CustomRenderItem::CustomRenderItem()
 {
 }
 
+//  from ../qtdatavis3d/src/datavisualization/engine/q3dcamera.cpp, line 820, as _ZN16Q3DCameraPrivate13setViewMatrixERK10QMatrix4x4
+inline void Q3DCameraPrivate::setViewMatrix(const QMatrix4x4 &viewMatrix)
+{
+    if (m_viewMatrix != viewMatrix) {
+        m_viewMatrix = viewMatrix;
+        q_ptr->setDirty(true);
+        emit viewMatrixChanged(m_viewMatrix);
+    }
+}
+
+//  from ../qtdatavis3d/src/datavisualization/engine/seriesrendercache.cpp, line 13, as _ZN17SeriesRenderCacheC1EP17QAbstract3DSeriesP18Abstract3DRenderer
+inline SeriesRenderCache::SeriesRenderCache(QAbstract3DSeries *series, Abstract3DRenderer *renderer)
+    : m_series(series),
+      m_object(0),
+      m_mesh(QAbstract3DSeries::MeshCube),
+      m_baseUniformTexture(0),
+      m_baseGradientTexture(0),
+      m_gradientImage(0),
+      m_singleHighlightGradientTexture(0),
+      m_multiHighlightGradientTexture(0),
+      m_valid(false),
+      m_visible(false),
+      m_renderer(renderer),
+      m_objectDirty(true),
+      m_staticObjectUVDirty(false)
+{
+}
+
 //  from ../qtdatavis3d/src/datavisualization/data/qcustom3ditem.cpp, line 497, as _ZN20QCustom3DItemPrivate12textureImageEv
 inline QImage QCustom3DItemPrivate::textureImage()
 {
@@ -1515,13 +1711,39 @@ inline void QCustom3DLabelPrivate::createTextureImage()
     createTextureImage(m_bgrColor, m_txtColor, m_background, m_borders);
 }
 
-//  from ../qtdatavis3d/src/datavisualization/engine/axisrendercache.cpp, line 41, as _ZN15AxisRenderCache9setDrawerEP6Drawer
-inline void AxisRenderCache::setDrawer(Drawer *drawer)
+//  from ../qtdatavis3d/src/datavisualization/axis/qvalue3daxisformatter.cpp, line 364, as _ZN28QValue3DAxisFormatterPrivate12populateCopyER21QValue3DAxisFormatter
+inline void QValue3DAxisFormatterPrivate::populateCopy(QValue3DAxisFormatter &copy)
 {
-    m_drawer = drawer;
-    m_font = m_drawer->font();
-    if (m_drawer)
-        updateTextures();
+    recalculate();
+    q_ptr->populateCopy(copy);
+}
+
+//  from ../qtdatavis3d/src/datavisualization/utils/utils.cpp, line 32, as _ZN5Utils15vectorFromColorERK6QColor
+inline QVector4D Utils::vectorFromColor(const QColor &color)
+{
+    return QVector4D(color.redF(), color.greenF(), color.blueF(), color.alphaF());
+}
+
+//  from ../qtdatavis3d/src/datavisualization/engine/drawer.cpp, line 54, as _ZN6Drawer16initializeOpenGLEv
+inline void Drawer::initializeOpenGL()
+{
+    initializeOpenGLFunctions();
+    if (!m_textureHelper)
+        m_textureHelper = new TextureHelper();
+}
+
+//  from ../qtdatavis3d/src/datavisualization/engine/drawer.cpp, line 61, as _ZN6Drawer8setThemeEP8Q3DTheme
+inline void Drawer::setTheme(Q3DTheme *theme)
+{
+    m_theme = theme;
+    m_scaledFontSize = 0.05f + m_theme->font().pointSizeF() / 500.0f;
+    emit drawerChanged();
+}
+
+//  from ../qtdatavis3d/src/datavisualization/data/labelitem.cpp, line 14, as _ZN9LabelItemD1Ev
+inline LabelItem::~LabelItem()
+{
+    clear();
 }
 
 //  from ../qtdatavis3d/src/datavisualization/utils/texturehelper.cpp, line 334, as _ZN13TextureHelper17convertToGLFormatERK6QImage
@@ -1601,12 +1823,6 @@ inline int AxisRenderCache::maxLabelWidth(const QStringList &labels) const
 inline QFont Drawer::font() const
 {
     return m_theme->font();
-}
-
-//  from ../qtdatavis3d/src/datavisualization/data/labelitem.cpp, line 14, as _ZN9LabelItemD1Ev
-inline LabelItem::~LabelItem()
-{
-    clear();
 }
 
 //  from ../qtdatavis3d/src/datavisualization/axis/qvalue3daxisformatter.cpp, line 311, as _ZN28QValue3DAxisFormatterPrivate11recalculateEv
@@ -1884,6 +2100,28 @@ inline float Abstract3DRenderer::calculatePolarBackgroundMargin()
     }
 
     return maxNeededMargin;
+}
+
+//  from ../qtdatavis3d/src/datavisualization/engine/abstract3drenderer.cpp, line 1978, as _ZN18Abstract3DRenderer20updateCameraViewportEv
+inline void Abstract3DRenderer::updateCameraViewport()
+{
+    QVector3D adjustedTarget = m_cachedScene->activeCamera()->target();
+    fixCameraTarget(adjustedTarget);
+    if (m_oldCameraTarget != adjustedTarget) {
+        QVector3D cameraBase = cameraDistanceVector + adjustedTarget;
+
+        m_cachedScene->activeCamera()->d_ptr->setBaseOrientation(cameraBase,
+                                                                 adjustedTarget,
+                                                                 upVector);
+        m_oldCameraTarget = adjustedTarget;
+    }
+    m_cachedScene->activeCamera()->d_ptr->updateViewMatrix(m_autoScaleAdjustment);
+    // Set light position (i.e rotate light with activeCamera, a bit above it).
+    // Check if we want to use automatic light positioning even without shadows
+    if (m_cachedScene->activeLight()->isAutoPosition()
+            || m_cachedShadowQuality > QAbstract3DGraph::ShadowQualityNone) {
+        m_cachedScene->d_ptr->setLightPositionRelativeToCamera(defaultLightPos);
+    }
 }
 
 //  from ../qtdatavis3d/src/datavisualization/engine/abstract3drenderer.cpp, line 1214, as _ZN18Abstract3DRenderer34recalculateCustomItemScalingAndPosEP16CustomRenderItem
@@ -3665,6 +3903,13 @@ void ritual_ZN18Abstract3DRenderer15fixCameraTargetER9QVector3D(
     Abstract3DRenderer *self,
     QVector3D *target) {
   self->fixCameraTarget(*target);
+}
+
+//  void Abstract3DRenderer::updateCameraViewport()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18Abstract3DRenderer20updateCameraViewportEv(
+    Abstract3DRenderer *self) {
+  self->updateCameraViewport();
 }
 
 //  void

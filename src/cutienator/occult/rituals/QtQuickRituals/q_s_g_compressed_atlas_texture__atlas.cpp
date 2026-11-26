@@ -1,14 +1,31 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtQuick/6.12.0/QtQuick/private/qsgcompressedatlastexture_p.h, Qt 6.12.0.
-//  Changes made here are lost.
+//  Edited by hand on 2026-11-26: added are 1 rituals that lean on what moc
+//  writes for a class of the part Qt keeps to itself, whose ritual file
+//  carries moc's output, drafted by a copy of the generator that lets those
+//  names through. A copy of a meta-object is a second one: 'qobject_cast'
+//  between it and Qt's own does not match. Kept as it is when the generator
+//  runs again.
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
 #include <QtQuick/QtQuick>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQuick/6.12.0/QtQuick/private/qsgcompressedatlastexture_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qbytearrayview.h>
+#include <QtCore/qsize.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtQuick/private/qsgrhiatlastexture_p.h>
+#include <QtCore/QVarLengthArray>
+#include <QtCore/QElapsedTimer>
+#include <QtCore/QtMath>
+#include <QtGui/QWindow>
+#include <QtQml/private/qqmlglobal_p.h>
+#include <QtQuick/private/qsgdefaultrendercontext_p.h>
+#include <QtQuick/private/qsgtexture_p.h>
+#include <QtQuick/private/qsgcompressedtexture_p.h>
+#include <QtQuick/private/qsgcompressedatlastexture_p.h>
 #include <QtQuick/private/qsgcompressedatlastexture_p.h>
 #include <QtCore/QVarLengthArray>
 #include <QtCore/QElapsedTimer>
@@ -22,16 +39,6 @@
 #include <QtQuick/private/qquickprofiler_p.h>
 #include <QtQuick/private/qsgtexture_p.h>
 #include <QtQuick/private/qsgcompressedtexture_p.h>
-#include <QtQuick/private/qsgrhiatlastexture_p.h>
-#include <QtCore/QVarLengthArray>
-#include <QtCore/QElapsedTimer>
-#include <QtCore/QtMath>
-#include <QtGui/QWindow>
-#include <QtQml/private/qqmlglobal_p.h>
-#include <QtQuick/private/qsgdefaultrendercontext_p.h>
-#include <QtQuick/private/qsgtexture_p.h>
-#include <QtQuick/private/qsgcompressedtexture_p.h>
-#include <QtQuick/private/qsgcompressedatlastexture_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -41,24 +48,24 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from ../qtdeclarative/src/quick/scenegraph/compressedtexture/qsgcompressedatlastexture.cpp, line 89, as _ZN25QSGCompressedAtlasTexture7TextureC1EPNS_5AtlasERK5QRect14QByteArrayViewRK5QSize
-namespace QSGCompressedAtlasTexture {
-inline Texture::Texture(Atlas *atlas, const QRect &textureRect, QByteArrayView data, const QSize &size)
-    : QSGRhiAtlasTexture::TextureBase(atlas, textureRect),
-      m_nonatlas_texture(nullptr),
-      m_data(data.toByteArray()),
-      m_size(size)
+//  from ../qtdeclarative/src/quick/scenegraph/util/qsgrhiatlastexture.cpp, line 118, as _ZN18QSGRhiAtlasTexture9AtlasBaseC2EP23QSGDefaultRenderContextRK5QSize
+namespace QSGRhiAtlasTexture {
+inline AtlasBase::AtlasBase(QSGDefaultRenderContext *rc, const QSize &size)
+    : m_rc(rc)
+    , m_rhi(rc->rhi())
+    , m_allocator(size)
+    , m_size(size)
 {
-    float w = atlas->size().width();
-    float h = atlas->size().height();
-    const QRect &r = atlasSubRect();
-    // offset by half-pixel to prevent bleeding when scaling
-    m_texture_coords_rect = QRectF((r.x() + .5) / w,
-                                   (r.y() + .5) / h,
-                                   (size.width() - 1.) / w,
-                                   (size.height() - 1.) / h);
 }
-}  // namespace QSGCompressedAtlasTexture
+}  // namespace QSGRhiAtlasTexture
+
+//  from ../qtdeclarative/src/quick/scenegraph/util/qsgrhiatlastexture.cpp, line 126, as _ZN18QSGRhiAtlasTexture9AtlasBaseD2Ev
+namespace QSGRhiAtlasTexture {
+inline AtlasBase::~AtlasBase()
+{
+    Q_ASSERT(!m_texture);
+}
+}  // namespace QSGRhiAtlasTexture
 
 //  from ../qtdeclarative/src/quick/scenegraph/compressedtexture/qsgcompressedatlastexture.cpp, line 50, as _ZN25QSGCompressedAtlasTexture5Atlas15generateTextureEv
 namespace QSGCompressedAtlasTexture {
@@ -105,6 +112,25 @@ inline void Atlas::enqueueTextureUpload(QSGRhiAtlasTexture::TextureBase *t, QRhi
 }
 }  // namespace QSGCompressedAtlasTexture
 
+//  from ../qtdeclarative/src/quick/scenegraph/compressedtexture/qsgcompressedatlastexture.cpp, line 89, as _ZN25QSGCompressedAtlasTexture7TextureC1EPNS_5AtlasERK5QRect14QByteArrayViewRK5QSize
+namespace QSGCompressedAtlasTexture {
+inline Texture::Texture(Atlas *atlas, const QRect &textureRect, QByteArrayView data, const QSize &size)
+    : QSGRhiAtlasTexture::TextureBase(atlas, textureRect),
+      m_nonatlas_texture(nullptr),
+      m_data(data.toByteArray()),
+      m_size(size)
+{
+    float w = atlas->size().width();
+    float h = atlas->size().height();
+    const QRect &r = atlasSubRect();
+    // offset by half-pixel to prevent bleeding when scaling
+    m_texture_coords_rect = QRectF((r.x() + .5) / w,
+                                   (r.y() + .5) / h,
+                                   (size.width() - 1.) / w,
+                                   (size.height() - 1.) / h);
+}
+}  // namespace QSGCompressedAtlasTexture
+
 //  from ../qtdeclarative/src/quick/scenegraph/util/qsgrhiatlastexture.cpp, line 324, as _ZN18QSGRhiAtlasTexture11TextureBaseC2EPNS_9AtlasBaseERK5QRect
 namespace QSGRhiAtlasTexture {
 inline TextureBase::TextureBase(AtlasBase *atlas, const QRect &textureRect)
@@ -123,10 +149,37 @@ inline TextureBase::~TextureBase()
 }
 }  // namespace QSGRhiAtlasTexture
 
+//  from ../qtdeclarative/src/quick/scenegraph/util/qsgrhiatlastexture.cpp, line 153, as _ZN18QSGRhiAtlasTexture9AtlasBase6removeEPNS_11TextureBaseE
+namespace QSGRhiAtlasTexture {
+inline void AtlasBase::remove(TextureBase *t)
+{
+    QRect atlasRect = t->atlasSubRect();
+    m_allocator.deallocate(atlasRect);
+    m_pending_uploads.removeOne(t);
+}
+}  // namespace QSGRhiAtlasTexture
+
 //  from ../qtdeclarative/src/quick/scenegraph/compressedtexture/qsgcompressedatlastexture.cpp, line 32, as _ZN25QSGCompressedAtlasTexture5AtlasD1Ev
 namespace QSGCompressedAtlasTexture {
 inline Atlas::~Atlas()
 {
+}
+}  // namespace QSGCompressedAtlasTexture
+
+//  from ../qtdeclarative/src/quick/scenegraph/compressedtexture/qsgcompressedatlastexture.cpp, line 36, as _ZN25QSGCompressedAtlasTexture5Atlas6createE14QByteArrayViewRK5QSize
+namespace QSGCompressedAtlasTexture {
+inline Texture *Atlas::create(QByteArrayView data, const QSize &size)
+{
+    // Align reservation to 16x16, >= any compressed block size
+    QSize paddedSize(((size.width() + 15) / 16) * 16, ((size.height() + 15) / 16) * 16);
+    // No need to lock, as manager already locked it.
+    QRect rect = m_allocator.allocate(paddedSize);
+    if (rect.width() > 0 && rect.height() > 0) {
+        Texture *t = new Texture(this, rect, data, size);
+        m_pending_uploads << t;
+        return t;
+    }
+    return nullptr;
 }
 }  // namespace QSGCompressedAtlasTexture
 //  -----------------------------------------------------------------------
@@ -355,6 +408,16 @@ void ritual_ZN25QSGCompressedAtlasTexture5Atlas20enqueueTextureUploadEPN18QSGRhi
     QSGRhiAtlasTexture::TextureBase *t,
     QRhiResourceUpdateBatch *rcub) {
   self->enqueueTextureUpload(t, rcub);
+}
+
+//  Texture *QSGCompressedAtlasTexture::Atlas::create(QByteArrayView data,
+//      const QSize &size)
+extern "C" Q_DECL_EXPORT
+QSGCompressedAtlasTexture::Texture *ritual_ZN25QSGCompressedAtlasTexture5Atlas6createE14QByteArrayViewRK5QSize(
+    QSGCompressedAtlasTexture::Atlas *self,
+    const QByteArrayView *data,
+    const QSize *size) {
+  return self->create(*data, *size);
 }
 
 //  uint QSGCompressedAtlasTexture::Atlas::format() const

@@ -2,7 +2,7 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of QtDataV",
     "isualization/6.12.0/QtDataVisualization/private/qbar3dseries_p.h,",
-    "Qt 6.12.0. Changes made here are lost."
+    "Qt 6.12.0. Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZNK19QBar3DSeriesPrivate10metaObjectEv": ["address", "address"],
@@ -11,6 +11,12 @@
     ],
     "ritual_ZN19QBar3DSeriesPrivate11qt_metacallEN11QMetaObject4CallEiPPv": [
       "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN19QBar3DSeriesPrivate2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN19QBar3DSeriesPrivateC1EP12QBar3DSeries": [
+      "address", "address"
     ],
     "ritual_ZN19QBar3DSeriesPrivateD1Ev": ["nothing", "address"],
     "ritual_ZN19QBar3DSeriesPrivate12setDataProxyEP18QAbstractDataProxy": [
@@ -27,6 +33,9 @@
     ],
     "ritual_ZN19QBar3DSeriesPrivate14setSelectedBarERK6QPoint": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN19QBar3DSeriesPrivate14connectSignalsEv": [
+      "nothing", "address"
     ],
     "ritual_ZN19QBar3DSeriesPrivate12setRowColorsERK5QListI6QColorE": [
       "nothing", "address", "address"

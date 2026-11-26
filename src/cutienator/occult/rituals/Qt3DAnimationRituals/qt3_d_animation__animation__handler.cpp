@@ -1204,6 +1204,13 @@ inline void ClipBlendNode::setClipResults(Qt3DCore::QNodeId animatorId, const Cl
 }
 }  // namespace Qt3DAnimation::Animation
 
+//  from ../qt3d/src/animation/backend/handler.cpp, line 41, as _ZN13Qt3DAnimation9Animation7HandlerD1Ev
+namespace Qt3DAnimation::Animation {
+inline Handler::~Handler()
+{
+}
+}  // namespace Qt3DAnimation::Animation
+
 //  from ../qt3d/src/animation/backend/handler.cpp, line 45, as _ZN13Qt3DAnimation9Animation7Handler8setDirtyENS1_9DirtyFlagEN8Qt3DCore7QNodeIdE
 namespace Qt3DAnimation::Animation {
 inline void Handler::setDirty(DirtyFlag flag, Qt3DCore::QNodeId nodeId)
@@ -1325,6 +1332,13 @@ inline void Handler::cleanupHandleList(QVector<HBlendedClipAnimator> *animators)
 }
 }  // namespace Qt3DAnimation::Animation
 //  -----------------------------------------------------------------------
+
+//  Qt3DAnimation::Animation::Handler::~Handler()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13Qt3DAnimation9Animation7HandlerD1Ev(
+    Qt3DAnimation::Animation::Handler *self) {
+  delete self;
+}
 
 //  qint64 Qt3DAnimation::Animation::Handler::simulationTime() const
 extern "C" Q_DECL_EXPORT

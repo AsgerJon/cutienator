@@ -5,6 +5,7 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN13QUtf16BECodecC1Ev": ["address"],
     "ritual_ZNK13QUtf16BECodec4nameEv": ["address", "address"],
     "ritual_ZNK13QUtf16BECodec7aliasesEv": ["address", "address"],
     "ritual_ZNK13QUtf16BECodec7mibEnumEv": ["int", "address"],

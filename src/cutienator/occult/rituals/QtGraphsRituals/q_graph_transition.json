@@ -2,7 +2,7 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtGraphs/6.12.0/QtGraphs/private/qgraphtransition_p.h, Qt 6.12.0.",
-    "Changes made here are lost."
+    "Edited by hand: see the ritual file."
   ],
   "parts first": [
     "QtGraphs", "QtCore", "QtGui", "QtQuick", "QtQml", "QtQmlIntegration"
@@ -16,6 +16,8 @@
       "int", "address", "int", "int", "address"
     ],
     "ritual_ZN16QGraphTransitionD1Ev": ["nothing", "address"],
+    "ritual_ZN16QGraphTransition10initializeEv": ["nothing", "address"],
+    "ritual_ZN16QGraphTransition4stopEv": ["nothing", "address"],
     "ritual_ZN16QGraphTransition11initializedEv": ["bool", "address"],
     "ritual_ZN16QGraphTransition8containsEN15QGraphAnimation18GraphAnimationTypeE": [
       "bool", "address", "int"

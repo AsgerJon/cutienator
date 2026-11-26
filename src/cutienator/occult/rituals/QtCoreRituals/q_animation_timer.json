@@ -2,7 +2,7 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtCore/6.12.0/QtCore/private/qabstractanimation_p.h, Qt 6.12.0.",
-    "Changes made here are lost."
+    "Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZNK15QAnimationTimer10metaObjectEv": ["address", "address"],
@@ -12,7 +12,21 @@
     "ritual_ZN15QAnimationTimer11qt_metacallEN11QMetaObject4CallEiPPv": [
       "int", "address", "int", "int", "address"
     ],
+    "ritual_ZN15QAnimationTimer2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN15QAnimationTimerC1Ev": ["address"],
     "ritual_ZN15QAnimationTimerD1Ev": ["nothing", "address"],
+    "ritual_ZN15QAnimationTimer8instanceEv": ["address"],
+    "ritual_ZN15QAnimationTimer8instanceEb": ["address", "bool"],
+    "ritual_ZN15QAnimationTimer17registerAnimationEP18QAbstractAnimationb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN15QAnimationTimer19unregisterAnimationEP18QAbstractAnimation": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QAnimationTimer17ensureTimerUpdateEv": ["nothing"],
+    "ritual_ZN15QAnimationTimer20updateAnimationTimerEv": ["nothing"],
     "ritual_ZN15QAnimationTimer21restartAnimationTimerEv": [
       "nothing", "address"
     ],

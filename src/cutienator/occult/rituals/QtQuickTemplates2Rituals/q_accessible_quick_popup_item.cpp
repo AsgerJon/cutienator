@@ -10,9 +10,7 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQuickTemplates2/6.12.0/QtQuickTemplates2/private/qaccessiblequickpopupitem_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
-#if QT_CONFIG(accessibility)
 #include <QtGui/qaccessible.h>
-#endif
 #include <QtCore/qrect.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qvariant.h>
@@ -32,12 +30,6 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from ../qtdeclarative/src/quicktemplates/accessible/qaccessiblequickpopupitem.cpp, line 10, as _ZN25QAccessibleQuickPopupItemC1EP15QQuickPopupItem
-inline QAccessibleQuickPopupItem::QAccessibleQuickPopupItem(QQuickPopupItem *popupItem)
-    : QAccessibleQuickItem(popupItem)
-{
-}
-
 //  from ../qtdeclarative/src/quicktemplates/accessible/qaccessiblequickpopupitem.cpp, line 15, as _ZNK25QAccessibleQuickPopupItem5stateEv
 inline QAccessible::State QAccessibleQuickPopupItem::state() const
 {
@@ -48,6 +40,12 @@ inline QAccessible::State QAccessibleQuickPopupItem::state() const
         state.modal = popup->isModal();
 
     return state;
+}
+
+//  from ../qtdeclarative/src/quicktemplates/accessible/qaccessiblequickpopupitem.cpp, line 10, as _ZN25QAccessibleQuickPopupItemC1EP15QQuickPopupItem
+inline QAccessibleQuickPopupItem::QAccessibleQuickPopupItem(QQuickPopupItem *popupItem)
+    : QAccessibleQuickItem(popupItem)
+{
 }
 //  -----------------------------------------------------------------------
 

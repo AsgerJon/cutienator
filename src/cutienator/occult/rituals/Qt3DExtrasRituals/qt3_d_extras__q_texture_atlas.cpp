@@ -1,23 +1,35 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  Qt3DExtras/6.12.0/Qt3DExtras/private/qtextureatlas_p.h, Qt 6.12.0.
-//  Changes made here are lost.
+//  Edited by hand on 2026-11-26: moc's output for
+//  'Qt3DExtras::QTextureAtlas' is pasted in, cut from what the moc of Qt
+//  6.12.0 writes for its header: Qt's library keeps it to itself; added are
+//  2 rituals that lean on what moc writes for a class of the part Qt keeps
+//  to itself, whose ritual file carries moc's output, drafted by a copy of
+//  the generator that lets those names through. A copy of a meta-object is a
+//  second one: 'qobject_cast' between it and Qt's own does not match. Kept
+//  as it is when the generator runs again.
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <Qt3DExtras/Qt3DExtras>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <Qt3DExtras/6.12.0/Qt3DExtras/private/qtextureatlas_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 #include <QtCore/qrect.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <Qt3DExtras/private/areaallocator_p.h>
-#include <QtCore/qglobal.h>
-#include <QtCore/qrect.h>
-#include <QtCore/qpoint.h>
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
 #include <Qt3DExtras/private/qtextureatlas_p.h>
 #include <Qt3DExtras/private/qtextureatlas_p_p.h>
 #include <Qt3DRender/qtexturedata.h>
 #include <Qt3DRender/qabstracttextureimage.h>
+#include <Qt3DExtras/private/areaallocator_p.h>
+#include <QtCore/qglobal.h>
+#include <QtCore/qrect.h>
+#include <QtCore/qpoint.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -84,6 +96,85 @@ inline bool AreaAllocatorNode::isLeaf()
 {
     Q_ASSERT((left != 0) == (right != 0));
     return !left;
+}
+}  // namespace Qt3DExtras
+
+//  from Qt3DExtras__Qt3DExtras_QTextureAtlas.cpp, line 1, as moc:Qt3DExtras::QTextureAtlas
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN10Qt3DExtras13QTextureAtlasE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto Qt3DExtras::QTextureAtlas::qt_create_metaobjectdata<qt_meta_tag_ZN10Qt3DExtras13QTextureAtlasE_t>()
+{
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "Qt3DExtras::QTextureAtlas"
+    };
+
+    QtMocHelpers::UintData qt_methods {
+    };
+    QtMocHelpers::UintData qt_properties {
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    return QtMocHelpers::metaObjectData<QTextureAtlas, qt_meta_tag_ZN10Qt3DExtras13QTextureAtlasE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums);
+}
+Q_CONSTINIT const QMetaObject Qt3DExtras::QTextureAtlas::staticMetaObject = { {
+    QMetaObject::SuperData::link<Qt3DRender::QAbstractTexture::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN10Qt3DExtras13QTextureAtlasE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN10Qt3DExtras13QTextureAtlasE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN10Qt3DExtras13QTextureAtlasE_t>.metaTypes,
+    nullptr
+} };
+
+void Qt3DExtras::QTextureAtlas::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<QTextureAtlas *>(_o);
+    (void)_t;
+    (void)_c;
+    (void)_id;
+    (void)_a;
+}
+
+const QMetaObject *Qt3DExtras::QTextureAtlas::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *Qt3DExtras::QTextureAtlas::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN10Qt3DExtras13QTextureAtlasE_t>.strings))
+        return static_cast<void*>(this);
+    return Qt3DRender::QAbstractTexture::qt_metacast(_clname);
+}
+
+int Qt3DExtras::QTextureAtlas::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = Qt3DRender::QAbstractTexture::qt_metacall(_c, _id, _a);
+    return _id;
+}
+QT_WARNING_POP
+
+//  from ../qt3d/src/extras/text/qtextureatlas.cpp, line 85, as _ZN10Qt3DExtras20QTextureAtlasPrivateC1Ev
+namespace Qt3DExtras {
+using namespace Qt3DCore;
+inline QTextureAtlasPrivate::QTextureAtlasPrivate()
+    : Qt3DRender::QAbstractTexturePrivate()
+{
+    m_target = Qt3DRender::QAbstractTexture::TargetAutomatic;
+    m_format = Qt3DRender::QAbstractTexture::RGBA8_UNorm;
+    m_width = 256;
+    m_height = 256;
+    m_depth = 1;
 }
 }  // namespace Qt3DExtras
 
@@ -171,6 +262,14 @@ namespace Qt3DExtras {
 inline bool AreaAllocator::deallocate(const QRect &rect)
 {
     return deallocateInNode(rect.topLeft(), m_root);
+}
+}  // namespace Qt3DExtras
+
+//  from ../qt3d/src/extras/text/qtextureatlas.cpp, line 95, as _ZN10Qt3DExtras20QTextureAtlasPrivateD1Ev
+namespace Qt3DExtras {
+using namespace Qt3DCore;
+inline QTextureAtlasPrivate::~QTextureAtlasPrivate()
+{
 }
 }  // namespace Qt3DExtras
 
@@ -352,6 +451,15 @@ inline void AreaAllocator::mergeNodeWithNeighbors(AreaAllocatorNode *node)
             }
         }
     } // end while (!done)
+}
+}  // namespace Qt3DExtras
+
+//  from ../qt3d/src/extras/text/qtextureatlas.cpp, line 150, as _ZN10Qt3DExtras13QTextureAtlasC1EPN8Qt3DCore5QNodeE
+namespace Qt3DExtras {
+using namespace Qt3DCore;
+inline QTextureAtlas::QTextureAtlas(Qt3DCore::QNode *parent)
+    : QAbstractTexture(*new QTextureAtlasPrivate(), parent)
+{
 }
 }  // namespace Qt3DExtras
 
@@ -654,6 +762,23 @@ int ritual_ZN10Qt3DExtras13QTextureAtlas11qt_metacallEN11QMetaObject4CallEiPPv(
     int a1,
     void **a2) {
   return self->qt_metacall(a0, a1, a2);
+}
+
+//  QString Qt3DExtras::QTextureAtlas::tr(const char *s, const char *c, int
+//      n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN10Qt3DExtras13QTextureAtlas2trEPKcS2_i(
+    const char *s,
+    const char *c,
+    int n) {
+  return new QString(Qt3DExtras::QTextureAtlas::tr(s, c, n));
+}
+
+//  Qt3DExtras::QTextureAtlas::QTextureAtlas(Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DExtras::QTextureAtlas *ritual_ZN10Qt3DExtras13QTextureAtlasC1EPN8Qt3DCore5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DExtras_QTextureAtlas(parent);
 }
 
 //  Qt3DExtras::QTextureAtlas::~QTextureAtlas()

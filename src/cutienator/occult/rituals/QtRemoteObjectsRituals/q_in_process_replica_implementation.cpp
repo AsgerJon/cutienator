@@ -1,6 +1,11 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtRemoteObjects/6.12.0/QtRemoteObjects/private/qremoteobjectreplica_p.h,
-//  Qt 6.12.0. Changes made here are lost.
+//  Qt 6.12.0.
+//  Edited by hand on 2026-11-26: added are 2 rituals whose code, copied from
+//  Qt's source, reads constant data Qt keeps to itself
+//  ('QRemoteObjectSourceBase::qobjectPropertyOffset'), copied with it
+//  'inline' from Qt's source, drafted by a copy of the generator that takes
+//  it along. Kept as it is when the generator runs again.
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtRemoteObjects/QtRemoteObjects>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -11,6 +16,18 @@
 #include <QtCore/qlist.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qloggingcategory.h>
+#include <QtRemoteObjects/qremoteobjectsource.h>
+#include <QtRemoteObjects/private/qremoteobjectsource_p.h>
+#include <QtRemoteObjects/qremoteobjectnode.h>
+#include <QtRemoteObjects/qremoteobjectdynamicreplica.h>
+#include <QtRemoteObjects/private/qconnectionfactories_p.h>
+#include <QtRemoteObjects/private/qremoteobjectsourceio_p.h>
+#include <QtRemoteObjects/private/qremoteobjectabstractitemmodeladapter_p.h>
+#include <QtCore/qmetaobject.h>
+#include <QtCore/qvarlengtharray.h>
+#include <QtCore/qabstractitemmodel.h>
+#include <algorithm>
+#include <iterator>
 #include <QtRemoteObjects/qremoteobjectreplica.h>
 #include <QtRemoteObjects/private/qremoteobjectreplica_p.h>
 #include <QtRemoteObjects/qremoteobjectnode.h>
@@ -26,18 +43,6 @@
 #include <QtCore/qvariant.h>
 #include <QtCore/qthread.h>
 #include <limits>
-#include <QtRemoteObjects/qremoteobjectsource.h>
-#include <QtRemoteObjects/private/qremoteobjectsource_p.h>
-#include <QtRemoteObjects/qremoteobjectnode.h>
-#include <QtRemoteObjects/qremoteobjectdynamicreplica.h>
-#include <QtRemoteObjects/private/qconnectionfactories_p.h>
-#include <QtRemoteObjects/private/qremoteobjectsourceio_p.h>
-#include <QtRemoteObjects/private/qremoteobjectabstractitemmodeladapter_p.h>
-#include <QtCore/qmetaobject.h>
-#include <QtCore/qvarlengtharray.h>
-#include <QtCore/qabstractitemmodel.h>
-#include <algorithm>
-#include <iterator>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -56,10 +61,8 @@ inline const QLoggingCategory &QT_REMOTEOBJECT()
     return category;
 }
 
-//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectreplica.cpp, line 55, as _ZN34QRemoteObjectReplicaImplementationD2Ev
-inline QRemoteObjectReplicaImplementation::~QRemoteObjectReplicaImplementation()
-{
-}
+//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectsource.cpp, line 26, as _ZN23QRemoteObjectSourceBase21qobjectPropertyOffsetE
+inline const int QRemoteObjectSourceBase::qobjectPropertyOffset = QObject::staticMetaObject.propertyCount();
 
 //  from ../qtremoteobjects/src/remoteobjects/qremoteobjectsource.cpp, line 401, as _ZN23QRemoteObjectSourceBase6invokeEN11QMetaObject4CallEiRK5QListI8QVariantEPS3_
 inline bool QRemoteObjectSourceBase::invoke(QMetaObject::Call c, int index, const QVariantList &args, QVariant* returnValue)
@@ -207,10 +210,49 @@ inline void QRemoteObjectReplicaImplementation::setDynamicProperties(QVariantLis
     setProperties(std::move(values));
 }
 
+//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectreplica.cpp, line 42, as _ZN34QRemoteObjectReplicaImplementationC2ERK7QStringPK11QMetaObjectP17QRemoteObjectNode
+inline QRemoteObjectReplicaImplementation::QRemoteObjectReplicaImplementation(const QString &name, const QMetaObject *meta, QRemoteObjectNode *_node)
+    : QObject(nullptr), m_objectName(name), m_metaObject(meta), m_numSignals(0), m_methodOffset(0)
+    // Uncomment the following two lines if QRemoteObjectDynamicReplica gets a unique staticMetaObject (FIX #1, #2)
+    //, m_signalOffset(meta ? QRemoteObjectReplica::staticMetaObject.methodCount() : QRemoteObjectDynamicReplica::staticMetaObject.methodCount())
+    //, m_propertyOffset(meta ? QRemoteObjectReplica::staticMetaObject.propertyCount() : QRemoteObjectDynamicReplica::staticMetaObject.propertyCount())
+    , m_signalOffset(QRemoteObjectReplica::staticMetaObject.methodCount())
+    , m_propertyOffset(QRemoteObjectReplica::staticMetaObject.propertyCount())
+    , m_node(_node)
+    , m_objectSignature(QtPrivate::qtro_classinfo_signature(m_metaObject))
+    , m_state(meta ? QRemoteObjectReplica::Default : QRemoteObjectReplica::Uninitialized)
+{
+}
+
+//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectreplica.cpp, line 55, as _ZN34QRemoteObjectReplicaImplementationD2Ev
+inline QRemoteObjectReplicaImplementation::~QRemoteObjectReplicaImplementation()
+{
+}
+
+//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectreplica.cpp, line 851, as _ZNK31QInProcessReplicaImplementation11getPropertyEi
+inline const QVariant QInProcessReplicaImplementation::getProperty(int i) const
+{
+    Q_ASSERT(connectionToSource);
+    Q_ASSERT(connectionToSource->m_object);
+    const int index = i + QRemoteObjectSource::qobjectPropertyOffset;
+    Q_ASSERT(index >= 0 && index < connectionToSource->m_object->metaObject()->propertyCount());
+    return connectionToSource->m_object->metaObject()->property(index).read(connectionToSource->m_object);
+}
+
 //  from ../qtremoteobjects/src/remoteobjects/qremoteobjectreplica.cpp, line 860, as _ZN31QInProcessReplicaImplementation13setPropertiesEO5QListI8QVariantE
 inline void QInProcessReplicaImplementation::setProperties(QVariantList &&)
 {
     //TODO some verification here maybe?
+}
+
+//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectreplica.cpp, line 865, as _ZN31QInProcessReplicaImplementation11setPropertyEiRK8QVariant
+inline void QInProcessReplicaImplementation::setProperty(int i, const QVariant &property)
+{
+    Q_ASSERT(connectionToSource);
+    Q_ASSERT(connectionToSource->m_object);
+    const int index = i + QRemoteObjectSource::qobjectPropertyOffset;
+    Q_ASSERT(index >= 0 && index < connectionToSource->m_object->metaObject()->propertyCount());
+    connectionToSource->m_object->metaObject()->property(index).write(connectionToSource->m_object, property);
 }
 
 //  from ../qtremoteobjects/src/remoteobjects/qremoteobjectreplica.cpp, line 874, as _ZN31QInProcessReplicaImplementation7_q_sendEN11QMetaObject4CallEiRK5QListI8QVariantE
@@ -256,12 +298,30 @@ inline QRemoteObjectPendingCall QInProcessReplicaImplementation::_q_sendWithRepl
 }
 //  -----------------------------------------------------------------------
 
+//  const QVariant QInProcessReplicaImplementation::getProperty(int i) const
+extern "C" Q_DECL_EXPORT
+QVariant *ritual_ZNK31QInProcessReplicaImplementation11getPropertyEi(
+    const QInProcessReplicaImplementation *self,
+    int i) {
+  return new QVariant(self->getProperty(i));
+}
+
 //  void QInProcessReplicaImplementation::setProperties(QVariantList &&a0)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN31QInProcessReplicaImplementation13setPropertiesEO5QListI8QVariantE(
     QInProcessReplicaImplementation *self,
     QVariantList *a0) {
   self->setProperties(std::move(*a0));
+}
+
+//  void QInProcessReplicaImplementation::setProperty(int i, const QVariant
+//      &a1)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN31QInProcessReplicaImplementation11setPropertyEiRK8QVariant(
+    QInProcessReplicaImplementation *self,
+    int i,
+    const QVariant *a1) {
+  self->setProperty(i, *a1);
 }
 
 //  bool QInProcessReplicaImplementation::isShortCircuit() const

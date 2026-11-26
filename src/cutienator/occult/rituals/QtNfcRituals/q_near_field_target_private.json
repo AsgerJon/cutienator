@@ -1,8 +1,8 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "QtNfc/6.12.0/QtNfc/private/qnearfieldtarget_p.h, Qt 6.12.0.",
-    "Changes made here are lost."
+    "QtNfc/6.12.0/QtNfc/private/qnearfieldtarget_p.h, Qt 6.12.0. Edited",
+    "by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZNK23QNearFieldTargetPrivate10metaObjectEv": [
@@ -14,6 +14,10 @@
     "ritual_ZN23QNearFieldTargetPrivate11qt_metacallEN11QMetaObject4CallEiPPv": [
       "int", "address", "int", "int", "address"
     ],
+    "ritual_ZN23QNearFieldTargetPrivate2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN23QNearFieldTargetPrivateC1EP7QObject": ["address", "address"],
     "ritual_ZN23QNearFieldTargetPrivateD1Ev": ["nothing", "address"],
     "ritual_ZNK23QNearFieldTargetPrivate3uidEv": ["address", "address"],
     "ritual_ZNK23QNearFieldTargetPrivate4typeEv": ["int", "address"],
@@ -36,6 +40,9 @@
     "ritual_ZN23QNearFieldTargetPrivate11sendCommandERK10QByteArray": [
       "address", "address", "address"
     ],
+    "ritual_ZN23QNearFieldTargetPrivate23waitForRequestCompletedERKN16QNearFieldTarget9RequestIdEi": [
+      "bool", "address", "address", "int"
+    ],
     "ritual_ZNK23QNearFieldTargetPrivate15requestResponseERKN16QNearFieldTarget9RequestIdE": [
       "address", "address", "address"
     ],
@@ -54,6 +61,9 @@
     "ritual_ZN23QNearFieldTargetPrivate21setResponseForRequestERKN16QNearFieldTarget9RequestIdERK8QVariantb": [
       "nothing", "address", "address", "address", "bool"
     ],
+    "ritual_ZN23QNearFieldTargetPrivate11reportErrorEN16QNearFieldTarget5ErrorERKNS0_9RequestIdE": [
+      "nothing", "address", "int", "address"
+    ],
     "ritual_take_QNearFieldTargetPrivate": [
       "bool", "address", "chars", "address"
     ],
@@ -68,8 +78,17 @@
     "ritual_own_ZN23QNearFieldTargetPrivate14hasNdefMessageEv": [
       "bool", "address"
     ],
+    "ritual_own_ZN23QNearFieldTargetPrivate16readNdefMessagesEv": [
+      "address", "address"
+    ],
     "ritual_own_ZNK23QNearFieldTargetPrivate16maxCommandLengthEv": [
       "int", "address"
+    ],
+    "ritual_own_ZN23QNearFieldTargetPrivate11sendCommandERK10QByteArray": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZN23QNearFieldTargetPrivate21setResponseForRequestERKN16QNearFieldTarget9RequestIdERK8QVariantb": [
+      "nothing", "address", "address", "address", "bool"
     ]
   }
 }

@@ -1,8 +1,8 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "QtGui/6.12.0/QtGui/private/qdbusmenubar_p.h, Qt 6.12.0. Changes",
-    "made here are lost."
+    "QtGui/6.12.0/QtGui/private/qdbusmenubar_p.h, Qt 6.12.0. Edited by",
+    "hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZNK12QDBusMenuBar10metaObjectEv": ["address", "address"],
@@ -29,7 +29,11 @@
       "address", "address", "unsigned long long"
     ],
     "ritual_ZNK12QDBusMenuBar10createMenuEv": ["address", "address"],
+    "ritual_ZN12QDBusMenuBar15registerMenuBarEv": ["nothing", "address"],
     "ritual_take_QDBusMenuBar": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN12QDBusMenuBar14handleReparentEP7QWindow": [
+      "nothing", "address", "address"
+    ],
     "ritual_own_ZNK12QDBusMenuBar10menuForTagEy": [
       "address", "address", "unsigned long long"
     ]

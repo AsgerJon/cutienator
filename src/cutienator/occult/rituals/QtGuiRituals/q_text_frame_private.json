@@ -7,6 +7,9 @@
   "rows": {
     "ritual_ZN17QTextFramePrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK17QTextFramePrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN17QTextFramePrivateC1EP13QTextDocument": [
+      "address", "address"
+    ],
     "ritual_ZN17QTextFramePrivate13fragmentAddedE5QCharj": [
       "nothing", "address", "address", "unsigned int"
     ],

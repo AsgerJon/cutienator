@@ -2,7 +2,7 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtWidgets/6.12.0/QtWidgets/private/qcolumnviewgrip_p.h, Qt 6.12.0.",
-    "Changes made here are lost."
+    "Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZNK15QColumnViewGrip10metaObjectEv": ["address", "address"],
@@ -12,8 +12,16 @@
     "ritual_ZN15QColumnViewGrip11qt_metacallEN11QMetaObject4CallEiPPv": [
       "int", "address", "int", "int", "address"
     ],
+    "ritual_ZN15QColumnViewGrip2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
     "ritual_ZN15QColumnViewGrip9gripMovedEi": ["nothing", "address", "int"],
+    "ritual_ZN15QColumnViewGripC1EP7QWidget": ["address", "address"],
     "ritual_ZN15QColumnViewGripD1Ev": ["nothing", "address"],
+    "ritual_ZN15QColumnViewGrip8moveGripEi": ["int", "address", "int"],
+    "ritual_ZN15QColumnViewGripC1ER22QColumnViewGripPrivateP7QWidget6QFlagsIN2Qt10WindowTypeEE": [
+      "address", "address", "address", "int"
+    ],
     "ritual_ZN15QColumnViewGrip10paintEventEP11QPaintEvent": [
       "nothing", "address", "address"
     ],
@@ -33,6 +41,12 @@
     "ritual_ZNK15QColumnViewGrip6d_funcEv": ["address", "address"],
     "ritual_take_QColumnViewGrip": ["bool", "address", "chars", "address"],
     "ritual_own_ZN15QColumnViewGrip10paintEventEP11QPaintEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN15QColumnViewGrip21mouseDoubleClickEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN15QColumnViewGrip14mouseMoveEventEP11QMouseEvent": [
       "nothing", "address", "address"
     ],
     "ritual_own_ZN15QColumnViewGrip17mouseReleaseEventEP11QMouseEvent": [

@@ -5,14 +5,19 @@
     "made here are lost."
   ],
   "rows": {
+    "ritual_ZN19QCoapMessagePrivateC1EN12QCoapMessage4TypeE": [
+      "address", "unsigned char"
+    ],
     "ritual_ZN19QCoapMessagePrivateD1Ev": ["nothing", "address"],
     "ritual_ZNK19QCoapMessagePrivate5cloneEv": ["address", "address"],
     "ritual_ZNK19QCoapMessagePrivate10findOptionEN11QCoapOption10OptionNameE": [
       "address", "address", "int"
     ],
+    "ritual_ZN19QCoapMessagePrivateC1ERKS_": ["address", "address"],
     "ritual_take_QCoapMessagePrivate": [
       "bool", "address", "chars", "address"
     ],
+    "ritual_own_ZNK19QCoapMessagePrivate5cloneEv": ["address", "address"],
     "ritual_drop_QCoapMessagePrivate__QList_QCoapOption_const_iterator": [
       "nothing", "address"
     ]

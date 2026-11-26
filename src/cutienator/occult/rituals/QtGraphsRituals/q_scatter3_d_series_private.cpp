@@ -199,6 +199,16 @@ inline void QAbstract3DSeriesPrivate::setDataProxy(QAbstractDataProxy *proxy)
     }
 }
 
+//  from ../qtgraphs/src/graphs3d/data/qscatter3dseries.cpp, line 525, as _ZN23QScatter3DSeriesPrivateC1Ev
+inline QScatter3DSeriesPrivate::QScatter3DSeriesPrivate()
+    : QAbstract3DSeriesPrivate(QAbstract3DSeries::SeriesType::Scatter)
+    , m_selectedItem(QQuickGraphsScatter::invalidSelectionIndex())
+    , m_itemSize(0.0f)
+{
+    m_itemLabelFormat = QStringLiteral("@xLabel, @yLabel, @zLabel");
+    m_mesh = QAbstract3DSeries::Mesh::Sphere;
+}
+
 //  from ../qtgraphs/src/graphs3d/data/qscatter3dseries.cpp, line 634, as _ZN23QScatter3DSeriesPrivate15setSelectedItemEx
 inline void QScatter3DSeriesPrivate::setSelectedItem(qsizetype index)
 {
@@ -372,6 +382,12 @@ extern "C" Q_DECL_EXPORT
 const QScatter3DSeries *ritual_ZNK23QScatter3DSeriesPrivate6q_funcEv(
     const QScatter3DSeriesPrivate *self) {
   return self->q_func();
+}
+
+//  QScatter3DSeriesPrivate::QScatter3DSeriesPrivate()
+extern "C" Q_DECL_EXPORT
+QScatter3DSeriesPrivate *ritual_ZN23QScatter3DSeriesPrivateC1Ev() {
+  return new CuteQScatter3DSeriesPrivate();
 }
 
 //  QScatter3DSeriesPrivate::~QScatter3DSeriesPrivate()

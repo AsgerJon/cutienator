@@ -58,6 +58,23 @@ inline void QAbstract3DSeriesPrivate::setGraph(QQuickGraphsItem *graph)
 //  from ../qtgraphs/src/graphs3d/data/qabstract3dseries.cpp, line 895, as _ZN24QAbstract3DSeriesPrivateD2Ev
 inline QAbstract3DSeriesPrivate::~QAbstract3DSeriesPrivate() {}
 
+//  from ../qtgraphs/src/graphs3d/data/qabstract3dseries.cpp, line 879, as _ZN24QAbstract3DSeriesPrivateC1EN17QAbstract3DSeries10SeriesTypeE
+inline QAbstract3DSeriesPrivate::QAbstract3DSeriesPrivate(QAbstract3DSeries::SeriesType type)
+    : m_type(type)
+    , m_dataProxy(0)
+    , m_visible(true)
+    , m_graph(0)
+    , m_mesh(QAbstract3DSeries::Mesh::Cube)
+    , m_meshSmooth(false)
+    , m_colorStyle(QGraphsTheme::ColorStyle::Uniform)
+    , m_baseColor(Qt::black)
+    , m_singleHighlightColor(Qt::black)
+    , m_multiHighlightColor(Qt::black)
+    , m_itemLabelDirty(true)
+    , m_itemLabelVisible(true)
+    , m_lightingMode(QAbstract3DSeries::LightingMode::Shaded)
+{}
+
 //  from ../qtgraphs/src/graphs3d/data/qabstract3dseries.cpp, line 897, as _ZNK24QAbstract3DSeriesPrivate9dataProxyEv
 inline QAbstractDataProxy *QAbstract3DSeriesPrivate::dataProxy() const
 {
@@ -352,6 +369,14 @@ extern "C" Q_DECL_EXPORT
 const QAbstract3DSeries *ritual_ZNK24QAbstract3DSeriesPrivate6q_funcEv(
     const QAbstract3DSeriesPrivate *self) {
   return self->q_func();
+}
+
+//  QAbstract3DSeriesPrivate::QAbstract3DSeriesPrivate(QAbstract3DSeries::Ser
+//      iesType type)
+extern "C" Q_DECL_EXPORT
+QAbstract3DSeriesPrivate *ritual_ZN24QAbstract3DSeriesPrivateC1EN17QAbstract3DSeries10SeriesTypeE(
+    QAbstract3DSeries::SeriesType type) {
+  return new CuteQAbstract3DSeriesPrivate(type);
 }
 
 //  QAbstract3DSeriesPrivate::~QAbstract3DSeriesPrivate()

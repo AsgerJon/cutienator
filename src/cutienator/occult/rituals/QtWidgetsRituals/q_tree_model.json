@@ -2,7 +2,7 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtWidgets/6.12.0/QtWidgets/private/qtreewidget_p.h, Qt 6.12.0.",
-    "Changes made here are lost."
+    "Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZNK10QTreeModel10metaObjectEv": ["address", "address"],
@@ -12,6 +12,8 @@
     "ritual_ZN10QTreeModel11qt_metacallEN11QMetaObject4CallEiPPv": [
       "int", "address", "int", "int", "address"
     ],
+    "ritual_ZN10QTreeModel2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN10QTreeModelC1EiP11QTreeWidget": ["address", "int", "address"],
     "ritual_ZN10QTreeModelD1Ev": ["nothing", "address"],
     "ritual_ZNK10QTreeModel4viewEv": ["address", "address"],
     "ritual_ZN10QTreeModel5clearEv": ["nothing", "address"],
@@ -97,6 +99,9 @@
     "ritual_ZNK10QTreeModel16internalMimeDataEv": ["address", "address"],
     "ritual_ZNK10QTreeModel19createIndexFromItemEiiP15QTreeWidgetItem": [
       "address", "address", "int", "int", "address"
+    ],
+    "ritual_ZN10QTreeModelC1ER17QTreeModelPrivateP11QTreeWidget": [
+      "address", "address", "address"
     ],
     "ritual_ZN10QTreeModel15emitDataChangedEP15QTreeWidgetItemiRK5QListIiE": [
       "nothing", "address", "address", "int", "address"

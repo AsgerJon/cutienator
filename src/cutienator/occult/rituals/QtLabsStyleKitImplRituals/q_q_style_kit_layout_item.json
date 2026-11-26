@@ -2,7 +2,7 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of QtLabsS",
     "tyleKitImpl/6.12.0/QtLabsStyleKitImpl/private/qqstylekitlayout_p.h",
-    ", Qt 6.12.0. Changes made here are lost."
+    ", Qt 6.12.0. Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZNK20QQStyleKitLayoutItem10metaObjectEv": ["address", "address"],
@@ -12,15 +12,46 @@
     "ritual_ZN20QQStyleKitLayoutItem11qt_metacallEN11QMetaObject4CallEiPPv": [
       "int", "address", "int", "int", "address"
     ],
+    "ritual_ZN20QQStyleKitLayoutItem2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN20QQStyleKitLayoutItemC1EP7QObject": ["address", "address"],
     "ritual_ZNK20QQStyleKitLayoutItem4itemEv": ["address", "address"],
+    "ritual_ZN20QQStyleKitLayoutItem7setItemEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK20QQStyleKitLayoutItem1xEv": ["double", "address"],
+    "ritual_ZN20QQStyleKitLayoutItem4setXEd": [
+      "nothing", "address", "double"
+    ],
     "ritual_ZNK20QQStyleKitLayoutItem1yEv": ["double", "address"],
+    "ritual_ZN20QQStyleKitLayoutItem4setYEd": [
+      "nothing", "address", "double"
+    ],
     "ritual_ZNK20QQStyleKitLayoutItem5widthEv": ["double", "address"],
+    "ritual_ZN20QQStyleKitLayoutItem8setWidthEd": [
+      "nothing", "address", "double"
+    ],
     "ritual_ZNK20QQStyleKitLayoutItem6heightEv": ["double", "address"],
+    "ritual_ZN20QQStyleKitLayoutItem9setHeightEd": [
+      "nothing", "address", "double"
+    ],
     "ritual_ZNK20QQStyleKitLayoutItem9alignmentEv": ["int", "address"],
+    "ritual_ZN20QQStyleKitLayoutItem12setAlignmentE6QFlagsIN2Qt13AlignmentFlagEE": [
+      "nothing", "address", "int"
+    ],
     "ritual_ZNK20QQStyleKitLayoutItem7marginsEv": ["address", "address"],
+    "ritual_ZN20QQStyleKitLayoutItem10setMarginsERK9QMarginsF": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK20QQStyleKitLayoutItem9fillWidthEv": ["bool", "address"],
+    "ritual_ZN20QQStyleKitLayoutItem12setFillWidthEb": [
+      "nothing", "address", "bool"
+    ],
     "ritual_ZNK20QQStyleKitLayoutItem10fillHeightEv": ["bool", "address"],
+    "ritual_ZN20QQStyleKitLayoutItem13setFillHeightEb": [
+      "nothing", "address", "bool"
+    ],
     "ritual_ZN20QQStyleKitLayoutItem11itemChangedEv": ["nothing", "address"],
     "ritual_ZN20QQStyleKitLayoutItem8xChangedEv": ["nothing", "address"],
     "ritual_ZN20QQStyleKitLayoutItem8yChangedEv": ["nothing", "address"],

@@ -5,6 +5,7 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN13Qt3DAnimation9Animation14ChannelMappingC1Ev": ["address"],
     "ritual_ZN13Qt3DAnimation9Animation14ChannelMapping7cleanupEv": [
       "nothing", "address"
     ],

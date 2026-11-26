@@ -2,7 +2,7 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtQuick/6.12.0/QtQuick/private/qsgrhiatlastexture_p.h, Qt 6.12.0.",
-    "Changes made here are lost."
+    "Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZNK18QSGRhiAtlasTexture11TextureBase10metaObjectEv": [
@@ -13,6 +13,12 @@
     ],
     "ritual_ZN18QSGRhiAtlasTexture11TextureBase11qt_metacallEN11QMetaObject4CallEiPPv": [
       "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN18QSGRhiAtlasTexture11TextureBase2trEPKcS2_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN18QSGRhiAtlasTexture11TextureBaseC1EPNS_9AtlasBaseERK5QRect": [
+      "address", "address", "address"
     ],
     "ritual_ZN18QSGRhiAtlasTexture11TextureBaseD1Ev": ["nothing", "address"],
     "ritual_ZNK18QSGRhiAtlasTexture11TextureBase13comparisonKeyEv": [

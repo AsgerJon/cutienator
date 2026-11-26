@@ -2,7 +2,7 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of QtDataV",
     "isualization/6.12.0/QtDataVisualization/private/qitemmodelbardatap",
-    "roxy_p.h, Qt 6.12.0. Changes made here are lost."
+    "roxy_p.h, Qt 6.12.0. Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZNK29QItemModelBarDataProxyPrivate10metaObjectEv": [
@@ -14,7 +14,16 @@
     "ritual_ZN29QItemModelBarDataProxyPrivate11qt_metacallEN11QMetaObject4CallEiPPv": [
       "int", "address", "int", "int", "address"
     ],
+    "ritual_ZN29QItemModelBarDataProxyPrivate2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN29QItemModelBarDataProxyPrivateC1EP22QItemModelBarDataProxy": [
+      "address", "address"
+    ],
     "ritual_ZN29QItemModelBarDataProxyPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN29QItemModelBarDataProxyPrivate23connectItemModelHandlerEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN29QItemModelBarDataProxyPrivate4qptrEv": [
       "address", "address"
     ],

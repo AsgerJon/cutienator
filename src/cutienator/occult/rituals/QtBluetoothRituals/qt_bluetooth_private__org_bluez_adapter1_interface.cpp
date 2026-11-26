@@ -1,6 +1,13 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtBluetooth/6.12.0/QtBluetooth/private/adapter1_bluez5_p.h, Qt 6.12.0.
-//  Changes made here are lost.
+//  Edited by hand on 2026-11-26: moc's output for
+//  'QtBluetoothPrivate::OrgBluezAdapter1Interface' is pasted in, cut from
+//  what the moc of Qt 6.12.0 writes for its header: Qt's library keeps it to
+//  itself; added are 2 rituals that lean on what moc writes for a class of
+//  the part Qt keeps to itself, whose ritual file carries moc's output,
+//  drafted by a copy of the generator that lets those names through. A copy
+//  of a meta-object is a second one: 'qobject_cast' between it and Qt's own
+//  does not match. Kept as it is when the generator runs again.
 #include <QtBluetooth/qtbluetoothglobal.h>
 #include <QtBluetooth/6.12.0/QtBluetooth/private/qtbluetoothglobal_p.h>
 #if QT_CONFIG(bluez)
@@ -10,6 +17,7 @@
 #include <QtBluetooth/6.12.0/QtBluetooth/private/adapter1_bluez5_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
+#include <QtDBus/qdbusconnection.h>
 #include <QtDBus/qdbusextratypes.h>
 #include <QtCore/qvariant.h>
 #include <QtCore/qmetaobject.h>
@@ -24,6 +32,10 @@
 #include <QtCore/QString>
 #include <QtCore/QVariant>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
 #include <QtBluetooth/private/adapter1_bluez5_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
@@ -33,6 +45,206 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  from QtBluetooth__QtBluetoothPrivate_OrgBluezAdapter1Interface.cpp, line 1, as moc:QtBluetoothPrivate::OrgBluezAdapter1Interface
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN18QtBluetoothPrivate25OrgBluezAdapter1InterfaceE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto QtBluetoothPrivate::OrgBluezAdapter1Interface::qt_create_metaobjectdata<qt_meta_tag_ZN18QtBluetoothPrivate25OrgBluezAdapter1InterfaceE_t>()
+{
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "QtBluetoothPrivate::OrgBluezAdapter1Interface",
+        "RemoveDevice",
+        "QDBusPendingReply<>",
+        "",
+        "QDBusObjectPath",
+        "device",
+        "SetDiscoveryFilter",
+        "QVariantMap",
+        "properties",
+        "StartDiscovery",
+        "StopDiscovery",
+        "Address",
+        "Alias",
+        "Class",
+        "Discoverable",
+        "DiscoverableTimeout",
+        "Discovering",
+        "Modalias",
+        "Name",
+        "Pairable",
+        "PairableTimeout",
+        "Powered",
+        "UUIDs"
+    };
+
+    QtMocHelpers::UintData qt_methods {
+        // Slot 'RemoveDevice'
+        QtMocHelpers::SlotData<QDBusPendingReply<>(const QDBusObjectPath &)>(1, 3, QMC::AccessPublic, 0x80000000 | 2, {{
+            { 0x80000000 | 4, 5 },
+        }}),
+        // Slot 'SetDiscoveryFilter'
+        QtMocHelpers::SlotData<QDBusPendingReply<>(const QVariantMap &)>(6, 3, QMC::AccessPublic, 0x80000000 | 2, {{
+            { 0x80000000 | 7, 8 },
+        }}),
+        // Slot 'StartDiscovery'
+        QtMocHelpers::SlotData<QDBusPendingReply<>()>(9, 3, QMC::AccessPublic, 0x80000000 | 2),
+        // Slot 'StopDiscovery'
+        QtMocHelpers::SlotData<QDBusPendingReply<>()>(10, 3, QMC::AccessPublic, 0x80000000 | 2),
+    };
+    QtMocHelpers::UintData qt_properties {
+        // property 'Address'
+        QtMocHelpers::PropertyData<QString>(11, QMetaType::QString, QMC::DefaultPropertyFlags),
+        // property 'Alias'
+        QtMocHelpers::PropertyData<QString>(12, QMetaType::QString, QMC::DefaultPropertyFlags | QMC::Writable | QMC::StdCppSet),
+        // property 'Class'
+        QtMocHelpers::PropertyData<uint>(13, QMetaType::UInt, QMC::DefaultPropertyFlags),
+        // property 'Discoverable'
+        QtMocHelpers::PropertyData<bool>(14, QMetaType::Bool, QMC::DefaultPropertyFlags | QMC::Writable | QMC::StdCppSet),
+        // property 'DiscoverableTimeout'
+        QtMocHelpers::PropertyData<uint>(15, QMetaType::UInt, QMC::DefaultPropertyFlags | QMC::Writable | QMC::StdCppSet),
+        // property 'Discovering'
+        QtMocHelpers::PropertyData<bool>(16, QMetaType::Bool, QMC::DefaultPropertyFlags),
+        // property 'Modalias'
+        QtMocHelpers::PropertyData<QString>(17, QMetaType::QString, QMC::DefaultPropertyFlags),
+        // property 'Name'
+        QtMocHelpers::PropertyData<QString>(18, QMetaType::QString, QMC::DefaultPropertyFlags),
+        // property 'Pairable'
+        QtMocHelpers::PropertyData<bool>(19, QMetaType::Bool, QMC::DefaultPropertyFlags | QMC::Writable | QMC::StdCppSet),
+        // property 'PairableTimeout'
+        QtMocHelpers::PropertyData<uint>(20, QMetaType::UInt, QMC::DefaultPropertyFlags | QMC::Writable | QMC::StdCppSet),
+        // property 'Powered'
+        QtMocHelpers::PropertyData<bool>(21, QMetaType::Bool, QMC::DefaultPropertyFlags | QMC::Writable | QMC::StdCppSet),
+        // property 'UUIDs'
+        QtMocHelpers::PropertyData<QStringList>(22, QMetaType::QStringList, QMC::DefaultPropertyFlags),
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    return QtMocHelpers::metaObjectData<OrgBluezAdapter1Interface, qt_meta_tag_ZN18QtBluetoothPrivate25OrgBluezAdapter1InterfaceE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums);
+}
+Q_CONSTINIT const QMetaObject QtBluetoothPrivate::OrgBluezAdapter1Interface::staticMetaObject = { {
+    QMetaObject::SuperData::link<QDBusAbstractInterface::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN18QtBluetoothPrivate25OrgBluezAdapter1InterfaceE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN18QtBluetoothPrivate25OrgBluezAdapter1InterfaceE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN18QtBluetoothPrivate25OrgBluezAdapter1InterfaceE_t>.metaTypes,
+    nullptr
+} };
+
+void QtBluetoothPrivate::OrgBluezAdapter1Interface::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<OrgBluezAdapter1Interface *>(_o);
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        switch (_id) {
+        case 0: { QDBusPendingReply<> _r = _t->RemoveDevice((*reinterpret_cast<std::add_pointer_t<QDBusObjectPath>>(_a[1])));
+            if (_a[0]) *reinterpret_cast<QDBusPendingReply<>*>(_a[0]) = std::move(_r); }  break;
+        case 1: { QDBusPendingReply<> _r = _t->SetDiscoveryFilter((*reinterpret_cast<std::add_pointer_t<QVariantMap>>(_a[1])));
+            if (_a[0]) *reinterpret_cast<QDBusPendingReply<>*>(_a[0]) = std::move(_r); }  break;
+        case 2: { QDBusPendingReply<> _r = _t->StartDiscovery();
+            if (_a[0]) *reinterpret_cast<QDBusPendingReply<>*>(_a[0]) = std::move(_r); }  break;
+        case 3: { QDBusPendingReply<> _r = _t->StopDiscovery();
+            if (_a[0]) *reinterpret_cast<QDBusPendingReply<>*>(_a[0]) = std::move(_r); }  break;
+        default: ;
+        }
+    }
+    if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        switch (_id) {
+        default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
+        case 0:
+            switch (*reinterpret_cast<int*>(_a[1])) {
+            default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
+            case 0:
+                *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType::fromType< QDBusObjectPath >(); break;
+            }
+            break;
+        }
+    }
+    if (_c == QMetaObject::ReadProperty) {
+        void *_v = _a[0];
+        switch (_id) {
+        case 0: *reinterpret_cast<QString*>(_v) = _t->address(); break;
+        case 1: *reinterpret_cast<QString*>(_v) = _t->alias(); break;
+        case 2: *reinterpret_cast<uint*>(_v) = _t->classProperty(); break;
+        case 3: *reinterpret_cast<bool*>(_v) = _t->discoverable(); break;
+        case 4: *reinterpret_cast<uint*>(_v) = _t->discoverableTimeout(); break;
+        case 5: *reinterpret_cast<bool*>(_v) = _t->discovering(); break;
+        case 6: *reinterpret_cast<QString*>(_v) = _t->modalias(); break;
+        case 7: *reinterpret_cast<QString*>(_v) = _t->name(); break;
+        case 8: *reinterpret_cast<bool*>(_v) = _t->pairable(); break;
+        case 9: *reinterpret_cast<uint*>(_v) = _t->pairableTimeout(); break;
+        case 10: *reinterpret_cast<bool*>(_v) = _t->powered(); break;
+        case 11: *reinterpret_cast<QStringList*>(_v) = _t->uUIDs(); break;
+        default: break;
+        }
+    }
+    if (_c == QMetaObject::WriteProperty) {
+        void *_v = _a[0];
+        switch (_id) {
+        case 1: _t->setAlias(*reinterpret_cast<QString*>(_v)); break;
+        case 3: _t->setDiscoverable(*reinterpret_cast<bool*>(_v)); break;
+        case 4: _t->setDiscoverableTimeout(*reinterpret_cast<uint*>(_v)); break;
+        case 8: _t->setPairable(*reinterpret_cast<bool*>(_v)); break;
+        case 9: _t->setPairableTimeout(*reinterpret_cast<uint*>(_v)); break;
+        case 10: _t->setPowered(*reinterpret_cast<bool*>(_v)); break;
+        default: break;
+        }
+    }
+}
+
+const QMetaObject *QtBluetoothPrivate::OrgBluezAdapter1Interface::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *QtBluetoothPrivate::OrgBluezAdapter1Interface::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN18QtBluetoothPrivate25OrgBluezAdapter1InterfaceE_t>.strings))
+        return static_cast<void*>(this);
+    return QDBusAbstractInterface::qt_metacast(_clname);
+}
+
+int QtBluetoothPrivate::OrgBluezAdapter1Interface::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QDBusAbstractInterface::qt_metacall(_c, _id, _a);
+    if (_id < 0)
+        return _id;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        if (_id < 4)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 4;
+    }
+    if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        if (_id < 4)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 4;
+    }
+    if (_c == QMetaObject::ReadProperty || _c == QMetaObject::WriteProperty
+            || _c == QMetaObject::ResetProperty || _c == QMetaObject::BindableProperty
+            || _c == QMetaObject::RegisterPropertyMetaType) {
+        qt_static_metacall(this, _c, _id, _a);
+        _id -= 12;
+    }
+    return _id;
+}
+QT_WARNING_POP
+
+//  from ../qtconnectivity/src/bluetooth/bluez/adapter1_bluez5.cpp, line 20, as _ZN18QtBluetoothPrivate25OrgBluezAdapter1InterfaceC1ERK7QStringS3_RK15QDBusConnectionP7QObject
+namespace QtBluetoothPrivate {
+inline OrgBluezAdapter1Interface::OrgBluezAdapter1Interface(const QString &service, const QString &path, const QDBusConnection &connection, QObject *parent)
+    : QDBusAbstractInterface(service, path, staticInterfaceName(), connection, parent)
+{
+}
+}  // namespace QtBluetoothPrivate
 
 //  from ../qtconnectivity/src/bluetooth/bluez/adapter1_bluez5.cpp, line 25, as _ZN18QtBluetoothPrivate25OrgBluezAdapter1InterfaceD1Ev
 namespace QtBluetoothPrivate {
@@ -250,11 +462,41 @@ int ritual_ZN18QtBluetoothPrivate25OrgBluezAdapter1Interface11qt_metacallEN11QMe
   return self->qt_metacall(a0, a1, a2);
 }
 
+//  QString QtBluetoothPrivate::OrgBluezAdapter1Interface::tr(const char *s,
+//      const char *c, int n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN18QtBluetoothPrivate25OrgBluezAdapter1Interface2trEPKcS2_i(
+    const char *s,
+    const char *c,
+    int n) {
+  return new QString(
+      QtBluetoothPrivate::OrgBluezAdapter1Interface::tr(
+          s,
+          c,
+          n));
+}
+
 //  const char
 //      *QtBluetoothPrivate::OrgBluezAdapter1Interface::staticInterfaceName()
 extern "C" Q_DECL_EXPORT
 const char *ritual_ZN18QtBluetoothPrivate25OrgBluezAdapter1Interface19staticInterfaceNameEv() {
   return QtBluetoothPrivate::OrgBluezAdapter1Interface::staticInterfaceName();
+}
+
+//  QtBluetoothPrivate::OrgBluezAdapter1Interface::OrgBluezAdapter1Interface(
+//      const QString &service, const QString &path, const QDBusConnection
+//      &connection, QObject *parent)
+extern "C" Q_DECL_EXPORT
+QtBluetoothPrivate::OrgBluezAdapter1Interface *ritual_ZN18QtBluetoothPrivate25OrgBluezAdapter1InterfaceC1ERK7QStringS3_RK15QDBusConnectionP7QObject(
+    const QString *service,
+    const QString *path,
+    const QDBusConnection *connection,
+    QObject *parent) {
+  return new CuteQtBluetoothPrivate_OrgBluezAdapter1Interface(
+      *service,
+      *path,
+      *connection,
+      parent);
 }
 
 //  QtBluetoothPrivate::OrgBluezAdapter1Interface::~OrgBluezAdapter1Interface

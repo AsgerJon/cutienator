@@ -2,7 +2,7 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of QtRemot",
     "eObjects/6.12.0/QtRemoteObjects/private/qremoteobjectpendingcall_p",
-    ".h, Qt 6.12.0. Changes made here are lost."
+    ".h, Qt 6.12.0. Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZNK37QRemoteObjectPendingCallWatcherHelper10metaObjectEv": [
@@ -13,6 +13,15 @@
     ],
     "ritual_ZN37QRemoteObjectPendingCallWatcherHelper11qt_metacallEN11QMetaObject4CallEiPPv": [
       "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN37QRemoteObjectPendingCallWatcherHelper2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN37QRemoteObjectPendingCallWatcherHelper3addEP31QRemoteObjectPendingCallWatcher": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN37QRemoteObjectPendingCallWatcherHelper11emitSignalsEv": [
+      "nothing", "address"
     ],
     "ritual_ZN37QRemoteObjectPendingCallWatcherHelper8finishedEv": [
       "nothing", "address"

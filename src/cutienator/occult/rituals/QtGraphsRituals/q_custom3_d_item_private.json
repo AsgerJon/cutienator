@@ -11,6 +11,9 @@
     "ritual_ZN20QCustom3DItemPrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK20QCustom3DItemPrivate6q_funcEv": ["address", "address"],
     "ritual_ZN20QCustom3DItemPrivateC1Ev": ["address"],
+    "ritual_ZN20QCustom3DItemPrivateC1ERK7QString9QVector3DS3_RK11QQuaternion": [
+      "address", "text", "address", "address", "address"
+    ],
     "ritual_ZN20QCustom3DItemPrivateD1Ev": ["nothing", "address"],
     "ritual_ZN20QCustom3DItemPrivate12textureImageEv": [
       "address", "address"

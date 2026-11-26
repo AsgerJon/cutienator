@@ -1,7 +1,8 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "QtCore/qproperty.h, Qt 6.12.0. Changes made here are lost."
+    "QtCore/qproperty.h, Qt 6.12.0. Edited by hand: see the ritual",
+    "file."
   ],
   "rows": {
     "ritual_ZN17QPropertyObserverC1Ev": ["address"],
@@ -19,6 +20,21 @@
     ],
     "ritual_ZNK17QPropertyObserver15aliasedPropertyEv": [
       "address", "address"
+    ],
+    "ritual_ZN17QPropertyObserver9setSourceI9QPropertyIiELb1EEvRKT_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QPropertyObserver9setSourceI9QPropertyIdELb1EEvRKT_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QPropertyObserver9setSourceI9QPropertyIbELb1EEvRKT_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QPropertyObserver9setSourceI9QPropertyI7QStringELb1EEvRKT_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QPropertyObserver9setSourceI9QPropertyI8QVariantELb1EEvRKT_": [
+      "nothing", "address", "address"
     ]
   }
 }

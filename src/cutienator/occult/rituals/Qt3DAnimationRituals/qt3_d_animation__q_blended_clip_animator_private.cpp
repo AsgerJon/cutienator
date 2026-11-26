@@ -12,6 +12,11 @@
 #include <Qt3DAnimation/private/qabstractclipanimator_p.h>
 #include <Qt3DAnimation/qchannelmapper.h>
 #include <Qt3DAnimation/qclock.h>
+#include <Qt3DAnimation/qblendedclipanimator.h>
+#include <Qt3DAnimation/private/qblendedclipanimator_p.h>
+#include <Qt3DAnimation/qabstractclipblendnode.h>
+#include <Qt3DAnimation/qchannelmapper.h>
+#include <Qt3DAnimation/qclock.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -39,6 +44,15 @@ namespace Qt3DAnimation {
 inline bool QAbstractClipAnimatorPrivate::canPlay() const
 {
     return true;
+}
+}  // namespace Qt3DAnimation
+
+//  from ../qt3d/src/animation/frontend/qblendedclipanimator.cpp, line 13, as _ZN13Qt3DAnimation27QBlendedClipAnimatorPrivateC1Ev
+namespace Qt3DAnimation {
+inline QBlendedClipAnimatorPrivate::QBlendedClipAnimatorPrivate()
+    : Qt3DAnimation::QAbstractClipAnimatorPrivate()
+    , m_blendTreeRoot(nullptr)
+{
 }
 }  // namespace Qt3DAnimation
 //  -----------------------------------------------------------------------
@@ -103,6 +117,12 @@ public:
     Qt3DCore::QNodePrivate::update();
   }
 };
+
+//  Qt3DAnimation::QBlendedClipAnimatorPrivate::QBlendedClipAnimatorPrivate()
+extern "C" Q_DECL_EXPORT
+Qt3DAnimation::QBlendedClipAnimatorPrivate *ritual_ZN13Qt3DAnimation27QBlendedClipAnimatorPrivateC1Ev() {
+  return new CuteQt3DAnimation_QBlendedClipAnimatorPrivate();
+}
 
 //  QBlendedClipAnimator
 //      *Qt3DAnimation::QBlendedClipAnimatorPrivate::q_func()

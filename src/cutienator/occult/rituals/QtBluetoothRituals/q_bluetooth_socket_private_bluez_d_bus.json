@@ -2,9 +2,12 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of QtBluet",
     "ooth/6.12.0/QtBluetooth/private/qbluetoothsocket_bluezdbus_p.h, Qt",
-    "6.12.0. Changes made here are lost."
+    "6.12.0. Edited by hand: see the ritual file."
   ],
   "rows": {
+    "ritual_ZN32QBluetoothSocketPrivateBluezDBusD1Ev": [
+      "nothing", "address"
+    ],
     "ritual_ZN32QBluetoothSocketPrivateBluezDBus22connectToServiceHelperERK17QBluetoothAddresst6QFlagsIN13QIODeviceBase12OpenModeFlagEE": [
       "nothing", "address", "address", "unsigned short", "int"
     ],

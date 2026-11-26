@@ -6,6 +6,10 @@
   ],
   "rows": {
     "ritual_ZN17QGeoCirclePrivateC1Ev": ["address"],
+    "ritual_ZN17QGeoCirclePrivateC1ERK14QGeoCoordinated": [
+      "address", "address", "double"
+    ],
+    "ritual_ZN17QGeoCirclePrivateC1ERKS_": ["address", "address"],
     "ritual_ZN17QGeoCirclePrivateD1Ev": ["nothing", "address"],
     "ritual_ZNK17QGeoCirclePrivate7isValidEv": ["bool", "address"],
     "ritual_ZNK17QGeoCirclePrivate7isEmptyEv": ["bool", "address"],

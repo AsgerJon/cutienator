@@ -2,7 +2,7 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtWidgets/6.12.0/QtWidgets/private/qabstractscrollarea_p.h, Qt",
-    "6.12.0. Changes made here are lost."
+    "6.12.0. Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZN26QAbstractScrollAreaPrivate6q_funcEv": ["address", "address"],
@@ -14,6 +14,7 @@
     "ritual_ZN26QAbstractScrollAreaPrivate16replaceScrollBarEP10QScrollBarN2Qt11OrientationE": [
       "nothing", "address", "address", "int"
     ],
+    "ritual_ZN26QAbstractScrollAreaPrivate4initEv": ["nothing", "address"],
     "ritual_ZN26QAbstractScrollAreaPrivate14layoutChildrenEv": [
       "nothing", "address"
     ],

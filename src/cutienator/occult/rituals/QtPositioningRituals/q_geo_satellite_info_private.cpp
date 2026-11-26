@@ -31,6 +31,16 @@ inline QGeoSatelliteInfoPrivate::QGeoSatelliteInfoPrivate() : QSharedData()
 
 }
 
+//  from ../qtpositioning/src/positioning/qgeosatelliteinfo.cpp, line 378, as _ZN24QGeoSatelliteInfoPrivateC1ERKS_
+inline QGeoSatelliteInfoPrivate::QGeoSatelliteInfoPrivate(const QGeoSatelliteInfoPrivate &other)
+    : QSharedData(other)
+{
+    signal = other.signal;
+    satId = other.satId;
+    system = other.system;
+    doubleAttribs = other.doubleAttribs;
+}
+
 //  from ../qtpositioning/src/positioning/qgeosatelliteinfo.cpp, line 389, as _ZNK24QGeoSatelliteInfoPrivateeqERKS_
 inline bool QGeoSatelliteInfoPrivate::operator==(const QGeoSatelliteInfoPrivate &other) const
 {
@@ -51,6 +61,14 @@ inline QGeoSatelliteInfoPrivate *QGeoSatelliteInfoPrivate::get(const QGeoSatelli
 extern "C" Q_DECL_EXPORT
 QGeoSatelliteInfoPrivate *ritual_ZN24QGeoSatelliteInfoPrivateC1Ev() {
   return new QGeoSatelliteInfoPrivate();
+}
+
+//  QGeoSatelliteInfoPrivate::QGeoSatelliteInfoPrivate(const
+//      QGeoSatelliteInfoPrivate &other)
+extern "C" Q_DECL_EXPORT
+QGeoSatelliteInfoPrivate *ritual_ZN24QGeoSatelliteInfoPrivateC1ERKS_(
+    const QGeoSatelliteInfoPrivate *other) {
+  return new QGeoSatelliteInfoPrivate(*other);
 }
 
 //  QGeoSatelliteInfoPrivate::~QGeoSatelliteInfoPrivate()

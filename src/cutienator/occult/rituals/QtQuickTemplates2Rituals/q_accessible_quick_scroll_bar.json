@@ -5,6 +5,9 @@
     "bar_p.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN25QAccessibleQuickScrollBarC1EP15QQuickScrollBar": [
+      "address", "address"
+    ],
     "ritual_ZNK25QAccessibleQuickScrollBar13attributeKeysEv": [
       "address", "address"
     ],

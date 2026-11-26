@@ -5,6 +5,7 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN18qdesigner_internal12LayoutHelperC1Ev": ["address"],
     "ritual_ZN18qdesigner_internal12LayoutHelperD1Ev": [
       "nothing", "address"
     ],

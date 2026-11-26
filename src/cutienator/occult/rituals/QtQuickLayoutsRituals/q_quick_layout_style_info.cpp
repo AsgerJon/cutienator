@@ -19,9 +19,17 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from ../qtdeclarative/src/quicklayouts/qquicklayoutstyleinfo.cpp, line 12, as _ZN21QQuickLayoutStyleInfoC1Ev
-inline QQuickLayoutStyleInfo::QQuickLayoutStyleInfo()
+//  from ../qtdeclarative/src/quicklayouts/qquicklayoutstyleinfo.cpp, line 33, as _ZNK21QQuickLayoutStyleInfo12windowMarginEN2Qt11OrientationE
+inline qreal QQuickLayoutStyleInfo::windowMargin(Qt::Orientation /*orientation*/) const
 {
+    return 0;
+}
+
+//  from ../qtdeclarative/src/quicklayouts/qquicklayoutstyleinfo.cpp, line 38, as _ZNK21QQuickLayoutStyleInfo14hasChangedCoreEv
+inline bool QQuickLayoutStyleInfo::hasChangedCore() const
+{
+    // never changes
+    return false;
 }
 
 //  from ../qtdeclarative/src/quicklayouts/qquicklayoutstyleinfo.cpp, line 16, as _ZNK21QQuickLayoutStyleInfo7spacingEN2Qt11OrientationE
@@ -44,17 +52,9 @@ inline qreal QQuickLayoutStyleInfo::spacing(Qt::Orientation /*orientation*/) con
 }
 #endif  // defined(Q_OS_LINUX)
 
-//  from ../qtdeclarative/src/quicklayouts/qquicklayoutstyleinfo.cpp, line 33, as _ZNK21QQuickLayoutStyleInfo12windowMarginEN2Qt11OrientationE
-inline qreal QQuickLayoutStyleInfo::windowMargin(Qt::Orientation /*orientation*/) const
+//  from ../qtdeclarative/src/quicklayouts/qquicklayoutstyleinfo.cpp, line 12, as _ZN21QQuickLayoutStyleInfoC1Ev
+inline QQuickLayoutStyleInfo::QQuickLayoutStyleInfo()
 {
-    return 0;
-}
-
-//  from ../qtdeclarative/src/quicklayouts/qquicklayoutstyleinfo.cpp, line 38, as _ZNK21QQuickLayoutStyleInfo14hasChangedCoreEv
-inline bool QQuickLayoutStyleInfo::hasChangedCore() const
-{
-    // never changes
-    return false;
 }
 //  -----------------------------------------------------------------------
 

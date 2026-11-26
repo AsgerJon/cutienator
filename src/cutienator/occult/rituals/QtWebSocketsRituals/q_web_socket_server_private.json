@@ -7,6 +7,9 @@
   "rows": {
     "ritual_ZN23QWebSocketServerPrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK23QWebSocketServerPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN23QWebSocketServerPrivateC1ERK7QStringNS_7SslModeE": [
+      "address", "text", "int"
+    ],
     "ritual_ZN23QWebSocketServerPrivateD1Ev": ["nothing", "address"],
     "ritual_ZN23QWebSocketServerPrivate5closeEb": [
       "nothing", "address", "bool"

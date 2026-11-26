@@ -45,6 +45,14 @@ inline void AbstractAxisInput::cleanup()
     m_sourceDevice = Qt3DCore::QNodeId();
 }
 }  // namespace Qt3DInput::Input
+
+//  from ../qt3d/src/input/backend/abstractaxisinput.cpp, line 19, as _ZN9Qt3DInput5Input17AbstractAxisInputC1Ev
+namespace Qt3DInput::Input {
+inline AbstractAxisInput::AbstractAxisInput()
+    : BackendNode()
+{
+}
+}  // namespace Qt3DInput::Input
 //  -----------------------------------------------------------------------
 
 //  A Qt3DInput::Input::AbstractAxisInput that Python can take functions over in. Every Qt3DInput::Input::AbstractAxisInput
@@ -147,6 +155,12 @@ float ritual_ZN9Qt3DInput5Input17AbstractAxisInput7processEPNS0_12InputHandlerEx
     Qt3DInput::Input::InputHandler *inputHandler,
     qint64 currentTime) {
   return self->process(inputHandler, currentTime);
+}
+
+//  Qt3DInput::Input::AbstractAxisInput::AbstractAxisInput()
+extern "C" Q_DECL_EXPORT
+Qt3DInput::Input::AbstractAxisInput *ritual_ZN9Qt3DInput5Input17AbstractAxisInputC1Ev() {
+  return new CuteQt3DInput_Input_AbstractAxisInput();
 }
 
 //  a Python function taken by a CuteQt3DInput_Input_AbstractAxisInput, for

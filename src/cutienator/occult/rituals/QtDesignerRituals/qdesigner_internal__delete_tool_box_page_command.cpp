@@ -147,6 +147,21 @@ inline void ToolBoxCommand::addPage()
 }
 }  // namespace qdesigner_internal
 
+//  from ../qttools/src/designer/src/lib/shared/qdesigner_command.cpp, line 934, as _ZN18qdesigner_internal14ToolBoxCommandD2Ev
+namespace qdesigner_internal {
+using namespace Qt::StringLiterals;
+inline ToolBoxCommand::~ToolBoxCommand() = default;
+}  // namespace qdesigner_internal
+
+//  from ../qttools/src/designer/src/lib/shared/qdesigner_command.cpp, line 1008, as _ZN18qdesigner_internal24DeleteToolBoxPageCommandC1EP28QDesignerFormWindowInterface
+namespace qdesigner_internal {
+using namespace Qt::StringLiterals;
+inline DeleteToolBoxPageCommand::DeleteToolBoxPageCommand(QDesignerFormWindowInterface *formWindow)
+    : ToolBoxCommand(formWindow)
+{
+}
+}  // namespace qdesigner_internal
+
 //  from ../qttools/src/designer/src/lib/shared/qdesigner_command.cpp, line 1015, as _ZN18qdesigner_internal24DeleteToolBoxPageCommand4initEP8QToolBox
 namespace qdesigner_internal {
 using namespace Qt::StringLiterals;
@@ -258,6 +273,14 @@ public:
   }
 #endif  // QT_CONFIG(undocommand)
 };
+
+//  qdesigner_internal::DeleteToolBoxPageCommand::DeleteToolBoxPageCommand(QD
+//      esignerFormWindowInterface *formWindow)
+extern "C" Q_DECL_EXPORT
+qdesigner_internal::DeleteToolBoxPageCommand *ritual_ZN18qdesigner_internal24DeleteToolBoxPageCommandC1EP28QDesignerFormWindowInterface(
+    QDesignerFormWindowInterface *formWindow) {
+  return new Cuteqdesigner_internal_DeleteToolBoxPageCommand(formWindow);
+}
 
 //  qdesigner_internal::DeleteToolBoxPageCommand::~DeleteToolBoxPageCommand()
 extern "C" Q_DECL_EXPORT

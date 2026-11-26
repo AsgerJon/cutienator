@@ -1,14 +1,27 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtPositioning/6.12.0/QtPositioning/private/qnmeasatelliteinfosource_p.h,
-//  Qt 6.12.0. Changes made here are lost.
+//  Qt 6.12.0.
+//  Edited by hand on 2026-11-26: moc's output for
+//  'QNmeaSatelliteInfoSourcePrivate' is pasted in, cut from what the moc of
+//  Qt 6.12.0 writes for its header: Qt's library keeps it to itself; added
+//  are 4 rituals that lean on what moc writes for a class of the part Qt
+//  keeps to itself, whose ritual file carries moc's output, drafted by a
+//  copy of the generator that lets those names through. A copy of a meta-
+//  object is a second one: 'qobject_cast' between it and Qt's own does not
+//  match. Kept as it is when the generator runs again.
 #include <QtPositioning/6.12.0/QtPositioning/private/qpositioningglobal_p.h>
 #include <QtPositioning/QtPositioning>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtPositioning/6.12.0/QtPositioning/private/qnmeasatelliteinfosource_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
 #include <QtPositioning/qnmeasatelliteinfosource.h>
 #include <QtPositioning/private/qnmeasatelliteinfosource_p.h>
 #include <QtPositioning/private/qgeosatelliteinfo_p.h>
@@ -61,10 +74,145 @@ inline QGeoSatelliteInfoPrivateNmea::QGeoSatelliteInfoPrivateNmea(const QGeoSate
 inline QGeoSatelliteInfoPrivateNmea::~QGeoSatelliteInfoPrivateNmea() {}
 #endif  // USE_SATELLITE_NMEA_PIMPL
 
+//  from QtPositioning__QNmeaSatelliteInfoSourcePrivate.cpp, line 1, as moc:QNmeaSatelliteInfoSourcePrivate
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN31QNmeaSatelliteInfoSourcePrivateE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto QNmeaSatelliteInfoSourcePrivate::qt_create_metaobjectdata<qt_meta_tag_ZN31QNmeaSatelliteInfoSourcePrivateE_t>()
+{
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "QNmeaSatelliteInfoSourcePrivate",
+        "readyRead",
+        "",
+        "emitPendingUpdate",
+        "sourceDataClosed",
+        "updateRequestTimeout"
+    };
+
+    QtMocHelpers::UintData qt_methods {
+        // Slot 'readyRead'
+        QtMocHelpers::SlotData<void()>(1, 2, QMC::AccessPublic, QMetaType::Void),
+        // Slot 'emitPendingUpdate'
+        QtMocHelpers::SlotData<void()>(3, 2, QMC::AccessPublic, QMetaType::Void),
+        // Slot 'sourceDataClosed'
+        QtMocHelpers::SlotData<void()>(4, 2, QMC::AccessPublic, QMetaType::Void),
+        // Slot 'updateRequestTimeout'
+        QtMocHelpers::SlotData<void()>(5, 2, QMC::AccessPublic, QMetaType::Void),
+    };
+    QtMocHelpers::UintData qt_properties {
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    return QtMocHelpers::metaObjectData<QNmeaSatelliteInfoSourcePrivate, qt_meta_tag_ZN31QNmeaSatelliteInfoSourcePrivateE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums);
+}
+Q_CONSTINIT const QMetaObject QNmeaSatelliteInfoSourcePrivate::staticMetaObject = { {
+    QMetaObject::SuperData::link<QObject::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN31QNmeaSatelliteInfoSourcePrivateE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN31QNmeaSatelliteInfoSourcePrivateE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN31QNmeaSatelliteInfoSourcePrivateE_t>.metaTypes,
+    nullptr
+} };
+
+void QNmeaSatelliteInfoSourcePrivate::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<QNmeaSatelliteInfoSourcePrivate *>(_o);
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        switch (_id) {
+        case 0: _t->readyRead(); break;
+        case 1: _t->emitPendingUpdate(); break;
+        case 2: _t->sourceDataClosed(); break;
+        case 3: _t->updateRequestTimeout(); break;
+        default: ;
+        }
+    }
+    (void)_a;
+}
+
+const QMetaObject *QNmeaSatelliteInfoSourcePrivate::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *QNmeaSatelliteInfoSourcePrivate::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN31QNmeaSatelliteInfoSourcePrivateE_t>.strings))
+        return static_cast<void*>(this);
+    return QObject::qt_metacast(_clname);
+}
+
+int QNmeaSatelliteInfoSourcePrivate::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QObject::qt_metacall(_c, _id, _a);
+    if (_id < 0)
+        return _id;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        if (_id < 4)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 4;
+    }
+    if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        if (_id < 4)
+            *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
+        _id -= 4;
+    }
+    return _id;
+}
+QT_WARNING_POP
+
 //  from ../qtpositioning/src/positioning/qnmeasatelliteinfosource.cpp, line 336, as _ZN31QNmeaSatelliteInfoSourcePrivate10timerEventEP11QTimerEvent
 inline void QNmeaSatelliteInfoSourcePrivate::timerEvent(QTimerEvent * /*event*/)
 {
     emitPendingUpdate();
+}
+
+//  from ../qtpositioning/src/positioning/qnmeasatelliteinfosource.cpp, line 237, as _ZN31QNmeaSatelliteInfoSourcePrivate16sourceDataClosedEv
+inline void QNmeaSatelliteInfoSourcePrivate::sourceDataClosed()
+{
+    if (m_nmeaReader && m_device && m_device->bytesAvailable())
+        m_nmeaReader->readAvailableData();
+}
+
+//  from ../qtpositioning/src/positioning/qnmeasatelliteinfosource.cpp, line 220, as _ZN31QNmeaSatelliteInfoSourcePrivate17emitPendingUpdateEv
+inline void QNmeaSatelliteInfoSourcePrivate::emitPendingUpdate()
+{
+    if (m_pendingUpdate.isValid() && m_pendingUpdate.isFresh()) {
+        m_updateTimeoutSent = false;
+        m_noUpdateLastInterval = false;
+        if (!emitUpdated(m_pendingUpdate, false))
+            m_noUpdateLastInterval = true;
+        // m_pendingUpdate.clear(); // Do not clear, it will be incrementally updated
+    } else { // invalid or not fresh update
+        if (m_noUpdateLastInterval && !m_updateTimeoutSent) {
+            m_updateTimeoutSent = true;
+            m_source->setError(QGeoSatelliteInfoSource::UpdateTimeoutError);
+        }
+        m_noUpdateLastInterval = true;
+    }
+}
+
+//  from ../qtpositioning/src/positioning/qnmeasatelliteinfosource.cpp, line 243, as _ZN31QNmeaSatelliteInfoSourcePrivate20updateRequestTimeoutEv
+inline void QNmeaSatelliteInfoSourcePrivate::updateRequestTimeout()
+{
+    m_requestTimer->stop();
+    m_source->setError(QGeoSatelliteInfoSource::UpdateTimeoutError);
+}
+
+//  from ../qtpositioning/src/positioning/qnmeasatelliteinfosource.cpp, line 214, as _ZN31QNmeaSatelliteInfoSourcePrivate9readyReadEv
+inline void QNmeaSatelliteInfoSourcePrivate::readyRead()
+{
+    if (m_nmeaReader)
+        m_nmeaReader->readAvailableData();
 }
 
 //  from ../qtpositioning/src/positioning/qnmeasatelliteinfosource.cpp, line 792, as _ZN24QNmeaSatelliteInfoUpdate5clearEv
@@ -103,24 +251,6 @@ inline QNmeaSatelliteSimulationReader::QNmeaSatelliteSimulationReader(QNmeaSatel
 inline void QNmeaSatelliteInfoUpdate::consume()
 {
     m_fresh = false;
-}
-
-//  from ../qtpositioning/src/positioning/qnmeasatelliteinfosource.cpp, line 220, as _ZN31QNmeaSatelliteInfoSourcePrivate17emitPendingUpdateEv
-inline void QNmeaSatelliteInfoSourcePrivate::emitPendingUpdate()
-{
-    if (m_pendingUpdate.isValid() && m_pendingUpdate.isFresh()) {
-        m_updateTimeoutSent = false;
-        m_noUpdateLastInterval = false;
-        if (!emitUpdated(m_pendingUpdate, false))
-            m_noUpdateLastInterval = true;
-        // m_pendingUpdate.clear(); // Do not clear, it will be incrementally updated
-    } else { // invalid or not fresh update
-        if (m_noUpdateLastInterval && !m_updateTimeoutSent) {
-            m_updateTimeoutSent = true;
-            m_source->setError(QGeoSatelliteInfoSource::UpdateTimeoutError);
-        }
-        m_noUpdateLastInterval = true;
-    }
 }
 
 //  from ../qtpositioning/src/positioning/qnmeasatelliteinfosource.cpp, line 657, as _ZNK24QNmeaSatelliteInfoUpdate18allSatellitesInUseEv
@@ -214,23 +344,6 @@ inline void QNmeaSatelliteSimulationReader::readAvailableData()
         }
         m_proxy->notifyNewUpdate();
     }
-}
-
-//  from ../qtpositioning/src/positioning/qnmeasatelliteinfosource.cpp, line 268, as _ZN31QNmeaSatelliteInfoSourcePrivate10initializeEv
-inline bool QNmeaSatelliteInfoSourcePrivate::initialize()
-{
-    if (m_nmeaReader)
-        return true;
-
-    if (!openSourceDevice())
-        return false;
-
-    if (m_updateMode == QNmeaSatelliteInfoSource::UpdateMode::RealTimeMode)
-        m_nmeaReader.reset(new QNmeaSatelliteRealTimeReader(this));
-    else
-        m_nmeaReader.reset(new QNmeaSatelliteSimulationReader(this));
-
-    return true;
 }
 
 //  from ../qtpositioning/src/positioning/qnmeasatelliteinfosource.cpp, line 75, as _ZN31QNmeaSatelliteInfoSourcePrivate15processNmeaDataER24QNmeaSatelliteInfoUpdate
@@ -443,6 +556,13 @@ inline bool QNmeaSatelliteInfoUpdate::calculateValidInView() const
     return true;
 }
 
+//  from ../qtpositioning/src/positioning/qnmeasatelliteinfosource.cpp, line 48, as _ZN31QNmeaSatelliteInfoSourcePrivateC1EP24QNmeaSatelliteInfoSourceNS0_10UpdateModeE
+inline QNmeaSatelliteInfoSourcePrivate::QNmeaSatelliteInfoSourcePrivate(QNmeaSatelliteInfoSource *parent, QNmeaSatelliteInfoSource::UpdateMode updateMode)
+    : m_source(parent),
+      m_updateMode(updateMode)
+{
+}
+
 //  from ../qtpositioning/src/positioning/qnmeasatelliteinfosource.cpp, line 134, as _ZN31QNmeaSatelliteInfoSourcePrivateD1Ev
 inline QNmeaSatelliteInfoSourcePrivate::~QNmeaSatelliteInfoSourcePrivate()
 {
@@ -499,6 +619,34 @@ inline void QNmeaSatelliteInfoSourcePrivate::stopUpdates()
     m_noUpdateLastInterval = false;
 }
 
+//  from ../qtpositioning/src/positioning/qnmeasatelliteinfosource.cpp, line 187, as _ZN31QNmeaSatelliteInfoSourcePrivate13requestUpdateEi
+inline void QNmeaSatelliteInfoSourcePrivate::requestUpdate(int msec)
+{
+    if (m_requestTimer && m_requestTimer->isActive())
+        return;
+
+    m_satelliteError = QGeoSatelliteInfoSource::NoError;
+
+    if (msec <= 0 || msec < m_source->minimumUpdateInterval()) {
+        m_source->setError(QGeoSatelliteInfoSource::UpdateTimeoutError);
+        return;
+    }
+
+    if (!m_requestTimer) {
+        m_requestTimer = new QTimer(this);
+        connect(m_requestTimer, SIGNAL(timeout()), SLOT(updateRequestTimeout()));
+    }
+
+    bool initialized = initialize();
+    if (!initialized) {
+        m_source->setError(QGeoSatelliteInfoSource::UpdateTimeoutError);
+        return;
+    }
+
+    m_requestTimer->start(msec);
+    prepareSourceDevice();
+}
+
 //  from ../qtpositioning/src/positioning/qnmeasatelliteinfosource.cpp, line 54, as _ZN31QNmeaSatelliteInfoSourcePrivate15notifyNewUpdateEv
 inline void QNmeaSatelliteInfoSourcePrivate::notifyNewUpdate()
 {
@@ -537,6 +685,23 @@ inline bool QNmeaSatelliteInfoSourcePrivate::openSourceDevice()
     connect(m_device, SIGNAL(aboutToClose()), SLOT(sourceDataClosed()));
     connect(m_device, SIGNAL(readChannelFinished()), SLOT(sourceDataClosed()));
     connect(m_device, SIGNAL(destroyed()), SLOT(sourceDataClosed()));
+
+    return true;
+}
+
+//  from ../qtpositioning/src/positioning/qnmeasatelliteinfosource.cpp, line 268, as _ZN31QNmeaSatelliteInfoSourcePrivate10initializeEv
+inline bool QNmeaSatelliteInfoSourcePrivate::initialize()
+{
+    if (m_nmeaReader)
+        return true;
+
+    if (!openSourceDevice())
+        return false;
+
+    if (m_updateMode == QNmeaSatelliteInfoSource::UpdateMode::RealTimeMode)
+        m_nmeaReader.reset(new QNmeaSatelliteRealTimeReader(this));
+    else
+        m_nmeaReader.reset(new QNmeaSatelliteSimulationReader(this));
 
     return true;
 }
@@ -795,6 +960,26 @@ int ritual_ZN31QNmeaSatelliteInfoSourcePrivate11qt_metacallEN11QMetaObject4CallE
   return self->qt_metacall(a0, a1, a2);
 }
 
+//  QString QNmeaSatelliteInfoSourcePrivate::tr(const char *s, const char *c,
+//      int n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN31QNmeaSatelliteInfoSourcePrivate2trEPKcS1_i(
+    const char *s,
+    const char *c,
+    int n) {
+  return new QString(QNmeaSatelliteInfoSourcePrivate::tr(s, c, n));
+}
+
+//  QNmeaSatelliteInfoSourcePrivate::QNmeaSatelliteInfoSourcePrivate(QNmeaSat
+//      elliteInfoSource *parent, QNmeaSatelliteInfoSource::UpdateMode
+//      updateMode)
+extern "C" Q_DECL_EXPORT
+QNmeaSatelliteInfoSourcePrivate *ritual_ZN31QNmeaSatelliteInfoSourcePrivateC1EP24QNmeaSatelliteInfoSourceNS0_10UpdateModeE(
+    QNmeaSatelliteInfoSource *parent,
+    QNmeaSatelliteInfoSource::UpdateMode updateMode) {
+  return new CuteQNmeaSatelliteInfoSourcePrivate(parent, updateMode);
+}
+
 //  QNmeaSatelliteInfoSourcePrivate::~QNmeaSatelliteInfoSourcePrivate()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN31QNmeaSatelliteInfoSourcePrivateD1Ev(
@@ -814,6 +999,14 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN31QNmeaSatelliteInfoSourcePrivate11stopUpdatesEv(
     QNmeaSatelliteInfoSourcePrivate *self) {
   self->stopUpdates();
+}
+
+//  void QNmeaSatelliteInfoSourcePrivate::requestUpdate(int msec)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN31QNmeaSatelliteInfoSourcePrivate13requestUpdateEi(
+    QNmeaSatelliteInfoSourcePrivate *self,
+    int msec) {
+  self->requestUpdate(msec);
 }
 
 //  void QNmeaSatelliteInfoSourcePrivate::notifyNewUpdate()
@@ -928,6 +1121,13 @@ extern "C" Q_DECL_EXPORT
 bool ritual_ZN31QNmeaSatelliteInfoSourcePrivate16openSourceDeviceEv(
     QNmeaSatelliteInfoSourcePrivate *self) {
   return self->openSourceDevice();
+}
+
+//  bool QNmeaSatelliteInfoSourcePrivate::initialize()
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN31QNmeaSatelliteInfoSourcePrivate10initializeEv(
+    QNmeaSatelliteInfoSourcePrivate *self) {
+  return self->initialize();
 }
 
 //  void QNmeaSatelliteInfoSourcePrivate::prepareSourceDevice()

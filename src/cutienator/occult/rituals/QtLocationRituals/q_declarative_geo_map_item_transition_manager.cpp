@@ -19,6 +19,15 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from ../qtlocation/src/location/quickmapitems/qdeclarativegeomapitemtransitionmanager.cpp, line 40, as _ZN39QDeclarativeGeoMapItemTransitionManager8finishedEv
+inline void QDeclarativeGeoMapItemTransitionManager::finished()
+{
+    if (m_transitionState == EnterTransition)
+        finalizeEnterTransition();
+    else if (m_transitionState == ExitTransition)
+        finalizeExitTransition();
+}
+
 //  from ../qtlocation/src/location/quickmapitems/qdeclarativegeomapitemtransitionmanager.cpp, line 10, as _ZN39QDeclarativeGeoMapItemTransitionManagerC1EP7QObject
 inline QDeclarativeGeoMapItemTransitionManager::QDeclarativeGeoMapItemTransitionManager(QObject *mapItem)
     : QQuickTransitionManager(), m_mapItem(mapItem)
@@ -50,15 +59,6 @@ inline void QDeclarativeGeoMapItemTransitionManager::transitionExit()
         transition(exitActions, m_view->m_exit, m_mapItem);
     else
         finished();
-}
-
-//  from ../qtlocation/src/location/quickmapitems/qdeclarativegeomapitemtransitionmanager.cpp, line 40, as _ZN39QDeclarativeGeoMapItemTransitionManager8finishedEv
-inline void QDeclarativeGeoMapItemTransitionManager::finished()
-{
-    if (m_transitionState == EnterTransition)
-        finalizeEnterTransition();
-    else if (m_transitionState == ExitTransition)
-        finalizeExitTransition();
 }
 //  -----------------------------------------------------------------------
 

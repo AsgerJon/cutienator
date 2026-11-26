@@ -2,7 +2,7 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of Qt3DExt",
     "ras/6.12.0/Qt3DExtras/private/distancefieldtextrenderer_p.h, Qt",
-    "6.12.0. Changes made here are lost."
+    "6.12.0. Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZNK10Qt3DExtras25DistanceFieldTextRenderer10metaObjectEv": [
@@ -13,6 +13,12 @@
     ],
     "ritual_ZN10Qt3DExtras25DistanceFieldTextRenderer11qt_metacallEN11QMetaObject4CallEiPPv": [
       "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN10Qt3DExtras25DistanceFieldTextRenderer2trEPKcS2_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN10Qt3DExtras25DistanceFieldTextRendererC1EPN8Qt3DCore5QNodeE": [
+      "address", "address"
     ],
     "ritual_ZN10Qt3DExtras25DistanceFieldTextRendererD1Ev": [
       "nothing", "address"

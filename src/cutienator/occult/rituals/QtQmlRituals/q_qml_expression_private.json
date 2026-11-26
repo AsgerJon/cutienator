@@ -7,6 +7,7 @@
   "rows": {
     "ritual_ZN21QQmlExpressionPrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK21QQmlExpressionPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN21QQmlExpressionPrivateC1Ev": ["address"],
     "ritual_ZN21QQmlExpressionPrivateD1Ev": ["nothing", "address"],
     "ritual_ZN21QQmlExpressionPrivate4initERK14QQmlRefPointerI15QQmlContextDataERK7QStringP7QObject": [
       "nothing", "address", "address", "text", "address"

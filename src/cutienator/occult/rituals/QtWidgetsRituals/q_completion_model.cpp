@@ -1,6 +1,13 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtWidgets/6.12.0/QtWidgets/private/qcompleter_p.h, Qt 6.12.0. Changes
-//  made here are lost.
+//  QtWidgets/6.12.0/QtWidgets/private/qcompleter_p.h, Qt 6.12.0.
+//  Edited by hand on 2026-11-26: moc's output for 'QCompletionModel' is
+//  pasted in, cut from what the moc of Qt 6.12.0 writes for its header: Qt's
+//  library keeps it to itself; added are 2 rituals that lean on what moc
+//  writes for a class of the part Qt keeps to itself, whose ritual file
+//  carries moc's output, drafted by a copy of the generator that lets those
+//  names through. A copy of a meta-object is a second one: 'qobject_cast'
+//  between it and Qt's own does not match. Kept as it is when the generator
+//  runs again.
 #include <QtCore/qglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
@@ -20,6 +27,10 @@
 #include <QtCore/qlist.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
 #include <QtWidgets/private/qcompleter_p.h>
 #include "QtWidgets/qscrollbar.h"
 #include "QtCore/qdir.h"
@@ -53,6 +64,295 @@
 //  'inline' put before it where Qt did not write it.
 
 using namespace Qt::StringLiterals;
+
+//  from QtWidgets__QCompletionModel.cpp, line 1, as moc:QCompletionModel
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN16QCompletionModelE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto QCompletionModel::qt_create_metaobjectdata<qt_meta_tag_ZN16QCompletionModelE_t>()
+{
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "QCompletionModel",
+        "rowsAdded",
+        "",
+        "invalidate",
+        "rowsInserted",
+        "modelDestroyed"
+    };
+
+    QtMocHelpers::UintData qt_methods {
+        // Signal 'rowsAdded'
+        QtMocHelpers::SignalData<void()>(1, 2, QMC::AccessPublic, QMetaType::Void),
+        // Slot 'invalidate'
+        QtMocHelpers::SlotData<void()>(3, 2, QMC::AccessPublic, QMetaType::Void),
+        // Slot 'rowsInserted'
+        QtMocHelpers::SlotData<void()>(4, 2, QMC::AccessPublic, QMetaType::Void),
+        // Slot 'modelDestroyed'
+        QtMocHelpers::SlotData<void()>(5, 2, QMC::AccessPublic, QMetaType::Void),
+    };
+    QtMocHelpers::UintData qt_properties {
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    return QtMocHelpers::metaObjectData<QCompletionModel, qt_meta_tag_ZN16QCompletionModelE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums);
+}
+Q_CONSTINIT const QMetaObject QCompletionModel::staticMetaObject = { {
+    QMetaObject::SuperData::link<QAbstractProxyModel::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN16QCompletionModelE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN16QCompletionModelE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN16QCompletionModelE_t>.metaTypes,
+    nullptr
+} };
+
+void QCompletionModel::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<QCompletionModel *>(_o);
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        switch (_id) {
+        case 0: _t->rowsAdded(); break;
+        case 1: _t->invalidate(); break;
+        case 2: _t->rowsInserted(); break;
+        case 3: _t->modelDestroyed(); break;
+        default: ;
+        }
+    }
+    if (_c == QMetaObject::IndexOfMethod) {
+        if (QtMocHelpers::indexOfMethod<void (QCompletionModel::*)()>(_a, &QCompletionModel::rowsAdded, 0))
+            return;
+    }
+}
+
+const QMetaObject *QCompletionModel::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *QCompletionModel::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN16QCompletionModelE_t>.strings))
+        return static_cast<void*>(this);
+    return QAbstractProxyModel::qt_metacast(_clname);
+}
+
+int QCompletionModel::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QAbstractProxyModel::qt_metacall(_c, _id, _a);
+    if (_id < 0)
+        return _id;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        if (_id < 4)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 4;
+    }
+    if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        if (_id < 4)
+            *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
+        _id -= 4;
+    }
+    return _id;
+}
+
+// SIGNAL 0
+void QCompletionModel::rowsAdded()
+{
+    QMetaObject::activate(this, &staticMetaObject, 0, nullptr);
+}
+QT_WARNING_POP
+
+//  from src/widgets/util/qcompleter.cpp, line 381, as _ZN16QCompletionModel10invalidateEv
+inline void QCompletionModel::invalidate()
+{
+    engine->cache.clear();
+    filter(engine->curParts);
+}
+
+//  from src/widgets/util/qcompleter.cpp, line 375, as _ZN16QCompletionModel12rowsInsertedEv
+inline void QCompletionModel::rowsInserted()
+{
+    invalidate();
+    emit rowsAdded();
+}
+
+//  from src/widgets/util/qcompleter.cpp, line 369, as _ZN16QCompletionModel14modelDestroyedEv
+inline void QCompletionModel::modelDestroyed()
+{
+    QAbstractProxyModel::setSourceModel(nullptr); // switch to static empty model
+    invalidate();
+}
+
+//  from src/widgets/util/qcompleter.cpp, line 149, as _ZN16QCompletionModel14setSourceModelEP18QAbstractItemModel
+inline void QCompletionModel::setSourceModel(QAbstractItemModel *source)
+{
+    bool hadModel = (sourceModel() != nullptr);
+
+    if (hadModel)
+        QObject::disconnect(sourceModel(), nullptr, this, nullptr);
+
+    QAbstractProxyModel::setSourceModel(source);
+
+    if (source) {
+        // TODO: Optimize updates in the source model
+        connect(source, SIGNAL(modelReset()), this, SLOT(invalidate()));
+        connect(source, SIGNAL(destroyed()), this, SLOT(modelDestroyed()));
+        connect(source, SIGNAL(layoutChanged()), this, SLOT(invalidate()));
+        connect(source, SIGNAL(rowsInserted(QModelIndex,int,int)), this, SLOT(rowsInserted()));
+        connect(source, SIGNAL(rowsRemoved(QModelIndex,int,int)), this, SLOT(invalidate()));
+        connect(source, SIGNAL(columnsInserted(QModelIndex,int,int)), this, SLOT(invalidate()));
+        connect(source, SIGNAL(columnsRemoved(QModelIndex,int,int)), this, SLOT(invalidate()));
+        connect(source, SIGNAL(dataChanged(QModelIndex,QModelIndex)), this, SLOT(invalidate()));
+    }
+
+    invalidate();
+}
+
+//  from src/widgets/util/qcompleter.cpp, line 143, as _ZNK16QCompletionModel11columnCountERK11QModelIndex
+inline int QCompletionModel::columnCount(const QModelIndex &) const
+{
+    Q_D(const QCompletionModel);
+    return d->model->columnCount();
+}
+
+//  from src/widgets/util/qcompleter.cpp, line 348, as _ZNK16QCompletionModel11hasChildrenERK11QModelIndex
+inline bool QCompletionModel::hasChildren(const QModelIndex &parent) const
+{
+    Q_D(const QCompletionModel);
+    if (parent.isValid())
+        return false;
+
+    if (showAll)
+        return d->model->hasChildren(mapToSource(parent));
+
+    if (!engine->matchCount())
+        return false;
+
+    return true;
+}
+
+//  from src/widgets/util/qcompleter.cpp, line 196, as _ZNK16QCompletionModel11mapToSourceERK11QModelIndex
+inline QModelIndex QCompletionModel::mapToSource(const QModelIndex& index) const
+{
+    Q_D(const QCompletionModel);
+    if (!index.isValid())
+        return engine->curParent;
+
+    int row;
+    QModelIndex parent = engine->curParent;
+    if (!showAll) {
+        if (!engine->matchCount())
+            return QModelIndex();
+        Q_ASSERT(index.row() < engine->matchCount());
+        QIndexMapper& rootIndices = engine->historyMatch.indices;
+        if (index.row() < rootIndices.count()) {
+            row = rootIndices[index.row()];
+            parent = QModelIndex();
+        } else {
+            row = engine->curMatch.indices[index.row() - rootIndices.count()];
+        }
+    } else {
+        row = index.row();
+    }
+
+    return d->model->index(row, index.column(), parent);
+}
+
+//  from src/widgets/util/qcompleter.cpp, line 222, as _ZNK16QCompletionModel13mapFromSourceERK11QModelIndex
+inline QModelIndex QCompletionModel::mapFromSource(const QModelIndex& idx) const
+{
+    if (!idx.isValid())
+        return QModelIndex();
+
+    int row = -1;
+    if (!showAll) {
+        if (!engine->matchCount())
+            return QModelIndex();
+
+        QIndexMapper& rootIndices = engine->historyMatch.indices;
+        if (idx.parent().isValid()) {
+            if (idx.parent() != engine->curParent)
+                return QModelIndex();
+        } else {
+            row = rootIndices.indexOf(idx.row());
+            if (row == -1 && engine->curParent.isValid())
+                return QModelIndex(); // source parent and our parent don't match
+        }
+
+        if (row == -1) {
+            QIndexMapper& indices = engine->curMatch.indices;
+            engine->filterOnDemand(idx.row() - indices.last());
+            row = indices.indexOf(idx.row()) + rootIndices.count();
+        }
+
+        if (row == -1)
+            return QModelIndex();
+    } else {
+        if (idx.parent() != engine->curParent)
+            return QModelIndex();
+        row = idx.row();
+    }
+
+    return createIndex(row, idx.column());
+}
+
+//  from src/widgets/util/qcompleter.cpp, line 363, as _ZNK16QCompletionModel4dataERK11QModelIndexi
+inline QVariant QCompletionModel::data(const QModelIndex& index, int role) const
+{
+    Q_D(const QCompletionModel);
+    return d->model->data(mapToSource(index), role);
+}
+
+//  from src/widgets/util/qcompleter.cpp, line 289, as _ZNK16QCompletionModel5indexEiiRK11QModelIndex
+inline QModelIndex QCompletionModel::index(int row, int column, const QModelIndex& parent) const
+{
+    Q_D(const QCompletionModel);
+    if (row < 0 || column < 0 || column >= columnCount(parent) || parent.isValid())
+        return QModelIndex();
+
+    if (!showAll) {
+        if (!engine->matchCount())
+            return QModelIndex();
+        if (row >= engine->historyMatch.indices.count()) {
+            int want = row + 1 - engine->matchCount();
+            if (want > 0)
+                engine->filterOnDemand(want);
+            if (row >= engine->matchCount())
+                return QModelIndex();
+        }
+    } else {
+        if (row >= d->model->rowCount(engine->curParent))
+            return QModelIndex();
+    }
+
+    return createIndex(row, column);
+}
+
+//  from src/widgets/util/qcompleter.cpp, line 322, as _ZNK16QCompletionModel8rowCountERK11QModelIndex
+inline int QCompletionModel::rowCount(const QModelIndex &parent) const
+{
+    Q_D(const QCompletionModel);
+    if (parent.isValid())
+        return 0;
+
+    if (showAll) {
+        // Show all items below current parent, even if we have no valid matches
+        if (engine->curParts.size() != 1  && !engine->matchCount()
+            && !engine->curParent.isValid())
+            return 0;
+        return d->model->rowCount(engine->curParent);
+    }
+
+    return completionCount();
+}
 
 //  from src/widgets/util/qcompleter.cpp, line 611, as _ZN18QSortedModelEngine6filterERK7QStringRK11QModelIndexi
 inline QMatchData QSortedModelEngine::filter(const QString& part, const QModelIndex& parent, int)
@@ -233,168 +533,36 @@ inline void QCompletionEngine::filter(const QStringList& parts)
     curRow = curMatch.isValid() ? 0 : -1;
 }
 
-//  from src/widgets/util/qcompleter.cpp, line 289, as _ZNK16QCompletionModel5indexEiiRK11QModelIndex
-inline QModelIndex QCompletionModel::index(int row, int column, const QModelIndex& parent) const
+//  from src/widgets/util/qcompleter.cpp, line 446, as _ZN17QCompletionEngine13filterHistoryEv
+#if defined(Q_OS_LINUX)
+inline QMatchData QCompletionEngine::filterHistory()
 {
-    Q_D(const QCompletionModel);
-    if (row < 0 || column < 0 || column >= columnCount(parent) || parent.isValid())
-        return QModelIndex();
+    QAbstractItemModel *source = c->proxy->sourceModel();
+    if (curParts.size() <= 1 || c->proxy->showAll || !source)
+        return QMatchData();
 
-    if (!showAll) {
-        if (!engine->matchCount())
-            return QModelIndex();
-        if (row >= engine->historyMatch.indices.count()) {
-            int want = row + 1 - engine->matchCount();
-            if (want > 0)
-                engine->filterOnDemand(want);
-            if (row >= engine->matchCount())
-                return QModelIndex();
-        }
-    } else {
-        if (row >= d->model->rowCount(engine->curParent))
-            return QModelIndex();
+#if QT_CONFIG(filesystemmodel)
+    const bool isFsModel = (qobject_cast<QFileSystemModel *>(source) != nullptr);
+#else
+    const bool isFsModel = false;
+#endif
+    Q_UNUSED(isFsModel);
+    QList<int> v;
+    QIndexMapper im(v);
+    QMatchData m(im, -1, true);
+
+    for (int i = 0; i < source->rowCount(); i++) {
+        QString str = source->index(i, c->column).data().toString();
+        if (str.startsWith(c->prefix, c->cs)
+#if !defined(Q_OS_WIN)
+            && (!isFsModel || QDir::toNativeSeparators(str) != QDir::separator())
+#endif
+            )
+            m.indices.append(i);
     }
-
-    return createIndex(row, column);
+    return m;
 }
-
-//  from src/widgets/util/qcompleter.cpp, line 322, as _ZNK16QCompletionModel8rowCountERK11QModelIndex
-inline int QCompletionModel::rowCount(const QModelIndex &parent) const
-{
-    Q_D(const QCompletionModel);
-    if (parent.isValid())
-        return 0;
-
-    if (showAll) {
-        // Show all items below current parent, even if we have no valid matches
-        if (engine->curParts.size() != 1  && !engine->matchCount()
-            && !engine->curParent.isValid())
-            return 0;
-        return d->model->rowCount(engine->curParent);
-    }
-
-    return completionCount();
-}
-
-//  from src/widgets/util/qcompleter.cpp, line 143, as _ZNK16QCompletionModel11columnCountERK11QModelIndex
-inline int QCompletionModel::columnCount(const QModelIndex &) const
-{
-    Q_D(const QCompletionModel);
-    return d->model->columnCount();
-}
-
-//  from src/widgets/util/qcompleter.cpp, line 348, as _ZNK16QCompletionModel11hasChildrenERK11QModelIndex
-inline bool QCompletionModel::hasChildren(const QModelIndex &parent) const
-{
-    Q_D(const QCompletionModel);
-    if (parent.isValid())
-        return false;
-
-    if (showAll)
-        return d->model->hasChildren(mapToSource(parent));
-
-    if (!engine->matchCount())
-        return false;
-
-    return true;
-}
-
-//  from src/widgets/util/qcompleter.cpp, line 363, as _ZNK16QCompletionModel4dataERK11QModelIndexi
-inline QVariant QCompletionModel::data(const QModelIndex& index, int role) const
-{
-    Q_D(const QCompletionModel);
-    return d->model->data(mapToSource(index), role);
-}
-
-//  from src/widgets/util/qcompleter.cpp, line 149, as _ZN16QCompletionModel14setSourceModelEP18QAbstractItemModel
-inline void QCompletionModel::setSourceModel(QAbstractItemModel *source)
-{
-    bool hadModel = (sourceModel() != nullptr);
-
-    if (hadModel)
-        QObject::disconnect(sourceModel(), nullptr, this, nullptr);
-
-    QAbstractProxyModel::setSourceModel(source);
-
-    if (source) {
-        // TODO: Optimize updates in the source model
-        connect(source, SIGNAL(modelReset()), this, SLOT(invalidate()));
-        connect(source, SIGNAL(destroyed()), this, SLOT(modelDestroyed()));
-        connect(source, SIGNAL(layoutChanged()), this, SLOT(invalidate()));
-        connect(source, SIGNAL(rowsInserted(QModelIndex,int,int)), this, SLOT(rowsInserted()));
-        connect(source, SIGNAL(rowsRemoved(QModelIndex,int,int)), this, SLOT(invalidate()));
-        connect(source, SIGNAL(columnsInserted(QModelIndex,int,int)), this, SLOT(invalidate()));
-        connect(source, SIGNAL(columnsRemoved(QModelIndex,int,int)), this, SLOT(invalidate()));
-        connect(source, SIGNAL(dataChanged(QModelIndex,QModelIndex)), this, SLOT(invalidate()));
-    }
-
-    invalidate();
-}
-
-//  from src/widgets/util/qcompleter.cpp, line 196, as _ZNK16QCompletionModel11mapToSourceERK11QModelIndex
-inline QModelIndex QCompletionModel::mapToSource(const QModelIndex& index) const
-{
-    Q_D(const QCompletionModel);
-    if (!index.isValid())
-        return engine->curParent;
-
-    int row;
-    QModelIndex parent = engine->curParent;
-    if (!showAll) {
-        if (!engine->matchCount())
-            return QModelIndex();
-        Q_ASSERT(index.row() < engine->matchCount());
-        QIndexMapper& rootIndices = engine->historyMatch.indices;
-        if (index.row() < rootIndices.count()) {
-            row = rootIndices[index.row()];
-            parent = QModelIndex();
-        } else {
-            row = engine->curMatch.indices[index.row() - rootIndices.count()];
-        }
-    } else {
-        row = index.row();
-    }
-
-    return d->model->index(row, index.column(), parent);
-}
-
-//  from src/widgets/util/qcompleter.cpp, line 222, as _ZNK16QCompletionModel13mapFromSourceERK11QModelIndex
-inline QModelIndex QCompletionModel::mapFromSource(const QModelIndex& idx) const
-{
-    if (!idx.isValid())
-        return QModelIndex();
-
-    int row = -1;
-    if (!showAll) {
-        if (!engine->matchCount())
-            return QModelIndex();
-
-        QIndexMapper& rootIndices = engine->historyMatch.indices;
-        if (idx.parent().isValid()) {
-            if (idx.parent() != engine->curParent)
-                return QModelIndex();
-        } else {
-            row = rootIndices.indexOf(idx.row());
-            if (row == -1 && engine->curParent.isValid())
-                return QModelIndex(); // source parent and our parent don't match
-        }
-
-        if (row == -1) {
-            QIndexMapper& indices = engine->curMatch.indices;
-            engine->filterOnDemand(idx.row() - indices.last());
-            row = indices.indexOf(idx.row()) + rootIndices.count();
-        }
-
-        if (row == -1)
-            return QModelIndex();
-    } else {
-        if (idx.parent() != engine->curParent)
-            return QModelIndex();
-        row = idx.row();
-    }
-
-    return createIndex(row, idx.column());
-}
+#endif  // defined(Q_OS_LINUX)
 
 //  from src/widgets/util/qcompleter.cpp, line 523, as _ZN17QCompletionEngine11saveInCacheE7QStringRK11QModelIndexRK10QMatchData
 inline void QCompletionEngine::saveInCache(QString part, const QModelIndex& parent, const QMatchData& m)
@@ -586,42 +754,12 @@ inline Qt::SortOrder QSortedModelEngine::sortOrder(const QModelIndex &parent) co
     return QString::compare(first, last, c->cs) <= 0 ? Qt::AscendingOrder : Qt::DescendingOrder;
 }
 
-//  from src/widgets/util/qcompleter.cpp, line 446, as _ZN17QCompletionEngine13filterHistoryEv
-#if defined(Q_OS_LINUX)
-inline QMatchData QCompletionEngine::filterHistory()
+//  from src/widgets/util/qcompleter.cpp, line 136, as _ZN16QCompletionModelC1EP17QCompleterPrivateP7QObject
+inline QCompletionModel::QCompletionModel(QCompleterPrivate *c, QObject *parent)
+    : QAbstractProxyModel(*new QCompletionModelPrivate, parent),
+      c(c), showAll(false)
 {
-    QAbstractItemModel *source = c->proxy->sourceModel();
-    if (curParts.size() <= 1 || c->proxy->showAll || !source)
-        return QMatchData();
-
-#if QT_CONFIG(filesystemmodel)
-    const bool isFsModel = (qobject_cast<QFileSystemModel *>(source) != nullptr);
-#else
-    const bool isFsModel = false;
-#endif
-    Q_UNUSED(isFsModel);
-    QList<int> v;
-    QIndexMapper im(v);
-    QMatchData m(im, -1, true);
-
-    for (int i = 0; i < source->rowCount(); i++) {
-        QString str = source->index(i, c->column).data().toString();
-        if (str.startsWith(c->prefix, c->cs)
-#if !defined(Q_OS_WIN)
-            && (!isFsModel || QDir::toNativeSeparators(str) != QDir::separator())
-#endif
-            )
-            m.indices.append(i);
-    }
-    return m;
-}
-#endif  // defined(Q_OS_LINUX)
-
-//  from src/widgets/util/qcompleter.cpp, line 381, as _ZN16QCompletionModel10invalidateEv
-inline void QCompletionModel::invalidate()
-{
-    engine->cache.clear();
-    filter(engine->curParts);
+    createEngine();
 }
 
 //  from src/widgets/util/qcompleter.cpp, line 173, as _ZN16QCompletionModel12createEngineEv
@@ -1939,6 +2077,27 @@ int ritual_ZN16QCompletionModel11qt_metacallEN11QMetaObject4CallEiPPv(
     void **a2) {
   return self->qt_metacall(a0, a1, a2);
 }
+
+#if defined(Q_OS_LINUX)
+//  QString QCompletionModel::tr(const char *s, const char *c, int n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN16QCompletionModel2trEPKcS1_i(
+    const char *s,
+    const char *c,
+    int n) {
+  return new QString(QCompletionModel::tr(s, c, n));
+}
+#endif  // defined(Q_OS_LINUX)
+
+#if defined(Q_OS_LINUX)
+//  QCompletionModel::QCompletionModel(QCompleterPrivate *c, QObject *parent)
+extern "C" Q_DECL_EXPORT
+QCompletionModel *ritual_ZN16QCompletionModelC1EP17QCompleterPrivateP7QObject(
+    QCompleterPrivate *c,
+    QObject *parent) {
+  return new CuteQCompletionModel(c, parent);
+}
+#endif  // defined(Q_OS_LINUX)
 
 //  void QCompletionModel::createEngine()
 extern "C" Q_DECL_EXPORT

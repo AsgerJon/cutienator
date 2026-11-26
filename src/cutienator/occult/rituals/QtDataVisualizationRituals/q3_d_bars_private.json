@@ -2,7 +2,7 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of QtDataV",
     "isualization/6.12.0/QtDataVisualization/private/q3dbars_p.h, Qt",
-    "6.12.0. Changes made here are lost."
+    "6.12.0. Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZNK14Q3DBarsPrivate10metaObjectEv": ["address", "address"],
@@ -12,6 +12,10 @@
     "ritual_ZN14Q3DBarsPrivate11qt_metacallEN11QMetaObject4CallEiPPv": [
       "int", "address", "int", "int", "address"
     ],
+    "ritual_ZN14Q3DBarsPrivate2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN14Q3DBarsPrivateC1EP7Q3DBars": ["address", "address"],
     "ritual_ZN14Q3DBarsPrivateD1Ev": ["nothing", "address"],
     "ritual_ZN14Q3DBarsPrivate18handleAxisXChangedEP15QAbstract3DAxis": [
       "nothing", "address", "address"

@@ -2,7 +2,7 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtSerialBus/6.12.0/QtSerialBus/private/qmodbusrtuserialclient_p.h,",
-    "Qt 6.12.0. Changes made here are lost."
+    "Qt 6.12.0. Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZN29QModbusRtuSerialClientPrivate6q_funcEv": [
@@ -25,6 +25,9 @@
     ],
     "ritual_ZN29QModbusRtuSerialClientPrivate7onErrorEN11QSerialPort15SerialPortErrorE": [
       "nothing", "address", "int"
+    ],
+    "ritual_ZN29QModbusRtuSerialClientPrivate15setupSerialPortEv": [
+      "nothing", "address"
     ],
     "ritual_ZN29QModbusRtuSerialClientPrivate16setupEnvironmentEv": [
       "nothing", "address"

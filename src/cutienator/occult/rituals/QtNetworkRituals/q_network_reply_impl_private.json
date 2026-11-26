@@ -2,15 +2,27 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtNetwork/6.12.0/QtNetwork/private/qnetworkreplyimpl_p.h, Qt",
-    "6.12.0. Changes made here are lost."
+    "6.12.0. Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZN24QNetworkReplyImplPrivateC1Ev": ["address"],
+    "ritual_ZN24QNetworkReplyImplPrivate17_q_startOperationEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QNetworkReplyImplPrivate16_q_copyReadyReadEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QNetworkReplyImplPrivate26_q_copyReadChannelFinishedEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN24QNetworkReplyImplPrivate21_q_bufferOutgoingDataEv": [
       "nothing", "address"
     ],
     "ritual_ZN24QNetworkReplyImplPrivate29_q_bufferOutgoingDataFinishedEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN24QNetworkReplyImplPrivate5setupEN21QNetworkAccessManager9OperationERK15QNetworkRequestP9QIODevice": [
+      "nothing", "address", "int", "address", "address"
     ],
     "ritual_ZN24QNetworkReplyImplPrivate25pauseNotificationHandlingEv": [
       "nothing", "address"
@@ -20,6 +32,9 @@
     ],
     "ritual_ZN24QNetworkReplyImplPrivate13backendNotifyENS_21InternalNotificationsE": [
       "nothing", "address", "int"
+    ],
+    "ritual_ZN24QNetworkReplyImplPrivate19handleNotificationsEv": [
+      "nothing", "address"
     ],
     "ritual_ZN24QNetworkReplyImplPrivate11createCacheEv": [
       "nothing", "address"
@@ -33,17 +48,32 @@
     "ritual_ZNK24QNetworkReplyImplPrivate16isCachingEnabledEv": [
       "bool", "address"
     ],
+    "ritual_ZN24QNetworkReplyImplPrivate18emitUploadProgressExx": [
+      "nothing", "address", "long long", "long long"
+    ],
     "ritual_ZNK24QNetworkReplyImplPrivate23nextDownstreamBlockSizeEv": [
       "long long", "address"
     ],
     "ritual_ZN24QNetworkReplyImplPrivate19initCacheSaveDeviceEv": [
       "nothing", "address"
     ],
+    "ritual_ZN24QNetworkReplyImplPrivate35appendDownstreamDataSignalEmissionsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QNetworkReplyImplPrivate20appendDownstreamDataER15QByteDataBuffer": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QNetworkReplyImplPrivate20appendDownstreamDataEP9QIODevice": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN24QNetworkReplyImplPrivate17setDownloadBufferE14QSharedPointerIcEx": [
       "nothing", "address", "address", "long long"
     ],
     "ritual_ZN24QNetworkReplyImplPrivate17getDownloadBufferEx": [
       "address", "address", "long long"
+    ],
+    "ritual_ZN24QNetworkReplyImplPrivate34appendDownstreamDataDownloadBufferExx": [
+      "nothing", "address", "long long", "long long"
     ],
     "ritual_ZN24QNetworkReplyImplPrivate8finishedEv": ["nothing", "address"],
     "ritual_ZN24QNetworkReplyImplPrivate5errorEN13QNetworkReply12NetworkErrorERK7QString": [

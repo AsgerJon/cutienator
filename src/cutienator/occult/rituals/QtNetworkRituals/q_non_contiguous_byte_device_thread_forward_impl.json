@@ -2,7 +2,7 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtNetwork/6.12.0/QtNetwork/private/qhttpthreaddelegate_p.h, Qt",
-    "6.12.0. Changes made here are lost."
+    "6.12.0. Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZNK41QNonContiguousByteDeviceThreadForwardImpl10metaObjectEv": [
@@ -13,6 +13,12 @@
     ],
     "ritual_ZN41QNonContiguousByteDeviceThreadForwardImpl11qt_metacallEN11QMetaObject4CallEiPPv": [
       "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN41QNonContiguousByteDeviceThreadForwardImpl2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN41QNonContiguousByteDeviceThreadForwardImplC1Ebx": [
+      "address", "bool", "long long"
     ],
     "ritual_ZN41QNonContiguousByteDeviceThreadForwardImplD1Ev": [
       "nothing", "address"
@@ -53,7 +59,13 @@
     "ritual_own_ZNK41QNonContiguousByteDeviceThreadForwardImpl3posEv": [
       "long long", "address"
     ],
+    "ritual_own_ZN41QNonContiguousByteDeviceThreadForwardImpl18advanceReadPointerEx": [
+      "bool", "address", "long long"
+    ],
     "ritual_own_ZNK41QNonContiguousByteDeviceThreadForwardImpl5atEndEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZN41QNonContiguousByteDeviceThreadForwardImpl5resetEv": [
       "bool", "address"
     ],
     "ritual_own_ZNK41QNonContiguousByteDeviceThreadForwardImpl4sizeEv": [

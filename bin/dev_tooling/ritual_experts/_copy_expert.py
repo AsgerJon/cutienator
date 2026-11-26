@@ -543,6 +543,10 @@ class CopyExpert(ReachExpert):
               self.__table_members__[symbol] = (*made,)
               changed = True
               continue
+            if made and any(name not in compiled for name in made):
+              #  Copied in this very round, for the other of the two
+              #  tables of the class: the compiler sees them next round.
+              continue
             if made:
               #  Copied in a round before, and the compiler wrote the
               #  table even so nowhere here.

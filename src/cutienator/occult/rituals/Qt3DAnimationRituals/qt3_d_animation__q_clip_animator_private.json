@@ -5,6 +5,7 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN13Qt3DAnimation20QClipAnimatorPrivateC1Ev": ["address"],
     "ritual_ZNK13Qt3DAnimation20QClipAnimatorPrivate7canPlayEv": [
       "bool", "address"
     ],

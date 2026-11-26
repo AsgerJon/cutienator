@@ -24,14 +24,29 @@
     "ritual_ZNK29QHttpNetworkConnectionPrivate7indexOfEP9QIODevice": [
       "int", "address", "address"
     ],
+    "ritual_ZN29QHttpNetworkConnectionPrivate14requeueRequestERKSt4pairI19QHttpNetworkRequestP17QHttpNetworkReplyE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN29QHttpNetworkConnectionPrivate14fillHttp2QueueEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN29QHttpNetworkConnectionPrivate14dequeueRequestEP9QIODevice": [
+      "bool", "address", "address"
+    ],
     "ritual_ZN29QHttpNetworkConnectionPrivate14prepareRequestERSt4pairI19QHttpNetworkRequestP17QHttpNetworkReplyE": [
       "nothing", "address", "address"
     ],
     "ritual_ZN29QHttpNetworkConnectionPrivate13updateChannelEiRKSt4pairI19QHttpNetworkRequestP17QHttpNetworkReplyE": [
       "nothing", "address", "int", "address"
     ],
+    "ritual_ZNK29QHttpNetworkConnectionPrivate18predictNextRequestEv": [
+      "address", "address"
+    ],
     "ritual_ZNK29QHttpNetworkConnectionPrivate24predictNextRequestsReplyEv": [
       "address", "address"
+    ],
+    "ritual_ZN29QHttpNetworkConnectionPrivate12fillPipelineER5QListISt4pairI19QHttpNetworkRequestP17QHttpNetworkReplyEER29QHttpNetworkConnectionChannel": [
+      "bool", "address", "address", "address"
     ],
     "ritual_ZN29QHttpNetworkConnectionPrivate13readMoreLaterEP17QHttpNetworkReply": [
       "nothing", "address", "address"
@@ -48,11 +63,26 @@
     "ritual_ZN29QHttpNetworkConnectionPrivate11errorDetailEN13QNetworkReply12NetworkErrorEP9QIODeviceRK7QString": [
       "text", "address", "int", "address", "text"
     ],
+    "ritual_ZN29QHttpNetworkConnectionPrivate11removeReplyEP17QHttpNetworkReply": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK29QHttpNetworkConnectionPrivate26uncompressedBytesAvailableERK17QHttpNetworkReply": [
       "long long", "address", "address"
     ],
     "ritual_ZNK29QHttpNetworkConnectionPrivate35uncompressedBytesAvailableNextBlockERK17QHttpNetworkReply": [
       "long long", "address", "address"
+    ],
+    "ritual_ZN29QHttpNetworkConnectionPrivate14emitReplyErrorEP9QIODeviceP17QHttpNetworkReplyN13QNetworkReply12NetworkErrorE": [
+      "nothing", "address", "address", "address", "int"
+    ],
+    "ritual_ZN29QHttpNetworkConnectionPrivate27handleAuthenticateChallengeEP9QIODeviceP17QHttpNetworkReplybRb": [
+      "bool", "address", "address", "address", "bool", "address"
+    ],
+    "ritual_ZN29QHttpNetworkConnectionPrivate21parseRedirectResponseEP17QHttpNetworkReply": [
+      "address", "address"
+    ],
+    "ritual_ZN29QHttpNetworkConnectionPrivate21parseRedirectResponseEP9QIODeviceP17QHttpNetworkReply": [
+      "address", "address", "address", "address"
     ],
     "ritual_ZN29QHttpNetworkConnectionPrivate31emitProxyAuthenticationRequiredEPK29QHttpNetworkConnectionChannelRK13QNetworkProxyP14QAuthenticator": [
       "nothing", "address", "address", "address", "address"

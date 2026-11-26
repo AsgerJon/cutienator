@@ -159,6 +159,13 @@ const QTextFrame *ritual_ZNK17QTextFramePrivate6q_funcEv(
   return self->q_func();
 }
 
+//  QTextFramePrivate::QTextFramePrivate(QTextDocument *doc)
+extern "C" Q_DECL_EXPORT
+QTextFramePrivate *ritual_ZN17QTextFramePrivateC1EP13QTextDocument(
+    QTextDocument *doc) {
+  return new CuteQTextFramePrivate(doc);
+}
+
 //  void QTextFramePrivate::fragmentAdded(QChar type, uint fragment)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN17QTextFramePrivate13fragmentAddedE5QCharj(

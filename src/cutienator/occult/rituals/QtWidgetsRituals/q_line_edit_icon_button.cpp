@@ -1,6 +1,13 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtWidgets/6.12.0/QtWidgets/private/qlineedit_p.h, Qt 6.12.0. Changes made
-//  here are lost.
+//  QtWidgets/6.12.0/QtWidgets/private/qlineedit_p.h, Qt 6.12.0.
+//  Edited by hand on 2026-11-26: moc's output for 'QLineEditIconButton' is
+//  pasted in, cut from what the moc of Qt 6.12.0 writes for its header: Qt's
+//  library keeps it to itself; added are 4 rituals that lean on what moc
+//  writes for a class of the part Qt keeps to itself, whose ritual file
+//  carries moc's output, drafted by a copy of the generator that lets those
+//  names through. A copy of a meta-object is a second one: 'qobject_cast'
+//  between it and Qt's own does not match. Kept as it is when the generator
+//  runs again.
 #include <QtCore/qglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
@@ -12,7 +19,12 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtWidgets/6.12.0/QtWidgets/private/qlineedit_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
 #include <QtWidgets/qlineedit.h>
 #include <QtWidgets/private/qlineedit_p.h>
 #include <QtCore/qvariant.h>
@@ -48,13 +60,131 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from src/widgets/widgets/qlineedit_p.cpp, line 438, as _ZN19QLineEditIconButton12updateCursorEv
-#if QT_CONFIG(toolbutton)
-inline void QLineEditIconButton::updateCursor()
-{
-#ifndef QT_NO_CURSOR
-    setCursor(qFuzzyCompare(m_opacity, qreal(1.0)) || !parentWidget() ? QCursor(Qt::ArrowCursor) : parentWidget()->cursor());
+//  from QtWidgets__QLineEditIconButton.cpp, line 1, as moc:QLineEditIconButton
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
 #endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN19QLineEditIconButtonE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto QLineEditIconButton::qt_create_metaobjectdata<qt_meta_tag_ZN19QLineEditIconButtonE_t>()
+{
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "QLineEditIconButton",
+        "updateCursor",
+        "",
+        "onAnimationFinished",
+        "opacity"
+    };
+
+    QtMocHelpers::UintData qt_methods {
+        // Slot 'updateCursor'
+        QtMocHelpers::SlotData<void()>(1, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'onAnimationFinished'
+        QtMocHelpers::SlotData<void()>(3, 2, QMC::AccessPrivate, QMetaType::Void),
+    };
+    QtMocHelpers::UintData qt_properties {
+        // property 'opacity'
+        QtMocHelpers::PropertyData<qreal>(4, QMetaType::QReal, QMC::DefaultPropertyFlags | QMC::Writable | QMC::StdCppSet),
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    return QtMocHelpers::metaObjectData<QLineEditIconButton, qt_meta_tag_ZN19QLineEditIconButtonE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums);
+}
+Q_CONSTINIT const QMetaObject QLineEditIconButton::staticMetaObject = { {
+    QMetaObject::SuperData::link<QToolButton::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN19QLineEditIconButtonE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN19QLineEditIconButtonE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN19QLineEditIconButtonE_t>.metaTypes,
+    nullptr
+} };
+
+void QLineEditIconButton::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<QLineEditIconButton *>(_o);
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        switch (_id) {
+        case 0: _t->updateCursor(); break;
+        case 1: _t->onAnimationFinished(); break;
+        default: ;
+        }
+    }
+    if (_c == QMetaObject::ReadProperty) {
+        void *_v = _a[0];
+        switch (_id) {
+        case 0: *reinterpret_cast<qreal*>(_v) = _t->opacity(); break;
+        default: break;
+        }
+    }
+    if (_c == QMetaObject::WriteProperty) {
+        void *_v = _a[0];
+        switch (_id) {
+        case 0: _t->setOpacity(*reinterpret_cast<qreal*>(_v)); break;
+        default: break;
+        }
+    }
+}
+
+const QMetaObject *QLineEditIconButton::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *QLineEditIconButton::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN19QLineEditIconButtonE_t>.strings))
+        return static_cast<void*>(this);
+    return QToolButton::qt_metacast(_clname);
+}
+
+int QLineEditIconButton::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QToolButton::qt_metacall(_c, _id, _a);
+    if (_id < 0)
+        return _id;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        if (_id < 2)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 2;
+    }
+    if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        if (_id < 2)
+            *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
+        _id -= 2;
+    }
+    if (_c == QMetaObject::ReadProperty || _c == QMetaObject::WriteProperty
+            || _c == QMetaObject::ResetProperty || _c == QMetaObject::BindableProperty
+            || _c == QMetaObject::RegisterPropertyMetaType) {
+        qt_static_metacall(this, _c, _id, _a);
+        _id -= 1;
+    }
+    return _id;
+}
+QT_WARNING_POP
+
+//  from src/widgets/widgets/qlineedit_p.cpp, line 347, as _ZN19QLineEditIconButton10paintEventEP11QPaintEvent
+#if QT_CONFIG(toolbutton)
+inline void QLineEditIconButton::paintEvent(QPaintEvent *)
+{
+    QPainter painter(this);
+    QIcon::Mode mode = QIcon::Disabled;
+    if (isEnabled())
+        mode = isDown() ? QIcon::Active : QIcon::Normal;
+    const QLineEditPrivate *lep = lineEditPrivate();
+    const int iconWidth = lep ? lep->sideWidgetParameters().iconSize : 16;
+    const QSize iconSize(iconWidth, iconWidth);
+    QRect pixmapRect = QRect(QPoint(0, 0), iconSize);
+    pixmapRect.moveCenter(rect().center());
+    painter.setOpacity(m_opacity);
+    icon().paint(&painter, pixmapRect, Qt::AlignCenter, mode, QIcon::Off);
 }
 #endif  // QT_CONFIG(toolbutton)
 
@@ -79,22 +209,31 @@ inline void QLineEditIconButton::actionEvent(QActionEvent *e)
 }
 #endif  // QT_CONFIG(toolbutton)
 
-//  from src/widgets/widgets/qlineedit_p.cpp, line 347, as _ZN19QLineEditIconButton10paintEventEP11QPaintEvent
+//  from src/widgets/widgets/qlineedit_p.cpp, line 438, as _ZN19QLineEditIconButton12updateCursorEv
 #if QT_CONFIG(toolbutton)
-inline void QLineEditIconButton::paintEvent(QPaintEvent *)
+inline void QLineEditIconButton::updateCursor()
 {
-    QPainter painter(this);
-    QIcon::Mode mode = QIcon::Disabled;
-    if (isEnabled())
-        mode = isDown() ? QIcon::Active : QIcon::Normal;
-    const QLineEditPrivate *lep = lineEditPrivate();
-    const int iconWidth = lep ? lep->sideWidgetParameters().iconSize : 16;
-    const QSize iconSize(iconWidth, iconWidth);
-    QRect pixmapRect = QRect(QPoint(0, 0), iconSize);
-    pixmapRect.moveCenter(rect().center());
-    painter.setOpacity(m_opacity);
-    icon().paint(&painter, pixmapRect, Qt::AlignCenter, mode, QIcon::Off);
+#ifndef QT_NO_CURSOR
+    setCursor(qFuzzyCompare(m_opacity, qreal(1.0)) || !parentWidget() ? QCursor(Qt::ArrowCursor) : parentWidget()->cursor());
+#endif
 }
+#endif  // QT_CONFIG(toolbutton)
+
+//  from src/widgets/widgets/qlineedit_p.cpp, line 400, as _ZN19QLineEditIconButton19onAnimationFinishedEv
+#if QT_CONFIG(toolbutton)
+#if QT_CONFIG(animation)
+inline void QLineEditIconButton::onAnimationFinished()
+{
+    if (shouldHideWithText() && isVisible() && m_fadingOut) {
+        hide();
+        m_fadingOut = false;
+
+        // Invalidate previous geometry to take into account new size of side widgets
+        if (auto le = lineEditPrivate())
+            le->updateGeometry_helper(true);
+    }
+}
+#endif  // QT_CONFIG(animation)
 #endif  // QT_CONFIG(toolbutton)
 
 //  from src/widgets/widgets/qlineedit_p.cpp, line 521, as _ZN16QLineEditPrivate19positionSideWidgetsEv
@@ -139,6 +278,16 @@ inline QLineEditPrivate::SideWidgetParameters QLineEditPrivate::sideWidgetParame
     return result;
 }
 
+//  from src/widgets/widgets/qlineedit_p.cpp, line 334, as _ZN19QLineEditIconButtonC1EP7QWidget
+#if QT_CONFIG(toolbutton)
+inline QLineEditIconButton::QLineEditIconButton(QWidget *parent)
+    : QToolButton(parent)
+    , m_opacity(0)
+{
+    setFocusPolicy(Qt::NoFocus);
+}
+#endif  // QT_CONFIG(toolbutton)
+
 //  from src/widgets/widgets/qlineedit_p.cpp, line 380, as _ZN19QLineEditIconButton10setOpacityEd
 #if QT_CONFIG(toolbutton)
 inline void QLineEditIconButton::setOpacity(qreal value)
@@ -149,6 +298,26 @@ inline void QLineEditIconButton::setOpacity(qreal value)
         update();
     }
 }
+#endif  // QT_CONFIG(toolbutton)
+
+//  from src/widgets/widgets/qlineedit_p.cpp, line 412, as _ZN19QLineEditIconButton11animateShowEb
+#if QT_CONFIG(toolbutton)
+#if QT_CONFIG(animation)
+inline void QLineEditIconButton::animateShow(bool visible)
+{
+    m_fadingOut = !visible;
+
+    if (shouldHideWithText() && !isVisible()) {
+        show();
+
+        // Invalidate previous geometry to take into account new size of side widgets
+        if (auto le = lineEditPrivate())
+            le->updateGeometry_helper(true);
+    }
+
+    startOpacityAnimation(visible ? 1.0 : 0.0);
+}
+#endif  // QT_CONFIG(animation)
 #endif  // QT_CONFIG(toolbutton)
 
 //  from src/widgets/widgets/qlineedit_p.cpp, line 390, as _ZNK19QLineEditIconButton18shouldHideWithTextEv
@@ -167,6 +336,21 @@ inline bool QLineEditIconButton::shouldHideWithText() const
 inline void QLineEditIconButton::setHideWithText(bool hide)
 {
     m_hideWithText = hide;
+}
+#endif  // QT_CONFIG(animation)
+#endif  // QT_CONFIG(toolbutton)
+
+//  from src/widgets/widgets/qlineedit_p.cpp, line 427, as _ZN19QLineEditIconButton21startOpacityAnimationEd
+#if QT_CONFIG(toolbutton)
+#if QT_CONFIG(animation)
+inline void QLineEditIconButton::startOpacityAnimation(qreal endValue)
+{
+    QPropertyAnimation *animation = new QPropertyAnimation(this, QByteArrayLiteral("opacity"), this);
+    connect(animation, &QPropertyAnimation::finished, this, &QLineEditIconButton::onAnimationFinished);
+
+    animation->setDuration(160);
+    animation->setEndValue(endValue);
+    animation->start(QAbstractAnimation::DeleteWhenStopped);
 }
 #endif  // QT_CONFIG(animation)
 #endif  // QT_CONFIG(toolbutton)
@@ -214,6 +398,30 @@ int ritual_ZN19QLineEditIconButton11qt_metacallEN11QMetaObject4CallEiPPv(
   return self->qt_metacall(a0, a1, a2);
 }
 
+#if QT_CONFIG(toolbutton)
+#if QT_CONFIG(animation)
+//  QString QLineEditIconButton::tr(const char *s, const char *c, int n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN19QLineEditIconButton2trEPKcS1_i(
+    const char *s,
+    const char *c,
+    int n) {
+  return new QString(QLineEditIconButton::tr(s, c, n));
+}
+#endif  // QT_CONFIG(animation)
+#endif  // QT_CONFIG(toolbutton)
+
+#if QT_CONFIG(toolbutton)
+#if QT_CONFIG(animation)
+//  QLineEditIconButton::QLineEditIconButton(QWidget *parent)
+extern "C" Q_DECL_EXPORT
+QLineEditIconButton *ritual_ZN19QLineEditIconButtonC1EP7QWidget(
+    QWidget *parent) {
+  return new QLineEditIconButton(parent);
+}
+#endif  // QT_CONFIG(animation)
+#endif  // QT_CONFIG(toolbutton)
+
 //  qreal QLineEditIconButton::opacity() const
 extern "C" Q_DECL_EXPORT
 qreal ritual_ZNK19QLineEditIconButton7opacityEv(
@@ -230,6 +438,18 @@ void ritual_ZN19QLineEditIconButton10setOpacityEd(
   self->setOpacity(value);
 }
 #endif  // QT_CONFIG(toolbutton)
+
+#if QT_CONFIG(animation)
+#if QT_CONFIG(toolbutton)
+//  void QLineEditIconButton::animateShow(bool visible)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QLineEditIconButton11animateShowEb(
+    QLineEditIconButton *self,
+    bool visible) {
+  self->animateShow(visible);
+}
+#endif  // QT_CONFIG(toolbutton)
+#endif  // QT_CONFIG(animation)
 
 #if QT_CONFIG(animation)
 #if QT_CONFIG(toolbutton)
@@ -329,6 +549,18 @@ void ritual_ZN19QLineEditIconButton19onAnimationFinishedEv(
   static_cast<QObject *>(self)->qt_metacall(
       QMetaObject::InvokeMetaMethod, index, arguments);
 }
+#endif  // QT_CONFIG(animation)
+
+#if QT_CONFIG(animation)
+#if QT_CONFIG(toolbutton)
+//  void QLineEditIconButton::startOpacityAnimation(qreal endValue)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QLineEditIconButton21startOpacityAnimationEd(
+    QLineEditIconButton *self,
+    qreal endValue) {
+  self->startOpacityAnimation(endValue);
+}
+#endif  // QT_CONFIG(toolbutton)
 #endif  // QT_CONFIG(animation)
 
 #if QT_CONFIG(toolbutton)

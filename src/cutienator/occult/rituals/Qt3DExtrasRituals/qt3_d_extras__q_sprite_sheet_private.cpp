@@ -105,7 +105,22 @@ inline void QAbstractSpriteSheetPrivate::init()
     m_textureTransform.setToIdentity();
 }
 }  // namespace Qt3DExtras
+
+//  from ../qt3d/src/extras/defaults/qspritesheet.cpp, line 17, as _ZN10Qt3DExtras19QSpriteSheetPrivateC1Ev
+namespace Qt3DExtras {
+using namespace Qt3DCore;
+inline QSpriteSheetPrivate::QSpriteSheetPrivate()
+    : QAbstractSpriteSheetPrivate()
+{
+}
+}  // namespace Qt3DExtras
 //  -----------------------------------------------------------------------
+
+//  Qt3DExtras::QSpriteSheetPrivate::QSpriteSheetPrivate()
+extern "C" Q_DECL_EXPORT
+Qt3DExtras::QSpriteSheetPrivate *ritual_ZN10Qt3DExtras19QSpriteSheetPrivateC1Ev() {
+  return new Qt3DExtras::QSpriteSheetPrivate();
+}
 
 //  int Qt3DExtras::QSpriteSheetPrivate::maxIndex() const
 extern "C" Q_DECL_EXPORT

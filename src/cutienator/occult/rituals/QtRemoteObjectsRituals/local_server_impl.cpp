@@ -1,15 +1,28 @@
 //  Written by dev_tooling.RitualGenerator from the records of QtRemoteObject
 //  s/6.12.0/QtRemoteObjects/private/qconnection_local_backend_p.h, Qt
-//  6.12.0. Changes made here are lost.
+//  6.12.0.
+//  Edited by hand on 2026-11-26: moc's output for 'LocalServerImpl' is
+//  pasted in, cut from what the moc of Qt 6.12.0 writes for its header: Qt's
+//  library keeps it to itself; added are 3 rituals that lean on what moc
+//  writes for a class of the part Qt keeps to itself, whose ritual file
+//  carries moc's output, drafted by a copy of the generator that lets those
+//  names through. A copy of a meta-object is a second one: 'qobject_cast'
+//  between it and Qt's own does not match. Kept as it is when the generator
+//  runs again.
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtRemoteObjects/QtRemoteObjects>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtRemoteObjects/6.12.0/QtRemoteObjects/private/qconnection_local_backend_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 #include <QtCore/qurl.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
 #include <QtRemoteObjects/private/qconnection_local_backend_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
@@ -20,11 +33,70 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from ../qtremoteobjects/src/remoteobjects/qconnection_local_backend.cpp, line 132, as _ZNK15LocalServerImpl21hasPendingConnectionsEv
-inline bool LocalServerImpl::hasPendingConnections() const
+//  from QtRemoteObjects__LocalServerImpl.cpp, line 1, as moc:LocalServerImpl
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN15LocalServerImplE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto LocalServerImpl::qt_create_metaobjectdata<qt_meta_tag_ZN15LocalServerImplE_t>()
 {
-    return m_server.hasPendingConnections();
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "LocalServerImpl"
+    };
+
+    QtMocHelpers::UintData qt_methods {
+    };
+    QtMocHelpers::UintData qt_properties {
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    return QtMocHelpers::metaObjectData<LocalServerImpl, qt_meta_tag_ZN15LocalServerImplE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums);
 }
+Q_CONSTINIT const QMetaObject LocalServerImpl::staticMetaObject = { {
+    QMetaObject::SuperData::link<QConnectionAbstractServer::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN15LocalServerImplE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN15LocalServerImplE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN15LocalServerImplE_t>.metaTypes,
+    nullptr
+} };
+
+void LocalServerImpl::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<LocalServerImpl *>(_o);
+    (void)_t;
+    (void)_c;
+    (void)_id;
+    (void)_a;
+}
+
+const QMetaObject *LocalServerImpl::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *LocalServerImpl::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN15LocalServerImplE_t>.strings))
+        return static_cast<void*>(this);
+    return QConnectionAbstractServer::qt_metacast(_clname);
+}
+
+int LocalServerImpl::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QConnectionAbstractServer::qt_metacall(_c, _id, _a);
+    return _id;
+}
+QT_WARNING_POP
 
 //  from ../qtremoteobjects/src/remoteobjects/qconnection_local_backend.cpp, line 124, as _ZN15LocalServerImpl22configureNewConnectionEv
 inline QtROServerIoDevice *LocalServerImpl::configureNewConnection()
@@ -35,14 +107,10 @@ inline QtROServerIoDevice *LocalServerImpl::configureNewConnection()
     return new LocalServerIo(m_server.nextPendingConnection(), this);
 }
 
-//  from ../qtremoteobjects/src/remoteobjects/qconnection_local_backend.cpp, line 137, as _ZNK15LocalServerImpl7addressEv
-inline QUrl LocalServerImpl::address() const
+//  from ../qtremoteobjects/src/remoteobjects/qconnection_local_backend.cpp, line 169, as _ZN15LocalServerImpl5closeEv
+inline void LocalServerImpl::close()
 {
-    QUrl result;
-    result.setPath(m_server.serverName());
-    result.setScheme(QRemoteObjectStringLiterals::local());
-
-    return result;
+    m_server.close();
 }
 
 //  from ../qtremoteobjects/src/remoteobjects/qconnection_local_backend.cpp, line 146, as _ZN15LocalServerImpl6listenERK4QUrl
@@ -66,16 +134,32 @@ inline bool LocalServerImpl::listen(const QUrl &address)
 }
 #endif  // defined(Q_OS_LINUX)
 
+//  from ../qtremoteobjects/src/remoteobjects/qconnection_local_backend.cpp, line 119, as _ZN15LocalServerImplD0Ev
+inline LocalServerImpl::~LocalServerImpl()
+{
+    m_server.close();
+}
+
 //  from ../qtremoteobjects/src/remoteobjects/qconnection_local_backend.cpp, line 164, as _ZNK15LocalServerImpl11serverErrorEv
 inline QAbstractSocket::SocketError LocalServerImpl::serverError() const
 {
     return m_server.serverError();
 }
 
-//  from ../qtremoteobjects/src/remoteobjects/qconnection_local_backend.cpp, line 169, as _ZN15LocalServerImpl5closeEv
-inline void LocalServerImpl::close()
+//  from ../qtremoteobjects/src/remoteobjects/qconnection_local_backend.cpp, line 132, as _ZNK15LocalServerImpl21hasPendingConnectionsEv
+inline bool LocalServerImpl::hasPendingConnections() const
 {
-    m_server.close();
+    return m_server.hasPendingConnections();
+}
+
+//  from ../qtremoteobjects/src/remoteobjects/qconnection_local_backend.cpp, line 137, as _ZNK15LocalServerImpl7addressEv
+inline QUrl LocalServerImpl::address() const
+{
+    QUrl result;
+    result.setPath(m_server.serverName());
+    result.setScheme(QRemoteObjectStringLiterals::local());
+
+    return result;
 }
 
 //  from ../qtremoteobjects/src/remoteobjects/qconnection_local_backend.cpp, line 95, as _ZN13LocalServerIoC1EP12QLocalSocketP7QObject
@@ -85,6 +169,13 @@ inline LocalServerIo::LocalServerIo(QLocalSocket *conn, QObject *parent)
     m_connection->setParent(this);
     connect(conn, &QIODevice::readyRead, this, &QtROServerIoDevice::readyRead);
     connect(conn, &QLocalSocket::disconnected, this, &QtROServerIoDevice::disconnected);
+}
+
+//  from ../qtremoteobjects/src/remoteobjects/qconnection_local_backend.cpp, line 113, as _ZN15LocalServerImplC1EP7QObject
+inline LocalServerImpl::LocalServerImpl(QObject *parent)
+    : QConnectionAbstractServer(parent)
+{
+    connect(&m_server, &QLocalServer::newConnection, this, &QConnectionAbstractServer::newConnection);
 }
 
 //  from ../qtremoteobjects/src/remoteobjects/qconnection_local_backend.cpp, line 174, as _ZN15LocalServerImpl16setSocketOptionsE6QFlagsIN12QLocalServer12SocketOptionEE
@@ -382,6 +473,23 @@ int ritual_ZN15LocalServerImpl11qt_metacallEN11QMetaObject4CallEiPPv(
   return self->qt_metacall(a0, a1, a2);
 }
 
+//  QString LocalServerImpl::tr(const char *s, const char *c, int n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN15LocalServerImpl2trEPKcS1_i(
+    const char *s,
+    const char *c,
+    int n) {
+  return new QString(LocalServerImpl::tr(s, c, n));
+}
+
+#if defined(Q_OS_LINUX)
+//  LocalServerImpl::LocalServerImpl(QObject *parent)
+extern "C" Q_DECL_EXPORT
+LocalServerImpl *ritual_ZN15LocalServerImplC1EP7QObject(QObject *parent) {
+  return new CuteLocalServerImpl(parent);
+}
+#endif  // defined(Q_OS_LINUX)
+
 //  LocalServerImpl::~LocalServerImpl()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15LocalServerImplD1Ev(LocalServerImpl *self) {
@@ -454,6 +562,13 @@ extern "C" Q_DECL_EXPORT
 bool ritual_own_ZNK15LocalServerImpl21hasPendingConnectionsEv(
     const LocalServerImpl *self) {
   return self->LocalServerImpl::hasPendingConnections();
+}
+
+//  QtROServerIoDevice *LocalServerImpl::configureNewConnection()
+extern "C" Q_DECL_EXPORT
+QtROServerIoDevice *ritual_own_ZN15LocalServerImpl22configureNewConnectionEv(
+    LocalServerImpl *self) {
+  return self->LocalServerImpl::configureNewConnection();
 }
 
 //  QUrl LocalServerImpl::address() const

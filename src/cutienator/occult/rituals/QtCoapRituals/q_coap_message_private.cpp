@@ -31,6 +31,12 @@ inline QCoapMessagePrivate *QCoapMessagePrivate::clone() const
     return new QCoapMessagePrivate(*this);
 }
 
+//  from ../qtcoap/src/coap/qcoapmessage.cpp, line 10, as _ZN19QCoapMessagePrivateC1EN12QCoapMessage4TypeE
+inline QCoapMessagePrivate::QCoapMessagePrivate(QCoapMessage::Type _type) :
+    type(_type)
+{
+}
+
 //  from ../qtcoap/src/coap/qcoapmessage.cpp, line 260, as _ZNK19QCoapMessagePrivate10findOptionEN11QCoapOption10OptionNameE
 inline QList<QCoapOption>::const_iterator
 QCoapMessagePrivate::findOption(QCoapOption::OptionName name) const
@@ -38,6 +44,14 @@ QCoapMessagePrivate::findOption(QCoapOption::OptionName name) const
     return std::find_if(options.begin(), options.end(), [name](const QCoapOption &option) {
         return option.name() == name;
     });
+}
+
+//  from ../qtcoap/src/coap/qcoapmessage.cpp, line 15, as _ZN19QCoapMessagePrivateC1ERKS_
+inline QCoapMessagePrivate::QCoapMessagePrivate(const QCoapMessagePrivate &other) :
+    QSharedData(other),
+    version(other.version), type(other.type), messageId(other.messageId),
+    token(other.token), options(other.options), payload(other.payload)
+{
 }
 //  -----------------------------------------------------------------------
 
@@ -48,6 +62,7 @@ typedef void * (*CuteQCoapMessagePrivateCall0)(const void *, int *);
 class CuteQCoapMessagePrivate : public QCoapMessagePrivate {
 public:
   using QCoapMessagePrivate::QCoapMessagePrivate;
+  CuteQCoapMessagePrivate(const QCoapMessagePrivate & other) : QCoapMessagePrivate(other) {}
   void *taken[1] = {};
 
   bool take(const char *key, void *call) {
@@ -69,6 +84,13 @@ public:
     return QCoapMessagePrivate::clone();
   }
 };
+
+//  QCoapMessagePrivate::QCoapMessagePrivate(QCoapMessage::Type type)
+extern "C" Q_DECL_EXPORT
+QCoapMessagePrivate *ritual_ZN19QCoapMessagePrivateC1EN12QCoapMessage4TypeE(
+    QCoapMessage::Type type) {
+  return new CuteQCoapMessagePrivate(type);
+}
 
 //  QCoapMessagePrivate::~QCoapMessagePrivate()
 extern "C" Q_DECL_EXPORT
@@ -92,6 +114,14 @@ QList<QCoapOption>::const_iterator *ritual_ZNK19QCoapMessagePrivate10findOptionE
   return new QList<QCoapOption>::const_iterator(self->findOption(name));
 }
 
+//  QCoapMessagePrivate::QCoapMessagePrivate(const QCoapMessagePrivate
+//      &other)
+extern "C" Q_DECL_EXPORT
+QCoapMessagePrivate *ritual_ZN19QCoapMessagePrivateC1ERKS_(
+    const QCoapMessagePrivate *other) {
+  return new CuteQCoapMessagePrivate(*other);
+}
+
 //  a Python function taken by a CuteQCoapMessagePrivate, for the function
 //      named by the key
 extern "C" Q_DECL_EXPORT
@@ -100,6 +130,13 @@ bool ritual_take_QCoapMessagePrivate(
     const char *key,
     void *call) {
   return static_cast<CuteQCoapMessagePrivate *>(self)->take(key, call);
+}
+
+//  QCoapMessagePrivate *QCoapMessagePrivate::clone() const
+extern "C" Q_DECL_EXPORT
+QCoapMessagePrivate *ritual_own_ZNK19QCoapMessagePrivate5cloneEv(
+    const QCoapMessagePrivate *self) {
+  return self->QCoapMessagePrivate::clone();
 }
 
 //  a QList<QCoapOption>::const_iterator a ritual of QCoapMessagePrivate gave

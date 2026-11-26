@@ -20,17 +20,6 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from ../qtwebsockets/src/websockets/qdefaultmaskgenerator_p.cpp, line 35, as _ZN21QDefaultMaskGeneratorC1EP7QObject
-inline QDefaultMaskGenerator::QDefaultMaskGenerator(QObject *parent) :
-    QMaskGenerator(parent)
-{
-}
-
-//  from ../qtwebsockets/src/websockets/qdefaultmaskgenerator_p.cpp, line 45, as _ZN21QDefaultMaskGeneratorD1Ev
-inline QDefaultMaskGenerator::~QDefaultMaskGenerator()
-{
-}
-
 //  from ../qtwebsockets/src/websockets/qdefaultmaskgenerator_p.cpp, line 52, as _ZN21QDefaultMaskGenerator4seedEv
 inline bool QDefaultMaskGenerator::seed() noexcept
 {
@@ -46,6 +35,17 @@ inline quint32 QDefaultMaskGenerator::nextMask() noexcept
         value = QRandomGenerator::global()->generate();
     }
     return value;
+}
+
+//  from ../qtwebsockets/src/websockets/qdefaultmaskgenerator_p.cpp, line 45, as _ZN21QDefaultMaskGeneratorD2Ev
+inline QDefaultMaskGenerator::~QDefaultMaskGenerator()
+{
+}
+
+//  from ../qtwebsockets/src/websockets/qdefaultmaskgenerator_p.cpp, line 35, as _ZN21QDefaultMaskGeneratorC1EP7QObject
+inline QDefaultMaskGenerator::QDefaultMaskGenerator(QObject *parent) :
+    QMaskGenerator(parent)
+{
 }
 //  -----------------------------------------------------------------------
 

@@ -40,7 +40,35 @@ inline AbstractRenderItem::AbstractRenderItem(const AbstractRenderItem &other)
 inline AbstractRenderItem::~AbstractRenderItem()
 {
 }
+
+//  from ../qtdatavis3d/src/datavisualization/data/scatterrenderitem.cpp, line 8, as _ZN17ScatterRenderItemC1Ev
+inline ScatterRenderItem::ScatterRenderItem()
+    : AbstractRenderItem(),
+      m_visible(false)
+{
+}
+
+//  from ../qtdatavis3d/src/datavisualization/data/scatterrenderitem.cpp, line 14, as _ZN17ScatterRenderItemC1ERKS_
+inline ScatterRenderItem::ScatterRenderItem(const ScatterRenderItem &other)
+    : AbstractRenderItem(other)
+{
+    m_position = other.m_position;
+    m_visible = other.m_visible;
+}
 //  -----------------------------------------------------------------------
+
+//  ScatterRenderItem::ScatterRenderItem()
+extern "C" Q_DECL_EXPORT
+ScatterRenderItem *ritual_ZN17ScatterRenderItemC1Ev() {
+  return new ScatterRenderItem();
+}
+
+//  ScatterRenderItem::ScatterRenderItem(const ScatterRenderItem &other)
+extern "C" Q_DECL_EXPORT
+ScatterRenderItem *ritual_ZN17ScatterRenderItemC1ERKS_(
+    const ScatterRenderItem *other) {
+  return new ScatterRenderItem(*other);
+}
 
 //  ScatterRenderItem &ScatterRenderItem::operator=(const ScatterRenderItem
 //      &a0)

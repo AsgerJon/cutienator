@@ -2,7 +2,7 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of QtQmlMo",
     "dels/6.12.0/QtQmlModels/private/qqmlsortfilterproxymodel_p_p.h, Qt",
-    "6.12.0. Changes made here are lost."
+    "6.12.0. Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZN31QQmlSortFilterProxyModelPrivate6q_funcEv": [
@@ -10,6 +10,9 @@
     ],
     "ritual_ZNK31QQmlSortFilterProxyModelPrivate6q_funcEv": [
       "address", "address"
+    ],
+    "ritual_ZN31QQmlSortFilterProxyModelPrivate4initEv": [
+      "nothing", "address"
     ],
     "ritual_ZNK31QQmlSortFilterProxyModelPrivate29containRoleForRecursiveFilterERK5QListIiE": [
       "bool", "address", "address"

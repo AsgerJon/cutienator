@@ -1,8 +1,8 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "QtQuick/6.12.0/QtQuick/private/qquickitem_p.h, Qt 6.12.0. Changes",
-    "made here are lost."
+    "QtQuick/6.12.0/QtQuick/private/qquickitem_p.h, Qt 6.12.0. Edited",
+    "by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZNK29QQuickLayoutMirroringAttached10metaObjectEv": [
@@ -14,11 +14,17 @@
     "ritual_ZN29QQuickLayoutMirroringAttached11qt_metacallEN11QMetaObject4CallEiPPv": [
       "int", "address", "int", "int", "address"
     ],
+    "ritual_ZN29QQuickLayoutMirroringAttached2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
     "ritual_ZN29QQuickLayoutMirroringAttached24qt_qmlMarker_uncreatableEv": [
       "nothing", "address"
     ],
     "ritual_ZN29QQuickLayoutMirroringAttached21qt_qmlMarker_attachedEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN29QQuickLayoutMirroringAttachedC1EP7QObject": [
+      "address", "address"
     ],
     "ritual_ZNK29QQuickLayoutMirroringAttached7enabledEv": [
       "bool", "address"
@@ -31,6 +37,12 @@
     ],
     "ritual_ZNK29QQuickLayoutMirroringAttached15childrenInheritEv": [
       "bool", "address"
+    ],
+    "ritual_ZN29QQuickLayoutMirroringAttached18setChildrenInheritEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN29QQuickLayoutMirroringAttached21qmlAttachedPropertiesEP7QObject": [
+      "address", "address"
     ],
     "ritual_ZN29QQuickLayoutMirroringAttached14enabledChangedEv": [
       "nothing", "address"

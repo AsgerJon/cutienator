@@ -1,6 +1,11 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtWidgets/6.12.0/QtWidgets/private/qtreewidget_p.h, Qt 6.12.0. Changes
-//  made here are lost.
+//  QtWidgets/6.12.0/QtWidgets/private/qtreewidget_p.h, Qt 6.12.0.
+//  Edited by hand on 2026-11-26: added are 15 rituals that lean on what moc
+//  writes for a class of the part Qt keeps to itself, whose ritual file
+//  carries moc's output, drafted by a copy of the generator that lets those
+//  names through. A copy of a meta-object is a second one: 'qobject_cast'
+//  between it and Qt's own does not match. Kept as it is when the generator
+//  runs again.
 #include <QtGui/qtguiglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
@@ -13,6 +18,7 @@
 #include <QtWidgets/6.12.0/QtWidgets/private/qtreewidget_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qabstractitemmodel.h>
+#include <QtCore/qitemselectionmodel.h>
 #include <QtCore/qrect.h>
 #include <QtCore/qpoint.h>
 #include <QtGui/QtGui>
@@ -113,6 +119,22 @@
 //  'inline' put before it where Qt did not write it.
 
 using namespace Qt::StringLiterals;
+
+//  from src/widgets/itemviews/qtreewidget.cpp, line 21, as local:qtreewidget.cpp:QTreeModelLessThan
+class QTreeModelLessThan
+{
+public:
+    inline bool operator()(QTreeWidgetItem *i1, QTreeWidgetItem *i2) const
+        { return *i1 < *i2; }
+};
+
+//  from src/widgets/itemviews/qtreewidget.cpp, line 28, as local:qtreewidget.cpp:QTreeModelGreaterThan
+class QTreeModelGreaterThan
+{
+public:
+    inline bool operator()(QTreeWidgetItem *i1, QTreeWidgetItem *i2) const
+        { return *i2 < *i1; }
+};
 
 //  from src/widgets/itemviews/qabstractitemview.cpp, line 3594, as _ZN24QAbstractItemViewPrivate11rowsRemovedERK11QModelIndexii
 inline void QAbstractItemViewPrivate::rowsRemoved(const QModelIndex &index, int start, int end)
@@ -368,6 +390,38 @@ inline bool QAbstractScrollAreaPrivate::canStartScrollingAt(const QPoint &startP
 }
 #endif  // QT_CONFIG(scrollarea)
 
+//  from src/widgets/itemviews/qtreewidget.cpp, line 191, as _ZNK10QTreeModel5indexEPK15QTreeWidgetItemi
+inline QModelIndex QTreeModel::index(const QTreeWidgetItem *item, int column) const
+{
+    executePendingSort();
+
+    if (!item || (item == rootItem))
+        return QModelIndex();
+    const QTreeWidgetItem *par = item->parent();
+    QTreeWidgetItem *itm = const_cast<QTreeWidgetItem*>(item);
+    if (!par)
+        par = rootItem;
+    int row;
+    int guess = item->d->rowGuess;
+    if (guess >= 0
+        && par->children.size() > guess
+        && par->children.at(guess) == itm) {
+        row = guess;
+    } else {
+        row = par->children.lastIndexOf(itm);
+        itm->d->rowGuess = row;
+    }
+    return createIndex(row, column, itm);
+}
+
+//  from src/widgets/itemviews/qtreewidget.cpp, line 177, as _ZNK10QTreeModel4itemERK11QModelIndex
+inline QTreeWidgetItem *QTreeModel::item(const QModelIndex &index) const
+{
+    if (!index.isValid())
+        return nullptr;
+    return static_cast<QTreeWidgetItem*>(index.internalPointer());
+}
+
 //  from src/widgets/itemviews/qtreewidget.cpp, line 569, as _ZN10QTreeModel12ensureSortedEiN2Qt9SortOrderEiiRK11QModelIndex
 inline void QTreeModel::ensureSorted(int column, Qt::SortOrder order,
                               int start, int end, const QModelIndex &parent)
@@ -601,6 +655,38 @@ inline QPoint QAbstractScrollAreaPrivate::contentsOffset() const
 }
 #endif  // QT_CONFIG(scrollarea)
 
+//  from src/widgets/itemviews/qtreewidget.cpp, line 766, as _ZNK10QTreeModel10isChangingEv
+inline bool QTreeModel::isChanging() const
+{
+    Q_D(const QTreeModel);
+    return !d->changes.isEmpty();
+}
+
+//  from src/widgets/itemviews/qtreewidget.cpp, line 668, as _ZN10QTreeModel12itemLessThanERKSt4pairIP15QTreeWidgetItemiES5_
+inline bool QTreeModel::itemLessThan(const std::pair<QTreeWidgetItem*,int> &left,
+                              const std::pair<QTreeWidgetItem*,int> &right)
+{
+    return *(left.first) < *(right.first);
+}
+
+//  from src/widgets/itemviews/qtreewidget.cpp, line 683, as _ZN10QTreeModel15itemGreaterThanERKSt4pairIP15QTreeWidgetItemiES5_
+inline bool QTreeModel::itemGreaterThan(const std::pair<QTreeWidgetItem*,int> &left,
+                                 const std::pair<QTreeWidgetItem*,int> &right)
+{
+    return *(right.first) < *(left.first);
+}
+
+//  from src/widgets/itemviews/qtreewidget.cpp, line 692, as _ZN10QTreeModel23sortedInsertionIteratorERKN5QListIP15QTreeWidgetItemE8iteratorES6_N2Qt9SortOrderES2_
+inline QList<QTreeWidgetItem*>::iterator QTreeModel::sortedInsertionIterator(
+    const QList<QTreeWidgetItem*>::iterator &begin,
+    const QList<QTreeWidgetItem*>::iterator &end,
+    Qt::SortOrder order, QTreeWidgetItem *item)
+{
+    if (order == Qt::AscendingOrder)
+        return std::lower_bound(begin, end, item, QTreeModelLessThan());
+    return std::lower_bound(begin, end, item, QTreeModelGreaterThan());
+}
+
 //  from src/widgets/widgets/qframe.cpp, line 19, as _ZN13QFramePrivateC2Ev
 inline QFramePrivate::QFramePrivate()
     : frect(0, 0, 0, 0),
@@ -623,6 +709,120 @@ inline void QTreeWidgetPrivate::clearConnections()
 {
     for (QMetaObject::Connection &connection : connections)
         QObject::disconnect(connection);
+}
+
+//  from src/widgets/itemviews/qtreewidget.cpp, line 2299, as _ZN18QTreeWidgetPrivate15emitItemPressedERK11QModelIndex
+inline void QTreeWidgetPrivate::emitItemPressed(const QModelIndex &index)
+{
+    Q_Q(QTreeWidget);
+    emit q->itemPressed(item(index), index.column());
+}
+
+//  from src/widgets/itemviews/qtreewidget.cpp, line 2305, as _ZN18QTreeWidgetPrivate15emitItemClickedERK11QModelIndex
+inline void QTreeWidgetPrivate::emitItemClicked(const QModelIndex &index)
+{
+    Q_Q(QTreeWidget);
+    emit q->itemClicked(item(index), index.column());
+}
+
+//  from src/widgets/itemviews/qtreewidget.cpp, line 2311, as _ZN18QTreeWidgetPrivate21emitItemDoubleClickedERK11QModelIndex
+inline void QTreeWidgetPrivate::emitItemDoubleClicked(const QModelIndex &index)
+{
+    Q_Q(QTreeWidget);
+    emit q->itemDoubleClicked(item(index), index.column());
+}
+
+//  from src/widgets/itemviews/qtreewidget.cpp, line 2317, as _ZN18QTreeWidgetPrivate17emitItemActivatedERK11QModelIndex
+inline void QTreeWidgetPrivate::emitItemActivated(const QModelIndex &index)
+{
+    Q_Q(QTreeWidget);
+    emit q->itemActivated(item(index), index.column());
+}
+
+//  from src/widgets/itemviews/qtreewidget.cpp, line 2323, as _ZN18QTreeWidgetPrivate15emitItemEnteredERK11QModelIndex
+inline void QTreeWidgetPrivate::emitItemEntered(const QModelIndex &index)
+{
+    Q_Q(QTreeWidget);
+    emit q->itemEntered(item(index), index.column());
+}
+
+//  from src/widgets/itemviews/qtreewidget.cpp, line 2329, as _ZN18QTreeWidgetPrivate15emitItemChangedERK11QModelIndex
+inline void QTreeWidgetPrivate::emitItemChanged(const QModelIndex &index)
+{
+    Q_Q(QTreeWidget);
+    QTreeWidgetItem *indexItem = item(index);
+    if (indexItem)
+        emit q->itemChanged(indexItem, index.column());
+}
+
+//  from src/widgets/itemviews/qtreewidget.cpp, line 2337, as _ZN18QTreeWidgetPrivate16emitItemExpandedERK11QModelIndex
+inline void QTreeWidgetPrivate::emitItemExpanded(const QModelIndex &index)
+{
+    Q_Q(QTreeWidget);
+    emit q->itemExpanded(item(index));
+}
+
+//  from src/widgets/itemviews/qtreewidget.cpp, line 2343, as _ZN18QTreeWidgetPrivate17emitItemCollapsedERK11QModelIndex
+inline void QTreeWidgetPrivate::emitItemCollapsed(const QModelIndex &index)
+{
+    Q_Q(QTreeWidget);
+    emit q->itemCollapsed(item(index));
+}
+
+//  from src/widgets/itemviews/qtreewidget.cpp, line 2349, as _ZN18QTreeWidgetPrivate22emitCurrentItemChangedERK11QModelIndexS2_
+inline void QTreeWidgetPrivate::emitCurrentItemChanged(const QModelIndex &current,
+                                                const QModelIndex &previous)
+{
+    Q_Q(QTreeWidget);
+    QTreeWidgetItem *currentItem = item(current);
+    QTreeWidgetItem *previousItem = item(previous);
+    emit q->currentItemChanged(currentItem, previousItem);
+}
+
+//  from src/widgets/itemviews/qtreewidget.cpp, line 2358, as _ZN18QTreeWidgetPrivate4sortEv
+inline void QTreeWidgetPrivate::sort()
+{
+    if (sortingEnabled) {
+        int column = header->sortIndicatorSection();
+        Qt::SortOrder order = header->sortIndicatorOrder();
+        treeModel()->sort(column, order);
+    }
+}
+
+//  from src/widgets/itemviews/qtreewidget.cpp, line 2387, as _ZN18QTreeWidgetPrivate11dataChangedERK11QModelIndexS2_
+inline void QTreeWidgetPrivate::dataChanged(const QModelIndex &topLeft,
+                                     const QModelIndex &bottomRight)
+{
+    if (sortingEnabled && topLeft.isValid() && bottomRight.isValid()
+        && !treeModel()->sortPendingTimer.isActive()) {
+        int column = header->sortIndicatorSection();
+        if (column >= topLeft.column() && column <= bottomRight.column()) {
+            Qt::SortOrder order = header->sortIndicatorOrder();
+            treeModel()->ensureSorted(column, order, topLeft.row(),
+                                  bottomRight.row(), topLeft.parent());
+        }
+    }
+}
+
+//  from src/widgets/itemviews/qtreewidget.cpp, line 2367, as _ZN18QTreeWidgetPrivate16selectionChangedERK14QItemSelectionS2_
+inline void QTreeWidgetPrivate::selectionChanged(const QItemSelection &selected, const QItemSelection &deselected)
+{
+    Q_Q(QTreeWidget);
+    QModelIndexList indices = selected.indexes();
+    int i;
+    QTreeModel *m = treeModel();
+    for (i = 0; i < indices.size(); ++i) {
+        QTreeWidgetItem *item = m->item(indices.at(i));
+        item->d->selected = true;
+    }
+
+    indices = deselected.indexes();
+    for (i = 0; i < indices.size(); ++i) {
+        QTreeWidgetItem *item = m->item(indices.at(i));
+        item->d->selected = false;
+    }
+
+    emit q->itemSelectionChanged();
 }
 //  -----------------------------------------------------------------------
 
@@ -1436,6 +1636,131 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN18QTreeWidgetPrivate16clearConnectionsEv(
     QTreeWidgetPrivate *self) {
   self->clearConnections();
+}
+
+//  QTreeModel *QTreeWidgetPrivate::treeModel() const
+extern "C" Q_DECL_EXPORT
+QTreeModel *ritual_ZNK18QTreeWidgetPrivate9treeModelEv(
+    const QTreeWidgetPrivate *self) {
+  return self->treeModel();
+}
+
+//  QModelIndex QTreeWidgetPrivate::index(const QTreeWidgetItem *item, int
+//      column) const
+extern "C" Q_DECL_EXPORT
+QModelIndex *ritual_ZNK18QTreeWidgetPrivate5indexEPK15QTreeWidgetItemi(
+    const QTreeWidgetPrivate *self,
+    const QTreeWidgetItem *item,
+    int column) {
+  return new QModelIndex(self->index(item, column));
+}
+
+//  QTreeWidgetItem *QTreeWidgetPrivate::item(const QModelIndex &index) const
+extern "C" Q_DECL_EXPORT
+QTreeWidgetItem *ritual_ZNK18QTreeWidgetPrivate4itemERK11QModelIndex(
+    const QTreeWidgetPrivate *self,
+    const QModelIndex *index) {
+  return self->item(*index);
+}
+
+//  void QTreeWidgetPrivate::emitItemPressed(const QModelIndex &index)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QTreeWidgetPrivate15emitItemPressedERK11QModelIndex(
+    QTreeWidgetPrivate *self,
+    const QModelIndex *index) {
+  self->emitItemPressed(*index);
+}
+
+//  void QTreeWidgetPrivate::emitItemClicked(const QModelIndex &index)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QTreeWidgetPrivate15emitItemClickedERK11QModelIndex(
+    QTreeWidgetPrivate *self,
+    const QModelIndex *index) {
+  self->emitItemClicked(*index);
+}
+
+//  void QTreeWidgetPrivate::emitItemDoubleClicked(const QModelIndex &index)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QTreeWidgetPrivate21emitItemDoubleClickedERK11QModelIndex(
+    QTreeWidgetPrivate *self,
+    const QModelIndex *index) {
+  self->emitItemDoubleClicked(*index);
+}
+
+//  void QTreeWidgetPrivate::emitItemActivated(const QModelIndex &index)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QTreeWidgetPrivate17emitItemActivatedERK11QModelIndex(
+    QTreeWidgetPrivate *self,
+    const QModelIndex *index) {
+  self->emitItemActivated(*index);
+}
+
+//  void QTreeWidgetPrivate::emitItemEntered(const QModelIndex &index)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QTreeWidgetPrivate15emitItemEnteredERK11QModelIndex(
+    QTreeWidgetPrivate *self,
+    const QModelIndex *index) {
+  self->emitItemEntered(*index);
+}
+
+//  void QTreeWidgetPrivate::emitItemChanged(const QModelIndex &index)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QTreeWidgetPrivate15emitItemChangedERK11QModelIndex(
+    QTreeWidgetPrivate *self,
+    const QModelIndex *index) {
+  self->emitItemChanged(*index);
+}
+
+//  void QTreeWidgetPrivate::emitItemExpanded(const QModelIndex &index)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QTreeWidgetPrivate16emitItemExpandedERK11QModelIndex(
+    QTreeWidgetPrivate *self,
+    const QModelIndex *index) {
+  self->emitItemExpanded(*index);
+}
+
+//  void QTreeWidgetPrivate::emitItemCollapsed(const QModelIndex &index)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QTreeWidgetPrivate17emitItemCollapsedERK11QModelIndex(
+    QTreeWidgetPrivate *self,
+    const QModelIndex *index) {
+  self->emitItemCollapsed(*index);
+}
+
+//  void QTreeWidgetPrivate::emitCurrentItemChanged(const QModelIndex
+//      &previous, const QModelIndex &index)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QTreeWidgetPrivate22emitCurrentItemChangedERK11QModelIndexS2_(
+    QTreeWidgetPrivate *self,
+    const QModelIndex *previous,
+    const QModelIndex *index) {
+  self->emitCurrentItemChanged(*previous, *index);
+}
+
+//  void QTreeWidgetPrivate::sort()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QTreeWidgetPrivate4sortEv(QTreeWidgetPrivate *self) {
+  self->sort();
+}
+
+//  void QTreeWidgetPrivate::dataChanged(const QModelIndex &topLeft, const
+//      QModelIndex &bottomRight)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QTreeWidgetPrivate11dataChangedERK11QModelIndexS2_(
+    QTreeWidgetPrivate *self,
+    const QModelIndex *topLeft,
+    const QModelIndex *bottomRight) {
+  self->dataChanged(*topLeft, *bottomRight);
+}
+
+//  void QTreeWidgetPrivate::selectionChanged(const QItemSelection &selected,
+//      const QItemSelection &deselected)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN18QTreeWidgetPrivate16selectionChangedERK14QItemSelectionS2_(
+    QTreeWidgetPrivate *self,
+    const QItemSelection *selected,
+    const QItemSelection *deselected) {
+  self->selectionChanged(*selected, *deselected);
 }
 
 //  a Python function taken by a CuteQTreeWidgetPrivate, for the function

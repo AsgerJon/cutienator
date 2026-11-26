@@ -2,7 +2,7 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtGraphs/6.12.0/QtGraphs/private/qgraphanimation_p.h, Qt 6.12.0.",
-    "Changes made here are lost."
+    "Edited by hand: see the ritual file."
   ],
   "parts first": [
     "QtGraphs", "QtCore", "QtGui", "QtQuick", "QtQml", "QtQmlIntegration"
@@ -15,6 +15,10 @@
     "ritual_ZN15QGraphAnimation11qt_metacallEN11QMetaObject4CallEiPPv": [
       "int", "address", "int", "int", "address"
     ],
+    "ritual_ZN15QGraphAnimation2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN15QGraphAnimationC1EP7QObject": ["address", "address"],
     "ritual_ZN15QGraphAnimationD1Ev": ["nothing", "address"],
     "ritual_ZN15QGraphAnimation13animationTypeEv": ["int", "address"],
     "ritual_ZN15QGraphAnimation17setAnimatingValueERK8QVariantS2_": [
@@ -26,6 +30,9 @@
       "address", "address", "address", "address", "double"
     ],
     "ritual_ZNK15QGraphAnimation9animatingEv": ["int", "address"],
+    "ritual_ZN15QGraphAnimation12setAnimatingENS_14AnimationStateE": [
+      "nothing", "address", "int"
+    ],
     "ritual_ZN15QGraphAnimation12valueUpdatedERK8QVariant": [
       "nothing", "address", "address"
     ],

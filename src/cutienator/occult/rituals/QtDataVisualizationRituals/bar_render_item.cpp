@@ -40,7 +40,36 @@ inline AbstractRenderItem::AbstractRenderItem(const AbstractRenderItem &other)
 inline AbstractRenderItem::~AbstractRenderItem()
 {
 }
+
+//  from ../qtdatavis3d/src/datavisualization/data/barrenderitem.cpp, line 8, as _ZN13BarRenderItemC1Ev
+inline BarRenderItem::BarRenderItem()
+    : AbstractRenderItem(),
+      m_value(0),
+      m_height(0.0f)
+{
+}
+
+//  from ../qtdatavis3d/src/datavisualization/data/barrenderitem.cpp, line 15, as _ZN13BarRenderItemC1ERKS_
+inline BarRenderItem::BarRenderItem(const BarRenderItem &other)
+    : AbstractRenderItem(other)
+{
+    m_value = other.m_value;
+    m_position = other.m_position;
+    m_height = other.m_height;
+}
 //  -----------------------------------------------------------------------
+
+//  BarRenderItem::BarRenderItem()
+extern "C" Q_DECL_EXPORT
+BarRenderItem *ritual_ZN13BarRenderItemC1Ev() {
+  return new BarRenderItem();
+}
+
+//  BarRenderItem::BarRenderItem(const BarRenderItem &other)
+extern "C" Q_DECL_EXPORT
+BarRenderItem *ritual_ZN13BarRenderItemC1ERKS_(const BarRenderItem *other) {
+  return new BarRenderItem(*other);
+}
 
 //  BarRenderItem &BarRenderItem::operator=(const BarRenderItem &a0)
 extern "C" Q_DECL_EXPORT

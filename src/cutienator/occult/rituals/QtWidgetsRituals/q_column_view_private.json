@@ -2,14 +2,21 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtWidgets/6.12.0/QtWidgets/private/qcolumnview_p.h, Qt 6.12.0.",
-    "Changes made here are lost."
+    "Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZN18QColumnViewPrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK18QColumnViewPrivate6q_funcEv": ["address", "address"],
     "ritual_ZN18QColumnViewPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN18QColumnViewPrivate10initializeEv": ["nothing", "address"],
+    "ritual_ZN18QColumnViewPrivate12createColumnERK11QModelIndexb": [
+      "address", "address", "address", "bool"
+    ],
     "ritual_ZN18QColumnViewPrivate16updateScrollbarsEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN18QColumnViewPrivate12closeColumnsERK11QModelIndexb": [
+      "nothing", "address", "address", "bool"
     ],
     "ritual_ZN18QColumnViewPrivate14disconnectViewEP17QAbstractItemView": [
       "nothing", "address", "address"
@@ -21,8 +28,14 @@
     "ritual_ZN18QColumnViewPrivate19createPreviewColumnEv": [
       "address", "address"
     ],
+    "ritual_ZN18QColumnViewPrivate19checkColumnCreationERK11QModelIndex": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN18QColumnViewPrivate9gripMovedEi": [
       "nothing", "address", "int"
+    ],
+    "ritual_ZN18QColumnViewPrivate19changeCurrentColumnEv": [
+      "nothing", "address"
     ],
     "ritual_ZN18QColumnViewPrivate7clickedERK11QModelIndex": [
       "nothing", "address", "address"
@@ -30,6 +43,11 @@
     "ritual_ZN18QColumnViewPrivate15columnsInsertedERK11QModelIndexii": [
       "nothing", "address", "address", "int", "int"
     ],
-    "ritual_take_QColumnViewPrivate": ["bool", "address", "chars", "address"]
+    "ritual_take_QColumnViewPrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN18QColumnViewPrivate15columnsInsertedERK11QModelIndexii": [
+      "nothing", "address", "address", "int", "int"
+    ]
   }
 }

@@ -1,11 +1,20 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtDataVisualization/6.12.0/QtDataVisualization/private/thememanager_p.h,
-//  Qt 6.12.0. Changes made here are lost.
+//  Qt 6.12.0.
+//  Edited by hand on 2026-11-26: moc's output for 'ThemeManager' is pasted
+//  in, cut from what the moc of Qt 6.12.0 writes for its header: Qt's
+//  library keeps it to itself; added are 5 rituals that lean on what moc
+//  writes for a class of the part Qt keeps to itself, whose ritual file
+//  carries moc's output, drafted by a copy of the generator that lets those
+//  names through. A copy of a meta-object is a second one: 'qobject_cast'
+//  between it and Qt's own does not match. Kept as it is when the generator
+//  runs again.
 #include <QtDataVisualization/6.12.0/QtDataVisualization/private/datavisualizationglobal_p.h>
 #include <QtDataVisualization/QtDataVisualization>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtDataVisualization/6.12.0/QtDataVisualization/private/thememanager_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 #include <QtDataVisualization/q3dtheme.h>
 #include <QtGui/qcolor.h>
 #include <QtGui/qbrush.h>
@@ -14,6 +23,10 @@
 #include <QtCore/qlist.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
 #include <QtDataVisualization/private/thememanager_p.h>
 #include <QtDataVisualization/private/q3dtheme_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -28,9 +41,147 @@
 //  from ../qtdatavis3d/src/datavisualization/theme/thememanager.cpp, line 10, as local:thememanager.cpp:defaultColorLevel
 const float defaultColorLevel = 0.5f;
 
+//  from QtDataVisualization__ThemeManager.cpp, line 1, as moc:ThemeManager
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN12ThemeManagerE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto ThemeManager::qt_create_metaobjectdata<qt_meta_tag_ZN12ThemeManagerE_t>()
+{
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "ThemeManager"
+    };
+
+    QtMocHelpers::UintData qt_methods {
+    };
+    QtMocHelpers::UintData qt_properties {
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    return QtMocHelpers::metaObjectData<ThemeManager, qt_meta_tag_ZN12ThemeManagerE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums);
+}
+Q_CONSTINIT const QMetaObject ThemeManager::staticMetaObject = { {
+    QMetaObject::SuperData::link<QObject::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN12ThemeManagerE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN12ThemeManagerE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN12ThemeManagerE_t>.metaTypes,
+    nullptr
+} };
+
+void ThemeManager::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<ThemeManager *>(_o);
+    (void)_t;
+    (void)_c;
+    (void)_id;
+    (void)_a;
+}
+
+const QMetaObject *ThemeManager::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *ThemeManager::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN12ThemeManagerE_t>.strings))
+        return static_cast<void*>(this);
+    return QObject::qt_metacast(_clname);
+}
+
+int ThemeManager::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QObject::qt_metacall(_c, _id, _a);
+    return _id;
+}
+QT_WARNING_POP
+
+//  from ../qtdatavis3d/src/datavisualization/theme/thememanager.cpp, line 12, as _ZN12ThemeManagerC1EP20Abstract3DController
+inline ThemeManager::ThemeManager(Abstract3DController *controller)
+    : m_activeTheme(0),
+      m_controller(controller)
+{
+}
+
 //  from ../qtdatavis3d/src/datavisualization/theme/thememanager.cpp, line 18, as _ZN12ThemeManagerD1Ev
 inline ThemeManager::~ThemeManager()
 {
+}
+
+//  from ../qtdatavis3d/src/datavisualization/theme/thememanager.cpp, line 22, as _ZN12ThemeManager8addThemeEP8Q3DTheme
+inline void ThemeManager::addTheme(Q3DTheme *theme)
+{
+    Q_ASSERT(theme);
+    ThemeManager *owner = qobject_cast<ThemeManager *>(theme->parent());
+    if (owner != this) {
+        Q_ASSERT_X(!owner, "addTheme", "Theme already attached to a graph.");
+        theme->setParent(this);
+    }
+    if (!m_themes.contains(theme))
+        m_themes.append(theme);
+}
+
+//  from ../qtdatavis3d/src/datavisualization/theme/thememanager.cpp, line 34, as _ZN12ThemeManager12releaseThemeEP8Q3DTheme
+inline void ThemeManager::releaseTheme(Q3DTheme *theme)
+{
+    if (theme && m_themes.contains(theme)) {
+        // Clear the default status from released default theme
+        if (theme->d_ptr->isDefaultTheme())
+            theme->d_ptr->setDefaultTheme(false);
+
+        // If the theme is in use, replace it with a temporary one
+        if (theme == m_activeTheme)
+            setActiveTheme(0);
+
+        m_themes.removeAll(theme);
+        theme->setParent(0);
+    }
+}
+
+//  from ../qtdatavis3d/src/datavisualization/theme/thememanager.cpp, line 50, as _ZN12ThemeManager14setActiveThemeEP8Q3DTheme
+inline void ThemeManager::setActiveTheme(Q3DTheme *theme)
+{
+    // Setting null theme indicates using default theme
+    if (!theme) {
+        theme = new Q3DTheme;
+        theme->d_ptr->setDefaultTheme(true);
+    }
+
+    // If the old theme is default theme, delete it
+    Q3DTheme *oldTheme = m_activeTheme;
+    if (oldTheme) {
+        if (oldTheme->d_ptr->isDefaultTheme()) {
+            m_themes.removeAll(oldTheme);
+            delete oldTheme;
+            oldTheme = 0;
+        } else {
+            // Disconnect the old theme from use
+            disconnect(m_activeTheme->d_ptr.data(), 0, m_controller, 0);
+            disconnect(m_activeTheme, 0, m_controller, 0);
+        }
+    }
+
+    // Assume ownership
+    addTheme(theme);
+
+    m_activeTheme = theme;
+
+    // Reset all bits to dirty for sync
+    if (theme->d_ptr->isForcePredefinedType())
+        m_activeTheme->d_ptr->resetDirtyBits();
+
+    // Connect signals from new one
+    connectThemeSignals();
 }
 
 //  from ../qtdatavis3d/src/datavisualization/theme/thememanager.cpp, line 85, as _ZNK12ThemeManager11activeThemeEv
@@ -424,10 +575,50 @@ int ritual_ZN12ThemeManager11qt_metacallEN11QMetaObject4CallEiPPv(
   return self->qt_metacall(a0, a1, a2);
 }
 
+//  QString ThemeManager::tr(const char *s, const char *c, int n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN12ThemeManager2trEPKcS1_i(
+    const char *s,
+    const char *c,
+    int n) {
+  return new QString(ThemeManager::tr(s, c, n));
+}
+
+//  ThemeManager::ThemeManager(Abstract3DController *controller)
+extern "C" Q_DECL_EXPORT
+ThemeManager *ritual_ZN12ThemeManagerC1EP20Abstract3DController(
+    Abstract3DController *controller) {
+  return new CuteThemeManager(controller);
+}
+
 //  ThemeManager::~ThemeManager()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN12ThemeManagerD1Ev(ThemeManager *self) {
   delete self;
+}
+
+//  void ThemeManager::addTheme(Q3DTheme *theme)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12ThemeManager8addThemeEP8Q3DTheme(
+    ThemeManager *self,
+    Q3DTheme *theme) {
+  self->addTheme(theme);
+}
+
+//  void ThemeManager::releaseTheme(Q3DTheme *theme)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12ThemeManager12releaseThemeEP8Q3DTheme(
+    ThemeManager *self,
+    Q3DTheme *theme) {
+  self->releaseTheme(theme);
+}
+
+//  void ThemeManager::setActiveTheme(Q3DTheme *theme)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12ThemeManager14setActiveThemeEP8Q3DTheme(
+    ThemeManager *self,
+    Q3DTheme *theme) {
+  self->setActiveTheme(theme);
 }
 
 //  Q3DTheme *ThemeManager::activeTheme() const

@@ -57,6 +57,20 @@ inline bool SyncTaskRunnable::isRequired() const
 }
 }  // namespace Qt3DCore
 
+//  from ../qt3d/src/core/jobs/task.cpp, line 57, as _ZN8Qt3DCore16SyncTaskRunnableC1EPFvPvES1_P10QAtomicInt
+namespace Qt3DCore {
+inline SyncTaskRunnable::SyncTaskRunnable(QAbstractAspectJobManager::JobFunction func,
+                                   void *arg, QAtomicInt *atomicCount)
+    : m_func(func)
+    , m_arg(arg)
+    , m_atomicCount(atomicCount)
+    , m_pooler(nullptr)
+    , m_reserved(false)
+    , m_id(0)
+{
+}
+}  // namespace Qt3DCore
+
 //  from ../qt3d/src/core/jobs/task.cpp, line 68, as _ZN8Qt3DCore16SyncTaskRunnableD1Ev
 namespace Qt3DCore {
 inline SyncTaskRunnable::~SyncTaskRunnable()
@@ -205,6 +219,19 @@ public:
     return Qt3DCore::SyncTaskRunnable::type();
   }
 };
+
+//  Qt3DCore::SyncTaskRunnable::SyncTaskRunnable(QAbstractAspectJobManager::J
+//      obFunction func, void *arg, QAtomicInt *atomicCount)
+extern "C" Q_DECL_EXPORT
+Qt3DCore::SyncTaskRunnable *ritual_ZN8Qt3DCore16SyncTaskRunnableC1EPFvPvES1_P10QAtomicInt(
+    void *func,
+    void *arg,
+    QAtomicInt *atomicCount) {
+  return new CuteQt3DCore_SyncTaskRunnable(
+      reinterpret_cast<Qt3DCore::QAbstractAspectJobManager::JobFunction>(func),
+      arg,
+      atomicCount);
+}
 
 //  Qt3DCore::SyncTaskRunnable::~SyncTaskRunnable()
 extern "C" Q_DECL_EXPORT

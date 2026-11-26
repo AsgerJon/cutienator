@@ -1,6 +1,13 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/6.12.0/QtWidgets/private/qitemeditorfactory_p.h, Qt 6.12.0.
-//  Changes made here are lost.
+//  Edited by hand on 2026-11-26: moc's output for 'QItemEditorDateTimeEdit'
+//  is pasted in, cut from what the moc of Qt 6.12.0 writes for its header:
+//  Qt's library keeps it to itself; added are 1 rituals that lean on what
+//  moc writes for a class of the part Qt keeps to itself, whose ritual file
+//  carries moc's output, drafted by a copy of the generator that lets those
+//  names through. A copy of a meta-object is a second one: 'qobject_cast'
+//  between it and Qt's own does not match. Kept as it is when the generator
+//  runs again.
 #include <QtGui/qtguiglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
@@ -12,13 +19,17 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtWidgets/6.12.0/QtWidgets/private/qitemeditorfactory_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 #include <QtCore/qdatetime.h>
 #include <QtCore/qsize.h>
-#include <QtCore/qstring.h>
 #include <QtCore/qvariant.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
 #include <qplatformdefs.h>
 #include <QtWidgets/qitemeditorfactory.h>
 #include <QtWidgets/private/qitemeditorfactory_p.h>
@@ -53,6 +64,99 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  from QtWidgets__QItemEditorDateTimeEdit.cpp, line 1, as moc:QItemEditorDateTimeEdit
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN23QItemEditorDateTimeEditE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto QItemEditorDateTimeEdit::qt_create_metaobjectdata<qt_meta_tag_ZN23QItemEditorDateTimeEditE_t>()
+{
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "QItemEditorDateTimeEdit",
+        "dateTimeChanged",
+        "dateTime"
+    };
+
+    QtMocHelpers::UintData qt_methods {
+    };
+    QtMocHelpers::UintData qt_properties {
+        // property 'dateTime'
+        QtMocHelpers::PropertyData<QDateTime>(2, QMetaType::QDateTime, QMC::DefaultPropertyFlags | QMC::Writable | QMC::User, 0x70000000 | 1),
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    return QtMocHelpers::metaObjectData<QItemEditorDateTimeEdit, qt_meta_tag_ZN23QItemEditorDateTimeEditE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums);
+}
+Q_CONSTINIT const QMetaObject QItemEditorDateTimeEdit::staticMetaObject = { {
+    QMetaObject::SuperData::link<QDateTimeEdit::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN23QItemEditorDateTimeEditE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN23QItemEditorDateTimeEditE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN23QItemEditorDateTimeEditE_t>.metaTypes,
+    nullptr
+} };
+
+void QItemEditorDateTimeEdit::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<QItemEditorDateTimeEdit *>(_o);
+    if (_c == QMetaObject::ReadProperty) {
+        void *_v = _a[0];
+        switch (_id) {
+        case 0: *reinterpret_cast<QDateTime*>(_v) = _t->dateTime(); break;
+        default: break;
+        }
+    }
+    if (_c == QMetaObject::WriteProperty) {
+        void *_v = _a[0];
+        switch (_id) {
+        case 0: _t->setDateTimeItemEditor(*reinterpret_cast<QDateTime*>(_v)); break;
+        default: break;
+        }
+    }
+}
+
+const QMetaObject *QItemEditorDateTimeEdit::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *QItemEditorDateTimeEdit::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN23QItemEditorDateTimeEditE_t>.strings))
+        return static_cast<void*>(this);
+    return QDateTimeEdit::qt_metacast(_clname);
+}
+
+int QItemEditorDateTimeEdit::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QDateTimeEdit::qt_metacall(_c, _id, _a);
+    if (_id < 0)
+        return _id;
+    if (_c == QMetaObject::ReadProperty || _c == QMetaObject::WriteProperty
+            || _c == QMetaObject::ResetProperty || _c == QMetaObject::BindableProperty
+            || _c == QMetaObject::RegisterPropertyMetaType) {
+        qt_static_metacall(this, _c, _id, _a);
+        _id -= 1;
+    }
+    return _id;
+}
+namespace CheckNotifySignalValidity_ZN23QItemEditorDateTimeEditE {
+template<typename T> using has_nullary_dateTimeChanged = decltype(std::declval<T>().dateTimeChanged());
+template<typename T> using has_unary_dateTimeChanged = decltype(std::declval<T>().dateTimeChanged(std::declval<QDateTime>()));
+static_assert(qxp::is_detected_v<has_nullary_dateTimeChanged, QItemEditorDateTimeEdit> || qxp::is_detected_v<has_unary_dateTimeChanged, QItemEditorDateTimeEdit>,
+              "NOTIFY signal dateTimeChanged does not exist in class (or is private in its parent)");
+}
+QT_WARNING_POP
 
 //  from src/widgets/itemviews/qitemeditorfactory.cpp, line 568, as _ZN23QItemEditorDateTimeEdit21setDateTimeItemEditorERK9QDateTime
 #if QT_CONFIG(datetimeedit)
@@ -1222,6 +1326,17 @@ int ritual_ZN23QItemEditorDateTimeEdit11qt_metacallEN11QMetaObject4CallEiPPv(
     void **a2) {
   return self->qt_metacall(a0, a1, a2);
 }
+
+#if QT_CONFIG(datetimeedit)
+//  QString QItemEditorDateTimeEdit::tr(const char *s, const char *c, int n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN23QItemEditorDateTimeEdit2trEPKcS1_i(
+    const char *s,
+    const char *c,
+    int n) {
+  return new QString(QItemEditorDateTimeEdit::tr(s, c, n));
+}
+#endif  // QT_CONFIG(datetimeedit)
 
 #if QT_CONFIG(datetimeedit)
 //  void QItemEditorDateTimeEdit::setDateTimeItemEditor(const QDateTime

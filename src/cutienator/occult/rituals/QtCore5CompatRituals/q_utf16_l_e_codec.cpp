@@ -81,6 +81,30 @@ inline int QUtf16LECodec::mibEnum() const
     return 1014;
 }
 #endif  // QT_CONFIG(textcodec)
+
+//  from ../qt5compat/src/core5/codecs/qutfcodec.cpp, line 81, as _ZNK11QUtf16Codec4nameEv
+#if QT_CONFIG(textcodec)
+inline QByteArray QUtf16Codec::name() const
+{
+    return "UTF-16";
+}
+#endif  // QT_CONFIG(textcodec)
+
+//  from ../qt5compat/src/core5/codecs/qutfcodec.cpp, line 86, as _ZNK11QUtf16Codec7aliasesEv
+#if QT_CONFIG(textcodec)
+inline QList<QByteArray> QUtf16Codec::aliases() const
+{
+    return QList<QByteArray>();
+}
+#endif  // QT_CONFIG(textcodec)
+
+//  from ../qt5compat/src/core5/codecs/qutfcodec.cpp, line 76, as _ZNK11QUtf16Codec7mibEnumEv
+#if QT_CONFIG(textcodec)
+inline int QUtf16Codec::mibEnum() const
+{
+    return 1015;
+}
+#endif  // QT_CONFIG(textcodec)
 //  -----------------------------------------------------------------------
 
 //  A QUtf16LECodec that Python can take functions over in. Every QUtf16LECodec
@@ -165,6 +189,14 @@ public:
   }
 #endif  // QT_CONFIG(textcodec)
 };
+
+#if QT_CONFIG(textcodec)
+//  QUtf16LECodec::QUtf16LECodec()
+extern "C" Q_DECL_EXPORT
+QUtf16LECodec *ritual_ZN13QUtf16LECodecC1Ev() {
+  return new CuteQUtf16LECodec();
+}
+#endif  // QT_CONFIG(textcodec)
 
 //  QByteArray QUtf16LECodec::name() const
 extern "C" Q_DECL_EXPORT

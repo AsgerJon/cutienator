@@ -140,6 +140,12 @@ inline QStringList QSvgStyleSelector::nodeNames(NodePtr node) const
     return QStringList();
 }
 
+//  from ../qtsvg/src/svg/css/qsvgstyleselector.cpp, line 12, as _ZN17QSvgStyleSelectorC1Ev
+inline QSvgStyleSelector::QSvgStyleSelector()
+{
+    nameCaseSensitivity = Qt::CaseInsensitive;
+}
+
 //  from ../qtsvg/src/svg/css/qsvgstyleselector.cpp, line 21, as _ZNK17QSvgStyleSelector7svgNodeEN4QCss13StyleSelector7NodePtrE
 inline QSvgNode *QSvgStyleSelector::svgNode(NodePtr node) const
 {
@@ -370,6 +376,12 @@ public:
   }
 #endif  // !defined(QT_NO_CSSPARSER)
 };
+
+//  QSvgStyleSelector::QSvgStyleSelector()
+extern "C" Q_DECL_EXPORT
+QSvgStyleSelector *ritual_ZN17QSvgStyleSelectorC1Ev() {
+  return new CuteQSvgStyleSelector();
+}
 
 //  QSvgStyleSelector::~QSvgStyleSelector()
 extern "C" Q_DECL_EXPORT

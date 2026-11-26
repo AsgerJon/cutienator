@@ -1,6 +1,13 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtGraphs/6.12.0/QtGraphs/private/axisrenderer_p.h, Qt 6.12.0. Changes
-//  made here are lost.
+//  QtGraphs/6.12.0/QtGraphs/private/axisrenderer_p.h, Qt 6.12.0.
+//  Edited by hand on 2026-11-26: moc's output for 'AxisRenderer' is pasted
+//  in, cut from what the moc of Qt 6.12.0 writes for its header: Qt's
+//  library keeps it to itself; added are 9 rituals that lean on what moc
+//  writes for a class of the part Qt keeps to itself, whose ritual file
+//  carries moc's output, drafted by a copy of the generator that lets those
+//  names through. A copy of a meta-object is a second one: 'qobject_cast'
+//  between it and Qt's own does not match. Kept as it is when the generator
+//  runs again.
 #include <QtGui/qtguiglobal.h>
 #include <QtQuick/qtquickglobal.h>
 #include <QtGraphs/qgraphsglobal.h>
@@ -11,8 +18,8 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGraphs/6.12.0/QtGraphs/private/axisrenderer_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <QtGui/qeventpoint.h>
 #include <QtCore/qstring.h>
+#include <QtGui/qeventpoint.h>
 #include <QtGui/qvectornd.h>
 #include <QtCore/qrect.h>
 #include <QtCore/qpoint.h>
@@ -22,10 +29,10 @@
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <QtCore/qloggingcategory.h>
-#include <QtGraphs/private/axisticker_p.h>
-#include <QtGraphs/private/axisgrid_p.h>
-#include <QtGraphs/private/axisline_p.h>
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
 #include <QtGraphs/qabstractaxis.h>
 #if QT_CONFIG(graphs_2d_bar)
 #include <QtGraphs/QBarCategoryAxis>
@@ -39,6 +46,10 @@
 #include <QtGraphs/private/qlogvalueaxis_p.h>
 #include <QtQuick/private/qquickdraghandler_p.h>
 #include <QtGui/qfontmetrics.h>
+#include <QtCore/qloggingcategory.h>
+#include <QtGraphs/private/axisticker_p.h>
+#include <QtGraphs/private/axisgrid_p.h>
+#include <QtGraphs/private/axisline_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -47,6 +58,74 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  from QtGraphs__AxisRenderer.cpp, line 1, as moc:AxisRenderer
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN12AxisRendererE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto AxisRenderer::qt_create_metaobjectdata<qt_meta_tag_ZN12AxisRendererE_t>()
+{
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "AxisRenderer"
+    };
+
+    QtMocHelpers::UintData qt_methods {
+    };
+    QtMocHelpers::UintData qt_properties {
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    return QtMocHelpers::metaObjectData<AxisRenderer, qt_meta_tag_ZN12AxisRendererE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums);
+}
+Q_CONSTINIT const QMetaObject AxisRenderer::staticMetaObject = { {
+    QMetaObject::SuperData::link<QQuickItem::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN12AxisRendererE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN12AxisRendererE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN12AxisRendererE_t>.metaTypes,
+    nullptr
+} };
+
+void AxisRenderer::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<AxisRenderer *>(_o);
+    (void)_t;
+    (void)_c;
+    (void)_id;
+    (void)_a;
+}
+
+const QMetaObject *AxisRenderer::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *AxisRenderer::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN12AxisRendererE_t>.strings))
+        return static_cast<void*>(this);
+    return QQuickItem::qt_metacast(_clname);
+}
+
+int AxisRenderer::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QQuickItem::qt_metacall(_c, _id, _a);
+    return _id;
+}
+QT_WARNING_POP
+
+//  from ../qtgraphs/src/graphs2d/qsgrenderer/axisrenderer.cpp, line 79, as _ZN12AxisRendererD0Ev
+inline AxisRenderer::~AxisRenderer() {}
 
 //  from ../qtgraphs/src/graphs2d/qgraphsview.cpp, line 108, as _Z10lcGraphs2Dv
 inline const QLoggingCategory &lcGraphs2D()
@@ -588,6 +667,19 @@ inline qreal AxisGrid::smoothing() const
     return m_smoothing;
 }
 
+//  from ../qtgraphs/src/graphs2d/qsgrenderer/axisrenderer.cpp, line 67, as _ZN12AxisRendererC1EP10QQuickItem
+inline AxisRenderer::AxisRenderer(QQuickItem *parent)
+    : QQuickItem(parent)
+{
+    m_graph = qobject_cast<QGraphsView *>(parent);
+    setFlag(QQuickItem::ItemHasContents);
+    if (m_axes1.empty())
+        m_axes1.emplace_back();
+
+    if (m_axes2.empty())
+        m_axes2.emplace_back();
+}
+
 //  from ../qtgraphs/src/graphs2d/qsgrenderer/axisrenderer.cpp, line 86, as _ZN12AxisRenderer10initializeEv
 inline void AxisRenderer::initialize()
 {
@@ -646,6 +738,545 @@ inline void AxisRenderer::handlePinchGrab(QPointingDevice::GrabTransition transi
 {
     Q_UNUSED(transition)
     Q_UNUSED(point)
+}
+
+//  from ../qtgraphs/src/graphs2d/qsgrenderer/axisrenderer.cpp, line 394, as _ZN12AxisRenderer17populateAxisItemsEv
+inline void AxisRenderer::populateAxisItems()
+{
+    // See if series is horizontal, so axis should also switch places.
+    bool vertical = true;
+    if (m_graph->orientation() == Qt::Orientation::Horizontal)
+        vertical = false;
+
+    if (vertical) {
+        m_horzAxes = &m_axes1;
+        m_vertAxes = &m_axes2;
+    } else {
+        m_horzAxes = &m_axes2;
+        m_vertAxes = &m_axes1;
+    }
+
+    if (vertical != m_wasVertical) {
+        // Orientation has changed, so clear possible custom elements
+        for (auto&& ax : m_axes1) {
+            if (ax.title)
+                ax.title->deleteLater();
+            if (ax.line)
+                ax.line->deleteLater();
+            if (ax.ticker)
+                ax.ticker->deleteLater();
+            if (ax.lineShadow)
+                ax.lineShadow->deleteLater();
+            if (ax.tickerShadow)
+                ax.tickerShadow->deleteLater();
+            for (auto&& item : ax.textItems)
+                item->deleteLater();
+        }
+
+        for (auto&& ax : m_axes2) {
+            if (ax.title)
+                ax.title->deleteLater();
+            if (ax.line)
+                ax.line->deleteLater();
+            if (ax.ticker)
+                ax.ticker->deleteLater();
+            if (ax.lineShadow)
+                ax.lineShadow->deleteLater();
+            if (ax.tickerShadow)
+                ax.tickerShadow->deleteLater();
+            for (auto&& item : ax.textItems)
+                item->deleteLater();
+        }
+
+        m_axes1.clear();
+        m_axes2.clear();
+
+        m_wasVertical = vertical;
+    }
+
+    if (m_axes1.empty())
+        m_axes1.emplace_back();
+
+    if (m_axes2.empty())
+        m_axes2.emplace_back();
+
+    m_axes1[0].axis = m_graph->axisX();
+    m_axes2[0].axis = m_graph->axisY();
+
+    for (auto&& s : m_graph->m_seriesList) {
+        if (auto series = qobject_cast<QAbstractSeries *>(s)) {
+            if (series->axisX() && series->axisX() != m_graph->axisX()) {
+                bool contains = false;
+                for (auto&& ax : m_axes1) {
+                    if (ax.axis == series->axisX()) {
+                        contains = true;
+                        break;
+                    }
+                }
+
+                if (!contains) {
+                    auto &ax = m_axes1.emplace_back();
+                    ax.axis = series->axisX();
+                }
+            }
+
+            if (series->axisY() && series->axisY() != m_graph->axisY()) {
+                bool contains = false;
+                for (auto&& ax : m_axes2) {
+                    if (ax.axis == series->axisY()) {
+                        contains = true;
+                        break;
+                    }
+                }
+
+                if (!contains) {
+                    auto &ax = m_axes2.emplace_back();
+                    ax.axis = series->axisY();
+                }
+            }
+        }
+    }
+
+    if (!m_axisGrid) {
+        m_axisGrid = new AxisGrid(this);
+        m_axisGrid->setZ(-1);
+        m_axisGrid->setupShaders();
+        m_axisGrid->setOrigo(0);
+    }
+    if (!m_axisGridShadow) {
+        m_axisGridShadow = new AxisGrid(this);
+        m_axisGridShadow->setZ(-3);
+        m_axisGridShadow->setupShaders();
+        m_axisGridShadow->setOrigo(0);
+    }
+
+    for (int i = 1; i < m_axes1.size(); i++) {
+        auto& ax = m_axes1[i];
+
+        bool used = false;
+
+        for (auto&& s : m_graph->m_seriesList) {
+            if (auto series = qobject_cast<QAbstractSeries *>(s)) {
+                if (series->axisX() && series->axisX() == ax.axis) {
+                    used = true;
+                    break;
+                }
+            }
+        }
+
+        if (!used) {
+            if (ax.title)
+                ax.title->deleteLater();
+            if (ax.line)
+                ax.line->deleteLater();
+            if (ax.ticker)
+                ax.ticker->deleteLater();
+            if (ax.lineShadow)
+                ax.lineShadow->deleteLater();
+            if (ax.tickerShadow)
+                ax.tickerShadow->deleteLater();
+            for (auto&& item : ax.textItems)
+                item->deleteLater();
+            m_axes1.removeAt(i);
+            i--;
+            continue;
+        }
+    }
+
+    for (int i = 1; i < m_axes2.size(); i++) {
+        auto& ax = m_axes2[i];
+
+        bool used = false;
+
+        for (auto&& s : m_graph->m_seriesList) {
+            if (auto series = qobject_cast<QAbstractSeries *>(s)) {
+                if (series->axisY() && series->axisY() == ax.axis) {
+                    used = true;
+                    break;
+                }
+            }
+        }
+
+        if (!used) {
+            if (ax.title)
+                ax.title->deleteLater();
+            if (ax.line)
+                ax.line->deleteLater();
+            if (ax.ticker)
+                ax.ticker->deleteLater();
+            if (ax.lineShadow)
+                ax.lineShadow->deleteLater();
+            if (ax.tickerShadow)
+                ax.tickerShadow->deleteLater();
+            for (auto&& item : ax.textItems)
+                item->deleteLater();
+            m_axes2.removeAt(i);
+            i--;
+            continue;
+        }
+    }
+
+    for (int i = 0; i < m_vertAxes->size(); i++) {
+        auto& ax = (*m_vertAxes)[i];
+
+        if (!ax.line) {
+            ax.line = new AxisLine(this);
+            ax.line->setZ(-1);
+            ax.line->setupShaders();
+        }
+        if (!ax.ticker) {
+            ax.ticker = new AxisTicker(this);
+            ax.ticker->setZ(-2);
+            ax.ticker->setOrigo(0);
+            // TODO: Configurable in theme or axis?
+            ax.ticker->setSubTickLength(0.5);
+            ax.ticker->setupShaders();
+        }
+        if (!ax.lineShadow) {
+            ax.lineShadow = new AxisLine(this);
+            ax.lineShadow->setZ(-3);
+            ax.lineShadow->setupShaders();
+        }
+        if (!ax.tickerShadow) {
+            ax.tickerShadow = new AxisTicker(this);
+            ax.tickerShadow->setZ(-3);
+            ax.tickerShadow->setOrigo(0);
+            // TODO: Configurable in theme or axis?
+            ax.tickerShadow->setSubTickLength(ax.ticker->subTickLength());
+            ax.tickerShadow->setupShaders();
+        }
+    }
+
+    for (int i = 0; i < m_horzAxes->size(); i++) {
+        auto& ax = (*m_horzAxes)[i];
+
+        if (!ax.line) {
+            ax.line = new AxisLine(this);
+            ax.line->setZ(-1);
+            ax.line->setIsHorizontal(true);
+            ax.line->setupShaders();
+        }
+        if (!ax.ticker) {
+            ax.ticker = new AxisTicker(this);
+            ax.ticker->setZ(-2);
+            ax.ticker->setIsHorizontal(true);
+            ax.ticker->setOrigo(0);
+            // TODO: Configurable in theme or axis?
+            ax.ticker->setSubTickLength(0.2);
+            ax.ticker->setupShaders();
+        }
+        if (!ax.lineShadow) {
+            ax.lineShadow = new AxisLine(this);
+            ax.lineShadow->setZ(-3);
+            ax.lineShadow->setupShaders();
+        }
+        if (!ax.tickerShadow) {
+            ax.tickerShadow = new AxisTicker(this);
+            ax.tickerShadow->setZ(-3);
+            ax.tickerShadow->setIsHorizontal(true);
+            ax.tickerShadow->setOrigo(0);
+            // TODO: Configurable in theme or axis?
+            ax.tickerShadow->setSubTickLength(ax.ticker->subTickLength());
+            ax.tickerShadow->setupShaders();
+        }
+    }
+}
+
+//  from ../qtgraphs/src/graphs2d/qsgrenderer/axisrenderer.cpp, line 1132, as _ZN12AxisRenderer17updateAxisTickersEv
+inline void AxisRenderer::updateAxisTickers()
+{
+    for (auto&& ax : *m_vertAxes) {
+        if (ax.axis) {
+            QRectF yAxisRect = ax.tickersRect;
+
+            // Note: Fix before enabling, see QTBUG-121207 and QTBUG-121211
+            //if (theme()->themeDirty()) {
+            if (ax.axis->subColor().isValid())
+                ax.ticker->setSubTickColor(ax.axis->subColor());
+            else
+                ax.ticker->setSubTickColor(theme()->axisY().subColor());
+            if (ax.axis->color().isValid())
+                ax.ticker->setTickColor(ax.axis->color());
+            else
+                ax.ticker->setTickColor(theme()->axisY().mainColor());
+            ax.ticker->setTickLineWidth(theme()->axisY().mainWidth());
+            ax.ticker->setSubTickLineWidth(theme()->axisY().subWidth());
+            ax.ticker->setSmoothing(m_graph->axisYSmoothing());
+            //}
+
+                float topPadding = m_axisGrid->gridLineWidth() * 0.5;
+                float bottomPadding = topPadding;
+                // TODO Only when changed
+                ax.ticker->setDisplacement(ax.displacement);
+                QRectF &rect = yAxisRect;
+                ax.ticker->setX(rect.x() + ax.x);
+                ax.ticker->setY(rect.y() + ax.y);
+                ax.ticker->setWidth(rect.width());
+                ax.ticker->setHeight(rect.height());
+                ax.ticker->setFlipped(ax.axis->alignment() == Qt::AlignRight || ax.axis->alignment() == Qt::AlignBottom);
+
+                ax.ticker->setSpacing((ax.ticker->height() - topPadding - bottomPadding)
+                                       / (ax.valueRange / ax.valueStep));
+                ax.ticker->setSubTicksVisible(!qFuzzyCompare(ax.subGridScale, 1.0));
+                ax.ticker->setSubTickScale(ax.subGridScale);
+
+                ax.ticker->setLogarithmic(ax.isLogarithmic);
+                ax.ticker->setBase(ax.logBase);
+
+                ax.ticker->setVisible(ax.axis->isVisible());
+
+                // Axis line
+                if (ax.axis->color().isValid())
+                    ax.line->setColor(ax.axis->color());
+                else
+                    ax.line->setColor(theme()->axisY().mainColor());
+                ax.line->setLineWidth(theme()->axisY().mainWidth());
+                ax.line->setSmoothing(m_graph->axisYSmoothing());
+
+                float xMovement = 0.5 * (ax.line->lineWidth() + ax.line->smoothing());
+                if (ax.axis->alignment() == Qt::AlignRight || ax.axis->alignment() == Qt::AlignBottom)
+                    ax.line->setX(ax.ticker->x() - xMovement);
+                else
+                    ax.line->setX(ax.ticker->x() + ax.ticker->width() - xMovement);
+                ax.line->setY(ax.ticker->y());
+                ax.line->setWidth(ax.line->lineWidth() + ax.line->smoothing());
+                ax.line->setHeight(ax.ticker->height());
+                ax.line->setVisible(ax.axis->isLineVisible());
+        } else {
+            // Hide all parts of vertical axis
+            ax.ticker->setVisible(false);
+            ax.line->setVisible(false);
+            for (auto &textItem : ax.textItems)
+                textItem->setVisible(false);
+        }
+    }
+
+    for (auto&& ax : *m_horzAxes) {
+        if (ax.axis) {
+            QRectF xAxisRect = ax.tickersRect;
+
+            //if (theme()->themeDirty()) {
+            if (ax.axis->subColor().isValid())
+                ax.ticker->setSubTickColor(ax.axis->subColor());
+            else
+                ax.ticker->setSubTickColor(theme()->axisX().subColor());
+            if (ax.axis->color().isValid())
+                ax.ticker->setTickColor(ax.axis->color());
+            else
+                ax.ticker->setTickColor(theme()->axisX().mainColor());
+            ax.ticker->setTickLineWidth(theme()->axisX().mainWidth());
+            ax.ticker->setSubTickLineWidth(theme()->axisX().subWidth());
+            ax.ticker->setSmoothing(m_graph->axisXSmoothing());
+            //}
+
+            float leftPadding = m_axisGrid->gridLineWidth() * 0.5;
+            float rightPadding = leftPadding;
+            // TODO Only when changed
+            ax.ticker->setDisplacement(ax.displacement);
+            QRectF &rect = xAxisRect;
+            ax.ticker->setX(rect.x() + ax.x);
+            ax.ticker->setY(rect.y() + ax.y);
+            ax.ticker->setWidth(rect.width());
+            ax.ticker->setHeight(rect.height());
+            ax.ticker->setFlipped(ax.axis->alignment() == Qt::AlignTop || ax.axis->alignment() == Qt::AlignLeft);
+
+            ax.ticker->setSpacing((ax.ticker->width() - leftPadding - rightPadding)
+                                             / (ax.valueRange / ax.valueStep));
+            ax.ticker->setSubTicksVisible(!qFuzzyCompare(ax.subGridScale, 1.0));
+            ax.ticker->setSubTickScale(ax.subGridScale);
+
+            ax.ticker->setLogarithmic(ax.isLogarithmic);
+            ax.ticker->setBase(ax.logBase);
+
+            ax.ticker->setVisible(ax.axis->isVisible());
+            // Axis line
+            if (ax.axis->color().isValid())
+                ax.line->setColor(ax.axis->color());
+            else
+                ax.line->setColor(theme()->axisX().mainColor());
+            ax.line->setLineWidth(theme()->axisX().mainWidth());
+            ax.line->setSmoothing(m_graph->axisXSmoothing());
+            ax.line->setX(ax.ticker->x());
+            float yMovement = 0.5 * (ax.line->lineWidth() + ax.line->smoothing());
+            if (ax.axis->alignment() == Qt::AlignTop || ax.axis->alignment() == Qt::AlignLeft)
+                ax.line->setY(ax.ticker->y() + ax.ticker->height() - yMovement);
+            else
+                ax.line->setY(ax.ticker->y() - yMovement);
+            ax.line->setWidth(ax.ticker->width());
+            ax.line->setHeight(ax.line->lineWidth() + ax.line->smoothing());
+            ax.line->setVisible(ax.axis->isLineVisible());
+        } else {
+            // Hide all parts of horizontal axis
+            ax.ticker->setVisible(false);
+            ax.line->setVisible(false);
+            for (auto &textItem : ax.textItems)
+                textItem->setVisible(false);
+        }
+    }
+}
+
+//  from ../qtgraphs/src/graphs2d/qsgrenderer/axisrenderer.cpp, line 1264, as _ZN12AxisRenderer23updateAxisTickersShadowEv
+inline void AxisRenderer::updateAxisTickersShadow()
+{
+    for (auto&& ax : *m_vertAxes) {
+        if (ax.axis && m_graph->isShadowVisible()) {
+            ax.tickerShadow->setSubTickColor(m_graph->shadowColor());
+            ax.tickerShadow->setTickColor(m_graph->shadowColor());
+            ax.tickerShadow->setSubTickLineWidth(ax.ticker->subTickLineWidth()
+                                                  + m_graph->shadowBarWidth());
+            ax.tickerShadow->setTickLineWidth(ax.ticker->tickLineWidth()
+                                               + m_graph->shadowBarWidth());
+            ax.tickerShadow->setSmoothing(ax.ticker->smoothing() + m_graph->shadowSmoothing());
+
+            // TODO Only when changed
+            ax.tickerShadow->setDisplacement(ax.ticker->displacement());
+            ax.tickerShadow->setX(ax.ticker->x() + m_graph->shadowXOffset());
+            ax.tickerShadow->setY(ax.ticker->y() + m_graph->shadowYOffset()
+                                   + m_graph->shadowBarWidth() * 0.5);
+            ax.tickerShadow->setWidth(ax.ticker->width());
+            ax.tickerShadow->setHeight(ax.ticker->height());
+            ax.tickerShadow->setFlipped(ax.ticker->isFlipped());
+            ax.tickerShadow->setSpacing(ax.ticker->spacing());
+            ax.tickerShadow->setSubTicksVisible(ax.ticker->subTicksVisible());
+            ax.tickerShadow->setSubTickScale(ax.ticker->subTickScale());
+
+            ax.tickerShadow->setLogarithmic(ax.ticker->isLogarithmic());
+            ax.tickerShadow->setBase(ax.ticker->base());
+
+            ax.tickerShadow->setVisible(ax.ticker->isVisible());
+            // Axis line
+            ax.lineShadow->setColor(m_graph->shadowColor());
+            ax.lineShadow->setLineWidth(ax.line->lineWidth() + m_graph->shadowBarWidth());
+            ax.lineShadow->setSmoothing(ax.line->smoothing() + m_graph->shadowSmoothing());
+            ax.lineShadow->setX(ax.line->x() + m_graph->shadowXOffset());
+            ax.lineShadow->setY(ax.line->y() + m_graph->shadowYOffset()
+                                 + m_graph->shadowBarWidth() * 0.5);
+            ax.lineShadow->setWidth(ax.line->width());
+            ax.lineShadow->setHeight(ax.line->height());
+            ax.lineShadow->setVisible(ax.line->isVisible());
+        } else {
+            // Hide all parts of vertical axis
+            ax.tickerShadow->setVisible(false);
+            ax.lineShadow->setVisible(false);
+        }
+    }
+
+    for (auto&& ax : *m_horzAxes) {
+        if (ax.axis && m_graph->isShadowVisible()) {
+            ax.tickerShadow->setSubTickColor(m_graph->shadowColor());
+            ax.tickerShadow->setTickColor(m_graph->shadowColor());
+            ax.tickerShadow->setSubTickLineWidth(ax.ticker->subTickLineWidth()
+                                                  + m_graph->shadowBarWidth());
+            ax.tickerShadow->setTickLineWidth(ax.ticker->tickLineWidth()
+                                               + m_graph->shadowBarWidth());
+            ax.tickerShadow->setSmoothing(ax.ticker->smoothing() + m_graph->shadowSmoothing());
+
+            // TODO Only when changed
+            ax.tickerShadow->setDisplacement(ax.ticker->displacement());
+            ax.tickerShadow->setX(ax.ticker->x() + m_graph->shadowXOffset()
+                                   - m_graph->shadowBarWidth() * 0.5);
+            ax.tickerShadow->setY(ax.ticker->y() + m_graph->shadowYOffset());
+            ax.tickerShadow->setWidth(ax.ticker->width());
+            ax.tickerShadow->setHeight(ax.ticker->height());
+            ax.tickerShadow->setFlipped(ax.ticker->isFlipped());
+            ax.tickerShadow->setSpacing(ax.ticker->spacing());
+            ax.tickerShadow->setSubTicksVisible(ax.ticker->subTicksVisible());
+            ax.tickerShadow->setSubTickScale(ax.ticker->subTickScale());
+            ax.tickerShadow->setVisible(ax.ticker->isVisible());
+            // Axis line
+            ax.lineShadow->setColor(m_graph->shadowColor());
+            ax.lineShadow->setLineWidth(ax.line->width() + m_graph->shadowBarWidth());
+            ax.lineShadow->setSmoothing(ax.line->smoothing() + m_graph->shadowSmoothing());
+            ax.lineShadow->setX(ax.line->x() + m_graph->shadowXOffset()
+                                 - m_graph->shadowBarWidth() * 0.5);
+            ax.lineShadow->setY(ax.line->y() + m_graph->shadowYOffset());
+            ax.lineShadow->setWidth(ax.line->width());
+            ax.lineShadow->setHeight(ax.line->height());
+            ax.lineShadow->setVisible(ax.line->isVisible());
+        } else {
+            // Hide all parts of horizontal axis
+            ax.tickerShadow->setVisible(false);
+            ax.lineShadow->setVisible(false);
+        }
+    }
+}
+
+//  from ../qtgraphs/src/graphs2d/qsgrenderer/axisrenderer.cpp, line 1349, as _ZN12AxisRenderer14updateAxisGridEv
+inline void AxisRenderer::updateAxisGrid()
+{
+    auto &hax = (*m_horzAxes)[0];
+    auto &vax = (*m_vertAxes)[0];
+
+    m_axisGrid->setGridColor(theme()->grid().mainColor());
+    m_axisGrid->setSubGridColor(theme()->grid().subColor());
+    m_axisGrid->setSubGridLineWidth(theme()->grid().subWidth());
+    m_axisGrid->setGridLineWidth(theme()->grid().mainWidth());
+    const double minimumSmoothing = 0.05;
+    m_axisGrid->setSmoothing(m_graph->gridSmoothing() + minimumSmoothing);
+    if (theme()->isPlotAreaBackgroundVisible())
+        m_axisGrid->setPlotAreaBackgroundColor(theme()->plotAreaBackgroundColor());
+    else
+        m_axisGrid->setPlotAreaBackgroundColor(QColorConstants::Transparent);
+
+    float topPadding = m_axisGrid->gridLineWidth() * 0.5;
+    float bottomPadding = topPadding;
+    float leftPadding = topPadding;
+    float rightPadding = topPadding;
+    // TODO Only when changed
+    m_axisGrid->setGridMovement(QPointF(hax.displacement, vax.displacement));
+    QRectF rect = m_graph->m_plotArea;
+    m_axisGrid->setX(rect.x());
+    m_axisGrid->setY(rect.y());
+    m_axisGrid->setWidth(rect.width());
+    m_axisGrid->setHeight(rect.height());
+
+    m_axisGrid->setGridWidth((m_axisGrid->width() - leftPadding - rightPadding)
+                             / (hax.valueRange / hax.valueStep));
+    m_axisGrid->setGridHeight((m_axisGrid->height() - topPadding - bottomPadding)
+                              / (vax.valueRange / vax.valueStep));
+    m_axisGrid->setGridVisibility(QVector4D(m_gridHorizontalLinesVisible,
+                                            m_gridVerticalLinesVisible,
+                                            m_gridHorizontalSubLinesVisible,
+                                            m_gridVerticalSubLinesVisible));
+    m_axisGrid->setVerticalSubGridScale(vax.subGridScale);
+    m_axisGrid->setHorizontalSubGridScale(hax.subGridScale);
+
+    m_axisGrid->setVerticalLogarithmic(vax.isLogarithmic);
+    m_axisGrid->setHorizontalLogarithmic(hax.isLogarithmic);
+    m_axisGrid->setVerticalBase(vax.logBase);
+    m_axisGrid->setHorizontalBase(hax.logBase);
+}
+
+//  from ../qtgraphs/src/graphs2d/qsgrenderer/axisrenderer.cpp, line 1394, as _ZN12AxisRenderer20updateAxisGridShadowEv
+inline void AxisRenderer::updateAxisGridShadow()
+{
+    if (m_graph->isShadowVisible()) {
+        m_axisGridShadow->setGridColor(m_graph->shadowColor());
+        m_axisGridShadow->setSubGridColor(m_graph->shadowColor());
+        m_axisGridShadow->setSubGridLineWidth(m_axisGrid->subGridLineWidth() + m_graph->shadowBarWidth());
+        m_axisGridShadow->setGridLineWidth(m_axisGrid->gridLineWidth() + m_graph->shadowBarWidth());
+        m_axisGridShadow->setSmoothing(m_axisGrid->smoothing() + m_graph->shadowSmoothing());
+
+        // TODO Only when changed
+        m_axisGridShadow->setGridMovement(m_axisGrid->gridMovement());
+        m_axisGridShadow->setX(m_axisGrid->x() + m_graph->shadowXOffset() - m_graph->shadowBarWidth() * 0.5);
+        m_axisGridShadow->setY(m_axisGrid->y() + m_graph->shadowYOffset() + m_graph->shadowBarWidth() * 0.5);
+        m_axisGridShadow->setWidth(m_axisGrid->width());
+        m_axisGridShadow->setHeight(m_axisGrid->height());
+        m_axisGridShadow->setGridWidth(m_axisGrid->gridWidth());
+        m_axisGridShadow->setGridHeight(m_axisGrid->gridHeight());
+        m_axisGridShadow->setGridVisibility(m_axisGrid->gridVisibility());
+        m_axisGridShadow->setVerticalSubGridScale(m_axisGrid->verticalSubGridScale());
+        m_axisGridShadow->setHorizontalSubGridScale(m_axisGrid->horizontalSubGridScale());
+        m_axisGridShadow->setVisible(true);
+
+        m_axisGridShadow->setVerticalLogarithmic(m_axisGrid->isVerticalLogarithmic());
+        m_axisGridShadow->setHorizontalLogarithmic(m_axisGrid->isHorizontalLogarithmic());
+        m_axisGridShadow->setVerticalBase(m_axisGrid->verticalBase());
+        m_axisGridShadow->setHorizontalBase(m_axisGrid->horizontalBase());
+    } else {
+        m_axisGridShadow->setVisible(false);
+    }
 }
 
 //  from ../qtgraphs/src/graphs2d/qsgrenderer/axisrenderer.cpp, line 1425, as _ZN12AxisRenderer16updateAxisTitlesEv
@@ -720,6 +1351,347 @@ inline bool AxisRenderer::isAxisBottomOrRight(const AxisProperties &ax) const
     return ax.axis->alignment() == Qt::AlignBottom || ax.axis->alignment() == Qt::AlignRight;
 }
 
+//  from ../qtgraphs/src/graphs2d/qsgrenderer/axisrenderer.cpp, line 792, as _ZN12AxisRenderer22updateAxisMeasurementsEv
+inline void AxisRenderer::updateAxisMeasurements()
+{
+    populateAxisItems();
+
+    if (!theme())
+        return;
+
+    const QFontMetricsF yFontMetrics(theme()->axisYLabelFont());
+
+    for (auto &ax : *m_vertAxes)
+        ax.labelSize = 0;
+
+    for (auto &ax : *m_vertAxes) {
+        if (auto vaxis = qobject_cast<QValueAxis *>(ax.axis)) {
+            double step = vaxis->tickInterval();
+
+            qreal diff = vaxis->max() - vaxis->min();
+            qreal center = diff / 2.0f + vaxis->min() + vaxis->pan();
+
+            diff /= vaxis->zoom();
+
+            ax.maxValue = center + diff / 2.0f;
+            ax.minValue = center - diff / 2.0f;
+
+            ax.valueRange = ax.maxValue - ax.minValue;
+            ax.valueRangeZoomless = vaxis->max() - vaxis->min();
+
+            // If step is not manually defined (or it is invalid), calculate autostep
+            if (step <= 0)
+                step = getValueStepsFromRange(vaxis->max() - vaxis->min());
+
+            // Get smallest tick label value
+            double minLabel = vaxis->tickAnchor();
+            while (minLabel < ax.minValue)
+                minLabel += step;
+            while (minLabel >= (ax.minValue + step))
+                minLabel -= step;
+            ax.minLabel = minLabel;
+
+            ax.valueStep = step;
+            int axisVerticalSubTickCount = vaxis->subTickCount();
+            ax.subGridScale = axisVerticalSubTickCount > 0 ? 1.0 / (axisVerticalSubTickCount + 1)
+                                                            : 1.0;
+            double axisVerticalValueDiff = ax.minLabel - ax.minValue;
+            ax.displacement = -(axisVerticalValueDiff / ax.valueStep) * ax.stepPx;
+
+            int decimals = vaxis->labelDecimals();
+            if (decimals < 0)
+                decimals = getValueDecimalsFromRange(ax.valueRange);
+
+            const QString format = vaxis->labelFormat();
+            ax.labelSize = qMax(ax.labelSize,
+                                yFontMetrics.horizontalAdvance(
+                                    formatValueLabel(vaxis->min(), decimals, format)));
+            ax.labelSize = qMax(ax.labelSize,
+                                yFontMetrics.horizontalAdvance(
+                                    formatValueLabel(vaxis->max(), decimals, format)));
+        } else if (auto vaxis = qobject_cast<QDateTimeAxis *>(ax.axis)) {
+            // Todo: make constant for all axis, or clamp in class? (QTBUG-124736)
+            const double MAX_DIVS = 100.0;
+
+            double tickCount = std::clamp<double>(vaxis->tickCount(), 0.0, MAX_DIVS);
+            qreal diff = vaxis->max().toMSecsSinceEpoch() - vaxis->min().toMSecsSinceEpoch();
+            qreal center = diff / 2.0f + vaxis->min().toMSecsSinceEpoch() + vaxis->pan();
+
+            diff /= vaxis->zoom();
+            ax.maxValue = center + diff / 2.0f;
+            ax.minValue = center - diff / 2.0f;
+            ax.valueRange = std::abs(ax.maxValue - ax.minValue);
+            ax.valueRangeZoomless = vaxis->max().toMSecsSinceEpoch()
+                                    - vaxis->min().toMSecsSinceEpoch();
+
+            // in ms
+            double segment;
+            if (tickCount <= 0) {
+                segment = getValueStepsFromRange(ax.valueRange);
+                tickCount = ax.valueRange / segment;
+            } else {
+                segment = ax.valueRange / tickCount;
+            }
+
+            ax.minLabel = std::clamp(tickCount, 1.0, MAX_DIVS);
+
+            ax.valueStep = segment;
+            int axisVerticalSubTickCount = vaxis->subTickCount();
+            ax.subGridScale = axisVerticalSubTickCount > 0 ? 1.0 / (axisVerticalSubTickCount + 1)
+                                                           : 1.0;
+            ax.tickCount = tickCount;
+            double axisVerticalValueDiff = fmod(ax.minValue, ax.valueStep) / ax.valueStep;
+            ax.displacement = axisVerticalValueDiff * ax.stepPx;
+
+            const QString format = vaxis->labelFormat();
+            ax.labelSize = qMax(ax.labelSize,
+                                yFontMetrics.horizontalAdvance(
+                                    vaxis->min().toString(format)));
+            ax.labelSize = qMax(ax.labelSize,
+                                yFontMetrics.horizontalAdvance(
+                                    vaxis->max().toString(format)));
+        } else if (auto vaxis = qobject_cast<QLogValueAxis *>(ax.axis)) {
+            ax.isLogarithmic = true;
+            ax.logBase = vaxis->base();
+
+            qreal logBase = log(vaxis->base());
+            qreal logMin = log(vaxis->min()) / logBase;
+            qreal logMax = log(vaxis->max()) / logBase;
+
+            qreal diff = logMax - logMin;
+            qreal center = diff / 2.0f + logMin + vaxis->pan();
+
+            diff /= vaxis->zoom();
+
+            ax.maxValue = center + diff / 2.0f;
+            ax.minValue = center - diff / 2.0f;
+
+            //use log scale to create value range
+            ax.valueRange = ax.maxValue - ax.minValue;
+            ax.valueRangeZoomless = logMax - logMin;
+
+            // Get smallest tick label value
+            ax.minLabel = qRound(ax.minValue);
+            ax.valueStep = 1;
+
+            int axisVerticalSubTickCount = vaxis->subTickCount();
+            if (axisVerticalSubTickCount == -1)
+                axisVerticalSubTickCount = int(qRound(vaxis->base()));
+            ax.subGridScale = axisVerticalSubTickCount > 0 ? 1.0 / (axisVerticalSubTickCount + 1)
+                                                           : 1.0;
+            double axisVerticalValueDiff = ax.minLabel - ax.minValue;
+            ax.displacement = -(axisVerticalValueDiff / ax.valueStep) * ax.stepPx;
+
+            const QString format = vaxis->labelFormat();
+            int precision = vaxis->labelPrecision();
+            ax.labelSize = qMax(ax.labelSize,
+                                yFontMetrics.horizontalAdvance(
+                                    formatValueLabel(vaxis->min(), precision, format, 'g')));
+            ax.labelSize = qMax(ax.labelSize,
+                                yFontMetrics.horizontalAdvance(
+                                    formatValueLabel(vaxis->max(), precision, format, 'g')));
+        }
+#if QT_CONFIG(graphs_2d_bar)
+        else if (auto vaxis = qobject_cast<QBarCategoryAxis *>(ax.axis)) {
+            ax.maxValue = vaxis->categories().size();
+            ax.minValue = 0;
+            ax.valueRange = ax.maxValue - ax.minValue;
+
+            for (const auto &category : vaxis->categories()) {
+                ax.labelSize = qMax(ax.labelSize,
+                                    yFontMetrics.horizontalAdvance(category));
+            }
+        }
+#endif
+    }
+
+    for (auto&& ax : *m_horzAxes) {
+        if (auto haxis = qobject_cast<QValueAxis *>(ax.axis)) {
+            double step = haxis->tickInterval();
+
+            qreal diff = haxis->max() - haxis->min();
+            qreal center = diff / 2.0f + haxis->min() + haxis->pan();
+
+            diff /= haxis->zoom();
+
+            ax.maxValue = center + diff / 2.0f;
+            ax.minValue = center - diff / 2.0f;
+
+            ax.valueRange = ax.maxValue - ax.minValue;
+            ax.valueRangeZoomless = haxis->max() - haxis->min();
+
+            // If step is not manually defined (or it is invalid), calculate autostep
+            if (step <= 0)
+                step = getValueStepsFromRange(haxis->max() - haxis->min());
+
+            // Get smallest tick label value
+            double minLabel = haxis->tickAnchor();
+            while (minLabel < ax.minValue)
+                minLabel += step;
+            while (minLabel >= (ax.minValue + step))
+                minLabel -= step;
+            ax.minLabel = minLabel;
+
+            ax.valueStep = step;
+            int axisHorizontalSubTickCount = haxis->subTickCount();
+            ax.subGridScale = axisHorizontalSubTickCount > 0
+                                  ? 1.0 / (axisHorizontalSubTickCount + 1)
+                                  : 1.0;
+            double axisHorizontalValueDiff = ax.minLabel - ax.minValue;
+            ax.displacement = -(axisHorizontalValueDiff / ax.valueStep) * ax.stepPx;
+
+        } else if (auto haxis = qobject_cast<QDateTimeAxis *>(ax.axis)) {
+            const double MAX_DIVS = 100.0;
+
+            double tickCount = std::clamp<double>(haxis->tickCount(), 0.0, MAX_DIVS);
+            double diff = haxis->max().toMSecsSinceEpoch() - haxis->min().toMSecsSinceEpoch();
+            double center = diff / 2.0f + haxis->min().toMSecsSinceEpoch()
+                                        + haxis->pan();
+
+            diff /= haxis->zoom();
+            ax.maxValue = center + diff / 2.0f;
+            ax.minValue = center - diff / 2.0f;
+            ax.valueRange = std::abs(ax.maxValue - ax.minValue);
+            ax.valueRangeZoomless = haxis->max().toMSecsSinceEpoch()
+                                  - haxis->min().toMSecsSinceEpoch();
+
+            // in ms
+            double segment;
+            if (tickCount <= 0) {
+                segment = getValueStepsFromRange(ax.valueRange);
+                tickCount = ax.valueRange / segment;
+            } else {
+                segment = ax.valueRange / tickCount;
+            }
+
+            ax.minLabel = std::clamp(tickCount, 1.0, MAX_DIVS);
+
+            ax.valueStep = segment;
+            int axisHorizontalSubTickCount = haxis->subTickCount();
+            ax.subGridScale = axisHorizontalSubTickCount > 0
+                                                 ? 1.0 / (axisHorizontalSubTickCount + 1)
+                                                 : 1.0;
+            ax.tickCount = tickCount;
+
+            double axisHorizontalValueDiff = fmod(ax.minValue, ax.valueStep) / ax.valueStep;
+            ax.displacement = axisHorizontalValueDiff * ax.stepPx;
+        } else if (auto haxis = qobject_cast<QLogValueAxis *>(ax.axis)) {
+            ax.isLogarithmic = true;
+            ax.logBase = haxis->base();
+
+            qreal logBase = log(haxis->base());
+            qreal logMin = log(haxis->min()) / logBase;
+            qreal logMax = log(haxis->max()) / logBase;
+
+            qreal diff = logMax - logMin;
+            qreal center = diff / 2.0f + logMin + haxis->pan();
+
+            diff /= haxis->zoom();
+
+            ax.maxValue = center + diff / 2.0f;
+            ax.minValue = center - diff / 2.0f;
+
+            //use log scale to create value range
+            ax.valueRange = ax.maxValue - ax.minValue;
+            ax.valueRangeZoomless = logMax - logMin;
+
+            ax.minLabel = qRound(ax.minValue);
+            ax.valueStep = 1;
+
+            int axisHorizontalSubTickCount = haxis->subTickCount();
+            if (axisHorizontalSubTickCount == -1)
+                axisHorizontalSubTickCount = int(qRound(haxis->base()));
+            ax.subGridScale = axisHorizontalSubTickCount > 0 ? 1.0 / (axisHorizontalSubTickCount + 1)
+                : 1.0;
+            double axisHorizontalValueDiff = ax.minLabel - ax.minValue;
+            ax.displacement = -(axisHorizontalValueDiff / ax.valueStep) * ax.stepPx;
+        }
+#if QT_CONFIG(graphs_2d_bar)
+        else if (auto haxis = qobject_cast<QBarCategoryAxis *>(ax.axis)) {
+            ax.maxValue = haxis->categories().size();
+            ax.minValue = 0;
+            ax.valueRange = ax.maxValue - ax.minValue;
+        }
+#endif
+    }
+
+    // Add some arbitrary margin so that labels don't touch the title
+    for (auto &ax : *m_vertAxes) {
+        if (ax.labelSize > 0)
+            ax.labelSize += 8;
+    }
+
+    // Calculate space needed for each axis
+    const bool isDynamic = m_graph->dynamicLabelMargins();
+    const qreal yLabelDefault = m_graph->m_defaultAxisLabelsWidth;
+    const qreal xLabelDefault = m_graph->m_defaultAxisLabelsHeight;
+    const qreal yMargin = m_graph->m_defaultAxisYLabelsMargin;
+    const qreal xMargin = m_graph->m_defaultAxisXLabelsMargin;
+    const qreal yTicker = m_graph->m_defaultAxisTickersWidth;
+    const qreal xTicker = m_graph->m_defaultAxisTickersHeight;
+    const qreal titleMargin = m_graph->m_defaultAxisTitleMargin;
+
+    m_y1AxisWidth = 0;
+    m_y2AxisWidth = 0;
+    m_x1AxisHeight = 0;
+    m_x2AxisHeight = 0;
+
+    bool prevLeftTitled = false;
+    bool prevRightTitled = false;
+    bool prevTopTitled = false;
+    bool prevBottomTitled = false;
+
+    for (auto &ax : *m_vertAxes) {
+        if (!ax.axis || !ax.axis->isVisible()) {
+            ax.size = 0;
+            continue;
+        }
+
+        ax.size = yMargin + yTicker;
+        if (isDynamic)
+            ax.size += qMax(ax.labelSize, yLabelDefault);
+        else
+            ax.size += yLabelDefault;
+
+        if (isAxisBottomOrRight(ax)) {
+            if (prevRightTitled)
+                m_y2AxisWidth += titleMargin;
+            m_y2AxisWidth += ax.size;
+            prevRightTitled = hasAxisTitle(ax);
+        } else {
+            if (prevLeftTitled)
+                m_y1AxisWidth += titleMargin;
+            m_y1AxisWidth += ax.size;
+            prevLeftTitled = hasAxisTitle(ax);
+        }
+    }
+
+    for (auto &ax : *m_horzAxes) {
+        if (!ax.axis || !ax.axis->isVisible()) {
+            ax.size = 0;
+            continue;
+        }
+
+        ax.size = xMargin + xTicker;
+        if (isDynamic)
+            ax.size += qMax(ax.labelSize, xLabelDefault);
+        else
+            ax.size += xLabelDefault;
+
+        if (isAxisBottomOrRight(ax)) {
+            if (prevBottomTitled)
+                m_x1AxisHeight += titleMargin;
+            m_x1AxisHeight += ax.size;
+            prevBottomTitled = hasAxisTitle(ax);
+        } else {
+            if (prevTopTitled)
+                m_x2AxisHeight += titleMargin;
+            m_x2AxisHeight += ax.size;
+            prevTopTitled = hasAxisTitle(ax);
+        }
+    }
+}
+
 //  from ../qtgraphs/src/graphs2d/qsgrenderer/axisrenderer.cpp, line 2069, as _ZNK12AxisRenderer16formatValueLabelEdiRK7QStringc
 inline QString AxisRenderer::formatValueLabel(double number,
                                        int decimals,
@@ -732,6 +1704,19 @@ inline QString AxisRenderer::formatValueLabel(double number,
     } else {
         return QString::asprintf(format.toLatin1().constData(), number);
     }
+}
+
+//  from ../qtgraphs/src/graphs2d/qsgrenderer/axisrenderer.cpp, line 2046, as _ZN12AxisRenderer17createDragHandlerEv
+inline void AxisRenderer::createDragHandler()
+{
+    m_dragHandler = new QQuickDragHandler(this);
+    m_dragHandler->setDragThreshold(10);
+    m_dragHandler->setTarget(nullptr);
+    connect(m_dragHandler,
+            &QQuickDragHandler::translationChanged,
+            this,
+            &AxisRenderer::onTranslationChanged);
+    connect(m_dragHandler, &QQuickDragHandler::grabChanged, this, &AxisRenderer::onGrabChanged);
 }
 
 //  from ../qtgraphs/src/graphs2d/qsgrenderer/axisrenderer.cpp, line 2058, as _ZN12AxisRenderer17deleteDragHandlerEv
@@ -1851,6 +2836,21 @@ int ritual_ZN12AxisRenderer11qt_metacallEN11QMetaObject4CallEiPPv(
   return self->qt_metacall(a0, a1, a2);
 }
 
+//  QString AxisRenderer::tr(const char *s, const char *c, int n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN12AxisRenderer2trEPKcS1_i(
+    const char *s,
+    const char *c,
+    int n) {
+  return new QString(AxisRenderer::tr(s, c, n));
+}
+
+//  AxisRenderer::AxisRenderer(QQuickItem *parent)
+extern "C" Q_DECL_EXPORT
+AxisRenderer *ritual_ZN12AxisRendererC1EP10QQuickItem(QQuickItem *parent) {
+  return new CuteAxisRenderer(parent);
+}
+
 //  AxisRenderer::~AxisRenderer()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN12AxisRendererD1Ev(AxisRenderer *self) {
@@ -1889,6 +2889,36 @@ void ritual_ZN12AxisRenderer15handlePinchGrabEN15QPointingDevice14GrabTransition
   self->handlePinchGrab(transition, *point);
 }
 
+//  void AxisRenderer::populateAxisItems()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12AxisRenderer17populateAxisItemsEv(AxisRenderer *self) {
+  self->populateAxisItems();
+}
+
+//  void AxisRenderer::updateAxisTickers()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12AxisRenderer17updateAxisTickersEv(AxisRenderer *self) {
+  self->updateAxisTickers();
+}
+
+//  void AxisRenderer::updateAxisTickersShadow()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12AxisRenderer23updateAxisTickersShadowEv(AxisRenderer *self) {
+  self->updateAxisTickersShadow();
+}
+
+//  void AxisRenderer::updateAxisGrid()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12AxisRenderer14updateAxisGridEv(AxisRenderer *self) {
+  self->updateAxisGrid();
+}
+
+//  void AxisRenderer::updateAxisGridShadow()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12AxisRenderer20updateAxisGridShadowEv(AxisRenderer *self) {
+  self->updateAxisGridShadow();
+}
+
 //  void AxisRenderer::updateAxisTitles()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN12AxisRenderer16updateAxisTitlesEv(AxisRenderer *self) {
@@ -1911,6 +2941,12 @@ bool ritual_ZNK12AxisRenderer19isAxisBottomOrRightERKNS_14AxisPropertiesE(
   return self->isAxisBottomOrRight(*ax);
 }
 
+//  void AxisRenderer::updateAxisMeasurements()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12AxisRenderer22updateAxisMeasurementsEv(AxisRenderer *self) {
+  self->updateAxisMeasurements();
+}
+
 //  QString AxisRenderer::formatValueLabel(double number, int decimals, const
 //      QString &format, char defaultFormat) const
 extern "C" Q_DECL_EXPORT
@@ -1926,6 +2962,12 @@ QString *ritual_ZNK12AxisRenderer16formatValueLabelEdiRK7QStringc(
           decimals,
           *format,
           defaultFormat));
+}
+
+//  void AxisRenderer::createDragHandler()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN12AxisRenderer17createDragHandlerEv(AxisRenderer *self) {
+  self->createDragHandler();
 }
 
 //  void AxisRenderer::deleteDragHandler()

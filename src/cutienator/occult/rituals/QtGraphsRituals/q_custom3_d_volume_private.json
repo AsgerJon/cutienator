@@ -11,6 +11,10 @@
     "ritual_ZN22QCustom3DVolumePrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK22QCustom3DVolumePrivate6q_funcEv": ["address", "address"],
     "ritual_ZN22QCustom3DVolumePrivateC1Ev": ["address"],
+    "ritual_ZN22QCustom3DVolumePrivateC1E9QVector3DS0_RK11QQuaternioniiiP5QListIhEN6QImage6FormatERKS4_IjE": [
+      "address", "address", "address", "address", "int", "int", "int",
+      "address", "int", "address"
+    ],
     "ritual_ZN22QCustom3DVolumePrivateD1Ev": ["nothing", "address"],
     "ritual_ZN22QCustom3DVolumePrivate14resetDirtyBitsEv": [
       "nothing", "address"

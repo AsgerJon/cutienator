@@ -43,12 +43,6 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from ../qtdeclarative/src/quick/util/qquickanimation.cpp, line 2910, as _ZN30QQuickAnimationPropertyUpdaterD1Ev
-inline QQuickAnimationPropertyUpdater::~QQuickAnimationPropertyUpdater()
-{
-    if (wasDeleted) *wasDeleted = true;
-}
-
 //  from ../qtdeclarative/src/quick/util/qquickanimation.cpp, line 2704, as _ZN30QQuickAnimationPropertyUpdater8setValueEd
 inline void QQuickAnimationPropertyUpdater::setValue(qreal v)
 {
@@ -96,6 +90,12 @@ inline void QQuickAnimationPropertyUpdater::setValue(qreal v)
     }
     wasDeleted = nullptr;
     fromIsSourced = true;
+}
+
+//  from ../qtdeclarative/src/quick/util/qquickanimation.cpp, line 2910, as _ZN30QQuickAnimationPropertyUpdaterD2Ev
+inline QQuickAnimationPropertyUpdater::~QQuickAnimationPropertyUpdater()
+{
+    if (wasDeleted) *wasDeleted = true;
 }
 
 //  from ../qtdeclarative/src/quick/util/qquickanimation.cpp, line 2752, as _ZNK30QQuickAnimationPropertyUpdater12debugUpdaterE6QDebugi

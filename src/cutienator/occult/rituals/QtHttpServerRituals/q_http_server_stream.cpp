@@ -1,16 +1,29 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtHttpServer/6.12.0/QtHttpServer/private/qhttpserverstream_p.h, Qt
-//  6.12.0. Changes made here are lost.
+//  6.12.0.
+//  Edited by hand on 2026-11-26: moc's output for 'QHttpServerStream' is
+//  pasted in, cut from what the moc of Qt 6.12.0 writes for its header: Qt's
+//  library keeps it to itself; added are 2 rituals that lean on what moc
+//  writes for a class of the part Qt keeps to itself, whose ritual file
+//  carries moc's output, drafted by a copy of the generator that lets those
+//  names through. A copy of a meta-object is a second one: 'qobject_cast'
+//  between it and Qt's own does not match. Kept as it is when the generator
+//  runs again.
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtHttpServer/QtHttpServer>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtHttpServer/6.12.0/QtHttpServer/private/qhttpserverstream_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 #include <QtCore/qbytearray.h>
 #include <QtNetwork/qhttpheaders.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
 #include <QtHttpServer/private/qhttpserverrequest_p.h>
 #include <QtHttpServer/private/qhttpserverparser_p.h>
 #include <QtCore/qloggingcategory.h>
@@ -72,6 +85,71 @@ static QSslConfiguration initSslConfigurationFromSocket(QIODevice *socket)
 }
 #endif  // QT_CONFIG(ssl)
 
+//  from QtHttpServer__QHttpServerStream.cpp, line 1, as moc:QHttpServerStream
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN17QHttpServerStreamE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto QHttpServerStream::qt_create_metaobjectdata<qt_meta_tag_ZN17QHttpServerStreamE_t>()
+{
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "QHttpServerStream"
+    };
+
+    QtMocHelpers::UintData qt_methods {
+    };
+    QtMocHelpers::UintData qt_properties {
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    return QtMocHelpers::metaObjectData<QHttpServerStream, qt_meta_tag_ZN17QHttpServerStreamE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums);
+}
+Q_CONSTINIT const QMetaObject QHttpServerStream::staticMetaObject = { {
+    QMetaObject::SuperData::link<QObject::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN17QHttpServerStreamE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN17QHttpServerStreamE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN17QHttpServerStreamE_t>.metaTypes,
+    nullptr
+} };
+
+void QHttpServerStream::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<QHttpServerStream *>(_o);
+    (void)_t;
+    (void)_c;
+    (void)_id;
+    (void)_a;
+}
+
+const QMetaObject *QHttpServerStream::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *QHttpServerStream::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN17QHttpServerStreamE_t>.strings))
+        return static_cast<void*>(this);
+    return QObject::qt_metacast(_clname);
+}
+
+int QHttpServerStream::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QObject::qt_metacall(_c, _id, _a);
+    return _id;
+}
+QT_WARNING_POP
+
 //  from ../qthttpserver/src/httpserver/qhttpserverparser.cpp, line 351, as _ZN17QHttpServerParserC1ERK12QHostAddresstS2_tP24QHttpServerRequestFilter
 inline QHttpServerParser::QHttpServerParser(const QHostAddress &remoteAddress, quint16 remotePort,
                                      const QHostAddress &localAddress, quint16 localPort,
@@ -92,6 +170,41 @@ inline QHttpServerParser::QHttpServerParser(const QHostAddress &remoteAddress, q
 inline void QHttpServerResponderPrivate::cancel()
 {
     canceled = true;
+}
+
+//  from ../qthttpserver/src/httpserver/qhttpserverparser.cpp, line 454, as _ZN17QHttpServerParser5clearEv
+inline void QHttpServerParser::clear()
+{
+    headerParser.clear();
+    bodyLength = -1;
+    contentRead = 0;
+    chunkedTransferEncoding = false;
+    lastChunkRead = false;
+    currentChunkRead = 0;
+    currentChunkSize = 0;
+    upgrade = false;
+    majorVersion = 0;
+    minorVersion = 0;
+
+    fragment.clear();
+    bodyBuffer.clear();
+
+    url.clear();
+    method = QHttpServerRequest::Method::Unknown;
+    headers.clear();
+    body.clear();
+}
+
+//  from ../qthttpserver/src/httpserver/qhttpserverstream.cpp, line 39, as _ZN17QHttpServerStreamC1EP9QIODeviceP24QHttpServerRequestFilterP7QObject
+inline QHttpServerStream::QHttpServerStream(QIODevice *socket, QHttpServerRequestFilter *filter,
+                                     QObject *parent)
+    : QObject(parent)
+    , parser(initParserFromSocket(socket, filter))
+#if QT_CONFIG(ssl)
+    , sslConfiguration(initSslConfigurationFromSocket(socket))
+#endif
+    , clientSocket(socket)
+{
 }
 
 //  from ../qthttpserver/src/httpserver/qhttpserverstream.cpp, line 50, as _ZN17QHttpServerStream16connectResponderEP27QHttpServerResponderPrivate
@@ -470,6 +583,25 @@ int ritual_ZN17QHttpServerStream11qt_metacallEN11QMetaObject4CallEiPPv(
     int a1,
     void **a2) {
   return self->qt_metacall(a0, a1, a2);
+}
+
+//  QString QHttpServerStream::tr(const char *s, const char *c, int n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN17QHttpServerStream2trEPKcS1_i(
+    const char *s,
+    const char *c,
+    int n) {
+  return new QString(QHttpServerStream::tr(s, c, n));
+}
+
+//  QHttpServerStream::QHttpServerStream(QIODevice *socket,
+//      QHttpServerRequestFilter *filter, QObject *parent)
+extern "C" Q_DECL_EXPORT
+QHttpServerStream *ritual_ZN17QHttpServerStreamC1EP9QIODeviceP24QHttpServerRequestFilterP7QObject(
+    QIODevice *socket,
+    QHttpServerRequestFilter *filter,
+    QObject *parent) {
+  return new CuteQHttpServerStream(socket, filter, parent);
 }
 
 //  void QHttpServerStream::responderDestroyed(quint32 streamId)

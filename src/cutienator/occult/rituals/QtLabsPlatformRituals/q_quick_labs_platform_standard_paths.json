@@ -2,7 +2,7 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of QtLabsP",
     "latform/6.12.0/QtLabsPlatform/private/qquicklabsplatformstandardpa",
-    "ths_p.h, Qt 6.12.0. Changes made here are lost."
+    "ths_p.h, Qt 6.12.0. Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZNK31QQuickLabsPlatformStandardPaths10metaObjectEv": [
@@ -14,6 +14,9 @@
     "ritual_ZN31QQuickLabsPlatformStandardPaths11qt_metacallEN11QMetaObject4CallEiPPv": [
       "int", "address", "int", "int", "address"
     ],
+    "ritual_ZN31QQuickLabsPlatformStandardPaths2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
     "ritual_ZN31QQuickLabsPlatformStandardPaths22qt_qmlMarker_singletonEv": [
       "nothing", "address"
     ],
@@ -22,6 +25,12 @@
     ],
     "ritual_ZN31QQuickLabsPlatformStandardPaths30qt_qmlMarker_extendedNamespaceEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN31QQuickLabsPlatformStandardPathsC1EP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZN31QQuickLabsPlatformStandardPaths6createEP10QQmlEngineP9QJSEngine": [
+      "address", "address", "address"
     ],
     "ritual_ZN31QQuickLabsPlatformStandardPaths11displayNameEN14QStandardPaths16StandardLocationE": [
       "text", "int"

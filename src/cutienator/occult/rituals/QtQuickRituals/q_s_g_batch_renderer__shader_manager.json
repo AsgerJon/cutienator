@@ -2,7 +2,7 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtQuick/6.12.0/QtQuick/private/qsgbatchrenderer_p.h, Qt 6.12.0.",
-    "Changes made here are lost."
+    "Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZNK16QSGBatchRenderer13ShaderManager10metaObjectEv": [
@@ -13,6 +13,12 @@
     ],
     "ritual_ZN16QSGBatchRenderer13ShaderManager11qt_metacallEN11QMetaObject4CallEiPPv": [
       "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN16QSGBatchRenderer13ShaderManager2trEPKcS2_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN16QSGBatchRenderer13ShaderManagerC1EP23QSGDefaultRenderContext": [
+      "address", "address"
     ],
     "ritual_ZN16QSGBatchRenderer13ShaderManagerD1Ev": ["nothing", "address"],
     "ritual_ZN16QSGBatchRenderer13ShaderManager23clearCachedRendererDataEv": [

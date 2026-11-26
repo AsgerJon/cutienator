@@ -2265,6 +2265,224 @@ QVariant *ritual_own_ZNK26QAccessibleAbstractSpinBox15minimumStepSizeEv(
 #endif  // QT_CONFIG(spinbox)
 #endif  // QT_CONFIG(accessibility)
 
+#if QT_CONFIG(accessibility)
+#if QT_CONFIG(lineedit)
+#if QT_CONFIG(spinbox)
+//  void QAccessibleAbstractSpinBox::addSelection(int startOffset, int
+//      endOffset)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN26QAccessibleAbstractSpinBox12addSelectionEii(
+    QAccessibleAbstractSpinBox *self,
+    int startOffset,
+    int endOffset) {
+  self->QAccessibleAbstractSpinBox::addSelection(startOffset, endOffset);
+}
+#endif  // QT_CONFIG(spinbox)
+#endif  // QT_CONFIG(lineedit)
+#endif  // QT_CONFIG(accessibility)
+
+#if QT_CONFIG(accessibility)
+#if QT_CONFIG(lineedit)
+#if QT_CONFIG(spinbox)
+//  int QAccessibleAbstractSpinBox::cursorPosition() const
+extern "C" Q_DECL_EXPORT
+int ritual_own_ZNK26QAccessibleAbstractSpinBox14cursorPositionEv(
+    const QAccessibleAbstractSpinBox *self) {
+  return self->QAccessibleAbstractSpinBox::cursorPosition();
+}
+#endif  // QT_CONFIG(spinbox)
+#endif  // QT_CONFIG(lineedit)
+#endif  // QT_CONFIG(accessibility)
+
+#if QT_CONFIG(accessibility)
+#if QT_CONFIG(lineedit)
+#if QT_CONFIG(spinbox)
+//  QRect QAccessibleAbstractSpinBox::characterRect(int offset) const
+extern "C" Q_DECL_EXPORT
+QRect *ritual_own_ZNK26QAccessibleAbstractSpinBox13characterRectEi(
+    const QAccessibleAbstractSpinBox *self,
+    int offset) {
+  return new QRect(self->QAccessibleAbstractSpinBox::characterRect(offset));
+}
+#endif  // QT_CONFIG(spinbox)
+#endif  // QT_CONFIG(lineedit)
+#endif  // QT_CONFIG(accessibility)
+
+#if QT_CONFIG(accessibility)
+#if QT_CONFIG(lineedit)
+#if QT_CONFIG(spinbox)
+//  int QAccessibleAbstractSpinBox::selectionCount() const
+extern "C" Q_DECL_EXPORT
+int ritual_own_ZNK26QAccessibleAbstractSpinBox14selectionCountEv(
+    const QAccessibleAbstractSpinBox *self) {
+  return self->QAccessibleAbstractSpinBox::selectionCount();
+}
+#endif  // QT_CONFIG(spinbox)
+#endif  // QT_CONFIG(lineedit)
+#endif  // QT_CONFIG(accessibility)
+
+#if QT_CONFIG(accessibility)
+#if QT_CONFIG(lineedit)
+#if QT_CONFIG(spinbox)
+//  int QAccessibleAbstractSpinBox::offsetAtPoint(const QPoint &point) const
+extern "C" Q_DECL_EXPORT
+int ritual_own_ZNK26QAccessibleAbstractSpinBox13offsetAtPointERK6QPoint(
+    const QAccessibleAbstractSpinBox *self,
+    const QPoint *point) {
+  return self->QAccessibleAbstractSpinBox::offsetAtPoint(*point);
+}
+#endif  // QT_CONFIG(spinbox)
+#endif  // QT_CONFIG(lineedit)
+#endif  // QT_CONFIG(accessibility)
+
+#if QT_CONFIG(accessibility)
+#if QT_CONFIG(lineedit)
+#if QT_CONFIG(spinbox)
+//  QString QAccessibleAbstractSpinBox::text(int startOffset, int endOffset)
+//      const
+extern "C" Q_DECL_EXPORT
+QString *ritual_own_ZNK26QAccessibleAbstractSpinBox4textEii(
+    const QAccessibleAbstractSpinBox *self,
+    int startOffset,
+    int endOffset) {
+  return new QString(
+      self->QAccessibleAbstractSpinBox::text(
+          startOffset,
+          endOffset));
+}
+#endif  // QT_CONFIG(spinbox)
+#endif  // QT_CONFIG(lineedit)
+#endif  // QT_CONFIG(accessibility)
+
+#if QT_CONFIG(accessibility)
+#if QT_CONFIG(lineedit)
+#if QT_CONFIG(spinbox)
+//  void QAccessibleAbstractSpinBox::removeSelection(int selectionIndex)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN26QAccessibleAbstractSpinBox15removeSelectionEi(
+    QAccessibleAbstractSpinBox *self,
+    int selectionIndex) {
+  self->QAccessibleAbstractSpinBox::removeSelection(selectionIndex);
+}
+#endif  // QT_CONFIG(spinbox)
+#endif  // QT_CONFIG(lineedit)
+#endif  // QT_CONFIG(accessibility)
+
+#if QT_CONFIG(accessibility)
+#if QT_CONFIG(lineedit)
+#if QT_CONFIG(spinbox)
+//  void QAccessibleAbstractSpinBox::setCursorPosition(int position)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN26QAccessibleAbstractSpinBox17setCursorPositionEi(
+    QAccessibleAbstractSpinBox *self,
+    int position) {
+  self->QAccessibleAbstractSpinBox::setCursorPosition(position);
+}
+#endif  // QT_CONFIG(spinbox)
+#endif  // QT_CONFIG(lineedit)
+#endif  // QT_CONFIG(accessibility)
+
+#if QT_CONFIG(accessibility)
+#if QT_CONFIG(lineedit)
+#if QT_CONFIG(spinbox)
+//  void QAccessibleAbstractSpinBox::setSelection(int selectionIndex, int
+//      startOffset, int endOffset)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN26QAccessibleAbstractSpinBox12setSelectionEiii(
+    QAccessibleAbstractSpinBox *self,
+    int selectionIndex,
+    int startOffset,
+    int endOffset) {
+  self->QAccessibleAbstractSpinBox::setSelection(
+      selectionIndex,
+      startOffset,
+      endOffset);
+}
+#endif  // QT_CONFIG(spinbox)
+#endif  // QT_CONFIG(lineedit)
+#endif  // QT_CONFIG(accessibility)
+
+#if QT_CONFIG(accessibility)
+#if QT_CONFIG(lineedit)
+#if QT_CONFIG(spinbox)
+//  int QAccessibleAbstractSpinBox::characterCount() const
+extern "C" Q_DECL_EXPORT
+int ritual_own_ZNK26QAccessibleAbstractSpinBox14characterCountEv(
+    const QAccessibleAbstractSpinBox *self) {
+  return self->QAccessibleAbstractSpinBox::characterCount();
+}
+#endif  // QT_CONFIG(spinbox)
+#endif  // QT_CONFIG(lineedit)
+#endif  // QT_CONFIG(accessibility)
+
+#if QT_CONFIG(accessibility)
+#if QT_CONFIG(lineedit)
+#if QT_CONFIG(spinbox)
+//  void QAccessibleAbstractSpinBox::scrollToSubstring(int startIndex, int
+//      endIndex)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN26QAccessibleAbstractSpinBox17scrollToSubstringEii(
+    QAccessibleAbstractSpinBox *self,
+    int startIndex,
+    int endIndex) {
+  self->QAccessibleAbstractSpinBox::scrollToSubstring(startIndex, endIndex);
+}
+#endif  // QT_CONFIG(spinbox)
+#endif  // QT_CONFIG(lineedit)
+#endif  // QT_CONFIG(accessibility)
+
+#if QT_CONFIG(accessibility)
+#if QT_CONFIG(lineedit)
+#if QT_CONFIG(spinbox)
+//  void QAccessibleAbstractSpinBox::deleteText(int startOffset, int
+//      endOffset)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN26QAccessibleAbstractSpinBox10deleteTextEii(
+    QAccessibleAbstractSpinBox *self,
+    int startOffset,
+    int endOffset) {
+  self->QAccessibleAbstractSpinBox::deleteText(startOffset, endOffset);
+}
+#endif  // QT_CONFIG(spinbox)
+#endif  // QT_CONFIG(lineedit)
+#endif  // QT_CONFIG(accessibility)
+
+#if QT_CONFIG(accessibility)
+#if QT_CONFIG(lineedit)
+#if QT_CONFIG(spinbox)
+//  void QAccessibleAbstractSpinBox::insertText(int offset, const QString
+//      &text)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN26QAccessibleAbstractSpinBox10insertTextEiRK7QString(
+    QAccessibleAbstractSpinBox *self,
+    int offset,
+    const QString *text) {
+  self->QAccessibleAbstractSpinBox::insertText(offset, *text);
+}
+#endif  // QT_CONFIG(spinbox)
+#endif  // QT_CONFIG(lineedit)
+#endif  // QT_CONFIG(accessibility)
+
+#if QT_CONFIG(accessibility)
+#if QT_CONFIG(lineedit)
+#if QT_CONFIG(spinbox)
+//  void QAccessibleAbstractSpinBox::replaceText(int startOffset, int
+//      endOffset, const QString &text)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN26QAccessibleAbstractSpinBox11replaceTextEiiRK7QString(
+    QAccessibleAbstractSpinBox *self,
+    int startOffset,
+    int endOffset,
+    const QString *text) {
+  self->QAccessibleAbstractSpinBox::replaceText(
+      startOffset,
+      endOffset,
+      *text);
+}
+#endif  // QT_CONFIG(spinbox)
+#endif  // QT_CONFIG(lineedit)
+#endif  // QT_CONFIG(accessibility)
+
 #endif  // QT_CONFIG(spinbox)
 #endif  // QT_CONFIG(accessibility)
 #endif  // QT_CONFIG(accessibility)

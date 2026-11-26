@@ -39,6 +39,9 @@ inline void QQuickMessageDialogImplPrivate::handleClick(QQuickAbstractButton *bu
     }
 }
 
+//  from ../qtdeclarative/src/quickdialogs/quickdialogsquickimpl/qquickmessagedialogimpl.cpp, line 12, as _ZN30QQuickMessageDialogImplPrivateC1Ev
+inline QQuickMessageDialogImplPrivate::QQuickMessageDialogImplPrivate() { }
+
 //  from ../qtdeclarative/src/quickdialogs/quickdialogsquickimpl/qquickmessagedialogimpl.cpp, line 27, as _ZN30QQuickMessageDialogImplPrivate14attachedOrWarnEv
 inline QQuickMessageDialogImplAttached *QQuickMessageDialogImplPrivate::attachedOrWarn()
 {
@@ -468,6 +471,12 @@ extern "C" Q_DECL_EXPORT
 const QQuickMessageDialogImpl *ritual_ZNK30QQuickMessageDialogImplPrivate6q_funcEv(
     const QQuickMessageDialogImplPrivate *self) {
   return self->q_func();
+}
+
+//  QQuickMessageDialogImplPrivate::QQuickMessageDialogImplPrivate()
+extern "C" Q_DECL_EXPORT
+QQuickMessageDialogImplPrivate *ritual_ZN30QQuickMessageDialogImplPrivateC1Ev() {
+  return new CuteQQuickMessageDialogImplPrivate();
 }
 
 //  QQuickMessageDialogImplPrivate

@@ -1,17 +1,30 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtBluetooth/6.12.0/QtBluetooth/private/qlowenergyserviceprivate_p.h, Qt
-//  6.12.0. Changes made here are lost.
+//  6.12.0.
+//  Edited by hand on 2026-11-26: moc's output for 'QLowEnergyServicePrivate'
+//  is pasted in, cut from what the moc of Qt 6.12.0 writes for its header:
+//  Qt's library keeps it to itself; added are 5 rituals that lean on what
+//  moc writes for a class of the part Qt keeps to itself, whose ritual file
+//  carries moc's output, drafted by a copy of the generator that lets those
+//  names through. A copy of a meta-object is a second one: 'qobject_cast'
+//  between it and Qt's own does not match. Kept as it is when the generator
+//  runs again.
 #include <QtBluetooth/6.12.0/QtBluetooth/private/qtbluetoothglobal_p.h>
 #include <QtBluetooth/QtBluetooth>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtBluetooth/6.12.0/QtBluetooth/private/qlowenergyserviceprivate_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 #include <QtBluetooth/qlowenergycharacteristic.h>
 #include <QtCore/qbytearray.h>
 #include <QtBluetooth/qlowenergydescriptor.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
 #include <QtBluetooth/private/qlowenergyserviceprivate_p.h>
 #include <QtBluetooth/private/qlowenergycontrollerbase_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -23,9 +36,284 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from QtBluetooth__QLowEnergyServicePrivate.cpp, line 1, as moc:QLowEnergyServicePrivate
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN24QLowEnergyServicePrivateE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto QLowEnergyServicePrivate::qt_create_metaobjectdata<qt_meta_tag_ZN24QLowEnergyServicePrivateE_t>()
+{
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "QLowEnergyServicePrivate",
+        "stateChanged",
+        "",
+        "QLowEnergyService::ServiceState",
+        "newState",
+        "errorOccurred",
+        "QLowEnergyService::ServiceError",
+        "error",
+        "characteristicChanged",
+        "QLowEnergyCharacteristic",
+        "characteristic",
+        "newValue",
+        "characteristicRead",
+        "info",
+        "value",
+        "characteristicWritten",
+        "descriptorRead",
+        "QLowEnergyDescriptor",
+        "descriptorWritten",
+        "descriptor"
+    };
+
+    QtMocHelpers::UintData qt_methods {
+        // Signal 'stateChanged'
+        QtMocHelpers::SignalData<void(QLowEnergyService::ServiceState)>(1, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { 0x80000000 | 3, 4 },
+        }}),
+        // Signal 'errorOccurred'
+        QtMocHelpers::SignalData<void(QLowEnergyService::ServiceError)>(5, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { 0x80000000 | 6, 7 },
+        }}),
+        // Signal 'characteristicChanged'
+        QtMocHelpers::SignalData<void(const QLowEnergyCharacteristic &, const QByteArray &)>(8, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { 0x80000000 | 9, 10 }, { QMetaType::QByteArray, 11 },
+        }}),
+        // Signal 'characteristicRead'
+        QtMocHelpers::SignalData<void(const QLowEnergyCharacteristic &, const QByteArray &)>(12, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { 0x80000000 | 9, 13 }, { QMetaType::QByteArray, 14 },
+        }}),
+        // Signal 'characteristicWritten'
+        QtMocHelpers::SignalData<void(const QLowEnergyCharacteristic &, const QByteArray &)>(15, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { 0x80000000 | 9, 10 }, { QMetaType::QByteArray, 11 },
+        }}),
+        // Signal 'descriptorRead'
+        QtMocHelpers::SignalData<void(const QLowEnergyDescriptor &, const QByteArray &)>(16, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { 0x80000000 | 17, 13 }, { QMetaType::QByteArray, 14 },
+        }}),
+        // Signal 'descriptorWritten'
+        QtMocHelpers::SignalData<void(const QLowEnergyDescriptor &, const QByteArray &)>(18, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { 0x80000000 | 17, 19 }, { QMetaType::QByteArray, 11 },
+        }}),
+    };
+    QtMocHelpers::UintData qt_properties {
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    return QtMocHelpers::metaObjectData<QLowEnergyServicePrivate, qt_meta_tag_ZN24QLowEnergyServicePrivateE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums);
+}
+Q_CONSTINIT const QMetaObject QLowEnergyServicePrivate::staticMetaObject = { {
+    QMetaObject::SuperData::link<QObject::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN24QLowEnergyServicePrivateE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN24QLowEnergyServicePrivateE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN24QLowEnergyServicePrivateE_t>.metaTypes,
+    nullptr
+} };
+
+void QLowEnergyServicePrivate::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<QLowEnergyServicePrivate *>(_o);
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        switch (_id) {
+        case 0: _t->stateChanged((*reinterpret_cast<std::add_pointer_t<QLowEnergyService::ServiceState>>(_a[1]))); break;
+        case 1: _t->errorOccurred((*reinterpret_cast<std::add_pointer_t<QLowEnergyService::ServiceError>>(_a[1]))); break;
+        case 2: _t->characteristicChanged((*reinterpret_cast<std::add_pointer_t<QLowEnergyCharacteristic>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<QByteArray>>(_a[2]))); break;
+        case 3: _t->characteristicRead((*reinterpret_cast<std::add_pointer_t<QLowEnergyCharacteristic>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<QByteArray>>(_a[2]))); break;
+        case 4: _t->characteristicWritten((*reinterpret_cast<std::add_pointer_t<QLowEnergyCharacteristic>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<QByteArray>>(_a[2]))); break;
+        case 5: _t->descriptorRead((*reinterpret_cast<std::add_pointer_t<QLowEnergyDescriptor>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<QByteArray>>(_a[2]))); break;
+        case 6: _t->descriptorWritten((*reinterpret_cast<std::add_pointer_t<QLowEnergyDescriptor>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<QByteArray>>(_a[2]))); break;
+        default: ;
+        }
+    }
+    if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        switch (_id) {
+        default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
+        case 0:
+            switch (*reinterpret_cast<int*>(_a[1])) {
+            default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
+            case 0:
+                *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType::fromType< QLowEnergyService::ServiceState >(); break;
+            }
+            break;
+        case 1:
+            switch (*reinterpret_cast<int*>(_a[1])) {
+            default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
+            case 0:
+                *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType::fromType< QLowEnergyService::ServiceError >(); break;
+            }
+            break;
+        case 2:
+            switch (*reinterpret_cast<int*>(_a[1])) {
+            default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
+            case 0:
+                *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType::fromType< QLowEnergyCharacteristic >(); break;
+            }
+            break;
+        case 3:
+            switch (*reinterpret_cast<int*>(_a[1])) {
+            default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
+            case 0:
+                *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType::fromType< QLowEnergyCharacteristic >(); break;
+            }
+            break;
+        case 4:
+            switch (*reinterpret_cast<int*>(_a[1])) {
+            default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
+            case 0:
+                *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType::fromType< QLowEnergyCharacteristic >(); break;
+            }
+            break;
+        case 5:
+            switch (*reinterpret_cast<int*>(_a[1])) {
+            default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
+            case 0:
+                *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType::fromType< QLowEnergyDescriptor >(); break;
+            }
+            break;
+        case 6:
+            switch (*reinterpret_cast<int*>(_a[1])) {
+            default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
+            case 0:
+                *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType::fromType< QLowEnergyDescriptor >(); break;
+            }
+            break;
+        }
+    }
+    if (_c == QMetaObject::IndexOfMethod) {
+        if (QtMocHelpers::indexOfMethod<void (QLowEnergyServicePrivate::*)(QLowEnergyService::ServiceState )>(_a, &QLowEnergyServicePrivate::stateChanged, 0))
+            return;
+        if (QtMocHelpers::indexOfMethod<void (QLowEnergyServicePrivate::*)(QLowEnergyService::ServiceError )>(_a, &QLowEnergyServicePrivate::errorOccurred, 1))
+            return;
+        if (QtMocHelpers::indexOfMethod<void (QLowEnergyServicePrivate::*)(const QLowEnergyCharacteristic & , const QByteArray & )>(_a, &QLowEnergyServicePrivate::characteristicChanged, 2))
+            return;
+        if (QtMocHelpers::indexOfMethod<void (QLowEnergyServicePrivate::*)(const QLowEnergyCharacteristic & , const QByteArray & )>(_a, &QLowEnergyServicePrivate::characteristicRead, 3))
+            return;
+        if (QtMocHelpers::indexOfMethod<void (QLowEnergyServicePrivate::*)(const QLowEnergyCharacteristic & , const QByteArray & )>(_a, &QLowEnergyServicePrivate::characteristicWritten, 4))
+            return;
+        if (QtMocHelpers::indexOfMethod<void (QLowEnergyServicePrivate::*)(const QLowEnergyDescriptor & , const QByteArray & )>(_a, &QLowEnergyServicePrivate::descriptorRead, 5))
+            return;
+        if (QtMocHelpers::indexOfMethod<void (QLowEnergyServicePrivate::*)(const QLowEnergyDescriptor & , const QByteArray & )>(_a, &QLowEnergyServicePrivate::descriptorWritten, 6))
+            return;
+    }
+}
+
+const QMetaObject *QLowEnergyServicePrivate::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *QLowEnergyServicePrivate::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN24QLowEnergyServicePrivateE_t>.strings))
+        return static_cast<void*>(this);
+    return QObject::qt_metacast(_clname);
+}
+
+int QLowEnergyServicePrivate::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QObject::qt_metacall(_c, _id, _a);
+    if (_id < 0)
+        return _id;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        if (_id < 7)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 7;
+    }
+    if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        if (_id < 7)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 7;
+    }
+    return _id;
+}
+
+// SIGNAL 0
+void QLowEnergyServicePrivate::stateChanged(QLowEnergyService::ServiceState _t1)
+{
+    QMetaObject::activate<void>(this, &staticMetaObject, 0, nullptr, _t1);
+}
+
+// SIGNAL 1
+void QLowEnergyServicePrivate::errorOccurred(QLowEnergyService::ServiceError _t1)
+{
+    QMetaObject::activate<void>(this, &staticMetaObject, 1, nullptr, _t1);
+}
+
+// SIGNAL 2
+void QLowEnergyServicePrivate::characteristicChanged(const QLowEnergyCharacteristic & _t1, const QByteArray & _t2)
+{
+    QMetaObject::activate<void>(this, &staticMetaObject, 2, nullptr, _t1, _t2);
+}
+
+// SIGNAL 3
+void QLowEnergyServicePrivate::characteristicRead(const QLowEnergyCharacteristic & _t1, const QByteArray & _t2)
+{
+    QMetaObject::activate<void>(this, &staticMetaObject, 3, nullptr, _t1, _t2);
+}
+
+// SIGNAL 4
+void QLowEnergyServicePrivate::characteristicWritten(const QLowEnergyCharacteristic & _t1, const QByteArray & _t2)
+{
+    QMetaObject::activate<void>(this, &staticMetaObject, 4, nullptr, _t1, _t2);
+}
+
+// SIGNAL 5
+void QLowEnergyServicePrivate::descriptorRead(const QLowEnergyDescriptor & _t1, const QByteArray & _t2)
+{
+    QMetaObject::activate<void>(this, &staticMetaObject, 5, nullptr, _t1, _t2);
+}
+
+// SIGNAL 6
+void QLowEnergyServicePrivate::descriptorWritten(const QLowEnergyDescriptor & _t1, const QByteArray & _t2)
+{
+    QMetaObject::activate<void>(this, &staticMetaObject, 6, nullptr, _t1, _t2);
+}
+QT_WARNING_POP
+
+//  from ../qtconnectivity/src/bluetooth/qlowenergyserviceprivate.cpp, line 13, as _ZN24QLowEnergyServicePrivateC1EP7QObject
+inline QLowEnergyServicePrivate::QLowEnergyServicePrivate(QObject *parent) : QObject(parent) { }
+
 //  from ../qtconnectivity/src/bluetooth/qlowenergyserviceprivate.cpp, line 15, as _ZN24QLowEnergyServicePrivateD1Ev
 inline QLowEnergyServicePrivate::~QLowEnergyServicePrivate()
 {
+}
+
+//  from ../qtconnectivity/src/bluetooth/qlowenergyserviceprivate.cpp, line 19, as _ZN24QLowEnergyServicePrivate13setControllerEP27QLowEnergyControllerPrivate
+inline void QLowEnergyServicePrivate::setController(QLowEnergyControllerPrivate *control)
+{
+    controller = control;
+
+    if (control)
+        setState(QLowEnergyService::RemoteService);
+    else
+        setState(QLowEnergyService::InvalidService);
+}
+
+//  from ../qtconnectivity/src/bluetooth/qlowenergyserviceprivate.cpp, line 29, as _ZN24QLowEnergyServicePrivate8setErrorEN17QLowEnergyService12ServiceErrorE
+inline void QLowEnergyServicePrivate::setError(QLowEnergyService::ServiceError newError)
+{
+    lastError = newError;
+    emit errorOccurred(newError);
+}
+
+//  from ../qtconnectivity/src/bluetooth/qlowenergyserviceprivate.cpp, line 35, as _ZN24QLowEnergyServicePrivate8setStateEN17QLowEnergyService12ServiceStateE
+inline void QLowEnergyServicePrivate::setState(QLowEnergyService::ServiceState newState)
+{
+    if (state == newState)
+        return;
+
+    state = newState;
+    emit stateChanged(newState);
 }
 //  -----------------------------------------------------------------------
 
@@ -222,11 +510,54 @@ int ritual_ZN24QLowEnergyServicePrivate11qt_metacallEN11QMetaObject4CallEiPPv(
   return self->qt_metacall(a0, a1, a2);
 }
 
+//  QString QLowEnergyServicePrivate::tr(const char *s, const char *c, int n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN24QLowEnergyServicePrivate2trEPKcS1_i(
+    const char *s,
+    const char *c,
+    int n) {
+  return new QString(QLowEnergyServicePrivate::tr(s, c, n));
+}
+
+//  QLowEnergyServicePrivate::QLowEnergyServicePrivate(QObject *parent)
+extern "C" Q_DECL_EXPORT
+QLowEnergyServicePrivate *ritual_ZN24QLowEnergyServicePrivateC1EP7QObject(
+    QObject *parent) {
+  return new CuteQLowEnergyServicePrivate(parent);
+}
+
 //  QLowEnergyServicePrivate::~QLowEnergyServicePrivate()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN24QLowEnergyServicePrivateD1Ev(
     QLowEnergyServicePrivate *self) {
   delete self;
+}
+
+//  void QLowEnergyServicePrivate::setController(QLowEnergyControllerPrivate
+//      *control)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QLowEnergyServicePrivate13setControllerEP27QLowEnergyControllerPrivate(
+    QLowEnergyServicePrivate *self,
+    QLowEnergyControllerPrivate *control) {
+  self->setController(control);
+}
+
+//  void QLowEnergyServicePrivate::setError(QLowEnergyService::ServiceError
+//      newError)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QLowEnergyServicePrivate8setErrorEN17QLowEnergyService12ServiceErrorE(
+    QLowEnergyServicePrivate *self,
+    QLowEnergyService::ServiceError newError) {
+  self->setError(newError);
+}
+
+//  void QLowEnergyServicePrivate::setState(QLowEnergyService::ServiceState
+//      newState)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QLowEnergyServicePrivate8setStateEN17QLowEnergyService12ServiceStateE(
+    QLowEnergyServicePrivate *self,
+    QLowEnergyService::ServiceState newState) {
+  self->setState(newState);
 }
 
 //  void

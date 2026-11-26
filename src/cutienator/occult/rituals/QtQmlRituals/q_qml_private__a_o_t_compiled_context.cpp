@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtQml/qqmlprivate.h, Qt 6.12.0. Changes made here are lost.
+//  QtQml/qqmlprivate.h, Qt 6.12.0. Edited by hand on 2026-11-25, mended on
+//  2026-11-26: added by hand, instances of templates of the class: 8. Kept
+//  as it is when the generator runs again.
 #include <QtQml/QtQml>
 #include <QtQml/qqmlprivate.h>
 #include <QtQml/qjsvalue.h>
@@ -631,4 +633,76 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN11QQmlPrivate18AOTCompiledContextD1Ev(
     QQmlPrivate::AOTCompiledContext *self) {
   delete self;
+}
+
+//  static void QQmlPrivate::AOTCompiledContext::mark<int>(int,
+//      QV4::MarkStack *markStack)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQmlPrivate18AOTCompiledContext4markIiEEvT_PN3QV49MarkStackE(
+    int value,
+    QV4::MarkStack *markStack) {
+  QQmlPrivate::AOTCompiledContext::mark<int>(value, markStack);
+}
+
+//  static void QQmlPrivate::AOTCompiledContext::mark<double>(double,
+//      QV4::MarkStack *markStack)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQmlPrivate18AOTCompiledContext4markIdEEvT_PN3QV49MarkStackE(
+    double value,
+    QV4::MarkStack *markStack) {
+  QQmlPrivate::AOTCompiledContext::mark<double>(value, markStack);
+}
+
+//  static void QQmlPrivate::AOTCompiledContext::mark<bool>(bool,
+//      QV4::MarkStack *markStack)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQmlPrivate18AOTCompiledContext4markIbEEvT_PN3QV49MarkStackE(
+    bool value,
+    QV4::MarkStack *markStack) {
+  QQmlPrivate::AOTCompiledContext::mark<bool>(value, markStack);
+}
+
+//  static void QQmlPrivate::AOTCompiledContext::mark<QString>(QString,
+//      QV4::MarkStack *markStack)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QQmlPrivate18AOTCompiledContext4markI7QStringEEvT_PN3QV49MarkStackE(
+    const QString *value,
+    QV4::MarkStack *markStack) {
+  QQmlPrivate::AOTCompiledContext::mark<QString>(*value, markStack);
+}
+
+//  void QQmlPrivate::AOTCompiledContext::setImplicitDestructible<int>(const
+//      int &value) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK11QQmlPrivate18AOTCompiledContext23setImplicitDestructibleIiEEvRKT_(
+    const QQmlPrivate::AOTCompiledContext *self,
+    const int *value) {
+  self->setImplicitDestructible<int>(*value);
+}
+
+//  void QQmlPrivate::AOTCompiledContext::setImplicitDestructible<double>(
+//      const double &value) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK11QQmlPrivate18AOTCompiledContext23setImplicitDestructibleIdEEvRKT_(
+    const QQmlPrivate::AOTCompiledContext *self,
+    const double *value) {
+  self->setImplicitDestructible<double>(*value);
+}
+
+//  void QQmlPrivate::AOTCompiledContext::setImplicitDestructible<bool>(const
+//      bool &value) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK11QQmlPrivate18AOTCompiledContext23setImplicitDestructibleIbEEvRKT_(
+    const QQmlPrivate::AOTCompiledContext *self,
+    const bool *value) {
+  self->setImplicitDestructible<bool>(*value);
+}
+
+//  void QQmlPrivate::AOTCompiledContext::setImplicitDestructible<QString>(
+//      const QString &value) const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK11QQmlPrivate18AOTCompiledContext23setImplicitDestructibleI7QStringEEvRKT_(
+    const QQmlPrivate::AOTCompiledContext *self,
+    const QString *value) {
+  self->setImplicitDestructible<QString>(*value);
 }

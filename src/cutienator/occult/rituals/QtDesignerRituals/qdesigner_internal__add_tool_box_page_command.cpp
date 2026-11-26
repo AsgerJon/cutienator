@@ -98,6 +98,21 @@ using namespace Qt::StringLiterals;
 inline AddToolBoxPageCommand::~AddToolBoxPageCommand() = default;
 }  // namespace qdesigner_internal
 
+//  from ../qttools/src/designer/src/lib/shared/qdesigner_command.cpp, line 945, as _ZN18qdesigner_internal14ToolBoxCommand10removePageEv
+namespace qdesigner_internal {
+using namespace Qt::StringLiterals;
+inline void ToolBoxCommand::removePage()
+{
+    m_toolBox->removeItem(m_index);
+
+    m_widget->hide();
+    m_widget->setParent(formWindow());
+    formWindow()->clearSelection();
+    formWindow()->selectWidget(m_toolBox, true);
+
+}
+}  // namespace qdesigner_internal
+
 //  from ../qttools/src/designer/src/lib/shared/qdesigner_command.cpp, line 956, as _ZN18qdesigner_internal14ToolBoxCommand7addPageEv
 namespace qdesigner_internal {
 using namespace Qt::StringLiterals;
@@ -119,18 +134,18 @@ inline void ToolBoxCommand::addPage()
 }
 }  // namespace qdesigner_internal
 
-//  from ../qttools/src/designer/src/lib/shared/qdesigner_command.cpp, line 945, as _ZN18qdesigner_internal14ToolBoxCommand10removePageEv
+//  from ../qttools/src/designer/src/lib/shared/qdesigner_command.cpp, line 934, as _ZN18qdesigner_internal14ToolBoxCommandD2Ev
 namespace qdesigner_internal {
 using namespace Qt::StringLiterals;
-inline void ToolBoxCommand::removePage()
+inline ToolBoxCommand::~ToolBoxCommand() = default;
+}  // namespace qdesigner_internal
+
+//  from ../qttools/src/designer/src/lib/shared/qdesigner_command.cpp, line 1034, as _ZN18qdesigner_internal21AddToolBoxPageCommandC1EP28QDesignerFormWindowInterface
+namespace qdesigner_internal {
+using namespace Qt::StringLiterals;
+inline AddToolBoxPageCommand::AddToolBoxPageCommand(QDesignerFormWindowInterface *formWindow)
+    : ToolBoxCommand(formWindow)
 {
-    m_toolBox->removeItem(m_index);
-
-    m_widget->hide();
-    m_widget->setParent(formWindow());
-    formWindow()->clearSelection();
-    formWindow()->selectWidget(m_toolBox, true);
-
 }
 }  // namespace qdesigner_internal
 
@@ -267,6 +282,14 @@ public:
   }
 #endif  // QT_CONFIG(undocommand)
 };
+
+//  qdesigner_internal::AddToolBoxPageCommand::AddToolBoxPageCommand(QDesigne
+//      rFormWindowInterface *formWindow)
+extern "C" Q_DECL_EXPORT
+qdesigner_internal::AddToolBoxPageCommand *ritual_ZN18qdesigner_internal21AddToolBoxPageCommandC1EP28QDesignerFormWindowInterface(
+    QDesignerFormWindowInterface *formWindow) {
+  return new Cuteqdesigner_internal_AddToolBoxPageCommand(formWindow);
+}
 
 //  qdesigner_internal::AddToolBoxPageCommand::~AddToolBoxPageCommand()
 extern "C" Q_DECL_EXPORT

@@ -98,6 +98,21 @@ using namespace Qt::StringLiterals;
 inline AddStackedWidgetPageCommand::~AddStackedWidgetPageCommand() = default;
 }  // namespace qdesigner_internal
 
+//  from ../qttools/src/designer/src/lib/shared/qdesigner_command.cpp, line 1249, as _ZN18qdesigner_internal20StackedWidgetCommand10removePageEv
+namespace qdesigner_internal {
+using namespace Qt::StringLiterals;
+inline void StackedWidgetCommand::removePage()
+{
+    m_stackedWidget->removeWidget(m_stackedWidget->widget(m_index));
+
+    m_widget->hide();
+    m_widget->setParent(formWindow());
+
+    formWindow()->clearSelection();
+    formWindow()->selectWidget(m_stackedWidget, true);
+}
+}  // namespace qdesigner_internal
+
 //  from ../qttools/src/designer/src/lib/shared/qdesigner_command.cpp, line 1260, as _ZN18qdesigner_internal20StackedWidgetCommand7addPageEv
 namespace qdesigner_internal {
 using namespace Qt::StringLiterals;
@@ -113,18 +128,18 @@ inline void StackedWidgetCommand::addPage()
 }
 }  // namespace qdesigner_internal
 
-//  from ../qttools/src/designer/src/lib/shared/qdesigner_command.cpp, line 1249, as _ZN18qdesigner_internal20StackedWidgetCommand10removePageEv
+//  from ../qttools/src/designer/src/lib/shared/qdesigner_command.cpp, line 1240, as _ZN18qdesigner_internal20StackedWidgetCommandD2Ev
 namespace qdesigner_internal {
 using namespace Qt::StringLiterals;
-inline void StackedWidgetCommand::removePage()
+inline StackedWidgetCommand::~StackedWidgetCommand() = default;
+}  // namespace qdesigner_internal
+
+//  from ../qttools/src/designer/src/lib/shared/qdesigner_command.cpp, line 1330, as _ZN18qdesigner_internal27AddStackedWidgetPageCommandC1EP28QDesignerFormWindowInterface
+namespace qdesigner_internal {
+using namespace Qt::StringLiterals;
+inline AddStackedWidgetPageCommand::AddStackedWidgetPageCommand(QDesignerFormWindowInterface *formWindow)
+    : StackedWidgetCommand(formWindow)
 {
-    m_stackedWidget->removeWidget(m_stackedWidget->widget(m_index));
-
-    m_widget->hide();
-    m_widget->setParent(formWindow());
-
-    formWindow()->clearSelection();
-    formWindow()->selectWidget(m_stackedWidget, true);
 }
 }  // namespace qdesigner_internal
 
@@ -259,6 +274,14 @@ public:
   }
 #endif  // QT_CONFIG(undocommand)
 };
+
+//  qdesigner_internal::AddStackedWidgetPageCommand::AddStackedWidgetPageComm
+//      and(QDesignerFormWindowInterface *formWindow)
+extern "C" Q_DECL_EXPORT
+qdesigner_internal::AddStackedWidgetPageCommand *ritual_ZN18qdesigner_internal27AddStackedWidgetPageCommandC1EP28QDesignerFormWindowInterface(
+    QDesignerFormWindowInterface *formWindow) {
+  return new Cuteqdesigner_internal_AddStackedWidgetPageCommand(formWindow);
+}
 
 //  qdesigner_internal::AddStackedWidgetPageCommand::~AddStackedWidgetPageCom
 //      mand()

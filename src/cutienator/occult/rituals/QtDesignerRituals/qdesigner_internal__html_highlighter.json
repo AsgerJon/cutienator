@@ -2,7 +2,7 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtDesigner/6.12.0/QtDesigner/private/htmlhighlighter_p.h, Qt",
-    "6.12.0. Changes made here are lost."
+    "6.12.0. Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZNK18qdesigner_internal15HtmlHighlighter10metaObjectEv": [
@@ -13,6 +13,12 @@
     ],
     "ritual_ZN18qdesigner_internal15HtmlHighlighter11qt_metacallEN11QMetaObject4CallEiPPv": [
       "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN18qdesigner_internal15HtmlHighlighter2trEPKcS2_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN18qdesigner_internal15HtmlHighlighterC1EP9QTextEdit": [
+      "address", "address"
     ],
     "ritual_ZN18qdesigner_internal15HtmlHighlighter12setFormatForENS0_9ConstructERK15QTextCharFormat": [
       "nothing", "address", "int", "address"

@@ -109,6 +109,23 @@ inline void StackedWidgetCommand::init(QStackedWidget *stackedWidget)
 }
 }  // namespace qdesigner_internal
 
+//  from ../qttools/src/designer/src/lib/shared/qdesigner_command.cpp, line 1240, as _ZN18qdesigner_internal20StackedWidgetCommandD2Ev
+namespace qdesigner_internal {
+using namespace Qt::StringLiterals;
+inline StackedWidgetCommand::~StackedWidgetCommand() = default;
+}  // namespace qdesigner_internal
+
+//  from ../qttools/src/designer/src/lib/shared/qdesigner_command.cpp, line 1272, as _ZN18qdesigner_internal24MoveStackedWidgetCommandC1EP28QDesignerFormWindowInterface
+namespace qdesigner_internal {
+using namespace Qt::StringLiterals;
+inline MoveStackedWidgetCommand::MoveStackedWidgetCommand(QDesignerFormWindowInterface *formWindow) :
+    StackedWidgetCommand(formWindow),
+    m_newIndex(-1),
+    m_oldIndex(-1)
+{
+}
+}  // namespace qdesigner_internal
+
 //  from ../qttools/src/designer/src/lib/shared/qdesigner_command.cpp, line 1281, as _ZN18qdesigner_internal24MoveStackedWidgetCommand4initEP14QStackedWidgetP7QWidgeti
 namespace qdesigner_internal {
 using namespace Qt::StringLiterals;
@@ -224,6 +241,14 @@ public:
   }
 #endif  // QT_CONFIG(undocommand)
 };
+
+//  qdesigner_internal::MoveStackedWidgetCommand::MoveStackedWidgetCommand(QD
+//      esignerFormWindowInterface *formWindow)
+extern "C" Q_DECL_EXPORT
+qdesigner_internal::MoveStackedWidgetCommand *ritual_ZN18qdesigner_internal24MoveStackedWidgetCommandC1EP28QDesignerFormWindowInterface(
+    QDesignerFormWindowInterface *formWindow) {
+  return new Cuteqdesigner_internal_MoveStackedWidgetCommand(formWindow);
+}
 
 //  qdesigner_internal::MoveStackedWidgetCommand::~MoveStackedWidgetCommand()
 extern "C" Q_DECL_EXPORT

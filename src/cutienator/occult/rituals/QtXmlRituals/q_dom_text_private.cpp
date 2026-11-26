@@ -580,14 +580,6 @@ inline QDomDocumentPrivate* QDomNodePrivate::ownerDocument()
 }
 #endif  // QT_CONFIG(dom)
 
-//  from src/xml/dom/qdom.cpp, line 4861, as _ZN15QDomTextPrivateC1EPS_b
-#if QT_CONFIG(dom)
-inline QDomTextPrivate::QDomTextPrivate(QDomTextPrivate* n, bool deep)
-    : QDomCharacterDataPrivate(n, deep)
-{
-}
-#endif  // QT_CONFIG(dom)
-
 //  from src/xml/dom/qdom.cpp, line 1472, as _ZN15QDomNodePrivate9cloneNodeEb
 #if QT_CONFIG(dom)
 inline QDomNodePrivate* QDomNodePrivate::cloneNode(bool deep)

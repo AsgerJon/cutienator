@@ -2,7 +2,7 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of Qt3DQui",
     "ckScene2D/6.12.0/Qt3DQuickScene2D/private/scene2dmanager_p.h, Qt",
-    "6.12.0. Changes made here are lost."
+    "6.12.0. Edited by hand: see the ritual file."
   ],
   "parts first": [
     "Qt3DQuickScene2D", "Qt3DCore", "Qt3DQuick", "Qt3DRender", "QtCore",
@@ -18,6 +18,12 @@
     ],
     "ritual_ZN10Qt3DRender5Quick14Scene2DManager11qt_metacallEN11QMetaObject4CallEiPPv": [
       "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN10Qt3DRender5Quick14Scene2DManager2trEPKcS3_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN10Qt3DRender5Quick14Scene2DManagerC1EPNS0_15QScene2DPrivateE": [
+      "address", "address"
     ],
     "ritual_ZN10Qt3DRender5Quick14Scene2DManagerD1Ev": [
       "nothing", "address"

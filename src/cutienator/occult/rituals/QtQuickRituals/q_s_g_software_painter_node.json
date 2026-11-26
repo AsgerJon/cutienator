@@ -2,9 +2,12 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtQuick/6.12.0/QtQuick/private/qsgsoftwarepainternode_p.h, Qt",
-    "6.12.0. Changes made here are lost."
+    "6.12.0. Edited by hand: see the ritual file."
   ],
   "rows": {
+    "ritual_ZN22QSGSoftwarePainterNodeC1EP17QQuickPaintedItem": [
+      "address", "address"
+    ],
     "ritual_ZN22QSGSoftwarePainterNodeD1Ev": ["nothing", "address"],
     "ritual_ZN22QSGSoftwarePainterNode24setPreferredRenderTargetEN17QQuickPaintedItem12RenderTargetE": [
       "nothing", "address", "int"
@@ -103,6 +106,7 @@
     "ritual_own_ZNK22QSGSoftwarePainterNode7toImageEv": [
       "address", "address"
     ],
+    "ritual_own_ZN22QSGSoftwarePainterNode6updateEv": ["nothing", "address"],
     "ritual_own_ZNK22QSGSoftwarePainterNode7textureEv": [
       "address", "address"
     ],

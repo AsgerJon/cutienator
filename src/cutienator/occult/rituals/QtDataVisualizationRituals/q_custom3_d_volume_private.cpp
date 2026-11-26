@@ -1,19 +1,33 @@
 //  Written by dev_tooling.RitualGenerator from the records of QtDataVisualiz
 //  ation/6.12.0/QtDataVisualization/private/qcustom3dvolume_p.h, Qt 6.12.0.
-//  Changes made here are lost.
+//  Edited by hand on 2026-11-26: moc's output for 'QCustom3DVolumePrivate'
+//  is pasted in, cut from what the moc of Qt 6.12.0 writes for its header:
+//  Qt's library keeps it to itself; added are 3 rituals that lean on what
+//  moc writes for a class of the part Qt keeps to itself, whose ritual file
+//  carries moc's output, drafted by a copy of the generator that lets those
+//  names through. A copy of a meta-object is a second one: 'qobject_cast'
+//  between it and Qt's own does not match. Kept as it is when the generator
+//  runs again.
 #include <QtDataVisualization/6.12.0/QtDataVisualization/private/datavisualizationglobal_p.h>
 #include <QtDataVisualization/QtDataVisualization>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtDataVisualization/6.12.0/QtDataVisualization/private/qcustom3dvolume_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
+#include <QtGui/qvectornd.h>
+#include <QtGui/qquaternion.h>
 #include <QtGui/qimage.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <QtDataVisualization/private/qcustom3ditem_p.h>
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
 #include <QtDataVisualization/private/qcustom3dvolume_p.h>
 #include <QtDataVisualization/private/utils_p.h>
 #include <QtGui/qquaternion.h>
+#include <QtDataVisualization/private/qcustom3ditem_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -22,6 +36,77 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  from QtDataVisualization__QCustom3DVolumePrivate.cpp, line 1, as moc:QCustom3DVolumePrivate
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN22QCustom3DVolumePrivateE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto QCustom3DVolumePrivate::qt_create_metaobjectdata<qt_meta_tag_ZN22QCustom3DVolumePrivateE_t>()
+{
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "QCustom3DVolumePrivate"
+    };
+
+    QtMocHelpers::UintData qt_methods {
+    };
+    QtMocHelpers::UintData qt_properties {
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    return QtMocHelpers::metaObjectData<QCustom3DVolumePrivate, qt_meta_tag_ZN22QCustom3DVolumePrivateE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums);
+}
+Q_CONSTINIT const QMetaObject QCustom3DVolumePrivate::staticMetaObject = { {
+    QMetaObject::SuperData::link<QCustom3DItemPrivate::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN22QCustom3DVolumePrivateE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN22QCustom3DVolumePrivateE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN22QCustom3DVolumePrivateE_t>.metaTypes,
+    nullptr
+} };
+
+void QCustom3DVolumePrivate::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<QCustom3DVolumePrivate *>(_o);
+    (void)_t;
+    (void)_c;
+    (void)_id;
+    (void)_a;
+}
+
+const QMetaObject *QCustom3DVolumePrivate::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *QCustom3DVolumePrivate::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN22QCustom3DVolumePrivateE_t>.strings))
+        return static_cast<void*>(this);
+    return QCustom3DItemPrivate::qt_metacast(_clname);
+}
+
+int QCustom3DVolumePrivate::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QCustom3DItemPrivate::qt_metacall(_c, _id, _a);
+    return _id;
+}
+QT_WARNING_POP
+
+//  from ../qtdatavis3d/src/datavisualization/data/qcustom3dvolume.cpp, line 1198, as _ZN22QCustom3DVolumePrivateD0Ev
+inline QCustom3DVolumePrivate::~QCustom3DVolumePrivate()
+{
+    delete m_textureData;
+}
 
 //  from ../qtdatavis3d/src/datavisualization/data/qcustom3ditem.cpp, line 460, as _ZN20QCustom3DItemPrivateC2EP13QCustom3DItem
 inline QCustom3DItemPrivate::QCustom3DItemPrivate(QCustom3DItem *q) :
@@ -73,6 +158,72 @@ inline void QCustom3DItemPrivate::resetDirtyBits()
     m_dirtyBits.rotationDirty = false;
     m_dirtyBits.visibleDirty = false;
     m_dirtyBits.shadowCastingDirty = false;
+}
+
+//  from ../qtdatavis3d/src/datavisualization/data/qcustom3dvolume.cpp, line 1134, as _ZN22QCustom3DVolumePrivateC1EP15QCustom3DVolume
+inline QCustom3DVolumePrivate::QCustom3DVolumePrivate(QCustom3DVolume *q) :
+    QCustom3DItemPrivate(q),
+    m_textureWidth(0),
+    m_textureHeight(0),
+    m_textureDepth(0),
+    m_sliceIndexX(-1),
+    m_sliceIndexY(-1),
+    m_sliceIndexZ(-1),
+    m_textureFormat(QImage::Format_ARGB32),
+    m_textureData(0),
+    m_alphaMultiplier(1.0f),
+    m_preserveOpacity(true),
+    m_useHighDefShader(true),
+    m_drawSlices(false),
+    m_drawSliceFrames(false),
+    m_sliceFrameColor(Qt::black),
+    m_sliceFrameWidths(QVector3D(0.01f, 0.01f, 0.01f)),
+    m_sliceFrameGaps(QVector3D(0.01f, 0.01f, 0.01f)),
+    m_sliceFrameThicknesses(QVector3D(0.01f, 0.01f, 0.01f))
+{
+    m_isVolumeItem = true;
+    m_meshFile = QStringLiteral(":/defaultMeshes/barFull");
+}
+
+//  from ../qtdatavis3d/src/datavisualization/data/qcustom3dvolume.cpp, line 1158, as _ZN22QCustom3DVolumePrivateC1EP15QCustom3DVolumeRK9QVector3DS4_RK11QQuaternioniiiP5QListIhEN6QImage6FormatERKS8_IjE
+inline QCustom3DVolumePrivate::QCustom3DVolumePrivate(
+        QCustom3DVolume *q, const QVector3D &position, const QVector3D &scaling,
+        const QQuaternion &rotation, int textureWidth, int textureHeight, int textureDepth,
+        QList<uchar> *textureData, QImage::Format textureFormat, const QList<QRgb> &colorTable)
+    : QCustom3DItemPrivate(q, QStringLiteral(":/defaultMeshes/barFull"), position, scaling,
+                           rotation),
+      m_textureWidth(textureWidth),
+      m_textureHeight(textureHeight),
+      m_textureDepth(textureDepth),
+      m_sliceIndexX(-1),
+      m_sliceIndexY(-1),
+      m_sliceIndexZ(-1),
+      m_textureFormat(textureFormat),
+      m_colorTable(colorTable),
+      m_textureData(textureData),
+      m_alphaMultiplier(1.0f),
+      m_preserveOpacity(true),
+      m_useHighDefShader(true),
+      m_drawSlices(false),
+      m_drawSliceFrames(false),
+      m_sliceFrameColor(Qt::black),
+      m_sliceFrameWidths(QVector3D(0.01f, 0.01f, 0.01f)),
+      m_sliceFrameGaps(QVector3D(0.01f, 0.01f, 0.01f)),
+      m_sliceFrameThicknesses(QVector3D(0.01f, 0.01f, 0.01f))
+{
+    m_isVolumeItem = true;
+    m_shadowCasting = false;
+
+    if (m_textureWidth < 0)
+        m_textureWidth = 0;
+    if (m_textureHeight < 0)
+        m_textureHeight = 0;
+    if (m_textureDepth < 0)
+        m_textureDepth = 0;
+
+    if (m_textureFormat != QImage::Format_Indexed8)
+        m_textureFormat = QImage::Format_ARGB32;
+
 }
 
 //  from ../qtdatavis3d/src/datavisualization/data/qcustom3dvolume.cpp, line 1203, as _ZN22QCustom3DVolumePrivate14resetDirtyBitsEv
@@ -388,6 +539,52 @@ int ritual_ZN22QCustom3DVolumePrivate11qt_metacallEN11QMetaObject4CallEiPPv(
     int a1,
     void **a2) {
   return self->qt_metacall(a0, a1, a2);
+}
+
+//  QString QCustom3DVolumePrivate::tr(const char *s, const char *c, int n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN22QCustom3DVolumePrivate2trEPKcS1_i(
+    const char *s,
+    const char *c,
+    int n) {
+  return new QString(QCustom3DVolumePrivate::tr(s, c, n));
+}
+
+//  QCustom3DVolumePrivate::QCustom3DVolumePrivate(QCustom3DVolume *q)
+extern "C" Q_DECL_EXPORT
+QCustom3DVolumePrivate *ritual_ZN22QCustom3DVolumePrivateC1EP15QCustom3DVolume(
+    QCustom3DVolume *q) {
+  return new CuteQCustom3DVolumePrivate(q);
+}
+
+//  QCustom3DVolumePrivate::QCustom3DVolumePrivate(QCustom3DVolume *q, const
+//      QVector3D &position, const QVector3D &scaling, const QQuaternion
+//      &rotation, int textureWidth, int textureHeight, int textureDepth,
+//      QList<uchar> *textureData, QImage::Format textureFormat, const
+//      QList<QRgb> &colorTable)
+extern "C" Q_DECL_EXPORT
+QCustom3DVolumePrivate *ritual_ZN22QCustom3DVolumePrivateC1EP15QCustom3DVolumeRK9QVector3DS4_RK11QQuaternioniiiP5QListIhEN6QImage6FormatERKS8_IjE(
+    QCustom3DVolume *q,
+    const QVector3D *position,
+    const QVector3D *scaling,
+    const QQuaternion *rotation,
+    int textureWidth,
+    int textureHeight,
+    int textureDepth,
+    QList<uchar> *textureData,
+    QImage::Format textureFormat,
+    const QList<QRgb> *colorTable) {
+  return new CuteQCustom3DVolumePrivate(
+      q,
+      *position,
+      *scaling,
+      *rotation,
+      textureWidth,
+      textureHeight,
+      textureDepth,
+      textureData,
+      textureFormat,
+      *colorTable);
 }
 
 //  QCustom3DVolumePrivate::~QCustom3DVolumePrivate()

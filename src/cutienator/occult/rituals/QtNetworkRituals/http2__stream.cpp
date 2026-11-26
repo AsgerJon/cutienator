@@ -10,6 +10,10 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtNetwork/6.12.0/QtNetwork/private/http2streams_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtNetwork/6.12.0/QtNetwork/private/qhttpnetworkrequest_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtNetwork/private/qhttpnetworkrequest_p.h>
 #include <QtCore/private/qnoncontiguousbytedevice_p.h>
@@ -130,11 +134,119 @@ inline QHttpHeaders QHttpNetworkRequest::header() const
     return d->parser.headers();
 }
 
+//  from src/network/access/qhttpnetworkheader.cpp, line 48, as _ZN25QHttpNetworkHeaderPrivate14setHeaderFieldERK10QByteArrayS2_
+inline void QHttpNetworkHeaderPrivate::setHeaderField(const QByteArray &name, const QByteArray &data)
+{
+    parser.setHeaderField(name, data);
+}
+
+//  from src/network/access/qhttpnetworkheader.cpp, line 29, as _ZN25QHttpNetworkHeaderPrivate16setContentLengthEx
+inline void QHttpNetworkHeaderPrivate::setContentLength(qint64 length)
+{
+    setHeaderField("Content-Length", QByteArray::number(length));
+}
+
+//  from src/network/access/qhttpnetworkheader.cpp, line 12, as _ZN25QHttpNetworkHeaderPrivateC2ERK4QUrl
+inline QHttpNetworkHeaderPrivate::QHttpNetworkHeaderPrivate(const QUrl &newUrl)
+    :url(newUrl)
+{
+}
+
+//  from src/network/access/qhttpnetworkrequest.cpp, line 23, as _ZN26QHttpNetworkRequestPrivateC1ERKS_
+inline QHttpNetworkRequestPrivate::QHttpNetworkRequestPrivate(const QHttpNetworkRequestPrivate &other) // = default
+    : QHttpNetworkHeaderPrivate(other),
+      operation(other.operation),
+      customVerb(other.customVerb),
+      fullLocalServerName(other.fullLocalServerName),
+      priority(other.priority),
+      uploadByteDevice(other.uploadByteDevice),
+      autoDecompress(other.autoDecompress),
+      pipeliningAllowed(other.pipeliningAllowed),
+      http2Allowed(other.http2Allowed),
+      http2Direct(other.http2Direct),
+      h2cAllowed(other.h2cAllowed),
+      withCredentials(other.withCredentials),
+      ssl(other.ssl),
+      preConnect(other.preConnect),
+      needResendWithCredentials(other.needResendWithCredentials),
+      redirectCount(other.redirectCount),
+      redirectPolicy(other.redirectPolicy),
+      peerVerifyName(other.peerVerifyName)
+{
+}
+
+//  from src/network/access/qhttpnetworkheader.cpp, line 34, as _ZNK25QHttpNetworkHeaderPrivate11headerFieldE14QByteArrayViewRK10QByteArray
+inline QByteArray QHttpNetworkHeaderPrivate::headerField(QByteArrayView name, const QByteArray &defaultValue) const
+{
+    QList<QByteArray> allValues = headerFieldValues(name);
+    if (allValues.isEmpty())
+        return defaultValue;
+    else
+        return allValues.join(", ");
+}
+
+//  from src/network/access/qhttpnetworkheader.cpp, line 17, as _ZNK25QHttpNetworkHeaderPrivate13contentLengthEv
+inline qint64 QHttpNetworkHeaderPrivate::contentLength() const
+{
+    bool ok = false;
+    // We are not using the headerField() method here because servers might send us multiple content-length
+    // headers which is crap (see QTBUG-15311). Therefore just take the first content-length header field.
+    QByteArray value = parser.firstHeaderField("content-length");
+    qint64 length = value.toULongLong(&ok);
+    if (ok)
+        return length;
+    return -1; // the header field is not set
+}
+
+//  from src/network/access/qhttpnetworkheader.cpp, line 43, as _ZNK25QHttpNetworkHeaderPrivate17headerFieldValuesE14QByteArrayView
+inline QList<QByteArray> QHttpNetworkHeaderPrivate::headerFieldValues(QByteArrayView name) const
+{
+    return parser.headerFieldValues(name);
+}
+
+//  from src/network/access/http2/http2streams.cpp, line 17, as _ZN5Http26StreamC1Ev
+namespace Http2 {
+inline Stream::Stream()
+{
+}
+}  // namespace Http2
+
+//  from src/network/access/http2/http2streams.cpp, line 21, as _ZN5Http26StreamC1ERKSt4pairI19QHttpNetworkRequestP17QHttpNetworkReplyEjii
+namespace Http2 {
+inline Stream::Stream(const HttpMessagePair &message, quint32 id, qint32 sendSize, qint32 recvSize)
+    : httpPair(message),
+      streamID(id),
+      sendWindow(sendSize),
+      recvWindow(recvSize)
+{
+}
+}  // namespace Http2
+
+//  from src/network/access/http2/http2streams.cpp, line 29, as _ZN5Http26StreamC1ERK7QStringji
+namespace Http2 {
+inline Stream::Stream(const QString &cacheKey, quint32 id, qint32 recvSize)
+    : streamID(id),
+      // sendWindow is 0, this stream only receives data
+      recvWindow(recvSize),
+      state(remoteReserved),
+      key(cacheKey)
+{
+}
+}  // namespace Http2
+
 //  from src/network/access/http2/http2streams.cpp, line 38, as _ZNK5Http26Stream5replyEv
 namespace Http2 {
 inline QHttpNetworkReply *Stream::reply() const
 {
     return httpPair.second;
+}
+}  // namespace Http2
+
+//  from src/network/access/http2/http2streams.cpp, line 43, as _ZNK5Http26Stream7requestEv
+namespace Http2 {
+inline const QHttpNetworkRequest &Stream::request() const
+{
+    return httpPair.first;
 }
 }  // namespace Http2
 
@@ -179,11 +291,45 @@ inline QNonContiguousByteDevice *Stream::data() const
 }  // namespace Http2
 //  -----------------------------------------------------------------------
 
+//  Http2::Stream::Stream()
+extern "C" Q_DECL_EXPORT
+Http2::Stream *ritual_ZN5Http26StreamC1Ev() {
+  return new Http2::Stream();
+}
+
+//  Http2::Stream::Stream(const HttpMessagePair &message, quint32 streamID,
+//      qint32 sendSize, qint32 recvSize)
+extern "C" Q_DECL_EXPORT
+Http2::Stream *ritual_ZN5Http26StreamC1ERKSt4pairI19QHttpNetworkRequestP17QHttpNetworkReplyEjii(
+    const HttpMessagePair *message,
+    quint32 streamID,
+    qint32 sendSize,
+    qint32 recvSize) {
+  return new Http2::Stream(*message, streamID, sendSize, recvSize);
+}
+
+//  Http2::Stream::Stream(const QString &key, quint32 streamID, qint32
+//      recvSize)
+extern "C" Q_DECL_EXPORT
+Http2::Stream *ritual_ZN5Http26StreamC1ERK7QStringji(
+    const QString *key,
+    quint32 streamID,
+    qint32 recvSize) {
+  return new Http2::Stream(*key, streamID, recvSize);
+}
+
 //  QHttpNetworkReply *Http2::Stream::reply() const
 extern "C" Q_DECL_EXPORT
 QHttpNetworkReply *ritual_ZNK5Http26Stream5replyEv(
     const Http2::Stream *self) {
   return self->reply();
+}
+
+//  const QHttpNetworkRequest &Http2::Stream::request() const
+extern "C" Q_DECL_EXPORT
+QHttpNetworkRequest *ritual_ZNK5Http26Stream7requestEv(
+    const Http2::Stream *self) {
+  return new QHttpNetworkRequest(self->request());
 }
 
 //  QHttpNetworkRequest &Http2::Stream::request()
@@ -210,6 +356,12 @@ extern "C" Q_DECL_EXPORT
 QNonContiguousByteDevice *ritual_ZNK5Http26Stream4dataEv(
     const Http2::Stream *self) {
   return self->data();
+}
+
+//  Http2::Stream::~Stream()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN5Http26StreamD1Ev(Http2::Stream *self) {
+  delete self;
 }
 
 #endif  // QT_CONFIG(http)

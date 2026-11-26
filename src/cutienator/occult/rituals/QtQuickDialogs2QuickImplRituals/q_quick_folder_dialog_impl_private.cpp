@@ -8,13 +8,9 @@
 #include <QtQuickDialogs2QuickImpl/6.12.0/QtQuickDialogs2QuickImpl/private/qtquickdialogs2quickimplglobal_p.h>
 #if QT_CONFIG(quick_listview) && QT_CONFIG(quick_draganddrop)
 #include <QtQuickDialogs2QuickImpl/6.12.0/QtQuickDialogs2QuickImpl/private/qtquickdialogs2quickimplglobal_p.h>
-#if QT_CONFIG(quick_listview) && QT_CONFIG(quick_draganddrop)
 #include <QtQuickDialogs2QuickImpl/QtQuickDialogs2QuickImpl>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQuickDialogs2QuickImpl/6.12.0/QtQuickDialogs2QuickImpl/private/qquickfolderdialogimpl_p.h>
-#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
-#endif
-#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQuickDialogs2QuickImpl/6.12.0/QtQuickDialogs2QuickImpl/private/qquickfolderdialogimpl_p_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
@@ -37,6 +33,22 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  from ../qtdeclarative/src/quickdialogs/quickdialogsquickimpl/qquickfolderdialogimpl.cpp, line 127, as _ZN29QQuickFolderDialogImplPrivate11handleClickEP20QQuickAbstractButton
+inline void QQuickFolderDialogImplPrivate::handleClick(QQuickAbstractButton *button)
+{
+    Q_Q(QQuickFolderDialogImpl);
+    if (buttonRole(button) == QPlatformDialogHelper::AcceptRole && selectedFolder.isValid()) {
+        q->setSelectedFolder(selectedFolder);
+        q->accept();
+    }
+}
+
+//  from ../qtdeclarative/src/quickdialogs/quickdialogsquickimpl/qquickfolderdialogimpl.cpp, line 122, as _ZN29QQuickFolderDialogImplPrivate12handleAcceptEv
+inline void QQuickFolderDialogImplPrivate::handleAccept()
+{
+    // Let handleClick take care of calling accept().
+}
 
 //  from ../qtdeclarative/src/quickdialogs/quickdialogsquickimpl/qquickfolderdialogimpl.cpp, line 20, as _ZN29QQuickFolderDialogImplPrivateC1Ev
 inline QQuickFolderDialogImplPrivate::QQuickFolderDialogImplPrivate()
@@ -144,22 +156,6 @@ inline void QQuickFolderDialogImplPrivate::updateSelectedFolder(const QString &o
     if (folderSelected) {
         if (QQuickItem *currentItem = attached->folderDialogListView()->currentItem())
             currentItem->forceActiveFocus();
-    }
-}
-
-//  from ../qtdeclarative/src/quickdialogs/quickdialogsquickimpl/qquickfolderdialogimpl.cpp, line 122, as _ZN29QQuickFolderDialogImplPrivate12handleAcceptEv
-inline void QQuickFolderDialogImplPrivate::handleAccept()
-{
-    // Let handleClick take care of calling accept().
-}
-
-//  from ../qtdeclarative/src/quickdialogs/quickdialogsquickimpl/qquickfolderdialogimpl.cpp, line 127, as _ZN29QQuickFolderDialogImplPrivate11handleClickEP20QQuickAbstractButton
-inline void QQuickFolderDialogImplPrivate::handleClick(QQuickAbstractButton *button)
-{
-    Q_Q(QQuickFolderDialogImpl);
-    if (buttonRole(button) == QPlatformDialogHelper::AcceptRole && selectedFolder.isValid()) {
-        q->setSelectedFolder(selectedFolder);
-        q->accept();
     }
 }
 //  -----------------------------------------------------------------------

@@ -70,6 +70,25 @@ inline void QTextTablePrivate::fragmentRemoved(QChar type, uint fragment)
     QTextFramePrivate::fragmentRemoved(type, fragment);
 }
 
+//  from src/gui/text/qtextobject.cpp, line 491, as _ZN17QTextFramePrivate13fragmentAddedE5QCharj
+inline void QTextFramePrivate::fragmentAdded(QChar type, uint fragment)
+{
+    if (type == QTextBeginningOfFrame) {
+        Q_ASSERT(!fragment_start);
+        fragment_start = fragment;
+    } else if (type == QTextEndOfFrame) {
+        Q_ASSERT(!fragment_end);
+        fragment_end = fragment;
+    } else if (type == QChar::ObjectReplacementCharacter) {
+        Q_ASSERT(!fragment_start);
+        Q_ASSERT(!fragment_end);
+        fragment_start = fragment;
+        fragment_end = fragment;
+    } else {
+        Q_ASSERT(false);
+    }
+}
+
 //  from src/gui/text/qtextobject.cpp, line 509, as _ZN17QTextFramePrivate15fragmentRemovedE5QCharj
 inline void QTextFramePrivate::fragmentRemoved(QChar type, uint fragment)
 {

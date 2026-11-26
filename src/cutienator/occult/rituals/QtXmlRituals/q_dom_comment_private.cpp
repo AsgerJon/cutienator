@@ -513,14 +513,6 @@ inline QDomCharacterDataPrivate::QDomCharacterDataPrivate(QDomCharacterDataPriva
 }
 #endif  // QT_CONFIG(dom)
 
-//  from src/xml/dom/qdom.cpp, line 4998, as _ZN18QDomCommentPrivateC1EPS_b
-#if QT_CONFIG(dom)
-inline QDomCommentPrivate::QDomCommentPrivate(QDomCommentPrivate* n, bool deep)
-    : QDomCharacterDataPrivate(n, deep)
-{
-}
-#endif  // QT_CONFIG(dom)
-
 //  from src/xml/dom/qdom.cpp, line 1460, as _ZN15QDomNodePrivate13ownerDocumentEv
 #if QT_CONFIG(dom)
 inline QDomDocumentPrivate* QDomNodePrivate::ownerDocument()

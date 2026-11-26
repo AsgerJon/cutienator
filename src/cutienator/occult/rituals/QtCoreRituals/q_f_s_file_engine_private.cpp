@@ -507,6 +507,15 @@ inline qint64 QFSFileEnginePrivate::readLineFdFh(char *data, qint64 maxlen)
 #endif  // defined(Q_OS_LINUX)
 #endif  // !defined(QT_NO_FSFILEENGINE)
 
+//  from src/corelib/io/qfsfileengine.cpp, line 80, as _ZN20QFSFileEnginePrivateC1EP19QAbstractFileEngine
+#if !defined(QT_NO_FSFILEENGINE)
+inline QFSFileEnginePrivate::QFSFileEnginePrivate(QAbstractFileEngine *q)
+    : QAbstractFileEnginePrivate(q)
+{
+    init();
+}
+#endif  // !defined(QT_NO_FSFILEENGINE)
+
 //  from src/corelib/io/qfsfileengine.cpp, line 89, as _ZN20QFSFileEnginePrivate4initEv
 #if !defined(QT_NO_FSFILEENGINE)
 #if defined(Q_OS_LINUX)
@@ -640,6 +649,17 @@ int ritual_ZN20QFSFileEnginePrivate19openModeToOpenFlagsE6QFlagsIN13QIODeviceBas
       QFlags<QIODeviceBase::OpenModeFlag>::fromInt(mode));
 }
 #endif  // defined(Q_OS_UNIX)
+
+#if !defined(QT_NO_FSFILEENGINE)
+#if defined(Q_OS_LINUX)
+//  QFSFileEnginePrivate::QFSFileEnginePrivate(QAbstractFileEngine *q)
+extern "C" Q_DECL_EXPORT
+QFSFileEnginePrivate *ritual_ZN20QFSFileEnginePrivateC1EP19QAbstractFileEngine(
+    QAbstractFileEngine *q) {
+  return new QFSFileEnginePrivate(q);
+}
+#endif  // defined(Q_OS_LINUX)
+#endif  // !defined(QT_NO_FSFILEENGINE)
 
 #if !defined(QT_NO_FSFILEENGINE)
 #if defined(Q_OS_LINUX)

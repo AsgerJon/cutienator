@@ -2,7 +2,7 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of QtRemot",
     "eObjects/6.12.0/QtRemoteObjects/private/qconnection_local_backend_",
-    "p.h, Qt 6.12.0. Changes made here are lost."
+    "p.h, Qt 6.12.0. Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZNK15LocalServerImpl10metaObjectEv": ["address", "address"],
@@ -12,6 +12,10 @@
     "ritual_ZN15LocalServerImpl11qt_metacallEN11QMetaObject4CallEiPPv": [
       "int", "address", "int", "int", "address"
     ],
+    "ritual_ZN15LocalServerImpl2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN15LocalServerImplC1EP7QObject": ["address", "address"],
     "ritual_ZN15LocalServerImplD1Ev": ["nothing", "address"],
     "ritual_ZNK15LocalServerImpl21hasPendingConnectionsEv": [
       "bool", "address"
@@ -31,6 +35,9 @@
     "ritual_take_LocalServerImpl": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK15LocalServerImpl21hasPendingConnectionsEv": [
       "bool", "address"
+    ],
+    "ritual_own_ZN15LocalServerImpl22configureNewConnectionEv": [
+      "address", "address"
     ],
     "ritual_own_ZNK15LocalServerImpl7addressEv": ["address", "address"],
     "ritual_own_ZN15LocalServerImpl6listenERK4QUrl": [

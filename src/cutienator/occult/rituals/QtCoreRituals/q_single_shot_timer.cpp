@@ -1,14 +1,26 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtCore/6.12.0/QtCore/private/qsingleshottimer_p.h, Qt 6.12.0. Changes
-//  made here are lost.
+//  QtCore/6.12.0/QtCore/private/qsingleshottimer_p.h, Qt 6.12.0.
+//  Edited by hand on 2026-11-26: moc's output for 'QSingleShotTimer' is
+//  pasted in, cut from what the moc of Qt 6.12.0 writes for its header: Qt's
+//  library keeps it to itself; added are 5 rituals that lean on what moc
+//  writes for a class of the part Qt keeps to itself, whose ritual file
+//  carries moc's output, drafted by a copy of the generator that lets those
+//  names through. A copy of a meta-object is a second one: 'qobject_cast'
+//  between it and Qt's own does not match. Kept as it is when the generator
+//  runs again.
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtCore/QtCore>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/6.12.0/QtCore/private/qsingleshottimer_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
 #include <QtCore/private/qsingleshottimer_p.h>
 #include <QtCore/qcoreapplication.h>
 #include <QtCore/private/qmetaobject_p.h>
@@ -22,6 +34,99 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  from QtCore__QSingleShotTimer.cpp, line 1, as moc:QSingleShotTimer
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN16QSingleShotTimerE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto QSingleShotTimer::qt_create_metaobjectdata<qt_meta_tag_ZN16QSingleShotTimerE_t>()
+{
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "QSingleShotTimer",
+        "timeout",
+        ""
+    };
+
+    QtMocHelpers::UintData qt_methods {
+        // Signal 'timeout'
+        QtMocHelpers::SignalData<void()>(1, 2, QMC::AccessPublic, QMetaType::Void),
+    };
+    QtMocHelpers::UintData qt_properties {
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    return QtMocHelpers::metaObjectData<QSingleShotTimer, qt_meta_tag_ZN16QSingleShotTimerE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums);
+}
+Q_CONSTINIT const QMetaObject QSingleShotTimer::staticMetaObject = { {
+    QMetaObject::SuperData::link<QObject::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN16QSingleShotTimerE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN16QSingleShotTimerE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN16QSingleShotTimerE_t>.metaTypes,
+    nullptr
+} };
+
+void QSingleShotTimer::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<QSingleShotTimer *>(_o);
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        switch (_id) {
+        case 0: _t->timeout(); break;
+        default: ;
+        }
+    }
+    if (_c == QMetaObject::IndexOfMethod) {
+        if (QtMocHelpers::indexOfMethod<void (QSingleShotTimer::*)()>(_a, &QSingleShotTimer::timeout, 0))
+            return;
+    }
+}
+
+const QMetaObject *QSingleShotTimer::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *QSingleShotTimer::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN16QSingleShotTimerE_t>.strings))
+        return static_cast<void*>(this);
+    return QObject::qt_metacast(_clname);
+}
+
+int QSingleShotTimer::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QObject::qt_metacall(_c, _id, _a);
+    if (_id < 0)
+        return _id;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        if (_id < 1)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 1;
+    }
+    if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        if (_id < 1)
+            *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
+        _id -= 1;
+    }
+    return _id;
+}
+
+// SIGNAL 0
+void QSingleShotTimer::timeout()
+{
+    QMetaObject::activate(this, &staticMetaObject, 0, nullptr);
+}
+QT_WARNING_POP
 
 //  from src/corelib/kernel/qsingleshottimer.cpp, line 67, as _ZN16QSingleShotTimer10timerEventEP11QTimerEvent
 inline void QSingleShotTimer::timerEvent(QTimerEvent *event)
@@ -46,11 +151,29 @@ inline void QSingleShotTimer::timerEvent(QTimerEvent *event)
     }
 }
 
-//  from src/corelib/kernel/qsingleshottimer.cpp, line 61, as _ZN16QSingleShotTimer13timerFinishedEv
-inline void QSingleShotTimer::timerFinished()
+//  from src/corelib/kernel/qsingleshottimer.cpp, line 35, as _ZN16QSingleShotTimerD0Ev
+inline QSingleShotTimer::~QSingleShotTimer() = default;
+
+//  from src/corelib/kernel/qsingleshottimer.cpp, line 15, as _ZN16QSingleShotTimerC1ENSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEN2Qt9TimerTypeEPK7QObjectPKc
+inline QSingleShotTimer::QSingleShotTimer(Duration interval, Qt::TimerType timerType,
+                                   const QObject *r, const char *member)
+    : QObject(QAbstractEventDispatcher::instance())
 {
-    Q_EMIT timeout();
-    delete this;
+    connect(this, SIGNAL(timeout()), r, member);
+    startTimerForReceiver(interval, timerType, r);
+}
+
+//  from src/corelib/kernel/qsingleshottimer.cpp, line 23, as _ZN16QSingleShotTimerC1ENSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEN2Qt9TimerTypeEPK7QObjectPN9QtPrivate15QSlotObjectBaseE
+inline QSingleShotTimer::QSingleShotTimer(Duration interval, Qt::TimerType timerType,
+                                   const QObject *r, QtPrivate::QSlotObjectBase *slotObj)
+    : QObject(QAbstractEventDispatcher::instance())
+{
+    int signal_index = QMetaObjectPrivate::signalOffset(&staticMetaObject);
+    Q_ASSERT(QMetaObjectPrivate::signal(&staticMetaObject, signal_index).name() == "timeout");
+    QObjectPrivate::connectImpl(this, signal_index, r ? r : this, nullptr, slotObj,
+                                Qt::AutoConnection, nullptr, &staticMetaObject);
+
+    startTimerForReceiver(interval, timerType, r);
 }
 
 //  from src/corelib/kernel/qsingleshottimer.cpp, line 42, as _ZN16QSingleShotTimer21startTimerForReceiverENSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEN2Qt9TimerTypeEPK7QObject
@@ -71,6 +194,13 @@ inline void QSingleShotTimer::startTimerForReceiver(Duration interval, Qt::Timer
     } else {
         timer.start(interval, timerType, this);
     }
+}
+
+//  from src/corelib/kernel/qsingleshottimer.cpp, line 61, as _ZN16QSingleShotTimer13timerFinishedEv
+inline void QSingleShotTimer::timerFinished()
+{
+    Q_EMIT timeout();
+    delete this;
 }
 //  -----------------------------------------------------------------------
 
@@ -267,6 +397,45 @@ int ritual_ZN16QSingleShotTimer11qt_metacallEN11QMetaObject4CallEiPPv(
   return self->qt_metacall(a0, a1, a2);
 }
 
+//  QString QSingleShotTimer::tr(const char *s, const char *c, int n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN16QSingleShotTimer2trEPKcS1_i(
+    const char *s,
+    const char *c,
+    int n) {
+  return new QString(QSingleShotTimer::tr(s, c, n));
+}
+
+//  QSingleShotTimer::QSingleShotTimer(Duration interval, Qt::TimerType
+//      timerType, const QObject *r, const char *member)
+extern "C" Q_DECL_EXPORT
+QSingleShotTimer *ritual_ZN16QSingleShotTimerC1ENSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEN2Qt9TimerTypeEPK7QObjectPKc(
+    long long interval,
+    Qt::TimerType timerType,
+    const QObject *r,
+    const char *member) {
+  return new CuteQSingleShotTimer(
+      QSingleShotTimer::Duration(interval),
+      timerType,
+      r,
+      member);
+}
+
+//  QSingleShotTimer::QSingleShotTimer(Duration interval, Qt::TimerType
+//      timerType, const QObject *r, QtPrivate::QSlotObjectBase *slotObj)
+extern "C" Q_DECL_EXPORT
+QSingleShotTimer *ritual_ZN16QSingleShotTimerC1ENSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEN2Qt9TimerTypeEPK7QObjectPN9QtPrivate15QSlotObjectBaseE(
+    long long interval,
+    Qt::TimerType timerType,
+    const QObject *r,
+    QtPrivate::QSlotObjectBase *slotObj) {
+  return new CuteQSingleShotTimer(
+      QSingleShotTimer::Duration(interval),
+      timerType,
+      r,
+      slotObj);
+}
+
 //  QSingleShotTimer::~QSingleShotTimer()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN16QSingleShotTimerD1Ev(QSingleShotTimer *self) {
@@ -311,6 +480,12 @@ void ritual_ZN16QSingleShotTimer7timeoutEv(QSingleShotTimer *self) {
       QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
+//  void QSingleShotTimer::timerFinished()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QSingleShotTimer13timerFinishedEv(QSingleShotTimer *self) {
+  self->timerFinished();
+}
+
 //  void QSingleShotTimer::timerEvent(QTimerEvent *a0)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN16QSingleShotTimer10timerEventEP11QTimerEvent(
@@ -327,4 +502,12 @@ bool ritual_take_QSingleShotTimer(
     const char *key,
     void *call) {
   return static_cast<CuteQSingleShotTimer *>(self)->take(key, call);
+}
+
+//  void QSingleShotTimer::timerEvent(QTimerEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN16QSingleShotTimer10timerEventEP11QTimerEvent(
+    QSingleShotTimer *self,
+    QTimerEvent *a0) {
+  self->QSingleShotTimer::timerEvent(a0);
 }

@@ -7,6 +7,7 @@
   "rows": {
     "ritual_ZN18QSctpServerPrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK18QSctpServerPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN18QSctpServerPrivateC1Ev": ["address"],
     "ritual_ZN18QSctpServerPrivateD1Ev": ["nothing", "address"],
     "ritual_ZN18QSctpServerPrivate22configureCreatedSocketEv": [
       "nothing", "address"

@@ -1,6 +1,13 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtWidgets/6.12.0/QtWidgets/private/qtablewidget_p.h, Qt 6.12.0. Changes
-//  made here are lost.
+//  QtWidgets/6.12.0/QtWidgets/private/qtablewidget_p.h, Qt 6.12.0.
+//  Edited by hand on 2026-11-26: moc's output for 'QTableModel' is pasted
+//  in, cut from what the moc of Qt 6.12.0 writes for its header: Qt's
+//  library keeps it to itself; added are 2 rituals that lean on what moc
+//  writes for a class of the part Qt keeps to itself, whose ritual file
+//  carries moc's output, drafted by a copy of the generator that lets those
+//  names through. A copy of a meta-object is a second one: 'qobject_cast'
+//  between it and Qt's own does not match. Kept as it is when the generator
+//  runs again.
 #include <QtCore/qglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
@@ -11,10 +18,10 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtWidgets/6.12.0/QtWidgets/private/qtablewidget_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 #include <QtCore/qabstractitemmodel.h>
 #include <QtCore/qvariant.h>
 #include <QtWidgets/qtablewidget.h>
-#include <QtCore/qstring.h>
 #include <QtCore/qsize.h>
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
@@ -25,6 +32,10 @@
 #include <QtCore/QList>
 #include <QtWidgets/QTableWidgetItem>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
 #include <QtWidgets/qtablewidget.h>
 #include <QtGui/qpainter.h>
 #include <QtWidgets/private/qtablewidget_p.h>
@@ -37,6 +48,71 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  from QtWidgets__QTableModel.cpp, line 1, as moc:QTableModel
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN11QTableModelE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto QTableModel::qt_create_metaobjectdata<qt_meta_tag_ZN11QTableModelE_t>()
+{
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "QTableModel"
+    };
+
+    QtMocHelpers::UintData qt_methods {
+    };
+    QtMocHelpers::UintData qt_properties {
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    return QtMocHelpers::metaObjectData<QTableModel, qt_meta_tag_ZN11QTableModelE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums);
+}
+Q_CONSTINIT const QMetaObject QTableModel::staticMetaObject = { {
+    QMetaObject::SuperData::link<QAbstractTableModel::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN11QTableModelE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN11QTableModelE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN11QTableModelE_t>.metaTypes,
+    nullptr
+} };
+
+void QTableModel::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<QTableModel *>(_o);
+    (void)_t;
+    (void)_c;
+    (void)_id;
+    (void)_a;
+}
+
+const QMetaObject *QTableModel::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *QTableModel::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN11QTableModelE_t>.strings))
+        return static_cast<void*>(this);
+    return QAbstractTableModel::qt_metacast(_clname);
+}
+
+int QTableModel::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QAbstractTableModel::qt_metacall(_c, _id, _a);
+    return _id;
+}
+QT_WARNING_POP
 
 //  from src/widgets/itemviews/qtablewidget.cpp, line 28, as _ZN11QTableModel10insertRowsEiiRK11QModelIndex
 inline bool QTableModel::insertRows(int row, int count, const QModelIndex &)
@@ -81,6 +157,78 @@ inline bool QTableModel::removeRows(int row, int count, const QModelIndex &)
     }
     verticalHeaderItems.remove(row, count);
     endRemoveRows();
+    return true;
+}
+
+//  from src/widgets/itemviews/qtablewidget.cpp, line 433, as _ZN11QTableModel11setItemDataERK11QModelIndexRK4QMapIi8QVariantE
+inline bool QTableModel::setItemData(const QModelIndex &index, const QMap<int, QVariant> &roles)
+{
+    if (!index.isValid())
+        return false;
+
+    QTableWidget *view = this->view();
+    QTableWidgetItem *itm = item(index);
+    if (itm) {
+        itm->view = nullptr; // prohibits item from calling itemChanged()
+        QList<int> rolesVec;
+        for (QMap<int, QVariant>::ConstIterator it = roles.constBegin(); it != roles.constEnd(); ++it) {
+            const int role = (it.key() == Qt::EditRole ? Qt::DisplayRole : it.key());
+            if (itm->data(role) != it.value()) {
+                itm->setData(role, it.value());
+                rolesVec += role;
+                if (role == Qt::DisplayRole)
+                    rolesVec += Qt::EditRole;
+            }
+        }
+        itm->view = view;
+        if (!rolesVec.isEmpty())
+            itemChanged(itm, rolesVec);
+        return true;
+    }
+
+    if (!view)
+        return false;
+
+    itm = createItem();
+    for (QMap<int, QVariant>::ConstIterator it = roles.constBegin(); it != roles.constEnd(); ++it)
+        itm->setData(it.key(), it.value());
+    view->setItem(index.row(), index.column(), itm);
+    return true;
+}
+
+//  from src/widgets/itemviews/qtablewidget.cpp, line 849, as _ZN11QTableModel12dropMimeDataEPK9QMimeDataN2Qt10DropActionEiiRK11QModelIndex
+inline bool QTableModel::dropMimeData(const QMimeData *data, Qt::DropAction action,
+                              int row , int column, const QModelIndex &index)
+{
+    if (index.isValid()) {
+        row = index.row();
+        column = index.column();
+    } else if (row == -1 || column == -1) { // The user dropped outside the table.
+        row = rowCount();
+        column = 0;
+    } else { // The user dropped between two rows
+        // This means inserting a row, which only makes sense at column 0
+        column = 0;
+    }
+
+    QTableWidget *view = this->view();
+    return (view ? view->dropMimeData(row, column, data, action) : false);
+}
+
+//  from src/widgets/itemviews/qtablewidget.cpp, line 468, as _ZN11QTableModel13clearItemDataERK11QModelIndex
+inline bool QTableModel::clearItemData(const QModelIndex &index)
+{
+    if (!checkIndex(index, CheckIndexOption::IndexIsValid))
+        return false;
+    QTableWidgetItem *itm = item(index);
+    if (!itm)
+        return false;
+    const auto beginIter = itm->values.cbegin();
+    const auto endIter = itm->values.cend();
+    if (std::all_of(beginIter, endIter, [](const QWidgetItemData& data) -> bool { return !data.value.isValid(); }))
+        return true; //it's already cleared
+    itm->values.clear();
+    emit dataChanged(index, index, QList<int> {});
     return true;
 }
 
@@ -132,132 +280,6 @@ inline bool QTableModel::removeColumns(int column, int count, const QModelIndex 
     return true;
 }
 
-//  from src/widgets/itemviews/qtablewidget.cpp, line 118, as _ZN11QTableModel8moveRowsERK11QModelIndexiiS2_i
-inline bool QTableModel::moveRows(const QModelIndex &sourceParent, int sourceRow, int count, const QModelIndex &destinationParent, int destinationChild)
-{
-    if (sourceRow < 0
-        || sourceRow + count - 1 >= rowCount(sourceParent)
-        || destinationChild < 0
-        || destinationChild > rowCount(destinationParent)
-        || sourceRow == destinationChild
-        || sourceRow == destinationChild - 1
-        || count <= 0
-        || sourceParent.isValid()
-        || destinationParent.isValid()) {
-        return false;
-    }
-    if (!beginMoveRows(sourceParent, sourceRow, sourceRow + count - 1, destinationParent, destinationChild))
-        return false;
-
-    // Table items
-    int numItems = count * columnCount();
-    int fromIndex = tableIndex(sourceRow, 0);
-    int destinationIndex = tableIndex(destinationChild, 0);
-    if (destinationChild < sourceRow)
-        fromIndex += numItems - 1;
-    else
-        destinationIndex--;
-    while (numItems--)
-        tableItems.move(fromIndex, destinationIndex);
-
-    // Header items
-    int fromRow = sourceRow;
-    if (destinationChild < sourceRow)
-        fromRow += count - 1;
-    else
-        destinationChild--;
-    while (count--)
-        verticalHeaderItems.move(fromRow, destinationChild);
-
-    endMoveRows();
-    return true;
-}
-
-//  from src/widgets/itemviews/qtablewidget.cpp, line 376, as _ZNK11QTableModel8rowCountERK11QModelIndex
-inline int QTableModel::rowCount(const QModelIndex &parent) const
-{
-    return parent.isValid() ? 0 : verticalHeaderItems.size();
-}
-
-//  from src/widgets/itemviews/qtablewidget.cpp, line 381, as _ZNK11QTableModel11columnCountERK11QModelIndex
-inline int QTableModel::columnCount(const QModelIndex &parent) const
-{
-    return parent.isValid() ? 0 : horizontalHeaderItems.size();
-}
-
-//  from src/widgets/itemviews/qtablewidget.cpp, line 386, as _ZNK11QTableModel4dataERK11QModelIndexi
-inline QVariant QTableModel::data(const QModelIndex &index, int role) const
-{
-    QTableWidgetItem *itm = item(index);
-    if (itm)
-        return itm->data(role);
-    return QVariant();
-}
-
-//  from src/widgets/itemviews/qtablewidget.cpp, line 394, as _ZN11QTableModel7setDataERK11QModelIndexRK8QVarianti
-inline bool QTableModel::setData(const QModelIndex &index, const QVariant &value, int role)
-{
-    if (!index.isValid())
-        return false;
-
-    QTableWidgetItem *itm = item(index);
-    if (itm) {
-        itm->setData(role, value);
-        return true;
-    }
-
-    // don't create dummy table items for empty values
-    if (!value.isValid())
-        return false;
-
-    QTableWidget *view = this->view();
-    if (!view)
-        return false;
-
-    itm = createItem();
-    itm->setData(role, value);
-    view->setItem(index.row(), index.column(), itm);
-    return true;
-}
-
-//  from src/widgets/itemviews/qtablewidget.cpp, line 468, as _ZN11QTableModel13clearItemDataERK11QModelIndex
-inline bool QTableModel::clearItemData(const QModelIndex &index)
-{
-    if (!checkIndex(index, CheckIndexOption::IndexIsValid))
-        return false;
-    QTableWidgetItem *itm = item(index);
-    if (!itm)
-        return false;
-    const auto beginIter = itm->values.cbegin();
-    const auto endIter = itm->values.cend();
-    if (std::all_of(beginIter, endIter, [](const QWidgetItemData& data) -> bool { return !data.value.isValid(); }))
-        return true; //it's already cleared
-    itm->values.clear();
-    emit dataChanged(index, index, QList<int> {});
-    return true;
-}
-
-//  from src/widgets/itemviews/qtablewidget.cpp, line 702, as _ZNK11QTableModel10headerDataEiN2Qt11OrientationEi
-inline QVariant QTableModel::headerData(int section, Qt::Orientation orientation, int role) const
-{
-    if (section < 0)
-        return QVariant();
-
-    QTableWidgetItem *itm = nullptr;
-    if (orientation == Qt::Horizontal && section < horizontalHeaderItems.size())
-        itm = horizontalHeaderItems.at(section);
-    else if (orientation == Qt::Vertical && section < verticalHeaderItems.size())
-        itm = verticalHeaderItems.at(section);
-    else
-        return QVariant(); // section is out of bounds
-
-    if (itm)
-        return itm->data(role);
-    if (role == Qt::DisplayRole)
-        return section + 1;
-    return QVariant();
-}
-
 //  from src/widgets/itemviews/qtablewidget.cpp, line 722, as _ZN11QTableModel13setHeaderDataEiN2Qt11OrientationERK8QVarianti
 inline bool QTableModel::setHeaderData(int section, Qt::Orientation orientation,
                                 const QVariant &value, int role)
@@ -277,21 +299,6 @@ inline bool QTableModel::setHeaderData(int section, Qt::Orientation orientation,
         return true;
     }
     return false;
-}
-
-//  from src/widgets/itemviews/qtablewidget.cpp, line 484, as _ZNK11QTableModel5flagsERK11QModelIndex
-inline Qt::ItemFlags QTableModel::flags(const QModelIndex &index) const
-{
-    if (!index.isValid())
-        return Qt::ItemIsDropEnabled;
-    if (QTableWidgetItem *itm = item(index))
-        return itm->flags();
-    return (Qt::ItemIsEditable
-            |Qt::ItemIsSelectable
-            |Qt::ItemIsUserCheckable
-            |Qt::ItemIsEnabled
-            |Qt::ItemIsDragEnabled
-            |Qt::ItemIsDropEnabled);
 }
 
 //  from src/widgets/itemviews/qtablewidget.cpp, line 498, as _ZN11QTableModel4sortEiN2Qt9SortOrderE
@@ -339,30 +346,98 @@ inline void QTableModel::sort(int column, Qt::SortOrder order)
     emit layoutChanged({}, QAbstractItemModel::VerticalSortHint);
 }
 
-//  from src/widgets/itemviews/qtablewidget.cpp, line 849, as _ZN11QTableModel12dropMimeDataEPK9QMimeDataN2Qt10DropActionEiiRK11QModelIndex
-inline bool QTableModel::dropMimeData(const QMimeData *data, Qt::DropAction action,
-                              int row , int column, const QModelIndex &index)
+//  from src/widgets/itemviews/qtablewidget.cpp, line 394, as _ZN11QTableModel7setDataERK11QModelIndexRK8QVarianti
+inline bool QTableModel::setData(const QModelIndex &index, const QVariant &value, int role)
 {
-    if (index.isValid()) {
-        row = index.row();
-        column = index.column();
-    } else if (row == -1 || column == -1) { // The user dropped outside the table.
-        row = rowCount();
-        column = 0;
-    } else { // The user dropped between two rows
-        // This means inserting a row, which only makes sense at column 0
-        column = 0;
+    if (!index.isValid())
+        return false;
+
+    QTableWidgetItem *itm = item(index);
+    if (itm) {
+        itm->setData(role, value);
+        return true;
     }
 
+    // don't create dummy table items for empty values
+    if (!value.isValid())
+        return false;
+
     QTableWidget *view = this->view();
-    return (view ? view->dropMimeData(row, column, data, action) : false);
+    if (!view)
+        return false;
+
+    itm = createItem();
+    itm->setData(role, value);
+    view->setItem(index.row(), index.column(), itm);
+    return true;
 }
 
-//  from src/widgets/itemviews/qtablewidget.cpp, line 867, as _ZNK11QTableModel20supportedDropActionsEv
-inline Qt::DropActions QTableModel::supportedDropActions() const
+//  from src/widgets/itemviews/qtablewidget.cpp, line 118, as _ZN11QTableModel8moveRowsERK11QModelIndexiiS2_i
+inline bool QTableModel::moveRows(const QModelIndex &sourceParent, int sourceRow, int count, const QModelIndex &destinationParent, int destinationChild)
 {
-    const QTableWidget *view = this->view();
-    return (view ? view->supportedDropActions() : Qt::DropActions(Qt::IgnoreAction));
+    if (sourceRow < 0
+        || sourceRow + count - 1 >= rowCount(sourceParent)
+        || destinationChild < 0
+        || destinationChild > rowCount(destinationParent)
+        || sourceRow == destinationChild
+        || sourceRow == destinationChild - 1
+        || count <= 0
+        || sourceParent.isValid()
+        || destinationParent.isValid()) {
+        return false;
+    }
+    if (!beginMoveRows(sourceParent, sourceRow, sourceRow + count - 1, destinationParent, destinationChild))
+        return false;
+
+    // Table items
+    int numItems = count * columnCount();
+    int fromIndex = tableIndex(sourceRow, 0);
+    int destinationIndex = tableIndex(destinationChild, 0);
+    if (destinationChild < sourceRow)
+        fromIndex += numItems - 1;
+    else
+        destinationIndex--;
+    while (numItems--)
+        tableItems.move(fromIndex, destinationIndex);
+
+    // Header items
+    int fromRow = sourceRow;
+    if (destinationChild < sourceRow)
+        fromRow += count - 1;
+    else
+        destinationChild--;
+    while (count--)
+        verticalHeaderItems.move(fromRow, destinationChild);
+
+    endMoveRows();
+    return true;
+}
+
+//  from src/widgets/itemviews/qtablewidget.cpp, line 702, as _ZNK11QTableModel10headerDataEiN2Qt11OrientationEi
+inline QVariant QTableModel::headerData(int section, Qt::Orientation orientation, int role) const
+{
+    if (section < 0)
+        return QVariant();
+
+    QTableWidgetItem *itm = nullptr;
+    if (orientation == Qt::Horizontal && section < horizontalHeaderItems.size())
+        itm = horizontalHeaderItems.at(section);
+    else if (orientation == Qt::Vertical && section < verticalHeaderItems.size())
+        itm = verticalHeaderItems.at(section);
+    else
+        return QVariant(); // section is out of bounds
+
+    if (itm)
+        return itm->data(role);
+    if (role == Qt::DisplayRole)
+        return section + 1;
+    return QVariant();
+}
+
+//  from src/widgets/itemviews/qtablewidget.cpp, line 381, as _ZNK11QTableModel11columnCountERK11QModelIndex
+inline int QTableModel::columnCount(const QModelIndex &parent) const
+{
+    return parent.isValid() ? 0 : horizontalHeaderItems.size();
 }
 
 //  from src/widgets/itemviews/qtablewidget.cpp, line 873, as _ZNK11QTableModel20supportedDragActionsEv
@@ -375,6 +450,93 @@ inline Qt::DropActions QTableModel::supportedDragActions() const
     return Qt::DropActions(Qt::IgnoreAction);
 #endif
 }
+
+//  from src/widgets/itemviews/qtablewidget.cpp, line 867, as _ZNK11QTableModel20supportedDropActionsEv
+inline Qt::DropActions QTableModel::supportedDropActions() const
+{
+    const QTableWidget *view = this->view();
+    return (view ? view->supportedDropActions() : Qt::DropActions(Qt::IgnoreAction));
+}
+
+//  from src/widgets/itemviews/qtablewidget.cpp, line 386, as _ZNK11QTableModel4dataERK11QModelIndexi
+inline QVariant QTableModel::data(const QModelIndex &index, int role) const
+{
+    QTableWidgetItem *itm = item(index);
+    if (itm)
+        return itm->data(role);
+    return QVariant();
+}
+
+//  from src/widgets/itemviews/qtablewidget.cpp, line 484, as _ZNK11QTableModel5flagsERK11QModelIndex
+inline Qt::ItemFlags QTableModel::flags(const QModelIndex &index) const
+{
+    if (!index.isValid())
+        return Qt::ItemIsDropEnabled;
+    if (QTableWidgetItem *itm = item(index))
+        return itm->flags();
+    return (Qt::ItemIsEditable
+            |Qt::ItemIsSelectable
+            |Qt::ItemIsUserCheckable
+            |Qt::ItemIsEnabled
+            |Qt::ItemIsDragEnabled
+            |Qt::ItemIsDropEnabled);
+}
+
+//  from src/widgets/itemviews/qtablewidget.cpp, line 419, as _ZNK11QTableModel8itemDataERK11QModelIndex
+inline QMap<int, QVariant> QTableModel::itemData(const QModelIndex &index) const
+{
+    QMap<int, QVariant> roles;
+    QTableWidgetItem *itm = item(index);
+    if (itm) {
+        for (int i = 0; i < itm->values.size(); ++i) {
+            roles.insert(itm->values.at(i).role,
+                         itm->values.at(i).value);
+        }
+    }
+    return roles;
+}
+
+//  from src/widgets/itemviews/qtablewidget.cpp, line 832, as _ZNK11QTableModel8mimeDataERK5QListI11QModelIndexE
+inline QMimeData *QTableModel::mimeData(const QModelIndexList &indexes) const
+{
+    QList<QTableWidgetItem*> items;
+    const int indexesCount = indexes.size();
+    items.reserve(indexesCount);
+    for (int i = 0; i < indexesCount; ++i)
+        items << item(indexes.at(i));
+    const QTableWidget *view = this->view();
+
+    // cachedIndexes is a little hack to avoid copying from QModelIndexList to
+    // QList<QTreeWidgetItem*> and back again in the view
+    cachedIndexes = indexes;
+    QMimeData *mimeData = (view ? view->mimeData(items) : nullptr);
+    cachedIndexes.clear();
+    return mimeData;
+}
+
+//  from src/widgets/itemviews/qtablewidget.cpp, line 376, as _ZNK11QTableModel8rowCountERK11QModelIndex
+inline int QTableModel::rowCount(const QModelIndex &parent) const
+{
+    return parent.isValid() ? 0 : verticalHeaderItems.size();
+}
+
+//  from src/widgets/itemviews/qtablewidget.cpp, line 819, as _ZNK11QTableModel9mimeTypesEv
+inline QStringList QTableModel::mimeTypes() const
+{
+    auto v = view();
+    if (v)
+        return v->mimeTypes();
+    return {};
+}
+
+//  from src/widgets/itemviews/qtablewidget.cpp, line 14, as _ZN11QTableModelC1EiiP12QTableWidget
+inline QTableModel::QTableModel(int rows, int columns, QTableWidget *parent)
+    : QAbstractTableModel(parent),
+      prototype(nullptr),
+      tableItems(rows * columns, 0),
+      verticalHeaderItems(rows, 0),
+      horizontalHeaderItems(columns, 0)
+{}
 
 //  from src/widgets/itemviews/qtablewidget.cpp, line 22, as _ZN11QTableModelD1Ev
 inline QTableModel::~QTableModel()
@@ -1890,6 +2052,24 @@ int ritual_ZN11QTableModel11qt_metacallEN11QMetaObject4CallEiPPv(
     int a1,
     void **a2) {
   return self->qt_metacall(a0, a1, a2);
+}
+
+//  QString QTableModel::tr(const char *s, const char *c, int n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN11QTableModel2trEPKcS1_i(
+    const char *s,
+    const char *c,
+    int n) {
+  return new QString(QTableModel::tr(s, c, n));
+}
+
+//  QTableModel::QTableModel(int rows, int columns, QTableWidget *parent)
+extern "C" Q_DECL_EXPORT
+QTableModel *ritual_ZN11QTableModelC1EiiP12QTableWidget(
+    int rows,
+    int columns,
+    QTableWidget *parent) {
+  return new CuteQTableModel(rows, columns, parent);
 }
 
 //  QTableModel::~QTableModel()

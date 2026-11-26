@@ -223,6 +223,12 @@ using namespace Qt::StringLiterals;
 inline LayoutHelper::~LayoutHelper() = default;
 }  // namespace qdesigner_internal
 
+//  from ../qttools/src/designer/src/lib/shared/qlayout_widget.cpp, line 430, as _ZN18qdesigner_internal12LayoutHelperC1Ev
+namespace qdesigner_internal {
+using namespace Qt::StringLiterals;
+inline LayoutHelper::LayoutHelper() = default;
+}  // namespace qdesigner_internal
+
 //  from ../qttools/src/designer/src/lib/shared/qlayout_widget.cpp, line 434, as _ZN18qdesigner_internal12LayoutHelper7indexOfEPK7QLayoutPK7QWidget
 namespace qdesigner_internal {
 using namespace Qt::StringLiterals;
@@ -410,6 +416,12 @@ public:
     }
   }
 };
+
+//  qdesigner_internal::LayoutHelper::LayoutHelper()
+extern "C" Q_DECL_EXPORT
+qdesigner_internal::LayoutHelper *ritual_ZN18qdesigner_internal12LayoutHelperC1Ev() {
+  return new Cuteqdesigner_internal_LayoutHelper();
+}
 
 //  qdesigner_internal::LayoutHelper::~LayoutHelper()
 extern "C" Q_DECL_EXPORT

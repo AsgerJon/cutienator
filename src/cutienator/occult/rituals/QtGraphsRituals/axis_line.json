@@ -1,8 +1,8 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "QtGraphs/6.12.0/QtGraphs/private/axisline_p.h, Qt 6.12.0. Changes",
-    "made here are lost."
+    "QtGraphs/6.12.0/QtGraphs/private/axisline_p.h, Qt 6.12.0. Edited",
+    "by hand: see the ritual file."
   ],
   "parts first": [
     "QtGraphs", "QtCore", "QtGui", "QtQuick", "QtQml", "QtQmlIntegration"
@@ -13,13 +13,19 @@
     "ritual_ZN8AxisLine11qt_metacallEN11QMetaObject4CallEiPPv": [
       "int", "address", "int", "int", "address"
     ],
+    "ritual_ZN8AxisLine2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN8AxisLineC1EP10QQuickItem": ["address", "address"],
     "ritual_ZN8AxisLineD1Ev": ["nothing", "address"],
     "ritual_ZN8AxisLine12setupShadersEv": ["nothing", "address"],
     "ritual_ZNK8AxisLine11iResolutionEv": ["address", "address"],
     "ritual_ZNK8AxisLine9smoothingEv": ["double", "address"],
+    "ritual_ZN8AxisLine12setSmoothingEd": ["nothing", "address", "double"],
     "ritual_ZNK8AxisLine5colorEv": ["address", "address"],
+    "ritual_ZN8AxisLine8setColorE6QColor": ["nothing", "address", "address"],
     "ritual_ZNK8AxisLine9lineWidthEv": ["double", "address"],
+    "ritual_ZN8AxisLine12setLineWidthEd": ["nothing", "address", "double"],
     "ritual_ZNK8AxisLine12isHorizontalEv": ["bool", "address"],
+    "ritual_ZN8AxisLine15setIsHorizontalEb": ["nothing", "address", "bool"],
     "ritual_ZN8AxisLine17componentCompleteEv": ["nothing", "address"],
     "ritual_ZN8AxisLine14geometryChangeERK6QRectFS2_": [
       "nothing", "address", "address", "address"
@@ -30,6 +36,9 @@
     "ritual_ZN8AxisLine16lineWidthChangedEv": ["nothing", "address"],
     "ritual_ZN8AxisLine19isHorizontalChangedEv": ["nothing", "address"],
     "ritual_take_AxisLine": ["bool", "address", "chars", "address"],
-    "ritual_own_ZN8AxisLine17componentCompleteEv": ["nothing", "address"]
+    "ritual_own_ZN8AxisLine17componentCompleteEv": ["nothing", "address"],
+    "ritual_own_ZN8AxisLine14geometryChangeERK6QRectFS2_": [
+      "nothing", "address", "address", "address"
+    ]
   }
 }

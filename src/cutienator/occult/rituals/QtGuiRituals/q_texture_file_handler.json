@@ -5,6 +5,9 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN19QTextureFileHandlerC1EP9QIODeviceRK10QByteArray": [
+      "address", "address", "address"
+    ],
     "ritual_ZN19QTextureFileHandlerD1Ev": ["nothing", "address"],
     "ritual_ZN19QTextureFileHandler4readEv": ["address", "address"],
     "ritual_ZNK19QTextureFileHandler6deviceEv": ["address", "address"],

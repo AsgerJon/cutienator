@@ -1,17 +1,29 @@
 //  Written by dev_tooling.RitualGenerator from the records of QtDataVisualiz
 //  ation/6.12.0/QtDataVisualization/private/qcustom3dlabel_p.h, Qt 6.12.0.
-//  Changes made here are lost.
+//  Edited by hand on 2026-11-26: moc's output for 'QCustom3DLabelPrivate' is
+//  pasted in, cut from what the moc of Qt 6.12.0 writes for its header: Qt's
+//  library keeps it to itself; added are 1 rituals that lean on what moc
+//  writes for a class of the part Qt keeps to itself, whose ritual file
+//  carries moc's output, drafted by a copy of the generator that lets those
+//  names through. A copy of a meta-object is a second one: 'qobject_cast'
+//  between it and Qt's own does not match. Kept as it is when the generator
+//  runs again.
 #include <QtDataVisualization/6.12.0/QtDataVisualization/private/datavisualizationglobal_p.h>
 #include <QtDataVisualization/QtDataVisualization>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtDataVisualization/6.12.0/QtDataVisualization/private/qcustom3dlabel_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <QtDataVisualization/private/qcustom3ditem_p.h>
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
 #include <QtDataVisualization/private/qcustom3dlabel_p.h>
 #include <QtDataVisualization/private/utils_p.h>
+#include <QtDataVisualization/private/qcustom3ditem_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -20,6 +32,76 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  from QtDataVisualization__QCustom3DLabelPrivate.cpp, line 1, as moc:QCustom3DLabelPrivate
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN21QCustom3DLabelPrivateE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto QCustom3DLabelPrivate::qt_create_metaobjectdata<qt_meta_tag_ZN21QCustom3DLabelPrivateE_t>()
+{
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "QCustom3DLabelPrivate"
+    };
+
+    QtMocHelpers::UintData qt_methods {
+    };
+    QtMocHelpers::UintData qt_properties {
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    return QtMocHelpers::metaObjectData<QCustom3DLabelPrivate, qt_meta_tag_ZN21QCustom3DLabelPrivateE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums);
+}
+Q_CONSTINIT const QMetaObject QCustom3DLabelPrivate::staticMetaObject = { {
+    QMetaObject::SuperData::link<QCustom3DItemPrivate::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN21QCustom3DLabelPrivateE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN21QCustom3DLabelPrivateE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN21QCustom3DLabelPrivateE_t>.metaTypes,
+    nullptr
+} };
+
+void QCustom3DLabelPrivate::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<QCustom3DLabelPrivate *>(_o);
+    (void)_t;
+    (void)_c;
+    (void)_id;
+    (void)_a;
+}
+
+const QMetaObject *QCustom3DLabelPrivate::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *QCustom3DLabelPrivate::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN21QCustom3DLabelPrivateE_t>.strings))
+        return static_cast<void*>(this);
+    return QCustom3DItemPrivate::qt_metacast(_clname);
+}
+
+int QCustom3DLabelPrivate::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QCustom3DItemPrivate::qt_metacall(_c, _id, _a);
+    return _id;
+}
+QT_WARNING_POP
+
+//  from ../qtdatavis3d/src/datavisualization/data/qcustom3dlabel.cpp, line 327, as _ZN21QCustom3DLabelPrivateD0Ev
+inline QCustom3DLabelPrivate::~QCustom3DLabelPrivate()
+{
+}
 
 //  from ../qtdatavis3d/src/datavisualization/data/qcustom3ditem.cpp, line 460, as _ZN20QCustom3DItemPrivateC2EP13QCustom3DItem
 inline QCustom3DItemPrivate::QCustom3DItemPrivate(QCustom3DItem *q) :
@@ -272,6 +354,15 @@ int ritual_ZN21QCustom3DLabelPrivate11qt_metacallEN11QMetaObject4CallEiPPv(
     int a1,
     void **a2) {
   return self->qt_metacall(a0, a1, a2);
+}
+
+//  QString QCustom3DLabelPrivate::tr(const char *s, const char *c, int n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN21QCustom3DLabelPrivate2trEPKcS1_i(
+    const char *s,
+    const char *c,
+    int n) {
+  return new QString(QCustom3DLabelPrivate::tr(s, c, n));
 }
 
 //  QCustom3DLabelPrivate::~QCustom3DLabelPrivate()

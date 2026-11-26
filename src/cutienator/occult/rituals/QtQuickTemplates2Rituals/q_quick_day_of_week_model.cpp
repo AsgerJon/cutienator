@@ -1,6 +1,13 @@
 //  Written by dev_tooling.RitualGenerator from the records of QtQuickTemplat
 //  es2/6.12.0/QtQuickTemplates2/private/qquickdayofweekmodel_p.h, Qt 6.12.0.
-//  Changes made here are lost.
+//  Edited by hand on 2026-11-26: moc's output for 'QQuickDayOfWeekModel' is
+//  pasted in, cut from what the moc of Qt 6.12.0 writes for its header: Qt's
+//  library keeps it to itself; added are 2 rituals that lean on what moc
+//  writes for a class of the part Qt keeps to itself, whose ritual file
+//  carries moc's output, drafted by a copy of the generator that lets those
+//  names through. A copy of a meta-object is a second one: 'qobject_cast'
+//  between it and Qt's own does not match. Kept as it is when the generator
+//  runs again.
 #include <QtQuickTemplates2/qtquicktemplates2exports.h>
 #include <QtQuickTemplates2/6.12.0/QtQuickTemplates2/private/qtquicktemplates2global_p.h>
 #if QT_CONFIG(quicktemplates2_calendar)
@@ -9,6 +16,7 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQuickTemplates2/6.12.0/QtQuickTemplates2/private/qquickdayofweekmodel_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 #include <QtCore/qbytearray.h>
 #include <QtCore/qabstractitemmodel.h>
 #include <QtCore/qvariant.h>
@@ -16,6 +24,10 @@
 #include <QtCore/qhash.h>
 #include <iterator>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
 #include <QtQuickTemplates2/private/qquickdayofweekmodel_p.h>
 #include <QtCore/private/qabstractitemmodel_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -35,6 +47,145 @@ class QQuickDayOfWeekModelPrivate : public QAbstractItemModelPrivate
 public:
     QLocale locale;
 };
+
+//  from QtQuickTemplates2__QQuickDayOfWeekModel.cpp, line 1, as moc:QQuickDayOfWeekModel
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN20QQuickDayOfWeekModelE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto QQuickDayOfWeekModel::qt_create_metaobjectdata<qt_meta_tag_ZN20QQuickDayOfWeekModelE_t>()
+{
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "QQuickDayOfWeekModel",
+        "localeChanged",
+        "",
+        "dayAt",
+        "index",
+        "locale",
+        "count"
+    };
+
+    QtMocHelpers::UintData qt_methods {
+        // Signal 'localeChanged'
+        QtMocHelpers::SignalData<void()>(1, 2, QMC::AccessPublic, QMetaType::Void),
+        // Method 'dayAt'
+        QtMocHelpers::MethodData<int(int) const>(3, 2, QMC::AccessPublic, QMetaType::Int, {{
+            { QMetaType::Int, 4 },
+        }}),
+    };
+    QtMocHelpers::UintData qt_properties {
+        // property 'locale'
+        QtMocHelpers::PropertyData<QLocale>(5, QMetaType::QLocale, QMC::DefaultPropertyFlags | QMC::Writable | QMC::StdCppSet | QMC::Final, 0),
+        // property 'count'
+        QtMocHelpers::PropertyData<int>(6, QMetaType::Int, QMC::DefaultPropertyFlags | QMC::Constant | QMC::Final),
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    return QtMocHelpers::metaObjectData<QQuickDayOfWeekModel, qt_meta_tag_ZN20QQuickDayOfWeekModelE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums);
+}
+Q_CONSTINIT const QMetaObject QQuickDayOfWeekModel::staticMetaObject = { {
+    QMetaObject::SuperData::link<QAbstractListModel::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN20QQuickDayOfWeekModelE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN20QQuickDayOfWeekModelE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN20QQuickDayOfWeekModelE_t>.metaTypes,
+    nullptr
+} };
+
+void QQuickDayOfWeekModel::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<QQuickDayOfWeekModel *>(_o);
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        switch (_id) {
+        case 0: _t->localeChanged(); break;
+        case 1: { int _r = _t->dayAt((*reinterpret_cast<std::add_pointer_t<int>>(_a[1])));
+            if (_a[0]) *reinterpret_cast<int*>(_a[0]) = std::move(_r); }  break;
+        default: ;
+        }
+    }
+    if (_c == QMetaObject::IndexOfMethod) {
+        if (QtMocHelpers::indexOfMethod<void (QQuickDayOfWeekModel::*)()>(_a, &QQuickDayOfWeekModel::localeChanged, 0))
+            return;
+    }
+    if (_c == QMetaObject::ReadProperty) {
+        void *_v = _a[0];
+        switch (_id) {
+        case 0: *reinterpret_cast<QLocale*>(_v) = _t->locale(); break;
+        case 1: *reinterpret_cast<int*>(_v) = _t->rowCount(); break;
+        default: break;
+        }
+    }
+    if (_c == QMetaObject::WriteProperty) {
+        void *_v = _a[0];
+        switch (_id) {
+        case 0: _t->setLocale(*reinterpret_cast<QLocale*>(_v)); break;
+        default: break;
+        }
+    }
+}
+
+const QMetaObject *QQuickDayOfWeekModel::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *QQuickDayOfWeekModel::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN20QQuickDayOfWeekModelE_t>.strings))
+        return static_cast<void*>(this);
+    return QAbstractListModel::qt_metacast(_clname);
+}
+
+int QQuickDayOfWeekModel::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QAbstractListModel::qt_metacall(_c, _id, _a);
+    if (_id < 0)
+        return _id;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        if (_id < 2)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 2;
+    }
+    if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        if (_id < 2)
+            *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
+        _id -= 2;
+    }
+    if (_c == QMetaObject::ReadProperty || _c == QMetaObject::WriteProperty
+            || _c == QMetaObject::ResetProperty || _c == QMetaObject::BindableProperty
+            || _c == QMetaObject::RegisterPropertyMetaType) {
+        qt_static_metacall(this, _c, _id, _a);
+        _id -= 2;
+    }
+    return _id;
+}
+
+// SIGNAL 0
+void QQuickDayOfWeekModel::localeChanged()
+{
+    QMetaObject::activate(this, &staticMetaObject, 0, nullptr);
+}
+QT_WARNING_POP
+
+//  from ../qtdeclarative/src/quicktemplates/qquickdayofweekmodel.cpp, line 30, as _ZN20QQuickDayOfWeekModel9setLocaleERK7QLocale
+inline void QQuickDayOfWeekModel::setLocale(const QLocale &locale)
+{
+    Q_D(QQuickDayOfWeekModel);
+    if (d->locale != locale) {
+        d->locale = locale;
+        emit localeChanged();
+        emit dataChanged(index(0, 0), index(6, 0));
+    }
+}
 
 //  from ../qtdeclarative/src/quicktemplates/qquickdayofweekmodel.cpp, line 51, as _ZNK20QQuickDayOfWeekModel4dataERK11QModelIndexi
 inline QVariant QQuickDayOfWeekModel::data(const QModelIndex &index, int role) const
@@ -58,14 +209,6 @@ inline QVariant QQuickDayOfWeekModel::data(const QModelIndex &index, int role) c
     return QVariant();
 }
 
-//  from ../qtdeclarative/src/quicktemplates/qquickdayofweekmodel.cpp, line 72, as _ZNK20QQuickDayOfWeekModel8rowCountERK11QModelIndex
-inline int QQuickDayOfWeekModel::rowCount(const QModelIndex &parent) const
-{
-    if (parent.isValid())
-        return 0;
-    return 7;
-}
-
 //  from ../qtdeclarative/src/quicktemplates/qquickdayofweekmodel.cpp, line 40, as _ZNK20QQuickDayOfWeekModel5dayAtEi
 inline int QQuickDayOfWeekModel::dayAt(int index) const
 {
@@ -76,6 +219,38 @@ inline int QQuickDayOfWeekModel::dayAt(int index) const
     if (day == 7)
         day = 0; // Qt::Sunday = 7, but Sunday is 0 in JS Date
     return day;
+}
+
+//  from ../qtdeclarative/src/quicktemplates/qquickdayofweekmodel.cpp, line 24, as _ZNK20QQuickDayOfWeekModel6localeEv
+inline QLocale QQuickDayOfWeekModel::locale() const
+{
+    Q_D(const QQuickDayOfWeekModel);
+    return d->locale;
+}
+
+//  from ../qtdeclarative/src/quicktemplates/qquickdayofweekmodel.cpp, line 72, as _ZNK20QQuickDayOfWeekModel8rowCountERK11QModelIndex
+inline int QQuickDayOfWeekModel::rowCount(const QModelIndex &parent) const
+{
+    if (parent.isValid())
+        return 0;
+    return 7;
+}
+
+//  from ../qtdeclarative/src/quicktemplates/qquickdayofweekmodel.cpp, line 79, as _ZNK20QQuickDayOfWeekModel9roleNamesEv
+inline QHash<int, QByteArray> QQuickDayOfWeekModel::roleNames() const
+{
+    QHash<int, QByteArray> roles;
+    roles[DayRole] = QByteArrayLiteral("day");
+    roles[LongNameRole] = QByteArrayLiteral("longName");
+    roles[ShortNameRole] = QByteArrayLiteral("shortName");
+    roles[NarrowNameRole] = QByteArrayLiteral("narrowName");
+    return roles;
+}
+
+//  from ../qtdeclarative/src/quicktemplates/qquickdayofweekmodel.cpp, line 19, as _ZN20QQuickDayOfWeekModelC1EP7QObject
+inline QQuickDayOfWeekModel::QQuickDayOfWeekModel(QObject *parent) :
+    QAbstractListModel(*(new QQuickDayOfWeekModelPrivate), parent)
+{
 }
 //  -----------------------------------------------------------------------
 
@@ -103,6 +278,22 @@ int ritual_ZN20QQuickDayOfWeekModel11qt_metacallEN11QMetaObject4CallEiPPv(
     int a1,
     void **a2) {
   return self->qt_metacall(a0, a1, a2);
+}
+
+//  QString QQuickDayOfWeekModel::tr(const char *s, const char *c, int n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN20QQuickDayOfWeekModel2trEPKcS1_i(
+    const char *s,
+    const char *c,
+    int n) {
+  return new QString(QQuickDayOfWeekModel::tr(s, c, n));
+}
+
+//  QQuickDayOfWeekModel::QQuickDayOfWeekModel(QObject *parent)
+extern "C" Q_DECL_EXPORT
+QQuickDayOfWeekModel *ritual_ZN20QQuickDayOfWeekModelC1EP7QObject(
+    QObject *parent) {
+  return new QQuickDayOfWeekModel(parent);
 }
 
 //  QHash<int, QByteArray> QQuickDayOfWeekModel::roleNames() const

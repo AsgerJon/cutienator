@@ -152,6 +152,11 @@ inline QReplicaImplementationInterface *QRemoteObjectNodePrivate::handleNewAcqui
     return rp;
 }
 
+//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectnode.cpp, line 301, as _ZN24QRemoteObjectNodePrivateD2Ev
+inline QRemoteObjectNodePrivate::~QRemoteObjectNodePrivate()
+{
+}
+
 //  from ../qtremoteobjects/src/remoteobjects/qremoteobjectreplica.cpp, line 842, as _ZN31QInProcessReplicaImplementationC1ERK7QStringPK11QMetaObjectP17QRemoteObjectNode
 inline QInProcessReplicaImplementation::QInProcessReplicaImplementation(const QString &name, const QMetaObject *meta, QRemoteObjectNode * node)
     : QRemoteObjectReplicaImplementation(name, meta, node)
@@ -272,6 +277,17 @@ inline void QRemoteObjectNodePrivate::handleReplicaConnection(const QByteArray &
         return;
     }
     rep->setConnection(connection);
+}
+
+//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectnode.cpp, line 771, as _ZN30QRemoteObjectMetaObjectManagerD1Ev
+inline QRemoteObjectMetaObjectManager::~QRemoteObjectMetaObjectManager()
+{
+    for (QMetaObject *mo : std::as_const(dynamicTypes)) {
+        for (auto metaType : std::as_const(enumTypes[mo]))
+            QMetaType::unregisterMetaType(metaType);
+        enumTypes.remove(mo);
+        free(mo); //QMetaObjectBuilder uses malloc, not new
+    }
 }
 
 //  from ../qtremoteobjects/src/remoteobjects/qremoteobjectreplica.cpp, line 566, as _ZN31QConnectedReplicaImplementation16configurePrivateEP20QRemoteObjectReplica

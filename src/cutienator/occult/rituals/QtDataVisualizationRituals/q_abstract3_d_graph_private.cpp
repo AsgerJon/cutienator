@@ -1,14 +1,26 @@
 //  Written by dev_tooling.RitualGenerator from the records of QtDataVisualiz
 //  ation/6.12.0/QtDataVisualization/private/qabstract3dgraph_p.h, Qt 6.12.0.
-//  Changes made here are lost.
+//  Edited by hand on 2026-11-26: moc's output for 'QAbstract3DGraphPrivate'
+//  is pasted in, cut from what the moc of Qt 6.12.0 writes for its header:
+//  Qt's library keeps it to itself; added are 3 rituals that lean on what
+//  moc writes for a class of the part Qt keeps to itself, whose ritual file
+//  carries moc's output, drafted by a copy of the generator that lets those
+//  names through. A copy of a meta-object is a second one: 'qobject_cast'
+//  between it and Qt's own does not match. Kept as it is when the generator
+//  runs again.
 #include <QtDataVisualization/6.12.0/QtDataVisualization/private/datavisualizationglobal_p.h>
 #include <QtDataVisualization/QtDataVisualization>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtDataVisualization/6.12.0/QtDataVisualization/private/qabstract3dgraph_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
 #include <QtDataVisualization/qabstract3dgraph.h>
 #include <QtDataVisualization/private/qabstract3dgraph_p.h>
 #include <QtDataVisualization/private/abstract3dcontroller_p.h>
@@ -34,6 +46,113 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from QtDataVisualization__QAbstract3DGraphPrivate.cpp, line 1, as moc:QAbstract3DGraphPrivate
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN23QAbstract3DGraphPrivateE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto QAbstract3DGraphPrivate::qt_create_metaobjectdata<qt_meta_tag_ZN23QAbstract3DGraphPrivateE_t>()
+{
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "QAbstract3DGraphPrivate",
+        "renderLater",
+        "",
+        "renderNow",
+        "handleAxisXChanged",
+        "QAbstract3DAxis*",
+        "axis",
+        "handleAxisYChanged",
+        "handleAxisZChanged"
+    };
+
+    QtMocHelpers::UintData qt_methods {
+        // Slot 'renderLater'
+        QtMocHelpers::SlotData<void()>(1, 2, QMC::AccessPublic, QMetaType::Void),
+        // Slot 'renderNow'
+        QtMocHelpers::SlotData<void()>(3, 2, QMC::AccessPublic, QMetaType::Void),
+        // Slot 'handleAxisXChanged'
+        QtMocHelpers::SlotData<void(QAbstract3DAxis *)>(4, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { 0x80000000 | 5, 6 },
+        }}),
+        // Slot 'handleAxisYChanged'
+        QtMocHelpers::SlotData<void(QAbstract3DAxis *)>(7, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { 0x80000000 | 5, 6 },
+        }}),
+        // Slot 'handleAxisZChanged'
+        QtMocHelpers::SlotData<void(QAbstract3DAxis *)>(8, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { 0x80000000 | 5, 6 },
+        }}),
+    };
+    QtMocHelpers::UintData qt_properties {
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    return QtMocHelpers::metaObjectData<QAbstract3DGraphPrivate, qt_meta_tag_ZN23QAbstract3DGraphPrivateE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums);
+}
+Q_CONSTINIT const QMetaObject QAbstract3DGraphPrivate::staticMetaObject = { {
+    QMetaObject::SuperData::link<QObject::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN23QAbstract3DGraphPrivateE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN23QAbstract3DGraphPrivateE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN23QAbstract3DGraphPrivateE_t>.metaTypes,
+    nullptr
+} };
+
+void QAbstract3DGraphPrivate::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<QAbstract3DGraphPrivate *>(_o);
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        switch (_id) {
+        case 0: _t->renderLater(); break;
+        case 1: _t->renderNow(); break;
+        case 2: _t->handleAxisXChanged((*reinterpret_cast<std::add_pointer_t<QAbstract3DAxis*>>(_a[1]))); break;
+        case 3: _t->handleAxisYChanged((*reinterpret_cast<std::add_pointer_t<QAbstract3DAxis*>>(_a[1]))); break;
+        case 4: _t->handleAxisZChanged((*reinterpret_cast<std::add_pointer_t<QAbstract3DAxis*>>(_a[1]))); break;
+        default: ;
+        }
+    }
+}
+
+const QMetaObject *QAbstract3DGraphPrivate::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *QAbstract3DGraphPrivate::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN23QAbstract3DGraphPrivateE_t>.strings))
+        return static_cast<void*>(this);
+    return QObject::qt_metacast(_clname);
+}
+
+int QAbstract3DGraphPrivate::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QObject::qt_metacall(_c, _id, _a);
+    if (_id < 0)
+        return _id;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        if (_id < 5)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 5;
+    }
+    if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        if (_id < 5)
+            *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
+        _id -= 5;
+    }
+    return _id;
+}
+QT_WARNING_POP
+
 //  from ../qtdatavis3d/src/datavisualization/engine/qabstract3dgraph.cpp, line 1134, as _ZN23QAbstract3DGraphPrivate11renderLaterEv
 inline void QAbstract3DGraphPrivate::renderLater()
 {
@@ -41,6 +160,33 @@ inline void QAbstract3DGraphPrivate::renderLater()
         m_updatePending = true;
         QCoreApplication::postEvent(q_ptr, new QEvent(QEvent::UpdateRequest));
     }
+}
+
+//  from ../qtdatavis3d/src/datavisualization/engine/qabstract3dgraph.cpp, line 1142, as _ZN23QAbstract3DGraphPrivate9renderNowEv
+inline void QAbstract3DGraphPrivate::renderNow()
+{
+    if (!q_ptr->isExposed())
+        return;
+
+    m_updatePending = false;
+
+    m_context->makeCurrent(q_ptr);
+
+    render();
+
+    m_context->swapBuffers(q_ptr);
+}
+
+//  from ../qtdatavis3d/src/datavisualization/engine/qabstract3dgraph.cpp, line 1035, as _ZN23QAbstract3DGraphPrivateC1EP16QAbstract3DGraph
+inline QAbstract3DGraphPrivate::QAbstract3DGraphPrivate(QAbstract3DGraph *q)
+    : QObject(0),
+      q_ptr(q),
+      m_updatePending(false),
+      m_visualController(0),
+      m_devicePixelRatio(1.f),
+      m_offscreenSurface(0),
+      m_initialized(false)
+{
 }
 
 //  from ../qtdatavis3d/src/datavisualization/engine/qabstract3dgraph.cpp, line 1046, as _ZN23QAbstract3DGraphPrivateD1Ev
@@ -56,6 +202,65 @@ inline QAbstract3DGraphPrivate::~QAbstract3DGraphPrivate()
     }
 
     delete m_visualController;
+}
+
+//  from ../qtdatavis3d/src/datavisualization/engine/qabstract3dgraph.cpp, line 1060, as _ZN23QAbstract3DGraphPrivate19setVisualControllerEP20Abstract3DController
+inline void QAbstract3DGraphPrivate::setVisualController(Abstract3DController *controller)
+{
+    m_visualController = controller;
+
+    q_ptr->setLocale(QLocale());
+
+    QObject::connect(m_visualController, &Abstract3DController::activeInputHandlerChanged, q_ptr,
+                     &QAbstract3DGraph::activeInputHandlerChanged);
+    QObject::connect(m_visualController, &Abstract3DController::activeThemeChanged, q_ptr,
+                     &QAbstract3DGraph::activeThemeChanged);
+    QObject::connect(m_visualController, &Abstract3DController::selectionModeChanged, q_ptr,
+                     &QAbstract3DGraph::selectionModeChanged);
+    QObject::connect(m_visualController, &Abstract3DController::shadowQualityChanged, q_ptr,
+                     &QAbstract3DGraph::shadowQualityChanged);
+    QObject::connect(m_visualController, &Abstract3DController::optimizationHintsChanged, q_ptr,
+                     &QAbstract3DGraph::optimizationHintsChanged);
+    QObject::connect(m_visualController, &Abstract3DController::elementSelected, q_ptr,
+                     &QAbstract3DGraph::selectedElementChanged);
+
+    QObject::connect(m_visualController, &Abstract3DController::needRender, this,
+                     &QAbstract3DGraphPrivate::renderLater);
+
+    QObject::connect(m_visualController, &Abstract3DController::axisXChanged, this,
+                     &QAbstract3DGraphPrivate::handleAxisXChanged);
+    QObject::connect(m_visualController, &Abstract3DController::axisYChanged, this,
+                     &QAbstract3DGraphPrivate::handleAxisYChanged);
+    QObject::connect(m_visualController, &Abstract3DController::axisZChanged, this,
+                     &QAbstract3DGraphPrivate::handleAxisZChanged);
+
+    QObject::connect(m_visualController, &Abstract3DController::measureFpsChanged, q_ptr,
+                     &QAbstract3DGraph::measureFpsChanged);
+    QObject::connect(m_visualController, &Abstract3DController::currentFpsChanged, q_ptr,
+                     &QAbstract3DGraph::currentFpsChanged);
+
+    QObject::connect(m_visualController, &Abstract3DController::orthoProjectionChanged, q_ptr,
+                     &QAbstract3DGraph::orthoProjectionChanged);
+
+    QObject::connect(m_visualController, &Abstract3DController::aspectRatioChanged, q_ptr,
+                     &QAbstract3DGraph::aspectRatioChanged);
+    QObject::connect(m_visualController, &Abstract3DController::polarChanged, q_ptr,
+                     &QAbstract3DGraph::polarChanged);
+    QObject::connect(m_visualController, &Abstract3DController::radialLabelOffsetChanged, q_ptr,
+                     &QAbstract3DGraph::radialLabelOffsetChanged);
+    QObject::connect(m_visualController, &Abstract3DController::horizontalAspectRatioChanged, q_ptr,
+                     &QAbstract3DGraph::horizontalAspectRatioChanged);
+
+    QObject::connect(m_visualController, &Abstract3DController::reflectionChanged, q_ptr,
+                     &QAbstract3DGraph::reflectionChanged);
+    QObject::connect(m_visualController, &Abstract3DController::reflectivityChanged, q_ptr,
+                     &QAbstract3DGraph::reflectivityChanged);
+    QObject::connect(m_visualController, &Abstract3DController::localeChanged, q_ptr,
+                     &QAbstract3DGraph::localeChanged);
+    QObject::connect(m_visualController, &Abstract3DController::queriedGraphPositionChanged, q_ptr,
+                     &QAbstract3DGraph::queriedGraphPositionChanged);
+    QObject::connect(m_visualController, &Abstract3DController::marginChanged, q_ptr,
+                     &QAbstract3DGraph::marginChanged);
 }
 
 //  from ../qtdatavis3d/src/datavisualization/engine/qabstract3dgraph.cpp, line 1118, as _ZN23QAbstract3DGraphPrivate28handleDevicePixelRatioChangeEv
@@ -318,10 +523,35 @@ int ritual_ZN23QAbstract3DGraphPrivate11qt_metacallEN11QMetaObject4CallEiPPv(
   return self->qt_metacall(a0, a1, a2);
 }
 
+//  QString QAbstract3DGraphPrivate::tr(const char *s, const char *c, int n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN23QAbstract3DGraphPrivate2trEPKcS1_i(
+    const char *s,
+    const char *c,
+    int n) {
+  return new QString(QAbstract3DGraphPrivate::tr(s, c, n));
+}
+
+//  QAbstract3DGraphPrivate::QAbstract3DGraphPrivate(QAbstract3DGraph *q)
+extern "C" Q_DECL_EXPORT
+QAbstract3DGraphPrivate *ritual_ZN23QAbstract3DGraphPrivateC1EP16QAbstract3DGraph(
+    QAbstract3DGraph *q) {
+  return new CuteQAbstract3DGraphPrivate(q);
+}
+
 //  QAbstract3DGraphPrivate::~QAbstract3DGraphPrivate()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN23QAbstract3DGraphPrivateD1Ev(QAbstract3DGraphPrivate *self) {
   delete self;
+}
+
+//  void QAbstract3DGraphPrivate::setVisualController(Abstract3DController
+//      *controller)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QAbstract3DGraphPrivate19setVisualControllerEP20Abstract3DController(
+    QAbstract3DGraphPrivate *self,
+    Abstract3DController *controller) {
+  self->setVisualController(controller);
 }
 
 //  void QAbstract3DGraphPrivate::handleDevicePixelRatioChange()

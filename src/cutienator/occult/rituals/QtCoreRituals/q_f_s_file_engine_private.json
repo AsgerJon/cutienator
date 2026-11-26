@@ -28,6 +28,9 @@
     "ritual_ZN20QFSFileEnginePrivate19openModeToOpenFlagsE6QFlagsIN13QIODeviceBase12OpenModeFlagEE": [
       "int", "int"
     ],
+    "ritual_ZN20QFSFileEnginePrivateC1EP19QAbstractFileEngine": [
+      "address", "address"
+    ],
     "ritual_ZN20QFSFileEnginePrivate4initEv": ["nothing", "address"],
     "ritual_ZN20QFSFileEnginePrivateD1Ev": ["nothing", "address"]
   }

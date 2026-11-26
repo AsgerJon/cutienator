@@ -1,6 +1,14 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWebSockets/6.12.0/QtWebSockets/private/qwebsockethandshakeresponse_p.h,
-//  Qt 6.12.0. Changes made here are lost.
+//  Qt 6.12.0.
+//  Edited by hand on 2026-11-26: moc's output for
+//  'QWebSocketHandshakeResponse' is pasted in, cut from what the moc of Qt
+//  6.12.0 writes for its header: Qt's library keeps it to itself; added are
+//  2 rituals that lean on what moc writes for a class of the part Qt keeps
+//  to itself, whose ritual file carries moc's output, drafted by a copy of
+//  the generator that lets those names through. A copy of a meta-object is a
+//  second one: 'qobject_cast' between it and Qt's own does not match. Kept
+//  as it is when the generator runs again.
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtWebSockets/QtWebSockets>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -8,8 +16,13 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qlist.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
 #include <QtWebSockets/private/qwebsockethandshakeresponse_p.h>
 #include <QtWebSockets/private/qwebsockethandshakerequest_p.h>
 #include <QtWebSockets/qwebsocketprotocol.h>
@@ -27,6 +40,16 @@
 #include <algorithm>
 #include <functional>   //for std::greater
 #include <iterator>
+#include <QtWebSockets/private/qwebsockethandshakerequest_p.h>
+#include <QtWebSockets/qwebsocketprotocol.h>
+#include <QtWebSockets/private/qwebsocketprotocol_p.h>
+#include <QtCore/QString>
+#include <QtCore/QMap>
+#include <QtCore/QTextStream>
+#include <QtCore/QUrl>
+#include <QtCore/QList>
+#include <QtCore/QStringList>
+#include <functional>   //for std::greater
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -47,6 +70,240 @@ static QList<T> listIntersection(QList<T> list1, QList<T> list2, Compare comp)
                           list2.cbegin(), list2.cend(),
                           std::back_inserter(result), comp);
     return result;
+}
+
+//  from QtWebSockets__QWebSocketHandshakeResponse.cpp, line 1, as moc:QWebSocketHandshakeResponse
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN27QWebSocketHandshakeResponseE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto QWebSocketHandshakeResponse::qt_create_metaobjectdata<qt_meta_tag_ZN27QWebSocketHandshakeResponseE_t>()
+{
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "QWebSocketHandshakeResponse"
+    };
+
+    QtMocHelpers::UintData qt_methods {
+    };
+    QtMocHelpers::UintData qt_properties {
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    return QtMocHelpers::metaObjectData<QWebSocketHandshakeResponse, qt_meta_tag_ZN27QWebSocketHandshakeResponseE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums);
+}
+Q_CONSTINIT const QMetaObject QWebSocketHandshakeResponse::staticMetaObject = { {
+    QMetaObject::SuperData::link<QObject::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN27QWebSocketHandshakeResponseE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN27QWebSocketHandshakeResponseE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN27QWebSocketHandshakeResponseE_t>.metaTypes,
+    nullptr
+} };
+
+void QWebSocketHandshakeResponse::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<QWebSocketHandshakeResponse *>(_o);
+    (void)_t;
+    (void)_c;
+    (void)_id;
+    (void)_a;
+}
+
+const QMetaObject *QWebSocketHandshakeResponse::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *QWebSocketHandshakeResponse::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN27QWebSocketHandshakeResponseE_t>.strings))
+        return static_cast<void*>(this);
+    return QObject::qt_metacast(_clname);
+}
+
+int QWebSocketHandshakeResponse::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QObject::qt_metacall(_c, _id, _a);
+    return _id;
+}
+QT_WARNING_POP
+
+//  from ../qtwebsockets/src/websockets/qwebsockethandshakeresponse.cpp, line 55, as _ZN27QWebSocketHandshakeResponseD0Ev
+inline QWebSocketHandshakeResponse::~QWebSocketHandshakeResponse()
+{
+}
+
+//  from ../qtwebsockets/src/websockets/qwebsockethandshakeresponse.cpp, line 109, as _ZN27QWebSocketHandshakeResponse20getHandshakeResponseERK26QWebSocketHandshakeRequestRK7QStringbRK5QListIN18QWebSocketProtocol7VersionEERKS6_IS3_ESE_
+inline QString QWebSocketHandshakeResponse::getHandshakeResponse(
+        const QWebSocketHandshakeRequest &request,
+        const QString &serverName,
+        bool isOriginAllowed,
+        const QList<QWebSocketProtocol::Version> &supportedVersions,
+        const QList<QString> &supportedProtocols,
+        const QList<QString> &supportedExtensions)
+{
+    QStringList response;
+    m_canUpgrade = false;
+
+    if (!isOriginAllowed) {
+        if (!m_canUpgrade) {
+            m_error = QWebSocketProtocol::CloseCodePolicyViolated;
+            m_errorString = tr("Access forbidden.");
+            response << QStringLiteral("HTTP/1.1 403 Access Forbidden");
+        }
+    } else {
+        if (request.isValid()) {
+            const QString acceptKey = calculateAcceptKey(request.key());
+
+            // Find first client protocol that is supported. Order is important!
+            const QString protocol = [&] {
+                const auto clientProtocols = request.protocols();
+
+                const auto isSupportedProtocol = [&](const QString &protocol) {
+                    return supportedProtocols.contains(protocol);
+                };
+                const auto it = std::find_if(
+                            clientProtocols.constBegin(), clientProtocols.constEnd(),
+                            isSupportedProtocol);
+
+                return it == clientProtocols.constEnd() ? QString() : *it;
+            }();
+
+            //TODO: extensions must be kept in the order in which they arrive
+            //cannot use set.intersect() to get the supported extensions
+            const QList<QString> matchingExtensions =
+                listIntersection(supportedExtensions, request.extensions(),
+                                 std::less<QString>());
+            const QList<QWebSocketProtocol::Version> matchingVersions =
+                listIntersection(supportedVersions, request.versions(),
+                                 std::greater<QWebSocketProtocol::Version>()); //sort in descending order
+
+            if (Q_UNLIKELY(matchingVersions.isEmpty())) {
+                m_error = QWebSocketProtocol::CloseCodeProtocolError;
+                m_errorString = tr("Unsupported version requested.");
+                m_canUpgrade = false;
+            } else {
+                response << QStringLiteral("HTTP/1.1 101 Switching Protocols") <<
+                            QStringLiteral("Upgrade: websocket") <<
+                            QStringLiteral("Connection: Upgrade") <<
+                            QStringLiteral("Sec-WebSocket-Accept: ") % acceptKey;
+                if (!protocol.isEmpty()) {
+                    m_acceptedProtocol = protocol;
+                    response << QStringLiteral("Sec-WebSocket-Protocol: ") % m_acceptedProtocol;
+                }
+                if (!matchingExtensions.isEmpty()) {
+                    m_acceptedExtension = matchingExtensions.first();
+                    response << QStringLiteral("Sec-WebSocket-Extensions: ") % m_acceptedExtension;
+                }
+                QString origin = request.origin().trimmed();
+                if (origin.contains(QStringLiteral("\r\n")) ||
+                        serverName.contains(QStringLiteral("\r\n"))) {
+                    m_error = QWebSocketProtocol::CloseCodeAbnormalDisconnection;
+                    m_errorString = tr("One of the headers contains a newline. " \
+                                       "Possible attack detected.");
+                    m_canUpgrade = false;
+                } else {
+                    if (origin.isEmpty())
+                        origin = QStringLiteral("*");
+                    QDateTime datetime = QDateTime::currentDateTimeUtc();
+                    if (!serverName.isEmpty())
+                        response << QStringLiteral("Server: ") % serverName;
+                    response << QStringLiteral("Access-Control-Allow-Credentials: false")    <<
+                                QStringLiteral("Access-Control-Allow-Methods: GET")          <<
+                                QStringLiteral("Access-Control-Allow-Headers: content-type") <<
+                                QStringLiteral("Access-Control-Allow-Origin: ") % origin     <<
+                                QStringLiteral("Date: ") % QLocale::c()
+                                    .toString(datetime, QStringLiteral("ddd, dd MMM yyyy hh:mm:ss 'GMT'"));
+
+
+                    m_acceptedVersion = QWebSocketProtocol::currentVersion();
+                    m_canUpgrade = true;
+                }
+            }
+        } else {
+            m_error = QWebSocketProtocol::CloseCodeProtocolError;
+            m_errorString = tr("Bad handshake request received.");
+            m_canUpgrade = false;
+        }
+        if (Q_UNLIKELY(!m_canUpgrade)) {
+            response << QStringLiteral("HTTP/1.1 400 Bad Request");
+            QStringList versions;
+            for (QWebSocketProtocol::Version version : supportedVersions)
+                versions << QString::number(static_cast<int>(version));
+            response << QStringLiteral("Sec-WebSocket-Version: ")
+                                % versions.join(QStringLiteral(", "));
+        }
+    }
+    response << QStringLiteral("\r\n");    //append empty line at end of header
+    return response.join(QStringLiteral("\r\n"));
+}
+
+//  from ../qtwebsockets/src/websockets/qwebsockethandshakerequest.cpp, line 151, as _ZNK26QWebSocketHandshakeRequest10extensionsEv
+inline QList<QString> QWebSocketHandshakeRequest::extensions() const
+{
+    return m_extensions;
+}
+
+//  from ../qtwebsockets/src/websockets/qwebsockethandshakerequest.cpp, line 119, as _ZNK26QWebSocketHandshakeRequest3keyEv
+inline QString QWebSocketHandshakeRequest::key() const
+{
+    return m_key;
+}
+
+//  from ../qtwebsockets/src/websockets/qwebsockethandshakerequest.cpp, line 135, as _ZNK26QWebSocketHandshakeRequest6originEv
+inline QString QWebSocketHandshakeRequest::origin() const
+{
+    return m_origin;
+}
+
+//  from ../qtwebsockets/src/websockets/qwebsockethandshakerequest.cpp, line 79, as _ZNK26QWebSocketHandshakeRequest7isValidEv
+inline bool QWebSocketHandshakeRequest::isValid() const
+{
+    return m_isValid;
+}
+
+//  from ../qtwebsockets/src/websockets/qwebsockethandshakerequest.cpp, line 103, as _ZNK26QWebSocketHandshakeRequest8versionsEv
+inline QList<QWebSocketProtocol::Version> QWebSocketHandshakeRequest::versions() const
+{
+    return m_versions;
+}
+
+//  from ../qtwebsockets/src/websockets/qwebsockethandshakerequest.cpp, line 143, as _ZNK26QWebSocketHandshakeRequest9protocolsEv
+inline QList<QString> QWebSocketHandshakeRequest::protocols() const
+{
+    return m_protocols;
+}
+
+//  from ../qtwebsockets/src/websockets/qwebsockethandshakeresponse.cpp, line 30, as _ZN27QWebSocketHandshakeResponseC1ERK26QWebSocketHandshakeRequestRK7QStringbRK5QListIN18QWebSocketProtocol7VersionEERKS6_IS3_ESE_
+inline QWebSocketHandshakeResponse::QWebSocketHandshakeResponse(
+        const QWebSocketHandshakeRequest &request,
+        const QString &serverName,
+        bool isOriginAllowed,
+        const QList<QWebSocketProtocol::Version> &supportedVersions,
+        const QList<QString> &supportedProtocols,
+        const QList<QString> &supportedExtensions) :
+    m_isValid(false),
+    m_canUpgrade(false),
+    m_response(),
+    m_acceptedProtocol(),
+    m_acceptedExtension(),
+    m_acceptedVersion(QWebSocketProtocol::VersionUnknown),
+    m_error(QWebSocketProtocol::CloseCodeNormal),
+    m_errorString()
+{
+    m_response = getHandshakeResponse(request, serverName,
+                                      isOriginAllowed, supportedVersions,
+                                      supportedProtocols, supportedExtensions);
+    m_isValid = true;
 }
 
 //  from ../qtwebsockets/src/websockets/qwebsockethandshakeresponse.cpp, line 62, as _ZNK27QWebSocketHandshakeResponse7isValidEv
@@ -302,6 +559,38 @@ int ritual_ZN27QWebSocketHandshakeResponse11qt_metacallEN11QMetaObject4CallEiPPv
     int a1,
     void **a2) {
   return self->qt_metacall(a0, a1, a2);
+}
+
+//  QString QWebSocketHandshakeResponse::tr(const char *s, const char *c, int
+//      n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN27QWebSocketHandshakeResponse2trEPKcS1_i(
+    const char *s,
+    const char *c,
+    int n) {
+  return new QString(QWebSocketHandshakeResponse::tr(s, c, n));
+}
+
+//  QWebSocketHandshakeResponse::QWebSocketHandshakeResponse(const
+//      QWebSocketHandshakeRequest &request, const QString &serverName, bool
+//      isOriginAllowed, const QList<QWebSocketProtocol::Version>
+//      &supportedVersions, const QList<QString> &supportedProtocols, const
+//      QList<QString> &supportedExtensions)
+extern "C" Q_DECL_EXPORT
+QWebSocketHandshakeResponse *ritual_ZN27QWebSocketHandshakeResponseC1ERK26QWebSocketHandshakeRequestRK7QStringbRK5QListIN18QWebSocketProtocol7VersionEERKS6_IS3_ESE_(
+    const QWebSocketHandshakeRequest *request,
+    const QString *serverName,
+    bool isOriginAllowed,
+    const QList<QWebSocketProtocol::Version> *supportedVersions,
+    const QList<QString> *supportedProtocols,
+    const QList<QString> *supportedExtensions) {
+  return new CuteQWebSocketHandshakeResponse(
+      *request,
+      *serverName,
+      isOriginAllowed,
+      *supportedVersions,
+      *supportedProtocols,
+      *supportedExtensions);
 }
 
 //  QWebSocketHandshakeResponse::~QWebSocketHandshakeResponse()

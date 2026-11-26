@@ -1,6 +1,13 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtGraphs/6.12.0/QtGraphs/private/qxyseriesanimation_p.h, Qt 6.12.0.
-//  Changes made here are lost.
+//  Edited by hand on 2026-11-26: moc's output for 'QXYSeriesAnimation' is
+//  pasted in, cut from what the moc of Qt 6.12.0 writes for its header: Qt's
+//  library keeps it to itself; added are 2 rituals that lean on what moc
+//  writes for a class of the part Qt keeps to itself, whose ritual file
+//  carries moc's output, drafted by a copy of the generator that lets those
+//  names through. A copy of a meta-object is a second one: 'qobject_cast'
+//  between it and Qt's own does not match. Kept as it is when the generator
+//  runs again.
 #include <QtCore/qglobal.h>
 #include <QtGraphs/qgraphsglobal.h>
 #include <QtGraphs/6.12.0/QtGraphs/private/qgraphsglobal_p.h>
@@ -10,14 +17,19 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGraphs/6.12.0/QtGraphs/private/qxyseriesanimation_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 #include <QtCore/qpoint.h>
 #include <QtCore/qvariant.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <QtGraphs/private/qgraphanimation_p.h>
-#include <QtGraphs/private/qgraphanimation_p.h>
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
 #include <QtGraphs/private/qxyseriesanimation_p.h>
+#include <QtGraphs/private/qgraphanimation_p.h>
+#include <QtGraphs/private/qgraphanimation_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -26,6 +38,96 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  from QtGraphs__QXYSeriesAnimation.cpp, line 1, as moc:QXYSeriesAnimation
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN18QXYSeriesAnimationE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto QXYSeriesAnimation::qt_create_metaobjectdata<qt_meta_tag_ZN18QXYSeriesAnimationE_t>()
+{
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "QXYSeriesAnimation",
+        "valueUpdated",
+        "",
+        "QVariant",
+        "value"
+    };
+
+    QtMocHelpers::UintData qt_methods {
+        // Slot 'valueUpdated'
+        QtMocHelpers::SlotData<void(const QVariant &)>(1, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { 0x80000000 | 3, 4 },
+        }}),
+    };
+    QtMocHelpers::UintData qt_properties {
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    return QtMocHelpers::metaObjectData<QXYSeriesAnimation, qt_meta_tag_ZN18QXYSeriesAnimationE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums);
+}
+Q_CONSTINIT const QMetaObject QXYSeriesAnimation::staticMetaObject = { {
+    QMetaObject::SuperData::link<QGraphAnimation::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN18QXYSeriesAnimationE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN18QXYSeriesAnimationE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN18QXYSeriesAnimationE_t>.metaTypes,
+    nullptr
+} };
+
+void QXYSeriesAnimation::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<QXYSeriesAnimation *>(_o);
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        switch (_id) {
+        case 0: _t->valueUpdated((*reinterpret_cast<std::add_pointer_t<QVariant>>(_a[1]))); break;
+        default: ;
+        }
+    }
+}
+
+const QMetaObject *QXYSeriesAnimation::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *QXYSeriesAnimation::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN18QXYSeriesAnimationE_t>.strings))
+        return static_cast<void*>(this);
+    return QGraphAnimation::qt_metacast(_clname);
+}
+
+int QXYSeriesAnimation::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QGraphAnimation::qt_metacall(_c, _id, _a);
+    if (_id < 0)
+        return _id;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        if (_id < 1)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 1;
+    }
+    if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        if (_id < 1)
+            *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
+        _id -= 1;
+    }
+    return _id;
+}
+QT_WARNING_POP
+
+//  from ../qtgraphs/src/graphs2d/animation/qxyseriesanimation.cpp, line 29, as _ZN18QXYSeriesAnimationD0Ev
+inline QXYSeriesAnimation::~QXYSeriesAnimation() {}
 
 //  from ../qtgraphs/src/graphs2d/animation/qgraphanimation.cpp, line 53, as _ZN15QGraphAnimationC2EP7QObject
 inline QGraphAnimation::QGraphAnimation(QObject *parent)
@@ -40,6 +142,17 @@ inline QGraphAnimation::AnimationState QGraphAnimation::animating() const
 {
     return m_animating;
 }
+
+//  from ../qtgraphs/src/graphs2d/animation/qgraphanimation.cpp, line 60, as _ZN15QGraphAnimationD2Ev
+inline QGraphAnimation::~QGraphAnimation()
+{
+    stop();
+}
+
+//  from ../qtgraphs/src/graphs2d/animation/qxyseriesanimation.cpp, line 25, as _ZN18QXYSeriesAnimationC1EP7QObject
+inline QXYSeriesAnimation::QXYSeriesAnimation(QObject *parent)
+    : QGraphAnimation(parent)
+{}
 
 //  from ../qtgraphs/src/graphs2d/animation/qxyseriesanimation.cpp, line 31, as _ZN18QXYSeriesAnimation13updateCurrentEN16QGraphTransition14TransitionTypeEi7QPointF
 inline void QXYSeriesAnimation::updateCurrent(QGraphTransition::TransitionType tt, int index, QPointF point)
@@ -473,6 +586,22 @@ int ritual_ZN18QXYSeriesAnimation11qt_metacallEN11QMetaObject4CallEiPPv(
     int a1,
     void **a2) {
   return self->qt_metacall(a0, a1, a2);
+}
+
+//  QString QXYSeriesAnimation::tr(const char *s, const char *c, int n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN18QXYSeriesAnimation2trEPKcS1_i(
+    const char *s,
+    const char *c,
+    int n) {
+  return new QString(QXYSeriesAnimation::tr(s, c, n));
+}
+
+//  QXYSeriesAnimation::QXYSeriesAnimation(QObject *parent)
+extern "C" Q_DECL_EXPORT
+QXYSeriesAnimation *ritual_ZN18QXYSeriesAnimationC1EP7QObject(
+    QObject *parent) {
+  return new CuteQXYSeriesAnimation(parent);
 }
 
 //  QXYSeriesAnimation::~QXYSeriesAnimation()

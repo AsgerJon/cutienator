@@ -76,12 +76,25 @@ inline QQuickControl *QAccessibleQuickControl::control() const
     return static_cast<QQuickControl *>(object());
 }
 
+//  from ../qtdeclarative/src/quicktemplates/accessible/qaccessiblequickslider.cpp, line 10, as _ZN22QAccessibleQuickSliderC1EP12QQuickSlider
+inline QAccessibleQuickSlider::QAccessibleQuickSlider(QQuickSlider *slider)
+    : QAccessibleQuickControl(slider)
+{
+}
+
 //  from ../qtdeclarative/src/quicktemplates/accessible/qaccessiblequickslider.cpp, line 31, as _ZNK22QAccessibleQuickSlider6sliderEv
 inline QQuickSlider *QAccessibleQuickSlider::slider() const
 {
     return static_cast<QQuickSlider *>(object());
 }
 //  -----------------------------------------------------------------------
+
+//  QAccessibleQuickSlider::QAccessibleQuickSlider(QQuickSlider *slider)
+extern "C" Q_DECL_EXPORT
+QAccessibleQuickSlider *ritual_ZN22QAccessibleQuickSliderC1EP12QQuickSlider(
+    QQuickSlider *slider) {
+  return new QAccessibleQuickSlider(slider);
+}
 
 //  QList<QAccessible::Attribute> QAccessibleQuickSlider::attributeKeys()
 //      const

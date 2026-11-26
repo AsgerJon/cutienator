@@ -1,6 +1,14 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtChartsQml/6.12.0/QtChartsQml/private/declarativepieseries_p.h, Qt
-//  6.12.0. Changes made here are lost.
+//  6.12.0.
+//  Edited by hand on 2026-11-26: moc's output for 'DeclarativePieSeries' is
+//  pasted in, cut from what the moc of Qt 6.12.0 writes for its header: Qt's
+//  library keeps it to itself; added are 2 rituals that lean on what moc
+//  writes for a class of the part Qt keeps to itself, whose ritual file
+//  carries moc's output, drafted by a copy of the generator that lets those
+//  names through. A copy of a meta-object is a second one: 'qobject_cast'
+//  between it and Qt's own does not match. Kept as it is when the generator
+//  runs again.
 #include <QtCharts/qchartglobal.h>
 #include <QtChartsQml/qtchartsqmlexports.h>
 #include <QtChartsQml/6.12.0/QtChartsQml/private/declarativechartglobal_p.h>
@@ -16,6 +24,10 @@
 #include <QtQml/QQmlListProperty>
 #include <QtCore/QObject>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
 #include <QtChartsQml/private/declarativepieseries_p.h>
 #include <QtCharts/QPieSlice>
 #include <QtCharts/QVPieModelMapper>
@@ -29,9 +41,259 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from QtChartsQml__DeclarativePieSeries.cpp, line 1, as moc:DeclarativePieSeries
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN20DeclarativePieSeriesE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto DeclarativePieSeries::qt_create_metaobjectdata<qt_meta_tag_ZN20DeclarativePieSeriesE_t>()
+{
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "DeclarativePieSeries",
+        "DefaultProperty",
+        "seriesChildren",
+        "QML.Element",
+        "PieSeries",
+        "QML.AddedInVersion",
+        "256",
+        "QML.ExtraVersion",
+        "512",
+        "sliceAdded",
+        "",
+        "QPieSlice*",
+        "slice",
+        "sliceRemoved",
+        "handleAdded",
+        "QList<QPieSlice*>",
+        "slices",
+        "handleRemoved",
+        "at",
+        "index",
+        "find",
+        "label",
+        "append",
+        "DeclarativePieSlice*",
+        "value",
+        "remove",
+        "clear",
+        "QQmlListProperty<QObject>"
+    };
+
+    QtMocHelpers::UintData qt_methods {
+        // Signal 'sliceAdded'
+        QtMocHelpers::SignalData<void(QPieSlice *)>(9, 10, QMC::AccessPublic, QMetaType::Void, {{
+            { 0x80000000 | 11, 12 },
+        }}),
+        // Signal 'sliceRemoved'
+        QtMocHelpers::SignalData<void(QPieSlice *)>(13, 10, QMC::AccessPublic, QMetaType::Void, {{
+            { 0x80000000 | 11, 12 },
+        }}),
+        // Slot 'handleAdded'
+        QtMocHelpers::SlotData<void(const QList<QPieSlice*> &)>(14, 10, QMC::AccessPublic, QMetaType::Void, {{
+            { 0x80000000 | 15, 16 },
+        }}),
+        // Slot 'handleRemoved'
+        QtMocHelpers::SlotData<void(const QList<QPieSlice*> &)>(17, 10, QMC::AccessPublic, QMetaType::Void, {{
+            { 0x80000000 | 15, 16 },
+        }}),
+        // Method 'at'
+        QtMocHelpers::MethodData<QPieSlice *(int)>(18, 10, QMC::AccessPublic, 0x80000000 | 11, {{
+            { QMetaType::Int, 19 },
+        }}),
+        // Method 'find'
+        QtMocHelpers::MethodData<QPieSlice *(QString)>(20, 10, QMC::AccessPublic, 0x80000000 | 11, {{
+            { QMetaType::QString, 21 },
+        }}),
+        // Method 'append'
+        QtMocHelpers::MethodData<DeclarativePieSlice *(QString, qreal)>(22, 10, QMC::AccessPublic, 0x80000000 | 23, {{
+            { QMetaType::QString, 21 }, { QMetaType::QReal, 24 },
+        }}),
+        // Method 'remove'
+        QtMocHelpers::MethodData<bool(QPieSlice *)>(25, 10, QMC::AccessPublic, QMetaType::Bool, {{
+            { 0x80000000 | 11, 12 },
+        }}),
+        // Method 'clear'
+        QtMocHelpers::MethodData<void()>(26, 10, QMC::AccessPublic, QMetaType::Void),
+    };
+    QtMocHelpers::UintData qt_properties {
+        // property 'seriesChildren'
+        QtMocHelpers::PropertyData<QQmlListProperty<QObject>>(2, 0x80000000 | 27, QMC::DefaultPropertyFlags | QMC::EnumOrFlag),
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    QtMocHelpers::UintData qt_constructors {};
+    QtMocHelpers::ClassInfos qt_classinfo({
+            {    1,    2 },
+            {    3,    4 },
+            {    5,    6 },
+            {    7,    8 },
+    });
+    return QtMocHelpers::metaObjectData<DeclarativePieSeries, void>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums, qt_constructors, qt_classinfo);
+}
+Q_CONSTINIT const QMetaObject DeclarativePieSeries::staticMetaObject = { {
+    QMetaObject::SuperData::link<QPieSeries::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN20DeclarativePieSeriesE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN20DeclarativePieSeriesE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN20DeclarativePieSeriesE_t>.metaTypes,
+    nullptr
+} };
+
+void DeclarativePieSeries::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<DeclarativePieSeries *>(_o);
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        switch (_id) {
+        case 0: _t->sliceAdded((*reinterpret_cast<std::add_pointer_t<QPieSlice*>>(_a[1]))); break;
+        case 1: _t->sliceRemoved((*reinterpret_cast<std::add_pointer_t<QPieSlice*>>(_a[1]))); break;
+        case 2: _t->handleAdded((*reinterpret_cast<std::add_pointer_t<QList<QPieSlice*>>>(_a[1]))); break;
+        case 3: _t->handleRemoved((*reinterpret_cast<std::add_pointer_t<QList<QPieSlice*>>>(_a[1]))); break;
+        case 4: { QPieSlice* _r = _t->at((*reinterpret_cast<std::add_pointer_t<int>>(_a[1])));
+            if (_a[0]) *reinterpret_cast<QPieSlice**>(_a[0]) = std::move(_r); }  break;
+        case 5: { QPieSlice* _r = _t->find((*reinterpret_cast<std::add_pointer_t<QString>>(_a[1])));
+            if (_a[0]) *reinterpret_cast<QPieSlice**>(_a[0]) = std::move(_r); }  break;
+        case 6: { DeclarativePieSlice* _r = _t->append((*reinterpret_cast<std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<qreal>>(_a[2])));
+            if (_a[0]) *reinterpret_cast<DeclarativePieSlice**>(_a[0]) = std::move(_r); }  break;
+        case 7: { bool _r = _t->remove((*reinterpret_cast<std::add_pointer_t<QPieSlice*>>(_a[1])));
+            if (_a[0]) *reinterpret_cast<bool*>(_a[0]) = std::move(_r); }  break;
+        case 8: _t->clear(); break;
+        default: ;
+        }
+    }
+    if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        switch (_id) {
+        default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
+        case 0:
+            switch (*reinterpret_cast<int*>(_a[1])) {
+            default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
+            case 0:
+                *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType::fromType< QPieSlice* >(); break;
+            }
+            break;
+        case 1:
+            switch (*reinterpret_cast<int*>(_a[1])) {
+            default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
+            case 0:
+                *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType::fromType< QPieSlice* >(); break;
+            }
+            break;
+        case 2:
+            switch (*reinterpret_cast<int*>(_a[1])) {
+            default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
+            case 0:
+                *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType::fromType< QList<QPieSlice*> >(); break;
+            }
+            break;
+        case 3:
+            switch (*reinterpret_cast<int*>(_a[1])) {
+            default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
+            case 0:
+                *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType::fromType< QList<QPieSlice*> >(); break;
+            }
+            break;
+        case 7:
+            switch (*reinterpret_cast<int*>(_a[1])) {
+            default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
+            case 0:
+                *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType::fromType< QPieSlice* >(); break;
+            }
+            break;
+        }
+    }
+    if (_c == QMetaObject::IndexOfMethod) {
+        if (QtMocHelpers::indexOfMethod<void (DeclarativePieSeries::*)(QPieSlice * )>(_a, &DeclarativePieSeries::sliceAdded, 0))
+            return;
+        if (QtMocHelpers::indexOfMethod<void (DeclarativePieSeries::*)(QPieSlice * )>(_a, &DeclarativePieSeries::sliceRemoved, 1))
+            return;
+    }
+    if (_c == QMetaObject::ReadProperty) {
+        void *_v = _a[0];
+        switch (_id) {
+        case 0: *reinterpret_cast<QQmlListProperty<QObject>*>(_v) = _t->seriesChildren(); break;
+        default: break;
+        }
+    }
+}
+
+const QMetaObject *DeclarativePieSeries::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *DeclarativePieSeries::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN20DeclarativePieSeriesE_t>.strings))
+        return static_cast<void*>(this);
+    if (!strcmp(_clname, "QQmlParserStatus"))
+        return static_cast< QQmlParserStatus*>(this);
+    if (!strcmp(_clname, "org.qt-project.Qt.QQmlParserStatus"))
+        return static_cast< QQmlParserStatus*>(this);
+    return QPieSeries::qt_metacast(_clname);
+}
+
+int DeclarativePieSeries::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QPieSeries::qt_metacall(_c, _id, _a);
+    if (_id < 0)
+        return _id;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        if (_id < 9)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 9;
+    }
+    if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        if (_id < 9)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 9;
+    }
+    if (_c == QMetaObject::ReadProperty || _c == QMetaObject::WriteProperty
+            || _c == QMetaObject::ResetProperty || _c == QMetaObject::BindableProperty
+            || _c == QMetaObject::RegisterPropertyMetaType) {
+        qt_static_metacall(this, _c, _id, _a);
+        _id -= 1;
+    }
+    return _id;
+}
+
+// SIGNAL 0
+void DeclarativePieSeries::sliceAdded(QPieSlice * _t1)
+{
+    QMetaObject::activate<void>(this, &staticMetaObject, 0, nullptr, _t1);
+}
+
+// SIGNAL 1
+void DeclarativePieSeries::sliceRemoved(QPieSlice * _t1)
+{
+    QMetaObject::activate<void>(this, &staticMetaObject, 1, nullptr, _t1);
+}
+QT_WARNING_POP
+
 //  from ../qtcharts/src/chartsqml2/declarativepieseries.cpp, line 55, as _ZN20DeclarativePieSeries10classBeginEv
 inline void DeclarativePieSeries::classBegin()
 {
+}
+
+//  from ../qtcharts/src/chartsqml2/declarativepieseries.cpp, line 127, as _ZN20DeclarativePieSeries11handleAddedERK5QListIP9QPieSliceE
+inline void DeclarativePieSeries::handleAdded(const QList<QPieSlice *> &slices)
+{
+    for (auto *slice : slices)
+        emit sliceAdded(slice);
+}
+
+//  from ../qtcharts/src/chartsqml2/declarativepieseries.cpp, line 133, as _ZN20DeclarativePieSeries13handleRemovedERK5QListIP9QPieSliceE
+inline void DeclarativePieSeries::handleRemoved(const QList<QPieSlice *> &slices)
+{
+    for (auto *slice : slices)
+        emit sliceRemoved(slice);
 }
 
 //  from ../qtcharts/src/chartsqml2/declarativepieseries.cpp, line 59, as _ZN20DeclarativePieSeries17componentCompleteEv
@@ -49,6 +311,20 @@ inline void DeclarativePieSeries::componentComplete()
             mapper->setSeries(this);
         }
     }
+}
+
+//  from ../qtcharts/src/chartsqml2/declarativepieseries.cpp, line 122, as _ZN20DeclarativePieSeries5clearEv
+inline void DeclarativePieSeries::clear()
+{
+    QPieSeries::clear();
+}
+
+//  from ../qtcharts/src/chartsqml2/declarativepieseries.cpp, line 48, as _ZN20DeclarativePieSeriesC1EP10QQuickItem
+inline DeclarativePieSeries::DeclarativePieSeries(QQuickItem *parent) :
+    QPieSeries(parent)
+{
+    connect(this, SIGNAL(added(QList<QPieSlice*>)), this, SLOT(handleAdded(QList<QPieSlice*>)));
+    connect(this, SIGNAL(removed(QList<QPieSlice*>)), this, SLOT(handleRemoved(QList<QPieSlice*>)));
 }
 
 //  from ../qtcharts/src/chartsqml2/declarativepieseries.cpp, line 75, as _ZN20DeclarativePieSeries14seriesChildrenEv
@@ -129,6 +405,22 @@ int ritual_ZN20DeclarativePieSeries11qt_metacallEN11QMetaObject4CallEiPPv(
     int a1,
     void **a2) {
   return self->qt_metacall(a0, a1, a2);
+}
+
+//  QString DeclarativePieSeries::tr(const char *s, const char *c, int n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN20DeclarativePieSeries2trEPKcS1_i(
+    const char *s,
+    const char *c,
+    int n) {
+  return new QString(DeclarativePieSeries::tr(s, c, n));
+}
+
+//  DeclarativePieSeries::DeclarativePieSeries(QQuickItem *parent)
+extern "C" Q_DECL_EXPORT
+DeclarativePieSeries *ritual_ZN20DeclarativePieSeriesC1EP10QQuickItem(
+    QQuickItem *parent) {
+  return new DeclarativePieSeries(parent);
 }
 
 //  QQmlListProperty<QObject> DeclarativePieSeries::seriesChildren()

@@ -28,12 +28,26 @@ inline AbstractRenderItem::~AbstractRenderItem()
 inline AbstractRenderItem::AbstractRenderItem()
 {
 }
+
+//  from ../qtdatavis3d/src/datavisualization/data/abstractrenderitem.cpp, line 12, as _ZN18AbstractRenderItemC1ERKS_
+inline AbstractRenderItem::AbstractRenderItem(const AbstractRenderItem &other)
+{
+    m_translation = other.m_translation;
+    m_rotation = other.m_rotation;
+}
 //  -----------------------------------------------------------------------
 
 //  AbstractRenderItem::AbstractRenderItem()
 extern "C" Q_DECL_EXPORT
 AbstractRenderItem *ritual_ZN18AbstractRenderItemC1Ev() {
   return new AbstractRenderItem();
+}
+
+//  AbstractRenderItem::AbstractRenderItem(const AbstractRenderItem &other)
+extern "C" Q_DECL_EXPORT
+AbstractRenderItem *ritual_ZN18AbstractRenderItemC1ERKS_(
+    const AbstractRenderItem *other) {
+  return new AbstractRenderItem(*other);
 }
 
 //  AbstractRenderItem &AbstractRenderItem::operator=(const

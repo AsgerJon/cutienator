@@ -5,10 +5,19 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN5Http26StreamC1Ev": ["address"],
+    "ritual_ZN5Http26StreamC1ERKSt4pairI19QHttpNetworkRequestP17QHttpNetworkReplyEjii": [
+      "address", "address", "unsigned int", "int", "int"
+    ],
+    "ritual_ZN5Http26StreamC1ERK7QStringji": [
+      "address", "text", "unsigned int", "int"
+    ],
     "ritual_ZNK5Http26Stream5replyEv": ["address", "address"],
+    "ritual_ZNK5Http26Stream7requestEv": ["address", "address"],
     "ritual_ZN5Http26Stream7requestEv": ["address", "address"],
     "ritual_ZNK5Http26Stream8priorityEv": ["int", "address"],
     "ritual_ZNK5Http26Stream6weightEv": ["unsigned char", "address"],
-    "ritual_ZNK5Http26Stream4dataEv": ["address", "address"]
+    "ritual_ZNK5Http26Stream4dataEv": ["address", "address"],
+    "ritual_ZN5Http26StreamD1Ev": ["nothing", "address"]
   }
 }

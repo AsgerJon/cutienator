@@ -2,7 +2,7 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtQuick/6.12.0/QtQuick/private/qquickpathview_p.h, Qt 6.12.0.",
-    "Changes made here are lost."
+    "Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZNK22QQuickPathViewAttached10metaObjectEv": [
@@ -14,10 +14,16 @@
     "ritual_ZN22QQuickPathViewAttached11qt_metacallEN11QMetaObject4CallEiPPv": [
       "int", "address", "int", "int", "address"
     ],
+    "ritual_ZN22QQuickPathViewAttached2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
     "ritual_ZN22QQuickPathViewAttachedD1Ev": ["nothing", "address"],
     "ritual_ZNK22QQuickPathViewAttached4viewEv": ["address", "address"],
     "ritual_ZNK22QQuickPathViewAttached13isCurrentItemEv": [
       "bool", "address"
+    ],
+    "ritual_ZN22QQuickPathViewAttached16setIsCurrentItemEb": [
+      "nothing", "address", "bool"
     ],
     "ritual_ZNK22QQuickPathViewAttached5valueERK10QByteArray": [
       "address", "address", "address"
@@ -26,6 +32,9 @@
       "nothing", "address", "address", "address"
     ],
     "ritual_ZNK22QQuickPathViewAttached8isOnPathEv": ["bool", "address"],
+    "ritual_ZN22QQuickPathViewAttached9setOnPathEb": [
+      "nothing", "address", "bool"
+    ],
     "ritual_ZN22QQuickPathViewAttached18currentItemChangedEv": [
       "nothing", "address"
     ],

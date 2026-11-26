@@ -1,6 +1,11 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtWidgets/6.12.0/QtWidgets/private/qtoolbarlayout_p.h, Qt 6.12.0. Changes
-//  made here are lost.
+//  QtWidgets/6.12.0/QtWidgets/private/qtoolbarlayout_p.h, Qt 6.12.0.
+//  Edited by hand on 2026-11-26: added are 2 rituals that lean on what moc
+//  writes for a class of the part Qt keeps to itself, whose ritual file
+//  carries moc's output, drafted by a copy of the generator that lets those
+//  names through. A copy of a meta-object is a second one: 'qobject_cast'
+//  between it and Qt's own does not match. Kept as it is when the generator
+//  runs again.
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #if QT_CONFIG(toolbar)
@@ -35,6 +40,11 @@
 #endif
 #include <QtWidgets/private/qtoolbarlayout_p.h>
 #include <QtWidgets/private/qtoolbarseparator_p.h>
+#include <QtWidgets/private/qtoolbarextension_p.h>
+#include <QtGui/qevent.h>
+#include <QtWidgets/qstyle.h>
+#include <QtWidgets/qstylepainter.h>
+#include <QtWidgets/qstyleoption.h>
 #include <QtWidgets/private/qtoolbarseparator_p.h>
 #include <QtWidgets/qstyle.h>
 #include <QtWidgets/qstyleoption.h>
@@ -49,6 +59,8 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+using namespace Qt::StringLiterals;
+
 //  from src/widgets/widgets/qtoolbarlayout.cpp, line 308, as local:qtoolbarlayout.cpp:defaultWidgetAction
 static bool defaultWidgetAction(QToolBarItem *item)
 {
@@ -61,81 +73,6 @@ inline void QToolBarLayout::invalidate()
 {
     dirty = true;
     QLayout::invalidate();
-}
-
-//  from src/widgets/widgets/qtoolbarlayout.cpp, line 36, as _ZN12QToolBarItemC1EP7QWidget
-inline QToolBarItem::QToolBarItem(QWidget *widget)
-    : QWidgetItem(widget), action(nullptr), customWidget(false)
-{
-}
-
-//  from src/widgets/widgets/qtoolbarseparator.cpp, line 21, as _ZN17QToolBarSeparatorC1EP8QToolBar
-inline QToolBarSeparator::QToolBarSeparator(QToolBar *parent)
-    : QWidget(parent), orient(parent->orientation())
-{ setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum); }
-
-//  from src/widgets/widgets/qtoolbarlayout.cpp, line 128, as _ZN14QToolBarLayout7addItemEP11QLayoutItem
-inline void QToolBarLayout::addItem(QLayoutItem*)
-{
-    qWarning("QToolBarLayout::addItem(): please use addAction() instead");
-    return;
-}
-
-//  from src/widgets/widgets/qtoolbarlayout.cpp, line 134, as _ZNK14QToolBarLayout6itemAtEi
-inline QLayoutItem *QToolBarLayout::itemAt(int index) const
-{
-    if (index < 0 || index >= items.size())
-        return nullptr;
-    return items.at(index);
-}
-
-//  from src/widgets/widgets/qtoolbarlayout.cpp, line 141, as _ZN14QToolBarLayout6takeAtEi
-inline QLayoutItem *QToolBarLayout::takeAt(int index)
-{
-    if (index < 0 || index >= items.size())
-        return nullptr;
-    QToolBarItem *item = items.takeAt(index);
-
-    if (popupMenu)
-        popupMenu->removeAction(item->action);
-
-    QWidgetAction *widgetAction = qobject_cast<QWidgetAction*>(item->action);
-    if (widgetAction != nullptr && item->customWidget) {
-        widgetAction->releaseWidget(item->widget());
-    } else {
-        // destroy the QToolButton/QToolBarSeparator
-        item->widget()->hide();
-        item->widget()->deleteLater();
-    }
-
-    invalidate();
-    return item;
-}
-
-//  from src/widgets/widgets/qtoolbarlayout.cpp, line 184, as _ZNK14QToolBarLayout5countEv
-inline int QToolBarLayout::count() const
-{
-    return items.size();
-}
-
-//  from src/widgets/widgets/qtoolbarlayout.cpp, line 189, as _ZNK14QToolBarLayout7isEmptyEv
-inline bool QToolBarLayout::isEmpty() const
-{
-    if (dirty)
-        updateGeomArray();
-    return empty;
-}
-
-//  from src/widgets/widgets/qtoolbarlayout.cpp, line 202, as _ZNK14QToolBarLayout19expandingDirectionsEv
-inline Qt::Orientations QToolBarLayout::expandingDirections() const
-{
-    if (dirty)
-        updateGeomArray();
-    QToolBar *tb = qobject_cast<QToolBar*>(parentWidget());
-    if (!tb)
-        return {};
-    Qt::Orientation o = tb->orientation();
-    return expanding ? Qt::Orientations(o) : Qt::Orientations{};
 }
 
 //  from src/widgets/widgets/qtoolbarlayout.cpp, line 340, as _ZN14QToolBarLayout11setGeometryERK5QRect
@@ -193,12 +130,88 @@ inline void QToolBarLayout::setGeometry(const QRect &rect)
     }
 }
 
+//  from src/widgets/widgets/qtoolbarlayout.cpp, line 141, as _ZN14QToolBarLayout6takeAtEi
+inline QLayoutItem *QToolBarLayout::takeAt(int index)
+{
+    if (index < 0 || index >= items.size())
+        return nullptr;
+    QToolBarItem *item = items.takeAt(index);
+
+    if (popupMenu)
+        popupMenu->removeAction(item->action);
+
+    QWidgetAction *widgetAction = qobject_cast<QWidgetAction*>(item->action);
+    if (widgetAction != nullptr && item->customWidget) {
+        widgetAction->releaseWidget(item->widget());
+    } else {
+        // destroy the QToolButton/QToolBarSeparator
+        item->widget()->hide();
+        item->widget()->deleteLater();
+    }
+
+    invalidate();
+    return item;
+}
+
+//  from src/widgets/widgets/qtoolbarlayout.cpp, line 128, as _ZN14QToolBarLayout7addItemEP11QLayoutItem
+inline void QToolBarLayout::addItem(QLayoutItem*)
+{
+    qWarning("QToolBarLayout::addItem(): please use addAction() instead");
+    return;
+}
+
+//  from src/widgets/widgets/qtoolbarextension.cpp, line 15, as _ZN17QToolBarExtensionC1EP7QWidget
+inline QToolBarExtension::QToolBarExtension(QWidget *parent)
+    : QToolButton(parent)
+    , m_orientation(Qt::Horizontal)
+{
+    setObjectName("qt_toolbar_ext_button"_L1);
+    setAutoRaise(true);
+    setOrientation(m_orientation);
+    setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
+    setCheckable(true);
+}
+
 //  from src/widgets/widgets/qtoolbarlayout.cpp, line 657, as _ZNK14QToolBarLayout11minimumSizeEv
 inline QSize QToolBarLayout::minimumSize() const
 {
     if (dirty)
         updateGeomArray();
     return minSize;
+}
+
+//  from src/widgets/widgets/qtoolbarlayout.cpp, line 202, as _ZNK14QToolBarLayout19expandingDirectionsEv
+inline Qt::Orientations QToolBarLayout::expandingDirections() const
+{
+    if (dirty)
+        updateGeomArray();
+    QToolBar *tb = qobject_cast<QToolBar*>(parentWidget());
+    if (!tb)
+        return {};
+    Qt::Orientation o = tb->orientation();
+    return expanding ? Qt::Orientations(o) : Qt::Orientations{};
+}
+
+//  from src/widgets/widgets/qtoolbarlayout.cpp, line 184, as _ZNK14QToolBarLayout5countEv
+inline int QToolBarLayout::count() const
+{
+    return items.size();
+}
+
+//  from src/widgets/widgets/qtoolbarlayout.cpp, line 134, as _ZNK14QToolBarLayout6itemAtEi
+inline QLayoutItem *QToolBarLayout::itemAt(int index) const
+{
+    if (index < 0 || index >= items.size())
+        return nullptr;
+    return items.at(index);
+}
+
+//  from src/widgets/widgets/qtoolbarlayout.cpp, line 189, as _ZNK14QToolBarLayout7isEmptyEv
+inline bool QToolBarLayout::isEmpty() const
+{
+    if (dirty)
+        updateGeomArray();
+    return empty;
 }
 
 //  from src/widgets/widgets/qtoolbarlayout.cpp, line 664, as _ZNK14QToolBarLayout8sizeHintEv
@@ -208,6 +221,17 @@ inline QSize QToolBarLayout::sizeHint() const
         updateGeomArray();
     return hint;
 }
+
+//  from src/widgets/widgets/qtoolbarlayout.cpp, line 36, as _ZN12QToolBarItemC1EP7QWidget
+inline QToolBarItem::QToolBarItem(QWidget *widget)
+    : QWidgetItem(widget), action(nullptr), customWidget(false)
+{
+}
+
+//  from src/widgets/widgets/qtoolbarseparator.cpp, line 21, as _ZN17QToolBarSeparatorC1EP8QToolBar
+inline QToolBarSeparator::QToolBarSeparator(QToolBar *parent)
+    : QWidget(parent), orient(parent->orientation())
+{ setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum); }
 
 //  from src/widgets/widgets/qtoolbarlayout.cpp, line 41, as _ZNK12QToolBarItem7isEmptyEv
 inline bool QToolBarItem::isEmpty() const
@@ -225,6 +249,19 @@ inline QToolBarLayout::~QToolBarLayout()
                 widgetAction->releaseWidget(item->widget());
         }
         delete item;
+    }
+}
+
+//  from src/widgets/widgets/qtoolbarlayout.cpp, line 163, as _ZN14QToolBarLayout12insertActionEiP7QAction
+inline void QToolBarLayout::insertAction(int index, QAction *action)
+{
+    index = qMax(0, index);
+    index = qMin(items.size(), index);
+
+    QToolBarItem *item = createItem(action);
+    if (item) {
+        items.insert(index, item);
+        invalidate();
     }
 }
 
@@ -647,6 +684,54 @@ inline void QToolBarLayout::updateGeomArray() const
     rpick(o, that->hint) += handleExtent;
     that->hint += QSize(pick(Qt::Horizontal, margins), pick(Qt::Vertical, margins));
     that->dirty = false;
+}
+
+//  from src/widgets/widgets/qtoolbarlayout.cpp, line 671, as _ZN14QToolBarLayout10createItemEP7QAction
+inline QToolBarItem *QToolBarLayout::createItem(QAction *action)
+{
+    bool customWidget = false;
+    bool standardButtonWidget = false;
+    QWidget *widget = nullptr;
+    QToolBar *tb = qobject_cast<QToolBar*>(parentWidget());
+    if (!tb)
+        return (QToolBarItem *)nullptr;
+
+    if (QWidgetAction *widgetAction = qobject_cast<QWidgetAction *>(action)) {
+        widget = widgetAction->requestWidget(tb);
+        if (widget != nullptr) {
+            widget->setAttribute(Qt::WA_LayoutUsesWidgetRect);
+            customWidget = true;
+        }
+    } else if (action->isSeparator()) {
+        QToolBarSeparator *sep = new QToolBarSeparator(tb);
+        connect(tb, SIGNAL(orientationChanged(Qt::Orientation)),
+                sep, SLOT(setOrientation(Qt::Orientation)));
+        widget = sep;
+    }
+
+    if (!widget) {
+        QToolButton *button = new QToolButton(tb);
+        button->setAutoRaise(true);
+        button->setFocusPolicy(Qt::NoFocus);
+        button->setIconSize(tb->iconSize());
+        button->setToolButtonStyle(tb->toolButtonStyle());
+        QObject::connect(tb, SIGNAL(iconSizeChanged(QSize)),
+                         button, SLOT(setIconSize(QSize)));
+        QObject::connect(tb, SIGNAL(toolButtonStyleChanged(Qt::ToolButtonStyle)),
+                         button, SLOT(setToolButtonStyle(Qt::ToolButtonStyle)));
+        button->setDefaultAction(action);
+        QObject::connect(button, SIGNAL(triggered(QAction*)), tb, SIGNAL(actionTriggered(QAction*)));
+        widget = button;
+        standardButtonWidget = true;
+    }
+
+    widget->hide();
+    QToolBarItem *result = new QToolBarItem(widget);
+    if (standardButtonWidget)
+        result->setAlignment(Qt::AlignJustify);
+    result->customWidget = customWidget;
+    result->action = action;
+    return result;
 }
 //  -----------------------------------------------------------------------
 
@@ -1366,6 +1451,15 @@ QSize *ritual_ZNK14QToolBarLayout8sizeHintEv(const QToolBarLayout *self) {
   return new QSize(self->sizeHint());
 }
 
+//  void QToolBarLayout::insertAction(int index, QAction *action)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QToolBarLayout12insertActionEiP7QAction(
+    QToolBarLayout *self,
+    int index,
+    QAction *action) {
+  self->insertAction(index, action);
+}
+
 //  int QToolBarLayout::indexOf(const QAction *action) const
 extern "C" Q_DECL_EXPORT
 int ritual_ZNK14QToolBarLayout7indexOfEPK7QAction(
@@ -1463,6 +1557,14 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZNK14QToolBarLayout15updateGeomArrayEv(
     const QToolBarLayout *self) {
   self->updateGeomArray();
+}
+
+//  QToolBarItem *QToolBarLayout::createItem(QAction *action)
+extern "C" Q_DECL_EXPORT
+QToolBarItem *ritual_ZN14QToolBarLayout10createItemEP7QAction(
+    QToolBarLayout *self,
+    QAction *action) {
+  return self->createItem(action);
 }
 
 //  a Python function taken by a CuteQToolBarLayout, for the function named

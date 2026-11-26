@@ -1,14 +1,25 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtDesigner/6.12.0/QtDesigner/private/htmlhighlighter_p.h, Qt 6.12.0.
-//  Changes made here are lost.
+//  Edited by hand on 2026-11-26: moc's output for
+//  'qdesigner_internal::HtmlHighlighter' is pasted in, cut from what the moc
+//  of Qt 6.12.0 writes for its header: Qt's library keeps it to itself;
+//  added are 2 rituals that lean on what moc writes for a class of the part
+//  Qt keeps to itself, whose ritual file carries moc's output, drafted by a
+//  copy of the generator that lets those names through. A copy of a meta-
+//  object is a second one: 'qobject_cast' between it and Qt's own does not
+//  match. Kept as it is when the generator runs again.
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtDesigner/QtDesigner>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtDesigner/6.12.0/QtDesigner/private/htmlhighlighter_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <QtGui/qtextformat.h>
 #include <QtCore/qstring.h>
+#include <QtGui/qtextformat.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
 #include <QtCore/qtextstream.h>
 #include <QtWidgets/qtextedit.h>
 #include <QtDesigner/private/htmlhighlighter_p.h>
@@ -22,6 +33,71 @@
 //  'inline' put before it where Qt did not write it.
 
 using namespace Qt::StringLiterals;
+
+//  from QtDesigner__qdesigner_internal_HtmlHighlighter.cpp, line 1, as moc:qdesigner_internal::HtmlHighlighter
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN18qdesigner_internal15HtmlHighlighterE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto qdesigner_internal::HtmlHighlighter::qt_create_metaobjectdata<qt_meta_tag_ZN18qdesigner_internal15HtmlHighlighterE_t>()
+{
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "qdesigner_internal::HtmlHighlighter"
+    };
+
+    QtMocHelpers::UintData qt_methods {
+    };
+    QtMocHelpers::UintData qt_properties {
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    return QtMocHelpers::metaObjectData<HtmlHighlighter, qt_meta_tag_ZN18qdesigner_internal15HtmlHighlighterE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums);
+}
+Q_CONSTINIT const QMetaObject qdesigner_internal::HtmlHighlighter::staticMetaObject = { {
+    QMetaObject::SuperData::link<QSyntaxHighlighter::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN18qdesigner_internal15HtmlHighlighterE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN18qdesigner_internal15HtmlHighlighterE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN18qdesigner_internal15HtmlHighlighterE_t>.metaTypes,
+    nullptr
+} };
+
+void qdesigner_internal::HtmlHighlighter::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<HtmlHighlighter *>(_o);
+    (void)_t;
+    (void)_c;
+    (void)_id;
+    (void)_a;
+}
+
+const QMetaObject *qdesigner_internal::HtmlHighlighter::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *qdesigner_internal::HtmlHighlighter::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN18qdesigner_internal15HtmlHighlighterE_t>.strings))
+        return static_cast<void*>(this);
+    return QSyntaxHighlighter::qt_metacast(_clname);
+}
+
+int qdesigner_internal::HtmlHighlighter::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QSyntaxHighlighter::qt_metacall(_c, _id, _a);
+    return _id;
+}
+QT_WARNING_POP
 
 //  from ../qttools/src/designer/src/lib/shared/htmlhighlighter.cpp, line 50, as _ZN18qdesigner_internal15HtmlHighlighter14highlightBlockERK7QString
 namespace qdesigner_internal {
@@ -129,6 +205,37 @@ inline void HtmlHighlighter::highlightBlock(const QString &text)
 }
 }  // namespace qdesigner_internal
 
+//  from ../qttools/src/designer/src/lib/shared/htmlhighlighter.cpp, line 16, as _ZN18qdesigner_internal15HtmlHighlighterC1EP9QTextEdit
+namespace qdesigner_internal {
+using namespace Qt::StringLiterals;
+inline HtmlHighlighter::HtmlHighlighter(QTextEdit *textEdit)
+    : QSyntaxHighlighter(textEdit->document())
+{
+    QTextCharFormat entityFormat;
+    entityFormat.setForeground(Qt::red);
+    setFormatFor(Entity, entityFormat);
+
+    QTextCharFormat tagFormat;
+    tagFormat.setForeground(Qt::darkMagenta);
+    tagFormat.setFontWeight(QFont::Bold);
+    setFormatFor(Tag, tagFormat);
+
+    QTextCharFormat commentFormat;
+    commentFormat.setForeground(Qt::gray);
+    commentFormat.setFontItalic(true);
+    setFormatFor(Comment, commentFormat);
+
+    QTextCharFormat attributeFormat;
+    attributeFormat.setForeground(Qt::black);
+    attributeFormat.setFontWeight(QFont::Bold);
+    setFormatFor(Attribute, attributeFormat);
+
+    QTextCharFormat valueFormat;
+    valueFormat.setForeground(Qt::blue);
+    setFormatFor(Value, valueFormat);
+}
+}  // namespace qdesigner_internal
+
 //  from ../qttools/src/designer/src/lib/shared/htmlhighlighter.cpp, line 43, as _ZN18qdesigner_internal15HtmlHighlighter12setFormatForENS0_9ConstructERK15QTextCharFormat
 namespace qdesigner_internal {
 using namespace Qt::StringLiterals;
@@ -172,6 +279,23 @@ int ritual_ZN18qdesigner_internal15HtmlHighlighter11qt_metacallEN11QMetaObject4C
     int a1,
     void **a2) {
   return self->qt_metacall(a0, a1, a2);
+}
+
+//  QString qdesigner_internal::HtmlHighlighter::tr(const char *s, const char
+//      *c, int n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN18qdesigner_internal15HtmlHighlighter2trEPKcS2_i(
+    const char *s,
+    const char *c,
+    int n) {
+  return new QString(qdesigner_internal::HtmlHighlighter::tr(s, c, n));
+}
+
+//  qdesigner_internal::HtmlHighlighter::HtmlHighlighter(QTextEdit *textEdit)
+extern "C" Q_DECL_EXPORT
+qdesigner_internal::HtmlHighlighter *ritual_ZN18qdesigner_internal15HtmlHighlighterC1EP9QTextEdit(
+    QTextEdit *textEdit) {
+  return new qdesigner_internal::HtmlHighlighter(textEdit);
 }
 
 //  void qdesigner_internal::HtmlHighlighter::setFormatFor(Construct

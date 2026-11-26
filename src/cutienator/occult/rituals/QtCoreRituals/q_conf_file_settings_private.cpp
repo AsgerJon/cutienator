@@ -461,6 +461,23 @@ inline ParsedSettingsMap QConfFile::mergedKeyMap() const
         result.insert(i.key(), i.value());
     return result;
 }
+
+//  from src/corelib/io/qsettings.cpp, line 283, as _ZN16QSettingsPrivate12processChildE11QStringViewNS_9ChildSpecER5QListI7QStringE
+inline void QSettingsPrivate::processChild(QStringView key, ChildSpec spec, QStringList &result)
+{
+    if (spec != AllKeys) {
+        qsizetype slashPos = key.indexOf(u'/');
+        if (slashPos == -1) {
+            if (spec != ChildKeys)
+                return;
+        } else {
+            if (spec != ChildGroups)
+                return;
+            key.truncate(slashPos);
+        }
+    }
+    result.append(key.toString());
+}
 //  -----------------------------------------------------------------------
 
 //  A QConfFileSettingsPrivate that Python can take functions over in. Every QConfFileSettingsPrivate

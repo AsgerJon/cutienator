@@ -37,6 +37,18 @@ inline AbstractObjectHelper::~AbstractObjectHelper()
     }
 }
 
+//  from ../qtdatavis3d/src/datavisualization/utils/abstractobjecthelper.cpp, line 8, as _ZN20AbstractObjectHelperC1Ev
+inline AbstractObjectHelper::AbstractObjectHelper()
+    : m_vertexbuffer(0),
+      m_normalbuffer(0),
+      m_uvbuffer(0),
+      m_elementbuffer(0),
+      m_indexCount(0),
+      m_meshDataLoaded(false)
+{
+    initializeOpenGLFunctions();
+}
+
 //  from ../qtdatavis3d/src/datavisualization/utils/abstractobjecthelper.cpp, line 29, as _ZN20AbstractObjectHelper9vertexBufEv
 inline GLuint AbstractObjectHelper::vertexBuf()
 {
@@ -97,6 +109,12 @@ public:
     return AbstractObjectHelper::uvBuf();
   }
 };
+
+//  AbstractObjectHelper::AbstractObjectHelper()
+extern "C" Q_DECL_EXPORT
+AbstractObjectHelper *ritual_ZN20AbstractObjectHelperC1Ev() {
+  return new CuteAbstractObjectHelper();
+}
 
 //  AbstractObjectHelper::~AbstractObjectHelper()
 extern "C" Q_DECL_EXPORT

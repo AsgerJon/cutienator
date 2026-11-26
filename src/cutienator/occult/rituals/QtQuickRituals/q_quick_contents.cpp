@@ -69,52 +69,6 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from ../qtdeclarative/src/quick/items/qquickitem.cpp, line 160, as _ZN14QQuickContentsC1EP10QQuickItem
-inline QQuickContents::QQuickContents(QQuickItem *item)
-: m_item(item)
-{
-}
-
-//  from ../qtdeclarative/src/quick/items/qquickitem.cpp, line 165, as _ZN14QQuickContentsD1Ev
-inline QQuickContents::~QQuickContents()
-{
-    inDestructor = true;
-    QList<QQuickItem *> children = m_item->childItems();
-    for (int i = 0; i < children.size(); ++i) {
-        QQuickItem *child = children.at(i);
-        QQuickItemPrivate::get(child)->removeItemChangeListener(this, QQuickItemPrivate::Geometry | QQuickItemPrivate::Destroyed);
-    }
-}
-
-//  from ../qtdeclarative/src/quick/items/qquickitem.cpp, line 245, as _ZN14QQuickContents8completeEv
-inline void QQuickContents::complete()
-{
-    QQuickItemPrivate::get(m_item)->addItemChangeListener(this, QQuickItemPrivate::Children);
-
-    QList<QQuickItem *> children = m_item->childItems();
-    for (int i = 0; i < children.size(); ++i) {
-        QQuickItem *child = children.at(i);
-        QQuickItemPrivate::get(child)->addItemChangeListener(this, QQuickItemPrivate::Geometry | QQuickItemPrivate::Destroyed);
-        //###what about changes to visibility?
-    }
-    calcGeometry();
-}
-
-//  from ../qtdeclarative/src/quick/items/qquickitem.cpp, line 263, as _ZN14QQuickContents19itemGeometryChangedEP10QQuickItem20QQuickGeometryChangeRK6QRectF
-inline void QQuickContents::itemGeometryChanged(QQuickItem *changed, QQuickGeometryChange change, const QRectF &)
-{
-    Q_UNUSED(changed);
-    bool wChanged = false;
-    bool hChanged = false;
-    //### we can only pass changed if the left edge has moved left, or the right edge has moved right
-    if (change.horizontalChange())
-        wChanged = calcWidth(/*changed*/);
-    if (change.verticalChange())
-        hChanged = calcHeight(/*changed*/);
-    if (wChanged || hChanged)
-        updateRect();
-}
-
 //  from ../qtdeclarative/src/quick/items/qquickitem.cpp, line 277, as _ZN14QQuickContents13itemDestroyedEP10QQuickItem
 inline void QQuickContents::itemDestroyed(QQuickItem *item)
 {
@@ -136,6 +90,52 @@ inline void QQuickContents::itemChildRemoved(QQuickItem *, QQuickItem *item)
 {
     if (item)
         QQuickItemPrivate::get(item)->removeItemChangeListener(this, QQuickItemPrivate::Geometry | QQuickItemPrivate::Destroyed);
+    calcGeometry();
+}
+
+//  from ../qtdeclarative/src/quick/items/qquickitem.cpp, line 263, as _ZN14QQuickContents19itemGeometryChangedEP10QQuickItem20QQuickGeometryChangeRK6QRectF
+inline void QQuickContents::itemGeometryChanged(QQuickItem *changed, QQuickGeometryChange change, const QRectF &)
+{
+    Q_UNUSED(changed);
+    bool wChanged = false;
+    bool hChanged = false;
+    //### we can only pass changed if the left edge has moved left, or the right edge has moved right
+    if (change.horizontalChange())
+        wChanged = calcWidth(/*changed*/);
+    if (change.verticalChange())
+        hChanged = calcHeight(/*changed*/);
+    if (wChanged || hChanged)
+        updateRect();
+}
+
+//  from ../qtdeclarative/src/quick/items/qquickitem.cpp, line 165, as _ZN14QQuickContentsD2Ev
+inline QQuickContents::~QQuickContents()
+{
+    inDestructor = true;
+    QList<QQuickItem *> children = m_item->childItems();
+    for (int i = 0; i < children.size(); ++i) {
+        QQuickItem *child = children.at(i);
+        QQuickItemPrivate::get(child)->removeItemChangeListener(this, QQuickItemPrivate::Geometry | QQuickItemPrivate::Destroyed);
+    }
+}
+
+//  from ../qtdeclarative/src/quick/items/qquickitem.cpp, line 160, as _ZN14QQuickContentsC1EP10QQuickItem
+inline QQuickContents::QQuickContents(QQuickItem *item)
+: m_item(item)
+{
+}
+
+//  from ../qtdeclarative/src/quick/items/qquickitem.cpp, line 245, as _ZN14QQuickContents8completeEv
+inline void QQuickContents::complete()
+{
+    QQuickItemPrivate::get(m_item)->addItemChangeListener(this, QQuickItemPrivate::Children);
+
+    QList<QQuickItem *> children = m_item->childItems();
+    for (int i = 0; i < children.size(); ++i) {
+        QQuickItem *child = children.at(i);
+        QQuickItemPrivate::get(child)->addItemChangeListener(this, QQuickItemPrivate::Geometry | QQuickItemPrivate::Destroyed);
+        //###what about changes to visibility?
+    }
     calcGeometry();
 }
 

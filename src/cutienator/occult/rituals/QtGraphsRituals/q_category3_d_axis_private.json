@@ -10,6 +10,7 @@
   "rows": {
     "ritual_ZN22QCategory3DAxisPrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK22QCategory3DAxisPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN22QCategory3DAxisPrivateC1Ev": ["address"],
     "ritual_ZN22QCategory3DAxisPrivateD1Ev": ["nothing", "address"],
     "ritual_ZN22QCategory3DAxisPrivate13setDataLabelsERK5QListI7QStringE": [
       "nothing", "address", "address"

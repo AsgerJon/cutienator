@@ -1,6 +1,11 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtCoap/6.12.0/QtCoap/private/qcoapqudpconnection_p.h, Qt 6.12.0. Changes
-//  made here are lost.
+//  QtCoap/6.12.0/QtCoap/private/qcoapqudpconnection_p.h, Qt 6.12.0.
+//  Edited by hand on 2026-11-26: added are 1 rituals that lean on what moc
+//  writes for a class of the part Qt keeps to itself, whose ritual file
+//  carries moc's output, drafted by a copy of the generator that lets those
+//  names through. A copy of a meta-object is a second one: 'qobject_cast'
+//  between it and Qt's own does not match. Kept as it is when the generator
+//  runs again.
 #include <QtNetwork/qtnetworkglobal.h>
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtCoap/QtCoap>
@@ -82,6 +87,25 @@ inline bool QCoapConnection::isSecure() const
     return d->securityMode != QtCoap::SecurityMode::NoSecurity;
 }
 
+//  from ../qtcoap/src/coap/qcoapqudpconnection.cpp, line 137, as _ZN26QCoapQUdpConnectionPrivateC1EN6QtCoap12SecurityModeE
+inline QCoapQUdpConnectionPrivate::QCoapQUdpConnectionPrivate(QtCoap::SecurityMode security)
+    : QCoapConnectionPrivate(security)
+#if QT_CONFIG(dtls)
+    , dtls(nullptr)
+#endif
+    , udpSocket(nullptr)
+{
+}
+
+//  from ../qtcoap/src/coap/qcoapqudpconnection.cpp, line 180, as _ZN26QCoapQUdpConnectionPrivate10bindSocketEv
+inline void QCoapQUdpConnectionPrivate::bindSocket()
+{
+    Q_Q(QCoapQUdpConnection);
+
+    if (state != QCoapQUdpConnection::ConnectionState::Bound && bind())
+        emit q->bound();
+}
+
 //  from ../qtcoap/src/coap/qcoapqudpconnection.cpp, line 271, as _ZN26QCoapQUdpConnectionPrivate13writeToSocketERK10QByteArrayRK7QStringt
 inline void QCoapQUdpConnectionPrivate::writeToSocket(const QByteArray &data, const QString &host, quint16 port)
 {
@@ -111,6 +135,32 @@ inline void QCoapQUdpConnectionPrivate::writeToSocket(const QByteArray &data, co
 
     if (bytesWritten < 0)
         qCWarning(lcCoapConnection) << "Failed to write datagram:" << socket()->errorString();
+}
+
+//  from ../qtcoap/src/coap/qcoapqudpconnection.cpp, line 307, as _ZN26QCoapQUdpConnectionPrivate15socketReadyReadEv
+inline void QCoapQUdpConnectionPrivate::socketReadyRead()
+{
+    Q_Q(QCoapQUdpConnection);
+
+    if (!socket()->isReadable()) {
+        bool opened = socket()->open(socket()->openMode() | QIODevice::ReadOnly);
+        if (!opened) {
+            qCWarning(lcCoapConnection, "Failed to open the UDP socket with read permission");
+            return;
+        }
+    }
+
+    while (socket()->hasPendingDatagrams()) {
+        if (!q->isSecure()) {
+            const auto &datagram = socket()->receiveDatagram();
+            if (datagramMatchesNetworkInterface(datagram))
+                emit q->readyRead(datagram.data(), datagram.senderAddress());
+#if QT_CONFIG(dtls)
+        } else {
+            handleEncryptedDatagram();
+#endif
+        }
+    }
 }
 
 //  from ../qtcoap/src/coap/qcoapqudpconnection.cpp, line 348, as _ZN26QCoapQUdpConnectionPrivate24setSecurityConfigurationERK26QCoapSecurityConfiguration
@@ -180,6 +230,36 @@ inline std::optional<QNetworkDatagram> QCoapQUdpConnectionPrivate::receiveDatagr
     return datagram;
 }
 #endif  // QT_CONFIG(dtls)
+
+//  from ../qtcoap/src/coap/qcoapqudpconnection.cpp, line 460, as _ZN26QCoapQUdpConnectionPrivate23handleEncryptedDatagramEv
+#if QT_CONFIG(dtls)
+inline void QCoapQUdpConnectionPrivate::handleEncryptedDatagram()
+{
+    Q_Q(QCoapQUdpConnection);
+
+    Q_ASSERT(dtls);
+
+    if (dtls->isConnectionEncrypted()) {
+        const auto datagram = receiveDatagramDecrypted();
+        if (datagram)
+            emit q->readyRead(datagram->data(), datagram->senderAddress());
+    } else {
+        const auto datagram = socket()->receiveDatagram();
+        if (!datagramMatchesNetworkInterface(datagram))
+            return;
+
+        if (!dtls->doHandshake(socket(), datagram.data())) {
+            qCWarning(lcCoapConnection) << "Handshake error: " << dtls->dtlsErrorString();
+            return;
+        }
+
+        // The handshake is successfully done, emit the bound() signal to inform
+        // listeners that the socket is ready to start transferring data.
+        if (dtls->isConnectionEncrypted())
+            emit q->bound();
+    }
+}
+#endif  // QT_CONFIG(dtls)
 //  -----------------------------------------------------------------------
 
 //  A QCoapQUdpConnectionPrivate that Python can take functions over in. Every QCoapQUdpConnectionPrivate
@@ -210,6 +290,14 @@ public:
     return QCoapQUdpConnectionPrivate::bind();
   }
 };
+
+//  QCoapQUdpConnectionPrivate::QCoapQUdpConnectionPrivate(QtCoap::SecurityMo
+//      de security)
+extern "C" Q_DECL_EXPORT
+QCoapQUdpConnectionPrivate *ritual_ZN26QCoapQUdpConnectionPrivateC1EN6QtCoap12SecurityModeE(
+    QtCoap::SecurityMode security) {
+  return new CuteQCoapQUdpConnectionPrivate(security);
+}
 
 //  QCoapQUdpConnectionPrivate::~QCoapQUdpConnectionPrivate()
 extern "C" Q_DECL_EXPORT
@@ -243,6 +331,9 @@ QUdpSocket *ritual_ZNK26QCoapQUdpConnectionPrivate6socketEv(
   return self->socket();
 }
 
+#if QT_CONFIG(dtls)
+#endif  // QT_CONFIG(dtls)
+
 //  void QCoapQUdpConnectionPrivate::setSecurityConfiguration(const
 //      QCoapSecurityConfiguration &configuration)
 extern "C" Q_DECL_EXPORT
@@ -270,6 +361,9 @@ std::optional<QNetworkDatagram> *ritual_ZNK26QCoapQUdpConnectionPrivate24receive
   return new std::optional<QNetworkDatagram>(
       self->receiveDatagramDecrypted());
 }
+#endif  // QT_CONFIG(dtls)
+
+#if QT_CONFIG(dtls)
 #endif  // QT_CONFIG(dtls)
 
 //  QCoapQUdpConnection *QCoapQUdpConnectionPrivate::q_func()

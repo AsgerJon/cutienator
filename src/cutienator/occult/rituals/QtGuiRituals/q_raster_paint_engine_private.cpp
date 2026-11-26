@@ -343,6 +343,13 @@ inline void QClipData::setClipRegion(const QRegion &region)
 
 }
 
+//  from src/gui/painting/qpaintengine_raster.cpp, line 241, as _ZN25QRasterPaintEnginePrivateC1Ev
+inline QRasterPaintEnginePrivate::QRasterPaintEnginePrivate() :
+    QPaintEngineExPrivate(),
+    cachedLines(0)
+{
+}
+
 //  from src/gui/painting/qpaintengine_raster.cpp, line 3669, as _ZN25QRasterPaintEnginePrivate14updateClippingEv
 inline void QRasterPaintEnginePrivate::updateClipping()
 {
@@ -709,6 +716,12 @@ extern "C" Q_DECL_EXPORT
 const QRasterPaintEngine *ritual_ZNK25QRasterPaintEnginePrivate6q_funcEv(
     const QRasterPaintEnginePrivate *self) {
   return self->q_func();
+}
+
+//  QRasterPaintEnginePrivate::QRasterPaintEnginePrivate()
+extern "C" Q_DECL_EXPORT
+QRasterPaintEnginePrivate *ritual_ZN25QRasterPaintEnginePrivateC1Ev() {
+  return new CuteQRasterPaintEnginePrivate();
 }
 
 //  void QRasterPaintEnginePrivate::updateClipping()

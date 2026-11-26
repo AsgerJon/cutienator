@@ -2,7 +2,7 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtGraphs/6.12.0/QtGraphs/private/barsrenderer_p.h, Qt 6.12.0.",
-    "Changes made here are lost."
+    "Edited by hand: see the ritual file."
   ],
   "parts first": [
     "QtGraphs", "QtCore", "QtGui", "QtQuick", "QtQml", "QtQmlIntegration"
@@ -14,6 +14,10 @@
     ],
     "ritual_ZN12BarsRenderer11qt_metacallEN11QMetaObject4CallEiPPv": [
       "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN12BarsRenderer2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN12BarsRendererC1EP11QGraphsViewb": [
+      "address", "address", "bool"
     ],
     "ritual_ZN12BarsRendererD1Ev": ["nothing", "address"],
     "ritual_ZN12BarsRenderer13paintSnapshotERK5QHashIP10QBarSeries5QListINS_13BarSeriesDataEEEP14QCanvasPainter": [

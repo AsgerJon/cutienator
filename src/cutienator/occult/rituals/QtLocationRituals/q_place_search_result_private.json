@@ -5,6 +5,7 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN25QPlaceSearchResultPrivateC1Ev": ["address"],
     "ritual_ZN25QPlaceSearchResultPrivateD1Ev": ["nothing", "address"],
     "ritual_ZNK25QPlaceSearchResultPrivate7compareEPKS_": [
       "bool", "address", "address"
@@ -14,11 +15,17 @@
     ],
     "ritual_ZNK25QPlaceSearchResultPrivate5cloneEv": ["address", "address"],
     "ritual_ZNK25QPlaceSearchResultPrivate4typeEv": ["int", "address"],
+    "ritual_ZN25QPlaceSearchResultPrivate14copyIfPossibleER18QSharedDataPointerIS_ERK18QPlaceSearchResult": [
+      "nothing", "address", "address"
+    ],
     "ritual_take_QPlaceSearchResultPrivate": [
       "bool", "address", "chars", "address"
     ],
     "ritual_own_ZNK25QPlaceSearchResultPrivate7compareEPKS_": [
       "bool", "address", "address"
+    ],
+    "ritual_own_ZNK25QPlaceSearchResultPrivate5cloneEv": [
+      "address", "address"
     ],
     "ritual_own_ZNK25QPlaceSearchResultPrivate4typeEv": ["int", "address"]
   }

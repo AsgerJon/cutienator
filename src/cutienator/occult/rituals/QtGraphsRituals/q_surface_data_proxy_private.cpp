@@ -53,6 +53,14 @@ inline void QAbstractDataProxyPrivate::setSeries(QAbstract3DSeries *series)
     m_series = series;
 }
 
+//  from ../qtgraphs/src/graphs3d/data/qabstractdataproxy.cpp, line 87, as _ZN25QAbstractDataProxyPrivateD2Ev
+inline QAbstractDataProxyPrivate::~QAbstractDataProxyPrivate() {}
+
+//  from ../qtgraphs/src/graphs3d/data/qsurfacedataproxy.cpp, line 414, as _ZN24QSurfaceDataProxyPrivateC1Ev
+inline QSurfaceDataProxyPrivate::QSurfaceDataProxyPrivate()
+    : QAbstractDataProxyPrivate(QAbstractDataProxy::DataType::Surface)
+{}
+
 //  from ../qtgraphs/src/graphs3d/data/qsurfacedataproxy.cpp, line 420, as _ZN24QSurfaceDataProxyPrivate10resetArrayEO5QListIS0_I16QSurfaceDataItemEE
 inline void QSurfaceDataProxyPrivate::resetArray(QSurfaceDataArray &&newArray)
 {
@@ -338,6 +346,12 @@ extern "C" Q_DECL_EXPORT
 const QSurfaceDataProxy *ritual_ZNK24QSurfaceDataProxyPrivate6q_funcEv(
     const QSurfaceDataProxyPrivate *self) {
   return self->q_func();
+}
+
+//  QSurfaceDataProxyPrivate::QSurfaceDataProxyPrivate()
+extern "C" Q_DECL_EXPORT
+QSurfaceDataProxyPrivate *ritual_ZN24QSurfaceDataProxyPrivateC1Ev() {
+  return new CuteQSurfaceDataProxyPrivate();
 }
 
 //  QSurfaceDataProxyPrivate::~QSurfaceDataProxyPrivate()

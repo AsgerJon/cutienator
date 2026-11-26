@@ -1,16 +1,28 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtQuick/6.12.0/QtQuick/private/qsgrhiatlastexture_p.h, Qt 6.12.0. Changes
-//  made here are lost.
+//  QtQuick/6.12.0/QtQuick/private/qsgrhiatlastexture_p.h, Qt 6.12.0.
+//  Edited by hand on 2026-11-26: moc's output for
+//  'QSGRhiAtlasTexture::TextureBase' is pasted in, cut from what the moc of
+//  Qt 6.12.0 writes for its header: Qt's library keeps it to itself; added
+//  are 2 rituals that lean on what moc writes for a class of the part Qt
+//  keeps to itself, whose ritual file carries moc's output, drafted by a
+//  copy of the generator that lets those names through. A copy of a meta-
+//  object is a second one: 'qobject_cast' between it and Qt's own does not
+//  match. Kept as it is when the generator runs again.
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
 #include <QtQuick/QtQuick>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQuick/6.12.0/QtQuick/private/qsgrhiatlastexture_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 #include <QtCore/qrect.h>
 #include <QtCore/qsize.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
 #include <QtQuick/private/qsgrhiatlastexture_p.h>
 #include <QtCore/QVarLengthArray>
 #include <QtCore/QElapsedTimer>
@@ -30,6 +42,101 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from QtQuick__QSGRhiAtlasTexture_TextureBase.cpp, line 1, as moc:QSGRhiAtlasTexture::TextureBase
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN18QSGRhiAtlasTexture11TextureBaseE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto QSGRhiAtlasTexture::TextureBase::qt_create_metaobjectdata<qt_meta_tag_ZN18QSGRhiAtlasTexture11TextureBaseE_t>()
+{
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "QSGRhiAtlasTexture::TextureBase"
+    };
+
+    QtMocHelpers::UintData qt_methods {
+    };
+    QtMocHelpers::UintData qt_properties {
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    return QtMocHelpers::metaObjectData<TextureBase, qt_meta_tag_ZN18QSGRhiAtlasTexture11TextureBaseE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums);
+}
+Q_CONSTINIT const QMetaObject QSGRhiAtlasTexture::TextureBase::staticMetaObject = { {
+    QMetaObject::SuperData::link<QSGTexture::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN18QSGRhiAtlasTexture11TextureBaseE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN18QSGRhiAtlasTexture11TextureBaseE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN18QSGRhiAtlasTexture11TextureBaseE_t>.metaTypes,
+    nullptr
+} };
+
+void QSGRhiAtlasTexture::TextureBase::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<TextureBase *>(_o);
+    (void)_t;
+    (void)_c;
+    (void)_id;
+    (void)_a;
+}
+
+const QMetaObject *QSGRhiAtlasTexture::TextureBase::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *QSGRhiAtlasTexture::TextureBase::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN18QSGRhiAtlasTexture11TextureBaseE_t>.strings))
+        return static_cast<void*>(this);
+    return QSGTexture::qt_metacast(_clname);
+}
+
+int QSGRhiAtlasTexture::TextureBase::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QSGTexture::qt_metacall(_c, _id, _a);
+    return _id;
+}
+QT_WARNING_POP
+
+//  from ../qtdeclarative/src/quick/scenegraph/util/qsgrhiatlastexture.cpp, line 354, as _ZN18QSGRhiAtlasTexture11TextureBase23commitTextureOperationsEP4QRhiP23QRhiResourceUpdateBatch
+namespace QSGRhiAtlasTexture {
+inline void TextureBase::commitTextureOperations(QRhi *rhi, QRhiResourceUpdateBatch *resourceUpdates)
+{
+#ifdef QT_NO_DEBUG
+    Q_UNUSED(rhi);
+#endif
+    Q_ASSERT(rhi == m_atlas->m_rhi);
+    m_atlas->commitTextureOperations(resourceUpdates);
+}
+}  // namespace QSGRhiAtlasTexture
+
+//  from ../qtdeclarative/src/quick/scenegraph/util/qsgrhiatlastexture.cpp, line 153, as _ZN18QSGRhiAtlasTexture9AtlasBase6removeEPNS_11TextureBaseE
+namespace QSGRhiAtlasTexture {
+inline void AtlasBase::remove(TextureBase *t)
+{
+    QRect atlasRect = t->atlasSubRect();
+    m_allocator.deallocate(atlasRect);
+    m_pending_uploads.removeOne(t);
+}
+}  // namespace QSGRhiAtlasTexture
+
+//  from ../qtdeclarative/src/quick/scenegraph/util/qsgrhiatlastexture.cpp, line 349, as _ZNK18QSGRhiAtlasTexture11TextureBase10rhiTextureEv
+namespace QSGRhiAtlasTexture {
+inline QRhiTexture *TextureBase::rhiTexture() const
+{
+    return m_atlas->m_texture;
+}
+}  // namespace QSGRhiAtlasTexture
+
 //  from ../qtdeclarative/src/quick/scenegraph/util/qsgrhiatlastexture.cpp, line 336, as _ZNK18QSGRhiAtlasTexture11TextureBase13comparisonKeyEv
 namespace QSGRhiAtlasTexture {
 inline qint64 TextureBase::comparisonKey() const
@@ -43,26 +150,6 @@ inline qint64 TextureBase::comparisonKey() const
     // base the comparison on the atlas ptr; this way textures for the same
     // atlas are considered equal
     return qint64(m_atlas);
-}
-}  // namespace QSGRhiAtlasTexture
-
-//  from ../qtdeclarative/src/quick/scenegraph/util/qsgrhiatlastexture.cpp, line 349, as _ZNK18QSGRhiAtlasTexture11TextureBase10rhiTextureEv
-namespace QSGRhiAtlasTexture {
-inline QRhiTexture *TextureBase::rhiTexture() const
-{
-    return m_atlas->m_texture;
-}
-}  // namespace QSGRhiAtlasTexture
-
-//  from ../qtdeclarative/src/quick/scenegraph/util/qsgrhiatlastexture.cpp, line 354, as _ZN18QSGRhiAtlasTexture11TextureBase23commitTextureOperationsEP4QRhiP23QRhiResourceUpdateBatch
-namespace QSGRhiAtlasTexture {
-inline void TextureBase::commitTextureOperations(QRhi *rhi, QRhiResourceUpdateBatch *resourceUpdates)
-{
-#ifdef QT_NO_DEBUG
-    Q_UNUSED(rhi);
-#endif
-    Q_ASSERT(rhi == m_atlas->m_rhi);
-    m_atlas->commitTextureOperations(resourceUpdates);
 }
 }  // namespace QSGRhiAtlasTexture
 
@@ -82,6 +169,16 @@ inline void AtlasBase::commitTextureOperations(QRhiResourceUpdateBatch *resource
         enqueueTextureUpload(t, resourceUpdates);
 
     m_pending_uploads.clear();
+}
+}  // namespace QSGRhiAtlasTexture
+
+//  from ../qtdeclarative/src/quick/scenegraph/util/qsgrhiatlastexture.cpp, line 324, as _ZN18QSGRhiAtlasTexture11TextureBaseC1EPNS_9AtlasBaseERK5QRect
+namespace QSGRhiAtlasTexture {
+inline TextureBase::TextureBase(AtlasBase *atlas, const QRect &textureRect)
+    : QSGTexture(*(new QSGTexturePrivate(this)))
+    , m_allocated_rect(textureRect)
+    , m_atlas(atlas)
+{
 }
 }  // namespace QSGRhiAtlasTexture
 
@@ -434,6 +531,25 @@ int ritual_ZN18QSGRhiAtlasTexture11TextureBase11qt_metacallEN11QMetaObject4CallE
     int a1,
     void **a2) {
   return self->qt_metacall(a0, a1, a2);
+}
+
+//  QString QSGRhiAtlasTexture::TextureBase::tr(const char *s, const char *c,
+//      int n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN18QSGRhiAtlasTexture11TextureBase2trEPKcS2_i(
+    const char *s,
+    const char *c,
+    int n) {
+  return new QString(QSGRhiAtlasTexture::TextureBase::tr(s, c, n));
+}
+
+//  QSGRhiAtlasTexture::TextureBase::TextureBase(AtlasBase *atlas, const
+//      QRect &textureRect)
+extern "C" Q_DECL_EXPORT
+QSGRhiAtlasTexture::TextureBase *ritual_ZN18QSGRhiAtlasTexture11TextureBaseC1EPNS_9AtlasBaseERK5QRect(
+    QSGRhiAtlasTexture::AtlasBase *atlas,
+    const QRect *textureRect) {
+  return new CuteQSGRhiAtlasTexture_TextureBase(atlas, *textureRect);
 }
 
 //  QSGRhiAtlasTexture::TextureBase::~TextureBase()

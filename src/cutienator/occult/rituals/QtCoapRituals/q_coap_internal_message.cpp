@@ -1,23 +1,39 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtCoap/6.12.0/QtCoap/private/qcoapinternalmessage_p.h, Qt 6.12.0. Changes
-//  made here are lost.
+//  QtCoap/6.12.0/QtCoap/private/qcoapinternalmessage_p.h, Qt 6.12.0.
+//  Edited by hand on 2026-11-26: moc's output for 'QCoapInternalMessage' is
+//  pasted in, cut from what the moc of Qt 6.12.0 writes for its header: Qt's
+//  library keeps it to itself; added are 4 rituals that lean on what moc
+//  writes for a class of the part Qt keeps to itself, whose ritual file
+//  carries moc's output, drafted by a copy of the generator that lets those
+//  names through. A copy of a meta-object is a second one: 'qobject_cast'
+//  between it and Qt's own does not match. Kept as it is when the generator
+//  runs again.
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtCoap/QtCoap>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCoap/6.12.0/QtCoap/private/qcoapinternalmessage_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
+#include <QtCoap/qcoapmessage.h>
 #include <QtCore/qbytearray.h>
 #include <QtCoap/qcoapoption.h>
 #include <QtCore/qurl.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
+#include <QtCoap/private/qcoapinternalmessage_p.h>
+#include <QtCoap/private/qcoaprequest_p.h>
+#include <QtCoap/qcoaprequest.h>
+#include <QtCore/qloggingcategory.h>
 #include <QtCoap/private/qcoaprequest_p.h>
 #include <QtCore/qmath.h>
 #include <QtCore/qdatetime.h>
 #include <QtCore/qloggingcategory.h>
 #include <QtCore/QDebug>
-#include <QtCore/qloggingcategory.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -39,6 +55,89 @@ namespace {
 const auto CoapSecureScheme = QLatin1String("coaps");
 }  // namespace
 
+//  from QtCoap__QCoapInternalMessage.cpp, line 1, as moc:QCoapInternalMessage
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN20QCoapInternalMessageE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto QCoapInternalMessage::qt_create_metaobjectdata<qt_meta_tag_ZN20QCoapInternalMessageE_t>()
+{
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "QCoapInternalMessage"
+    };
+
+    QtMocHelpers::UintData qt_methods {
+    };
+    QtMocHelpers::UintData qt_properties {
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    return QtMocHelpers::metaObjectData<QCoapInternalMessage, qt_meta_tag_ZN20QCoapInternalMessageE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums);
+}
+Q_CONSTINIT const QMetaObject QCoapInternalMessage::staticMetaObject = { {
+    QMetaObject::SuperData::link<QObject::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN20QCoapInternalMessageE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN20QCoapInternalMessageE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN20QCoapInternalMessageE_t>.metaTypes,
+    nullptr
+} };
+
+void QCoapInternalMessage::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<QCoapInternalMessage *>(_o);
+    (void)_t;
+    (void)_c;
+    (void)_id;
+    (void)_a;
+}
+
+const QMetaObject *QCoapInternalMessage::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *QCoapInternalMessage::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN20QCoapInternalMessageE_t>.strings))
+        return static_cast<void*>(this);
+    return QObject::qt_metacast(_clname);
+}
+
+int QCoapInternalMessage::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QObject::qt_metacall(_c, _id, _a);
+    return _id;
+}
+QT_WARNING_POP
+
+//  from ../qtcoap/src/coap/qcoapinternalmessage.cpp, line 141, as _ZN20QCoapInternalMessage9addOptionERK11QCoapOption
+inline void QCoapInternalMessage::addOption(const QCoapOption &option)
+{
+    Q_D(QCoapInternalMessage);
+    d->message.addOption(option);
+}
+
+//  from ../qtcoap/src/coap/qcoapinternalmessage.cpp, line 220, as _ZNK20QCoapInternalMessage7isValidEv
+inline bool QCoapInternalMessage::isValid() const
+{
+    return true;
+}
+
+//  from ../qtcoap/src/coap/qcoapinternalmessage.cpp, line 21, as _ZN27QCoapInternalMessagePrivateD1Ev
+inline QCoapInternalMessagePrivate::~QCoapInternalMessagePrivate()
+{
+}
+
 //  from ../qtcoap/src/coap/qcoaprequest.cpp, line 236, as _ZN19QCoapRequestPrivate10isUrlValidERK4QUrl
 inline bool QCoapRequestPrivate::isUrlValid(const QUrl &url)
 {
@@ -54,17 +153,18 @@ inline const QLoggingCategory &lcCoapExchange()
     return category;
 }
 
-//  from ../qtcoap/src/coap/qcoapinternalmessage.cpp, line 141, as _ZN20QCoapInternalMessage9addOptionERK11QCoapOption
-inline void QCoapInternalMessage::addOption(const QCoapOption &option)
+//  from ../qtcoap/src/coap/qcoapinternalmessage.cpp, line 48, as _ZN20QCoapInternalMessageC1EP7QObject
+inline QCoapInternalMessage::QCoapInternalMessage(QObject *parent) :
+    QObject(*new QCoapInternalMessagePrivate, parent)
 {
-    Q_D(QCoapInternalMessage);
-    d->message.addOption(option);
 }
 
-//  from ../qtcoap/src/coap/qcoapinternalmessage.cpp, line 220, as _ZNK20QCoapInternalMessage7isValidEv
-inline bool QCoapInternalMessage::isValid() const
+//  from ../qtcoap/src/coap/qcoapinternalmessage.cpp, line 59, as _ZN20QCoapInternalMessageC1ERK12QCoapMessageP7QObject
+inline QCoapInternalMessage::QCoapInternalMessage(const QCoapMessage &message, QObject *parent) :
+    QCoapInternalMessage(parent)
 {
-    return true;
+    Q_D(QCoapInternalMessage);
+    d->message = message;
 }
 
 //  from ../qtcoap/src/coap/qcoapinternalmessage.cpp, line 118, as _ZN20QCoapInternalMessage9addOptionEN11QCoapOption10OptionNameERK10QByteArray
@@ -127,6 +227,12 @@ inline uint QCoapInternalMessage::blockSize() const
 inline bool QCoapInternalMessage::isUrlValid(const QUrl &url)
 {
     return QCoapRequestPrivate::isUrlValid(url);
+}
+
+//  from ../qtcoap/src/coap/qcoapinternalmessage.cpp, line 72, as _ZN20QCoapInternalMessageC1ER27QCoapInternalMessagePrivateP7QObject
+inline QCoapInternalMessage::QCoapInternalMessage(QCoapInternalMessagePrivate &dd, QObject *parent):
+    QObject(dd, parent)
+{
 }
 
 //  from ../qtcoap/src/coap/qcoapinternalmessage.cpp, line 87, as _ZN20QCoapInternalMessage29setFromDescriptiveBlockOptionERK11QCoapOption
@@ -381,6 +487,31 @@ int ritual_ZN20QCoapInternalMessage11qt_metacallEN11QMetaObject4CallEiPPv(
   return self->qt_metacall(a0, a1, a2);
 }
 
+//  QString QCoapInternalMessage::tr(const char *s, const char *c, int n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN20QCoapInternalMessage2trEPKcS1_i(
+    const char *s,
+    const char *c,
+    int n) {
+  return new QString(QCoapInternalMessage::tr(s, c, n));
+}
+
+//  QCoapInternalMessage::QCoapInternalMessage(QObject *parent)
+extern "C" Q_DECL_EXPORT
+QCoapInternalMessage *ritual_ZN20QCoapInternalMessageC1EP7QObject(
+    QObject *parent) {
+  return new CuteQCoapInternalMessage(parent);
+}
+
+//  QCoapInternalMessage::QCoapInternalMessage(const QCoapMessage &message,
+//      QObject *parent)
+extern "C" Q_DECL_EXPORT
+QCoapInternalMessage *ritual_ZN20QCoapInternalMessageC1ERK12QCoapMessageP7QObject(
+    const QCoapMessage *message,
+    QObject *parent) {
+  return new CuteQCoapInternalMessage(*message, parent);
+}
+
 //  QCoapInternalMessage::~QCoapInternalMessage()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QCoapInternalMessageD1Ev(QCoapInternalMessage *self) {
@@ -469,6 +600,15 @@ bool ritual_ZNK20QCoapInternalMessage7isValidEv(
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN20QCoapInternalMessage10isUrlValidERK4QUrl(const QUrl *url) {
   return QCoapInternalMessage::isUrlValid(*url);
+}
+
+//  QCoapInternalMessage::QCoapInternalMessage(QCoapInternalMessagePrivate
+//      &dd, QObject *parent)
+extern "C" Q_DECL_EXPORT
+QCoapInternalMessage *ritual_ZN20QCoapInternalMessageC1ER27QCoapInternalMessagePrivateP7QObject(
+    QCoapInternalMessagePrivate *dd,
+    QObject *parent) {
+  return new CuteQCoapInternalMessage(*dd, parent);
 }
 
 //  void QCoapInternalMessage::setFromDescriptiveBlockOption(const

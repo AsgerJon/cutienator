@@ -5,6 +5,7 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN21QAccessibleScrollAreaC1EP7QWidget": ["address", "address"],
     "ritual_take_QAccessibleScrollArea": [
       "bool", "address", "chars", "address"
     ]

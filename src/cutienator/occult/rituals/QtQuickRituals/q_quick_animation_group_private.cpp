@@ -44,6 +44,14 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from ../qtdeclarative/src/quick/util/qquickanimation.cpp, line 1784, as _ZN27QQuickAnimationGroupPrivate27animationCurrentLoopChangedEP21QAbstractAnimationJob
+inline void QQuickAnimationGroupPrivate::animationCurrentLoopChanged(QAbstractAnimationJob *)
+{
+    if (!animationDirty)
+        return;
+    restartFromCurrentLoop();
+}
+
 //  from ../qtdeclarative/src/quick/util/qquickanimation.cpp, line 1712, as _ZN27QQuickAnimationGroupPrivate16append_animationEP16QQmlListPropertyI23QQuickAbstractAnimationEPS1_
 inline void QQuickAnimationGroupPrivate::append_animation(QQmlListProperty<QQuickAbstractAnimation> *list, QQuickAbstractAnimation *a)
 {
@@ -121,14 +129,6 @@ inline void QQuickAnimationGroupPrivate::restartFromCurrentLoop()
     // it will be restored again.
     if (loopCount != -1)
         animationInstance->setLoopCount(loopCount - currentLoop);
-}
-
-//  from ../qtdeclarative/src/quick/util/qquickanimation.cpp, line 1784, as _ZN27QQuickAnimationGroupPrivate27animationCurrentLoopChangedEP21QAbstractAnimationJob
-inline void QQuickAnimationGroupPrivate::animationCurrentLoopChanged(QAbstractAnimationJob *)
-{
-    if (!animationDirty)
-        return;
-    restartFromCurrentLoop();
 }
 //  -----------------------------------------------------------------------
 

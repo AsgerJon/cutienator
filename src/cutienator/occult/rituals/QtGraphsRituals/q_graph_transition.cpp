@@ -1,6 +1,11 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtGraphs/6.12.0/QtGraphs/private/qgraphtransition_p.h, Qt 6.12.0. Changes
-//  made here are lost.
+//  QtGraphs/6.12.0/QtGraphs/private/qgraphtransition_p.h, Qt 6.12.0.
+//  Edited by hand on 2026-11-26: added are 2 rituals that lean on what moc
+//  writes for a class of the part Qt keeps to itself, whose ritual file
+//  carries moc's output, drafted by a copy of the generator that lets those
+//  names through. A copy of a meta-object is a second one: 'qobject_cast'
+//  between it and Qt's own does not match. Kept as it is when the generator
+//  runs again.
 #include <QtGraphs/qgraphsglobal.h>
 #include <QtGraphs/6.12.0/QtGraphs/private/qgraphsglobal_p.h>
 #if (QT_CONFIG(graphs_2d)) && (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))) && (QT_CONFIG(graphs_2d_area) || QT_CONFIG(graphs_2d_line) || QT_CONFIG(graphs_2d_scatter) || QT_CONFIG(graphs_2d_spline))
@@ -33,6 +38,41 @@
 
 //  from ../qtgraphs/src/graphs2d/animation/qgraphtransition.cpp, line 168, as _ZN16QGraphTransition10classBeginEv
 inline void QGraphTransition::classBegin() {}
+
+//  from ../qtgraphs/src/graphs2d/animation/qgraphtransition.cpp, line 64, as _ZN16QGraphTransitionD0Ev
+inline QGraphTransition::~QGraphTransition() {}
+
+//  from ../qtgraphs/src/graphs2d/animation/qgraphtransition.cpp, line 107, as _ZN16QGraphTransition10initializeEv
+inline void QGraphTransition::initialize()
+{
+    auto series = qobject_cast<QXYSeries *>(parent());
+
+    if (!series || m_initialized)
+        return;
+
+    const auto &animationChildren = m_animationGroup.children();
+    for (qsizetype i = 0; i < animationChildren.size(); ++i) {
+        auto childAnimation = qobject_cast<QXYSeriesAnimation *>(animationChildren[i]);
+
+        //GraphPointAnimation needs to be the first for the transition to work
+        if (childAnimation->animationType() == QGraphAnimation::GraphAnimationType::GraphPoint
+            && i != 0)
+            return;
+    }
+
+    m_initialized = true;
+}
+
+//  from ../qtgraphs/src/graphs2d/animation/qgraphtransition.cpp, line 127, as _ZN16QGraphTransition4stopEv
+inline void QGraphTransition::stop()
+{
+    m_animationGroup.stop();
+
+    for (auto child : m_animationGroup.children()) {
+        auto childAnimation = qobject_cast<QXYSeriesAnimation *>(child);
+        childAnimation->end();
+    }
+}
 
 //  from ../qtgraphs/src/graphs2d/animation/qgraphtransition.cpp, line 137, as _ZN16QGraphTransition11initializedEv
 inline bool QGraphTransition::initialized()
@@ -293,6 +333,18 @@ int ritual_ZN16QGraphTransition11qt_metacallEN11QMetaObject4CallEiPPv(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN16QGraphTransitionD1Ev(QGraphTransition *self) {
   delete self;
+}
+
+//  void QGraphTransition::initialize()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QGraphTransition10initializeEv(QGraphTransition *self) {
+  self->initialize();
+}
+
+//  void QGraphTransition::stop()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QGraphTransition4stopEv(QGraphTransition *self) {
+  self->stop();
 }
 
 //  bool QGraphTransition::initialized()

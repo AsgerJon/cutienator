@@ -6,6 +6,12 @@
   ],
   "rows": {
     "ritual_ZN31QAbstractOpenGLFunctionsPrivateC1Ev": ["address"],
+    "ritual_ZN31QAbstractOpenGLFunctionsPrivate23insertExternalFunctionsEP14QOpenGLContextP24QAbstractOpenGLFunctions": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN31QAbstractOpenGLFunctionsPrivate23removeExternalFunctionsEP14QOpenGLContextP24QAbstractOpenGLFunctions": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN31QAbstractOpenGLFunctionsPrivate3getEP24QAbstractOpenGLFunctions": [
       "address", "address"
     ],

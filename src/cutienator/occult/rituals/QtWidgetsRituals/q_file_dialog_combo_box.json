@@ -2,10 +2,13 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtWidgets/6.12.0/QtWidgets/private/qfiledialog_p.h, Qt 6.12.0.",
-    "Changes made here are lost."
+    "Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZN19QFileDialogComboBoxC1EP7QWidget": ["address", "address"],
+    "ritual_ZN19QFileDialogComboBox20setFileDialogPrivateEP18QFileDialogPrivate": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN19QFileDialogComboBox9showPopupEv": ["nothing", "address"],
     "ritual_ZN19QFileDialogComboBox10setHistoryERK5QListI7QStringE": [
       "nothing", "address", "address"

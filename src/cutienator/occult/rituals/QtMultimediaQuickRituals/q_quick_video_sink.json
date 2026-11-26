@@ -2,7 +2,7 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of QtMulti",
     "mediaQuick/6.12.0/QtMultimediaQuick/private/qquickvideooutput_p.h,",
-    "Qt 6.12.0. Changes made here are lost."
+    "Qt 6.12.0. Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZNK15QQuickVideoSink10metaObjectEv": ["address", "address"],
@@ -12,6 +12,10 @@
     "ritual_ZN15QQuickVideoSink11qt_metacallEN11QMetaObject4CallEiPPv": [
       "int", "address", "int", "int", "address"
     ],
+    "ritual_ZN15QQuickVideoSink2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN15QQuickVideoSinkC1EP7QObject": ["address", "address"],
     "ritual_ZN15QQuickVideoSink17videoFrameChangedEv": [
       "nothing", "address"
     ],

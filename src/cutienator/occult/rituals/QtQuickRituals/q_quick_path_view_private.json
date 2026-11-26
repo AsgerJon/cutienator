@@ -2,11 +2,12 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtQuick/6.12.0/QtQuick/private/qquickpathview_p_p.h, Qt 6.12.0.",
-    "Changes made here are lost."
+    "Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZN21QQuickPathViewPrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK21QQuickPathViewPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN21QQuickPathViewPrivateC1Ev": ["address"],
     "ritual_ZN21QQuickPathViewPrivate4initEv": ["nothing", "address"],
     "ritual_ZN21QQuickPathViewPrivate19itemGeometryChangedEP10QQuickItem20QQuickGeometryChangeRK6QRectF": [
       "nothing", "address", "address", "address", "address"
@@ -20,9 +21,19 @@
     "ritual_ZN21QQuickPathViewPrivate7getItemEidb": [
       "address", "address", "int", "double", "bool"
     ],
+    "ritual_ZN21QQuickPathViewPrivate18releaseCurrentItemEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickPathViewPrivate11releaseItemEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN21QQuickPathViewPrivate8attachedEP10QQuickItem": [
       "address", "address", "address"
     ],
+    "ritual_ZN21QQuickPathViewPrivate12attachedTypeEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QQuickPathViewPrivate5clearEv": ["nothing", "address"],
     "ritual_ZN21QQuickPathViewPrivate17updateMappedRangeEv": [
       "nothing", "address"
     ],
@@ -35,12 +46,24 @@
     "ritual_ZN21QQuickPathViewPrivate15createHighlightEv": [
       "nothing", "address"
     ],
+    "ritual_ZN21QQuickPathViewPrivate15updateHighlightEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickPathViewPrivate20setHighlightPositionEd": [
+      "nothing", "address", "double"
+    ],
     "ritual_ZNK21QQuickPathViewPrivate7isValidEv": ["bool", "address"],
     "ritual_ZN21QQuickPathViewPrivate21handleMousePressEventEP11QMouseEvent": [
       "nothing", "address", "address"
     ],
     "ritual_ZN21QQuickPathViewPrivate16calcCurrentIndexEv": [
       "int", "address"
+    ],
+    "ritual_ZN21QQuickPathViewPrivate17createCurrentItemEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickPathViewPrivate13updateCurrentEv": [
+      "nothing", "address"
     ],
     "ritual_ZN21QQuickPathViewPrivate17fixOffsetCallbackEPv": [
       "nothing", "address"
@@ -51,6 +74,10 @@
     ],
     "ritual_ZN21QQuickPathViewPrivate17setAdjustedOffsetEd": [
       "nothing", "address", "double"
+    ],
+    "ritual_ZN21QQuickPathViewPrivate10regenerateEv": ["nothing", "address"],
+    "ritual_ZN21QQuickPathViewPrivate10updateItemEP10QQuickItemd": [
+      "nothing", "address", "address", "double"
     ],
     "ritual_ZN21QQuickPathViewPrivate11snapToIndexEiNS_14MovementReasonE": [
       "nothing", "address", "int", "int"

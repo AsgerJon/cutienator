@@ -2,7 +2,7 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtWaylandCompositor/qwaylandinputmethodcontrol.h, Qt 6.12.0.",
-    "Changes made here are lost."
+    "Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZNK26QWaylandInputMethodControl10metaObjectEv": [
@@ -14,16 +14,28 @@
     "ritual_ZN26QWaylandInputMethodControl11qt_metacallEN11QMetaObject4CallEiPPv": [
       "int", "address", "int", "int", "address"
     ],
+    "ritual_ZN26QWaylandInputMethodControl2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
     "ritual_ZN26QWaylandInputMethodControl6d_funcEv": ["address", "address"],
     "ritual_ZNK26QWaylandInputMethodControl6d_funcEv": [
       "address", "address"
     ],
     "ritual_ZNK26QWaylandInputMethodControl7enabledEv": ["bool", "address"],
+    "ritual_ZN26QWaylandInputMethodControl10setEnabledEb": [
+      "nothing", "address", "bool"
+    ],
     "ritual_ZN26QWaylandInputMethodControl14enabledChangedEb": [
       "nothing", "address", "bool"
     ],
     "ritual_ZN26QWaylandInputMethodControl17updateInputMethodE6QFlagsIN2Qt16InputMethodQueryEE": [
       "nothing", "address", "int"
+    ],
+    "ritual_ZN26QWaylandInputMethodControl14surfaceEnabledEP15QWaylandSurface": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN26QWaylandInputMethodControl15surfaceDisabledEP15QWaylandSurface": [
+      "nothing", "address", "address"
     ]
   }
 }

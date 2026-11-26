@@ -197,6 +197,10 @@ inline unsigned QMimeMagicRuleMatcher::priority() const
     return m_priority;
 }
 
+//  from src/corelib/mimetypes/qmimetypeparser.cpp, line 76, as _ZN19QMimeTypeParserBaseD1Ev
+inline QMimeTypeParserBase::~QMimeTypeParserBase()
+    = default;
+
 //  from src/corelib/mimetypes/qmimeglobpattern.cpp, line 181, as _ZN20QMimeAllGlobPatterns7addGlobERK16QMimeGlobPattern
 inline void QMimeAllGlobPatterns::addGlob(const QMimeGlobPattern &glob)
 {

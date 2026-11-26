@@ -25,3 +25,9 @@ inline QCoapInternalMessagePrivate::~QCoapInternalMessagePrivate()
 {
 }
 //  -----------------------------------------------------------------------
+
+//  QCoapInternalReplyPrivate::QCoapInternalReplyPrivate()
+extern "C" Q_DECL_EXPORT
+QCoapInternalReplyPrivate *ritual_ZN25QCoapInternalReplyPrivateC1Ev() {
+  return new QCoapInternalReplyPrivate();
+}

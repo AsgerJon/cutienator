@@ -1,6 +1,12 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtGraphs/6.12.0/QtGraphs/private/qxypoint_p.h, Qt 6.12.0. Changes made
-//  here are lost.
+//  QtGraphs/6.12.0/QtGraphs/private/qxypoint_p.h, Qt 6.12.0.
+//  Edited by hand on 2026-11-26: moc's output for 'QXYPoint' is pasted in,
+//  cut from what the moc of Qt 6.12.0 writes for its header: Qt's library
+//  keeps it to itself; added are 2 rituals that lean on what moc writes for
+//  a class of the part Qt keeps to itself, whose ritual file carries moc's
+//  output, drafted by a copy of the generator that lets those names through.
+//  A copy of a meta-object is a second one: 'qobject_cast' between it and
+//  Qt's own does not match. Kept as it is when the generator runs again.
 #include <QtGraphs/qgraphsglobal.h>
 #include <QtGraphs/6.12.0/QtGraphs/private/qgraphsglobal_p.h>
 #if (QT_CONFIG(graphs_2d)) && (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom))) && (QT_CONFIG(graphs_2d_area) || QT_CONFIG(graphs_2d_line) || QT_CONFIG(graphs_2d_scatter) || QT_CONFIG(graphs_2d_spline))
@@ -9,8 +15,132 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGraphs/6.12.0/QtGraphs/private/qxypoint_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
+#include <QtGraphs/private/qxypoint_p.h>
+#include <QtCore/QDataStream>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+
+//  Qt's own code, from here to the line of dashes: taken from
+//  Qt's source, because Qt's library carries it under no name.
+//  Copyright (C) The Qt Company Ltd. It is licensed
+//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
+//  here. Each function is as Qt wrote it, with the word
+//  'inline' put before it where Qt did not write it.
+
+//  from QtGraphs__QXYPoint.cpp, line 1, as moc:QXYPoint
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN8QXYPointE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto QXYPoint::qt_create_metaobjectdata<qt_meta_tag_ZN8QXYPointE_t>()
+{
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "QXYPoint",
+        "QML.Element",
+        "XYPoint",
+        "x",
+        "y"
+    };
+
+    QtMocHelpers::UintData qt_methods {
+    };
+    QtMocHelpers::UintData qt_properties {
+        // property 'x'
+        QtMocHelpers::PropertyData<qreal>(3, QMetaType::QReal, QMC::DefaultPropertyFlags | QMC::Writable | QMC::StdCppSet | QMC::Final),
+        // property 'y'
+        QtMocHelpers::PropertyData<qreal>(4, QMetaType::QReal, QMC::DefaultPropertyFlags | QMC::Writable | QMC::StdCppSet | QMC::Final),
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    QtMocHelpers::UintData qt_constructors {};
+    QtMocHelpers::ClassInfos qt_classinfo({
+            {    1,    2 },
+    });
+    return QtMocHelpers::metaObjectData<QXYPoint, void>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums, qt_constructors, qt_classinfo);
+}
+Q_CONSTINIT const QMetaObject QXYPoint::staticMetaObject = { {
+    QMetaObject::SuperData::link<QObject::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN8QXYPointE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN8QXYPointE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN8QXYPointE_t>.metaTypes,
+    nullptr
+} };
+
+void QXYPoint::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<QXYPoint *>(_o);
+    if (_c == QMetaObject::ReadProperty) {
+        void *_v = _a[0];
+        switch (_id) {
+        case 0: *reinterpret_cast<qreal*>(_v) = _t->x(); break;
+        case 1: *reinterpret_cast<qreal*>(_v) = _t->y(); break;
+        default: break;
+        }
+    }
+    if (_c == QMetaObject::WriteProperty) {
+        void *_v = _a[0];
+        switch (_id) {
+        case 0: _t->setX(*reinterpret_cast<qreal*>(_v)); break;
+        case 1: _t->setY(*reinterpret_cast<qreal*>(_v)); break;
+        default: break;
+        }
+    }
+}
+
+const QMetaObject *QXYPoint::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *QXYPoint::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN8QXYPointE_t>.strings))
+        return static_cast<void*>(this);
+    if (!strcmp(_clname, "QPointF"))
+        return static_cast< QPointF*>(this);
+    return QObject::qt_metacast(_clname);
+}
+
+int QXYPoint::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QObject::qt_metacall(_c, _id, _a);
+    if (_id < 0)
+        return _id;
+    if (_c == QMetaObject::ReadProperty || _c == QMetaObject::WriteProperty
+            || _c == QMetaObject::ResetProperty || _c == QMetaObject::BindableProperty
+            || _c == QMetaObject::RegisterPropertyMetaType) {
+        qt_static_metacall(this, _c, _id, _a);
+        _id -= 2;
+    }
+    return _id;
+}
+QT_WARNING_POP
+
+//  from ../qtgraphs/src/graphs2d/xychart/qxypoint.cpp, line 34, as _ZN8QXYPointC1EP7QObject
+inline QXYPoint::QXYPoint(QObject *parent) :
+    QObject(parent)
+{
+    setX(0.0);
+    setY(0.0);
+}
+//  -----------------------------------------------------------------------
 
 //  A QXYPoint that Python can take functions over in. Every QXYPoint
 //  Python makes is one. Each function below asks the Python
@@ -199,6 +329,18 @@ int ritual_ZN8QXYPoint11qt_metacallEN11QMetaObject4CallEiPPv(
     int a1,
     void **a2) {
   return self->qt_metacall(a0, a1, a2);
+}
+
+//  QString QXYPoint::tr(const char *s, const char *c, int n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN8QXYPoint2trEPKcS1_i(const char *s, const char *c, int n) {
+  return new QString(QXYPoint::tr(s, c, n));
+}
+
+//  QXYPoint::QXYPoint(QObject *parent)
+extern "C" Q_DECL_EXPORT
+QXYPoint *ritual_ZN8QXYPointC1EP7QObject(QObject *parent) {
+  return new CuteQXYPoint(parent);
 }
 
 //  QXYPoint as the QPointF it is built on

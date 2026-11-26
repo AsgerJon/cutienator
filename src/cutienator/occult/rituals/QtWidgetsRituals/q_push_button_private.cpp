@@ -561,6 +561,12 @@ const QPushButton *ritual_ZNK18QPushButtonPrivate6q_funcEv(
   return self->q_func();
 }
 
+//  QPushButtonPrivate::QPushButtonPrivate()
+extern "C" Q_DECL_EXPORT
+QPushButtonPrivate *ritual_ZN18QPushButtonPrivateC1Ev() {
+  return new CuteQPushButtonPrivate();
+}
+
 //  void QPushButtonPrivate::init()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN18QPushButtonPrivate4initEv(QPushButtonPrivate *self) {

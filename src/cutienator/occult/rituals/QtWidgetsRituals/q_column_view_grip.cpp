@@ -1,6 +1,13 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/6.12.0/QtWidgets/private/qcolumnviewgrip_p.h, Qt 6.12.0.
-//  Changes made here are lost.
+//  Edited by hand on 2026-11-26: moc's output for 'QColumnViewGrip' is
+//  pasted in, cut from what the moc of Qt 6.12.0 writes for its header: Qt's
+//  library keeps it to itself; added are 6 rituals that lean on what moc
+//  writes for a class of the part Qt keeps to itself, whose ritual file
+//  carries moc's output, drafted by a copy of the generator that lets those
+//  names through. A copy of a meta-object is a second one: 'qobject_cast'
+//  between it and Qt's own does not match. Kept as it is when the generator
+//  runs again.
 #include <QtGui/qtguiglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
@@ -11,11 +18,16 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtWidgets/6.12.0/QtWidgets/private/qcolumnviewgrip_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 #include <QtCore/qsize.h>
 #include <QtCore/qvariant.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
 #include <QtWidgets/private/qcolumnviewgrip_p.h>
 #include <QtWidgets/qstyleoption.h>
 #include <QtGui/qpainter.h>
@@ -31,6 +43,102 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from QtWidgets__QColumnViewGrip.cpp, line 1, as moc:QColumnViewGrip
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN15QColumnViewGripE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto QColumnViewGrip::qt_create_metaobjectdata<qt_meta_tag_ZN15QColumnViewGripE_t>()
+{
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "QColumnViewGrip",
+        "gripMoved",
+        "",
+        "offset"
+    };
+
+    QtMocHelpers::UintData qt_methods {
+        // Signal 'gripMoved'
+        QtMocHelpers::SignalData<void(int)>(1, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { QMetaType::Int, 3 },
+        }}),
+    };
+    QtMocHelpers::UintData qt_properties {
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    return QtMocHelpers::metaObjectData<QColumnViewGrip, qt_meta_tag_ZN15QColumnViewGripE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums);
+}
+Q_CONSTINIT const QMetaObject QColumnViewGrip::staticMetaObject = { {
+    QMetaObject::SuperData::link<QWidget::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN15QColumnViewGripE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN15QColumnViewGripE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN15QColumnViewGripE_t>.metaTypes,
+    nullptr
+} };
+
+void QColumnViewGrip::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<QColumnViewGrip *>(_o);
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        switch (_id) {
+        case 0: _t->gripMoved((*reinterpret_cast<std::add_pointer_t<int>>(_a[1]))); break;
+        default: ;
+        }
+    }
+    if (_c == QMetaObject::IndexOfMethod) {
+        if (QtMocHelpers::indexOfMethod<void (QColumnViewGrip::*)(int )>(_a, &QColumnViewGrip::gripMoved, 0))
+            return;
+    }
+}
+
+const QMetaObject *QColumnViewGrip::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *QColumnViewGrip::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN15QColumnViewGripE_t>.strings))
+        return static_cast<void*>(this);
+    return QWidget::qt_metacast(_clname);
+}
+
+int QColumnViewGrip::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QWidget::qt_metacall(_c, _id, _a);
+    if (_id < 0)
+        return _id;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        if (_id < 1)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 1;
+    }
+    if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        if (_id < 1)
+            *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
+        _id -= 1;
+    }
+    return _id;
+}
+
+// SIGNAL 0
+void QColumnViewGrip::gripMoved(int _t1)
+{
+    QMetaObject::activate<void>(this, &staticMetaObject, 0, nullptr, _t1);
+}
+QT_WARNING_POP
+
 //  from src/widgets/itemviews/qcolumnviewgrip.cpp, line 85, as _ZN15QColumnViewGrip10paintEventEP11QPaintEvent
 inline void QColumnViewGrip::paintEvent(QPaintEvent *event)
 {
@@ -38,6 +146,31 @@ inline void QColumnViewGrip::paintEvent(QPaintEvent *event)
     QStyleOption opt;
     opt.initFrom(this);
     style()->drawControl(QStyle::CE_ColumnViewGrip, &opt, &painter, this);
+    event->accept();
+}
+
+//  from src/widgets/itemviews/qcolumnviewgrip.cpp, line 124, as _ZN15QColumnViewGrip14mouseMoveEventEP11QMouseEvent
+inline void QColumnViewGrip::mouseMoveEvent(QMouseEvent *event)
+{
+    Q_D(QColumnViewGrip);
+    int offset = event->globalPosition().toPoint().x() - d->originalXLocation;
+    d->originalXLocation = moveGrip(offset) + d->originalXLocation;
+    event->accept();
+}
+
+//  from src/widgets/itemviews/qcolumnviewgrip.cpp, line 113, as _ZN15QColumnViewGrip15mousePressEventEP11QMouseEvent
+inline void QColumnViewGrip::mousePressEvent(QMouseEvent *event)
+{
+    Q_D(QColumnViewGrip);
+    d->originalXLocation = event->globalPosition().toPoint().x();
+    event->accept();
+}
+
+//  from src/widgets/itemviews/qcolumnviewgrip.cpp, line 136, as _ZN15QColumnViewGrip17mouseReleaseEventEP11QMouseEvent
+inline void QColumnViewGrip::mouseReleaseEvent(QMouseEvent *event)
+{
+    Q_D(QColumnViewGrip);
+    d->originalXLocation = -1;
     event->accept();
 }
 
@@ -53,29 +186,25 @@ inline void QColumnViewGrip::mouseDoubleClickEvent(QMouseEvent *event)
     event->accept();
 }
 
-//  from src/widgets/itemviews/qcolumnviewgrip.cpp, line 124, as _ZN15QColumnViewGrip14mouseMoveEventEP11QMouseEvent
-inline void QColumnViewGrip::mouseMoveEvent(QMouseEvent *event)
+//  from src/widgets/itemviews/qcolumnviewgrip.cpp, line 146, as _ZN22QColumnViewGripPrivateC1Ev
+inline QColumnViewGripPrivate::QColumnViewGripPrivate()
+:  QWidgetPrivate(),
+originalXLocation(-1)
 {
-    Q_D(QColumnViewGrip);
-    int offset = event->globalPosition().toPoint().x() - d->originalXLocation;
-    d->originalXLocation = moveGrip(offset) + d->originalXLocation;
-    event->accept();
 }
 
-//  from src/widgets/itemviews/qcolumnviewgrip.cpp, line 136, as _ZN15QColumnViewGrip17mouseReleaseEventEP11QMouseEvent
-inline void QColumnViewGrip::mouseReleaseEvent(QMouseEvent *event)
+//  from src/widgets/itemviews/qcolumnviewgrip.cpp, line 31, as _ZN15QColumnViewGripC1EP7QWidget
+inline QColumnViewGrip::QColumnViewGrip(QWidget *parent)
+    :  QWidget(*new QColumnViewGripPrivate, parent, { })
 {
-    Q_D(QColumnViewGrip);
-    d->originalXLocation = -1;
-    event->accept();
+#ifndef QT_NO_CURSOR
+    setCursor(Qt::SplitHCursor);
+#endif
 }
 
-//  from src/widgets/itemviews/qcolumnviewgrip.cpp, line 113, as _ZN15QColumnViewGrip15mousePressEventEP11QMouseEvent
-inline void QColumnViewGrip::mousePressEvent(QMouseEvent *event)
+//  from src/widgets/itemviews/qcolumnviewgrip.cpp, line 50, as _ZN15QColumnViewGripD1Ev
+inline QColumnViewGrip::~QColumnViewGrip()
 {
-    Q_D(QColumnViewGrip);
-    d->originalXLocation = event->globalPosition().toPoint().x();
-    event->accept();
 }
 
 //  from src/widgets/itemviews/qcolumnviewgrip.cpp, line 58, as _ZN15QColumnViewGrip8moveGripEi
@@ -103,8 +232,9 @@ inline int QColumnViewGrip::moveGrip(int offset)
     return realOffset;
 }
 
-//  from src/widgets/itemviews/qcolumnviewgrip.cpp, line 50, as _ZN15QColumnViewGripD1Ev
-inline QColumnViewGrip::~QColumnViewGrip()
+//  from src/widgets/itemviews/qcolumnviewgrip.cpp, line 42, as _ZN15QColumnViewGripC1ER22QColumnViewGripPrivateP7QWidget6QFlagsIN2Qt10WindowTypeEE
+inline QColumnViewGrip::QColumnViewGrip(QColumnViewGripPrivate & dd, QWidget *parent, Qt::WindowFlags f)
+:  QWidget(dd, parent, f)
 {
 }
 //  -----------------------------------------------------------------------
@@ -113,6 +243,8 @@ inline QColumnViewGrip::~QColumnViewGrip()
 //  This one is, and makes them free for the rituals to call.
 struct OwnQColumnViewGrip : QColumnViewGrip {
   using QColumnViewGrip::paintEvent;
+  using QColumnViewGrip::mouseDoubleClickEvent;
+  using QColumnViewGrip::mouseMoveEvent;
   using QColumnViewGrip::mouseReleaseEvent;
   using QColumnViewGrip::mousePressEvent;
 };
@@ -1011,6 +1143,15 @@ int ritual_ZN15QColumnViewGrip11qt_metacallEN11QMetaObject4CallEiPPv(
   return self->qt_metacall(a0, a1, a2);
 }
 
+//  QString QColumnViewGrip::tr(const char *s, const char *c, int n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN15QColumnViewGrip2trEPKcS1_i(
+    const char *s,
+    const char *c,
+    int n) {
+  return new QString(QColumnViewGrip::tr(s, c, n));
+}
+
 //  void QColumnViewGrip::gripMoved(int offset)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QColumnViewGrip9gripMovedEi(
@@ -1038,10 +1179,37 @@ void ritual_ZN15QColumnViewGrip9gripMovedEi(
       QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
+//  QColumnViewGrip::QColumnViewGrip(QWidget *parent)
+extern "C" Q_DECL_EXPORT
+QColumnViewGrip *ritual_ZN15QColumnViewGripC1EP7QWidget(QWidget *parent) {
+  return new CuteQColumnViewGrip(parent);
+}
+
 //  QColumnViewGrip::~QColumnViewGrip()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QColumnViewGripD1Ev(QColumnViewGrip *self) {
   delete self;
+}
+
+//  int QColumnViewGrip::moveGrip(int offset)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN15QColumnViewGrip8moveGripEi(
+    QColumnViewGrip *self,
+    int offset) {
+  return self->moveGrip(offset);
+}
+
+//  QColumnViewGrip::QColumnViewGrip(QColumnViewGripPrivate &a0, QWidget
+//      *parent, Qt::WindowFlags f)
+extern "C" Q_DECL_EXPORT
+QColumnViewGrip *ritual_ZN15QColumnViewGripC1ER22QColumnViewGripPrivateP7QWidget6QFlagsIN2Qt10WindowTypeEE(
+    QColumnViewGripPrivate *a0,
+    QWidget *parent,
+    int f) {
+  return new CuteQColumnViewGrip(
+      *a0,
+      parent,
+      QFlags<Qt::WindowType>::fromInt(f));
 }
 
 //  void QColumnViewGrip::paintEvent(QPaintEvent *event)
@@ -1114,6 +1282,24 @@ void ritual_own_ZN15QColumnViewGrip10paintEventEP11QPaintEvent(
     QColumnViewGrip *self,
     QPaintEvent *event) {
   static_cast<OwnQColumnViewGrip *>(self)->OwnQColumnViewGrip::paintEvent(
+      event);
+}
+
+//  void QColumnViewGrip::mouseDoubleClickEvent(QMouseEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN15QColumnViewGrip21mouseDoubleClickEventEP11QMouseEvent(
+    QColumnViewGrip *self,
+    QMouseEvent *event) {
+  static_cast<OwnQColumnViewGrip *>(self)->OwnQColumnViewGrip::mouseDoubleClickEvent(
+      event);
+}
+
+//  void QColumnViewGrip::mouseMoveEvent(QMouseEvent *event)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN15QColumnViewGrip14mouseMoveEventEP11QMouseEvent(
+    QColumnViewGrip *self,
+    QMouseEvent *event) {
+  static_cast<OwnQColumnViewGrip *>(self)->OwnQColumnViewGrip::mouseMoveEvent(
       event);
 }
 

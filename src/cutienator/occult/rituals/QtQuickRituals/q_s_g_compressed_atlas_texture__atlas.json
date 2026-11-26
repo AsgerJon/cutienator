@@ -2,7 +2,7 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtQuick/6.12.0/QtQuick/private/qsgcompressedatlastexture_p.h, Qt",
-    "6.12.0. Changes made here are lost."
+    "6.12.0. Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZN25QSGCompressedAtlasTexture5AtlasD1Ev": ["nothing", "address"],
@@ -11,6 +11,9 @@
     ],
     "ritual_ZN25QSGCompressedAtlasTexture5Atlas20enqueueTextureUploadEPN18QSGRhiAtlasTexture11TextureBaseEP23QRhiResourceUpdateBatch": [
       "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN25QSGCompressedAtlasTexture5Atlas6createE14QByteArrayViewRK5QSize": [
+      "address", "address", "address", "address"
     ],
     "ritual_ZNK25QSGCompressedAtlasTexture5Atlas6formatEv": [
       "unsigned int", "address"

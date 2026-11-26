@@ -2,7 +2,7 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtQuick/6.12.0/QtQuick/private/qsgsoftwarepixmaptexture_p.h, Qt",
-    "6.12.0. Changes made here are lost."
+    "6.12.0. Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZNK24QSGSoftwarePixmapTexture10metaObjectEv": [
@@ -13,6 +13,15 @@
     ],
     "ritual_ZN24QSGSoftwarePixmapTexture11qt_metacallEN11QMetaObject4CallEiPPv": [
       "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN24QSGSoftwarePixmapTexture2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN24QSGSoftwarePixmapTextureC1ERK6QImagej": [
+      "address", "address", "unsigned int"
+    ],
+    "ritual_ZN24QSGSoftwarePixmapTextureC1ERK7QPixmap": [
+      "address", "address"
     ],
     "ritual_ZNK24QSGSoftwarePixmapTexture13comparisonKeyEv": [
       "long long", "address"

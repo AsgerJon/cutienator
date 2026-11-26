@@ -32,10 +32,22 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from src/widgets/kernel/qstandardgestures.cpp, line 242, as _ZN23QSwipeGestureRecognizerC1Ev
+//  from src/widgets/kernel/qstandardgestures.cpp, line 370, as _ZN23QSwipeGestureRecognizer5resetEP8QGesture
 #if !defined(QT_NO_GESTURES)
-inline QSwipeGestureRecognizer::QSwipeGestureRecognizer()
+inline void QSwipeGestureRecognizer::reset(QGesture *state)
 {
+    QSwipeGesture *q = static_cast<QSwipeGesture *>(state);
+    QSwipeGesturePrivate *d = q->d_func();
+
+    d->verticalDirection = d->horizontalDirection = QSwipeGesture::NoDirection;
+    d->swipeAngle = 0;
+
+    d->lastPositions[0] = d->lastPositions[1] = d->lastPositions[2] = QPointF();
+    d->state = QSwipeGesturePrivate::NoGesture;
+    d->velocityValue = 0;
+    d->time.invalidate();
+
+    QGestureRecognizer::reset(state);
 }
 #endif  // !defined(QT_NO_GESTURES)
 
@@ -169,22 +181,10 @@ inline QGestureRecognizer::Result QSwipeGestureRecognizer::recognize(QGesture *s
 }
 #endif  // !defined(QT_NO_GESTURES)
 
-//  from src/widgets/kernel/qstandardgestures.cpp, line 370, as _ZN23QSwipeGestureRecognizer5resetEP8QGesture
+//  from src/widgets/kernel/qstandardgestures.cpp, line 242, as _ZN23QSwipeGestureRecognizerC1Ev
 #if !defined(QT_NO_GESTURES)
-inline void QSwipeGestureRecognizer::reset(QGesture *state)
+inline QSwipeGestureRecognizer::QSwipeGestureRecognizer()
 {
-    QSwipeGesture *q = static_cast<QSwipeGesture *>(state);
-    QSwipeGesturePrivate *d = q->d_func();
-
-    d->verticalDirection = d->horizontalDirection = QSwipeGesture::NoDirection;
-    d->swipeAngle = 0;
-
-    d->lastPositions[0] = d->lastPositions[1] = d->lastPositions[2] = QPointF();
-    d->state = QSwipeGesturePrivate::NoGesture;
-    d->velocityValue = 0;
-    d->time.invalidate();
-
-    QGestureRecognizer::reset(state);
 }
 #endif  // !defined(QT_NO_GESTURES)
 //  -----------------------------------------------------------------------

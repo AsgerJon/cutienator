@@ -7,6 +7,7 @@
   "rows": {
     "ritual_ZN18QSctpSocketPrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK18QSctpSocketPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN18QSctpSocketPrivateC1Ev": ["address"],
     "ritual_ZN18QSctpSocketPrivateD1Ev": ["nothing", "address"],
     "ritual_ZN18QSctpSocketPrivate19canReadNotificationEv": [
       "bool", "address"

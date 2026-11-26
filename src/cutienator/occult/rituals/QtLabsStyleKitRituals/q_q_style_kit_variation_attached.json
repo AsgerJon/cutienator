@@ -2,7 +2,7 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of QtLabsS",
     "tyleKit/6.12.0/QtLabsStyleKit/private/qqstylekitvariation_p.h, Qt",
-    "6.12.0. Changes made here are lost."
+    "6.12.0. Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZNK27QQStyleKitVariationAttached10metaObjectEv": [
@@ -14,11 +14,23 @@
     "ritual_ZN27QQStyleKitVariationAttached11qt_metacallEN11QMetaObject4CallEiPPv": [
       "int", "address", "int", "int", "address"
     ],
+    "ritual_ZN27QQStyleKitVariationAttached2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN27QQStyleKitVariationAttachedC1EP7QObject": [
+      "address", "address"
+    ],
     "ritual_ZNK27QQStyleKitVariationAttached10variationsEv": [
       "address", "address"
     ],
+    "ritual_ZN27QQStyleKitVariationAttached13setVariationsERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK27QQStyleKitVariationAttached11controlTypeEv": [
       "unsigned int", "address"
+    ],
+    "ritual_ZN27QQStyleKitVariationAttached14setControlTypeEj": [
+      "nothing", "address", "unsigned int"
     ],
     "ritual_ZN27QQStyleKitVariationAttached17variationsChangedEv": [
       "nothing", "address"

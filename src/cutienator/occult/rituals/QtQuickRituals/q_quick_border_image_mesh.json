@@ -2,7 +2,7 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtQuick/6.12.0/QtQuick/private/qquickshadereffectmesh_p.h, Qt",
-    "6.12.0. Changes made here are lost."
+    "6.12.0. Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZNK21QQuickBorderImageMesh10metaObjectEv": [
@@ -14,6 +14,10 @@
     "ritual_ZN21QQuickBorderImageMesh11qt_metacallEN11QMetaObject4CallEiPPv": [
       "int", "address", "int", "int", "address"
     ],
+    "ritual_ZN21QQuickBorderImageMesh2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN21QQuickBorderImageMeshC1EP7QObject": ["address", "address"],
     "ritual_ZN21QQuickBorderImageMesh18validateAttributesERK5QListI10QByteArrayEPi": [
       "bool", "address", "address", "address"
     ],
@@ -22,11 +26,20 @@
     ],
     "ritual_ZNK21QQuickBorderImageMesh6borderEv": ["address", "address"],
     "ritual_ZNK21QQuickBorderImageMesh4sizeEv": ["address", "address"],
+    "ritual_ZN21QQuickBorderImageMesh7setSizeERK5QSize": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK21QQuickBorderImageMesh18horizontalTileModeEv": [
       "int", "address"
     ],
+    "ritual_ZN21QQuickBorderImageMesh21setHorizontalTileModeENS_8TileModeE": [
+      "nothing", "address", "int"
+    ],
     "ritual_ZNK21QQuickBorderImageMesh16verticalTileModeEv": [
       "int", "address"
+    ],
+    "ritual_ZN21QQuickBorderImageMesh19setVerticalTileModeENS_8TileModeE": [
+      "nothing", "address", "int"
     ],
     "ritual_ZN21QQuickBorderImageMesh11sizeChangedEv": [
       "nothing", "address"

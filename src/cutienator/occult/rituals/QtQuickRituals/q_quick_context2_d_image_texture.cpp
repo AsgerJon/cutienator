@@ -1,6 +1,11 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtQuick/6.12.0/QtQuick/private/qquickcontext2dtexture_p.h, Qt 6.12.0.
-//  Changes made here are lost.
+//  Edited by hand on 2026-11-26: added are 1 rituals that lean on what moc
+//  writes for a class of the part Qt keeps to itself, whose ritual file
+//  carries moc's output, drafted by a copy of the generator that lets those
+//  names through. A copy of a meta-object is a second one: 'qobject_cast'
+//  between it and Qt's own does not match. Kept as it is when the generator
+//  runs again.
 #include <QtQuick/qtquickglobal.h>
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
 #if QT_CONFIG(quick_canvas)
@@ -24,7 +29,6 @@
 #include <QtQuick/private/qquickcontext2dcommandbuffer_p.h>
 #include <QtCore/QThread>
 #include <QtGui/QGuiApplication>
-#include <QtQuick/private/qquickcontext2dtile_p.h>
 #include <QtQuick/private/qquickcontext2d_p.h>
 #include <QtQuick/private/qquickcontext2dcommandbuffer_p.h>
 #include <QtQuick/private/qquickcanvasitem_p.h>
@@ -66,6 +70,7 @@
 #if defined(Q_OS_QNX) || defined(Q_OS_ANDROID)
 #include <ctype.h>
 #endif
+#include <QtQuick/private/qquickcontext2dtile_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -128,18 +133,6 @@ inline void QQuickContext2DImageTexture::endPainting()
         m_mutex.unlock();
 }
 
-//  from ../qtdeclarative/src/quick/items/context2d/qquickcontext2dtexture.cpp, line 328, as _ZNK27QQuickContext2DImageTexture12renderTargetEv
-inline QQuickCanvasItem::RenderTarget QQuickContext2DImageTexture::renderTarget() const
-{
-    return QQuickCanvasItem::Image;
-}
-
-//  from ../qtdeclarative/src/quick/items/context2d/qquickcontext2dtexture.cpp, line 333, as _ZNK27QQuickContext2DImageTexture10createTileEv
-inline QQuickContext2DTile* QQuickContext2DImageTexture::createTile() const
-{
-    return new QQuickContext2DImageTile();
-}
-
 //  from ../qtdeclarative/src/quick/items/context2d/qquickcontext2dtexture.cpp, line 396, as _ZN27QQuickContext2DImageTexture13compositeTileEP19QQuickContext2DTile
 inline void QQuickContext2DImageTexture::compositeTile(QQuickContext2DTile* tile)
 {
@@ -187,10 +180,16 @@ inline void QQuickContext2DImageTexture::grabImage(const QRectF& rf)
     QQuickContext2D::mutex.unlock();
 }
 
-//  from ../qtdeclarative/src/quick/items/context2d/qquickcontext2dtile.cpp, line 61, as _ZN24QQuickContext2DImageTileC1Ev
-inline QQuickContext2DImageTile::QQuickContext2DImageTile()
-    : QQuickContext2DTile()
+//  from ../qtdeclarative/src/quick/items/context2d/qquickcontext2dtexture.cpp, line 333, as _ZNK27QQuickContext2DImageTexture10createTileEv
+inline QQuickContext2DTile* QQuickContext2DImageTexture::createTile() const
 {
+    return new QQuickContext2DImageTile();
+}
+
+//  from ../qtdeclarative/src/quick/items/context2d/qquickcontext2dtexture.cpp, line 328, as _ZNK27QQuickContext2DImageTexture12renderTargetEv
+inline QQuickCanvasItem::RenderTarget QQuickContext2DImageTexture::renderTarget() const
+{
+    return QQuickCanvasItem::Image;
 }
 
 //  from ../qtdeclarative/src/quick/items/context2d/qquickcontext2d.cpp, line 4166, as _ZN15QQuickContext2D15setGrabbedImageERK6QImage
@@ -198,6 +197,12 @@ inline void QQuickContext2D::setGrabbedImage(const QImage& grab)
 {
     m_grabbedImage = grab;
     m_grabbed = true;
+}
+
+//  from ../qtdeclarative/src/quick/items/context2d/qquickcontext2dtile.cpp, line 61, as _ZN24QQuickContext2DImageTileC1Ev
+inline QQuickContext2DImageTile::QQuickContext2DImageTile()
+    : QQuickContext2DTile()
+{
 }
 
 //  from ../qtdeclarative/src/quick/items/context2d/qquickcontext2dtile.cpp, line 9, as _ZN19QQuickContext2DTileC2Ev
@@ -761,6 +766,13 @@ extern "C" Q_DECL_EXPORT
 QQuickCanvasItem::RenderTarget ritual_own_ZNK27QQuickContext2DImageTexture12renderTargetEv(
     const QQuickContext2DImageTexture *self) {
   return self->QQuickContext2DImageTexture::renderTarget();
+}
+
+//  QQuickContext2DTile *QQuickContext2DImageTexture::createTile() const
+extern "C" Q_DECL_EXPORT
+QQuickContext2DTile *ritual_own_ZNK27QQuickContext2DImageTexture10createTileEv(
+    const QQuickContext2DImageTexture *self) {
+  return self->QQuickContext2DImageTexture::createTile();
 }
 
 //  void QQuickContext2DImageTexture::endPainting()

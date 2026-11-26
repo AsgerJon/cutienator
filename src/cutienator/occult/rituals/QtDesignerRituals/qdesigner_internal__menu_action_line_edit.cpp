@@ -1,6 +1,13 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtDesigner/6.12.0/QtDesigner/private/menuactionlineedit_p.h, Qt 6.12.0.
-//  Changes made here are lost.
+//  Edited by hand on 2026-11-26: moc's output for
+//  'qdesigner_internal::MenuActionLineEdit' is pasted in, cut from what the
+//  moc of Qt 6.12.0 writes for its header: Qt's library keeps it to itself;
+//  added are 2 rituals that lean on what moc writes for a class of the part
+//  Qt keeps to itself, whose ritual file carries moc's output, drafted by a
+//  copy of the generator that lets those names through. A copy of a meta-
+//  object is a second one: 'qobject_cast' between it and Qt's own does not
+//  match. Kept as it is when the generator runs again.
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtGui/qtguiglobal.h>
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
@@ -8,10 +15,124 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtDesigner/6.12.0/QtDesigner/private/menuactionlineedit_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 #include <QtCore/qsize.h>
 #include <QtCore/qvariant.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+
+//  Qt's own code, from here to the line of dashes: taken from
+//  Qt's source, because Qt's library carries it under no name.
+//  Copyright (C) The Qt Company Ltd. It is licensed
+//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
+//  here. Each function is as Qt wrote it, with the word
+//  'inline' put before it where Qt did not write it.
+
+//  from QtDesigner__qdesigner_internal_MenuActionLineEdit.cpp, line 1, as moc:qdesigner_internal::MenuActionLineEdit
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN18qdesigner_internal18MenuActionLineEditE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto qdesigner_internal::MenuActionLineEdit::qt_create_metaobjectdata<qt_meta_tag_ZN18qdesigner_internal18MenuActionLineEditE_t>()
+{
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "qdesigner_internal::MenuActionLineEdit",
+        "focusOut",
+        ""
+    };
+
+    QtMocHelpers::UintData qt_methods {
+        // Signal 'focusOut'
+        QtMocHelpers::SignalData<void()>(1, 2, QMC::AccessPublic, QMetaType::Void),
+    };
+    QtMocHelpers::UintData qt_properties {
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    return QtMocHelpers::metaObjectData<MenuActionLineEdit, qt_meta_tag_ZN18qdesigner_internal18MenuActionLineEditE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums);
+}
+Q_CONSTINIT const QMetaObject qdesigner_internal::MenuActionLineEdit::staticMetaObject = { {
+    QMetaObject::SuperData::link<QLineEdit::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN18qdesigner_internal18MenuActionLineEditE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN18qdesigner_internal18MenuActionLineEditE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN18qdesigner_internal18MenuActionLineEditE_t>.metaTypes,
+    nullptr
+} };
+
+void qdesigner_internal::MenuActionLineEdit::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<MenuActionLineEdit *>(_o);
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        switch (_id) {
+        case 0: _t->focusOut(); break;
+        default: ;
+        }
+    }
+    if (_c == QMetaObject::IndexOfMethod) {
+        if (QtMocHelpers::indexOfMethod<void (MenuActionLineEdit::*)()>(_a, &MenuActionLineEdit::focusOut, 0))
+            return;
+    }
+}
+
+const QMetaObject *qdesigner_internal::MenuActionLineEdit::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *qdesigner_internal::MenuActionLineEdit::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN18qdesigner_internal18MenuActionLineEditE_t>.strings))
+        return static_cast<void*>(this);
+    return QLineEdit::qt_metacast(_clname);
+}
+
+int qdesigner_internal::MenuActionLineEdit::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QLineEdit::qt_metacall(_c, _id, _a);
+    if (_id < 0)
+        return _id;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        if (_id < 1)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 1;
+    }
+    if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        if (_id < 1)
+            *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
+        _id -= 1;
+    }
+    return _id;
+}
+
+// SIGNAL 0
+void qdesigner_internal::MenuActionLineEdit::focusOut()
+{
+    QMetaObject::activate(this, &staticMetaObject, 0, nullptr);
+}
+QT_WARNING_POP
+//  -----------------------------------------------------------------------
+
+//  Only a class built on qdesigner_internal::MenuActionLineEdit may call these functions of it.
+//  This one is, and makes them free for the rituals to call.
+struct Ownqdesigner_internal_MenuActionLineEdit : qdesigner_internal::MenuActionLineEdit {
+  using qdesigner_internal::MenuActionLineEdit::focusOutEvent;
+};
 
 //  A qdesigner_internal::MenuActionLineEdit that Python can take functions over in. Every qdesigner_internal::MenuActionLineEdit
 //  Python makes is one. Each function below asks the Python
@@ -1023,6 +1144,16 @@ int ritual_ZN18qdesigner_internal18MenuActionLineEdit11qt_metacallEN11QMetaObjec
   return self->qt_metacall(a0, a1, a2);
 }
 
+//  QString qdesigner_internal::MenuActionLineEdit::tr(const char *s, const
+//      char *c, int n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN18qdesigner_internal18MenuActionLineEdit2trEPKcS2_i(
+    const char *s,
+    const char *c,
+    int n) {
+  return new QString(qdesigner_internal::MenuActionLineEdit::tr(s, c, n));
+}
+
 //  void qdesigner_internal::MenuActionLineEdit::focusOut()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN18qdesigner_internal18MenuActionLineEdit8focusOutEv(
@@ -1065,4 +1196,14 @@ bool ritual_take_qdesigner_internal_MenuActionLineEdit(
     const char *key,
     void *call) {
   return static_cast<Cuteqdesigner_internal_MenuActionLineEdit *>(self)->take(key, call);
+}
+
+//  void qdesigner_internal::MenuActionLineEdit::focusOutEvent(QFocusEvent
+//      *event)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN18qdesigner_internal18MenuActionLineEdit13focusOutEventEP11QFocusEvent(
+    qdesigner_internal::MenuActionLineEdit *self,
+    QFocusEvent *event) {
+  static_cast<Ownqdesigner_internal_MenuActionLineEdit *>(self)->Ownqdesigner_internal_MenuActionLineEdit::focusOutEvent(
+      event);
 }

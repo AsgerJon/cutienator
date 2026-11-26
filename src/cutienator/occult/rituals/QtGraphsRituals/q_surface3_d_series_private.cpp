@@ -206,6 +206,22 @@ inline void QAbstract3DSeriesPrivate::setDataProxy(QAbstractDataProxy *proxy)
     }
 }
 
+//  from ../qtgraphs/src/graphs3d/data/qsurface3dseries.cpp, line 737, as _ZN23QSurface3DSeriesPrivateC1Ev
+inline QSurface3DSeriesPrivate::QSurface3DSeriesPrivate()
+    : QAbstract3DSeriesPrivate(QAbstract3DSeries::SeriesType::Surface)
+    , m_selectedPoint(QQuickGraphsSurface::invalidSelectionPosition())
+    , m_shading(QSurface3DSeries::Shading::Flat)
+    , m_drawMode(QSurface3DSeries::DrawSurfaceAndWireframe)
+    , m_wireframeColor(Qt::black)
+    , m_rowsSanitized(false)
+    , m_axisX(nullptr)
+    , m_axisY(nullptr)
+    , m_axisZ(nullptr)
+{
+    m_itemLabelFormat = QStringLiteral("@xLabel, @yLabel, @zLabel");
+    m_mesh = QAbstract3DSeries::Mesh::Sphere;
+}
+
 //  from ../qtgraphs/src/graphs3d/data/qsurface3dseries.cpp, line 858, as _ZN23QSurface3DSeriesPrivate16setSelectedPointE6QPoint
 inline void QSurface3DSeriesPrivate::setSelectedPoint(QPoint position)
 {
@@ -420,6 +436,12 @@ extern "C" Q_DECL_EXPORT
 const QSurface3DSeries *ritual_ZNK23QSurface3DSeriesPrivate6q_funcEv(
     const QSurface3DSeriesPrivate *self) {
   return self->q_func();
+}
+
+//  QSurface3DSeriesPrivate::QSurface3DSeriesPrivate()
+extern "C" Q_DECL_EXPORT
+QSurface3DSeriesPrivate *ritual_ZN23QSurface3DSeriesPrivateC1Ev() {
+  return new CuteQSurface3DSeriesPrivate();
 }
 
 //  QSurface3DSeriesPrivate::~QSurface3DSeriesPrivate()

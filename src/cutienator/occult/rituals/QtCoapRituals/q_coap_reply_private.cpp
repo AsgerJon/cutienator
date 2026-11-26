@@ -7,6 +7,7 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCoap/6.12.0/QtCoap/private/qcoapreply_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCoap/qcoaprequest.h>
 #include <QtCore/qbytearray.h>
 #include <QtNetwork/qhostaddress.h>
 #include <QtCoap/qcoapmessage.h>
@@ -63,6 +64,12 @@ inline QtCoap::Error QtCoap::errorForResponseCode(QtCoap::ResponseCode code)
 inline bool QtCoap::isError(QtCoap::ResponseCode code)
 {
     return static_cast<int>(code) >= 0x80;
+}
+
+//  from ../qtcoap/src/coap/qcoapreply.cpp, line 19, as _ZN17QCoapReplyPrivateC1ERK12QCoapRequest
+inline QCoapReplyPrivate::QCoapReplyPrivate(const QCoapRequest &req) :
+    request(req)
+{
 }
 
 //  from ../qtcoap/src/coap/qcoapreply.cpp, line 31, as _ZN17QCoapReplyPrivate13_q_setRunningERK10QByteArrayt
@@ -128,6 +135,12 @@ inline void QCoapReplyPrivate::_q_setError(QtCoap::Error newError)
 
     error = newError;
     emit q->error(q, error);
+}
+
+//  from ../qtcoap/src/coap/qcoapreply.cpp, line 399, as _ZN17QCoapReplyPrivate15createCoapReplyERK12QCoapRequestP7QObject
+inline QCoapReply *QCoapReplyPrivate::createCoapReply(const QCoapRequest &request, QObject *parent)
+{
+    return new QCoapReply(*new QCoapReplyPrivate(request), parent);
 }
 //  -----------------------------------------------------------------------
 
@@ -212,6 +225,13 @@ public:
   }
 };
 
+//  QCoapReplyPrivate::QCoapReplyPrivate(const QCoapRequest &request)
+extern "C" Q_DECL_EXPORT
+QCoapReplyPrivate *ritual_ZN17QCoapReplyPrivateC1ERK12QCoapRequest(
+    const QCoapRequest *request) {
+  return new CuteQCoapReplyPrivate(*request);
+}
+
 //  void QCoapReplyPrivate::_q_setRunning(const QCoapToken &a0,
 //      QCoapMessageId a1)
 extern "C" Q_DECL_EXPORT
@@ -269,6 +289,15 @@ void ritual_ZN17QCoapReplyPrivate11_q_setErrorEN6QtCoap5ErrorE(
     QCoapReplyPrivate *self,
     QtCoap::Error a0) {
   self->_q_setError(a0);
+}
+
+//  QCoapReply *QCoapReplyPrivate::createCoapReply(const QCoapRequest
+//      &request, QObject *parent)
+extern "C" Q_DECL_EXPORT
+QCoapReply *ritual_ZN17QCoapReplyPrivate15createCoapReplyERK12QCoapRequestP7QObject(
+    const QCoapRequest *request,
+    QObject *parent) {
+  return QCoapReplyPrivate::createCoapReply(*request, parent);
 }
 
 //  QCoapReply *QCoapReplyPrivate::q_func()

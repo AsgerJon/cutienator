@@ -1,14 +1,220 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtNetwork/6.12.0/QtNetwork/private/qhostinfo_p.h, Qt 6.12.0. Changes made
-//  here are lost.
+//  QtNetwork/6.12.0/QtNetwork/private/qhostinfo_p.h, Qt 6.12.0.
+//  Edited by hand on 2026-11-26: moc's output for 'QHostInfoResult' is
+//  pasted in, cut from what the moc of Qt 6.12.0 writes for its header: Qt's
+//  library keeps it to itself; added are 3 rituals that lean on what moc
+//  writes for a class of the part Qt keeps to itself, whose ritual file
+//  carries moc's output, drafted by a copy of the generator that lets those
+//  names through. A copy of a meta-object is a second one: 'qobject_cast'
+//  between it and Qt's own does not match. Kept as it is when the generator
+//  runs again.
 #include <QtNetwork/6.12.0/QtNetwork/private/qtnetworkglobal_p.h>
 #include <QtNetwork/QtNetwork>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtNetwork/6.12.0/QtNetwork/private/qhostinfo_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 #include <QtNetwork/qhostinfo.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
+#include <QtNetwork/qhostinfo.h>
+#include <QtNetwork/private/qhostinfo_p.h>
+#include <qplatformdefs.h>
+#include "QtCore/qapplicationstatic.h"
+#include <QtCore/qabstracteventdispatcher.h>
+#include <QtCore/qcoreapplication.h>
+#include <QtCore/qmetaobject.h>
+#include <QtCore/qscopeguard.h>
+#include <QtCore/qstringlist.h>
+#include <QtCore/qthread.h>
+#include <QtCore/qurl.h>
+#include <QtCore/private/qobject_p.h>
+#include <algorithm>
+#ifdef Q_OS_UNIX
+#  include <unistd.h>
+#  include <netdb.h>
+#  include <netinet/in.h>
+#elif defined Q_OS_WIN
+#  include <ws2tcpip.h>
+#endif
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+
+//  Qt's own code, from here to the line of dashes: taken from
+//  Qt's source, because Qt's library carries it under no name.
+//  Copyright (C) The Qt Company Ltd. It is licensed
+//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
+//  here. Each function is as Qt wrote it, with the word
+//  'inline' put before it where Qt did not write it.
+
+using namespace Qt::StringLiterals;
+
+//  from QtNetwork__QHostInfoResult.cpp, line 1, as moc:QHostInfoResult
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN15QHostInfoResultE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto QHostInfoResult::qt_create_metaobjectdata<qt_meta_tag_ZN15QHostInfoResultE_t>()
+{
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "QHostInfoResult",
+        "resultsReady",
+        "",
+        "QHostInfo",
+        "info",
+        "finalizePostResultsReady"
+    };
+
+    QtMocHelpers::UintData qt_methods {
+        // Signal 'resultsReady'
+        QtMocHelpers::SignalData<void(const QHostInfo &)>(1, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { 0x80000000 | 3, 4 },
+        }}),
+        // Slot 'finalizePostResultsReady'
+        QtMocHelpers::SlotData<void(const QHostInfo &)>(5, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { 0x80000000 | 3, 4 },
+        }}),
+    };
+    QtMocHelpers::UintData qt_properties {
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    return QtMocHelpers::metaObjectData<QHostInfoResult, qt_meta_tag_ZN15QHostInfoResultE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums);
+}
+Q_CONSTINIT const QMetaObject QHostInfoResult::staticMetaObject = { {
+    QMetaObject::SuperData::link<QObject::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN15QHostInfoResultE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN15QHostInfoResultE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN15QHostInfoResultE_t>.metaTypes,
+    nullptr
+} };
+
+void QHostInfoResult::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<QHostInfoResult *>(_o);
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        switch (_id) {
+        case 0: _t->resultsReady((*reinterpret_cast<std::add_pointer_t<QHostInfo>>(_a[1]))); break;
+        case 1: _t->finalizePostResultsReady((*reinterpret_cast<std::add_pointer_t<QHostInfo>>(_a[1]))); break;
+        default: ;
+        }
+    }
+    if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        switch (_id) {
+        default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
+        case 0:
+            switch (*reinterpret_cast<int*>(_a[1])) {
+            default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
+            case 0:
+                *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType::fromType< QHostInfo >(); break;
+            }
+            break;
+        case 1:
+            switch (*reinterpret_cast<int*>(_a[1])) {
+            default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
+            case 0:
+                *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType::fromType< QHostInfo >(); break;
+            }
+            break;
+        }
+    }
+    if (_c == QMetaObject::IndexOfMethod) {
+        if (QtMocHelpers::indexOfMethod<void (QHostInfoResult::*)(const QHostInfo & )>(_a, &QHostInfoResult::resultsReady, 0))
+            return;
+    }
+}
+
+const QMetaObject *QHostInfoResult::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *QHostInfoResult::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN15QHostInfoResultE_t>.strings))
+        return static_cast<void*>(this);
+    return QObject::qt_metacast(_clname);
+}
+
+int QHostInfoResult::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QObject::qt_metacall(_c, _id, _a);
+    if (_id < 0)
+        return _id;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        if (_id < 2)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 2;
+    }
+    if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        if (_id < 2)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 2;
+    }
+    return _id;
+}
+
+// SIGNAL 0
+void QHostInfoResult::resultsReady(const QHostInfo & _t1)
+{
+    QMetaObject::activate<void>(this, &staticMetaObject, 0, nullptr, _t1);
+}
+QT_WARNING_POP
+
+//  from src/network/kernel/qhostinfo.cpp, line 122, as _ZN15QHostInfoResult24finalizePostResultsReadyERK9QHostInfo
+inline void QHostInfoResult::finalizePostResultsReady(const QHostInfo &info)
+{
+    Q_ASSERT(slotObj);
+
+    // we used to have a context object, but it's already destroyed
+    if (receiver) {
+        void *args[] = { nullptr, const_cast<QHostInfo *>(&info) };
+        slotObj->call(const_cast<QObject *>(receiver.data()), args);
+    }
+
+    deleteLater();
+}
+
+//  from src/network/kernel/qhostinfo.cpp, line 84, as _ZN15QHostInfoResultD0Ev
+inline QHostInfoResult::~QHostInfoResult()
+    = default;
+
+//  from src/network/kernel/qhostinfo.cpp, line 98, as _ZN15QHostInfoResult16postResultsReadyERK9QHostInfo
+inline void QHostInfoResult::postResultsReady(const QHostInfo &info)
+{
+    // queued connection will take care of dispatching to right thread
+    if (!slotObj) {
+        emit resultsReady(info);
+        return;
+    }
+    // we used to have a context object, but it's already destroyed
+    if (!receiver)
+        return;
+
+    // a long-living version of this
+    auto result = new QHostInfoResult(this);
+    Q_CHECK_PTR(result);
+
+    QMetaObject::invokeMethod(result,
+                              &QHostInfoResult::finalizePostResultsReady,
+                              Qt::QueuedConnection,
+                              info);
+}
+//  -----------------------------------------------------------------------
 
 //  A QHostInfoResult that Python can take functions over in. Every QHostInfoResult
 //  Python makes is one. Each function below asks the Python
@@ -202,10 +408,27 @@ int ritual_ZN15QHostInfoResult11qt_metacallEN11QMetaObject4CallEiPPv(
   return self->qt_metacall(a0, a1, a2);
 }
 
+//  QString QHostInfoResult::tr(const char *s, const char *c, int n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN15QHostInfoResult2trEPKcS1_i(
+    const char *s,
+    const char *c,
+    int n) {
+  return new QString(QHostInfoResult::tr(s, c, n));
+}
+
 //  QHostInfoResult::~QHostInfoResult()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QHostInfoResultD1Ev(QHostInfoResult *self) {
   delete self;
+}
+
+//  void QHostInfoResult::postResultsReady(const QHostInfo &info)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QHostInfoResult16postResultsReadyERK9QHostInfo(
+    QHostInfoResult *self,
+    const QHostInfo *info) {
+  self->postResultsReady(*info);
 }
 
 //  void QHostInfoResult::resultsReady(const QHostInfo &info)
@@ -260,6 +483,12 @@ void ritual_ZN15QHostInfoResult24finalizePostResultsReadyERK9QHostInfo(
   };
   static_cast<QObject *>(self)->qt_metacall(
       QMetaObject::InvokeMetaMethod, index, arguments);
+}
+
+//  QHostInfoResult::QHostInfoResult(QHostInfoResult *other)
+extern "C" Q_DECL_EXPORT
+QHostInfoResult *ritual_ZN15QHostInfoResultC1EPS_(QHostInfoResult *other) {
+  return new CuteQHostInfoResult(other);
 }
 
 //  a Python function taken by a CuteQHostInfoResult, for the function named

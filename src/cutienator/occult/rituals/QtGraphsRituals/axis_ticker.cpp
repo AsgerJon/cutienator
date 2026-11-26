@@ -1,6 +1,12 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtGraphs/6.12.0/QtGraphs/private/axisticker_p.h, Qt 6.12.0. Changes made
-//  here are lost.
+//  QtGraphs/6.12.0/QtGraphs/private/axisticker_p.h, Qt 6.12.0.
+//  Edited by hand on 2026-11-26: moc's output for 'AxisTicker' is pasted in,
+//  cut from what the moc of Qt 6.12.0 writes for its header: Qt's library
+//  keeps it to itself; added are 18 rituals that lean on what moc writes for
+//  a class of the part Qt keeps to itself, whose ritual file carries moc's
+//  output, drafted by a copy of the generator that lets those names through.
+//  A copy of a meta-object is a second one: 'qobject_cast' between it and
+//  Qt's own does not match. Kept as it is when the generator runs again.
 #include <QtQuick/qtquickglobal.h>
 #include <QtGui/qtguiglobal.h>
 #include <QtGraphs/qgraphsglobal.h>
@@ -11,6 +17,7 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGraphs/6.12.0/QtGraphs/private/axisticker_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 #include <QtGui/qvectornd.h>
 #include <QtGui/qcolor.h>
 #include <QtCore/qrect.h>
@@ -21,6 +28,10 @@
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
 #include <QtGraphs/private/axisticker_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
@@ -31,12 +42,377 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from ../qtgraphs/src/graphs2d/axis/axisticker.cpp, line 17, as _ZN10AxisTicker17componentCompleteEv
-inline void AxisTicker::componentComplete()
+//  from QtGraphs__AxisTicker.cpp, line 1, as moc:AxisTicker
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN10AxisTickerE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto AxisTicker::qt_create_metaobjectdata<qt_meta_tag_ZN10AxisTickerE_t>()
 {
-    QQuickShaderEffect::componentComplete();
-    setupShaders();
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "AxisTicker",
+        "iResolutionChanged",
+        "",
+        "smoothingChanged",
+        "origoChanged",
+        "subTicksVisibleChanged",
+        "spacingChanged",
+        "displacementChanged",
+        "subTickColorChanged",
+        "tickColorChanged",
+        "subTickLineWidthChanged",
+        "tickLineWidthChanged",
+        "subTickScaleChanged",
+        "subTickLengthChanged",
+        "isHorizontalChanged",
+        "flippedChanged",
+        "logarithmicChanged",
+        "baseChanged",
+        "iResolution",
+        "QVector3D",
+        "smoothing",
+        "origo",
+        "subTicksVisible",
+        "spacing",
+        "displacement",
+        "subTickColor",
+        "QColor",
+        "tickColor",
+        "subTickLineWidth",
+        "tickLineWidth",
+        "subTickScale",
+        "subTickLength",
+        "isHorizontal",
+        "flipped",
+        "isLogarithmic",
+        "base"
+    };
+
+    QtMocHelpers::UintData qt_methods {
+        // Signal 'iResolutionChanged'
+        QtMocHelpers::SignalData<void()>(1, 2, QMC::AccessPublic, QMetaType::Void),
+        // Signal 'smoothingChanged'
+        QtMocHelpers::SignalData<void()>(3, 2, QMC::AccessPublic, QMetaType::Void),
+        // Signal 'origoChanged'
+        QtMocHelpers::SignalData<void()>(4, 2, QMC::AccessPublic, QMetaType::Void),
+        // Signal 'subTicksVisibleChanged'
+        QtMocHelpers::SignalData<void()>(5, 2, QMC::AccessPublic, QMetaType::Void),
+        // Signal 'spacingChanged'
+        QtMocHelpers::SignalData<void()>(6, 2, QMC::AccessPublic, QMetaType::Void),
+        // Signal 'displacementChanged'
+        QtMocHelpers::SignalData<void()>(7, 2, QMC::AccessPublic, QMetaType::Void),
+        // Signal 'subTickColorChanged'
+        QtMocHelpers::SignalData<void()>(8, 2, QMC::AccessPublic, QMetaType::Void),
+        // Signal 'tickColorChanged'
+        QtMocHelpers::SignalData<void()>(9, 2, QMC::AccessPublic, QMetaType::Void),
+        // Signal 'subTickLineWidthChanged'
+        QtMocHelpers::SignalData<void()>(10, 2, QMC::AccessPublic, QMetaType::Void),
+        // Signal 'tickLineWidthChanged'
+        QtMocHelpers::SignalData<void()>(11, 2, QMC::AccessPublic, QMetaType::Void),
+        // Signal 'subTickScaleChanged'
+        QtMocHelpers::SignalData<void()>(12, 2, QMC::AccessPublic, QMetaType::Void),
+        // Signal 'subTickLengthChanged'
+        QtMocHelpers::SignalData<void()>(13, 2, QMC::AccessPublic, QMetaType::Void),
+        // Signal 'isHorizontalChanged'
+        QtMocHelpers::SignalData<void()>(14, 2, QMC::AccessPublic, QMetaType::Void),
+        // Signal 'flippedChanged'
+        QtMocHelpers::SignalData<void()>(15, 2, QMC::AccessPublic, QMetaType::Void),
+        // Signal 'logarithmicChanged'
+        QtMocHelpers::RevisionedSignalData<void()>(16, 2, QMC::AccessPublic, 0x60c, QMetaType::Void),
+        // Signal 'baseChanged'
+        QtMocHelpers::RevisionedSignalData<void()>(17, 2, QMC::AccessPublic, 0x60c, QMetaType::Void),
+    };
+    QtMocHelpers::UintData qt_properties {
+        // property 'iResolution'
+        QtMocHelpers::PropertyData<QVector3D>(18, 0x80000000 | 19, QMC::DefaultPropertyFlags | QMC::EnumOrFlag | QMC::Final, 0),
+        // property 'smoothing'
+        QtMocHelpers::PropertyData<qreal>(20, QMetaType::QReal, QMC::DefaultPropertyFlags | QMC::Writable | QMC::StdCppSet | QMC::Final, 1),
+        // property 'origo'
+        QtMocHelpers::PropertyData<int>(21, QMetaType::Int, QMC::DefaultPropertyFlags | QMC::Writable | QMC::StdCppSet | QMC::Final, 2),
+        // property 'subTicksVisible'
+        QtMocHelpers::PropertyData<bool>(22, QMetaType::Bool, QMC::DefaultPropertyFlags | QMC::Writable | QMC::StdCppSet | QMC::Final, 3),
+        // property 'spacing'
+        QtMocHelpers::PropertyData<qreal>(23, QMetaType::QReal, QMC::DefaultPropertyFlags | QMC::Writable | QMC::StdCppSet | QMC::Final, 4),
+        // property 'displacement'
+        QtMocHelpers::PropertyData<qreal>(24, QMetaType::QReal, QMC::DefaultPropertyFlags | QMC::Writable | QMC::StdCppSet | QMC::Final, 5),
+        // property 'subTickColor'
+        QtMocHelpers::PropertyData<QColor>(25, 0x80000000 | 26, QMC::DefaultPropertyFlags | QMC::Writable | QMC::EnumOrFlag | QMC::StdCppSet | QMC::Final, 6),
+        // property 'tickColor'
+        QtMocHelpers::PropertyData<QColor>(27, 0x80000000 | 26, QMC::DefaultPropertyFlags | QMC::Writable | QMC::EnumOrFlag | QMC::StdCppSet | QMC::Final, 7),
+        // property 'subTickLineWidth'
+        QtMocHelpers::PropertyData<qreal>(28, QMetaType::QReal, QMC::DefaultPropertyFlags | QMC::Writable | QMC::StdCppSet | QMC::Final, 8),
+        // property 'tickLineWidth'
+        QtMocHelpers::PropertyData<qreal>(29, QMetaType::QReal, QMC::DefaultPropertyFlags | QMC::Writable | QMC::StdCppSet | QMC::Final, 9),
+        // property 'subTickScale'
+        QtMocHelpers::PropertyData<qreal>(30, QMetaType::QReal, QMC::DefaultPropertyFlags | QMC::Writable | QMC::StdCppSet | QMC::Final, 10),
+        // property 'subTickLength'
+        QtMocHelpers::PropertyData<qreal>(31, QMetaType::QReal, QMC::DefaultPropertyFlags | QMC::Writable | QMC::StdCppSet | QMC::Final, 11),
+        // property 'isHorizontal'
+        QtMocHelpers::PropertyData<bool>(32, QMetaType::Bool, QMC::DefaultPropertyFlags | QMC::Writable | QMC::StdCppSet | QMC::Final, 12),
+        // property 'flipped'
+        QtMocHelpers::PropertyData<bool>(33, QMetaType::Bool, QMC::DefaultPropertyFlags | QMC::Writable | QMC::StdCppSet | QMC::Final, 13),
+        // property 'isLogarithmic'
+        QtMocHelpers::PropertyData<bool>(34, QMetaType::Bool, QMC::DefaultPropertyFlags | QMC::Writable, 14, 0x60c),
+        // property 'base'
+        QtMocHelpers::PropertyData<qreal>(35, QMetaType::QReal, QMC::DefaultPropertyFlags | QMC::Writable | QMC::StdCppSet, 15, 0x60c),
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    return QtMocHelpers::metaObjectData<AxisTicker, qt_meta_tag_ZN10AxisTickerE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums);
 }
+Q_CONSTINIT const QMetaObject AxisTicker::staticMetaObject = { {
+    QMetaObject::SuperData::link<QQuickShaderEffect::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN10AxisTickerE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN10AxisTickerE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN10AxisTickerE_t>.metaTypes,
+    nullptr
+} };
+
+void AxisTicker::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<AxisTicker *>(_o);
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        switch (_id) {
+        case 0: _t->iResolutionChanged(); break;
+        case 1: _t->smoothingChanged(); break;
+        case 2: _t->origoChanged(); break;
+        case 3: _t->subTicksVisibleChanged(); break;
+        case 4: _t->spacingChanged(); break;
+        case 5: _t->displacementChanged(); break;
+        case 6: _t->subTickColorChanged(); break;
+        case 7: _t->tickColorChanged(); break;
+        case 8: _t->subTickLineWidthChanged(); break;
+        case 9: _t->tickLineWidthChanged(); break;
+        case 10: _t->subTickScaleChanged(); break;
+        case 11: _t->subTickLengthChanged(); break;
+        case 12: _t->isHorizontalChanged(); break;
+        case 13: _t->flippedChanged(); break;
+        case 14: _t->logarithmicChanged(); break;
+        case 15: _t->baseChanged(); break;
+        default: ;
+        }
+    }
+    if (_c == QMetaObject::IndexOfMethod) {
+        if (QtMocHelpers::indexOfMethod<void (AxisTicker::*)()>(_a, &AxisTicker::iResolutionChanged, 0))
+            return;
+        if (QtMocHelpers::indexOfMethod<void (AxisTicker::*)()>(_a, &AxisTicker::smoothingChanged, 1))
+            return;
+        if (QtMocHelpers::indexOfMethod<void (AxisTicker::*)()>(_a, &AxisTicker::origoChanged, 2))
+            return;
+        if (QtMocHelpers::indexOfMethod<void (AxisTicker::*)()>(_a, &AxisTicker::subTicksVisibleChanged, 3))
+            return;
+        if (QtMocHelpers::indexOfMethod<void (AxisTicker::*)()>(_a, &AxisTicker::spacingChanged, 4))
+            return;
+        if (QtMocHelpers::indexOfMethod<void (AxisTicker::*)()>(_a, &AxisTicker::displacementChanged, 5))
+            return;
+        if (QtMocHelpers::indexOfMethod<void (AxisTicker::*)()>(_a, &AxisTicker::subTickColorChanged, 6))
+            return;
+        if (QtMocHelpers::indexOfMethod<void (AxisTicker::*)()>(_a, &AxisTicker::tickColorChanged, 7))
+            return;
+        if (QtMocHelpers::indexOfMethod<void (AxisTicker::*)()>(_a, &AxisTicker::subTickLineWidthChanged, 8))
+            return;
+        if (QtMocHelpers::indexOfMethod<void (AxisTicker::*)()>(_a, &AxisTicker::tickLineWidthChanged, 9))
+            return;
+        if (QtMocHelpers::indexOfMethod<void (AxisTicker::*)()>(_a, &AxisTicker::subTickScaleChanged, 10))
+            return;
+        if (QtMocHelpers::indexOfMethod<void (AxisTicker::*)()>(_a, &AxisTicker::subTickLengthChanged, 11))
+            return;
+        if (QtMocHelpers::indexOfMethod<void (AxisTicker::*)()>(_a, &AxisTicker::isHorizontalChanged, 12))
+            return;
+        if (QtMocHelpers::indexOfMethod<void (AxisTicker::*)()>(_a, &AxisTicker::flippedChanged, 13))
+            return;
+        if (QtMocHelpers::indexOfMethod<void (AxisTicker::*)()>(_a, &AxisTicker::logarithmicChanged, 14))
+            return;
+        if (QtMocHelpers::indexOfMethod<void (AxisTicker::*)()>(_a, &AxisTicker::baseChanged, 15))
+            return;
+    }
+    if (_c == QMetaObject::ReadProperty) {
+        void *_v = _a[0];
+        switch (_id) {
+        case 0: *reinterpret_cast<QVector3D*>(_v) = _t->iResolution(); break;
+        case 1: *reinterpret_cast<qreal*>(_v) = _t->smoothing(); break;
+        case 2: *reinterpret_cast<int*>(_v) = _t->origo(); break;
+        case 3: *reinterpret_cast<bool*>(_v) = _t->subTicksVisible(); break;
+        case 4: *reinterpret_cast<qreal*>(_v) = _t->spacing(); break;
+        case 5: *reinterpret_cast<qreal*>(_v) = _t->displacement(); break;
+        case 6: *reinterpret_cast<QColor*>(_v) = _t->subTickColor(); break;
+        case 7: *reinterpret_cast<QColor*>(_v) = _t->tickColor(); break;
+        case 8: *reinterpret_cast<qreal*>(_v) = _t->subTickLineWidth(); break;
+        case 9: *reinterpret_cast<qreal*>(_v) = _t->tickLineWidth(); break;
+        case 10: *reinterpret_cast<qreal*>(_v) = _t->subTickScale(); break;
+        case 11: *reinterpret_cast<qreal*>(_v) = _t->subTickLength(); break;
+        case 12: *reinterpret_cast<bool*>(_v) = _t->isHorizontal(); break;
+        case 13: *reinterpret_cast<bool*>(_v) = _t->isFlipped(); break;
+        case 14: *reinterpret_cast<bool*>(_v) = _t->isLogarithmic(); break;
+        case 15: *reinterpret_cast<qreal*>(_v) = _t->base(); break;
+        default: break;
+        }
+    }
+    if (_c == QMetaObject::WriteProperty) {
+        void *_v = _a[0];
+        switch (_id) {
+        case 1: _t->setSmoothing(*reinterpret_cast<qreal*>(_v)); break;
+        case 2: _t->setOrigo(*reinterpret_cast<int*>(_v)); break;
+        case 3: _t->setSubTicksVisible(*reinterpret_cast<bool*>(_v)); break;
+        case 4: _t->setSpacing(*reinterpret_cast<qreal*>(_v)); break;
+        case 5: _t->setDisplacement(*reinterpret_cast<qreal*>(_v)); break;
+        case 6: _t->setSubTickColor(*reinterpret_cast<QColor*>(_v)); break;
+        case 7: _t->setTickColor(*reinterpret_cast<QColor*>(_v)); break;
+        case 8: _t->setSubTickLineWidth(*reinterpret_cast<qreal*>(_v)); break;
+        case 9: _t->setTickLineWidth(*reinterpret_cast<qreal*>(_v)); break;
+        case 10: _t->setSubTickScale(*reinterpret_cast<qreal*>(_v)); break;
+        case 11: _t->setSubTickLength(*reinterpret_cast<qreal*>(_v)); break;
+        case 12: _t->setIsHorizontal(*reinterpret_cast<bool*>(_v)); break;
+        case 13: _t->setFlipped(*reinterpret_cast<bool*>(_v)); break;
+        case 14: _t->setLogarithmic(*reinterpret_cast<bool*>(_v)); break;
+        case 15: _t->setBase(*reinterpret_cast<qreal*>(_v)); break;
+        default: break;
+        }
+    }
+}
+
+const QMetaObject *AxisTicker::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *AxisTicker::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN10AxisTickerE_t>.strings))
+        return static_cast<void*>(this);
+    return QQuickShaderEffect::qt_metacast(_clname);
+}
+
+int AxisTicker::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QQuickShaderEffect::qt_metacall(_c, _id, _a);
+    if (_id < 0)
+        return _id;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        if (_id < 16)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 16;
+    }
+    if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        if (_id < 16)
+            *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
+        _id -= 16;
+    }
+    if (_c == QMetaObject::ReadProperty || _c == QMetaObject::WriteProperty
+            || _c == QMetaObject::ResetProperty || _c == QMetaObject::BindableProperty
+            || _c == QMetaObject::RegisterPropertyMetaType) {
+        qt_static_metacall(this, _c, _id, _a);
+        _id -= 16;
+    }
+    return _id;
+}
+
+// SIGNAL 0
+void AxisTicker::iResolutionChanged()
+{
+    QMetaObject::activate(this, &staticMetaObject, 0, nullptr);
+}
+
+// SIGNAL 1
+void AxisTicker::smoothingChanged()
+{
+    QMetaObject::activate(this, &staticMetaObject, 1, nullptr);
+}
+
+// SIGNAL 2
+void AxisTicker::origoChanged()
+{
+    QMetaObject::activate(this, &staticMetaObject, 2, nullptr);
+}
+
+// SIGNAL 3
+void AxisTicker::subTicksVisibleChanged()
+{
+    QMetaObject::activate(this, &staticMetaObject, 3, nullptr);
+}
+
+// SIGNAL 4
+void AxisTicker::spacingChanged()
+{
+    QMetaObject::activate(this, &staticMetaObject, 4, nullptr);
+}
+
+// SIGNAL 5
+void AxisTicker::displacementChanged()
+{
+    QMetaObject::activate(this, &staticMetaObject, 5, nullptr);
+}
+
+// SIGNAL 6
+void AxisTicker::subTickColorChanged()
+{
+    QMetaObject::activate(this, &staticMetaObject, 6, nullptr);
+}
+
+// SIGNAL 7
+void AxisTicker::tickColorChanged()
+{
+    QMetaObject::activate(this, &staticMetaObject, 7, nullptr);
+}
+
+// SIGNAL 8
+void AxisTicker::subTickLineWidthChanged()
+{
+    QMetaObject::activate(this, &staticMetaObject, 8, nullptr);
+}
+
+// SIGNAL 9
+void AxisTicker::tickLineWidthChanged()
+{
+    QMetaObject::activate(this, &staticMetaObject, 9, nullptr);
+}
+
+// SIGNAL 10
+void AxisTicker::subTickScaleChanged()
+{
+    QMetaObject::activate(this, &staticMetaObject, 10, nullptr);
+}
+
+// SIGNAL 11
+void AxisTicker::subTickLengthChanged()
+{
+    QMetaObject::activate(this, &staticMetaObject, 11, nullptr);
+}
+
+// SIGNAL 12
+void AxisTicker::isHorizontalChanged()
+{
+    QMetaObject::activate(this, &staticMetaObject, 12, nullptr);
+}
+
+// SIGNAL 13
+void AxisTicker::flippedChanged()
+{
+    QMetaObject::activate(this, &staticMetaObject, 13, nullptr);
+}
+
+// SIGNAL 14
+void AxisTicker::logarithmicChanged()
+{
+    QMetaObject::activate(this, &staticMetaObject, 14, nullptr);
+}
+
+// SIGNAL 15
+void AxisTicker::baseChanged()
+{
+    QMetaObject::activate(this, &staticMetaObject, 15, nullptr);
+}
+QT_WARNING_POP
 
 //  from ../qtgraphs/src/graphs2d/axis/axisticker.cpp, line 23, as _ZN10AxisTicker14geometryChangeERK6QRectFS2_
 inline void AxisTicker::geometryChange(const QRectF &newGeometry, const QRectF &oldGeometry)
@@ -45,6 +421,22 @@ inline void AxisTicker::geometryChange(const QRectF &newGeometry, const QRectF &
     emit iResolutionChanged();
 
     QQuickShaderEffect::geometryChange(newGeometry, oldGeometry);
+}
+
+//  from ../qtgraphs/src/graphs2d/axis/axisticker.cpp, line 17, as _ZN10AxisTicker17componentCompleteEv
+inline void AxisTicker::componentComplete()
+{
+    QQuickShaderEffect::componentComplete();
+    setupShaders();
+}
+
+//  from ../qtgraphs/src/graphs2d/axis/axisticker.cpp, line 15, as _ZN10AxisTickerD0Ev
+inline AxisTicker::~AxisTicker() {}
+
+//  from ../qtgraphs/src/graphs2d/axis/axisticker.cpp, line 10, as _ZN10AxisTickerC1EP10QQuickItem
+inline AxisTicker::AxisTicker(QQuickItem *parent) :
+      QQuickShaderEffect(parent)
+{
 }
 
 //  from ../qtgraphs/src/graphs2d/axis/axisticker.cpp, line 31, as _ZN10AxisTicker12setupShadersEv
@@ -71,10 +463,28 @@ inline qreal AxisTicker::smoothing() const
     return m_smoothing;
 }
 
+//  from ../qtgraphs/src/graphs2d/axis/axisticker.cpp, line 52, as _ZN10AxisTicker12setSmoothingEd
+inline void AxisTicker::setSmoothing(qreal newSmoothing)
+{
+    if (QtPrivate::fuzzyCompare(m_smoothing, newSmoothing))
+        return;
+    m_smoothing = newSmoothing;
+    emit smoothingChanged();
+}
+
 //  from ../qtgraphs/src/graphs2d/axis/axisticker.cpp, line 60, as _ZNK10AxisTicker5origoEv
 inline int AxisTicker::origo() const
 {
     return m_origo;
+}
+
+//  from ../qtgraphs/src/graphs2d/axis/axisticker.cpp, line 65, as _ZN10AxisTicker8setOrigoEi
+inline void AxisTicker::setOrigo(int newOrigo)
+{
+    if (m_origo == newOrigo)
+        return;
+    m_origo = newOrigo;
+    emit origoChanged();
 }
 
 //  from ../qtgraphs/src/graphs2d/axis/axisticker.cpp, line 73, as _ZNK10AxisTicker15subTicksVisibleEv
@@ -83,10 +493,28 @@ inline bool AxisTicker::subTicksVisible() const
     return m_subTicksVisible;
 }
 
+//  from ../qtgraphs/src/graphs2d/axis/axisticker.cpp, line 78, as _ZN10AxisTicker18setSubTicksVisibleEb
+inline void AxisTicker::setSubTicksVisible(bool newSubTicksVisible)
+{
+    if (m_subTicksVisible == newSubTicksVisible)
+        return;
+    m_subTicksVisible = newSubTicksVisible;
+    emit subTicksVisibleChanged();
+}
+
 //  from ../qtgraphs/src/graphs2d/axis/axisticker.cpp, line 86, as _ZNK10AxisTicker7spacingEv
 inline qreal AxisTicker::spacing() const
 {
     return m_spacing;
+}
+
+//  from ../qtgraphs/src/graphs2d/axis/axisticker.cpp, line 91, as _ZN10AxisTicker10setSpacingEd
+inline void AxisTicker::setSpacing(qreal newSpacing)
+{
+    if (QtPrivate::fuzzyCompare(m_spacing, newSpacing))
+        return;
+    m_spacing = newSpacing;
+    emit spacingChanged();
 }
 
 //  from ../qtgraphs/src/graphs2d/axis/axisticker.cpp, line 99, as _ZNK10AxisTicker12displacementEv
@@ -95,10 +523,28 @@ inline qreal AxisTicker::displacement() const
     return m_displacement;
 }
 
+//  from ../qtgraphs/src/graphs2d/axis/axisticker.cpp, line 104, as _ZN10AxisTicker15setDisplacementEd
+inline void AxisTicker::setDisplacement(qreal newDisplacement)
+{
+    if (QtPrivate::fuzzyCompare(m_displacement, newDisplacement))
+        return;
+    m_displacement = newDisplacement;
+    emit displacementChanged();
+}
+
 //  from ../qtgraphs/src/graphs2d/axis/axisticker.cpp, line 112, as _ZNK10AxisTicker12subTickColorEv
 inline QColor AxisTicker::subTickColor() const
 {
     return m_subTickColor;
+}
+
+//  from ../qtgraphs/src/graphs2d/axis/axisticker.cpp, line 117, as _ZN10AxisTicker15setSubTickColorE6QColor
+inline void AxisTicker::setSubTickColor(QColor newSubTickColor)
+{
+    if (m_subTickColor == newSubTickColor)
+        return;
+    m_subTickColor = newSubTickColor;
+    emit subTickColorChanged();
 }
 
 //  from ../qtgraphs/src/graphs2d/axis/axisticker.cpp, line 125, as _ZNK10AxisTicker9tickColorEv
@@ -107,10 +553,28 @@ inline QColor AxisTicker::tickColor() const
     return m_tickColor;
 }
 
+//  from ../qtgraphs/src/graphs2d/axis/axisticker.cpp, line 130, as _ZN10AxisTicker12setTickColorE6QColor
+inline void AxisTicker::setTickColor(QColor newTickColor)
+{
+    if (m_tickColor == newTickColor)
+        return;
+    m_tickColor = newTickColor;
+    emit tickColorChanged();
+}
+
 //  from ../qtgraphs/src/graphs2d/axis/axisticker.cpp, line 138, as _ZNK10AxisTicker16subTickLineWidthEv
 inline qreal AxisTicker::subTickLineWidth() const
 {
     return m_subTickLineWidth;
+}
+
+//  from ../qtgraphs/src/graphs2d/axis/axisticker.cpp, line 143, as _ZN10AxisTicker19setSubTickLineWidthEd
+inline void AxisTicker::setSubTickLineWidth(qreal newSubTickLineWidth)
+{
+    if (QtPrivate::fuzzyCompare(m_subTickLineWidth, newSubTickLineWidth))
+        return;
+    m_subTickLineWidth = newSubTickLineWidth;
+    emit subTickLineWidthChanged();
 }
 
 //  from ../qtgraphs/src/graphs2d/axis/axisticker.cpp, line 151, as _ZNK10AxisTicker13tickLineWidthEv
@@ -119,10 +583,28 @@ inline qreal AxisTicker::tickLineWidth() const
     return m_tickLineWidth;
 }
 
+//  from ../qtgraphs/src/graphs2d/axis/axisticker.cpp, line 156, as _ZN10AxisTicker16setTickLineWidthEd
+inline void AxisTicker::setTickLineWidth(qreal newTickLineWidth)
+{
+    if (QtPrivate::fuzzyCompare(m_tickLineWidth, newTickLineWidth))
+        return;
+    m_tickLineWidth = newTickLineWidth;
+    emit tickLineWidthChanged();
+}
+
 //  from ../qtgraphs/src/graphs2d/axis/axisticker.cpp, line 164, as _ZNK10AxisTicker12subTickScaleEv
 inline qreal AxisTicker::subTickScale() const
 {
     return m_subTickScale;
+}
+
+//  from ../qtgraphs/src/graphs2d/axis/axisticker.cpp, line 169, as _ZN10AxisTicker15setSubTickScaleEd
+inline void AxisTicker::setSubTickScale(qreal newSubTickScale)
+{
+    if (QtPrivate::fuzzyCompare(m_subTickScale, newSubTickScale))
+        return;
+    m_subTickScale = newSubTickScale;
+    emit subTickScaleChanged();
 }
 
 //  from ../qtgraphs/src/graphs2d/axis/axisticker.cpp, line 177, as _ZNK10AxisTicker13subTickLengthEv
@@ -131,10 +613,29 @@ inline qreal AxisTicker::subTickLength() const
     return m_subTickLength;
 }
 
+//  from ../qtgraphs/src/graphs2d/axis/axisticker.cpp, line 182, as _ZN10AxisTicker16setSubTickLengthEd
+inline void AxisTicker::setSubTickLength(qreal newSubTickLength)
+{
+    if (QtPrivate::fuzzyCompare(m_subTickLength, newSubTickLength))
+        return;
+    m_subTickLength = newSubTickLength;
+    emit subTickLengthChanged();
+}
+
 //  from ../qtgraphs/src/graphs2d/axis/axisticker.cpp, line 190, as _ZNK10AxisTicker12isHorizontalEv
 inline bool AxisTicker::isHorizontal() const
 {
     return m_isHorizontal;
+}
+
+//  from ../qtgraphs/src/graphs2d/axis/axisticker.cpp, line 195, as _ZN10AxisTicker15setIsHorizontalEb
+inline void AxisTicker::setIsHorizontal(bool newIsHorizontal)
+{
+    if (m_isHorizontal == newIsHorizontal)
+        return;
+    m_isHorizontal = newIsHorizontal;
+    setupShaders();
+    emit isHorizontalChanged();
 }
 
 //  from ../qtgraphs/src/graphs2d/axis/axisticker.cpp, line 204, as _ZNK10AxisTicker9isFlippedEv
@@ -143,10 +644,29 @@ inline bool AxisTicker::isFlipped() const
     return m_flipped;
 }
 
+//  from ../qtgraphs/src/graphs2d/axis/axisticker.cpp, line 209, as _ZN10AxisTicker10setFlippedEb
+inline void AxisTicker::setFlipped(bool newFlipped)
+{
+    if (m_flipped == newFlipped)
+        return;
+    m_flipped = newFlipped;
+    emit flippedChanged();
+}
+
 //  from ../qtgraphs/src/graphs2d/axis/axisticker.cpp, line 217, as _ZNK10AxisTicker13isLogarithmicEv
 inline bool AxisTicker::isLogarithmic() const
 {
     return m_isLogarithmic;
+}
+
+//  from ../qtgraphs/src/graphs2d/axis/axisticker.cpp, line 222, as _ZN10AxisTicker14setLogarithmicEb
+inline void AxisTicker::setLogarithmic(bool newLogarithmic)
+{
+    if (m_isLogarithmic == newLogarithmic)
+        return;
+
+    m_isLogarithmic = newLogarithmic;
+    emit logarithmicChanged();
 }
 
 //  from ../qtgraphs/src/graphs2d/axis/axisticker.cpp, line 231, as _ZNK10AxisTicker4baseEv
@@ -154,12 +674,23 @@ inline qreal AxisTicker::base() const
 {
     return m_base;
 }
+
+//  from ../qtgraphs/src/graphs2d/axis/axisticker.cpp, line 236, as _ZN10AxisTicker7setBaseEd
+inline void AxisTicker::setBase(qreal newBase)
+{
+    if (qFuzzyCompare(m_base, newBase))
+        return;
+
+    m_base = newBase;
+    emit baseChanged();
+}
 //  -----------------------------------------------------------------------
 
 //  Only a class built on AxisTicker may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
 struct OwnAxisTicker : AxisTicker {
   using AxisTicker::componentComplete;
+  using AxisTicker::geometryChange;
 };
 
 //  A AxisTicker that Python can take functions over in. Every AxisTicker
@@ -968,6 +1499,21 @@ int ritual_ZN10AxisTicker11qt_metacallEN11QMetaObject4CallEiPPv(
   return self->qt_metacall(a0, a1, a2);
 }
 
+//  QString AxisTicker::tr(const char *s, const char *c, int n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN10AxisTicker2trEPKcS1_i(
+    const char *s,
+    const char *c,
+    int n) {
+  return new QString(AxisTicker::tr(s, c, n));
+}
+
+//  AxisTicker::AxisTicker(QQuickItem *parent)
+extern "C" Q_DECL_EXPORT
+AxisTicker *ritual_ZN10AxisTickerC1EP10QQuickItem(QQuickItem *parent) {
+  return new CuteAxisTicker(parent);
+}
+
 //  AxisTicker::~AxisTicker()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN10AxisTickerD1Ev(AxisTicker *self) {
@@ -992,10 +1538,24 @@ qreal ritual_ZNK10AxisTicker9smoothingEv(const AxisTicker *self) {
   return self->smoothing();
 }
 
+//  void AxisTicker::setSmoothing(qreal newSmoothing)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10AxisTicker12setSmoothingEd(
+    AxisTicker *self,
+    qreal newSmoothing) {
+  self->setSmoothing(newSmoothing);
+}
+
 //  int AxisTicker::origo() const
 extern "C" Q_DECL_EXPORT
 int ritual_ZNK10AxisTicker5origoEv(const AxisTicker *self) {
   return self->origo();
+}
+
+//  void AxisTicker::setOrigo(int newOrigo)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10AxisTicker8setOrigoEi(AxisTicker *self, int newOrigo) {
+  self->setOrigo(newOrigo);
 }
 
 //  bool AxisTicker::subTicksVisible() const
@@ -1004,10 +1564,26 @@ bool ritual_ZNK10AxisTicker15subTicksVisibleEv(const AxisTicker *self) {
   return self->subTicksVisible();
 }
 
+//  void AxisTicker::setSubTicksVisible(bool newSubTicksVisible)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10AxisTicker18setSubTicksVisibleEb(
+    AxisTicker *self,
+    bool newSubTicksVisible) {
+  self->setSubTicksVisible(newSubTicksVisible);
+}
+
 //  qreal AxisTicker::spacing() const
 extern "C" Q_DECL_EXPORT
 qreal ritual_ZNK10AxisTicker7spacingEv(const AxisTicker *self) {
   return self->spacing();
+}
+
+//  void AxisTicker::setSpacing(qreal newSpacing)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10AxisTicker10setSpacingEd(
+    AxisTicker *self,
+    qreal newSpacing) {
+  self->setSpacing(newSpacing);
 }
 
 //  qreal AxisTicker::displacement() const
@@ -1016,10 +1592,26 @@ qreal ritual_ZNK10AxisTicker12displacementEv(const AxisTicker *self) {
   return self->displacement();
 }
 
+//  void AxisTicker::setDisplacement(qreal newDisplacement)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10AxisTicker15setDisplacementEd(
+    AxisTicker *self,
+    qreal newDisplacement) {
+  self->setDisplacement(newDisplacement);
+}
+
 //  QColor AxisTicker::subTickColor() const
 extern "C" Q_DECL_EXPORT
 QColor *ritual_ZNK10AxisTicker12subTickColorEv(const AxisTicker *self) {
   return new QColor(self->subTickColor());
+}
+
+//  void AxisTicker::setSubTickColor(QColor newSubTickColor)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10AxisTicker15setSubTickColorE6QColor(
+    AxisTicker *self,
+    const QColor *newSubTickColor) {
+  self->setSubTickColor(*newSubTickColor);
 }
 
 //  QColor AxisTicker::tickColor() const
@@ -1028,10 +1620,26 @@ QColor *ritual_ZNK10AxisTicker9tickColorEv(const AxisTicker *self) {
   return new QColor(self->tickColor());
 }
 
+//  void AxisTicker::setTickColor(QColor newTickColor)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10AxisTicker12setTickColorE6QColor(
+    AxisTicker *self,
+    const QColor *newTickColor) {
+  self->setTickColor(*newTickColor);
+}
+
 //  qreal AxisTicker::subTickLineWidth() const
 extern "C" Q_DECL_EXPORT
 qreal ritual_ZNK10AxisTicker16subTickLineWidthEv(const AxisTicker *self) {
   return self->subTickLineWidth();
+}
+
+//  void AxisTicker::setSubTickLineWidth(qreal newSubTickLineWidth)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10AxisTicker19setSubTickLineWidthEd(
+    AxisTicker *self,
+    qreal newSubTickLineWidth) {
+  self->setSubTickLineWidth(newSubTickLineWidth);
 }
 
 //  qreal AxisTicker::tickLineWidth() const
@@ -1040,10 +1648,26 @@ qreal ritual_ZNK10AxisTicker13tickLineWidthEv(const AxisTicker *self) {
   return self->tickLineWidth();
 }
 
+//  void AxisTicker::setTickLineWidth(qreal newTickLineWidth)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10AxisTicker16setTickLineWidthEd(
+    AxisTicker *self,
+    qreal newTickLineWidth) {
+  self->setTickLineWidth(newTickLineWidth);
+}
+
 //  qreal AxisTicker::subTickScale() const
 extern "C" Q_DECL_EXPORT
 qreal ritual_ZNK10AxisTicker12subTickScaleEv(const AxisTicker *self) {
   return self->subTickScale();
+}
+
+//  void AxisTicker::setSubTickScale(qreal newSubTickScale)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10AxisTicker15setSubTickScaleEd(
+    AxisTicker *self,
+    qreal newSubTickScale) {
+  self->setSubTickScale(newSubTickScale);
 }
 
 //  qreal AxisTicker::subTickLength() const
@@ -1052,10 +1676,26 @@ qreal ritual_ZNK10AxisTicker13subTickLengthEv(const AxisTicker *self) {
   return self->subTickLength();
 }
 
+//  void AxisTicker::setSubTickLength(qreal newSubTickLength)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10AxisTicker16setSubTickLengthEd(
+    AxisTicker *self,
+    qreal newSubTickLength) {
+  self->setSubTickLength(newSubTickLength);
+}
+
 //  bool AxisTicker::isHorizontal() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK10AxisTicker12isHorizontalEv(const AxisTicker *self) {
   return self->isHorizontal();
+}
+
+//  void AxisTicker::setIsHorizontal(bool newIsHorizontal)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10AxisTicker15setIsHorizontalEb(
+    AxisTicker *self,
+    bool newIsHorizontal) {
+  self->setIsHorizontal(newIsHorizontal);
 }
 
 //  bool AxisTicker::isFlipped() const
@@ -1064,16 +1704,36 @@ bool ritual_ZNK10AxisTicker9isFlippedEv(const AxisTicker *self) {
   return self->isFlipped();
 }
 
+//  void AxisTicker::setFlipped(bool newFlipped)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10AxisTicker10setFlippedEb(AxisTicker *self, bool newFlipped) {
+  self->setFlipped(newFlipped);
+}
+
 //  bool AxisTicker::isLogarithmic() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK10AxisTicker13isLogarithmicEv(const AxisTicker *self) {
   return self->isLogarithmic();
 }
 
+//  void AxisTicker::setLogarithmic(bool newLogarithmic)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10AxisTicker14setLogarithmicEb(
+    AxisTicker *self,
+    bool newLogarithmic) {
+  self->setLogarithmic(newLogarithmic);
+}
+
 //  qreal AxisTicker::base() const
 extern "C" Q_DECL_EXPORT
 qreal ritual_ZNK10AxisTicker4baseEv(const AxisTicker *self) {
   return self->base();
+}
+
+//  void AxisTicker::setBase(qreal newBase)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10AxisTicker7setBaseEd(AxisTicker *self, qreal newBase) {
+  self->setBase(newBase);
 }
 
 //  void AxisTicker::componentComplete()
@@ -1487,6 +2147,18 @@ bool ritual_take_AxisTicker(AxisTicker *self, const char *key, void *call) {
 extern "C" Q_DECL_EXPORT
 void ritual_own_ZN10AxisTicker17componentCompleteEv(AxisTicker *self) {
   static_cast<OwnAxisTicker *>(self)->OwnAxisTicker::componentComplete();
+}
+
+//  void AxisTicker::geometryChange(const QRectF &newGeometry, const QRectF
+//      &oldGeometry)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN10AxisTicker14geometryChangeERK6QRectFS2_(
+    AxisTicker *self,
+    const QRectF *newGeometry,
+    const QRectF *oldGeometry) {
+  static_cast<OwnAxisTicker *>(self)->OwnAxisTicker::geometryChange(
+      *newGeometry,
+      *oldGeometry);
 }
 
 #endif  // (QT_CONFIG(graphs_2d)) && (!(!QT_CONFIG(graphs_2d_area) && !QT_CONFIG(graphs_2d_bar) && !QT_CONFIG(graphs_2d_donut_pie) && !QT_CONFIG(graphs_2d_line) && !QT_CONFIG(graphs_2d_scatter) && !QT_CONFIG(graphs_2d_spline) && !QT_CONFIG(graphs_2d_custom)))

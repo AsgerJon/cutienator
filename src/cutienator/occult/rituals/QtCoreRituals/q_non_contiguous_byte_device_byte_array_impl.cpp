@@ -1,14 +1,27 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCore/6.12.0/QtCore/private/qnoncontiguousbytedevice_p.h, Qt 6.12.0.
-//  Changes made here are lost.
+//  Edited by hand on 2026-11-26: moc's output for
+//  'QNonContiguousByteDeviceByteArrayImpl' is pasted in, cut from what the
+//  moc of Qt 6.12.0 writes for its header: Qt's library keeps it to itself;
+//  added are 3 rituals that lean on what moc writes for a class of the part
+//  Qt keeps to itself, whose ritual file carries moc's output, drafted by a
+//  copy of the generator that lets those names through. A copy of a meta-
+//  object is a second one: 'qobject_cast' between it and Qt's own does not
+//  match. Kept as it is when the generator runs again.
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtCore/QtCore>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/6.12.0/QtCore/private/qnoncontiguousbytedevice_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
+#include <QtCore/qbytearray.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
 #include <QtCore/private/qnoncontiguousbytedevice_p.h>
 #include <QtCore/qbuffer.h>
 #include <QtCore/qdebug.h>
@@ -23,18 +36,93 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from QtCore__QNonContiguousByteDeviceByteArrayImpl.cpp, line 1, as moc:QNonContiguousByteDeviceByteArrayImpl
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN37QNonContiguousByteDeviceByteArrayImplE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto QNonContiguousByteDeviceByteArrayImpl::qt_create_metaobjectdata<qt_meta_tag_ZN37QNonContiguousByteDeviceByteArrayImplE_t>()
+{
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "QNonContiguousByteDeviceByteArrayImpl"
+    };
+
+    QtMocHelpers::UintData qt_methods {
+    };
+    QtMocHelpers::UintData qt_properties {
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    return QtMocHelpers::metaObjectData<QNonContiguousByteDeviceByteArrayImpl, qt_meta_tag_ZN37QNonContiguousByteDeviceByteArrayImplE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums);
+}
+Q_CONSTINIT const QMetaObject QNonContiguousByteDeviceByteArrayImpl::staticMetaObject = { {
+    QMetaObject::SuperData::link<QNonContiguousByteDevice::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN37QNonContiguousByteDeviceByteArrayImplE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN37QNonContiguousByteDeviceByteArrayImplE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN37QNonContiguousByteDeviceByteArrayImplE_t>.metaTypes,
+    nullptr
+} };
+
+void QNonContiguousByteDeviceByteArrayImpl::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<QNonContiguousByteDeviceByteArrayImpl *>(_o);
+    (void)_t;
+    (void)_c;
+    (void)_id;
+    (void)_a;
+}
+
+const QMetaObject *QNonContiguousByteDeviceByteArrayImpl::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *QNonContiguousByteDeviceByteArrayImpl::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN37QNonContiguousByteDeviceByteArrayImplE_t>.strings))
+        return static_cast<void*>(this);
+    return QNonContiguousByteDevice::qt_metacast(_clname);
+}
+
+int QNonContiguousByteDeviceByteArrayImpl::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QNonContiguousByteDevice::qt_metacall(_c, _id, _a);
+    return _id;
+}
+QT_WARNING_POP
+
+//  from src/corelib/io/qnoncontiguousbytedevice.cpp, line 121, as _ZN37QNonContiguousByteDeviceByteArrayImpl11readPointerExRx
+inline const char* QNonContiguousByteDeviceByteArrayImpl::readPointer(qint64 maximumLength, qint64 &len)
+{
+    if (atEnd()) {
+        len = -1;
+        return nullptr;
+    }
+
+    if (maximumLength != -1)
+        len = qMin(maximumLength, size() - currentPosition);
+    else
+        len = size() - currentPosition;
+
+    return view.data() + currentPosition;
+}
+
 //  from src/corelib/io/qnoncontiguousbytedevice.cpp, line 136, as _ZN37QNonContiguousByteDeviceByteArrayImpl18advanceReadPointerEx
 inline bool QNonContiguousByteDeviceByteArrayImpl::advanceReadPointer(qint64 amount)
 {
     currentPosition += amount;
     emit readProgress(currentPosition, size());
     return true;
-}
-
-//  from src/corelib/io/qnoncontiguousbytedevice.cpp, line 143, as _ZNK37QNonContiguousByteDeviceByteArrayImpl5atEndEv
-inline bool QNonContiguousByteDeviceByteArrayImpl::atEnd() const
-{
-    return currentPosition >= size();
 }
 
 //  from src/corelib/io/qnoncontiguousbytedevice.cpp, line 148, as _ZN37QNonContiguousByteDeviceByteArrayImpl5resetEv
@@ -44,16 +132,36 @@ inline bool QNonContiguousByteDeviceByteArrayImpl::reset()
     return true;
 }
 
+//  from src/corelib/io/qnoncontiguousbytedevice.cpp, line 159, as _ZNK37QNonContiguousByteDeviceByteArrayImpl3posEv
+inline qint64 QNonContiguousByteDeviceByteArrayImpl::pos() const
+{
+    return currentPosition;
+}
+
 //  from src/corelib/io/qnoncontiguousbytedevice.cpp, line 154, as _ZNK37QNonContiguousByteDeviceByteArrayImpl4sizeEv
 inline qint64 QNonContiguousByteDeviceByteArrayImpl::size() const
 {
     return view.size();
 }
 
-//  from src/corelib/io/qnoncontiguousbytedevice.cpp, line 159, as _ZNK37QNonContiguousByteDeviceByteArrayImpl3posEv
-inline qint64 QNonContiguousByteDeviceByteArrayImpl::pos() const
+//  from src/corelib/io/qnoncontiguousbytedevice.cpp, line 143, as _ZNK37QNonContiguousByteDeviceByteArrayImpl5atEndEv
+inline bool QNonContiguousByteDeviceByteArrayImpl::atEnd() const
 {
-    return currentPosition;
+    return currentPosition >= size();
+}
+
+//  from src/corelib/io/qnoncontiguousbytedevice.cpp, line 105, as _ZN37QNonContiguousByteDeviceByteArrayImplC1E10QByteArray
+inline QNonContiguousByteDeviceByteArrayImpl::QNonContiguousByteDeviceByteArrayImpl(QByteArray ba)
+    : QNonContiguousByteDevice(), byteArray(std::move(ba)), view(byteArray)
+{
+}
+
+//  from src/corelib/io/qnoncontiguousbytedevice.cpp, line 110, as _ZN37QNonContiguousByteDeviceByteArrayImplC1EP7QBuffer
+inline QNonContiguousByteDeviceByteArrayImpl::QNonContiguousByteDeviceByteArrayImpl(QBuffer *buffer)
+    : QNonContiguousByteDevice(),
+      byteArray(buffer->buffer()),
+      view(QByteArrayView(byteArray).sliced(buffer->pos(), buffer->size() - buffer->pos()))
+{
 }
 
 //  from src/corelib/io/qnoncontiguousbytedevice.cpp, line 117, as _ZN37QNonContiguousByteDeviceByteArrayImplD1Ev
@@ -335,6 +443,32 @@ int ritual_ZN37QNonContiguousByteDeviceByteArrayImpl11qt_metacallEN11QMetaObject
     int a1,
     void **a2) {
   return self->qt_metacall(a0, a1, a2);
+}
+
+//  QString QNonContiguousByteDeviceByteArrayImpl::tr(const char *s, const
+//      char *c, int n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN37QNonContiguousByteDeviceByteArrayImpl2trEPKcS1_i(
+    const char *s,
+    const char *c,
+    int n) {
+  return new QString(QNonContiguousByteDeviceByteArrayImpl::tr(s, c, n));
+}
+
+//  QNonContiguousByteDeviceByteArrayImpl::QNonContiguousByteDeviceByteArrayI
+//      mpl(QByteArray ba)
+extern "C" Q_DECL_EXPORT
+QNonContiguousByteDeviceByteArrayImpl *ritual_ZN37QNonContiguousByteDeviceByteArrayImplC1E10QByteArray(
+    const QByteArray *ba) {
+  return new CuteQNonContiguousByteDeviceByteArrayImpl(*ba);
+}
+
+//  QNonContiguousByteDeviceByteArrayImpl::QNonContiguousByteDeviceByteArrayI
+//      mpl(QBuffer *buffer)
+extern "C" Q_DECL_EXPORT
+QNonContiguousByteDeviceByteArrayImpl *ritual_ZN37QNonContiguousByteDeviceByteArrayImplC1EP7QBuffer(
+    QBuffer *buffer) {
+  return new CuteQNonContiguousByteDeviceByteArrayImpl(buffer);
 }
 
 //  QNonContiguousByteDeviceByteArrayImpl::~QNonContiguousByteDeviceByteArray

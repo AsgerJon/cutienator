@@ -112,6 +112,15 @@ inline Qt3DCore::QNodeId PhysicalDeviceProxy::physicalDeviceId() const
 }
 }  // namespace Qt3DInput::Input
 
+//  from ../qt3d/src/input/backend/analogaxisinput.cpp, line 19, as _ZN9Qt3DInput5Input15AnalogAxisInputC1Ev
+namespace Qt3DInput::Input {
+inline AnalogAxisInput::AnalogAxisInput()
+    : AbstractAxisInput()
+    , m_axis(0)
+{
+}
+}  // namespace Qt3DInput::Input
+
 //  from ../qt3d/src/input/backend/analogaxisinput.cpp, line 25, as _ZN9Qt3DInput5Input15AnalogAxisInput7cleanupEv
 namespace Qt3DInput::Input {
 inline void AnalogAxisInput::cleanup()
@@ -134,6 +143,12 @@ inline void AnalogAxisInput::syncFromFrontEnd(const Qt3DCore::QNode *frontEnd, b
 }
 }  // namespace Qt3DInput::Input
 //  -----------------------------------------------------------------------
+
+//  Qt3DInput::Input::AnalogAxisInput::AnalogAxisInput()
+extern "C" Q_DECL_EXPORT
+Qt3DInput::Input::AnalogAxisInput *ritual_ZN9Qt3DInput5Input15AnalogAxisInputC1Ev() {
+  return new Qt3DInput::Input::AnalogAxisInput();
+}
 
 //  void Qt3DInput::Input::AnalogAxisInput::cleanup()
 extern "C" Q_DECL_EXPORT

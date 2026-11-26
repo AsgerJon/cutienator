@@ -2,7 +2,7 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of QtNetwo",
     "rk/6.12.0/QtNetwork/private/qhttpnetworkconnectionchannel_p.h, Qt",
-    "6.12.0. Changes made here are lost."
+    "6.12.0. Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZNK29QHttpNetworkConnectionChannel17h2ProtocolHandlerEv": [
@@ -14,6 +14,9 @@
     "ritual_ZN29QHttpNetworkConnectionChannel21clearPendingReconnectEv": [
       "bool", "address"
     ],
+    "ritual_ZN29QHttpNetworkConnectionChannel20requeueHttp2RequestsEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN29QHttpNetworkConnectionChannel15ignoreSslErrorsEv": [
       "nothing", "address"
     ],
@@ -23,7 +26,16 @@
     "ritual_ZN29QHttpNetworkConnectionChannel19setSslConfigurationERK17QSslConfiguration": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN29QHttpNetworkConnectionChannel21emitFinishedWithErrorEN13QNetworkReply12NetworkErrorERK7QString": [
+      "nothing", "address", "int", "text"
+    ],
+    "ritual_ZN29QHttpNetworkConnectionChannel12pipelineIntoERSt4pairI19QHttpNetworkRequestP17QHttpNetworkReplyE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN29QHttpNetworkConnectionChannel13pipelineFlushEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN29QHttpNetworkConnectionChannel33requeueCurrentlyPipelinedRequestsEv": [
       "nothing", "address"
     ],
     "ritual_ZN29QHttpNetworkConnectionChannel23detectPipeliningSupportEv": [
@@ -45,6 +57,21 @@
       "nothing", "address"
     ],
     "ritual_ZN29QHttpNetworkConnectionChannel18sendRequestDelayedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN29QHttpNetworkConnectionChannel12handleStatusEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN29QHttpNetworkConnectionChannel15resetUploadDataEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN29QHttpNetworkConnectionChannel19handleUnexpectedEOFEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN29QHttpNetworkConnectionChannel28closeAndResendCurrentRequestEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN29QHttpNetworkConnectionChannel20resendCurrentRequestEv": [
       "nothing", "address"
     ],
     "ritual_ZN29QHttpNetworkConnectionChannel27checkAndResumeCommunicationEv": [

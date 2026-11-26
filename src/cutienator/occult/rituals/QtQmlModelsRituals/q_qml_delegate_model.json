@@ -2,7 +2,7 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtQmlModels/6.12.0/QtQmlModels/private/qqmldelegatemodel_p.h, Qt",
-    "6.12.0. Changes made here are lost."
+    "6.12.0. Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZNK17QQmlDelegateModel10metaObjectEv": ["address", "address"],
@@ -200,6 +200,27 @@
     ],
     "ritual_drop_QQmlDelegateModel__QQmlListProperty_QQmlDelegateModelGroup": [
       "nothing", "address"
+    ],
+    "ritual_ZN17QQmlDelegateModel13createForViewI14QQuickRepeater21QQuickRepeaterPrivateEEPS_PT_PT0_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN17QQmlDelegateModel13createForViewI14QQuickItemView21QQuickItemViewPrivateEEPS_PT_PT0_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN17QQmlDelegateModel13createForViewI16QQmlInstantiator23QQmlInstantiatorPrivateEEPS_PT_PT0_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN17QQmlDelegateModel25applyDelegateChangeOnViewI14QQuickRepeater21QQuickRepeaterPrivateEEvPT_PT0_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QQmlDelegateModel25applyDelegateChangeOnViewI14QQuickItemView21QQuickItemViewPrivateEEvPT_PT0_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QQmlDelegateModel36applyDelegateModelAccessChangeOnViewI14QQuickRepeater21QQuickRepeaterPrivateEEvPT_PT0_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QQmlDelegateModel36applyDelegateModelAccessChangeOnViewI14QQuickItemView21QQuickItemViewPrivateEEvPT_PT0_": [
+      "nothing", "address", "address"
     ]
   }
 }

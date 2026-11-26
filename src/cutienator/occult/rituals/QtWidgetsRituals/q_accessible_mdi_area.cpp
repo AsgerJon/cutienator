@@ -15,9 +15,7 @@
 #include <QtCore/qvariant.h>
 #include <QtCore/qrect.h>
 #include <QtCore/qstring.h>
-#if QT_CONFIG(accessibility)
 #include <QtGui/qaccessible.h>
-#endif
 #include <QtGui/qcolor.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -89,23 +87,27 @@
 
 using namespace Qt::StringLiterals;
 
-//  from src/widgets/accessible/qaccessiblewidgets.cpp, line 358, as _ZN18QAccessibleMdiAreaC1EP7QWidget
-#if QT_CONFIG(accessibility)
-#if QT_CONFIG(mdiarea)
-inline QAccessibleMdiArea::QAccessibleMdiArea(QWidget *widget)
-    : QAccessibleWidgetV2(widget, QAccessible::LayeredPane)
-{
-    Q_ASSERT(qobject_cast<QMdiArea *>(widget));
-}
-#endif  // QT_CONFIG(mdiarea)
-#endif  // QT_CONFIG(accessibility)
-
 //  from src/widgets/accessible/qaccessiblewidgets.cpp, line 364, as _ZNK18QAccessibleMdiArea10childCountEv
 #if QT_CONFIG(accessibility)
 #if QT_CONFIG(mdiarea)
 inline int QAccessibleMdiArea::childCount() const
 {
     return mdiArea()->subWindowList().size();
+}
+#endif  // QT_CONFIG(mdiarea)
+#endif  // QT_CONFIG(accessibility)
+
+//  from src/widgets/accessible/qaccessiblewidgets.cpp, line 379, as _ZNK18QAccessibleMdiArea12indexOfChildEPK20QAccessibleInterface
+#if QT_CONFIG(accessibility)
+#if QT_CONFIG(mdiarea)
+inline int QAccessibleMdiArea::indexOfChild(const QAccessibleInterface *child) const
+{
+    if (!child || !child->object() || mdiArea()->subWindowList().isEmpty())
+        return -1;
+    if (QMdiSubWindow *window = qobject_cast<QMdiSubWindow *>(child->object())) {
+        return mdiArea()->subWindowList().indexOf(window);
+    }
+    return -1;
 }
 #endif  // QT_CONFIG(mdiarea)
 #endif  // QT_CONFIG(accessibility)
@@ -124,17 +126,13 @@ inline QAccessibleInterface *QAccessibleMdiArea::child(int index) const
 #endif  // QT_CONFIG(mdiarea)
 #endif  // QT_CONFIG(accessibility)
 
-//  from src/widgets/accessible/qaccessiblewidgets.cpp, line 379, as _ZNK18QAccessibleMdiArea12indexOfChildEPK20QAccessibleInterface
+//  from src/widgets/accessible/qaccessiblewidgets.cpp, line 358, as _ZN18QAccessibleMdiAreaC1EP7QWidget
 #if QT_CONFIG(accessibility)
 #if QT_CONFIG(mdiarea)
-inline int QAccessibleMdiArea::indexOfChild(const QAccessibleInterface *child) const
+inline QAccessibleMdiArea::QAccessibleMdiArea(QWidget *widget)
+    : QAccessibleWidgetV2(widget, QAccessible::LayeredPane)
 {
-    if (!child || !child->object() || mdiArea()->subWindowList().isEmpty())
-        return -1;
-    if (QMdiSubWindow *window = qobject_cast<QMdiSubWindow *>(child->object())) {
-        return mdiArea()->subWindowList().indexOf(window);
-    }
-    return -1;
+    Q_ASSERT(qobject_cast<QMdiArea *>(widget));
 }
 #endif  // QT_CONFIG(mdiarea)
 #endif  // QT_CONFIG(accessibility)

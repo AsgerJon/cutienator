@@ -2,7 +2,7 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtQuick/6.12.0/QtQuick/private/qsgsoftwarecontext_p.h, Qt 6.12.0.",
-    "Changes made here are lost."
+    "Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZNK18QSGSoftwareContext10metaObjectEv": ["address", "address"],
@@ -66,6 +66,12 @@
     "ritual_take_QSGSoftwareContext": [
       "bool", "address", "chars", "address"
     ],
+    "ritual_own_ZN18QSGSoftwareContext19createRenderContextEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN18QSGSoftwareContext17createPainterNodeEP17QQuickPaintedItem": [
+      "address", "address", "address"
+    ],
     "ritual_own_ZN18QSGSoftwareContext15createGlyphNodeEP16QSGRenderContextN11QSGTextNode10RenderTypeE": [
       "address", "address", "address", "unsigned char"
     ],
@@ -79,6 +85,12 @@
       "address", "address"
     ],
     "ritual_own_ZN18QSGSoftwareContext15createImageNodeEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN18QSGSoftwareContext19createNinePatchNodeEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN18QSGSoftwareContext16createSpriteNodeEv": [
       "address", "address"
     ],
     "ritual_own_ZN18QSGSoftwareContext21processTextRenderTypeEN11QSGTextNode10RenderTypeE": [

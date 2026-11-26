@@ -1,8 +1,8 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "QtQml/6.12.0/QtQml/private/qv4regexpobject_p.h, Qt 6.12.0. Changes",
-    "made here are lost."
+    "QtQml/6.12.0/QtQml/private/qv4regexpobject_p.h, Qt 6.12.0. Edited",
+    "by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZN3QV412RegExpObject12staticVTableEv": ["address"],
@@ -27,6 +27,9 @@
     "ritual_ZNK3QV412RegExpObject6sourceEv": ["text", "address"],
     "ritual_ZN3QV412RegExpObject11builtinExecEPNS_15ExecutionEngineEPKNS_6StringE": [
       "unsigned long long", "address", "address", "address"
+    ],
+    "ritual_ZNK3QV412RegExpObject5valueINS_4Heap6RegExpEEEPT_v": [
+      "address", "address"
     ]
   }
 }

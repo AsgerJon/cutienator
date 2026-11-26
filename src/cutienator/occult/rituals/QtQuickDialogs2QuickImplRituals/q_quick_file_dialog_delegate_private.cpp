@@ -1,6 +1,12 @@
 //  Written by dev_tooling.RitualGenerator from the records of QtQuickDialogs
 //  2QuickImpl/6.12.0/QtQuickDialogs2QuickImpl/private/qquickfiledialogdelega
-//  te_p_p.h, Qt 6.12.0. Changes made here are lost.
+//  te_p_p.h, Qt 6.12.0.
+//  Edited by hand on 2026-11-26: added are 1 rituals that lean on what moc
+//  writes for a class of the part Qt keeps to itself, whose ritual file
+//  carries moc's output, drafted by a copy of the generator that lets those
+//  names through. A copy of a meta-object is a second one: 'qobject_cast'
+//  between it and Qt's own does not match. Kept as it is when the generator
+//  runs again.
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
 #include <QtQuick/qtquickglobal.h>
 #include <QtQuickTemplates2/6.12.0/QtQuickTemplates2/private/qtquicktemplates2global_p.h>
@@ -118,6 +124,18 @@ inline void QQuickFileDialogDelegatePrivate::chooseFile()
             }
         }
         fileDialog->accept();
+    }
+}
+
+//  from ../qtdeclarative/src/quickdialogs/quickdialogsquickimpl/qquickfiledialogdelegate.cpp, line 162, as _ZN31QQuickFileDialogDelegatePrivate14initTapHandlerEv
+inline void QQuickFileDialogDelegatePrivate::initTapHandler()
+{
+    Q_Q(QQuickFileDialogDelegate);
+    if (!tapHandler) {
+        tapHandler = new QQuickFileDialogTapHandler(q);
+
+        connect(tapHandler, &QQuickTapHandler::longPressed, this,
+                                &QQuickFileDialogDelegatePrivate::handleLongPress);
     }
 }
 
@@ -920,6 +938,13 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN31QQuickFileDialogDelegatePrivate10chooseFileEv(
     QQuickFileDialogDelegatePrivate *self) {
   self->chooseFile();
+}
+
+//  void QQuickFileDialogDelegatePrivate::initTapHandler()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN31QQuickFileDialogDelegatePrivate14initTapHandlerEv(
+    QQuickFileDialogDelegatePrivate *self) {
+  self->initTapHandler();
 }
 
 //  void QQuickFileDialogDelegatePrivate::destroyTapHandler()

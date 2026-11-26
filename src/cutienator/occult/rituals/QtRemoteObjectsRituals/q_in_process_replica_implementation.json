@@ -2,11 +2,17 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of QtRemot",
     "eObjects/6.12.0/QtRemoteObjects/private/qremoteobjectreplica_p.h,",
-    "Qt 6.12.0. Changes made here are lost."
+    "Qt 6.12.0. Edited by hand: see the ritual file."
   ],
   "rows": {
+    "ritual_ZNK31QInProcessReplicaImplementation11getPropertyEi": [
+      "address", "address", "int"
+    ],
     "ritual_ZN31QInProcessReplicaImplementation13setPropertiesEO5QListI8QVariantE": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN31QInProcessReplicaImplementation11setPropertyEiRK8QVariant": [
+      "nothing", "address", "int", "address"
     ],
     "ritual_ZNK31QInProcessReplicaImplementation14isShortCircuitEv": [
       "bool", "address"

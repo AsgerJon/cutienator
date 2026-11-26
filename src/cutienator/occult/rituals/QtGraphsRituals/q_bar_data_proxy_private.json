@@ -10,6 +10,7 @@
   "rows": {
     "ritual_ZN20QBarDataProxyPrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK20QBarDataProxyPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN20QBarDataProxyPrivateC1Ev": ["address"],
     "ritual_ZN20QBarDataProxyPrivateD1Ev": ["nothing", "address"],
     "ritual_ZN20QBarDataProxyPrivate10resetArrayEO5QListIS0_I12QBarDataItemEEOS0_I7QStringES7_": [
       "nothing", "address", "address", "address", "address"

@@ -2,9 +2,31 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtHttpServer/6.12.0/QtHttpServer/private/qhttpserverresponder_p.h,",
-    "Qt 6.12.0. Changes made here are lost."
+    "Qt 6.12.0. Edited by hand: see the ritual file."
   ],
   "rows": {
+    "ritual_ZN27QHttpServerResponderPrivateC1EP17QHttpServerStream": [
+      "address", "address"
+    ],
+    "ritual_ZN27QHttpServerResponderPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN27QHttpServerResponderPrivate5writeERK10QByteArrayRK12QHttpHeadersN20QHttpServerResponder10StatusCodeE": [
+      "nothing", "address", "address", "address", "int"
+    ],
+    "ritual_ZN27QHttpServerResponderPrivate5writeEN20QHttpServerResponder10StatusCodeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN27QHttpServerResponderPrivate5writeEP9QIODeviceRK12QHttpHeadersN20QHttpServerResponder10StatusCodeE": [
+      "nothing", "address", "address", "address", "int"
+    ],
+    "ritual_ZN27QHttpServerResponderPrivate17writeBeginChunkedERK12QHttpHeadersN20QHttpServerResponder10StatusCodeE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN27QHttpServerResponderPrivate10writeChunkERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN27QHttpServerResponderPrivate15writeEndChunkedERK10QByteArrayRK12QHttpHeaders": [
+      "nothing", "address", "address", "address"
+    ],
     "ritual_ZN27QHttpServerResponderPrivate6cancelEv": ["nothing", "address"]
   }
 }

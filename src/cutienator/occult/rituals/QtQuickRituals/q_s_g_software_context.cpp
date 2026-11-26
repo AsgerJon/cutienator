@@ -1,6 +1,11 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtQuick/6.12.0/QtQuick/private/qsgsoftwarecontext_p.h, Qt 6.12.0. Changes
-//  made here are lost.
+//  QtQuick/6.12.0/QtQuick/private/qsgsoftwarecontext_p.h, Qt 6.12.0.
+//  Edited by hand on 2026-11-26: added are 4 rituals that lean on what moc
+//  writes for a class of the part Qt keeps to itself, whose ritual file
+//  carries moc's output, drafted by a copy of the generator that lets those
+//  names through. A copy of a meta-object is a second one: 'qobject_cast'
+//  between it and Qt's own does not match. Kept as it is when the generator
+//  runs again.
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
 #include <QtQuick/QtQuick>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -134,33 +139,6 @@ inline QSGLayer *QSGSoftwareContext::createLayer(QSGRenderContext *renderContext
     return new QSGSoftwareLayer(renderContext);
 }
 
-//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarecontext.cpp, line 28, as _ZN24QSGSoftwareRenderContextC1EP10QSGContext
-inline QSGSoftwareRenderContext::QSGSoftwareRenderContext(QSGContext *ctx)
-    : QSGRenderContext(ctx)
-    , m_initialized(false)
-    , m_activePainter(nullptr)
-{
-}
-
-//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarecontext.cpp, line 40, as _ZN18QSGSoftwareContext27createInternalRectangleNodeEv
-inline QSGInternalRectangleNode *QSGSoftwareContext::createInternalRectangleNode()
-{
-    return new QSGSoftwareInternalRectangleNode();
-}
-
-//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarecontext.cpp, line 45, as _ZN18QSGSoftwareContext23createInternalImageNodeEP16QSGRenderContext
-inline QSGInternalImageNode *QSGSoftwareContext::createInternalImageNode(QSGRenderContext *renderContext)
-{
-    Q_UNUSED(renderContext);
-    return new QSGSoftwareInternalImageNode();
-}
-
-//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarecontext.cpp, line 51, as _ZN18QSGSoftwareContext17createPainterNodeEP17QQuickPaintedItem
-inline QSGPainterNode *QSGSoftwareContext::createPainterNode(QQuickPaintedItem *item)
-{
-    return new QSGSoftwarePainterNode(item);
-}
-
 //  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarecontext.cpp, line 56, as _ZN18QSGSoftwareContext15createGlyphNodeEP16QSGRenderContextN11QSGTextNode10RenderTypeE
 inline QSGGlyphNode *QSGSoftwareContext::createGlyphNode(QSGRenderContext *rc, QSGTextNode::RenderType renderType)
 {
@@ -169,41 +147,10 @@ inline QSGGlyphNode *QSGSoftwareContext::createGlyphNode(QSGRenderContext *rc, Q
     return new QSGSoftwareGlyphNode();
 }
 
-//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarecontext.cpp, line 74, as _ZNK18QSGSoftwareContext20defaultSurfaceFormatEv
-inline QSurfaceFormat QSGSoftwareContext::defaultSurfaceFormat() const
-{
-    QSurfaceFormat format = QSurfaceFormat::defaultFormat();
-    format.setRenderableType(QSurfaceFormat::DefaultRenderableType);
-    format.setMajorVersion(0);
-    format.setMinorVersion(0);
-    if (QQuickWindow::hasDefaultAlphaBuffer())
-        format.setAlphaBufferSize(8);
-    return format;
-}
-
-//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarecontext.cpp, line 134, as _ZN18QSGSoftwareContext17rendererInterfaceEP16QSGRenderContext
-inline QSGRendererInterface *QSGSoftwareContext::rendererInterface(QSGRenderContext *renderContext)
-{
-    Q_UNUSED(renderContext);
-    return this;
-}
-
-//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarecontext.cpp, line 140, as _ZN18QSGSoftwareContext19createRectangleNodeEv
-inline QSGRectangleNode *QSGSoftwareContext::createRectangleNode()
-{
-    return new QSGSoftwareRectangleNode;
-}
-
 //  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarecontext.cpp, line 145, as _ZN18QSGSoftwareContext15createImageNodeEv
 inline QSGImageNode *QSGSoftwareContext::createImageNode()
 {
     return new QSGSoftwareImageNode;
-}
-
-//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarecontext.cpp, line 150, as _ZN18QSGSoftwareContext19createNinePatchNodeEv
-inline QSGNinePatchNode *QSGSoftwareContext::createNinePatchNode()
-{
-    return new QSGSoftwareNinePatchNode;
 }
 
 //  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarecontext.cpp, line 156, as _ZN18QSGSoftwareContext16createSpriteNodeEv
@@ -214,6 +161,31 @@ inline QSGSpriteNode *QSGSoftwareContext::createSpriteNode()
 }
 #endif  // QT_CONFIG(quick_sprite)
 
+//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarecontext.cpp, line 51, as _ZN18QSGSoftwareContext17createPainterNodeEP17QQuickPaintedItem
+inline QSGPainterNode *QSGSoftwareContext::createPainterNode(QQuickPaintedItem *item)
+{
+    return new QSGSoftwarePainterNode(item);
+}
+
+//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarecontext.cpp, line 134, as _ZN18QSGSoftwareContext17rendererInterfaceEP16QSGRenderContext
+inline QSGRendererInterface *QSGSoftwareContext::rendererInterface(QSGRenderContext *renderContext)
+{
+    Q_UNUSED(renderContext);
+    return this;
+}
+
+//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarecontext.cpp, line 150, as _ZN18QSGSoftwareContext19createNinePatchNodeEv
+inline QSGNinePatchNode *QSGSoftwareContext::createNinePatchNode()
+{
+    return new QSGSoftwareNinePatchNode;
+}
+
+//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarecontext.cpp, line 140, as _ZN18QSGSoftwareContext19createRectangleNodeEv
+inline QSGRectangleNode *QSGSoftwareContext::createRectangleNode()
+{
+    return new QSGSoftwareRectangleNode;
+}
+
 //  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarecontext.cpp, line 63, as _ZN18QSGSoftwareContext21processTextRenderTypeEN11QSGTextNode10RenderTypeE
 inline QSGTextNode::RenderType QSGSoftwareContext::processTextRenderType(QSGTextNode::RenderType renderType)
 {
@@ -221,28 +193,31 @@ inline QSGTextNode::RenderType QSGSoftwareContext::processTextRenderType(QSGText
     return QSGTextNode::NativeRendering;
 }
 
-//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarecontext.cpp, line 162, as _ZNK18QSGSoftwareContext11graphicsApiEv
-inline QSGRendererInterface::GraphicsApi QSGSoftwareContext::graphicsApi() const
+//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarecontext.cpp, line 45, as _ZN18QSGSoftwareContext23createInternalImageNodeEP16QSGRenderContext
+inline QSGInternalImageNode *QSGSoftwareContext::createInternalImageNode(QSGRenderContext *renderContext)
 {
-    return Software;
+    Q_UNUSED(renderContext);
+    return new QSGSoftwareInternalImageNode();
+}
+
+//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarecontext.cpp, line 40, as _ZN18QSGSoftwareContext27createInternalRectangleNodeEv
+inline QSGInternalRectangleNode *QSGSoftwareContext::createInternalRectangleNode()
+{
+    return new QSGSoftwareInternalRectangleNode();
+}
+
+//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarecontext.cpp, line 28, as _ZN24QSGSoftwareRenderContextC1EP10QSGContext
+inline QSGSoftwareRenderContext::QSGSoftwareRenderContext(QSGContext *ctx)
+    : QSGRenderContext(ctx)
+    , m_initialized(false)
+    , m_activePainter(nullptr)
+{
 }
 
 //  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarecontext.cpp, line 167, as _ZNK18QSGSoftwareContext10shaderTypeEv
 inline QSGRendererInterface::ShaderType QSGSoftwareContext::shaderType() const
 {
     return UnknownShadingLanguage;
-}
-
-//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarecontext.cpp, line 172, as _ZNK18QSGSoftwareContext21shaderCompilationTypeEv
-inline QSGRendererInterface::ShaderCompilationTypes QSGSoftwareContext::shaderCompilationType() const
-{
-    return {};
-}
-
-//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarecontext.cpp, line 177, as _ZNK18QSGSoftwareContext16shaderSourceTypeEv
-inline QSGRendererInterface::ShaderSourceTypes QSGSoftwareContext::shaderSourceType() const
-{
-    return {};
 }
 
 //  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarecontext.cpp, line 182, as _ZNK18QSGSoftwareContext11getResourceEP12QQuickWindowN20QSGRendererInterface8ResourceE
@@ -259,6 +234,36 @@ inline void *QSGSoftwareContext::getResource(QQuickWindow *window, Resource reso
         return cd->redirect.rt.sw.paintDevice;
 
     return nullptr;
+}
+
+//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarecontext.cpp, line 162, as _ZNK18QSGSoftwareContext11graphicsApiEv
+inline QSGRendererInterface::GraphicsApi QSGSoftwareContext::graphicsApi() const
+{
+    return Software;
+}
+
+//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarecontext.cpp, line 177, as _ZNK18QSGSoftwareContext16shaderSourceTypeEv
+inline QSGRendererInterface::ShaderSourceTypes QSGSoftwareContext::shaderSourceType() const
+{
+    return {};
+}
+
+//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarecontext.cpp, line 74, as _ZNK18QSGSoftwareContext20defaultSurfaceFormatEv
+inline QSurfaceFormat QSGSoftwareContext::defaultSurfaceFormat() const
+{
+    QSurfaceFormat format = QSurfaceFormat::defaultFormat();
+    format.setRenderableType(QSurfaceFormat::DefaultRenderableType);
+    format.setMajorVersion(0);
+    format.setMinorVersion(0);
+    if (QQuickWindow::hasDefaultAlphaBuffer())
+        format.setAlphaBufferSize(8);
+    return format;
+}
+
+//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarecontext.cpp, line 172, as _ZNK18QSGSoftwareContext21shaderCompilationTypeEv
+inline QSGRendererInterface::ShaderCompilationTypes QSGSoftwareContext::shaderCompilationType() const
+{
+    return {};
 }
 
 //  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwareinternalrectanglenode.cpp, line 12, as _ZN32QSGSoftwareInternalRectangleNodeC1Ev
@@ -1022,6 +1027,26 @@ inline void QSGSoftwareSpriteNode::update()
 {
 }
 
+//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwareinternalimagenode.cpp, line 459, as _ZN28QSGSoftwareInternalImageNode26updateCachedMirroredPixmapEv
+inline void QSGSoftwareInternalImageNode::updateCachedMirroredPixmap()
+{
+    if (m_cachedMirroredPixmapIsDirty) {
+        if (m_mirrorHorizontally || m_mirrorVertically || m_textureIsLayer) {
+            QTransform transform(
+                (m_mirrorHorizontally ? -1 : 1), 0,
+                0                              , (m_textureIsLayer ? -1 : 1) * (m_mirrorVertically ? -1 : 1),
+                0                              , 0
+                );
+            m_cachedMirroredPixmap = pixmap().transformed(transform);
+        } else {
+            //Cleanup cached pixmap if necessary
+            if (!m_cachedMirroredPixmap.isNull())
+                m_cachedMirroredPixmap = QPixmap();
+        }
+        m_cachedMirroredPixmapIsDirty = false;
+    }
+}
+
 //  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarepainternode.cpp, line 147, as _ZN22QSGSoftwarePainterNode5paintEv
 inline void QSGSoftwarePainterNode::paint()
 {
@@ -1080,6 +1105,18 @@ inline void QSGSoftwareGlyphNode::recalculateBoundingRect()
     int y2Offset = m_style == QQuickText::Outline || m_style == QQuickText::Raised ? 1 : 0;
 
     m_bounding_rect = calculateBoundingRect(m_position, m_glyphRun).adjusted(x1Offset, y1Offset, x2Offset, y2Offset);
+}
+
+//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwareinternalimagenode.cpp, line 448, as _ZNK28QSGSoftwareInternalImageNode6pixmapEv
+inline const QPixmap &QSGSoftwareInternalImageNode::pixmap() const
+{
+    if (QSGSoftwarePixmapTexture *pt = qobject_cast<QSGSoftwarePixmapTexture*>(m_texture))
+        return pt->pixmap();
+    if (QSGSoftwareLayer *layer = qobject_cast<QSGSoftwareLayer*>(m_texture))
+        return layer->pixmap();
+    Q_ASSERT(m_texture == nullptr);
+    static const QPixmap nullPixmap;
+    return nullPixmap;
 }
 //  -----------------------------------------------------------------------
 
@@ -1925,6 +1962,22 @@ bool ritual_take_QSGSoftwareContext(
   return static_cast<CuteQSGSoftwareContext *>(self)->take(key, call);
 }
 
+//  QSGRenderContext *QSGSoftwareContext::createRenderContext()
+extern "C" Q_DECL_EXPORT
+QSGRenderContext *ritual_own_ZN18QSGSoftwareContext19createRenderContextEv(
+    QSGSoftwareContext *self) {
+  return self->QSGSoftwareContext::createRenderContext();
+}
+
+//  QSGPainterNode *QSGSoftwareContext::createPainterNode(QQuickPaintedItem
+//      *item)
+extern "C" Q_DECL_EXPORT
+QSGPainterNode *ritual_own_ZN18QSGSoftwareContext17createPainterNodeEP17QQuickPaintedItem(
+    QSGSoftwareContext *self,
+    QQuickPaintedItem *item) {
+  return self->QSGSoftwareContext::createPainterNode(item);
+}
+
 //  QSGGlyphNode *QSGSoftwareContext::createGlyphNode(QSGRenderContext *rc,
 //      QSGTextNode::RenderType renderType)
 extern "C" Q_DECL_EXPORT
@@ -1966,6 +2019,22 @@ QSGImageNode *ritual_own_ZN18QSGSoftwareContext15createImageNodeEv(
     QSGSoftwareContext *self) {
   return self->QSGSoftwareContext::createImageNode();
 }
+
+//  QSGNinePatchNode *QSGSoftwareContext::createNinePatchNode()
+extern "C" Q_DECL_EXPORT
+QSGNinePatchNode *ritual_own_ZN18QSGSoftwareContext19createNinePatchNodeEv(
+    QSGSoftwareContext *self) {
+  return self->QSGSoftwareContext::createNinePatchNode();
+}
+
+#if QT_CONFIG(quick_sprite)
+//  QSGSpriteNode *QSGSoftwareContext::createSpriteNode()
+extern "C" Q_DECL_EXPORT
+QSGSpriteNode *ritual_own_ZN18QSGSoftwareContext16createSpriteNodeEv(
+    QSGSoftwareContext *self) {
+  return self->QSGSoftwareContext::createSpriteNode();
+}
+#endif  // QT_CONFIG(quick_sprite)
 
 //  QSGTextNode::RenderType
 //      QSGSoftwareContext::processTextRenderType(QSGTextNode::RenderType

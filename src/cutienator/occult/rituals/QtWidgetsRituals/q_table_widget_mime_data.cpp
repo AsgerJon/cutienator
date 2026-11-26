@@ -1,6 +1,13 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtWidgets/6.12.0/QtWidgets/private/qtablewidget_p.h, Qt 6.12.0. Changes
-//  made here are lost.
+//  QtWidgets/6.12.0/QtWidgets/private/qtablewidget_p.h, Qt 6.12.0.
+//  Edited by hand on 2026-11-26: moc's output for 'QTableWidgetMimeData' is
+//  pasted in, cut from what the moc of Qt 6.12.0 writes for its header: Qt's
+//  library keeps it to itself; added are 1 rituals that lean on what moc
+//  writes for a class of the part Qt keeps to itself, whose ritual file
+//  carries moc's output, drafted by a copy of the generator that lets those
+//  names through. A copy of a meta-object is a second one: 'qobject_cast'
+//  between it and Qt's own does not match. Kept as it is when the generator
+//  runs again.
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #if QT_CONFIG(tablewidget)
@@ -15,6 +22,85 @@
 #include <QtCore/qvariant.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+
+//  Qt's own code, from here to the line of dashes: taken from
+//  Qt's source, because Qt's library carries it under no name.
+//  Copyright (C) The Qt Company Ltd. It is licensed
+//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
+//  here. Each function is as Qt wrote it, with the word
+//  'inline' put before it where Qt did not write it.
+
+//  from QtWidgets__QTableWidgetMimeData.cpp, line 1, as moc:QTableWidgetMimeData
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN20QTableWidgetMimeDataE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto QTableWidgetMimeData::qt_create_metaobjectdata<qt_meta_tag_ZN20QTableWidgetMimeDataE_t>()
+{
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "QTableWidgetMimeData"
+    };
+
+    QtMocHelpers::UintData qt_methods {
+    };
+    QtMocHelpers::UintData qt_properties {
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    return QtMocHelpers::metaObjectData<QTableWidgetMimeData, qt_meta_tag_ZN20QTableWidgetMimeDataE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums);
+}
+Q_CONSTINIT const QMetaObject QTableWidgetMimeData::staticMetaObject = { {
+    QMetaObject::SuperData::link<QMimeData::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN20QTableWidgetMimeDataE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN20QTableWidgetMimeDataE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN20QTableWidgetMimeDataE_t>.metaTypes,
+    nullptr
+} };
+
+void QTableWidgetMimeData::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<QTableWidgetMimeData *>(_o);
+    (void)_t;
+    (void)_c;
+    (void)_id;
+    (void)_a;
+}
+
+const QMetaObject *QTableWidgetMimeData::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *QTableWidgetMimeData::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN20QTableWidgetMimeDataE_t>.strings))
+        return static_cast<void*>(this);
+    return QMimeData::qt_metacast(_clname);
+}
+
+int QTableWidgetMimeData::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QMimeData::qt_metacall(_c, _id, _a);
+    return _id;
+}
+QT_WARNING_POP
+//  -----------------------------------------------------------------------
 
 //  A QTableWidgetMimeData that Python can take functions over in. Every QTableWidgetMimeData
 //  Python makes is one. Each function below asks the Python
@@ -242,6 +328,15 @@ int ritual_ZN20QTableWidgetMimeData11qt_metacallEN11QMetaObject4CallEiPPv(
     int a1,
     void **a2) {
   return self->qt_metacall(a0, a1, a2);
+}
+
+//  QString QTableWidgetMimeData::tr(const char *s, const char *c, int n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN20QTableWidgetMimeData2trEPKcS1_i(
+    const char *s,
+    const char *c,
+    int n) {
+  return new QString(QTableWidgetMimeData::tr(s, c, n));
 }
 
 //  a Python function taken by a CuteQTableWidgetMimeData, for the function

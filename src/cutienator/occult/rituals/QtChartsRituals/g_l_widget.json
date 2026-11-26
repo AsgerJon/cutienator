@@ -1,14 +1,18 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "QtCharts/6.12.0/QtCharts/private/glwidget_p.h, Qt 6.12.0. Changes",
-    "made here are lost."
+    "QtCharts/6.12.0/QtCharts/private/glwidget_p.h, Qt 6.12.0. Edited",
+    "by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZNK8GLWidget10metaObjectEv": ["address", "address"],
     "ritual_ZN8GLWidget11qt_metacastEPKc": ["address", "address", "chars"],
     "ritual_ZN8GLWidget11qt_metacallEN11QMetaObject4CallEiPPv": [
       "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN8GLWidget2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN8GLWidgetC1EP21GLXYSeriesDataManagerP6QChartP13QGraphicsView": [
+      "address", "address", "address", "address"
     ],
     "ritual_ZN8GLWidgetD1Ev": ["nothing", "address"],
     "ritual_ZNK8GLWidget10needsResetEv": ["bool", "address"],
@@ -41,6 +45,7 @@
     ],
     "ritual_cast_GLWidget_QOpenGLFunctions": ["address", "address"],
     "ritual_take_GLWidget": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN8GLWidget12initializeGLEv": ["nothing", "address"],
     "ritual_own_ZN8GLWidget7paintGLEv": ["nothing", "address"],
     "ritual_own_ZN8GLWidget8resizeGLEii": [
       "nothing", "address", "int", "int"

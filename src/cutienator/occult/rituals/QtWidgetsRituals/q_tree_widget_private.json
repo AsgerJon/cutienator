@@ -2,13 +2,54 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtWidgets/6.12.0/QtWidgets/private/qtreewidget_p.h, Qt 6.12.0.",
-    "Changes made here are lost."
+    "Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZN18QTreeWidgetPrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK18QTreeWidgetPrivate6q_funcEv": ["address", "address"],
     "ritual_ZN18QTreeWidgetPrivate16clearConnectionsEv": [
       "nothing", "address"
+    ],
+    "ritual_ZNK18QTreeWidgetPrivate9treeModelEv": ["address", "address"],
+    "ritual_ZNK18QTreeWidgetPrivate5indexEPK15QTreeWidgetItemi": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZNK18QTreeWidgetPrivate4itemERK11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN18QTreeWidgetPrivate15emitItemPressedERK11QModelIndex": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QTreeWidgetPrivate15emitItemClickedERK11QModelIndex": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QTreeWidgetPrivate21emitItemDoubleClickedERK11QModelIndex": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QTreeWidgetPrivate17emitItemActivatedERK11QModelIndex": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QTreeWidgetPrivate15emitItemEnteredERK11QModelIndex": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QTreeWidgetPrivate15emitItemChangedERK11QModelIndex": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QTreeWidgetPrivate16emitItemExpandedERK11QModelIndex": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QTreeWidgetPrivate17emitItemCollapsedERK11QModelIndex": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QTreeWidgetPrivate22emitCurrentItemChangedERK11QModelIndexS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN18QTreeWidgetPrivate4sortEv": ["nothing", "address"],
+    "ritual_ZN18QTreeWidgetPrivate11dataChangedERK11QModelIndexS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN18QTreeWidgetPrivate16selectionChangedERK14QItemSelectionS2_": [
+      "nothing", "address", "address", "address"
     ],
     "ritual_take_QTreeWidgetPrivate": ["bool", "address", "chars", "address"]
   }

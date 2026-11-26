@@ -1,6 +1,13 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtWidgets/6.12.0/QtWidgets/private/qplaintextedit_p.h, Qt 6.12.0. Changes
-//  made here are lost.
+//  QtWidgets/6.12.0/QtWidgets/private/qplaintextedit_p.h, Qt 6.12.0.
+//  Edited by hand on 2026-11-26: moc's output for 'QPlainTextEditControl' is
+//  pasted in, cut from what the moc of Qt 6.12.0 writes for its header: Qt's
+//  library keeps it to itself; added are 2 rituals that lean on what moc
+//  writes for a class of the part Qt keeps to itself, whose ritual file
+//  carries moc's output, drafted by a copy of the generator that lets those
+//  names through. A copy of a meta-object is a second one: 'qobject_cast'
+//  between it and Qt's own does not match. Kept as it is when the generator
+//  runs again.
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #if QT_CONFIG(textedit)
@@ -10,10 +17,10 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtWidgets/6.12.0/QtWidgets/private/qplaintextedit_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 #include <QtCore/qpoint.h>
 #include <QtGui/qtextobject.h>
 #include <QtCore/qrect.h>
-#include <QtCore/qstring.h>
 #include <QtGui/qtextcursor.h>
 #include <QtCore/qurl.h>
 #include <QtCore/qvariant.h>
@@ -21,6 +28,10 @@
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
 #include <QtWidgets/private/qplaintextedit_p.h>
 #include <QtGui/qfont.h>
 #include <QtGui/qpainter.h>
@@ -57,21 +68,70 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from src/widgets/widgets/qplaintextedit.cpp, line 447, as _ZNK21QPlainTextEditControl27createMimeDataFromSelectionEv
-inline QMimeData *QPlainTextEditControl::createMimeDataFromSelection() const {
-        QPlainTextEdit *ed = qobject_cast<QPlainTextEdit *>(parent());
-        if (!ed)
-            return QWidgetTextControl::createMimeDataFromSelection();
-        return ed->createMimeDataFromSelection();
-    }
+//  from QtWidgets__QPlainTextEditControl.cpp, line 1, as moc:QPlainTextEditControl
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN21QPlainTextEditControlE_t {};
+} // unnamed namespace
 
-//  from src/widgets/widgets/qplaintextedit.cpp, line 453, as _ZNK21QPlainTextEditControl21canInsertFromMimeDataEPK9QMimeData
-inline bool QPlainTextEditControl::canInsertFromMimeData(const QMimeData *source) const {
-    QPlainTextEdit *ed = qobject_cast<QPlainTextEdit *>(parent());
-    if (!ed)
-        return QWidgetTextControl::canInsertFromMimeData(source);
-    return ed->canInsertFromMimeData(source);
+template <> constexpr inline auto QPlainTextEditControl::qt_create_metaobjectdata<qt_meta_tag_ZN21QPlainTextEditControlE_t>()
+{
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "QPlainTextEditControl"
+    };
+
+    QtMocHelpers::UintData qt_methods {
+    };
+    QtMocHelpers::UintData qt_properties {
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    return QtMocHelpers::metaObjectData<QPlainTextEditControl, qt_meta_tag_ZN21QPlainTextEditControlE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums);
 }
+Q_CONSTINIT const QMetaObject QPlainTextEditControl::staticMetaObject = { {
+    QMetaObject::SuperData::link<QWidgetTextControl::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN21QPlainTextEditControlE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN21QPlainTextEditControlE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN21QPlainTextEditControlE_t>.metaTypes,
+    nullptr
+} };
+
+void QPlainTextEditControl::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<QPlainTextEditControl *>(_o);
+    (void)_t;
+    (void)_c;
+    (void)_id;
+    (void)_a;
+}
+
+const QMetaObject *QPlainTextEditControl::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *QPlainTextEditControl::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN21QPlainTextEditControlE_t>.strings))
+        return static_cast<void*>(this);
+    return QWidgetTextControl::qt_metacast(_clname);
+}
+
+int QPlainTextEditControl::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QWidgetTextControl::qt_metacall(_c, _id, _a);
+    return _id;
+}
+QT_WARNING_POP
 
 //  from src/widgets/widgets/qplaintextedit.cpp, line 459, as _ZN21QPlainTextEditControl18insertFromMimeDataEPK9QMimeData
 inline void QPlainTextEditControl::insertFromMimeData(const QMimeData *source) {
@@ -80,54 +140,6 @@ inline void QPlainTextEditControl::insertFromMimeData(const QMimeData *source) {
         QWidgetTextControl::insertFromMimeData(source);
     else
         ed->insertFromMimeData(source);
-}
-
-//  from src/widgets/widgets/qplaintextedit.cpp, line 503, as _ZNK21QPlainTextEditControl7hitTestERK7QPointFN2Qt15HitTestAccuracyE
-inline int QPlainTextEditControl::hitTest(const QPointF &point, Qt::HitTestAccuracy ) const {
-    int currentBlockNumber = topBlock;
-    QTextBlock currentBlock = document()->findBlockByNumber(currentBlockNumber);
-    if (!currentBlock.isValid())
-        return -1;
-
-    QPlainTextDocumentLayout *documentLayout = qobject_cast<QPlainTextDocumentLayout*>(document()->documentLayout());
-    Q_ASSERT(documentLayout);
-
-    QPointF offset;
-    QRectF r = documentLayout->blockBoundingRect(currentBlock);
-    while (currentBlock.next().isValid() && r.bottom() + offset.y() <= point.y()) {
-        offset.ry() += r.height();
-        currentBlock = currentBlock.next();
-        ++currentBlockNumber;
-        r = documentLayout->blockBoundingRect(currentBlock);
-    }
-    while (currentBlock.previous().isValid() && r.top() + offset.y() > point.y()) {
-        offset.ry() -= r.height();
-        currentBlock = currentBlock.previous();
-        --currentBlockNumber;
-        r = documentLayout->blockBoundingRect(currentBlock);
-    }
-
-
-    if (!currentBlock.isValid())
-        return -1;
-    QTextLayout *layout = currentBlock.layout();
-    int off = 0;
-    QPointF pos = point - offset;
-    for (int i = 0; i < layout->lineCount(); ++i) {
-        QTextLine line = layout->lineAt(i);
-        const QRectF lr = line.naturalTextRect();
-        if (lr.top() > pos.y()) {
-            off = qMin(off, line.textStart());
-        } else if (lr.bottom() <= pos.y()) {
-            off = qMax(off, line.textStart() + line.textLength());
-        } else {
-            off = line.xToCursor(pos.x(), overwriteMode() ?
-                                 QTextLine::CursorOnCharacter : QTextLine::CursorBetweenCharacters);
-            break;
-        }
-    }
-
-    return currentBlock.position() + off;
 }
 
 //  from src/widgets/widgets/qplaintextedit.cpp, line 550, as _ZNK21QPlainTextEditControl17blockBoundingRectERK10QTextBlock
@@ -182,10 +194,82 @@ inline QRectF QPlainTextEditControl::blockBoundingRect(const QTextBlock &block) 
     return r;
 }
 
+//  from src/widgets/widgets/qplaintextedit.cpp, line 453, as _ZNK21QPlainTextEditControl21canInsertFromMimeDataEPK9QMimeData
+inline bool QPlainTextEditControl::canInsertFromMimeData(const QMimeData *source) const {
+    QPlainTextEdit *ed = qobject_cast<QPlainTextEdit *>(parent());
+    if (!ed)
+        return QWidgetTextControl::canInsertFromMimeData(source);
+    return ed->canInsertFromMimeData(source);
+}
+
+//  from src/widgets/widgets/qplaintextedit.cpp, line 447, as _ZNK21QPlainTextEditControl27createMimeDataFromSelectionEv
+inline QMimeData *QPlainTextEditControl::createMimeDataFromSelection() const {
+        QPlainTextEdit *ed = qobject_cast<QPlainTextEdit *>(parent());
+        if (!ed)
+            return QWidgetTextControl::createMimeDataFromSelection();
+        return ed->createMimeDataFromSelection();
+    }
+
+//  from src/widgets/widgets/qplaintextedit.cpp, line 503, as _ZNK21QPlainTextEditControl7hitTestERK7QPointFN2Qt15HitTestAccuracyE
+inline int QPlainTextEditControl::hitTest(const QPointF &point, Qt::HitTestAccuracy ) const {
+    int currentBlockNumber = topBlock;
+    QTextBlock currentBlock = document()->findBlockByNumber(currentBlockNumber);
+    if (!currentBlock.isValid())
+        return -1;
+
+    QPlainTextDocumentLayout *documentLayout = qobject_cast<QPlainTextDocumentLayout*>(document()->documentLayout());
+    Q_ASSERT(documentLayout);
+
+    QPointF offset;
+    QRectF r = documentLayout->blockBoundingRect(currentBlock);
+    while (currentBlock.next().isValid() && r.bottom() + offset.y() <= point.y()) {
+        offset.ry() += r.height();
+        currentBlock = currentBlock.next();
+        ++currentBlockNumber;
+        r = documentLayout->blockBoundingRect(currentBlock);
+    }
+    while (currentBlock.previous().isValid() && r.top() + offset.y() > point.y()) {
+        offset.ry() -= r.height();
+        currentBlock = currentBlock.previous();
+        --currentBlockNumber;
+        r = documentLayout->blockBoundingRect(currentBlock);
+    }
+
+
+    if (!currentBlock.isValid())
+        return -1;
+    QTextLayout *layout = currentBlock.layout();
+    int off = 0;
+    QPointF pos = point - offset;
+    for (int i = 0; i < layout->lineCount(); ++i) {
+        QTextLine line = layout->lineAt(i);
+        const QRectF lr = line.naturalTextRect();
+        if (lr.top() > pos.y()) {
+            off = qMin(off, line.textStart());
+        } else if (lr.bottom() <= pos.y()) {
+            off = qMax(off, line.textStart() + line.textLength());
+        } else {
+            off = line.xToCursor(pos.x(), overwriteMode() ?
+                                 QTextLine::CursorOnCharacter : QTextLine::CursorBetweenCharacters);
+            break;
+        }
+    }
+
+    return currentBlock.position() + off;
+}
+
 //  from src/widgets/widgets/qplaintextedit.cpp, line 601, as _ZNK21QPlainTextEditControl8anchorAtERK7QPointF
 inline QString QPlainTextEditControl::anchorAt(const QPointF &pos) const
 {
     return textEdit->anchorAt(pos.toPoint());
+}
+
+//  from src/widgets/widgets/qplaintextedit.cpp, line 414, as _ZN21QPlainTextEditControlC1EP14QPlainTextEdit
+inline QPlainTextEditControl::QPlainTextEditControl(QPlainTextEdit *parent)
+    : QWidgetTextControl(parent), textEdit(parent),
+      topBlock(0)
+{
+    setAcceptRichText(false);
 }
 
 //  from src/widgets/widgets/qplaintextedit.cpp, line 496, as _ZNK21QPlainTextEditControl17firstVisibleBlockEv
@@ -682,6 +766,22 @@ int ritual_ZN21QPlainTextEditControl11qt_metacallEN11QMetaObject4CallEiPPv(
     int a1,
     void **a2) {
   return self->qt_metacall(a0, a1, a2);
+}
+
+//  QString QPlainTextEditControl::tr(const char *s, const char *c, int n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN21QPlainTextEditControl2trEPKcS1_i(
+    const char *s,
+    const char *c,
+    int n) {
+  return new QString(QPlainTextEditControl::tr(s, c, n));
+}
+
+//  QPlainTextEditControl::QPlainTextEditControl(QPlainTextEdit *parent)
+extern "C" Q_DECL_EXPORT
+QPlainTextEditControl *ritual_ZN21QPlainTextEditControlC1EP14QPlainTextEdit(
+    QPlainTextEdit *parent) {
+  return new CuteQPlainTextEditControl(parent);
 }
 
 //  QMimeData *QPlainTextEditControl::createMimeDataFromSelection() const

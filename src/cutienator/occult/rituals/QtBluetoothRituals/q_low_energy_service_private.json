@@ -2,7 +2,7 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of QtBluet",
     "ooth/6.12.0/QtBluetooth/private/qlowenergyserviceprivate_p.h, Qt",
-    "6.12.0. Changes made here are lost."
+    "6.12.0. Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZNK24QLowEnergyServicePrivate10metaObjectEv": [
@@ -14,7 +14,22 @@
     "ritual_ZN24QLowEnergyServicePrivate11qt_metacallEN11QMetaObject4CallEiPPv": [
       "int", "address", "int", "int", "address"
     ],
+    "ritual_ZN24QLowEnergyServicePrivate2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN24QLowEnergyServicePrivateC1EP7QObject": [
+      "address", "address"
+    ],
     "ritual_ZN24QLowEnergyServicePrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN24QLowEnergyServicePrivate13setControllerEP27QLowEnergyControllerPrivate": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QLowEnergyServicePrivate8setErrorEN17QLowEnergyService12ServiceErrorE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN24QLowEnergyServicePrivate8setStateEN17QLowEnergyService12ServiceStateE": [
+      "nothing", "address", "int"
+    ],
     "ritual_ZN24QLowEnergyServicePrivate12stateChangedEN17QLowEnergyService12ServiceStateE": [
       "nothing", "address", "int"
     ],

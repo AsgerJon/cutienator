@@ -1,6 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtQmlModels/6.12.0/QtQmlModels/private/qqmldelegatemodel_p.h, Qt 6.12.0.
-//  Changes made here are lost.
+//  Edited by hand on 2026-11-25, mended on 2026-11-26: added by hand,
+//  instances of templates of the class: 7. Kept as it is when the generator
+//  runs again.
 #include <QtQmlModels/qtqmlmodelsglobal.h>
 #include <QtQmlModels/6.12.0/QtQmlModels/private/qtqmlmodelsglobal_p.h>
 #if QT_CONFIG(qml_delegate_model)
@@ -18,6 +20,12 @@
 #include <QtCore/qlist.h>
 #include <cstring>
 #include <QtQml/QQmlListProperty>
+#include <QtQuick/6.12.0/QtQuick/private/qquickrepeater_p.h>
+#include <QtQuick/6.12.0/QtQuick/private/qquickrepeater_p_p.h>
+#include <QtQuick/6.12.0/QtQuick/private/qquickitemview_p.h>
+#include <QtQuick/6.12.0/QtQuick/private/qquickitemview_p_p.h>
+#include <QtQmlModels/6.12.0/QtQmlModels/private/qqmlinstantiator_p.h>
+#include <QtQmlModels/6.12.0/QtQmlModels/private/qqmlinstantiator_p_p.h>
 
 //  A QQmlDelegateModel that Python can take functions over in. Every QQmlDelegateModel
 //  Python makes is one. Each function below asks the Python
@@ -1250,6 +1258,75 @@ extern "C" Q_DECL_EXPORT
 void ritual_drop_QQmlDelegateModel__QQmlListProperty_QQmlDelegateModelGroup(
     QQmlListProperty<QQmlDelegateModelGroup> *self) {
   delete self;
+}
+
+//  static QQmlDelegateModel
+//      *QQmlDelegateModel::createForView<QQuickRepeater,
+//      QQuickRepeaterPrivate>(QQuickRepeater *q, QQuickRepeaterPrivate *d)
+extern "C" Q_DECL_EXPORT
+QQmlDelegateModel *ritual_ZN17QQmlDelegateModel13createForViewI14QQuickRepeater21QQuickRepeaterPrivateEEPS_PT_PT0_(
+    QQuickRepeater *q,
+    QQuickRepeaterPrivate *d) {
+  return QQmlDelegateModel::createForView<QQuickRepeater, QQuickRepeaterPrivate>(q, d);
+}
+
+//  static QQmlDelegateModel
+//      *QQmlDelegateModel::createForView<QQuickItemView,
+//      QQuickItemViewPrivate>(QQuickItemView *q, QQuickItemViewPrivate *d)
+extern "C" Q_DECL_EXPORT
+QQmlDelegateModel *ritual_ZN17QQmlDelegateModel13createForViewI14QQuickItemView21QQuickItemViewPrivateEEPS_PT_PT0_(
+    QQuickItemView *q,
+    QQuickItemViewPrivate *d) {
+  return QQmlDelegateModel::createForView<QQuickItemView, QQuickItemViewPrivate>(q, d);
+}
+
+//  static QQmlDelegateModel
+//      *QQmlDelegateModel::createForView<QQmlInstantiator,
+//      QQmlInstantiatorPrivate>(QQmlInstantiator *q, QQmlInstantiatorPrivate
+//      *d)
+extern "C" Q_DECL_EXPORT
+QQmlDelegateModel *ritual_ZN17QQmlDelegateModel13createForViewI16QQmlInstantiator23QQmlInstantiatorPrivateEEPS_PT_PT0_(
+    QQmlInstantiator *q,
+    QQmlInstantiatorPrivate *d) {
+  return QQmlDelegateModel::createForView<QQmlInstantiator, QQmlInstantiatorPrivate>(q, d);
+}
+
+//  static void QQmlDelegateModel::applyDelegateChangeOnView<QQuickRepeater,
+//      QQuickRepeaterPrivate>(QQuickRepeater *q, QQuickRepeaterPrivate *d)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQmlDelegateModel25applyDelegateChangeOnViewI14QQuickRepeater21QQuickRepeaterPrivateEEvPT_PT0_(
+    QQuickRepeater *q,
+    QQuickRepeaterPrivate *d) {
+  QQmlDelegateModel::applyDelegateChangeOnView<QQuickRepeater, QQuickRepeaterPrivate>(q, d);
+}
+
+//  static void QQmlDelegateModel::applyDelegateChangeOnView<QQuickItemView,
+//      QQuickItemViewPrivate>(QQuickItemView *q, QQuickItemViewPrivate *d)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQmlDelegateModel25applyDelegateChangeOnViewI14QQuickItemView21QQuickItemViewPrivateEEvPT_PT0_(
+    QQuickItemView *q,
+    QQuickItemViewPrivate *d) {
+  QQmlDelegateModel::applyDelegateChangeOnView<QQuickItemView, QQuickItemViewPrivate>(q, d);
+}
+
+//  static void
+//      QQmlDelegateModel::applyDelegateModelAccessChangeOnView<QQuickRepeater,
+//      QQuickRepeaterPrivate>(QQuickRepeater *q, QQuickRepeaterPrivate *d)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQmlDelegateModel36applyDelegateModelAccessChangeOnViewI14QQuickRepeater21QQuickRepeaterPrivateEEvPT_PT0_(
+    QQuickRepeater *q,
+    QQuickRepeaterPrivate *d) {
+  QQmlDelegateModel::applyDelegateModelAccessChangeOnView<QQuickRepeater, QQuickRepeaterPrivate>(q, d);
+}
+
+//  static void
+//      QQmlDelegateModel::applyDelegateModelAccessChangeOnView<QQuickItemView,
+//      QQuickItemViewPrivate>(QQuickItemView *q, QQuickItemViewPrivate *d)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQmlDelegateModel36applyDelegateModelAccessChangeOnViewI14QQuickItemView21QQuickItemViewPrivateEEvPT_PT0_(
+    QQuickItemView *q,
+    QQuickItemViewPrivate *d) {
+  QQmlDelegateModel::applyDelegateModelAccessChangeOnView<QQuickItemView, QQuickItemViewPrivate>(q, d);
 }
 
 #endif  // QT_CONFIG(qml_delegate_model)

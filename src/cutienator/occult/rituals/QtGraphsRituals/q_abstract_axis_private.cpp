@@ -39,6 +39,9 @@ inline const QLoggingCategory &lcAxis2D()
     return category;
 }
 
+//  from ../qtgraphs/src/graphs2d/axis/qabstractaxis.cpp, line 697, as _ZN20QAbstractAxisPrivateC1Ev
+inline QAbstractAxisPrivate::QAbstractAxisPrivate() {}
+
 //  from ../qtgraphs/src/graphs2d/axis/qabstractaxis.cpp, line 706, as _ZN20QAbstractAxisPrivate8setGraphEP11QGraphsView
 inline void QAbstractAxisPrivate::setGraph(QGraphsView *graph)
 {
@@ -160,6 +163,12 @@ public:
     return {};
   }
 };
+
+//  QAbstractAxisPrivate::QAbstractAxisPrivate()
+extern "C" Q_DECL_EXPORT
+QAbstractAxisPrivate *ritual_ZN20QAbstractAxisPrivateC1Ev() {
+  return new CuteQAbstractAxisPrivate();
+}
 
 //  QAbstractAxisPrivate::~QAbstractAxisPrivate()
 extern "C" Q_DECL_EXPORT

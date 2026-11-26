@@ -7,6 +7,9 @@
   "rows": {
     "ritual_ZN22QAbstractButtonPrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK22QAbstractButtonPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN22QAbstractButtonPrivateC1EN11QSizePolicy11ControlTypeE": [
+      "address", "int"
+    ],
     "ritual_ZN22QAbstractButtonPrivate4initEv": ["nothing", "address"],
     "ritual_ZN22QAbstractButtonPrivate5clickEv": ["nothing", "address"],
     "ritual_ZN22QAbstractButtonPrivate7refreshEv": ["nothing", "address"],

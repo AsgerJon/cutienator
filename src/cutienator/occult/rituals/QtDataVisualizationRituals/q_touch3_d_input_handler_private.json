@@ -2,7 +2,7 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of QtDataV",
     "isualization/6.12.0/QtDataVisualization/private/qtouch3dinputhandl",
-    "er_p.h, Qt 6.12.0. Changes made here are lost."
+    "er_p.h, Qt 6.12.0. Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZNK27QTouch3DInputHandlerPrivate10metaObjectEv": [
@@ -13,6 +13,12 @@
     ],
     "ritual_ZN27QTouch3DInputHandlerPrivate11qt_metacallEN11QMetaObject4CallEiPPv": [
       "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN27QTouch3DInputHandlerPrivate2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN27QTouch3DInputHandlerPrivateC1EP20QTouch3DInputHandler": [
+      "address", "address"
     ],
     "ritual_ZN27QTouch3DInputHandlerPrivateD1Ev": ["nothing", "address"],
     "ritual_ZN27QTouch3DInputHandlerPrivate15handlePinchZoomEfRK6QPoint": [

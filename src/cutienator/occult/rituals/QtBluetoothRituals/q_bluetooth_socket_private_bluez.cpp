@@ -1,6 +1,12 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtBluetooth/6.12.0/QtBluetooth/private/qbluetoothsocket_bluez_p.h, Qt
-//  6.12.0. Changes made here are lost.
+//  6.12.0.
+//  Edited by hand on 2026-11-26: added are 1 rituals that lean on what moc
+//  writes for a class of the part Qt keeps to itself, whose ritual file
+//  carries moc's output, drafted by a copy of the generator that lets those
+//  names through. A copy of a meta-object is a second one: 'qobject_cast'
+//  between it and Qt's own does not match. Kept as it is when the generator
+//  runs again.
 #include <QtBluetooth/qtbluetoothglobal.h>
 #include <QtBluetooth/6.12.0/QtBluetooth/private/qtbluetoothglobal_p.h>
 #if QT_CONFIG(bluez)
@@ -41,6 +47,79 @@ inline QBluetoothSocketBasePrivate::QBluetoothSocketBasePrivate(QObject *parent)
 inline QBluetoothSocketBasePrivate::~QBluetoothSocketBasePrivate()
 {
 
+}
+
+//  from ../qtconnectivity/src/bluetooth/qbluetoothsocket_bluez.cpp, line 281, as _ZN28QBluetoothSocketPrivateBluez14_q_writeNotifyEv
+inline void QBluetoothSocketPrivateBluez::_q_writeNotify()
+{
+    Q_Q(QBluetoothSocket);
+    if (connecting && state == QBluetoothSocket::SocketState::ConnectingState){
+        int errorno, len;
+        len = sizeof(errorno);
+        ::getsockopt(socket, SOL_SOCKET, SO_ERROR, &errorno, (socklen_t*)&len);
+        if(errorno) {
+            errorString = qt_error_string(errorno);
+            q->setSocketError(QBluetoothSocket::SocketError::UnknownSocketError);
+            return;
+        }
+
+        q->setSocketState(QBluetoothSocket::SocketState::ConnectedState);
+
+        connectWriteNotifier->setEnabled(false);
+        connecting = false;
+    }
+    else {
+        if (txBuffer.size() == 0) {
+            connectWriteNotifier->setEnabled(false);
+            return;
+        }
+
+        char buf[1024];
+
+        const auto size = txBuffer.read(buf, 1024);
+        const auto writtenBytes = qt_safe_write(socket, buf, size);
+        if (writtenBytes < 0) {
+            switch (errno) {
+            case EAGAIN:
+                txBuffer.ungetBlock(buf, size);
+                break;
+            default:
+                // every other case returns error
+                errorString = QBluetoothSocket::tr("Network Error: %1").arg(qt_error_string(errno)) ;
+                q->setSocketError(QBluetoothSocket::SocketError::NetworkError);
+                break;
+            }
+        } else {
+            if (writtenBytes < size) {
+                // add remainder back to buffer
+                char* remainder = buf + writtenBytes;
+                txBuffer.ungetBlock(remainder, size - writtenBytes);
+            }
+            if (writtenBytes > 0)
+                emit q->bytesWritten(writtenBytes);
+        }
+
+        if (txBuffer.size()) {
+            connectWriteNotifier->setEnabled(true);
+        }
+        else if (state == QBluetoothSocket::SocketState::ClosingState) {
+            connectWriteNotifier->setEnabled(false);
+            this->close();
+        }
+    }
+}
+
+//  from ../qtconnectivity/src/bluetooth/qbluetoothsocket_bluez.cpp, line 35, as _ZN28QBluetoothSocketPrivateBluezD1Ev
+inline QBluetoothSocketPrivateBluez::~QBluetoothSocketPrivateBluez()
+{
+    delete readNotifier;
+    readNotifier = nullptr;
+    delete connectWriteNotifier;
+    connectWriteNotifier = nullptr;
+
+    // If the socket wasn't closed/aborted make sure we free the socket file descriptor
+    if (socket != -1)
+        QT_CLOSE(socket);
 }
 
 //  from ../qtconnectivity/src/bluetooth/qbluetoothsocket_bluez.cpp, line 367, as _ZN28QBluetoothSocketPrivateBluez5abortEv
@@ -188,6 +267,13 @@ inline qint64 QBluetoothSocketPrivateBluez::bytesToWrite() const
     return txBuffer.size();
 }
 //  -----------------------------------------------------------------------
+
+//  QBluetoothSocketPrivateBluez::~QBluetoothSocketPrivateBluez()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QBluetoothSocketPrivateBluezD1Ev(
+    QBluetoothSocketPrivateBluez *self) {
+  delete self;
+}
 
 //  void QBluetoothSocketPrivateBluez::abort()
 extern "C" Q_DECL_EXPORT

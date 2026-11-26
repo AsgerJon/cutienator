@@ -1,6 +1,14 @@
 //  Written by dev_tooling.RitualGenerator from the records of QtWaylandCompo
 //  sitor/6.12.0/QtWaylandCompositor/private/qwaylandxdgshellintegration_p.h,
-//  Qt 6.12.0. Changes made here are lost.
+//  Qt 6.12.0.
+//  Edited by hand on 2026-11-26: moc's output for
+//  'QtWayland::XdgToplevelIntegration' is pasted in, cut from what the moc
+//  of Qt 6.12.0 writes for its header: Qt's library keeps it to itself;
+//  added are 2 rituals that lean on what moc writes for a class of the part
+//  Qt keeps to itself, whose ritual file carries moc's output, drafted by a
+//  copy of the generator that lets those names through. A copy of a meta-
+//  object is a second one: 'qobject_cast' between it and Qt's own does not
+//  match. Kept as it is when the generator runs again.
 #include <QtWaylandCompositor/qtwaylandcompositorglobal.h>
 #include <QtWaylandCompositor/6.12.0/QtWaylandCompositor/private/qtwaylandcompositorglobal_p.h>
 #if QT_CONFIG(wayland_compositor_quick)
@@ -9,8 +17,13 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtWaylandCompositor/6.12.0/QtWaylandCompositor/private/qwaylandxdgshellintegration_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 #include <QtCore/qpoint.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
 #include <QtWaylandCompositor/private/qwaylandxdgshellintegration_p.h>
 #include <QtWaylandCompositor/QWaylandXdgSurface>
 #include <QtWaylandCompositor/QWaylandCompositor>
@@ -33,15 +46,144 @@ static void handlePopupCreated(QWaylandQuickShellSurfaceItem *parentItem, QWayla
 }
 }  // namespace QtWayland
 
-//  from ../qtwayland/src/compositor/extensions/qwaylandxdgshellintegration.cpp, line 117, as _ZN9QtWayland22XdgToplevelIntegration15handleStartMoveEP12QWaylandSeat
-namespace QtWayland {
-inline void XdgToplevelIntegration::handleStartMove(QWaylandSeat *seat)
+//  from QtWaylandCompositor__QtWayland_XdgToplevelIntegration.cpp, line 1, as moc:QtWayland::XdgToplevelIntegration
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN9QtWayland22XdgToplevelIntegrationE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto QtWayland::XdgToplevelIntegration::qt_create_metaobjectdata<qt_meta_tag_ZN9QtWayland22XdgToplevelIntegrationE_t>()
 {
-    grabberState = GrabberState::Move;
-    moveState.seat = seat;
-    moveState.initialized = false;
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "QtWayland::XdgToplevelIntegration",
+        "handleStartMove",
+        "",
+        "QWaylandSeat*",
+        "seat",
+        "handleStartResize",
+        "Qt::Edges",
+        "edges",
+        "handleSetMaximized",
+        "handleUnsetMaximized",
+        "handleMaximizedChanged",
+        "handleSetFullscreen",
+        "handleUnsetFullscreen",
+        "handleFullscreenChanged",
+        "handleActivatedChanged",
+        "handleSurfaceSizeChanged",
+        "handleToplevelDestroyed",
+        "handleMaximizedSizeChanged",
+        "handleFullscreenSizeChanged"
+    };
+
+    QtMocHelpers::UintData qt_methods {
+        // Slot 'handleStartMove'
+        QtMocHelpers::SlotData<void(QWaylandSeat *)>(1, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { 0x80000000 | 3, 4 },
+        }}),
+        // Slot 'handleStartResize'
+        QtMocHelpers::SlotData<void(QWaylandSeat *, Qt::Edges)>(5, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { 0x80000000 | 3, 4 }, { 0x80000000 | 6, 7 },
+        }}),
+        // Slot 'handleSetMaximized'
+        QtMocHelpers::SlotData<void()>(8, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'handleUnsetMaximized'
+        QtMocHelpers::SlotData<void()>(9, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'handleMaximizedChanged'
+        QtMocHelpers::SlotData<void()>(10, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'handleSetFullscreen'
+        QtMocHelpers::SlotData<void()>(11, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'handleUnsetFullscreen'
+        QtMocHelpers::SlotData<void()>(12, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'handleFullscreenChanged'
+        QtMocHelpers::SlotData<void()>(13, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'handleActivatedChanged'
+        QtMocHelpers::SlotData<void()>(14, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'handleSurfaceSizeChanged'
+        QtMocHelpers::SlotData<void()>(15, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'handleToplevelDestroyed'
+        QtMocHelpers::SlotData<void()>(16, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'handleMaximizedSizeChanged'
+        QtMocHelpers::SlotData<void()>(17, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'handleFullscreenSizeChanged'
+        QtMocHelpers::SlotData<void()>(18, 2, QMC::AccessPrivate, QMetaType::Void),
+    };
+    QtMocHelpers::UintData qt_properties {
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    return QtMocHelpers::metaObjectData<XdgToplevelIntegration, qt_meta_tag_ZN9QtWayland22XdgToplevelIntegrationE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums);
 }
-}  // namespace QtWayland
+Q_CONSTINIT const QMetaObject QtWayland::XdgToplevelIntegration::staticMetaObject = { {
+    QMetaObject::SuperData::link<QWaylandQuickShellIntegration::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN9QtWayland22XdgToplevelIntegrationE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN9QtWayland22XdgToplevelIntegrationE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN9QtWayland22XdgToplevelIntegrationE_t>.metaTypes,
+    nullptr
+} };
+
+void QtWayland::XdgToplevelIntegration::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<XdgToplevelIntegration *>(_o);
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        switch (_id) {
+        case 0: _t->handleStartMove((*reinterpret_cast<std::add_pointer_t<QWaylandSeat*>>(_a[1]))); break;
+        case 1: _t->handleStartResize((*reinterpret_cast<std::add_pointer_t<QWaylandSeat*>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<Qt::Edges>>(_a[2]))); break;
+        case 2: _t->handleSetMaximized(); break;
+        case 3: _t->handleUnsetMaximized(); break;
+        case 4: _t->handleMaximizedChanged(); break;
+        case 5: _t->handleSetFullscreen(); break;
+        case 6: _t->handleUnsetFullscreen(); break;
+        case 7: _t->handleFullscreenChanged(); break;
+        case 8: _t->handleActivatedChanged(); break;
+        case 9: _t->handleSurfaceSizeChanged(); break;
+        case 10: _t->handleToplevelDestroyed(); break;
+        case 11: _t->handleMaximizedSizeChanged(); break;
+        case 12: _t->handleFullscreenSizeChanged(); break;
+        default: ;
+        }
+    }
+}
+
+const QMetaObject *QtWayland::XdgToplevelIntegration::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *QtWayland::XdgToplevelIntegration::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN9QtWayland22XdgToplevelIntegrationE_t>.strings))
+        return static_cast<void*>(this);
+    return QWaylandQuickShellIntegration::qt_metacast(_clname);
+}
+
+int QtWayland::XdgToplevelIntegration::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QWaylandQuickShellIntegration::qt_metacall(_c, _id, _a);
+    if (_id < 0)
+        return _id;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        if (_id < 13)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 13;
+    }
+    if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        if (_id < 13)
+            *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
+        _id -= 13;
+    }
+    return _id;
+}
+QT_WARNING_POP
 
 //  from ../qtwayland/src/compositor/extensions/qwaylandxdgshellintegration.cpp, line 48, as _ZN9QtWayland22XdgToplevelIntegration11eventFilterEP7QObjectP6QEvent
 namespace QtWayland {
@@ -57,6 +199,232 @@ inline bool XdgToplevelIntegration::eventFilter(QObject *object, QEvent *event)
         return filterTouchUpdateEvent(touchEvent);
     }
     return QWaylandQuickShellIntegration::eventFilter(object, event);
+}
+}  // namespace QtWayland
+
+//  from ../qtwayland/src/compositor/extensions/qwaylandxdgshellintegration.cpp, line 117, as _ZN9QtWayland22XdgToplevelIntegration15handleStartMoveEP12QWaylandSeat
+namespace QtWayland {
+inline void XdgToplevelIntegration::handleStartMove(QWaylandSeat *seat)
+{
+    grabberState = GrabberState::Move;
+    moveState.seat = seat;
+    moveState.initialized = false;
+}
+}  // namespace QtWayland
+
+//  from ../qtwayland/src/compositor/extensions/qwaylandxdgshellintegration.cpp, line 124, as _ZN9QtWayland22XdgToplevelIntegration17handleStartResizeEP12QWaylandSeat6QFlagsIN2Qt4EdgeEE
+namespace QtWayland {
+inline void XdgToplevelIntegration::handleStartResize(QWaylandSeat *seat, Qt::Edges edges)
+{
+    grabberState = GrabberState::Resize;
+    resizeState.seat = seat;
+    resizeState.resizeEdges = edges;
+    resizeState.initialWindowSize = m_xdgSurface->windowGeometry().size();
+    resizeState.initialPosition = m_item->moveItem()->position();
+    resizeState.initialSurfaceSize = m_item->surface()->destinationSize();
+    resizeState.initialized = false;
+}
+}  // namespace QtWayland
+
+//  from ../qtwayland/src/compositor/extensions/qwaylandxdgshellintegration.cpp, line 135, as _ZN9QtWayland22XdgToplevelIntegration18handleSetMaximizedEv
+namespace QtWayland {
+inline void XdgToplevelIntegration::handleSetMaximized()
+{
+    if (!m_item->view()->isPrimary())
+        return;
+
+    QList<QWaylandXdgToplevel::State> states = m_toplevel->states();
+
+    if (!states.contains(QWaylandXdgToplevel::State::FullscreenState) && !states.contains(QWaylandXdgToplevel::State::MaximizedState)) {
+        windowedGeometry.initialWindowSize = m_xdgSurface->windowGeometry().size();
+        windowedGeometry.initialPosition = m_item->moveItem()->position();
+    }
+
+    // Any prior output-resize handlers are irrelevant at this point.
+    disconnect(nonwindowedState.sizeChangedConnection);
+    nonwindowedState.output = m_item->view()->output();
+    nonwindowedState.sizeChangedConnection = connect(nonwindowedState.output, &QWaylandOutput::availableGeometryChanged, this, &XdgToplevelIntegration::handleMaximizedSizeChanged);
+    handleMaximizedSizeChanged();
+}
+}  // namespace QtWayland
+
+//  from ../qtwayland/src/compositor/extensions/qwaylandxdgshellintegration.cpp, line 191, as _ZN9QtWayland22XdgToplevelIntegration19handleSetFullscreenEv
+namespace QtWayland {
+inline void XdgToplevelIntegration::handleSetFullscreen()
+{
+    if (!m_item->view()->isPrimary())
+        return;
+
+    QList<QWaylandXdgToplevel::State> states = m_toplevel->states();
+
+    if (!states.contains(QWaylandXdgToplevel::State::FullscreenState) && !states.contains(QWaylandXdgToplevel::State::MaximizedState)) {
+        windowedGeometry.initialWindowSize = m_xdgSurface->windowGeometry().size();
+        windowedGeometry.initialPosition = m_item->moveItem()->position();
+    }
+
+    // Any prior output-resize handlers are irrelevant at this point.
+    disconnect(nonwindowedState.sizeChangedConnection);
+    nonwindowedState.output = m_item->view()->output();
+    nonwindowedState.sizeChangedConnection = connect(nonwindowedState.output, &QWaylandOutput::geometryChanged, this, &XdgToplevelIntegration::handleFullscreenSizeChanged);
+    handleFullscreenSizeChanged();
+}
+}  // namespace QtWayland
+
+//  from ../qtwayland/src/compositor/extensions/qwaylandxdgshellintegration.cpp, line 164, as _ZN9QtWayland22XdgToplevelIntegration20handleUnsetMaximizedEv
+namespace QtWayland {
+inline void XdgToplevelIntegration::handleUnsetMaximized()
+{
+    if (!m_item->view()->isPrimary())
+        return;
+
+    // If no prior windowed size was recorded, send a 0x0 configure event
+    // to allow the client to choose its preferred size.
+    if (windowedGeometry.initialWindowSize.isValid())
+        m_toplevel->sendUnmaximized(windowedGeometry.initialWindowSize);
+    else
+        m_toplevel->sendUnmaximized();
+}
+}  // namespace QtWayland
+
+//  from ../qtwayland/src/compositor/extensions/qwaylandxdgshellintegration.cpp, line 220, as _ZN9QtWayland22XdgToplevelIntegration21handleUnsetFullscreenEv
+namespace QtWayland {
+inline void XdgToplevelIntegration::handleUnsetFullscreen()
+{
+    if (!m_item->view()->isPrimary())
+        return;
+
+    // If no prior windowed size was recorded, send a 0x0 configure event
+    // to allow the client to choose its preferred size.
+    if (windowedGeometry.initialWindowSize.isValid())
+        m_toplevel->sendUnmaximized(windowedGeometry.initialWindowSize);
+    else
+        m_toplevel->sendUnmaximized();
+}
+}  // namespace QtWayland
+
+//  from ../qtwayland/src/compositor/extensions/qwaylandxdgshellintegration.cpp, line 247, as _ZN9QtWayland22XdgToplevelIntegration22handleActivatedChangedEv
+namespace QtWayland {
+inline void XdgToplevelIntegration::handleActivatedChanged()
+{
+    if (m_toplevel->activated())
+        m_item->raise();
+}
+}  // namespace QtWayland
+
+//  from ../qtwayland/src/compositor/extensions/qwaylandxdgshellintegration.cpp, line 177, as _ZN9QtWayland22XdgToplevelIntegration22handleMaximizedChangedEv
+namespace QtWayland {
+inline void XdgToplevelIntegration::handleMaximizedChanged()
+{
+    if (m_toplevel->maximized()) {
+        if (auto *output = m_item->view()->output()) {
+            m_item->moveItem()->setPosition(output->position() + output->availableGeometry().topLeft());
+        } else {
+            qCWarning(qLcWaylandCompositor) << "The view does not have a corresponding output,"
+                                            << "ignoring maximized state";
+        }
+    } else {
+        m_item->moveItem()->setPosition(windowedGeometry.initialPosition);
+    }
+}
+}  // namespace QtWayland
+
+//  from ../qtwayland/src/compositor/extensions/qwaylandxdgshellintegration.cpp, line 233, as _ZN9QtWayland22XdgToplevelIntegration23handleFullscreenChangedEv
+namespace QtWayland {
+inline void XdgToplevelIntegration::handleFullscreenChanged()
+{
+    if (m_toplevel->fullscreen()) {
+        if (auto *output = m_item->view()->output()) {
+            m_item->moveItem()->setPosition(output->position() + output->geometry().topLeft());
+        } else {
+            qCWarning(qLcWaylandCompositor) << "The view does not have a corresponding output,"
+                                            << "ignoring fullscreen state";
+        }
+    } else {
+        m_item->moveItem()->setPosition(windowedGeometry.initialPosition);
+    }
+}
+}  // namespace QtWayland
+
+//  from ../qtwayland/src/compositor/extensions/qwaylandxdgshellintegration.cpp, line 267, as _ZN9QtWayland22XdgToplevelIntegration23handleToplevelDestroyedEv
+namespace QtWayland {
+inline void XdgToplevelIntegration::handleToplevelDestroyed()
+{
+    // Disarm any handlers that might fire on the now-stale toplevel pointer
+    nonwindowedState.output = nullptr;
+    disconnect(nonwindowedState.sizeChangedConnection);
+}
+}  // namespace QtWayland
+
+//  from ../qtwayland/src/compositor/extensions/qwaylandxdgshellintegration.cpp, line 253, as _ZN9QtWayland22XdgToplevelIntegration24handleSurfaceSizeChangedEv
+namespace QtWayland {
+inline void XdgToplevelIntegration::handleSurfaceSizeChanged()
+{
+    if (grabberState == GrabberState::Resize) {
+        qreal dx = 0;
+        qreal dy = 0;
+        if (resizeState.resizeEdges & Qt::TopEdge)
+            dy = resizeState.initialSurfaceSize.height() - m_item->surface()->destinationSize().height();
+        if (resizeState.resizeEdges & Qt::LeftEdge)
+            dx = resizeState.initialSurfaceSize.width() - m_item->surface()->destinationSize().width();
+        QPointF offset = m_item->mapFromSurface({dx, dy});
+        m_item->moveItem()->setPosition(resizeState.initialPosition + offset);
+    }
+}
+}  // namespace QtWayland
+
+//  from ../qtwayland/src/compositor/extensions/qwaylandxdgshellintegration.cpp, line 154, as _ZN9QtWayland22XdgToplevelIntegration26handleMaximizedSizeChangedEv
+namespace QtWayland {
+inline void XdgToplevelIntegration::handleMaximizedSizeChanged()
+{
+    // Insurance against handleToplevelDestroyed() not managing to disconnect this
+    // handler in time.
+    if (m_toplevel == nullptr)
+        return;
+
+    m_toplevel->sendMaximized(nonwindowedState.output->availableGeometry().size() / nonwindowedState.output->scaleFactor());
+}
+}  // namespace QtWayland
+
+//  from ../qtwayland/src/compositor/extensions/qwaylandxdgshellintegration.cpp, line 210, as _ZN9QtWayland22XdgToplevelIntegration27handleFullscreenSizeChangedEv
+namespace QtWayland {
+inline void XdgToplevelIntegration::handleFullscreenSizeChanged()
+{
+    // Insurance against handleToplevelDestroyed() not managing to disconnect this
+    // handler in time.
+    if (m_toplevel == nullptr)
+        return;
+
+    m_toplevel->sendFullscreen(nonwindowedState.output->geometry().size() / nonwindowedState.output->scaleFactor());
+}
+}  // namespace QtWayland
+
+//  from ../qtwayland/src/compositor/extensions/qwaylandxdgshellintegration.cpp, line 21, as _ZN9QtWayland22XdgToplevelIntegrationC1EP29QWaylandQuickShellSurfaceItem
+namespace QtWayland {
+inline XdgToplevelIntegration::XdgToplevelIntegration(QWaylandQuickShellSurfaceItem *item)
+    : QWaylandQuickShellIntegration(item)
+    , m_item(item)
+    , m_xdgSurface(qobject_cast<QWaylandXdgSurface *>(item->shellSurface()))
+    , m_toplevel(m_xdgSurface->toplevel())
+    , grabberState(GrabberState::Default)
+{
+    Q_ASSERT(m_toplevel);
+
+    m_item->setSurface(m_xdgSurface->surface());
+
+    connect(m_toplevel, &QWaylandXdgToplevel::startMove, this, &XdgToplevelIntegration::handleStartMove);
+    connect(m_toplevel, &QWaylandXdgToplevel::startResize, this, &XdgToplevelIntegration::handleStartResize);
+    connect(m_toplevel, &QWaylandXdgToplevel::setMaximized, this, &XdgToplevelIntegration::handleSetMaximized);
+    connect(m_toplevel, &QWaylandXdgToplevel::unsetMaximized, this, &XdgToplevelIntegration::handleUnsetMaximized);
+    connect(m_toplevel, &QWaylandXdgToplevel::maximizedChanged, this, &XdgToplevelIntegration::handleMaximizedChanged);
+    connect(m_toplevel, &QWaylandXdgToplevel::setFullscreen, this, &XdgToplevelIntegration::handleSetFullscreen);
+    connect(m_toplevel, &QWaylandXdgToplevel::unsetFullscreen, this, &XdgToplevelIntegration::handleUnsetFullscreen);
+    connect(m_toplevel, &QWaylandXdgToplevel::fullscreenChanged, this, &XdgToplevelIntegration::handleFullscreenChanged);
+    connect(m_toplevel, &QWaylandXdgToplevel::activatedChanged, this, &XdgToplevelIntegration::handleActivatedChanged);
+    connect(m_xdgSurface->shell(), &QWaylandXdgShell::popupCreated, this, [item](QWaylandXdgPopup *popup, QWaylandXdgSurface *){
+        handlePopupCreated(item, popup);
+    });
+    connect(m_xdgSurface->surface(), &QWaylandSurface::destinationSizeChanged, this, &XdgToplevelIntegration::handleSurfaceSizeChanged);
+    connect(m_toplevel, &QObject::destroyed, this, &XdgToplevelIntegration::handleToplevelDestroyed);
 }
 }  // namespace QtWayland
 
@@ -158,6 +526,24 @@ int ritual_ZN9QtWayland22XdgToplevelIntegration11qt_metacallEN11QMetaObject4Call
     int a1,
     void **a2) {
   return self->qt_metacall(a0, a1, a2);
+}
+
+//  QString QtWayland::XdgToplevelIntegration::tr(const char *s, const char
+//      *c, int n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN9QtWayland22XdgToplevelIntegration2trEPKcS2_i(
+    const char *s,
+    const char *c,
+    int n) {
+  return new QString(QtWayland::XdgToplevelIntegration::tr(s, c, n));
+}
+
+//  QtWayland::XdgToplevelIntegration::XdgToplevelIntegration(QWaylandQuickSh
+//      ellSurfaceItem *item)
+extern "C" Q_DECL_EXPORT
+QtWayland::XdgToplevelIntegration *ritual_ZN9QtWayland22XdgToplevelIntegrationC1EP29QWaylandQuickShellSurfaceItem(
+    QWaylandQuickShellSurfaceItem *item) {
+  return new QtWayland::XdgToplevelIntegration(item);
 }
 
 //  bool QtWayland::XdgToplevelIntegration::eventFilter(QObject *object,

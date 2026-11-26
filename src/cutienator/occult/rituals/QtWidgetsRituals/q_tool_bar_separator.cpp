@@ -1,6 +1,13 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/6.12.0/QtWidgets/private/qtoolbarseparator_p.h, Qt 6.12.0.
-//  Changes made here are lost.
+//  Edited by hand on 2026-11-26: moc's output for 'QToolBarSeparator' is
+//  pasted in, cut from what the moc of Qt 6.12.0 writes for its header: Qt's
+//  library keeps it to itself; added are 2 rituals that lean on what moc
+//  writes for a class of the part Qt keeps to itself, whose ritual file
+//  carries moc's output, drafted by a copy of the generator that lets those
+//  names through. A copy of a meta-object is a second one: 'qobject_cast'
+//  between it and Qt's own does not match. Kept as it is when the generator
+//  runs again.
 #include <QtGui/qtguiglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
@@ -11,11 +18,16 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtWidgets/6.12.0/QtWidgets/private/qtoolbarseparator_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 #include <QtCore/qsize.h>
 #include <QtCore/qvariant.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
 #include <QtWidgets/private/qtoolbarseparator_p.h>
 #include <QtWidgets/qstyle.h>
 #include <QtWidgets/qstyleoption.h>
@@ -30,6 +42,93 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from QtWidgets__QToolBarSeparator.cpp, line 1, as moc:QToolBarSeparator
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN17QToolBarSeparatorE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto QToolBarSeparator::qt_create_metaobjectdata<qt_meta_tag_ZN17QToolBarSeparatorE_t>()
+{
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "QToolBarSeparator",
+        "setOrientation",
+        "",
+        "Qt::Orientation",
+        "orientation"
+    };
+
+    QtMocHelpers::UintData qt_methods {
+        // Slot 'setOrientation'
+        QtMocHelpers::SlotData<void(Qt::Orientation)>(1, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { 0x80000000 | 3, 4 },
+        }}),
+    };
+    QtMocHelpers::UintData qt_properties {
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    return QtMocHelpers::metaObjectData<QToolBarSeparator, qt_meta_tag_ZN17QToolBarSeparatorE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums);
+}
+Q_CONSTINIT const QMetaObject QToolBarSeparator::staticMetaObject = { {
+    QMetaObject::SuperData::link<QWidget::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN17QToolBarSeparatorE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN17QToolBarSeparatorE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN17QToolBarSeparatorE_t>.metaTypes,
+    nullptr
+} };
+
+void QToolBarSeparator::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<QToolBarSeparator *>(_o);
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        switch (_id) {
+        case 0: _t->setOrientation((*reinterpret_cast<std::add_pointer_t<Qt::Orientation>>(_a[1]))); break;
+        default: ;
+        }
+    }
+}
+
+const QMetaObject *QToolBarSeparator::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *QToolBarSeparator::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN17QToolBarSeparatorE_t>.strings))
+        return static_cast<void*>(this);
+    return QWidget::qt_metacast(_clname);
+}
+
+int QToolBarSeparator::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QWidget::qt_metacall(_c, _id, _a);
+    if (_id < 0)
+        return _id;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        if (_id < 1)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 1;
+    }
+    if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        if (_id < 1)
+            *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
+        _id -= 1;
+    }
+    return _id;
+}
+QT_WARNING_POP
+
 //  from src/widgets/widgets/qtoolbarseparator.cpp, line 42, as _ZN17QToolBarSeparator10paintEventEP11QPaintEvent
 inline void QToolBarSeparator::paintEvent(QPaintEvent *)
 {
@@ -37,6 +136,13 @@ inline void QToolBarSeparator::paintEvent(QPaintEvent *)
     QStyleOption opt;
     initStyleOption(&opt);
     style()->drawPrimitive(QStyle::PE_IndicatorToolBarSeparator, &opt, &p, parentWidget());
+}
+
+//  from src/widgets/widgets/qtoolbarseparator.cpp, line 25, as _ZN17QToolBarSeparator14setOrientationEN2Qt11OrientationE
+inline void QToolBarSeparator::setOrientation(Qt::Orientation orientation)
+{
+    orient = orientation;
+    update();
 }
 
 //  from src/widgets/widgets/qtoolbarseparator.cpp, line 34, as _ZNK17QToolBarSeparator8sizeHintEv
@@ -47,6 +153,11 @@ inline QSize QToolBarSeparator::sizeHint() const
     const int extent = style()->pixelMetric(QStyle::PM_ToolBarSeparatorExtent, &opt, parentWidget());
     return QSize(extent, extent);
 }
+
+//  from src/widgets/widgets/qtoolbarseparator.cpp, line 21, as _ZN17QToolBarSeparatorC1EP8QToolBar
+inline QToolBarSeparator::QToolBarSeparator(QToolBar *parent)
+    : QWidget(parent), orient(parent->orientation())
+{ setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum); }
 
 //  from src/widgets/widgets/qtoolbarseparator.cpp, line 31, as _ZNK17QToolBarSeparator11orientationEv
 inline Qt::Orientation QToolBarSeparator::orientation() const
@@ -936,6 +1047,22 @@ int ritual_ZN17QToolBarSeparator11qt_metacallEN11QMetaObject4CallEiPPv(
     int a1,
     void **a2) {
   return self->qt_metacall(a0, a1, a2);
+}
+
+//  QString QToolBarSeparator::tr(const char *s, const char *c, int n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN17QToolBarSeparator2trEPKcS1_i(
+    const char *s,
+    const char *c,
+    int n) {
+  return new QString(QToolBarSeparator::tr(s, c, n));
+}
+
+//  QToolBarSeparator::QToolBarSeparator(QToolBar *parent)
+extern "C" Q_DECL_EXPORT
+QToolBarSeparator *ritual_ZN17QToolBarSeparatorC1EP8QToolBar(
+    QToolBar *parent) {
+  return new CuteQToolBarSeparator(parent);
 }
 
 //  Qt::Orientation QToolBarSeparator::orientation() const

@@ -10,6 +10,10 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGraphs/6.12.0/QtGraphs/private/qcustom3dlabel_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
+#include <QtGui/qfont.h>
+#include <QtGui/qvectornd.h>
+#include <QtGui/qquaternion.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qfileinfo.h>
 #include <QtGraphs/private/qcustom3ditem_p.h>
@@ -92,6 +96,27 @@ inline QCustom3DLabelPrivate::QCustom3DLabelPrivate()
     m_meshFile = QStringLiteral(":/defaultMeshes/plane");
 }
 
+//  from ../qtgraphs/src/graphs3d/data/qcustom3dlabel.cpp, line 365, as _ZN21QCustom3DLabelPrivateC1ERK7QStringRK5QFont9QVector3DS6_RK11QQuaternion
+inline QCustom3DLabelPrivate::QCustom3DLabelPrivate(const QString &text,
+                                             const QFont &font,
+                                             QVector3D position,
+                                             QVector3D scaling,
+                                             const QQuaternion &rotation)
+    : QCustom3DItemPrivate(QStringLiteral(":/defaultMeshes/plane"), position, scaling, rotation)
+    , m_text(text)
+    , m_font(font)
+    , m_bgrColor(Qt::gray)
+    , m_txtColor(Qt::white)
+    , m_background(true)
+    , m_borders(true)
+    , m_facingCamera(false)
+    , m_customVisuals(false)
+    , m_facingCameraDirty(false)
+{
+    m_isLabelItem = true;
+    m_shadowCasting = false;
+}
+
 //  from ../qtgraphs/src/graphs3d/data/qcustom3dlabel.cpp, line 387, as _ZN21QCustom3DLabelPrivate14resetDirtyBitsEv
 inline void QCustom3DLabelPrivate::resetDirtyBits()
 {
@@ -118,6 +143,24 @@ const QCustom3DLabel *ritual_ZNK21QCustom3DLabelPrivate6q_funcEv(
 extern "C" Q_DECL_EXPORT
 QCustom3DLabelPrivate *ritual_ZN21QCustom3DLabelPrivateC1Ev() {
   return new QCustom3DLabelPrivate();
+}
+
+//  QCustom3DLabelPrivate::QCustom3DLabelPrivate(const QString &text, const
+//      QFont &font, QVector3D position, QVector3D scaling, const QQuaternion
+//      &rotation)
+extern "C" Q_DECL_EXPORT
+QCustom3DLabelPrivate *ritual_ZN21QCustom3DLabelPrivateC1ERK7QStringRK5QFont9QVector3DS6_RK11QQuaternion(
+    const QString *text,
+    const QFont *font,
+    const QVector3D *position,
+    const QVector3D *scaling,
+    const QQuaternion *rotation) {
+  return new QCustom3DLabelPrivate(
+      *text,
+      *font,
+      *position,
+      *scaling,
+      *rotation);
 }
 
 //  QCustom3DLabelPrivate::~QCustom3DLabelPrivate()

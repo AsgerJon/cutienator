@@ -2,7 +2,7 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtQuick/6.12.0/QtQuick/private/qquickdroparea_p.h, Qt 6.12.0.",
-    "Changes made here are lost."
+    "Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZNK18QQuickDropAreaDrag10metaObjectEv": ["address", "address"],
@@ -12,8 +12,14 @@
     "ritual_ZN18QQuickDropAreaDrag11qt_metacallEN11QMetaObject4CallEiPPv": [
       "int", "address", "int", "int", "address"
     ],
+    "ritual_ZN18QQuickDropAreaDrag2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
     "ritual_ZN18QQuickDropAreaDrag22qt_qmlMarker_anonymousEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN18QQuickDropAreaDragC1EP21QQuickDropAreaPrivateP7QObject": [
+      "address", "address", "address"
     ],
     "ritual_ZN18QQuickDropAreaDragD1Ev": ["nothing", "address"],
     "ritual_ZNK18QQuickDropAreaDrag1xEv": ["double", "address"],

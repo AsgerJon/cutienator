@@ -2,7 +2,7 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of QtQuick",
     "3DPhysics/6.12.0/QtQuick3DPhysics/private/qabstractphysicsbody_p.h",
-    ", Qt 6.12.0. Changes made here are lost."
+    ", Qt 6.12.0. Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZNK20QAbstractPhysicsBody10metaObjectEv": ["address", "address"],
@@ -12,14 +12,23 @@
     "ritual_ZN20QAbstractPhysicsBody11qt_metacallEN11QMetaObject4CallEiPPv": [
       "int", "address", "int", "int", "address"
     ],
+    "ritual_ZN20QAbstractPhysicsBody2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
     "ritual_ZN20QAbstractPhysicsBody24qt_qmlMarker_uncreatableEv": [
       "nothing", "address"
     ],
     "ritual_ZNK20QAbstractPhysicsBody15physicsMaterialEv": [
       "address", "address"
     ],
+    "ritual_ZN20QAbstractPhysicsBody18setPhysicsMaterialEP16QPhysicsMaterial": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK20QAbstractPhysicsBody17simulationEnabledEv": [
       "bool", "address"
+    ],
+    "ritual_ZN20QAbstractPhysicsBody20setSimulationEnabledEb": [
+      "nothing", "address", "bool"
     ],
     "ritual_ZN20QAbstractPhysicsBody22physicsMaterialChangedEv": [
       "nothing", "address"

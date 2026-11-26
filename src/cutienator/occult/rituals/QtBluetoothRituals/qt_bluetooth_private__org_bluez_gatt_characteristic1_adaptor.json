@@ -2,7 +2,7 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of QtBluet",
     "ooth/6.12.0/QtBluetooth/private/gattcharacteristic1adaptor_p.h, Qt",
-    "6.12.0. Changes made here are lost."
+    "6.12.0. Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZNK18QtBluetoothPrivate34OrgBluezGattCharacteristic1Adaptor10metaObjectEv": [
@@ -13,6 +13,12 @@
     ],
     "ritual_ZN18QtBluetoothPrivate34OrgBluezGattCharacteristic1Adaptor11qt_metacallEN11QMetaObject4CallEiPPv": [
       "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN18QtBluetoothPrivate34OrgBluezGattCharacteristic1Adaptor2trEPKcS2_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN18QtBluetoothPrivate34OrgBluezGattCharacteristic1AdaptorC1EP7QObject": [
+      "address", "address"
     ],
     "ritual_ZN18QtBluetoothPrivate34OrgBluezGattCharacteristic1AdaptorD1Ev": [
       "nothing", "address"

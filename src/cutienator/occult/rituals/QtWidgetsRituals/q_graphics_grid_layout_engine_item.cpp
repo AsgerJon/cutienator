@@ -299,6 +299,26 @@ public:
   }
 };
 
+//  QGraphicsGridLayoutEngineItem::QGraphicsGridLayoutEngineItem(QGraphicsLay
+//      outItem *item, int row, int columns, int rowSpan, int columnSpan,
+//      Qt::Alignment alignment)
+extern "C" Q_DECL_EXPORT
+QGraphicsGridLayoutEngineItem *ritual_ZN29QGraphicsGridLayoutEngineItemC1EP19QGraphicsLayoutItemiiii6QFlagsIN2Qt13AlignmentFlagEE(
+    QGraphicsLayoutItem *item,
+    int row,
+    int columns,
+    int rowSpan,
+    int columnSpan,
+    int alignment) {
+  return new CuteQGraphicsGridLayoutEngineItem(
+      item,
+      row,
+      columns,
+      rowSpan,
+      columnSpan,
+      QFlags<Qt::AlignmentFlag>::fromInt(alignment));
+}
+
 //  QLayoutPolicy::Policy
 //      QGraphicsGridLayoutEngineItem::sizePolicy(Qt::Orientation
 //      orientation) const

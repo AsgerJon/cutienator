@@ -2,7 +2,7 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of QtDataV",
     "isualization/6.12.0/QtDataVisualization/private/axisrendercache_p.",
-    "h, Qt 6.12.0. Changes made here are lost."
+    "h, Qt 6.12.0. Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZNK15AxisRenderCache10metaObjectEv": ["address", "address"],
@@ -12,6 +12,10 @@
     "ritual_ZN15AxisRenderCache11qt_metacallEN11QMetaObject4CallEiPPv": [
       "int", "address", "int", "int", "address"
     ],
+    "ritual_ZN15AxisRenderCache2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN15AxisRenderCacheC1Ev": ["address"],
     "ritual_ZN15AxisRenderCacheD1Ev": ["nothing", "address"],
     "ritual_ZN15AxisRenderCache7setTypeEN15QAbstract3DAxis8AxisTypeE": [
       "nothing", "address", "int"

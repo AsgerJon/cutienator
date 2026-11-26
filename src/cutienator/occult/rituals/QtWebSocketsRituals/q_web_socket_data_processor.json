@@ -2,7 +2,7 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of QtWebSo",
     "ckets/6.12.0/QtWebSockets/private/qwebsocketdataprocessor_p.h, Qt",
-    "6.12.0. Changes made here are lost."
+    "6.12.0. Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZNK23QWebSocketDataProcessor10metaObjectEv": [
@@ -14,6 +14,10 @@
     "ritual_ZN23QWebSocketDataProcessor11qt_metacallEN11QMetaObject4CallEiPPv": [
       "int", "address", "int", "int", "address"
     ],
+    "ritual_ZN23QWebSocketDataProcessor2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN23QWebSocketDataProcessorC1EP7QObject": ["address", "address"],
     "ritual_ZN23QWebSocketDataProcessorD1Ev": ["nothing", "address"],
     "ritual_ZN23QWebSocketDataProcessor22setMaxAllowedFrameSizeEy": [
       "nothing", "address", "unsigned long long"
@@ -63,7 +67,17 @@
     "ritual_ZN23QWebSocketDataProcessor16errorEncounteredEN18QWebSocketProtocol9CloseCodeERK7QString": [
       "nothing", "address", "int", "text"
     ],
+    "ritual_ZN23QWebSocketDataProcessor7processEP9QIODevice": [
+      "bool", "address", "address"
+    ],
     "ritual_ZN23QWebSocketDataProcessor5clearEv": ["nothing", "address"],
+    "ritual_ZN23QWebSocketDataProcessor19processControlFrameERK15QWebSocketFrame": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN23QWebSocketDataProcessor11reportErrorEN18QWebSocketProtocol9CloseCodeERK7QString": [
+      "nothing", "address", "int", "text"
+    ],
+    "ritual_ZN23QWebSocketDataProcessor7timeoutEv": ["nothing", "address"],
     "ritual_take_QWebSocketDataProcessor": [
       "bool", "address", "chars", "address"
     ]

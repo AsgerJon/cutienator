@@ -7,6 +7,7 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtDesigner/6.12.0/QtDesigner/private/qdesigner_command_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtDesigner/private/qdesigner_command_p.h>
@@ -66,6 +67,15 @@ using namespace Qt::StringLiterals;
 namespace qdesigner_internal {
 using namespace Qt::StringLiterals;
 inline DockWidgetCommand::~DockWidgetCommand() = default;
+}  // namespace qdesigner_internal
+
+//  from ../qttools/src/designer/src/lib/shared/qdesigner_command.cpp, line 1618, as _ZN18qdesigner_internal17DockWidgetCommandC1ERK7QStringP28QDesignerFormWindowInterface
+namespace qdesigner_internal {
+using namespace Qt::StringLiterals;
+inline DockWidgetCommand::DockWidgetCommand(const QString &description, QDesignerFormWindowInterface *formWindow)
+    : QDesignerFormWindowCommand(description, formWindow)
+{
+}
 }  // namespace qdesigner_internal
 
 //  from ../qttools/src/designer/src/lib/shared/qdesigner_command.cpp, line 1625, as _ZN18qdesigner_internal17DockWidgetCommand4initEP11QDockWidget
@@ -178,6 +188,17 @@ public:
   }
 #endif  // QT_CONFIG(undocommand)
 };
+
+//  qdesigner_internal::DockWidgetCommand::DockWidgetCommand(const QString
+//      &description, QDesignerFormWindowInterface *formWindow)
+extern "C" Q_DECL_EXPORT
+qdesigner_internal::DockWidgetCommand *ritual_ZN18qdesigner_internal17DockWidgetCommandC1ERK7QStringP28QDesignerFormWindowInterface(
+    const QString *description,
+    QDesignerFormWindowInterface *formWindow) {
+  return new Cuteqdesigner_internal_DockWidgetCommand(
+      *description,
+      formWindow);
+}
 
 //  qdesigner_internal::DockWidgetCommand::~DockWidgetCommand()
 extern "C" Q_DECL_EXPORT

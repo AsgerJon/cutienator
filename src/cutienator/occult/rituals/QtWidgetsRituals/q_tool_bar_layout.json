@@ -2,7 +2,7 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtWidgets/6.12.0/QtWidgets/private/qtoolbarlayout_p.h, Qt 6.12.0.",
-    "Changes made here are lost."
+    "Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZNK14QToolBarLayout10metaObjectEv": ["address", "address"],
@@ -27,6 +27,9 @@
     ],
     "ritual_ZNK14QToolBarLayout11minimumSizeEv": ["address", "address"],
     "ritual_ZNK14QToolBarLayout8sizeHintEv": ["address", "address"],
+    "ritual_ZN14QToolBarLayout12insertActionEiP7QAction": [
+      "nothing", "address", "int", "address"
+    ],
     "ritual_ZNK14QToolBarLayout7indexOfEPK7QAction": [
       "int", "address", "address"
     ],
@@ -52,6 +55,9 @@
       "nothing", "address", "bool"
     ],
     "ritual_ZNK14QToolBarLayout15updateGeomArrayEv": ["nothing", "address"],
+    "ritual_ZN14QToolBarLayout10createItemEP7QAction": [
+      "address", "address", "address"
+    ],
     "ritual_take_QToolBarLayout": ["bool", "address", "chars", "address"],
     "ritual_own_ZN14QToolBarLayout7addItemEP11QLayoutItem": [
       "nothing", "address", "address"

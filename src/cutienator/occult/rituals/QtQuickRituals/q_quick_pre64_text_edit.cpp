@@ -1,6 +1,13 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtQuick/6.12.0/QtQuick/private/qquicktextedit_p.h, Qt 6.12.0. Changes
-//  made here are lost.
+//  QtQuick/6.12.0/QtQuick/private/qquicktextedit_p.h, Qt 6.12.0.
+//  Edited by hand on 2026-11-26: moc's output for 'QQuickPre64TextEdit' is
+//  pasted in, cut from what the moc of Qt 6.12.0 writes for its header: Qt's
+//  library keeps it to itself; added are 2 rituals that lean on what moc
+//  writes for a class of the part Qt keeps to itself, whose ritual file
+//  carries moc's output, drafted by a copy of the generator that lets those
+//  names through. A copy of a meta-object is a second one: 'qobject_cast'
+//  between it and Qt's own does not match. Kept as it is when the generator
+//  runs again.
 #include <QtGui/qtguiglobal.h>
 #include <QtQuick/qtquickglobal.h>
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
@@ -10,12 +17,141 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQuick/6.12.0/QtQuick/private/qquicktextedit_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 #include <QtCore/qvariant.h>
 #include <QtCore/qrect.h>
 #include <QtQuick/qquickitem.h>
 #include <QtCore/qpoint.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
+#include <QtQuick/private/qquicktextedit_p.h>
+#include <QtQuick/private/qquicktextedit_p_p.h>
+#include <QtQuick/private/qquicktextcontrol_p.h>
+#include <QtQuick/private/qquicktextdocument_p.h>
+#include <QtQuick/qquickwindow.h>
+#include <QtQuick/private/qsginternaltextnode_p.h>
+#include <QtQuick/private/qquicktextnodeengine_p.h>
+#include <QtCore/qmath.h>
+#include <QtCore/qvarlengtharray.h>
+#include <QtGui/qguiapplication.h>
+#include <QtGui/qevent.h>
+#include <QtGui/qpainter.h>
+#include <QtGui/qtextobject.h>
+#include <QtGui/qtexttable.h>
+#include <QtQml/qqmlinfo.h>
+#include <QtQuick/qsgsimplerectnode.h>
+#include <QtQml/private/qqmlglobal_p.h>
+#include <QtQml/private/qqmlproperty_p.h>
+#include <QtGui/private/qtextengine_p.h>
+#include <QtQuick/private/qsgadaptationlayer_p.h>
+#include <QtQuick/private/qquickpixmapcache_p.h>
+#if QT_CONFIG(accessibility)
+#include <QtQuick/private/qquickaccessibleattached_p.h>
+#endif
+#include <QtQuick/qquicktextdocument.h>
+#include <algorithm>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+
+//  Qt's own code, from here to the line of dashes: taken from
+//  Qt's source, because Qt's library carries it under no name.
+//  Copyright (C) The Qt Company Ltd. It is licensed
+//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
+//  here. Each function is as Qt wrote it, with the word
+//  'inline' put before it where Qt did not write it.
+
+using namespace Qt::StringLiterals;
+
+//  from QtQuick__QQuickPre64TextEdit.cpp, line 1, as moc:QQuickPre64TextEdit
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN19QQuickPre64TextEditE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto QQuickPre64TextEdit::qt_create_metaobjectdata<qt_meta_tag_ZN19QQuickPre64TextEditE_t>()
+{
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "QQuickPre64TextEdit",
+        "QML.Element",
+        "TextEdit",
+        "QML.AddedInVersion",
+        "512",
+        "QML.RemovedInVersion",
+        "1540"
+    };
+
+    QtMocHelpers::UintData qt_methods {
+    };
+    QtMocHelpers::UintData qt_properties {
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    QtMocHelpers::UintData qt_constructors {};
+    QtMocHelpers::ClassInfos qt_classinfo({
+            {    1,    2 },
+            {    3,    4 },
+            {    5,    6 },
+    });
+    return QtMocHelpers::metaObjectData<QQuickPre64TextEdit, void>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums, qt_constructors, qt_classinfo);
+}
+Q_CONSTINIT const QMetaObject QQuickPre64TextEdit::staticMetaObject = { {
+    QMetaObject::SuperData::link<QQuickTextEdit::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN19QQuickPre64TextEditE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN19QQuickPre64TextEditE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN19QQuickPre64TextEditE_t>.metaTypes,
+    nullptr
+} };
+
+void QQuickPre64TextEdit::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<QQuickPre64TextEdit *>(_o);
+    (void)_t;
+    (void)_c;
+    (void)_id;
+    (void)_a;
+}
+
+const QMetaObject *QQuickPre64TextEdit::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *QQuickPre64TextEdit::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN19QQuickPre64TextEditE_t>.strings))
+        return static_cast<void*>(this);
+    return QQuickTextEdit::qt_metacast(_clname);
+}
+
+int QQuickPre64TextEdit::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QQuickTextEdit::qt_metacall(_c, _id, _a);
+    return _id;
+}
+QT_WARNING_POP
+
+//  from ../qtdeclarative/src/quick/items/qquicktextedit.cpp, line 3819, as _ZN19QQuickPre64TextEditC1EP10QQuickItem
+#if QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
+inline QQuickPre64TextEdit::QQuickPre64TextEdit(QQuickItem *parent)
+    : QQuickTextEdit(parent)
+{
+    setOldSelectionDefault();
+}
+#endif  // QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
+//  -----------------------------------------------------------------------
 
 //  A QQuickPre64TextEdit that Python can take functions over in. Every QQuickPre64TextEdit
 //  Python makes is one. Each function below asks the Python
@@ -820,6 +956,22 @@ int ritual_ZN19QQuickPre64TextEdit11qt_metacallEN11QMetaObject4CallEiPPv(
     int a1,
     void **a2) {
   return self->qt_metacall(a0, a1, a2);
+}
+
+//  QString QQuickPre64TextEdit::tr(const char *s, const char *c, int n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN19QQuickPre64TextEdit2trEPKcS1_i(
+    const char *s,
+    const char *c,
+    int n) {
+  return new QString(QQuickPre64TextEdit::tr(s, c, n));
+}
+
+//  QQuickPre64TextEdit::QQuickPre64TextEdit(QQuickItem *parent)
+extern "C" Q_DECL_EXPORT
+QQuickPre64TextEdit *ritual_ZN19QQuickPre64TextEditC1EP10QQuickItem(
+    QQuickItem *parent) {
+  return new CuteQQuickPre64TextEdit(parent);
 }
 
 //  a Python function taken by a CuteQQuickPre64TextEdit, for the function

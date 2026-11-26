@@ -1,6 +1,13 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtBluetooth/6.12.0/QtBluetooth/private/propertiesadaptor_p.h, Qt 6.12.0.
-//  Changes made here are lost.
+//  Edited by hand on 2026-11-26: moc's output for
+//  'QtBluetoothPrivate::OrgFreedesktopDBusPropertiesAdaptor' is pasted in,
+//  cut from what the moc of Qt 6.12.0 writes for its header: Qt's library
+//  keeps it to itself; added are 2 rituals that lean on what moc writes for
+//  a class of the part Qt keeps to itself, whose ritual file carries moc's
+//  output, drafted by a copy of the generator that lets those names through.
+//  A copy of a meta-object is a second one: 'qobject_cast' between it and
+//  Qt's own does not match. Kept as it is when the generator runs again.
 #include <QtBluetooth/qtbluetoothglobal.h>
 #include <QtBluetooth/6.12.0/QtBluetooth/private/qtbluetoothglobal_p.h>
 #if QT_CONFIG(bluez)
@@ -19,6 +26,10 @@
 #include <iterator>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
 #include <QtBluetooth/private/propertiesadaptor_p.h>
 #include <QtCore/QMetaObject>
 #include <QtCore/QByteArray>
@@ -35,6 +46,192 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  from QtBluetooth__QtBluetoothPrivate_OrgFreedesktopDBusPropertiesAdaptor.cpp, line 1, as moc:QtBluetoothPrivate::OrgFreedesktopDBusPropertiesAdaptor
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN18QtBluetoothPrivate35OrgFreedesktopDBusPropertiesAdaptorE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto QtBluetoothPrivate::OrgFreedesktopDBusPropertiesAdaptor::qt_create_metaobjectdata<qt_meta_tag_ZN18QtBluetoothPrivate35OrgFreedesktopDBusPropertiesAdaptorE_t>()
+{
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "QtBluetoothPrivate::OrgFreedesktopDBusPropertiesAdaptor",
+        "D-Bus Interface",
+        "org.freedesktop.DBus.Properties",
+        "D-Bus Introspection",
+        "  <interface name=\"org.freedesktop.DBus.Properties\">\n    <metho"
+        "d name=\"Get\">\n      <arg direction=\"in\" type=\"s\" name=\"int"
+        "erface\"/>\n      <arg direction=\"in\" type=\"s\" name=\"name\"/>"
+        "\n      <arg direction=\"out\" type=\"v\" name=\"value\"/>\n    </"
+        "method>\n    <method name=\"Set\">\n      <arg direction=\"in\" ty"
+        "pe=\"s\" name=\"interface\"/>\n      <arg direction=\"in\" type=\""
+        "s\" name=\"name\"/>\n      <arg direction=\"in\" type=\"v\" name=\""
+        "value\"/>\n    </method>\n    <method name=\"GetAll\">\n      <arg"
+        " direction=\"in\" type=\"s\" name=\"interface\"/>\n      <arg dire"
+        "ction=\"out\" type=\"a{sv}\" name=\"properties\"/>\n      <annotat"
+        "ion value=\"QVariantMap\" name=\"org.qtproject.QtDBus.QtTypeName.O"
+        "ut0\"/>\n    </method>\n    <signal name=\"PropertiesChanged\">\n "
+        "     <arg type=\"s\" name=\"interface\"/>\n      <arg type=\"a{sv}"
+        "\" name=\"changed_properties\"/>\n      <annotation value=\"QVaria"
+        "ntMap\" name=\"org.qtproject.QtDBus.QtTypeName.Out1\"/>\n      <ar"
+        "g type=\"as\" name=\"invalidated_properties\"/>\n    </signal>\n  "
+        "</interface>\n",
+        "PropertiesChanged",
+        "",
+        "interface",
+        "QVariantMap",
+        "changed_properties",
+        "invalidated_properties",
+        "Get",
+        "QDBusVariant",
+        "name",
+        "GetAll",
+        "Set",
+        "value"
+    };
+
+    QtMocHelpers::UintData qt_methods {
+        // Signal 'PropertiesChanged'
+        QtMocHelpers::SignalData<void(const QString &, const QVariantMap &, const QStringList &)>(5, 6, QMC::AccessPublic, QMetaType::Void, {{
+            { QMetaType::QString, 7 }, { 0x80000000 | 8, 9 }, { QMetaType::QStringList, 10 },
+        }}),
+        // Slot 'Get'
+        QtMocHelpers::SlotData<QDBusVariant(const QString &, const QString &)>(11, 6, QMC::AccessPublic, 0x80000000 | 12, {{
+            { QMetaType::QString, 7 }, { QMetaType::QString, 13 },
+        }}),
+        // Slot 'GetAll'
+        QtMocHelpers::SlotData<QVariantMap(const QString &)>(14, 6, QMC::AccessPublic, 0x80000000 | 8, {{
+            { QMetaType::QString, 7 },
+        }}),
+        // Slot 'Set'
+        QtMocHelpers::SlotData<void(const QString &, const QString &, const QDBusVariant &)>(15, 6, QMC::AccessPublic, QMetaType::Void, {{
+            { QMetaType::QString, 7 }, { QMetaType::QString, 13 }, { 0x80000000 | 12, 16 },
+        }}),
+    };
+    QtMocHelpers::UintData qt_properties {
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    QtMocHelpers::UintData qt_constructors {};
+    QtMocHelpers::ClassInfos qt_classinfo({
+            {    1,    2 },
+            {    3,    4 },
+    });
+    return QtMocHelpers::metaObjectData<OrgFreedesktopDBusPropertiesAdaptor, qt_meta_tag_ZN18QtBluetoothPrivate35OrgFreedesktopDBusPropertiesAdaptorE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums, qt_constructors, qt_classinfo);
+}
+Q_CONSTINIT const QMetaObject QtBluetoothPrivate::OrgFreedesktopDBusPropertiesAdaptor::staticMetaObject = { {
+    QMetaObject::SuperData::link<QDBusAbstractAdaptor::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN18QtBluetoothPrivate35OrgFreedesktopDBusPropertiesAdaptorE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN18QtBluetoothPrivate35OrgFreedesktopDBusPropertiesAdaptorE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN18QtBluetoothPrivate35OrgFreedesktopDBusPropertiesAdaptorE_t>.metaTypes,
+    nullptr
+} };
+
+void QtBluetoothPrivate::OrgFreedesktopDBusPropertiesAdaptor::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<OrgFreedesktopDBusPropertiesAdaptor *>(_o);
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        switch (_id) {
+        case 0: _t->PropertiesChanged((*reinterpret_cast<std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<QVariantMap>>(_a[2])),(*reinterpret_cast<std::add_pointer_t<QStringList>>(_a[3]))); break;
+        case 1: { QDBusVariant _r = _t->Get((*reinterpret_cast<std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<QString>>(_a[2])));
+            if (_a[0]) *reinterpret_cast<QDBusVariant*>(_a[0]) = std::move(_r); }  break;
+        case 2: { QVariantMap _r = _t->GetAll((*reinterpret_cast<std::add_pointer_t<QString>>(_a[1])));
+            if (_a[0]) *reinterpret_cast<QVariantMap*>(_a[0]) = std::move(_r); }  break;
+        case 3: _t->Set((*reinterpret_cast<std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<QString>>(_a[2])),(*reinterpret_cast<std::add_pointer_t<QDBusVariant>>(_a[3]))); break;
+        default: ;
+        }
+    }
+    if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        switch (_id) {
+        default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
+        case 3:
+            switch (*reinterpret_cast<int*>(_a[1])) {
+            default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
+            case 2:
+                *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType::fromType< QDBusVariant >(); break;
+            }
+            break;
+        }
+    }
+    if (_c == QMetaObject::IndexOfMethod) {
+        if (QtMocHelpers::indexOfMethod<void (OrgFreedesktopDBusPropertiesAdaptor::*)(const QString & , const QVariantMap & , const QStringList & )>(_a, &OrgFreedesktopDBusPropertiesAdaptor::PropertiesChanged, 0))
+            return;
+    }
+}
+
+const QMetaObject *QtBluetoothPrivate::OrgFreedesktopDBusPropertiesAdaptor::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *QtBluetoothPrivate::OrgFreedesktopDBusPropertiesAdaptor::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN18QtBluetoothPrivate35OrgFreedesktopDBusPropertiesAdaptorE_t>.strings))
+        return static_cast<void*>(this);
+    return QDBusAbstractAdaptor::qt_metacast(_clname);
+}
+
+int QtBluetoothPrivate::OrgFreedesktopDBusPropertiesAdaptor::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QDBusAbstractAdaptor::qt_metacall(_c, _id, _a);
+    if (_id < 0)
+        return _id;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        if (_id < 4)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 4;
+    }
+    if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        if (_id < 4)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 4;
+    }
+    return _id;
+}
+
+// SIGNAL 0
+void QtBluetoothPrivate::OrgFreedesktopDBusPropertiesAdaptor::PropertiesChanged(const QString & _t1, const QVariantMap & _t2, const QStringList & _t3)
+{
+    QMetaObject::activate<void>(this, &staticMetaObject, 0, nullptr, _t1, _t2, _t3);
+}
+QT_WARNING_POP
+
+//  from ../qtconnectivity/src/bluetooth/bluez/propertiesadaptor.cpp, line 54, as _ZN18QtBluetoothPrivate35OrgFreedesktopDBusPropertiesAdaptor3SetERK7QStringS3_RK12QDBusVariant
+namespace QtBluetoothPrivate {
+inline void OrgFreedesktopDBusPropertiesAdaptor::Set(const QString &interface, const QString &name, const QDBusVariant &value)
+{
+    // handle method call org.freedesktop.DBus.Properties.Set
+    QMetaObject::invokeMethod(parent(), "Set", Q_ARG(QString, interface), Q_ARG(QString, name), Q_ARG(QDBusVariant, value));
+}
+}  // namespace QtBluetoothPrivate
+
+//  from ../qtconnectivity/src/bluetooth/bluez/propertiesadaptor.cpp, line 33, as _ZN18QtBluetoothPrivate35OrgFreedesktopDBusPropertiesAdaptorD0Ev
+namespace QtBluetoothPrivate {
+inline OrgFreedesktopDBusPropertiesAdaptor::~OrgFreedesktopDBusPropertiesAdaptor()
+{
+    // destructor
+}
+}  // namespace QtBluetoothPrivate
+
+//  from ../qtconnectivity/src/bluetooth/bluez/propertiesadaptor.cpp, line 26, as _ZN18QtBluetoothPrivate35OrgFreedesktopDBusPropertiesAdaptorC1EP7QObject
+namespace QtBluetoothPrivate {
+inline OrgFreedesktopDBusPropertiesAdaptor::OrgFreedesktopDBusPropertiesAdaptor(QObject *parent)
+    : QDBusAbstractAdaptor(parent)
+{
+    // constructor
+    setAutoRelaySignals(true);
+}
+}  // namespace QtBluetoothPrivate
 
 //  from ../qtconnectivity/src/bluetooth/bluez/propertiesadaptor.cpp, line 38, as _ZN18QtBluetoothPrivate35OrgFreedesktopDBusPropertiesAdaptor3GetERK7QStringS3_
 namespace QtBluetoothPrivate {
@@ -253,6 +450,29 @@ int ritual_ZN18QtBluetoothPrivate35OrgFreedesktopDBusPropertiesAdaptor11qt_metac
     int a1,
     void **a2) {
   return self->qt_metacall(a0, a1, a2);
+}
+
+//  QString QtBluetoothPrivate::OrgFreedesktopDBusPropertiesAdaptor::tr(const
+//      char *s, const char *c, int n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN18QtBluetoothPrivate35OrgFreedesktopDBusPropertiesAdaptor2trEPKcS2_i(
+    const char *s,
+    const char *c,
+    int n) {
+  return new QString(
+      QtBluetoothPrivate::OrgFreedesktopDBusPropertiesAdaptor::tr(
+          s,
+          c,
+          n));
+}
+
+//  QtBluetoothPrivate::OrgFreedesktopDBusPropertiesAdaptor::OrgFreedesktopDB
+//      usPropertiesAdaptor(QObject *parent)
+extern "C" Q_DECL_EXPORT
+QtBluetoothPrivate::OrgFreedesktopDBusPropertiesAdaptor *ritual_ZN18QtBluetoothPrivate35OrgFreedesktopDBusPropertiesAdaptorC1EP7QObject(
+    QObject *parent) {
+  return new CuteQtBluetoothPrivate_OrgFreedesktopDBusPropertiesAdaptor(
+      parent);
 }
 
 //  QtBluetoothPrivate::OrgFreedesktopDBusPropertiesAdaptor::~OrgFreedesktopD

@@ -331,6 +331,12 @@ const QGraphicsEffectSource *ritual_ZNK28QGraphicsEffectSourcePrivate6q_funcEv(
   return self->q_func();
 }
 
+//  QGraphicsEffectSourcePrivate::QGraphicsEffectSourcePrivate()
+extern "C" Q_DECL_EXPORT
+QGraphicsEffectSourcePrivate *ritual_ZN28QGraphicsEffectSourcePrivateC1Ev() {
+  return new CuteQGraphicsEffectSourcePrivate();
+}
+
 //  QGraphicsEffectSourcePrivate::~QGraphicsEffectSourcePrivate()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN28QGraphicsEffectSourcePrivateD1Ev(

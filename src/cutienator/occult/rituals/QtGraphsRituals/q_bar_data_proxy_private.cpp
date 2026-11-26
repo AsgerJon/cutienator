@@ -131,6 +131,14 @@ inline void QAbstractDataProxyPrivate::setSeries(QAbstract3DSeries *series)
     m_series = series;
 }
 
+//  from ../qtgraphs/src/graphs3d/data/qabstractdataproxy.cpp, line 87, as _ZN25QAbstractDataProxyPrivateD2Ev
+inline QAbstractDataProxyPrivate::~QAbstractDataProxyPrivate() {}
+
+//  from ../qtgraphs/src/graphs3d/data/qbardataproxy.cpp, line 545, as _ZN20QBarDataProxyPrivateC1Ev
+inline QBarDataProxyPrivate::QBarDataProxyPrivate()
+    : QAbstractDataProxyPrivate(QAbstractDataProxy::DataType::Bar)
+{}
+
 //  from ../qtgraphs/src/graphs3d/data/qbardataproxy.cpp, line 551, as _ZN20QBarDataProxyPrivate10resetArrayEO5QListIS0_I12QBarDataItemEEOS0_I7QStringES7_
 inline void QBarDataProxyPrivate::resetArray(QBarDataArray &&newArray,
                                       QStringList &&rowLabels,
@@ -330,6 +338,12 @@ extern "C" Q_DECL_EXPORT
 const QBarDataProxy *ritual_ZNK20QBarDataProxyPrivate6q_funcEv(
     const QBarDataProxyPrivate *self) {
   return self->q_func();
+}
+
+//  QBarDataProxyPrivate::QBarDataProxyPrivate()
+extern "C" Q_DECL_EXPORT
+QBarDataProxyPrivate *ritual_ZN20QBarDataProxyPrivateC1Ev() {
+  return new CuteQBarDataProxyPrivate();
 }
 
 //  QBarDataProxyPrivate::~QBarDataProxyPrivate()

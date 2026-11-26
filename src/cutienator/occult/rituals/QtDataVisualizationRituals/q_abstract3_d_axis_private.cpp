@@ -1,14 +1,26 @@
 //  Written by dev_tooling.RitualGenerator from the records of QtDataVisualiz
 //  ation/6.12.0/QtDataVisualization/private/qabstract3daxis_p.h, Qt 6.12.0.
-//  Changes made here are lost.
+//  Edited by hand on 2026-11-26: moc's output for 'QAbstract3DAxisPrivate'
+//  is pasted in, cut from what the moc of Qt 6.12.0 writes for its header:
+//  Qt's library keeps it to itself; added are 2 rituals that lean on what
+//  moc writes for a class of the part Qt keeps to itself, whose ritual file
+//  carries moc's output, drafted by a copy of the generator that lets those
+//  names through. A copy of a meta-object is a second one: 'qobject_cast'
+//  between it and Qt's own does not match. Kept as it is when the generator
+//  runs again.
 #include <QtDataVisualization/6.12.0/QtDataVisualization/private/datavisualizationglobal_p.h>
 #include <QtDataVisualization/QtDataVisualization>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtDataVisualization/6.12.0/QtDataVisualization/private/qabstract3daxis_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
 #include <QtDataVisualization/private/qabstract3daxis_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
@@ -18,6 +30,164 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  from QtDataVisualization__QAbstract3DAxisPrivate.cpp, line 1, as moc:QAbstract3DAxisPrivate
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN22QAbstract3DAxisPrivateE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto QAbstract3DAxisPrivate::qt_create_metaobjectdata<qt_meta_tag_ZN22QAbstract3DAxisPrivateE_t>()
+{
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "QAbstract3DAxisPrivate"
+    };
+
+    QtMocHelpers::UintData qt_methods {
+    };
+    QtMocHelpers::UintData qt_properties {
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    return QtMocHelpers::metaObjectData<QAbstract3DAxisPrivate, qt_meta_tag_ZN22QAbstract3DAxisPrivateE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums);
+}
+Q_CONSTINIT const QMetaObject QAbstract3DAxisPrivate::staticMetaObject = { {
+    QMetaObject::SuperData::link<QObject::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN22QAbstract3DAxisPrivateE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN22QAbstract3DAxisPrivateE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN22QAbstract3DAxisPrivateE_t>.metaTypes,
+    nullptr
+} };
+
+void QAbstract3DAxisPrivate::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<QAbstract3DAxisPrivate *>(_o);
+    (void)_t;
+    (void)_c;
+    (void)_id;
+    (void)_a;
+}
+
+const QMetaObject *QAbstract3DAxisPrivate::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *QAbstract3DAxisPrivate::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN22QAbstract3DAxisPrivateE_t>.strings))
+        return static_cast<void*>(this);
+    return QObject::qt_metacast(_clname);
+}
+
+int QAbstract3DAxisPrivate::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QObject::qt_metacall(_c, _id, _a);
+    return _id;
+}
+QT_WARNING_POP
+
+//  from ../qtdatavis3d/src/datavisualization/axis/qabstract3daxis.cpp, line 403, as _ZN22QAbstract3DAxisPrivate12updateLabelsEv
+inline void QAbstract3DAxisPrivate::updateLabels()
+{
+    // Default implementation does nothing
+}
+
+//  from ../qtdatavis3d/src/datavisualization/axis/qabstract3daxis.cpp, line 503, as _ZN22QAbstract3DAxisPrivate6setMaxEf
+inline void QAbstract3DAxisPrivate::setMax(float max)
+{
+    if (!allowNegatives()) {
+        if (allowZero()) {
+            if (max < 0.0f) {
+                max = 0.0f;
+                qWarning() << "Warning: Tried to set negative maximum for an axis that only"
+                              "supports positive values and zero:" << max;
+            }
+        } else {
+            if (max <= 0.0f) {
+                max = 1.0f;
+                qWarning() << "Warning: Tried to set negative or zero maximum for an axis that only"
+                              "supports positive values:" << max;
+            }
+        }
+    }
+
+    if (m_max != max) {
+        bool minChanged = false;
+        if (m_min > max || (!allowMinMaxSame() && m_min == max)) {
+            float oldMin = m_min;
+            m_min = max - 1.0f;
+            if (!allowNegatives() && m_min < 0.0f) {
+                if (allowZero())
+                    m_min = 0.0f;
+                else
+                    m_min = max / 2.0f; // Need some positive value smaller than max
+
+                if (!allowMinMaxSame() && max == 0.0f) {
+                    m_min = oldMin;
+                    qWarning() << "Unable to set maximum value to zero.";
+                    return;
+                }
+            }
+            qWarning() << "Warning: Tried to set maximum to equal or smaller than minimum for"
+                          " value axis. Minimum automatically adjusted to a valid one:"
+                       << oldMin <<  "-->" << m_min;
+            minChanged = true;
+        }
+        m_max = max;
+        emit q_ptr->rangeChanged(m_min, m_max);
+        emit q_ptr->maxChanged(m_max);
+        if (minChanged)
+            emit q_ptr->minChanged(m_min);
+    }
+}
+
+//  from ../qtdatavis3d/src/datavisualization/axis/qabstract3daxis.cpp, line 466, as _ZN22QAbstract3DAxisPrivate6setMinEf
+inline void QAbstract3DAxisPrivate::setMin(float min)
+{
+    if (!allowNegatives()) {
+        if (allowZero()) {
+            if (min < 0.0f) {
+                min = 0.0f;
+                qWarning() << "Warning: Tried to set negative minimum for an axis that only"
+                              "supports positive values and zero:" << min;
+            }
+        } else {
+            if (min <= 0.0f) {
+                min = 1.0f;
+                qWarning() << "Warning: Tried to set negative or zero minimum for an axis that only"
+                              "supports positive values:" << min;
+            }
+        }
+    }
+
+    if (m_min != min) {
+        bool maxChanged = false;
+        if (min > m_max || (!allowMinMaxSame() && min == m_max)) {
+            float oldMax = m_max;
+            m_max = min + 1.0f;
+            qWarning() << "Warning: Tried to set minimum to equal or larger than maximum for"
+                          " value axis. Maximum automatically adjusted to a valid one:"
+                       << oldMax <<  "-->" << m_max;
+            maxChanged = true;
+        }
+        m_min = min;
+
+        emit q_ptr->rangeChanged(m_min, m_max);
+        emit q_ptr->minChanged(m_min);
+        if (maxChanged)
+            emit q_ptr->maxChanged(m_max);
+    }
+}
 
 //  from ../qtdatavis3d/src/datavisualization/axis/qabstract3daxis.cpp, line 408, as _ZN22QAbstract3DAxisPrivate8setRangeEffb
 inline void QAbstract3DAxisPrivate::setRange(float min, float max, bool suppressWarnings)
@@ -78,97 +248,25 @@ inline void QAbstract3DAxisPrivate::setRange(float min, float max, bool suppress
         emit q_ptr->maxChanged(m_max);
 }
 
-//  from ../qtdatavis3d/src/datavisualization/axis/qabstract3daxis.cpp, line 466, as _ZN22QAbstract3DAxisPrivate6setMinEf
-inline void QAbstract3DAxisPrivate::setMin(float min)
+//  from ../qtdatavis3d/src/datavisualization/axis/qabstract3daxis.cpp, line 389, as _ZN22QAbstract3DAxisPrivateD0Ev
+inline QAbstract3DAxisPrivate::~QAbstract3DAxisPrivate()
 {
-    if (!allowNegatives()) {
-        if (allowZero()) {
-            if (min < 0.0f) {
-                min = 0.0f;
-                qWarning() << "Warning: Tried to set negative minimum for an axis that only"
-                              "supports positive values and zero:" << min;
-            }
-        } else {
-            if (min <= 0.0f) {
-                min = 1.0f;
-                qWarning() << "Warning: Tried to set negative or zero minimum for an axis that only"
-                              "supports positive values:" << min;
-            }
-        }
-    }
-
-    if (m_min != min) {
-        bool maxChanged = false;
-        if (min > m_max || (!allowMinMaxSame() && min == m_max)) {
-            float oldMax = m_max;
-            m_max = min + 1.0f;
-            qWarning() << "Warning: Tried to set minimum to equal or larger than maximum for"
-                          " value axis. Maximum automatically adjusted to a valid one:"
-                       << oldMax <<  "-->" << m_max;
-            maxChanged = true;
-        }
-        m_min = min;
-
-        emit q_ptr->rangeChanged(m_min, m_max);
-        emit q_ptr->minChanged(m_min);
-        if (maxChanged)
-            emit q_ptr->maxChanged(m_max);
-    }
 }
 
-//  from ../qtdatavis3d/src/datavisualization/axis/qabstract3daxis.cpp, line 503, as _ZN22QAbstract3DAxisPrivate6setMaxEf
-inline void QAbstract3DAxisPrivate::setMax(float max)
+//  from ../qtdatavis3d/src/datavisualization/axis/qabstract3daxis.cpp, line 374, as _ZN22QAbstract3DAxisPrivateC1EP15QAbstract3DAxisNS0_8AxisTypeE
+inline QAbstract3DAxisPrivate::QAbstract3DAxisPrivate(QAbstract3DAxis *q, QAbstract3DAxis::AxisType type)
+    : QObject(0),
+      q_ptr(q),
+      m_orientation(QAbstract3DAxis::AxisOrientationNone),
+      m_type(type),
+      m_isDefaultAxis(false),
+      m_min(0.0f),
+      m_max(10.0f),
+      m_autoAdjust(true),
+      m_labelAutoRotation(0.0f),
+      m_titleVisible(false),
+      m_titleFixed(true)
 {
-    if (!allowNegatives()) {
-        if (allowZero()) {
-            if (max < 0.0f) {
-                max = 0.0f;
-                qWarning() << "Warning: Tried to set negative maximum for an axis that only"
-                              "supports positive values and zero:" << max;
-            }
-        } else {
-            if (max <= 0.0f) {
-                max = 1.0f;
-                qWarning() << "Warning: Tried to set negative or zero maximum for an axis that only"
-                              "supports positive values:" << max;
-            }
-        }
-    }
-
-    if (m_max != max) {
-        bool minChanged = false;
-        if (m_min > max || (!allowMinMaxSame() && m_min == max)) {
-            float oldMin = m_min;
-            m_min = max - 1.0f;
-            if (!allowNegatives() && m_min < 0.0f) {
-                if (allowZero())
-                    m_min = 0.0f;
-                else
-                    m_min = max / 2.0f; // Need some positive value smaller than max
-
-                if (!allowMinMaxSame() && max == 0.0f) {
-                    m_min = oldMin;
-                    qWarning() << "Unable to set maximum value to zero.";
-                    return;
-                }
-            }
-            qWarning() << "Warning: Tried to set maximum to equal or smaller than minimum for"
-                          " value axis. Minimum automatically adjusted to a valid one:"
-                       << oldMin <<  "-->" << m_min;
-            minChanged = true;
-        }
-        m_max = max;
-        emit q_ptr->rangeChanged(m_min, m_max);
-        emit q_ptr->maxChanged(m_max);
-        if (minChanged)
-            emit q_ptr->minChanged(m_min);
-    }
-}
-
-//  from ../qtdatavis3d/src/datavisualization/axis/qabstract3daxis.cpp, line 403, as _ZN22QAbstract3DAxisPrivate12updateLabelsEv
-inline void QAbstract3DAxisPrivate::updateLabels()
-{
-    // Default implementation does nothing
 }
 
 //  from ../qtdatavis3d/src/datavisualization/axis/qabstract3daxis.cpp, line 393, as _ZN22QAbstract3DAxisPrivate14setOrientationEN15QAbstract3DAxis15AxisOrientationE
@@ -493,6 +591,24 @@ int ritual_ZN22QAbstract3DAxisPrivate11qt_metacallEN11QMetaObject4CallEiPPv(
     int a1,
     void **a2) {
   return self->qt_metacall(a0, a1, a2);
+}
+
+//  QString QAbstract3DAxisPrivate::tr(const char *s, const char *c, int n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN22QAbstract3DAxisPrivate2trEPKcS1_i(
+    const char *s,
+    const char *c,
+    int n) {
+  return new QString(QAbstract3DAxisPrivate::tr(s, c, n));
+}
+
+//  QAbstract3DAxisPrivate::QAbstract3DAxisPrivate(QAbstract3DAxis *q,
+//      QAbstract3DAxis::AxisType type)
+extern "C" Q_DECL_EXPORT
+QAbstract3DAxisPrivate *ritual_ZN22QAbstract3DAxisPrivateC1EP15QAbstract3DAxisNS0_8AxisTypeE(
+    QAbstract3DAxis *q,
+    QAbstract3DAxis::AxisType type) {
+  return new CuteQAbstract3DAxisPrivate(q, type);
 }
 
 //  QAbstract3DAxisPrivate::~QAbstract3DAxisPrivate()

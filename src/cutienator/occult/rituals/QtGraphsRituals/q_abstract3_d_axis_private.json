@@ -10,6 +10,9 @@
   "rows": {
     "ritual_ZN22QAbstract3DAxisPrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK22QAbstract3DAxisPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN22QAbstract3DAxisPrivateC1EN15QAbstract3DAxis8AxisTypeE": [
+      "address", "int"
+    ],
     "ritual_ZN22QAbstract3DAxisPrivateD1Ev": ["nothing", "address"],
     "ritual_ZN22QAbstract3DAxisPrivate14setOrientationEN15QAbstract3DAxis15AxisOrientationE": [
       "nothing", "address", "int"

@@ -226,67 +226,6 @@ inline int QSGRhiTextureGlyphCache::maxTextureHeight() const
     return m_rhi->resourceLimit(QRhi::TextureSizeMax);
 }
 
-//  from ../qtdeclarative/src/quick/scenegraph/qsgdefaultglyphnode_p.cpp, line 330, as _ZN19QSGTextMaskMaterial8setColorERK9QVector4D
-inline void QSGTextMaskMaterial::setColor(const QVector4D &color)
-{
-    if (m_color == color)
-        return;
-
-    m_color = color;
-
-    // If it is an RGB cache, then the pen color is actually part of the cache key
-    // so it has to be updated
-    if (m_glyphCache != nullptr && m_glyphCache->glyphFormat() == QFontEngine::Format_ARGB)
-        updateCache(QFontEngine::Format_ARGB);
-}
-
-//  from ../qtdeclarative/src/quick/scenegraph/qsgdefaultglyphnode_p.cpp, line 355, as _ZN19QSGTextMaskMaterial11updateCacheEN11QFontEngine11GlyphFormatE
-inline void QSGTextMaskMaterial::updateCache(QFontEngine::GlyphFormat glyphFormat)
-{
-    // The following piece of code will read/write to the font engine's caches,
-    // potentially from different threads. However, this is safe because this
-    // code is only called from QQuickItem::updatePaintNode() which is called
-    // only when the GUI is blocked, and multiple threads will call it in
-    // sequence. See also QSGRenderContext::invalidate
-
-    QRawFontPrivate *fontD = QRawFontPrivate::get(m_font);
-    if (QFontEngine *fontEngine = fontD->fontEngine) {
-        if (glyphFormat == QFontEngine::Format_None) {
-            glyphFormat = fontEngine->glyphFormat != QFontEngine::Format_None
-                        ? fontEngine->glyphFormat
-                        : QFontEngine::Format_A32;
-        }
-
-        qreal devicePixelRatio;
-        void *cacheKey;
-        Q_ASSERT(m_rhi);
-        Q_ASSERT(m_rc);
-        cacheKey = m_rc;
-        // Get the dpr the modern way. This value retrieved via the
-        // rendercontext matches what RenderState::devicePixelRatio()
-        // exposes to the material shaders later on.
-        devicePixelRatio = m_rc->currentDevicePixelRatio();
-
-        QTransform glyphCacheTransform = QTransform::fromScale(devicePixelRatio, devicePixelRatio);
-        if (!fontEngine->supportsTransformation(glyphCacheTransform))
-            glyphCacheTransform = QTransform();
-
-        QColor color = glyphFormat == QFontEngine::Format_ARGB ? QColor::fromRgbF(m_color.x(), m_color.y(), m_color.z(), m_color.w()) : QColor();
-        m_glyphCache = fontEngine->glyphCache(cacheKey, glyphFormat, glyphCacheTransform, color);
-        if (!m_glyphCache || int(m_glyphCache->glyphFormat()) != glyphFormat) {
-            m_glyphCache = new QSGRhiTextureGlyphCache(m_rc, glyphFormat, glyphCacheTransform, color);
-            fontEngine->setGlyphCache(cacheKey, m_glyphCache.data());
-            if (m_retainedFontEngine != nullptr)
-                m_rc->unregisterFontengineForCleanup(m_retainedFontEngine);
-
-            // Note: This is reference counted by the render context, so it will stay alive until
-            // we release that reference
-            m_retainedFontEngine = fontEngine;
-            m_rc->registerFontengineForCleanup(fontEngine);
-        }
-    }
-}
-
 //  from ../qtdeclarative/src/quick/scenegraph/qsgrhitextureglyphcache.cpp, line 103, as _ZN23QSGRhiTextureGlyphCache17prepareGlyphImageEP6QImage
 inline void QSGRhiTextureGlyphCache::prepareGlyphImage(QImage *img)
 {
@@ -360,6 +299,20 @@ inline QRhiTexture *QSGRhiTextureGlyphCache::createEmptyTexture(QRhiTexture::For
     resourceUpdates->uploadTexture(t, QRhiTextureUploadEntry(0, 0, subresDesc));
 
     return t;
+}
+
+//  from ../qtdeclarative/src/quick/scenegraph/qsgdefaultglyphnode_p.cpp, line 330, as _ZN19QSGTextMaskMaterial8setColorERK9QVector4D
+inline void QSGTextMaskMaterial::setColor(const QVector4D &color)
+{
+    if (m_color == color)
+        return;
+
+    m_color = color;
+
+    // If it is an RGB cache, then the pen color is actually part of the cache key
+    // so it has to be updated
+    if (m_glyphCache != nullptr && m_glyphCache->glyphFormat() == QFontEngine::Format_ARGB)
+        updateCache(QFontEngine::Format_ARGB);
 }
 
 //  from ../qtdeclarative/src/quick/scenegraph/qsgdefaultglyphnode_p.cpp, line 561, as _ZN19QSGTextMaskMaterial14ensureUpToDateEv
@@ -490,6 +443,66 @@ inline void QSGTextMaskMaterial::populate(const QPointF &p,
          ip[6 * i + 5] = o + 0;
     }
 }
+
+//  from ../qtdeclarative/src/quick/scenegraph/qsgdefaultglyphnode_p.cpp, line 343, as _ZN19QSGTextMaskMaterial4initEN11QFontEngine11GlyphFormatE
+inline void QSGTextMaskMaterial::init(QFontEngine::GlyphFormat glyphFormat)
+{
+    Q_ASSERT(m_font.isValid());
+
+    setFlag(Blending, true);
+
+    Q_ASSERT(m_rc);
+    m_rhi = m_rc->rhi();
+
+    updateCache(glyphFormat);
+}
+
+//  from ../qtdeclarative/src/quick/scenegraph/qsgdefaultglyphnode_p.cpp, line 355, as _ZN19QSGTextMaskMaterial11updateCacheEN11QFontEngine11GlyphFormatE
+inline void QSGTextMaskMaterial::updateCache(QFontEngine::GlyphFormat glyphFormat)
+{
+    // The following piece of code will read/write to the font engine's caches,
+    // potentially from different threads. However, this is safe because this
+    // code is only called from QQuickItem::updatePaintNode() which is called
+    // only when the GUI is blocked, and multiple threads will call it in
+    // sequence. See also QSGRenderContext::invalidate
+
+    QRawFontPrivate *fontD = QRawFontPrivate::get(m_font);
+    if (QFontEngine *fontEngine = fontD->fontEngine) {
+        if (glyphFormat == QFontEngine::Format_None) {
+            glyphFormat = fontEngine->glyphFormat != QFontEngine::Format_None
+                        ? fontEngine->glyphFormat
+                        : QFontEngine::Format_A32;
+        }
+
+        qreal devicePixelRatio;
+        void *cacheKey;
+        Q_ASSERT(m_rhi);
+        Q_ASSERT(m_rc);
+        cacheKey = m_rc;
+        // Get the dpr the modern way. This value retrieved via the
+        // rendercontext matches what RenderState::devicePixelRatio()
+        // exposes to the material shaders later on.
+        devicePixelRatio = m_rc->currentDevicePixelRatio();
+
+        QTransform glyphCacheTransform = QTransform::fromScale(devicePixelRatio, devicePixelRatio);
+        if (!fontEngine->supportsTransformation(glyphCacheTransform))
+            glyphCacheTransform = QTransform();
+
+        QColor color = glyphFormat == QFontEngine::Format_ARGB ? QColor::fromRgbF(m_color.x(), m_color.y(), m_color.z(), m_color.w()) : QColor();
+        m_glyphCache = fontEngine->glyphCache(cacheKey, glyphFormat, glyphCacheTransform, color);
+        if (!m_glyphCache || int(m_glyphCache->glyphFormat()) != glyphFormat) {
+            m_glyphCache = new QSGRhiTextureGlyphCache(m_rc, glyphFormat, glyphCacheTransform, color);
+            fontEngine->setGlyphCache(cacheKey, m_glyphCache.data());
+            if (m_retainedFontEngine != nullptr)
+                m_rc->unregisterFontengineForCleanup(m_retainedFontEngine);
+
+            // Note: This is reference counted by the render context, so it will stay alive until
+            // we release that reference
+            m_retainedFontEngine = fontEngine;
+            m_rc->registerFontengineForCleanup(fontEngine);
+        }
+    }
+}
 //  -----------------------------------------------------------------------
 
 //  A QSGTextMaskMaterial that Python can take functions over in. Every QSGTextMaskMaterial
@@ -595,6 +608,14 @@ void ritual_ZN19QSGTextMaskMaterial8setColorERK6QColor(
   self->setColor(*c);
 }
 
+//  void QSGTextMaskMaterial::setColor(const QVector4D &color)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QSGTextMaskMaterial8setColorERK9QVector4D(
+    QSGTextMaskMaterial *self,
+    const QVector4D *color) {
+  self->setColor(*color);
+}
+
 //  const QVector4D &QSGTextMaskMaterial::color() const
 extern "C" Q_DECL_EXPORT
 QVector4D *ritual_ZNK19QSGTextMaskMaterial5colorEv(
@@ -652,6 +673,23 @@ void ritual_ZN19QSGTextMaskMaterial8populateERK7QPointFRK5QListIjERKS3_IS0_EP11Q
       boundingRect,
       baseLine,
       *margins);
+}
+
+//  void QSGTextMaskMaterial::init(QFontEngine::GlyphFormat glyphFormat)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QSGTextMaskMaterial4initEN11QFontEngine11GlyphFormatE(
+    QSGTextMaskMaterial *self,
+    QFontEngine::GlyphFormat glyphFormat) {
+  self->init(glyphFormat);
+}
+
+//  void QSGTextMaskMaterial::updateCache(QFontEngine::GlyphFormat
+//      glyphFormat)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QSGTextMaskMaterial11updateCacheEN11QFontEngine11GlyphFormatE(
+    QSGTextMaskMaterial *self,
+    QFontEngine::GlyphFormat glyphFormat) {
+  self->updateCache(glyphFormat);
 }
 
 //  a Python function taken by a CuteQSGTextMaskMaterial, for the function

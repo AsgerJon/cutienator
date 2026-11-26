@@ -2,7 +2,7 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of QtDataV",
     "isualization/6.12.0/QtDataVisualization/private/scatteritemmodelha",
-    "ndler_p.h, Qt 6.12.0. Changes made here are lost."
+    "ndler_p.h, Qt 6.12.0. Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZNK23ScatterItemModelHandler10metaObjectEv": [
@@ -13,6 +13,12 @@
     ],
     "ritual_ZN23ScatterItemModelHandler11qt_metacallEN11QMetaObject4CallEiPPv": [
       "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN23ScatterItemModelHandler2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN23ScatterItemModelHandlerC1EP26QItemModelScatterDataProxyP7QObject": [
+      "address", "address", "address"
     ],
     "ritual_ZN23ScatterItemModelHandlerD1Ev": ["nothing", "address"],
     "ritual_ZN23ScatterItemModelHandler17handleDataChangedERK11QModelIndexS2_RK5QListIiE": [

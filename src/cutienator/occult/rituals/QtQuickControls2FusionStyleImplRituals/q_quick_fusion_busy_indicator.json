@@ -2,8 +2,8 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of QtQuick",
     "Controls2FusionStyleImpl/6.12.0/QtQuickControls2FusionStyleImpl/pr",
-    "ivate/qquickfusionbusyindicator_p.h, Qt 6.12.0. Changes made here",
-    "are lost."
+    "ivate/qquickfusionbusyindicator_p.h, Qt 6.12.0. Edited by hand:",
+    "see the ritual file."
   ],
   "rows": {
     "ritual_ZNK25QQuickFusionBusyIndicator10metaObjectEv": [
@@ -14,6 +14,12 @@
     ],
     "ritual_ZN25QQuickFusionBusyIndicator11qt_metacallEN11QMetaObject4CallEiPPv": [
       "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN25QQuickFusionBusyIndicator2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN25QQuickFusionBusyIndicatorC1EP10QQuickItem": [
+      "address", "address"
     ],
     "ritual_ZNK25QQuickFusionBusyIndicator5colorEv": ["address", "address"],
     "ritual_ZN25QQuickFusionBusyIndicator8setColorERK6QColor": [

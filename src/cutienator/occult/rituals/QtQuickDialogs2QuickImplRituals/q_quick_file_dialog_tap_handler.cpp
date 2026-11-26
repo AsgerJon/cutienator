@@ -1,6 +1,14 @@
 //  Written by dev_tooling.RitualGenerator from the records of QtQuickDialogs
 //  2QuickImpl/6.12.0/QtQuickDialogs2QuickImpl/private/qquickfiledialogdelega
-//  te_p_p.h, Qt 6.12.0. Changes made here are lost.
+//  te_p_p.h, Qt 6.12.0.
+//  Edited by hand on 2026-11-26: moc's output for
+//  'QQuickFileDialogTapHandler' is pasted in, cut from what the moc of Qt
+//  6.12.0 writes for its header: Qt's library keeps it to itself; added are
+//  2 rituals that lean on what moc writes for a class of the part Qt keeps
+//  to itself, whose ritual file carries moc's output, drafted by a copy of
+//  the generator that lets those names through. A copy of a meta-object is a
+//  second one: 'qobject_cast' between it and Qt's own does not match. Kept
+//  as it is when the generator runs again.
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
 #include <QtQuick/qtquickglobal.h>
 #include <QtQuickDialogs2QuickImpl/qtquickdialogs2quickimplexports.h>
@@ -11,9 +19,14 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQuickDialogs2QuickImpl/6.12.0/QtQuickDialogs2QuickImpl/private/qquickfiledialogdelegate_p_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 #include <QtCore/qurl.h>
 #include <QtGui/qeventpoint.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
 #include <QtQuickDialogs2QuickImpl/private/qquickfiledialogdelegate_p.h>
 #include <QtQuickDialogs2QuickImpl/private/qquickfiledialogdelegate_p_p.h>
 #include <QtCore/qfileinfo.h>
@@ -39,6 +52,71 @@
 
 using namespace Qt::Literals::StringLiterals;
 
+//  from QtQuickDialogs2QuickImpl__QQuickFileDialogTapHandler.cpp, line 1, as moc:QQuickFileDialogTapHandler
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN26QQuickFileDialogTapHandlerE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto QQuickFileDialogTapHandler::qt_create_metaobjectdata<qt_meta_tag_ZN26QQuickFileDialogTapHandlerE_t>()
+{
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "QQuickFileDialogTapHandler"
+    };
+
+    QtMocHelpers::UintData qt_methods {
+    };
+    QtMocHelpers::UintData qt_properties {
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    return QtMocHelpers::metaObjectData<QQuickFileDialogTapHandler, qt_meta_tag_ZN26QQuickFileDialogTapHandlerE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums);
+}
+Q_CONSTINIT const QMetaObject QQuickFileDialogTapHandler::staticMetaObject = { {
+    QMetaObject::SuperData::link<QQuickTapHandler::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN26QQuickFileDialogTapHandlerE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN26QQuickFileDialogTapHandlerE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN26QQuickFileDialogTapHandlerE_t>.metaTypes,
+    nullptr
+} };
+
+void QQuickFileDialogTapHandler::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<QQuickFileDialogTapHandler *>(_o);
+    (void)_t;
+    (void)_c;
+    (void)_id;
+    (void)_a;
+}
+
+const QMetaObject *QQuickFileDialogTapHandler::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *QQuickFileDialogTapHandler::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN26QQuickFileDialogTapHandlerE_t>.strings))
+        return static_cast<void*>(this);
+    return QQuickTapHandler::qt_metacast(_clname);
+}
+
+int QQuickFileDialogTapHandler::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QQuickTapHandler::qt_metacall(_c, _id, _a);
+    return _id;
+}
+QT_WARNING_POP
+
 //  from ../qtdeclarative/src/quickdialogs/quickdialogsquickimpl/qquickfiledialogdelegate.cpp, line 426, as _ZN26QQuickFileDialogTapHandler15wantsEventPointEPK13QPointerEventRK11QEventPoint
 inline bool QQuickFileDialogTapHandler::wantsEventPoint(const QPointerEvent *event, const QEventPoint &point)
 {
@@ -52,6 +130,96 @@ inline bool QQuickFileDialogTapHandler::wantsEventPoint(const QPointerEvent *eve
         return true;
 
     return false;
+}
+
+//  from ../qtdeclarative/src/quickdialogs/quickdialogsquickimpl/qquickfiledialogdelegate.cpp, line 351, as _ZN26QQuickFileDialogTapHandler16handleEventPointEP13QPointerEventR11QEventPoint
+inline void QQuickFileDialogTapHandler::handleEventPoint(QPointerEvent *event, QEventPoint &point)
+{
+    QQuickTapHandler::handleEventPoint(event, point);
+
+    auto *fileDialogDelegate = qobject_cast<QQuickFileDialogDelegate *>(parent());
+    auto *fileDialogImpl = getFileDialogImpl();
+    if (Q_UNLIKELY(!fileDialogImpl))
+        return;
+    auto *fileDialogImplPrivate = QQuickFileDialogImplPrivate::get(fileDialogImpl);
+    QQuickFileDialogImplAttached *attached = fileDialogImplPrivate->attachedOrWarn();
+    if (Q_UNLIKELY(!attached || !attached->sideBar()))
+        return;
+
+    if (m_state == DraggingFinished)
+        resetDragData();
+
+    if (point.state() == QEventPoint::Pressed) {
+        resetDragData();
+        // Activate the passive grab to get further move updates
+        setPassiveGrab(event, point, true);
+    } else if (point.state() == QEventPoint::Released) {
+        resetDragData();
+    } else if (point.state() == QEventPoint::Updated && m_longPressed) {
+        // Check to see that the movement can be considered as dragging
+        const qreal distX = point.position().x() - point.pressPosition().x();
+        const qreal distY = point.position().y() - point.pressPosition().y();
+        // consider the squared distance to be optimal
+        const qreal dragDistSq = distX * distX + distY * distY;
+        if (dragDistSq > qPow(qApp->styleHints()->startDragDistance(), 2)) {
+            switch (m_state) {
+            case Tracking: {
+                // set the drag
+                if (m_drag.isNull())
+                    m_drag = new QDrag(fileDialogDelegate);
+                // Set the drop area
+                if (m_dropArea.isNull()) {
+                    auto *sideBar = attached->sideBar();
+                    m_dropArea = new QQuickDropArea(sideBar);
+                    m_dropArea->setSize(sideBar->size());
+                    connect(m_dropArea, &QQuickDropArea::positionChanged, this,
+                            &QQuickFileDialogTapHandler::handleDrag);
+                    connect(m_dropArea, &QQuickDropArea::dropped, this,
+                            &QQuickFileDialogTapHandler::handleDrop);
+                    connect(m_dropArea, &QQuickDropArea::containsDragChanged, this,
+                            &QQuickFileDialogTapHandler::handleContainsDragChanged);
+                }
+
+                m_sourceUrl = fileDialogDelegate->file();
+                // set up the grab
+                grabFolder();
+                m_state = DraggingStarted;
+            } break;
+
+            case DraggingStarted: {
+                if (m_drag && m_drag->mimeData()) {
+                    if (auto *item = qobject_cast<QQuickItem *>(m_drag->source())) {
+                        Q_UNUSED(item);
+                        m_state = Dragging;
+                        // start the drag
+                        m_drag->exec();
+                        // If the state still remains dragging, then the drop happened outside
+                        // the drop area
+                        if (m_state == Dragging)
+                            resetDragData();
+                    }
+                }
+            } break;
+
+            default:
+                break;
+            }
+        }
+    }
+}
+
+//  from ../qtdeclarative/src/quickdialogs/quickdialogsquickimpl/qquickfiledialogdelegate.cpp, line 190, as _ZN26QQuickFileDialogTapHandlerC1EP10QQuickItem
+inline QQuickFileDialogTapHandler::QQuickFileDialogTapHandler(QQuickItem *parent)
+    : QQuickTapHandler(parent)
+{
+    // Set a grab permission that stops the flickable from stealing the drag.
+    setGrabPermissions(QQuickPointerHandler::CanTakeOverFromAnything);
+
+    // The drag threshold is used by the handler to know when to start a drag.
+    // We handle the drag inpendently, so set the threshold to a big number.
+    // This will guarantee that QQuickTapHandler::wantsEventPoint always returns
+    // true.
+    setDragThreshold(1000);
 }
 
 //  from ../qtdeclarative/src/quickdialogs/quickdialogsquickimpl/qquickfiledialogdelegate.cpp, line 203, as _ZNK26QQuickFileDialogTapHandler17getFileDialogImplEv
@@ -240,6 +408,24 @@ int ritual_ZN26QQuickFileDialogTapHandler11qt_metacallEN11QMetaObject4CallEiPPv(
     int a1,
     void **a2) {
   return self->qt_metacall(a0, a1, a2);
+}
+
+//  QString QQuickFileDialogTapHandler::tr(const char *s, const char *c, int
+//      n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN26QQuickFileDialogTapHandler2trEPKcS1_i(
+    const char *s,
+    const char *c,
+    int n) {
+  return new QString(QQuickFileDialogTapHandler::tr(s, c, n));
+}
+
+//  QQuickFileDialogTapHandler::QQuickFileDialogTapHandler(QQuickItem
+//      *parent)
+extern "C" Q_DECL_EXPORT
+QQuickFileDialogTapHandler *ritual_ZN26QQuickFileDialogTapHandlerC1EP10QQuickItem(
+    QQuickItem *parent) {
+  return new QQuickFileDialogTapHandler(parent);
 }
 
 //  State QQuickFileDialogTapHandler::state()

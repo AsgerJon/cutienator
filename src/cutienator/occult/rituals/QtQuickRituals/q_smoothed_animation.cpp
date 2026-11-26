@@ -1,6 +1,11 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtQuick/6.12.0/QtQuick/private/qquicksmoothedanimation_p_p.h, Qt 6.12.0.
-//  Changes made here are lost.
+//  Edited by hand on 2026-11-26: added are 1 rituals that lean on what moc
+//  writes for a class of the part Qt keeps to itself, whose ritual file
+//  carries moc's output, drafted by a copy of the generator that lets those
+//  names through. A copy of a meta-object is a second one: 'qobject_cast'
+//  between it and Qt's own does not match. Kept as it is when the generator
+//  runs again.
 #include <QtQml/6.12.0/QtQml/private/qtqmlglobal_p.h>
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
 #include <QtQuick/QtQuick>
@@ -78,6 +83,17 @@ inline void QSmoothedAnimation::debugAnimation(QDebug d) const
 inline int QSmoothedAnimation::duration() const
 {
     return -1;
+}
+
+//  from ../qtdeclarative/src/quick/util/qquicksmoothedanimation.cpp, line 41, as _ZN18QSmoothedAnimationC1EP30QQuickSmoothedAnimationPrivate
+inline QSmoothedAnimation::QSmoothedAnimation(QQuickSmoothedAnimationPrivate *priv)
+    : QAbstractAnimationJob(), to(0), velocity(200), userDuration(-1), maximumEasingTime(-1),
+      reversingMode(QQuickSmoothedAnimation::Eased), initialVelocity(0),
+      trackVelocity(0), initialValue(0), invert(false), finalDuration(-1), lastTime(0),
+      skipUpdate(false), delayedStopTimer(new QSmoothedAnimationTimer(this)), animationTemplate(priv)
+{
+    delayedStopTimer->setInterval(DELAY_STOP_TIMER_INTERVAL);
+    delayedStopTimer->setSingleShot(true);
 }
 
 //  from ../qtdeclarative/src/quick/util/qquicksmoothedanimation.cpp, line 51, as _ZN18QSmoothedAnimationD1Ev
@@ -462,6 +478,14 @@ public:
   }
 #endif  // QT_CONFIG(qml_animation)
 };
+
+//  QSmoothedAnimation::QSmoothedAnimation(QQuickSmoothedAnimationPrivate
+//      *a0)
+extern "C" Q_DECL_EXPORT
+QSmoothedAnimation *ritual_ZN18QSmoothedAnimationC1EP30QQuickSmoothedAnimationPrivate(
+    QQuickSmoothedAnimationPrivate *a0) {
+  return new CuteQSmoothedAnimation(a0);
+}
 
 //  QSmoothedAnimation::~QSmoothedAnimation()
 extern "C" Q_DECL_EXPORT

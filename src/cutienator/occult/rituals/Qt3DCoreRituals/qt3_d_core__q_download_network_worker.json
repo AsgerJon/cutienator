@@ -2,7 +2,7 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
     "Qt3DCore/6.12.0/Qt3DCore/private/qdownloadnetworkworker_p.h, Qt",
-    "6.12.0. Changes made here are lost."
+    "6.12.0. Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZNK8Qt3DCore22QDownloadNetworkWorker10metaObjectEv": [
@@ -13,6 +13,12 @@
     ],
     "ritual_ZN8Qt3DCore22QDownloadNetworkWorker11qt_metacallEN11QMetaObject4CallEiPPv": [
       "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN8Qt3DCore22QDownloadNetworkWorker2trEPKcS2_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN8Qt3DCore22QDownloadNetworkWorkerC1EP7QObject": [
+      "address", "address"
     ],
     "ritual_ZN8Qt3DCore22QDownloadNetworkWorker13submitRequestERK14QSharedPointerINS_16QDownloadRequestEE": [
       "nothing", "address", "address"

@@ -1,6 +1,11 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  Qt3DLogic/6.12.0/Qt3DLogic/private/qlogicaspect_p.h, Qt 6.12.0. Changes
-//  made here are lost.
+//  Qt3DLogic/6.12.0/Qt3DLogic/private/qlogicaspect_p.h, Qt 6.12.0.
+//  Edited by hand on 2026-11-26: added are 1 rituals that lean on what moc
+//  writes for a class of the part Qt keeps to itself, whose ritual file
+//  carries moc's output, drafted by a copy of the generator that lets those
+//  names through. A copy of a meta-object is a second one: 'qobject_cast'
+//  between it and Qt's own does not match. Kept as it is when the generator
+//  runs again.
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <Qt3DLogic/Qt3DLogic>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -171,6 +176,21 @@ inline void HandlerFunctor::destroy(Qt3DCore::QNodeId id) const
 }
 }  // namespace Qt3DLogic::Logic
 
+//  from ../qt3d/src/logic/manager.cpp, line 61, as _ZN9Qt3DLogic5Logic7Manager24triggerLogicFrameUpdatesEv
+namespace Qt3DLogic::Logic {
+inline void Manager::triggerLogicFrameUpdates()
+{
+    Q_ASSERT(m_executor);
+
+    // Don't use blocking queued connections to main thread if it is already
+    // in the process of shutting down as that will deadlock.
+    if (Qt3DCore::QAbstractAspectPrivate::get(m_logicAspect)->m_aspectManager->isShuttingDown())
+        return;
+
+    m_executor->processLogicFrameUpdates(m_logicComponentIds, m_dt);
+}
+}  // namespace Qt3DLogic::Logic
+
 //  from ../qt3d/src/logic/handler.cpp, line 16, as _ZN9Qt3DLogic5Logic7HandlerC1Ev
 namespace Qt3DLogic::Logic {
 inline Handler::Handler()
@@ -187,6 +207,23 @@ inline void Manager::removeHandler(Qt3DCore::QNodeId id)
     m_logicComponentIds.removeAll(id);
     m_logicHandlers.removeAll(handle);
     m_logicHandlerManager->releaseResource(id);
+}
+}  // namespace Qt3DLogic::Logic
+
+//  from ../qt3d/src/logic/executor.cpp, line 29, as _ZN9Qt3DLogic5Logic8Executor24processLogicFrameUpdatesERK5QListIN8Qt3DCore7QNodeIdEEf
+namespace Qt3DLogic::Logic {
+using namespace Qt3DCore;
+inline void Executor::processLogicFrameUpdates(const QList<QNodeId> &nodeIds, float dt)
+{
+    if (!m_scene || nodeIds.isEmpty())
+        return;
+
+    const QList<QNode *> nodes = m_scene->lookupNodes(nodeIds);
+    for (QNode *node : nodes) {
+        QFrameAction *frameAction = qobject_cast<QFrameAction *>(node);
+        if (frameAction && frameAction->isEnabled())
+            frameAction->onTriggered(dt);
+    }
 }
 }  // namespace Qt3DLogic::Logic
 
@@ -212,6 +249,21 @@ inline void Manager::appendHandler(Handler *handler)
 }
 }  // namespace Qt3DLogic::Logic
 
+//  from ../qt3d/src/logic/qlogicaspect.cpp, line 35, as _ZN9Qt3DLogic19QLogicAspectPrivateC1Ev
+namespace Qt3DLogic {
+using namespace Qt3DCore;
+inline QLogicAspectPrivate::QLogicAspectPrivate()
+    : QAbstractAspectPrivate()
+    , m_time(0)
+    , m_manager(new Logic::Manager)
+    , m_executor(new Logic::Executor)
+    , m_callbackJob(new Logic::CallbackJob)
+{
+    m_callbackJob->setManager(m_manager.data());
+    m_manager->setExecutor(m_executor.data());
+}
+}  // namespace Qt3DLogic
+
 //  from ../qt3d/src/logic/qlogicaspect.cpp, line 51, as _ZN9Qt3DLogic19QLogicAspectPrivate20registerBackendTypesEv
 namespace Qt3DLogic {
 using namespace Qt3DCore;
@@ -222,6 +274,12 @@ inline void QLogicAspectPrivate::registerBackendTypes()
 }
 }  // namespace Qt3DLogic
 //  -----------------------------------------------------------------------
+
+//  Qt3DLogic::QLogicAspectPrivate::QLogicAspectPrivate()
+extern "C" Q_DECL_EXPORT
+Qt3DLogic::QLogicAspectPrivate *ritual_ZN9Qt3DLogic19QLogicAspectPrivateC1Ev() {
+  return new Qt3DLogic::QLogicAspectPrivate();
+}
 
 //  QLogicAspect *Qt3DLogic::QLogicAspectPrivate::q_func()
 extern "C" Q_DECL_EXPORT

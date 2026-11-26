@@ -1,6 +1,12 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtLabsStyleKit/6.12.0/QtLabsStyleKit/private/qqstylekittheme_p.h, Qt
-//  6.12.0. Changes made here are lost.
+//  6.12.0.
+//  Edited by hand on 2026-11-26: added are 1 rituals that lean on what moc
+//  writes for a class of the part Qt keeps to itself, whose ritual file
+//  carries moc's output, drafted by a copy of the generator that lets those
+//  names through. A copy of a meta-object is a second one: 'qobject_cast'
+//  between it and Qt's own does not match. Kept as it is when the generator
+//  runs again.
 #include <QtLabsStyleKit/6.12.0/QtLabsStyleKit/private/qqstylekitglobal_p.h>
 #include <QtLabsStyleKit/QtLabsStyleKit>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -8,18 +14,19 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGui/qpalette.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <QtLabsStyleKit/private/qqstylekitstyleandthemebase_p.h>
-#include <QtLabsStyleKit/private/qqstylekitvariation_p.h>
-#include <QtLabsStyleKit/private/qqstylekitpalette_p.h>
-#include <QtLabsStyleKit/private/qqstylekitfont_p.h>
 #include <QtQuickTemplates2/private/qquicktheme_p.h>
 #include <QtQuick/private/qquickpalette_p.h>
 #include <QtGui/private/qguiapplication_p.h>
 #include <QtGui/qpa/qplatformtheme.h>
 #include <QtLabsStyleKit/private/qqstylekittheme_p.h>
 #include <QtLabsStyleKit/private/qqstylekitstyle_p.h>
+#include <QtLabsStyleKit/private/qqstylekitstyleandthemebase_p.h>
+#include <QtLabsStyleKit/private/qqstylekitvariation_p.h>
+#include <QtLabsStyleKit/private/qqstylekitpalette_p.h>
+#include <QtLabsStyleKit/private/qqstylekitfont_p.h>
 #include <QtLabsStyleKit/private/qqstylekitcontrols_p.h>
 #include <QtLabsStyleKit/private/qqstylekitcontrol_p.h>
+#include <QtLabsStyleKit/private/qqstylekitcustomcontrol_p.h>
 #include <QtLabsStyleKit/private/qqstylekitcustomcontrol_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
@@ -86,6 +93,13 @@ static QQuickTheme::Scope scopeForType(QQStyleKitExtendableControlType type)
         return QQuickTheme::System;
     }
     Q_UNREACHABLE();
+}
+
+//  from ../qtdeclarative/src/labs/stylekit/qqstylekittheme.cpp, line 221, as _ZN15QQStyleKitTheme17componentCompleteEv
+inline void QQStyleKitTheme::componentComplete()
+{
+    QQStyleKitControls::componentComplete();
+    m_completed = true;
 }
 
 //  from ../qtdeclarative/src/labs/stylekit/qqstylekitstyleandthemebase.cpp, line 21, as _ZN27QQStyleKitStyleAndThemeBaseC2EP7QObject
@@ -163,13 +177,6 @@ inline QFont QQStyleKitFont::fontForScope(QQuickTheme::Scope scope) const
     return m_fonts[int(scope)];
 }
 
-//  from ../qtdeclarative/src/labs/stylekit/qqstylekittheme.cpp, line 221, as _ZN15QQStyleKitTheme17componentCompleteEv
-inline void QQStyleKitTheme::componentComplete()
-{
-    QQStyleKitControls::componentComplete();
-    m_completed = true;
-}
-
 //  from ../qtdeclarative/src/labs/stylekit/qqstylekitcontrols.cpp, line 725, as _ZN18QQStyleKitControls17componentCompleteEv
 inline void QQStyleKitControls::componentComplete()
 {
@@ -187,6 +194,18 @@ inline void QQStyleKitControls::componentComplete()
     }
 }
 
+//  from ../qtdeclarative/src/labs/stylekit/qqstylekitcontrols.cpp, line 614, as _ZNK18QQStyleKitControls8childrenEv
+inline const QList<QObject *> QQStyleKitControls::children() const
+{
+    return m_data;
+}
+
+//  from ../qtdeclarative/src/labs/stylekit/qqstylekitcustomcontrol.cpp, line 67, as _ZNK23QQStyleKitCustomControl11controlTypeEv
+inline int QQStyleKitCustomControl::controlType() const
+{
+    return m_controlType;
+}
+
 //  from ../qtdeclarative/src/labs/stylekit/qqstylekittheme.cpp, line 110, as _ZNK15QQStyleKitTheme5styleEv
 inline QQStyleKitStyle *QQStyleKitTheme::style() const
 {
@@ -202,6 +221,61 @@ inline QPalette QQStyleKitTheme::paletteForControlType(QQStyleKitExtendableContr
 {
     const QQuickTheme::Scope scope = scopeForType(type);
     return m_effectivePalettes[int(scope)];
+}
+
+//  from ../qtdeclarative/src/labs/stylekit/qqstylekittheme.cpp, line 131, as _ZN15QQStyleKitTheme19updateThemePalettesEv
+inline void QQStyleKitTheme::updateThemePalettes()
+{
+    const QQStyleKitPalette *pals = palettes();
+    if (!pals)
+        return;
+
+    // Collect palette fallback chain
+    QVector<const QQStyleKitPalette *> fbChain;
+    for (auto *fb = pals; fb; fb = fb->fallbackPalette())
+        fbChain.append(fb);
+
+    auto resolveFromPaletteChain = [&](QQuickTheme::Scope scope,
+        QQuickPalette* (QQStyleKitPalette::*getter)() const) -> QPalette
+    {
+        QPalette result;
+
+        // Apply from farthest fallback -> local
+        for (int i = fbChain.size() - 1; i >= 0; --i) {
+            const QQStyleKitPalette *fb = fbChain[i];
+            // Apply system palette first as a base, and override with scope-specific palette
+            if (scope != QQuickTheme::System && fb->isSet(QQuickTheme::System)) {
+                if (auto *sys = fb->system())
+                    result = sys->toQPalette().resolve(result);
+            }
+            if (fb->isSet(scope)) {
+                if (auto *p = (fb->*getter)())
+                    result = p->toQPalette().resolve(result);
+            }
+        }
+
+        return result;
+    };
+
+    auto setResolved = [&](QQuickPalette* (QQStyleKitPalette::*getter)() const,
+        QQuickTheme::Scope scope)
+    {
+        m_effectivePalettes[int(scope)] = resolveFromPaletteChain(scope, getter);
+    };
+
+    setResolved(&QQStyleKitPalette::system, QQuickTheme::System);
+    setResolved(&QQStyleKitPalette::button, QQuickTheme::Button);
+    setResolved(&QQStyleKitPalette::checkBox, QQuickTheme::CheckBox);
+    setResolved(&QQStyleKitPalette::comboBox, QQuickTheme::ComboBox);
+    setResolved(&QQStyleKitPalette::groupBox, QQuickTheme::GroupBox);
+    setResolved(&QQStyleKitPalette::itemDelegate, QQuickTheme::ItemView);
+    setResolved(&QQStyleKitPalette::label, QQuickTheme::Label);
+    setResolved(&QQStyleKitPalette::radioButton, QQuickTheme::RadioButton);
+    setResolved(&QQStyleKitPalette::spinBox, QQuickTheme::SpinBox);
+    setResolved(&QQStyleKitPalette::tabBar, QQuickTheme::TabBar);
+    setResolved(&QQStyleKitPalette::textArea, QQuickTheme::TextArea);
+    setResolved(&QQStyleKitPalette::textField, QQuickTheme::TextField);
+    setResolved(&QQStyleKitPalette::toolBar, QQuickTheme::ToolBar);
 }
 
 //  from ../qtdeclarative/src/labs/stylekit/qqstylekittheme.cpp, line 185, as _ZN15QQStyleKitTheme16updateThemeFontsEv
@@ -241,6 +315,12 @@ inline void QQStyleKitTheme::updateThemeFonts()
     }
 }
 //  -----------------------------------------------------------------------
+
+//  Only a class built on QQStyleKitTheme may call these functions of it.
+//  This one is, and makes them free for the rituals to call.
+struct OwnQQStyleKitTheme : QQStyleKitTheme {
+  using QQStyleKitTheme::componentComplete;
+};
 
 //  const QMetaObject *QQStyleKitTheme::metaObject() const
 extern "C" Q_DECL_EXPORT
@@ -288,6 +368,13 @@ QPalette *ritual_ZNK15QQStyleKitTheme21paletteForControlTypeEj(
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QQStyleKitTheme17componentCompleteEv(QQStyleKitTheme *self) {
   self->componentComplete();
+}
+
+//  void QQStyleKitTheme::updateThemePalettes()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QQStyleKitTheme19updateThemePalettesEv(
+    QQStyleKitTheme *self) {
+  self->updateThemePalettes();
 }
 
 //  void QQStyleKitTheme::updateThemeFonts()

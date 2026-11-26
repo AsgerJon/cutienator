@@ -1,20 +1,36 @@
 //  Written by dev_tooling.RitualGenerator from the records of QtDataVisualiz
 //  ation/6.12.0/QtDataVisualization/private/qitemmodelsurfacedataproxy_p.h,
-//  Qt 6.12.0. Changes made here are lost.
+//  Qt 6.12.0.
+//  Edited by hand on 2026-11-26: moc's output for
+//  'QItemModelSurfaceDataProxyPrivate' is pasted in, cut from what the moc
+//  of Qt 6.12.0 writes for its header: Qt's library keeps it to itself;
+//  added are 3 rituals that lean on what moc writes for a class of the part
+//  Qt keeps to itself, whose ritual file carries moc's output, drafted by a
+//  copy of the generator that lets those names through. A copy of a meta-
+//  object is a second one: 'qobject_cast' between it and Qt's own does not
+//  match. Kept as it is when the generator runs again.
 #include <QtDataVisualization/6.12.0/QtDataVisualization/private/datavisualizationglobal_p.h>
 #include <QtDataVisualization/QtDataVisualization>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtDataVisualization/6.12.0/QtDataVisualization/private/qitemmodelsurfacedataproxy_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <QtDataVisualization/private/surfaceitemmodelhandler_p.h>
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
 #include <QtDataVisualization/private/qsurfacedataproxy_p.h>
 #include <QtDataVisualization/private/qsurface3dseries_p.h>
 #include <QtDataVisualization/private/qabstract3daxis_p.h>
 #include <QtDataVisualization/private/qitemmodelsurfacedataproxy_p.h>
 #include <QtDataVisualization/private/surfaceitemmodelhandler_p.h>
+#include <QtDataVisualization/private/surfaceitemmodelhandler_p.h>
+#include <QtDataVisualization/private/qabstractdataproxy_p.h>
+#include <QtDataVisualization/private/qabstract3dseries_p.h>
+#include <QtDataVisualization/private/abstractitemmodelhandler_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -23,6 +39,85 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  from QtDataVisualization__QItemModelSurfaceDataProxyPrivate.cpp, line 1, as moc:QItemModelSurfaceDataProxyPrivate
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN33QItemModelSurfaceDataProxyPrivateE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto QItemModelSurfaceDataProxyPrivate::qt_create_metaobjectdata<qt_meta_tag_ZN33QItemModelSurfaceDataProxyPrivateE_t>()
+{
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "QItemModelSurfaceDataProxyPrivate"
+    };
+
+    QtMocHelpers::UintData qt_methods {
+    };
+    QtMocHelpers::UintData qt_properties {
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    return QtMocHelpers::metaObjectData<QItemModelSurfaceDataProxyPrivate, qt_meta_tag_ZN33QItemModelSurfaceDataProxyPrivateE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums);
+}
+Q_CONSTINIT const QMetaObject QItemModelSurfaceDataProxyPrivate::staticMetaObject = { {
+    QMetaObject::SuperData::link<QSurfaceDataProxyPrivate::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN33QItemModelSurfaceDataProxyPrivateE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN33QItemModelSurfaceDataProxyPrivateE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN33QItemModelSurfaceDataProxyPrivateE_t>.metaTypes,
+    nullptr
+} };
+
+void QItemModelSurfaceDataProxyPrivate::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<QItemModelSurfaceDataProxyPrivate *>(_o);
+    (void)_t;
+    (void)_c;
+    (void)_id;
+    (void)_a;
+}
+
+const QMetaObject *QItemModelSurfaceDataProxyPrivate::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *QItemModelSurfaceDataProxyPrivate::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN33QItemModelSurfaceDataProxyPrivateE_t>.strings))
+        return static_cast<void*>(this);
+    return QSurfaceDataProxyPrivate::qt_metacast(_clname);
+}
+
+int QItemModelSurfaceDataProxyPrivate::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QSurfaceDataProxyPrivate::qt_metacall(_c, _id, _a);
+    return _id;
+}
+QT_WARNING_POP
+
+//  from ../qtdatavis3d/src/datavisualization/data/qsurfacedataproxy.cpp, line 636, as _ZN24QSurfaceDataProxyPrivate9setSeriesEP17QAbstract3DSeries
+inline void QSurfaceDataProxyPrivate::setSeries(QAbstract3DSeries *series)
+{
+    QAbstractDataProxyPrivate::setSeries(series);
+    QSurface3DSeries *surfaceSeries = static_cast<QSurface3DSeries *>(series);
+    emit qptr()->seriesChanged(surfaceSeries);
+}
+
+//  from ../qtdatavis3d/src/datavisualization/data/qitemmodelsurfacedataproxy.cpp, line 1043, as _ZN33QItemModelSurfaceDataProxyPrivateD0Ev
+inline QItemModelSurfaceDataProxyPrivate::~QItemModelSurfaceDataProxyPrivate()
+{
+    delete m_itemModelHandler;
+}
 
 //  from ../qtdatavis3d/src/datavisualization/data/surfaceitemmodelhandler.cpp, line 8, as _ZN23SurfaceItemModelHandlerC1EP26QItemModelSurfaceDataProxyP7QObject
 inline SurfaceItemModelHandler::SurfaceItemModelHandler(QItemModelSurfaceDataProxy *proxy, QObject *parent)
@@ -38,14 +133,6 @@ inline SurfaceItemModelHandler::SurfaceItemModelHandler(QItemModelSurfaceDataPro
 {
 }
 
-//  from ../qtdatavis3d/src/datavisualization/data/qsurfacedataproxy.cpp, line 636, as _ZN24QSurfaceDataProxyPrivate9setSeriesEP17QAbstract3DSeries
-inline void QSurfaceDataProxyPrivate::setSeries(QAbstract3DSeries *series)
-{
-    QAbstractDataProxyPrivate::setSeries(series);
-    QSurface3DSeries *surfaceSeries = static_cast<QSurface3DSeries *>(series);
-    emit qptr()->seriesChanged(surfaceSeries);
-}
-
 //  from ../qtdatavis3d/src/datavisualization/data/qsurfacedataproxy.cpp, line 394, as _ZN24QSurfaceDataProxyPrivateC2EP17QSurfaceDataProxy
 inline QSurfaceDataProxyPrivate::QSurfaceDataProxyPrivate(QSurfaceDataProxy *q)
     : QAbstractDataProxyPrivate(q, QAbstractDataProxy::DataTypeSurface),
@@ -57,6 +144,128 @@ inline QSurfaceDataProxyPrivate::QSurfaceDataProxyPrivate(QSurfaceDataProxy *q)
 inline QSurfaceDataProxyPrivate::~QSurfaceDataProxyPrivate()
 {
     clearArray();
+}
+
+//  from ../qtdatavis3d/src/datavisualization/data/qsurfacedataproxy.cpp, line 628, as _ZN24QSurfaceDataProxyPrivate10clearArrayEv
+inline void QSurfaceDataProxyPrivate::clearArray()
+{
+    for (int i = 0; i < m_dataArray->size(); i++)
+        clearRow(i);
+    m_dataArray->clear();
+    delete m_dataArray;
+}
+
+//  from ../qtdatavis3d/src/datavisualization/data/qsurfacedataproxy.cpp, line 500, as _ZN24QSurfaceDataProxyPrivate4qptrEv
+inline QSurfaceDataProxy *QSurfaceDataProxyPrivate::qptr()
+{
+    return static_cast<QSurfaceDataProxy *>(q_ptr);
+}
+
+//  from ../qtdatavis3d/src/datavisualization/data/qabstractdataproxy.cpp, line 97, as _ZN25QAbstractDataProxyPrivate9setSeriesEP17QAbstract3DSeries
+inline void QAbstractDataProxyPrivate::setSeries(QAbstract3DSeries *series)
+{
+    q_ptr->setParent(series);
+    m_series = series;
+}
+
+//  from ../qtdatavis3d/src/datavisualization/data/qabstractdataproxy.cpp, line 93, as _ZN25QAbstractDataProxyPrivateD2Ev
+inline QAbstractDataProxyPrivate::~QAbstractDataProxyPrivate()
+{
+}
+
+//  from ../qtdatavis3d/src/datavisualization/data/abstractitemmodelhandler.cpp, line 8, as _ZN24AbstractItemModelHandlerC2EP7QObject
+inline AbstractItemModelHandler::AbstractItemModelHandler(QObject *parent)
+    : QObject(parent),
+      resolvePending(0),
+      m_fullReset(true)
+{
+    m_resolveTimer.setSingleShot(true);
+    QObject::connect(&m_resolveTimer, &QTimer::timeout,
+                     this, &AbstractItemModelHandler::handlePendingResolve);
+}
+
+//  from ../qtdatavis3d/src/datavisualization/data/abstractitemmodelhandler.cpp, line 18, as _ZN24AbstractItemModelHandlerD2Ev
+inline AbstractItemModelHandler::~AbstractItemModelHandler()
+{
+}
+
+//  from ../qtdatavis3d/src/datavisualization/data/qabstractdataproxy.cpp, line 84, as _ZN25QAbstractDataProxyPrivateC2EP18QAbstractDataProxyNS0_8DataTypeE
+inline QAbstractDataProxyPrivate::QAbstractDataProxyPrivate(QAbstractDataProxy *q,
+                                                     QAbstractDataProxy::DataType type)
+    : QObject(0),
+      q_ptr(q),
+      m_type(type),
+      m_series(0)
+{
+}
+
+//  from ../qtdatavis3d/src/datavisualization/data/qsurfacedataproxy.cpp, line 620, as _ZN24QSurfaceDataProxyPrivate8clearRowEi
+inline void QSurfaceDataProxyPrivate::clearRow(int rowIndex)
+{
+    if (m_dataArray->at(rowIndex)) {
+        delete m_dataArray->at(rowIndex);
+        (*m_dataArray)[rowIndex] = 0;
+    }
+}
+
+//  from ../qtdatavis3d/src/datavisualization/data/qitemmodelsurfacedataproxy.cpp, line 1033, as _ZN33QItemModelSurfaceDataProxyPrivateC1EP26QItemModelSurfaceDataProxy
+inline QItemModelSurfaceDataProxyPrivate::QItemModelSurfaceDataProxyPrivate(QItemModelSurfaceDataProxy *q)
+    : QSurfaceDataProxyPrivate(q),
+      m_itemModelHandler(new SurfaceItemModelHandler(q)),
+      m_useModelCategories(false),
+      m_autoRowCategories(true),
+      m_autoColumnCategories(true),
+      m_multiMatchBehavior(QItemModelSurfaceDataProxy::MMBLast)
+{
+}
+
+//  from ../qtdatavis3d/src/datavisualization/data/qitemmodelsurfacedataproxy.cpp, line 1053, as _ZN33QItemModelSurfaceDataProxyPrivate23connectItemModelHandlerEv
+inline void QItemModelSurfaceDataProxyPrivate::connectItemModelHandler()
+{
+    QObject::connect(m_itemModelHandler, &SurfaceItemModelHandler::itemModelChanged,
+                     qptr(), &QItemModelSurfaceDataProxy::itemModelChanged);
+    QObject::connect(qptr(), &QItemModelSurfaceDataProxy::rowRoleChanged,
+                     m_itemModelHandler, &AbstractItemModelHandler::handleMappingChanged);
+    QObject::connect(qptr(), &QItemModelSurfaceDataProxy::columnRoleChanged,
+                     m_itemModelHandler, &AbstractItemModelHandler::handleMappingChanged);
+    QObject::connect(qptr(), &QItemModelSurfaceDataProxy::xPosRoleChanged,
+                     m_itemModelHandler, &AbstractItemModelHandler::handleMappingChanged);
+    QObject::connect(qptr(), &QItemModelSurfaceDataProxy::yPosRoleChanged,
+                     m_itemModelHandler, &AbstractItemModelHandler::handleMappingChanged);
+    QObject::connect(qptr(), &QItemModelSurfaceDataProxy::zPosRoleChanged,
+                     m_itemModelHandler, &AbstractItemModelHandler::handleMappingChanged);
+    QObject::connect(qptr(), &QItemModelSurfaceDataProxy::rowCategoriesChanged,
+                     m_itemModelHandler, &AbstractItemModelHandler::handleMappingChanged);
+    QObject::connect(qptr(), &QItemModelSurfaceDataProxy::columnCategoriesChanged,
+                     m_itemModelHandler, &AbstractItemModelHandler::handleMappingChanged);
+    QObject::connect(qptr(), &QItemModelSurfaceDataProxy::useModelCategoriesChanged,
+                     m_itemModelHandler, &AbstractItemModelHandler::handleMappingChanged);
+    QObject::connect(qptr(), &QItemModelSurfaceDataProxy::autoRowCategoriesChanged,
+                     m_itemModelHandler, &AbstractItemModelHandler::handleMappingChanged);
+    QObject::connect(qptr(), &QItemModelSurfaceDataProxy::autoColumnCategoriesChanged,
+                     m_itemModelHandler, &AbstractItemModelHandler::handleMappingChanged);
+    QObject::connect(qptr(), &QItemModelSurfaceDataProxy::rowRolePatternChanged,
+                     m_itemModelHandler, &AbstractItemModelHandler::handleMappingChanged);
+    QObject::connect(qptr(), &QItemModelSurfaceDataProxy::columnRolePatternChanged,
+                     m_itemModelHandler, &AbstractItemModelHandler::handleMappingChanged);
+    QObject::connect(qptr(), &QItemModelSurfaceDataProxy::xPosRolePatternChanged,
+                     m_itemModelHandler, &AbstractItemModelHandler::handleMappingChanged);
+    QObject::connect(qptr(), &QItemModelSurfaceDataProxy::yPosRolePatternChanged,
+                     m_itemModelHandler, &AbstractItemModelHandler::handleMappingChanged);
+    QObject::connect(qptr(), &QItemModelSurfaceDataProxy::zPosRolePatternChanged,
+                     m_itemModelHandler, &AbstractItemModelHandler::handleMappingChanged);
+    QObject::connect(qptr(), &QItemModelSurfaceDataProxy::rowRoleReplaceChanged,
+                     m_itemModelHandler, &AbstractItemModelHandler::handleMappingChanged);
+    QObject::connect(qptr(), &QItemModelSurfaceDataProxy::columnRoleReplaceChanged,
+                     m_itemModelHandler, &AbstractItemModelHandler::handleMappingChanged);
+    QObject::connect(qptr(), &QItemModelSurfaceDataProxy::xPosRoleReplaceChanged,
+                     m_itemModelHandler, &AbstractItemModelHandler::handleMappingChanged);
+    QObject::connect(qptr(), &QItemModelSurfaceDataProxy::yPosRoleReplaceChanged,
+                     m_itemModelHandler, &AbstractItemModelHandler::handleMappingChanged);
+    QObject::connect(qptr(), &QItemModelSurfaceDataProxy::zPosRoleReplaceChanged,
+                     m_itemModelHandler, &AbstractItemModelHandler::handleMappingChanged);
+    QObject::connect(qptr(), &QItemModelSurfaceDataProxy::multiMatchBehaviorChanged,
+                     m_itemModelHandler, &AbstractItemModelHandler::handleMappingChanged);
 }
 
 //  from ../qtdatavis3d/src/datavisualization/data/qitemmodelsurfacedataproxy.cpp, line 1048, as _ZN33QItemModelSurfaceDataProxyPrivate4qptrEv
@@ -275,11 +484,36 @@ int ritual_ZN33QItemModelSurfaceDataProxyPrivate11qt_metacallEN11QMetaObject4Cal
   return self->qt_metacall(a0, a1, a2);
 }
 
+//  QString QItemModelSurfaceDataProxyPrivate::tr(const char *s, const char
+//      *c, int n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN33QItemModelSurfaceDataProxyPrivate2trEPKcS1_i(
+    const char *s,
+    const char *c,
+    int n) {
+  return new QString(QItemModelSurfaceDataProxyPrivate::tr(s, c, n));
+}
+
+//  QItemModelSurfaceDataProxyPrivate::QItemModelSurfaceDataProxyPrivate(QIte
+//      mModelSurfaceDataProxy *q)
+extern "C" Q_DECL_EXPORT
+QItemModelSurfaceDataProxyPrivate *ritual_ZN33QItemModelSurfaceDataProxyPrivateC1EP26QItemModelSurfaceDataProxy(
+    QItemModelSurfaceDataProxy *q) {
+  return new CuteQItemModelSurfaceDataProxyPrivate(q);
+}
+
 //  QItemModelSurfaceDataProxyPrivate::~QItemModelSurfaceDataProxyPrivate()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN33QItemModelSurfaceDataProxyPrivateD1Ev(
     QItemModelSurfaceDataProxyPrivate *self) {
   delete self;
+}
+
+//  void QItemModelSurfaceDataProxyPrivate::connectItemModelHandler()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN33QItemModelSurfaceDataProxyPrivate23connectItemModelHandlerEv(
+    QItemModelSurfaceDataProxyPrivate *self) {
+  self->connectItemModelHandler();
 }
 
 //  QItemModelSurfaceDataProxy *QItemModelSurfaceDataProxyPrivate::qptr()

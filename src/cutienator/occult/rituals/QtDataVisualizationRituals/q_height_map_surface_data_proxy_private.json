@@ -2,7 +2,7 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of QtDataV",
     "isualization/6.12.0/QtDataVisualization/private/qheightmapsurfaced",
-    "ataproxy_p.h, Qt 6.12.0. Changes made here are lost."
+    "ataproxy_p.h, Qt 6.12.0. Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZNK33QHeightMapSurfaceDataProxyPrivate10metaObjectEv": [
@@ -13,6 +13,9 @@
     ],
     "ritual_ZN33QHeightMapSurfaceDataProxyPrivate11qt_metacallEN11QMetaObject4CallEiPPv": [
       "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN33QHeightMapSurfaceDataProxyPrivate2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
     ],
     "ritual_ZN33QHeightMapSurfaceDataProxyPrivateD1Ev": [
       "nothing", "address"

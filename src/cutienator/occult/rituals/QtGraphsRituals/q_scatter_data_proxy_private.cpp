@@ -53,6 +53,14 @@ inline void QAbstractDataProxyPrivate::setSeries(QAbstract3DSeries *series)
     m_series = series;
 }
 
+//  from ../qtgraphs/src/graphs3d/data/qabstractdataproxy.cpp, line 87, as _ZN25QAbstractDataProxyPrivateD2Ev
+inline QAbstractDataProxyPrivate::~QAbstractDataProxyPrivate() {}
+
+//  from ../qtgraphs/src/graphs3d/data/qscatterdataproxy.cpp, line 329, as _ZN24QScatterDataProxyPrivateC1Ev
+inline QScatterDataProxyPrivate::QScatterDataProxyPrivate()
+    : QAbstractDataProxyPrivate(QAbstractDataProxy::DataType::Scatter)
+{}
+
 //  from ../qtgraphs/src/graphs3d/data/qscatterdataproxy.cpp, line 335, as _ZN24QScatterDataProxyPrivate10resetArrayEO5QListI16QScatterDataItemE
 inline void QScatterDataProxyPrivate::resetArray(QScatterDataArray &&newArray)
 {
@@ -259,6 +267,12 @@ extern "C" Q_DECL_EXPORT
 const QScatterDataProxy *ritual_ZNK24QScatterDataProxyPrivate6q_funcEv(
     const QScatterDataProxyPrivate *self) {
   return self->q_func();
+}
+
+//  QScatterDataProxyPrivate::QScatterDataProxyPrivate()
+extern "C" Q_DECL_EXPORT
+QScatterDataProxyPrivate *ritual_ZN24QScatterDataProxyPrivateC1Ev() {
+  return new CuteQScatterDataProxyPrivate();
 }
 
 //  QScatterDataProxyPrivate::~QScatterDataProxyPrivate()

@@ -1,14 +1,27 @@
 //  Written by dev_tooling.RitualGenerator from the records of QtDataVisualiz
 //  ation/6.12.0/QtDataVisualization/private/qabstractdataproxy_p.h, Qt
-//  6.12.0. Changes made here are lost.
+//  6.12.0.
+//  Edited by hand on 2026-11-26: moc's output for
+//  'QAbstractDataProxyPrivate' is pasted in, cut from what the moc of Qt
+//  6.12.0 writes for its header: Qt's library keeps it to itself; added are
+//  2 rituals that lean on what moc writes for a class of the part Qt keeps
+//  to itself, whose ritual file carries moc's output, drafted by a copy of
+//  the generator that lets those names through. A copy of a meta-object is a
+//  second one: 'qobject_cast' between it and Qt's own does not match. Kept
+//  as it is when the generator runs again.
 #include <QtDataVisualization/6.12.0/QtDataVisualization/private/datavisualizationglobal_p.h>
 #include <QtDataVisualization/QtDataVisualization>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtDataVisualization/6.12.0/QtDataVisualization/private/qabstractdataproxy_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
 #include <QtDataVisualization/private/qabstractdataproxy_p.h>
 #include <QtDataVisualization/private/qabstract3dseries_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -20,11 +33,91 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from QtDataVisualization__QAbstractDataProxyPrivate.cpp, line 1, as moc:QAbstractDataProxyPrivate
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN25QAbstractDataProxyPrivateE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto QAbstractDataProxyPrivate::qt_create_metaobjectdata<qt_meta_tag_ZN25QAbstractDataProxyPrivateE_t>()
+{
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "QAbstractDataProxyPrivate"
+    };
+
+    QtMocHelpers::UintData qt_methods {
+    };
+    QtMocHelpers::UintData qt_properties {
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    return QtMocHelpers::metaObjectData<QAbstractDataProxyPrivate, qt_meta_tag_ZN25QAbstractDataProxyPrivateE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums);
+}
+Q_CONSTINIT const QMetaObject QAbstractDataProxyPrivate::staticMetaObject = { {
+    QMetaObject::SuperData::link<QObject::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN25QAbstractDataProxyPrivateE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN25QAbstractDataProxyPrivateE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN25QAbstractDataProxyPrivateE_t>.metaTypes,
+    nullptr
+} };
+
+void QAbstractDataProxyPrivate::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<QAbstractDataProxyPrivate *>(_o);
+    (void)_t;
+    (void)_c;
+    (void)_id;
+    (void)_a;
+}
+
+const QMetaObject *QAbstractDataProxyPrivate::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *QAbstractDataProxyPrivate::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN25QAbstractDataProxyPrivateE_t>.strings))
+        return static_cast<void*>(this);
+    return QObject::qt_metacast(_clname);
+}
+
+int QAbstractDataProxyPrivate::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QObject::qt_metacall(_c, _id, _a);
+    return _id;
+}
+QT_WARNING_POP
+
 //  from ../qtdatavis3d/src/datavisualization/data/qabstractdataproxy.cpp, line 97, as _ZN25QAbstractDataProxyPrivate9setSeriesEP17QAbstract3DSeries
 inline void QAbstractDataProxyPrivate::setSeries(QAbstract3DSeries *series)
 {
     q_ptr->setParent(series);
     m_series = series;
+}
+
+//  from ../qtdatavis3d/src/datavisualization/data/qabstractdataproxy.cpp, line 93, as _ZN25QAbstractDataProxyPrivateD0Ev
+inline QAbstractDataProxyPrivate::~QAbstractDataProxyPrivate()
+{
+}
+
+//  from ../qtdatavis3d/src/datavisualization/data/qabstractdataproxy.cpp, line 84, as _ZN25QAbstractDataProxyPrivateC1EP18QAbstractDataProxyNS0_8DataTypeE
+inline QAbstractDataProxyPrivate::QAbstractDataProxyPrivate(QAbstractDataProxy *q,
+                                                     QAbstractDataProxy::DataType type)
+    : QObject(0),
+      q_ptr(q),
+      m_type(type),
+      m_series(0)
+{
 }
 //  -----------------------------------------------------------------------
 
@@ -235,6 +328,25 @@ int ritual_ZN25QAbstractDataProxyPrivate11qt_metacallEN11QMetaObject4CallEiPPv(
     int a1,
     void **a2) {
   return self->qt_metacall(a0, a1, a2);
+}
+
+//  QString QAbstractDataProxyPrivate::tr(const char *s, const char *c, int
+//      n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN25QAbstractDataProxyPrivate2trEPKcS1_i(
+    const char *s,
+    const char *c,
+    int n) {
+  return new QString(QAbstractDataProxyPrivate::tr(s, c, n));
+}
+
+//  QAbstractDataProxyPrivate::QAbstractDataProxyPrivate(QAbstractDataProxy
+//      *q, QAbstractDataProxy::DataType type)
+extern "C" Q_DECL_EXPORT
+QAbstractDataProxyPrivate *ritual_ZN25QAbstractDataProxyPrivateC1EP18QAbstractDataProxyNS0_8DataTypeE(
+    QAbstractDataProxy *q,
+    QAbstractDataProxy::DataType type) {
+  return new CuteQAbstractDataProxyPrivate(q, type);
 }
 
 //  QAbstractDataProxyPrivate::~QAbstractDataProxyPrivate()

@@ -1,17 +1,29 @@
 //  Written by dev_tooling.RitualGenerator from the records of QtDataVisualiz
 //  ation/6.12.0/QtDataVisualization/private/selectionpointer_p.h, Qt 6.12.0.
-//  Changes made here are lost.
+//  Edited by hand on 2026-11-26: moc's output for 'SelectionPointer' is
+//  pasted in, cut from what the moc of Qt 6.12.0 writes for its header: Qt's
+//  library keeps it to itself; added are 1 rituals that lean on what moc
+//  writes for a class of the part Qt keeps to itself, whose ritual file
+//  carries moc's output, drafted by a copy of the generator that lets those
+//  names through. A copy of a meta-object is a second one: 'qobject_cast'
+//  between it and Qt's own does not match. Kept as it is when the generator
+//  runs again.
 #include <QtDataVisualization/6.12.0/QtDataVisualization/private/datavisualizationglobal_p.h>
 #include <QtDataVisualization/QtDataVisualization>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtDataVisualization/6.12.0/QtDataVisualization/private/selectionpointer_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 #include <QtGui/qvectornd.h>
 #include <QtCore/qrect.h>
 #include <QtGui/qquaternion.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
 #include <QtDataVisualization/private/shaderhelper_p.h>
 #include <QtOpenGL/QOpenGLShader>
 #include <QtDataVisualization/private/texturehelper_p.h>
@@ -19,6 +31,7 @@
 #include <QtGui/QImage>
 #include <QtGui/QPainter>
 #include <QtCore/QTime>
+#include <QtDataVisualization/private/labelitem_p.h>
 #include <QtDataVisualization/private/drawer_p.h>
 #include <QtDataVisualization/private/shaderhelper_p.h>
 #include <QtDataVisualization/private/surfaceobject_p.h>
@@ -46,6 +59,93 @@
 
 //  from ../qtdatavis3d/src/datavisualization/engine/selectionpointer.cpp, line 13, as local:selectionpointer.cpp:spSliceUnits
 const GLfloat spSliceUnits = 2.5;
+
+//  from QtDataVisualization__SelectionPointer.cpp, line 1, as moc:SelectionPointer
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN16SelectionPointerE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto SelectionPointer::qt_create_metaobjectdata<qt_meta_tag_ZN16SelectionPointerE_t>()
+{
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "SelectionPointer"
+    };
+
+    QtMocHelpers::UintData qt_methods {
+    };
+    QtMocHelpers::UintData qt_properties {
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    return QtMocHelpers::metaObjectData<SelectionPointer, qt_meta_tag_ZN16SelectionPointerE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums);
+}
+Q_CONSTINIT const QMetaObject SelectionPointer::staticMetaObject = { {
+    QMetaObject::SuperData::link<QObject::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN16SelectionPointerE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN16SelectionPointerE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN16SelectionPointerE_t>.metaTypes,
+    nullptr
+} };
+
+void SelectionPointer::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<SelectionPointer *>(_o);
+    (void)_t;
+    (void)_c;
+    (void)_id;
+    (void)_a;
+}
+
+const QMetaObject *SelectionPointer::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *SelectionPointer::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN16SelectionPointerE_t>.strings))
+        return static_cast<void*>(this);
+    if (!strcmp(_clname, "QOpenGLFunctions"))
+        return static_cast< QOpenGLFunctions*>(this);
+    return QObject::qt_metacast(_clname);
+}
+
+int SelectionPointer::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QObject::qt_metacall(_c, _id, _a);
+    return _id;
+}
+QT_WARNING_POP
+
+//  from ../qtdatavis3d/src/datavisualization/utils/shaderhelper.cpp, line 62, as _ZN12ShaderHelperD1Ev
+inline ShaderHelper::~ShaderHelper()
+{
+    delete m_program;
+}
+
+//  from ../qtdatavis3d/src/datavisualization/utils/texturehelper.cpp, line 37, as _ZN13TextureHelperD1Ev
+inline TextureHelper::~TextureHelper()
+{
+#if !QT_CONFIG(opengles2)
+    delete m_openGlFunctions_2_1;
+#endif
+}
+
+//  from ../qtdatavis3d/src/datavisualization/data/labelitem.cpp, line 14, as _ZN9LabelItemD1Ev
+inline LabelItem::~LabelItem()
+{
+    clear();
+}
 
 //  from ../qtdatavis3d/src/datavisualization/utils/shaderhelper.cpp, line 81, as _ZN12ShaderHelper10initializeEv
 inline void ShaderHelper::initialize()
@@ -142,26 +242,12 @@ inline ShaderHelper::ShaderHelper(QObject *parent,
 {
 }
 
-//  from ../qtdatavis3d/src/datavisualization/utils/shaderhelper.cpp, line 62, as _ZN12ShaderHelperD1Ev
-inline ShaderHelper::~ShaderHelper()
+//  from ../qtdatavis3d/src/datavisualization/engine/drawer.cpp, line 54, as _ZN6Drawer16initializeOpenGLEv
+inline void Drawer::initializeOpenGL()
 {
-    delete m_program;
-}
-
-//  from ../qtdatavis3d/src/datavisualization/utils/texturehelper.cpp, line 37, as _ZN13TextureHelperD1Ev
-inline TextureHelper::~TextureHelper()
-{
-#if !QT_CONFIG(opengles2)
-    delete m_openGlFunctions_2_1;
-#endif
-}
-
-//  from ../qtdatavis3d/src/datavisualization/utils/shaderhelper.cpp, line 292, as _ZN12ShaderHelper10lightColorEv
-inline GLint ShaderHelper::lightColor()
-{
-    if (!m_initialized)
-        qFatal("Shader not initialized");
-    return m_lightColorUniform;
+    initializeOpenGLFunctions();
+    if (!m_textureHelper)
+        m_textureHelper = new TextureHelper();
 }
 
 //  from ../qtdatavis3d/src/datavisualization/engine/drawer.cpp, line 407, as _ZN6Drawer17generateLabelItemER9LabelItemRK7QStringi
@@ -189,18 +275,34 @@ inline void Drawer::generateLabelItem(LabelItem &item, const QString &text, int 
     }
 }
 
+//  from ../qtdatavis3d/src/datavisualization/data/labelitem.cpp, line 8, as _ZN9LabelItemC1Ev
+inline LabelItem::LabelItem()
+    : m_size(QSize(0, 0)),
+      m_textureId(0)
+{
+}
+
 //  from ../qtdatavis3d/src/datavisualization/engine/drawer.cpp, line 68, as _ZNK6Drawer5themeEv
 inline Q3DTheme *Drawer::theme() const
 {
     return m_theme;
 }
 
-//  from ../qtdatavis3d/src/datavisualization/engine/drawer.cpp, line 54, as _ZN6Drawer16initializeOpenGLEv
-inline void Drawer::initializeOpenGL()
+//  from ../qtdatavis3d/src/datavisualization/utils/shaderhelper.cpp, line 292, as _ZN12ShaderHelper10lightColorEv
+inline GLint ShaderHelper::lightColor()
 {
-    initializeOpenGLFunctions();
-    if (!m_textureHelper)
-        m_textureHelper = new TextureHelper();
+    if (!m_initialized)
+        qFatal("Shader not initialized");
+    return m_lightColorUniform;
+}
+
+//  from ../qtdatavis3d/src/datavisualization/data/labelitem.cpp, line 40, as _ZN9LabelItem5clearEv
+inline void LabelItem::clear()
+{
+    if (m_textureId && QOpenGLContext::currentContext())
+        QOpenGLContext::currentContext()->functions()->glDeleteTextures(1, &m_textureId);
+    m_textureId = 0;
+    m_size = QSize(0, 0);
 }
 
 //  from ../qtdatavis3d/src/datavisualization/utils/texturehelper.cpp, line 44, as _ZN13TextureHelper15create2DTextureERK6QImagebbbb
@@ -496,6 +598,15 @@ int ritual_ZN16SelectionPointer11qt_metacallEN11QMetaObject4CallEiPPv(
     int a1,
     void **a2) {
   return self->qt_metacall(a0, a1, a2);
+}
+
+//  QString SelectionPointer::tr(const char *s, const char *c, int n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN16SelectionPointer2trEPKcS1_i(
+    const char *s,
+    const char *c,
+    int n) {
+  return new QString(SelectionPointer::tr(s, c, n));
 }
 
 //  SelectionPointer::~SelectionPointer()

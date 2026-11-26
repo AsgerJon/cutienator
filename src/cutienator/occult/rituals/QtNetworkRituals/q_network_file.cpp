@@ -1,16 +1,27 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtNetwork/6.12.0/QtNetwork/private/qnetworkfile_p.h, Qt 6.12.0. Changes
-//  made here are lost.
+//  QtNetwork/6.12.0/QtNetwork/private/qnetworkfile_p.h, Qt 6.12.0.
+//  Edited by hand on 2026-11-26: moc's output for 'QNetworkFile' is pasted
+//  in, cut from what the moc of Qt 6.12.0 writes for its header: Qt's
+//  library keeps it to itself; added are 3 rituals that lean on what moc
+//  writes for a class of the part Qt keeps to itself, whose ritual file
+//  carries moc's output, drafted by a copy of the generator that lets those
+//  names through. A copy of a meta-object is a second one: 'qobject_cast'
+//  between it and Qt's own does not match. Kept as it is when the generator
+//  runs again.
 #include <QtNetwork/6.12.0/QtNetwork/private/qtnetworkglobal_p.h>
 #include <QtNetwork/QtNetwork>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtNetwork/6.12.0/QtNetwork/private/qnetworkfile_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <QtCore/qbytearray.h>
 #include <QtCore/qstring.h>
+#include <QtCore/qbytearray.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
 #include <QtNetwork/private/qnetworkfile_p.h>
 #include <QtNetwork/private/qnetworkrequest_p.h>
 #include <QtCore/QDebug>
@@ -19,6 +30,28 @@
 #include <QtCore/QFileInfo>
 #include <QtCore/QMetaObject>
 #include <QtCore/QCoreApplication>
+#include <QtNetwork/qnetworkrequest.h>
+#include <QtNetwork/private/qnetworkrequest_p.h>
+#include "qplatformdefs.h"
+#include <QtNetwork/qnetworkcookie.h>
+#include <QtNetwork/qsslconfiguration.h>
+#include <QtNetwork/private/qhttpheadershelper_p.h>
+#if QT_CONFIG(http)
+#include <QtNetwork/qhttp1configuration.h>
+#include <QtNetwork/qhttp2configuration.h>
+#include <QtNetwork/private/http2protocol_p.h>
+#endif
+#include "QtCore/qdatetime.h"
+#include "QtCore/qlocale.h"
+#include "QtCore/qshareddata.h"
+#include "QtCore/qtimezone.h"
+#include "QtCore/private/qduplicatetracker_p.h"
+#include "QtCore/private/qtools_p.h"
+#if QT_CONFIG(datestring)
+# include <stdio.h>
+#endif
+#include <algorithm>
+#include <QtCore/q20algorithm.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -28,12 +61,208 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+using namespace Qt::StringLiterals;
+
+//  from QtNetwork__QNetworkFile.cpp, line 1, as moc:QNetworkFile
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN12QNetworkFileE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto QNetworkFile::qt_create_metaobjectdata<qt_meta_tag_ZN12QNetworkFileE_t>()
+{
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "QNetworkFile",
+        "finished",
+        "",
+        "ok",
+        "headerRead",
+        "QHttpHeaders::WellKnownHeader",
+        "value",
+        "networkError",
+        "QNetworkReply::NetworkError",
+        "error",
+        "message",
+        "open",
+        "close"
+    };
+
+    QtMocHelpers::UintData qt_methods {
+        // Signal 'finished'
+        QtMocHelpers::SignalData<void(bool)>(1, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { QMetaType::Bool, 3 },
+        }}),
+        // Signal 'headerRead'
+        QtMocHelpers::SignalData<void(QHttpHeaders::WellKnownHeader, const QByteArray &)>(4, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { 0x80000000 | 5, 2 }, { QMetaType::QByteArray, 6 },
+        }}),
+        // Signal 'networkError'
+        QtMocHelpers::SignalData<void(QNetworkReply::NetworkError, const QString &)>(7, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { 0x80000000 | 8, 9 }, { QMetaType::QString, 10 },
+        }}),
+        // Slot 'open'
+        QtMocHelpers::SlotData<void()>(11, 2, QMC::AccessPublic, QMetaType::Void),
+        // Slot 'close'
+        QtMocHelpers::SlotData<void()>(12, 2, QMC::AccessPublic, QMetaType::Void),
+    };
+    QtMocHelpers::UintData qt_properties {
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    return QtMocHelpers::metaObjectData<QNetworkFile, qt_meta_tag_ZN12QNetworkFileE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums);
+}
+Q_CONSTINIT const QMetaObject QNetworkFile::staticMetaObject = { {
+    QMetaObject::SuperData::link<QFile::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN12QNetworkFileE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN12QNetworkFileE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN12QNetworkFileE_t>.metaTypes,
+    nullptr
+} };
+
+void QNetworkFile::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<QNetworkFile *>(_o);
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        switch (_id) {
+        case 0: _t->finished((*reinterpret_cast<std::add_pointer_t<bool>>(_a[1]))); break;
+        case 1: _t->headerRead((*reinterpret_cast<std::add_pointer_t<QHttpHeaders::WellKnownHeader>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<QByteArray>>(_a[2]))); break;
+        case 2: _t->networkError((*reinterpret_cast<std::add_pointer_t<QNetworkReply::NetworkError>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<QString>>(_a[2]))); break;
+        case 3: _t->open(); break;
+        case 4: _t->close(); break;
+        default: ;
+        }
+    }
+    if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        switch (_id) {
+        default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
+        case 2:
+            switch (*reinterpret_cast<int*>(_a[1])) {
+            default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
+            case 0:
+                *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType::fromType< QNetworkReply::NetworkError >(); break;
+            }
+            break;
+        }
+    }
+    if (_c == QMetaObject::IndexOfMethod) {
+        if (QtMocHelpers::indexOfMethod<void (QNetworkFile::*)(bool )>(_a, &QNetworkFile::finished, 0))
+            return;
+        if (QtMocHelpers::indexOfMethod<void (QNetworkFile::*)(QHttpHeaders::WellKnownHeader , const QByteArray & )>(_a, &QNetworkFile::headerRead, 1))
+            return;
+        if (QtMocHelpers::indexOfMethod<void (QNetworkFile::*)(QNetworkReply::NetworkError , const QString & )>(_a, &QNetworkFile::networkError, 2))
+            return;
+    }
+}
+
+const QMetaObject *QNetworkFile::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *QNetworkFile::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN12QNetworkFileE_t>.strings))
+        return static_cast<void*>(this);
+    return QFile::qt_metacast(_clname);
+}
+
+int QNetworkFile::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QFile::qt_metacall(_c, _id, _a);
+    if (_id < 0)
+        return _id;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        if (_id < 5)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 5;
+    }
+    if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        if (_id < 5)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 5;
+    }
+    return _id;
+}
+
+// SIGNAL 0
+void QNetworkFile::finished(bool _t1)
+{
+    QMetaObject::activate<void>(this, &staticMetaObject, 0, nullptr, _t1);
+}
+
+// SIGNAL 1
+void QNetworkFile::headerRead(QHttpHeaders::WellKnownHeader _t1, const QByteArray & _t2)
+{
+    QMetaObject::activate<void>(this, &staticMetaObject, 1, nullptr, _t1, _t2);
+}
+
+// SIGNAL 2
+void QNetworkFile::networkError(QNetworkReply::NetworkError _t1, const QString & _t2)
+{
+    QMetaObject::activate<void>(this, &staticMetaObject, 2, nullptr, _t1, _t2);
+}
+QT_WARNING_POP
+
+//  from src/network/access/qnetworkfile.cpp, line 27, as _ZN12QNetworkFile4openEv
+inline void QNetworkFile::open()
+{
+    bool opened = false;
+    QFileInfo fi(fileName());
+    if (fi.isDir()) {
+        QString msg = QCoreApplication::translate("QNetworkAccessFileBackend",
+            "Cannot open %1: Path is a directory").arg(fileName());
+        emit networkError(QNetworkReply::ContentOperationNotPermittedError, msg);
+    } else {
+        emit headerRead(QHttpHeaders::WellKnownHeader::LastModified,
+                        QNetworkHeadersPrivate::toHttpDate(fi.lastModified()));
+        emit headerRead(QHttpHeaders::WellKnownHeader::ContentLength,
+                        QByteArray::number(fi.size()));
+        opened = QFile::open(QIODevice::ReadOnly | QIODevice::Unbuffered);
+        if (!opened) {
+            QString msg = QCoreApplication::translate("QNetworkAccessFileBackend",
+                "Error opening %1: %2").arg(fileName(), errorString());
+            if (exists())
+                emit networkError(QNetworkReply::ContentAccessDenied, msg);
+            else
+                emit networkError(QNetworkReply::ContentNotFoundError, msg);
+        }
+    }
+    emit finished(opened);
+}
+
 //  from src/network/access/qnetworkfile.cpp, line 53, as _ZN12QNetworkFile5closeEv
 inline void QNetworkFile::close()
 {
     // This override is needed because 'using' keyword cannot be used for slots. And the base
     // function is not an invokable/slot function.
     QFile::close();
+}
+
+//  from src/network/access/qnetworkrequest.cpp, line 1826, as _ZN22QNetworkHeadersPrivate10toHttpDateERK9QDateTime
+inline QByteArray QNetworkHeadersPrivate::toHttpDate(const QDateTime &dt)
+{
+    return QLocale::c().toString(dt.toUTC(), u"ddd, dd MMM yyyy hh:mm:ss 'GMT'").toLatin1();
+}
+
+//  from src/network/access/qnetworkfile.cpp, line 17, as _ZN12QNetworkFileC1Ev
+inline QNetworkFile::QNetworkFile()
+    : QFile()
+{
+}
+
+//  from src/network/access/qnetworkfile.cpp, line 22, as _ZN12QNetworkFileC1ERK7QString
+inline QNetworkFile::QNetworkFile(const QString &name)
+    : QFile(name)
+{
 }
 //  -----------------------------------------------------------------------
 
@@ -551,6 +780,27 @@ int ritual_ZN12QNetworkFile11qt_metacallEN11QMetaObject4CallEiPPv(
     int a1,
     void **a2) {
   return self->qt_metacall(a0, a1, a2);
+}
+
+//  QString QNetworkFile::tr(const char *s, const char *c, int n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN12QNetworkFile2trEPKcS1_i(
+    const char *s,
+    const char *c,
+    int n) {
+  return new QString(QNetworkFile::tr(s, c, n));
+}
+
+//  QNetworkFile::QNetworkFile()
+extern "C" Q_DECL_EXPORT
+QNetworkFile *ritual_ZN12QNetworkFileC1Ev() {
+  return new CuteQNetworkFile();
+}
+
+//  QNetworkFile::QNetworkFile(const QString &name)
+extern "C" Q_DECL_EXPORT
+QNetworkFile *ritual_ZN12QNetworkFileC1ERK7QString(const QString *name) {
+  return new CuteQNetworkFile(*name);
 }
 
 //  void QNetworkFile::open()

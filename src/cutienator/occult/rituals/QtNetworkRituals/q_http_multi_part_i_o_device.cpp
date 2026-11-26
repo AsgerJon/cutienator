@@ -167,19 +167,6 @@ inline qint64 QHttpMultiPartIODevice::size() const
     return deviceSize;
 }
 
-//  from src/network/access/qhttpmultipart.cpp, line 364, as _ZNK16QHttpPartPrivate4sizeEv
-inline qint64 QHttpPartPrivate::size() const
-{
-    checkHeaderCreated();
-    qint64 size = header.size();
-    if (bodyDevice) {
-        size += bodyDevice->size();
-    } else {
-        size += body.size();
-    }
-    return size;
-}
-
 //  from src/network/access/qhttpmultipart.cpp, line 376, as _ZN16QHttpPartPrivate5resetEv
 inline bool QHttpPartPrivate::reset()
 {
@@ -224,6 +211,19 @@ inline qint64 QHttpPartPrivate::readData(char *data, qint64 maxSize)
         }
     }
     return bytesRead;
+}
+
+//  from src/network/access/qhttpmultipart.cpp, line 364, as _ZNK16QHttpPartPrivate4sizeEv
+inline qint64 QHttpPartPrivate::size() const
+{
+    checkHeaderCreated();
+    qint64 size = header.size();
+    if (bodyDevice) {
+        size += bodyDevice->size();
+    } else {
+        size += body.size();
+    }
+    return size;
 }
 
 //  from src/network/access/qhttpmultipart.cpp, line 385, as _ZNK16QHttpPartPrivate18checkHeaderCreatedEv
@@ -719,6 +719,14 @@ public:
   }
 #endif  // !defined(QT_NO_QOBJECT)
 };
+
+//  QHttpMultiPartIODevice::QHttpMultiPartIODevice(QHttpMultiPartPrivate
+//      *parentMultiPart)
+extern "C" Q_DECL_EXPORT
+QHttpMultiPartIODevice *ritual_ZN22QHttpMultiPartIODeviceC1EP21QHttpMultiPartPrivate(
+    QHttpMultiPartPrivate *parentMultiPart) {
+  return new CuteQHttpMultiPartIODevice(parentMultiPart);
+}
 
 //  QHttpMultiPartIODevice::~QHttpMultiPartIODevice()
 extern "C" Q_DECL_EXPORT

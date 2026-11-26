@@ -5,6 +5,7 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN27QCoapInternalRequestPrivateC1Ev": ["address"],
     "ritual_ZN27QCoapInternalRequestPrivate6q_funcEv": [
       "address", "address"
     ],

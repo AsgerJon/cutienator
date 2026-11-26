@@ -2,7 +2,7 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtNetwork/6.12.0/QtNetwork/private/qnetworkfile_p.h, Qt 6.12.0.",
-    "Changes made here are lost."
+    "Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZNK12QNetworkFile10metaObjectEv": ["address", "address"],
@@ -12,6 +12,9 @@
     "ritual_ZN12QNetworkFile11qt_metacallEN11QMetaObject4CallEiPPv": [
       "int", "address", "int", "int", "address"
     ],
+    "ritual_ZN12QNetworkFile2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN12QNetworkFileC1Ev": ["address"],
+    "ritual_ZN12QNetworkFileC1ERK7QString": ["address", "text"],
     "ritual_ZN12QNetworkFile4openEv": ["nothing", "address"],
     "ritual_ZN12QNetworkFile5closeEv": ["nothing", "address"],
     "ritual_ZN12QNetworkFile8finishedEb": ["nothing", "address", "bool"],

@@ -32,10 +32,16 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from src/widgets/kernel/qstandardgestures.cpp, line 390, as _ZN21QTapGestureRecognizerC1Ev
+//  from src/widgets/kernel/qstandardgestures.cpp, line 447, as _ZN21QTapGestureRecognizer5resetEP8QGesture
 #if !defined(QT_NO_GESTURES)
-inline QTapGestureRecognizer::QTapGestureRecognizer()
+inline void QTapGestureRecognizer::reset(QGesture *state)
 {
+    QTapGesture *q = static_cast<QTapGesture *>(state);
+    QTapGesturePrivate *d = q->d_func();
+
+    d->position = QPointF();
+
+    QGestureRecognizer::reset(state);
 }
 #endif  // !defined(QT_NO_GESTURES)
 
@@ -98,16 +104,10 @@ inline QGestureRecognizer::Result QTapGestureRecognizer::recognize(QGesture *sta
 }
 #endif  // !defined(QT_NO_GESTURES)
 
-//  from src/widgets/kernel/qstandardgestures.cpp, line 447, as _ZN21QTapGestureRecognizer5resetEP8QGesture
+//  from src/widgets/kernel/qstandardgestures.cpp, line 390, as _ZN21QTapGestureRecognizerC1Ev
 #if !defined(QT_NO_GESTURES)
-inline void QTapGestureRecognizer::reset(QGesture *state)
+inline QTapGestureRecognizer::QTapGestureRecognizer()
 {
-    QTapGesture *q = static_cast<QTapGesture *>(state);
-    QTapGesturePrivate *d = q->d_func();
-
-    d->position = QPointF();
-
-    QGestureRecognizer::reset(state);
 }
 #endif  // !defined(QT_NO_GESTURES)
 //  -----------------------------------------------------------------------

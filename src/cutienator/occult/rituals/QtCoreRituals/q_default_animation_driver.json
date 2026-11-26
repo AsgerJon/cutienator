@@ -2,7 +2,7 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtCore/6.12.0/QtCore/private/qabstractanimation_p.h, Qt 6.12.0.",
-    "Changes made here are lost."
+    "Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZNK23QDefaultAnimationDriver10metaObjectEv": [
@@ -13,6 +13,12 @@
     ],
     "ritual_ZN23QDefaultAnimationDriver11qt_metacallEN11QMetaObject4CallEiPPv": [
       "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN23QDefaultAnimationDriver2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN23QDefaultAnimationDriverC1EP13QUnifiedTimer": [
+      "address", "address"
     ],
     "ritual_ZN23QDefaultAnimationDriverD1Ev": ["nothing", "address"],
     "ritual_ZN23QDefaultAnimationDriver10timerEventEP11QTimerEvent": [

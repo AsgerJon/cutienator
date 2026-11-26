@@ -1,6 +1,14 @@
 //  Written by dev_tooling.RitualGenerator from the records of QtRemoteObject
 //  s/6.12.0/QtRemoteObjects/private/qconnection_local_backend_p.h, Qt
-//  6.12.0. Changes made here are lost.
+//  6.12.0.
+//  Edited by hand on 2026-11-26: moc's output for 'LocalClientIo' is pasted
+//  in, cut from what the moc of Qt 6.12.0 writes for its header: Qt's
+//  library keeps it to itself; added are 2 rituals that lean on what moc
+//  writes for a class of the part Qt keeps to itself, whose ritual file
+//  carries moc's output, drafted by a copy of the generator that lets those
+//  names through. A copy of a meta-object is a second one: 'qobject_cast'
+//  between it and Qt's own does not match. Kept as it is when the generator
+//  runs again.
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtRemoteObjects/QtRemoteObjects>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -11,7 +19,12 @@
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
 #include <QtRemoteObjects/private/qconnection_local_backend_p.h>
+#include <QtCore/qloggingcategory.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -21,10 +34,110 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from ../qtremoteobjects/src/remoteobjects/qconnection_local_backend.cpp, line 23, as _ZNK13LocalClientIo10connectionEv
-inline QIODevice *LocalClientIo::connection() const
+//  from QtRemoteObjects__LocalClientIo.cpp, line 1, as moc:LocalClientIo
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN13LocalClientIoE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto LocalClientIo::qt_create_metaobjectdata<qt_meta_tag_ZN13LocalClientIoE_t>()
 {
-    return m_socket;
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "LocalClientIo",
+        "onError",
+        "",
+        "QLocalSocket::LocalSocketError",
+        "error",
+        "onStateChanged",
+        "QLocalSocket::LocalSocketState",
+        "state"
+    };
+
+    QtMocHelpers::UintData qt_methods {
+        // Slot 'onError'
+        QtMocHelpers::SlotData<void(QLocalSocket::LocalSocketError)>(1, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { 0x80000000 | 3, 4 },
+        }}),
+        // Slot 'onStateChanged'
+        QtMocHelpers::SlotData<void(QLocalSocket::LocalSocketState)>(5, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { 0x80000000 | 6, 7 },
+        }}),
+    };
+    QtMocHelpers::UintData qt_properties {
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    return QtMocHelpers::metaObjectData<LocalClientIo, qt_meta_tag_ZN13LocalClientIoE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums);
+}
+Q_CONSTINIT const QMetaObject LocalClientIo::staticMetaObject = { {
+    QMetaObject::SuperData::link<QtROClientIoDevice::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN13LocalClientIoE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN13LocalClientIoE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN13LocalClientIoE_t>.metaTypes,
+    nullptr
+} };
+
+void LocalClientIo::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<LocalClientIo *>(_o);
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        switch (_id) {
+        case 0: _t->onError((*reinterpret_cast<std::add_pointer_t<QLocalSocket::LocalSocketError>>(_a[1]))); break;
+        case 1: _t->onStateChanged((*reinterpret_cast<std::add_pointer_t<QLocalSocket::LocalSocketState>>(_a[1]))); break;
+        default: ;
+        }
+    }
+}
+
+const QMetaObject *LocalClientIo::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *LocalClientIo::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN13LocalClientIoE_t>.strings))
+        return static_cast<void*>(this);
+    return QtROClientIoDevice::qt_metacast(_clname);
+}
+
+int LocalClientIo::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QtROClientIoDevice::qt_metacall(_c, _id, _a);
+    if (_id < 0)
+        return _id;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        if (_id < 2)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 2;
+    }
+    if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        if (_id < 2)
+            *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
+        _id -= 2;
+    }
+    return _id;
+}
+QT_WARNING_POP
+
+//  from ../qtremoteobjects/src/remoteobjects/qconnection_local_backend.cpp, line 85, as _ZN13LocalClientIo14onStateChangedEN12QLocalSocket16LocalSocketStateE
+inline void LocalClientIo::onStateChanged(QLocalSocket::LocalSocketState state)
+{
+    if (state == QLocalSocket::ClosingState && !isClosing()) {
+        m_socket->abort();
+        emit shouldReconnect(this);
+    }
+    if (state == QLocalSocket::ConnectedState)
+        initializeDataStream();
 }
 
 //  from ../qtremoteobjects/src/remoteobjects/qconnection_local_backend.cpp, line 43, as _ZN13LocalClientIo15connectToServerEv
@@ -40,11 +153,10 @@ inline void LocalClientIo::connectToServer()
 }
 #endif  // defined(Q_OS_LINUX)
 
-//  from ../qtremoteobjects/src/remoteobjects/qconnection_local_backend.cpp, line 53, as _ZNK13LocalClientIo6isOpenEv
-inline bool LocalClientIo::isOpen() const
+//  from ../qtremoteobjects/src/remoteobjects/qconnection_local_backend.cpp, line 38, as _ZN13LocalClientIo22doDisconnectFromServerEv
+inline void LocalClientIo::doDisconnectFromServer()
 {
-    return !isClosing() && (m_socket->state() == QLocalSocket::ConnectedState
-                            || m_socket->state() == QLocalSocket::ConnectingState);
+    m_socket->disconnectFromServer();
 }
 
 //  from ../qtremoteobjects/src/remoteobjects/qconnection_local_backend.cpp, line 28, as _ZN13LocalClientIo7doCloseEv
@@ -58,10 +170,69 @@ inline void LocalClientIo::doClose()
     }
 }
 
-//  from ../qtremoteobjects/src/remoteobjects/qconnection_local_backend.cpp, line 38, as _ZN13LocalClientIo22doDisconnectFromServerEv
-inline void LocalClientIo::doDisconnectFromServer()
+//  from ../qtremoteobjects/src/remoteobjects/qconnection_local_backend.cpp, line 59, as _ZN13LocalClientIo7onErrorEN12QLocalSocket16LocalSocketErrorE
+#if defined(Q_OS_LINUX)
+inline void LocalClientIo::onError(QLocalSocket::LocalSocketError error)
 {
-    m_socket->disconnectFromServer();
+    qCDebug(QT_REMOTEOBJECT) << "onError" << error << m_socket->serverName();
+
+    switch (error) {
+    case QLocalSocket::ServerNotFoundError:
+    case QLocalSocket::UnknownSocketError:
+    case QLocalSocket::PeerClosedError:
+        //Host not there, wait and try again
+        emit shouldReconnect(this);
+        break;
+    case QLocalSocket::ConnectionError:
+    case QLocalSocket::ConnectionRefusedError:
+        //... TODO error reporting
+#ifdef Q_OS_UNIX
+        emit shouldReconnect(this);
+#endif
+        break;
+    case QLocalSocket::SocketAccessError:
+        emit setError(QRemoteObjectNode::SocketAccessError);
+        break;
+    default:
+        break;
+    }
+}
+#endif  // defined(Q_OS_LINUX)
+
+//  from ../qtremoteobjects/src/remoteobjects/qconnection_local_backend.cpp, line 18, as _ZN13LocalClientIoD0Ev
+inline LocalClientIo::~LocalClientIo()
+{
+    close();
+}
+
+//  from ../qtremoteobjects/src/remoteobjects/qconnection_local_backend.cpp, line 23, as _ZNK13LocalClientIo10connectionEv
+inline QIODevice *LocalClientIo::connection() const
+{
+    return m_socket;
+}
+
+//  from ../qtremoteobjects/src/remoteobjects/qconnection_local_backend.cpp, line 53, as _ZNK13LocalClientIo6isOpenEv
+inline bool LocalClientIo::isOpen() const
+{
+    return !isClosing() && (m_socket->state() == QLocalSocket::ConnectedState
+                            || m_socket->state() == QLocalSocket::ConnectingState);
+}
+
+//  from ../qtremoteobjects/src/remoteobjects/qtremoteobjectglobal.cpp, line 13, as _Z15QT_REMOTEOBJECTv
+inline const QLoggingCategory &QT_REMOTEOBJECT()
+{
+    static const QLoggingCategory category("qt.remoteobjects", QtWarningMsg);
+    return category;
+}
+
+//  from ../qtremoteobjects/src/remoteobjects/qconnection_local_backend.cpp, line 9, as _ZN13LocalClientIoC1EP7QObject
+inline LocalClientIo::LocalClientIo(QObject *parent)
+    : QtROClientIoDevice(parent)
+    , m_socket(new QLocalSocket(this))
+{
+    connect(m_socket, &QLocalSocket::readyRead, this, &QtROClientIoDevice::readyRead);
+    connect(m_socket, &QLocalSocket::errorOccurred, this, &LocalClientIo::onError);
+    connect(m_socket, &QLocalSocket::stateChanged, this, &LocalClientIo::onStateChanged);
 }
 //  -----------------------------------------------------------------------
 
@@ -427,6 +598,25 @@ int ritual_ZN13LocalClientIo11qt_metacallEN11QMetaObject4CallEiPPv(
     void **a2) {
   return self->qt_metacall(a0, a1, a2);
 }
+
+#if defined(Q_OS_LINUX)
+//  QString LocalClientIo::tr(const char *s, const char *c, int n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN13LocalClientIo2trEPKcS1_i(
+    const char *s,
+    const char *c,
+    int n) {
+  return new QString(LocalClientIo::tr(s, c, n));
+}
+#endif  // defined(Q_OS_LINUX)
+
+#if defined(Q_OS_LINUX)
+//  LocalClientIo::LocalClientIo(QObject *parent)
+extern "C" Q_DECL_EXPORT
+LocalClientIo *ritual_ZN13LocalClientIoC1EP7QObject(QObject *parent) {
+  return new CuteLocalClientIo(parent);
+}
+#endif  // defined(Q_OS_LINUX)
 
 //  LocalClientIo::~LocalClientIo()
 extern "C" Q_DECL_EXPORT

@@ -1,14 +1,26 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtQuick/6.12.0/QtQuick/private/qquicksmoothedanimation_p_p.h, Qt 6.12.0.
-//  Changes made here are lost.
+//  Edited by hand on 2026-11-26: moc's output for 'QSmoothedAnimationTimer'
+//  is pasted in, cut from what the moc of Qt 6.12.0 writes for its header:
+//  Qt's library keeps it to itself; added are 2 rituals that lean on what
+//  moc writes for a class of the part Qt keeps to itself, whose ritual file
+//  carries moc's output, drafted by a copy of the generator that lets those
+//  names through. A copy of a meta-object is a second one: 'qobject_cast'
+//  between it and Qt's own does not match. Kept as it is when the generator
+//  runs again.
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
 #include <QtQuick/QtQuick>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQuick/6.12.0/QtQuick/private/qquicksmoothedanimation_p_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
 #include <QtQuick/private/qquicksmoothedanimation_p.h>
 #include <QtQuick/private/qquicksmoothedanimation_p_p.h>
 #include <QtQuick/private/qquickanimation_p_p.h>
@@ -26,6 +38,104 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  from QtQuick__QSmoothedAnimationTimer.cpp, line 1, as moc:QSmoothedAnimationTimer
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN23QSmoothedAnimationTimerE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto QSmoothedAnimationTimer::qt_create_metaobjectdata<qt_meta_tag_ZN23QSmoothedAnimationTimerE_t>()
+{
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "QSmoothedAnimationTimer",
+        "stopAnimation",
+        ""
+    };
+
+    QtMocHelpers::UintData qt_methods {
+        // Slot 'stopAnimation'
+        QtMocHelpers::SlotData<void()>(1, 2, QMC::AccessPublic, QMetaType::Void),
+    };
+    QtMocHelpers::UintData qt_properties {
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    return QtMocHelpers::metaObjectData<QSmoothedAnimationTimer, qt_meta_tag_ZN23QSmoothedAnimationTimerE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums);
+}
+Q_CONSTINIT const QMetaObject QSmoothedAnimationTimer::staticMetaObject = { {
+    QMetaObject::SuperData::link<QTimer::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN23QSmoothedAnimationTimerE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN23QSmoothedAnimationTimerE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN23QSmoothedAnimationTimerE_t>.metaTypes,
+    nullptr
+} };
+
+void QSmoothedAnimationTimer::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<QSmoothedAnimationTimer *>(_o);
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        switch (_id) {
+        case 0: _t->stopAnimation(); break;
+        default: ;
+        }
+    }
+    (void)_a;
+}
+
+const QMetaObject *QSmoothedAnimationTimer::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *QSmoothedAnimationTimer::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN23QSmoothedAnimationTimerE_t>.strings))
+        return static_cast<void*>(this);
+    return QTimer::qt_metacast(_clname);
+}
+
+int QSmoothedAnimationTimer::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QTimer::qt_metacall(_c, _id, _a);
+    if (_id < 0)
+        return _id;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        if (_id < 1)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 1;
+    }
+    if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        if (_id < 1)
+            *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
+        _id -= 1;
+    }
+    return _id;
+}
+QT_WARNING_POP
+
+//  from ../qtdeclarative/src/quick/util/qquicksmoothedanimation.cpp, line 36, as _ZN23QSmoothedAnimationTimer13stopAnimationEv
+inline void QSmoothedAnimationTimer::stopAnimation()
+{
+    m_animation->stop();
+}
+
+//  from ../qtdeclarative/src/quick/util/qquicksmoothedanimation.cpp, line 25, as _ZN23QSmoothedAnimationTimerC1EP18QSmoothedAnimationP7QObject
+inline QSmoothedAnimationTimer::QSmoothedAnimationTimer(QSmoothedAnimation *animation, QObject *parent)
+    : QTimer(parent)
+    , m_animation(animation)
+{
+    connect(this, SIGNAL(timeout()), this, SLOT(stopAnimation()));
+}
 
 //  from ../qtdeclarative/src/quick/util/qquicksmoothedanimation.cpp, line 32, as _ZN23QSmoothedAnimationTimerD1Ev
 inline QSmoothedAnimationTimer::~QSmoothedAnimationTimer()
@@ -224,6 +334,24 @@ int ritual_ZN23QSmoothedAnimationTimer11qt_metacallEN11QMetaObject4CallEiPPv(
     int a1,
     void **a2) {
   return self->qt_metacall(a0, a1, a2);
+}
+
+//  QString QSmoothedAnimationTimer::tr(const char *s, const char *c, int n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN23QSmoothedAnimationTimer2trEPKcS1_i(
+    const char *s,
+    const char *c,
+    int n) {
+  return new QString(QSmoothedAnimationTimer::tr(s, c, n));
+}
+
+//  QSmoothedAnimationTimer::QSmoothedAnimationTimer(QSmoothedAnimation
+//      *animation, QObject *parent)
+extern "C" Q_DECL_EXPORT
+QSmoothedAnimationTimer *ritual_ZN23QSmoothedAnimationTimerC1EP18QSmoothedAnimationP7QObject(
+    QSmoothedAnimation *animation,
+    QObject *parent) {
+  return new CuteQSmoothedAnimationTimer(animation, parent);
 }
 
 //  QSmoothedAnimationTimer::~QSmoothedAnimationTimer()

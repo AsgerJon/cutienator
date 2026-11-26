@@ -5,6 +5,9 @@
     "here are lost."
   ],
   "rows": {
+    "ritual_ZN8Qt3DCore16SyncTaskRunnableC1EPFvPvES1_P10QAtomicInt": [
+      "address", "address", "address", "address"
+    ],
     "ritual_ZN8Qt3DCore16SyncTaskRunnableD1Ev": ["nothing", "address"],
     "ritual_ZNK8Qt3DCore16SyncTaskRunnable10isRequiredEv": [
       "bool", "address"

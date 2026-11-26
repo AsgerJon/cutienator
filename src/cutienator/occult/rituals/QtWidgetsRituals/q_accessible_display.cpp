@@ -12,9 +12,7 @@
 #include <QtWidgets/6.12.0/QtWidgets/private/simplewidgets_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
-#if QT_CONFIG(accessibility)
 #include <QtGui/qaccessible.h>
-#endif
 #include <QtCore/qsize.h>
 #include <QtCore/qpoint.h>
 #include <QtCore/qvariant.h>
@@ -95,11 +93,74 @@
 
 using namespace Qt::StringLiterals;
 
-//  from src/widgets/accessible/simplewidgets.cpp, line 407, as _ZN18QAccessibleDisplayC1EP7QWidgetN11QAccessible4RoleE
+//  from src/widgets/accessible/simplewidgets.cpp, line 519, as _ZN18QAccessibleDisplay14interface_castEN11QAccessible13InterfaceTypeE
 #if QT_CONFIG(accessibility)
-inline QAccessibleDisplay::QAccessibleDisplay(QWidget *w, QAccessible::Role role)
-: QAccessibleWidgetV2(w, role)
+inline void *QAccessibleDisplay::interface_cast(QAccessible::InterfaceType t)
 {
+    if (t == QAccessible::ImageInterface)
+        return static_cast<QAccessibleImageInterface*>(this);
+    return QAccessibleWidgetV2::interface_cast(t);
+}
+#endif  // QT_CONFIG(accessibility)
+
+//  from src/widgets/accessible/simplewidgets.cpp, line 550, as _ZNK18QAccessibleDisplay13imagePositionEv
+#if QT_CONFIG(accessibility)
+inline QPoint QAccessibleDisplay::imagePosition() const
+{
+#if QT_CONFIG(label)
+    QLabel *label = qobject_cast<QLabel *>(widget());
+    if (!label)
+#endif
+        return QPoint();
+#if QT_CONFIG(label)
+    if (label->pixmap().isNull())
+        return QPoint();
+
+    return QPoint(label->mapToGlobal(label->pos()));
+#endif
+}
+#endif  // QT_CONFIG(accessibility)
+
+//  from src/widgets/accessible/simplewidgets.cpp, line 527, as _ZNK18QAccessibleDisplay16imageDescriptionEv
+#if QT_CONFIG(accessibility)
+inline QString QAccessibleDisplay::imageDescription() const
+{
+#if QT_CONFIG(tooltip)
+    return widget()->toolTip();
+#else
+    return QString();
+#endif
+}
+#endif  // QT_CONFIG(accessibility)
+
+//  from src/widgets/accessible/simplewidgets.cpp, line 412, as _ZNK18QAccessibleDisplay4roleEv
+#if QT_CONFIG(accessibility)
+inline QAccessible::Role QAccessibleDisplay::role() const
+{
+#if QT_CONFIG(label)
+    QLabel *l = qobject_cast<QLabel*>(object());
+    if (l) {
+        if (!l->pixmap().isNull())
+            return QAccessible::Graphic;
+#ifndef QT_NO_PICTURE
+        if (!l->picture().isNull())
+            return QAccessible::Graphic;
+#endif
+#if QT_CONFIG(movie)
+        if (l->movie())
+            return QAccessible::Animation;
+#endif
+#if QT_CONFIG(progressbar)
+    } else if (qobject_cast<QProgressBar*>(object())) {
+        return QAccessible::ProgressBar;
+#endif
+#if QT_CONFIG(statusbar)
+    } else if (qobject_cast<QStatusBar*>(object())) {
+        return QAccessible::StatusBar;
+#endif
+    }
+#endif
+    return QAccessibleWidgetV2::role();
 }
 #endif  // QT_CONFIG(accessibility)
 
@@ -160,37 +221,6 @@ inline QString QAccessibleDisplay::text(QAccessible::Text t) const
 }
 #endif  // QT_CONFIG(accessibility)
 
-//  from src/widgets/accessible/simplewidgets.cpp, line 412, as _ZNK18QAccessibleDisplay4roleEv
-#if QT_CONFIG(accessibility)
-inline QAccessible::Role QAccessibleDisplay::role() const
-{
-#if QT_CONFIG(label)
-    QLabel *l = qobject_cast<QLabel*>(object());
-    if (l) {
-        if (!l->pixmap().isNull())
-            return QAccessible::Graphic;
-#ifndef QT_NO_PICTURE
-        if (!l->picture().isNull())
-            return QAccessible::Graphic;
-#endif
-#if QT_CONFIG(movie)
-        if (l->movie())
-            return QAccessible::Animation;
-#endif
-#if QT_CONFIG(progressbar)
-    } else if (qobject_cast<QProgressBar*>(object())) {
-        return QAccessible::ProgressBar;
-#endif
-#if QT_CONFIG(statusbar)
-    } else if (qobject_cast<QStatusBar*>(object())) {
-        return QAccessible::StatusBar;
-#endif
-    }
-#endif
-    return QAccessibleWidgetV2::role();
-}
-#endif  // QT_CONFIG(accessibility)
-
 //  from src/widgets/accessible/simplewidgets.cpp, line 440, as _ZNK18QAccessibleDisplay5stateEv
 #if QT_CONFIG(accessibility)
 inline QAccessible::State QAccessibleDisplay::state() const
@@ -198,6 +228,21 @@ inline QAccessible::State QAccessibleDisplay::state() const
     QAccessible::State s = QAccessibleWidgetV2::state();
     s.readOnly = true;
     return s;
+}
+#endif  // QT_CONFIG(accessibility)
+
+//  from src/widgets/accessible/simplewidgets.cpp, line 537, as _ZNK18QAccessibleDisplay9imageSizeEv
+#if QT_CONFIG(accessibility)
+inline QSize QAccessibleDisplay::imageSize() const
+{
+#if QT_CONFIG(label)
+    QLabel *label = qobject_cast<QLabel *>(widget());
+    if (!label)
+#endif
+        return QSize();
+#if QT_CONFIG(label)
+    return label->pixmap().size();
+#endif
 }
 #endif  // QT_CONFIG(accessibility)
 
@@ -221,58 +266,11 @@ QAccessibleDisplay::relations(QAccessible::Relation match /* = QAccessible::AllR
 }
 #endif  // QT_CONFIG(accessibility)
 
-//  from src/widgets/accessible/simplewidgets.cpp, line 519, as _ZN18QAccessibleDisplay14interface_castEN11QAccessible13InterfaceTypeE
+//  from src/widgets/accessible/simplewidgets.cpp, line 407, as _ZN18QAccessibleDisplayC1EP7QWidgetN11QAccessible4RoleE
 #if QT_CONFIG(accessibility)
-inline void *QAccessibleDisplay::interface_cast(QAccessible::InterfaceType t)
+inline QAccessibleDisplay::QAccessibleDisplay(QWidget *w, QAccessible::Role role)
+: QAccessibleWidgetV2(w, role)
 {
-    if (t == QAccessible::ImageInterface)
-        return static_cast<QAccessibleImageInterface*>(this);
-    return QAccessibleWidgetV2::interface_cast(t);
-}
-#endif  // QT_CONFIG(accessibility)
-
-//  from src/widgets/accessible/simplewidgets.cpp, line 527, as _ZNK18QAccessibleDisplay16imageDescriptionEv
-#if QT_CONFIG(accessibility)
-inline QString QAccessibleDisplay::imageDescription() const
-{
-#if QT_CONFIG(tooltip)
-    return widget()->toolTip();
-#else
-    return QString();
-#endif
-}
-#endif  // QT_CONFIG(accessibility)
-
-//  from src/widgets/accessible/simplewidgets.cpp, line 537, as _ZNK18QAccessibleDisplay9imageSizeEv
-#if QT_CONFIG(accessibility)
-inline QSize QAccessibleDisplay::imageSize() const
-{
-#if QT_CONFIG(label)
-    QLabel *label = qobject_cast<QLabel *>(widget());
-    if (!label)
-#endif
-        return QSize();
-#if QT_CONFIG(label)
-    return label->pixmap().size();
-#endif
-}
-#endif  // QT_CONFIG(accessibility)
-
-//  from src/widgets/accessible/simplewidgets.cpp, line 550, as _ZNK18QAccessibleDisplay13imagePositionEv
-#if QT_CONFIG(accessibility)
-inline QPoint QAccessibleDisplay::imagePosition() const
-{
-#if QT_CONFIG(label)
-    QLabel *label = qobject_cast<QLabel *>(widget());
-    if (!label)
-#endif
-        return QPoint();
-#if QT_CONFIG(label)
-    if (label->pixmap().isNull())
-        return QPoint();
-
-    return QPoint(label->mapToGlobal(label->pos()));
-#endif
 }
 #endif  // QT_CONFIG(accessibility)
 //  -----------------------------------------------------------------------

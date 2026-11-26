@@ -1,14 +1,26 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCore/6.12.0/QtCore/private/qnoncontiguousbytedevice_p.h, Qt 6.12.0.
-//  Changes made here are lost.
+//  Edited by hand on 2026-11-26: moc's output for
+//  'QByteDeviceWrappingIoDevice' is pasted in, cut from what the moc of Qt
+//  6.12.0 writes for its header: Qt's library keeps it to itself; added are
+//  2 rituals that lean on what moc writes for a class of the part Qt keeps
+//  to itself, whose ritual file carries moc's output, drafted by a copy of
+//  the generator that lets those names through. A copy of a meta-object is a
+//  second one: 'qobject_cast' between it and Qt's own does not match. Kept
+//  as it is when the generator runs again.
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtCore/QtCore>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/6.12.0/QtCore/private/qnoncontiguousbytedevice_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
 #include <QtCore/private/qnoncontiguousbytedevice_p.h>
 #include <QtCore/qbuffer.h>
 #include <QtCore/qdebug.h>
@@ -23,31 +35,75 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from src/corelib/io/qnoncontiguousbytedevice.cpp, line 357, as _ZNK27QByteDeviceWrappingIoDevice12isSequentialEv
-inline bool QByteDeviceWrappingIoDevice::isSequential() const
+//  from QtCore__QByteDeviceWrappingIoDevice.cpp, line 1, as moc:QByteDeviceWrappingIoDevice
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN27QByteDeviceWrappingIoDeviceE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto QByteDeviceWrappingIoDevice::qt_create_metaobjectdata<qt_meta_tag_ZN27QByteDeviceWrappingIoDeviceE_t>()
 {
-    return (byteDevice->size() == -1);
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "QByteDeviceWrappingIoDevice"
+    };
+
+    QtMocHelpers::UintData qt_methods {
+    };
+    QtMocHelpers::UintData qt_properties {
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    return QtMocHelpers::metaObjectData<QByteDeviceWrappingIoDevice, qt_meta_tag_ZN27QByteDeviceWrappingIoDeviceE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums);
+}
+Q_CONSTINIT const QMetaObject QByteDeviceWrappingIoDevice::staticMetaObject = { {
+    QMetaObject::SuperData::link<QIODevice::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN27QByteDeviceWrappingIoDeviceE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN27QByteDeviceWrappingIoDeviceE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN27QByteDeviceWrappingIoDeviceE_t>.metaTypes,
+    nullptr
+} };
+
+void QByteDeviceWrappingIoDevice::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<QByteDeviceWrappingIoDevice *>(_o);
+    (void)_t;
+    (void)_c;
+    (void)_id;
+    (void)_a;
 }
 
-//  from src/corelib/io/qnoncontiguousbytedevice.cpp, line 362, as _ZNK27QByteDeviceWrappingIoDevice5atEndEv
-inline bool QByteDeviceWrappingIoDevice::atEnd() const
+const QMetaObject *QByteDeviceWrappingIoDevice::metaObject() const
 {
-    return byteDevice->atEnd();
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
 }
+
+void *QByteDeviceWrappingIoDevice::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN27QByteDeviceWrappingIoDeviceE_t>.strings))
+        return static_cast<void*>(this);
+    return QIODevice::qt_metacast(_clname);
+}
+
+int QByteDeviceWrappingIoDevice::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QIODevice::qt_metacall(_c, _id, _a);
+    return _id;
+}
+QT_WARNING_POP
 
 //  from src/corelib/io/qnoncontiguousbytedevice.cpp, line 367, as _ZN27QByteDeviceWrappingIoDevice5resetEv
 inline bool QByteDeviceWrappingIoDevice::reset()
 {
     return byteDevice->reset();
-}
-
-//  from src/corelib/io/qnoncontiguousbytedevice.cpp, line 372, as _ZNK27QByteDeviceWrappingIoDevice4sizeEv
-inline qint64 QByteDeviceWrappingIoDevice::size() const
-{
-    if (isSequential())
-        return 0;
-
-    return byteDevice->size();
 }
 
 //  from src/corelib/io/qnoncontiguousbytedevice.cpp, line 380, as _ZN27QByteDeviceWrappingIoDevice8readDataEPcx
@@ -61,6 +117,44 @@ inline qint64 QByteDeviceWrappingIoDevice::readData(char *data, qint64 maxSize)
     memcpy(data, readPointer, len);
     byteDevice->advanceReadPointer(len);
     return len;
+}
+
+//  from src/corelib/io/qnoncontiguousbytedevice.cpp, line 392, as _ZN27QByteDeviceWrappingIoDevice9writeDataEPKcx
+inline qint64 QByteDeviceWrappingIoDevice::writeData(const char *data, qint64 maxSize)
+{
+    Q_UNUSED(data);
+    Q_UNUSED(maxSize);
+    return -1;
+}
+
+//  from src/corelib/io/qnoncontiguousbytedevice.cpp, line 357, as _ZNK27QByteDeviceWrappingIoDevice12isSequentialEv
+inline bool QByteDeviceWrappingIoDevice::isSequential() const
+{
+    return (byteDevice->size() == -1);
+}
+
+//  from src/corelib/io/qnoncontiguousbytedevice.cpp, line 372, as _ZNK27QByteDeviceWrappingIoDevice4sizeEv
+inline qint64 QByteDeviceWrappingIoDevice::size() const
+{
+    if (isSequential())
+        return 0;
+
+    return byteDevice->size();
+}
+
+//  from src/corelib/io/qnoncontiguousbytedevice.cpp, line 362, as _ZNK27QByteDeviceWrappingIoDevice5atEndEv
+inline bool QByteDeviceWrappingIoDevice::atEnd() const
+{
+    return byteDevice->atEnd();
+}
+
+//  from src/corelib/io/qnoncontiguousbytedevice.cpp, line 346, as _ZN27QByteDeviceWrappingIoDeviceC1EP24QNonContiguousByteDevice
+inline QByteDeviceWrappingIoDevice::QByteDeviceWrappingIoDevice(QNonContiguousByteDevice *bd)
+    : QIODevice(nullptr), byteDevice(bd)
+{
+    connect(bd, &QNonContiguousByteDevice::readyRead, this, &QIODevice::readyRead);
+
+    open(ReadOnly);
 }
 
 //  from src/corelib/io/qnoncontiguousbytedevice.cpp, line 354, as _ZN27QByteDeviceWrappingIoDeviceD1Ev
@@ -522,6 +616,24 @@ int ritual_ZN27QByteDeviceWrappingIoDevice11qt_metacallEN11QMetaObject4CallEiPPv
     int a1,
     void **a2) {
   return self->qt_metacall(a0, a1, a2);
+}
+
+//  QString QByteDeviceWrappingIoDevice::tr(const char *s, const char *c, int
+//      n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN27QByteDeviceWrappingIoDevice2trEPKcS1_i(
+    const char *s,
+    const char *c,
+    int n) {
+  return new QString(QByteDeviceWrappingIoDevice::tr(s, c, n));
+}
+
+//  QByteDeviceWrappingIoDevice::QByteDeviceWrappingIoDevice(QNonContiguousBy
+//      teDevice *bd)
+extern "C" Q_DECL_EXPORT
+QByteDeviceWrappingIoDevice *ritual_ZN27QByteDeviceWrappingIoDeviceC1EP24QNonContiguousByteDevice(
+    QNonContiguousByteDevice *bd) {
+  return new CuteQByteDeviceWrappingIoDevice(bd);
 }
 
 //  QByteDeviceWrappingIoDevice::~QByteDeviceWrappingIoDevice()

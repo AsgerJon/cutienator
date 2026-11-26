@@ -73,6 +73,11 @@ inline QSocks5Authenticator::~QSocks5Authenticator()
 {
 }
 
+//  from src/network/socket/qsocks5socketengine.cpp, line 389, as _ZN20QSocks5AuthenticatorC1Ev
+inline QSocks5Authenticator::QSocks5Authenticator()
+{
+}
+
 //  from src/network/socket/qsocks5socketengine.cpp, line 416, as _ZN20QSocks5Authenticator4sealERK10QByteArrayPS0_
 inline bool QSocks5Authenticator::seal(const QByteArray &buf, QByteArray *sealedBuf)
 {
@@ -155,6 +160,12 @@ public:
   }
 #endif  // QT_CONFIG(socks5)
 };
+
+//  QSocks5Authenticator::QSocks5Authenticator()
+extern "C" Q_DECL_EXPORT
+QSocks5Authenticator *ritual_ZN20QSocks5AuthenticatorC1Ev() {
+  return new CuteQSocks5Authenticator();
+}
 
 //  QSocks5Authenticator::~QSocks5Authenticator()
 extern "C" Q_DECL_EXPORT

@@ -2,7 +2,7 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtGraphs/6.12.0/QtGraphs/private/qquickgraphscolor_p.h, Qt 6.12.0.",
-    "Changes made here are lost."
+    "Edited by hand: see the ritual file."
   ],
   "parts first": [
     "QtGraphs", "QtCore", "QtGui", "QtQuick", "QtQml", "QtQmlIntegration"
@@ -15,7 +15,14 @@
     "ritual_ZN17QQuickGraphsColor11qt_metacallEN11QMetaObject4CallEiPPv": [
       "int", "address", "int", "int", "address"
     ],
+    "ritual_ZN17QQuickGraphsColor2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN17QQuickGraphsColorC1EP7QObject": ["address", "address"],
     "ritual_ZN17QQuickGraphsColorD1Ev": ["nothing", "address"],
+    "ritual_ZN17QQuickGraphsColor8setColorE6QColor": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK17QQuickGraphsColor5colorEv": ["address", "address"],
     "ritual_ZN17QQuickGraphsColor12colorChangedE6QColor": [
       "nothing", "address", "address"

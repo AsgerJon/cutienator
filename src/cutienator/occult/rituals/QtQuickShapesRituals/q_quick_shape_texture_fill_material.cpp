@@ -233,6 +233,14 @@ public:
   }
 };
 
+//  QQuickShapeTextureFillMaterial::QQuickShapeTextureFillMaterial(QQuickShap
+//      eGenericStrokeFillNode *node)
+extern "C" Q_DECL_EXPORT
+QQuickShapeTextureFillMaterial *ritual_ZN30QQuickShapeTextureFillMaterialC1EP32QQuickShapeGenericStrokeFillNode(
+    QQuickShapeGenericStrokeFillNode *node) {
+  return new CuteQQuickShapeTextureFillMaterial(node);
+}
+
 //  QQuickShapeTextureFillMaterial::~QQuickShapeTextureFillMaterial()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN30QQuickShapeTextureFillMaterialD1Ev(

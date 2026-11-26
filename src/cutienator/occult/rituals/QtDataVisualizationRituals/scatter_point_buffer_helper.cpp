@@ -47,6 +47,24 @@ inline ScatterPointBufferHelper::~ScatterPointBufferHelper()
         glDeleteBuffers(1, &m_pointbuffer);
 }
 
+//  from ../qtdatavis3d/src/datavisualization/utils/abstractobjecthelper.cpp, line 19, as _ZN20AbstractObjectHelperD2Ev
+inline AbstractObjectHelper::~AbstractObjectHelper()
+{
+    if (QOpenGLContext::currentContext()) {
+        glDeleteBuffers(1, &m_vertexbuffer);
+        glDeleteBuffers(1, &m_uvbuffer);
+        glDeleteBuffers(1, &m_normalbuffer);
+        glDeleteBuffers(1, &m_elementbuffer);
+    }
+}
+
+//  from ../qtdatavis3d/src/datavisualization/utils/scatterpointbufferhelper.cpp, line 11, as _ZN24ScatterPointBufferHelperC1Ev
+inline ScatterPointBufferHelper::ScatterPointBufferHelper()
+    : m_pointbuffer(0),
+      m_oldRemoveIndex(-1)
+{
+}
+
 //  from ../qtdatavis3d/src/datavisualization/utils/scatterpointbufferhelper.cpp, line 23, as _ZN24ScatterPointBufferHelper8pointBufEv
 inline GLuint ScatterPointBufferHelper::pointBuf()
 {
@@ -151,6 +169,12 @@ public:
     return AbstractObjectHelper::uvBuf();
   }
 };
+
+//  ScatterPointBufferHelper::ScatterPointBufferHelper()
+extern "C" Q_DECL_EXPORT
+ScatterPointBufferHelper *ritual_ZN24ScatterPointBufferHelperC1Ev() {
+  return new CuteScatterPointBufferHelper();
+}
 
 //  ScatterPointBufferHelper::~ScatterPointBufferHelper()
 extern "C" Q_DECL_EXPORT

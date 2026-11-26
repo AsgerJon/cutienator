@@ -1,6 +1,12 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtWidgets/6.12.0/QtWidgets/private/qsidebar_p.h, Qt 6.12.0. Changes made
-//  here are lost.
+//  QtWidgets/6.12.0/QtWidgets/private/qsidebar_p.h, Qt 6.12.0.
+//  Edited by hand on 2026-11-26: moc's output for 'QUrlModel' is pasted in,
+//  cut from what the moc of Qt 6.12.0 writes for its header: Qt's library
+//  keeps it to itself; added are 3 rituals that lean on what moc writes for
+//  a class of the part Qt keeps to itself, whose ritual file carries moc's
+//  output, drafted by a copy of the generator that lets those names through.
+//  A copy of a meta-object is a second one: 'qobject_cast' between it and
+//  Qt's own does not match. Kept as it is when the generator runs again.
 #include <QtGui/qtguiglobal.h>
 #include <QtCore/qglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
@@ -21,6 +27,10 @@
 #include <QtCore/qlist.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
 #include <QtWidgets/private/qsidebar_p.h>
 #include <QtWidgets/qaction.h>
 #include <QtCore/qurl.h>
@@ -55,6 +65,98 @@ static bool hasSupportedFormat(const QMimeData *data)
 }
 #endif  // QT_CONFIG(draganddrop)
 
+//  from QtWidgets__QUrlModel.cpp, line 1, as moc:QUrlModel
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN9QUrlModelE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto QUrlModel::qt_create_metaobjectdata<qt_meta_tag_ZN9QUrlModelE_t>()
+{
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "QUrlModel",
+        "dataChanged",
+        "",
+        "QModelIndex",
+        "topLeft",
+        "bottomRight",
+        "layoutChanged"
+    };
+
+    QtMocHelpers::UintData qt_methods {
+        // Slot 'dataChanged'
+        QtMocHelpers::SlotData<void(const QModelIndex &, const QModelIndex &)>(1, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { 0x80000000 | 3, 4 }, { 0x80000000 | 3, 5 },
+        }}),
+        // Slot 'layoutChanged'
+        QtMocHelpers::SlotData<void()>(6, 2, QMC::AccessPrivate, QMetaType::Void),
+    };
+    QtMocHelpers::UintData qt_properties {
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    return QtMocHelpers::metaObjectData<QUrlModel, qt_meta_tag_ZN9QUrlModelE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums);
+}
+Q_CONSTINIT const QMetaObject QUrlModel::staticMetaObject = { {
+    QMetaObject::SuperData::link<QStandardItemModel::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN9QUrlModelE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN9QUrlModelE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN9QUrlModelE_t>.metaTypes,
+    nullptr
+} };
+
+void QUrlModel::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<QUrlModel *>(_o);
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        switch (_id) {
+        case 0: _t->dataChanged((*reinterpret_cast<std::add_pointer_t<QModelIndex>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<QModelIndex>>(_a[2]))); break;
+        case 1: _t->layoutChanged(); break;
+        default: ;
+        }
+    }
+}
+
+const QMetaObject *QUrlModel::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *QUrlModel::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN9QUrlModelE_t>.strings))
+        return static_cast<void*>(this);
+    return QStandardItemModel::qt_metacast(_clname);
+}
+
+int QUrlModel::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QStandardItemModel::qt_metacall(_c, _id, _a);
+    if (_id < 0)
+        return _id;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        if (_id < 2)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 2;
+    }
+    if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        if (_id < 2)
+            *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
+        _id -= 2;
+    }
+    return _id;
+}
+QT_WARNING_POP
+
 //  from src/widgets/dialogs/qsidebar.cpp, line 312, as _ZN9QUrlModel11dataChangedERK11QModelIndexS2_
 inline void QUrlModel::dataChanged(const QModelIndex &topLeft, const QModelIndex &bottomRight)
 {
@@ -74,22 +176,6 @@ inline void QUrlModel::dataChanged(const QModelIndex &topLeft, const QModelIndex
     }
 }
 
-//  from src/widgets/dialogs/qsidebar.cpp, line 333, as _ZN9QUrlModel13layoutChangedEv
-inline void QUrlModel::layoutChanged()
-{
-    QStringList paths;
-    paths.reserve(watching.size());
-    for (const WatchItem &item : std::as_const(watching))
-        paths.append(item.path);
-    watching.clear();
-    for (const auto &path : paths) {
-        QModelIndex newIndex = fileSystemModel->index(path);
-        watching.append({newIndex, path});
-        if (newIndex.isValid())
-            changed(path);
-     }
-}
-
 //  from src/widgets/dialogs/qsidebar.cpp, line 127, as _ZN9QUrlModel12dropMimeDataEPK9QMimeDataN2Qt10DropActionEiiRK11QModelIndex
 #if QT_CONFIG(draganddrop)
 inline bool QUrlModel::dropMimeData(const QMimeData *data, Qt::DropAction action,
@@ -105,20 +191,20 @@ inline bool QUrlModel::dropMimeData(const QMimeData *data, Qt::DropAction action
 }
 #endif  // QT_CONFIG(draganddrop)
 
-//  from src/widgets/dialogs/qsidebar.cpp, line 73, as _ZNK9QUrlModel5flagsERK11QModelIndex
-inline Qt::ItemFlags QUrlModel::flags(const QModelIndex &index) const
+//  from src/widgets/dialogs/qsidebar.cpp, line 333, as _ZN9QUrlModel13layoutChangedEv
+inline void QUrlModel::layoutChanged()
 {
-    Qt::ItemFlags flags = QStandardItemModel::flags(index);
-    if (index.isValid()) {
-        flags &= ~Qt::ItemIsEditable;
-        // ### some future version could support "moving" urls onto a folder
-        flags &= ~Qt::ItemIsDropEnabled;
-    }
-
-    if (index.data(Qt::DecorationRole).isNull())
-        flags &= ~Qt::ItemIsEnabled;
-
-    return flags;
+    QStringList paths;
+    paths.reserve(watching.size());
+    for (const WatchItem &item : std::as_const(watching))
+        paths.append(item.path);
+    watching.clear();
+    for (const auto &path : paths) {
+        QModelIndex newIndex = fileSystemModel->index(path);
+        watching.append({newIndex, path});
+        if (newIndex.isValid())
+            changed(path);
+     }
 }
 
 //  from src/widgets/dialogs/qsidebar.cpp, line 146, as _ZN9QUrlModel7setDataERK11QModelIndexRK8QVarianti
@@ -140,6 +226,46 @@ inline bool QUrlModel::setData(const QModelIndex &index, const QVariant &value, 
         return true;
     }
     return QStandardItemModel::setData(index, value, role);
+}
+
+//  from src/widgets/dialogs/qsidebar.cpp, line 73, as _ZNK9QUrlModel5flagsERK11QModelIndex
+inline Qt::ItemFlags QUrlModel::flags(const QModelIndex &index) const
+{
+    Qt::ItemFlags flags = QStandardItemModel::flags(index);
+    if (index.isValid()) {
+        flags &= ~Qt::ItemIsEditable;
+        // ### some future version could support "moving" urls onto a folder
+        flags &= ~Qt::ItemIsDropEnabled;
+    }
+
+    if (index.data(Qt::DecorationRole).isNull())
+        flags &= ~Qt::ItemIsEnabled;
+
+    return flags;
+}
+
+//  from src/widgets/dialogs/qsidebar.cpp, line 91, as _ZNK9QUrlModel8mimeDataERK5QListI11QModelIndexE
+inline QMimeData *QUrlModel::mimeData(const QModelIndexList &indexes) const
+{
+    QList<QUrl> list;
+    for (const auto &index : indexes) {
+        if (index.column() == 0)
+           list.append(index.data(UrlRole).toUrl());
+    }
+    QMimeData *data = new QMimeData();
+    data->setUrls(list);
+    return data;
+}
+
+//  from src/widgets/dialogs/qsidebar.cpp, line 65, as _ZNK9QUrlModel9mimeTypesEv
+inline QStringList QUrlModel::mimeTypes() const
+{
+    return QStringList(QLatin1StringView(uriListMimeType));
+}
+
+//  from src/widgets/dialogs/qsidebar.cpp, line 43, as _ZN9QUrlModelC1EP7QObject
+inline QUrlModel::QUrlModel(QObject *parent) : QStandardItemModel(parent), showFullPath(false), fileSystemModel(nullptr)
+{
 }
 
 //  from src/widgets/dialogs/qsidebar.cpp, line 47, as _ZN9QUrlModelD1Ev
@@ -226,6 +352,30 @@ inline QList<QUrl> QUrlModel::urls() const
     for (int i = 0; i < numRows; ++i)
         list.append(data(index(i, 0), UrlRole).toUrl());
     return list;
+}
+
+//  from src/widgets/dialogs/qsidebar.cpp, line 286, as _ZN9QUrlModel18setFileSystemModelEP16QFileSystemModel
+inline void QUrlModel::setFileSystemModel(QFileSystemModel *model)
+{
+    if (model == fileSystemModel)
+        return;
+    if (fileSystemModel != nullptr) {
+        for (auto &conn : modelConnections)
+            disconnect(conn);
+    }
+    fileSystemModel = model;
+    if (fileSystemModel != nullptr) {
+        modelConnections = {
+            connect(model, &QFileSystemModel::dataChanged,
+                    this, &QUrlModel::dataChanged),
+            connect(model, &QFileSystemModel::layoutChanged,
+                    this, &QUrlModel::layoutChanged),
+            connect(model, &QFileSystemModel::rowsRemoved,
+                    this, &QUrlModel::layoutChanged),
+        };
+    }
+    clear();
+    insertColumns(0, 1);
 }
 
 //  from src/widgets/dialogs/qsidebar.cpp, line 166, as _ZN9QUrlModel6setUrlERK11QModelIndexRK4QUrlS2_
@@ -1348,6 +1498,29 @@ int ritual_ZN9QUrlModel11qt_metacallEN11QMetaObject4CallEiPPv(
   return self->qt_metacall(a0, a1, a2);
 }
 
+#if QT_CONFIG(draganddrop)
+#if defined(Q_OS_LINUX)
+//  QString QUrlModel::tr(const char *s, const char *c, int n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN9QUrlModel2trEPKcS1_i(
+    const char *s,
+    const char *c,
+    int n) {
+  return new QString(QUrlModel::tr(s, c, n));
+}
+#endif  // defined(Q_OS_LINUX)
+#endif  // QT_CONFIG(draganddrop)
+
+#if QT_CONFIG(draganddrop)
+#if defined(Q_OS_LINUX)
+//  QUrlModel::QUrlModel(QObject *parent)
+extern "C" Q_DECL_EXPORT
+QUrlModel *ritual_ZN9QUrlModelC1EP7QObject(QObject *parent) {
+  return new CuteQUrlModel(parent);
+}
+#endif  // defined(Q_OS_LINUX)
+#endif  // QT_CONFIG(draganddrop)
+
 //  QUrlModel::~QUrlModel()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN9QUrlModelD1Ev(QUrlModel *self) {
@@ -1439,6 +1612,18 @@ extern "C" Q_DECL_EXPORT
 QList<QUrl> *ritual_ZNK9QUrlModel4urlsEv(const QUrlModel *self) {
   return new QList<QUrl>(self->urls());
 }
+
+#if QT_CONFIG(draganddrop)
+#if defined(Q_OS_LINUX)
+//  void QUrlModel::setFileSystemModel(QFileSystemModel *model)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN9QUrlModel18setFileSystemModelEP16QFileSystemModel(
+    QUrlModel *self,
+    QFileSystemModel *model) {
+  self->setFileSystemModel(model);
+}
+#endif  // defined(Q_OS_LINUX)
+#endif  // QT_CONFIG(draganddrop)
 
 //  void QUrlModel::dataChanged(const QModelIndex &topLeft, const QModelIndex
 //      &bottomRight)

@@ -1,12 +1,25 @@
 //  Written by dev_tooling.RitualGenerator from the records of QtLabsStyleKit
 //  /6.12.0/QtLabsStyleKit/private/qqstylekitcontrolproperties_p.h, Qt
-//  6.12.0. Changes made here are lost.
+//  6.12.0.
+//  Edited by hand on 2026-11-26: moc's output for 'QQStyleKitPropertyGroup'
+//  is pasted in, cut from what the moc of Qt 6.12.0 writes for its header:
+//  Qt's library keeps it to itself; added are 3 rituals that lean on what
+//  moc writes for a class of the part Qt keeps to itself, whose ritual file
+//  carries moc's output, drafted by a copy of the generator that lets those
+//  names through. A copy of a meta-object is a second one: 'qobject_cast'
+//  between it and Qt's own does not match. Kept as it is when the generator
+//  runs again.
 #include <QtLabsStyleKit/6.12.0/QtLabsStyleKit/private/qqstylekitglobal_p.h>
 #include <QtLabsStyleKit/QtLabsStyleKit>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtLabsStyleKit/6.12.0/QtLabsStyleKit/private/qqstylekitcontrolproperties_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
 #include <QtLabsStyleKit/private/qqstylekitglobal_p.h>
 #include <QtLabsStyleKit/private/qqstylekitpropertyresolver_p.h>
 #include <QtLabsStyleKit/private/qqstylekitcontrol_p.h>
@@ -30,6 +43,79 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  from QtLabsStyleKit__QQStyleKitPropertyGroup.cpp, line 1, as moc:QQStyleKitPropertyGroup
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN23QQStyleKitPropertyGroupE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto QQStyleKitPropertyGroup::qt_create_metaobjectdata<qt_meta_tag_ZN23QQStyleKitPropertyGroupE_t>()
+{
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "QQStyleKitPropertyGroup",
+        "EmitFlag",
+        "AllProperties",
+        "Colors"
+    };
+
+    QtMocHelpers::UintData qt_methods {
+    };
+    QtMocHelpers::UintData qt_properties {
+    };
+    QtMocHelpers::UintData qt_enums {
+        // enum 'EmitFlag'
+        QtMocHelpers::EnumData<enum EmitFlag>(1, 1, QMC::EnumIsScoped).add({
+            {    2, EmitFlag::AllProperties },
+            {    3, EmitFlag::Colors },
+        }),
+    };
+    return QtMocHelpers::metaObjectData<QQStyleKitPropertyGroup, qt_meta_tag_ZN23QQStyleKitPropertyGroupE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums);
+}
+Q_CONSTINIT const QMetaObject QQStyleKitPropertyGroup::staticMetaObject = { {
+    QMetaObject::SuperData::link<QObject::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN23QQStyleKitPropertyGroupE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN23QQStyleKitPropertyGroupE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN23QQStyleKitPropertyGroupE_t>.metaTypes,
+    nullptr
+} };
+
+void QQStyleKitPropertyGroup::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<QQStyleKitPropertyGroup *>(_o);
+    (void)_t;
+    (void)_c;
+    (void)_id;
+    (void)_a;
+}
+
+const QMetaObject *QQStyleKitPropertyGroup::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *QQStyleKitPropertyGroup::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN23QQStyleKitPropertyGroupE_t>.strings))
+        return static_cast<void*>(this);
+    return QObject::qt_metacast(_clname);
+}
+
+int QQStyleKitPropertyGroup::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QObject::qt_metacall(_c, _id, _a);
+    return _id;
+}
+QT_WARNING_POP
 
 //  from ../qtdeclarative/src/labs/stylekit/qqstylekitglobal.cpp, line 8, as _ZN14PropertyPathIdC1EN4QQSK8PropertyEjNS0_13PropertyGroupE
 inline PropertyPathId::PropertyPathId(
@@ -166,6 +252,12 @@ inline QVariant QQStyleKitPropertyResolver::readStyleProperty(
     return readPropertyInStyle(style, ids, styleReader);
 }
 
+//  from ../qtdeclarative/src/labs/stylekit/qqstylekitcontrolproperties.cpp, line 967, as _ZN23QQStyleKitPropertyGroupC1EN4QQSK13PropertyGroupEP7QObject
+inline QQStyleKitPropertyGroup::QQStyleKitPropertyGroup(QQSK::PropertyGroup, QObject *parent)
+    : QObject(parent)
+{
+}
+
 //  from ../qtdeclarative/src/labs/stylekit/qqstylekitcontrolproperties.cpp, line 972, as _ZNK23QQStyleKitPropertyGroup14propertyPathIdEN4QQSK8PropertyEN14PropertyPathId4FlagE
 inline PropertyPathId QQStyleKitPropertyGroup::propertyPathId(QQSK::Property property, PropertyPathId::Flag flag) const
 {
@@ -188,6 +280,48 @@ inline QQStyleKitControlProperties *QQStyleKitPropertyGroup::controlProperties()
     }
     Q_ASSERT(qobject_cast<const QQStyleKitControlProperties *>(parent()));
     return static_cast<QQStyleKitControlProperties *>(parent());
+}
+
+//  from ../qtdeclarative/src/labs/stylekit/qqstylekitcontrolproperties.cpp, line 1159, as _ZN23QQStyleKitPropertyGroup41emitChangedForAllStylePropertiesRecursiveE6QFlagsINS_8EmitFlagEE
+inline void QQStyleKitPropertyGroup::emitChangedForAllStylePropertiesRecursive(EmitFlags emitFlags)
+{
+    /* This function will emit changed signals for all style properties in the
+     * StyleKit API (for a single QQStyleKitReader), which is needed after
+     * doing a style-, or theme change. */
+    const int startIndex = QQStyleKitPropertyGroup::staticMetaObject.propertyOffset();
+    const QMetaObject* meta = metaObject();
+    for (int i = startIndex; i < meta->propertyCount(); ++i) {
+        const QMetaProperty prop = meta->property(i);
+        const QMetaObject* propMetaObject = QMetaType::fromName(prop.typeName()).metaObject();
+        if (propMetaObject) {
+            if (propMetaObject->inherits(&QQStyleKitDelegateProperties::staticMetaObject)) {
+                /* Skip recursing into QQStyleKitDelegateProperties, because those are lazy
+                 * created when read, and reading them from here would accidentally
+                 * create them. */
+                continue;
+            }
+            if (propMetaObject->inherits(&QQStyleKitPropertyGroup::staticMetaObject)) {
+                // The property is of type QQStyleKitPropertyGroup, so recurse into it
+                QObject *childObj = qvariant_cast<QObject *>(property(prop.name()));
+                if (auto *child = qobject_cast<QQStyleKitPropertyGroup *>(childObj))
+                    child->emitChangedForAllStylePropertiesRecursive(emitFlags);
+                continue;
+            }
+        }
+
+        if (!emitFlags.testFlag(EmitFlag::AllProperties)) {
+            // Only emit for color properties when the Colors flag is set
+            if (emitFlags.testFlag(EmitFlag::Colors)) {
+                if (prop.metaType() != QMetaType::fromType<QColor>())
+                    continue;
+            }
+        }
+
+        // Emit the changed signal for the property
+        Q_ASSERT(prop.hasNotifySignal());
+        QMetaMethod notify = prop.notifySignal();
+        notify.invoke(this, Qt::DirectConnection);
+    }
 }
 
 //  from ../qtdeclarative/src/labs/stylekit/qqstylekitcontrolproperties.cpp, line 1200, as _ZN23QQStyleKitPropertyGroup17shouldEmitLocallyEv
@@ -243,6 +377,24 @@ int ritual_ZN23QQStyleKitPropertyGroup11qt_metacallEN11QMetaObject4CallEiPPv(
   return self->qt_metacall(a0, a1, a2);
 }
 
+//  QString QQStyleKitPropertyGroup::tr(const char *s, const char *c, int n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN23QQStyleKitPropertyGroup2trEPKcS1_i(
+    const char *s,
+    const char *c,
+    int n) {
+  return new QString(QQStyleKitPropertyGroup::tr(s, c, n));
+}
+
+//  QQStyleKitPropertyGroup::QQStyleKitPropertyGroup(QQSK::PropertyGroup
+//      group, QObject *parent)
+extern "C" Q_DECL_EXPORT
+QQStyleKitPropertyGroup *ritual_ZN23QQStyleKitPropertyGroupC1EN4QQSK13PropertyGroupEP7QObject(
+    QQSK::PropertyGroup group,
+    QObject *parent) {
+  return new QQStyleKitPropertyGroup(group, parent);
+}
+
 //  PropertyPathId QQStyleKitPropertyGroup::propertyPathId(QQSK::Property
 //      property, PropertyPathId::Flag flag) const
 extern "C" Q_DECL_EXPORT
@@ -273,6 +425,16 @@ extern "C" Q_DECL_EXPORT
 int ritual_ZNK23QQStyleKitPropertyGroup9pathFlagsEv(
     const QQStyleKitPropertyGroup *self) {
   return static_cast<int>(self->pathFlags().toInt());
+}
+
+//  void QQStyleKitPropertyGroup::emitChangedForAllStylePropertiesRecursive(E
+//      mitFlags emitFlags)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QQStyleKitPropertyGroup41emitChangedForAllStylePropertiesRecursiveE6QFlagsINS_8EmitFlagEE(
+    QQStyleKitPropertyGroup *self,
+    int emitFlags) {
+  self->emitChangedForAllStylePropertiesRecursive(
+      QFlags<QQStyleKitPropertyGroup::EmitFlag>::fromInt(emitFlags));
 }
 
 //  bool QQStyleKitPropertyGroup::shouldEmitLocally()

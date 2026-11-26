@@ -242,6 +242,12 @@ inline QAbstractSocket::SocketError QAbstractSocketEngine::error() const
 {
     return d_func()->socketError;
 }
+
+//  from src/network/socket/qsctpsocket.cpp, line 96, as _ZN18QSctpSocketPrivateC1Ev
+inline QSctpSocketPrivate::QSctpSocketPrivate()
+    : maximumChannelCount(0)
+{
+}
 //  -----------------------------------------------------------------------
 
 //  A QSctpSocketPrivate that Python can take functions over in. Every QSctpSocketPrivate
@@ -526,6 +532,12 @@ extern "C" Q_DECL_EXPORT
 const QSctpSocket *ritual_ZNK18QSctpSocketPrivate6q_funcEv(
     const QSctpSocketPrivate *self) {
   return self->q_func();
+}
+
+//  QSctpSocketPrivate::QSctpSocketPrivate()
+extern "C" Q_DECL_EXPORT
+QSctpSocketPrivate *ritual_ZN18QSctpSocketPrivateC1Ev() {
+  return new CuteQSctpSocketPrivate();
 }
 
 //  QSctpSocketPrivate::~QSctpSocketPrivate()

@@ -152,6 +152,67 @@ inline void QAbstract3DSeriesPrivate::setGraph(QQuickGraphsItem *graph)
     connectGraphAndProxy(graph);
     markItemLabelDirty();
 }
+
+//  from ../qtgraphs/src/graphs3d/data/qscatter3dseries.cpp, line 534, as _ZN23QScatter3DSeriesPrivateD2Ev
+inline QScatter3DSeriesPrivate::~QScatter3DSeriesPrivate()
+{
+    clearArray();
+}
+
+//  from ../qtgraphs/src/graphs3d/data/qabstract3dseries.cpp, line 902, as _ZN24QAbstract3DSeriesPrivate12setDataProxyEP18QAbstractDataProxy
+inline void QAbstract3DSeriesPrivate::setDataProxy(QAbstractDataProxy *proxy)
+{
+    Q_Q(QAbstract3DSeries);
+    Q_ASSERT(proxy && proxy != m_dataProxy && !proxy->d_func()->series());
+
+    delete m_dataProxy;
+    m_dataProxy = proxy;
+
+    proxy->d_func()->setSeries(q); // also sets parent
+
+    if (m_graph) {
+        connectGraphAndProxy(m_graph);
+        m_graph->markDataDirty();
+    }
+}
+
+//  from ../qtgraphs/src/graphs3d/data/qabstract3dseries.cpp, line 1117, as _ZN24QAbstract3DSeriesPrivate18markItemLabelDirtyEv
+inline void QAbstract3DSeriesPrivate::markItemLabelDirty()
+{
+    m_itemLabelDirty = true;
+    m_changeTracker.itemLabelChanged = true;
+}
+
+//  from ../qtgraphs/src/graphs3d/data/qabstract3dseries.cpp, line 879, as _ZN24QAbstract3DSeriesPrivateC2EN17QAbstract3DSeries10SeriesTypeE
+inline QAbstract3DSeriesPrivate::QAbstract3DSeriesPrivate(QAbstract3DSeries::SeriesType type)
+    : m_type(type)
+    , m_dataProxy(0)
+    , m_visible(true)
+    , m_graph(0)
+    , m_mesh(QAbstract3DSeries::Mesh::Cube)
+    , m_meshSmooth(false)
+    , m_colorStyle(QGraphsTheme::ColorStyle::Uniform)
+    , m_baseColor(Qt::black)
+    , m_singleHighlightColor(Qt::black)
+    , m_multiHighlightColor(Qt::black)
+    , m_itemLabelDirty(true)
+    , m_itemLabelVisible(true)
+    , m_lightingMode(QAbstract3DSeries::LightingMode::Shaded)
+{}
+
+//  from ../qtgraphs/src/graphs3d/data/qabstract3dseries.cpp, line 895, as _ZN24QAbstract3DSeriesPrivateD2Ev
+inline QAbstract3DSeriesPrivate::~QAbstract3DSeriesPrivate() {}
+
+//  from ../qtgraphs/src/graphs3d/data/qscatter3dseries.cpp, line 659, as _ZN23QScatter3DSeriesPrivate10clearArrayEv
+inline void QScatter3DSeriesPrivate::clearArray()
+{
+    m_dataArray.clear();
+}
+
+//  from ../qtgraphs/src/graphs3d/data/qspline3dseries.cpp, line 361, as _ZN22QSpline3DSeriesPrivateC1Ev
+inline QSpline3DSeriesPrivate::QSpline3DSeriesPrivate()
+    : QScatter3DSeriesPrivate()
+{}
 //  -----------------------------------------------------------------------
 
 //  A QSpline3DSeriesPrivate that Python can take functions over in. Every QSpline3DSeriesPrivate
@@ -244,6 +305,12 @@ extern "C" Q_DECL_EXPORT
 const QSpline3DSeries *ritual_ZNK22QSpline3DSeriesPrivate6q_funcEv(
     const QSpline3DSeriesPrivate *self) {
   return self->q_func();
+}
+
+//  QSpline3DSeriesPrivate::QSpline3DSeriesPrivate()
+extern "C" Q_DECL_EXPORT
+QSpline3DSeriesPrivate *ritual_ZN22QSpline3DSeriesPrivateC1Ev() {
+  return new CuteQSpline3DSeriesPrivate();
 }
 
 //  QSpline3DSeriesPrivate::~QSpline3DSeriesPrivate()

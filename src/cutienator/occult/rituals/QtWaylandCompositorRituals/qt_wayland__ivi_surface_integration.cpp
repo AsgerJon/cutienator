@@ -1,6 +1,14 @@
 //  Written by dev_tooling.RitualGenerator from the records of QtWaylandCompo
 //  sitor/6.12.0/QtWaylandCompositor/private/qwaylandivisurfaceintegration_p.
-//  h, Qt 6.12.0. Changes made here are lost.
+//  h, Qt 6.12.0.
+//  Edited by hand on 2026-11-26: moc's output for
+//  'QtWayland::IviSurfaceIntegration' is pasted in, cut from what the moc of
+//  Qt 6.12.0 writes for its header: Qt's library keeps it to itself; added
+//  are 2 rituals that lean on what moc writes for a class of the part Qt
+//  keeps to itself, whose ritual file carries moc's output, drafted by a
+//  copy of the generator that lets those names through. A copy of a meta-
+//  object is a second one: 'qobject_cast' between it and Qt's own does not
+//  match. Kept as it is when the generator runs again.
 #include <QtWaylandCompositor/qtwaylandcompositorglobal.h>
 #include <QtWaylandCompositor/6.12.0/QtWaylandCompositor/private/qtwaylandcompositorglobal_p.h>
 #if QT_CONFIG(wayland_compositor_quick)
@@ -9,8 +17,140 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtWaylandCompositor/6.12.0/QtWaylandCompositor/private/qwaylandivisurfaceintegration_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
+#include <QtWaylandCompositor/private/qwaylandivisurfaceintegration_p.h>
+#include <QtWaylandCompositor/QWaylandCompositor>
+#include <QtWaylandCompositor/QWaylandIviSurface>
+#include <QtWaylandCompositor/QWaylandQuickShellSurfaceItem>
+#include <QtWaylandCompositor/QWaylandSeat>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+
+//  Qt's own code, from here to the line of dashes: taken from
+//  Qt's source, because Qt's library carries it under no name.
+//  Copyright (C) The Qt Company Ltd. It is licensed
+//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
+//  here. Each function is as Qt wrote it, with the word
+//  'inline' put before it where Qt did not write it.
+
+//  from QtWaylandCompositor__QtWayland_IviSurfaceIntegration.cpp, line 1, as moc:QtWayland::IviSurfaceIntegration
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN9QtWayland21IviSurfaceIntegrationE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto QtWayland::IviSurfaceIntegration::qt_create_metaobjectdata<qt_meta_tag_ZN9QtWayland21IviSurfaceIntegrationE_t>()
+{
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "QtWayland::IviSurfaceIntegration",
+        "handleIviSurfaceDestroyed",
+        ""
+    };
+
+    QtMocHelpers::UintData qt_methods {
+        // Slot 'handleIviSurfaceDestroyed'
+        QtMocHelpers::SlotData<void()>(1, 2, QMC::AccessPrivate, QMetaType::Void),
+    };
+    QtMocHelpers::UintData qt_properties {
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    return QtMocHelpers::metaObjectData<IviSurfaceIntegration, qt_meta_tag_ZN9QtWayland21IviSurfaceIntegrationE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums);
+}
+Q_CONSTINIT const QMetaObject QtWayland::IviSurfaceIntegration::staticMetaObject = { {
+    QMetaObject::SuperData::link<QWaylandQuickShellIntegration::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN9QtWayland21IviSurfaceIntegrationE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN9QtWayland21IviSurfaceIntegrationE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN9QtWayland21IviSurfaceIntegrationE_t>.metaTypes,
+    nullptr
+} };
+
+void QtWayland::IviSurfaceIntegration::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<IviSurfaceIntegration *>(_o);
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        switch (_id) {
+        case 0: _t->handleIviSurfaceDestroyed(); break;
+        default: ;
+        }
+    }
+    (void)_a;
+}
+
+const QMetaObject *QtWayland::IviSurfaceIntegration::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *QtWayland::IviSurfaceIntegration::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN9QtWayland21IviSurfaceIntegrationE_t>.strings))
+        return static_cast<void*>(this);
+    return QWaylandQuickShellIntegration::qt_metacast(_clname);
+}
+
+int QtWayland::IviSurfaceIntegration::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QWaylandQuickShellIntegration::qt_metacall(_c, _id, _a);
+    if (_id < 0)
+        return _id;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        if (_id < 1)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 1;
+    }
+    if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        if (_id < 1)
+            *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
+        _id -= 1;
+    }
+    return _id;
+}
+QT_WARNING_POP
+
+//  from ../qtwayland/src/compositor/extensions/qwaylandivisurfaceintegration.cpp, line 30, as _ZN9QtWayland21IviSurfaceIntegration25handleIviSurfaceDestroyedEv
+namespace QtWayland {
+inline void IviSurfaceIntegration::handleIviSurfaceDestroyed()
+{
+    m_shellSurface = nullptr;
+}
+}  // namespace QtWayland
+
+//  from ../qtwayland/src/compositor/extensions/qwaylandivisurfaceintegration.cpp, line 25, as _ZN9QtWayland21IviSurfaceIntegrationD0Ev
+namespace QtWayland {
+inline IviSurfaceIntegration::~IviSurfaceIntegration()
+{
+    m_item->setSurface(nullptr);
+}
+}  // namespace QtWayland
+
+//  from ../qtwayland/src/compositor/extensions/qwaylandivisurfaceintegration.cpp, line 16, as _ZN9QtWayland21IviSurfaceIntegrationC1EP29QWaylandQuickShellSurfaceItem
+namespace QtWayland {
+inline IviSurfaceIntegration::IviSurfaceIntegration(QWaylandQuickShellSurfaceItem *item)
+    : QWaylandQuickShellIntegration(item)
+    , m_item(item)
+    , m_shellSurface(qobject_cast<QWaylandIviSurface *>(item->shellSurface()))
+{
+    m_item->setSurface(m_shellSurface->surface());
+    connect(m_shellSurface, &QWaylandIviSurface::destroyed, this, &IviSurfaceIntegration::handleIviSurfaceDestroyed);
+}
+}  // namespace QtWayland
+//  -----------------------------------------------------------------------
 
 //  A QtWayland::IviSurfaceIntegration that Python can take functions over in. Every QtWayland::IviSurfaceIntegration
 //  Python makes is one. Each function below asks the Python
@@ -203,6 +343,24 @@ int ritual_ZN9QtWayland21IviSurfaceIntegration11qt_metacallEN11QMetaObject4CallE
     int a1,
     void **a2) {
   return self->qt_metacall(a0, a1, a2);
+}
+
+//  QString QtWayland::IviSurfaceIntegration::tr(const char *s, const char
+//      *c, int n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN9QtWayland21IviSurfaceIntegration2trEPKcS2_i(
+    const char *s,
+    const char *c,
+    int n) {
+  return new QString(QtWayland::IviSurfaceIntegration::tr(s, c, n));
+}
+
+//  QtWayland::IviSurfaceIntegration::IviSurfaceIntegration(QWaylandQuickShel
+//      lSurfaceItem *item)
+extern "C" Q_DECL_EXPORT
+QtWayland::IviSurfaceIntegration *ritual_ZN9QtWayland21IviSurfaceIntegrationC1EP29QWaylandQuickShellSurfaceItem(
+    QWaylandQuickShellSurfaceItem *item) {
+  return new CuteQtWayland_IviSurfaceIntegration(item);
 }
 
 //  QtWayland::IviSurfaceIntegration::~IviSurfaceIntegration()

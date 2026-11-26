@@ -1,7 +1,13 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtWidgets/6.12.0/QtWidgets/private/qlineedit_p.h, Qt 6.12.0. Changes made
-//  here are lost.
+//  QtWidgets/6.12.0/QtWidgets/private/qlineedit_p.h, Qt 6.12.0.
+//  Edited by hand on 2026-11-26: added are 3 rituals that lean on what moc
+//  writes for a class of the part Qt keeps to itself, whose ritual file
+//  carries moc's output, drafted by a copy of the generator that lets those
+//  names through. A copy of a meta-object is a second one: 'qobject_cast'
+//  between it and Qt's own does not match. Kept as it is when the generator
+//  runs again.
 #include <QtGui/qtguiglobal.h>
+#include <QtCore/qglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #if QT_CONFIG(lineedit)
@@ -13,6 +19,7 @@
 #include <QtWidgets/6.12.0/QtWidgets/private/qlineedit_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
+#include <QtCore/qrect.h>
 #include <QtGui/qicon.h>
 #include <QtGui/QtGui>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -210,6 +217,23 @@ inline bool QLineEditIconButton::shouldHideWithText() const
 #endif  // QT_CONFIG(animation)
 #endif  // QT_CONFIG(toolbutton)
 
+//  from src/widgets/widgets/qlineedit_p.cpp, line 400, as _ZN19QLineEditIconButton19onAnimationFinishedEv
+#if QT_CONFIG(toolbutton)
+#if QT_CONFIG(animation)
+inline void QLineEditIconButton::onAnimationFinished()
+{
+    if (shouldHideWithText() && isVisible() && m_fadingOut) {
+        hide();
+        m_fadingOut = false;
+
+        // Invalidate previous geometry to take into account new size of side widgets
+        if (auto le = lineEditPrivate())
+            le->updateGeometry_helper(true);
+    }
+}
+#endif  // QT_CONFIG(animation)
+#endif  // QT_CONFIG(toolbutton)
+
 //  from src/widgets/widgets/qlineedit_p.cpp, line 235, as _ZN16QLineEditPrivate19initMouseYThresholdEv
 inline void QLineEditPrivate::initMouseYThreshold()
 {
@@ -252,6 +276,17 @@ inline void QLineEditPrivate::resetInputMethod()
     if (q->hasFocus() && qApp) {
         QGuiApplication::inputMethod()->reset();
     }
+}
+
+//  from src/widgets/widgets/qlineedit_p.cpp, line 240, as _ZNK16QLineEditPrivate20adjustedContentsRectEv
+inline QRect QLineEditPrivate::adjustedContentsRect() const
+{
+    Q_Q(const QLineEdit);
+    QStyleOptionFrame opt;
+    q->initStyleOption(&opt);
+    QRect r = q->style()->subElementRect(QStyle::SE_LineEditContents, &opt, q);
+    r = r.marginsRemoved(effectiveTextMargins());
+    return r;
 }
 
 //  from src/widgets/widgets/qlineedit_p.cpp, line 117, as _ZN16QLineEditPrivate20handleWindowActivateEv
@@ -365,6 +400,112 @@ inline void QLineEditPrivate::controlEditingFinished()
     emit q->returnPressed();
     emit q->editingFinished();
 }
+
+//  from src/widgets/widgets/qlineedit_p.cpp, line 568, as _ZN16QLineEditPrivate9addActionEP7QActionS1_N9QLineEdit14ActionPositionEi
+#if QT_CONFIG(action)
+#if defined(Q_OS_LINUX)
+inline QWidget *QLineEditPrivate::addAction(QAction *newAction, QAction *before, QLineEdit::ActionPosition position, int flags)
+{
+    Q_Q(QLineEdit);
+    if (!newAction)
+        return nullptr;
+    if (!hasSideWidgets()) { // initial setup.
+        QObjectPrivate::connect(q, &QLineEdit::textChanged,
+                                this, &QLineEditPrivate::textChanged);
+        lastTextSize = q->text().size();
+    }
+    QWidget *w = nullptr;
+    // Store flags about QWidgetAction here since removeAction() may be called from ~QAction,
+    // in which a qobject_cast<> no longer works.
+    if (QWidgetAction *widgetAction = qobject_cast<QWidgetAction *>(newAction)) {
+        if ((w = widgetAction->requestWidget(q)))
+            flags |= SideWidgetCreatedByWidgetAction;
+    }
+    if (!w) {
+#if QT_CONFIG(toolbutton)
+        QLineEditIconButton *toolButton = new QLineEditIconButton(q);
+        toolButton->setIcon(newAction->icon());
+        toolButton->setOpacity(lastTextSize > 0 || !(flags & SideWidgetFadeInWithText) ? 1 : 0);
+        if (flags & SideWidgetClearButton) {
+            QObjectPrivate::connect(toolButton, &QToolButton::clicked,
+                                    this, &QLineEditPrivate::clearButtonClicked);
+
+#if QT_CONFIG(animation)
+            // The clear button is handled only by this widget. The button should be really
+            // shown/hidden in order to calculate size hints correctly.
+            toolButton->setHideWithText(true);
+#endif
+        }
+        toolButton->setDefaultAction(newAction);
+        w = toolButton;
+#else
+        return nullptr;
+#endif
+    }
+
+    // QTBUG-59957: clear button should be the leftmost action.
+    if (!before && !(flags & SideWidgetClearButton) && position == QLineEdit::TrailingPosition) {
+        for (const SideWidgetEntry &e : trailingSideWidgets) {
+            if (e.flags & SideWidgetClearButton) {
+                before = e.action;
+                break;
+            }
+        }
+    }
+
+    // If there is a 'before' action, it takes preference
+
+    // There's a bug in GHS compiler that causes internal error on the following code.
+    // The affected GHS compiler versions are 2016.5.4 and 2017.1. GHS internal reference
+    // to track the progress of this issue is TOOLS-26637.
+    // This temporary workaround allows to compile with GHS toolchain and should be
+    // removed when GHS provides a patch to fix the compiler issue.
+
+#if defined(Q_CC_GHS)
+    const SideWidgetLocation loc = {position, -1};
+    const auto location = before ? findSideWidget(before) : loc;
+#else
+    const auto location = before ? findSideWidget(before) : SideWidgetLocation{position, -1};
+#endif
+
+    SideWidgetEntryList &list = location.position == QLineEdit::TrailingPosition ? trailingSideWidgets : leadingSideWidgets;
+    list.insert(location.isValid() ? list.begin() + location.index : list.end(),
+                SideWidgetEntry(w, newAction, flags));
+    positionSideWidgets();
+    w->show();
+    return w;
+}
+#endif  // defined(Q_OS_LINUX)
+#endif  // QT_CONFIG(action)
+
+//  from src/widgets/widgets/qlineedit_p.cpp, line 640, as _ZN16QLineEditPrivate12removeActionEP7QAction
+#if QT_CONFIG(action)
+inline void QLineEditPrivate::removeAction(QAction *action)
+{
+    Q_Q(QLineEdit);
+    const auto location = findSideWidget(action);
+    if (!location.isValid())
+        return;
+    SideWidgetEntryList &list = location.position == QLineEdit::TrailingPosition ? trailingSideWidgets : leadingSideWidgets;
+    SideWidgetEntry entry = list[location.index];
+    list.erase(list.begin() + location.index);
+    if (entry.flags & SideWidgetCreatedByWidgetAction) {
+        // If the cast fails, the QAction is in the process of being deleted
+        // and has already ceased to be a QWidgetAction; in the process, it
+        // will release its widget itself, and calling releaseWidget() here
+        // would be UB, so don't:
+        if (const auto a = qobject_cast<QWidgetAction*>(entry.action))
+            a->releaseWidget(entry.widget);
+    } else {
+         delete entry.widget;
+    }
+     positionSideWidgets();
+     if (!hasSideWidgets()) // Last widget, remove connection
+         QObjectPrivate::connect(q, &QLineEdit::textChanged,
+                                 this, &QLineEditPrivate::textChanged);
+     q->update();
+}
+#endif  // QT_CONFIG(action)
 
 //  from src/widgets/widgets/qlineedit_p.cpp, line 488, as _ZNK16QLineEditPrivate20sideWidgetParametersEv
 inline QLineEditPrivate::SideWidgetParameters QLineEditPrivate::sideWidgetParameters() const
@@ -846,6 +987,13 @@ QLineEditPrivate *ritual_ZN16QLineEditPrivate3getEP9QLineEdit(
   return QLineEditPrivate::get(lineEdit);
 }
 
+//  QRect QLineEditPrivate::adjustedContentsRect() const
+extern "C" Q_DECL_EXPORT
+QRect *ritual_ZNK16QLineEditPrivate20adjustedContentsRectEv(
+    const QLineEditPrivate *self) {
+  return new QRect(self->adjustedContentsRect());
+}
+
 //  void QLineEditPrivate::handleWindowActivate()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN16QLineEditPrivate20handleWindowActivateEv(
@@ -925,6 +1073,40 @@ void ritual_ZN16QLineEditPrivate22controlEditingFinishedEv(
     QLineEditPrivate *self) {
   self->controlEditingFinished();
 }
+
+#if QT_CONFIG(action)
+#if defined(Q_OS_LINUX)
+#if QT_CONFIG(toolbutton)
+#if QT_CONFIG(animation)
+//  QWidget *QLineEditPrivate::addAction(QAction *newAction, QAction *before,
+//      QLineEdit::ActionPosition a2, int flags)
+extern "C" Q_DECL_EXPORT
+QWidget *ritual_ZN16QLineEditPrivate9addActionEP7QActionS1_N9QLineEdit14ActionPositionEi(
+    QLineEditPrivate *self,
+    QAction *newAction,
+    QAction *before,
+    QLineEdit::ActionPosition a2,
+    int flags) {
+  return self->addAction(newAction, before, a2, flags);
+}
+#endif  // QT_CONFIG(animation)
+#endif  // QT_CONFIG(toolbutton)
+#endif  // defined(Q_OS_LINUX)
+#endif  // QT_CONFIG(action)
+
+#if QT_CONFIG(action)
+#if QT_CONFIG(toolbutton)
+#if QT_CONFIG(animation)
+//  void QLineEditPrivate::removeAction(QAction *action)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QLineEditPrivate12removeActionEP7QAction(
+    QLineEditPrivate *self,
+    QAction *action) {
+  self->removeAction(action);
+}
+#endif  // QT_CONFIG(animation)
+#endif  // QT_CONFIG(toolbutton)
+#endif  // QT_CONFIG(action)
 
 //  SideWidgetParameters QLineEditPrivate::sideWidgetParameters() const
 extern "C" Q_DECL_EXPORT

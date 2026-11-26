@@ -94,6 +94,12 @@ public:
   }
 };
 
+//  QPlaceSearchResultPrivate::QPlaceSearchResultPrivate()
+extern "C" Q_DECL_EXPORT
+QPlaceSearchResultPrivate *ritual_ZN25QPlaceSearchResultPrivateC1Ev() {
+  return new CuteQPlaceSearchResultPrivate();
+}
+
 //  QPlaceSearchResultPrivate::~QPlaceSearchResultPrivate()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN25QPlaceSearchResultPrivateD1Ev(
@@ -134,6 +140,15 @@ QPlaceSearchResult::SearchResultType ritual_ZNK25QPlaceSearchResultPrivate4typeE
   return self->type();
 }
 
+//  void QPlaceSearchResultPrivate::copyIfPossible(QSharedDataPointer<QPlaceS
+//      earchResultPrivate> &d_ptr, const QPlaceSearchResult &other)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN25QPlaceSearchResultPrivate14copyIfPossibleER18QSharedDataPointerIS_ERK18QPlaceSearchResult(
+    QSharedDataPointer<QPlaceSearchResultPrivate> *d_ptr,
+    const QPlaceSearchResult *other) {
+  QPlaceSearchResultPrivate::copyIfPossible(*d_ptr, *other);
+}
+
 //  a Python function taken by a CuteQPlaceSearchResultPrivate, for the
 //      function named by the key
 extern "C" Q_DECL_EXPORT
@@ -151,6 +166,13 @@ bool ritual_own_ZNK25QPlaceSearchResultPrivate7compareEPKS_(
     const QPlaceSearchResultPrivate *self,
     const QPlaceSearchResultPrivate *other) {
   return self->QPlaceSearchResultPrivate::compare(other);
+}
+
+//  QPlaceSearchResultPrivate *QPlaceSearchResultPrivate::clone() const
+extern "C" Q_DECL_EXPORT
+QPlaceSearchResultPrivate *ritual_own_ZNK25QPlaceSearchResultPrivate5cloneEv(
+    const QPlaceSearchResultPrivate *self) {
+  return self->QPlaceSearchResultPrivate::clone();
 }
 
 //  QPlaceSearchResult::SearchResultType QPlaceSearchResultPrivate::type()

@@ -1,6 +1,13 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtCore/6.12.0/QtCore/private/qabstractanimation_p.h, Qt 6.12.0. Changes
-//  made here are lost.
+//  QtCore/6.12.0/QtCore/private/qabstractanimation_p.h, Qt 6.12.0.
+//  Edited by hand on 2026-11-26: moc's output for 'QDefaultAnimationDriver'
+//  is pasted in, cut from what the moc of Qt 6.12.0 writes for its header:
+//  Qt's library keeps it to itself; added are 2 rituals that lean on what
+//  moc writes for a class of the part Qt keeps to itself, whose ritual file
+//  carries moc's output, drafted by a copy of the generator that lets those
+//  names through. A copy of a meta-object is a second one: 'qobject_cast'
+//  between it and Qt's own does not match. Kept as it is when the generator
+//  runs again.
 #include <QtCore/qglobal.h>
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #if QT_CONFIG(animation)
@@ -10,9 +17,14 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/6.12.0/QtCore/private/qabstractanimation_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
 #include <QtCore/qabstractanimation.h>
 #include <QtCore/qanimationgroup.h>
 #include <QtCore/qdebug.h>
@@ -35,6 +47,94 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from QtCore__QDefaultAnimationDriver.cpp, line 1, as moc:QDefaultAnimationDriver
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN23QDefaultAnimationDriverE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto QDefaultAnimationDriver::qt_create_metaobjectdata<qt_meta_tag_ZN23QDefaultAnimationDriverE_t>()
+{
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "QDefaultAnimationDriver",
+        "startTimer",
+        "",
+        "stopTimer"
+    };
+
+    QtMocHelpers::UintData qt_methods {
+        // Slot 'startTimer'
+        QtMocHelpers::SlotData<void()>(1, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'stopTimer'
+        QtMocHelpers::SlotData<void()>(3, 2, QMC::AccessPrivate, QMetaType::Void),
+    };
+    QtMocHelpers::UintData qt_properties {
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    return QtMocHelpers::metaObjectData<QDefaultAnimationDriver, qt_meta_tag_ZN23QDefaultAnimationDriverE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums);
+}
+Q_CONSTINIT const QMetaObject QDefaultAnimationDriver::staticMetaObject = { {
+    QMetaObject::SuperData::link<QAnimationDriver::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN23QDefaultAnimationDriverE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN23QDefaultAnimationDriverE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN23QDefaultAnimationDriverE_t>.metaTypes,
+    nullptr
+} };
+
+void QDefaultAnimationDriver::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<QDefaultAnimationDriver *>(_o);
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        switch (_id) {
+        case 0: _t->startTimer(); break;
+        case 1: _t->stopTimer(); break;
+        default: ;
+        }
+    }
+    (void)_a;
+}
+
+const QMetaObject *QDefaultAnimationDriver::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *QDefaultAnimationDriver::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN23QDefaultAnimationDriverE_t>.strings))
+        return static_cast<void*>(this);
+    return QAnimationDriver::qt_metacast(_clname);
+}
+
+int QDefaultAnimationDriver::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QAnimationDriver::qt_metacall(_c, _id, _a);
+    if (_id < 0)
+        return _id;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        if (_id < 2)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 2;
+    }
+    if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        if (_id < 2)
+            *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
+        _id -= 2;
+    }
+    return _id;
+}
+QT_WARNING_POP
+
 //  from src/corelib/animation/qabstractanimation.cpp, line 903, as _ZN23QDefaultAnimationDriver10startTimerEv
 inline void QDefaultAnimationDriver::startTimer()
 {
@@ -48,6 +148,27 @@ inline void QDefaultAnimationDriver::timerEvent(QTimerEvent *e)
     Q_ASSERT(e->id() == m_timer.id());
     Q_UNUSED(e); // if the assertions are disabled
     advance();
+}
+
+//  from src/corelib/animation/qabstractanimation.cpp, line 909, as _ZN23QDefaultAnimationDriver9stopTimerEv
+inline void QDefaultAnimationDriver::stopTimer()
+{
+    m_timer.stop();
+}
+
+//  from src/corelib/animation/qabstractanimation.cpp, line 890, as _ZN23QDefaultAnimationDriverD0Ev
+inline QDefaultAnimationDriver::~QDefaultAnimationDriver()
+{
+    disconnect(this, &QAnimationDriver::started, this, &QDefaultAnimationDriver::startTimer);
+    disconnect(this, &QAnimationDriver::stopped, this, &QDefaultAnimationDriver::stopTimer);
+}
+
+//  from src/corelib/animation/qabstractanimation.cpp, line 883, as _ZN23QDefaultAnimationDriverC1EP13QUnifiedTimer
+inline QDefaultAnimationDriver::QDefaultAnimationDriver(QUnifiedTimer *timer)
+    : QAnimationDriver(nullptr), m_unified_timer(timer)
+{
+    connect(this, &QAnimationDriver::started, this, &QDefaultAnimationDriver::startTimer);
+    connect(this, &QAnimationDriver::stopped, this, &QDefaultAnimationDriver::stopTimer);
 }
 //  -----------------------------------------------------------------------
 
@@ -342,6 +463,22 @@ int ritual_ZN23QDefaultAnimationDriver11qt_metacallEN11QMetaObject4CallEiPPv(
     int a1,
     void **a2) {
   return self->qt_metacall(a0, a1, a2);
+}
+
+//  QString QDefaultAnimationDriver::tr(const char *s, const char *c, int n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN23QDefaultAnimationDriver2trEPKcS1_i(
+    const char *s,
+    const char *c,
+    int n) {
+  return new QString(QDefaultAnimationDriver::tr(s, c, n));
+}
+
+//  QDefaultAnimationDriver::QDefaultAnimationDriver(QUnifiedTimer *timer)
+extern "C" Q_DECL_EXPORT
+QDefaultAnimationDriver *ritual_ZN23QDefaultAnimationDriverC1EP13QUnifiedTimer(
+    QUnifiedTimer *timer) {
+  return new CuteQDefaultAnimationDriver(timer);
 }
 
 //  QDefaultAnimationDriver::~QDefaultAnimationDriver()

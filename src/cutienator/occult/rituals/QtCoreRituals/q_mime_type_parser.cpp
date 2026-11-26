@@ -110,6 +110,10 @@ inline void QMimeXMLProvider::addParent(const QString &child, const QString &par
     m_parents[child].append(parent);
 }
 
+//  from src/corelib/mimetypes/qmimetypeparser.cpp, line 76, as _ZN19QMimeTypeParserBaseD1Ev
+inline QMimeTypeParserBase::~QMimeTypeParserBase()
+    = default;
+
 //  from src/corelib/mimetypes/qmimeglobpattern.cpp, line 181, as _ZN20QMimeAllGlobPatterns7addGlobERK16QMimeGlobPattern
 inline void QMimeAllGlobPatterns::addGlob(const QMimeGlobPattern &glob)
 {
@@ -273,6 +277,13 @@ public:
   }
 #endif  // QT_CONFIG(mimetype)
 };
+
+//  QMimeTypeParser::QMimeTypeParser(QMimeXMLProvider &provider)
+extern "C" Q_DECL_EXPORT
+QMimeTypeParser *ritual_ZN15QMimeTypeParserC1ER16QMimeXMLProvider(
+    QMimeXMLProvider *provider) {
+  return new CuteQMimeTypeParser(*provider);
+}
 
 //  QMimeTypeParser::~QMimeTypeParser()
 extern "C" Q_DECL_EXPORT

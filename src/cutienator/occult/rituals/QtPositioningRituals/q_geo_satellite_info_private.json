@@ -6,6 +6,7 @@
   ],
   "rows": {
     "ritual_ZN24QGeoSatelliteInfoPrivateC1Ev": ["address"],
+    "ritual_ZN24QGeoSatelliteInfoPrivateC1ERKS_": ["address", "address"],
     "ritual_ZN24QGeoSatelliteInfoPrivateD1Ev": ["nothing", "address"],
     "ritual_ZNK24QGeoSatelliteInfoPrivateeqERKS_": [
       "bool", "address", "address"

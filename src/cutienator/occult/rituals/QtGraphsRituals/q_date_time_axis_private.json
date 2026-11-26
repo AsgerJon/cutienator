@@ -8,6 +8,7 @@
     "QtGraphs", "QtCore", "QtGui", "QtQuick", "QtQml", "QtQmlIntegration"
   ],
   "rows": {
+    "ritual_ZN20QDateTimeAxisPrivateC1Ev": ["address"],
     "ritual_ZN20QDateTimeAxisPrivateD1Ev": ["nothing", "address"],
     "ritual_ZN20QDateTimeAxisPrivate6setMinERK8QVariant": [
       "nothing", "address", "address"

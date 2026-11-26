@@ -10,6 +10,7 @@
   "rows": {
     "ritual_ZN23QScatter3DSeriesPrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK23QScatter3DSeriesPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN23QScatter3DSeriesPrivateC1Ev": ["address"],
     "ritual_ZN23QScatter3DSeriesPrivateD1Ev": ["nothing", "address"],
     "ritual_ZN23QScatter3DSeriesPrivate12setDataProxyEP18QAbstractDataProxy": [
       "nothing", "address", "address"

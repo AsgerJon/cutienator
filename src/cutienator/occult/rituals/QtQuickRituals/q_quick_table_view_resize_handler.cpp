@@ -1,6 +1,13 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtQuick/6.12.0/QtQuick/private/qquicktableview_p_p.h, Qt 6.12.0. Changes
-//  made here are lost.
+//  QtQuick/6.12.0/QtQuick/private/qquicktableview_p_p.h, Qt 6.12.0.
+//  Edited by hand on 2026-11-26: moc's output for
+//  'QQuickTableViewResizeHandler' is pasted in, cut from what the moc of Qt
+//  6.12.0 writes for its header: Qt's library keeps it to itself; added are
+//  2 rituals that lean on what moc writes for a class of the part Qt keeps
+//  to itself, whose ritual file carries moc's output, drafted by a copy of
+//  the generator that lets those names through. A copy of a meta-object is a
+//  second one: 'qobject_cast' between it and Qt's own does not match. Kept
+//  as it is when the generator runs again.
 #include <QtQuick/qtquickglobal.h>
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
 #if QT_CONFIG(quick_tableview)
@@ -9,10 +16,15 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQuick/6.12.0/QtQuick/private/qquicktableview_p_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 #include <QtGui/qeventpoint.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
 #include <QtQuick/private/qquicktableview_p.h>
 #include <QtQuick/private/qquicktableview_p_p.h>
 #include <QtCore/qdir.h>
@@ -37,6 +49,144 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  from QtQuick__QQuickTableViewResizeHandler.cpp, line 1, as moc:QQuickTableViewResizeHandler
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN28QQuickTableViewResizeHandlerE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto QQuickTableViewResizeHandler::qt_create_metaobjectdata<qt_meta_tag_ZN28QQuickTableViewResizeHandlerE_t>()
+{
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "QQuickTableViewResizeHandler"
+    };
+
+    QtMocHelpers::UintData qt_methods {
+    };
+    QtMocHelpers::UintData qt_properties {
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    return QtMocHelpers::metaObjectData<QQuickTableViewResizeHandler, qt_meta_tag_ZN28QQuickTableViewResizeHandlerE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums);
+}
+Q_CONSTINIT const QMetaObject QQuickTableViewResizeHandler::staticMetaObject = { {
+    QMetaObject::SuperData::link<QQuickTableViewPointerHandler::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN28QQuickTableViewResizeHandlerE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN28QQuickTableViewResizeHandlerE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN28QQuickTableViewResizeHandlerE_t>.metaTypes,
+    nullptr
+} };
+
+void QQuickTableViewResizeHandler::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<QQuickTableViewResizeHandler *>(_o);
+    (void)_t;
+    (void)_c;
+    (void)_id;
+    (void)_a;
+}
+
+const QMetaObject *QQuickTableViewResizeHandler::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *QQuickTableViewResizeHandler::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN28QQuickTableViewResizeHandlerE_t>.strings))
+        return static_cast<void*>(this);
+    return QQuickTableViewPointerHandler::qt_metacast(_clname);
+}
+
+int QQuickTableViewResizeHandler::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QQuickTableViewPointerHandler::qt_metacall(_c, _id, _a);
+    return _id;
+}
+QT_WARNING_POP
+
+//  from ../qtdeclarative/src/quick/items/qquicktableview.cpp, line 7259, as _ZN28QQuickTableViewResizeHandler13onGrabChangedEP20QQuickPointerHandlerN15QPointingDevice14GrabTransitionEP13QPointerEventR11QEventPoint
+inline void QQuickTableViewResizeHandler::onGrabChanged(QQuickPointerHandler *grabber
+                                     , QPointingDevice::GrabTransition transition
+                                     , QPointerEvent *ev
+                                     , QEventPoint &point)
+{
+    QQuickSinglePointHandler::onGrabChanged(grabber, transition, ev, point);
+
+    switch (transition) {
+    case QPointingDevice::GrabPassive:
+    case QPointingDevice::GrabExclusive:
+        break;
+    case QPointingDevice::UngrabPassive:
+    case QPointingDevice::UngrabExclusive:
+    case QPointingDevice::CancelGrabPassive:
+    case QPointingDevice::CancelGrabExclusive:
+    case QPointingDevice::OverrideGrabPassive:
+        if (m_state == DraggingStarted || m_state == Dragging) {
+            m_state = DraggingFinished;
+            updateDrag(ev, point);
+        }
+        break;
+    }
+}
+
+//  from ../qtdeclarative/src/quick/items/qquicktableview.cpp, line 7283, as _ZN28QQuickTableViewResizeHandler16handleEventPointEP13QPointerEventR11QEventPoint
+inline void QQuickTableViewResizeHandler::handleEventPoint(QPointerEvent *event, QEventPoint &point)
+{
+    auto *tableView = static_cast<QQuickTableView *>(parentItem()->parent());
+    auto *tableViewPrivate = QQuickTableViewPrivate::get(tableView);
+    const auto *activeHandler = tableViewPrivate->activePointerHandler();
+    if (activeHandler && !qobject_cast<const QQuickTableViewResizeHandler *>(activeHandler))
+        return;
+
+    // Resolve which state we're in first...
+    updateState(point);
+    // ...and act on it next
+    updateDrag(event, point);
+}
+
+//  from ../qtdeclarative/src/quick/items/qquicktableview.cpp, line 7235, as _ZN29QQuickTableViewPointerHandler15wantsEventPointEPK13QPointerEventRK11QEventPoint
+inline bool QQuickTableViewPointerHandler::wantsEventPoint(const QPointerEvent *event, const QEventPoint &point)
+{
+    if (!QQuickSinglePointHandler::wantsEventPoint(event, point))
+        return false;
+
+    // If we have a mouse wheel event then we do not want to do anything related to resizing.
+    if (event->type() == QEvent::Type::Wheel)
+        return false;
+
+    // When the user is flicking, we disable resizing, so that
+    // he doesn't start to resize by accident.
+    const auto *tableView = static_cast<QQuickTableView *>(parentItem()->parent());
+    return !tableView->isMoving();
+}
+
+//  from ../qtdeclarative/src/quick/items/qquicktableview.cpp, line 7227, as _ZN29QQuickTableViewPointerHandlerC2EP15QQuickTableView
+inline QQuickTableViewPointerHandler::QQuickTableViewPointerHandler(QQuickTableView *view)
+    : QQuickSinglePointHandler(view->contentItem())
+{
+    // Set a grab permission that stops the flickable, as well as
+    // any drag handler inside the delegate, from stealing the drag.
+    setGrabPermissions(QQuickPointerHandler::CanTakeOverFromAnything);
+}
+
+//  from ../qtdeclarative/src/quick/items/qquicktableview.cpp, line 7252, as _ZN28QQuickTableViewResizeHandlerC1EP15QQuickTableView
+inline QQuickTableViewResizeHandler::QQuickTableViewResizeHandler(QQuickTableView *view)
+    : QQuickTableViewPointerHandler(view)
+{
+    setMargin(5);
+    setObjectName("tableViewResizeHandler");
+}
 
 //  from ../qtdeclarative/src/quick/items/qquicktableview.cpp, line 7297, as _ZN28QQuickTableViewResizeHandler11updateStateER11QEventPoint
 inline void QQuickTableViewResizeHandler::updateState(QEventPoint &point)
@@ -476,6 +626,24 @@ int ritual_ZN28QQuickTableViewResizeHandler11qt_metacallEN11QMetaObject4CallEiPP
     int a1,
     void **a2) {
   return self->qt_metacall(a0, a1, a2);
+}
+
+//  QString QQuickTableViewResizeHandler::tr(const char *s, const char *c,
+//      int n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN28QQuickTableViewResizeHandler2trEPKcS1_i(
+    const char *s,
+    const char *c,
+    int n) {
+  return new QString(QQuickTableViewResizeHandler::tr(s, c, n));
+}
+
+//  QQuickTableViewResizeHandler::QQuickTableViewResizeHandler(QQuickTableVie
+//      w *view)
+extern "C" Q_DECL_EXPORT
+QQuickTableViewResizeHandler *ritual_ZN28QQuickTableViewResizeHandlerC1EP15QQuickTableView(
+    QQuickTableView *view) {
+  return new CuteQQuickTableViewResizeHandler(view);
 }
 
 //  void QQuickTableViewResizeHandler::updateState(QEventPoint &point)

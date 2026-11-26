@@ -1,6 +1,11 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  Qt3DQuickScene2D/6.12.0/Qt3DQuickScene2D/private/qscene2d_p.h, Qt 6.12.0.
-//  Changes made here are lost.
+//  Edited by hand on 2026-11-26: added are 1 rituals that lean on what moc
+//  writes for a class of the part Qt keeps to itself, whose ritual file
+//  carries moc's output, drafted by a copy of the generator that lets those
+//  names through. A copy of a meta-object is a second one: 'qobject_cast'
+//  between it and Qt's own does not match. Kept as it is when the generator
+//  runs again.
 #include <Qt3DQuickScene2D/6.12.0/Qt3DQuickScene2D/private/qt3dquickscene2d_global_p.h>
 #include <Qt3DQuickScene2D/Qt3DQuickScene2D>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -134,6 +139,34 @@ inline void Scene2DManager::requestRender()
 }
 }  // namespace Qt3DRender::Quick
 
+//  from ../qt3d/src/quick3d/quick3dscene2d/items/scene2dmanager.cpp, line 83, as _ZN10Qt3DRender5Quick14Scene2DManager17requestRenderSyncEv
+namespace Qt3DRender::Quick {
+using namespace Qt3DCore;
+inline void Scene2DManager::requestRenderSync()
+{
+    // Don't request render until the backed is initialized.
+    if (m_sharedObject->canRender()) {
+        if (!m_requested) {
+            m_requested = true;
+            QCoreApplication::postEvent(this, new Scene2DEvent(Scene2DEvent::RenderSync));
+        }
+    } else {
+        m_renderSyncRequested = true;
+    }
+}
+}  // namespace Qt3DRender::Quick
+
+//  from ../qt3d/src/quick3d/quick3dscene2d/items/qscene2d.cpp, line 156, as _ZN10Qt3DRender5Quick15QScene2DPrivateC1Ev
+namespace Qt3DRender::Quick {
+using namespace Qt3DCore;
+inline QScene2DPrivate::QScene2DPrivate()
+    : Qt3DCore::QNodePrivate()
+    , m_renderManager(new Scene2DManager(this))
+    , m_output(nullptr)
+{
+}
+}  // namespace Qt3DRender::Quick
+
 //  from ../qt3d/src/quick3d/quick3dscene2d/items/qscene2d.cpp, line 163, as _ZN10Qt3DRender5Quick15QScene2DPrivateD1Ev
 namespace Qt3DRender::Quick {
 using namespace Qt3DCore;
@@ -202,6 +235,12 @@ extern "C" Q_DECL_EXPORT
 const Qt3DRender::Quick::QScene2D *ritual_ZNK10Qt3DRender5Quick15QScene2DPrivate6q_funcEv(
     const Qt3DRender::Quick::QScene2DPrivate *self) {
   return self->q_func();
+}
+
+//  Qt3DRender::Quick::QScene2DPrivate::QScene2DPrivate()
+extern "C" Q_DECL_EXPORT
+Qt3DRender::Quick::QScene2DPrivate *ritual_ZN10Qt3DRender5Quick15QScene2DPrivateC1Ev() {
+  return new CuteQt3DRender_Quick_QScene2DPrivate();
 }
 
 //  Qt3DRender::Quick::QScene2DPrivate::~QScene2DPrivate()

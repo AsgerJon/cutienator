@@ -1,6 +1,13 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtDesigner/6.12.0/QtDesigner/private/signalslotdialog_p.h, Qt 6.12.0.
-//  Changes made here are lost.
+//  Edited by hand on 2026-11-26: moc's output for
+//  'qdesigner_internal::SignatureModel' is pasted in, cut from what the moc
+//  of Qt 6.12.0 writes for its header: Qt's library keeps it to itself;
+//  added are 3 rituals that lean on what moc writes for a class of the part
+//  Qt keeps to itself, whose ritual file carries moc's output, drafted by a
+//  copy of the generator that lets those names through. A copy of a meta-
+//  object is a second one: 'qobject_cast' between it and Qt's own does not
+//  match. Kept as it is when the generator runs again.
 #include <QtCore/qglobal.h>
 #include <QtGui/qtguiglobal.h>
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
@@ -8,13 +15,17 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtDesigner/6.12.0/QtDesigner/private/signalslotdialog_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 #include <QtCore/qabstractitemmodel.h>
 #include <QtCore/qvariant.h>
-#include <QtCore/qstring.h>
 #include <QtCore/qsize.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
 #include <QtDesigner/private/signalslotdialog_p.h>
 #include <QtDesigner/private/metadatabase_p.h>
 #include <QtDesigner/private/widgetdatabase_p.h>
@@ -45,6 +56,104 @@
 
 using namespace Qt::StringLiterals;
 
+//  from QtDesigner__qdesigner_internal_SignatureModel.cpp, line 1, as moc:qdesigner_internal::SignatureModel
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN18qdesigner_internal14SignatureModelE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto qdesigner_internal::SignatureModel::qt_create_metaobjectdata<qt_meta_tag_ZN18qdesigner_internal14SignatureModelE_t>()
+{
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "qdesigner_internal::SignatureModel",
+        "checkSignature",
+        "",
+        "signature",
+        "bool*",
+        "ok"
+    };
+
+    QtMocHelpers::UintData qt_methods {
+        // Signal 'checkSignature'
+        QtMocHelpers::SignalData<void(const QString &, bool *)>(1, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { QMetaType::QString, 3 }, { 0x80000000 | 4, 5 },
+        }}),
+    };
+    QtMocHelpers::UintData qt_properties {
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    return QtMocHelpers::metaObjectData<SignatureModel, qt_meta_tag_ZN18qdesigner_internal14SignatureModelE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums);
+}
+Q_CONSTINIT const QMetaObject qdesigner_internal::SignatureModel::staticMetaObject = { {
+    QMetaObject::SuperData::link<QStandardItemModel::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN18qdesigner_internal14SignatureModelE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN18qdesigner_internal14SignatureModelE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN18qdesigner_internal14SignatureModelE_t>.metaTypes,
+    nullptr
+} };
+
+void qdesigner_internal::SignatureModel::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<SignatureModel *>(_o);
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        switch (_id) {
+        case 0: _t->checkSignature((*reinterpret_cast<std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<bool*>>(_a[2]))); break;
+        default: ;
+        }
+    }
+    if (_c == QMetaObject::IndexOfMethod) {
+        if (QtMocHelpers::indexOfMethod<void (SignatureModel::*)(const QString & , bool * )>(_a, &SignatureModel::checkSignature, 0))
+            return;
+    }
+}
+
+const QMetaObject *qdesigner_internal::SignatureModel::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *qdesigner_internal::SignatureModel::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN18qdesigner_internal14SignatureModelE_t>.strings))
+        return static_cast<void*>(this);
+    return QStandardItemModel::qt_metacast(_clname);
+}
+
+int qdesigner_internal::SignatureModel::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QStandardItemModel::qt_metacall(_c, _id, _a);
+    if (_id < 0)
+        return _id;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        if (_id < 1)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 1;
+    }
+    if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        if (_id < 1)
+            *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
+        _id -= 1;
+    }
+    return _id;
+}
+
+// SIGNAL 0
+void qdesigner_internal::SignatureModel::checkSignature(const QString & _t1, bool * _t2)
+{
+    QMetaObject::activate<void>(this, &staticMetaObject, 0, nullptr, _t1, _t2);
+}
+QT_WARNING_POP
+
 //  from ../qttools/src/designer/src/lib/shared/signalslotdialog.cpp, line 165, as _ZN18qdesigner_internal14SignatureModel7setDataERK11QModelIndexRK8QVarianti
 namespace qdesigner_internal {
 using namespace Qt::StringLiterals;
@@ -65,6 +174,15 @@ inline bool SignatureModel::setData(const QModelIndex &index, const QVariant &va
         return false;
 
     return QStandardItemModel::setData(index, value, role);
+}
+}  // namespace qdesigner_internal
+
+//  from ../qttools/src/designer/src/lib/shared/signalslotdialog.cpp, line 160, as _ZN18qdesigner_internal14SignatureModelC1EP7QObject
+namespace qdesigner_internal {
+using namespace Qt::StringLiterals;
+inline SignatureModel::SignatureModel(QObject *parent) :
+     QStandardItemModel(parent)
+{
 }
 }  // namespace qdesigner_internal
 //  -----------------------------------------------------------------------
@@ -1118,6 +1236,23 @@ int ritual_ZN18qdesigner_internal14SignatureModel11qt_metacallEN11QMetaObject4Ca
   return self->qt_metacall(a0, a1, a2);
 }
 
+//  QString qdesigner_internal::SignatureModel::tr(const char *s, const char
+//      *c, int n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN18qdesigner_internal14SignatureModel2trEPKcS2_i(
+    const char *s,
+    const char *c,
+    int n) {
+  return new QString(qdesigner_internal::SignatureModel::tr(s, c, n));
+}
+
+//  qdesigner_internal::SignatureModel::SignatureModel(QObject *parent)
+extern "C" Q_DECL_EXPORT
+qdesigner_internal::SignatureModel *ritual_ZN18qdesigner_internal14SignatureModelC1EP7QObject(
+    QObject *parent) {
+  return new Cuteqdesigner_internal_SignatureModel(parent);
+}
+
 //  bool qdesigner_internal::SignatureModel::setData(const QModelIndex
 //      &index, const QVariant &value, int role)
 extern "C" Q_DECL_EXPORT
@@ -1167,4 +1302,18 @@ bool ritual_take_qdesigner_internal_SignatureModel(
     const char *key,
     void *call) {
   return static_cast<Cuteqdesigner_internal_SignatureModel *>(self)->take(key, call);
+}
+
+//  bool qdesigner_internal::SignatureModel::setData(const QModelIndex
+//      &index, const QVariant &value, int role)
+extern "C" Q_DECL_EXPORT
+bool ritual_own_ZN18qdesigner_internal14SignatureModel7setDataERK11QModelIndexRK8QVarianti(
+    qdesigner_internal::SignatureModel *self,
+    const QModelIndex *index,
+    const QVariant *value,
+    int role) {
+  return self->qdesigner_internal::SignatureModel::setData(
+      *index,
+      *value,
+      role);
 }

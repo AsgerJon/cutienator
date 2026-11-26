@@ -2,7 +2,7 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of QtDataV",
     "isualization/6.12.0/QtDataVisualization/private/abstract3drenderer",
-    "_p.h, Qt 6.12.0. Changes made here are lost."
+    "_p.h, Qt 6.12.0. Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZNK18Abstract3DRenderer10metaObjectEv": ["address", "address"],
@@ -221,6 +221,9 @@
     ],
     "ritual_ZN18Abstract3DRenderer15fixCameraTargetER9QVector3D": [
       "nothing", "address", "address"
+    ],
+    "ritual_ZN18Abstract3DRenderer20updateCameraViewportEv": [
+      "nothing", "address"
     ],
     "ritual_ZN18Abstract3DRenderer34recalculateCustomItemScalingAndPosEP16CustomRenderItem": [
       "nothing", "address", "address"

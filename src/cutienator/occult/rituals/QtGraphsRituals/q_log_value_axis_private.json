@@ -8,6 +8,7 @@
     "QtGraphs", "QtCore", "QtGui", "QtQuick", "QtQml", "QtQmlIntegration"
   ],
   "rows": {
+    "ritual_ZN20QLogValueAxisPrivateC1Ev": ["address"],
     "ritual_ZN20QLogValueAxisPrivateD1Ev": ["nothing", "address"],
     "ritual_ZN20QLogValueAxisPrivate3minEv": ["double", "address"],
     "ritual_ZN20QLogValueAxisPrivate3maxEv": ["double", "address"],

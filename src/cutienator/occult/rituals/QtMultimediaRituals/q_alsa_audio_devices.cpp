@@ -25,12 +25,12 @@
 #include <QtCore/qcoreapplication.h>
 #include <QtCore/qvarlengtharray.h>
 #include <QtMultimedia/private/qaudiohelpers_p.h>
-#include <QtMultimedia/private/qalsaaudiosource_p.h>
+#include <QtMultimedia/private/qalsaaudiosink_p.h>
+#include <QtCore/QLoggingCategory>
 #include <QtCore/qcoreapplication.h>
 #include <QtCore/qvarlengtharray.h>
 #include <QtMultimedia/private/qaudiohelpers_p.h>
-#include <QtMultimedia/private/qalsaaudiosink_p.h>
-#include <QtCore/QLoggingCategory>
+#include <QtMultimedia/private/qalsaaudiosource_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -69,6 +69,14 @@ inline QPlatformAudioSource *QAlsaAudioDevices::createAudioSource(const QAudioDe
     return new QAlsaAudioSource(deviceInfo, fmt, parent);
 }
 
+//  from ../qtmultimedia/src/multimedia/alsa/qalsaaudiosink.cpp, line 15, as _ZN14QAlsaAudioSinkC1E12QAudioDeviceRK12QAudioFormatP7QObject
+inline QAlsaAudioSink::QAlsaAudioSink(QAudioDevice device, const QAudioFormat &format, QObject *parent)
+    : QPlatformAudioSink(std::move(device), format, parent)
+{
+    timer = new QTimer(this);
+    connect(timer, &QTimer::timeout, this, &QAlsaAudioSink::userFeed);
+}
+
 //  from ../qtmultimedia/src/multimedia/alsa/qalsaaudiosource.cpp, line 13, as _ZN16QAlsaAudioSourceC1E12QAudioDeviceRK12QAudioFormatP7QObject
 inline QAlsaAudioSource::QAlsaAudioSource(QAudioDevice device, const QAudioFormat &fmt, QObject *parent)
     : QPlatformAudioSource(std::move(device), fmt, parent)
@@ -89,14 +97,6 @@ inline QAlsaAudioSource::QAlsaAudioSource(QAudioDevice device, const QAudioForma
 
     timer = new QTimer(this);
     connect(timer, &QTimer::timeout, this, &QAlsaAudioSource::userFeed);
-}
-
-//  from ../qtmultimedia/src/multimedia/alsa/qalsaaudiosink.cpp, line 15, as _ZN14QAlsaAudioSinkC1E12QAudioDeviceRK12QAudioFormatP7QObject
-inline QAlsaAudioSink::QAlsaAudioSink(QAudioDevice device, const QAudioFormat &format, QObject *parent)
-    : QPlatformAudioSink(std::move(device), format, parent)
-{
-    timer = new QTimer(this);
-    connect(timer, &QTimer::timeout, this, &QAlsaAudioSink::userFeed);
 }
 //  -----------------------------------------------------------------------
 

@@ -1,15 +1,28 @@
 //  Written by dev_tooling.RitualGenerator from the records of QtDataVisualiz
 //  ation/6.12.0/QtDataVisualization/private/qtouch3dinputhandler_p.h, Qt
-//  6.12.0. Changes made here are lost.
+//  6.12.0.
+//  Edited by hand on 2026-11-26: moc's output for
+//  'QTouch3DInputHandlerPrivate' is pasted in, cut from what the moc of Qt
+//  6.12.0 writes for its header: Qt's library keeps it to itself; added are
+//  2 rituals that lean on what moc writes for a class of the part Qt keeps
+//  to itself, whose ritual file carries moc's output, drafted by a copy of
+//  the generator that lets those names through. A copy of a meta-object is a
+//  second one: 'qobject_cast' between it and Qt's own does not match. Kept
+//  as it is when the generator runs again.
 #include <QtDataVisualization/6.12.0/QtDataVisualization/private/datavisualizationglobal_p.h>
 #include <QtDataVisualization/QtDataVisualization>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtDataVisualization/6.12.0/QtDataVisualization/private/qtouch3dinputhandler_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 #include <QtCore/qpoint.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
 #include <QtDataVisualization/private/datavisualizationglobal_p.h>
 #include <QtDataVisualization/private/q3dinputhandler_p.h>
 #include <QtDataVisualization/private/abstract3dcontroller_p.h>
@@ -24,6 +37,9 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  from ../qtdatavis3d/src/datavisualization/input/q3dinputhandler.cpp, line 12, as local:q3dinputhandler.cpp:driftTowardCenterLevel
+static const int driftTowardCenterLevel = 175;
 
 //  from ../qtdatavis3d/src/datavisualization/input/qtouch3dinputhandler.cpp, line 10, as local:qtouch3dinputhandler.cpp:maxTapAndHoldJitter
 static const float maxTapAndHoldJitter = 20.0f;
@@ -45,6 +61,76 @@ static const float t3ihRotationSpeed = 200.0f;
 //  from ../qtdatavis3d/src/datavisualization/input/qtouch3dinputhandler.cpp, line 19, as local:qtouch3dinputhandler.cpp:touchZoomDrift
 static const float touchZoomDrift = 0.02f;
 
+//  from QtDataVisualization__QTouch3DInputHandlerPrivate.cpp, line 1, as moc:QTouch3DInputHandlerPrivate
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN27QTouch3DInputHandlerPrivateE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto QTouch3DInputHandlerPrivate::qt_create_metaobjectdata<qt_meta_tag_ZN27QTouch3DInputHandlerPrivateE_t>()
+{
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "QTouch3DInputHandlerPrivate"
+    };
+
+    QtMocHelpers::UintData qt_methods {
+    };
+    QtMocHelpers::UintData qt_properties {
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    return QtMocHelpers::metaObjectData<QTouch3DInputHandlerPrivate, qt_meta_tag_ZN27QTouch3DInputHandlerPrivateE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums);
+}
+Q_CONSTINIT const QMetaObject QTouch3DInputHandlerPrivate::staticMetaObject = { {
+    QMetaObject::SuperData::link<Q3DInputHandlerPrivate::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN27QTouch3DInputHandlerPrivateE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN27QTouch3DInputHandlerPrivateE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN27QTouch3DInputHandlerPrivateE_t>.metaTypes,
+    nullptr
+} };
+
+void QTouch3DInputHandlerPrivate::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<QTouch3DInputHandlerPrivate *>(_o);
+    (void)_t;
+    (void)_c;
+    (void)_id;
+    (void)_a;
+}
+
+const QMetaObject *QTouch3DInputHandlerPrivate::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *QTouch3DInputHandlerPrivate::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN27QTouch3DInputHandlerPrivateE_t>.strings))
+        return static_cast<void*>(this);
+    return Q3DInputHandlerPrivate::qt_metacast(_clname);
+}
+
+int QTouch3DInputHandlerPrivate::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = Q3DInputHandlerPrivate::qt_metacall(_c, _id, _a);
+    return _id;
+}
+QT_WARNING_POP
+
+//  from ../qtdatavis3d/src/datavisualization/input/q3dinputhandler.cpp, line 353, as _ZN22Q3DInputHandlerPrivateD2Ev
+inline Q3DInputHandlerPrivate::~Q3DInputHandlerPrivate()
+{
+}
+
 //  from ../qtdatavis3d/src/datavisualization/input/q3dinputhandler.cpp, line 337, as _ZN22Q3DInputHandlerPrivateC2EP15Q3DInputHandler
 inline Q3DInputHandlerPrivate::Q3DInputHandlerPrivate(Q3DInputHandler *q)
     : q_ptr(q),
@@ -62,9 +148,74 @@ inline Q3DInputHandlerPrivate::Q3DInputHandlerPrivate(Q3DInputHandler *q)
                      this, &Q3DInputHandlerPrivate::handleSceneChange);
 }
 
-//  from ../qtdatavis3d/src/datavisualization/input/q3dinputhandler.cpp, line 353, as _ZN22Q3DInputHandlerPrivateD2Ev
-inline Q3DInputHandlerPrivate::~Q3DInputHandlerPrivate()
+//  from ../qtdatavis3d/src/datavisualization/input/q3dinputhandler.cpp, line 357, as _ZN22Q3DInputHandlerPrivate17handleSceneChangeEP8Q3DScene
+inline void Q3DInputHandlerPrivate::handleSceneChange(Q3DScene *scene)
 {
+    if (scene) {
+        if (m_controller) {
+            QObject::disconnect(m_controller, &Abstract3DController::queriedGraphPositionChanged,
+                                this, &Q3DInputHandlerPrivate::handleQueriedGraphPositionChange);
+        }
+
+        m_controller = qobject_cast<Abstract3DController *>(scene->parent());
+
+        if (m_controller) {
+            QObject::connect(m_controller, &Abstract3DController::queriedGraphPositionChanged,
+                             this, &Q3DInputHandlerPrivate::handleQueriedGraphPositionChange);
+        }
+    }
+}
+
+//  from ../qtdatavis3d/src/datavisualization/input/q3dinputhandler.cpp, line 374, as _ZN22Q3DInputHandlerPrivate32handleQueriedGraphPositionChangeEv
+inline void Q3DInputHandlerPrivate::handleQueriedGraphPositionChange()
+{
+    if (m_zoomAtTargetPending) {
+        // Check if the zoom point is on graph
+        QVector3D newTarget = m_controller->queriedGraphPosition();
+        float currentZoom = m_requestedZoomLevel;
+        float previousZoom = q_ptr->scene()->activeCamera()->zoomLevel();
+        q_ptr->scene()->activeCamera()->setZoomLevel(currentZoom);
+        float diffAdj = 0.0f;
+
+        // If zooming in/out outside the graph, or zooming out after certain point,
+        // move towards the center.
+        if ((qAbs(newTarget.x()) > 1.0f
+             || qAbs(newTarget.y()) > 1.0f
+             || qAbs(newTarget.z()) > 1.0f)
+                || (previousZoom > currentZoom && currentZoom <= driftTowardCenterLevel)) {
+            newTarget = zeroVector;
+            // Add some extra correction so that we actually reach the center eventually
+            diffAdj = m_driftMultiplier;
+            if (previousZoom > currentZoom)
+                diffAdj *= 2.0f; // Correct towards center little more when zooming out
+        }
+
+        float zoomFraction = 1.0f - (previousZoom / currentZoom);
+
+        // Adjust camera towards the zoom point, attempting to keep the cursor at same graph point
+        QVector3D oldTarget = q_ptr->scene()->activeCamera()->target();
+        QVector3D origDiff = newTarget - oldTarget;
+        QVector3D diff = origDiff * zoomFraction + (origDiff.normalized() * diffAdj);
+        if (diff.length() > origDiff.length())
+            diff = origDiff;
+        q_ptr->scene()->activeCamera()->setTarget(oldTarget + diff);
+
+        if (q_ptr->scene()->selectionQueryPosition() == Q3DScene::invalidSelectionPoint())
+            m_zoomAtTargetPending = false;
+    }
+}
+
+//  from ../qtdatavis3d/src/datavisualization/input/qtouch3dinputhandler.cpp, line 153, as _ZN27QTouch3DInputHandlerPrivateC1EP20QTouch3DInputHandler
+inline QTouch3DInputHandlerPrivate::QTouch3DInputHandlerPrivate(QTouch3DInputHandler *q)
+    : Q3DInputHandlerPrivate(q),
+      q_ptr(q),
+      m_holdTimer(0),
+      m_inputState(QAbstract3DInputHandlerPrivate::InputStateNone)
+{
+    m_holdTimer = new QTimer();
+    m_holdTimer->setSingleShot(true);
+    m_holdTimer->setInterval(tapAndHoldTime);
+    connect(m_holdTimer, &QTimer::timeout, this, &QTouch3DInputHandlerPrivate::handleTapAndHold);
 }
 
 //  from ../qtdatavis3d/src/datavisualization/input/qtouch3dinputhandler.cpp, line 165, as _ZN27QTouch3DInputHandlerPrivateD1Ev
@@ -314,6 +465,24 @@ int ritual_ZN27QTouch3DInputHandlerPrivate11qt_metacallEN11QMetaObject4CallEiPPv
     int a1,
     void **a2) {
   return self->qt_metacall(a0, a1, a2);
+}
+
+//  QString QTouch3DInputHandlerPrivate::tr(const char *s, const char *c, int
+//      n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN27QTouch3DInputHandlerPrivate2trEPKcS1_i(
+    const char *s,
+    const char *c,
+    int n) {
+  return new QString(QTouch3DInputHandlerPrivate::tr(s, c, n));
+}
+
+//  QTouch3DInputHandlerPrivate::QTouch3DInputHandlerPrivate(QTouch3DInputHan
+//      dler *q)
+extern "C" Q_DECL_EXPORT
+QTouch3DInputHandlerPrivate *ritual_ZN27QTouch3DInputHandlerPrivateC1EP20QTouch3DInputHandler(
+    QTouch3DInputHandler *q) {
+  return new CuteQTouch3DInputHandlerPrivate(q);
 }
 
 //  QTouch3DInputHandlerPrivate::~QTouch3DInputHandlerPrivate()

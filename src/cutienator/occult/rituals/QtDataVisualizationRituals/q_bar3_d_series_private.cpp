@@ -1,11 +1,20 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtDataVisualization/6.12.0/QtDataVisualization/private/qbar3dseries_p.h,
-//  Qt 6.12.0. Changes made here are lost.
+//  Qt 6.12.0.
+//  Edited by hand on 2026-11-26: moc's output for 'QBar3DSeriesPrivate' is
+//  pasted in, cut from what the moc of Qt 6.12.0 writes for its header: Qt's
+//  library keeps it to itself; added are 3 rituals that lean on what moc
+//  writes for a class of the part Qt keeps to itself, whose ritual file
+//  carries moc's output, drafted by a copy of the generator that lets those
+//  names through. A copy of a meta-object is a second one: 'qobject_cast'
+//  between it and Qt's own does not match. Kept as it is when the generator
+//  runs again.
 #include <QtDataVisualization/6.12.0/QtDataVisualization/private/datavisualizationglobal_p.h>
 #include <QtDataVisualization/QtDataVisualization>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtDataVisualization/6.12.0/QtDataVisualization/private/qbar3dseries_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 #include <QtGui/qquaternion.h>
 #include <QtCore/qpoint.h>
 #include <QtGui/qcolor.h>
@@ -13,13 +22,17 @@
 #include <QtCore/qlist.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <QtDataVisualization/private/qabstract3dseries_p.h>
-#include <QtDataVisualization/private/qabstractdataproxy_p.h>
-#include <QtDataVisualization/private/abstract3dcontroller_p.h>
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
 #include <QtDataVisualization/private/qbar3dseries_p.h>
 #include <QtDataVisualization/private/bars3dcontroller_p.h>
 #include <QtGui/qquaternion.h>
 #include <QtCore/qmath.h>
+#include <QtDataVisualization/private/qabstract3dseries_p.h>
+#include <QtDataVisualization/private/qabstractdataproxy_p.h>
+#include <QtDataVisualization/private/abstract3dcontroller_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -35,14 +48,70 @@ static inline float quaternionAngle(const QQuaternion &rotation)
     return qRadiansToDegrees(qAcos(rotation.scalar())) * 2.f;
 }
 
-//  from ../qtdatavis3d/src/datavisualization/data/qabstract3dseries.cpp, line 865, as _ZN24QAbstract3DSeriesPrivate18markItemLabelDirtyEv
-inline void QAbstract3DSeriesPrivate::markItemLabelDirty()
+//  from QtDataVisualization__QBar3DSeriesPrivate.cpp, line 1, as moc:QBar3DSeriesPrivate
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN19QBar3DSeriesPrivateE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto QBar3DSeriesPrivate::qt_create_metaobjectdata<qt_meta_tag_ZN19QBar3DSeriesPrivateE_t>()
 {
-    m_itemLabelDirty = true;
-    m_changeTracker.itemLabelChanged = true;
-    if (m_controller)
-        m_controller->markSeriesVisualsDirty();
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "QBar3DSeriesPrivate"
+    };
+
+    QtMocHelpers::UintData qt_methods {
+    };
+    QtMocHelpers::UintData qt_properties {
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    return QtMocHelpers::metaObjectData<QBar3DSeriesPrivate, qt_meta_tag_ZN19QBar3DSeriesPrivateE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums);
 }
+Q_CONSTINIT const QMetaObject QBar3DSeriesPrivate::staticMetaObject = { {
+    QMetaObject::SuperData::link<QAbstract3DSeriesPrivate::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN19QBar3DSeriesPrivateE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN19QBar3DSeriesPrivateE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN19QBar3DSeriesPrivateE_t>.metaTypes,
+    nullptr
+} };
+
+void QBar3DSeriesPrivate::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<QBar3DSeriesPrivate *>(_o);
+    (void)_t;
+    (void)_c;
+    (void)_id;
+    (void)_a;
+}
+
+const QMetaObject *QBar3DSeriesPrivate::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *QBar3DSeriesPrivate::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN19QBar3DSeriesPrivateE_t>.strings))
+        return static_cast<void*>(this);
+    return QAbstract3DSeriesPrivate::qt_metacast(_clname);
+}
+
+int QBar3DSeriesPrivate::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QAbstract3DSeriesPrivate::qt_metacall(_c, _id, _a);
+    return _id;
+}
+QT_WARNING_POP
 
 //  from ../qtdatavis3d/src/datavisualization/data/qbar3dseries.cpp, line 329, as _ZN19QBar3DSeriesPrivate12setDataProxyEP18QAbstractDataProxy
 inline void QBar3DSeriesPrivate::setDataProxy(QAbstractDataProxy *proxy)
@@ -52,42 +121,6 @@ inline void QBar3DSeriesPrivate::setDataProxy(QAbstractDataProxy *proxy)
     QAbstract3DSeriesPrivate::setDataProxy(proxy);
 
     emit qptr()->dataProxyChanged(static_cast<QBarDataProxy *>(proxy));
-}
-
-//  from ../qtdatavis3d/src/datavisualization/data/qbar3dseries.cpp, line 338, as _ZN19QBar3DSeriesPrivate25connectControllerAndProxyEP20Abstract3DController
-inline void QBar3DSeriesPrivate::connectControllerAndProxy(Abstract3DController *newController)
-{
-    QBarDataProxy *barDataProxy = static_cast<QBarDataProxy *>(m_dataProxy);
-
-    if (m_controller && barDataProxy) {
-        // Disconnect old controller/old proxy
-        QObject::disconnect(barDataProxy, 0, m_controller, 0);
-        QObject::disconnect(q_ptr, 0, m_controller, 0);
-    }
-
-    if (newController && barDataProxy) {
-        Bars3DController *controller = static_cast<Bars3DController *>(newController);
-        QObject::connect(barDataProxy, &QBarDataProxy::arrayReset, controller,
-                         &Bars3DController::handleArrayReset);
-        QObject::connect(barDataProxy, &QBarDataProxy::rowsAdded, controller,
-                         &Bars3DController::handleRowsAdded);
-        QObject::connect(barDataProxy, &QBarDataProxy::rowsChanged, controller,
-                         &Bars3DController::handleRowsChanged);
-        QObject::connect(barDataProxy, &QBarDataProxy::rowsRemoved, controller,
-                         &Bars3DController::handleRowsRemoved);
-        QObject::connect(barDataProxy, &QBarDataProxy::rowsInserted, controller,
-                         &Bars3DController::handleRowsInserted);
-        QObject::connect(barDataProxy, &QBarDataProxy::itemChanged, controller,
-                         &Bars3DController::handleItemChanged);
-        QObject::connect(barDataProxy, &QBarDataProxy::rowLabelsChanged, controller,
-                         &Bars3DController::handleDataRowLabelsChanged);
-        QObject::connect(barDataProxy, &QBarDataProxy::columnLabelsChanged, controller,
-                         &Bars3DController::handleDataColumnLabelsChanged);
-        QObject::connect(qptr(), &QBar3DSeries::dataProxyChanged, controller,
-                         &Bars3DController::handleArrayReset);
-        QObject::connect(qptr(), &QBar3DSeries::rowColorsChanged, controller,
-                         &Bars3DController::handleRowColorsChanged);
-    }
 }
 
 //  from ../qtdatavis3d/src/datavisualization/data/qbar3dseries.cpp, line 373, as _ZN19QBar3DSeriesPrivate15createItemLabelEv
@@ -145,6 +178,90 @@ inline void QBar3DSeriesPrivate::createItemLabel()
     m_itemLabel.replace(seriesNameTag, m_name);
 }
 
+//  from ../qtdatavis3d/src/datavisualization/data/qbar3dseries.cpp, line 338, as _ZN19QBar3DSeriesPrivate25connectControllerAndProxyEP20Abstract3DController
+inline void QBar3DSeriesPrivate::connectControllerAndProxy(Abstract3DController *newController)
+{
+    QBarDataProxy *barDataProxy = static_cast<QBarDataProxy *>(m_dataProxy);
+
+    if (m_controller && barDataProxy) {
+        // Disconnect old controller/old proxy
+        QObject::disconnect(barDataProxy, 0, m_controller, 0);
+        QObject::disconnect(q_ptr, 0, m_controller, 0);
+    }
+
+    if (newController && barDataProxy) {
+        Bars3DController *controller = static_cast<Bars3DController *>(newController);
+        QObject::connect(barDataProxy, &QBarDataProxy::arrayReset, controller,
+                         &Bars3DController::handleArrayReset);
+        QObject::connect(barDataProxy, &QBarDataProxy::rowsAdded, controller,
+                         &Bars3DController::handleRowsAdded);
+        QObject::connect(barDataProxy, &QBarDataProxy::rowsChanged, controller,
+                         &Bars3DController::handleRowsChanged);
+        QObject::connect(barDataProxy, &QBarDataProxy::rowsRemoved, controller,
+                         &Bars3DController::handleRowsRemoved);
+        QObject::connect(barDataProxy, &QBarDataProxy::rowsInserted, controller,
+                         &Bars3DController::handleRowsInserted);
+        QObject::connect(barDataProxy, &QBarDataProxy::itemChanged, controller,
+                         &Bars3DController::handleItemChanged);
+        QObject::connect(barDataProxy, &QBarDataProxy::rowLabelsChanged, controller,
+                         &Bars3DController::handleDataRowLabelsChanged);
+        QObject::connect(barDataProxy, &QBarDataProxy::columnLabelsChanged, controller,
+                         &Bars3DController::handleDataColumnLabelsChanged);
+        QObject::connect(qptr(), &QBar3DSeries::dataProxyChanged, controller,
+                         &Bars3DController::handleArrayReset);
+        QObject::connect(qptr(), &QBar3DSeries::rowColorsChanged, controller,
+                         &Bars3DController::handleRowColorsChanged);
+    }
+}
+
+//  from ../qtdatavis3d/src/datavisualization/data/qbar3dseries.cpp, line 320, as _ZN19QBar3DSeriesPrivateD0Ev
+inline QBar3DSeriesPrivate::~QBar3DSeriesPrivate()
+{
+}
+
+//  from ../qtdatavis3d/src/datavisualization/data/qabstract3dseries.cpp, line 680, as _ZN24QAbstract3DSeriesPrivate13setControllerEP20Abstract3DController
+inline void QAbstract3DSeriesPrivate::setController(Abstract3DController *controller)
+{
+    connectControllerAndProxy(controller);
+    m_controller = controller;
+    q_ptr->setParent(controller);
+    markItemLabelDirty();
+}
+
+//  from ../qtdatavis3d/src/datavisualization/data/qabstract3dseries.cpp, line 637, as _ZN24QAbstract3DSeriesPrivateC2EP17QAbstract3DSeriesNS0_10SeriesTypeE
+inline QAbstract3DSeriesPrivate::QAbstract3DSeriesPrivate(QAbstract3DSeries *q,
+                                                   QAbstract3DSeries::SeriesType type)
+    : QObject(0),
+      q_ptr(q),
+      m_type(type),
+      m_dataProxy(0),
+      m_visible(true),
+      m_controller(0),
+      m_mesh(QAbstract3DSeries::MeshCube),
+      m_meshSmooth(false),
+      m_colorStyle(Q3DTheme::ColorStyleUniform),
+      m_baseColor(Qt::black),
+      m_singleHighlightColor(Qt::black),
+      m_multiHighlightColor(Qt::black),
+      m_itemLabelDirty(true),
+      m_itemLabelVisible(true)
+{
+}
+
+//  from ../qtdatavis3d/src/datavisualization/data/qabstract3dseries.cpp, line 656, as _ZN24QAbstract3DSeriesPrivateD2Ev
+inline QAbstract3DSeriesPrivate::~QAbstract3DSeriesPrivate()
+{
+}
+
+//  from ../qtdatavis3d/src/datavisualization/data/qabstract3dseries.cpp, line 865, as _ZN24QAbstract3DSeriesPrivate18markItemLabelDirtyEv
+inline void QAbstract3DSeriesPrivate::markItemLabelDirty()
+{
+    m_itemLabelDirty = true;
+    m_changeTracker.itemLabelChanged = true;
+    if (m_controller)
+        m_controller->markSeriesVisualsDirty();
+}
+
 //  from ../qtdatavis3d/src/datavisualization/data/qabstract3dseries.cpp, line 665, as _ZN24QAbstract3DSeriesPrivate12setDataProxyEP18QAbstractDataProxy
 inline void QAbstract3DSeriesPrivate::setDataProxy(QAbstractDataProxy *proxy)
 {
@@ -161,6 +278,15 @@ inline void QAbstract3DSeriesPrivate::setDataProxy(QAbstractDataProxy *proxy)
     }
 }
 
+//  from ../qtdatavis3d/src/datavisualization/data/qbar3dseries.cpp, line 312, as _ZN19QBar3DSeriesPrivateC1EP12QBar3DSeries
+inline QBar3DSeriesPrivate::QBar3DSeriesPrivate(QBar3DSeries *q)
+    : QAbstract3DSeriesPrivate(q, QAbstract3DSeries::SeriesTypeBar),
+      m_selectedBar(Bars3DController::invalidSelectionPosition())
+{
+    m_itemLabelFormat = QStringLiteral("@valueLabel");
+    m_mesh = QAbstract3DSeries::MeshBevelBar;
+}
+
 //  from ../qtdatavis3d/src/datavisualization/data/qbar3dseries.cpp, line 427, as _ZN19QBar3DSeriesPrivate25handleMeshRotationChangedERK11QQuaternion
 inline void QBar3DSeriesPrivate::handleMeshRotationChanged(const QQuaternion &rotation)
 {
@@ -175,6 +301,13 @@ inline void QBar3DSeriesPrivate::setSelectedBar(const QPoint &position)
         m_selectedBar = position;
         emit qptr()->selectedBarChanged(m_selectedBar);
     }
+}
+
+//  from ../qtdatavis3d/src/datavisualization/data/qbar3dseries.cpp, line 441, as _ZN19QBar3DSeriesPrivate14connectSignalsEv
+inline void QBar3DSeriesPrivate::connectSignals()
+{
+    QObject::connect(q_ptr, &QAbstract3DSeries::meshRotationChanged, this,
+                     &QBar3DSeriesPrivate::handleMeshRotationChanged);
 }
 
 //  from ../qtdatavis3d/src/datavisualization/data/qbar3dseries.cpp, line 447, as _ZN19QBar3DSeriesPrivate12setRowColorsERK5QListI6QColorE
@@ -454,6 +587,22 @@ int ritual_ZN19QBar3DSeriesPrivate11qt_metacallEN11QMetaObject4CallEiPPv(
   return self->qt_metacall(a0, a1, a2);
 }
 
+//  QString QBar3DSeriesPrivate::tr(const char *s, const char *c, int n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN19QBar3DSeriesPrivate2trEPKcS1_i(
+    const char *s,
+    const char *c,
+    int n) {
+  return new QString(QBar3DSeriesPrivate::tr(s, c, n));
+}
+
+//  QBar3DSeriesPrivate::QBar3DSeriesPrivate(QBar3DSeries *q)
+extern "C" Q_DECL_EXPORT
+QBar3DSeriesPrivate *ritual_ZN19QBar3DSeriesPrivateC1EP12QBar3DSeries(
+    QBar3DSeries *q) {
+  return new CuteQBar3DSeriesPrivate(q);
+}
+
 //  QBar3DSeriesPrivate::~QBar3DSeriesPrivate()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN19QBar3DSeriesPrivateD1Ev(QBar3DSeriesPrivate *self) {
@@ -499,6 +648,13 @@ void ritual_ZN19QBar3DSeriesPrivate14setSelectedBarERK6QPoint(
     QBar3DSeriesPrivate *self,
     const QPoint *position) {
   self->setSelectedBar(*position);
+}
+
+//  void QBar3DSeriesPrivate::connectSignals()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QBar3DSeriesPrivate14connectSignalsEv(
+    QBar3DSeriesPrivate *self) {
+  self->connectSignals();
 }
 
 //  void QBar3DSeriesPrivate::setRowColors(const QList<QColor> &colors)

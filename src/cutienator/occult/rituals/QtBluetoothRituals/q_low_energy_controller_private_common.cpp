@@ -1,6 +1,12 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtBluetooth/6.12.0/QtBluetooth/private/qlowenergycontroller_dummy_p.h, Qt
-//  6.12.0. Changes made here are lost.
+//  6.12.0.
+//  Edited by hand on 2026-11-26: added are 1 rituals that lean on what moc
+//  writes for a class of the part Qt keeps to itself, whose ritual file
+//  carries moc's output, drafted by a copy of the generator that lets those
+//  names through. A copy of a meta-object is a second one: 'qobject_cast'
+//  between it and Qt's own does not match. Kept as it is when the generator
+//  runs again.
 #include <QtBluetooth/qtbluetoothglobal.h>
 #include <QtBluetooth/6.12.0/QtBluetooth/private/qtbluetoothglobal_p.h>
 #if __has_include(<QtBluetooth/6.12.0/QtBluetooth/private/qlowenergycontroller_dummy_p.h>)
@@ -33,11 +39,6 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
-
-//  from ../qtconnectivity/src/bluetooth/qlowenergycontrollerbase.cpp, line 27, as _ZN27QLowEnergyControllerPrivateD2Ev
-inline QLowEnergyControllerPrivate::~QLowEnergyControllerPrivate()
-{
-}
 
 //  from ../qtconnectivity/src/bluetooth/qlowenergycontrollerbase.cpp, line 53, as _ZN27QLowEnergyControllerPrivate8setErrorEN20QLowEnergyController5ErrorE
 inline void QLowEnergyControllerPrivate::setError(
@@ -83,6 +84,16 @@ inline void QLowEnergyControllerPrivate::setError(
     }
 
     emit q->errorOccurred(newError);
+}
+
+//  from ../qtconnectivity/src/bluetooth/qlowenergycontrollerbase.cpp, line 27, as _ZN27QLowEnergyControllerPrivateD2Ev
+inline QLowEnergyControllerPrivate::~QLowEnergyControllerPrivate()
+{
+}
+
+//  from ../qtconnectivity/src/bluetooth/qlowenergycontroller_dummy.cpp, line 16, as _ZN33QLowEnergyControllerPrivateCommonD1Ev
+inline QLowEnergyControllerPrivateCommon::~QLowEnergyControllerPrivateCommon()
+{
 }
 
 //  from ../qtconnectivity/src/bluetooth/qlowenergycontroller_dummy.cpp, line 20, as _ZN33QLowEnergyControllerPrivateCommon4initEv
@@ -187,6 +198,13 @@ inline int QLowEnergyControllerPrivateCommon::mtu() const
     return -1;
 }
 //  -----------------------------------------------------------------------
+
+//  QLowEnergyControllerPrivateCommon::~QLowEnergyControllerPrivateCommon()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN33QLowEnergyControllerPrivateCommonD1Ev(
+    QLowEnergyControllerPrivateCommon *self) {
+  delete self;
+}
 
 //  void QLowEnergyControllerPrivateCommon::init()
 extern "C" Q_DECL_EXPORT

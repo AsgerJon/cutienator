@@ -1,6 +1,13 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtGraphs/6.12.0/QtGraphs/private/barsrenderer_p.h, Qt 6.12.0. Changes
-//  made here are lost.
+//  QtGraphs/6.12.0/QtGraphs/private/barsrenderer_p.h, Qt 6.12.0.
+//  Edited by hand on 2026-11-26: moc's output for 'BarsRenderer' is pasted
+//  in, cut from what the moc of Qt 6.12.0 writes for its header: Qt's
+//  library keeps it to itself; added are 2 rituals that lean on what moc
+//  writes for a class of the part Qt keeps to itself, whose ritual file
+//  carries moc's output, drafted by a copy of the generator that lets those
+//  names through. A copy of a meta-object is a second one: 'qobject_cast'
+//  between it and Qt's own does not match. Kept as it is when the generator
+//  runs again.
 #include <QtGui/qtguiglobal.h>
 #include <QtQuick/qtquickglobal.h>
 #include <QtGraphs/qgraphsglobal.h>
@@ -11,8 +18,8 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGraphs/6.12.0/QtGraphs/private/barsrenderer_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <QtGui/qcolor.h>
 #include <QtCore/qstring.h>
+#include <QtGui/qcolor.h>
 #include <QtGui/qeventpoint.h>
 #include <QtCore/qrect.h>
 #include <QtCore/qpoint.h>
@@ -22,6 +29,10 @@
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
 #include <QtGraphs/qbarseries.h>
 #include <QtGraphs/qbarset.h>
 #include <QtQuick/private/qquickrectangle_p.h>
@@ -56,6 +67,88 @@ inline void calculateCategoryTotalValues(QBarSeries *series, QList<float> &total
             setIndex++;
         }
     }
+}
+
+//  from QtGraphs__BarsRenderer.cpp, line 1, as moc:BarsRenderer
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN12BarsRendererE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto BarsRenderer::qt_create_metaobjectdata<qt_meta_tag_ZN12BarsRendererE_t>()
+{
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "BarsRenderer"
+    };
+
+    QtMocHelpers::UintData qt_methods {
+    };
+    QtMocHelpers::UintData qt_properties {
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    return QtMocHelpers::metaObjectData<BarsRenderer, qt_meta_tag_ZN12BarsRendererE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums);
+}
+Q_CONSTINIT const QMetaObject BarsRenderer::staticMetaObject = { {
+    QMetaObject::SuperData::link<QQuickItem::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN12BarsRendererE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN12BarsRendererE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN12BarsRendererE_t>.metaTypes,
+    nullptr
+} };
+
+void BarsRenderer::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<BarsRenderer *>(_o);
+    (void)_t;
+    (void)_c;
+    (void)_id;
+    (void)_a;
+}
+
+const QMetaObject *BarsRenderer::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *BarsRenderer::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN12BarsRendererE_t>.strings))
+        return static_cast<void*>(this);
+    return QQuickItem::qt_metacast(_clname);
+}
+
+int BarsRenderer::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QQuickItem::qt_metacall(_c, _id, _a);
+    return _id;
+}
+QT_WARNING_POP
+
+//  from ../qtgraphs/src/graphs2d/qsgrenderer/barsrenderer.cpp, line 62, as _ZN12BarsRendererD0Ev
+inline BarsRenderer::~BarsRenderer() {}
+
+//  from ../qtgraphs/src/graphs2d/qsgrenderer/barsrenderer.cpp, line 49, as _ZN12BarsRendererC1EP11QGraphsViewb
+inline BarsRenderer::BarsRenderer(QGraphsView *graph, bool clipPlotArea)
+    : QQuickItem(graph)
+    , m_graph(graph)
+{
+    setFlag(QQuickItem::ItemHasContents);
+    setClip(clipPlotArea);
+
+    m_tapHandler = new QQuickTapHandler(this);
+    connect(m_tapHandler, &QQuickTapHandler::singleTapped, this, &BarsRenderer::onSingleTapped);
+    connect(m_tapHandler, &QQuickTapHandler::doubleTapped, this, &BarsRenderer::onDoubleTapped);
+    connect(m_tapHandler, &QQuickTapHandler::pressedChanged, this, &BarsRenderer::onPressedChanged);
 }
 
 //  from ../qtgraphs/src/graphs2d/qsgrenderer/barsrenderer.cpp, line 65, as _ZN12BarsRenderer13paintSnapshotERK5QHashIP10QBarSeries5QListINS_13BarSeriesDataEEEP14QCanvasPainter
@@ -1140,6 +1233,23 @@ int ritual_ZN12BarsRenderer11qt_metacallEN11QMetaObject4CallEiPPv(
     int a1,
     void **a2) {
   return self->qt_metacall(a0, a1, a2);
+}
+
+//  QString BarsRenderer::tr(const char *s, const char *c, int n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN12BarsRenderer2trEPKcS1_i(
+    const char *s,
+    const char *c,
+    int n) {
+  return new QString(BarsRenderer::tr(s, c, n));
+}
+
+//  BarsRenderer::BarsRenderer(QGraphsView *graph, bool clipPlotArea)
+extern "C" Q_DECL_EXPORT
+BarsRenderer *ritual_ZN12BarsRendererC1EP11QGraphsViewb(
+    QGraphsView *graph,
+    bool clipPlotArea) {
+  return new CuteBarsRenderer(graph, clipPlotArea);
 }
 
 //  BarsRenderer::~BarsRenderer()

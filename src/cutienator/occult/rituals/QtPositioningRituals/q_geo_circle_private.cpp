@@ -117,16 +117,23 @@ inline bool QGeoShapePrivate::operator==(const QGeoShapePrivate &other) const
     return type == other.type;
 }
 
+//  from ../qtpositioning/src/positioning/qgeocircle.cpp, line 393, as _ZN17QGeoCirclePrivateC1Ev
+inline QGeoCirclePrivate::QGeoCirclePrivate()
+:   QGeoShapePrivate(QGeoShape::CircleType), m_radius(-1.0)
+{
+}
+
+//  from ../qtpositioning/src/positioning/qgeocircle.cpp, line 398, as _ZN17QGeoCirclePrivateC1ERK14QGeoCoordinated
+inline QGeoCirclePrivate::QGeoCirclePrivate(const QGeoCoordinate &center, qreal radius)
+:   QGeoShapePrivate(QGeoShape::CircleType), m_center(center), m_radius(radius)
+{
+    updateBoundingBox();
+}
+
 //  from ../qtpositioning/src/positioning/qgeocircle.cpp, line 404, as _ZN17QGeoCirclePrivateC1ERKS_
 inline QGeoCirclePrivate::QGeoCirclePrivate(const QGeoCirclePrivate &other)
 :   QGeoShapePrivate(QGeoShape::CircleType), m_center(other.m_center),
     m_radius(other.m_radius), m_bbox(other.m_bbox)
-{
-}
-
-//  from ../qtpositioning/src/positioning/qgeocircle.cpp, line 393, as _ZN17QGeoCirclePrivateC1Ev
-inline QGeoCirclePrivate::QGeoCirclePrivate()
-:   QGeoShapePrivate(QGeoShape::CircleType), m_radius(-1.0)
 {
 }
 
@@ -371,6 +378,22 @@ public:
 extern "C" Q_DECL_EXPORT
 QGeoCirclePrivate *ritual_ZN17QGeoCirclePrivateC1Ev() {
   return new CuteQGeoCirclePrivate();
+}
+
+//  QGeoCirclePrivate::QGeoCirclePrivate(const QGeoCoordinate &center, qreal
+//      radius)
+extern "C" Q_DECL_EXPORT
+QGeoCirclePrivate *ritual_ZN17QGeoCirclePrivateC1ERK14QGeoCoordinated(
+    const QGeoCoordinate *center,
+    qreal radius) {
+  return new CuteQGeoCirclePrivate(*center, radius);
+}
+
+//  QGeoCirclePrivate::QGeoCirclePrivate(const QGeoCirclePrivate &other)
+extern "C" Q_DECL_EXPORT
+QGeoCirclePrivate *ritual_ZN17QGeoCirclePrivateC1ERKS_(
+    const QGeoCirclePrivate *other) {
+  return new CuteQGeoCirclePrivate(*other);
 }
 
 //  QGeoCirclePrivate::~QGeoCirclePrivate()

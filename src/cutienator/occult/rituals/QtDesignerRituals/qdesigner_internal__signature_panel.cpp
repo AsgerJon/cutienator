@@ -1,6 +1,13 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtDesigner/6.12.0/QtDesigner/private/signalslotdialog_p.h, Qt 6.12.0.
-//  Changes made here are lost.
+//  Edited by hand on 2026-11-26: moc's output for
+//  'qdesigner_internal::SignaturePanel' is pasted in, cut from what the moc
+//  of Qt 6.12.0 writes for its header: Qt's library keeps it to itself;
+//  added are 2 rituals that lean on what moc writes for a class of the part
+//  Qt keeps to itself, whose ritual file carries moc's output, drafted by a
+//  copy of the generator that lets those names through. A copy of a meta-
+//  object is a second one: 'qobject_cast' between it and Qt's own does not
+//  match. Kept as it is when the generator runs again.
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtDesigner/QtDesigner>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -10,6 +17,10 @@
 #include <QtCore/qitemselectionmodel.h>
 #include <QtCore/qlist.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
 #include <QtDesigner/private/signalslotdialog_p.h>
 #include <QtDesigner/private/metadatabase_p.h>
 #include <QtDesigner/private/widgetdatabase_p.h>
@@ -121,6 +132,205 @@ inline void SignatureDelegate::setModelData(QWidget *editor, QAbstractItemModel 
     }
 }  // namespace
 
+//  from QtDesigner__qdesigner_internal_SignaturePanel.cpp, line 1, as moc:qdesigner_internal::SignaturePanel
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN18qdesigner_internal14SignaturePanelE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto qdesigner_internal::SignaturePanel::qt_create_metaobjectdata<qt_meta_tag_ZN18qdesigner_internal14SignaturePanelE_t>()
+{
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "qdesigner_internal::SignaturePanel",
+        "checkSignature",
+        "",
+        "signature",
+        "bool*",
+        "ok",
+        "slotAdd",
+        "slotRemove",
+        "slotSelectionChanged",
+        "QItemSelection"
+    };
+
+    QtMocHelpers::UintData qt_methods {
+        // Signal 'checkSignature'
+        QtMocHelpers::SignalData<void(const QString &, bool *)>(1, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { QMetaType::QString, 3 }, { 0x80000000 | 4, 5 },
+        }}),
+        // Slot 'slotAdd'
+        QtMocHelpers::SlotData<void()>(6, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'slotRemove'
+        QtMocHelpers::SlotData<void()>(7, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'slotSelectionChanged'
+        QtMocHelpers::SlotData<void(const QItemSelection &, const QItemSelection &)>(8, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { 0x80000000 | 9, 2 }, { 0x80000000 | 9, 2 },
+        }}),
+    };
+    QtMocHelpers::UintData qt_properties {
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    return QtMocHelpers::metaObjectData<SignaturePanel, qt_meta_tag_ZN18qdesigner_internal14SignaturePanelE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums);
+}
+Q_CONSTINIT const QMetaObject qdesigner_internal::SignaturePanel::staticMetaObject = { {
+    QMetaObject::SuperData::link<QObject::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN18qdesigner_internal14SignaturePanelE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN18qdesigner_internal14SignaturePanelE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN18qdesigner_internal14SignaturePanelE_t>.metaTypes,
+    nullptr
+} };
+
+void qdesigner_internal::SignaturePanel::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<SignaturePanel *>(_o);
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        switch (_id) {
+        case 0: _t->checkSignature((*reinterpret_cast<std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<bool*>>(_a[2]))); break;
+        case 1: _t->slotAdd(); break;
+        case 2: _t->slotRemove(); break;
+        case 3: _t->slotSelectionChanged((*reinterpret_cast<std::add_pointer_t<QItemSelection>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<QItemSelection>>(_a[2]))); break;
+        default: ;
+        }
+    }
+    if (_c == QMetaObject::IndexOfMethod) {
+        if (QtMocHelpers::indexOfMethod<void (SignaturePanel::*)(const QString & , bool * )>(_a, &SignaturePanel::checkSignature, 0))
+            return;
+    }
+}
+
+const QMetaObject *qdesigner_internal::SignaturePanel::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *qdesigner_internal::SignaturePanel::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN18qdesigner_internal14SignaturePanelE_t>.strings))
+        return static_cast<void*>(this);
+    return QObject::qt_metacast(_clname);
+}
+
+int qdesigner_internal::SignaturePanel::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QObject::qt_metacall(_c, _id, _a);
+    if (_id < 0)
+        return _id;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        if (_id < 4)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 4;
+    }
+    if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        if (_id < 4)
+            *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
+        _id -= 4;
+    }
+    return _id;
+}
+
+// SIGNAL 0
+void qdesigner_internal::SignaturePanel::checkSignature(const QString & _t1, bool * _t2)
+{
+    QMetaObject::activate<void>(this, &staticMetaObject, 0, nullptr, _t1, _t2);
+}
+QT_WARNING_POP
+
+//  from ../qttools/src/designer/src/lib/shared/signalslotdialog.cpp, line 231, as _ZN18qdesigner_internal14SignaturePanel10slotRemoveEv
+namespace qdesigner_internal {
+using namespace Qt::StringLiterals;
+inline void SignaturePanel::slotRemove()
+{
+    const QModelIndexList selectedIndexes = m_listView->selectionModel()->selectedIndexes ();
+    if (selectedIndexes.isEmpty())
+        return;
+
+    closeEditor();
+    // scroll to previous
+    if (const int row = selectedIndexes.constFirst().row())
+        m_listView->setCurrentIndex (selectedIndexes.constFirst().sibling(row - 1, 0));
+
+    for (auto i = selectedIndexes.size() - 1; i >= 0; --i)
+        qDeleteAll(m_model->takeRow(selectedIndexes.at(i).row()));
+}
+}  // namespace qdesigner_internal
+
+//  from ../qttools/src/designer/src/lib/shared/signalslotdialog.cpp, line 246, as _ZN18qdesigner_internal14SignaturePanel20slotSelectionChangedERK14QItemSelectionS3_
+namespace qdesigner_internal {
+using namespace Qt::StringLiterals;
+inline void SignaturePanel::slotSelectionChanged(const QItemSelection &selected, const QItemSelection &)
+{
+    m_removeButton->setEnabled(!selected.indexes().isEmpty());
+}
+}  // namespace qdesigner_internal
+
+//  from ../qttools/src/designer/src/lib/shared/signalslotdialog.cpp, line 206, as _ZN18qdesigner_internal14SignaturePanel7slotAddEv
+namespace qdesigner_internal {
+using namespace Qt::StringLiterals;
+inline void SignaturePanel::slotAdd()
+{
+    m_listView->selectionModel()->clearSelection();
+    // find unique name
+    for (int i = 1; ; i++) {
+        // Always add number, Avoid setting 'slot' for first entry
+        QString newSlot = m_newPrefix + QString::number(i) + u'(';
+        // check for function name independent of parameters
+        if (m_model->findItems(newSlot, Qt::MatchStartsWith, 0).isEmpty()) {
+            newSlot += u')';
+            QStandardItem * item = createEditableItem(newSlot);
+            m_model->appendRow(item);
+            const  QModelIndex index = m_model->indexFromItem (item);
+            m_listView->setCurrentIndex (index);
+            m_listView->edit(index);
+            return;
+        }
+    }
+}
+}  // namespace qdesigner_internal
+
+//  from ../qttools/src/designer/src/lib/shared/signalslotdialog.cpp, line 160, as _ZN18qdesigner_internal14SignatureModelC1EP7QObject
+namespace qdesigner_internal {
+using namespace Qt::StringLiterals;
+inline SignatureModel::SignatureModel(QObject *parent) :
+     QStandardItemModel(parent)
+{
+}
+}  // namespace qdesigner_internal
+
+//  from ../qttools/src/designer/src/lib/shared/signalslotdialog.cpp, line 185, as _ZN18qdesigner_internal14SignaturePanelC1EP7QObjectP9QListViewP11QToolButtonS6_RK7QString
+namespace qdesigner_internal {
+using namespace Qt::StringLiterals;
+inline SignaturePanel::SignaturePanel(QObject *parent, QListView *listView, QToolButton *addButton, QToolButton *removeButton, const QString &newPrefix) :
+    QObject(parent),
+    m_newPrefix(newPrefix),
+    m_model(new SignatureModel(this)),
+    m_listView(listView),
+    m_removeButton(removeButton)
+{
+    m_removeButton->setEnabled(false);
+
+    connect(addButton, &QAbstractButton::clicked, this, &SignaturePanel::slotAdd);
+    connect(m_removeButton, &QAbstractButton::clicked, this, &SignaturePanel::slotRemove);
+
+    m_listView->setModel(m_model);
+    SignatureDelegate *delegate = new SignatureDelegate(this);
+    m_listView->setItemDelegate(delegate);
+    connect(m_model, &SignatureModel::checkSignature,
+            this, &SignaturePanel::checkSignature);
+    connect(m_listView->selectionModel(), &QItemSelectionModel::selectionChanged,
+            this, &SignaturePanel::slotSelectionChanged);
+}
+}  // namespace qdesigner_internal
+
 //  from ../qttools/src/designer/src/lib/shared/signalslotdialog.cpp, line 266, as _ZNK18qdesigner_internal14SignaturePanel11fakeMethodsEv
 namespace qdesigner_internal {
 using namespace Qt::StringLiterals;
@@ -201,6 +411,34 @@ int ritual_ZN18qdesigner_internal14SignaturePanel11qt_metacallEN11QMetaObject4Ca
     int a1,
     void **a2) {
   return self->qt_metacall(a0, a1, a2);
+}
+
+//  QString qdesigner_internal::SignaturePanel::tr(const char *s, const char
+//      *c, int n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN18qdesigner_internal14SignaturePanel2trEPKcS2_i(
+    const char *s,
+    const char *c,
+    int n) {
+  return new QString(qdesigner_internal::SignaturePanel::tr(s, c, n));
+}
+
+//  qdesigner_internal::SignaturePanel::SignaturePanel(QObject *parent,
+//      QListView *listView, QToolButton *addButton, QToolButton
+//      *removeButton, const QString &newPrefix)
+extern "C" Q_DECL_EXPORT
+qdesigner_internal::SignaturePanel *ritual_ZN18qdesigner_internal14SignaturePanelC1EP7QObjectP9QListViewP11QToolButtonS6_RK7QString(
+    QObject *parent,
+    QListView *listView,
+    QToolButton *addButton,
+    QToolButton *removeButton,
+    const QString *newPrefix) {
+  return new qdesigner_internal::SignaturePanel(
+      parent,
+      listView,
+      addButton,
+      removeButton,
+      *newPrefix);
 }
 
 //  QStringList qdesigner_internal::SignaturePanel::fakeMethods() const

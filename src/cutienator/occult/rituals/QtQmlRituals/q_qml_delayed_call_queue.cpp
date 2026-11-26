@@ -1,14 +1,26 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtQml/6.12.0/QtQml/private/qqmldelayedcallqueue_p.h, Qt 6.12.0. Changes
-//  made here are lost.
+//  QtQml/6.12.0/QtQml/private/qqmldelayedcallqueue_p.h, Qt 6.12.0.
+//  Edited by hand on 2026-11-26: moc's output for 'QQmlDelayedCallQueue' is
+//  pasted in, cut from what the moc of Qt 6.12.0 writes for its header: Qt's
+//  library keeps it to itself; added are 3 rituals that lean on what moc
+//  writes for a class of the part Qt keeps to itself, whose ritual file
+//  carries moc's output, drafted by a copy of the generator that lets those
+//  names through. A copy of a meta-object is a second one: 'qobject_cast'
+//  between it and Qt's own does not match. Kept as it is when the generator
+//  runs again.
 #include <QtQml/6.12.0/QtQml/private/qtqmlglobal_p.h>
 #include <QtQml/QtQml>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQml/6.12.0/QtQml/private/qqmldelayedcallqueue_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
 #include <QtQml/private/qqmldelayedcallqueue_p.h>
 #include <QtQml/private/qqmlengine_p.h>
 #include <QtQml/private/qqmljavascriptexpression_p.h>
@@ -25,6 +37,102 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  from QtQml__QQmlDelayedCallQueue.cpp, line 1, as moc:QQmlDelayedCallQueue
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN20QQmlDelayedCallQueueE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto QQmlDelayedCallQueue::qt_create_metaobjectdata<qt_meta_tag_ZN20QQmlDelayedCallQueueE_t>()
+{
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "QQmlDelayedCallQueue",
+        "ticked",
+        ""
+    };
+
+    QtMocHelpers::UintData qt_methods {
+        // Slot 'ticked'
+        QtMocHelpers::SlotData<void()>(1, 2, QMC::AccessPublic, QMetaType::Void),
+    };
+    QtMocHelpers::UintData qt_properties {
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    return QtMocHelpers::metaObjectData<QQmlDelayedCallQueue, qt_meta_tag_ZN20QQmlDelayedCallQueueE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums);
+}
+Q_CONSTINIT const QMetaObject QQmlDelayedCallQueue::staticMetaObject = { {
+    QMetaObject::SuperData::link<QObject::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN20QQmlDelayedCallQueueE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN20QQmlDelayedCallQueueE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN20QQmlDelayedCallQueueE_t>.metaTypes,
+    nullptr
+} };
+
+void QQmlDelayedCallQueue::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<QQmlDelayedCallQueue *>(_o);
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        switch (_id) {
+        case 0: _t->ticked(); break;
+        default: ;
+        }
+    }
+    (void)_a;
+}
+
+const QMetaObject *QQmlDelayedCallQueue::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *QQmlDelayedCallQueue::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN20QQmlDelayedCallQueueE_t>.strings))
+        return static_cast<void*>(this);
+    return QObject::qt_metacast(_clname);
+}
+
+int QQmlDelayedCallQueue::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QObject::qt_metacall(_c, _id, _a);
+    if (_id < 0)
+        return _id;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        if (_id < 1)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 1;
+    }
+    if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        if (_id < 1)
+            *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
+        _id -= 1;
+    }
+    return _id;
+}
+QT_WARNING_POP
+
+//  from ../qtdeclarative/src/qml/qml/qqmldelayedcallqueue.cpp, line 178, as _ZN20QQmlDelayedCallQueue6tickedEv
+inline void QQmlDelayedCallQueue::ticked()
+{
+    m_callbackOutstanding = false;
+    executeAllExpired_Later();
+}
+
+//  from ../qtdeclarative/src/qml/qml/qqmldelayedcallqueue.cpp, line 61, as _ZN20QQmlDelayedCallQueueD0Ev
+inline QQmlDelayedCallQueue::~QQmlDelayedCallQueue()
+{
+}
 
 //  from ../qtdeclarative/src/qml/qml/qqmldelayedcallqueue.cpp, line 21, as _ZNK20QQmlDelayedCallQueue19DelayedFunctionCall7executeEPN3QV415ExecutionEngineE
 inline void QQmlDelayedCallQueue::DelayedFunctionCall::execute(QV4::ExecutionEngine *engine) const
@@ -56,6 +164,22 @@ inline void QQmlDelayedCallQueue::DelayedFunctionCall::execute(QV4::ExecutionEng
             QQmlEnginePrivate::warning(QQmlEnginePrivate::get(scope.engine->qmlEngine()), error);
         }
     }
+}
+
+//  from ../qtdeclarative/src/qml/qml/qqmldelayedcallqueue.cpp, line 56, as _ZN20QQmlDelayedCallQueueC1Ev
+inline QQmlDelayedCallQueue::QQmlDelayedCallQueue()
+    : QObject(nullptr), m_engine(nullptr), m_callbackOutstanding(false)
+{
+}
+
+//  from ../qtdeclarative/src/qml/qml/qqmldelayedcallqueue.cpp, line 65, as _ZN20QQmlDelayedCallQueue4initEPN3QV415ExecutionEngineE
+inline void QQmlDelayedCallQueue::init(QV4::ExecutionEngine* engine)
+{
+    m_engine = engine;
+
+    const QMetaObject &metaObject = QQmlDelayedCallQueue::staticMetaObject;
+    int methodIndex = metaObject.indexOfSlot("ticked()");
+    m_tickedMethod = metaObject.method(methodIndex);
 }
 
 //  from ../qtdeclarative/src/qml/qml/qqmldelayedcallqueue.cpp, line 74, as _ZN20QQmlDelayedCallQueue26addUniquelyAndExecuteLaterEPN3QV415ExecutionEngineEP14QQmlV4Function
@@ -359,10 +483,33 @@ int ritual_ZN20QQmlDelayedCallQueue11qt_metacallEN11QMetaObject4CallEiPPv(
   return self->qt_metacall(a0, a1, a2);
 }
 
+//  QString QQmlDelayedCallQueue::tr(const char *s, const char *c, int n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN20QQmlDelayedCallQueue2trEPKcS1_i(
+    const char *s,
+    const char *c,
+    int n) {
+  return new QString(QQmlDelayedCallQueue::tr(s, c, n));
+}
+
+//  QQmlDelayedCallQueue::QQmlDelayedCallQueue()
+extern "C" Q_DECL_EXPORT
+QQmlDelayedCallQueue *ritual_ZN20QQmlDelayedCallQueueC1Ev() {
+  return new CuteQQmlDelayedCallQueue();
+}
+
 //  QQmlDelayedCallQueue::~QQmlDelayedCallQueue()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QQmlDelayedCallQueueD1Ev(QQmlDelayedCallQueue *self) {
   delete self;
+}
+
+//  void QQmlDelayedCallQueue::init(QV4::ExecutionEngine *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQmlDelayedCallQueue4initEPN3QV415ExecutionEngineE(
+    QQmlDelayedCallQueue *self,
+    QV4::ExecutionEngine *a0) {
+  self->init(a0);
 }
 
 //  QV4::ReturnedValue

@@ -115,6 +115,33 @@ inline void QQuickPagePrivate::itemImplicitHeightChanged(QQuickItem *item)
     else if (item == footer)
         emit q->implicitFooterHeightChanged();
 }
+
+//  from ../qtdeclarative/src/quicktemplates/qquickpage.cpp, line 106, as _ZN17QQuickPagePrivate8relayoutEv
+inline void QQuickPagePrivate::relayout()
+{
+    Q_Q(QQuickPage);
+    const qreal hh = header && header->isVisible() ? header->height() : 0;
+    const qreal fh = footer && footer->isVisible() ? footer->height() : 0;
+    const qreal hsp = hh > 0 ? spacing : 0;
+    const qreal fsp = fh > 0 ? spacing : 0;
+
+    if (contentItem) {
+        contentItem->setY(q->topPadding() + hh + hsp);
+        contentItem->setX(q->leftPadding());
+        contentItem->setWidth(q->availableWidth());
+        contentItem->setHeight(q->availableHeight() - hh - fh - hsp - fsp);
+    }
+
+    if (header) {
+        header->setY(0);
+        header->setWidth(q->width());
+    }
+
+    if (footer) {
+        footer->setY(q->height() - footer->height());
+        footer->setWidth(q->width());
+    }
+}
 //  -----------------------------------------------------------------------
 
 //  A QQuickPopupItemPrivate that Python can take functions over in. Every QQuickPopupItemPrivate
@@ -935,6 +962,13 @@ extern "C" Q_DECL_EXPORT
 const QQuickPopupItem *ritual_ZNK22QQuickPopupItemPrivate6q_funcEv(
     const QQuickPopupItemPrivate *self) {
   return self->q_func();
+}
+
+//  QQuickPopupItemPrivate::QQuickPopupItemPrivate(QQuickPopup *popup)
+extern "C" Q_DECL_EXPORT
+QQuickPopupItemPrivate *ritual_ZN22QQuickPopupItemPrivateC1EP11QQuickPopup(
+    QQuickPopup *popup) {
+  return new CuteQQuickPopupItemPrivate(popup);
 }
 
 //  QQuickPopupItemPrivate *QQuickPopupItemPrivate::get(QQuickPopupItem

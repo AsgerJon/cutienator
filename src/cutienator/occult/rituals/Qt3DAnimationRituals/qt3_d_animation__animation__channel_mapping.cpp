@@ -97,6 +97,22 @@ inline BackendNode::~BackendNode()
 }
 }  // namespace Qt3DAnimation::Animation
 
+//  from ../qt3d/src/animation/backend/channelmapping.cpp, line 20, as _ZN13Qt3DAnimation9Animation14ChannelMappingC1Ev
+namespace Qt3DAnimation::Animation {
+inline ChannelMapping::ChannelMapping()
+    : BackendNode(ReadOnly)
+    , m_channelName()
+    , m_targetId()
+    , m_type(static_cast<int>(QMetaType::UnknownType))
+    , m_componentCount(0)
+    , m_propertyName(nullptr)
+    , m_callback(nullptr)
+    , m_skeletonId()
+    , m_mappingType(MappingType::ChannelMappingType)
+{
+}
+}  // namespace Qt3DAnimation::Animation
+
 //  from ../qt3d/src/animation/backend/channelmapping.cpp, line 33, as _ZN13Qt3DAnimation9Animation14ChannelMapping7cleanupEv
 namespace Qt3DAnimation::Animation {
 inline void ChannelMapping::cleanup()
@@ -121,6 +137,12 @@ inline Skeleton *ChannelMapping::skeleton() const
 }
 }  // namespace Qt3DAnimation::Animation
 //  -----------------------------------------------------------------------
+
+//  Qt3DAnimation::Animation::ChannelMapping::ChannelMapping()
+extern "C" Q_DECL_EXPORT
+Qt3DAnimation::Animation::ChannelMapping *ritual_ZN13Qt3DAnimation9Animation14ChannelMappingC1Ev() {
+  return new Qt3DAnimation::Animation::ChannelMapping();
+}
 
 //  void Qt3DAnimation::Animation::ChannelMapping::cleanup()
 extern "C" Q_DECL_EXPORT

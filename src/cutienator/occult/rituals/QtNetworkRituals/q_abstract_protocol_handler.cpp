@@ -28,6 +28,15 @@ inline QAbstractProtocolHandler::~QAbstractProtocolHandler()
 {
 }
 
+//  from src/network/access/qabstractprotocolhandler.cpp, line 10, as _ZN24QAbstractProtocolHandlerC1EP29QHttpNetworkConnectionChannel
+inline QAbstractProtocolHandler::QAbstractProtocolHandler(QHttpNetworkConnectionChannel *channel)
+    : m_channel(channel), m_reply(nullptr), m_socket(m_channel->socket), m_connection(m_channel->connection)
+{
+    Q_ASSERT(m_channel);
+    Q_ASSERT(m_socket);
+    Q_ASSERT(m_connection);
+}
+
 //  from src/network/access/qabstractprotocolhandler.cpp, line 22, as _ZN24QAbstractProtocolHandler8setReplyEP17QHttpNetworkReply
 inline void QAbstractProtocolHandler::setReply(QHttpNetworkReply *reply)
 {
@@ -134,6 +143,14 @@ public:
   }
 #endif  // QT_CONFIG(http)
 };
+
+//  QAbstractProtocolHandler::QAbstractProtocolHandler(QHttpNetworkConnection
+//      Channel *channel)
+extern "C" Q_DECL_EXPORT
+QAbstractProtocolHandler *ritual_ZN24QAbstractProtocolHandlerC1EP29QHttpNetworkConnectionChannel(
+    QHttpNetworkConnectionChannel *channel) {
+  return new CuteQAbstractProtocolHandler(channel);
+}
 
 //  QAbstractProtocolHandler::~QAbstractProtocolHandler()
 extern "C" Q_DECL_EXPORT

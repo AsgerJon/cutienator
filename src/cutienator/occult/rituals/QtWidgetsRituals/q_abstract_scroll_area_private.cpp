@@ -1,6 +1,11 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/6.12.0/QtWidgets/private/qabstractscrollarea_p.h, Qt 6.12.0.
-//  Changes made here are lost.
+//  Edited by hand on 2026-11-26: added are 1 rituals that lean on what moc
+//  writes for a class of the part Qt keeps to itself, whose ritual file
+//  carries moc's output, drafted by a copy of the generator that lets those
+//  names through. A copy of a meta-object is a second one: 'qobject_cast'
+//  between it and Qt's own does not match. Kept as it is when the generator
+//  runs again.
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #if QT_CONFIG(scrollarea)
@@ -222,6 +227,48 @@ inline void QAbstractScrollAreaPrivate::replaceScrollBar(QScrollBar *scrollBar,
     QObject::connect(scrollBar, SIGNAL(rangeChanged(int,int)),
                      q, SLOT(_q_showOrHideScrollBars()), Qt::QueuedConnection);
 }
+#endif  // QT_CONFIG(scrollarea)
+
+//  from src/widgets/widgets/qabstractscrollarea.cpp, line 251, as _ZN26QAbstractScrollAreaPrivate4initEv
+#if QT_CONFIG(scrollarea)
+#if defined(Q_OS_LINUX)
+inline void QAbstractScrollAreaPrivate::init()
+{
+    Q_Q(QAbstractScrollArea);
+    viewport = new QWidget(q);
+    viewport->setObjectName("qt_scrollarea_viewport"_L1);
+    viewport->setBackgroundRole(QPalette::Base);
+    viewport->setAutoFillBackground(true);
+    scrollBarContainers[Qt::Horizontal] = new QAbstractScrollAreaScrollBarContainer(Qt::Horizontal, q);
+    scrollBarContainers[Qt::Horizontal]->setObjectName("qt_scrollarea_hcontainer"_L1);
+    hbar = scrollBarContainers[Qt::Horizontal]->scrollBar;
+    hbar->setRange(0,0);
+    scrollBarContainers[Qt::Horizontal]->setVisible(false);
+    hbar->installEventFilter(q);
+    QObject::connect(hbar, SIGNAL(valueChanged(int)), q, SLOT(_q_hslide(int)));
+    QObject::connect(hbar, SIGNAL(rangeChanged(int,int)), q, SLOT(_q_showOrHideScrollBars()), Qt::QueuedConnection);
+    scrollBarContainers[Qt::Vertical] = new QAbstractScrollAreaScrollBarContainer(Qt::Vertical, q);
+    scrollBarContainers[Qt::Vertical]->setObjectName("qt_scrollarea_vcontainer"_L1);
+    vbar = scrollBarContainers[Qt::Vertical]->scrollBar;
+    vbar->setRange(0,0);
+    scrollBarContainers[Qt::Vertical]->setVisible(false);
+    vbar->installEventFilter(q);
+    QObject::connect(vbar, SIGNAL(valueChanged(int)), q, SLOT(_q_vslide(int)));
+    QObject::connect(vbar, SIGNAL(rangeChanged(int,int)), q, SLOT(_q_showOrHideScrollBars()), Qt::QueuedConnection);
+    viewportFilter.reset(new QAbstractScrollAreaFilter(this));
+    viewport->installEventFilter(viewportFilter.data());
+    viewport->setFocusProxy(q);
+    q->setFocusPolicy(Qt::StrongFocus);
+    q->setFrameStyle(QFrame::StyledPanel | QFrame::Sunken);
+    q->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+    layoutChildren();
+#ifndef Q_OS_MACOS
+#  ifndef QT_NO_GESTURES
+    viewport->grabGesture(Qt::PanGesture);
+#  endif
+#endif
+}
+#endif  // defined(Q_OS_LINUX)
 #endif  // QT_CONFIG(scrollarea)
 
 //  from src/widgets/widgets/qabstractscrollarea.cpp, line 288, as _ZN26QAbstractScrollAreaPrivate14layoutChildrenEv
@@ -805,6 +852,17 @@ void ritual_ZN26QAbstractScrollAreaPrivate16replaceScrollBarEP10QScrollBarN2Qt11
     Qt::Orientation orientation) {
   self->replaceScrollBar(scrollBar, orientation);
 }
+#endif  // QT_CONFIG(scrollarea)
+
+#if QT_CONFIG(scrollarea)
+#if defined(Q_OS_LINUX)
+//  void QAbstractScrollAreaPrivate::init()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN26QAbstractScrollAreaPrivate4initEv(
+    QAbstractScrollAreaPrivate *self) {
+  self->init();
+}
+#endif  // defined(Q_OS_LINUX)
 #endif  // QT_CONFIG(scrollarea)
 
 #if QT_CONFIG(scrollarea)

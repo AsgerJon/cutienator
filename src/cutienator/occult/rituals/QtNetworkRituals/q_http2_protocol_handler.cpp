@@ -1,6 +1,11 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtNetwork/6.12.0/QtNetwork/private/qhttp2protocolhandler_p.h, Qt 6.12.0.
-//  Changes made here are lost.
+//  Edited by hand on 2026-11-26: added are 2 rituals that lean on what moc
+//  writes for a class of the part Qt keeps to itself, whose ritual file
+//  carries moc's output, drafted by a copy of the generator that lets those
+//  names through. A copy of a meta-object is a second one: 'qobject_cast'
+//  between it and Qt's own does not match. Kept as it is when the generator
+//  runs again.
 #include <QtNetwork/qtnetworkglobal.h>
 #include <QtNetwork/6.12.0/QtNetwork/private/qtnetworkglobal_p.h>
 #if QT_CONFIG(http)
@@ -14,6 +19,27 @@
 #include <QtNetwork/private/qhttpnetworkrequest_p.h>
 #include <QtCore/private/qnoncontiguousbytedevice_p.h>
 #include <QtCore/private/qtools_p.h>
+#include <QtNetwork/private/qhttpnetworkconnection_p.h>
+#include <QtNetwork/private/qhttp2protocolhandler_p.h>
+#include <QtCore/private/qnoncontiguousbytedevice_p.h>
+#include <QtNetwork/private/qsocketabstraction_p.h>
+#include <QtNetwork/qabstractsocket.h>
+#include <QtCore/qloggingcategory.h>
+#include <QtCore/qendian.h>
+#include <QtCore/qdebug.h>
+#include <QtCore/qlist.h>
+#include <QtCore/qnumeric.h>
+#include <QtCore/qurl.h>
+#include <QtNetwork/qhttp2configuration.h>
+#ifndef QT_NO_NETWORKPROXY
+#  include <QtNetwork/qnetworkproxy.h>
+#endif
+#include <QtCore/qcoreapplication.h>
+#include <algorithm>
+#include <vector>
+#include <optional>
+#include <QtNetwork/private/qabstractprotocolhandler_p.h>
+#include <QtNetwork/private/qhttpnetworkconnectionchannel_p.h>
 #include <QtNetwork/private/qhttpnetworkconnection_p.h>
 #include <QtNetwork/private/qabstractsocket_p.h>
 #include <QtNetwork/private/qhttpnetworkconnectionchannel_p.h>
@@ -64,25 +90,6 @@
 #include <QtNetwork/private/qtnetworkglobal_p.h>
 #include <memory>
 #include <utility>
-#include <QtNetwork/private/qhttpnetworkconnection_p.h>
-#include <QtNetwork/private/qhttp2protocolhandler_p.h>
-#include <QtCore/private/qnoncontiguousbytedevice_p.h>
-#include <QtNetwork/private/qsocketabstraction_p.h>
-#include <QtNetwork/qabstractsocket.h>
-#include <QtCore/qloggingcategory.h>
-#include <QtCore/qendian.h>
-#include <QtCore/qdebug.h>
-#include <QtCore/qlist.h>
-#include <QtCore/qnumeric.h>
-#include <QtCore/qurl.h>
-#include <QtNetwork/qhttp2configuration.h>
-#ifndef QT_NO_NETWORKPROXY
-#  include <QtNetwork/qnetworkproxy.h>
-#endif
-#include <QtCore/qcoreapplication.h>
-#include <algorithm>
-#include <vector>
-#include <optional>
 #include <QtNetwork/private/qhttpnetworkheader_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
@@ -163,6 +170,134 @@ inline QUrl urlkey_from_request(const QHttpNetworkRequest &request)
     return url;
 }
 }  // namespace
+
+//  from src/network/access/qhttpnetworkrequest.cpp, line 188, as _ZN19QHttpNetworkRequestD1Ev
+inline QHttpNetworkRequest::~QHttpNetworkRequest()
+{
+}
+
+//  from src/network/access/qhttp2protocolhandler.cpp, line 183, as _ZN21QHttp2ProtocolHandler11sendRequestEv
+inline bool QHttp2ProtocolHandler::sendRequest()
+{
+    if (isGoingAway())
+        return false;
+
+    // Process 'fake' (created by QNetworkAccessManager::connectToHostEncrypted())
+    // requests first:
+    auto &requests = m_channel->h2RequestsToSend;
+    for (auto it = requests.begin(), endIt = requests.end(); it != endIt;) {
+        const auto &pair = *it;
+        if (pair.first.isPreConnect()) {
+            m_connection->preConnectFinished();
+            emit pair.second->finished();
+            it = requests.erase(it);
+            if (requests.empty()) {
+                // Normally, after a connection was established and H2
+                // was negotiated, we send a client preface. connectToHostEncrypted
+                // though is not meant to send any data, it's just a 'preconnect'.
+                // Thus we return early:
+                return true;
+            }
+        } else {
+            ++it;
+        }
+    }
+
+    if (requests.empty())
+        return true;
+
+    m_channel->state = QHttpNetworkConnectionChannel::WritingState;
+    // Check what was promised/pushed, maybe we do not have to send a request
+    // and have a response already?
+
+    for (auto it = requests.begin(), end = requests.end(); it != end;) {
+        HttpMessagePair &httpPair = *it;
+
+        QUrl promiseKey = urlkey_from_request(httpPair.first);
+        if (h2Connection->promisedStream(promiseKey) != nullptr) {
+            // There's a PUSH_PROMISE for this request, so we don't send one
+            initReplyFromPushPromise(httpPair, promiseKey);
+            it = requests.erase(it);
+            continue;
+        }
+
+        QHttp2Stream *stream = createNewStream(httpPair);
+        if (!stream) { // There was an issue creating the stream
+            // Check if it was unrecoverable, ie. the reply is errored out and finished:
+            if (httpPair.second->isFinished()) {
+                it = requests.erase(it);
+            }
+            // ... either way we stop looping:
+            break;
+        }
+
+        QHttpNetworkRequest &request = requestReplyPairs[stream].first;
+        if (!sendHEADERS(stream, request)) {
+            finishStreamWithError(stream, QNetworkReply::UnknownNetworkError,
+                    "failed to send HEADERS frame(s)"_L1);
+            continue;
+        }
+        if (request.uploadByteDevice()) {
+            if (!sendDATA(stream, httpPair.second)) {
+                finishStreamWithError(stream, QNetworkReply::UnknownNetworkError,
+                                      "failed to send DATA frame(s)"_L1);
+                continue;
+            }
+        }
+        it = requests.erase(it);
+    }
+
+    m_channel->state = QHttpNetworkConnectionChannel::IdleState;
+
+    return true;
+}
+
+//  from src/network/access/qhttp2protocolhandler.cpp, line 169, as _ZN21QHttp2ProtocolHandler12_q_readyReadEv
+inline void QHttp2ProtocolHandler::_q_readyRead()
+{
+    _q_receiveReply();
+}
+
+//  from src/network/access/qhttp2protocolhandler.cpp, line 266, as _ZN21QHttp2ProtocolHandler14tryRemoveReplyEP17QHttpNetworkReply
+inline bool QHttp2ProtocolHandler::tryRemoveReply(QHttpNetworkReply *reply)
+{
+    QHttp2Stream *stream = streamIDs.take(reply);
+    if (stream) {
+        stream->sendRST_STREAM(stream->isUploadingDATA() ? Http2::CANCEL : Http2::HTTP2_NO_ERROR);
+        clearStreamState(stream);
+        stream->deleteLater();
+        return true;
+    }
+    return false;
+}
+
+//  from src/network/access/qhttp2protocolhandler.cpp, line 174, as _ZN21QHttp2ProtocolHandler15_q_receiveReplyEv
+inline void QHttp2ProtocolHandler::_q_receiveReply()
+{
+    // not using QObject::connect because the QHttpNetworkConnectionChannel
+    // already handles the signals we care about, so we just call the slot
+    // directly.
+    Q_ASSERT(h2Connection);
+    h2Connection->handleReadyRead();
+}
+
+//  from src/network/access/qhttp2protocolhandler.cpp, line 150, as _ZN21QHttp2ProtocolHandler23handleConnectionClosureEv
+inline void QHttp2ProtocolHandler::handleConnectionClosure()
+{
+    // The channel has just received RemoteHostClosedError and since it will
+    // not try (for HTTP/2) to re-connect, it's time to finish all replies
+    // with error.
+
+    // Maybe we still have some data to read and can successfully finish
+    // a stream/request?
+    _q_receiveReply();
+    h2Connection->handleConnectionClosure();
+}
+
+//  from src/network/access/qabstractprotocolhandler.cpp, line 18, as _ZN24QAbstractProtocolHandlerD2Ev
+inline QAbstractProtocolHandler::~QAbstractProtocolHandler()
+{
+}
 
 //  from src/network/access/qhttpnetworkrequest.cpp, line 23, as _ZN26QHttpNetworkRequestPrivateC1ERKS_
 inline QHttpNetworkRequestPrivate::QHttpNetworkRequestPrivate(const QHttpNetworkRequestPrivate &other) // = default
@@ -258,11 +393,6 @@ inline QHttpNetworkRequest::QHttpNetworkRequest(const QHttpNetworkRequest &other
 {
 }
 
-//  from src/network/access/qhttpnetworkrequest.cpp, line 188, as _ZN19QHttpNetworkRequestD1Ev
-inline QHttpNetworkRequest::~QHttpNetworkRequest()
-{
-}
-
 //  from src/network/access/qhttpnetworkreply.cpp, line 732, as _ZN24QHttpNetworkReplyPrivate17shouldEmitSignalsEv
 inline bool QHttpNetworkReplyPrivate::shouldEmitSignals()
 {
@@ -276,6 +406,26 @@ inline const QLoggingCategory &QT_HTTP2()
 {
     static const QLoggingCategory category("qt.network.http2");
     return category;
+}
+
+//  from src/network/access/qhttpnetworkrequest.cpp, line 99, as _ZNK19QHttpNetworkRequest3uriEb
+inline QByteArray QHttpNetworkRequest::uri(bool throughProxy) const
+{
+    QUrl::FormattingOptions format(QUrl::RemoveFragment | QUrl::RemoveUserInfo | QUrl::FullyEncoded);
+
+    // for POST, query data is sent as content
+    if (d->operation == QHttpNetworkRequest::Post && !d->uploadByteDevice)
+        format |= QUrl::RemoveQuery;
+    // for requests through proxy, the Request-URI contains full url
+    if (!throughProxy)
+        format |= QUrl::RemoveScheme | QUrl::RemoveAuthority;
+    QUrl copy = d->url;
+    if (copy.path().isEmpty())
+        copy.setPath(QStringLiteral("/"));
+    else
+        format |= QUrl::NormalizePathSegments;
+    QByteArray uri = copy.toEncoded(format);
+    return uri;
 }
 
 //  from src/network/access/qhttpnetworkconnectionchannel.cpp, line 186, as _ZN29QHttpNetworkConnectionChannel5closeEv
@@ -299,111 +449,6 @@ inline void QHttpNetworkConnectionChannel::close()
         // there is no socket yet.
         socket->close();
     }
-}
-
-//  from src/network/access/qhttp2protocolhandler.cpp, line 169, as _ZN21QHttp2ProtocolHandler12_q_readyReadEv
-inline void QHttp2ProtocolHandler::_q_readyRead()
-{
-    _q_receiveReply();
-}
-
-//  from src/network/access/qhttp2protocolhandler.cpp, line 174, as _ZN21QHttp2ProtocolHandler15_q_receiveReplyEv
-inline void QHttp2ProtocolHandler::_q_receiveReply()
-{
-    // not using QObject::connect because the QHttpNetworkConnectionChannel
-    // already handles the signals we care about, so we just call the slot
-    // directly.
-    Q_ASSERT(h2Connection);
-    h2Connection->handleReadyRead();
-}
-
-//  from src/network/access/qhttp2protocolhandler.cpp, line 183, as _ZN21QHttp2ProtocolHandler11sendRequestEv
-inline bool QHttp2ProtocolHandler::sendRequest()
-{
-    if (isGoingAway())
-        return false;
-
-    // Process 'fake' (created by QNetworkAccessManager::connectToHostEncrypted())
-    // requests first:
-    auto &requests = m_channel->h2RequestsToSend;
-    for (auto it = requests.begin(), endIt = requests.end(); it != endIt;) {
-        const auto &pair = *it;
-        if (pair.first.isPreConnect()) {
-            m_connection->preConnectFinished();
-            emit pair.second->finished();
-            it = requests.erase(it);
-            if (requests.empty()) {
-                // Normally, after a connection was established and H2
-                // was negotiated, we send a client preface. connectToHostEncrypted
-                // though is not meant to send any data, it's just a 'preconnect'.
-                // Thus we return early:
-                return true;
-            }
-        } else {
-            ++it;
-        }
-    }
-
-    if (requests.empty())
-        return true;
-
-    m_channel->state = QHttpNetworkConnectionChannel::WritingState;
-    // Check what was promised/pushed, maybe we do not have to send a request
-    // and have a response already?
-
-    for (auto it = requests.begin(), end = requests.end(); it != end;) {
-        HttpMessagePair &httpPair = *it;
-
-        QUrl promiseKey = urlkey_from_request(httpPair.first);
-        if (h2Connection->promisedStream(promiseKey) != nullptr) {
-            // There's a PUSH_PROMISE for this request, so we don't send one
-            initReplyFromPushPromise(httpPair, promiseKey);
-            it = requests.erase(it);
-            continue;
-        }
-
-        QHttp2Stream *stream = createNewStream(httpPair);
-        if (!stream) { // There was an issue creating the stream
-            // Check if it was unrecoverable, ie. the reply is errored out and finished:
-            if (httpPair.second->isFinished()) {
-                it = requests.erase(it);
-            }
-            // ... either way we stop looping:
-            break;
-        }
-
-        QHttpNetworkRequest &request = requestReplyPairs[stream].first;
-        if (!sendHEADERS(stream, request)) {
-            finishStreamWithError(stream, QNetworkReply::UnknownNetworkError,
-                    "failed to send HEADERS frame(s)"_L1);
-            continue;
-        }
-        if (request.uploadByteDevice()) {
-            if (!sendDATA(stream, httpPair.second)) {
-                finishStreamWithError(stream, QNetworkReply::UnknownNetworkError,
-                                      "failed to send DATA frame(s)"_L1);
-                continue;
-            }
-        }
-        it = requests.erase(it);
-    }
-
-    m_channel->state = QHttpNetworkConnectionChannel::IdleState;
-
-    return true;
-}
-
-//  from src/network/access/qhttp2protocolhandler.cpp, line 266, as _ZN21QHttp2ProtocolHandler14tryRemoveReplyEP17QHttpNetworkReply
-inline bool QHttp2ProtocolHandler::tryRemoveReply(QHttpNetworkReply *reply)
-{
-    QHttp2Stream *stream = streamIDs.take(reply);
-    if (stream) {
-        stream->sendRST_STREAM(stream->isUploadingDATA() ? Http2::CANCEL : Http2::HTTP2_NO_ERROR);
-        clearStreamState(stream);
-        stream->deleteLater();
-        return true;
-    }
-    return false;
 }
 
 //  from src/network/access/qhttpnetworkheader.cpp, line 9, as _ZN18QHttpNetworkHeaderD2Ev
@@ -485,6 +530,47 @@ inline bool QHttp2ProtocolHandler::sendHEADERS(QHttp2Stream *stream, QHttpNetwor
     return stream->sendHEADERS(headers, !mustUploadData);
 }
 
+//  from src/network/access/qhttpnetworkheader.cpp, line 48, as _ZN25QHttpNetworkHeaderPrivate14setHeaderFieldERK10QByteArrayS2_
+inline void QHttpNetworkHeaderPrivate::setHeaderField(const QByteArray &name, const QByteArray &data)
+{
+    parser.setHeaderField(name, data);
+}
+
+//  from src/network/access/qhttpnetworkheader.cpp, line 29, as _ZN25QHttpNetworkHeaderPrivate16setContentLengthEx
+inline void QHttpNetworkHeaderPrivate::setContentLength(qint64 length)
+{
+    setHeaderField("Content-Length", QByteArray::number(length));
+}
+
+//  from src/network/access/qhttpnetworkheader.cpp, line 34, as _ZNK25QHttpNetworkHeaderPrivate11headerFieldE14QByteArrayViewRK10QByteArray
+inline QByteArray QHttpNetworkHeaderPrivate::headerField(QByteArrayView name, const QByteArray &defaultValue) const
+{
+    QList<QByteArray> allValues = headerFieldValues(name);
+    if (allValues.isEmpty())
+        return defaultValue;
+    else
+        return allValues.join(", ");
+}
+
+//  from src/network/access/qhttpnetworkheader.cpp, line 17, as _ZNK25QHttpNetworkHeaderPrivate13contentLengthEv
+inline qint64 QHttpNetworkHeaderPrivate::contentLength() const
+{
+    bool ok = false;
+    // We are not using the headerField() method here because servers might send us multiple content-length
+    // headers which is crap (see QTBUG-15311). Therefore just take the first content-length header field.
+    QByteArray value = parser.firstHeaderField("content-length");
+    qint64 length = value.toULongLong(&ok);
+    if (ok)
+        return length;
+    return -1; // the header field is not set
+}
+
+//  from src/network/access/qhttpnetworkheader.cpp, line 43, as _ZNK25QHttpNetworkHeaderPrivate17headerFieldValuesE14QByteArrayView
+inline QList<QByteArray> QHttpNetworkHeaderPrivate::headerFieldValues(QByteArrayView name) const
+{
+    return parser.headerFieldValues(name);
+}
+
 //  from src/network/access/qhttp2protocolhandler.cpp, line 145, as _ZNK21QHttp2ProtocolHandler11isGoingAwayEv
 inline bool QHttp2ProtocolHandler::isGoingAway() const noexcept
 {
@@ -502,6 +588,21 @@ inline bool QHttp2ProtocolHandler::sendDATA(QHttp2Stream *stream, QHttpNetworkRe
 
     bool startedSending = stream->sendDATA(request.uploadByteDevice(), true);
     return startedSending && !stream->wasReset();
+}
+
+//  from src/network/access/qhttp2protocolhandler.cpp, line 705, as _ZN21QHttp2ProtocolHandler16clearStreamStateEP12QHttp2Stream
+inline void QHttp2ProtocolHandler::clearStreamState(QHttp2Stream *stream)
+{
+    auto it = requestReplyPairs.find(stream);
+    if (it == requestReplyPairs.end())
+        return;
+
+    if (auto *reply = it->second)
+        streamIDs.remove(reply);
+    if (auto *uploadDevice = it->first.uploadByteDevice())
+        streamIDs.remove(uploadDevice);
+
+    requestReplyPairs.erase(it);
 }
 
 //  from src/network/access/qhttp2protocolhandler.cpp, line 761, as _ZN21QHttp2ProtocolHandler12closeSessionEv
@@ -635,6 +736,14 @@ bool ritual_ZN21QHttp2ProtocolHandler8sendDATAEP12QHttp2StreamP17QHttpNetworkRep
   return self->sendDATA(stream, reply);
 }
 
+//  void QHttp2ProtocolHandler::clearStreamState(QHttp2Stream *stream)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QHttp2ProtocolHandler16clearStreamStateEP12QHttp2Stream(
+    QHttp2ProtocolHandler *self,
+    QHttp2Stream *stream) {
+  self->clearStreamState(stream);
+}
+
 //  void QHttp2ProtocolHandler::closeSession()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN21QHttp2ProtocolHandler12closeSessionEv(
@@ -661,6 +770,14 @@ extern "C" Q_DECL_EXPORT
 void ritual_own_ZN21QHttp2ProtocolHandler15_q_receiveReplyEv(
     QHttp2ProtocolHandler *self) {
   self->QHttp2ProtocolHandler::_q_receiveReply();
+}
+
+//  bool QHttp2ProtocolHandler::tryRemoveReply(QHttpNetworkReply *reply)
+extern "C" Q_DECL_EXPORT
+bool ritual_own_ZN21QHttp2ProtocolHandler14tryRemoveReplyEP17QHttpNetworkReply(
+    QHttp2ProtocolHandler *self,
+    QHttpNetworkReply *reply) {
+  return self->QHttp2ProtocolHandler::tryRemoveReply(reply);
 }
 
 #endif  // QT_CONFIG(http)

@@ -1,6 +1,15 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtBluetooth/6.12.0/QtBluetooth/private/leadvertisingmanager1_p.h, Qt
-//  6.12.0. Changes made here are lost.
+//  6.12.0.
+//  Edited by hand on 2026-11-26: moc's output for
+//  'QtBluetoothPrivate::OrgBluezLEAdvertisingManager1Interface' is pasted
+//  in, cut from what the moc of Qt 6.12.0 writes for its header: Qt's
+//  library keeps it to itself; added are 2 rituals that lean on what moc
+//  writes for a class of the part Qt keeps to itself, whose ritual file
+//  carries moc's output, drafted by a copy of the generator that lets those
+//  names through. A copy of a meta-object is a second one: 'qobject_cast'
+//  between it and Qt's own does not match. Kept as it is when the generator
+//  runs again.
 #include <QtBluetooth/qtbluetoothglobal.h>
 #include <QtBluetooth/6.12.0/QtBluetooth/private/qtbluetoothglobal_p.h>
 #if QT_CONFIG(bluez)
@@ -10,6 +19,7 @@
 #include <QtBluetooth/6.12.0/QtBluetooth/private/leadvertisingmanager1_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
+#include <QtDBus/qdbusconnection.h>
 #include <QtDBus/qdbusextratypes.h>
 #include <QtCore/qvariant.h>
 #include <QtCore/qmetaobject.h>
@@ -24,6 +34,10 @@
 #include <QtCore/QString>
 #include <QtCore/QVariant>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
 #include <QtBluetooth/private/leadvertisingmanager1_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
@@ -33,6 +47,155 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  from QtBluetooth__QtBluetoothPrivate_OrgBluezLEAdvertisingManager1Interface.cpp, line 1, as moc:QtBluetoothPrivate::OrgBluezLEAdvertisingManager1Interface
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN18QtBluetoothPrivate38OrgBluezLEAdvertisingManager1InterfaceE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto QtBluetoothPrivate::OrgBluezLEAdvertisingManager1Interface::qt_create_metaobjectdata<qt_meta_tag_ZN18QtBluetoothPrivate38OrgBluezLEAdvertisingManager1InterfaceE_t>()
+{
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "QtBluetoothPrivate::OrgBluezLEAdvertisingManager1Interface",
+        "RegisterAdvertisement",
+        "QDBusPendingReply<>",
+        "",
+        "QDBusObjectPath",
+        "advertisement",
+        "QVariantMap",
+        "options",
+        "UnregisterAdvertisement",
+        "ActiveInstances",
+        "SupportedIncludes",
+        "SupportedInstances"
+    };
+
+    QtMocHelpers::UintData qt_methods {
+        // Slot 'RegisterAdvertisement'
+        QtMocHelpers::SlotData<QDBusPendingReply<>(const QDBusObjectPath &, const QVariantMap &)>(1, 3, QMC::AccessPublic, 0x80000000 | 2, {{
+            { 0x80000000 | 4, 5 }, { 0x80000000 | 6, 7 },
+        }}),
+        // Slot 'UnregisterAdvertisement'
+        QtMocHelpers::SlotData<QDBusPendingReply<>(const QDBusObjectPath &)>(8, 3, QMC::AccessPublic, 0x80000000 | 2, {{
+            { 0x80000000 | 4, 5 },
+        }}),
+    };
+    QtMocHelpers::UintData qt_properties {
+        // property 'ActiveInstances'
+        QtMocHelpers::PropertyData<uchar>(9, QMetaType::UChar, QMC::DefaultPropertyFlags),
+        // property 'SupportedIncludes'
+        QtMocHelpers::PropertyData<QStringList>(10, QMetaType::QStringList, QMC::DefaultPropertyFlags),
+        // property 'SupportedInstances'
+        QtMocHelpers::PropertyData<uchar>(11, QMetaType::UChar, QMC::DefaultPropertyFlags),
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    return QtMocHelpers::metaObjectData<OrgBluezLEAdvertisingManager1Interface, qt_meta_tag_ZN18QtBluetoothPrivate38OrgBluezLEAdvertisingManager1InterfaceE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums);
+}
+Q_CONSTINIT const QMetaObject QtBluetoothPrivate::OrgBluezLEAdvertisingManager1Interface::staticMetaObject = { {
+    QMetaObject::SuperData::link<QDBusAbstractInterface::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN18QtBluetoothPrivate38OrgBluezLEAdvertisingManager1InterfaceE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN18QtBluetoothPrivate38OrgBluezLEAdvertisingManager1InterfaceE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN18QtBluetoothPrivate38OrgBluezLEAdvertisingManager1InterfaceE_t>.metaTypes,
+    nullptr
+} };
+
+void QtBluetoothPrivate::OrgBluezLEAdvertisingManager1Interface::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<OrgBluezLEAdvertisingManager1Interface *>(_o);
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        switch (_id) {
+        case 0: { QDBusPendingReply<> _r = _t->RegisterAdvertisement((*reinterpret_cast<std::add_pointer_t<QDBusObjectPath>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<QVariantMap>>(_a[2])));
+            if (_a[0]) *reinterpret_cast<QDBusPendingReply<>*>(_a[0]) = std::move(_r); }  break;
+        case 1: { QDBusPendingReply<> _r = _t->UnregisterAdvertisement((*reinterpret_cast<std::add_pointer_t<QDBusObjectPath>>(_a[1])));
+            if (_a[0]) *reinterpret_cast<QDBusPendingReply<>*>(_a[0]) = std::move(_r); }  break;
+        default: ;
+        }
+    }
+    if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        switch (_id) {
+        default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
+        case 0:
+            switch (*reinterpret_cast<int*>(_a[1])) {
+            default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
+            case 0:
+                *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType::fromType< QDBusObjectPath >(); break;
+            }
+            break;
+        case 1:
+            switch (*reinterpret_cast<int*>(_a[1])) {
+            default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
+            case 0:
+                *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType::fromType< QDBusObjectPath >(); break;
+            }
+            break;
+        }
+    }
+    if (_c == QMetaObject::ReadProperty) {
+        void *_v = _a[0];
+        switch (_id) {
+        case 0: *reinterpret_cast<uchar*>(_v) = _t->activeInstances(); break;
+        case 1: *reinterpret_cast<QStringList*>(_v) = _t->supportedIncludes(); break;
+        case 2: *reinterpret_cast<uchar*>(_v) = _t->supportedInstances(); break;
+        default: break;
+        }
+    }
+}
+
+const QMetaObject *QtBluetoothPrivate::OrgBluezLEAdvertisingManager1Interface::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *QtBluetoothPrivate::OrgBluezLEAdvertisingManager1Interface::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN18QtBluetoothPrivate38OrgBluezLEAdvertisingManager1InterfaceE_t>.strings))
+        return static_cast<void*>(this);
+    return QDBusAbstractInterface::qt_metacast(_clname);
+}
+
+int QtBluetoothPrivate::OrgBluezLEAdvertisingManager1Interface::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QDBusAbstractInterface::qt_metacall(_c, _id, _a);
+    if (_id < 0)
+        return _id;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        if (_id < 2)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 2;
+    }
+    if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        if (_id < 2)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 2;
+    }
+    if (_c == QMetaObject::ReadProperty || _c == QMetaObject::WriteProperty
+            || _c == QMetaObject::ResetProperty || _c == QMetaObject::BindableProperty
+            || _c == QMetaObject::RegisterPropertyMetaType) {
+        qt_static_metacall(this, _c, _id, _a);
+        _id -= 3;
+    }
+    return _id;
+}
+QT_WARNING_POP
+
+//  from ../qtconnectivity/src/bluetooth/bluez/leadvertisingmanager1.cpp, line 20, as _ZN18QtBluetoothPrivate38OrgBluezLEAdvertisingManager1InterfaceC1ERK7QStringS3_RK15QDBusConnectionP7QObject
+namespace QtBluetoothPrivate {
+inline OrgBluezLEAdvertisingManager1Interface::OrgBluezLEAdvertisingManager1Interface(const QString &service, const QString &path, const QDBusConnection &connection, QObject *parent)
+    : QDBusAbstractInterface(service, path, staticInterfaceName(), connection, parent)
+{
+}
+}  // namespace QtBluetoothPrivate
 
 //  from ../qtconnectivity/src/bluetooth/bluez/leadvertisingmanager1.cpp, line 25, as _ZN18QtBluetoothPrivate38OrgBluezLEAdvertisingManager1InterfaceD1Ev
 namespace QtBluetoothPrivate {
@@ -251,11 +414,42 @@ int ritual_ZN18QtBluetoothPrivate38OrgBluezLEAdvertisingManager1Interface11qt_me
   return self->qt_metacall(a0, a1, a2);
 }
 
+//  QString
+//      QtBluetoothPrivate::OrgBluezLEAdvertisingManager1Interface::tr(const
+//      char *s, const char *c, int n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN18QtBluetoothPrivate38OrgBluezLEAdvertisingManager1Interface2trEPKcS2_i(
+    const char *s,
+    const char *c,
+    int n) {
+  return new QString(
+      QtBluetoothPrivate::OrgBluezLEAdvertisingManager1Interface::tr(
+          s,
+          c,
+          n));
+}
+
 //  const char *QtBluetoothPrivate::OrgBluezLEAdvertisingManager1Interface::s
 //      taticInterfaceName()
 extern "C" Q_DECL_EXPORT
 const char *ritual_ZN18QtBluetoothPrivate38OrgBluezLEAdvertisingManager1Interface19staticInterfaceNameEv() {
   return QtBluetoothPrivate::OrgBluezLEAdvertisingManager1Interface::staticInterfaceName();
+}
+
+//  QtBluetoothPrivate::OrgBluezLEAdvertisingManager1Interface::OrgBluezLEAdv
+//      ertisingManager1Interface(const QString &service, const QString
+//      &path, const QDBusConnection &connection, QObject *parent)
+extern "C" Q_DECL_EXPORT
+QtBluetoothPrivate::OrgBluezLEAdvertisingManager1Interface *ritual_ZN18QtBluetoothPrivate38OrgBluezLEAdvertisingManager1InterfaceC1ERK7QStringS3_RK15QDBusConnectionP7QObject(
+    const QString *service,
+    const QString *path,
+    const QDBusConnection *connection,
+    QObject *parent) {
+  return new CuteQtBluetoothPrivate_OrgBluezLEAdvertisingManager1Interface(
+      *service,
+      *path,
+      *connection,
+      parent);
 }
 
 //  QtBluetoothPrivate::OrgBluezLEAdvertisingManager1Interface::~OrgBluezLEAd

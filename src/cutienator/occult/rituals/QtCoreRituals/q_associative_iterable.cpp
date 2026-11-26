@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtCore/qassociativeiterable.h, Qt 6.12.0. Changes made here are lost.
+//  QtCore/qassociativeiterable.h, Qt 6.12.0. Edited by hand on 2026-11-25,
+//  mended on 2026-11-26: added by hand, instances of templates of the class:
+//  4. Kept as it is when the generator runs again.
 #include <QtCore/qglobal.h>
 #if QT_DEPRECATED_SINCE(6, 15)
 #include <QtCore/qassociativeiterable.h>
@@ -8,6 +10,8 @@
 #include <QtCore/qvariant.h>
 #include <QtCore/QAssociativeIterable>
 #include <QtCore/QVariant>
+#include <QtCore/qmap.h>
+#include <QtCore/qhash.h>
 
 //  QAssociativeIterable::QAssociativeIterable()
 extern "C" Q_DECL_EXPORT
@@ -180,6 +184,38 @@ extern "C" Q_DECL_EXPORT
 void ritual_drop_QAssociativeIterable__QAssociativeIterable_iterator(
     QAssociativeIterable::iterator *self) {
   delete self;
+}
+
+//  QAssociativeIterable::QAssociativeIterable<QMap<QString, QVariant>>(const
+//      QMap<QString, QVariant> *p)
+extern "C" Q_DECL_EXPORT
+QAssociativeIterable * ritual_ZN20QAssociativeIterableC1I4QMapI7QString8QVariantEEEPKT_(
+    const QMap<QString, QVariant> *p) {
+  return new QAssociativeIterable(p);
+}
+
+//  QAssociativeIterable::QAssociativeIterable<QMap<QString,
+//      QVariant>>(QMap<QString, QVariant> *p)
+extern "C" Q_DECL_EXPORT
+QAssociativeIterable * ritual_ZN20QAssociativeIterableC1I4QMapI7QString8QVariantEEEPT_(
+    QMap<QString, QVariant> *p) {
+  return new QAssociativeIterable(p);
+}
+
+//  QAssociativeIterable::QAssociativeIterable<QHash<QString,
+//      QVariant>>(const QHash<QString, QVariant> *p)
+extern "C" Q_DECL_EXPORT
+QAssociativeIterable * ritual_ZN20QAssociativeIterableC1I5QHashI7QString8QVariantEEEPKT_(
+    const QHash<QString, QVariant> *p) {
+  return new QAssociativeIterable(p);
+}
+
+//  QAssociativeIterable::QAssociativeIterable<QHash<QString,
+//      QVariant>>(QHash<QString, QVariant> *p)
+extern "C" Q_DECL_EXPORT
+QAssociativeIterable * ritual_ZN20QAssociativeIterableC1I5QHashI7QString8QVariantEEEPT_(
+    QHash<QString, QVariant> *p) {
+  return new QAssociativeIterable(p);
 }
 
 #endif  // QT_DEPRECATED_SINCE(6, 15)

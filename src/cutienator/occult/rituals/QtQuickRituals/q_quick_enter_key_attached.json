@@ -1,8 +1,8 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "QtQuick/6.12.0/QtQuick/private/qquickitem_p.h, Qt 6.12.0. Changes",
-    "made here are lost."
+    "QtQuick/6.12.0/QtQuick/private/qquickitem_p.h, Qt 6.12.0. Edited",
+    "by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZNK22QQuickEnterKeyAttached10metaObjectEv": [
@@ -14,13 +14,23 @@
     "ritual_ZN22QQuickEnterKeyAttached11qt_metacallEN11QMetaObject4CallEiPPv": [
       "int", "address", "int", "int", "address"
     ],
+    "ritual_ZN22QQuickEnterKeyAttached2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
     "ritual_ZN22QQuickEnterKeyAttached24qt_qmlMarker_uncreatableEv": [
       "nothing", "address"
     ],
     "ritual_ZN22QQuickEnterKeyAttached21qt_qmlMarker_attachedEv": [
       "nothing", "address"
     ],
+    "ritual_ZN22QQuickEnterKeyAttachedC1EP7QObject": ["address", "address"],
     "ritual_ZNK22QQuickEnterKeyAttached4typeEv": ["int", "address"],
+    "ritual_ZN22QQuickEnterKeyAttached7setTypeEN2Qt12EnterKeyTypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN22QQuickEnterKeyAttached21qmlAttachedPropertiesEP7QObject": [
+      "address", "address"
+    ],
     "ritual_ZN22QQuickEnterKeyAttached11typeChangedEv": [
       "nothing", "address"
     ]

@@ -36,6 +36,9 @@ inline void QMapQuickItemMatrix4x4::applyTo(QMatrix4x4 *matrix) const
     *matrix *= m_matrix;
 }
 
+//  from ../qtlocation/src/location/quickmapitems/qdeclarativegeomapquickitem.cpp, line 98, as _ZN22QMapQuickItemMatrix4x4C1EP7QObject
+inline QMapQuickItemMatrix4x4::QMapQuickItemMatrix4x4(QObject *parent) : QQuickTransform(parent) { }
+
 //  from ../qtlocation/src/location/quickmapitems/qdeclarativegeomapquickitem.cpp, line 100, as _ZN22QMapQuickItemMatrix4x49setMatrixERK10QMatrix4x4
 inline void QMapQuickItemMatrix4x4::setMatrix(const QMatrix4x4 &matrix)
 {
@@ -228,6 +231,13 @@ public:
   }
 #endif  // !defined(QT_NO_QOBJECT)
 };
+
+//  QMapQuickItemMatrix4x4::QMapQuickItemMatrix4x4(QObject *parent)
+extern "C" Q_DECL_EXPORT
+QMapQuickItemMatrix4x4 *ritual_ZN22QMapQuickItemMatrix4x4C1EP7QObject(
+    QObject *parent) {
+  return new CuteQMapQuickItemMatrix4x4(parent);
+}
 
 //  void QMapQuickItemMatrix4x4::setMatrix(const QMatrix4x4 &matrix)
 extern "C" Q_DECL_EXPORT

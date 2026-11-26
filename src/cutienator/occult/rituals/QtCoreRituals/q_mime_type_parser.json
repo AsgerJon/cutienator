@@ -5,6 +5,9 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN15QMimeTypeParserC1ER16QMimeXMLProvider": [
+      "address", "address"
+    ],
     "ritual_ZN15QMimeTypeParserD1Ev": ["nothing", "address"],
     "ritual_ZN15QMimeTypeParser7processERK16QMimeTypeXMLDataP7QString": [
       "bool", "address", "address", "address"

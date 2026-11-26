@@ -83,6 +83,17 @@ inline void QDateTimeAxisPrivate::setRange(qreal min, qreal max)
     }
 }
 
+//  from ../qtgraphs/src/graphs2d/axis/qabstractaxis.cpp, line 699, as _ZN20QAbstractAxisPrivateD1Ev
+inline QAbstractAxisPrivate::~QAbstractAxisPrivate()
+{
+    Q_Q(QAbstractAxis);
+    if (m_graph)
+        m_graph->removeAxis(q, true);
+}
+
+//  from ../qtgraphs/src/graphs2d/axis/datetimeaxis/qdatetimeaxis.cpp, line 503, as _ZN20QDateTimeAxisPrivateC1Ev
+inline QDateTimeAxisPrivate::QDateTimeAxisPrivate() {}
+
 //  from ../qtgraphs/src/graphs2d/axis/datetimeaxis/qdatetimeaxis.cpp, line 552, as _ZN20QDateTimeAxisPrivate20calculateVisualRangeEv
 inline void QDateTimeAxisPrivate::calculateVisualRange()
 {
@@ -214,6 +225,12 @@ public:
     return QDateTimeAxisPrivate::max();
   }
 };
+
+//  QDateTimeAxisPrivate::QDateTimeAxisPrivate()
+extern "C" Q_DECL_EXPORT
+QDateTimeAxisPrivate *ritual_ZN20QDateTimeAxisPrivateC1Ev() {
+  return new CuteQDateTimeAxisPrivate();
+}
 
 //  QDateTimeAxisPrivate::~QDateTimeAxisPrivate()
 extern "C" Q_DECL_EXPORT

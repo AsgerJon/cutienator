@@ -6,6 +6,7 @@
   ],
   "rows": {
     "ritual_ZN18AbstractRenderItemC1Ev": ["address"],
+    "ritual_ZN18AbstractRenderItemC1ERKS_": ["address", "address"],
     "ritual_ZN18AbstractRenderItemaSERKS_": [
       "address", "address", "address"
     ],

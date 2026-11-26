@@ -325,6 +325,17 @@ inline void *QAccessibleDisplay::interface_cast(QAccessible::InterfaceType t)
 }
 #endif  // QT_CONFIG(accessibility)
 
+//  from src/widgets/accessible/simplewidgets.cpp, line 878, as _ZN22QAccessibleProgressBarC1EP7QWidget
+#if QT_CONFIG(accessibility)
+#if QT_CONFIG(progressbar)
+inline QAccessibleProgressBar::QAccessibleProgressBar(QWidget *o)
+    : QAccessibleDisplay(o)
+{
+    Q_ASSERT(progressBar());
+}
+#endif  // QT_CONFIG(progressbar)
+#endif  // QT_CONFIG(accessibility)
+
 //  from src/widgets/accessible/simplewidgets.cpp, line 914, as _ZNK22QAccessibleProgressBar11progressBarEv
 #if QT_CONFIG(accessibility)
 #if QT_CONFIG(progressbar)
@@ -1067,6 +1078,17 @@ public:
   }
 #endif  // QT_CONFIG(accessibility)
 };
+
+#if QT_CONFIG(accessibility)
+#if QT_CONFIG(progressbar)
+//  QAccessibleProgressBar::QAccessibleProgressBar(QWidget *o)
+extern "C" Q_DECL_EXPORT
+QAccessibleProgressBar *ritual_ZN22QAccessibleProgressBarC1EP7QWidget(
+    QWidget *o) {
+  return new CuteQAccessibleProgressBar(o);
+}
+#endif  // QT_CONFIG(progressbar)
+#endif  // QT_CONFIG(accessibility)
 
 //  void *QAccessibleProgressBar::interface_cast(QAccessible::InterfaceType
 //      t)

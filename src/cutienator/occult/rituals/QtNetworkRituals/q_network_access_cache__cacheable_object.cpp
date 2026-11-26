@@ -30,6 +30,14 @@ inline QNetworkAccessCache::CacheableObject::~CacheableObject()
                    << "destroyed without being removed from cache first!";
 #endif
 }
+
+//  from src/network/access/qnetworkaccesscache.cpp, line 30, as _ZN19QNetworkAccessCache15CacheableObjectC1E6QFlagsINS0_6OptionEE
+inline QNetworkAccessCache::CacheableObject::CacheableObject(Options options)
+    : expires(options & Option::Expires),
+      shareable(options & Option::Shareable)
+{
+
+}
 //  -----------------------------------------------------------------------
 
 //  A QNetworkAccessCache::CacheableObject that Python can take functions over in. Every QNetworkAccessCache::CacheableObject
@@ -79,6 +87,14 @@ extern "C" Q_DECL_EXPORT
 QByteArray *ritual_ZNK19QNetworkAccessCache15CacheableObject8cacheKeyEv(
     const QNetworkAccessCache::CacheableObject *self) {
   return new QByteArray(self->cacheKey());
+}
+
+//  QNetworkAccessCache::CacheableObject::CacheableObject(Options options)
+extern "C" Q_DECL_EXPORT
+QNetworkAccessCache::CacheableObject *ritual_ZN19QNetworkAccessCache15CacheableObjectC1E6QFlagsINS0_6OptionEE(
+    int options) {
+  return new CuteQNetworkAccessCache_CacheableObject(
+      QFlags<QNetworkAccessCache::CacheableObject::Option>::fromInt(options));
 }
 
 //  a Python function taken by a CuteQNetworkAccessCache_CacheableObject, for

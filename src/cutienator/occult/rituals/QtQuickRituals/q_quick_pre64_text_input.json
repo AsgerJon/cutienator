@@ -2,7 +2,7 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtQuick/6.12.0/QtQuick/private/qquicktextinput_p.h, Qt 6.12.0.",
-    "Changes made here are lost."
+    "Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZNK20QQuickPre64TextInput10metaObjectEv": ["address", "address"],
@@ -11,6 +11,12 @@
     ],
     "ritual_ZN20QQuickPre64TextInput11qt_metacallEN11QMetaObject4CallEiPPv": [
       "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN20QQuickPre64TextInput2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN20QQuickPre64TextInputC1EP10QQuickItem": [
+      "address", "address"
     ],
     "ritual_take_QQuickPre64TextInput": [
       "bool", "address", "chars", "address"

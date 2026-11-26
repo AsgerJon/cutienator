@@ -1,8 +1,8 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "QtWidgets/6.12.0/QtWidgets/private/qsidebar_p.h, Qt 6.12.0.",
-    "Changes made here are lost."
+    "QtWidgets/6.12.0/QtWidgets/private/qsidebar_p.h, Qt 6.12.0. Edited",
+    "by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZNK8QSidebar10metaObjectEv": ["address", "address"],
@@ -10,7 +10,12 @@
     "ritual_ZN8QSidebar11qt_metacallEN11QMetaObject4CallEiPPv": [
       "int", "address", "int", "int", "address"
     ],
+    "ritual_ZN8QSidebar2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN8QSidebar7goToUrlERK4QUrl": ["nothing", "address", "address"],
+    "ritual_ZN8QSidebarC1EP7QWidget": ["address", "address"],
+    "ritual_ZN8QSidebar15setModelAndUrlsEP16QFileSystemModelRK5QListI4QUrlE": [
+      "nothing", "address", "address", "address"
+    ],
     "ritual_ZN8QSidebarD1Ev": ["nothing", "address"],
     "ritual_ZNK8QSidebar8sizeHintEv": ["address", "address"],
     "ritual_ZN8QSidebar7setUrlsERK5QListI4QUrlE": [
@@ -20,6 +25,9 @@
       "nothing", "address", "address", "int"
     ],
     "ritual_ZNK8QSidebar4urlsEv": ["address", "address"],
+    "ritual_ZN8QSidebar9selectUrlERK4QUrl": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN8QSidebar5eventEP6QEvent": ["bool", "address", "address"],
     "ritual_ZN8QSidebar12focusInEventEP11QFocusEvent": [
       "nothing", "address", "address"

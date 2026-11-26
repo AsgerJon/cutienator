@@ -1,6 +1,12 @@
 //  Written by dev_tooling.RitualGenerator from the records of QtLabsPlatform
 //  /6.12.0/QtLabsPlatform/private/qquicklabsplatformfiledialog_p.h, Qt
-//  6.12.0. Changes made here are lost.
+//  6.12.0.
+//  Edited by hand on 2026-11-26: added are 3 rituals that lean on what moc
+//  writes for a class of the part Qt keeps to itself, whose ritual file
+//  carries moc's output, drafted by a copy of the generator that lets those
+//  names through. A copy of a meta-object is a second one: 'qobject_cast'
+//  between it and Qt's own does not match. Kept as it is when the generator
+//  runs again.
 #include <QtLabsPlatform/qtlabsplatformexports.h>
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #if QT_DEPRECATED_SINCE(6, 9)
@@ -67,6 +73,37 @@ static QStringList extractExtensions(QStringView filter)
 }
 #endif  // QT_DEPRECATED_SINCE(6, 9)
 
+//  from ../qtdeclarative/src/labs/platform/qquicklabsplatformdialog.cpp, line 303, as _ZN24QQuickLabsPlatformDialog10classBeginEv
+inline void QQuickLabsPlatformDialog::classBegin()
+{
+}
+
+//  from ../qtdeclarative/src/labs/platform/qquicklabsplatformdialog.cpp, line 307, as _ZN24QQuickLabsPlatformDialog17componentCompleteEv
+inline void QQuickLabsPlatformDialog::componentComplete()
+{
+    m_complete = true;
+    if (!m_parentWindow)
+        setParentWindow(findParentWindow());
+}
+
+//  from ../qtdeclarative/src/labs/platform/qquicklabsplatformdialog.cpp, line 292, as _ZN24QQuickLabsPlatformDialog4doneEi
+inline void QQuickLabsPlatformDialog::done(int result)
+{
+    close();
+    setResult(result);
+
+    if (result == Accepted)
+        emit accepted();
+    else if (result == Rejected)
+        emit rejected();
+}
+
+//  from ../qtdeclarative/src/labs/platform/qquicklabsplatformdialog.cpp, line 280, as _ZN24QQuickLabsPlatformDialog6rejectEv
+inline void QQuickLabsPlatformDialog::reject()
+{
+    done(Rejected);
+}
+
 //  from ../qtdeclarative/src/labs/platform/qquicklabsplatformdialog.cpp, line 59, as _ZN24QQuickLabsPlatformDialogC2EN14QPlatformTheme10DialogTypeEP7QObject
 inline QQuickLabsPlatformDialog::QQuickLabsPlatformDialog(QPlatformTheme::DialogType type, QObject *parent)
     : QObject(parent),
@@ -87,47 +124,23 @@ inline QQuickLabsPlatformDialog::~QQuickLabsPlatformDialog()
     destroy();
 }
 
-//  from ../qtdeclarative/src/labs/platform/qquicklabsplatformdialog.cpp, line 77, as _ZNK24QQuickLabsPlatformDialog6handleEv
-inline QPlatformDialogHelper *QQuickLabsPlatformDialog::handle() const
-{
-    return m_handle;
-}
-
-//  from ../qtdeclarative/src/labs/platform/qquicklabsplatformfiledialog.cpp, line 581, as _ZN32QQuickLabsPlatformFileNameFilter10setOptionsERK14QSharedPointerI18QFileDialogOptionsE
+//  from ../qtdeclarative/src/labs/platform/qquicklabsplatformfiledialog.cpp, line 516, as _ZN28QQuickLabsPlatformFileDialog6acceptEv
 #if QT_DEPRECATED_SINCE(6, 9)
-inline void QQuickLabsPlatformFileNameFilter::setOptions(const QSharedPointer<QFileDialogOptions> &options)
+inline void QQuickLabsPlatformFileDialog::accept()
 {
-    m_options = options;
+    if (QPlatformFileDialogHelper *fileDialog = qobject_cast<QPlatformFileDialogHelper *>(handle()))
+        setFiles(fileDialog->selectedFiles());
+    QQuickLabsPlatformDialog::accept();
 }
 #endif  // QT_DEPRECATED_SINCE(6, 9)
 
-//  from ../qtdeclarative/src/labs/platform/qquicklabsplatformfiledialog.cpp, line 547, as _ZN32QQuickLabsPlatformFileNameFilterC1EP7QObject
+//  from ../qtdeclarative/src/labs/platform/qquicklabsplatformfiledialog.cpp, line 508, as _ZN28QQuickLabsPlatformFileDialog6onHideEP21QPlatformDialogHelper
 #if QT_DEPRECATED_SINCE(6, 9)
-inline QQuickLabsPlatformFileNameFilter::QQuickLabsPlatformFileNameFilter(QObject *parent)
-    : QObject(parent), m_index(-1)
-{
-}
-#endif  // QT_DEPRECATED_SINCE(6, 9)
-
-//  from ../qtdeclarative/src/labs/platform/qquicklabsplatformfiledialog.cpp, line 472, as _ZNK28QQuickLabsPlatformFileDialog15useNativeDialogEv
-#if QT_DEPRECATED_SINCE(6, 9)
-inline bool QQuickLabsPlatformFileDialog::useNativeDialog() const
-{
-    return QQuickLabsPlatformDialog::useNativeDialog()
-            && !m_options->testOption(QFileDialogOptions::DontUseNativeDialog);
-}
-#endif  // QT_DEPRECATED_SINCE(6, 9)
-
-//  from ../qtdeclarative/src/labs/platform/qquicklabsplatformfiledialog.cpp, line 478, as _ZN28QQuickLabsPlatformFileDialog8onCreateEP21QPlatformDialogHelper
-#if QT_DEPRECATED_SINCE(6, 9)
-inline void QQuickLabsPlatformFileDialog::onCreate(QPlatformDialogHelper *dialog)
+inline void QQuickLabsPlatformFileDialog::onHide(QPlatformDialogHelper *dialog)
 {
     if (QPlatformFileDialogHelper *fileDialog = qobject_cast<QPlatformFileDialogHelper *>(dialog)) {
-        // TODO: emit currentFileChanged only when the first entry in currentFiles changes
-        connect(fileDialog, &QPlatformFileDialogHelper::currentChanged, this, &QQuickLabsPlatformFileDialog::currentFileChanged);
-        connect(fileDialog, &QPlatformFileDialogHelper::currentChanged, this, &QQuickLabsPlatformFileDialog::currentFilesChanged);
-        connect(fileDialog, &QPlatformFileDialogHelper::directoryEntered, this, &QQuickLabsPlatformFileDialog::folderChanged);
-        fileDialog->setOptions(m_options);
+        if (m_selectedNameFilter)
+            disconnect(fileDialog, &QPlatformFileDialogHelper::filterSelected, m_selectedNameFilter, &QQuickLabsPlatformFileNameFilter::update);
     }
 }
 #endif  // QT_DEPRECATED_SINCE(6, 9)
@@ -154,33 +167,27 @@ inline void QQuickLabsPlatformFileDialog::onShow(QPlatformDialogHelper *dialog)
 }
 #endif  // QT_DEPRECATED_SINCE(6, 9)
 
-//  from ../qtdeclarative/src/labs/platform/qquicklabsplatformfiledialog.cpp, line 508, as _ZN28QQuickLabsPlatformFileDialog6onHideEP21QPlatformDialogHelper
+//  from ../qtdeclarative/src/labs/platform/qquicklabsplatformfiledialog.cpp, line 478, as _ZN28QQuickLabsPlatformFileDialog8onCreateEP21QPlatformDialogHelper
 #if QT_DEPRECATED_SINCE(6, 9)
-inline void QQuickLabsPlatformFileDialog::onHide(QPlatformDialogHelper *dialog)
+inline void QQuickLabsPlatformFileDialog::onCreate(QPlatformDialogHelper *dialog)
 {
     if (QPlatformFileDialogHelper *fileDialog = qobject_cast<QPlatformFileDialogHelper *>(dialog)) {
-        if (m_selectedNameFilter)
-            disconnect(fileDialog, &QPlatformFileDialogHelper::filterSelected, m_selectedNameFilter, &QQuickLabsPlatformFileNameFilter::update);
+        // TODO: emit currentFileChanged only when the first entry in currentFiles changes
+        connect(fileDialog, &QPlatformFileDialogHelper::currentChanged, this, &QQuickLabsPlatformFileDialog::currentFileChanged);
+        connect(fileDialog, &QPlatformFileDialogHelper::currentChanged, this, &QQuickLabsPlatformFileDialog::currentFilesChanged);
+        connect(fileDialog, &QPlatformFileDialogHelper::directoryEntered, this, &QQuickLabsPlatformFileDialog::folderChanged);
+        fileDialog->setOptions(m_options);
     }
 }
 #endif  // QT_DEPRECATED_SINCE(6, 9)
 
-//  from ../qtdeclarative/src/labs/platform/qquicklabsplatformfiledialog.cpp, line 516, as _ZN28QQuickLabsPlatformFileDialog6acceptEv
+//  from ../qtdeclarative/src/labs/platform/qquicklabsplatformfiledialog.cpp, line 581, as _ZN32QQuickLabsPlatformFileNameFilter10setOptionsERK14QSharedPointerI18QFileDialogOptionsE
 #if QT_DEPRECATED_SINCE(6, 9)
-inline void QQuickLabsPlatformFileDialog::accept()
+inline void QQuickLabsPlatformFileNameFilter::setOptions(const QSharedPointer<QFileDialogOptions> &options)
 {
-    if (QPlatformFileDialogHelper *fileDialog = qobject_cast<QPlatformFileDialogHelper *>(handle()))
-        setFiles(fileDialog->selectedFiles());
-    QQuickLabsPlatformDialog::accept();
+    m_options = options;
 }
 #endif  // QT_DEPRECATED_SINCE(6, 9)
-
-//  from ../qtdeclarative/src/labs/platform/qquicklabsplatformdialog.cpp, line 342, as _ZNK24QQuickLabsPlatformDialog15useNativeDialogEv
-inline bool QQuickLabsPlatformDialog::useNativeDialog() const
-{
-    return !QCoreApplication::testAttribute(Qt::AA_DontUseNativeDialogs)
-            && QGuiApplicationPrivate::platformTheme()->usePlatformNativeDialog(m_type);
-}
 
 //  from ../qtdeclarative/src/labs/platform/qquicklabsplatformfiledialog.cpp, line 611, as _ZN32QQuickLabsPlatformFileNameFilter6updateERK7QString
 #if QT_DEPRECATED_SINCE(6, 9)
@@ -202,6 +209,58 @@ inline void QQuickLabsPlatformFileNameFilter::update(const QString &filter)
         emit nameChanged(m_name);
     if (oldExtensions != m_extensions)
         emit extensionsChanged(m_extensions);
+}
+#endif  // QT_DEPRECATED_SINCE(6, 9)
+
+//  from ../qtdeclarative/src/labs/platform/qquicklabsplatformfiledialog.cpp, line 547, as _ZN32QQuickLabsPlatformFileNameFilterC1EP7QObject
+#if QT_DEPRECATED_SINCE(6, 9)
+inline QQuickLabsPlatformFileNameFilter::QQuickLabsPlatformFileNameFilter(QObject *parent)
+    : QObject(parent), m_index(-1)
+{
+}
+#endif  // QT_DEPRECATED_SINCE(6, 9)
+
+//  from ../qtdeclarative/src/labs/platform/qquicklabsplatformdialog.cpp, line 77, as _ZNK24QQuickLabsPlatformDialog6handleEv
+inline QPlatformDialogHelper *QQuickLabsPlatformDialog::handle() const
+{
+    return m_handle;
+}
+
+//  from ../qtdeclarative/src/labs/platform/qquicklabsplatformfiledialog.cpp, line 472, as _ZNK28QQuickLabsPlatformFileDialog15useNativeDialogEv
+#if QT_DEPRECATED_SINCE(6, 9)
+inline bool QQuickLabsPlatformFileDialog::useNativeDialog() const
+{
+    return QQuickLabsPlatformDialog::useNativeDialog()
+            && !m_options->testOption(QFileDialogOptions::DontUseNativeDialog);
+}
+#endif  // QT_DEPRECATED_SINCE(6, 9)
+
+//  from ../qtdeclarative/src/labs/platform/qquicklabsplatformfiledialog.cpp, line 552, as _ZNK32QQuickLabsPlatformFileNameFilter5indexEv
+#if QT_DEPRECATED_SINCE(6, 9)
+inline int QQuickLabsPlatformFileNameFilter::index() const
+{
+    return m_index;
+}
+#endif  // QT_DEPRECATED_SINCE(6, 9)
+
+//  from ../qtdeclarative/src/labs/platform/qquicklabsplatformdialog.cpp, line 342, as _ZNK24QQuickLabsPlatformDialog15useNativeDialogEv
+inline bool QQuickLabsPlatformDialog::useNativeDialog() const
+{
+    return !QCoreApplication::testAttribute(Qt::AA_DontUseNativeDialogs)
+            && QGuiApplicationPrivate::platformTheme()->usePlatformNativeDialog(m_type);
+}
+
+//  from ../qtdeclarative/src/labs/platform/qquicklabsplatformdialog.cpp, line 122, as _ZNK24QQuickLabsPlatformDialog5titleEv
+inline QString QQuickLabsPlatformDialog::title() const
+{
+    return m_title;
+}
+
+//  from ../qtdeclarative/src/labs/platform/qquicklabsplatformfiledialog.cpp, line 631, as _ZNK32QQuickLabsPlatformFileNameFilter11nameFiltersEv
+#if QT_DEPRECATED_SINCE(6, 9)
+inline QStringList QQuickLabsPlatformFileNameFilter::nameFilters() const
+{
+    return m_options ? m_options->nameFilters() : QStringList();
 }
 #endif  // QT_DEPRECATED_SINCE(6, 9)
 
@@ -324,6 +383,19 @@ inline QStringList QQuickLabsPlatformFileDialog::nameFilters() const
 }
 #endif  // QT_DEPRECATED_SINCE(6, 9)
 
+//  from ../qtdeclarative/src/labs/platform/qquicklabsplatformfiledialog.cpp, line 371, as _ZNK28QQuickLabsPlatformFileDialog18selectedNameFilterEv
+#if QT_DEPRECATED_SINCE(6, 9)
+inline QQuickLabsPlatformFileNameFilter *QQuickLabsPlatformFileDialog::selectedNameFilter() const
+{
+    if (!m_selectedNameFilter) {
+        QQuickLabsPlatformFileDialog *that = const_cast<QQuickLabsPlatformFileDialog *>(this);
+        m_selectedNameFilter = new QQuickLabsPlatformFileNameFilter(that);
+        m_selectedNameFilter->setOptions(m_options);
+    }
+    return m_selectedNameFilter;
+}
+#endif  // QT_DEPRECATED_SINCE(6, 9)
+
 //  from ../qtdeclarative/src/labs/platform/qquicklabsplatformfiledialog.cpp, line 390, as _ZNK28QQuickLabsPlatformFileDialog13defaultSuffixEv
 #if QT_DEPRECATED_SINCE(6, 9)
 inline QString QQuickLabsPlatformFileDialog::defaultSuffix() const
@@ -383,6 +455,8 @@ inline QList<QUrl> QQuickLabsPlatformFileDialog::addDefaultSuffixes(const QList<
 //  This one is, and makes them free for the rituals to call.
 struct OwnQQuickLabsPlatformFileDialog : QQuickLabsPlatformFileDialog {
   using QQuickLabsPlatformFileDialog::useNativeDialog;
+  using QQuickLabsPlatformFileDialog::onShow;
+  using QQuickLabsPlatformFileDialog::onHide;
 };
 
 //  const QMetaObject *QQuickLabsPlatformFileDialog::metaObject() const
@@ -525,6 +599,16 @@ extern "C" Q_DECL_EXPORT
 QList<QString> *ritual_ZNK28QQuickLabsPlatformFileDialog11nameFiltersEv(
     const QQuickLabsPlatformFileDialog *self) {
   return new QList<QString>(self->nameFilters());
+}
+#endif  // QT_DEPRECATED_SINCE(6, 9)
+
+#if QT_DEPRECATED_SINCE(6, 9)
+//  QQuickLabsPlatformFileNameFilter
+//      *QQuickLabsPlatformFileDialog::selectedNameFilter() const
+extern "C" Q_DECL_EXPORT
+QQuickLabsPlatformFileNameFilter *ritual_ZNK28QQuickLabsPlatformFileDialog18selectedNameFilterEv(
+    const QQuickLabsPlatformFileDialog *self) {
+  return self->selectedNameFilter();
 }
 #endif  // QT_DEPRECATED_SINCE(6, 9)
 
@@ -897,6 +981,28 @@ extern "C" Q_DECL_EXPORT
 bool ritual_own_ZNK28QQuickLabsPlatformFileDialog15useNativeDialogEv(
     const QQuickLabsPlatformFileDialog *self) {
   return static_cast<const OwnQQuickLabsPlatformFileDialog *>(self)->OwnQQuickLabsPlatformFileDialog::useNativeDialog();
+}
+#endif  // QT_DEPRECATED_SINCE(6, 9)
+
+#if QT_DEPRECATED_SINCE(6, 9)
+//  void QQuickLabsPlatformFileDialog::onShow(QPlatformDialogHelper *dialog)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN28QQuickLabsPlatformFileDialog6onShowEP21QPlatformDialogHelper(
+    QQuickLabsPlatformFileDialog *self,
+    QPlatformDialogHelper *dialog) {
+  static_cast<OwnQQuickLabsPlatformFileDialog *>(self)->OwnQQuickLabsPlatformFileDialog::onShow(
+      dialog);
+}
+#endif  // QT_DEPRECATED_SINCE(6, 9)
+
+#if QT_DEPRECATED_SINCE(6, 9)
+//  void QQuickLabsPlatformFileDialog::onHide(QPlatformDialogHelper *dialog)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN28QQuickLabsPlatformFileDialog6onHideEP21QPlatformDialogHelper(
+    QQuickLabsPlatformFileDialog *self,
+    QPlatformDialogHelper *dialog) {
+  static_cast<OwnQQuickLabsPlatformFileDialog *>(self)->OwnQQuickLabsPlatformFileDialog::onHide(
+      dialog);
 }
 #endif  // QT_DEPRECATED_SINCE(6, 9)
 

@@ -1,6 +1,12 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtSerialBus/6.12.0/QtSerialBus/private/qmodbusrtuserialclient_p.h, Qt
-//  6.12.0. Changes made here are lost.
+//  6.12.0.
+//  Edited by hand on 2026-11-26: added are 1 rituals that lean on what moc
+//  writes for a class of the part Qt keeps to itself, whose ritual file
+//  carries moc's output, drafted by a copy of the generator that lets those
+//  names through. A copy of a meta-object is a second one: 'qobject_cast'
+//  between it and Qt's own does not match. Kept as it is when the generator
+//  runs again.
 #include <QtSerialBus/qtserialbusglobal.h>
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #if QT_CONFIG(modbus_serialport)
@@ -193,6 +199,13 @@ void ritual_ZN29QModbusRtuSerialClientPrivate7onErrorEN11QSerialPort15SerialPort
     QModbusRtuSerialClientPrivate *self,
     QSerialPort::SerialPortError error) {
   self->onError(error);
+}
+
+//  void QModbusRtuSerialClientPrivate::setupSerialPort()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN29QModbusRtuSerialClientPrivate15setupSerialPortEv(
+    QModbusRtuSerialClientPrivate *self) {
+  self->setupSerialPort();
 }
 
 //  void QModbusRtuSerialClientPrivate::setupEnvironment()

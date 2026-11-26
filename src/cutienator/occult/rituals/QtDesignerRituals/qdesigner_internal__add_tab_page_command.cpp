@@ -98,6 +98,22 @@ using namespace Qt::StringLiterals;
 inline AddTabPageCommand::~AddTabPageCommand() = default;
 }  // namespace qdesigner_internal
 
+//  from ../qttools/src/designer/src/lib/shared/qdesigner_command.cpp, line 1095, as _ZN18qdesigner_internal16TabWidgetCommand10removePageEv
+namespace qdesigner_internal {
+using namespace Qt::StringLiterals;
+inline void TabWidgetCommand::removePage()
+{
+    m_tabWidget->removeTab(m_index);
+
+    m_widget->hide();
+    m_widget->setParent(formWindow());
+    m_tabWidget->setCurrentIndex(qMin(m_index, m_tabWidget->count()));
+
+    formWindow()->clearSelection();
+    formWindow()->selectWidget(m_tabWidget, true);
+}
+}  // namespace qdesigner_internal
+
 //  from ../qttools/src/designer/src/lib/shared/qdesigner_command.cpp, line 1107, as _ZN18qdesigner_internal16TabWidgetCommand7addPageEv
 namespace qdesigner_internal {
 using namespace Qt::StringLiterals;
@@ -120,19 +136,18 @@ inline void TabWidgetCommand::addPage()
 }
 }  // namespace qdesigner_internal
 
-//  from ../qttools/src/designer/src/lib/shared/qdesigner_command.cpp, line 1095, as _ZN18qdesigner_internal16TabWidgetCommand10removePageEv
+//  from ../qttools/src/designer/src/lib/shared/qdesigner_command.cpp, line 1084, as _ZN18qdesigner_internal16TabWidgetCommandD2Ev
 namespace qdesigner_internal {
 using namespace Qt::StringLiterals;
-inline void TabWidgetCommand::removePage()
+inline TabWidgetCommand::~TabWidgetCommand() = default;
+}  // namespace qdesigner_internal
+
+//  from ../qttools/src/designer/src/lib/shared/qdesigner_command.cpp, line 1152, as _ZN18qdesigner_internal17AddTabPageCommandC1EP28QDesignerFormWindowInterface
+namespace qdesigner_internal {
+using namespace Qt::StringLiterals;
+inline AddTabPageCommand::AddTabPageCommand(QDesignerFormWindowInterface *formWindow)
+    : TabWidgetCommand(formWindow)
 {
-    m_tabWidget->removeTab(m_index);
-
-    m_widget->hide();
-    m_widget->setParent(formWindow());
-    m_tabWidget->setCurrentIndex(qMin(m_index, m_tabWidget->count()));
-
-    formWindow()->clearSelection();
-    formWindow()->selectWidget(m_tabWidget, true);
 }
 }  // namespace qdesigner_internal
 
@@ -269,6 +284,14 @@ public:
   }
 #endif  // QT_CONFIG(undocommand)
 };
+
+//  qdesigner_internal::AddTabPageCommand::AddTabPageCommand(QDesignerFormWin
+//      dowInterface *formWindow)
+extern "C" Q_DECL_EXPORT
+qdesigner_internal::AddTabPageCommand *ritual_ZN18qdesigner_internal17AddTabPageCommandC1EP28QDesignerFormWindowInterface(
+    QDesignerFormWindowInterface *formWindow) {
+  return new Cuteqdesigner_internal_AddTabPageCommand(formWindow);
+}
 
 //  qdesigner_internal::AddTabPageCommand::~AddTabPageCommand()
 extern "C" Q_DECL_EXPORT

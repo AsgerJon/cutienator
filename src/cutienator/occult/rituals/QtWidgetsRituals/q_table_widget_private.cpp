@@ -1,6 +1,11 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtWidgets/6.12.0/QtWidgets/private/qtablewidget_p.h, Qt 6.12.0. Changes
-//  made here are lost.
+//  QtWidgets/6.12.0/QtWidgets/private/qtablewidget_p.h, Qt 6.12.0.
+//  Edited by hand on 2026-11-26: added are 10 rituals that lean on what moc
+//  writes for a class of the part Qt keeps to itself, whose ritual file
+//  carries moc's output, drafted by a copy of the generator that lets those
+//  names through. A copy of a meta-object is a second one: 'qobject_cast'
+//  between it and Qt's own does not match. Kept as it is when the generator
+//  runs again.
 #include <QtGui/qtguiglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
@@ -12,8 +17,8 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtWidgets/6.12.0/QtWidgets/private/qtablewidget_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <QtCore/qrect.h>
 #include <QtCore/qabstractitemmodel.h>
+#include <QtCore/qrect.h>
 #include <QtCore/qpoint.h>
 #include <QtGui/QtGui>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -548,11 +553,235 @@ inline void QTableModel::ensureSorted(int column, Qt::SortOrder order,
     }
 }
 
+//  from src/widgets/itemviews/qtablewidget.cpp, line 224, as _ZNK11QTableModel4itemERK11QModelIndex
+inline QTableWidgetItem *QTableModel::item(const QModelIndex &index) const
+{
+    if (!isValid(index))
+        return nullptr;
+    return tableItems.at(tableIndex(index.row(), index.column()));
+}
+
+//  from src/widgets/itemviews/qabstractitemview.cpp, line 4458, as _ZN24QAbstractItemViewPrivate14updateGeometryEv
+inline void QAbstractItemViewPrivate::updateGeometry()
+{
+    Q_Q(QAbstractItemView);
+    if (sizeAdjustPolicy == QAbstractScrollArea::AdjustIgnored)
+        return;
+    if (sizeAdjustPolicy == QAbstractScrollArea::AdjustToContents || !shownOnce)
+        q->updateGeometry();
+}
+
+//  from src/widgets/itemviews/qabstractitemview.cpp, line 2167, as _ZN24QAbstractItemViewPrivate16droppingOnItselfEP10QDropEventRK11QModelIndex
+#if QT_CONFIG(draganddrop)
+inline bool QAbstractItemViewPrivate::droppingOnItself(QDropEvent *event, const QModelIndex &index)
+{
+    Q_Q(QAbstractItemView);
+    Qt::DropAction dropAction = event->dropAction();
+    if (q->dragDropMode() == QAbstractItemView::InternalMove)
+        dropAction = Qt::MoveAction;
+    if (event->source() == q
+        && event->possibleActions() & Qt::MoveAction
+        && dropAction == Qt::MoveAction) {
+        QModelIndexList selectedIndexes = q->selectedIndexes();
+        QModelIndex child = index;
+        while (child.isValid() && child != root) {
+            if (selectedIndexes.contains(child))
+                return true;
+            child = child.parent();
+        }
+    }
+    return false;
+}
+#endif  // QT_CONFIG(draganddrop)
+
+//  from src/widgets/itemviews/qabstractitemview.cpp, line 4444, as _ZN24QAbstractItemViewPrivate20doDelayedItemsLayoutEi
+inline void QAbstractItemViewPrivate::doDelayedItemsLayout(int delay)
+{
+    if (!delayedPendingLayout) {
+        delayedPendingLayout = true;
+        delayedLayout.start(delay, q_func());
+    }
+}
+
+//  from src/widgets/itemviews/qtablewidget.cpp, line 690, as _ZN11QTableModel12itemLessThanERKSt4pairIP16QTableWidgetItemiES5_
+inline bool QTableModel::itemLessThan(const std::pair<QTableWidgetItem*,int> &left,
+                               const std::pair<QTableWidgetItem*,int> &right)
+{
+    return *(left.first) < *(right.first);
+}
+
+//  from src/widgets/itemviews/qtablewidget.cpp, line 696, as _ZN11QTableModel15itemGreaterThanERKSt4pairIP16QTableWidgetItemiES5_
+inline bool QTableModel::itemGreaterThan(const std::pair<QTableWidgetItem*,int> &left,
+                                  const std::pair<QTableWidgetItem*,int> &right)
+{
+    return (*(right.first) < *(left .first));
+}
+
+//  from src/widgets/itemviews/qtablewidget.cpp, line 655, as _ZN11QTableModel16updateRowIndexesER5QListI11QModelIndexEii
+inline void QTableModel::updateRowIndexes(QModelIndexList &indexes,
+                                   int movedFromRow, int movedToRow)
+{
+    QModelIndexList::iterator it;
+    for (it = indexes.begin(); it != indexes.end(); ++it) {
+        int oldRow = (*it).row();
+        int newRow = oldRow;
+        if (oldRow == movedFromRow)
+            newRow = movedToRow;
+        else if (movedFromRow < oldRow && movedToRow >= oldRow)
+            newRow = oldRow - 1;
+        else if (movedFromRow > oldRow && movedToRow <= oldRow)
+            newRow = oldRow + 1;
+        if (newRow != oldRow)
+            *it = index(newRow, (*it).column(), (*it).parent());
+    }
+}
+
+//  from src/widgets/itemviews/qtablewidget.cpp, line 680, as _ZN11QTableModel23sortedInsertionIteratorERKN5QListIP16QTableWidgetItemE8iteratorES6_N2Qt9SortOrderES2_
+inline QList<QTableWidgetItem *>::iterator
+QTableModel::sortedInsertionIterator(const QList<QTableWidgetItem *>::iterator &begin,
+                                     const QList<QTableWidgetItem *>::iterator &end,
+                                     Qt::SortOrder order, QTableWidgetItem *item)
+{
+    if (order == Qt::AscendingOrder)
+        return std::lower_bound(begin, end, item, QTableModelLessThan());
+    return std::lower_bound(begin, end, item, QTableModelGreaterThan());
+}
+
+//  from src/widgets/itemviews/qtablewidget.cpp, line 631, as _ZNK11QTableModel11columnItemsEi
+inline QList<QTableWidgetItem *> QTableModel::columnItems(int column) const
+{
+    QList<QTableWidgetItem *> items;
+    int rc = rowCount();
+    items.reserve(rc);
+    for (int row = 0; row < rc; ++row) {
+        QTableWidgetItem *itm = item(row, column);
+        if (itm == nullptr) {
+            // no more sortable items (all 0-items are
+            // at the end of the table when it is sorted)
+            break;
+        }
+        items.append(itm);
+    }
+    return items;
+}
+
+//  from src/widgets/itemviews/qtablewidget.cpp, line 219, as _ZNK11QTableModel4itemEii
+inline QTableWidgetItem *QTableModel::item(int row, int column) const
+{
+    return item(index(row, column));
+}
+
+//  from src/widgets/itemviews/qtablewidget.cpp, line 742, as _ZNK11QTableModel7isValidERK11QModelIndex
+inline bool QTableModel::isValid(const QModelIndex &index) const
+{
+    return (index.isValid()
+            && index.row() < verticalHeaderItems.size()
+            && index.column() < horizontalHeaderItems.size());
+}
+
+//  from src/widgets/itemviews/qtablewidget.cpp, line 1614, as _ZN19QTableWidgetPrivate5setupEv
+inline void QTableWidgetPrivate::setup()
+{
+    Q_Q(QTableWidget);
+    connections = {
+        // view signals
+        QObjectPrivate::connect(q, &QTableWidget::pressed,
+                                this, &QTableWidgetPrivate::emitItemPressed),
+        QObjectPrivate::connect(q, &QTableWidget::clicked,
+                                this, &QTableWidgetPrivate::emitItemClicked),
+        QObjectPrivate::connect(q, &QTableWidget::doubleClicked,
+                                this, &QTableWidgetPrivate::emitItemDoubleClicked),
+        QObjectPrivate::connect(q, &QTableWidget::activated,
+                                this, &QTableWidgetPrivate::emitItemActivated),
+        QObjectPrivate::connect(q, &QTableWidget::entered,
+                                this, &QTableWidgetPrivate::emitItemEntered),
+        // model signals
+        QObjectPrivate::connect(model, &QAbstractItemModel::dataChanged,
+                                this, &QTableWidgetPrivate::emitItemChanged),
+        // selection signals
+        QObjectPrivate::connect(q->selectionModel(), &QItemSelectionModel::currentChanged,
+                                this, &QTableWidgetPrivate::emitCurrentItemChanged),
+        QObject::connect(q->selectionModel(), &QItemSelectionModel::selectionChanged,
+                         q, &QTableWidget::itemSelectionChanged),
+        // sorting
+        QObjectPrivate::connect(model, &QAbstractItemModel::dataChanged,
+                                this, &QTableWidgetPrivate::dataChanged),
+        QObjectPrivate::connect(model, &QAbstractItemModel::columnsRemoved,
+                                this, &QTableWidgetPrivate::sort)
+    };
+}
+
 //  from src/widgets/itemviews/qtablewidget.cpp, line 1645, as _ZN19QTableWidgetPrivate16clearConnectionsEv
 inline void QTableWidgetPrivate::clearConnections()
 {
     for (QMetaObject::Connection &connection : connections)
         QObject::disconnect(connection);
+}
+
+//  from src/widgets/itemviews/qtablewidget.cpp, line 1651, as _ZN19QTableWidgetPrivate15emitItemPressedERK11QModelIndex
+inline void QTableWidgetPrivate::emitItemPressed(const QModelIndex &index)
+{
+    Q_Q(QTableWidget);
+    if (QTableWidgetItem *item = tableModel()->item(index))
+        emit q->itemPressed(item);
+    emit q->cellPressed(index.row(), index.column());
+}
+
+//  from src/widgets/itemviews/qtablewidget.cpp, line 1659, as _ZN19QTableWidgetPrivate15emitItemClickedERK11QModelIndex
+inline void QTableWidgetPrivate::emitItemClicked(const QModelIndex &index)
+{
+    Q_Q(QTableWidget);
+    if (QTableWidgetItem *item = tableModel()->item(index))
+        emit q->itemClicked(item);
+    emit q->cellClicked(index.row(), index.column());
+}
+
+//  from src/widgets/itemviews/qtablewidget.cpp, line 1667, as _ZN19QTableWidgetPrivate21emitItemDoubleClickedERK11QModelIndex
+inline void QTableWidgetPrivate::emitItemDoubleClicked(const QModelIndex &index)
+{
+    Q_Q(QTableWidget);
+    if (QTableWidgetItem *item = tableModel()->item(index))
+        emit q->itemDoubleClicked(item);
+    emit q->cellDoubleClicked(index.row(), index.column());
+}
+
+//  from src/widgets/itemviews/qtablewidget.cpp, line 1675, as _ZN19QTableWidgetPrivate17emitItemActivatedERK11QModelIndex
+inline void QTableWidgetPrivate::emitItemActivated(const QModelIndex &index)
+{
+    Q_Q(QTableWidget);
+    if (QTableWidgetItem *item = tableModel()->item(index))
+        emit q->itemActivated(item);
+    emit q->cellActivated(index.row(), index.column());
+}
+
+//  from src/widgets/itemviews/qtablewidget.cpp, line 1683, as _ZN19QTableWidgetPrivate15emitItemEnteredERK11QModelIndex
+inline void QTableWidgetPrivate::emitItemEntered(const QModelIndex &index)
+{
+    Q_Q(QTableWidget);
+    if (QTableWidgetItem *item = tableModel()->item(index))
+        emit q->itemEntered(item);
+    emit q->cellEntered(index.row(), index.column());
+}
+
+//  from src/widgets/itemviews/qtablewidget.cpp, line 1691, as _ZN19QTableWidgetPrivate15emitItemChangedERK11QModelIndex
+inline void QTableWidgetPrivate::emitItemChanged(const QModelIndex &index)
+{
+    Q_Q(QTableWidget);
+    if (QTableWidgetItem *item = tableModel()->item(index))
+        emit q->itemChanged(item);
+    emit q->cellChanged(index.row(), index.column());
+}
+
+//  from src/widgets/itemviews/qtablewidget.cpp, line 1699, as _ZN19QTableWidgetPrivate22emitCurrentItemChangedERK11QModelIndexS2_
+inline void QTableWidgetPrivate::emitCurrentItemChanged(const QModelIndex &current,
+                                                 const QModelIndex &previous)
+{
+    Q_Q(QTableWidget);
+    QTableWidgetItem *currentItem = tableModel()->item(current);
+    QTableWidgetItem *previousItem = tableModel()->item(previous);
+    if (currentItem || previousItem)
+        emit q->currentItemChanged(currentItem, previousItem);
+    emit q->currentCellChanged(current.row(), current.column(), previous.row(), previous.column());
 }
 
 //  from src/widgets/itemviews/qtablewidget.cpp, line 1710, as _ZN19QTableWidgetPrivate4sortEv
@@ -562,6 +791,19 @@ inline void QTableWidgetPrivate::sort()
         int column = horizontalHeader->sortIndicatorSection();
         Qt::SortOrder order = horizontalHeader->sortIndicatorOrder();
         model->sort(column, order);
+    }
+}
+
+//  from src/widgets/itemviews/qtablewidget.cpp, line 1719, as _ZN19QTableWidgetPrivate11dataChangedERK11QModelIndexS2_
+inline void QTableWidgetPrivate::dataChanged(const QModelIndex &topLeft,
+                                      const QModelIndex &bottomRight)
+{
+    if (sortingEnabled && topLeft.isValid() && bottomRight.isValid()) {
+        int column = horizontalHeader->sortIndicatorSection();
+        if (column >= topLeft.column() && column <= bottomRight.column()) {
+            Qt::SortOrder order = horizontalHeader->sortIndicatorOrder();
+            tableModel()->ensureSorted(column, order, topLeft.row(), bottomRight.row());
+        }
     }
 }
 //  -----------------------------------------------------------------------
@@ -1345,6 +1587,19 @@ const QTableWidget *ritual_ZNK19QTableWidgetPrivate6q_funcEv(
   return self->q_func();
 }
 
+//  QTableModel *QTableWidgetPrivate::tableModel() const
+extern "C" Q_DECL_EXPORT
+QTableModel *ritual_ZNK19QTableWidgetPrivate10tableModelEv(
+    const QTableWidgetPrivate *self) {
+  return self->tableModel();
+}
+
+//  void QTableWidgetPrivate::setup()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QTableWidgetPrivate5setupEv(QTableWidgetPrivate *self) {
+  self->setup();
+}
+
 //  void QTableWidgetPrivate::clearConnections()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN19QTableWidgetPrivate16clearConnectionsEv(
@@ -1352,10 +1607,78 @@ void ritual_ZN19QTableWidgetPrivate16clearConnectionsEv(
   self->clearConnections();
 }
 
+//  void QTableWidgetPrivate::emitItemPressed(const QModelIndex &index)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QTableWidgetPrivate15emitItemPressedERK11QModelIndex(
+    QTableWidgetPrivate *self,
+    const QModelIndex *index) {
+  self->emitItemPressed(*index);
+}
+
+//  void QTableWidgetPrivate::emitItemClicked(const QModelIndex &index)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QTableWidgetPrivate15emitItemClickedERK11QModelIndex(
+    QTableWidgetPrivate *self,
+    const QModelIndex *index) {
+  self->emitItemClicked(*index);
+}
+
+//  void QTableWidgetPrivate::emitItemDoubleClicked(const QModelIndex &index)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QTableWidgetPrivate21emitItemDoubleClickedERK11QModelIndex(
+    QTableWidgetPrivate *self,
+    const QModelIndex *index) {
+  self->emitItemDoubleClicked(*index);
+}
+
+//  void QTableWidgetPrivate::emitItemActivated(const QModelIndex &index)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QTableWidgetPrivate17emitItemActivatedERK11QModelIndex(
+    QTableWidgetPrivate *self,
+    const QModelIndex *index) {
+  self->emitItemActivated(*index);
+}
+
+//  void QTableWidgetPrivate::emitItemEntered(const QModelIndex &index)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QTableWidgetPrivate15emitItemEnteredERK11QModelIndex(
+    QTableWidgetPrivate *self,
+    const QModelIndex *index) {
+  self->emitItemEntered(*index);
+}
+
+//  void QTableWidgetPrivate::emitItemChanged(const QModelIndex &index)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QTableWidgetPrivate15emitItemChangedERK11QModelIndex(
+    QTableWidgetPrivate *self,
+    const QModelIndex *index) {
+  self->emitItemChanged(*index);
+}
+
+//  void QTableWidgetPrivate::emitCurrentItemChanged(const QModelIndex
+//      &previous, const QModelIndex &current)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QTableWidgetPrivate22emitCurrentItemChangedERK11QModelIndexS2_(
+    QTableWidgetPrivate *self,
+    const QModelIndex *previous,
+    const QModelIndex *current) {
+  self->emitCurrentItemChanged(*previous, *current);
+}
+
 //  void QTableWidgetPrivate::sort()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN19QTableWidgetPrivate4sortEv(QTableWidgetPrivate *self) {
   self->sort();
+}
+
+//  void QTableWidgetPrivate::dataChanged(const QModelIndex &topLeft, const
+//      QModelIndex &bottomRight)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QTableWidgetPrivate11dataChangedERK11QModelIndexS2_(
+    QTableWidgetPrivate *self,
+    const QModelIndex *topLeft,
+    const QModelIndex *bottomRight) {
+  self->dataChanged(*topLeft, *bottomRight);
 }
 
 //  a Python function taken by a CuteQTableWidgetPrivate, for the function

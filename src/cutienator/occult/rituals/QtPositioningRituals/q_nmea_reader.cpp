@@ -63,6 +63,13 @@ public:
   }
 };
 
+//  QNmeaReader::QNmeaReader(QNmeaPositionInfoSourcePrivate *sourcePrivate)
+extern "C" Q_DECL_EXPORT
+QNmeaReader *ritual_ZN11QNmeaReaderC1EP30QNmeaPositionInfoSourcePrivate(
+    QNmeaPositionInfoSourcePrivate *sourcePrivate) {
+  return new CuteQNmeaReader(sourcePrivate);
+}
+
 //  QNmeaReader::~QNmeaReader()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN11QNmeaReaderD1Ev(QNmeaReader *self) {

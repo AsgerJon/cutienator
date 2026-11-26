@@ -5,6 +5,7 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN13Qt3DAnimation9Animation7HandlerD1Ev": ["nothing", "address"],
     "ritual_ZNK13Qt3DAnimation9Animation7Handler14simulationTimeEv": [
       "long long", "address"
     ],

@@ -2,7 +2,7 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of QtQuick",
     "3DXr/6.12.0/QtQuick3DXr/private/qquick3dxrspatialanchor_p.h, Qt",
-    "6.12.0. Changes made here are lost."
+    "6.12.0. Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZNK23QQuick3DXrSpatialAnchor10metaObjectEv": [
@@ -14,25 +14,55 @@
     "ritual_ZN23QQuick3DXrSpatialAnchor11qt_metacallEN11QMetaObject4CallEiPPv": [
       "int", "address", "int", "int", "address"
     ],
+    "ritual_ZN23QQuick3DXrSpatialAnchor2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
     "ritual_ZN23QQuick3DXrSpatialAnchor24qt_qmlMarker_uncreatableEv": [
       "nothing", "address"
     ],
+    "ritual_ZN23QQuick3DXrSpatialAnchorC1EN11QtQuick3DXr9XrSpaceIdER5QUuidP7QObject": [
+      "address", "unsigned long long", "address", "address"
+    ],
     "ritual_ZN23QQuick3DXrSpatialAnchorD1Ev": ["nothing", "address"],
     "ritual_ZNK23QQuick3DXrSpatialAnchor8offset3DEv": ["address", "address"],
+    "ritual_ZN23QQuick3DXrSpatialAnchor11setOffset3DERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK23QQuick3DXrSpatialAnchor8extent3DEv": ["address", "address"],
+    "ritual_ZN23QQuick3DXrSpatialAnchor11setExtent3DERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK23QQuick3DXrSpatialAnchor8positionEv": ["address", "address"],
+    "ritual_ZN23QQuick3DXrSpatialAnchor11setPositionERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK23QQuick3DXrSpatialAnchor8rotationEv": ["address", "address"],
+    "ritual_ZN23QQuick3DXrSpatialAnchor11setRotationERK11QQuaternion": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK23QQuick3DXrSpatialAnchor14classificationEv": [
       "int", "address"
+    ],
+    "ritual_ZN23QQuick3DXrSpatialAnchor17setClassificationENS_14ClassificationE": [
+      "nothing", "address", "int"
     ],
     "ritual_ZNK23QQuick3DXrSpatialAnchor20classificationStringEv": [
       "text", "address"
     ],
+    "ritual_ZN23QQuick3DXrSpatialAnchor23setClassificationStringERK7QString": [
+      "nothing", "address", "text"
+    ],
     "ritual_ZNK23QQuick3DXrSpatialAnchor11has2DBoundsEv": [
       "bool", "address"
     ],
+    "ritual_ZN23QQuick3DXrSpatialAnchor11setBounds2DERK9QVector2DS2_": [
+      "nothing", "address", "address", "address"
+    ],
     "ritual_ZNK23QQuick3DXrSpatialAnchor11has3DBoundsEv": [
       "bool", "address"
+    ],
+    "ritual_ZN23QQuick3DXrSpatialAnchor11setBounds3DERK9QVector3DS2_": [
+      "nothing", "address", "address", "address"
     ],
     "ritual_ZNK23QQuick3DXrSpatialAnchor8offset2DEv": ["address", "address"],
     "ritual_ZNK23QQuick3DXrSpatialAnchor8extent2DEv": ["address", "address"],

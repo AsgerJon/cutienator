@@ -2,7 +2,7 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtWidgets/6.12.0/QtWidgets/private/qtablewidget_p.h, Qt 6.12.0.",
-    "Changes made here are lost."
+    "Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZNK11QTableModel10metaObjectEv": ["address", "address"],
@@ -11,6 +11,10 @@
     ],
     "ritual_ZN11QTableModel11qt_metacallEN11QMetaObject4CallEiPPv": [
       "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN11QTableModel2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN11QTableModelC1EiiP12QTableWidget": [
+      "address", "int", "int", "address"
     ],
     "ritual_ZN11QTableModelD1Ev": ["nothing", "address"],
     "ritual_ZNK11QTableModel4viewEv": ["address", "address"],

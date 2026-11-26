@@ -5,6 +5,8 @@
     "Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN13BarRenderItemC1Ev": ["address"],
+    "ritual_ZN13BarRenderItemC1ERKS_": ["address", "address"],
     "ritual_ZN13BarRenderItemaSERKS_": ["address", "address", "address"],
     "ritual_ZN13BarRenderItemD1Ev": ["nothing", "address"],
     "ritual_ZN13BarRenderItem11setPositionERK6QPoint": [

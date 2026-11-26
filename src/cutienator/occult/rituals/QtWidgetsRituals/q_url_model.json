@@ -1,8 +1,8 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "QtWidgets/6.12.0/QtWidgets/private/qsidebar_p.h, Qt 6.12.0.",
-    "Changes made here are lost."
+    "QtWidgets/6.12.0/QtWidgets/private/qsidebar_p.h, Qt 6.12.0. Edited",
+    "by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZNK9QUrlModel10metaObjectEv": ["address", "address"],
@@ -10,6 +10,8 @@
     "ritual_ZN9QUrlModel11qt_metacallEN11QMetaObject4CallEiPPv": [
       "int", "address", "int", "int", "address"
     ],
+    "ritual_ZN9QUrlModel2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN9QUrlModelC1EP7QObject": ["address", "address"],
     "ritual_ZN9QUrlModelD1Ev": ["nothing", "address"],
     "ritual_ZNK9QUrlModel9mimeTypesEv": ["address", "address"],
     "ritual_ZNK9QUrlModel8mimeDataERK5QListI11QModelIndexE": [
@@ -34,6 +36,9 @@
       "nothing", "address", "address", "int", "bool"
     ],
     "ritual_ZNK9QUrlModel4urlsEv": ["address", "address"],
+    "ritual_ZN9QUrlModel18setFileSystemModelEP16QFileSystemModel": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN9QUrlModel11dataChangedERK11QModelIndexS2_": [
       "nothing", "address", "address", "address"
     ],

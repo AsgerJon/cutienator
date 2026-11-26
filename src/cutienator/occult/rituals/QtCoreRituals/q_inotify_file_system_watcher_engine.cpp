@@ -1,6 +1,13 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCore/6.12.0/QtCore/private/qfilesystemwatcher_inotify_p.h, Qt 6.12.0.
-//  Changes made here are lost.
+//  Edited by hand on 2026-11-26: moc's output for
+//  'QInotifyFileSystemWatcherEngine' is pasted in, cut from what the moc of
+//  Qt 6.12.0 writes for its header: Qt's library keeps it to itself; added
+//  are 3 rituals that lean on what moc writes for a class of the part Qt
+//  keeps to itself, whose ritual file carries moc's output, drafted by a
+//  copy of the generator that lets those names through. A copy of a meta-
+//  object is a second one: 'qobject_cast' between it and Qt's own does not
+//  match. Kept as it is when the generator runs again.
 #include <QtCore/qglobal.h>
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #if QT_CONFIG(filesystemwatcher) && QT_CONFIG(inotify) && defined(Q_OS_UNIX) && !defined(Q_OS_MACOS)
@@ -15,6 +22,10 @@
 #include <QtCore/qlist.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
 #include <QtCore/qfilesystemwatcher.h>
 #include <QtCore/private/qfilesystemwatcher_inotify_p.h>
 #include <QtCore/private/qcore_unix_p.h>
@@ -61,6 +72,131 @@ find_last_in_equal_range(const Hash &c, const Key &key)
         ++i;
     } while (i != end && i.key() == key);
     return prev;
+}
+
+//  from QtCore__QInotifyFileSystemWatcherEngine.cpp, line 1, as moc:QInotifyFileSystemWatcherEngine
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN31QInotifyFileSystemWatcherEngineE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto QInotifyFileSystemWatcherEngine::qt_create_metaobjectdata<qt_meta_tag_ZN31QInotifyFileSystemWatcherEngineE_t>()
+{
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "QInotifyFileSystemWatcherEngine",
+        "readFromInotify",
+        ""
+    };
+
+    QtMocHelpers::UintData qt_methods {
+        // Slot 'readFromInotify'
+        QtMocHelpers::SlotData<void()>(1, 2, QMC::AccessPrivate, QMetaType::Void),
+    };
+    QtMocHelpers::UintData qt_properties {
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    return QtMocHelpers::metaObjectData<QInotifyFileSystemWatcherEngine, qt_meta_tag_ZN31QInotifyFileSystemWatcherEngineE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums);
+}
+Q_CONSTINIT const QMetaObject QInotifyFileSystemWatcherEngine::staticMetaObject = { {
+    QMetaObject::SuperData::link<QFileSystemWatcherEngine::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN31QInotifyFileSystemWatcherEngineE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN31QInotifyFileSystemWatcherEngineE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN31QInotifyFileSystemWatcherEngineE_t>.metaTypes,
+    nullptr
+} };
+
+void QInotifyFileSystemWatcherEngine::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<QInotifyFileSystemWatcherEngine *>(_o);
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        switch (_id) {
+        case 0: _t->readFromInotify(); break;
+        default: ;
+        }
+    }
+    (void)_a;
+}
+
+const QMetaObject *QInotifyFileSystemWatcherEngine::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *QInotifyFileSystemWatcherEngine::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN31QInotifyFileSystemWatcherEngineE_t>.strings))
+        return static_cast<void*>(this);
+    return QFileSystemWatcherEngine::qt_metacast(_clname);
+}
+
+int QInotifyFileSystemWatcherEngine::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QFileSystemWatcherEngine::qt_metacall(_c, _id, _a);
+    if (_id < 0)
+        return _id;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        if (_id < 1)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 1;
+    }
+    if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        if (_id < 1)
+            *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
+        _id -= 1;
+    }
+    return _id;
+}
+QT_WARNING_POP
+
+//  from src/corelib/io/qfilesystemwatcher_inotify.cpp, line 290, as _ZN31QInotifyFileSystemWatcherEngine11removePathsERK5QListI7QStringEPS2_S5_
+inline QStringList QInotifyFileSystemWatcherEngine::removePaths(const QStringList &paths,
+                                                         QStringList *files,
+                                                         QStringList *directories)
+{
+    QStringList unhandled;
+    for (const QString &path : paths) {
+        int id = pathToID.take(path);
+
+        auto sg = qScopeGuard([&]{ unhandled.push_back(path); });
+
+        // Multiple paths could be associated to the same watch descriptor
+        // when a file is moved and added with the new name.
+        // So we should find and delete the correct one by using
+        // both id and path
+        auto path_range = idToPath.equal_range(id);
+        auto path_it = std::find(path_range.first, path_range.second, path);
+        if (path_it == idToPath.end())
+            continue;
+
+        const ssize_t num_elements = std::distance(path_range.first, path_range.second);
+        idToPath.erase(path_it);
+
+        // If there was only one path associated to the given id we should remove the watch
+        if (num_elements == 1) {
+            int wd = id < 0 ? -id : id;
+            inotify_rm_watch(inotifyFd, wd);
+        }
+
+        sg.dismiss();
+
+        if (id < 0) {
+            directories->removeAll(path);
+        } else {
+            files->removeAll(path);
+        }
+    }
+
+    return unhandled;
 }
 
 //  from src/corelib/io/qfilesystemwatcher_inotify.cpp, line 330, as _ZN31QInotifyFileSystemWatcherEngine15readFromInotifyEv
@@ -127,6 +263,63 @@ inline void QInotifyFileSystemWatcherEngine::readFromInotify()
     }
 }
 
+//  from src/corelib/io/qfilesystemwatcher_inotify.cpp, line 234, as _ZN31QInotifyFileSystemWatcherEngine8addPathsERK5QListI7QStringEPS2_S5_
+inline QStringList QInotifyFileSystemWatcherEngine::addPaths(const QStringList &paths,
+                                                      QStringList *files,
+                                                      QStringList *directories)
+{
+    QStringList unhandled;
+    for (const QString &path : paths) {
+        QFileInfo fi(path);
+        bool isDir = fi.isDir();
+        auto sg = qScopeGuard([&]{ unhandled.push_back(path); });
+        if (isDir) {
+            if (directories->contains(path))
+                continue;
+        } else {
+            if (files->contains(path))
+                continue;
+        }
+
+        int wd = inotify_add_watch(inotifyFd,
+                                   QFile::encodeName(path),
+                                   (isDir
+                                    ? (0
+                                       | IN_ATTRIB
+                                       | IN_MOVE
+                                       | IN_CREATE
+                                       | IN_DELETE
+                                       | IN_DELETE_SELF
+                                       )
+                                    : (0
+                                       | IN_ATTRIB
+                                       | IN_MODIFY
+                                       | IN_MOVE
+                                       | IN_MOVE_SELF
+                                       | IN_DELETE_SELF
+                                       )));
+        if (wd < 0) {
+            if (errno != ENOENT)
+                qErrnoWarning("inotify_add_watch(%ls) failed:", path.constData());
+            continue;
+        }
+
+        sg.dismiss();
+
+        int id = isDir ? -wd : wd;
+        if (id < 0) {
+            directories->append(path);
+        } else {
+            files->append(path);
+        }
+
+        pathToID.insert(path, id);
+        idToPath.insert(id, path);
+    }
+
+    return unhandled;
+}
+
 //  from src/corelib/io/qfilesystemwatcher_inotify.cpp, line 225, as _ZN31QInotifyFileSystemWatcherEngineD1Ev
 inline QInotifyFileSystemWatcherEngine::~QInotifyFileSystemWatcherEngine()
 {
@@ -137,11 +330,37 @@ inline QInotifyFileSystemWatcherEngine::~QInotifyFileSystemWatcherEngine()
     ::close(inotifyFd);
 }
 
+//  from src/corelib/io/qfilesystemwatcher_inotify.cpp, line 201, as _ZN31QInotifyFileSystemWatcherEngine6createEP7QObject
+inline QInotifyFileSystemWatcherEngine *QInotifyFileSystemWatcherEngine::create(QObject *parent)
+{
+    int fd = -1;
+#if defined(IN_CLOEXEC)
+    fd = inotify_init1(IN_CLOEXEC);
+#endif
+    if (fd == -1) {
+        fd = inotify_init();
+        if (fd == -1)
+            return nullptr;
+    }
+    return new QInotifyFileSystemWatcherEngine(fd, parent);
+}
+
 //  from src/corelib/io/qfilesystemwatcher_inotify.cpp, line 410, as _ZNK31QInotifyFileSystemWatcherEngine13getPathFromIDEi
 inline QString QInotifyFileSystemWatcherEngine::getPathFromID(int id) const
 {
     auto i = find_last_in_equal_range(idToPath, id);
     return i == idToPath.cend() ? QString() : i.value() ;
+}
+
+//  from src/corelib/io/qfilesystemwatcher_inotify.cpp, line 215, as _ZN31QInotifyFileSystemWatcherEngineC1EiP7QObject
+inline QInotifyFileSystemWatcherEngine::QInotifyFileSystemWatcherEngine(int fd, QObject *parent)
+    : QFileSystemWatcherEngine(parent),
+      inotifyFd(fd),
+      notifier(fd, QSocketNotifier::Read, this)
+{
+    fcntl(inotifyFd, F_SETFD, FD_CLOEXEC);
+    QObject::connect(&notifier, &QSocketNotifier::activated,
+                     this, &QInotifyFileSystemWatcherEngine::readFromInotify);
 }
 //  -----------------------------------------------------------------------
 
@@ -338,11 +557,29 @@ int ritual_ZN31QInotifyFileSystemWatcherEngine11qt_metacallEN11QMetaObject4CallE
   return self->qt_metacall(a0, a1, a2);
 }
 
+//  QString QInotifyFileSystemWatcherEngine::tr(const char *s, const char *c,
+//      int n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN31QInotifyFileSystemWatcherEngine2trEPKcS1_i(
+    const char *s,
+    const char *c,
+    int n) {
+  return new QString(QInotifyFileSystemWatcherEngine::tr(s, c, n));
+}
+
 //  QInotifyFileSystemWatcherEngine::~QInotifyFileSystemWatcherEngine()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN31QInotifyFileSystemWatcherEngineD1Ev(
     QInotifyFileSystemWatcherEngine *self) {
   delete self;
+}
+
+//  QInotifyFileSystemWatcherEngine
+//      *QInotifyFileSystemWatcherEngine::create(QObject *parent)
+extern "C" Q_DECL_EXPORT
+QInotifyFileSystemWatcherEngine *ritual_ZN31QInotifyFileSystemWatcherEngine6createEP7QObject(
+    QObject *parent) {
+  return QInotifyFileSystemWatcherEngine::create(parent);
 }
 
 //  QStringList QInotifyFileSystemWatcherEngine::addPaths(const QStringList
@@ -398,6 +635,15 @@ QString *ritual_ZNK31QInotifyFileSystemWatcherEngine13getPathFromIDEi(
     const QInotifyFileSystemWatcherEngine *self,
     int id) {
   return new QString(self->getPathFromID(id));
+}
+
+//  QInotifyFileSystemWatcherEngine::QInotifyFileSystemWatcherEngine(int fd,
+//      QObject *parent)
+extern "C" Q_DECL_EXPORT
+QInotifyFileSystemWatcherEngine *ritual_ZN31QInotifyFileSystemWatcherEngineC1EiP7QObject(
+    int fd,
+    QObject *parent) {
+  return new CuteQInotifyFileSystemWatcherEngine(fd, parent);
 }
 
 //  a Python function taken by a CuteQInotifyFileSystemWatcherEngine, for the

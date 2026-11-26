@@ -11,6 +11,7 @@
     "ritual_ZNK28QGraphicsEffectSourcePrivate6q_funcEv": [
       "address", "address"
     ],
+    "ritual_ZN28QGraphicsEffectSourcePrivateC1Ev": ["address"],
     "ritual_ZN28QGraphicsEffectSourcePrivateD1Ev": ["nothing", "address"],
     "ritual_ZN28QGraphicsEffectSourcePrivate6detachEv": [
       "nothing", "address"

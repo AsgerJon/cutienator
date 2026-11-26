@@ -1,13 +1,20 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtNetwork/6.12.0/QtNetwork/private/qabstractsocketengine_p.h, Qt 6.12.0.
-//  Changes made here are lost.
+//  Edited by hand on 2026-11-26: moc's output for 'QAbstractSocketEngine' is
+//  pasted in, cut from what the moc of Qt 6.12.0 writes for its header: Qt's
+//  library keeps it to itself; added are 1 rituals that lean on what moc
+//  writes for a class of the part Qt keeps to itself, whose ritual file
+//  carries moc's output, drafted by a copy of the generator that lets those
+//  names through. A copy of a meta-object is a second one: 'qobject_cast'
+//  between it and Qt's own does not match. Kept as it is when the generator
+//  runs again.
 #include <QtNetwork/6.12.0/QtNetwork/private/qtnetworkglobal_p.h>
 #include <QtNetwork/QtNetwork>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtNetwork/6.12.0/QtNetwork/private/qabstractsocketengine_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <QtNetwork/qhostaddress.h>
 #include <QtCore/qstring.h>
+#include <QtNetwork/qhostaddress.h>
 #include <QtNetwork/qnetworkinterface.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtNetwork/6.12.0/QtNetwork/private/qnetworkdatagram_p.h>
@@ -15,6 +22,10 @@
 #include <QtCore/qdeadlinetimer.h>
 #include <QtNetwork/qnetworkproxy.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
 #include <QtNetwork/private/qabstractsocketengine_p.h>
 #include <QtNetwork/private/qnativesocketengine_p.h>
 #include <QtCore/qmutex.h>
@@ -27,6 +38,159 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  from QtNetwork__QAbstractSocketEngine.cpp, line 1, as moc:QAbstractSocketEngine
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN21QAbstractSocketEngineE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto QAbstractSocketEngine::qt_create_metaobjectdata<qt_meta_tag_ZN21QAbstractSocketEngineE_t>()
+{
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "QAbstractSocketEngine",
+        "readNotification",
+        "",
+        "writeNotification",
+        "closeNotification",
+        "exceptionNotification",
+        "connectionNotification",
+        "proxyAuthenticationRequired",
+        "QNetworkProxy",
+        "proxy",
+        "QAuthenticator*",
+        "authenticator"
+    };
+
+    QtMocHelpers::UintData qt_methods {
+        // Slot 'readNotification'
+        QtMocHelpers::SlotData<void()>(1, 2, QMC::AccessPublic, QMetaType::Void),
+        // Slot 'writeNotification'
+        QtMocHelpers::SlotData<void()>(3, 2, QMC::AccessPublic, QMetaType::Void),
+        // Slot 'closeNotification'
+        QtMocHelpers::SlotData<void()>(4, 2, QMC::AccessPublic, QMetaType::Void),
+        // Slot 'exceptionNotification'
+        QtMocHelpers::SlotData<void()>(5, 2, QMC::AccessPublic, QMetaType::Void),
+        // Slot 'connectionNotification'
+        QtMocHelpers::SlotData<void()>(6, 2, QMC::AccessPublic, QMetaType::Void),
+        // Slot 'proxyAuthenticationRequired'
+        QtMocHelpers::SlotData<void(const QNetworkProxy &, QAuthenticator *)>(7, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { 0x80000000 | 8, 9 }, { 0x80000000 | 10, 11 },
+        }}),
+    };
+    QtMocHelpers::UintData qt_properties {
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    return QtMocHelpers::metaObjectData<QAbstractSocketEngine, qt_meta_tag_ZN21QAbstractSocketEngineE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums);
+}
+Q_CONSTINIT const QMetaObject QAbstractSocketEngine::staticMetaObject = { {
+    QMetaObject::SuperData::link<QObject::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN21QAbstractSocketEngineE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN21QAbstractSocketEngineE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN21QAbstractSocketEngineE_t>.metaTypes,
+    nullptr
+} };
+
+void QAbstractSocketEngine::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<QAbstractSocketEngine *>(_o);
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        switch (_id) {
+        case 0: _t->readNotification(); break;
+        case 1: _t->writeNotification(); break;
+        case 2: _t->closeNotification(); break;
+        case 3: _t->exceptionNotification(); break;
+        case 4: _t->connectionNotification(); break;
+        case 5: _t->proxyAuthenticationRequired((*reinterpret_cast<std::add_pointer_t<QNetworkProxy>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<QAuthenticator*>>(_a[2]))); break;
+        default: ;
+        }
+    }
+}
+
+const QMetaObject *QAbstractSocketEngine::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *QAbstractSocketEngine::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN21QAbstractSocketEngineE_t>.strings))
+        return static_cast<void*>(this);
+    return QObject::qt_metacast(_clname);
+}
+
+int QAbstractSocketEngine::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QObject::qt_metacall(_c, _id, _a);
+    if (_id < 0)
+        return _id;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        if (_id < 6)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 6;
+    }
+    if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        if (_id < 6)
+            *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
+        _id -= 6;
+    }
+    return _id;
+}
+QT_WARNING_POP
+
+//  from src/network/socket/qabstractsocketengine.cpp, line 120, as _ZN21QAbstractSocketEngine16readNotificationEv
+inline void QAbstractSocketEngine::readNotification()
+{
+    if (QAbstractSocketEngineReceiver *receiver = d_func()->receiver)
+        receiver->readNotification();
+}
+
+//  from src/network/socket/qabstractsocketengine.cpp, line 138, as _ZN21QAbstractSocketEngine17closeNotificationEv
+inline void QAbstractSocketEngine::closeNotification()
+{
+    if (QAbstractSocketEngineReceiver *receiver = d_func()->receiver)
+        receiver->closeNotification();
+}
+
+//  from src/network/socket/qabstractsocketengine.cpp, line 126, as _ZN21QAbstractSocketEngine17writeNotificationEv
+inline void QAbstractSocketEngine::writeNotification()
+{
+    if (QAbstractSocketEngineReceiver *receiver = d_func()->receiver)
+        receiver->writeNotification();
+}
+
+//  from src/network/socket/qabstractsocketengine.cpp, line 132, as _ZN21QAbstractSocketEngine21exceptionNotificationEv
+inline void QAbstractSocketEngine::exceptionNotification()
+{
+    if (QAbstractSocketEngineReceiver *receiver = d_func()->receiver)
+        receiver->exceptionNotification();
+}
+
+//  from src/network/socket/qabstractsocketengine.cpp, line 144, as _ZN21QAbstractSocketEngine22connectionNotificationEv
+inline void QAbstractSocketEngine::connectionNotification()
+{
+    if (QAbstractSocketEngineReceiver *receiver = d_func()->receiver)
+        receiver->connectionNotification();
+}
+
+//  from src/network/socket/qabstractsocketengine.cpp, line 151, as _ZN21QAbstractSocketEngine27proxyAuthenticationRequiredERK13QNetworkProxyP14QAuthenticator
+#if !defined(QT_NO_NETWORKPROXY)
+inline void QAbstractSocketEngine::proxyAuthenticationRequired(const QNetworkProxy &proxy, QAuthenticator *authenticator)
+{
+    if (QAbstractSocketEngineReceiver *receiver = d_func()->receiver)
+        receiver->proxyAuthenticationRequired(proxy, authenticator);
+}
+#endif  // !defined(QT_NO_NETWORKPROXY)
 
 //  from src/network/socket/qabstractsocketengine.cpp, line 98, as _ZNK21QAbstractSocketEngine5errorEv
 inline QAbstractSocket::SocketError QAbstractSocketEngine::error() const
@@ -176,6 +340,17 @@ int ritual_ZN21QAbstractSocketEngine11qt_metacallEN11QMetaObject4CallEiPPv(
     void **a2) {
   return self->qt_metacall(a0, a1, a2);
 }
+
+#if !defined(QT_NO_NETWORKPROXY)
+//  QString QAbstractSocketEngine::tr(const char *s, const char *c, int n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN21QAbstractSocketEngine2trEPKcS1_i(
+    const char *s,
+    const char *c,
+    int n) {
+  return new QString(QAbstractSocketEngine::tr(s, c, n));
+}
+#endif  // !defined(QT_NO_NETWORKPROXY)
 
 //  bool QAbstractSocketEngine::initialize(QAbstractSocket::SocketType type,
 //      QAbstractSocket::NetworkLayerProtocol protocol)

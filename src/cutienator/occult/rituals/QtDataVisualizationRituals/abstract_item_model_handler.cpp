@@ -1,16 +1,29 @@
 //  Written by dev_tooling.RitualGenerator from the records of QtDataVisualiz
 //  ation/6.12.0/QtDataVisualization/private/abstractitemmodelhandler_p.h, Qt
-//  6.12.0. Changes made here are lost.
+//  6.12.0.
+//  Edited by hand on 2026-11-26: moc's output for 'AbstractItemModelHandler'
+//  is pasted in, cut from what the moc of Qt 6.12.0 writes for its header:
+//  Qt's library keeps it to itself; added are 3 rituals that lean on what
+//  moc writes for a class of the part Qt keeps to itself, whose ritual file
+//  carries moc's output, drafted by a copy of the generator that lets those
+//  names through. A copy of a meta-object is a second one: 'qobject_cast'
+//  between it and Qt's own does not match. Kept as it is when the generator
+//  runs again.
 #include <QtDataVisualization/6.12.0/QtDataVisualization/private/datavisualizationglobal_p.h>
 #include <QtDataVisualization/QtDataVisualization>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtDataVisualization/6.12.0/QtDataVisualization/private/abstractitemmodelhandler_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 #include <QtCore/qabstractitemmodel.h>
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
 #include <QtDataVisualization/private/abstractitemmodelhandler_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
@@ -20,6 +33,208 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  from QtDataVisualization__AbstractItemModelHandler.cpp, line 1, as moc:AbstractItemModelHandler
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN24AbstractItemModelHandlerE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto AbstractItemModelHandler::qt_create_metaobjectdata<qt_meta_tag_ZN24AbstractItemModelHandlerE_t>()
+{
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "AbstractItemModelHandler",
+        "itemModelChanged",
+        "",
+        "const QAbstractItemModel*",
+        "itemModel",
+        "handleColumnsInserted",
+        "QModelIndex",
+        "parent",
+        "start",
+        "end",
+        "handleColumnsMoved",
+        "sourceParent",
+        "sourceStart",
+        "sourceEnd",
+        "destinationParent",
+        "destinationColumn",
+        "handleColumnsRemoved",
+        "handleDataChanged",
+        "topLeft",
+        "bottomRight",
+        "QList<int>",
+        "roles",
+        "handleLayoutChanged",
+        "QList<QPersistentModelIndex>",
+        "parents",
+        "QAbstractItemModel::LayoutChangeHint",
+        "hint",
+        "handleModelReset",
+        "handleRowsInserted",
+        "handleRowsMoved",
+        "destinationRow",
+        "handleRowsRemoved",
+        "handleMappingChanged",
+        "handlePendingResolve"
+    };
+
+    QtMocHelpers::UintData qt_methods {
+        // Signal 'itemModelChanged'
+        QtMocHelpers::SignalData<void(const QAbstractItemModel *)>(1, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { 0x80000000 | 3, 4 },
+        }}),
+        // Slot 'handleColumnsInserted'
+        QtMocHelpers::SlotData<void(const QModelIndex &, int, int)>(5, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { 0x80000000 | 6, 7 }, { QMetaType::Int, 8 }, { QMetaType::Int, 9 },
+        }}),
+        // Slot 'handleColumnsMoved'
+        QtMocHelpers::SlotData<void(const QModelIndex &, int, int, const QModelIndex &, int)>(10, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { 0x80000000 | 6, 11 }, { QMetaType::Int, 12 }, { QMetaType::Int, 13 }, { 0x80000000 | 6, 14 },
+            { QMetaType::Int, 15 },
+        }}),
+        // Slot 'handleColumnsRemoved'
+        QtMocHelpers::SlotData<void(const QModelIndex &, int, int)>(16, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { 0x80000000 | 6, 7 }, { QMetaType::Int, 8 }, { QMetaType::Int, 9 },
+        }}),
+        // Slot 'handleDataChanged'
+        QtMocHelpers::SlotData<void(const QModelIndex &, const QModelIndex &, const QList<int> &)>(17, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { 0x80000000 | 6, 18 }, { 0x80000000 | 6, 19 }, { 0x80000000 | 20, 21 },
+        }}),
+        // Slot 'handleDataChanged'
+        QtMocHelpers::SlotData<void(const QModelIndex &, const QModelIndex &)>(17, 2, QMC::AccessPublic | QMC::MethodCloned, QMetaType::Void, {{
+            { 0x80000000 | 6, 18 }, { 0x80000000 | 6, 19 },
+        }}),
+        // Slot 'handleLayoutChanged'
+        QtMocHelpers::SlotData<void(const QList<QPersistentModelIndex> &, QAbstractItemModel::LayoutChangeHint)>(22, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { 0x80000000 | 23, 24 }, { 0x80000000 | 25, 26 },
+        }}),
+        // Slot 'handleLayoutChanged'
+        QtMocHelpers::SlotData<void(const QList<QPersistentModelIndex> &)>(22, 2, QMC::AccessPublic | QMC::MethodCloned, QMetaType::Void, {{
+            { 0x80000000 | 23, 24 },
+        }}),
+        // Slot 'handleLayoutChanged'
+        QtMocHelpers::SlotData<void()>(22, 2, QMC::AccessPublic | QMC::MethodCloned, QMetaType::Void),
+        // Slot 'handleModelReset'
+        QtMocHelpers::SlotData<void()>(27, 2, QMC::AccessPublic, QMetaType::Void),
+        // Slot 'handleRowsInserted'
+        QtMocHelpers::SlotData<void(const QModelIndex &, int, int)>(28, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { 0x80000000 | 6, 7 }, { QMetaType::Int, 8 }, { QMetaType::Int, 9 },
+        }}),
+        // Slot 'handleRowsMoved'
+        QtMocHelpers::SlotData<void(const QModelIndex &, int, int, const QModelIndex &, int)>(29, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { 0x80000000 | 6, 11 }, { QMetaType::Int, 12 }, { QMetaType::Int, 13 }, { 0x80000000 | 6, 14 },
+            { QMetaType::Int, 30 },
+        }}),
+        // Slot 'handleRowsRemoved'
+        QtMocHelpers::SlotData<void(const QModelIndex &, int, int)>(31, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { 0x80000000 | 6, 7 }, { QMetaType::Int, 8 }, { QMetaType::Int, 9 },
+        }}),
+        // Slot 'handleMappingChanged'
+        QtMocHelpers::SlotData<void()>(32, 2, QMC::AccessPublic, QMetaType::Void),
+        // Slot 'handlePendingResolve'
+        QtMocHelpers::SlotData<void()>(33, 2, QMC::AccessPublic, QMetaType::Void),
+    };
+    QtMocHelpers::UintData qt_properties {
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    return QtMocHelpers::metaObjectData<AbstractItemModelHandler, qt_meta_tag_ZN24AbstractItemModelHandlerE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums);
+}
+Q_CONSTINIT const QMetaObject AbstractItemModelHandler::staticMetaObject = { {
+    QMetaObject::SuperData::link<QObject::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN24AbstractItemModelHandlerE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN24AbstractItemModelHandlerE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN24AbstractItemModelHandlerE_t>.metaTypes,
+    nullptr
+} };
+
+void AbstractItemModelHandler::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<AbstractItemModelHandler *>(_o);
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        switch (_id) {
+        case 0: _t->itemModelChanged((*reinterpret_cast<std::add_pointer_t<const QAbstractItemModel*>>(_a[1]))); break;
+        case 1: _t->handleColumnsInserted((*reinterpret_cast<std::add_pointer_t<QModelIndex>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<int>>(_a[2])),(*reinterpret_cast<std::add_pointer_t<int>>(_a[3]))); break;
+        case 2: _t->handleColumnsMoved((*reinterpret_cast<std::add_pointer_t<QModelIndex>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<int>>(_a[2])),(*reinterpret_cast<std::add_pointer_t<int>>(_a[3])),(*reinterpret_cast<std::add_pointer_t<QModelIndex>>(_a[4])),(*reinterpret_cast<std::add_pointer_t<int>>(_a[5]))); break;
+        case 3: _t->handleColumnsRemoved((*reinterpret_cast<std::add_pointer_t<QModelIndex>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<int>>(_a[2])),(*reinterpret_cast<std::add_pointer_t<int>>(_a[3]))); break;
+        case 4: _t->handleDataChanged((*reinterpret_cast<std::add_pointer_t<QModelIndex>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<QModelIndex>>(_a[2])),(*reinterpret_cast<std::add_pointer_t<QList<int>>>(_a[3]))); break;
+        case 5: _t->handleDataChanged((*reinterpret_cast<std::add_pointer_t<QModelIndex>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<QModelIndex>>(_a[2]))); break;
+        case 6: _t->handleLayoutChanged((*reinterpret_cast<std::add_pointer_t<QList<QPersistentModelIndex>>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<QAbstractItemModel::LayoutChangeHint>>(_a[2]))); break;
+        case 7: _t->handleLayoutChanged((*reinterpret_cast<std::add_pointer_t<QList<QPersistentModelIndex>>>(_a[1]))); break;
+        case 8: _t->handleLayoutChanged(); break;
+        case 9: _t->handleModelReset(); break;
+        case 10: _t->handleRowsInserted((*reinterpret_cast<std::add_pointer_t<QModelIndex>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<int>>(_a[2])),(*reinterpret_cast<std::add_pointer_t<int>>(_a[3]))); break;
+        case 11: _t->handleRowsMoved((*reinterpret_cast<std::add_pointer_t<QModelIndex>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<int>>(_a[2])),(*reinterpret_cast<std::add_pointer_t<int>>(_a[3])),(*reinterpret_cast<std::add_pointer_t<QModelIndex>>(_a[4])),(*reinterpret_cast<std::add_pointer_t<int>>(_a[5]))); break;
+        case 12: _t->handleRowsRemoved((*reinterpret_cast<std::add_pointer_t<QModelIndex>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<int>>(_a[2])),(*reinterpret_cast<std::add_pointer_t<int>>(_a[3]))); break;
+        case 13: _t->handleMappingChanged(); break;
+        case 14: _t->handlePendingResolve(); break;
+        default: ;
+        }
+    }
+    if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        switch (_id) {
+        default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
+        case 4:
+            switch (*reinterpret_cast<int*>(_a[1])) {
+            default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
+            case 2:
+                *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType::fromType< QList<int> >(); break;
+            }
+            break;
+        }
+    }
+    if (_c == QMetaObject::IndexOfMethod) {
+        if (QtMocHelpers::indexOfMethod<void (AbstractItemModelHandler::*)(const QAbstractItemModel * )>(_a, &AbstractItemModelHandler::itemModelChanged, 0))
+            return;
+    }
+}
+
+const QMetaObject *AbstractItemModelHandler::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *AbstractItemModelHandler::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN24AbstractItemModelHandlerE_t>.strings))
+        return static_cast<void*>(this);
+    return QObject::qt_metacast(_clname);
+}
+
+int AbstractItemModelHandler::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QObject::qt_metacall(_c, _id, _a);
+    if (_id < 0)
+        return _id;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        if (_id < 15)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 15;
+    }
+    if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        if (_id < 15)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 15;
+    }
+    return _id;
+}
+
+// SIGNAL 0
+void AbstractItemModelHandler::itemModelChanged(const QAbstractItemModel * _t1)
+{
+    QMetaObject::activate<void>(this, &staticMetaObject, 0, nullptr, _t1);
+}
+QT_WARNING_POP
 
 //  from ../qtdatavis3d/src/datavisualization/data/abstractitemmodelhandler.cpp, line 22, as _ZN24AbstractItemModelHandler12setItemModelEP18QAbstractItemModel
 inline void AbstractItemModelHandler::setItemModel(QAbstractItemModel *itemModel)
@@ -57,22 +272,66 @@ inline void AbstractItemModelHandler::setItemModel(QAbstractItemModel *itemModel
     }
 }
 
-//  from ../qtdatavis3d/src/datavisualization/data/abstractitemmodelhandler.cpp, line 57, as _ZNK24AbstractItemModelHandler9itemModelEv
-inline QAbstractItemModel *AbstractItemModelHandler::itemModel() const
+//  from ../qtdatavis3d/src/datavisualization/data/abstractitemmodelhandler.cpp, line 166, as _ZN24AbstractItemModelHandler15handleRowsMovedERK11QModelIndexiiS2_i
+inline void AbstractItemModelHandler::handleRowsMoved(const QModelIndex &sourceParent,
+                                               int sourceStart,
+                                               int sourceEnd,
+                                               const QModelIndex &destinationParent,
+                                               int destinationRow)
 {
-    return m_itemModel.data();
+    Q_UNUSED(sourceParent);
+    Q_UNUSED(sourceStart);
+    Q_UNUSED(sourceEnd);
+    Q_UNUSED(destinationParent);
+    Q_UNUSED(destinationRow);
+
+    // Default handling for rowsMoved is to do full reset, as it cannot be optimized
+    // in a general case, where we do not know which row/column/index the item model item
+    // actually ended up to in the proxy.
+    if (!m_resolveTimer.isActive()) {
+        m_fullReset = true;
+        m_resolveTimer.start(0);
+    }
 }
 
-//  from ../qtdatavis3d/src/datavisualization/data/abstractitemmodelhandler.cpp, line 62, as _ZN24AbstractItemModelHandler21handleColumnsInsertedERK11QModelIndexii
-inline void AbstractItemModelHandler::handleColumnsInserted(const QModelIndex &parent,
-                                                     int start, int end)
+//  from ../qtdatavis3d/src/datavisualization/data/abstractitemmodelhandler.cpp, line 142, as _ZN24AbstractItemModelHandler16handleModelResetEv
+inline void AbstractItemModelHandler::handleModelReset()
+{
+    // Data cleared, reset array
+    if (!m_resolveTimer.isActive()) {
+        m_fullReset = true;
+        m_resolveTimer.start(0);
+    }
+}
+
+//  from ../qtdatavis3d/src/datavisualization/data/abstractitemmodelhandler.cpp, line 112, as _ZN24AbstractItemModelHandler17handleDataChangedERK11QModelIndexS2_RK5QListIiE
+inline void AbstractItemModelHandler::handleDataChanged(const QModelIndex &topLeft,
+                                                 const QModelIndex &bottomRight,
+                                                 const QList<int> &roles)
+{
+    Q_UNUSED(topLeft);
+    Q_UNUSED(bottomRight);
+    Q_UNUSED(roles);
+
+    // Default handling for dataChanged is to do full reset, as it cannot be optimized
+    // in a general case, where we do not know which row/column/index the item model item
+    // actually ended up to in the proxy.
+    if (!m_resolveTimer.isActive()) {
+        m_fullReset = true;
+        m_resolveTimer.start(0);
+    }
+}
+
+//  from ../qtdatavis3d/src/datavisualization/data/abstractitemmodelhandler.cpp, line 187, as _ZN24AbstractItemModelHandler17handleRowsRemovedERK11QModelIndexii
+inline void AbstractItemModelHandler::handleRowsRemoved(const QModelIndex &parent, int start, int end)
 {
     Q_UNUSED(parent);
     Q_UNUSED(start);
     Q_UNUSED(end);
 
-    // Manipulating columns changes all rows in proxies that map rows/columns directly,
-    // and its effects are not clearly defined in others -> always do full reset.
+    // Default handling for rowsRemoved is to do full reset, as it cannot be optimized
+    // in a general case, where we do not know which row/column/index the item model item
+    // actually ended up to in the proxy.
     if (!m_resolveTimer.isActive()) {
         m_fullReset = true;
         m_resolveTimer.start(0);
@@ -100,32 +359,6 @@ inline void AbstractItemModelHandler::handleColumnsMoved(const QModelIndex &sour
     }
 }
 
-//  from ../qtdatavis3d/src/datavisualization/data/abstractitemmodelhandler.cpp, line 97, as _ZN24AbstractItemModelHandler20handleColumnsRemovedERK11QModelIndexii
-inline void AbstractItemModelHandler::handleColumnsRemoved(const QModelIndex &parent,
-                                                    int start, int end)
-{
-    Q_UNUSED(parent);
-    Q_UNUSED(start);
-    Q_UNUSED(end);
-
-    // Manipulating columns changes all rows in proxies that map rows/columns directly,
-    // and its effects are not clearly defined in others -> always do full reset.
-    if (!m_resolveTimer.isActive()) {
-        m_fullReset = true;
-        m_resolveTimer.start(0);
-    }
-}
-
-//  from ../qtdatavis3d/src/datavisualization/data/abstractitemmodelhandler.cpp, line 142, as _ZN24AbstractItemModelHandler16handleModelResetEv
-inline void AbstractItemModelHandler::handleModelReset()
-{
-    // Data cleared, reset array
-    if (!m_resolveTimer.isActive()) {
-        m_fullReset = true;
-        m_resolveTimer.start(0);
-    }
-}
-
 //  from ../qtdatavis3d/src/datavisualization/data/abstractitemmodelhandler.cpp, line 151, as _ZN24AbstractItemModelHandler18handleRowsInsertedERK11QModelIndexii
 inline void AbstractItemModelHandler::handleRowsInserted(const QModelIndex &parent, int start, int end)
 {
@@ -142,38 +375,30 @@ inline void AbstractItemModelHandler::handleRowsInserted(const QModelIndex &pare
     }
 }
 
-//  from ../qtdatavis3d/src/datavisualization/data/abstractitemmodelhandler.cpp, line 166, as _ZN24AbstractItemModelHandler15handleRowsMovedERK11QModelIndexiiS2_i
-inline void AbstractItemModelHandler::handleRowsMoved(const QModelIndex &sourceParent,
-                                               int sourceStart,
-                                               int sourceEnd,
-                                               const QModelIndex &destinationParent,
-                                               int destinationRow)
+//  from ../qtdatavis3d/src/datavisualization/data/abstractitemmodelhandler.cpp, line 129, as _ZN24AbstractItemModelHandler19handleLayoutChangedERK5QListI21QPersistentModelIndexEN18QAbstractItemModel16LayoutChangeHintE
+inline void AbstractItemModelHandler::handleLayoutChanged(const QList<QPersistentModelIndex> &parents,
+                                                   QAbstractItemModel::LayoutChangeHint hint)
 {
-    Q_UNUSED(sourceParent);
-    Q_UNUSED(sourceStart);
-    Q_UNUSED(sourceEnd);
-    Q_UNUSED(destinationParent);
-    Q_UNUSED(destinationRow);
+    Q_UNUSED(parents);
+    Q_UNUSED(hint);
 
-    // Default handling for rowsMoved is to do full reset, as it cannot be optimized
-    // in a general case, where we do not know which row/column/index the item model item
-    // actually ended up to in the proxy.
+    // Resolve entire model if layout changes
     if (!m_resolveTimer.isActive()) {
         m_fullReset = true;
         m_resolveTimer.start(0);
     }
 }
 
-//  from ../qtdatavis3d/src/datavisualization/data/abstractitemmodelhandler.cpp, line 187, as _ZN24AbstractItemModelHandler17handleRowsRemovedERK11QModelIndexii
-inline void AbstractItemModelHandler::handleRowsRemoved(const QModelIndex &parent, int start, int end)
+//  from ../qtdatavis3d/src/datavisualization/data/abstractitemmodelhandler.cpp, line 97, as _ZN24AbstractItemModelHandler20handleColumnsRemovedERK11QModelIndexii
+inline void AbstractItemModelHandler::handleColumnsRemoved(const QModelIndex &parent,
+                                                    int start, int end)
 {
     Q_UNUSED(parent);
     Q_UNUSED(start);
     Q_UNUSED(end);
 
-    // Default handling for rowsRemoved is to do full reset, as it cannot be optimized
-    // in a general case, where we do not know which row/column/index the item model item
-    // actually ended up to in the proxy.
+    // Manipulating columns changes all rows in proxies that map rows/columns directly,
+    // and its effects are not clearly defined in others -> always do full reset.
     if (!m_resolveTimer.isActive()) {
         m_fullReset = true;
         m_resolveTimer.start(0);
@@ -192,6 +417,44 @@ inline void AbstractItemModelHandler::handlePendingResolve()
 {
     resolveModel();
     m_fullReset = false;
+}
+
+//  from ../qtdatavis3d/src/datavisualization/data/abstractitemmodelhandler.cpp, line 62, as _ZN24AbstractItemModelHandler21handleColumnsInsertedERK11QModelIndexii
+inline void AbstractItemModelHandler::handleColumnsInserted(const QModelIndex &parent,
+                                                     int start, int end)
+{
+    Q_UNUSED(parent);
+    Q_UNUSED(start);
+    Q_UNUSED(end);
+
+    // Manipulating columns changes all rows in proxies that map rows/columns directly,
+    // and its effects are not clearly defined in others -> always do full reset.
+    if (!m_resolveTimer.isActive()) {
+        m_fullReset = true;
+        m_resolveTimer.start(0);
+    }
+}
+
+//  from ../qtdatavis3d/src/datavisualization/data/abstractitemmodelhandler.cpp, line 18, as _ZN24AbstractItemModelHandlerD0Ev
+inline AbstractItemModelHandler::~AbstractItemModelHandler()
+{
+}
+
+//  from ../qtdatavis3d/src/datavisualization/data/abstractitemmodelhandler.cpp, line 57, as _ZNK24AbstractItemModelHandler9itemModelEv
+inline QAbstractItemModel *AbstractItemModelHandler::itemModel() const
+{
+    return m_itemModel.data();
+}
+
+//  from ../qtdatavis3d/src/datavisualization/data/abstractitemmodelhandler.cpp, line 8, as _ZN24AbstractItemModelHandlerC1EP7QObject
+inline AbstractItemModelHandler::AbstractItemModelHandler(QObject *parent)
+    : QObject(parent),
+      resolvePending(0),
+      m_fullReset(true)
+{
+    m_resolveTimer.setSingleShot(true);
+    QObject::connect(&m_resolveTimer, &QTimer::timeout,
+                     this, &AbstractItemModelHandler::handlePendingResolve);
 }
 //  -----------------------------------------------------------------------
 
@@ -610,6 +873,22 @@ int ritual_ZN24AbstractItemModelHandler11qt_metacallEN11QMetaObject4CallEiPPv(
   return self->qt_metacall(a0, a1, a2);
 }
 
+//  QString AbstractItemModelHandler::tr(const char *s, const char *c, int n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN24AbstractItemModelHandler2trEPKcS1_i(
+    const char *s,
+    const char *c,
+    int n) {
+  return new QString(AbstractItemModelHandler::tr(s, c, n));
+}
+
+//  AbstractItemModelHandler::AbstractItemModelHandler(QObject *parent)
+extern "C" Q_DECL_EXPORT
+AbstractItemModelHandler *ritual_ZN24AbstractItemModelHandlerC1EP7QObject(
+    QObject *parent) {
+  return new CuteAbstractItemModelHandler(parent);
+}
+
 //  AbstractItemModelHandler::~AbstractItemModelHandler()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN24AbstractItemModelHandlerD1Ev(
@@ -801,6 +1080,15 @@ bool ritual_take_AbstractItemModelHandler(
     const char *key,
     void *call) {
   return static_cast<CuteAbstractItemModelHandler *>(self)->take(key, call);
+}
+
+//  void AbstractItemModelHandler::setItemModel(QAbstractItemModel
+//      *itemModel)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN24AbstractItemModelHandler12setItemModelEP18QAbstractItemModel(
+    AbstractItemModelHandler *self,
+    QAbstractItemModel *itemModel) {
+  self->AbstractItemModelHandler::setItemModel(itemModel);
 }
 
 //  QAbstractItemModel *AbstractItemModelHandler::itemModel() const

@@ -101,49 +101,6 @@ inline void QQuickLoaderPrivate::initResize()
     _q_updateSize();
 }
 
-//  from ../qtdeclarative/src/quick/items/qquickloader.cpp, line 693, as _ZN19QQuickLoaderPrivate15_q_sourceLoadedEv
-inline void QQuickLoaderPrivate::_q_sourceLoaded()
-{
-    Q_Q(QQuickLoader);
-    if (!component || !component->errors().isEmpty()) {
-        if (component)
-            QQmlEnginePrivate::warning(qmlEngine(q), component->errors());
-        if (loadingFromSource)
-            emit q->sourceChanged();
-        else
-            emit q->sourceComponentChanged();
-        updateStatus();
-        emit q->progressChanged();
-        emit q->itemChanged(); //Like clearing source, emit itemChanged even if previous item was also null
-        disposeInitialPropertyValues(); // cleanup
-        return;
-    }
-
-    if (!active)
-        return;
-
-    QQmlContext *creationContext = component->creationContext();
-    if (!creationContext)
-        creationContext = qmlContext(q);
-
-    QQmlComponentPrivate *cp = QQmlComponentPrivate::get(component);
-    QQmlContext *context = [&](){
-        if (cp->isBound())
-            return creationContext;
-        itemContext = new QQmlContext(creationContext);
-        itemContext->setContextObject(q);
-        return itemContext;
-    }();
-
-    delete incubator;
-    incubator = new QQuickLoaderIncubator(this, asynchronous ? QQmlIncubator::Asynchronous : QQmlIncubator::AsynchronousIfNested);
-
-    component->create(*incubator, context);
-
-    if (incubator && incubator->status() == QQmlIncubator::Loading)
-        updateStatus();
-}
-
 //  from ../qtdeclarative/src/quick/items/qquickloader.cpp, line 27, as _ZN19QQuickLoaderPrivateD1Ev
 inline QQuickLoaderPrivate::~QQuickLoaderPrivate()
 {
@@ -364,6 +321,49 @@ inline void QQuickLoaderPrivate::createComponent()
     }
 
     qmlWarning(q) << "createComponent: Cannot find a QML engine.";
+}
+
+//  from ../qtdeclarative/src/quick/items/qquickloader.cpp, line 693, as _ZN19QQuickLoaderPrivate15_q_sourceLoadedEv
+inline void QQuickLoaderPrivate::_q_sourceLoaded()
+{
+    Q_Q(QQuickLoader);
+    if (!component || !component->errors().isEmpty()) {
+        if (component)
+            QQmlEnginePrivate::warning(qmlEngine(q), component->errors());
+        if (loadingFromSource)
+            emit q->sourceChanged();
+        else
+            emit q->sourceComponentChanged();
+        updateStatus();
+        emit q->progressChanged();
+        emit q->itemChanged(); //Like clearing source, emit itemChanged even if previous item was also null
+        disposeInitialPropertyValues(); // cleanup
+        return;
+    }
+
+    if (!active)
+        return;
+
+    QQmlContext *creationContext = component->creationContext();
+    if (!creationContext)
+        creationContext = qmlContext(q);
+
+    QQmlComponentPrivate *cp = QQmlComponentPrivate::get(component);
+    QQmlContext *context = [&](){
+        if (cp->isBound())
+            return creationContext;
+        itemContext = new QQmlContext(creationContext);
+        itemContext->setContextObject(q);
+        return itemContext;
+    }();
+
+    delete incubator;
+    incubator = new QQuickLoaderIncubator(this, asynchronous ? QQmlIncubator::Asynchronous : QQmlIncubator::AsynchronousIfNested);
+
+    component->create(*incubator, context);
+
+    if (incubator && incubator->status() == QQmlIncubator::Loading)
+        updateStatus();
 }
 
 //  from ../qtdeclarative/src/quick/items/qquickloader.cpp, line 900, as _ZN19QQuickLoaderPrivate13_q_updateSizeEb
@@ -894,6 +894,13 @@ extern "C" Q_DECL_EXPORT
 qreal ritual_ZNK19QQuickLoaderPrivate17getImplicitHeightEv(
     const QQuickLoaderPrivate *self) {
   return self->getImplicitHeight();
+}
+
+//  void QQuickLoaderPrivate::_q_sourceLoaded()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QQuickLoaderPrivate15_q_sourceLoadedEv(
+    QQuickLoaderPrivate *self) {
+  self->_q_sourceLoaded();
 }
 
 //  void QQuickLoaderPrivate::_q_updateSize(bool loaderGeometryChanged)

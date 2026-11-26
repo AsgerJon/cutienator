@@ -68,6 +68,16 @@ using namespace Qt::StringLiterals;
 inline ToolBoxCommand::~ToolBoxCommand() = default;
 }  // namespace qdesigner_internal
 
+//  from ../qttools/src/designer/src/lib/shared/qdesigner_command.cpp, line 928, as _ZN18qdesigner_internal14ToolBoxCommandC1EP28QDesignerFormWindowInterface
+namespace qdesigner_internal {
+using namespace Qt::StringLiterals;
+inline ToolBoxCommand::ToolBoxCommand(QDesignerFormWindowInterface *formWindow)  :
+    QDesignerFormWindowCommand(QString(), formWindow),
+    m_index(-1)
+{
+}
+}  // namespace qdesigner_internal
+
 //  from ../qttools/src/designer/src/lib/shared/qdesigner_command.cpp, line 936, as _ZN18qdesigner_internal14ToolBoxCommand4initEP8QToolBox
 namespace qdesigner_internal {
 using namespace Qt::StringLiterals;
@@ -218,6 +228,14 @@ public:
   }
 #endif  // QT_CONFIG(undocommand)
 };
+
+//  qdesigner_internal::ToolBoxCommand::ToolBoxCommand(QDesignerFormWindowInt
+//      erface *formWindow)
+extern "C" Q_DECL_EXPORT
+qdesigner_internal::ToolBoxCommand *ritual_ZN18qdesigner_internal14ToolBoxCommandC1EP28QDesignerFormWindowInterface(
+    QDesignerFormWindowInterface *formWindow) {
+  return new Cuteqdesigner_internal_ToolBoxCommand(formWindow);
+}
 
 //  qdesigner_internal::ToolBoxCommand::~ToolBoxCommand()
 extern "C" Q_DECL_EXPORT

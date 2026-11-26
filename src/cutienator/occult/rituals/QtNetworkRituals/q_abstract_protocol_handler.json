@@ -5,6 +5,9 @@
     "Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN24QAbstractProtocolHandlerC1EP29QHttpNetworkConnectionChannel": [
+      "address", "address"
+    ],
     "ritual_ZN24QAbstractProtocolHandlerD1Ev": ["nothing", "address"],
     "ritual_ZN24QAbstractProtocolHandler15_q_receiveReplyEv": [
       "nothing", "address"

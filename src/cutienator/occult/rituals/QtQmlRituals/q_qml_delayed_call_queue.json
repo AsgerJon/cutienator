@@ -2,7 +2,7 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtQml/6.12.0/QtQml/private/qqmldelayedcallqueue_p.h, Qt 6.12.0.",
-    "Changes made here are lost."
+    "Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZNK20QQmlDelayedCallQueue10metaObjectEv": ["address", "address"],
@@ -12,7 +12,14 @@
     "ritual_ZN20QQmlDelayedCallQueue11qt_metacallEN11QMetaObject4CallEiPPv": [
       "int", "address", "int", "int", "address"
     ],
+    "ritual_ZN20QQmlDelayedCallQueue2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN20QQmlDelayedCallQueueC1Ev": ["address"],
     "ritual_ZN20QQmlDelayedCallQueueD1Ev": ["nothing", "address"],
+    "ritual_ZN20QQmlDelayedCallQueue4initEPN3QV415ExecutionEngineE": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN20QQmlDelayedCallQueue26addUniquelyAndExecuteLaterEPN3QV415ExecutionEngineEP14QQmlV4Function": [
       "unsigned long long", "address", "address"
     ],

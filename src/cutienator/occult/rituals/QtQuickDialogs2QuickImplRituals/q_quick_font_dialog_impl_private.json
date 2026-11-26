@@ -11,6 +11,7 @@
     "ritual_ZNK27QQuickFontDialogImplPrivate6q_funcEv": [
       "address", "address"
     ],
+    "ritual_ZN27QQuickFontDialogImplPrivateC1Ev": ["address"],
     "ritual_ZN27QQuickFontDialogImplPrivate3getEP20QQuickFontDialogImpl": [
       "address", "address"
     ],

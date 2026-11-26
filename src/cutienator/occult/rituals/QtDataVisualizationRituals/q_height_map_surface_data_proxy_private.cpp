@@ -1,15 +1,33 @@
 //  Written by dev_tooling.RitualGenerator from the records of QtDataVisualiz
 //  ation/6.12.0/QtDataVisualization/private/qheightmapsurfacedataproxy_p.h,
-//  Qt 6.12.0. Changes made here are lost.
+//  Qt 6.12.0.
+//  Edited by hand on 2026-11-26: moc's output for
+//  'QHeightMapSurfaceDataProxyPrivate' is pasted in, cut from what the moc
+//  of Qt 6.12.0 writes for its header: Qt's library keeps it to itself;
+//  added are 1 rituals that lean on what moc writes for a class of the part
+//  Qt keeps to itself, whose ritual file carries moc's output, drafted by a
+//  copy of the generator that lets those names through. A copy of a meta-
+//  object is a second one: 'qobject_cast' between it and Qt's own does not
+//  match. Kept as it is when the generator runs again.
 #include <QtDataVisualization/6.12.0/QtDataVisualization/private/datavisualizationglobal_p.h>
 #include <QtDataVisualization/QtDataVisualization>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtDataVisualization/6.12.0/QtDataVisualization/private/qheightmapsurfacedataproxy_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
+#include <QtDataVisualization/private/qsurfacedataproxy_p.h>
+#include <QtDataVisualization/private/qsurface3dseries_p.h>
+#include <QtDataVisualization/private/qabstract3daxis_p.h>
 #include <QtDataVisualization/private/qheightmapsurfacedataproxy_p.h>
+#include <QtDataVisualization/private/qabstractdataproxy_p.h>
+#include <QtDataVisualization/private/qabstract3dseries_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -24,6 +42,126 @@ const float defaultMinValue = 0.0f;
 
 //  from ../qtdatavis3d/src/datavisualization/data/qheightmapsurfacedataproxy.cpp, line 10, as local:qheightmapsurfacedataproxy.cpp:defaultMaxValue
 const float defaultMaxValue = 10.0f;
+
+//  from QtDataVisualization__QHeightMapSurfaceDataProxyPrivate.cpp, line 1, as moc:QHeightMapSurfaceDataProxyPrivate
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN33QHeightMapSurfaceDataProxyPrivateE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto QHeightMapSurfaceDataProxyPrivate::qt_create_metaobjectdata<qt_meta_tag_ZN33QHeightMapSurfaceDataProxyPrivateE_t>()
+{
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "QHeightMapSurfaceDataProxyPrivate"
+    };
+
+    QtMocHelpers::UintData qt_methods {
+    };
+    QtMocHelpers::UintData qt_properties {
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    return QtMocHelpers::metaObjectData<QHeightMapSurfaceDataProxyPrivate, qt_meta_tag_ZN33QHeightMapSurfaceDataProxyPrivateE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums);
+}
+Q_CONSTINIT const QMetaObject QHeightMapSurfaceDataProxyPrivate::staticMetaObject = { {
+    QMetaObject::SuperData::link<QSurfaceDataProxyPrivate::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN33QHeightMapSurfaceDataProxyPrivateE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN33QHeightMapSurfaceDataProxyPrivateE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN33QHeightMapSurfaceDataProxyPrivateE_t>.metaTypes,
+    nullptr
+} };
+
+void QHeightMapSurfaceDataProxyPrivate::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<QHeightMapSurfaceDataProxyPrivate *>(_o);
+    (void)_t;
+    (void)_c;
+    (void)_id;
+    (void)_a;
+}
+
+const QMetaObject *QHeightMapSurfaceDataProxyPrivate::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *QHeightMapSurfaceDataProxyPrivate::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN33QHeightMapSurfaceDataProxyPrivateE_t>.strings))
+        return static_cast<void*>(this);
+    return QSurfaceDataProxyPrivate::qt_metacast(_clname);
+}
+
+int QHeightMapSurfaceDataProxyPrivate::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QSurfaceDataProxyPrivate::qt_metacall(_c, _id, _a);
+    return _id;
+}
+QT_WARNING_POP
+
+//  from ../qtdatavis3d/src/datavisualization/data/qsurfacedataproxy.cpp, line 636, as _ZN24QSurfaceDataProxyPrivate9setSeriesEP17QAbstract3DSeries
+inline void QSurfaceDataProxyPrivate::setSeries(QAbstract3DSeries *series)
+{
+    QAbstractDataProxyPrivate::setSeries(series);
+    QSurface3DSeries *surfaceSeries = static_cast<QSurface3DSeries *>(series);
+    emit qptr()->seriesChanged(surfaceSeries);
+}
+
+//  from ../qtdatavis3d/src/datavisualization/data/qheightmapsurfacedataproxy.cpp, line 432, as _ZN33QHeightMapSurfaceDataProxyPrivateD0Ev
+inline QHeightMapSurfaceDataProxyPrivate::~QHeightMapSurfaceDataProxyPrivate()
+{
+}
+
+//  from ../qtdatavis3d/src/datavisualization/data/qsurfacedataproxy.cpp, line 500, as _ZN24QSurfaceDataProxyPrivate4qptrEv
+inline QSurfaceDataProxy *QSurfaceDataProxyPrivate::qptr()
+{
+    return static_cast<QSurfaceDataProxy *>(q_ptr);
+}
+
+//  from ../qtdatavis3d/src/datavisualization/data/qsurfacedataproxy.cpp, line 400, as _ZN24QSurfaceDataProxyPrivateD2Ev
+inline QSurfaceDataProxyPrivate::~QSurfaceDataProxyPrivate()
+{
+    clearArray();
+}
+
+//  from ../qtdatavis3d/src/datavisualization/data/qabstractdataproxy.cpp, line 97, as _ZN25QAbstractDataProxyPrivate9setSeriesEP17QAbstract3DSeries
+inline void QAbstractDataProxyPrivate::setSeries(QAbstract3DSeries *series)
+{
+    q_ptr->setParent(series);
+    m_series = series;
+}
+
+//  from ../qtdatavis3d/src/datavisualization/data/qsurfacedataproxy.cpp, line 628, as _ZN24QSurfaceDataProxyPrivate10clearArrayEv
+inline void QSurfaceDataProxyPrivate::clearArray()
+{
+    for (int i = 0; i < m_dataArray->size(); i++)
+        clearRow(i);
+    m_dataArray->clear();
+    delete m_dataArray;
+}
+
+//  from ../qtdatavis3d/src/datavisualization/data/qabstractdataproxy.cpp, line 93, as _ZN25QAbstractDataProxyPrivateD2Ev
+inline QAbstractDataProxyPrivate::~QAbstractDataProxyPrivate()
+{
+}
+
+//  from ../qtdatavis3d/src/datavisualization/data/qsurfacedataproxy.cpp, line 620, as _ZN24QSurfaceDataProxyPrivate8clearRowEi
+inline void QSurfaceDataProxyPrivate::clearRow(int rowIndex)
+{
+    if (m_dataArray->at(rowIndex)) {
+        delete m_dataArray->at(rowIndex);
+        (*m_dataArray)[rowIndex] = 0;
+    }
+}
 
 //  from ../qtdatavis3d/src/datavisualization/data/qheightmapsurfacedataproxy.cpp, line 441, as _ZN33QHeightMapSurfaceDataProxyPrivate14setValueRangesEffff
 inline void QHeightMapSurfaceDataProxyPrivate::setValueRanges(float minX, float maxX,
@@ -560,6 +698,16 @@ int ritual_ZN33QHeightMapSurfaceDataProxyPrivate11qt_metacallEN11QMetaObject4Cal
     int a1,
     void **a2) {
   return self->qt_metacall(a0, a1, a2);
+}
+
+//  QString QHeightMapSurfaceDataProxyPrivate::tr(const char *s, const char
+//      *c, int n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN33QHeightMapSurfaceDataProxyPrivate2trEPKcS1_i(
+    const char *s,
+    const char *c,
+    int n) {
+  return new QString(QHeightMapSurfaceDataProxyPrivate::tr(s, c, n));
 }
 
 //  QHeightMapSurfaceDataProxyPrivate::~QHeightMapSurfaceDataProxyPrivate()

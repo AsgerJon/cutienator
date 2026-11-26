@@ -33,6 +33,12 @@
 inline QNmeaSatelliteReader::~QNmeaSatelliteReader()
 {
 }
+
+//  from ../qtpositioning/src/positioning/qnmeasatelliteinfosource.cpp, line 829, as _ZN20QNmeaSatelliteReaderC1EP31QNmeaSatelliteInfoSourcePrivate
+inline QNmeaSatelliteReader::QNmeaSatelliteReader(QNmeaSatelliteInfoSourcePrivate *sourcePrivate)
+    : m_proxy(sourcePrivate)
+{
+}
 //  -----------------------------------------------------------------------
 
 //  A QNmeaSatelliteReader that Python can take functions over in. Every QNmeaSatelliteReader
@@ -62,6 +68,14 @@ public:
     }
   }
 };
+
+//  QNmeaSatelliteReader::QNmeaSatelliteReader(QNmeaSatelliteInfoSourcePrivat
+//      e *sourcePrivate)
+extern "C" Q_DECL_EXPORT
+QNmeaSatelliteReader *ritual_ZN20QNmeaSatelliteReaderC1EP31QNmeaSatelliteInfoSourcePrivate(
+    QNmeaSatelliteInfoSourcePrivate *sourcePrivate) {
+  return new CuteQNmeaSatelliteReader(sourcePrivate);
+}
 
 //  QNmeaSatelliteReader::~QNmeaSatelliteReader()
 extern "C" Q_DECL_EXPORT

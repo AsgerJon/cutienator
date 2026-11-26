@@ -35,6 +35,15 @@ inline QGeoPositionInfoPrivate::QGeoPositionInfoPrivate() : QSharedData()
 {
 }
 
+//  from ../qtpositioning/src/positioning/qgeopositioninfo.cpp, line 382, as _ZN23QGeoPositionInfoPrivateC1ERKS_
+inline QGeoPositionInfoPrivate::QGeoPositionInfoPrivate(const QGeoPositionInfoPrivate &other)
+    : QSharedData(other),
+      timestamp(other.timestamp),
+      coord(other.coord),
+      doubleAttribs(other.doubleAttribs)
+{
+}
+
 //  from ../qtpositioning/src/positioning/qgeopositioninfo.cpp, line 395, as _ZNK23QGeoPositionInfoPrivateeqERKS_
 inline bool QGeoPositionInfoPrivate::operator==(const QGeoPositionInfoPrivate &other) const
 {
@@ -54,6 +63,14 @@ inline QGeoPositionInfoPrivate *QGeoPositionInfoPrivate::get(const QGeoPositionI
 extern "C" Q_DECL_EXPORT
 QGeoPositionInfoPrivate *ritual_ZN23QGeoPositionInfoPrivateC1Ev() {
   return new QGeoPositionInfoPrivate();
+}
+
+//  QGeoPositionInfoPrivate::QGeoPositionInfoPrivate(const
+//      QGeoPositionInfoPrivate &other)
+extern "C" Q_DECL_EXPORT
+QGeoPositionInfoPrivate *ritual_ZN23QGeoPositionInfoPrivateC1ERKS_(
+    const QGeoPositionInfoPrivate *other) {
+  return new QGeoPositionInfoPrivate(*other);
 }
 
 //  QGeoPositionInfoPrivate::~QGeoPositionInfoPrivate()

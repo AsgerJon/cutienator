@@ -564,14 +564,6 @@ inline QDomTextPrivate::QDomTextPrivate(QDomTextPrivate* n, bool deep)
 }
 #endif  // QT_CONFIG(dom)
 
-//  from src/xml/dom/qdom.cpp, line 5108, as _ZN23QDomCDATASectionPrivateC1EPS_b
-#if QT_CONFIG(dom)
-inline QDomCDATASectionPrivate::QDomCDATASectionPrivate(QDomCDATASectionPrivate* n, bool deep)
-    : QDomTextPrivate(n, deep)
-{
-}
-#endif  // QT_CONFIG(dom)
-
 //  from src/xml/dom/qdom.cpp, line 1460, as _ZN15QDomNodePrivate13ownerDocumentEv
 #if QT_CONFIG(dom)
 inline QDomDocumentPrivate* QDomNodePrivate::ownerDocument()
@@ -603,6 +595,17 @@ inline QDomNodePrivate* QDomNodePrivate::cloneNode(bool deep)
 inline void QDomCharacterDataPrivate::appendData(const QString& arg)
 {
     value += arg;
+}
+#endif  // QT_CONFIG(dom)
+
+//  from src/xml/dom/qdom.cpp, line 3510, as _ZN24QDomCharacterDataPrivateC2EP19QDomDocumentPrivateP15QDomNodePrivateRK7QString
+#if QT_CONFIG(dom)
+inline QDomCharacterDataPrivate::QDomCharacterDataPrivate(QDomDocumentPrivate* d, QDomNodePrivate* p,
+                                                      const QString& data)
+    : QDomNodePrivate(d, p)
+{
+    value = data;
+    name = u"#character-data"_s;
 }
 #endif  // QT_CONFIG(dom)
 

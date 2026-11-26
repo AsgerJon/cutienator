@@ -1,12 +1,25 @@
 //  Written by dev_tooling.RitualGenerator from the records of QtQuickControl
 //  s2FusionStyleImpl/6.12.0/QtQuickControls2FusionStyleImpl/private/qquickfu
-//  siondial_p.h, Qt 6.12.0. Changes made here are lost.
+//  siondial_p.h, Qt 6.12.0.
+//  Edited by hand on 2026-11-26: moc's output for 'QQuickFusionDial' is
+//  pasted in, cut from what the moc of Qt 6.12.0 writes for its header: Qt's
+//  library keeps it to itself; added are 2 rituals that lean on what moc
+//  writes for a class of the part Qt keeps to itself, whose ritual file
+//  carries moc's output, drafted by a copy of the generator that lets those
+//  names through. A copy of a meta-object is a second one: 'qobject_cast'
+//  between it and Qt's own does not match. Kept as it is when the generator
+//  runs again.
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtQuickControls2FusionStyleImpl/QtQuickControls2FusionStyleImpl>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQuickControls2FusionStyleImpl/6.12.0/QtQuickControls2FusionStyleImpl/private/qquickfusiondial_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
 #include <QtQuickControls2FusionStyleImpl/private/qquickfusiondial_p.h>
 #include <QtGui/qpainter.h>
 #include <QtGui/private/qmath_p.h>
@@ -20,6 +33,101 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  from QtQuickControls2FusionStyleImpl__QQuickFusionDial.cpp, line 1, as moc:QQuickFusionDial
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN16QQuickFusionDialE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto QQuickFusionDial::qt_create_metaobjectdata<qt_meta_tag_ZN16QQuickFusionDialE_t>()
+{
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "QQuickFusionDial",
+        "QML.Element",
+        "DialImpl",
+        "QML.AddedInVersion",
+        "515",
+        "highlight"
+    };
+
+    QtMocHelpers::UintData qt_methods {
+    };
+    QtMocHelpers::UintData qt_properties {
+        // property 'highlight'
+        QtMocHelpers::PropertyData<bool>(5, QMetaType::Bool, QMC::DefaultPropertyFlags | QMC::Writable | QMC::StdCppSet | QMC::Final),
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    QtMocHelpers::UintData qt_constructors {};
+    QtMocHelpers::ClassInfos qt_classinfo({
+            {    1,    2 },
+            {    3,    4 },
+    });
+    return QtMocHelpers::metaObjectData<QQuickFusionDial, void>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums, qt_constructors, qt_classinfo);
+}
+Q_CONSTINIT const QMetaObject QQuickFusionDial::staticMetaObject = { {
+    QMetaObject::SuperData::link<QQuickPaintedItem::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN16QQuickFusionDialE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN16QQuickFusionDialE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN16QQuickFusionDialE_t>.metaTypes,
+    nullptr
+} };
+
+void QQuickFusionDial::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<QQuickFusionDial *>(_o);
+    if (_c == QMetaObject::ReadProperty) {
+        void *_v = _a[0];
+        switch (_id) {
+        case 0: *reinterpret_cast<bool*>(_v) = _t->highlight(); break;
+        default: break;
+        }
+    }
+    if (_c == QMetaObject::WriteProperty) {
+        void *_v = _a[0];
+        switch (_id) {
+        case 0: _t->setHighlight(*reinterpret_cast<bool*>(_v)); break;
+        default: break;
+        }
+    }
+}
+
+const QMetaObject *QQuickFusionDial::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *QQuickFusionDial::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN16QQuickFusionDialE_t>.strings))
+        return static_cast<void*>(this);
+    return QQuickPaintedItem::qt_metacast(_clname);
+}
+
+int QQuickFusionDial::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QQuickPaintedItem::qt_metacall(_c, _id, _a);
+    if (_id < 0)
+        return _id;
+    if (_c == QMetaObject::ReadProperty || _c == QMetaObject::WriteProperty
+            || _c == QMetaObject::ResetProperty || _c == QMetaObject::BindableProperty
+            || _c == QMetaObject::RegisterPropertyMetaType) {
+        qt_static_metacall(this, _c, _id, _a);
+        _id -= 1;
+    }
+    return _id;
+}
+QT_WARNING_POP
 
 //  from ../qtdeclarative/src/quickcontrols/fusion/impl/qquickfusiondial.cpp, line 34, as _ZN16QQuickFusionDial5paintEP8QPainter
 inline void QQuickFusionDial::paint(QPainter *painter)
@@ -95,6 +203,12 @@ inline void QQuickFusionDial::paint(QPainter *painter)
     }
 }
 
+//  from ../qtdeclarative/src/quickcontrols/fusion/impl/qquickfusiondial.cpp, line 14, as _ZN16QQuickFusionDialC1EP10QQuickItem
+inline QQuickFusionDial::QQuickFusionDial(QQuickItem *parent)
+    : QQuickPaintedItem(parent)
+{
+}
+
 //  from ../qtdeclarative/src/quickcontrols/fusion/impl/qquickfusiondial.cpp, line 19, as _ZNK16QQuickFusionDial9highlightEv
 inline bool QQuickFusionDial::highlight() const
 {
@@ -136,6 +250,22 @@ int ritual_ZN16QQuickFusionDial11qt_metacallEN11QMetaObject4CallEiPPv(
     int a1,
     void **a2) {
   return self->qt_metacall(a0, a1, a2);
+}
+
+//  QString QQuickFusionDial::tr(const char *s, const char *c, int n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN16QQuickFusionDial2trEPKcS1_i(
+    const char *s,
+    const char *c,
+    int n) {
+  return new QString(QQuickFusionDial::tr(s, c, n));
+}
+
+//  QQuickFusionDial::QQuickFusionDial(QQuickItem *parent)
+extern "C" Q_DECL_EXPORT
+QQuickFusionDial *ritual_ZN16QQuickFusionDialC1EP10QQuickItem(
+    QQuickItem *parent) {
+  return new QQuickFusionDial(parent);
 }
 
 //  bool QQuickFusionDial::highlight() const

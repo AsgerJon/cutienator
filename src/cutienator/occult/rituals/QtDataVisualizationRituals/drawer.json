@@ -2,7 +2,7 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtDataVisualization/6.12.0/QtDataVisualization/private/drawer_p.h,",
-    "Qt 6.12.0. Changes made here are lost."
+    "Qt 6.12.0. Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZNK6Drawer10metaObjectEv": ["address", "address"],
@@ -10,12 +10,20 @@
     "ritual_ZN6Drawer11qt_metacallEN11QMetaObject4CallEiPPv": [
       "int", "address", "int", "int", "address"
     ],
+    "ritual_ZN6Drawer2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN6DrawerC1EP8Q3DTheme": ["address", "address"],
     "ritual_ZN6DrawerD1Ev": ["nothing", "address"],
+    "ritual_ZN6Drawer8setThemeEP8Q3DTheme": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK6Drawer5themeEv": ["address", "address"],
     "ritual_ZNK6Drawer4fontEv": ["address", "address"],
     "ritual_ZNK6Drawer14scaledFontSizeEv": ["float", "address"],
     "ritual_ZN6Drawer19drawSelectionObjectEP12ShaderHelperP20AbstractObjectHelper": [
       "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN6Drawer9drawPointEP12ShaderHelper": [
+      "nothing", "address", "address"
     ],
     "ritual_ZN6Drawer8drawLineEP12ShaderHelper": [
       "nothing", "address", "address"

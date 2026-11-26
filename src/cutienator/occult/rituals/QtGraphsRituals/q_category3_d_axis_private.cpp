@@ -250,6 +250,15 @@ inline const QLoggingCategory &lcAProperties3D()
     return category;
 }
 
+//  from ../qtgraphs/src/graphs3d/axis/qabstract3daxis.cpp, line 674, as _ZN22QAbstract3DAxisPrivateD2Ev
+inline QAbstract3DAxisPrivate::~QAbstract3DAxisPrivate() {}
+
+//  from ../qtgraphs/src/graphs3d/axis/qcategory3daxis.cpp, line 117, as _ZN22QCategory3DAxisPrivateC1Ev
+inline QCategory3DAxisPrivate::QCategory3DAxisPrivate()
+    : QAbstract3DAxisPrivate(QAbstract3DAxis::AxisType::Category)
+    , m_labelsExplicitlySet(false)
+{}
+
 //  from ../qtgraphs/src/graphs3d/axis/qcategory3daxis.cpp, line 131, as _ZN22QCategory3DAxisPrivate13setDataLabelsERK5QListI7QStringE
 inline void QCategory3DAxisPrivate::setDataLabels(const QStringList &labels)
 {
@@ -411,6 +420,12 @@ extern "C" Q_DECL_EXPORT
 const QCategory3DAxis *ritual_ZNK22QCategory3DAxisPrivate6q_funcEv(
     const QCategory3DAxisPrivate *self) {
   return self->q_func();
+}
+
+//  QCategory3DAxisPrivate::QCategory3DAxisPrivate()
+extern "C" Q_DECL_EXPORT
+QCategory3DAxisPrivate *ritual_ZN22QCategory3DAxisPrivateC1Ev() {
+  return new CuteQCategory3DAxisPrivate();
 }
 
 //  QCategory3DAxisPrivate::~QCategory3DAxisPrivate()

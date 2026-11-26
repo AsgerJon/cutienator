@@ -107,6 +107,26 @@ inline const QLoggingCategory &lcAxis2D()
     return category;
 }
 
+//  from ../qtgraphs/src/graphs2d/axis/qabstractaxis.cpp, line 699, as _ZN20QAbstractAxisPrivateD1Ev
+inline QAbstractAxisPrivate::~QAbstractAxisPrivate()
+{
+    Q_Q(QAbstractAxis);
+    if (m_graph)
+        m_graph->removeAxis(q, true);
+}
+
+//  from ../qtgraphs/src/graphs2d/axis/valueaxis/qvalueaxis.cpp, line 516, as _ZN17QValueAxisPrivateC1Ev
+inline QValueAxisPrivate::QValueAxisPrivate()
+    : m_min(0)
+    , m_max(10)
+    , m_subTickCount(0)
+    , m_format()
+    , m_postFormat(QLatin1StringView("%1"))
+    , m_decimals(-1)
+    , m_tickAnchor(0.0)
+    , m_tickInterval(0.0)
+{}
+
 //  from ../qtgraphs/src/graphs2d/axis/valueaxis/qvalueaxis.cpp, line 591, as _ZN17QValueAxisPrivate20calculateVisualRangeEv
 inline void QValueAxisPrivate::calculateVisualRange()
 {
@@ -244,6 +264,12 @@ public:
     QValueAxisPrivate::setRange(min, max);
   }
 };
+
+//  QValueAxisPrivate::QValueAxisPrivate()
+extern "C" Q_DECL_EXPORT
+QValueAxisPrivate *ritual_ZN17QValueAxisPrivateC1Ev() {
+  return new CuteQValueAxisPrivate();
+}
 
 //  QValueAxisPrivate::~QValueAxisPrivate()
 extern "C" Q_DECL_EXPORT

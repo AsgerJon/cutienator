@@ -1,6 +1,13 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtQuick/6.12.0/QtQuick/private/qquicktableview_p_p.h, Qt 6.12.0. Changes
-//  made here are lost.
+//  QtQuick/6.12.0/QtQuick/private/qquicktableview_p_p.h, Qt 6.12.0.
+//  Edited by hand on 2026-11-26: moc's output for
+//  'QQuickTableViewPointerHandler' is pasted in, cut from what the moc of Qt
+//  6.12.0 writes for its header: Qt's library keeps it to itself; added are
+//  2 rituals that lean on what moc writes for a class of the part Qt keeps
+//  to itself, whose ritual file carries moc's output, drafted by a copy of
+//  the generator that lets those names through. A copy of a meta-object is a
+//  second one: 'qobject_cast' between it and Qt's own does not match. Kept
+//  as it is when the generator runs again.
 #include <QtQuick/qtquickglobal.h>
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
 #if QT_CONFIG(quick_tableview)
@@ -9,10 +16,15 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQuick/6.12.0/QtQuick/private/qquicktableview_p_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 #include <QtGui/qeventpoint.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
 #include <QtQuick/private/qquicktableview_p.h>
 #include <QtQuick/private/qquicktableview_p_p.h>
 #include <QtCore/qdir.h>
@@ -38,6 +50,71 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from QtQuick__QQuickTableViewPointerHandler.cpp, line 1, as moc:QQuickTableViewPointerHandler
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN29QQuickTableViewPointerHandlerE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto QQuickTableViewPointerHandler::qt_create_metaobjectdata<qt_meta_tag_ZN29QQuickTableViewPointerHandlerE_t>()
+{
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "QQuickTableViewPointerHandler"
+    };
+
+    QtMocHelpers::UintData qt_methods {
+    };
+    QtMocHelpers::UintData qt_properties {
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    return QtMocHelpers::metaObjectData<QQuickTableViewPointerHandler, qt_meta_tag_ZN29QQuickTableViewPointerHandlerE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums);
+}
+Q_CONSTINIT const QMetaObject QQuickTableViewPointerHandler::staticMetaObject = { {
+    QMetaObject::SuperData::link<QQuickSinglePointHandler::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN29QQuickTableViewPointerHandlerE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN29QQuickTableViewPointerHandlerE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN29QQuickTableViewPointerHandlerE_t>.metaTypes,
+    nullptr
+} };
+
+void QQuickTableViewPointerHandler::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<QQuickTableViewPointerHandler *>(_o);
+    (void)_t;
+    (void)_c;
+    (void)_id;
+    (void)_a;
+}
+
+const QMetaObject *QQuickTableViewPointerHandler::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *QQuickTableViewPointerHandler::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN29QQuickTableViewPointerHandlerE_t>.strings))
+        return static_cast<void*>(this);
+    return QQuickSinglePointHandler::qt_metacast(_clname);
+}
+
+int QQuickTableViewPointerHandler::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QQuickSinglePointHandler::qt_metacall(_c, _id, _a);
+    return _id;
+}
+QT_WARNING_POP
+
 //  from ../qtdeclarative/src/quick/items/qquicktableview.cpp, line 7235, as _ZN29QQuickTableViewPointerHandler15wantsEventPointEPK13QPointerEventRK11QEventPoint
 inline bool QQuickTableViewPointerHandler::wantsEventPoint(const QPointerEvent *event, const QEventPoint &point)
 {
@@ -52,6 +129,15 @@ inline bool QQuickTableViewPointerHandler::wantsEventPoint(const QPointerEvent *
     // he doesn't start to resize by accident.
     const auto *tableView = static_cast<QQuickTableView *>(parentItem()->parent());
     return !tableView->isMoving();
+}
+
+//  from ../qtdeclarative/src/quick/items/qquicktableview.cpp, line 7227, as _ZN29QQuickTableViewPointerHandlerC1EP15QQuickTableView
+inline QQuickTableViewPointerHandler::QQuickTableViewPointerHandler(QQuickTableView *view)
+    : QQuickSinglePointHandler(view->contentItem())
+{
+    // Set a grab permission that stops the flickable, as well as
+    // any drag handler inside the delegate, from stealing the drag.
+    setGrabPermissions(QQuickPointerHandler::CanTakeOverFromAnything);
 }
 //  -----------------------------------------------------------------------
 
@@ -406,6 +492,24 @@ int ritual_ZN29QQuickTableViewPointerHandler11qt_metacallEN11QMetaObject4CallEiP
     int a1,
     void **a2) {
   return self->qt_metacall(a0, a1, a2);
+}
+
+//  QString QQuickTableViewPointerHandler::tr(const char *s, const char *c,
+//      int n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN29QQuickTableViewPointerHandler2trEPKcS1_i(
+    const char *s,
+    const char *c,
+    int n) {
+  return new QString(QQuickTableViewPointerHandler::tr(s, c, n));
+}
+
+//  QQuickTableViewPointerHandler::QQuickTableViewPointerHandler(QQuickTableV
+//      iew *view)
+extern "C" Q_DECL_EXPORT
+QQuickTableViewPointerHandler *ritual_ZN29QQuickTableViewPointerHandlerC1EP15QQuickTableView(
+    QQuickTableView *view) {
+  return new CuteQQuickTableViewPointerHandler(view);
 }
 
 //  State QQuickTableViewPointerHandler::state()

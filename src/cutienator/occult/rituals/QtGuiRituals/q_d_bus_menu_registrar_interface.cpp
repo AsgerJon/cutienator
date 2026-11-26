@@ -1,6 +1,13 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtGui/6.12.0/QtGui/private/qdbusmenuregistrarproxy_p.h, Qt 6.12.0.
-//  Changes made here are lost.
+//  Edited by hand on 2026-11-26: moc's output for
+//  'QDBusMenuRegistrarInterface' is pasted in, cut from what the moc of Qt
+//  6.12.0 writes for its header: Qt's library keeps it to itself; added are
+//  2 rituals that lean on what moc writes for a class of the part Qt keeps
+//  to itself, whose ritual file carries moc's output, drafted by a copy of
+//  the generator that lets those names through. A copy of a meta-object is a
+//  second one: 'qobject_cast' between it and Qt's own does not match. Kept
+//  as it is when the generator runs again.
 #include <QtGui/qtguiglobal.h>
 #include <QtGui/6.12.0/QtGui/private/qtguiglobal_p.h>
 #if 1 && defined(Q_OS_UNIX) && (QT_CONFIG(xcb) || !defined(Q_OS_MACOS)) && (QT_CONFIG(xcb) || !(defined(Q_OS_IOS) || defined(Q_OS_TVOS) || defined(Q_OS_VISIONOS)))
@@ -9,6 +16,8 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGui/6.12.0/QtGui/private/qdbusmenuregistrarproxy_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
+#include <QtDBus/qdbusconnection.h>
 #include <QtDBus/qdbusextratypes.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
@@ -17,6 +26,10 @@
 #include <QtDBus/QDBusObjectPath>
 #include <QtDBus/QDBusReply>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
 #include <QtGui/private/qdbusmenuregistrarproxy_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
@@ -26,6 +39,137 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  from QtGui__QDBusMenuRegistrarInterface.cpp, line 1, as moc:QDBusMenuRegistrarInterface
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN27QDBusMenuRegistrarInterfaceE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto QDBusMenuRegistrarInterface::qt_create_metaobjectdata<qt_meta_tag_ZN27QDBusMenuRegistrarInterfaceE_t>()
+{
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "QDBusMenuRegistrarInterface",
+        "GetMenuForWindow",
+        "QDBusPendingReply<QString,QDBusObjectPath>",
+        "",
+        "windowId",
+        "QDBusReply<QString>",
+        "QDBusObjectPath&",
+        "menuObjectPath",
+        "RegisterWindow",
+        "QDBusPendingReply<>",
+        "QDBusObjectPath",
+        "UnregisterWindow"
+    };
+
+    QtMocHelpers::UintData qt_methods {
+        // Slot 'GetMenuForWindow'
+        QtMocHelpers::SlotData<QDBusPendingReply<QString,QDBusObjectPath>(uint)>(1, 3, QMC::AccessPublic, 0x80000000 | 2, {{
+            { QMetaType::UInt, 4 },
+        }}),
+        // Slot 'GetMenuForWindow'
+        QtMocHelpers::SlotData<QDBusReply<QString>(uint, QDBusObjectPath &)>(1, 3, QMC::AccessPublic, 0x80000000 | 5, {{
+            { QMetaType::UInt, 4 }, { 0x80000000 | 6, 7 },
+        }}),
+        // Slot 'RegisterWindow'
+        QtMocHelpers::SlotData<QDBusPendingReply<>(uint, const QDBusObjectPath &)>(8, 3, QMC::AccessPublic, 0x80000000 | 9, {{
+            { QMetaType::UInt, 4 }, { 0x80000000 | 10, 7 },
+        }}),
+        // Slot 'UnregisterWindow'
+        QtMocHelpers::SlotData<QDBusPendingReply<>(uint)>(11, 3, QMC::AccessPublic, 0x80000000 | 9, {{
+            { QMetaType::UInt, 4 },
+        }}),
+    };
+    QtMocHelpers::UintData qt_properties {
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    return QtMocHelpers::metaObjectData<QDBusMenuRegistrarInterface, qt_meta_tag_ZN27QDBusMenuRegistrarInterfaceE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums);
+}
+Q_CONSTINIT const QMetaObject QDBusMenuRegistrarInterface::staticMetaObject = { {
+    QMetaObject::SuperData::link<QDBusAbstractInterface::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN27QDBusMenuRegistrarInterfaceE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN27QDBusMenuRegistrarInterfaceE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN27QDBusMenuRegistrarInterfaceE_t>.metaTypes,
+    nullptr
+} };
+
+void QDBusMenuRegistrarInterface::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<QDBusMenuRegistrarInterface *>(_o);
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        switch (_id) {
+        case 0: { QDBusPendingReply<QString,QDBusObjectPath> _r = _t->GetMenuForWindow((*reinterpret_cast<std::add_pointer_t<uint>>(_a[1])));
+            if (_a[0]) *reinterpret_cast<QDBusPendingReply<QString,QDBusObjectPath>*>(_a[0]) = std::move(_r); }  break;
+        case 1: { QDBusReply<QString> _r = _t->GetMenuForWindow((*reinterpret_cast<std::add_pointer_t<uint>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<QDBusObjectPath&>>(_a[2])));
+            if (_a[0]) *reinterpret_cast<QDBusReply<QString>*>(_a[0]) = std::move(_r); }  break;
+        case 2: { QDBusPendingReply<> _r = _t->RegisterWindow((*reinterpret_cast<std::add_pointer_t<uint>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<QDBusObjectPath>>(_a[2])));
+            if (_a[0]) *reinterpret_cast<QDBusPendingReply<>*>(_a[0]) = std::move(_r); }  break;
+        case 3: { QDBusPendingReply<> _r = _t->UnregisterWindow((*reinterpret_cast<std::add_pointer_t<uint>>(_a[1])));
+            if (_a[0]) *reinterpret_cast<QDBusPendingReply<>*>(_a[0]) = std::move(_r); }  break;
+        default: ;
+        }
+    }
+    if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        switch (_id) {
+        default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
+        case 2:
+            switch (*reinterpret_cast<int*>(_a[1])) {
+            default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
+            case 1:
+                *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType::fromType< QDBusObjectPath >(); break;
+            }
+            break;
+        }
+    }
+}
+
+const QMetaObject *QDBusMenuRegistrarInterface::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *QDBusMenuRegistrarInterface::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN27QDBusMenuRegistrarInterfaceE_t>.strings))
+        return static_cast<void*>(this);
+    return QDBusAbstractInterface::qt_metacast(_clname);
+}
+
+int QDBusMenuRegistrarInterface::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QDBusAbstractInterface::qt_metacall(_c, _id, _a);
+    if (_id < 0)
+        return _id;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        if (_id < 4)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 4;
+    }
+    if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        if (_id < 4)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 4;
+    }
+    return _id;
+}
+QT_WARNING_POP
+
+//  from src/gui/platform/unix/dbusmenu/qdbusmenuregistrarproxy.cpp, line 20, as _ZN27QDBusMenuRegistrarInterfaceC1ERK7QStringS2_RK15QDBusConnectionP7QObject
+inline QDBusMenuRegistrarInterface::QDBusMenuRegistrarInterface(const QString &service, const QString &path, const QDBusConnection &connection, QObject *parent)
+    : QDBusAbstractInterface(service, path, staticInterfaceName(), connection, parent)
+{
+}
 
 //  from src/gui/platform/unix/dbusmenu/qdbusmenuregistrarproxy.cpp, line 25, as _ZN27QDBusMenuRegistrarInterfaceD1Ev
 inline QDBusMenuRegistrarInterface::~QDBusMenuRegistrarInterface()
@@ -239,10 +383,36 @@ int ritual_ZN27QDBusMenuRegistrarInterface11qt_metacallEN11QMetaObject4CallEiPPv
   return self->qt_metacall(a0, a1, a2);
 }
 
+//  QString QDBusMenuRegistrarInterface::tr(const char *s, const char *c, int
+//      n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN27QDBusMenuRegistrarInterface2trEPKcS1_i(
+    const char *s,
+    const char *c,
+    int n) {
+  return new QString(QDBusMenuRegistrarInterface::tr(s, c, n));
+}
+
 //  const char *QDBusMenuRegistrarInterface::staticInterfaceName()
 extern "C" Q_DECL_EXPORT
 const char *ritual_ZN27QDBusMenuRegistrarInterface19staticInterfaceNameEv() {
   return QDBusMenuRegistrarInterface::staticInterfaceName();
+}
+
+//  QDBusMenuRegistrarInterface::QDBusMenuRegistrarInterface(const QString
+//      &service, const QString &path, const QDBusConnection &connection,
+//      QObject *parent)
+extern "C" Q_DECL_EXPORT
+QDBusMenuRegistrarInterface *ritual_ZN27QDBusMenuRegistrarInterfaceC1ERK7QStringS2_RK15QDBusConnectionP7QObject(
+    const QString *service,
+    const QString *path,
+    const QDBusConnection *connection,
+    QObject *parent) {
+  return new CuteQDBusMenuRegistrarInterface(
+      *service,
+      *path,
+      *connection,
+      parent);
 }
 
 //  QDBusMenuRegistrarInterface::~QDBusMenuRegistrarInterface()

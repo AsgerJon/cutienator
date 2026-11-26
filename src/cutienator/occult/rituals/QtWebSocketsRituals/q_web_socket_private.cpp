@@ -1,6 +1,11 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWebSockets/6.12.0/QtWebSockets/private/qwebsocket_p.h, Qt 6.12.0.
-//  Changes made here are lost.
+//  Edited by hand on 2026-11-26: added are 1 rituals that lean on what moc
+//  writes for a class of the part Qt keeps to itself, whose ritual file
+//  carries moc's output, drafted by a copy of the generator that lets those
+//  names through. A copy of a meta-object is a second one: 'qobject_cast'
+//  between it and Qt's own does not match. Kept as it is when the generator
+//  runs again.
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtWebSockets/qwebsocket.h>
 #include <QtWebSockets/QtWebSockets>
@@ -83,6 +88,11 @@
 #include <algorithm>
 #include <functional>   //for std::greater
 #include <iterator>
+#include <QtWebSockets/private/qwebsocketframe_p.h>
+#include <QtWebSockets/private/qwebsocketprotocol_p.h>
+#include <QtCore/QtEndian>
+#include <QtCore/QDebug>
+#include <QtCore/QIODevice>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -244,6 +254,102 @@ inline QString QWebSocketHandshakeResponse::acceptedExtension() const
 //  from ../qtwebsockets/src/websockets/qdefaultmaskgenerator_p.cpp, line 45, as _ZN21QDefaultMaskGeneratorD1Ev
 inline QDefaultMaskGenerator::~QDefaultMaskGenerator()
 {
+}
+
+//  from ../qtwebsockets/src/websockets/qwebsocketdataprocessor.cpp, line 231, as _ZN23QWebSocketDataProcessor5clearEv
+inline void QWebSocketDataProcessor::clear()
+{
+    m_processingState = PS_READ_HEADER;
+    m_isFinalFrame = false;
+    m_isFragmented = false;
+    m_opCode = QWebSocketProtocol::OpCodeClose;
+    m_hasMask = false;
+    m_mask = 0;
+    m_binaryMessage.clear();
+    m_textMessage.clear();
+    m_payloadLength = 0;
+    m_decoder.resetState();
+    m_hasFailed = false;
+    frame.clear();
+}
+
+//  from ../qtwebsockets/src/websockets/qwebsocketdataprocessor.cpp, line 337, as _ZN23QWebSocketDataProcessor7timeoutEv
+inline void QWebSocketDataProcessor::timeout()
+{
+    reportError(QWebSocketProtocol::CloseCodeGoingAway,
+                tr("Timeout when reading data from socket."));
+}
+
+//  from ../qtwebsockets/src/websockets/qdefaultmaskgenerator_p.cpp, line 52, as _ZN21QDefaultMaskGenerator4seedEv
+inline bool QDefaultMaskGenerator::seed() noexcept
+{
+    return true;
+}
+
+//  from ../qtwebsockets/src/websockets/qdefaultmaskgenerator_p.cpp, line 62, as _ZN21QDefaultMaskGenerator8nextMaskEv
+inline quint32 QDefaultMaskGenerator::nextMask() noexcept
+{
+    quint32 value = QRandomGenerator::global()->generate();
+    while (Q_UNLIKELY(value == 0)) {
+        // a mask of zero has a special meaning
+        value = QRandomGenerator::global()->generate();
+    }
+    return value;
+}
+
+//  from ../qtwebsockets/src/websockets/qwebsocketframe.cpp, line 140, as _ZN15QWebSocketFrame5clearEv
+inline void QWebSocketFrame::clear()
+{
+    m_closeCode = QWebSocketProtocol::CloseCodeNormal;
+    m_closeReason.clear();
+    m_isFinalFrame = true;
+    m_mask = 0;
+    m_rsv1 = false;
+    m_rsv2 = false;
+    m_rsv3 = false;
+    m_opCode = QWebSocketProtocol::OpCodeReservedC;
+    m_length = 0;
+    m_payload.clear();
+    m_isValid = false;
+    m_processingState = PS_READ_HEADER;
+}
+
+//  from ../qtwebsockets/src/websockets/qwebsocketdataprocessor.cpp, line 253, as _ZN23QWebSocketDataProcessor11reportErrorEN18QWebSocketProtocol9CloseCodeERK7QString
+inline void QWebSocketDataProcessor::reportError(QWebSocketProtocol::CloseCode code,
+                                          const QString &description)
+{
+    clear();
+    m_hasFailed = true;
+    Q_EMIT errorEncountered(code, description);
+}
+
+//  from ../qtwebsockets/src/websockets/qwebsocket_p.cpp, line 101, as _ZN17QWebSocketPrivateC1ERK7QStringN18QWebSocketProtocol7VersionE
+inline QWebSocketPrivate::QWebSocketPrivate(const QString &origin, QWebSocketProtocol::Version version) :
+    QObjectPrivate(),
+    m_pSocket(nullptr),
+    m_errorString(),
+    m_version(version),
+    m_resourceName(),
+    m_request(),
+    m_origin(origin),
+    m_protocol(),
+    m_extension(),
+    m_socketState(QAbstractSocket::UnconnectedState),
+    m_pauseMode(QAbstractSocket::PauseNever),
+    m_readBufferSize(0),
+    m_key(),
+    m_mustMask(true),
+    m_isClosingHandshakeSent(false),
+    m_isClosingHandshakeReceived(false),
+    m_closeCode(QWebSocketProtocol::CloseCodeNormal),
+    m_closeReason(),
+    m_pingTimer(),
+    m_configuration(),
+    m_pMaskGenerator(&m_defaultMaskGenerator),
+    m_defaultMaskGenerator(),
+    m_outgoingFrameSize(DEFAULT_OUTGOING_FRAME_SIZE_IN_BYTES)
+{
+    m_pingTimer.start();
 }
 
 //  from ../qtwebsockets/src/websockets/qwebsocket_p.cpp, line 208, as _ZN17QWebSocketPrivate5abortEv
@@ -560,6 +666,17 @@ const QWebSocket *ritual_ZNK17QWebSocketPrivate6q_funcEv(
     const QWebSocketPrivate *self) {
   return self->q_func();
 }
+
+#if defined(Q_OS_LINUX)
+//  QWebSocketPrivate::QWebSocketPrivate(const QString &origin,
+//      QWebSocketProtocol::Version version)
+extern "C" Q_DECL_EXPORT
+QWebSocketPrivate *ritual_ZN17QWebSocketPrivateC1ERK7QStringN18QWebSocketProtocol7VersionE(
+    const QString *origin,
+    QWebSocketProtocol::Version version) {
+  return new QWebSocketPrivate(*origin, version);
+}
+#endif  // defined(Q_OS_LINUX)
 
 //  QWebSocketPrivate::~QWebSocketPrivate()
 extern "C" Q_DECL_EXPORT

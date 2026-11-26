@@ -2,7 +2,7 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtMultimedia/6.12.0/QtMultimedia/private/qrtaudioengine_p.h, Qt",
-    "6.12.0. Changes made here are lost."
+    "6.12.0. Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZN19QtMultimediaPrivate26QRtAudioEngineVoiceCompare5getIdERKNS_19QRtAudioEngineVoiceE": [
@@ -13,6 +13,21 @@
     ],
     "ritual_ZN19QtMultimediaPrivate26QRtAudioEngineVoiceCompareD1Ev": [
       "nothing", "address"
+    ],
+    "ritual_ZNK19QtMultimediaPrivate26QRtAudioEngineVoiceCompareclINS_19QRtAudioEngineVoiceES2_EEbRKT_RKT0_": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZNK19QtMultimediaPrivate26QRtAudioEngineVoiceCompareclISt10shared_ptrINS_19QRtAudioEngineVoiceEES4_EEbRKT_RKT0_": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZNK19QtMultimediaPrivate26QRtAudioEngineVoiceCompareclINS_19QRtAudioEngineVoiceESt10shared_ptrIS2_EEEbRKT_RKT0_": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZNK19QtMultimediaPrivate26QRtAudioEngineVoiceCompareclISt10shared_ptrINS_19QRtAudioEngineVoiceEES3_EEbRKT_RKT0_": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN19QtMultimediaPrivate26QRtAudioEngineVoiceCompare5getIdENS_7VoiceIdE": [
+      "unsigned long long", "unsigned long long"
     ]
   }
 }

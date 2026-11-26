@@ -2,7 +2,7 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtDBus/6.12.0/QtDBus/private/qdbuspendingcall_p.h, Qt 6.12.0.",
-    "Changes made here are lost."
+    "Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZNK29QDBusPendingCallWatcherHelper10metaObjectEv": [
@@ -13,6 +13,15 @@
     ],
     "ritual_ZN29QDBusPendingCallWatcherHelper11qt_metacallEN11QMetaObject4CallEiPPv": [
       "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN29QDBusPendingCallWatcherHelper2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN29QDBusPendingCallWatcherHelper3addEP23QDBusPendingCallWatcher": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN29QDBusPendingCallWatcherHelper11emitSignalsERK12QDBusMessageS2_": [
+      "nothing", "address", "address", "address"
     ],
     "ritual_ZN29QDBusPendingCallWatcherHelper8finishedEv": [
       "nothing", "address"

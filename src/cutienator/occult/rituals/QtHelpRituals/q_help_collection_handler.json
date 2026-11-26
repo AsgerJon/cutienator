@@ -2,7 +2,7 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtHelp/6.12.0/QtHelp/private/qhelpcollectionhandler_p.h, Qt",
-    "6.12.0. Changes made here are lost."
+    "6.12.0. Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZNK22QHelpCollectionHandler10metaObjectEv": [
@@ -14,17 +14,35 @@
     "ritual_ZN22QHelpCollectionHandler11qt_metacallEN11QMetaObject4CallEiPPv": [
       "int", "address", "int", "int", "address"
     ],
+    "ritual_ZN22QHelpCollectionHandler2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN22QHelpCollectionHandlerC1ERK7QStringP7QObject": [
+      "address", "text", "address"
+    ],
     "ritual_ZN22QHelpCollectionHandlerD1Ev": ["nothing", "address"],
     "ritual_ZNK22QHelpCollectionHandler14collectionFileEv": [
       "text", "address"
     ],
+    "ritual_ZN22QHelpCollectionHandler18copyCollectionFileERK7QString": [
+      "bool", "address", "text"
+    ],
     "ritual_ZNK22QHelpCollectionHandler13customFiltersEv": [
       "address", "address"
+    ],
+    "ritual_ZN22QHelpCollectionHandler18removeCustomFilterERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZN22QHelpCollectionHandler15addCustomFilterERK7QStringRK5QListIS0_E": [
+      "bool", "address", "text", "address"
     ],
     "ritual_ZNK22QHelpCollectionHandler16filterAttributesEv": [
       "address", "address"
     ],
     "ritual_ZNK22QHelpCollectionHandler16filterAttributesERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK22QHelpCollectionHandler19filterAttributeSetsERK7QString": [
       "address", "address", "text"
     ],
     "ritual_ZNK22QHelpCollectionHandler7filtersEv": ["address", "address"],
@@ -55,8 +73,23 @@
     "ritual_ZNK22QHelpCollectionHandler24registeredDocumentationsEv": [
       "address", "address"
     ],
+    "ritual_ZN22QHelpCollectionHandler23unregisterDocumentationERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZN22QHelpCollectionHandler17removeCustomValueERK7QString": [
+      "bool", "address", "text"
+    ],
     "ritual_ZNK22QHelpCollectionHandler11customValueERK7QStringRK8QVariant": [
       "address", "address", "text", "address"
+    ],
+    "ritual_ZN22QHelpCollectionHandler14setCustomValueERK7QStringRK8QVariant": [
+      "bool", "address", "text", "address"
+    ],
+    "ritual_ZN22QHelpCollectionHandler17registerNamespaceERK7QStringS2_": [
+      "int", "address", "text", "text"
+    ],
+    "ritual_ZN22QHelpCollectionHandler21registerVirtualFolderERK7QStringi": [
+      "int", "address", "text", "int"
     ],
     "ritual_ZN22QHelpCollectionHandler17registerComponentERK7QStringi": [
       "int", "address", "text", "int"
@@ -76,12 +109,22 @@
     "ritual_ZNK22QHelpCollectionHandler16namespaceVersionERK7QString": [
       "text", "address", "text"
     ],
+    "ritual_ZNK22QHelpCollectionHandler10isDBOpenedEv": ["bool", "address"],
     "ritual_ZN22QHelpCollectionHandler12createTablesEP9QSqlQuery": [
       "bool", "address", "address"
     ],
     "ritual_ZN22QHelpCollectionHandler7closeDBEv": ["nothing", "address"],
     "ritual_ZN22QHelpCollectionHandler37recreateIndexAndNamespaceFilterTablesEP9QSqlQuery": [
       "bool", "address", "address"
+    ],
+    "ritual_ZN22QHelpCollectionHandler19createVersionFilterERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN22QHelpCollectionHandler24registerFilterAttributesERK5QListIS0_I7QStringEEi": [
+      "bool", "address", "address", "int"
+    ],
+    "ritual_ZN22QHelpCollectionHandler25registerFileAttributeSetsERK5QListIS0_I7QStringEEi": [
+      "bool", "address", "address", "int"
     ],
     "ritual_ZN22QHelpCollectionHandler20unregisterIndexTableEii": [
       "bool", "address", "int", "int"
@@ -94,6 +137,9 @@
     ],
     "ritual_ZNK22QHelpCollectionHandler16hasTimeStampInfoERK7QString": [
       "bool", "address", "text"
+    ],
+    "ritual_ZN22QHelpCollectionHandler14scheduleVacuumEv": [
+      "nothing", "address"
     ],
     "ritual_ZN22QHelpCollectionHandler10execVacuumEv": [
       "nothing", "address"

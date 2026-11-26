@@ -1,6 +1,13 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtHelp/6.12.0/QtHelp/private/qhelpcollectionhandler_p.h, Qt 6.12.0.
-//  Changes made here are lost.
+//  Edited by hand on 2026-11-26: moc's output for 'QHelpCollectionHandler'
+//  is pasted in, cut from what the moc of Qt 6.12.0 writes for its header:
+//  Qt's library keeps it to itself; added are 16 rituals that lean on what
+//  moc writes for a class of the part Qt keeps to itself, whose ritual file
+//  carries moc's output, drafted by a copy of the generator that lets those
+//  names through. A copy of a meta-object is a second one: 'qobject_cast'
+//  between it and Qt's own does not match. Kept as it is when the generator
+//  runs again.
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtHelp/QtHelp>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -17,13 +24,17 @@
 #include <QtCore/qhash.h>
 #include <iterator>
 #include <cstring>
-#include <QtCore/QMap>
-#include <QtCore/QString>
 #include <QtCore/QList>
 #include <QtCore/QStringList>
+#include <QtCore/QString>
+#include <QtCore/QMap>
 #include <QtCore/QMultiMap>
 #include <QtCore/QUrl>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
 #include <QtHelp/private/qhelpdbreader_p.h>
 #include <QtHelp/qhelp_global.h>
 #include <QtCore/qfile.h>
@@ -180,6 +191,114 @@ static void bindFilterQuery(QSqlQuery *query, int bindStart, const QString &filt
     query->bindValue(bindStart + 4, filterName);
 }
 
+//  from ../qttools/src/assistant/help/qhelpdbreader.cpp, line 170, as local:qhelpdbreader.cpp:isAttributeUsed
+static bool isAttributeUsed(QSqlQuery *query, const QString &tableName, int attributeId)
+{
+    query->prepare(QString::fromLatin1("SELECT FilterAttributeId "
+                                       "FROM %1 "
+                                       "WHERE FilterAttributeId = ? "
+                                       "LIMIT 1").arg(tableName));
+    query->bindValue(0, attributeId);
+    query->exec();
+    return query->next(); // if we got a result it means it was used
+}
+
+//  from QtHelp__QHelpCollectionHandler.cpp, line 1, as moc:QHelpCollectionHandler
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN22QHelpCollectionHandlerE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto QHelpCollectionHandler::qt_create_metaobjectdata<qt_meta_tag_ZN22QHelpCollectionHandlerE_t>()
+{
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "QHelpCollectionHandler",
+        "error",
+        "",
+        "msg"
+    };
+
+    QtMocHelpers::UintData qt_methods {
+        // Signal 'error'
+        QtMocHelpers::SignalData<void(const QString &)>(1, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { QMetaType::QString, 3 },
+        }}),
+    };
+    QtMocHelpers::UintData qt_properties {
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    return QtMocHelpers::metaObjectData<QHelpCollectionHandler, qt_meta_tag_ZN22QHelpCollectionHandlerE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums);
+}
+Q_CONSTINIT const QMetaObject QHelpCollectionHandler::staticMetaObject = { {
+    QMetaObject::SuperData::link<QObject::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN22QHelpCollectionHandlerE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN22QHelpCollectionHandlerE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN22QHelpCollectionHandlerE_t>.metaTypes,
+    nullptr
+} };
+
+void QHelpCollectionHandler::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<QHelpCollectionHandler *>(_o);
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        switch (_id) {
+        case 0: _t->error((*reinterpret_cast<std::add_pointer_t<QString>>(_a[1]))); break;
+        default: ;
+        }
+    }
+    if (_c == QMetaObject::IndexOfMethod) {
+        if (QtMocHelpers::indexOfMethod<void (QHelpCollectionHandler::*)(const QString & )>(_a, &QHelpCollectionHandler::error, 0))
+            return;
+    }
+}
+
+const QMetaObject *QHelpCollectionHandler::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *QHelpCollectionHandler::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN22QHelpCollectionHandlerE_t>.strings))
+        return static_cast<void*>(this);
+    return QObject::qt_metacast(_clname);
+}
+
+int QHelpCollectionHandler::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QObject::qt_metacall(_c, _id, _a);
+    if (_id < 0)
+        return _id;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        if (_id < 1)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 1;
+    }
+    if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        if (_id < 1)
+            *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
+        _id -= 1;
+    }
+    return _id;
+}
+
+// SIGNAL 0
+void QHelpCollectionHandler::error(const QString & _t1)
+{
+    QMetaObject::activate<void>(this, &staticMetaObject, 0, nullptr, _t1);
+}
+QT_WARNING_POP
+
 //  from ../qttools/src/assistant/help/qhelpdbreader.cpp, line 37, as _ZN13QHelpDBReader4initEv
 inline bool QHelpDBReader::init()
 {
@@ -213,10 +332,447 @@ inline QHelpDBReader::~QHelpDBReader()
         QSqlDatabase::removeDatabase(m_uniqueId);
 }
 
+//  from ../qttools/src/assistant/help/qhelpcollectionhandler.cpp, line 1914, as _ZN22QHelpCollectionHandler18registerIndexTableERKN13QHelpDBReader10IndexTableEiiRK7QString
+inline bool QHelpCollectionHandler::registerIndexTable(const QHelpDBReader::IndexTable &indexTable,
+                                                int nsId, int vfId, const QString &fileName)
+{
+    Transaction transaction(m_connectionName);
+
+    QMap<QString, QVariantList> filterAttributeToNewFileId;
+
+    QVariantList fileFolderIds;
+    QVariantList fileNames;
+    QVariantList fileTitles;
+    const int fileSize = indexTable.fileItems.size();
+    fileFolderIds.reserve(fileSize);
+    fileNames.reserve(fileSize);
+    fileTitles.reserve(fileSize);
+
+    if (!m_query->exec("SELECT MAX(FileId) FROM FileNameTable"_L1) || !m_query->next())
+        return false;
+
+    const int maxFileId = m_query->value(0).toInt();
+
+    int newFileId = 0;
+    for (const QHelpDBReader::FileItem &item : indexTable.fileItems) {
+        fileFolderIds.append(vfId);
+        fileNames.append(item.name);
+        fileTitles.append(item.title);
+
+        for (const QString &filterAttribute : item.filterAttributes)
+            filterAttributeToNewFileId[filterAttribute].append(maxFileId + newFileId + 1);
+        ++newFileId;
+    }
+
+    m_query->prepare("INSERT INTO FileNameTable VALUES(?, ?, NULL, ?)"_L1);
+    m_query->addBindValue(fileFolderIds);
+    m_query->addBindValue(fileNames);
+    m_query->addBindValue(fileTitles);
+    if (!m_query->execBatch())
+        return false;
+
+    for (auto it = filterAttributeToNewFileId.cbegin(),
+         end = filterAttributeToNewFileId.cend(); it != end; ++it) {
+        const QString filterAttribute = it.key();
+        m_query->prepare("SELECT Id From FilterAttributeTable WHERE Name = ?"_L1);
+        m_query->bindValue(0, filterAttribute);
+        if (!m_query->exec() || !m_query->next())
+            return false;
+
+        const int attributeId = m_query->value(0).toInt();
+
+        QVariantList attributeIds;
+        for (int i = 0; i < it.value().size(); i++)
+            attributeIds.append(attributeId);
+
+        m_query->prepare("INSERT INTO FileFilterTable VALUES(?, ?)"_L1);
+        m_query->addBindValue(attributeIds);
+        m_query->addBindValue(it.value());
+        if (!m_query->execBatch())
+            return false;
+    }
+
+    QMap<QString, QVariantList> filterAttributeToNewIndexId;
+
+    if (!m_query->exec("SELECT MAX(Id) FROM IndexTable"_L1) || !m_query->next())
+        return false;
+
+    const int maxIndexId = m_query->value(0).toInt();
+    int newIndexId = 0;
+
+    QVariantList indexNames;
+    QVariantList indexIdentifiers;
+    QVariantList indexNamespaceIds;
+    QVariantList indexFileIds;
+    QVariantList indexAnchors;
+    const int indexSize = indexTable.indexItems.size();
+    indexNames.reserve(indexSize);
+    indexIdentifiers.reserve(indexSize);
+    indexNamespaceIds.reserve(indexSize);
+    indexFileIds.reserve(indexSize);
+    indexAnchors.reserve(indexSize);
+
+    for (const QHelpDBReader::IndexItem &item : indexTable.indexItems) {
+        indexNames.append(item.name);
+        indexIdentifiers.append(item.identifier);
+        indexNamespaceIds.append(nsId);
+        indexFileIds.append(maxFileId + item.fileId + 1);
+        indexAnchors.append(item.anchor);
+
+        for (const QString &filterAttribute : item.filterAttributes)
+            filterAttributeToNewIndexId[filterAttribute].append(maxIndexId + newIndexId + 1);
+        ++newIndexId;
+    }
+
+    m_query->prepare("INSERT INTO IndexTable VALUES(NULL, ?, ?, ?, ?, ?)"_L1);
+    m_query->addBindValue(indexNames);
+    m_query->addBindValue(indexIdentifiers);
+    m_query->addBindValue(indexNamespaceIds);
+    m_query->addBindValue(indexFileIds);
+    m_query->addBindValue(indexAnchors);
+    if (!m_query->execBatch())
+        return false;
+
+    for (auto it = filterAttributeToNewIndexId.cbegin(),
+         end = filterAttributeToNewIndexId.cend(); it != end; ++it) {
+        const QString filterAttribute = it.key();
+        m_query->prepare("SELECT Id From FilterAttributeTable WHERE Name = ?"_L1);
+        m_query->bindValue(0, filterAttribute);
+        if (!m_query->exec() || !m_query->next())
+            return false;
+
+        const int attributeId = m_query->value(0).toInt();
+
+        QVariantList attributeIds;
+        for (int i = 0; i < it.value().size(); i++)
+            attributeIds.append(attributeId);
+
+        m_query->prepare("INSERT INTO IndexFilterTable VALUES(?, ?)"_L1);
+        m_query->addBindValue(attributeIds);
+        m_query->addBindValue(it.value());
+        if (!m_query->execBatch())
+            return false;
+    }
+
+    QMap<QString, QVariantList> filterAttributeToNewContentsId;
+
+    QVariantList contentsNsIds;
+    QVariantList contentsData;
+    const int contentsSize = indexTable.contentsItems.size();
+    contentsNsIds.reserve(contentsSize);
+    contentsData.reserve(contentsSize);
+
+    if (!m_query->exec("SELECT MAX(Id) FROM ContentsTable"_L1) || !m_query->next())
+        return false;
+
+    const int maxContentsId = m_query->value(0).toInt();
+
+    int newContentsId = 0;
+    for (const QHelpDBReader::ContentsItem &item : indexTable.contentsItems) {
+        contentsNsIds.append(nsId);
+        contentsData.append(item.data);
+
+        for (const QString &filterAttribute : item.filterAttributes) {
+            filterAttributeToNewContentsId[filterAttribute]
+                    .append(maxContentsId + newContentsId + 1);
+        }
+        ++newContentsId;
+    }
+
+    m_query->prepare("INSERT INTO ContentsTable VALUES(NULL, ?, ?)"_L1);
+    m_query->addBindValue(contentsNsIds);
+    m_query->addBindValue(contentsData);
+    if (!m_query->execBatch())
+        return false;
+
+    for (auto it = filterAttributeToNewContentsId.cbegin(),
+         end = filterAttributeToNewContentsId.cend(); it != end; ++it) {
+        const QString filterAttribute = it.key();
+        m_query->prepare("SELECT Id From FilterAttributeTable WHERE Name = ?"_L1);
+        m_query->bindValue(0, filterAttribute);
+        if (!m_query->exec() || !m_query->next())
+            return false;
+
+        const int attributeId = m_query->value(0).toInt();
+
+        QVariantList attributeIds;
+        for (int i = 0; i < it.value().size(); i++)
+            attributeIds.append(attributeId);
+
+        m_query->prepare("INSERT INTO ContentsFilterTable VALUES(?, ?)"_L1);
+        m_query->addBindValue(attributeIds);
+        m_query->addBindValue(it.value());
+        if (!m_query->execBatch())
+            return false;
+    }
+
+    QVariantList filterNsIds;
+    QVariantList filterAttributeIds;
+    for (const QString &filterAttribute : indexTable.usedFilterAttributes) {
+        filterNsIds.append(nsId);
+
+        m_query->prepare("SELECT Id From FilterAttributeTable WHERE Name = ?"_L1);
+        m_query->bindValue(0, filterAttribute);
+        if (!m_query->exec() || !m_query->next())
+            return false;
+
+        filterAttributeIds.append(m_query->value(0).toInt());
+    }
+
+    m_query->prepare("INSERT INTO OptimizedFilterTable "
+                     "(NamespaceId, FilterAttributeId) VALUES(?, ?)"_L1);
+    m_query->addBindValue(filterNsIds);
+    m_query->addBindValue(filterAttributeIds);
+    if (!m_query->execBatch())
+        return false;
+
+    m_query->prepare("INSERT INTO TimeStampTable "
+                     "(NamespaceId, FolderId, FilePath, Size, TimeStamp) "
+                     "VALUES(?, ?, ?, ?, ?)"_L1);
+    m_query->addBindValue(nsId);
+    m_query->addBindValue(vfId);
+    m_query->addBindValue(fileName);
+    const QFileInfo fi(absoluteDocPath(fileName));
+    m_query->addBindValue(fi.size());
+    QDateTime lastModified = fi.lastModified(QTimeZone::UTC);
+    if (qEnvironmentVariableIsSet("SOURCE_DATE_EPOCH")) {
+        const QString sourceDateEpochStr = qEnvironmentVariable("SOURCE_DATE_EPOCH");
+        bool ok;
+        const qlonglong sourceDateEpoch = sourceDateEpochStr.toLongLong(&ok);
+        if (ok && sourceDateEpoch < lastModified.toSecsSinceEpoch())
+            lastModified.setSecsSinceEpoch(sourceDateEpoch);
+    }
+    m_query->addBindValue(lastModified);
+    if (!m_query->exec())
+        return false;
+
+    transaction.commit();
+    return true;
+}
+
+//  from ../qttools/src/assistant/help/qhelpdbreader.cpp, line 415, as _ZNK13QHelpDBReader13customFiltersEv
+inline QStringList QHelpDBReader::customFilters() const
+{
+    QStringList lst;
+    if (m_query) {
+        m_query->exec("SELECT Name FROM FilterNameTable"_L1);
+        while (m_query->next())
+            lst.append(m_query->value(0).toString());
+    }
+    return lst;
+}
+
+//  from ../qttools/src/assistant/help/qhelpdbreader.cpp, line 70, as _ZNK13QHelpDBReader13namespaceNameEv
+inline QString QHelpDBReader::namespaceName() const
+{
+    if (!m_namespace.isEmpty())
+        return m_namespace;
+    if (m_query) {
+        m_query->exec("SELECT Name FROM NamespaceTable"_L1);
+        if (m_query->next())
+            m_namespace = m_query->value(0).toString();
+    }
+    return m_namespace;
+}
+
+//  from ../qttools/src/assistant/help/qhelpdbreader.cpp, line 82, as _ZNK13QHelpDBReader13virtualFolderEv
+inline QString QHelpDBReader::virtualFolder() const
+{
+    if (m_query) {
+        m_query->exec("SELECT Name FROM FolderTable WHERE Id=1"_L1);
+        if (m_query->next())
+            return m_query->value(0).toString();
+    }
+    return {};
+}
+
+//  from ../qttools/src/assistant/help/qhelpdbreader.cpp, line 426, as _ZNK13QHelpDBReader16filterAttributesERK7QString
+inline QStringList QHelpDBReader::filterAttributes(const QString &filterName) const
+{
+    QStringList lst;
+    if (m_query) {
+        if (filterName.isEmpty()) {
+            m_query->prepare("SELECT Name FROM FilterAttributeTable"_L1);
+        } else {
+            m_query->prepare(
+                 "SELECT "
+                     "FilterAttributeTable.Name "
+                 "FROM "
+                     "FilterAttributeTable, "
+                     "FilterTable, "
+                     "FilterNameTable "
+                 "WHERE FilterNameTable.Name = ? "
+                "AND FilterNameTable.Id = FilterTable.NameId "
+                "AND FilterTable.FilterAttributeId = FilterAttributeTable.Id"_L1);
+            m_query->bindValue(0, filterName);
+        }
+        m_query->exec();
+        while (m_query->next())
+            lst.append(m_query->value(0).toString());
+    }
+    return lst;
+}
+
+//  from ../qttools/src/assistant/help/qhelpdbreader.cpp, line 357, as _ZNK13QHelpDBReader19filterAttributeSetsEv
+inline QList<QStringList> QHelpDBReader::filterAttributeSets() const
+{
+    QList<QStringList> result;
+    if (m_query) {
+        m_query->exec(
+            "SELECT "
+                "FileAttributeSetTable.Id, "
+                "FilterAttributeTable.Name "
+            "FROM "
+                "FileAttributeSetTable, "
+                "FilterAttributeTable "
+            "WHERE FileAttributeSetTable.FilterAttributeId = FilterAttributeTable.Id "
+            "ORDER BY FileAttributeSetTable.Id"_L1);
+        int oldId = -1;
+        while (m_query->next()) {
+            const int id = m_query->value(0).toInt();
+            if (id != oldId) {
+                result.append(QStringList());
+                oldId = id;
+            }
+            result.last().append(m_query->value(1).toString());
+        }
+    }
+    return result;
+}
+
+//  from ../qttools/src/assistant/help/qhelpdbreader.cpp, line 92, as _ZNK13QHelpDBReader7versionEv
+inline QString QHelpDBReader::version() const
+{
+    const QString versionString = metaData("version"_L1).toString();
+    if (versionString.isEmpty())
+        return qtVersionHeuristic();
+    return versionString;
+}
+
+//  from ../qttools/src/assistant/help/qhelpdbreader.cpp, line 55, as _ZN13QHelpDBReader6initDBEv
+inline bool QHelpDBReader::initDB()
+{
+    QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE"_L1, m_uniqueId);
+    db.setConnectOptions("QSQLITE_OPEN_READONLY"_L1);
+    db.setDatabaseName(m_dbName);
+    if (!db.open()) {
+        /*: The placeholders are: %1 - The name of the database which cannot be opened
+                                  %2 - The unique id for the connection
+                                  %3 - The actual error string */
+        m_error = tr("Cannot open database \"%1\" \"%2\": %3").arg(m_dbName, m_uniqueId, db.lastError().text());
+        return false;
+    }
+    return true;
+}
+
+//  from ../qttools/src/assistant/help/qhelpcollectionhandler.cpp, line 62, as _ZN22QHelpCollectionHandlerC1ERK7QStringP7QObject
+inline QHelpCollectionHandler::QHelpCollectionHandler(const QString &collectionFile, QObject *parent)
+    : QObject(parent)
+    , m_collectionFile(collectionFile)
+{
+    const QFileInfo fi(m_collectionFile);
+    if (!fi.isAbsolute())
+        m_collectionFile = fi.absoluteFilePath();
+}
+
 //  from ../qttools/src/assistant/help/qhelpcollectionhandler.cpp, line 71, as _ZN22QHelpCollectionHandlerD1Ev
 inline QHelpCollectionHandler::~QHelpCollectionHandler()
 {
     closeDB();
+}
+
+//  from ../qttools/src/assistant/help/qhelpcollectionhandler.cpp, line 300, as _ZN22QHelpCollectionHandler18copyCollectionFileERK7QString
+inline bool QHelpCollectionHandler::copyCollectionFile(const QString &fileName)
+{
+    if (!m_query)
+        return false;
+
+    const QFileInfo fi(fileName);
+    if (fi.exists()) {
+        emit error(tr("The collection file \"%1\" already exists.").arg(fileName));
+        return false;
+    }
+
+    if (!fi.absoluteDir().exists() && !QDir().mkpath(fi.absolutePath())) {
+        emit error(tr("Cannot create directory: %1").arg(fi.absolutePath()));
+        return false;
+    }
+
+    const QString &colFile = fi.absoluteFilePath();
+    const QString &connectionName =
+            QHelpGlobal::uniquifyConnectionName("QHelpCollectionHandlerCopy"_L1, this);
+    QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE"_L1, connectionName);
+    db.setDatabaseName(colFile);
+    if (!db.open()) {
+        emit error(tr("Cannot open collection file: %1").arg(colFile));
+        return false;
+    }
+
+    QSqlQuery copyQuery(db);
+    copyQuery.exec("PRAGMA synchronous=OFF"_L1);
+    copyQuery.exec("PRAGMA cache_size=3000"_L1);
+
+    if (!createTables(&copyQuery) || !recreateIndexAndNamespaceFilterTables(&copyQuery)) {
+        emit error(tr("Cannot copy collection file: %1").arg(colFile));
+        return false;
+    }
+
+    const QString &oldBaseDir = QFileInfo(collectionFile()).absolutePath();
+    const QFileInfo newColFi(colFile);
+    m_query->exec("SELECT Name, FilePath FROM NamespaceTable"_L1);
+    while (m_query->next()) {
+        copyQuery.prepare("INSERT INTO NamespaceTable VALUES(NULL, ?, ?)"_L1);
+        copyQuery.bindValue(0, m_query->value(0).toString());
+        QString oldFilePath = m_query->value(1).toString();
+        if (!QDir::isAbsolutePath(oldFilePath))
+            oldFilePath = oldBaseDir + u'/' + oldFilePath;
+        copyQuery.bindValue(1, newColFi.absoluteDir().relativeFilePath(oldFilePath));
+        copyQuery.exec();
+    }
+
+    m_query->exec("SELECT NamespaceId, Name FROM FolderTable"_L1);
+    while (m_query->next()) {
+        copyQuery.prepare("INSERT INTO FolderTable VALUES(NULL, ?, ?)"_L1);
+        copyQuery.bindValue(0, m_query->value(0).toString());
+        copyQuery.bindValue(1, m_query->value(1).toString());
+        copyQuery.exec();
+    }
+
+    m_query->exec("SELECT Name FROM FilterAttributeTable"_L1);
+    while (m_query->next()) {
+        copyQuery.prepare("INSERT INTO FilterAttributeTable VALUES(NULL, ?)"_L1);
+        copyQuery.bindValue(0, m_query->value(0).toString());
+        copyQuery.exec();
+    }
+
+    m_query->exec("SELECT Name FROM FilterNameTable"_L1);
+    while (m_query->next()) {
+        copyQuery.prepare("INSERT INTO FilterNameTable VALUES(NULL, ?)"_L1);
+        copyQuery.bindValue(0, m_query->value(0).toString());
+        copyQuery.exec();
+    }
+
+    m_query->exec("SELECT NameId, FilterAttributeId FROM FilterTable"_L1);
+    while (m_query->next()) {
+        copyQuery.prepare("INSERT INTO FilterTable VALUES(?, ?)"_L1);
+        copyQuery.bindValue(0, m_query->value(0).toInt());
+        copyQuery.bindValue(1, m_query->value(1).toInt());
+        copyQuery.exec();
+    }
+
+    m_query->exec("SELECT Key, Value FROM SettingsTable"_L1);
+    while (m_query->next()) {
+        if (m_query->value(0).toString() == "FTS5IndexedNamespaces"_L1)
+            continue;
+        copyQuery.prepare("INSERT INTO SettingsTable VALUES(?, ?)"_L1);
+        copyQuery.bindValue(0, m_query->value(0).toString());
+        copyQuery.bindValue(1, m_query->value(1));
+        copyQuery.exec();
+    }
+
+    copyQuery.clear();
+    QSqlDatabase::removeDatabase(connectionName);
+    return true;
 }
 
 //  from ../qttools/src/assistant/help/qhelpcollectionhandler.cpp, line 508, as _ZNK22QHelpCollectionHandler13customFiltersEv
@@ -229,6 +785,92 @@ inline QStringList QHelpCollectionHandler::customFilters() const
             list.append(m_query->value(0).toString());
     }
     return list;
+}
+
+//  from ../qttools/src/assistant/help/qhelpcollectionhandler.cpp, line 699, as _ZN22QHelpCollectionHandler18removeCustomFilterERK7QString
+inline bool QHelpCollectionHandler::removeCustomFilter(const QString &filterName)
+{
+    if (!isDBOpened() || filterName.isEmpty())
+        return false;
+
+    int filterNameId = -1;
+    m_query->prepare("SELECT Id FROM FilterNameTable WHERE Name=?"_L1);
+    m_query->bindValue(0, filterName);
+    m_query->exec();
+    if (m_query->next())
+        filterNameId = m_query->value(0).toInt();
+
+    if (filterNameId < 0) {
+        emit error(tr("Unknown filter \"%1\".").arg(filterName));
+        return false;
+    }
+
+    m_query->prepare("DELETE FROM FilterTable WHERE NameId=?"_L1);
+    m_query->bindValue(0, filterNameId);
+    m_query->exec();
+
+    m_query->prepare("DELETE FROM FilterNameTable WHERE Id=?"_L1);
+    m_query->bindValue(0, filterNameId);
+    m_query->exec();
+
+    return true;
+}
+
+//  from ../qttools/src/assistant/help/qhelpcollectionhandler.cpp, line 727, as _ZN22QHelpCollectionHandler15addCustomFilterERK7QStringRK5QListIS0_E
+inline bool QHelpCollectionHandler::addCustomFilter(const QString &filterName,
+                                             const QStringList &attributes)
+{
+    if (!isDBOpened() || filterName.isEmpty())
+        return false;
+
+    int nameId = -1;
+    m_query->prepare("SELECT Id FROM FilterNameTable WHERE Name=?"_L1);
+    m_query->bindValue(0, filterName);
+    m_query->exec();
+    if (m_query->next())
+        nameId = m_query->value(0).toInt();
+
+    m_query->exec("SELECT Id, Name FROM FilterAttributeTable"_L1);
+    QStringList idsToInsert = attributes;
+    QMap<QString, int> attributeMap;
+    while (m_query->next()) {
+        // all old attributes
+        const QString attributeName = m_query->value(1).toString();
+        attributeMap.insert(attributeName, m_query->value(0).toInt());
+        idsToInsert.removeAll(attributeName);
+    }
+
+    for (const QString &id : std::as_const(idsToInsert)) {
+        m_query->prepare("INSERT INTO FilterAttributeTable VALUES(NULL, ?)"_L1);
+        m_query->bindValue(0, id);
+        m_query->exec();
+        attributeMap.insert(id, m_query->lastInsertId().toInt());
+    }
+
+    if (nameId < 0) {
+        m_query->prepare("INSERT INTO FilterNameTable VALUES(NULL, ?)"_L1);
+        m_query->bindValue(0, filterName);
+        if (m_query->exec())
+            nameId = m_query->lastInsertId().toInt();
+    }
+
+    if (nameId < 0) {
+        emit error(tr("Cannot register filter %1.").arg(filterName));
+        return false;
+    }
+
+    m_query->prepare("DELETE FROM FilterTable WHERE NameId=?"_L1);
+    m_query->bindValue(0, nameId);
+    m_query->exec();
+
+    for (const QString &att : attributes) {
+        m_query->prepare("INSERT INTO FilterTable VALUES(?, ?)"_L1);
+        m_query->bindValue(0, nameId);
+        m_query->bindValue(1, attributeMap[att]);
+        if (!m_query->exec())
+            return false;
+    }
+    return true;
 }
 
 //  from ../qttools/src/assistant/help/qhelpcollectionhandler.cpp, line 1667, as _ZNK22QHelpCollectionHandler16filterAttributesEv
@@ -264,6 +906,42 @@ inline QStringList QHelpCollectionHandler::filterAttributes(const QString &filte
             list.append(m_query->value(0).toString());
     }
     return list;
+}
+
+//  from ../qttools/src/assistant/help/qhelpcollectionhandler.cpp, line 1700, as _ZNK22QHelpCollectionHandler19filterAttributeSetsERK7QString
+inline QList<QStringList> QHelpCollectionHandler::filterAttributeSets(const QString &namespaceName) const
+{
+    if (!isDBOpened())
+        return {};
+
+    m_query->prepare(
+        "SELECT "
+            "FileAttributeSetTable.FilterAttributeSetId, "
+            "FilterAttributeTable.Name "
+        "FROM "
+            "FileAttributeSetTable, "
+            "FilterAttributeTable, "
+            "NamespaceTable "
+        "WHERE FileAttributeSetTable.FilterAttributeId = FilterAttributeTable.Id "
+        "AND FileAttributeSetTable.NamespaceId = NamespaceTable.Id "
+        "AND NamespaceTable.Name = ? "
+        "ORDER BY FileAttributeSetTable.FilterAttributeSetId"_L1);
+    m_query->bindValue(0, namespaceName);
+    m_query->exec();
+    int oldId = -1;
+    QList<QStringList> result;
+    while (m_query->next()) {
+        const int id = m_query->value(0).toInt();
+        if (id != oldId) {
+            result.append(QStringList());
+            oldId = id;
+        }
+        result.last().append(m_query->value(1).toString());
+    }
+
+    if (result.isEmpty())
+        result.append(QStringList());
+    return result;
 }
 
 //  from ../qttools/src/assistant/help/qhelpcollectionhandler.cpp, line 519, as _ZNK22QHelpCollectionHandler7filtersEv
@@ -514,6 +1192,68 @@ inline QHelpCollectionHandler::FileInfoList QHelpCollectionHandler::registeredDo
     return list;
 }
 
+//  from ../qttools/src/assistant/help/qhelpcollectionhandler.cpp, line 879, as _ZN22QHelpCollectionHandler23unregisterDocumentationERK7QString
+inline bool QHelpCollectionHandler::unregisterDocumentation(const QString &namespaceName)
+{
+    if (!isDBOpened())
+        return false;
+
+    m_query->prepare("SELECT Id FROM NamespaceTable WHERE Name = ?"_L1);
+    m_query->bindValue(0, namespaceName);
+    m_query->exec();
+
+    if (!m_query->next()) {
+        emit error(tr("The namespace %1 was not registered.").arg(namespaceName));
+        return false;
+    }
+
+    const int nsId = m_query->value(0).toInt();
+
+    m_query->prepare("DELETE FROM NamespaceTable WHERE Id = ?"_L1);
+    m_query->bindValue(0, nsId);
+    if (!m_query->exec())
+        return false;
+
+    m_query->prepare("SELECT Id FROM FolderTable WHERE NamespaceId = ?"_L1);
+    m_query->bindValue(0, nsId);
+    m_query->exec();
+
+    if (!m_query->next()) {
+        emit error(tr("The namespace %1 was not registered.").arg(namespaceName));
+        return false;
+    }
+
+    const int vfId = m_query->value(0).toInt();
+
+    m_query->prepare("DELETE FROM NamespaceTable WHERE Id = ?"_L1);
+    m_query->bindValue(0, nsId);
+    if (!m_query->exec())
+        return false;
+
+    m_query->prepare("DELETE FROM FolderTable WHERE NamespaceId = ?"_L1);
+    m_query->bindValue(0, nsId);
+    if (!m_query->exec())
+        return false;
+
+    if (!unregisterIndexTable(nsId, vfId))
+        return false;
+
+    scheduleVacuum();
+
+    return true;
+}
+
+//  from ../qttools/src/assistant/help/qhelpcollectionhandler.cpp, line 1544, as _ZN22QHelpCollectionHandler17removeCustomValueERK7QString
+inline bool QHelpCollectionHandler::removeCustomValue(const QString &key)
+{
+    if (!isDBOpened())
+        return false;
+
+    m_query->prepare("DELETE FROM SettingsTable WHERE Key=?"_L1);
+    m_query->bindValue(0, key);
+    return m_query->exec();
+}
+
 //  from ../qttools/src/assistant/help/qhelpcollectionhandler.cpp, line 1554, as _ZNK22QHelpCollectionHandler11customValueERK7QStringRK8QVariant
 inline QVariant QHelpCollectionHandler::customValue(const QString &key,
                                              const QVariant &defaultValue) const
@@ -537,6 +1277,85 @@ inline QVariant QHelpCollectionHandler::customValue(const QString &key,
         return value;
     }
     return defaultValue;
+}
+
+//  from ../qttools/src/assistant/help/qhelpcollectionhandler.cpp, line 1578, as _ZN22QHelpCollectionHandler14setCustomValueERK7QStringRK8QVariant
+inline bool QHelpCollectionHandler::setCustomValue(const QString &key,
+                                            const QVariant &value)
+{
+    if (!isDBOpened())
+        return false;
+
+    m_query->prepare("SELECT Value FROM SettingsTable WHERE Key=?"_L1);
+    m_query->bindValue(0, key);
+    m_query->exec();
+    if (m_query->next()) {
+        m_query->prepare("UPDATE SettingsTable SET Value=? where Key=?"_L1);
+        m_query->bindValue(0, value);
+        m_query->bindValue(1, key);
+    } else {
+        m_query->prepare("INSERT INTO SettingsTable VALUES(?, ?)"_L1);
+        m_query->bindValue(0, key);
+        m_query->bindValue(1, value);
+    }
+    return m_query->exec();
+}
+
+//  from ../qttools/src/assistant/help/qhelpcollectionhandler.cpp, line 1757, as _ZN22QHelpCollectionHandler17registerNamespaceERK7QStringS2_
+inline int QHelpCollectionHandler::registerNamespace(const QString &nspace, const QString &fileName)
+{
+    const int errorValue = -1;
+    if (!m_query)
+        return errorValue;
+
+    m_query->prepare("SELECT COUNT(Id) FROM NamespaceTable WHERE Name=?"_L1);
+    m_query->bindValue(0, nspace);
+    m_query->exec();
+    while (m_query->next()) {
+        if (m_query->value(0).toInt() > 0) {
+            emit error(tr("Namespace %1 already exists.").arg(nspace));
+            return errorValue;
+        }
+    }
+
+    QFileInfo fi(m_collectionFile);
+    m_query->prepare("INSERT INTO NamespaceTable VALUES(NULL, ?, ?)"_L1);
+    m_query->bindValue(0, nspace);
+    m_query->bindValue(1, fi.absoluteDir().relativeFilePath(fileName));
+    int namespaceId = errorValue;
+    if (m_query->exec()) {
+        namespaceId = m_query->lastInsertId().toInt();
+        m_query->clear();
+    }
+    if (namespaceId < 1) {
+        emit error(tr("Cannot register namespace \"%1\".").arg(nspace));
+        return errorValue;
+    }
+    return namespaceId;
+}
+
+//  from ../qttools/src/assistant/help/qhelpcollectionhandler.cpp, line 1789, as _ZN22QHelpCollectionHandler21registerVirtualFolderERK7QStringi
+inline int QHelpCollectionHandler::registerVirtualFolder(const QString &folderName, int namespaceId)
+{
+    if (!m_query)
+        return false;
+
+    m_query->prepare("INSERT INTO FolderTable VALUES(NULL, ?, ?)"_L1);
+    m_query->bindValue(0, namespaceId);
+    m_query->bindValue(1, folderName);
+
+    int virtualId = -1;
+    if (m_query->exec()) {
+        virtualId = m_query->lastInsertId().toInt();
+        m_query->clear();
+    }
+    if (virtualId < 1) {
+        emit error(tr("Cannot register virtual folder '%1'.").arg(folderName));
+        return -1;
+    }
+    if (registerComponent(folderName, namespaceId) < 0)
+        return -1;
+    return virtualId;
 }
 
 //  from ../qttools/src/assistant/help/qhelpcollectionhandler.cpp, line 1812, as _ZN22QHelpCollectionHandler17registerComponentERK7QStringi
@@ -615,6 +1434,16 @@ inline QString QHelpCollectionHandler::namespaceVersion(const QString &namespace
     const QString ret = m_query->value(0).toString();
     m_query->clear();
     return ret;
+}
+
+//  from ../qttools/src/assistant/help/qhelpcollectionhandler.cpp, line 76, as _ZNK22QHelpCollectionHandler10isDBOpenedEv
+inline bool QHelpCollectionHandler::isDBOpened() const
+{
+    if (m_query)
+        return true;
+    auto *that = const_cast<QHelpCollectionHandler *>(this);
+    emit that->error(tr("The collection file \"%1\" is not set up yet.").arg(m_collectionFile));
+    return false;
 }
 
 //  from ../qttools/src/assistant/help/qhelpcollectionhandler.cpp, line 393, as _ZN22QHelpCollectionHandler12createTablesEP9QSqlQuery
@@ -743,6 +1572,95 @@ inline bool QHelpCollectionHandler::recreateIndexAndNamespaceFilterTables(QSqlQu
             return false;
     }
     return true;
+}
+
+//  from ../qttools/src/assistant/help/qhelpcollectionhandler.cpp, line 1896, as _ZN22QHelpCollectionHandler19createVersionFilterERK7QString
+inline void QHelpCollectionHandler::createVersionFilter(const QString &version)
+{
+    if (version.isEmpty())
+        return;
+
+    const QVersionNumber versionNumber = QVersionNumber::fromString(version);
+    if (versionNumber.isNull())
+        return;
+
+    const QString filterName = tr("Version %1").arg(version);
+    if (filters().contains(filterName))
+        return;
+
+    QHelpFilterData filterData;
+    filterData.setVersions({versionNumber});
+    setFilterData(filterName, filterData);
+}
+
+//  from ../qttools/src/assistant/help/qhelpcollectionhandler.cpp, line 1599, as _ZN22QHelpCollectionHandler24registerFilterAttributesERK5QListIS0_I7QStringEEi
+inline bool QHelpCollectionHandler::registerFilterAttributes(const QList<QStringList> &attributeSets,
+                                                      int nsId)
+{
+    if (!isDBOpened())
+        return false;
+
+    m_query->exec("SELECT Name FROM FilterAttributeTable"_L1);
+    QSet<QString> atts;
+    while (m_query->next())
+        atts.insert(m_query->value(0).toString());
+
+    for (const QStringList &attributeSet : attributeSets) {
+        for (const QString &attribute : attributeSet) {
+            if (!atts.contains(attribute)) {
+                m_query->prepare("INSERT INTO FilterAttributeTable VALUES(NULL, ?)"_L1);
+                m_query->bindValue(0, attribute);
+                m_query->exec();
+            }
+        }
+    }
+    return registerFileAttributeSets(attributeSets, nsId);
+}
+
+//  from ../qttools/src/assistant/help/qhelpcollectionhandler.cpp, line 1622, as _ZN22QHelpCollectionHandler25registerFileAttributeSetsERK5QListIS0_I7QStringEEi
+inline bool QHelpCollectionHandler::registerFileAttributeSets(const QList<QStringList> &attributeSets,
+                                                       int nsId)
+{
+    if (!isDBOpened())
+        return false;
+
+    if (attributeSets.isEmpty())
+        return true;
+
+    QVariantList nsIds;
+    QVariantList attributeSetIds;
+    QVariantList filterAttributeIds;
+
+    if (!m_query->exec("SELECT MAX(FilterAttributeSetId) FROM FileAttributeSetTable"_L1)
+        || !m_query->next()) {
+        return false;
+    }
+
+    int attributeSetId = m_query->value(0).toInt();
+
+    for (const QStringList &attributeSet : attributeSets) {
+        ++attributeSetId;
+
+        for (const QString &attribute : attributeSet) {
+            m_query->prepare("SELECT Id FROM FilterAttributeTable WHERE Name=?"_L1);
+            m_query->bindValue(0, attribute);
+
+            if (!m_query->exec() || !m_query->next())
+                return false;
+
+            nsIds.append(nsId);
+            attributeSetIds.append(attributeSetId);
+            filterAttributeIds.append(m_query->value(0).toInt());
+        }
+    }
+
+    m_query->prepare("INSERT INTO FileAttributeSetTable "
+                     "(NamespaceId, FilterAttributeSetId, FilterAttributeId) "
+                     "VALUES(?, ?, ?)"_L1);
+    m_query->addBindValue(nsIds);
+    m_query->addBindValue(attributeSetIds);
+    m_query->addBindValue(filterAttributeIds);
+    return m_query->execBatch();
 }
 
 //  from ../qttools/src/assistant/help/qhelpcollectionhandler.cpp, line 2131, as _ZN22QHelpCollectionHandler20unregisterIndexTableEii
@@ -887,6 +1805,16 @@ inline bool QHelpCollectionHandler::hasTimeStampInfo(const QString &nameSpace) c
 
     m_query->clear();
     return true;
+}
+
+//  from ../qttools/src/assistant/help/qhelpcollectionhandler.cpp, line 282, as _ZN22QHelpCollectionHandler14scheduleVacuumEv
+inline void QHelpCollectionHandler::scheduleVacuum()
+{
+    if (m_vacuumScheduled)
+        return;
+
+    m_vacuumScheduled = true;
+    QTimer::singleShot(0, this, &QHelpCollectionHandler::execVacuum);
 }
 
 //  from ../qttools/src/assistant/help/qhelpcollectionhandler.cpp, line 291, as _ZN22QHelpCollectionHandler10execVacuumEv
@@ -1093,6 +2021,24 @@ int ritual_ZN22QHelpCollectionHandler11qt_metacallEN11QMetaObject4CallEiPPv(
   return self->qt_metacall(a0, a1, a2);
 }
 
+//  QString QHelpCollectionHandler::tr(const char *s, const char *c, int n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN22QHelpCollectionHandler2trEPKcS1_i(
+    const char *s,
+    const char *c,
+    int n) {
+  return new QString(QHelpCollectionHandler::tr(s, c, n));
+}
+
+//  QHelpCollectionHandler::QHelpCollectionHandler(const QString
+//      &collectionFile, QObject *parent)
+extern "C" Q_DECL_EXPORT
+QHelpCollectionHandler *ritual_ZN22QHelpCollectionHandlerC1ERK7QStringP7QObject(
+    const QString *collectionFile,
+    QObject *parent) {
+  return new CuteQHelpCollectionHandler(*collectionFile, parent);
+}
+
 //  QHelpCollectionHandler::~QHelpCollectionHandler()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN22QHelpCollectionHandlerD1Ev(QHelpCollectionHandler *self) {
@@ -1106,11 +2052,38 @@ QString *ritual_ZNK22QHelpCollectionHandler14collectionFileEv(
   return new QString(self->collectionFile());
 }
 
+//  bool QHelpCollectionHandler::copyCollectionFile(const QString &fileName)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN22QHelpCollectionHandler18copyCollectionFileERK7QString(
+    QHelpCollectionHandler *self,
+    const QString *fileName) {
+  return self->copyCollectionFile(*fileName);
+}
+
 //  QStringList QHelpCollectionHandler::customFilters() const
 extern "C" Q_DECL_EXPORT
 QList<QString> *ritual_ZNK22QHelpCollectionHandler13customFiltersEv(
     const QHelpCollectionHandler *self) {
   return new QList<QString>(self->customFilters());
+}
+
+//  bool QHelpCollectionHandler::removeCustomFilter(const QString
+//      &filterName)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN22QHelpCollectionHandler18removeCustomFilterERK7QString(
+    QHelpCollectionHandler *self,
+    const QString *filterName) {
+  return self->removeCustomFilter(*filterName);
+}
+
+//  bool QHelpCollectionHandler::addCustomFilter(const QString &filterName,
+//      const QStringList &attributes)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN22QHelpCollectionHandler15addCustomFilterERK7QStringRK5QListIS0_E(
+    QHelpCollectionHandler *self,
+    const QString *filterName,
+    const QList<QString> *attributes) {
+  return self->addCustomFilter(*filterName, *attributes);
 }
 
 //  QStringList QHelpCollectionHandler::filterAttributes() const
@@ -1127,6 +2100,15 @@ QList<QString> *ritual_ZNK22QHelpCollectionHandler16filterAttributesERK7QString(
     const QHelpCollectionHandler *self,
     const QString *filterName) {
   return new QList<QString>(self->filterAttributes(*filterName));
+}
+
+//  QList<QStringList> QHelpCollectionHandler::filterAttributeSets(const
+//      QString &namespaceName) const
+extern "C" Q_DECL_EXPORT
+QList<QStringList> *ritual_ZNK22QHelpCollectionHandler19filterAttributeSetsERK7QString(
+    const QHelpCollectionHandler *self,
+    const QString *namespaceName) {
+  return new QList<QStringList>(self->filterAttributeSets(*namespaceName));
 }
 
 //  QStringList QHelpCollectionHandler::filters() const
@@ -1212,6 +2194,23 @@ QHelpCollectionHandler::FileInfoList *ritual_ZNK22QHelpCollectionHandler24regist
       self->registeredDocumentations());
 }
 
+//  bool QHelpCollectionHandler::unregisterDocumentation(const QString
+//      &namespaceName)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN22QHelpCollectionHandler23unregisterDocumentationERK7QString(
+    QHelpCollectionHandler *self,
+    const QString *namespaceName) {
+  return self->unregisterDocumentation(*namespaceName);
+}
+
+//  bool QHelpCollectionHandler::removeCustomValue(const QString &key)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN22QHelpCollectionHandler17removeCustomValueERK7QString(
+    QHelpCollectionHandler *self,
+    const QString *key) {
+  return self->removeCustomValue(*key);
+}
+
 //  QVariant QHelpCollectionHandler::customValue(const QString &key, const
 //      QVariant &defaultValue) const
 extern "C" Q_DECL_EXPORT
@@ -1220,6 +2219,36 @@ QVariant *ritual_ZNK22QHelpCollectionHandler11customValueERK7QStringRK8QVariant(
     const QString *key,
     const QVariant *defaultValue) {
   return new QVariant(self->customValue(*key, *defaultValue));
+}
+
+//  bool QHelpCollectionHandler::setCustomValue(const QString &key, const
+//      QVariant &value)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN22QHelpCollectionHandler14setCustomValueERK7QStringRK8QVariant(
+    QHelpCollectionHandler *self,
+    const QString *key,
+    const QVariant *value) {
+  return self->setCustomValue(*key, *value);
+}
+
+//  int QHelpCollectionHandler::registerNamespace(const QString &nspace,
+//      const QString &fileName)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN22QHelpCollectionHandler17registerNamespaceERK7QStringS2_(
+    QHelpCollectionHandler *self,
+    const QString *nspace,
+    const QString *fileName) {
+  return self->registerNamespace(*nspace, *fileName);
+}
+
+//  int QHelpCollectionHandler::registerVirtualFolder(const QString
+//      &folderName, int namespaceId)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN22QHelpCollectionHandler21registerVirtualFolderERK7QStringi(
+    QHelpCollectionHandler *self,
+    const QString *folderName,
+    int namespaceId) {
+  return self->registerVirtualFolder(*folderName, namespaceId);
 }
 
 //  int QHelpCollectionHandler::registerComponent(const QString
@@ -1302,6 +2331,13 @@ QString *ritual_ZNK22QHelpCollectionHandler16namespaceVersionERK7QString(
   return new QString(self->namespaceVersion(*namespaceName));
 }
 
+//  bool QHelpCollectionHandler::isDBOpened() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK22QHelpCollectionHandler10isDBOpenedEv(
+    const QHelpCollectionHandler *self) {
+  return self->isDBOpened();
+}
+
 //  bool QHelpCollectionHandler::createTables(QSqlQuery *query)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN22QHelpCollectionHandler12createTablesEP9QSqlQuery(
@@ -1325,6 +2361,34 @@ bool ritual_ZN22QHelpCollectionHandler37recreateIndexAndNamespaceFilterTablesEP9
     QHelpCollectionHandler *self,
     QSqlQuery *query) {
   return self->recreateIndexAndNamespaceFilterTables(query);
+}
+
+//  void QHelpCollectionHandler::createVersionFilter(const QString &version)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QHelpCollectionHandler19createVersionFilterERK7QString(
+    QHelpCollectionHandler *self,
+    const QString *version) {
+  self->createVersionFilter(*version);
+}
+
+//  bool QHelpCollectionHandler::registerFilterAttributes(const
+//      QList<QStringList> &attributeSets, int nsId)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN22QHelpCollectionHandler24registerFilterAttributesERK5QListIS0_I7QStringEEi(
+    QHelpCollectionHandler *self,
+    const QList<QStringList> *attributeSets,
+    int nsId) {
+  return self->registerFilterAttributes(*attributeSets, nsId);
+}
+
+//  bool QHelpCollectionHandler::registerFileAttributeSets(const
+//      QList<QStringList> &attributeSets, int nsId)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN22QHelpCollectionHandler25registerFileAttributeSetsERK5QListIS0_I7QStringEEi(
+    QHelpCollectionHandler *self,
+    const QList<QStringList> *attributeSets,
+    int nsId) {
+  return self->registerFileAttributeSets(*attributeSets, nsId);
 }
 
 //  bool QHelpCollectionHandler::unregisterIndexTable(int nsId, int vfId)
@@ -1361,6 +2425,13 @@ bool ritual_ZNK22QHelpCollectionHandler16hasTimeStampInfoERK7QString(
     const QHelpCollectionHandler *self,
     const QString *nameSpace) {
   return self->hasTimeStampInfo(*nameSpace);
+}
+
+//  void QHelpCollectionHandler::scheduleVacuum()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN22QHelpCollectionHandler14scheduleVacuumEv(
+    QHelpCollectionHandler *self) {
+  self->scheduleVacuum();
 }
 
 //  void QHelpCollectionHandler::execVacuum()

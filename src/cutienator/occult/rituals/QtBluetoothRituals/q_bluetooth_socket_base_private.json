@@ -2,7 +2,7 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtBluetooth/6.12.0/QtBluetooth/private/qbluetoothsocketbase_p.h,",
-    "Qt 6.12.0. Changes made here are lost."
+    "Qt 6.12.0. Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZNK27QBluetoothSocketBasePrivate10metaObjectEv": [
@@ -13,6 +13,9 @@
     ],
     "ritual_ZN27QBluetoothSocketBasePrivate11qt_metacallEN11QMetaObject4CallEiPPv": [
       "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN27QBluetoothSocketBasePrivate2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
     ],
     "ritual_ZN27QBluetoothSocketBasePrivateD1Ev": ["nothing", "address"],
     "ritual_ZN27QBluetoothSocketBasePrivate18ensureNativeSocketEN21QBluetoothServiceInfo8ProtocolE": [

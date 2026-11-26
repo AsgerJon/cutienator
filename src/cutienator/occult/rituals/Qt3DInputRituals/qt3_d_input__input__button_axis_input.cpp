@@ -134,6 +134,19 @@ inline Qt3DCore::QNodeId PhysicalDeviceProxy::physicalDeviceId() const
 }
 }  // namespace Qt3DInput::Input
 
+//  from ../qt3d/src/input/backend/buttonaxisinput.cpp, line 19, as _ZN9Qt3DInput5Input15ButtonAxisInputC1Ev
+namespace Qt3DInput::Input {
+inline ButtonAxisInput::ButtonAxisInput()
+    : AbstractAxisInput()
+    , m_scale(0.0f)
+    , m_acceleration(-1.0f)
+    , m_deceleration(-1.0f)
+    , m_speedRatio(0.0f)
+    , m_lastUpdateTime(0)
+{
+}
+}  // namespace Qt3DInput::Input
+
 //  from ../qt3d/src/input/backend/buttonaxisinput.cpp, line 29, as _ZN9Qt3DInput5Input15ButtonAxisInput7cleanupEv
 namespace Qt3DInput::Input {
 inline void ButtonAxisInput::cleanup()
@@ -183,6 +196,12 @@ inline void ButtonAxisInput::updateSpeedRatio(qint64 currentTime, ButtonAxisInpu
 }
 }  // namespace Qt3DInput::Input
 //  -----------------------------------------------------------------------
+
+//  Qt3DInput::Input::ButtonAxisInput::ButtonAxisInput()
+extern "C" Q_DECL_EXPORT
+Qt3DInput::Input::ButtonAxisInput *ritual_ZN9Qt3DInput5Input15ButtonAxisInputC1Ev() {
+  return new Qt3DInput::Input::ButtonAxisInput();
+}
 
 //  void Qt3DInput::Input::ButtonAxisInput::cleanup()
 extern "C" Q_DECL_EXPORT

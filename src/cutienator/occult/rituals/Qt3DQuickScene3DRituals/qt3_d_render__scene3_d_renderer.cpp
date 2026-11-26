@@ -1,15 +1,28 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  Qt3DQuickScene3D/6.12.0/Qt3DQuickScene3D/private/scene3drenderer_p.h, Qt
-//  6.12.0. Changes made here are lost.
+//  6.12.0.
+//  Edited by hand on 2026-11-26: moc's output for
+//  'Qt3DRender::Scene3DRenderer' is pasted in, cut from what the moc of Qt
+//  6.12.0 writes for its header: Qt's library keeps it to itself; added are
+//  2 rituals that lean on what moc writes for a class of the part Qt keeps
+//  to itself, whose ritual file carries moc's output, drafted by a copy of
+//  the generator that lets those names through. A copy of a meta-object is a
+//  second one: 'qobject_cast' between it and Qt's own does not match. Kept
+//  as it is when the generator runs again.
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <Qt3DQuickScene3D/Qt3DQuickScene3D>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <Qt3DQuickScene3D/6.12.0/Qt3DQuickScene3D/private/scene3drenderer_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 #include <QtCore/qsize.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
 #include <Qt3DQuickScene3D/private/scene3drenderer_p.h>
 #include <Qt3DCore/qaspectengine.h>
 #include <Qt3DRender/qrenderaspect.h>
@@ -28,6 +41,7 @@
 #include <Qt3DQuickScene3D/private/scene3dlogging_p.h>
 #include <Qt3DQuickScene3D/private/scene3dsgnode_p.h>
 #include <QtQuick/private/qquickwindow_p.h>
+#include <QtCore/qloggingcategory.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -37,10 +51,89 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from ../qt3d/src/quick3d/quick3dscene3d/scene3drenderer.cpp, line 594, as _ZN10Qt3DRender15Scene3DRenderer13QuickRendererC2Ev
-namespace Qt3DRender {
-inline Scene3DRenderer::QuickRenderer::QuickRenderer() {}
-}  // namespace Qt3DRender
+//  from Qt3DQuickScene3D__Qt3DRender_Scene3DRenderer.cpp, line 1, as moc:Qt3DRender::Scene3DRenderer
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN10Qt3DRender15Scene3DRendererE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto Qt3DRender::Scene3DRenderer::qt_create_metaobjectdata<qt_meta_tag_ZN10Qt3DRender15Scene3DRendererE_t>()
+{
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "Qt3DRender::Scene3DRenderer",
+        "shutdown",
+        ""
+    };
+
+    QtMocHelpers::UintData qt_methods {
+        // Slot 'shutdown'
+        QtMocHelpers::SlotData<void()>(1, 2, QMC::AccessPublic, QMetaType::Void),
+    };
+    QtMocHelpers::UintData qt_properties {
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    return QtMocHelpers::metaObjectData<Scene3DRenderer, qt_meta_tag_ZN10Qt3DRender15Scene3DRendererE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums);
+}
+Q_CONSTINIT const QMetaObject Qt3DRender::Scene3DRenderer::staticMetaObject = { {
+    QMetaObject::SuperData::link<QObject::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN10Qt3DRender15Scene3DRendererE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN10Qt3DRender15Scene3DRendererE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN10Qt3DRender15Scene3DRendererE_t>.metaTypes,
+    nullptr
+} };
+
+void Qt3DRender::Scene3DRenderer::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<Scene3DRenderer *>(_o);
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        switch (_id) {
+        case 0: _t->shutdown(); break;
+        default: ;
+        }
+    }
+    (void)_a;
+}
+
+const QMetaObject *Qt3DRender::Scene3DRenderer::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *Qt3DRender::Scene3DRenderer::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN10Qt3DRender15Scene3DRendererE_t>.strings))
+        return static_cast<void*>(this);
+    return QObject::qt_metacast(_clname);
+}
+
+int Qt3DRender::Scene3DRenderer::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QObject::qt_metacall(_c, _id, _a);
+    if (_id < 0)
+        return _id;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        if (_id < 1)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 1;
+    }
+    if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        if (_id < 1)
+            *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
+        _id -= 1;
+    }
+    return _id;
+}
+QT_WARNING_POP
 
 //  from ../qt3d/src/quick3d/quick3dscene3d/scene3drenderer.cpp, line 171, as _ZN10Qt3DRender15Scene3DRenderer8shutdownEv
 namespace Qt3DRender {
@@ -53,6 +146,39 @@ inline void Scene3DRenderer::shutdown()
     m_quickRenderer->shutdown(this);
     delete m_quickRenderer;
     m_quickRenderer = nullptr;
+}
+}  // namespace Qt3DRender
+
+//  from ../qt3d/src/quick3d/quick3dscene3d/scene3dlogging.cpp, line 10, as _ZN10Qt3DRender7Scene3DEv
+namespace Qt3DRender {
+inline const QLoggingCategory &Scene3D()
+{
+    static const QLoggingCategory category("Qt3D.Scene3D", QtWarningMsg);
+    return category;
+}
+}  // namespace Qt3DRender
+
+//  from ../qt3d/src/quick3d/quick3dscene3d/scene3drenderer.cpp, line 594, as _ZN10Qt3DRender15Scene3DRenderer13QuickRendererC2Ev
+namespace Qt3DRender {
+inline Scene3DRenderer::QuickRenderer::QuickRenderer() {}
+}  // namespace Qt3DRender
+
+//  from ../qt3d/src/quick3d/quick3dscene3d/scene3drenderer.cpp, line 101, as _ZN10Qt3DRender15Scene3DRendererC1Ev
+namespace Qt3DRender {
+inline Scene3DRenderer::Scene3DRenderer()
+    : QObject()
+    , m_aspectEngine(nullptr)
+    , m_renderAspect(nullptr)
+    , m_node(nullptr)
+    , m_window(nullptr)
+    , m_needsShutdown(true)
+    , m_shouldRender(false)
+    , m_dirtyViews(false)
+    , m_skipFrame(false)
+    , m_allowRendering(0)
+    , m_compositingMode(Scene3DItem::FBO)
+{
+
 }
 }  // namespace Qt3DRender
 
@@ -342,6 +468,22 @@ int ritual_ZN10Qt3DRender15Scene3DRenderer11qt_metacallEN11QMetaObject4CallEiPPv
     int a1,
     void **a2) {
   return self->qt_metacall(a0, a1, a2);
+}
+
+//  QString Qt3DRender::Scene3DRenderer::tr(const char *s, const char *c, int
+//      n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN10Qt3DRender15Scene3DRenderer2trEPKcS2_i(
+    const char *s,
+    const char *c,
+    int n) {
+  return new QString(Qt3DRender::Scene3DRenderer::tr(s, c, n));
+}
+
+//  Qt3DRender::Scene3DRenderer::Scene3DRenderer()
+extern "C" Q_DECL_EXPORT
+Qt3DRender::Scene3DRenderer *ritual_ZN10Qt3DRender15Scene3DRendererC1Ev() {
+  return new CuteQt3DRender_Scene3DRenderer();
 }
 
 //  Qt3DRender::Scene3DRenderer::~Scene3DRenderer()

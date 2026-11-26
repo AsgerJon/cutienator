@@ -1,17 +1,30 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtDataVisualization/6.12.0/QtDataVisualization/private/camerahelper_p.h,
-//  Qt 6.12.0. Changes made here are lost.
+//  Qt 6.12.0.
+//  Edited by hand on 2026-11-26: moc's output for 'CameraHelper' is pasted
+//  in, cut from what the moc of Qt 6.12.0 writes for its header: Qt's
+//  library keeps it to itself; added are 2 rituals that lean on what moc
+//  writes for a class of the part Qt keeps to itself, whose ritual file
+//  carries moc's output, drafted by a copy of the generator that lets those
+//  names through. A copy of a meta-object is a second one: 'qobject_cast'
+//  between it and Qt's own does not match. Kept as it is when the generator
+//  runs again.
 #include <QtDataVisualization/6.12.0/QtDataVisualization/private/datavisualizationglobal_p.h>
 #include <QtDataVisualization/QtDataVisualization>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtDataVisualization/6.12.0/QtDataVisualization/private/camerahelper_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 #include <QtCore/qpoint.h>
 #include <QtGui/qvectornd.h>
 #include <QtGui/qmatrix4x4.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
 #include <QtDataVisualization/private/camerahelper_p.h>
 #include <QtCore/qmath.h>
 #include <QtGui/QMatrix4x4>
@@ -23,6 +36,86 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  from QtDataVisualization__CameraHelper.cpp, line 1, as moc:CameraHelper
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN12CameraHelperE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto CameraHelper::qt_create_metaobjectdata<qt_meta_tag_ZN12CameraHelperE_t>()
+{
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "CameraHelper"
+    };
+
+    QtMocHelpers::UintData qt_methods {
+    };
+    QtMocHelpers::UintData qt_properties {
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    return QtMocHelpers::metaObjectData<CameraHelper, qt_meta_tag_ZN12CameraHelperE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums);
+}
+Q_CONSTINIT const QMetaObject CameraHelper::staticMetaObject = { {
+    QMetaObject::SuperData::link<QObject::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN12CameraHelperE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN12CameraHelperE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN12CameraHelperE_t>.metaTypes,
+    nullptr
+} };
+
+void CameraHelper::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<CameraHelper *>(_o);
+    (void)_t;
+    (void)_c;
+    (void)_id;
+    (void)_a;
+}
+
+const QMetaObject *CameraHelper::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *CameraHelper::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN12CameraHelperE_t>.strings))
+        return static_cast<void*>(this);
+    return QObject::qt_metacast(_clname);
+}
+
+int CameraHelper::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QObject::qt_metacall(_c, _id, _a);
+    return _id;
+}
+QT_WARNING_POP
+
+//  from ../qtdatavis3d/src/datavisualization/utils/camerahelper.cpp, line 11, as _ZN12CameraHelperC1EP7QObject
+inline CameraHelper::CameraHelper(QObject *parent) :
+    QObject(parent),
+    m_position(0, 0.25, 3),
+    m_target(0, 0, 0),
+    m_up(0, 1, 0),
+    m_previousMousePos(0,0),
+    m_xRotation(0),
+    m_yRotation(0),
+    m_defaultXRotation(0),
+    m_defaultYRotation(0),
+    m_rotationSpeed(100)
+{
+}
 
 //  from ../qtdatavis3d/src/datavisualization/utils/camerahelper.cpp, line 25, as _ZN12CameraHelperD1Ev
 inline CameraHelper::~CameraHelper()
@@ -441,6 +534,21 @@ int ritual_ZN12CameraHelper11qt_metacallEN11QMetaObject4CallEiPPv(
     int a1,
     void **a2) {
   return self->qt_metacall(a0, a1, a2);
+}
+
+//  QString CameraHelper::tr(const char *s, const char *c, int n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN12CameraHelper2trEPKcS1_i(
+    const char *s,
+    const char *c,
+    int n) {
+  return new QString(CameraHelper::tr(s, c, n));
+}
+
+//  CameraHelper::CameraHelper(QObject *parent)
+extern "C" Q_DECL_EXPORT
+CameraHelper *ritual_ZN12CameraHelperC1EP7QObject(QObject *parent) {
+  return new CuteCameraHelper(parent);
 }
 
 //  CameraHelper::~CameraHelper()

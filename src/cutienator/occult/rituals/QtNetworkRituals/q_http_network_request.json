@@ -5,6 +5,10 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN19QHttpNetworkRequestC1ERK4QUrlNS_9OperationENS_8PriorityE": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_ZN19QHttpNetworkRequestC1ERKS_": ["address", "address"],
     "ritual_ZN19QHttpNetworkRequestD1Ev": ["nothing", "address"],
     "ritual_ZN19QHttpNetworkRequestaSERKS_": [
       "address", "address", "address"

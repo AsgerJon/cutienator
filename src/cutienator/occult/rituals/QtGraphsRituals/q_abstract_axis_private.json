@@ -8,6 +8,7 @@
     "QtGraphs", "QtCore", "QtGui", "QtQuick", "QtQml", "QtQmlIntegration"
   ],
   "rows": {
+    "ritual_ZN20QAbstractAxisPrivateC1Ev": ["address"],
     "ritual_ZN20QAbstractAxisPrivateD1Ev": ["nothing", "address"],
     "ritual_ZN20QAbstractAxisPrivate8setGraphEP11QGraphsView": [
       "nothing", "address", "address"

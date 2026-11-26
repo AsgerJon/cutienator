@@ -7,6 +7,7 @@
   "rows": {
     "ritual_ZN25QRasterPaintEnginePrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK25QRasterPaintEnginePrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN25QRasterPaintEnginePrivateC1Ev": ["address"],
     "ritual_ZN25QRasterPaintEnginePrivate14updateClippingEv": [
       "nothing", "address"
     ],

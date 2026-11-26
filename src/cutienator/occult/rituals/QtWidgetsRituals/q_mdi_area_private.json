@@ -7,6 +7,7 @@
   "rows": {
     "ritual_ZN15QMdiAreaPrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK15QMdiAreaPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN15QMdiAreaPrivateC1Ev": ["address"],
     "ritual_ZN15QMdiAreaPrivate11_q_closeTabEi": [
       "nothing", "address", "int"
     ],

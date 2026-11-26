@@ -1,6 +1,12 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtQuick3DXr/6.12.0/QtQuick3DXr/private/qquick3dxractionmapper_p.h, Qt
-//  6.12.0. Changes made here are lost.
+//  6.12.0.
+//  Edited by hand on 2026-11-26: added are 1 rituals that lean on what moc
+//  writes for a class of the part Qt keeps to itself, whose ritual file
+//  carries moc's output, drafted by a copy of the generator that lets those
+//  names through. A copy of a meta-object is a second one: 'qobject_cast'
+//  between it and Qt's own does not match. Kept as it is when the generator
+//  runs again.
 #include <QtQuick3DXr/6.12.0/QtQuick3DXr/private/qtquick3dxrglobal_p.h>
 #include <QtQuick3DXr/QtQuick3DXr>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -30,6 +36,24 @@ inline void QQuick3DXrHapticFeedback::componentComplete()
 {
     QQuick3DXrActionMapper::registerHapticEffect(this);
     m_componentComplete = true;
+}
+
+//  from ../qtquick3d/src/xr/quick3dxr/qquick3dxractionmapper.cpp, line 536, as _ZN24QQuick3DXrHapticFeedback4stopEv
+inline void QQuick3DXrHapticFeedback::stop()
+{
+    m_pending = false;
+}
+
+//  from ../qtquick3d/src/xr/quick3dxr/qquick3dxractionmapper.cpp, line 527, as _ZN24QQuick3DXrHapticFeedback5startEv
+inline void QQuick3DXrHapticFeedback::start()
+{
+    m_pending = true;
+}
+
+//  from ../qtquick3d/src/xr/quick3dxr/qquick3dxractionmapper.cpp, line 406, as _ZN24QQuick3DXrHapticFeedbackD0Ev
+inline QQuick3DXrHapticFeedback::~QQuick3DXrHapticFeedback()
+{
+    QQuick3DXrActionMapper::removeHapticEffect(this);
 }
 
 //  from ../qtquick3d/src/xr/quick3dxr/qquick3dxractionmapper.cpp, line 79, as _ZN22QQuick3DXrActionMapper20registerHapticEffectE8QPointerI24QQuick3DXrHapticFeedbackE
@@ -539,6 +563,13 @@ extern "C" Q_DECL_EXPORT
 void ritual_own_ZN24QQuick3DXrHapticFeedback10classBeginEv(
     QQuick3DXrHapticFeedback *self) {
   self->QQuick3DXrHapticFeedback::classBegin();
+}
+
+//  void QQuick3DXrHapticFeedback::componentComplete()
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN24QQuick3DXrHapticFeedback17componentCompleteEv(
+    QQuick3DXrHapticFeedback *self) {
+  self->QQuick3DXrHapticFeedback::componentComplete();
 }
 
 //  a enum QQuick3DXrHapticFeedback::Condition a ritual of

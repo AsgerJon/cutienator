@@ -1,6 +1,14 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtQuickEffects/6.12.0/QtQuickEffects/private/qgfxsourceproxy_p.h, Qt
-//  6.12.0. Changes made here are lost.
+//  6.12.0.
+//  Edited by hand on 2026-11-26: moc's output for 'QGfxSourceProxyME' is
+//  pasted in, cut from what the moc of Qt 6.12.0 writes for its header: Qt's
+//  library keeps it to itself; added are 9 rituals that lean on what moc
+//  writes for a class of the part Qt keeps to itself, whose ritual file
+//  carries moc's output, drafted by a copy of the generator that lets those
+//  names through. A copy of a meta-object is a second one: 'qobject_cast'
+//  between it and Qt's own does not match. Kept as it is when the generator
+//  runs again.
 #include <QtGui/qtguiglobal.h>
 #include <QtQuick/qtquickglobal.h>
 #include <QtQuickEffects/6.12.0/QtQuickEffects/private/qtquickeffectsglobal_p.h>
@@ -8,6 +16,7 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQuickEffects/6.12.0/QtQuickEffects/private/qgfxsourceproxy_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 #include <QtCore/qrect.h>
 #include <QtCore/qpoint.h>
 #include <QtCore/qvariant.h>
@@ -16,6 +25,10 @@
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
 #include <QtQuickEffects/private/qgfxsourceproxy_p.h>
 #include <QtQuick/private/qquickshadereffectsource_p.h>
 #include <QtQuick/private/qquickitem_p.h>
@@ -28,6 +41,218 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  from QtQuickEffects__QGfxSourceProxyME.cpp, line 1, as moc:QGfxSourceProxyME
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN17QGfxSourceProxyMEE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto QGfxSourceProxyME::qt_create_metaobjectdata<qt_meta_tag_ZN17QGfxSourceProxyMEE_t>()
+{
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "QGfxSourceProxyME",
+        "inputChanged",
+        "",
+        "outputChanged",
+        "sourceRectChanged",
+        "activeChanged",
+        "interpolationChanged",
+        "repolish",
+        "input",
+        "QQuickItem*",
+        "output",
+        "sourceRect",
+        "QRectF",
+        "active",
+        "interpolation",
+        "Interpolation",
+        "Any",
+        "Nearest",
+        "Linear"
+    };
+
+    QtMocHelpers::UintData qt_methods {
+        // Signal 'inputChanged'
+        QtMocHelpers::SignalData<void()>(1, 2, QMC::AccessPublic, QMetaType::Void),
+        // Signal 'outputChanged'
+        QtMocHelpers::SignalData<void()>(3, 2, QMC::AccessPublic, QMetaType::Void),
+        // Signal 'sourceRectChanged'
+        QtMocHelpers::SignalData<void()>(4, 2, QMC::AccessPublic, QMetaType::Void),
+        // Signal 'activeChanged'
+        QtMocHelpers::SignalData<void()>(5, 2, QMC::AccessPublic, QMetaType::Void),
+        // Signal 'interpolationChanged'
+        QtMocHelpers::SignalData<void()>(6, 2, QMC::AccessPublic, QMetaType::Void),
+        // Slot 'repolish'
+        QtMocHelpers::SlotData<void()>(7, 2, QMC::AccessPrivate, QMetaType::Void),
+    };
+    QtMocHelpers::UintData qt_properties {
+        // property 'input'
+        QtMocHelpers::PropertyData<QQuickItem*>(8, 0x80000000 | 9, QMC::DefaultPropertyFlags | QMC::Writable | QMC::Resettable | QMC::EnumOrFlag | QMC::StdCppSet | QMC::Final, 0),
+        // property 'output'
+        QtMocHelpers::PropertyData<QQuickItem*>(10, 0x80000000 | 9, QMC::DefaultPropertyFlags | QMC::EnumOrFlag | QMC::Final, 1),
+        // property 'sourceRect'
+        QtMocHelpers::PropertyData<QRectF>(11, 0x80000000 | 12, QMC::DefaultPropertyFlags | QMC::Writable | QMC::EnumOrFlag | QMC::StdCppSet | QMC::Final, 2),
+        // property 'active'
+        QtMocHelpers::PropertyData<bool>(13, QMetaType::Bool, QMC::DefaultPropertyFlags | QMC::Final, 3),
+        // property 'interpolation'
+        QtMocHelpers::PropertyData<enum Interpolation>(14, 0x80000000 | 15, QMC::DefaultPropertyFlags | QMC::Writable | QMC::EnumOrFlag | QMC::StdCppSet | QMC::Final, 4),
+    };
+    QtMocHelpers::UintData qt_enums {
+        // enum 'Interpolation'
+        QtMocHelpers::EnumData<enum Interpolation>(15, 15, QMC::EnumIsScoped).add({
+            {   16, Interpolation::Any },
+            {   17, Interpolation::Nearest },
+            {   18, Interpolation::Linear },
+        }),
+    };
+    return QtMocHelpers::metaObjectData<QGfxSourceProxyME, qt_meta_tag_ZN17QGfxSourceProxyMEE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums);
+}
+Q_CONSTINIT const QMetaObject QGfxSourceProxyME::staticMetaObject = { {
+    QMetaObject::SuperData::link<QQuickItem::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN17QGfxSourceProxyMEE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN17QGfxSourceProxyMEE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN17QGfxSourceProxyMEE_t>.metaTypes,
+    nullptr
+} };
+
+void QGfxSourceProxyME::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<QGfxSourceProxyME *>(_o);
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        switch (_id) {
+        case 0: _t->inputChanged(); break;
+        case 1: _t->outputChanged(); break;
+        case 2: _t->sourceRectChanged(); break;
+        case 3: _t->activeChanged(); break;
+        case 4: _t->interpolationChanged(); break;
+        case 5: _t->repolish(); break;
+        default: ;
+        }
+    }
+    if (_c == QMetaObject::IndexOfMethod) {
+        if (QtMocHelpers::indexOfMethod<void (QGfxSourceProxyME::*)()>(_a, &QGfxSourceProxyME::inputChanged, 0))
+            return;
+        if (QtMocHelpers::indexOfMethod<void (QGfxSourceProxyME::*)()>(_a, &QGfxSourceProxyME::outputChanged, 1))
+            return;
+        if (QtMocHelpers::indexOfMethod<void (QGfxSourceProxyME::*)()>(_a, &QGfxSourceProxyME::sourceRectChanged, 2))
+            return;
+        if (QtMocHelpers::indexOfMethod<void (QGfxSourceProxyME::*)()>(_a, &QGfxSourceProxyME::activeChanged, 3))
+            return;
+        if (QtMocHelpers::indexOfMethod<void (QGfxSourceProxyME::*)()>(_a, &QGfxSourceProxyME::interpolationChanged, 4))
+            return;
+    }
+    if (_c == QMetaObject::RegisterPropertyMetaType) {
+        switch (_id) {
+        default: *reinterpret_cast<int*>(_a[0]) = -1; break;
+        case 1:
+        case 0:
+            *reinterpret_cast<int*>(_a[0]) = qRegisterMetaType< QQuickItem* >(); break;
+        }
+    }
+    if (_c == QMetaObject::ReadProperty) {
+        void *_v = _a[0];
+        switch (_id) {
+        case 0: *reinterpret_cast<QQuickItem**>(_v) = _t->input(); break;
+        case 1: *reinterpret_cast<QQuickItem**>(_v) = _t->output(); break;
+        case 2: *reinterpret_cast<QRectF*>(_v) = _t->sourceRect(); break;
+        case 3: *reinterpret_cast<bool*>(_v) = _t->isActive(); break;
+        case 4: *reinterpret_cast<enum Interpolation*>(_v) = _t->interpolation(); break;
+        default: break;
+        }
+    }
+    if (_c == QMetaObject::WriteProperty) {
+        void *_v = _a[0];
+        switch (_id) {
+        case 0: _t->setInput(*reinterpret_cast<QQuickItem**>(_v)); break;
+        case 2: _t->setSourceRect(*reinterpret_cast<QRectF*>(_v)); break;
+        case 4: _t->setInterpolation(*reinterpret_cast<enum Interpolation*>(_v)); break;
+        default: break;
+        }
+    }
+    if (_c == QMetaObject::ResetProperty) {
+        switch (_id) {
+        case 0: _t->resetInput(); break;
+        default: break;
+        }
+    }
+}
+
+const QMetaObject *QGfxSourceProxyME::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *QGfxSourceProxyME::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN17QGfxSourceProxyMEE_t>.strings))
+        return static_cast<void*>(this);
+    return QQuickItem::qt_metacast(_clname);
+}
+
+int QGfxSourceProxyME::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QQuickItem::qt_metacall(_c, _id, _a);
+    if (_id < 0)
+        return _id;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        if (_id < 6)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 6;
+    }
+    if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        if (_id < 6)
+            *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
+        _id -= 6;
+    }
+    if (_c == QMetaObject::ReadProperty || _c == QMetaObject::WriteProperty
+            || _c == QMetaObject::ResetProperty || _c == QMetaObject::BindableProperty
+            || _c == QMetaObject::RegisterPropertyMetaType) {
+        qt_static_metacall(this, _c, _id, _a);
+        _id -= 5;
+    }
+    return _id;
+}
+
+// SIGNAL 0
+void QGfxSourceProxyME::inputChanged()
+{
+    QMetaObject::activate(this, &staticMetaObject, 0, nullptr);
+}
+
+// SIGNAL 1
+void QGfxSourceProxyME::outputChanged()
+{
+    QMetaObject::activate(this, &staticMetaObject, 1, nullptr);
+}
+
+// SIGNAL 2
+void QGfxSourceProxyME::sourceRectChanged()
+{
+    QMetaObject::activate(this, &staticMetaObject, 2, nullptr);
+}
+
+// SIGNAL 3
+void QGfxSourceProxyME::activeChanged()
+{
+    QMetaObject::activate(this, &staticMetaObject, 3, nullptr);
+}
+
+// SIGNAL 4
+void QGfxSourceProxyME::interpolationChanged()
+{
+    QMetaObject::activate(this, &staticMetaObject, 4, nullptr);
+}
+QT_WARNING_POP
 
 //  from ../qtdeclarative/src/effects/qgfxsourceproxy.cpp, line 97, as _ZN17QGfxSourceProxyME12updatePolishEv
 inline void QGfxSourceProxyME::updatePolish()
@@ -96,15 +321,62 @@ inline void QGfxSourceProxyME::updatePolish()
     }
 }
 
-//  from ../qtdeclarative/src/effects/qgfxsourceproxy.cpp, line 69, as _ZN17QGfxSourceProxyME8useProxyEv
-inline void QGfxSourceProxyME::useProxy()
+//  from ../qtdeclarative/src/effects/qgfxsourceproxy.cpp, line 79, as _ZN17QGfxSourceProxyME8repolishEv
+inline void QGfxSourceProxyME::repolish()
 {
-    if (!m_proxy)
-        m_proxy = new QQuickShaderEffectSource(this);
-    m_proxy->setSourceRect(m_sourceRect);
-    m_proxy->setSourceItem(m_input);
-    m_proxy->setSmooth(m_interpolation != Interpolation::Nearest);
-    setOutput(m_proxy);
+    polish();
+}
+
+//  from ../qtdeclarative/src/effects/qgfxsourceproxy.cpp, line 13, as _ZN17QGfxSourceProxyMEC1EP10QQuickItem
+inline QGfxSourceProxyME::QGfxSourceProxyME(QQuickItem *parentItem)
+    : QQuickItem(parentItem)
+{
+}
+
+//  from ../qtdeclarative/src/effects/qgfxsourceproxy.cpp, line 18, as _ZN17QGfxSourceProxyMED1Ev
+inline QGfxSourceProxyME::~QGfxSourceProxyME()
+{
+    delete m_proxy;
+}
+
+//  from ../qtdeclarative/src/effects/qgfxsourceproxy.cpp, line 23, as _ZN17QGfxSourceProxyME8setInputEP10QQuickItem
+inline void QGfxSourceProxyME::setInput(QQuickItem *input)
+{
+    if (m_input == input)
+        return;
+
+    if (m_input)
+        disconnect(m_input, nullptr, this, nullptr);
+    m_input = input;
+    polish();
+    if (m_input) {
+        if (QQuickImage *image = qobject_cast<QQuickImage *>(m_input)) {
+            connect(image, &QQuickImage::sourceSizeChanged, this, &QGfxSourceProxyME::repolish);
+            connect(image, &QQuickImage::fillModeChanged, this, &QGfxSourceProxyME::repolish);
+        }
+        connect(m_input, &QQuickItem::childrenChanged, this, &QGfxSourceProxyME::repolish);
+    }
+    Q_EMIT inputChanged();
+}
+
+//  from ../qtdeclarative/src/effects/qgfxsourceproxy.cpp, line 51, as _ZN17QGfxSourceProxyME13setSourceRectERK6QRectF
+inline void QGfxSourceProxyME::setSourceRect(const QRectF &sourceRect)
+{
+    if (m_sourceRect == sourceRect)
+        return;
+    m_sourceRect = sourceRect;
+    polish();
+    Q_EMIT sourceRectChanged();
+}
+
+//  from ../qtdeclarative/src/effects/qgfxsourceproxy.cpp, line 60, as _ZN17QGfxSourceProxyME16setInterpolationENS_13InterpolationE
+inline void QGfxSourceProxyME::setInterpolation(Interpolation i)
+{
+    if (m_interpolation == i)
+        return;
+    m_interpolation = i;
+    polish();
+    Q_EMIT interpolationChanged();
 }
 
 //  from ../qtdeclarative/src/effects/qgfxsourceproxy.cpp, line 42, as _ZN17QGfxSourceProxyME9setOutputEP10QQuickItem
@@ -117,10 +389,15 @@ inline void QGfxSourceProxyME::setOutput(QQuickItem *output)
     Q_EMIT outputChanged();
 }
 
-//  from ../qtdeclarative/src/effects/qgfxsourceproxy.cpp, line 18, as _ZN17QGfxSourceProxyMED1Ev
-inline QGfxSourceProxyME::~QGfxSourceProxyME()
+//  from ../qtdeclarative/src/effects/qgfxsourceproxy.cpp, line 69, as _ZN17QGfxSourceProxyME8useProxyEv
+inline void QGfxSourceProxyME::useProxy()
 {
-    delete m_proxy;
+    if (!m_proxy)
+        m_proxy = new QQuickShaderEffectSource(this);
+    m_proxy->setSourceRect(m_sourceRect);
+    m_proxy->setSourceItem(m_input);
+    m_proxy->setSmooth(m_interpolation != Interpolation::Nearest);
+    setOutput(m_proxy);
 }
 
 //  from ../qtdeclarative/src/effects/qgfxsourceproxy.cpp, line 84, as _ZN17QGfxSourceProxyME9findLayerEP10QQuickItem
@@ -137,6 +414,12 @@ inline QObject *QGfxSourceProxyME::findLayer(QQuickItem *item)
     return nullptr;
 }
 //  -----------------------------------------------------------------------
+
+//  Only a class built on QGfxSourceProxyME may call these functions of it.
+//  This one is, and makes them free for the rituals to call.
+struct OwnQGfxSourceProxyME : QGfxSourceProxyME {
+  using QGfxSourceProxyME::updatePolish;
+};
 
 //  A QGfxSourceProxyME that Python can take functions over in. Every QGfxSourceProxyME
 //  Python makes is one. Each function below asks the Python
@@ -926,6 +1209,22 @@ int ritual_ZN17QGfxSourceProxyME11qt_metacallEN11QMetaObject4CallEiPPv(
   return self->qt_metacall(a0, a1, a2);
 }
 
+//  QString QGfxSourceProxyME::tr(const char *s, const char *c, int n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN17QGfxSourceProxyME2trEPKcS1_i(
+    const char *s,
+    const char *c,
+    int n) {
+  return new QString(QGfxSourceProxyME::tr(s, c, n));
+}
+
+//  QGfxSourceProxyME::QGfxSourceProxyME(QQuickItem *parentItem)
+extern "C" Q_DECL_EXPORT
+QGfxSourceProxyME *ritual_ZN17QGfxSourceProxyMEC1EP10QQuickItem(
+    QQuickItem *parentItem) {
+  return new CuteQGfxSourceProxyME(parentItem);
+}
+
 //  QGfxSourceProxyME::~QGfxSourceProxyME()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN17QGfxSourceProxyMED1Ev(QGfxSourceProxyME *self) {
@@ -937,6 +1236,20 @@ extern "C" Q_DECL_EXPORT
 QQuickItem *ritual_ZNK17QGfxSourceProxyME5inputEv(
     const QGfxSourceProxyME *self) {
   return self->input();
+}
+
+//  void QGfxSourceProxyME::setInput(QQuickItem *input)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QGfxSourceProxyME8setInputEP10QQuickItem(
+    QGfxSourceProxyME *self,
+    QQuickItem *input) {
+  self->setInput(input);
+}
+
+//  void QGfxSourceProxyME::resetInput()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QGfxSourceProxyME10resetInputEv(QGfxSourceProxyME *self) {
+  self->resetInput();
 }
 
 //  QQuickItem *QGfxSourceProxyME::output() const
@@ -953,11 +1266,27 @@ QRectF *ritual_ZNK17QGfxSourceProxyME10sourceRectEv(
   return new QRectF(self->sourceRect());
 }
 
+//  void QGfxSourceProxyME::setSourceRect(const QRectF &sourceRect)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QGfxSourceProxyME13setSourceRectERK6QRectF(
+    QGfxSourceProxyME *self,
+    const QRectF *sourceRect) {
+  self->setSourceRect(*sourceRect);
+}
+
 //  bool QGfxSourceProxyME::isActive() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK17QGfxSourceProxyME8isActiveEv(
     const QGfxSourceProxyME *self) {
   return self->isActive();
+}
+
+//  void QGfxSourceProxyME::setInterpolation(Interpolation i)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QGfxSourceProxyME16setInterpolationENS_13InterpolationE(
+    QGfxSourceProxyME *self,
+    QGfxSourceProxyME::Interpolation i) {
+  self->setInterpolation(i);
 }
 
 //  Interpolation QGfxSourceProxyME::interpolation() const
@@ -1119,6 +1448,20 @@ void ritual_ZN17QGfxSourceProxyME8repolishEv(QGfxSourceProxyME *self) {
       QMetaObject::InvokeMetaMethod, index, arguments);
 }
 
+//  void QGfxSourceProxyME::setOutput(QQuickItem *output)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QGfxSourceProxyME9setOutputEP10QQuickItem(
+    QGfxSourceProxyME *self,
+    QQuickItem *output) {
+  self->setOutput(output);
+}
+
+//  void QGfxSourceProxyME::useProxy()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QGfxSourceProxyME8useProxyEv(QGfxSourceProxyME *self) {
+  self->useProxy();
+}
+
 //  QObject *QGfxSourceProxyME::findLayer(QQuickItem *a0)
 extern "C" Q_DECL_EXPORT
 QObject *ritual_ZN17QGfxSourceProxyME9findLayerEP10QQuickItem(
@@ -1134,4 +1477,11 @@ bool ritual_take_QGfxSourceProxyME(
     const char *key,
     void *call) {
   return static_cast<CuteQGfxSourceProxyME *>(self)->take(key, call);
+}
+
+//  void QGfxSourceProxyME::updatePolish()
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN17QGfxSourceProxyME12updatePolishEv(
+    QGfxSourceProxyME *self) {
+  static_cast<OwnQGfxSourceProxyME *>(self)->OwnQGfxSourceProxyME::updatePolish();
 }

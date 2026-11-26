@@ -2,9 +2,10 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtQuick/6.12.0/QtQuick/private/qsgsoftwarepublicnodes_p.h, Qt",
-    "6.12.0. Changes made here are lost."
+    "6.12.0. Edited by hand: see the ritual file."
   ],
   "rows": {
+    "ritual_ZN24QSGSoftwareNinePatchNodeC1Ev": ["address"],
     "ritual_ZN24QSGSoftwareNinePatchNode10setTextureEP10QSGTexture": [
       "nothing", "address", "address"
     ],
@@ -20,6 +21,9 @@
     "ritual_ZN24QSGSoftwareNinePatchNode6updateEv": ["nothing", "address"],
     "ritual_ZNK24QSGSoftwareNinePatchNode6boundsEv": ["address", "address"],
     "ritual_ZNK24QSGSoftwareNinePatchNode8isOpaqueEv": ["bool", "address"],
+    "ritual_own_ZN24QSGSoftwareNinePatchNode10setTextureEP10QSGTexture": [
+      "nothing", "address", "address"
+    ],
     "ritual_own_ZN24QSGSoftwareNinePatchNode9setBoundsERK6QRectF": [
       "nothing", "address", "address"
     ],

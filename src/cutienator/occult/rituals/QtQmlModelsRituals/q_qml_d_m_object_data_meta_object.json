@@ -2,9 +2,12 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtQmlModels/6.12.0/QtQmlModels/private/qqmldmobjectdata_p.h, Qt",
-    "6.12.0. Changes made here are lost."
+    "6.12.0. Edited by hand: see the ritual file."
   ],
   "rows": {
+    "ritual_ZN26QQmlDMObjectDataMetaObjectC1EP16QQmlDMObjectDataP25VDMObjectDelegateDataType": [
+      "address", "address", "address"
+    ],
     "ritual_ZN26QQmlDMObjectDataMetaObjectD1Ev": ["nothing", "address"],
     "ritual_ZN26QQmlDMObjectDataMetaObject8metaCallEP7QObjectN11QMetaObject4CallEiPPv": [
       "int", "address", "address", "int", "int", "address"

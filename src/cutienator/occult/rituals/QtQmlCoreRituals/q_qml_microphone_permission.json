@@ -2,7 +2,7 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtQmlCore/6.12.0/QtQmlCore/private/qqmlpermissions_p.h, Qt 6.12.0.",
-    "Changes made here are lost."
+    "Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZNK24QQmlMicrophonePermission10metaObjectEv": [
@@ -14,7 +14,11 @@
     "ritual_ZN24QQmlMicrophonePermission11qt_metacallEN11QMetaObject4CallEiPPv": [
       "int", "address", "int", "int", "address"
     ],
+    "ritual_ZN24QQmlMicrophonePermission2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
     "ritual_ZNK24QQmlMicrophonePermission6statusEv": ["int", "address"],
+    "ritual_ZN24QQmlMicrophonePermission7requestEv": ["nothing", "address"],
     "ritual_take_QQmlMicrophonePermission": [
       "bool", "address", "chars", "address"
     ]

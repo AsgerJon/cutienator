@@ -106,6 +106,12 @@ inline QQuickControl *QAccessibleQuickControl::control() const
     return static_cast<QQuickControl *>(object());
 }
 
+//  from ../qtdeclarative/src/quicktemplates/accessible/qaccessiblequickscrollbar.cpp, line 10, as _ZN25QAccessibleQuickScrollBarC1EP15QQuickScrollBar
+inline QAccessibleQuickScrollBar::QAccessibleQuickScrollBar(QQuickScrollBar *scrollBar)
+    : QAccessibleQuickControl(scrollBar)
+{
+}
+
 //  from ../qtdeclarative/src/quicktemplates/accessible/qaccessiblequickscrollbar.cpp, line 56, as _ZNK25QAccessibleQuickScrollBar9scrollBarEv
 inline QQuickScrollBar *QAccessibleQuickScrollBar::scrollBar() const
 {
@@ -133,6 +139,14 @@ inline qreal QAccessibleQuickScrollBar::denormalizeValue(qreal value) const
     return value / 100.0 * maximumPositionValue();
 }
 //  -----------------------------------------------------------------------
+
+//  QAccessibleQuickScrollBar::QAccessibleQuickScrollBar(QQuickScrollBar
+//      *scrollBar)
+extern "C" Q_DECL_EXPORT
+QAccessibleQuickScrollBar *ritual_ZN25QAccessibleQuickScrollBarC1EP15QQuickScrollBar(
+    QQuickScrollBar *scrollBar) {
+  return new QAccessibleQuickScrollBar(scrollBar);
+}
 
 //  QList<QAccessible::Attribute> QAccessibleQuickScrollBar::attributeKeys()
 //      const

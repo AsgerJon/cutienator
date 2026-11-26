@@ -45,6 +45,25 @@ inline void LogicalDevice::syncFromFrontEnd(const Qt3DCore::QNode *frontEnd, boo
 }
 }  // namespace Qt3DInput::Input
 
+//  from ../qt3d/src/input/backend/logicaldevice.cpp, line 42, as _ZN9Qt3DInput5Input24LogicalDeviceNodeFunctorC1EPNS0_20LogicalDeviceManagerE
+namespace Qt3DInput::Input {
+inline LogicalDeviceNodeFunctor::LogicalDeviceNodeFunctor(LogicalDeviceManager *manager)
+    : m_manager(manager)
+{
+}
+}  // namespace Qt3DInput::Input
+
+//  from ../qt3d/src/input/backend/logicaldevice.cpp, line 47, as _ZNK9Qt3DInput5Input24LogicalDeviceNodeFunctor6createEN8Qt3DCore7QNodeIdE
+namespace Qt3DInput::Input {
+inline Qt3DCore::QBackendNode *LogicalDeviceNodeFunctor::create(Qt3DCore::QNodeId id) const
+{
+    HLogicalDevice handle = m_manager->getOrAcquireHandle(id);
+    LogicalDevice *backend = m_manager->data(handle);
+    m_manager->addActiveDevice(handle);
+    return backend;
+}
+}  // namespace Qt3DInput::Input
+
 //  from ../qt3d/src/input/backend/logicaldevice.cpp, line 55, as _ZNK9Qt3DInput5Input24LogicalDeviceNodeFunctor3getEN8Qt3DCore7QNodeIdE
 namespace Qt3DInput::Input {
 inline Qt3DCore::QBackendNode *LogicalDeviceNodeFunctor::get(Qt3DCore::QNodeId id) const
@@ -63,6 +82,24 @@ inline void LogicalDeviceNodeFunctor::destroy(Qt3DCore::QNodeId id) const
 }
 }  // namespace Qt3DInput::Input
 //  -----------------------------------------------------------------------
+
+//  Qt3DInput::Input::LogicalDeviceNodeFunctor::LogicalDeviceNodeFunctor(Logi
+//      calDeviceManager *manager)
+extern "C" Q_DECL_EXPORT
+Qt3DInput::Input::LogicalDeviceNodeFunctor *ritual_ZN9Qt3DInput5Input24LogicalDeviceNodeFunctorC1EPNS0_20LogicalDeviceManagerE(
+    Qt3DInput::Input::LogicalDeviceManager *manager) {
+  return new Qt3DInput::Input::LogicalDeviceNodeFunctor(manager);
+}
+
+//  Qt3DCore::QBackendNode
+//      *Qt3DInput::Input::LogicalDeviceNodeFunctor::create(Qt3DCore::QNodeId
+//      id) const
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QBackendNode *ritual_ZNK9Qt3DInput5Input24LogicalDeviceNodeFunctor6createEN8Qt3DCore7QNodeIdE(
+    const Qt3DInput::Input::LogicalDeviceNodeFunctor *self,
+    const Qt3DCore::QNodeId *id) {
+  return self->create(*id);
+}
 
 //  Qt3DCore::QBackendNode
 //      *Qt3DInput::Input::LogicalDeviceNodeFunctor::get(Qt3DCore::QNodeId

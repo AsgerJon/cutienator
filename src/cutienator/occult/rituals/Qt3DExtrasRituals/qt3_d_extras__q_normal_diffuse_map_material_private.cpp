@@ -130,6 +130,50 @@ inline void QNormalDiffuseMapMaterialPrivate::init()
 }
 }  // namespace Qt3DExtras
 
+//  from ../qt3d/src/extras/defaults/qnormaldiffusemapmaterial.cpp, line 26, as _ZN10Qt3DExtras32QNormalDiffuseMapMaterialPrivateC1Ev
+namespace Qt3DExtras {
+using namespace Qt3DRender;
+inline QNormalDiffuseMapMaterialPrivate::QNormalDiffuseMapMaterialPrivate()
+    : QMaterialPrivate()
+    , m_normalDiffuseEffect(new QEffect())
+    , m_diffuseTexture(new QTexture2D())
+    , m_normalTexture(new QTexture2D())
+    , m_ambientParameter(new QParameter(QStringLiteral("ka"), QColor::fromRgbF(0.1f, 0.1f, 0.1f, 1.0f)))
+    , m_diffuseParameter(new QParameter(QStringLiteral("diffuseTexture"), m_diffuseTexture))
+    , m_normalParameter(new QParameter(QStringLiteral("normalTexture"), m_normalTexture))
+    , m_specularParameter(new QParameter(QStringLiteral("ks"), QColor::fromRgbF(0.01f, 0.01f, 0.01f, 1.0f)))
+    , m_shininessParameter(new QParameter(QStringLiteral("shininess"), 150.0f))
+    , m_textureScaleParameter(new QParameter(QStringLiteral("texCoordScale"), 1.0f))
+    , m_normalDiffuseGL3Technique(new QTechnique())
+    , m_normalDiffuseGL2Technique(new QTechnique())
+    , m_normalDiffuseES2Technique(new QTechnique())
+    , m_normalDiffuseRHITechnique(new QTechnique())
+    , m_normalDiffuseGL3RenderPass(new QRenderPass())
+    , m_normalDiffuseGL2RenderPass(new QRenderPass())
+    , m_normalDiffuseES2RenderPass(new QRenderPass())
+    , m_normalDiffuseRHIRenderPass(new QRenderPass())
+    , m_normalDiffuseGL3Shader(new QShaderProgram())
+    , m_normalDiffuseGL3ShaderBuilder(new QShaderProgramBuilder())
+    , m_normalDiffuseGL2ES2Shader(new QShaderProgram())
+    , m_normalDiffuseGL2ES2ShaderBuilder(new QShaderProgramBuilder())
+    , m_normalDiffuseRHIShader(new QShaderProgram())
+    , m_normalDiffuseRHIShaderBuilder(new QShaderProgramBuilder())
+    , m_filterKey(new QFilterKey)
+{
+    m_diffuseTexture->setMagnificationFilter(QAbstractTexture::Linear);
+    m_diffuseTexture->setMinificationFilter(QAbstractTexture::LinearMipMapLinear);
+    m_diffuseTexture->setWrapMode(QTextureWrapMode(QTextureWrapMode::Repeat));
+    m_diffuseTexture->setGenerateMipMaps(true);
+    m_diffuseTexture->setMaximumAnisotropy(16.0f);
+
+    m_normalTexture->setMagnificationFilter(QAbstractTexture::Linear);
+    m_normalTexture->setMinificationFilter(QAbstractTexture::LinearMipMapLinear);
+    m_normalTexture->setWrapMode(QTextureWrapMode(QTextureWrapMode::Repeat));
+    m_normalTexture->setGenerateMipMaps(true);
+    m_normalTexture->setMaximumAnisotropy(16.0f);
+}
+}  // namespace Qt3DExtras
+
 //  from ../qt3d/src/extras/defaults/qnormaldiffusemapmaterial.cpp, line 160, as _ZN10Qt3DExtras32QNormalDiffuseMapMaterialPrivate20handleAmbientChangedERK8QVariant
 namespace Qt3DExtras {
 using namespace Qt3DRender;
@@ -251,6 +295,13 @@ public:
     Qt3DCore::QNodePrivate::update();
   }
 };
+
+//  Qt3DExtras::QNormalDiffuseMapMaterialPrivate::QNormalDiffuseMapMaterialPr
+//      ivate()
+extern "C" Q_DECL_EXPORT
+Qt3DExtras::QNormalDiffuseMapMaterialPrivate *ritual_ZN10Qt3DExtras32QNormalDiffuseMapMaterialPrivateC1Ev() {
+  return new CuteQt3DExtras_QNormalDiffuseMapMaterialPrivate();
+}
 
 //  void Qt3DExtras::QNormalDiffuseMapMaterialPrivate::init()
 extern "C" Q_DECL_EXPORT

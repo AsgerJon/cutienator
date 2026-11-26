@@ -33,6 +33,12 @@ inline void QAbstractDataProxyPrivate::setSeries(QAbstract3DSeries *series)
 
 //  from ../qtgraphs/src/graphs3d/data/qabstractdataproxy.cpp, line 87, as _ZN25QAbstractDataProxyPrivateD2Ev
 inline QAbstractDataProxyPrivate::~QAbstractDataProxyPrivate() {}
+
+//  from ../qtgraphs/src/graphs3d/data/qabstractdataproxy.cpp, line 82, as _ZN25QAbstractDataProxyPrivateC1EN18QAbstractDataProxy8DataTypeE
+inline QAbstractDataProxyPrivate::QAbstractDataProxyPrivate(QAbstractDataProxy::DataType type)
+    : m_type(type)
+    , m_series(0)
+{}
 //  -----------------------------------------------------------------------
 
 //  A QAbstractDataProxyPrivate that Python can take functions over in. Every QAbstractDataProxyPrivate
@@ -76,6 +82,14 @@ extern "C" Q_DECL_EXPORT
 const QAbstractDataProxy *ritual_ZNK25QAbstractDataProxyPrivate6q_funcEv(
     const QAbstractDataProxyPrivate *self) {
   return self->q_func();
+}
+
+//  QAbstractDataProxyPrivate::QAbstractDataProxyPrivate(QAbstractDataProxy::
+//      DataType type)
+extern "C" Q_DECL_EXPORT
+QAbstractDataProxyPrivate *ritual_ZN25QAbstractDataProxyPrivateC1EN18QAbstractDataProxy8DataTypeE(
+    QAbstractDataProxy::DataType type) {
+  return new CuteQAbstractDataProxyPrivate(type);
 }
 
 //  QAbstractDataProxyPrivate::~QAbstractDataProxyPrivate()

@@ -68,6 +68,16 @@ using namespace Qt::StringLiterals;
 inline TabWidgetCommand::~TabWidgetCommand() = default;
 }  // namespace qdesigner_internal
 
+//  from ../qttools/src/designer/src/lib/shared/qdesigner_command.cpp, line 1078, as _ZN18qdesigner_internal16TabWidgetCommandC1EP28QDesignerFormWindowInterface
+namespace qdesigner_internal {
+using namespace Qt::StringLiterals;
+inline TabWidgetCommand::TabWidgetCommand(QDesignerFormWindowInterface *formWindow) :
+    QDesignerFormWindowCommand(QString(), formWindow),
+    m_index(-1)
+{
+}
+}  // namespace qdesigner_internal
+
 //  from ../qttools/src/designer/src/lib/shared/qdesigner_command.cpp, line 1086, as _ZN18qdesigner_internal16TabWidgetCommand4initEP10QTabWidget
 namespace qdesigner_internal {
 using namespace Qt::StringLiterals;
@@ -220,6 +230,14 @@ public:
   }
 #endif  // QT_CONFIG(undocommand)
 };
+
+//  qdesigner_internal::TabWidgetCommand::TabWidgetCommand(QDesignerFormWindo
+//      wInterface *formWindow)
+extern "C" Q_DECL_EXPORT
+qdesigner_internal::TabWidgetCommand *ritual_ZN18qdesigner_internal16TabWidgetCommandC1EP28QDesignerFormWindowInterface(
+    QDesignerFormWindowInterface *formWindow) {
+  return new Cuteqdesigner_internal_TabWidgetCommand(formWindow);
+}
 
 //  qdesigner_internal::TabWidgetCommand::~TabWidgetCommand()
 extern "C" Q_DECL_EXPORT

@@ -1,6 +1,13 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtQuick/6.12.0/QtQuick/private/qquickdroparea_p.h, Qt 6.12.0. Changes
-//  made here are lost.
+//  QtQuick/6.12.0/QtQuick/private/qquickdroparea_p.h, Qt 6.12.0.
+//  Edited by hand on 2026-11-26: moc's output for 'QQuickDropAreaDrag' is
+//  pasted in, cut from what the moc of Qt 6.12.0 writes for its header: Qt's
+//  library keeps it to itself; added are 2 rituals that lean on what moc
+//  writes for a class of the part Qt keeps to itself, whose ritual file
+//  carries moc's output, drafted by a copy of the generator that lets those
+//  names through. A copy of a meta-object is a second one: 'qobject_cast'
+//  between it and Qt's own does not match. Kept as it is when the generator
+//  runs again.
 #include <QtQuick/qtquickglobal.h>
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
 #if QT_CONFIG(quick_draganddrop)
@@ -10,9 +17,14 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQuick/6.12.0/QtQuick/private/qquickdroparea_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
 #include <QtQuick/private/qquickdroparea_p.h>
 #include <QtQuick/private/qquickdrag_p.h>
 #include <QtQuick/private/qquickitem_p.h>
@@ -81,6 +93,163 @@ inline QStringList QQuickDropAreaPrivate::getKeys(const QMimeData *mimeData) con
     if (const QQuickDragMimeData *dragMime = qobject_cast<const QQuickDragMimeData *>(mimeData))
         return dragMime->keys();
     return mimeData->formats();
+}
+
+//  from QtQuick__QQuickDropAreaDrag.cpp, line 1, as moc:QQuickDropAreaDrag
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN18QQuickDropAreaDragE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto QQuickDropAreaDrag::qt_create_metaobjectdata<qt_meta_tag_ZN18QQuickDropAreaDragE_t>()
+{
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "QQuickDropAreaDrag",
+        "QML.Element",
+        "anonymous",
+        "QML.AddedInVersion",
+        "512",
+        "positionChanged",
+        "",
+        "sourceChanged",
+        "x",
+        "y",
+        "source"
+    };
+
+    QtMocHelpers::UintData qt_methods {
+        // Signal 'positionChanged'
+        QtMocHelpers::SignalData<void()>(5, 6, QMC::AccessPublic, QMetaType::Void),
+        // Signal 'sourceChanged'
+        QtMocHelpers::SignalData<void()>(7, 6, QMC::AccessPublic, QMetaType::Void),
+    };
+    QtMocHelpers::UintData qt_properties {
+        // property 'x'
+        QtMocHelpers::PropertyData<qreal>(8, QMetaType::QReal, QMC::DefaultPropertyFlags | QMC::Final, 0),
+        // property 'y'
+        QtMocHelpers::PropertyData<qreal>(9, QMetaType::QReal, QMC::DefaultPropertyFlags | QMC::Final, 0),
+        // property 'source'
+        QtMocHelpers::PropertyData<QObject*>(10, QMetaType::QObjectStar, QMC::DefaultPropertyFlags | QMC::Final, 1),
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    QtMocHelpers::UintData qt_constructors {};
+    QtMocHelpers::ClassInfos qt_classinfo({
+            {    1,    2 },
+            {    3,    4 },
+    });
+    return QtMocHelpers::metaObjectData<QQuickDropAreaDrag, void>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums, qt_constructors, qt_classinfo);
+}
+Q_CONSTINIT const QMetaObject QQuickDropAreaDrag::staticMetaObject = { {
+    QMetaObject::SuperData::link<QObject::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN18QQuickDropAreaDragE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN18QQuickDropAreaDragE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN18QQuickDropAreaDragE_t>.metaTypes,
+    nullptr
+} };
+
+void QQuickDropAreaDrag::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<QQuickDropAreaDrag *>(_o);
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        switch (_id) {
+        case 0: _t->positionChanged(); break;
+        case 1: _t->sourceChanged(); break;
+        default: ;
+        }
+    }
+    if (_c == QMetaObject::IndexOfMethod) {
+        if (QtMocHelpers::indexOfMethod<void (QQuickDropAreaDrag::*)()>(_a, &QQuickDropAreaDrag::positionChanged, 0))
+            return;
+        if (QtMocHelpers::indexOfMethod<void (QQuickDropAreaDrag::*)()>(_a, &QQuickDropAreaDrag::sourceChanged, 1))
+            return;
+    }
+    if (_c == QMetaObject::ReadProperty) {
+        void *_v = _a[0];
+        switch (_id) {
+        case 0: *reinterpret_cast<qreal*>(_v) = _t->x(); break;
+        case 1: *reinterpret_cast<qreal*>(_v) = _t->y(); break;
+        case 2: *reinterpret_cast<QObject**>(_v) = _t->source(); break;
+        default: break;
+        }
+    }
+}
+
+const QMetaObject *QQuickDropAreaDrag::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *QQuickDropAreaDrag::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN18QQuickDropAreaDragE_t>.strings))
+        return static_cast<void*>(this);
+    return QObject::qt_metacast(_clname);
+}
+
+int QQuickDropAreaDrag::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QObject::qt_metacall(_c, _id, _a);
+    if (_id < 0)
+        return _id;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        if (_id < 2)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 2;
+    }
+    if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        if (_id < 2)
+            *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
+        _id -= 2;
+    }
+    if (_c == QMetaObject::ReadProperty || _c == QMetaObject::WriteProperty
+            || _c == QMetaObject::ResetProperty || _c == QMetaObject::BindableProperty
+            || _c == QMetaObject::RegisterPropertyMetaType) {
+        qt_static_metacall(this, _c, _id, _a);
+        _id -= 3;
+    }
+    return _id;
+}
+
+// SIGNAL 0
+void QQuickDropAreaDrag::positionChanged()
+{
+    QMetaObject::activate(this, &staticMetaObject, 0, nullptr);
+}
+
+// SIGNAL 1
+void QQuickDropAreaDrag::sourceChanged()
+{
+    QMetaObject::activate(this, &staticMetaObject, 1, nullptr);
+}
+QT_WARNING_POP
+
+//  from ../qtdeclarative/src/quick/items/qquickdroparea.cpp, line 173, as _ZNK18QQuickDropAreaDrag1yEv
+inline qreal QQuickDropAreaDrag::y() const
+{
+    return d->dragPosition.y();
+}
+
+//  from ../qtdeclarative/src/quick/items/qquickdroparea.cpp, line 155, as _ZNK18QQuickDropAreaDrag6sourceEv
+inline QObject *QQuickDropAreaDrag::source() const
+{
+    return d->source;
+}
+
+//  from ../qtdeclarative/src/quick/items/qquickdroparea.cpp, line 16, as _ZN18QQuickDropAreaDragC1EP21QQuickDropAreaPrivateP7QObject
+inline QQuickDropAreaDrag::QQuickDropAreaDrag(QQuickDropAreaPrivate *d, QObject *parent)
+    : QObject(parent)
+    , d(d)
+{
 }
 
 //  from ../qtdeclarative/src/quick/items/qquickdroparea.cpp, line 22, as _ZN18QQuickDropAreaDragD1Ev
@@ -288,11 +457,29 @@ int ritual_ZN18QQuickDropAreaDrag11qt_metacallEN11QMetaObject4CallEiPPv(
   return self->qt_metacall(a0, a1, a2);
 }
 
+//  QString QQuickDropAreaDrag::tr(const char *s, const char *c, int n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN18QQuickDropAreaDrag2trEPKcS1_i(
+    const char *s,
+    const char *c,
+    int n) {
+  return new QString(QQuickDropAreaDrag::tr(s, c, n));
+}
+
 //  void QQuickDropAreaDrag::qt_qmlMarker_anonymous()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN18QQuickDropAreaDrag22qt_qmlMarker_anonymousEv(
     QQuickDropAreaDrag *self) {
   self->qt_qmlMarker_anonymous();
+}
+
+//  QQuickDropAreaDrag::QQuickDropAreaDrag(QQuickDropAreaPrivate *d, QObject
+//      *parent)
+extern "C" Q_DECL_EXPORT
+QQuickDropAreaDrag *ritual_ZN18QQuickDropAreaDragC1EP21QQuickDropAreaPrivateP7QObject(
+    QQuickDropAreaPrivate *d,
+    QObject *parent) {
+  return new CuteQQuickDropAreaDrag(d, parent);
 }
 
 //  QQuickDropAreaDrag::~QQuickDropAreaDrag()

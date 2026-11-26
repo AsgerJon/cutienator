@@ -35,6 +35,16 @@ namespace Qt3DRender::Render {
 inline EntityVisitor::~EntityVisitor() = default;
 }  // namespace Qt3DRender::Render
 
+//  from ../qt3d/src/render/backend/entityvisitor.cpp, line 13, as _ZN10Qt3DRender6Render13EntityVisitorC1EPNS0_12NodeManagersE
+namespace Qt3DRender::Render {
+inline EntityVisitor::EntityVisitor(NodeManagers *manager)
+    : m_manager(manager)
+    , m_pruneDisabled(false)
+{
+
+}
+}  // namespace Qt3DRender::Render
+
 //  from ../qt3d/src/render/backend/entityvisitor.cpp, line 43, as _ZNK10Qt3DRender6Render13EntityVisitor13pruneDisabledEv
 namespace Qt3DRender::Render {
 inline bool EntityVisitor::pruneDisabled() const
@@ -107,6 +117,13 @@ public:
     return Qt3DRender::Render::EntityVisitor::visit(entity);
   }
 };
+
+//  Qt3DRender::Render::EntityVisitor::EntityVisitor(NodeManagers *manager)
+extern "C" Q_DECL_EXPORT
+Qt3DRender::Render::EntityVisitor *ritual_ZN10Qt3DRender6Render13EntityVisitorC1EPNS0_12NodeManagersE(
+    Qt3DRender::Render::NodeManagers *manager) {
+  return new CuteQt3DRender_Render_EntityVisitor(manager);
+}
 
 //  Qt3DRender::Render::EntityVisitor::~EntityVisitor()
 extern "C" Q_DECL_EXPORT

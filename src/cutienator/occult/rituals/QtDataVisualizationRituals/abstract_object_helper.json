@@ -5,6 +5,7 @@
     "er_p.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN20AbstractObjectHelperC1Ev": ["address"],
     "ritual_ZN20AbstractObjectHelperD1Ev": ["nothing", "address"],
     "ritual_ZN20AbstractObjectHelper9vertexBufEv": [
       "unsigned int", "address"

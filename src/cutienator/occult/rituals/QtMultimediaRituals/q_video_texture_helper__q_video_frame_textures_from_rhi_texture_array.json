@@ -5,6 +5,9 @@
     ", Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN19QVideoTextureHelper38QVideoFrameTexturesFromRhiTextureArrayC1EOSt5arrayISt10unique_ptrI11QRhiTextureSt14default_deleteIS3_EELm3EE": [
+      "address", "address"
+    ],
     "ritual_ZN19QVideoTextureHelper38QVideoFrameTexturesFromRhiTextureArrayD1Ev": [
       "nothing", "address"
     ],

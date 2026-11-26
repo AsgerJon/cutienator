@@ -1,6 +1,12 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtWidgets/6.12.0/QtWidgets/private/qtreewidget_p.h, Qt 6.12.0. Changes
-//  made here are lost.
+//  QtWidgets/6.12.0/QtWidgets/private/qtreewidget_p.h, Qt 6.12.0.
+//  Edited by hand on 2026-11-26: moc's output for 'QTreeModel' is pasted in,
+//  cut from what the moc of Qt 6.12.0 writes for its header: Qt's library
+//  keeps it to itself; added are 3 rituals that lean on what moc writes for
+//  a class of the part Qt keeps to itself, whose ritual file carries moc's
+//  output, drafted by a copy of the generator that lets those names through.
+//  A copy of a meta-object is a second one: 'qobject_cast' between it and
+//  Qt's own does not match. Kept as it is when the generator runs again.
 #include <QtCore/qglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
@@ -11,9 +17,9 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtWidgets/6.12.0/QtWidgets/private/qtreewidget_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 #include <QtCore/qabstractitemmodel.h>
 #include <QtCore/qvariant.h>
-#include <QtCore/qstring.h>
 #include <QtCore/qsize.h>
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
@@ -24,6 +30,10 @@
 #include <QtCore/QList>
 #include <QtWidgets/QTreeWidgetItem>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
 #include <QtWidgets/qtreewidget.h>
 #include <QtWidgets/qheaderview.h>
 #include <QtGui/qpainter.h>
@@ -62,6 +72,71 @@ public:
     inline bool operator()(QTreeWidgetItem *i1, QTreeWidgetItem *i2) const
         { return *i2 < *i1; }
 };
+
+//  from QtWidgets__QTreeModel.cpp, line 1, as moc:QTreeModel
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN10QTreeModelE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto QTreeModel::qt_create_metaobjectdata<qt_meta_tag_ZN10QTreeModelE_t>()
+{
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "QTreeModel"
+    };
+
+    QtMocHelpers::UintData qt_methods {
+    };
+    QtMocHelpers::UintData qt_properties {
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    return QtMocHelpers::metaObjectData<QTreeModel, qt_meta_tag_ZN10QTreeModelE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums);
+}
+Q_CONSTINIT const QMetaObject QTreeModel::staticMetaObject = { {
+    QMetaObject::SuperData::link<QAbstractItemModel::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN10QTreeModelE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN10QTreeModelE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN10QTreeModelE_t>.metaTypes,
+    nullptr
+} };
+
+void QTreeModel::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<QTreeModel *>(_o);
+    (void)_t;
+    (void)_c;
+    (void)_id;
+    (void)_a;
+}
+
+const QMetaObject *QTreeModel::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *QTreeModel::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN10QTreeModelE_t>.strings))
+        return static_cast<void*>(this);
+    return QAbstractItemModel::qt_metacast(_clname);
+}
+
+int QTreeModel::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QAbstractItemModel::qt_metacall(_c, _id, _a);
+    return _id;
+}
+QT_WARNING_POP
 
 //  from src/widgets/itemviews/qtreewidget.cpp, line 404, as _ZN10QTreeModel10insertRowsEiiRK11QModelIndex
 inline bool QTreeModel::insertRows(int row, int count, const QModelIndex &parent)
@@ -113,6 +188,293 @@ inline void QTreeModel::timerEvent(QTimerEvent *ev)
     } else {
         QAbstractItemModel::timerEvent(ev);
     }
+}
+
+//  from src/widgets/itemviews/qtreewidget.cpp, line 734, as _ZN10QTreeModel12dropMimeDataEPK9QMimeDataN2Qt10DropActionEiiRK11QModelIndex
+inline bool QTreeModel::dropMimeData(const QMimeData *data, Qt::DropAction action,
+                              int row, int column, const QModelIndex &parent)
+{
+    if (row == -1 && column == -1)
+        row = rowCount(parent); // append
+    return view()->dropMimeData(item(parent), row, data, action);
+}
+
+//  from src/widgets/itemviews/qtreewidget.cpp, line 356, as _ZN10QTreeModel13clearItemDataERK11QModelIndex
+inline bool QTreeModel::clearItemData(const QModelIndex &index)
+{
+    if (!checkIndex(index, CheckIndexOption::IndexIsValid))
+        return false;
+    QTreeWidgetItem *itm = item(index);
+    if (!itm)
+        return false;
+    const auto beginIter = itm->values.at(index.column()).cbegin();
+    const auto endIter = itm->values.at(index.column()).cend();
+    if (std::all_of(beginIter, endIter, [](const QWidgetItemData& data) -> bool { return !data.value.isValid(); })
+        && !itm->d->display.at(index.column()).isValid()) {
+        return true; //it's already cleared
+    }
+    itm->d->display[index.column()] = QVariant();
+    itm->values[index.column()].clear();
+    emit dataChanged(index, index, QList<int> {});
+    return true;
+}
+
+//  from src/widgets/itemviews/qtreewidget.cpp, line 430, as _ZN10QTreeModel13insertColumnsEiiRK11QModelIndex
+inline bool QTreeModel::insertColumns(int column, int count, const QModelIndex &parent)
+{
+    SkipSorting skipSorting(this);
+    if (count < 1 || column < 0 || column > columnCount(parent) || parent.column() > 0 || !headerItem)
+        return false;
+
+    beginInsertColumns(parent, column, column + count - 1);
+
+    int oldCount = columnCount(parent);
+    column = qBound(0, column, oldCount);
+    headerItem->values.resize(oldCount + count);
+    for (int i = oldCount; i < oldCount + count; ++i) {
+        headerItem->values[i].append(QWidgetItemData(Qt::DisplayRole, QString::number(i + 1)));
+        headerItem->d->display.append(QString::number(i + 1));
+    }
+
+    QStack<QTreeWidgetItem*> itemstack;
+    itemstack.push(0);
+    while (!itemstack.isEmpty()) {
+        QTreeWidgetItem *par = itemstack.pop();
+        QList<QTreeWidgetItem*> children = par ? par->children : rootItem->children;
+        for (int row = 0; row < children.size(); ++row) {
+            QTreeWidgetItem *child = children.at(row);
+            if (child->children.size())
+                itemstack.push(child);
+            child->values.insert(column, count, QList<QWidgetItemData>());
+        }
+    }
+
+    endInsertColumns();
+    return true;
+}
+
+//  from src/widgets/itemviews/qtreewidget.cpp, line 515, as _ZN10QTreeModel13setHeaderDataEiN2Qt11OrientationERK8QVarianti
+inline bool QTreeModel::setHeaderData(int section, Qt::Orientation orientation,
+                               const QVariant &value, int role)
+{
+    if (section < 0 || orientation != Qt::Horizontal || !headerItem || section >= columnCount())
+        return false;
+
+    headerItem->setData(section, role, value);
+    return true;
+}
+
+//  from src/widgets/itemviews/qtreewidget.cpp, line 554, as _ZN10QTreeModel4sortEiN2Qt9SortOrderE
+inline void QTreeModel::sort(int column, Qt::SortOrder order)
+{
+    SkipSorting skipSorting(this);
+    sortPendingTimer.stop();
+
+    if (column < 0 || column >= columnCount())
+        return;
+
+    //layoutAboutToBeChanged and layoutChanged will be called by sortChildren
+    rootItem->sortChildren(column, order, true);
+}
+
+//  from src/widgets/itemviews/qtreewidget.cpp, line 344, as _ZN10QTreeModel7setDataERK11QModelIndexRK8QVarianti
+inline bool QTreeModel::setData(const QModelIndex &index, const QVariant &value, int role)
+{
+    if (!index.isValid())
+        return false;
+    QTreeWidgetItem *itm = item(index);
+    if (itm) {
+        itm->setData(index.column(), role, value);
+        return true;
+    }
+    return false;
+}
+
+//  from src/widgets/itemviews/qtreewidget.cpp, line 493, as _ZNK10QTreeModel10headerDataEiN2Qt11OrientationEi
+inline QVariant QTreeModel::headerData(int section, Qt::Orientation orientation, int role) const
+{
+    if (orientation != Qt::Horizontal)
+        return QVariant();
+
+    if (headerItem)
+        return headerItem->data(section, role);
+    if (role == Qt::DisplayRole)
+        return QString::number(section + 1);
+    return QVariant();
+}
+
+//  from src/widgets/itemviews/qtreewidget.cpp, line 289, as _ZNK10QTreeModel11columnCountERK11QModelIndex
+inline int QTreeModel::columnCount(const QModelIndex &index) const
+{
+    Q_UNUSED(index);
+    if (!headerItem)
+        return 0;
+    return headerItem->columnCount();
+}
+
+//  from src/widgets/itemviews/qtreewidget.cpp, line 297, as _ZNK10QTreeModel11hasChildrenERK11QModelIndex
+inline bool QTreeModel::hasChildren(const QModelIndex &parent) const
+{
+    if (!parent.isValid())
+        return (rootItem->childCount() > 0);
+
+    QTreeWidgetItem *itm = item(parent);
+    if (!itm)
+        return false;
+    switch (itm->d->policy) {
+    case QTreeWidgetItem::ShowIndicator:
+        return true;
+    case QTreeWidgetItem::DontShowIndicator:
+        return false;
+    case QTreeWidgetItem::DontShowIndicatorWhenChildless:
+        return (itm->childCount() > 0);
+    }
+    return false;
+}
+
+//  from src/widgets/itemviews/qtreewidget.cpp, line 747, as _ZNK10QTreeModel20supportedDragActionsEv
+inline Qt::DropActions QTreeModel::supportedDragActions() const
+{
+#if QT_CONFIG(draganddrop)
+    return view()->supportedDragActions();
+#else
+    return Qt::DropActions(Qt::IgnoreAction);
+#endif
+}
+
+//  from src/widgets/itemviews/qtreewidget.cpp, line 742, as _ZNK10QTreeModel20supportedDropActionsEv
+inline Qt::DropActions QTreeModel::supportedDropActions() const
+{
+    return view()->supportedDropActions();
+}
+
+//  from src/widgets/itemviews/qtreewidget.cpp, line 324, as _ZNK10QTreeModel4dataERK11QModelIndexi
+inline QVariant QTreeModel::data(const QModelIndex &index, int role) const
+{
+    if (!index.isValid())
+        return QVariant();
+    QTreeWidgetItem *itm = item(index);
+    if (itm)
+        return itm->data(index.column(), role);
+    return QVariant();
+}
+
+//  from src/widgets/itemviews/qtreewidget.cpp, line 538, as _ZNK10QTreeModel5flagsERK11QModelIndex
+inline Qt::ItemFlags QTreeModel::flags(const QModelIndex &index) const
+{
+    if (!index.isValid())
+        return rootItem->flags();
+    QTreeWidgetItem *itm = item(index);
+    Q_ASSERT(itm);
+    return itm->flags();
+}
+
+//  from src/widgets/itemviews/qtreewidget.cpp, line 222, as _ZNK10QTreeModel5indexEiiRK11QModelIndex
+inline QModelIndex QTreeModel::index(int row, int column, const QModelIndex &parent) const
+{
+    executePendingSort();
+
+    int c = columnCount(parent);
+    if (row < 0 || column < 0 || column >= c)
+        return QModelIndex();
+
+    QTreeWidgetItem *parentItem = parent.isValid() ? item(parent) : rootItem;
+    if (parentItem && row < parentItem->childCount()) {
+        QTreeWidgetItem *itm = parentItem->child(row);
+        if (itm)
+            return createIndex(row, column, itm);
+        return QModelIndex();
+    }
+
+    return QModelIndex();
+}
+
+//  from src/widgets/itemviews/qtreewidget.cpp, line 249, as _ZNK10QTreeModel6parentERK11QModelIndex
+inline QModelIndex QTreeModel::parent(const QModelIndex &child) const
+{
+    SkipSorting skipSorting(this); //The reason we don't sort here is that this might be called from a valid QPersistentModelIndex
+                                   //We don't want it to become suddenly invalid
+
+    if (!child.isValid())
+        return QModelIndex();
+    QTreeWidgetItem *itm = static_cast<QTreeWidgetItem *>(child.internalPointer());
+    if (!itm || itm == rootItem)
+        return QModelIndex();
+    QTreeWidgetItem *parent = itm->parent();
+    return index(parent, 0);
+}
+
+//  from src/widgets/itemviews/qtreewidget.cpp, line 375, as _ZNK10QTreeModel8itemDataERK11QModelIndex
+inline QMap<int, QVariant> QTreeModel::itemData(const QModelIndex &index) const
+{
+    QMap<int, QVariant> roles;
+    QTreeWidgetItem *itm = item(index);
+    if (itm) {
+        int column = index.column();
+        if (column < itm->values.size()) {
+            for (int i = 0; i < itm->values.at(column).size(); ++i) {
+                roles.insert(itm->values.at(column).at(i).role,
+                             itm->values.at(column).at(i).value);
+            }
+        }
+
+        // the two special cases
+        QVariant displayValue = itm->data(column, Qt::DisplayRole);
+        if (displayValue.isValid())
+            roles.insert(Qt::DisplayRole, displayValue);
+
+        QVariant checkValue = itm->data(column, Qt::CheckStateRole);
+        if (checkValue.isValid())
+            roles.insert(Qt::CheckStateRole, checkValue);
+    }
+    return roles;
+}
+
+//  from src/widgets/itemviews/qtreewidget.cpp, line 715, as _ZNK10QTreeModel8mimeDataERK5QListI11QModelIndexE
+inline QMimeData *QTreeModel::mimeData(const QModelIndexList &indexes) const
+{
+    QList<QTreeWidgetItem *> items;
+    std::transform(indexes.begin(), indexes.end(), std::back_inserter(items),
+                   [this](const QModelIndex &idx) -> QTreeWidgetItem * { return item(idx); });
+
+    // Ensure we only have one item as an item may have more than
+    // one index selected if there is more than one column
+    std::sort(items.begin(), items.end());
+    items.erase(std::unique(items.begin(), items.end()), items.end());
+
+    // cachedIndexes is a little hack to avoid copying from QModelIndexList to
+    // QList<QTreeWidgetItem*> and back again in the view
+    cachedIndexes = indexes;
+    QMimeData *mimeData = view()->mimeData(items);
+    cachedIndexes.clear();
+    return mimeData;
+}
+
+//  from src/widgets/itemviews/qtreewidget.cpp, line 270, as _ZNK10QTreeModel8rowCountERK11QModelIndex
+inline int QTreeModel::rowCount(const QModelIndex &parent) const
+{
+    if (!parent.isValid())
+        return rootItem->childCount();
+
+    QTreeWidgetItem *parentItem = item(parent);
+    if (parentItem)
+        return parentItem->childCount();
+    return 0;
+}
+
+//  from src/widgets/itemviews/qtreewidget.cpp, line 702, as _ZNK10QTreeModel9mimeTypesEv
+inline QStringList QTreeModel::mimeTypes() const
+{
+    auto v = view();
+    if (v)
+        return v->mimeTypes();
+    return {};
+}
+
+//  from src/widgets/itemviews/qtreewidget.cpp, line 3368, as _ZNK17QTreeModelPrivate24executePendingOperationsEv
+inline void QTreeModelPrivate::executePendingOperations() const
+{
+    q_func()->executePendingSort();
 }
 
 //  from src/widgets/itemviews/qtreewidgetitemiterator.cpp, line 297, as _ZN30QTreeWidgetItemIteratorPrivate19ensureValidIteratorEPK15QTreeWidgetItem
@@ -168,232 +530,6 @@ inline void QTreeWidgetItemIteratorPrivate::ensureValidIterator(const QTreeWidge
     }
 }
 
-//  from src/widgets/itemviews/qtreewidget.cpp, line 222, as _ZNK10QTreeModel5indexEiiRK11QModelIndex
-inline QModelIndex QTreeModel::index(int row, int column, const QModelIndex &parent) const
-{
-    executePendingSort();
-
-    int c = columnCount(parent);
-    if (row < 0 || column < 0 || column >= c)
-        return QModelIndex();
-
-    QTreeWidgetItem *parentItem = parent.isValid() ? item(parent) : rootItem;
-    if (parentItem && row < parentItem->childCount()) {
-        QTreeWidgetItem *itm = parentItem->child(row);
-        if (itm)
-            return createIndex(row, column, itm);
-        return QModelIndex();
-    }
-
-    return QModelIndex();
-}
-
-//  from src/widgets/itemviews/qtreewidget.cpp, line 249, as _ZNK10QTreeModel6parentERK11QModelIndex
-inline QModelIndex QTreeModel::parent(const QModelIndex &child) const
-{
-    SkipSorting skipSorting(this); //The reason we don't sort here is that this might be called from a valid QPersistentModelIndex
-                                   //We don't want it to become suddenly invalid
-
-    if (!child.isValid())
-        return QModelIndex();
-    QTreeWidgetItem *itm = static_cast<QTreeWidgetItem *>(child.internalPointer());
-    if (!itm || itm == rootItem)
-        return QModelIndex();
-    QTreeWidgetItem *parent = itm->parent();
-    return index(parent, 0);
-}
-
-//  from src/widgets/itemviews/qtreewidget.cpp, line 270, as _ZNK10QTreeModel8rowCountERK11QModelIndex
-inline int QTreeModel::rowCount(const QModelIndex &parent) const
-{
-    if (!parent.isValid())
-        return rootItem->childCount();
-
-    QTreeWidgetItem *parentItem = item(parent);
-    if (parentItem)
-        return parentItem->childCount();
-    return 0;
-}
-
-//  from src/widgets/itemviews/qtreewidget.cpp, line 289, as _ZNK10QTreeModel11columnCountERK11QModelIndex
-inline int QTreeModel::columnCount(const QModelIndex &index) const
-{
-    Q_UNUSED(index);
-    if (!headerItem)
-        return 0;
-    return headerItem->columnCount();
-}
-
-//  from src/widgets/itemviews/qtreewidget.cpp, line 297, as _ZNK10QTreeModel11hasChildrenERK11QModelIndex
-inline bool QTreeModel::hasChildren(const QModelIndex &parent) const
-{
-    if (!parent.isValid())
-        return (rootItem->childCount() > 0);
-
-    QTreeWidgetItem *itm = item(parent);
-    if (!itm)
-        return false;
-    switch (itm->d->policy) {
-    case QTreeWidgetItem::ShowIndicator:
-        return true;
-    case QTreeWidgetItem::DontShowIndicator:
-        return false;
-    case QTreeWidgetItem::DontShowIndicatorWhenChildless:
-        return (itm->childCount() > 0);
-    }
-    return false;
-}
-
-//  from src/widgets/itemviews/qtreewidget.cpp, line 324, as _ZNK10QTreeModel4dataERK11QModelIndexi
-inline QVariant QTreeModel::data(const QModelIndex &index, int role) const
-{
-    if (!index.isValid())
-        return QVariant();
-    QTreeWidgetItem *itm = item(index);
-    if (itm)
-        return itm->data(index.column(), role);
-    return QVariant();
-}
-
-//  from src/widgets/itemviews/qtreewidget.cpp, line 344, as _ZN10QTreeModel7setDataERK11QModelIndexRK8QVarianti
-inline bool QTreeModel::setData(const QModelIndex &index, const QVariant &value, int role)
-{
-    if (!index.isValid())
-        return false;
-    QTreeWidgetItem *itm = item(index);
-    if (itm) {
-        itm->setData(index.column(), role, value);
-        return true;
-    }
-    return false;
-}
-
-//  from src/widgets/itemviews/qtreewidget.cpp, line 356, as _ZN10QTreeModel13clearItemDataERK11QModelIndex
-inline bool QTreeModel::clearItemData(const QModelIndex &index)
-{
-    if (!checkIndex(index, CheckIndexOption::IndexIsValid))
-        return false;
-    QTreeWidgetItem *itm = item(index);
-    if (!itm)
-        return false;
-    const auto beginIter = itm->values.at(index.column()).cbegin();
-    const auto endIter = itm->values.at(index.column()).cend();
-    if (std::all_of(beginIter, endIter, [](const QWidgetItemData& data) -> bool { return !data.value.isValid(); })
-        && !itm->d->display.at(index.column()).isValid()) {
-        return true; //it's already cleared
-    }
-    itm->d->display[index.column()] = QVariant();
-    itm->values[index.column()].clear();
-    emit dataChanged(index, index, QList<int> {});
-    return true;
-}
-
-//  from src/widgets/itemviews/qtreewidget.cpp, line 493, as _ZNK10QTreeModel10headerDataEiN2Qt11OrientationEi
-inline QVariant QTreeModel::headerData(int section, Qt::Orientation orientation, int role) const
-{
-    if (orientation != Qt::Horizontal)
-        return QVariant();
-
-    if (headerItem)
-        return headerItem->data(section, role);
-    if (role == Qt::DisplayRole)
-        return QString::number(section + 1);
-    return QVariant();
-}
-
-//  from src/widgets/itemviews/qtreewidget.cpp, line 515, as _ZN10QTreeModel13setHeaderDataEiN2Qt11OrientationERK8QVarianti
-inline bool QTreeModel::setHeaderData(int section, Qt::Orientation orientation,
-                               const QVariant &value, int role)
-{
-    if (section < 0 || orientation != Qt::Horizontal || !headerItem || section >= columnCount())
-        return false;
-
-    headerItem->setData(section, role, value);
-    return true;
-}
-
-//  from src/widgets/itemviews/qtreewidget.cpp, line 538, as _ZNK10QTreeModel5flagsERK11QModelIndex
-inline Qt::ItemFlags QTreeModel::flags(const QModelIndex &index) const
-{
-    if (!index.isValid())
-        return rootItem->flags();
-    QTreeWidgetItem *itm = item(index);
-    Q_ASSERT(itm);
-    return itm->flags();
-}
-
-//  from src/widgets/itemviews/qtreewidget.cpp, line 554, as _ZN10QTreeModel4sortEiN2Qt9SortOrderE
-inline void QTreeModel::sort(int column, Qt::SortOrder order)
-{
-    SkipSorting skipSorting(this);
-    sortPendingTimer.stop();
-
-    if (column < 0 || column >= columnCount())
-        return;
-
-    //layoutAboutToBeChanged and layoutChanged will be called by sortChildren
-    rootItem->sortChildren(column, order, true);
-}
-
-//  from src/widgets/itemviews/qtreewidget.cpp, line 430, as _ZN10QTreeModel13insertColumnsEiiRK11QModelIndex
-inline bool QTreeModel::insertColumns(int column, int count, const QModelIndex &parent)
-{
-    SkipSorting skipSorting(this);
-    if (count < 1 || column < 0 || column > columnCount(parent) || parent.column() > 0 || !headerItem)
-        return false;
-
-    beginInsertColumns(parent, column, column + count - 1);
-
-    int oldCount = columnCount(parent);
-    column = qBound(0, column, oldCount);
-    headerItem->values.resize(oldCount + count);
-    for (int i = oldCount; i < oldCount + count; ++i) {
-        headerItem->values[i].append(QWidgetItemData(Qt::DisplayRole, QString::number(i + 1)));
-        headerItem->d->display.append(QString::number(i + 1));
-    }
-
-    QStack<QTreeWidgetItem*> itemstack;
-    itemstack.push(0);
-    while (!itemstack.isEmpty()) {
-        QTreeWidgetItem *par = itemstack.pop();
-        QList<QTreeWidgetItem*> children = par ? par->children : rootItem->children;
-        for (int row = 0; row < children.size(); ++row) {
-            QTreeWidgetItem *child = children.at(row);
-            if (child->children.size())
-                itemstack.push(child);
-            child->values.insert(column, count, QList<QWidgetItemData>());
-        }
-    }
-
-    endInsertColumns();
-    return true;
-}
-
-//  from src/widgets/itemviews/qtreewidget.cpp, line 734, as _ZN10QTreeModel12dropMimeDataEPK9QMimeDataN2Qt10DropActionEiiRK11QModelIndex
-inline bool QTreeModel::dropMimeData(const QMimeData *data, Qt::DropAction action,
-                              int row, int column, const QModelIndex &parent)
-{
-    if (row == -1 && column == -1)
-        row = rowCount(parent); // append
-    return view()->dropMimeData(item(parent), row, data, action);
-}
-
-//  from src/widgets/itemviews/qtreewidget.cpp, line 742, as _ZNK10QTreeModel20supportedDropActionsEv
-inline Qt::DropActions QTreeModel::supportedDropActions() const
-{
-    return view()->supportedDropActions();
-}
-
-//  from src/widgets/itemviews/qtreewidget.cpp, line 747, as _ZNK10QTreeModel20supportedDragActionsEv
-inline Qt::DropActions QTreeModel::supportedDragActions() const
-{
-#if QT_CONFIG(draganddrop)
-    return view()->supportedDragActions();
-#else
-    return Qt::DropActions(Qt::IgnoreAction);
-#endif
-}
-
 //  from src/widgets/itemviews/qtreewidgetitemiterator.cpp, line 231, as _ZNK30QTreeWidgetItemIteratorPrivate11nextSiblingEPK15QTreeWidgetItem
 inline QTreeWidgetItem* QTreeWidgetItemIteratorPrivate::nextSibling(const QTreeWidgetItem* item) const
 {
@@ -408,6 +544,18 @@ inline QTreeWidgetItem* QTreeWidgetItemIteratorPrivate::nextSibling(const QTreeW
         next = tw->topLevelItem(i + 1);
     }
     return next;
+}
+
+//  from src/widgets/itemviews/qtreewidget.cpp, line 75, as _ZN10QTreeModelC1EiP11QTreeWidget
+inline QTreeModel::QTreeModel(int columns, QTreeWidget *parent)
+    : QAbstractItemModel(*new QTreeModelPrivate, parent),
+      rootItem(new QTreeWidgetItem),
+      headerItem(new QTreeWidgetItem)
+{
+    rootItem->view = parent;
+    rootItem->itemFlags = Qt::ItemIsDropEnabled;
+    headerItem->view = parent;
+    setColumnCount(columns);
 }
 
 //  from src/widgets/itemviews/qtreewidget.cpp, line 105, as _ZN10QTreeModelD1Ev
@@ -628,6 +776,15 @@ inline QList<QTreeWidgetItem*>::iterator QTreeModel::sortedInsertionIterator(
 inline QMimeData *QTreeModel::internalMimeData()  const
 {
     return QAbstractItemModel::mimeData(cachedIndexes);
+}
+
+//  from src/widgets/itemviews/qtreewidget.cpp, line 91, as _ZN10QTreeModelC1ER17QTreeModelPrivateP11QTreeWidget
+inline QTreeModel::QTreeModel(QTreeModelPrivate &dd, QTreeWidget *parent)
+    : QAbstractItemModel(dd, parent), rootItem(new QTreeWidgetItem), headerItem(new QTreeWidgetItem)
+{
+    rootItem->view = parent;
+    rootItem->itemFlags = Qt::ItemIsDropEnabled;
+    headerItem->view = parent;
 }
 
 //  from src/widgets/itemviews/qtreewidget.cpp, line 778, as _ZN10QTreeModel15emitDataChangedEP15QTreeWidgetItemiRK5QListIiE
@@ -1794,6 +1951,23 @@ int ritual_ZN10QTreeModel11qt_metacallEN11QMetaObject4CallEiPPv(
   return self->qt_metacall(a0, a1, a2);
 }
 
+//  QString QTreeModel::tr(const char *s, const char *c, int n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN10QTreeModel2trEPKcS1_i(
+    const char *s,
+    const char *c,
+    int n) {
+  return new QString(QTreeModel::tr(s, c, n));
+}
+
+//  QTreeModel::QTreeModel(int columns, QTreeWidget *parent)
+extern "C" Q_DECL_EXPORT
+QTreeModel *ritual_ZN10QTreeModelC1EiP11QTreeWidget(
+    int columns,
+    QTreeWidget *parent) {
+  return new CuteQTreeModel(columns, parent);
+}
+
 //  QTreeModel::~QTreeModel()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN10QTreeModelD1Ev(QTreeModel *self) {
@@ -2099,6 +2273,14 @@ QModelIndex *ritual_ZNK10QTreeModel19createIndexFromItemEiiP15QTreeWidgetItem(
     int col,
     QTreeWidgetItem *item) {
   return new QModelIndex(self->createIndexFromItem(row, col, item));
+}
+
+//  QTreeModel::QTreeModel(QTreeModelPrivate &a0, QTreeWidget *parent)
+extern "C" Q_DECL_EXPORT
+QTreeModel *ritual_ZN10QTreeModelC1ER17QTreeModelPrivateP11QTreeWidget(
+    QTreeModelPrivate *a0,
+    QTreeWidget *parent) {
+  return new CuteQTreeModel(*a0, parent);
 }
 
 //  void QTreeModel::emitDataChanged(QTreeWidgetItem *item, int column, const

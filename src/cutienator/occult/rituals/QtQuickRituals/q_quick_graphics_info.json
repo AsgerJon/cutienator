@@ -2,7 +2,7 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtQuick/6.12.0/QtQuick/private/qquickgraphicsinfo_p.h, Qt 6.12.0.",
-    "Changes made here are lost."
+    "Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZNK18QQuickGraphicsInfo10metaObjectEv": ["address", "address"],
@@ -12,11 +12,21 @@
     "ritual_ZN18QQuickGraphicsInfo11qt_metacallEN11QMetaObject4CallEiPPv": [
       "int", "address", "int", "int", "address"
     ],
+    "ritual_ZN18QQuickGraphicsInfo2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
     "ritual_ZN18QQuickGraphicsInfo24qt_qmlMarker_uncreatableEv": [
       "nothing", "address"
     ],
     "ritual_ZN18QQuickGraphicsInfo21qt_qmlMarker_attachedEv": [
       "nothing", "address"
+    ],
+    "ritual_ZN18QQuickGraphicsInfoC1EP10QQuickItem": ["address", "address"],
+    "ritual_ZN18QQuickGraphicsInfoC1EP12QQuickWindow": [
+      "address", "address"
+    ],
+    "ritual_ZN18QQuickGraphicsInfo21qmlAttachedPropertiesEP7QObject": [
+      "address", "address"
     ],
     "ritual_ZNK18QQuickGraphicsInfo3apiEv": ["int", "address"],
     "ritual_ZNK18QQuickGraphicsInfo10shaderTypeEv": ["int", "address"],

@@ -68,6 +68,16 @@ using namespace Qt::StringLiterals;
 inline StackedWidgetCommand::~StackedWidgetCommand() = default;
 }  // namespace qdesigner_internal
 
+//  from ../qttools/src/designer/src/lib/shared/qdesigner_command.cpp, line 1234, as _ZN18qdesigner_internal20StackedWidgetCommandC1EP28QDesignerFormWindowInterface
+namespace qdesigner_internal {
+using namespace Qt::StringLiterals;
+inline StackedWidgetCommand::StackedWidgetCommand(QDesignerFormWindowInterface *formWindow) :
+    QDesignerFormWindowCommand(QString(), formWindow),
+    m_index(-1)
+{
+}
+}  // namespace qdesigner_internal
+
 //  from ../qttools/src/designer/src/lib/shared/qdesigner_command.cpp, line 1242, as _ZN18qdesigner_internal20StackedWidgetCommand4initEP14QStackedWidget
 namespace qdesigner_internal {
 using namespace Qt::StringLiterals;
@@ -210,6 +220,14 @@ public:
   }
 #endif  // QT_CONFIG(undocommand)
 };
+
+//  qdesigner_internal::StackedWidgetCommand::StackedWidgetCommand(QDesignerF
+//      ormWindowInterface *formWindow)
+extern "C" Q_DECL_EXPORT
+qdesigner_internal::StackedWidgetCommand *ritual_ZN18qdesigner_internal20StackedWidgetCommandC1EP28QDesignerFormWindowInterface(
+    QDesignerFormWindowInterface *formWindow) {
+  return new Cuteqdesigner_internal_StackedWidgetCommand(formWindow);
+}
 
 //  qdesigner_internal::StackedWidgetCommand::~StackedWidgetCommand()
 extern "C" Q_DECL_EXPORT

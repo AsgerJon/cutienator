@@ -1,6 +1,12 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  Qt3DExtras/6.12.0/Qt3DExtras/private/distancefieldtextrenderer_p_p.h, Qt
-//  6.12.0. Changes made here are lost.
+//  6.12.0.
+//  Edited by hand on 2026-11-26: added are 1 rituals that lean on what moc
+//  writes for a class of the part Qt keeps to itself, whose ritual file
+//  carries moc's output, drafted by a copy of the generator that lets those
+//  names through. A copy of a meta-object is a second one: 'qobject_cast'
+//  between it and Qt's own does not match. Kept as it is when the generator
+//  runs again.
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <Qt3DExtras/Qt3DExtras>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -183,6 +189,57 @@ inline DistanceFieldTextRendererPrivate::~DistanceFieldTextRendererPrivate()
 {
 }
 }  // namespace Qt3DExtras
+
+//  from ../qt3d/src/extras/text/distancefieldtextrenderer.cpp, line 37, as _ZN10Qt3DExtras32DistanceFieldTextRendererPrivate4initEv
+namespace Qt3DExtras {
+using namespace Qt3DCore;
+inline void DistanceFieldTextRendererPrivate::init()
+{
+    Q_Q(DistanceFieldTextRenderer);
+
+    m_renderer = new Qt3DRender::QGeometryRenderer(q);
+    m_renderer->setPrimitiveType(Qt3DRender::QGeometryRenderer::Triangles);
+
+    m_geometry = new Qt3DCore::QGeometry(m_renderer);
+    m_renderer->setGeometry(m_geometry);
+
+    m_vertexBuffer = new Qt3DCore::QBuffer(m_geometry);
+    m_indexBuffer = new Qt3DCore::QBuffer(m_geometry);
+
+    m_positionAttr = new Qt3DCore::QAttribute(m_geometry);
+    m_positionAttr->setName(Qt3DCore::QAttribute::defaultPositionAttributeName());
+    m_positionAttr->setVertexBaseType(Qt3DCore::QAttribute::Float);
+    m_positionAttr->setAttributeType(Qt3DCore::QAttribute::VertexAttribute);
+    m_positionAttr->setVertexSize(3);
+    m_positionAttr->setByteStride(5 * sizeof(float));
+    m_positionAttr->setByteOffset(0);
+    m_positionAttr->setBuffer(m_vertexBuffer);
+
+    m_texCoordAttr = new Qt3DCore::QAttribute(m_geometry);
+    m_texCoordAttr->setName(Qt3DCore::QAttribute::defaultTextureCoordinateAttributeName());
+    m_texCoordAttr->setVertexBaseType(Qt3DCore::QAttribute::Float);
+    m_texCoordAttr->setAttributeType(Qt3DCore::QAttribute::VertexAttribute);
+    m_texCoordAttr->setVertexSize(2);
+    m_texCoordAttr->setByteStride(5 * sizeof(float));
+    m_texCoordAttr->setByteOffset(3 * sizeof(float));
+    m_texCoordAttr->setBuffer(m_vertexBuffer);
+
+    m_indexAttr = new Qt3DCore::QAttribute(m_geometry);
+    m_indexAttr->setAttributeType(Qt3DCore::QAttribute::IndexAttribute);
+    m_indexAttr->setVertexBaseType(Qt3DCore::QAttribute::UnsignedShort);
+    m_indexAttr->setBuffer(m_indexBuffer);
+
+    m_geometry->addAttribute(m_positionAttr);
+    m_geometry->setBoundingVolumePositionAttribute(m_positionAttr);
+    m_geometry->addAttribute(m_texCoordAttr);
+    m_geometry->addAttribute(m_indexAttr);
+
+    m_material = new QText2DMaterial(q);
+
+    q->addComponent(m_renderer);
+    q->addComponent(m_material);
+}
+}  // namespace Qt3DExtras
 //  -----------------------------------------------------------------------
 
 //  A Qt3DExtras::DistanceFieldTextRendererPrivate that Python can take functions over in. Every Qt3DExtras::DistanceFieldTextRendererPrivate
@@ -259,6 +316,13 @@ extern "C" Q_DECL_EXPORT
 const Qt3DExtras::DistanceFieldTextRenderer *ritual_ZNK10Qt3DExtras32DistanceFieldTextRendererPrivate6q_funcEv(
     const Qt3DExtras::DistanceFieldTextRendererPrivate *self) {
   return self->q_func();
+}
+
+//  void Qt3DExtras::DistanceFieldTextRendererPrivate::init()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN10Qt3DExtras32DistanceFieldTextRendererPrivate4initEv(
+    Qt3DExtras::DistanceFieldTextRendererPrivate *self) {
+  self->init();
 }
 
 //  a Python function taken by a

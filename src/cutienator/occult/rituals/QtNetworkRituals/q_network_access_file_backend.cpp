@@ -1,16 +1,29 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtNetwork/6.12.0/QtNetwork/private/qnetworkaccessfilebackend_p.h, Qt
-//  6.12.0. Changes made here are lost.
+//  6.12.0.
+//  Edited by hand on 2026-11-26: moc's output for
+//  'QNetworkAccessFileBackend' is pasted in, cut from what the moc of Qt
+//  6.12.0 writes for its header: Qt's library keeps it to itself; added are
+//  2 rituals that lean on what moc writes for a class of the part Qt keeps
+//  to itself, whose ritual file carries moc's output, drafted by a copy of
+//  the generator that lets those names through. A copy of a meta-object is a
+//  second one: 'qobject_cast' between it and Qt's own does not match. Kept
+//  as it is when the generator runs again.
 #include <QtNetwork/6.12.0/QtNetwork/private/qtnetworkglobal_p.h>
 #include <QtNetwork/QtNetwork>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtNetwork/6.12.0/QtNetwork/private/qnetworkaccessfilebackend_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 #include <QtNetwork/qsslconfiguration.h>
 #include <QtCore/qbytearrayview.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
 #include <QtNetwork/private/qnetworkaccessfilebackend_p.h>
 #include <QtCore/qfileinfo.h>
 #include <QtCore/qdir.h>
@@ -27,6 +40,132 @@
 //  'inline' put before it where Qt did not write it.
 
 using namespace Qt::StringLiterals;
+
+//  from QtNetwork__QNetworkAccessFileBackend.cpp, line 1, as moc:QNetworkAccessFileBackend
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN25QNetworkAccessFileBackendE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto QNetworkAccessFileBackend::qt_create_metaobjectdata<qt_meta_tag_ZN25QNetworkAccessFileBackendE_t>()
+{
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "QNetworkAccessFileBackend",
+        "uploadReadyReadSlot",
+        ""
+    };
+
+    QtMocHelpers::UintData qt_methods {
+        // Slot 'uploadReadyReadSlot'
+        QtMocHelpers::SlotData<void()>(1, 2, QMC::AccessPublic, QMetaType::Void),
+    };
+    QtMocHelpers::UintData qt_properties {
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    return QtMocHelpers::metaObjectData<QNetworkAccessFileBackend, qt_meta_tag_ZN25QNetworkAccessFileBackendE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums);
+}
+Q_CONSTINIT const QMetaObject QNetworkAccessFileBackend::staticMetaObject = { {
+    QMetaObject::SuperData::link<QNetworkAccessBackend::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN25QNetworkAccessFileBackendE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN25QNetworkAccessFileBackendE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN25QNetworkAccessFileBackendE_t>.metaTypes,
+    nullptr
+} };
+
+void QNetworkAccessFileBackend::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<QNetworkAccessFileBackend *>(_o);
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        switch (_id) {
+        case 0: _t->uploadReadyReadSlot(); break;
+        default: ;
+        }
+    }
+    (void)_a;
+}
+
+const QMetaObject *QNetworkAccessFileBackend::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *QNetworkAccessFileBackend::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN25QNetworkAccessFileBackendE_t>.strings))
+        return static_cast<void*>(this);
+    return QNetworkAccessBackend::qt_metacast(_clname);
+}
+
+int QNetworkAccessFileBackend::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QNetworkAccessBackend::qt_metacall(_c, _id, _a);
+    if (_id < 0)
+        return _id;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        if (_id < 1)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 1;
+    }
+    if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        if (_id < 1)
+            *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
+        _id -= 1;
+    }
+    return _id;
+}
+QT_WARNING_POP
+
+//  from src/network/access/qnetworkaccessfilebackend.cpp, line 156, as _ZN25QNetworkAccessFileBackend19uploadReadyReadSlotEv
+inline void QNetworkAccessFileBackend::uploadReadyReadSlot()
+{
+    if (hasUploadFinished)
+        return;
+
+    forever {
+        QByteArray data(16 * 1024, Qt::Uninitialized);
+        qint64 haveRead = uploadByteDevice()->peek(data.data(), data.size());
+        if (haveRead == -1) {
+            // EOF
+            hasUploadFinished = true;
+            file.flush();
+            file.close();
+            finished();
+            break;
+        } else if (haveRead == 0) {
+            // nothing to read right now, we will be called again later
+            break;
+        } else {
+            qint64 haveWritten;
+            data.truncate(haveRead);
+            haveWritten = file.write(data);
+
+            if (haveWritten < 0) {
+                // write error!
+                QString msg = QCoreApplication::translate("QNetworkAccessFileBackend", "Write error writing to %1: %2")
+                              .arg(url().toString(), file.errorString());
+                error(QNetworkReply::ProtocolFailure, msg);
+
+                finished();
+                return;
+            } else {
+                uploadByteDevice()->skip(haveWritten);
+            }
+
+
+            file.flush();
+        }
+    }
+}
 
 //  from src/network/access/qnetworkaccessfilebackend.cpp, line 78, as _ZN25QNetworkAccessFileBackend4openEv
 #if defined(Q_OS_LINUX)
@@ -109,22 +248,6 @@ inline void QNetworkAccessFileBackend::open()
 }
 #endif  // defined(Q_OS_LINUX)
 
-//  from src/network/access/qnetworkaccessfilebackend.cpp, line 197, as _ZN25QNetworkAccessFileBackend5closeEv
-inline void QNetworkAccessFileBackend::close()
-{
-    if (operation() == QNetworkAccessManager::GetOperation) {
-        file.close();
-    }
-}
-
-//  from src/network/access/qnetworkaccessfilebackend.cpp, line 223, as _ZNK25QNetworkAccessFileBackend14bytesAvailableEv
-inline qint64 QNetworkAccessFileBackend::bytesAvailable() const
-{
-    if (operation() != QNetworkAccessManager::GetOperation)
-        return 0;
-    return file.bytesAvailable();
-}
-
 //  from src/network/access/qnetworkaccessfilebackend.cpp, line 230, as _ZN25QNetworkAccessFileBackend4readEPcx
 inline qint64 QNetworkAccessFileBackend::read(char *data, qint64 maxlen)
 {
@@ -149,6 +272,35 @@ inline qint64 QNetworkAccessFileBackend::read(char *data, qint64 maxlen)
         finished();
     totalBytes += actuallyRead;
     return actuallyRead;
+}
+
+//  from src/network/access/qnetworkaccessfilebackend.cpp, line 197, as _ZN25QNetworkAccessFileBackend5closeEv
+inline void QNetworkAccessFileBackend::close()
+{
+    if (operation() == QNetworkAccessManager::GetOperation) {
+        file.close();
+    }
+}
+
+//  from src/network/access/qnetworkaccessfilebackend.cpp, line 74, as _ZN25QNetworkAccessFileBackendD0Ev
+inline QNetworkAccessFileBackend::~QNetworkAccessFileBackend()
+{
+}
+
+//  from src/network/access/qnetworkaccessfilebackend.cpp, line 223, as _ZNK25QNetworkAccessFileBackend14bytesAvailableEv
+inline qint64 QNetworkAccessFileBackend::bytesAvailable() const
+{
+    if (operation() != QNetworkAccessManager::GetOperation)
+        return 0;
+    return file.bytesAvailable();
+}
+
+//  from src/network/access/qnetworkaccessfilebackend.cpp, line 67, as _ZN25QNetworkAccessFileBackendC1Ev
+inline QNetworkAccessFileBackend::QNetworkAccessFileBackend()
+    : QNetworkAccessBackend(QNetworkAccessBackend::TargetType::Local),
+      totalBytes(0),
+      hasUploadFinished(false)
+{
 }
 
 //  from src/network/access/qnetworkaccessfilebackend.cpp, line 204, as _ZN25QNetworkAccessFileBackend12loadFileInfoEv
@@ -553,6 +705,26 @@ int ritual_ZN25QNetworkAccessFileBackend11qt_metacallEN11QMetaObject4CallEiPPv(
     void **a2) {
   return self->qt_metacall(a0, a1, a2);
 }
+
+#if defined(Q_OS_LINUX)
+//  QString QNetworkAccessFileBackend::tr(const char *s, const char *c, int
+//      n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN25QNetworkAccessFileBackend2trEPKcS1_i(
+    const char *s,
+    const char *c,
+    int n) {
+  return new QString(QNetworkAccessFileBackend::tr(s, c, n));
+}
+#endif  // defined(Q_OS_LINUX)
+
+#if defined(Q_OS_LINUX)
+//  QNetworkAccessFileBackend::QNetworkAccessFileBackend()
+extern "C" Q_DECL_EXPORT
+QNetworkAccessFileBackend *ritual_ZN25QNetworkAccessFileBackendC1Ev() {
+  return new CuteQNetworkAccessFileBackend();
+}
+#endif  // defined(Q_OS_LINUX)
 
 //  QNetworkAccessFileBackend::~QNetworkAccessFileBackend()
 extern "C" Q_DECL_EXPORT

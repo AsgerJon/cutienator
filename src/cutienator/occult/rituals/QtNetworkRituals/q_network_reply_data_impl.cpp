@@ -1,19 +1,38 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtNetwork/6.12.0/QtNetwork/private/qnetworkreplydataimpl_p.h, Qt 6.12.0.
-//  Changes made here are lost.
+//  Edited by hand on 2026-11-26: moc's output for 'QNetworkReplyDataImpl' is
+//  pasted in, cut from what the moc of Qt 6.12.0 writes for its header: Qt's
+//  library keeps it to itself; added are 2 rituals that lean on what moc
+//  writes for a class of the part Qt keeps to itself, whose ritual file
+//  carries moc's output, drafted by a copy of the generator that lets those
+//  names through. A copy of a meta-object is a second one: 'qobject_cast'
+//  between it and Qt's own does not match. Kept as it is when the generator
+//  runs again.
 #include <QtNetwork/6.12.0/QtNetwork/private/qtnetworkglobal_p.h>
 #include <QtNetwork/QtNetwork>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtNetwork/6.12.0/QtNetwork/private/qnetworkreplydataimpl_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
+#include <QtNetwork/qnetworkrequest.h>
 #include <QtNetwork/qsslconfiguration.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtNetwork/QNetworkRequest>
+#include <QtNetwork/QNetworkAccessManager>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
 #include <QtNetwork/private/qnetworkreplydataimpl_p.h>
 #include <QtCore/private/qdataurl_p.h>
 #include <QtCore/QCoreApplication>
 #include <QtCore/QMetaObject>
+#include <QtNetwork/private/qtnetworkglobal_p.h>
+#include <QtNetwork/qnetworkreply.h>
+#include <QtNetwork/private/qnetworkreply_p.h>
+#include <QtNetwork/qsslconfiguration.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -22,6 +41,71 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  from QtNetwork__QNetworkReplyDataImpl.cpp, line 1, as moc:QNetworkReplyDataImpl
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN21QNetworkReplyDataImplE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto QNetworkReplyDataImpl::qt_create_metaobjectdata<qt_meta_tag_ZN21QNetworkReplyDataImplE_t>()
+{
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "QNetworkReplyDataImpl"
+    };
+
+    QtMocHelpers::UintData qt_methods {
+    };
+    QtMocHelpers::UintData qt_properties {
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    return QtMocHelpers::metaObjectData<QNetworkReplyDataImpl, qt_meta_tag_ZN21QNetworkReplyDataImplE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums);
+}
+Q_CONSTINIT const QMetaObject QNetworkReplyDataImpl::staticMetaObject = { {
+    QMetaObject::SuperData::link<QNetworkReply::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN21QNetworkReplyDataImplE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN21QNetworkReplyDataImplE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN21QNetworkReplyDataImplE_t>.metaTypes,
+    nullptr
+} };
+
+void QNetworkReplyDataImpl::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<QNetworkReplyDataImpl *>(_o);
+    (void)_t;
+    (void)_c;
+    (void)_id;
+    (void)_a;
+}
+
+const QMetaObject *QNetworkReplyDataImpl::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *QNetworkReplyDataImpl::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN21QNetworkReplyDataImplE_t>.strings))
+        return static_cast<void*>(this);
+    return QNetworkReply::qt_metacast(_clname);
+}
+
+int QNetworkReplyDataImpl::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QNetworkReply::qt_metacall(_c, _id, _a);
+    return _id;
+}
+QT_WARNING_POP
 
 //  from src/network/access/qnetworkreplydataimpl.cpp, line 70, as _ZN21QNetworkReplyDataImpl5abortEv
 inline void QNetworkReplyDataImpl::abort()
@@ -35,26 +119,6 @@ inline void QNetworkReplyDataImpl::close()
     QNetworkReply::close();
 }
 
-//  from src/network/access/qnetworkreplydataimpl.cpp, line 75, as _ZNK21QNetworkReplyDataImpl14bytesAvailableEv
-inline qint64 QNetworkReplyDataImpl::bytesAvailable() const
-{
-    Q_D(const QNetworkReplyDataImpl);
-    return QNetworkReply::bytesAvailable() + d->decodedData.bytesAvailable();
-}
-
-//  from src/network/access/qnetworkreplydataimpl.cpp, line 81, as _ZNK21QNetworkReplyDataImpl12isSequentialEv
-inline bool QNetworkReplyDataImpl::isSequential () const
-{
-    return true;
-}
-
-//  from src/network/access/qnetworkreplydataimpl.cpp, line 86, as _ZNK21QNetworkReplyDataImpl4sizeEv
-inline qint64 QNetworkReplyDataImpl::size() const
-{
-    Q_D(const QNetworkReplyDataImpl);
-    return d->decodedData.size();
-}
-
 //  from src/network/access/qnetworkreplydataimpl.cpp, line 95, as _ZN21QNetworkReplyDataImpl8readDataEPcx
 inline qint64 QNetworkReplyDataImpl::readData(char *data, qint64 maxlen)
 {
@@ -65,6 +129,90 @@ inline qint64 QNetworkReplyDataImpl::readData(char *data, qint64 maxlen)
     // Note that this might be tricky to do.
 
     return d->decodedData.read(data, maxlen);
+}
+
+//  from src/network/access/qnetworkreplydataimpl.cpp, line 81, as _ZNK21QNetworkReplyDataImpl12isSequentialEv
+inline bool QNetworkReplyDataImpl::isSequential () const
+{
+    return true;
+}
+
+//  from src/network/access/qnetworkreplydataimpl.cpp, line 75, as _ZNK21QNetworkReplyDataImpl14bytesAvailableEv
+inline qint64 QNetworkReplyDataImpl::bytesAvailable() const
+{
+    Q_D(const QNetworkReplyDataImpl);
+    return QNetworkReply::bytesAvailable() + d->decodedData.bytesAvailable();
+}
+
+//  from src/network/access/qnetworkreplydataimpl.cpp, line 86, as _ZNK21QNetworkReplyDataImpl4sizeEv
+inline qint64 QNetworkReplyDataImpl::size() const
+{
+    Q_D(const QNetworkReplyDataImpl);
+    return d->decodedData.size();
+}
+
+//  from src/network/access/qnetworkreplydataimpl.cpp, line 12, as _ZN28QNetworkReplyDataImplPrivateC1Ev
+inline QNetworkReplyDataImplPrivate::QNetworkReplyDataImplPrivate()
+    : QNetworkReplyPrivate()
+{
+}
+
+//  from src/network/access/qnetworkreply.cpp, line 17, as _ZN20QNetworkReplyPrivateC2Ev
+inline QNetworkReplyPrivate::QNetworkReplyPrivate()
+    : readBufferMaxSize(0),
+      emitAllUploadProgressSignals(false),
+      operation(QNetworkAccessManager::UnknownOperation),
+      errorCode(QNetworkReply::NoError)
+    , isFinished(false)
+{
+    // set the default attribute values
+    attributes.insert(QNetworkRequest::ConnectionEncryptedAttribute, false);
+}
+
+//  from src/network/access/qnetworkreplydataimpl.cpp, line 17, as _ZN28QNetworkReplyDataImplPrivateD1Ev
+inline QNetworkReplyDataImplPrivate::~QNetworkReplyDataImplPrivate()
+{
+}
+
+//  from src/network/access/qnetworkreplydataimpl.cpp, line 25, as _ZN21QNetworkReplyDataImplC1EP7QObjectRK15QNetworkRequestN21QNetworkAccessManager9OperationE
+inline QNetworkReplyDataImpl::QNetworkReplyDataImpl(QObject *parent, const QNetworkRequest &req, const QNetworkAccessManager::Operation op)
+    : QNetworkReply(*new QNetworkReplyDataImplPrivate(), parent)
+{
+    Q_D(QNetworkReplyDataImpl);
+    setRequest(req);
+    setUrl(req.url());
+    setOperation(op);
+    setFinished(true);
+    QNetworkReply::open(QIODevice::ReadOnly);
+
+    QUrl url = req.url();
+    QString mimeType;
+    QByteArray payload;
+    if (qDecodeDataUrl(url, mimeType, payload)) {
+        qint64 size = payload.size();
+        auto h = headers();
+        h.replaceOrAppend(QHttpHeaders::WellKnownHeader::ContentType, mimeType);
+        h.replaceOrAppend(QHttpHeaders::WellKnownHeader::ContentLength, QByteArray::number(size));
+        setHeaders(std::move(h));
+
+        QMetaObject::invokeMethod(this, "metaDataChanged", Qt::QueuedConnection);
+
+        d->decodedData.setData(payload);
+        d->decodedData.open(QIODevice::ReadOnly);
+
+        QMetaObject::invokeMethod(this, "downloadProgress", Qt::QueuedConnection,
+                                  Q_ARG(qint64,size), Q_ARG(qint64, size));
+        QMetaObject::invokeMethod(this, "readyRead", Qt::QueuedConnection);
+        QMetaObject::invokeMethod(this, "finished", Qt::QueuedConnection);
+    } else {
+        // something wrong with this URI
+        const QString msg = QCoreApplication::translate("QNetworkAccessDataBackend",
+                                                        "Invalid URI: %1").arg(url.toString());
+        setError(QNetworkReply::ProtocolFailure, msg);
+        QMetaObject::invokeMethod(this, "errorOccurred", Qt::QueuedConnection,
+                                  Q_ARG(QNetworkReply::NetworkError, QNetworkReply::ProtocolFailure));
+        QMetaObject::invokeMethod(this, "finished", Qt::QueuedConnection);
+    }
 }
 
 //  from src/network/access/qnetworkreplydataimpl.cpp, line 21, as _ZN21QNetworkReplyDataImplD1Ev
@@ -592,6 +740,25 @@ int ritual_ZN21QNetworkReplyDataImpl11qt_metacallEN11QMetaObject4CallEiPPv(
     int a1,
     void **a2) {
   return self->qt_metacall(a0, a1, a2);
+}
+
+//  QString QNetworkReplyDataImpl::tr(const char *s, const char *c, int n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN21QNetworkReplyDataImpl2trEPKcS1_i(
+    const char *s,
+    const char *c,
+    int n) {
+  return new QString(QNetworkReplyDataImpl::tr(s, c, n));
+}
+
+//  QNetworkReplyDataImpl::QNetworkReplyDataImpl(QObject *parent, const
+//      QNetworkRequest &req, const QNetworkAccessManager::Operation op)
+extern "C" Q_DECL_EXPORT
+QNetworkReplyDataImpl *ritual_ZN21QNetworkReplyDataImplC1EP7QObjectRK15QNetworkRequestN21QNetworkAccessManager9OperationE(
+    QObject *parent,
+    const QNetworkRequest *req,
+    const QNetworkAccessManager::Operation *op) {
+  return new CuteQNetworkReplyDataImpl(parent, *req, *op);
 }
 
 //  QNetworkReplyDataImpl::~QNetworkReplyDataImpl()

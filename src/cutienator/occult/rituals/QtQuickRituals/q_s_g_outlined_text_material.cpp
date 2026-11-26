@@ -75,6 +75,42 @@ inline QSGMaterialType *QSGOutlinedTextMaterial::type() const
     static QSGMaterialType type;
     return &type;
 }
+
+//  from ../qtdeclarative/src/quick/scenegraph/qsgdefaultglyphnode_p.cpp, line 313, as _ZN19QSGTextMaskMaterialC2EP16QSGRenderContextRK9QVector4DRK8QRawFontN11QFontEngine11GlyphFormatE
+inline QSGTextMaskMaterial::QSGTextMaskMaterial(QSGRenderContext *rc, const QVector4D &color, const QRawFont &font, QFontEngine::GlyphFormat glyphFormat)
+    : m_rc(qobject_cast<QSGDefaultRenderContext *>(rc))
+    , m_texture(nullptr)
+    , m_glyphCache(nullptr)
+    , m_font(font)
+    , m_color(color)
+{
+    init(glyphFormat);
+}
+
+//  from ../qtdeclarative/src/quick/scenegraph/qsgdefaultglyphnode_p.cpp, line 499, as _ZNK19QSGTextMaskMaterial4typeEv
+inline QSGMaterialType *QSGTextMaskMaterial::type() const
+{
+    static QSGMaterialType argb, rgb, gray;
+    switch (glyphCache()->glyphFormat()) {
+    case QFontEngine::Format_ARGB:
+        return &argb;
+    case QFontEngine::Format_A32:
+        return &rgb;
+    case QFontEngine::Format_A8:
+    default:
+        return &gray;
+    }
+}
+
+//  from ../qtdeclarative/src/quick/scenegraph/qsgdefaultglyphnode_p.cpp, line 552, as _ZNK19QSGTextMaskMaterial7compareEPK11QSGMaterial
+inline int QSGTextMaskMaterial::compare(const QSGMaterial *o) const
+{
+    Q_ASSERT(o && type() == o->type());
+    const QSGTextMaskMaterial *other = static_cast<const QSGTextMaskMaterial *>(o);
+    if (m_glyphCache != other->m_glyphCache)
+        return m_glyphCache.data() < other->m_glyphCache.data() ? -1 : 1;
+    return qsg_colorDiff(m_color, other->m_color);
+}
 //  -----------------------------------------------------------------------
 
 //  A QSGOutlinedTextMaterial that Python can take functions over in. Every QSGOutlinedTextMaterial

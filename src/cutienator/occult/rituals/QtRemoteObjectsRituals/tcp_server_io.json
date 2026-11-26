@@ -2,9 +2,20 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of QtRemot",
     "eObjects/6.12.0/QtRemoteObjects/private/qconnection_tcpip_backend_",
-    "p.h, Qt 6.12.0. Changes made here are lost."
+    "p.h, Qt 6.12.0. Edited by hand: see the ritual file."
   ],
   "rows": {
+    "ritual_ZNK11TcpServerIo10metaObjectEv": ["address", "address"],
+    "ritual_ZN11TcpServerIo11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN11TcpServerIo11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN11TcpServerIo2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN11TcpServerIoC1EP10QTcpSocketP7QObject": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK11TcpServerIo10connectionEv": ["address", "address"],
     "ritual_ZN11TcpServerIo7doCloseEv": ["nothing", "address"]
   }

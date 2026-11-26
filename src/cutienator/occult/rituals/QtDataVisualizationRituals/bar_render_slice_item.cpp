@@ -75,6 +75,33 @@ inline AbstractRenderItem::AbstractRenderItem()
 {
 }
 
+//  from ../qtdatavis3d/src/datavisualization/data/abstractrenderitem.cpp, line 12, as _ZN18AbstractRenderItemC2ERKS_
+inline AbstractRenderItem::AbstractRenderItem(const AbstractRenderItem &other)
+{
+    m_translation = other.m_translation;
+    m_rotation = other.m_rotation;
+}
+
+//  from ../qtdatavis3d/src/datavisualization/data/abstractrenderitem.cpp, line 18, as _ZN18AbstractRenderItemD2Ev
+inline AbstractRenderItem::~AbstractRenderItem()
+{
+}
+
+//  from ../qtdatavis3d/src/datavisualization/data/barrenderitem.cpp, line 27, as _ZN18BarRenderSliceItemC1Ev
+inline BarRenderSliceItem::BarRenderSliceItem()
+    : BarRenderItem(),
+      m_sliceLabelItem(0)
+{
+}
+
+//  from ../qtdatavis3d/src/datavisualization/data/barrenderitem.cpp, line 33, as _ZN18BarRenderSliceItemC1ERKS_
+inline BarRenderSliceItem::BarRenderSliceItem(const BarRenderSliceItem &other)
+    : BarRenderItem(other)
+{
+    m_sliceLabel = other.m_sliceLabel;
+    m_sliceLabelItem = 0;
+}
+
 //  from ../qtdatavis3d/src/datavisualization/data/barrenderitem.cpp, line 45, as _ZN18BarRenderSliceItem7setItemERK13BarRenderItem
 inline void BarRenderSliceItem::setItem(const BarRenderItem &renderItem)
 {
@@ -110,6 +137,19 @@ inline const QString &BarRenderSliceItem::sliceLabel() const
     return m_sliceLabel;
 }
 //  -----------------------------------------------------------------------
+
+//  BarRenderSliceItem::BarRenderSliceItem()
+extern "C" Q_DECL_EXPORT
+BarRenderSliceItem *ritual_ZN18BarRenderSliceItemC1Ev() {
+  return new BarRenderSliceItem();
+}
+
+//  BarRenderSliceItem::BarRenderSliceItem(const BarRenderSliceItem &other)
+extern "C" Q_DECL_EXPORT
+BarRenderSliceItem *ritual_ZN18BarRenderSliceItemC1ERKS_(
+    const BarRenderSliceItem *other) {
+  return new BarRenderSliceItem(*other);
+}
 
 //  BarRenderSliceItem &BarRenderSliceItem::operator=(const
 //      BarRenderSliceItem &other)

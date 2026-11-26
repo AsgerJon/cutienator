@@ -1,6 +1,12 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtCharts/6.12.0/QtCharts/private/glwidget_p.h, Qt 6.12.0. Changes made
-//  here are lost.
+//  QtCharts/6.12.0/QtCharts/private/glwidget_p.h, Qt 6.12.0.
+//  Edited by hand on 2026-11-26: moc's output for 'GLWidget' is pasted in,
+//  cut from what the moc of Qt 6.12.0 writes for its header: Qt's library
+//  keeps it to itself; added are 3 rituals that lean on what moc writes for
+//  a class of the part Qt keeps to itself, whose ritual file carries moc's
+//  output, drafted by a copy of the generator that lets those names through.
+//  A copy of a meta-object is a second one: 'qobject_cast' between it and
+//  Qt's own does not match. Kept as it is when the generator runs again.
 #include <QtGui/qtguiglobal.h>
 #include <QtCharts/qchartglobal.h>
 #include <QtCharts/6.12.0/QtCharts/private/qchartglobal_p.h>
@@ -11,11 +17,16 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCharts/6.12.0/QtCharts/private/glwidget_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 #include <QtCore/qsize.h>
 #include <QtCore/qvariant.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
 #ifndef QT_NO_OPENGL
 #include <QtCharts/private/glwidget_p.h>
 #include <QtCharts/private/glxyseriesdata_p.h>
@@ -59,6 +70,99 @@ static const char *fragmentSource =
         "  gl_FragColor = vec4(color,1);\n"
         "}\n";
 #endif  // !defined(QT_NO_OPENGL)
+
+//  from QtCharts__GLWidget.cpp, line 1, as moc:GLWidget
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN8GLWidgetE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto GLWidget::qt_create_metaobjectdata<qt_meta_tag_ZN8GLWidgetE_t>()
+{
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "GLWidget",
+        "cleanup",
+        "",
+        "cleanXYSeriesResources",
+        "const QXYSeries*",
+        "series"
+    };
+
+    QtMocHelpers::UintData qt_methods {
+        // Slot 'cleanup'
+        QtMocHelpers::SlotData<void()>(1, 2, QMC::AccessPublic, QMetaType::Void),
+        // Slot 'cleanXYSeriesResources'
+        QtMocHelpers::SlotData<void(const QXYSeries *)>(3, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { 0x80000000 | 4, 5 },
+        }}),
+    };
+    QtMocHelpers::UintData qt_properties {
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    return QtMocHelpers::metaObjectData<GLWidget, qt_meta_tag_ZN8GLWidgetE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums);
+}
+Q_CONSTINIT const QMetaObject GLWidget::staticMetaObject = { {
+    QMetaObject::SuperData::link<QOpenGLWidget::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN8GLWidgetE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN8GLWidgetE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN8GLWidgetE_t>.metaTypes,
+    nullptr
+} };
+
+void GLWidget::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<GLWidget *>(_o);
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        switch (_id) {
+        case 0: _t->cleanup(); break;
+        case 1: _t->cleanXYSeriesResources((*reinterpret_cast<std::add_pointer_t<const QXYSeries*>>(_a[1]))); break;
+        default: ;
+        }
+    }
+}
+
+const QMetaObject *GLWidget::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *GLWidget::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN8GLWidgetE_t>.strings))
+        return static_cast<void*>(this);
+    if (!strcmp(_clname, "QOpenGLFunctions"))
+        return static_cast< QOpenGLFunctions*>(this);
+    return QOpenGLWidget::qt_metacast(_clname);
+}
+
+int GLWidget::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QOpenGLWidget::qt_metacall(_c, _id, _a);
+    if (_id < 0)
+        return _id;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        if (_id < 2)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 2;
+    }
+    if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        if (_id < 2)
+            *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
+        _id -= 2;
+    }
+    return _id;
+}
+QT_WARNING_POP
 
 //  from ../qtcharts/src/charts/glwidget.cpp, line 116, as _ZN8GLWidget12initializeGLEv
 #if !defined(QT_NO_OPENGL)
@@ -104,52 +208,6 @@ inline void GLWidget::initializeGL()
 #endif
 
     m_program->release();
-}
-#endif  // !defined(QT_NO_OPENGL)
-
-//  from ../qtcharts/src/charts/glwidget.cpp, line 160, as _ZN8GLWidget7paintGLEv
-#if !defined(QT_NO_OPENGL)
-inline void GLWidget::paintGL()
-{
-    render(false);
-
-#ifdef QDEBUG_TRACE_GL_FPS
-    static QElapsedTimer stopWatch;
-    static int frameCount = -1;
-    if (frameCount == -1) {
-        stopWatch.start();
-        frameCount = 0;
-    }
-    frameCount++;
-    int elapsed = stopWatch.elapsed();
-    if (elapsed >= 1000) {
-        elapsed = stopWatch.restart();
-        qreal fps = qreal(0.1 * int(10000.0 * (qreal(frameCount) / qreal(elapsed))));
-        qDebug() << "FPS:" << fps;
-        frameCount = 0;
-    }
-#endif
-}
-#endif  // !defined(QT_NO_OPENGL)
-
-//  from ../qtcharts/src/charts/glwidget.cpp, line 182, as _ZN8GLWidget8resizeGLEii
-#if !defined(QT_NO_OPENGL)
-inline void GLWidget::resizeGL(int w, int h)
-{
-    m_fboSize.setWidth(w);
-    m_fboSize.setHeight(h);
-    m_recreateSelectionFbo = true;
-    m_selectionRenderNeeded = true;
-}
-#endif  // !defined(QT_NO_OPENGL)
-
-//  from ../qtcharts/src/charts/glwidget.cpp, line 190, as _ZN8GLWidget21mouseDoubleClickEventEP11QMouseEvent
-#if !defined(QT_NO_OPENGL)
-inline void GLWidget::mouseDoubleClickEvent(QMouseEvent *event)
-{
-    QXYSeries *series = findSeriesAtEvent(event);
-    if (series)
-        emit series->doubleClicked(series->d_ptr->domain()->calculateDomainPoint(event->pos()));
 }
 #endif  // !defined(QT_NO_OPENGL)
 
@@ -218,6 +276,133 @@ inline void GLWidget::mouseReleaseEvent(QMouseEvent *event)
     } else {
         event->ignore();
     }
+}
+#endif  // !defined(QT_NO_OPENGL)
+
+//  from ../qtcharts/src/charts/glwidget.cpp, line 190, as _ZN8GLWidget21mouseDoubleClickEventEP11QMouseEvent
+#if !defined(QT_NO_OPENGL)
+inline void GLWidget::mouseDoubleClickEvent(QMouseEvent *event)
+{
+    QXYSeries *series = findSeriesAtEvent(event);
+    if (series)
+        emit series->doubleClicked(series->d_ptr->domain()->calculateDomainPoint(event->pos()));
+}
+#endif  // !defined(QT_NO_OPENGL)
+
+//  from ../qtcharts/src/charts/glwidget.cpp, line 85, as _ZN8GLWidget22cleanXYSeriesResourcesEPK9QXYSeries
+#if !defined(QT_NO_OPENGL)
+inline void GLWidget::cleanXYSeriesResources(const QXYSeries *series)
+{
+    makeCurrent();
+    if (series) {
+        delete m_seriesBufferMap.take(series);
+    } else {
+        // Null series means all series were removed
+        for (auto buffer : std::as_const(m_seriesBufferMap))
+            delete buffer;
+        m_seriesBufferMap.clear();
+    }
+    doneCurrent();
+}
+#endif  // !defined(QT_NO_OPENGL)
+
+//  from ../qtcharts/src/charts/glwidget.cpp, line 68, as _ZN8GLWidget7cleanupEv
+#if !defined(QT_NO_OPENGL)
+inline void GLWidget::cleanup()
+{
+    makeCurrent();
+
+    delete m_program;
+    m_program = 0;
+
+    for (auto buffer : std::as_const(m_seriesBufferMap))
+        delete buffer;
+    m_seriesBufferMap.clear();
+
+    doneCurrent();
+
+    if (context())
+        context()->disconnect(this);
+}
+#endif  // !defined(QT_NO_OPENGL)
+
+//  from ../qtcharts/src/charts/glwidget.cpp, line 160, as _ZN8GLWidget7paintGLEv
+#if !defined(QT_NO_OPENGL)
+inline void GLWidget::paintGL()
+{
+    render(false);
+
+#ifdef QDEBUG_TRACE_GL_FPS
+    static QElapsedTimer stopWatch;
+    static int frameCount = -1;
+    if (frameCount == -1) {
+        stopWatch.start();
+        frameCount = 0;
+    }
+    frameCount++;
+    int elapsed = stopWatch.elapsed();
+    if (elapsed >= 1000) {
+        elapsed = stopWatch.restart();
+        qreal fps = qreal(0.1 * int(10000.0 * (qreal(frameCount) / qreal(elapsed))));
+        qDebug() << "FPS:" << fps;
+        frameCount = 0;
+    }
+#endif
+}
+#endif  // !defined(QT_NO_OPENGL)
+
+//  from ../qtcharts/src/charts/glwidget.cpp, line 182, as _ZN8GLWidget8resizeGLEii
+#if !defined(QT_NO_OPENGL)
+inline void GLWidget::resizeGL(int w, int h)
+{
+    m_fboSize.setWidth(w);
+    m_fboSize.setHeight(h);
+    m_recreateSelectionFbo = true;
+    m_selectionRenderNeeded = true;
+}
+#endif  // !defined(QT_NO_OPENGL)
+
+//  from ../qtcharts/src/charts/glwidget.cpp, line 22, as _ZN8GLWidgetC1EP21GLXYSeriesDataManagerP6QChartP13QGraphicsView
+#if !defined(QT_NO_OPENGL)
+inline GLWidget::GLWidget(GLXYSeriesDataManager *xyDataManager, QChart *chart,
+                   QGraphicsView *parent)
+    : QOpenGLWidget(parent->viewport()),
+      m_program(nullptr),
+      m_shaderAttribLoc(-1),
+      m_colorUniformLoc(-1),
+      m_minUniformLoc(-1),
+      m_deltaUniformLoc(-1),
+      m_pointSizeUniformLoc(-1),
+      m_xyDataManager(xyDataManager),
+      m_antiAlias(parent->renderHints().testFlag(QPainter::Antialiasing)),
+      m_view(parent),
+      m_selectionFbo(nullptr),
+      m_chart(chart),
+      m_recreateSelectionFbo(true),
+      m_selectionRenderNeeded(true),
+      m_mousePressed(false),
+      m_lastPressSeries(nullptr),
+      m_lastHoverSeries(nullptr)
+{
+    setAttribute(Qt::WA_TranslucentBackground);
+    setAttribute(Qt::WA_AlwaysStackOnTop);
+
+    QSurfaceFormat surfaceFormat;
+    surfaceFormat.setDepthBufferSize(0);
+    surfaceFormat.setStencilBufferSize(0);
+    surfaceFormat.setRedBufferSize(8);
+    surfaceFormat.setGreenBufferSize(8);
+    surfaceFormat.setBlueBufferSize(8);
+    surfaceFormat.setAlphaBufferSize(8);
+    surfaceFormat.setSwapBehavior(QSurfaceFormat::DoubleBuffer);
+    surfaceFormat.setRenderableType(QSurfaceFormat::DefaultRenderableType);
+    surfaceFormat.setSamples(m_antiAlias ? 4 : 0);
+    setFormat(surfaceFormat);
+
+    connect(xyDataManager, &GLXYSeriesDataManager::seriesRemoved,
+            this, &GLWidget::cleanXYSeriesResources);
+
+    setMouseTracking(true);
 }
 #endif  // !defined(QT_NO_OPENGL)
 
@@ -381,6 +566,7 @@ inline QXYSeries *GLWidget::chartSeries(const QXYSeries *cSeries)
 //  Only a class built on GLWidget may call these functions of it.
 //  This one is, and makes them free for the rituals to call.
 struct OwnGLWidget : GLWidget {
+  using GLWidget::initializeGL;
   using GLWidget::paintGL;
   using GLWidget::resizeGL;
   using GLWidget::mouseDoubleClickEvent;
@@ -1341,6 +1527,26 @@ int ritual_ZN8GLWidget11qt_metacallEN11QMetaObject4CallEiPPv(
   return self->qt_metacall(a0, a1, a2);
 }
 
+#if !defined(QT_NO_OPENGL)
+//  QString GLWidget::tr(const char *s, const char *c, int n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN8GLWidget2trEPKcS1_i(const char *s, const char *c, int n) {
+  return new QString(GLWidget::tr(s, c, n));
+}
+#endif  // !defined(QT_NO_OPENGL)
+
+#if !defined(QT_NO_OPENGL)
+//  GLWidget::GLWidget(GLXYSeriesDataManager *xyDataManager, QChart *chart,
+//      QGraphicsView *parent)
+extern "C" Q_DECL_EXPORT
+GLWidget *ritual_ZN8GLWidgetC1EP21GLXYSeriesDataManagerP6QChartP13QGraphicsView(
+    GLXYSeriesDataManager *xyDataManager,
+    QChart *chart,
+    QGraphicsView *parent) {
+  return new CuteGLWidget(xyDataManager, chart, parent);
+}
+#endif  // !defined(QT_NO_OPENGL)
+
 //  GLWidget::~GLWidget()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN8GLWidgetD1Ev(GLWidget *self) {
@@ -1504,6 +1710,14 @@ extern "C" Q_DECL_EXPORT
 bool ritual_take_GLWidget(GLWidget *self, const char *key, void *call) {
   return static_cast<CuteGLWidget *>(self)->take(key, call);
 }
+
+#if !defined(QT_NO_OPENGL)
+//  void GLWidget::initializeGL()
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN8GLWidget12initializeGLEv(GLWidget *self) {
+  static_cast<OwnGLWidget *>(self)->OwnGLWidget::initializeGL();
+}
+#endif  // !defined(QT_NO_OPENGL)
 
 #if !defined(QT_NO_OPENGL)
 //  void GLWidget::paintGL()

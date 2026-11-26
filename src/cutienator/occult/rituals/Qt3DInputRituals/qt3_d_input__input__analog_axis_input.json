@@ -5,6 +5,7 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN9Qt3DInput5Input15AnalogAxisInputC1Ev": ["address"],
     "ritual_ZN9Qt3DInput5Input15AnalogAxisInput7cleanupEv": [
       "nothing", "address"
     ],

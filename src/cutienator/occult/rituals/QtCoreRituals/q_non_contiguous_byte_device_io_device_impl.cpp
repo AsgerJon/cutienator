@@ -1,14 +1,26 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCore/6.12.0/QtCore/private/qnoncontiguousbytedevice_p.h, Qt 6.12.0.
-//  Changes made here are lost.
+//  Edited by hand on 2026-11-26: moc's output for
+//  'QNonContiguousByteDeviceIoDeviceImpl' is pasted in, cut from what the
+//  moc of Qt 6.12.0 writes for its header: Qt's library keeps it to itself;
+//  added are 2 rituals that lean on what moc writes for a class of the part
+//  Qt keeps to itself, whose ritual file carries moc's output, drafted by a
+//  copy of the generator that lets those names through. A copy of a meta-
+//  object is a second one: 'qobject_cast' between it and Qt's own does not
+//  match. Kept as it is when the generator runs again.
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtCore/QtCore>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/6.12.0/QtCore/private/qnoncontiguousbytedevice_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
 #include <QtCore/private/qnoncontiguousbytedevice_p.h>
 #include <QtCore/qbuffer.h>
 #include <QtCore/qdebug.h>
@@ -22,6 +34,109 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  from QtCore__QNonContiguousByteDeviceIoDeviceImpl.cpp, line 1, as moc:QNonContiguousByteDeviceIoDeviceImpl
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN36QNonContiguousByteDeviceIoDeviceImplE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto QNonContiguousByteDeviceIoDeviceImpl::qt_create_metaobjectdata<qt_meta_tag_ZN36QNonContiguousByteDeviceIoDeviceImplE_t>()
+{
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "QNonContiguousByteDeviceIoDeviceImpl"
+    };
+
+    QtMocHelpers::UintData qt_methods {
+    };
+    QtMocHelpers::UintData qt_properties {
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    return QtMocHelpers::metaObjectData<QNonContiguousByteDeviceIoDeviceImpl, qt_meta_tag_ZN36QNonContiguousByteDeviceIoDeviceImplE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums);
+}
+Q_CONSTINIT const QMetaObject QNonContiguousByteDeviceIoDeviceImpl::staticMetaObject = { {
+    QMetaObject::SuperData::link<QNonContiguousByteDevice::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN36QNonContiguousByteDeviceIoDeviceImplE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN36QNonContiguousByteDeviceIoDeviceImplE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN36QNonContiguousByteDeviceIoDeviceImplE_t>.metaTypes,
+    nullptr
+} };
+
+void QNonContiguousByteDeviceIoDeviceImpl::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<QNonContiguousByteDeviceIoDeviceImpl *>(_o);
+    (void)_t;
+    (void)_c;
+    (void)_id;
+    (void)_a;
+}
+
+const QMetaObject *QNonContiguousByteDeviceIoDeviceImpl::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *QNonContiguousByteDeviceIoDeviceImpl::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN36QNonContiguousByteDeviceIoDeviceImplE_t>.strings))
+        return static_cast<void*>(this);
+    return QNonContiguousByteDevice::qt_metacast(_clname);
+}
+
+int QNonContiguousByteDeviceIoDeviceImpl::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QNonContiguousByteDevice::qt_metacall(_c, _id, _a);
+    return _id;
+}
+QT_WARNING_POP
+
+//  from src/corelib/io/qnoncontiguousbytedevice.cpp, line 238, as _ZN36QNonContiguousByteDeviceIoDeviceImpl11readPointerExRx
+inline const char *QNonContiguousByteDeviceIoDeviceImpl::readPointer(qint64 maximumLength, qint64 &len)
+{
+    if (eof) {
+        len = -1;
+        return nullptr;
+    }
+
+    if (currentReadBuffer == nullptr)
+        currentReadBuffer = new QByteArray(currentReadBufferSize, '\0'); // lazy alloc
+
+    if (maximumLength == -1)
+        maximumLength = currentReadBufferSize;
+
+    if (currentReadBufferAmount - currentReadBufferPosition > 0) {
+        len = currentReadBufferAmount - currentReadBufferPosition;
+        return currentReadBuffer->data() + currentReadBufferPosition;
+    }
+
+    qint64 haveRead = device->read(currentReadBuffer->data(),
+                                   qMin(maximumLength, currentReadBufferSize));
+
+    if ((haveRead == -1) || (haveRead == 0 && device->atEnd() && !device->isSequential())) {
+        eof = true;
+        len = -1;
+        // size was unknown before, emit a readProgress with the final size
+        if (size() == -1)
+            emit readProgress(totalAdvancements, totalAdvancements);
+        return nullptr;
+    }
+
+    currentReadBufferAmount = haveRead;
+    currentReadBufferPosition = 0;
+
+    len = haveRead;
+    return currentReadBuffer->data();
+}
 
 //  from src/corelib/io/qnoncontiguousbytedevice.cpp, line 275, as _ZN36QNonContiguousByteDeviceIoDeviceImpl18advanceReadPointerEx
 inline bool QNonContiguousByteDeviceIoDeviceImpl::advanceReadPointer(qint64 amount)
@@ -54,12 +169,6 @@ inline bool QNonContiguousByteDeviceIoDeviceImpl::advanceReadPointer(qint64 amou
     return true;
 }
 
-//  from src/corelib/io/qnoncontiguousbytedevice.cpp, line 305, as _ZNK36QNonContiguousByteDeviceIoDeviceImpl5atEndEv
-inline bool QNonContiguousByteDeviceIoDeviceImpl::atEnd() const
-{
-    return eof;
-}
-
 //  from src/corelib/io/qnoncontiguousbytedevice.cpp, line 310, as _ZN36QNonContiguousByteDeviceIoDeviceImpl5resetEv
 inline bool QNonContiguousByteDeviceIoDeviceImpl::reset()
 {
@@ -79,6 +188,15 @@ inline bool QNonContiguousByteDeviceIoDeviceImpl::reset()
     return false;
 }
 
+//  from src/corelib/io/qnoncontiguousbytedevice.cpp, line 338, as _ZNK36QNonContiguousByteDeviceIoDeviceImpl3posEv
+inline qint64 QNonContiguousByteDeviceIoDeviceImpl::pos() const
+{
+    if (device->isSequential())
+        return -1;
+
+    return device->pos();
+}
+
 //  from src/corelib/io/qnoncontiguousbytedevice.cpp, line 328, as _ZNK36QNonContiguousByteDeviceIoDeviceImpl4sizeEv
 inline qint64 QNonContiguousByteDeviceIoDeviceImpl::size() const
 {
@@ -90,13 +208,28 @@ inline qint64 QNonContiguousByteDeviceIoDeviceImpl::size() const
     return device->size() - initialPosition;
 }
 
-//  from src/corelib/io/qnoncontiguousbytedevice.cpp, line 338, as _ZNK36QNonContiguousByteDeviceIoDeviceImpl3posEv
-inline qint64 QNonContiguousByteDeviceIoDeviceImpl::pos() const
+//  from src/corelib/io/qnoncontiguousbytedevice.cpp, line 305, as _ZNK36QNonContiguousByteDeviceIoDeviceImpl5atEndEv
+inline bool QNonContiguousByteDeviceIoDeviceImpl::atEnd() const
 {
-    if (device->isSequential())
-        return -1;
+    return eof;
+}
 
-    return device->pos();
+//  from src/corelib/io/qnoncontiguousbytedevice.cpp, line 216, as _ZN36QNonContiguousByteDeviceIoDeviceImplC1EP9QIODevice
+inline QNonContiguousByteDeviceIoDeviceImpl::QNonContiguousByteDeviceIoDeviceImpl(QIODevice *d)
+    : QNonContiguousByteDevice(),
+      device(d),
+      currentReadBuffer(nullptr),
+      currentReadBufferSize(16 * 1024),
+      currentReadBufferAmount(0),
+      currentReadBufferPosition(0),
+      totalAdvancements(0),
+      eof(false),
+      initialPosition(d->pos())
+{
+    connect(device, &QIODevice::readyRead, this,
+            &QNonContiguousByteDevice::readyRead);
+    connect(device, &QIODevice::readChannelFinished, this,
+            &QNonContiguousByteDevice::readyRead);
 }
 
 //  from src/corelib/io/qnoncontiguousbytedevice.cpp, line 233, as _ZN36QNonContiguousByteDeviceIoDeviceImplD1Ev
@@ -379,6 +512,24 @@ int ritual_ZN36QNonContiguousByteDeviceIoDeviceImpl11qt_metacallEN11QMetaObject4
     int a1,
     void **a2) {
   return self->qt_metacall(a0, a1, a2);
+}
+
+//  QString QNonContiguousByteDeviceIoDeviceImpl::tr(const char *s, const
+//      char *c, int n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN36QNonContiguousByteDeviceIoDeviceImpl2trEPKcS1_i(
+    const char *s,
+    const char *c,
+    int n) {
+  return new QString(QNonContiguousByteDeviceIoDeviceImpl::tr(s, c, n));
+}
+
+//  QNonContiguousByteDeviceIoDeviceImpl::QNonContiguousByteDeviceIoDeviceImp
+//      l(QIODevice *d)
+extern "C" Q_DECL_EXPORT
+QNonContiguousByteDeviceIoDeviceImpl *ritual_ZN36QNonContiguousByteDeviceIoDeviceImplC1EP9QIODevice(
+    QIODevice *d) {
+  return new CuteQNonContiguousByteDeviceIoDeviceImpl(d);
 }
 
 //  QNonContiguousByteDeviceIoDeviceImpl::~QNonContiguousByteDeviceIoDeviceIm

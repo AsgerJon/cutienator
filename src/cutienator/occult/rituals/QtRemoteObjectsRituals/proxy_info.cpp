@@ -1,15 +1,27 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtRemoteObjects/6.12.0/QtRemoteObjects/private/qremoteobjectnode_p.h, Qt
-//  6.12.0. Changes made here are lost.
+//  6.12.0.
+//  Edited by hand on 2026-11-26: moc's output for 'ProxyInfo' is pasted in,
+//  cut from what the moc of Qt 6.12.0 writes for its header: Qt's library
+//  keeps it to itself; added are 3 rituals that lean on what moc writes for
+//  a class of the part Qt keeps to itself, whose ritual file carries moc's
+//  output, drafted by a copy of the generator that lets those names through.
+//  A copy of a meta-object is a second one: 'qobject_cast' between it and
+//  Qt's own does not match. Kept as it is when the generator runs again.
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtRemoteObjects/QtRemoteObjects>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtRemoteObjects/6.12.0/QtRemoteObjects/private/qremoteobjectnode_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#include <QtRemoteObjects/QRemoteObjectHostBase>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <QtCore/qloggingcategory.h>
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
 #include <QtCore/private/qmetaobjectbuilder_p.h>
 #include <QtRemoteObjects/private/qremoteobjectcontainers_p.h>
 #include <QtRemoteObjects/qremoteobjectnode.h>
@@ -25,6 +37,7 @@
 #include <QtCore/qabstractitemmodel.h>
 #include <memory>
 #include <algorithm>
+#include <QtCore/qloggingcategory.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -36,11 +49,150 @@
 
 using namespace QRemoteObjectStringLiterals;
 
+//  from QtRemoteObjects__ProxyInfo.cpp, line 1, as moc:ProxyInfo
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN9ProxyInfoE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto ProxyInfo::qt_create_metaobjectdata<qt_meta_tag_ZN9ProxyInfoE_t>()
+{
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "ProxyInfo"
+    };
+
+    QtMocHelpers::UintData qt_methods {
+    };
+    QtMocHelpers::UintData qt_properties {
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    return QtMocHelpers::metaObjectData<ProxyInfo, qt_meta_tag_ZN9ProxyInfoE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums);
+}
+Q_CONSTINIT const QMetaObject ProxyInfo::staticMetaObject = { {
+    QMetaObject::SuperData::link<QObject::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN9ProxyInfoE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN9ProxyInfoE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN9ProxyInfoE_t>.metaTypes,
+    nullptr
+} };
+
+void ProxyInfo::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<ProxyInfo *>(_o);
+    (void)_t;
+    (void)_c;
+    (void)_id;
+    (void)_a;
+}
+
+const QMetaObject *ProxyInfo::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *ProxyInfo::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN9ProxyInfoE_t>.strings))
+        return static_cast<void*>(this);
+    return QObject::qt_metacast(_clname);
+}
+
+int ProxyInfo::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QObject::qt_metacall(_c, _id, _a);
+    return _id;
+}
+QT_WARNING_POP
+
+//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectnode.cpp, line 2878, as _ZN9ProxyInfoD0Ev
+inline ProxyInfo::~ProxyInfo() {
+    for (ProxyReplicaInfo* info : std::as_const(proxiedReplicas))
+        delete info;
+    delete proxyNode;
+}
+
 //  from ../qtremoteobjects/src/remoteobjects/qtremoteobjectglobal.cpp, line 13, as _Z15QT_REMOTEOBJECTv
 inline const QLoggingCategory &QT_REMOTEOBJECT()
 {
     static const QLoggingCategory category("qt.remoteobjects", QtWarningMsg);
     return category;
+}
+
+//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectnode.cpp, line 2841, as _ZN9ProxyInfoC1EP17QRemoteObjectNodeP21QRemoteObjectHostBaseSt8functionIFb11QStringViewS5_EE
+inline ProxyInfo::ProxyInfo(QRemoteObjectNode *node, QRemoteObjectHostBase *parent,
+                     QRemoteObjectHostBase::RemoteObjectNameFilter filter)
+    : QObject(parent)
+    , proxyNode(node)
+    , parentNode(parent)
+    , proxyFilter(filter)
+{
+    const auto registry = node->registry();
+    proxyNode->setObjectName(QLatin1String("_ProxyNode"));
+
+    connect(registry, &QRemoteObjectRegistry::remoteObjectAdded, this,
+            [this](const QRemoteObjectSourceLocation &entry)
+    {
+        this->proxyObject(entry, ProxyDirection::Forward);
+    });
+    connect(registry, &QRemoteObjectRegistry::remoteObjectRemoved, this,
+            &ProxyInfo::unproxyObject);
+    connect(registry, &QRemoteObjectRegistry::initialized, this, [registry, this]() {
+        QRemoteObjectSourceLocations locations = registry->sourceLocations();
+        QRemoteObjectSourceLocations::const_iterator i = locations.constBegin();
+        while (i != locations.constEnd()) {
+            proxyObject(QRemoteObjectSourceLocation(i.key(), i.value()));
+            ++i;
+        }
+    });
+
+    connect(registry, &QRemoteObjectRegistry::stateChanged, this,
+            [this](QRemoteObjectRegistry::State state, QRemoteObjectRegistry::State /*oldState*/) {
+        if (state != QRemoteObjectRegistry::Suspect)
+            return;
+        // unproxy all objects
+        for (ProxyReplicaInfo* info : std::as_const(proxiedReplicas))
+            disableAndDeleteObject(info);
+        proxiedReplicas.clear();
+    });
+}
+
+//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectnode.cpp, line 2884, as _ZN9ProxyInfo15setReverseProxyESt8functionIFb11QStringViewS1_EE
+inline bool ProxyInfo::setReverseProxy(QRemoteObjectHostBase::RemoteObjectNameFilter filter)
+{
+    if (qobject_cast<QRemoteObjectRegistryHost *>(parentNode) == nullptr) {
+        qWarning() << "Setting up reverseProxy() can only be done on a Registry node.";
+        return false;
+    }
+    const auto registry = parentNode->registry();
+    this->reverseFilter = filter;
+
+    connect(registry, &QRemoteObjectRegistry::remoteObjectAdded, this,
+            [this](const QRemoteObjectSourceLocation &entry)
+    {
+        this->proxyObject(entry, ProxyDirection::Reverse);
+    });
+    connect(registry, &QRemoteObjectRegistry::remoteObjectRemoved, this,
+            &ProxyInfo::unproxyObject);
+    connect(registry, &QRemoteObjectRegistry::initialized, this, [registry, this]() {
+        QRemoteObjectSourceLocations locations = registry->sourceLocations();
+        QRemoteObjectSourceLocations::const_iterator i = locations.constBegin();
+        while (i != locations.constEnd()) {
+            proxyObject(QRemoteObjectSourceLocation(i.key(), i.value()), ProxyDirection::Reverse);
+            ++i;
+        }
+    });
+
+    return true;
 }
 
 //  from ../qtremoteobjects/src/remoteobjects/qremoteobjectnode.cpp, line 2912, as _ZN9ProxyInfo11proxyObjectERKSt4pairI7QString31QRemoteObjectSourceLocationInfoENS_14ProxyDirectionE
@@ -326,10 +478,39 @@ int ritual_ZN9ProxyInfo11qt_metacallEN11QMetaObject4CallEiPPv(
   return self->qt_metacall(a0, a1, a2);
 }
 
+//  QString ProxyInfo::tr(const char *s, const char *c, int n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN9ProxyInfo2trEPKcS1_i(
+    const char *s,
+    const char *c,
+    int n) {
+  return new QString(ProxyInfo::tr(s, c, n));
+}
+
+//  ProxyInfo::ProxyInfo(QRemoteObjectNode *node, QRemoteObjectHostBase
+//      *parent, QRemoteObjectHostBase::RemoteObjectNameFilter filter)
+extern "C" Q_DECL_EXPORT
+ProxyInfo *ritual_ZN9ProxyInfoC1EP17QRemoteObjectNodeP21QRemoteObjectHostBaseSt8functionIFb11QStringViewS5_EE(
+    QRemoteObjectNode *node,
+    QRemoteObjectHostBase *parent,
+    const QRemoteObjectHostBase::RemoteObjectNameFilter *filter) {
+  return new CuteProxyInfo(node, parent, *filter);
+}
+
 //  ProxyInfo::~ProxyInfo()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN9ProxyInfoD1Ev(ProxyInfo *self) {
   delete self;
+}
+
+//  bool
+//      ProxyInfo::setReverseProxy(QRemoteObjectHostBase::RemoteObjectNameFil
+//      ter filter)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN9ProxyInfo15setReverseProxyESt8functionIFb11QStringViewS1_EE(
+    ProxyInfo *self,
+    const QRemoteObjectHostBase::RemoteObjectNameFilter *filter) {
+  return self->setReverseProxy(*filter);
 }
 
 //  void ProxyInfo::proxyObject(const QRemoteObjectSourceLocation &entry,

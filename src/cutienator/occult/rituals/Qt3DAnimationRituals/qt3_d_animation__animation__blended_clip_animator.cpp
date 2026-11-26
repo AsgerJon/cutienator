@@ -141,6 +141,21 @@ inline void Handler::setDirty(DirtyFlag flag, Qt3DCore::QNodeId nodeId)
 }
 }  // namespace Qt3DAnimation::Animation
 
+//  from ../qt3d/src/animation/backend/blendedclipanimator.cpp, line 16, as _ZN13Qt3DAnimation9Animation19BlendedClipAnimatorC1Ev
+namespace Qt3DAnimation::Animation {
+inline BlendedClipAnimator::BlendedClipAnimator()
+    : BackendNode(ReadWrite)
+    , m_running(false)
+    , m_lastGlobalTimeNS(0)
+    , m_lastLocalTime(0.0)
+    , m_currentLoop(0)
+    , m_loops(1)
+    , m_normalizedLocalTime(-1.0f)
+    , m_lastNormalizedLocalTime(-1.0)
+{
+}
+}  // namespace Qt3DAnimation::Animation
+
 //  from ../qt3d/src/animation/backend/blendedclipanimator.cpp, line 53, as _ZN13Qt3DAnimation9Animation19BlendedClipAnimator7cleanupEv
 namespace Qt3DAnimation::Animation {
 inline void BlendedClipAnimator::cleanup()
@@ -252,6 +267,12 @@ inline void BlendedClipAnimator::setLastNormalizedLocalTime(float normalizedTime
 }
 }  // namespace Qt3DAnimation::Animation
 //  -----------------------------------------------------------------------
+
+//  Qt3DAnimation::Animation::BlendedClipAnimator::BlendedClipAnimator()
+extern "C" Q_DECL_EXPORT
+Qt3DAnimation::Animation::BlendedClipAnimator *ritual_ZN13Qt3DAnimation9Animation19BlendedClipAnimatorC1Ev() {
+  return new Qt3DAnimation::Animation::BlendedClipAnimator();
+}
 
 //  void Qt3DAnimation::Animation::BlendedClipAnimator::cleanup()
 extern "C" Q_DECL_EXPORT

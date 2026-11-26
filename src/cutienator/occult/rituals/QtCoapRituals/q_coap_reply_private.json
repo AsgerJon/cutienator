@@ -5,6 +5,9 @@
     "made here are lost."
   ],
   "rows": {
+    "ritual_ZN17QCoapReplyPrivateC1ERK12QCoapRequest": [
+      "address", "address"
+    ],
     "ritual_ZN17QCoapReplyPrivate13_q_setRunningERK10QByteArrayt": [
       "nothing", "address", "address", "unsigned short"
     ],
@@ -23,6 +26,9 @@
     ],
     "ritual_ZN17QCoapReplyPrivate11_q_setErrorEN6QtCoap5ErrorE": [
       "nothing", "address", "unsigned char"
+    ],
+    "ritual_ZN17QCoapReplyPrivate15createCoapReplyERK12QCoapRequestP7QObject": [
+      "address", "address", "address"
     ],
     "ritual_ZN17QCoapReplyPrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK17QCoapReplyPrivate6q_funcEv": ["address", "address"],

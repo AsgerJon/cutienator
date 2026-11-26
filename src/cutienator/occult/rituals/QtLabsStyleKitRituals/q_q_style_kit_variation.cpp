@@ -1,6 +1,12 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtLabsStyleKit/6.12.0/QtLabsStyleKit/private/qqstylekitvariation_p.h, Qt
-//  6.12.0. Changes made here are lost.
+//  6.12.0.
+//  Edited by hand on 2026-11-26: added are 1 rituals that lean on what moc
+//  writes for a class of the part Qt keeps to itself, whose ritual file
+//  carries moc's output, drafted by a copy of the generator that lets those
+//  names through. A copy of a meta-object is a second one: 'qobject_cast'
+//  between it and Qt's own does not match. Kept as it is when the generator
+//  runs again.
 #include <QtLabsStyleKit/6.12.0/QtLabsStyleKit/private/qqstylekitglobal_p.h>
 #include <QtLabsStyleKit/QtLabsStyleKit>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -15,6 +21,7 @@
 #include <QtLabsStyleKit/private/qqstylekitstyleandthemebase_p.h>
 #include <QtLabsStyleKit/private/qqstylekitstyle_p.h>
 #include <QtLabsStyleKit/private/qqstylekittheme_p.h>
+#include <QtLabsStyleKit/private/qqstylekitcustomcontrol_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -28,12 +35,6 @@ using namespace Qt::StringLiterals;
 
 //  from ../qtdeclarative/src/labs/stylekit/qqstylekitcontrols.cpp, line 604, as _ZN18QQStyleKitControlsC2EP7QObject
 inline QQStyleKitControls::QQStyleKitControls(QObject *parent)
-    : QObject(parent)
-{
-}
-
-//  from ../qtdeclarative/src/labs/stylekit/qqstylekitvariation.cpp, line 186, as _ZN27QQStyleKitVariationAttachedC1EP7QObject
-inline QQStyleKitVariationAttached::QQStyleKitVariationAttached(QObject *parent)
     : QObject(parent)
 {
 }
@@ -58,6 +59,12 @@ inline void QQStyleKitVariation::componentComplete()
         qmlWarning(this) << "A StyleVariation needs to be a descendant of the Style it belongs to!";
 }
 
+//  from ../qtdeclarative/src/labs/stylekit/qqstylekitvariation.cpp, line 186, as _ZN27QQStyleKitVariationAttachedC1EP7QObject
+inline QQStyleKitVariationAttached::QQStyleKitVariationAttached(QObject *parent)
+    : QObject(parent)
+{
+}
+
 //  from ../qtdeclarative/src/labs/stylekit/qqstylekitcontrols.cpp, line 725, as _ZN18QQStyleKitControls17componentCompleteEv
 inline void QQStyleKitControls::componentComplete()
 {
@@ -75,10 +82,28 @@ inline void QQStyleKitControls::componentComplete()
     }
 }
 
+//  from ../qtdeclarative/src/labs/stylekit/qqstylekitcontrols.cpp, line 614, as _ZNK18QQStyleKitControls8childrenEv
+inline const QList<QObject *> QQStyleKitControls::children() const
+{
+    return m_data;
+}
+
+//  from ../qtdeclarative/src/labs/stylekit/qqstylekitcustomcontrol.cpp, line 67, as _ZNK23QQStyleKitCustomControl11controlTypeEv
+inline int QQStyleKitCustomControl::controlType() const
+{
+    return m_controlType;
+}
+
 //  from ../qtdeclarative/src/labs/stylekit/qqstylekitvariation.cpp, line 172, as _ZNK19QQStyleKitVariation4nameEv
 inline QString QQStyleKitVariation::name() const
 {
     return m_name;
+}
+
+//  from ../qtdeclarative/src/labs/stylekit/qqstylekitvariation.cpp, line 167, as _ZN19QQStyleKitVariation21qmlAttachedPropertiesEP7QObject
+inline QQStyleKitVariationAttached *QQStyleKitVariation::qmlAttachedProperties(QObject *object)
+{
+    return new QQStyleKitVariationAttached(object);
 }
 
 //  from ../qtdeclarative/src/labs/stylekit/qqstylekitvariation.cpp, line 219, as _ZN19QQStyleKitVariation23resetVariationsForStyleEP15QQStyleKitStyle
@@ -161,6 +186,14 @@ extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK19QQStyleKitVariation4nameEv(
     const QQStyleKitVariation *self) {
   return new QString(self->name());
+}
+
+//  QQStyleKitVariationAttached
+//      *QQStyleKitVariation::qmlAttachedProperties(QObject *object)
+extern "C" Q_DECL_EXPORT
+QQStyleKitVariationAttached *ritual_ZN19QQStyleKitVariation21qmlAttachedPropertiesEP7QObject(
+    QObject *object) {
+  return QQStyleKitVariation::qmlAttachedProperties(object);
 }
 
 //  void QQStyleKitVariation::nameChanged()

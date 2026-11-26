@@ -56,6 +56,17 @@ inline bool AspectTaskRunnable::isRequired() const
 }
 }  // namespace Qt3DCore
 
+//  from ../qt3d/src/core/jobs/task.cpp, line 23, as _ZN8Qt3DCore18AspectTaskRunnableC1EPNS_25QSystemInformationServiceE
+namespace Qt3DCore {
+inline AspectTaskRunnable::AspectTaskRunnable(QSystemInformationService *service)
+    : m_service(service)
+    , m_pooler(nullptr)
+    , m_id(0)
+    , m_reserved(false)
+{
+}
+}  // namespace Qt3DCore
+
 //  from ../qt3d/src/core/jobs/task.cpp, line 31, as _ZN8Qt3DCore18AspectTaskRunnableD1Ev
 namespace Qt3DCore {
 inline AspectTaskRunnable::~AspectTaskRunnable()
@@ -204,6 +215,14 @@ public:
     return Qt3DCore::AspectTaskRunnable::type();
   }
 };
+
+//  Qt3DCore::AspectTaskRunnable::AspectTaskRunnable(QSystemInformationServic
+//      e *service)
+extern "C" Q_DECL_EXPORT
+Qt3DCore::AspectTaskRunnable *ritual_ZN8Qt3DCore18AspectTaskRunnableC1EPNS_25QSystemInformationServiceE(
+    Qt3DCore::QSystemInformationService *service) {
+  return new CuteQt3DCore_AspectTaskRunnable(service);
+}
 
 //  Qt3DCore::AspectTaskRunnable::~AspectTaskRunnable()
 extern "C" Q_DECL_EXPORT

@@ -1,6 +1,11 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtWidgets/6.12.0/QtWidgets/private/qdatetimeedit_p.h, Qt 6.12.0. Changes
-//  made here are lost.
+//  QtWidgets/6.12.0/QtWidgets/private/qdatetimeedit_p.h, Qt 6.12.0.
+//  Edited by hand on 2026-11-26: added are 1 rituals that lean on what moc
+//  writes for a class of the part Qt keeps to itself, whose ritual file
+//  carries moc's output, drafted by a copy of the generator that lets those
+//  names through. A copy of a meta-object is a second one: 'qobject_cast'
+//  between it and Qt's own does not match. Kept as it is when the generator
+//  runs again.
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
@@ -1040,6 +1045,24 @@ inline QDateTimeEdit::Section QDateTimeEditPrivate::convertToPublic(QDateTimePar
     case LastSection: break;
     }
     return QDateTimeEdit::NoSection;
+}
+
+//  from src/widgets/widgets/qdatetimeedit.cpp, line 2505, as _ZN20QDateTimeEditPrivate17initCalendarPopupEP15QCalendarWidget
+inline void QDateTimeEditPrivate::initCalendarPopup(QCalendarWidget *cw)
+{
+    Q_Q(QDateTimeEdit);
+    if (!monthCalendar) {
+        monthCalendar = new QCalendarPopup(q, cw, calendar);
+        monthCalendar->setObjectName("qt_datetimedit_calendar"_L1);
+        QObject::connect(monthCalendar, SIGNAL(newDateSelected(QDate)), q, SLOT(setDate(QDate)));
+        QObject::connect(monthCalendar, SIGNAL(hidingCalendar(QDate)), q, SLOT(setDate(QDate)));
+        QObject::connect(monthCalendar, SIGNAL(activated(QDate)), q, SLOT(setDate(QDate)));
+        QObject::connect(monthCalendar, SIGNAL(activated(QDate)), monthCalendar, SLOT(close()));
+        QObject::connect(monthCalendar, SIGNAL(resetButton()), q, SLOT(_q_resetButton()));
+    } else if (cw) {
+        monthCalendar->setCalendarWidget(cw);
+    }
+    syncCalendarWidget();
 }
 
 //  from src/widgets/widgets/qdatetimeedit.cpp, line 2522, as _ZN20QDateTimeEditPrivate21positionCalendarPopupEv
@@ -2154,6 +2177,14 @@ extern "C" Q_DECL_EXPORT
 QDateTimeEdit::Section ritual_ZN20QDateTimeEditPrivate15convertToPublicEN15QDateTimeParser7SectionE(
     QDateTimeParser::Section s) {
   return QDateTimeEditPrivate::convertToPublic(s);
+}
+
+//  void QDateTimeEditPrivate::initCalendarPopup(QCalendarWidget *cw)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QDateTimeEditPrivate17initCalendarPopupEP15QCalendarWidget(
+    QDateTimeEditPrivate *self,
+    QCalendarWidget *cw) {
+  self->initCalendarPopup(cw);
 }
 
 //  void QDateTimeEditPrivate::positionCalendarPopup()

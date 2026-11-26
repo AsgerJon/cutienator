@@ -1,6 +1,11 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtQuick/6.12.0/QtQuick/private/qquickpathview_p_p.h, Qt 6.12.0. Changes
-//  made here are lost.
+//  QtQuick/6.12.0/QtQuick/private/qquickpathview_p_p.h, Qt 6.12.0.
+//  Edited by hand on 2026-11-26: added are 11 rituals that lean on what moc
+//  writes for a class of the part Qt keeps to itself, whose ritual file
+//  carries moc's output, drafted by a copy of the generator that lets those
+//  names through. A copy of a meta-object is a second one: 'qobject_cast'
+//  between it and Qt's own does not match. Kept as it is when the generator
+//  runs again.
 #include <QtGui/qtguiglobal.h>
 #include <QtQuick/qtquickglobal.h>
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
@@ -83,6 +88,35 @@ inline QQuickTimeLineObject::~QQuickTimeLineObject()
     }
 }
 
+//  from ../qtdeclarative/src/quick/items/qquickpathview.cpp, line 61, as _ZN22QQuickPathViewAttached8setValueERK10QByteArrayRK8QVariant
+inline void QQuickPathViewAttached::setValue(const QByteArray &name, const QVariant &val)
+{
+    m_metaobject->setValue(name, val);
+}
+
+//  from ../qtdeclarative/src/quick/items/qquickpathview.cpp, line 66, as _ZN21QQuickPathViewPrivateC1Ev
+inline QQuickPathViewPrivate::QQuickPathViewPrivate()
+  : path(nullptr), currentIndex(0), currentItemOffset(0), startPc(0)
+    , offset(0), offsetAdj(0), mappedRange(1), mappedCache(0)
+    , stealMouse(false), ownModel(false), interactive(true), haveHighlightRange(true)
+    , autoHighlight(true), highlightUp(false), layoutScheduled(false)
+    , moving(false), flicking(false), dragging(false), inRequest(false), delegateValidated(false)
+    , inRefill(false)
+    , dragMargin(0), deceleration(100)
+    , maximumFlickVelocity(QGuiApplicationPrivate::platformTheme()->themeHint(QPlatformTheme::FlickMaximumVelocity).toReal())
+    , moveOffset(this, &QQuickPathViewPrivate::setAdjustedOffset), flickDuration(0)
+    , pathItems(-1), requestedIndex(-1), cacheSize(0), requestedCacheSize(0), requestedZ(0)
+    , moveReason(Other), movementDirection(QQuickPathView::Shortest), moveDirection(QQuickPathView::Shortest)
+    , attType(nullptr), highlightComponent(nullptr), highlightItem(nullptr)
+    , moveHighlight(this, &QQuickPathViewPrivate::setHighlightPosition)
+    , highlightPosition(0)
+    , highlightRangeStart(0), highlightRangeEnd(0)
+    , highlightRangeMode(QQuickPathView::StrictlyEnforceRange)
+    , highlightMoveDuration(300), modelCount(0), snapMode(QQuickPathView::NoSnap)
+{
+    setSizePolicy(QLayoutPolicy::Preferred, QLayoutPolicy::Preferred);
+}
+
 //  from ../qtdeclarative/src/quick/items/qquickpathview.cpp, line 88, as _ZN21QQuickPathViewPrivate4initEv
 inline void QQuickPathViewPrivate::init()
 {
@@ -127,10 +161,70 @@ inline QQuickItem *QQuickPathViewPrivate::getItem(int modelIndex, qreal z, bool 
     return item;
 }
 
+//  from ../qtdeclarative/src/quick/items/qquickpathview.cpp, line 175, as _ZN21QQuickPathViewPrivate11releaseItemEP10QQuickItem
+inline void QQuickPathViewPrivate::releaseItem(QQuickItem *item)
+{
+    if (!item)
+        return;
+    qCDebug(lcItemViewDelegateLifecycle) << "release" << item;
+    QQuickItemPrivate *itemPrivate = QQuickItemPrivate::get(item);
+    itemPrivate->removeItemChangeListener(
+                this, QQuickItemPrivate::Geometry | QQuickItemPrivate::Destroyed);
+    if (!model)
+        return;
+    QQmlInstanceModel::ReleaseFlags flags = model->release(item);
+    if (!flags) {
+        // item was not destroyed, and we no longer reference it.
+        if (QQuickPathViewAttached *att = attached(item))
+            att->setOnPath(false);
+    } else if (flags & QQmlInstanceModel::Destroyed) {
+        // but we still reference it
+        item->setParentItem(nullptr);
+    }
+}
+
 //  from ../qtdeclarative/src/quick/items/qquickpathview.cpp, line 196, as _ZN21QQuickPathViewPrivate8attachedEP10QQuickItem
 inline QQuickPathViewAttached *QQuickPathViewPrivate::attached(QQuickItem *item)
 {
     return static_cast<QQuickPathViewAttached *>(qmlAttachedPropertiesObject<QQuickPathView>(item, false));
+}
+
+//  from ../qtdeclarative/src/quick/items/qquickpathview.cpp, line 201, as _ZN21QQuickPathViewPrivate12attachedTypeEv
+inline QQmlOpenMetaObjectType *QQuickPathViewPrivate::attachedType()
+{
+    if (!attType) {
+        // pre-create one metatype to share with all attached objects
+        attType = new QQmlOpenMetaObjectType(&QQuickPathViewAttached::staticMetaObject);
+        if (path) {
+            const auto attributes = path->attributes();
+            for (const QString &attr : attributes)
+                attType->createProperty(attr.toUtf8());
+        }
+    }
+
+    return attType;
+}
+
+//  from ../qtdeclarative/src/quick/items/qquickpathview.cpp, line 216, as _ZN21QQuickPathViewPrivate5clearEv
+inline void QQuickPathViewPrivate::clear()
+{
+    releaseCurrentItem();
+
+    for (QQuickItem *p : std::as_const(items))
+        releaseItem(p);
+
+    for (QQuickItem *p : std::as_const(itemCache))
+        releaseItem(p);
+
+    if (requestedIndex >= 0) {
+        if (model)
+            model->cancel(requestedIndex);
+        requestedIndex = -1;
+    }
+
+    items.clear();
+    itemCache.clear();
+    tl.clear();
 }
 
 //  from ../qtdeclarative/src/quick/items/qquickpathview.cpp, line 237, as _ZN21QQuickPathViewPrivate17updateMappedRangeEv
@@ -229,6 +323,75 @@ inline void QQuickPathViewPrivate::createHighlight()
         emit q->highlightItemChanged();
 }
 
+//  from ../qtdeclarative/src/quick/items/qquickpathview.cpp, line 331, as _ZN21QQuickPathViewPrivate15updateHighlightEv
+inline void QQuickPathViewPrivate::updateHighlight()
+{
+    Q_Q(QQuickPathView);
+    if (!q->isComponentComplete() || !isValid())
+        return;
+    if (highlightItem) {
+        if (haveHighlightRange && highlightRangeMode == QQuickPathView::StrictlyEnforceRange) {
+            updateItem(highlightItem, highlightRangeStart);
+        } else {
+            qreal target = currentIndex;
+
+            offsetAdj = 0;
+            tl.reset(moveHighlight);
+            moveHighlight.setValue(highlightPosition);
+
+            const int duration = highlightMoveDuration;
+
+            if (target - highlightPosition > modelCount/2) {
+                highlightUp = false;
+                qreal distance = modelCount - target + highlightPosition;
+                tl.move(moveHighlight, 0, QEasingCurve(QEasingCurve::InQuad), int(duration * highlightPosition / distance));
+                tl.set(moveHighlight, modelCount-0.01);
+                tl.move(moveHighlight, target, QEasingCurve(QEasingCurve::OutQuad), int(duration * (modelCount-target) / distance));
+            } else if (target - highlightPosition <= -modelCount/2) {
+                highlightUp = true;
+                qreal distance = modelCount - highlightPosition + target;
+                tl.move(moveHighlight, modelCount-0.01, QEasingCurve(QEasingCurve::InQuad), int(duration * (modelCount-highlightPosition) / distance));
+                tl.set(moveHighlight, 0);
+                tl.move(moveHighlight, target, QEasingCurve(QEasingCurve::OutQuad), int(duration * target / distance));
+            } else {
+                highlightUp = highlightPosition - target < 0;
+                tl.move(moveHighlight, target, QEasingCurve(QEasingCurve::InOutQuad), duration);
+            }
+        }
+    }
+}
+
+//  from ../qtdeclarative/src/quick/items/qquickpathview.cpp, line 368, as _ZN21QQuickPathViewPrivate20setHighlightPositionEd
+inline void QQuickPathViewPrivate::setHighlightPosition(qreal pos)
+{
+    if (!(qFuzzyCompare(pos, highlightPosition))) {
+        qreal start = 0;
+        qreal end = 1;
+        if (haveHighlightRange && highlightRangeMode != QQuickPathView::NoHighlightRange) {
+            start = highlightRangeStart;
+            end = highlightRangeEnd;
+        }
+
+        qreal range = qreal(modelCount);
+        // calc normalized position of highlight relative to offset
+        qreal relativeHighlight = std::fmod(pos + offset, range) / range;
+
+        if (!highlightUp && relativeHighlight > end / mappedRange) {
+            qreal diff = 1 - relativeHighlight;
+            setOffset(offset + diff * range);
+        } else if (highlightUp && relativeHighlight >= (end - start) / mappedRange) {
+            qreal diff = relativeHighlight - (end - start) / mappedRange;
+            setOffset(offset - diff * range - 0.00001);
+        }
+
+        highlightPosition = pos;
+        qreal pathPos = positionOfIndex(pos);
+        updateItem(highlightItem, pathPos);
+        if (QQuickPathViewAttached *att = attached(highlightItem))
+            att->setOnPath(pathPos < 1);
+    }
+}
+
 //  from ../qtdeclarative/src/quick/items/qquickpathview.cpp, line 1637, as _ZN21QQuickPathViewPrivate21handleMousePressEventEP11QMouseEvent
 inline void QQuickPathViewPrivate::handleMousePressEvent(QMouseEvent *event)
 {
@@ -281,6 +444,61 @@ inline int QQuickPathViewPrivate::calcCurrentIndex()
     return current;
 }
 
+//  from ../qtdeclarative/src/quick/items/qquickpathview.cpp, line 2329, as _ZN21QQuickPathViewPrivate17createCurrentItemEv
+inline void QQuickPathViewPrivate::createCurrentItem()
+{
+    if (requestedIndex != -1)
+        return;
+
+    bool inItems = false;
+    for (QQuickItem *item : std::as_const(items)) {
+        if (model->indexOf(item, nullptr) == currentIndex) {
+            inItems = true;
+            break;
+        }
+    }
+
+    if (inItems) {
+        if ((currentItem = getItem(currentIndex, currentIndex))) {
+            currentItem->setFocus(true);
+            if (QQuickPathViewAttached *att = attached(currentItem))
+                att->setIsCurrentItem(true);
+        }
+    } else if (currentIndex >= 0 && currentIndex < modelCount) {
+        if ((currentItem = getItem(currentIndex, currentIndex))) {
+            updateItem(currentItem, 1);
+            if (QQuickPathViewAttached *att = attached(currentItem))
+                att->setIsCurrentItem(true);
+        }
+    }
+}
+
+//  from ../qtdeclarative/src/quick/items/qquickpathview.cpp, line 2357, as _ZN21QQuickPathViewPrivate13updateCurrentEv
+inline void QQuickPathViewPrivate::updateCurrent()
+{
+    Q_Q(QQuickPathView);
+    if (moveReason == SetIndex)
+        return;
+    if (!modelCount || !haveHighlightRange || highlightRangeMode != QQuickPathView::StrictlyEnforceRange)
+        return;
+
+    int idx = calcCurrentIndex();
+    if (model && (idx != currentIndex || !currentItem)) {
+        if (currentItem) {
+            if (QQuickPathViewAttached *att = attached(currentItem))
+                att->setIsCurrentItem(false);
+            releaseCurrentItem();
+        }
+        int oldCurrentIndex = currentIndex;
+        currentIndex = idx;
+        currentItem = nullptr;
+        createCurrentItem();
+        if (oldCurrentIndex != currentIndex)
+            emit q->currentIndexChanged();
+        emit q->currentItemChanged();
+    }
+}
+
 //  from ../qtdeclarative/src/quick/items/qquickpathview.cpp, line 2382, as _ZN21QQuickPathViewPrivate17fixOffsetCallbackEPv
 inline void QQuickPathViewPrivate::fixOffsetCallback(void *d)
 {
@@ -326,6 +544,42 @@ inline void QQuickPathViewPrivate::setOffset(qreal o)
 inline void QQuickPathViewPrivate::setAdjustedOffset(qreal o)
 {
     setOffset(o+offsetAdj);
+}
+
+//  from ../qtdeclarative/src/quick/items/qquickpathview.cpp, line 427, as _ZN21QQuickPathViewPrivate10regenerateEv
+inline void QQuickPathViewPrivate::regenerate()
+{
+    Q_Q(QQuickPathView);
+    if (!q->isComponentComplete())
+        return;
+
+    clear();
+
+    if (!isValid())
+        return;
+
+    updateMappedRange();
+    q->refill();
+}
+
+//  from ../qtdeclarative/src/quick/items/qquickpathview.cpp, line 408, as _ZN21QQuickPathViewPrivate10updateItemEP10QQuickItemd
+inline void QQuickPathViewPrivate::updateItem(QQuickItem *item, qreal percent)
+{
+    if (!path)
+        return;
+    if (QQuickPathViewAttached *att = attached(item)) {
+        if (qFuzzyCompare(att->m_percent, percent))
+            return;
+        att->m_percent = percent;
+        const auto attributes = path->attributes();
+        for (const QString &attr : attributes)
+            att->setValue(attr.toUtf8(), path->attributeAt(attr, percent));
+        att->setOnPath(percent < 1);
+    }
+    QQuickItemPrivate::get(item)->setCulled(percent >= 1);
+    QPointF pf = path->pointAtPercent(qMin(percent, qreal(1)));
+    item->setX(pf.x() - item->width()/2);
+    item->setY(pf.y() - item->height()/2);
 }
 
 //  from ../qtdeclarative/src/quick/items/qquickpathview.cpp, line 2402, as _ZN21QQuickPathViewPrivate11snapToIndexEiNS_14MovementReasonE
@@ -820,6 +1074,12 @@ const QQuickPathView *ritual_ZNK21QQuickPathViewPrivate6q_funcEv(
   return self->q_func();
 }
 
+//  QQuickPathViewPrivate::QQuickPathViewPrivate()
+extern "C" Q_DECL_EXPORT
+QQuickPathViewPrivate *ritual_ZN21QQuickPathViewPrivateC1Ev() {
+  return new CuteQQuickPathViewPrivate();
+}
+
 //  void QQuickPathViewPrivate::init()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN21QQuickPathViewPrivate4initEv(QQuickPathViewPrivate *self) {
@@ -863,12 +1123,40 @@ QQuickItem *ritual_ZN21QQuickPathViewPrivate7getItemEidb(
   return self->getItem(modelIndex, z, async);
 }
 
+//  void QQuickPathViewPrivate::releaseCurrentItem()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickPathViewPrivate18releaseCurrentItemEv(
+    QQuickPathViewPrivate *self) {
+  self->releaseCurrentItem();
+}
+
+//  void QQuickPathViewPrivate::releaseItem(QQuickItem *item)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickPathViewPrivate11releaseItemEP10QQuickItem(
+    QQuickPathViewPrivate *self,
+    QQuickItem *item) {
+  self->releaseItem(item);
+}
+
 //  QQuickPathViewAttached *QQuickPathViewPrivate::attached(QQuickItem *item)
 extern "C" Q_DECL_EXPORT
 QQuickPathViewAttached *ritual_ZN21QQuickPathViewPrivate8attachedEP10QQuickItem(
     QQuickPathViewPrivate *self,
     QQuickItem *item) {
   return self->attached(item);
+}
+
+//  QQmlOpenMetaObjectType *QQuickPathViewPrivate::attachedType()
+extern "C" Q_DECL_EXPORT
+QQmlOpenMetaObjectType *ritual_ZN21QQuickPathViewPrivate12attachedTypeEv(
+    QQuickPathViewPrivate *self) {
+  return self->attachedType();
+}
+
+//  void QQuickPathViewPrivate::clear()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickPathViewPrivate5clearEv(QQuickPathViewPrivate *self) {
+  self->clear();
 }
 
 //  void QQuickPathViewPrivate::updateMappedRange()
@@ -905,6 +1193,21 @@ void ritual_ZN21QQuickPathViewPrivate15createHighlightEv(
   self->createHighlight();
 }
 
+//  void QQuickPathViewPrivate::updateHighlight()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickPathViewPrivate15updateHighlightEv(
+    QQuickPathViewPrivate *self) {
+  self->updateHighlight();
+}
+
+//  void QQuickPathViewPrivate::setHighlightPosition(qreal pos)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickPathViewPrivate20setHighlightPositionEd(
+    QQuickPathViewPrivate *self,
+    qreal pos) {
+  self->setHighlightPosition(pos);
+}
+
 //  bool QQuickPathViewPrivate::isValid() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK21QQuickPathViewPrivate7isValidEv(
@@ -925,6 +1228,20 @@ extern "C" Q_DECL_EXPORT
 int ritual_ZN21QQuickPathViewPrivate16calcCurrentIndexEv(
     QQuickPathViewPrivate *self) {
   return self->calcCurrentIndex();
+}
+
+//  void QQuickPathViewPrivate::createCurrentItem()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickPathViewPrivate17createCurrentItemEv(
+    QQuickPathViewPrivate *self) {
+  self->createCurrentItem();
+}
+
+//  void QQuickPathViewPrivate::updateCurrent()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickPathViewPrivate13updateCurrentEv(
+    QQuickPathViewPrivate *self) {
+  self->updateCurrent();
 }
 
 //  void QQuickPathViewPrivate::fixOffsetCallback(void *a0)
@@ -954,6 +1271,22 @@ void ritual_ZN21QQuickPathViewPrivate17setAdjustedOffsetEd(
     QQuickPathViewPrivate *self,
     qreal offset) {
   self->setAdjustedOffset(offset);
+}
+
+//  void QQuickPathViewPrivate::regenerate()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickPathViewPrivate10regenerateEv(
+    QQuickPathViewPrivate *self) {
+  self->regenerate();
+}
+
+//  void QQuickPathViewPrivate::updateItem(QQuickItem *a0, qreal a1)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QQuickPathViewPrivate10updateItemEP10QQuickItemd(
+    QQuickPathViewPrivate *self,
+    QQuickItem *a0,
+    qreal a1) {
+  self->updateItem(a0, a1);
 }
 
 //  void QQuickPathViewPrivate::snapToIndex(int index, MovementReason reason)

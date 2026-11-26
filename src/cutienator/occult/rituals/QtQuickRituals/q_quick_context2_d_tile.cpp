@@ -69,6 +69,14 @@ inline QQuickContext2DTile::~QQuickContext2DTile()
     if (m_painter.isActive())
         m_painter.end();
 }
+
+//  from ../qtdeclarative/src/quick/items/context2d/qquickcontext2dtile.cpp, line 9, as _ZN19QQuickContext2DTileC1Ev
+inline QQuickContext2DTile::QQuickContext2DTile()
+    : m_dirty(true)
+    , m_rect(QRect(0, 0, 1, 1))
+    , m_device(nullptr)
+{
+}
 //  -----------------------------------------------------------------------
 
 //  Only a class built on QQuickContext2DTile may call these functions of it.
@@ -177,6 +185,12 @@ public:
   }
 #endif  // QT_CONFIG(quick_canvas)
 };
+
+//  QQuickContext2DTile::QQuickContext2DTile()
+extern "C" Q_DECL_EXPORT
+QQuickContext2DTile *ritual_ZN19QQuickContext2DTileC1Ev() {
+  return new CuteQQuickContext2DTile();
+}
 
 //  QQuickContext2DTile::~QQuickContext2DTile()
 extern "C" Q_DECL_EXPORT

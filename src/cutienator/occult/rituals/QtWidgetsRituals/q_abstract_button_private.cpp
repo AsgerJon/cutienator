@@ -62,6 +62,22 @@ inline QStyle::State QAbstractButtonPrivate::styleButtonState(QStyle::State stat
     return state;
 }
 
+//  from src/widgets/widgets/qabstractbutton.cpp, line 139, as _ZN22QAbstractButtonPrivateC1EN11QSizePolicy11ControlTypeE
+inline QAbstractButtonPrivate::QAbstractButtonPrivate(QSizePolicy::ControlType type)
+    :
+#ifndef QT_NO_SHORTCUT
+    shortcutId(0),
+#endif
+    checkable(false), checked(false), autoRepeat(false), autoExclusive(false),
+    down(false), blockRefresh(false), pressed(false),
+#if QT_CONFIG(buttongroup)
+    group(nullptr),
+#endif
+    autoRepeatDelay(AUTO_REPEAT_DELAY),
+    autoRepeatInterval(AUTO_REPEAT_INTERVAL),
+    controlType(type)
+{}
+
 //  from src/widgets/widgets/qabstractbutton.cpp, line 323, as _ZN22QAbstractButtonPrivate4initEv
 inline void QAbstractButtonPrivate::init()
 {
@@ -596,6 +612,14 @@ extern "C" Q_DECL_EXPORT
 const QAbstractButton *ritual_ZNK22QAbstractButtonPrivate6q_funcEv(
     const QAbstractButtonPrivate *self) {
   return self->q_func();
+}
+
+//  QAbstractButtonPrivate::QAbstractButtonPrivate(QSizePolicy::ControlType
+//      type)
+extern "C" Q_DECL_EXPORT
+QAbstractButtonPrivate *ritual_ZN22QAbstractButtonPrivateC1EN11QSizePolicy11ControlTypeE(
+    QSizePolicy::ControlType type) {
+  return new CuteQAbstractButtonPrivate(type);
 }
 
 //  void QAbstractButtonPrivate::init()

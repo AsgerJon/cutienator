@@ -167,6 +167,13 @@ inline QGestureRecognizer::Result QPinchGestureRecognizer::recognize(QGesture *s
     return result;
 }
 #endif  // !defined(QT_NO_GESTURES)
+
+//  from src/widgets/kernel/qstandardgestures.cpp, line 117, as _ZN23QPinchGestureRecognizerC1Ev
+#if !defined(QT_NO_GESTURES)
+inline QPinchGestureRecognizer::QPinchGestureRecognizer()
+{
+}
+#endif  // !defined(QT_NO_GESTURES)
 //  -----------------------------------------------------------------------
 
 //  A QPinchGestureRecognizer that Python can take functions over in. Every QPinchGestureRecognizer
@@ -253,6 +260,14 @@ public:
   }
 #endif  // !defined(QT_NO_GESTURES)
 };
+
+#if !defined(QT_NO_GESTURES)
+//  QPinchGestureRecognizer::QPinchGestureRecognizer()
+extern "C" Q_DECL_EXPORT
+QPinchGestureRecognizer *ritual_ZN23QPinchGestureRecognizerC1Ev() {
+  return new CuteQPinchGestureRecognizer();
+}
+#endif  // !defined(QT_NO_GESTURES)
 
 //  QGesture *QPinchGestureRecognizer::create(QObject *target)
 extern "C" Q_DECL_EXPORT

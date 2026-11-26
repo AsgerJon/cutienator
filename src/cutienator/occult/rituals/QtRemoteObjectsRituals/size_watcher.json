@@ -2,7 +2,7 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of QtRemot",
     "eObjects/6.12.0/QtRemoteObjects/private/qremoteobjectabstractitemm",
-    "odelreplica_p.h, Qt 6.12.0. Changes made here are lost."
+    "odelreplica_p.h, Qt 6.12.0. Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZNK11SizeWatcher10metaObjectEv": ["address", "address"],
@@ -11,6 +11,10 @@
     ],
     "ritual_ZN11SizeWatcher11qt_metacallEN11QMetaObject4CallEiPPv": [
       "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN11SizeWatcher2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN11SizeWatcherC1E5QListIN9QtPrivate10ModelIndexEERK25QRemoteObjectPendingReplyI5QSizeE": [
+      "address", "address", "address"
     ],
     "ritual_take_SizeWatcher": ["bool", "address", "chars", "address"]
   }

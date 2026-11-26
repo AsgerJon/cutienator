@@ -1,12 +1,19 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtRemoteObjects/6.12.0/QtRemoteObjects/private/qremoteobjectreplica_p.h,
-//  Qt 6.12.0. Changes made here are lost.
+//  Qt 6.12.0.
+//  Edited by hand on 2026-11-26: added are 2 rituals that lean on what moc
+//  writes for a class of the part Qt keeps to itself, whose ritual file
+//  carries moc's output, drafted by a copy of the generator that lets those
+//  names through. A copy of a meta-object is a second one: 'qobject_cast'
+//  between it and Qt's own does not match. Kept as it is when the generator
+//  runs again.
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtRemoteObjects/QtRemoteObjects>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtRemoteObjects/6.12.0/QtRemoteObjects/private/qremoteobjectreplica_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qvariant.h>
+#include <QtRemoteObjects/qremoteobjectpendingcall.h>
 #include <QtCore/QList>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qloggingcategory.h>
@@ -306,6 +313,55 @@ inline void QConnectedReplicaImplementation::configurePrivate(QRemoteObjectRepli
         m_parentsNeedingConnect.append(rep);
 }
 
+//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectreplica.cpp, line 427, as _ZN31QConnectedReplicaImplementation15waitForFinishedERK24QRemoteObjectPendingCalli
+inline bool QConnectedReplicaImplementation::waitForFinished(const QRemoteObjectPendingCall& call, int timeout)
+{
+    if (!call.d->watcherHelper)
+        call.d->watcherHelper.reset(new QRemoteObjectPendingCallWatcherHelper);
+
+    call.d->mutex.unlock();
+
+    QEventLoop loop;
+    loop.connect(call.d->watcherHelper.data(), &QRemoteObjectPendingCallWatcherHelper::finished,
+                 &loop, &QEventLoop::quit);
+
+    QTimer t; // NB: Related to QTBUG-94570 - don't use QTimer::singleShot here.
+    if (timeout >= 0) {
+        t.setSingleShot(true);
+        connect(&t, &QTimer::timeout, &loop, &QEventLoop::quit);
+        t.start(timeout);
+    }
+
+    // enter the event loop and wait for a reply
+    loop.exec(QEventLoop::ExcludeUserInputEvents | QEventLoop::WaitForMoreEvents);
+
+    call.d->mutex.lock();
+
+    return call.d->error != QRemoteObjectPendingCall::InvalidMessage;
+}
+
+//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectreplica.cpp, line 406, as _ZN31QConnectedReplicaImplementation16notifyAboutReplyEiRK8QVariant
+inline void QConnectedReplicaImplementation::notifyAboutReply(int ackedSerialId, const QVariant &value)
+{
+    QRemoteObjectPendingCall call = m_pendingCalls.take(ackedSerialId);
+    if (ackedSerialId == 0) {
+        m_heartbeatTimer.stop();
+        if (m_heartbeatTimer.interval())
+            m_heartbeatTimer.start();
+        return;
+    }
+
+    QMutexLocker mutex(&call.d->mutex);
+
+    // clear error flag
+    call.d->error = QRemoteObjectPendingCall::NoError;
+    call.d->returnValue = value;
+
+    // notify watchers if needed
+    if (call.d->watcherHelper)
+        call.d->watcherHelper->emitSignals();
+}
+
 //  from ../qtremoteobjects/src/remoteobjects/qremoteobjectreplica.cpp, line 480, as _ZN31QConnectedReplicaImplementation15setDisconnectedEv
 inline void QConnectedReplicaImplementation::setDisconnected()
 {
@@ -401,6 +457,26 @@ void ritual_ZN31QConnectedReplicaImplementation16configurePrivateEP20QRemoteObje
     QConnectedReplicaImplementation *self,
     QRemoteObjectReplica *a0) {
   self->configurePrivate(a0);
+}
+
+//  bool QConnectedReplicaImplementation::waitForFinished(const
+//      QRemoteObjectPendingCall &call, int timeout)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN31QConnectedReplicaImplementation15waitForFinishedERK24QRemoteObjectPendingCalli(
+    QConnectedReplicaImplementation *self,
+    const QRemoteObjectPendingCall *call,
+    int timeout) {
+  return self->waitForFinished(*call, timeout);
+}
+
+//  void QConnectedReplicaImplementation::notifyAboutReply(int ackedSerialId,
+//      const QVariant &value)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN31QConnectedReplicaImplementation16notifyAboutReplyEiRK8QVariant(
+    QConnectedReplicaImplementation *self,
+    int ackedSerialId,
+    const QVariant *value) {
+  self->notifyAboutReply(ackedSerialId, *value);
 }
 
 //  void QConnectedReplicaImplementation::setDisconnected()

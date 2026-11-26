@@ -5,6 +5,9 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN18qdesigner_internal18MoveTabPageCommandC1EP28QDesignerFormWindowInterface": [
+      "address", "address"
+    ],
     "ritual_ZN18qdesigner_internal18MoveTabPageCommandD1Ev": [
       "nothing", "address"
     ],

@@ -2,7 +2,7 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of QtQuick",
     "3DParticles/6.12.0/QtQuick3DParticles/private/qquick3dparticlesyst",
-    "em_p.h, Qt 6.12.0. Changes made here are lost."
+    "em_p.h, Qt 6.12.0. Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZNK28QQuick3DParticleSystemUpdate10metaObjectEv": [
@@ -13,6 +13,12 @@
     ],
     "ritual_ZN28QQuick3DParticleSystemUpdate11qt_metacallEN11QMetaObject4CallEiPPv": [
       "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN28QQuick3DParticleSystemUpdate2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN28QQuick3DParticleSystemUpdateC1EP22QQuick3DParticleSystem": [
+      "address", "address"
     ],
     "ritual_ZN28QQuick3DParticleSystemUpdate8setDirtyEb": [
       "nothing", "address", "bool"

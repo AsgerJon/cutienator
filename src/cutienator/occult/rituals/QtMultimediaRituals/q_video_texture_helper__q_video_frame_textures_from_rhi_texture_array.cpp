@@ -30,6 +30,14 @@ inline QRhiTexture *QVideoFrameTexturesFromRhiTextureArray::texture(uint plane) 
     return plane < m_rhiTextures.size() ? m_rhiTextures[plane].get() : nullptr;
 }
 }  // namespace QVideoTextureHelper
+
+//  from ../qtmultimedia/src/multimedia/video/qvideoframetexturefromsource.cpp, line 10, as _ZN19QVideoTextureHelper38QVideoFrameTexturesFromRhiTextureArrayC1EOSt5arrayISt10unique_ptrI11QRhiTextureSt14default_deleteIS3_EELm3EE
+namespace QVideoTextureHelper {
+inline QVideoFrameTexturesFromRhiTextureArray::QVideoFrameTexturesFromRhiTextureArray(RhiTextureArray &&rhiTextures)
+    : m_rhiTextures(std::move(rhiTextures))
+{
+}
+}  // namespace QVideoTextureHelper
 //  -----------------------------------------------------------------------
 
 //  A QVideoTextureHelper::QVideoFrameTexturesFromRhiTextureArray that Python can take functions over in. Every QVideoTextureHelper::QVideoFrameTexturesFromRhiTextureArray
@@ -77,6 +85,15 @@ public:
     QVideoFrameTextures::onFrameEndInvoked();
   }
 };
+
+//  QVideoTextureHelper::QVideoFrameTexturesFromRhiTextureArray::QVideoFrameT
+//      exturesFromRhiTextureArray(RhiTextureArray &&rhiTextures)
+extern "C" Q_DECL_EXPORT
+QVideoTextureHelper::QVideoFrameTexturesFromRhiTextureArray *ritual_ZN19QVideoTextureHelper38QVideoFrameTexturesFromRhiTextureArrayC1EOSt5arrayISt10unique_ptrI11QRhiTextureSt14default_deleteIS3_EELm3EE(
+    QVideoTextureHelper::RhiTextureArray *rhiTextures) {
+  return new CuteQVideoTextureHelper_QVideoFrameTexturesFromRhiTextureArray(
+      std::move(*rhiTextures));
+}
 
 //  QVideoTextureHelper::QVideoFrameTexturesFromRhiTextureArray::~QVideoFrame
 //      TexturesFromRhiTextureArray()

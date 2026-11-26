@@ -5,6 +5,7 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN17QSvgStyleSelectorC1Ev": ["address"],
     "ritual_ZN17QSvgStyleSelectorD1Ev": ["nothing", "address"],
     "ritual_ZNK17QSvgStyleSelector7svgNodeEN4QCss13StyleSelector7NodePtrE": [
       "address", "address", "address"

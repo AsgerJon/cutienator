@@ -1,15 +1,28 @@
 //  Written by dev_tooling.RitualGenerator from the records of QtDataVisualiz
 //  ation/6.12.0/QtDataVisualization/private/qsurfacedataproxy_p.h, Qt
-//  6.12.0. Changes made here are lost.
+//  6.12.0.
+//  Edited by hand on 2026-11-26: moc's output for 'QSurfaceDataProxyPrivate'
+//  is pasted in, cut from what the moc of Qt 6.12.0 writes for its header:
+//  Qt's library keeps it to itself; added are 2 rituals that lean on what
+//  moc writes for a class of the part Qt keeps to itself, whose ritual file
+//  carries moc's output, drafted by a copy of the generator that lets those
+//  names through. A copy of a meta-object is a second one: 'qobject_cast'
+//  between it and Qt's own does not match. Kept as it is when the generator
+//  runs again.
 #include <QtDataVisualization/6.12.0/QtDataVisualization/private/datavisualizationglobal_p.h>
 #include <QtDataVisualization/QtDataVisualization>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtDataVisualization/6.12.0/QtDataVisualization/private/qsurfacedataproxy_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 #include <QtDataVisualization/qsurfacedataitem.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
 #include <QtDataVisualization/private/qsurfacedataproxy_p.h>
 #include <QtDataVisualization/private/qsurface3dseries_p.h>
 #include <QtDataVisualization/private/qabstract3daxis_p.h>
@@ -24,6 +37,71 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from QtDataVisualization__QSurfaceDataProxyPrivate.cpp, line 1, as moc:QSurfaceDataProxyPrivate
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN24QSurfaceDataProxyPrivateE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto QSurfaceDataProxyPrivate::qt_create_metaobjectdata<qt_meta_tag_ZN24QSurfaceDataProxyPrivateE_t>()
+{
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "QSurfaceDataProxyPrivate"
+    };
+
+    QtMocHelpers::UintData qt_methods {
+    };
+    QtMocHelpers::UintData qt_properties {
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    return QtMocHelpers::metaObjectData<QSurfaceDataProxyPrivate, qt_meta_tag_ZN24QSurfaceDataProxyPrivateE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums);
+}
+Q_CONSTINIT const QMetaObject QSurfaceDataProxyPrivate::staticMetaObject = { {
+    QMetaObject::SuperData::link<QAbstractDataProxyPrivate::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN24QSurfaceDataProxyPrivateE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN24QSurfaceDataProxyPrivateE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN24QSurfaceDataProxyPrivateE_t>.metaTypes,
+    nullptr
+} };
+
+void QSurfaceDataProxyPrivate::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<QSurfaceDataProxyPrivate *>(_o);
+    (void)_t;
+    (void)_c;
+    (void)_id;
+    (void)_a;
+}
+
+const QMetaObject *QSurfaceDataProxyPrivate::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *QSurfaceDataProxyPrivate::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN24QSurfaceDataProxyPrivateE_t>.strings))
+        return static_cast<void*>(this);
+    return QAbstractDataProxyPrivate::qt_metacast(_clname);
+}
+
+int QSurfaceDataProxyPrivate::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QAbstractDataProxyPrivate::qt_metacall(_c, _id, _a);
+    return _id;
+}
+QT_WARNING_POP
+
 //  from ../qtdatavis3d/src/datavisualization/data/qsurfacedataproxy.cpp, line 636, as _ZN24QSurfaceDataProxyPrivate9setSeriesEP17QAbstract3DSeries
 inline void QSurfaceDataProxyPrivate::setSeries(QAbstract3DSeries *series)
 {
@@ -32,11 +110,39 @@ inline void QSurfaceDataProxyPrivate::setSeries(QAbstract3DSeries *series)
     emit qptr()->seriesChanged(surfaceSeries);
 }
 
+//  from ../qtdatavis3d/src/datavisualization/data/qsurfacedataproxy.cpp, line 400, as _ZN24QSurfaceDataProxyPrivateD0Ev
+inline QSurfaceDataProxyPrivate::~QSurfaceDataProxyPrivate()
+{
+    clearArray();
+}
+
+//  from ../qtdatavis3d/src/datavisualization/data/qabstractdataproxy.cpp, line 84, as _ZN25QAbstractDataProxyPrivateC2EP18QAbstractDataProxyNS0_8DataTypeE
+inline QAbstractDataProxyPrivate::QAbstractDataProxyPrivate(QAbstractDataProxy *q,
+                                                     QAbstractDataProxy::DataType type)
+    : QObject(0),
+      q_ptr(q),
+      m_type(type),
+      m_series(0)
+{
+}
+
+//  from ../qtdatavis3d/src/datavisualization/data/qabstractdataproxy.cpp, line 93, as _ZN25QAbstractDataProxyPrivateD2Ev
+inline QAbstractDataProxyPrivate::~QAbstractDataProxyPrivate()
+{
+}
+
 //  from ../qtdatavis3d/src/datavisualization/data/qabstractdataproxy.cpp, line 97, as _ZN25QAbstractDataProxyPrivate9setSeriesEP17QAbstract3DSeries
 inline void QAbstractDataProxyPrivate::setSeries(QAbstract3DSeries *series)
 {
     q_ptr->setParent(series);
     m_series = series;
+}
+
+//  from ../qtdatavis3d/src/datavisualization/data/qsurfacedataproxy.cpp, line 394, as _ZN24QSurfaceDataProxyPrivateC1EP17QSurfaceDataProxy
+inline QSurfaceDataProxyPrivate::QSurfaceDataProxyPrivate(QSurfaceDataProxy *q)
+    : QAbstractDataProxyPrivate(q, QAbstractDataProxy::DataTypeSurface),
+      m_dataArray(new QSurfaceDataArray)
+{
 }
 
 //  from ../qtdatavis3d/src/datavisualization/data/qsurfacedataproxy.cpp, line 405, as _ZN24QSurfaceDataProxyPrivate10resetArrayEP5QListIPS0_I16QSurfaceDataItemEE
@@ -492,6 +598,22 @@ int ritual_ZN24QSurfaceDataProxyPrivate11qt_metacallEN11QMetaObject4CallEiPPv(
     int a1,
     void **a2) {
   return self->qt_metacall(a0, a1, a2);
+}
+
+//  QString QSurfaceDataProxyPrivate::tr(const char *s, const char *c, int n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN24QSurfaceDataProxyPrivate2trEPKcS1_i(
+    const char *s,
+    const char *c,
+    int n) {
+  return new QString(QSurfaceDataProxyPrivate::tr(s, c, n));
+}
+
+//  QSurfaceDataProxyPrivate::QSurfaceDataProxyPrivate(QSurfaceDataProxy *q)
+extern "C" Q_DECL_EXPORT
+QSurfaceDataProxyPrivate *ritual_ZN24QSurfaceDataProxyPrivateC1EP17QSurfaceDataProxy(
+    QSurfaceDataProxy *q) {
+  return new CuteQSurfaceDataProxyPrivate(q);
 }
 
 //  QSurfaceDataProxyPrivate::~QSurfaceDataProxyPrivate()

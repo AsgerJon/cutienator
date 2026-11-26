@@ -1,14 +1,26 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtQuick/6.12.0/QtQuick/private/qsgbatchrenderer_p.h, Qt 6.12.0. Changes
-//  made here are lost.
+//  QtQuick/6.12.0/QtQuick/private/qsgbatchrenderer_p.h, Qt 6.12.0.
+//  Edited by hand on 2026-11-26: moc's output for
+//  'QSGBatchRenderer::ShaderManager' is pasted in, cut from what the moc of
+//  Qt 6.12.0 writes for its header: Qt's library keeps it to itself; added
+//  are 2 rituals that lean on what moc writes for a class of the part Qt
+//  keeps to itself, whose ritual file carries moc's output, drafted by a
+//  copy of the generator that lets those names through. A copy of a meta-
+//  object is a second one: 'qobject_cast' between it and Qt's own does not
+//  match. Kept as it is when the generator runs again.
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
 #include <QtQuick/QtQuick>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQuick/6.12.0/QtQuick/private/qsgbatchrenderer_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
 #include <QtQuick/private/qsgbatchrenderer_p.h>
 #include <QtCore/qmath.h>
 #include <QtCore/QElapsedTimer>
@@ -67,6 +79,107 @@ inline void qsg_setMultiViewFlagsOnMaterial(QSGMaterial *material, int multiView
     material->setFlag(QSGMaterial::MultiView2, multiViewCount == 2);
     material->setFlag(QSGMaterial::MultiView3, multiViewCount == 3);
     material->setFlag(QSGMaterial::MultiView4, multiViewCount == 4);
+}
+}  // namespace QSGBatchRenderer
+
+//  from QtQuick__QSGBatchRenderer_ShaderManager.cpp, line 1, as moc:QSGBatchRenderer::ShaderManager
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN16QSGBatchRenderer13ShaderManagerE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto QSGBatchRenderer::ShaderManager::qt_create_metaobjectdata<qt_meta_tag_ZN16QSGBatchRenderer13ShaderManagerE_t>()
+{
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "QSGBatchRenderer::ShaderManager",
+        "invalidated",
+        ""
+    };
+
+    QtMocHelpers::UintData qt_methods {
+        // Slot 'invalidated'
+        QtMocHelpers::SlotData<void()>(1, 2, QMC::AccessPublic, QMetaType::Void),
+    };
+    QtMocHelpers::UintData qt_properties {
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    return QtMocHelpers::metaObjectData<ShaderManager, qt_meta_tag_ZN16QSGBatchRenderer13ShaderManagerE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums);
+}
+Q_CONSTINIT const QMetaObject QSGBatchRenderer::ShaderManager::staticMetaObject = { {
+    QMetaObject::SuperData::link<QObject::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN16QSGBatchRenderer13ShaderManagerE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN16QSGBatchRenderer13ShaderManagerE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN16QSGBatchRenderer13ShaderManagerE_t>.metaTypes,
+    nullptr
+} };
+
+void QSGBatchRenderer::ShaderManager::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<ShaderManager *>(_o);
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        switch (_id) {
+        case 0: _t->invalidated(); break;
+        default: ;
+        }
+    }
+    (void)_a;
+}
+
+const QMetaObject *QSGBatchRenderer::ShaderManager::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *QSGBatchRenderer::ShaderManager::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN16QSGBatchRenderer13ShaderManagerE_t>.strings))
+        return static_cast<void*>(this);
+    return QObject::qt_metacast(_clname);
+}
+
+int QSGBatchRenderer::ShaderManager::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QObject::qt_metacall(_c, _id, _a);
+    if (_id < 0)
+        return _id;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        if (_id < 1)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 1;
+    }
+    if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        if (_id < 1)
+            *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
+        _id -= 1;
+    }
+    return _id;
+}
+QT_WARNING_POP
+
+//  from ../qtdeclarative/src/quick/scenegraph/coreapi/qsgbatchrenderer.cpp, line 287, as _ZN16QSGBatchRenderer13ShaderManager11invalidatedEv
+namespace QSGBatchRenderer {
+inline void ShaderManager::invalidated()
+{
+    qDeleteAll(stockShaders);
+    stockShaders.clear();
+    qDeleteAll(rewrittenShaders);
+    rewrittenShaders.clear();
+
+    qDeleteAll(pipelineCache);
+    pipelineCache.clear();
+
+    qDeleteAll(srbPool);
+    srbPool.clear();
 }
 }  // namespace QSGBatchRenderer
 
@@ -283,6 +396,24 @@ int ritual_ZN16QSGBatchRenderer13ShaderManager11qt_metacallEN11QMetaObject4CallE
     int a1,
     void **a2) {
   return self->qt_metacall(a0, a1, a2);
+}
+
+//  QString QSGBatchRenderer::ShaderManager::tr(const char *s, const char *c,
+//      int n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN16QSGBatchRenderer13ShaderManager2trEPKcS2_i(
+    const char *s,
+    const char *c,
+    int n) {
+  return new QString(QSGBatchRenderer::ShaderManager::tr(s, c, n));
+}
+
+//  QSGBatchRenderer::ShaderManager::ShaderManager(QSGDefaultRenderContext
+//      *ctx)
+extern "C" Q_DECL_EXPORT
+QSGBatchRenderer::ShaderManager *ritual_ZN16QSGBatchRenderer13ShaderManagerC1EP23QSGDefaultRenderContext(
+    QSGDefaultRenderContext *ctx) {
+  return new CuteQSGBatchRenderer_ShaderManager(ctx);
 }
 
 //  QSGBatchRenderer::ShaderManager::~ShaderManager()

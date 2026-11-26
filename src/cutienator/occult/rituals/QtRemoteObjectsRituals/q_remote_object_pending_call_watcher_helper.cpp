@@ -1,13 +1,147 @@
 //  Written by dev_tooling.RitualGenerator from the records of QtRemoteObject
 //  s/6.12.0/QtRemoteObjects/private/qremoteobjectpendingcall_p.h, Qt 6.12.0.
-//  Changes made here are lost.
+//  Edited by hand on 2026-11-26: moc's output for
+//  'QRemoteObjectPendingCallWatcherHelper' is pasted in, cut from what the
+//  moc of Qt 6.12.0 writes for its header: Qt's library keeps it to itself;
+//  added are 3 rituals that lean on what moc writes for a class of the part
+//  Qt keeps to itself, whose ritual file carries moc's output, drafted by a
+//  copy of the generator that lets those names through. A copy of a meta-
+//  object is a second one: 'qobject_cast' between it and Qt's own does not
+//  match. Kept as it is when the generator runs again.
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtRemoteObjects/QtRemoteObjects>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtRemoteObjects/6.12.0/QtRemoteObjects/private/qremoteobjectpendingcall_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
+#include <QtRemoteObjects/qremoteobjectpendingcall.h>
+#include <QtRemoteObjects/private/qremoteobjectpendingcall_p.h>
+#include <QtRemoteObjects/private/qremoteobjectreplica_p.h>
+#include <QtCore/qcoreapplication.h>
+#include <QtCore/private/qobject_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+
+//  Qt's own code, from here to the line of dashes: taken from
+//  Qt's source, because Qt's library carries it under no name.
+//  Copyright (C) The Qt Company Ltd. It is licensed
+//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
+//  here. Each function is as Qt wrote it, with the word
+//  'inline' put before it where Qt did not write it.
+
+//  from QtRemoteObjects__QRemoteObjectPendingCallWatcherHelper.cpp, line 1, as moc:QRemoteObjectPendingCallWatcherHelper
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN37QRemoteObjectPendingCallWatcherHelperE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto QRemoteObjectPendingCallWatcherHelper::qt_create_metaobjectdata<qt_meta_tag_ZN37QRemoteObjectPendingCallWatcherHelperE_t>()
+{
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "QRemoteObjectPendingCallWatcherHelper",
+        "finished",
+        ""
+    };
+
+    QtMocHelpers::UintData qt_methods {
+        // Signal 'finished'
+        QtMocHelpers::SignalData<void()>(1, 2, QMC::AccessPublic, QMetaType::Void),
+    };
+    QtMocHelpers::UintData qt_properties {
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    return QtMocHelpers::metaObjectData<QRemoteObjectPendingCallWatcherHelper, qt_meta_tag_ZN37QRemoteObjectPendingCallWatcherHelperE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums);
+}
+Q_CONSTINIT const QMetaObject QRemoteObjectPendingCallWatcherHelper::staticMetaObject = { {
+    QMetaObject::SuperData::link<QObject::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN37QRemoteObjectPendingCallWatcherHelperE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN37QRemoteObjectPendingCallWatcherHelperE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN37QRemoteObjectPendingCallWatcherHelperE_t>.metaTypes,
+    nullptr
+} };
+
+void QRemoteObjectPendingCallWatcherHelper::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<QRemoteObjectPendingCallWatcherHelper *>(_o);
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        switch (_id) {
+        case 0: _t->finished(); break;
+        default: ;
+        }
+    }
+    if (_c == QMetaObject::IndexOfMethod) {
+        if (QtMocHelpers::indexOfMethod<void (QRemoteObjectPendingCallWatcherHelper::*)()>(_a, &QRemoteObjectPendingCallWatcherHelper::finished, 0))
+            return;
+    }
+}
+
+const QMetaObject *QRemoteObjectPendingCallWatcherHelper::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *QRemoteObjectPendingCallWatcherHelper::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN37QRemoteObjectPendingCallWatcherHelperE_t>.strings))
+        return static_cast<void*>(this);
+    return QObject::qt_metacast(_clname);
+}
+
+int QRemoteObjectPendingCallWatcherHelper::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QObject::qt_metacall(_c, _id, _a);
+    if (_id < 0)
+        return _id;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        if (_id < 1)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 1;
+    }
+    if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        if (_id < 1)
+            *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
+        _id -= 1;
+    }
+    return _id;
+}
+
+// SIGNAL 0
+void QRemoteObjectPendingCallWatcherHelper::finished()
+{
+    QMetaObject::activate(this, &staticMetaObject, 0, nullptr);
+}
+QT_WARNING_POP
+
+//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectpendingcall.cpp, line 30, as _ZN37QRemoteObjectPendingCallWatcherHelper3addEP31QRemoteObjectPendingCallWatcher
+inline void QRemoteObjectPendingCallWatcherHelper::add(QRemoteObjectPendingCallWatcher *watcher)
+{
+    connect(this, &QRemoteObjectPendingCallWatcherHelper::finished, watcher, [watcher]() {
+        emit watcher->finished(watcher);
+    }, Qt::QueuedConnection);
+}
+
+//  from ../qtremoteobjects/src/remoteobjects/qremoteobjectpendingcall.cpp, line 37, as _ZN37QRemoteObjectPendingCallWatcherHelper11emitSignalsEv
+inline void QRemoteObjectPendingCallWatcherHelper::emitSignals()
+{
+    emit finished();
+}
+//  -----------------------------------------------------------------------
 
 //  A QRemoteObjectPendingCallWatcherHelper that Python can take functions over in. Every QRemoteObjectPendingCallWatcherHelper
 //  Python makes is one. Each function below asks the Python
@@ -201,6 +335,32 @@ int ritual_ZN37QRemoteObjectPendingCallWatcherHelper11qt_metacallEN11QMetaObject
     int a1,
     void **a2) {
   return self->qt_metacall(a0, a1, a2);
+}
+
+//  QString QRemoteObjectPendingCallWatcherHelper::tr(const char *s, const
+//      char *c, int n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN37QRemoteObjectPendingCallWatcherHelper2trEPKcS1_i(
+    const char *s,
+    const char *c,
+    int n) {
+  return new QString(QRemoteObjectPendingCallWatcherHelper::tr(s, c, n));
+}
+
+//  void QRemoteObjectPendingCallWatcherHelper::add(QRemoteObjectPendingCallW
+//      atcher *watcher)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN37QRemoteObjectPendingCallWatcherHelper3addEP31QRemoteObjectPendingCallWatcher(
+    QRemoteObjectPendingCallWatcherHelper *self,
+    QRemoteObjectPendingCallWatcher *watcher) {
+  self->add(watcher);
+}
+
+//  void QRemoteObjectPendingCallWatcherHelper::emitSignals()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN37QRemoteObjectPendingCallWatcherHelper11emitSignalsEv(
+    QRemoteObjectPendingCallWatcherHelper *self) {
+  self->emitSignals();
 }
 
 //  void QRemoteObjectPendingCallWatcherHelper::finished()

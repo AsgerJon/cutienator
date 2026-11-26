@@ -1,6 +1,13 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtHelp/6.12.0/QtHelp/private/qhelpdbreader_p.h, Qt 6.12.0. Changes made
-//  here are lost.
+//  QtHelp/6.12.0/QtHelp/private/qhelpdbreader_p.h, Qt 6.12.0.
+//  Edited by hand on 2026-11-26: moc's output for 'QHelpDBReader' is pasted
+//  in, cut from what the moc of Qt 6.12.0 writes for its header: Qt's
+//  library keeps it to itself; added are 5 rituals that lean on what moc
+//  writes for a class of the part Qt keeps to itself, whose ritual file
+//  carries moc's output, drafted by a copy of the generator that lets those
+//  names through. A copy of a meta-object is a second one: 'qobject_cast'
+//  between it and Qt's own does not match. Kept as it is when the generator
+//  runs again.
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtHelp/QtHelp>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -19,6 +26,10 @@
 #include <QtCore/QString>
 #include <QtCore/QByteArray>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
 #include <QtHelp/private/qhelpdbreader_p.h>
 #include <QtHelp/qhelp_global.h>
 #include <QtCore/qfile.h>
@@ -108,6 +119,71 @@ static bool isAttributeUsed(QSqlQuery *query, const QString &tableName, int attr
     return query->next(); // if we got a result it means it was used
 }
 
+//  from QtHelp__QHelpDBReader.cpp, line 1, as moc:QHelpDBReader
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN13QHelpDBReaderE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto QHelpDBReader::qt_create_metaobjectdata<qt_meta_tag_ZN13QHelpDBReaderE_t>()
+{
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "QHelpDBReader"
+    };
+
+    QtMocHelpers::UintData qt_methods {
+    };
+    QtMocHelpers::UintData qt_properties {
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    return QtMocHelpers::metaObjectData<QHelpDBReader, qt_meta_tag_ZN13QHelpDBReaderE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums);
+}
+Q_CONSTINIT const QMetaObject QHelpDBReader::staticMetaObject = { {
+    QMetaObject::SuperData::link<QObject::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN13QHelpDBReaderE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN13QHelpDBReaderE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN13QHelpDBReaderE_t>.metaTypes,
+    nullptr
+} };
+
+void QHelpDBReader::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<QHelpDBReader *>(_o);
+    (void)_t;
+    (void)_c;
+    (void)_id;
+    (void)_a;
+}
+
+const QMetaObject *QHelpDBReader::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *QHelpDBReader::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN13QHelpDBReaderE_t>.strings))
+        return static_cast<void*>(this);
+    return QObject::qt_metacast(_clname);
+}
+
+int QHelpDBReader::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QObject::qt_metacall(_c, _id, _a);
+    return _id;
+}
+QT_WARNING_POP
+
 //  from ../qttools/src/assistant/help/qhelpdbreader.cpp, line 155, as _ZNK13QHelpDBReader18qtVersionHeuristicEv
 inline QString QHelpDBReader::qtVersionHeuristic() const
 {
@@ -117,11 +193,43 @@ inline QString QHelpDBReader::qtVersionHeuristic() const
             : version.tail;
 }
 
+//  from ../qttools/src/assistant/help/qhelpdbreader.cpp, line 20, as _ZN13QHelpDBReaderC1ERK7QString
+inline QHelpDBReader::QHelpDBReader(const QString &dbName)
+    : m_dbName(dbName)
+    , m_uniqueId(QHelpGlobal::uniquifyConnectionName("QHelpDBReader"_L1, this))
+{}
+
+//  from ../qttools/src/assistant/help/qhelpdbreader.cpp, line 25, as _ZN13QHelpDBReaderC1ERK7QStringS2_P7QObject
+inline QHelpDBReader::QHelpDBReader(const QString &dbName, const QString &uniqueId, QObject *parent)
+    : QObject(parent)
+    , m_dbName(dbName)
+    , m_uniqueId(uniqueId)
+{}
+
 //  from ../qttools/src/assistant/help/qhelpdbreader.cpp, line 31, as _ZN13QHelpDBReaderD1Ev
 inline QHelpDBReader::~QHelpDBReader()
 {
     if (m_initDone)
         QSqlDatabase::removeDatabase(m_uniqueId);
+}
+
+//  from ../qttools/src/assistant/help/qhelpdbreader.cpp, line 37, as _ZN13QHelpDBReader4initEv
+inline bool QHelpDBReader::init()
+{
+    if (m_initDone)
+        return true;
+
+    if (!QFile::exists(m_dbName))
+        return false;
+
+    if (!initDB()) {
+        QSqlDatabase::removeDatabase(m_uniqueId);
+        return false;
+    }
+
+    m_initDone = true;
+    m_query.reset(new QSqlQuery(QSqlDatabase::database(m_uniqueId)));
+    return true;
 }
 
 //  from ../qttools/src/assistant/help/qhelpdbreader.cpp, line 70, as _ZNK13QHelpDBReader13namespaceNameEv
@@ -336,6 +444,22 @@ inline QString QHelpDBReader::quote(const QString &string) const
     s.replace(u'\'', "\'\'"_L1);
     return s;
 }
+
+//  from ../qttools/src/assistant/help/qhelpdbreader.cpp, line 55, as _ZN13QHelpDBReader6initDBEv
+inline bool QHelpDBReader::initDB()
+{
+    QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE"_L1, m_uniqueId);
+    db.setConnectOptions("QSQLITE_OPEN_READONLY"_L1);
+    db.setDatabaseName(m_dbName);
+    if (!db.open()) {
+        /*: The placeholders are: %1 - The name of the database which cannot be opened
+                                  %2 - The unique id for the connection
+                                  %3 - The actual error string */
+        m_error = tr("Cannot open database \"%1\" \"%2\": %3").arg(m_dbName, m_uniqueId, db.lastError().text());
+        return false;
+    }
+    return true;
+}
 //  -----------------------------------------------------------------------
 
 //  A QHelpDBReader that Python can take functions over in. Every QHelpDBReader
@@ -530,10 +654,41 @@ int ritual_ZN13QHelpDBReader11qt_metacallEN11QMetaObject4CallEiPPv(
   return self->qt_metacall(a0, a1, a2);
 }
 
+//  QString QHelpDBReader::tr(const char *s, const char *c, int n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN13QHelpDBReader2trEPKcS1_i(
+    const char *s,
+    const char *c,
+    int n) {
+  return new QString(QHelpDBReader::tr(s, c, n));
+}
+
+//  QHelpDBReader::QHelpDBReader(const QString &dbName)
+extern "C" Q_DECL_EXPORT
+QHelpDBReader *ritual_ZN13QHelpDBReaderC1ERK7QString(const QString *dbName) {
+  return new CuteQHelpDBReader(*dbName);
+}
+
+//  QHelpDBReader::QHelpDBReader(const QString &dbName, const QString
+//      &uniqueId, QObject *parent)
+extern "C" Q_DECL_EXPORT
+QHelpDBReader *ritual_ZN13QHelpDBReaderC1ERK7QStringS2_P7QObject(
+    const QString *dbName,
+    const QString *uniqueId,
+    QObject *parent) {
+  return new CuteQHelpDBReader(*dbName, *uniqueId, parent);
+}
+
 //  QHelpDBReader::~QHelpDBReader()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN13QHelpDBReaderD1Ev(QHelpDBReader *self) {
   delete self;
+}
+
+//  bool QHelpDBReader::init()
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN13QHelpDBReader4initEv(QHelpDBReader *self) {
+  return self->init();
 }
 
 //  QString QHelpDBReader::namespaceName() const
@@ -624,6 +779,12 @@ QString *ritual_ZNK13QHelpDBReader5quoteERK7QString(
     const QHelpDBReader *self,
     const QString *string) {
   return new QString(self->quote(*string));
+}
+
+//  bool QHelpDBReader::initDB()
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN13QHelpDBReader6initDBEv(QHelpDBReader *self) {
+  return self->initDB();
 }
 
 //  a Python function taken by a CuteQHelpDBReader, for the function named by

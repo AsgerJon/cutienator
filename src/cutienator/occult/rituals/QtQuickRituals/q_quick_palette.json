@@ -2,7 +2,7 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtQuick/6.12.0/QtQuick/private/qquickpalette_p.h, Qt 6.12.0.",
-    "Changes made here are lost."
+    "Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZNK13QQuickPalette10metaObjectEv": ["address", "address"],
@@ -64,6 +64,9 @@
     "ritual_own_ZNK13QQuickPalette17currentColorGroupEv": ["int", "address"],
     "ritual_drop_QQuickPalette__QQuickColorGroup_GroupPtr": [
       "nothing", "address"
+    ],
+    "ritual_ZN13QQuickPalette13setColorGroupEN8QPalette10ColorGroupERK8QPointerI16QQuickColorGroupEMS_FvvE": [
+      "nothing", "address", "int", "address", "chars"
     ]
   }
 }

@@ -137,6 +137,92 @@ inline bool QAccessibleAbstractScrollArea::isValid() const
 }
 #endif  // QT_CONFIG(scrollarea)
 #endif  // QT_CONFIG(accessibility)
+
+//  from src/widgets/accessible/complexwidgets.cpp, line 543, as _ZNK29QAccessibleAbstractScrollArea18abstractScrollAreaEv
+#if QT_CONFIG(accessibility)
+#if QT_CONFIG(scrollarea)
+inline QAbstractScrollArea *QAccessibleAbstractScrollArea::abstractScrollArea() const
+{
+    return static_cast<QAbstractScrollArea *>(object());
+}
+#endif  // QT_CONFIG(scrollarea)
+#endif  // QT_CONFIG(accessibility)
+
+//  from src/widgets/accessible/complexwidgets.cpp, line 548, as _ZNK29QAccessibleAbstractScrollArea18accessibleChildrenEv
+#if QT_CONFIG(accessibility)
+#if QT_CONFIG(scrollarea)
+inline QWidgetList QAccessibleAbstractScrollArea::accessibleChildren() const
+{
+    QWidgetList children;
+
+    // Viewport.
+    QWidget * viewport = abstractScrollArea()->viewport();
+    if (viewport)
+        children.append(viewport);
+
+    // Horizontal scrollBar container.
+    QScrollBar *horizontalScrollBar = abstractScrollArea()->horizontalScrollBar();
+    if (horizontalScrollBar && horizontalScrollBar->isVisible()) {
+        QWidget *scrollBarParent = horizontalScrollBar->parentWidget();
+        // Add container only if scroll bar is in the container
+        if (elementType(scrollBarParent) == HorizontalContainer)
+            children.append(scrollBarParent);
+    }
+
+    // Vertical scrollBar container.
+    QScrollBar *verticalScrollBar = abstractScrollArea()->verticalScrollBar();
+    if (verticalScrollBar && verticalScrollBar->isVisible()) {
+        QWidget *scrollBarParent = verticalScrollBar->parentWidget();
+        // Add container only if scroll bar is in the container
+        if (elementType(scrollBarParent) == VerticalContainer)
+            children.append(scrollBarParent);
+    }
+
+    // CornerWidget.
+    QWidget *cornerWidget = abstractScrollArea()->cornerWidget();
+    if (cornerWidget && cornerWidget->isVisible())
+        children.append(cornerWidget);
+
+    return children;
+}
+#endif  // QT_CONFIG(scrollarea)
+#endif  // QT_CONFIG(accessibility)
+
+//  from src/widgets/accessible/complexwidgets.cpp, line 583, as _ZNK29QAccessibleAbstractScrollArea11elementTypeEP7QWidget
+#if QT_CONFIG(accessibility)
+#if QT_CONFIG(scrollarea)
+inline QAccessibleAbstractScrollArea::AbstractScrollAreaElement
+QAccessibleAbstractScrollArea::elementType(QWidget *widget) const
+{
+    if (!widget)
+        return Undefined;
+
+    if (widget == abstractScrollArea())
+        return Self;
+    if (widget == abstractScrollArea()->viewport())
+        return Viewport;
+    if (widget->objectName() == "qt_scrollarea_hcontainer"_L1)
+        return HorizontalContainer;
+    if (widget->objectName() == "qt_scrollarea_vcontainer"_L1)
+        return VerticalContainer;
+    if (widget == abstractScrollArea()->cornerWidget())
+        return CornerWidget;
+
+    return Undefined;
+}
+#endif  // QT_CONFIG(scrollarea)
+#endif  // QT_CONFIG(accessibility)
+
+//  from src/widgets/accessible/complexwidgets.cpp, line 609, as _ZN21QAccessibleScrollAreaC1EP7QWidget
+#if QT_CONFIG(accessibility)
+#if QT_CONFIG(scrollarea)
+inline QAccessibleScrollArea::QAccessibleScrollArea(QWidget *widget)
+    : QAccessibleAbstractScrollArea(widget)
+{
+    Q_ASSERT(qobject_cast<QScrollArea *>(widget));
+}
+#endif  // QT_CONFIG(scrollarea)
+#endif  // QT_CONFIG(accessibility)
 //  -----------------------------------------------------------------------
 
 //  A QAccessibleScrollArea that Python can take functions over in. Every QAccessibleScrollArea
@@ -685,6 +771,17 @@ public:
   }
 #endif  // QT_CONFIG(accessibility)
 };
+
+#if QT_CONFIG(accessibility)
+#if QT_CONFIG(scrollarea)
+//  QAccessibleScrollArea::QAccessibleScrollArea(QWidget *widget)
+extern "C" Q_DECL_EXPORT
+QAccessibleScrollArea *ritual_ZN21QAccessibleScrollAreaC1EP7QWidget(
+    QWidget *widget) {
+  return new CuteQAccessibleScrollArea(widget);
+}
+#endif  // QT_CONFIG(scrollarea)
+#endif  // QT_CONFIG(accessibility)
 
 //  a Python function taken by a CuteQAccessibleScrollArea, for the function
 //      named by the key

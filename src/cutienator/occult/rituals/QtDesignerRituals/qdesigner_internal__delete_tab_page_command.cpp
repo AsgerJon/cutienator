@@ -149,6 +149,21 @@ inline void TabWidgetCommand::addPage()
 }
 }  // namespace qdesigner_internal
 
+//  from ../qttools/src/designer/src/lib/shared/qdesigner_command.cpp, line 1084, as _ZN18qdesigner_internal16TabWidgetCommandD2Ev
+namespace qdesigner_internal {
+using namespace Qt::StringLiterals;
+inline TabWidgetCommand::~TabWidgetCommand() = default;
+}  // namespace qdesigner_internal
+
+//  from ../qttools/src/designer/src/lib/shared/qdesigner_command.cpp, line 1126, as _ZN18qdesigner_internal20DeleteTabPageCommandC1EP28QDesignerFormWindowInterface
+namespace qdesigner_internal {
+using namespace Qt::StringLiterals;
+inline DeleteTabPageCommand::DeleteTabPageCommand(QDesignerFormWindowInterface *formWindow)
+    : TabWidgetCommand(formWindow)
+{
+}
+}  // namespace qdesigner_internal
+
 //  from ../qttools/src/designer/src/lib/shared/qdesigner_command.cpp, line 1133, as _ZN18qdesigner_internal20DeleteTabPageCommand4initEP10QTabWidget
 namespace qdesigner_internal {
 using namespace Qt::StringLiterals;
@@ -260,6 +275,14 @@ public:
   }
 #endif  // QT_CONFIG(undocommand)
 };
+
+//  qdesigner_internal::DeleteTabPageCommand::DeleteTabPageCommand(QDesignerF
+//      ormWindowInterface *formWindow)
+extern "C" Q_DECL_EXPORT
+qdesigner_internal::DeleteTabPageCommand *ritual_ZN18qdesigner_internal20DeleteTabPageCommandC1EP28QDesignerFormWindowInterface(
+    QDesignerFormWindowInterface *formWindow) {
+  return new Cuteqdesigner_internal_DeleteTabPageCommand(formWindow);
+}
 
 //  qdesigner_internal::DeleteTabPageCommand::~DeleteTabPageCommand()
 extern "C" Q_DECL_EXPORT

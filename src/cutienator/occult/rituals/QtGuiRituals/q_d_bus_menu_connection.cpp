@@ -1,6 +1,13 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtGui/6.12.0/QtGui/private/qdbusmenuconnection_p.h, Qt 6.12.0. Changes
-//  made here are lost.
+//  QtGui/6.12.0/QtGui/private/qdbusmenuconnection_p.h, Qt 6.12.0.
+//  Edited by hand on 2026-11-26: moc's output for 'QDBusMenuConnection' is
+//  pasted in, cut from what the moc of Qt 6.12.0 writes for its header: Qt's
+//  library keeps it to itself; added are 1 rituals that lean on what moc
+//  writes for a class of the part Qt keeps to itself, whose ritual file
+//  carries moc's output, drafted by a copy of the generator that lets those
+//  names through. A copy of a meta-object is a second one: 'qobject_cast'
+//  between it and Qt's own does not match. Kept as it is when the generator
+//  runs again.
 #include <QtGui/qtguiglobal.h>
 #include <QtGui/6.12.0/QtGui/private/qtguiglobal_p.h>
 #if 1 && defined(Q_OS_UNIX) && (QT_CONFIG(xcb) || !defined(Q_OS_MACOS)) && (QT_CONFIG(xcb) || !(defined(Q_OS_IOS) || defined(Q_OS_TVOS) || defined(Q_OS_VISIONOS)))
@@ -9,11 +16,16 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGui/6.12.0/QtGui/private/qdbusmenuconnection_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 #include <QtDBus/qdbusconnection.h>
 #include <QtDBus/qdbuserror.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
 #include <QtGui/qtgui-config.h>
 #include <QDBusMessage>
 #include <QDBusInterface>
@@ -27,6 +39,7 @@
 #include <QtGui/private/qdbusmenuconnection_p.h>
 #include <QtGui/private/qdbusmenuadaptor_p.h>
 #include <QtGui/private/qdbusplatformmenu_p.h>
+#include <QtCore/qloggingcategory.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -46,6 +59,138 @@ const QString StatusNotifierItemPath = "/StatusNotifierItem"_L1;
 
 //  from src/gui/platform/unix/dbusmenu/qdbusmenuconnection.cpp, line 28, as local:qdbusmenuconnection.cpp:MenuBarPath
 const QString MenuBarPath = "/MenuBar"_L1;
+
+//  from QtGui__QDBusMenuConnection.cpp, line 1, as moc:QDBusMenuConnection
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN19QDBusMenuConnectionE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto QDBusMenuConnection::qt_create_metaobjectdata<qt_meta_tag_ZN19QDBusMenuConnectionE_t>()
+{
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "QDBusMenuConnection",
+        "trayIconRegistered",
+        "",
+        "dbusError",
+        "QDBusError",
+        "error"
+    };
+
+    QtMocHelpers::UintData qt_methods {
+        // Signal 'trayIconRegistered'
+        QtMocHelpers::SignalData<void()>(1, 2, QMC::AccessPublic, QMetaType::Void),
+        // Slot 'dbusError'
+        QtMocHelpers::SlotData<void(const QDBusError &)>(3, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { 0x80000000 | 4, 5 },
+        }}),
+    };
+    QtMocHelpers::UintData qt_properties {
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    return QtMocHelpers::metaObjectData<QDBusMenuConnection, qt_meta_tag_ZN19QDBusMenuConnectionE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums);
+}
+Q_CONSTINIT const QMetaObject QDBusMenuConnection::staticMetaObject = { {
+    QMetaObject::SuperData::link<QObject::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN19QDBusMenuConnectionE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN19QDBusMenuConnectionE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN19QDBusMenuConnectionE_t>.metaTypes,
+    nullptr
+} };
+
+void QDBusMenuConnection::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<QDBusMenuConnection *>(_o);
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        switch (_id) {
+        case 0: _t->trayIconRegistered(); break;
+        case 1: _t->dbusError((*reinterpret_cast<std::add_pointer_t<QDBusError>>(_a[1]))); break;
+        default: ;
+        }
+    }
+    if (_c == QMetaObject::IndexOfMethod) {
+        if (QtMocHelpers::indexOfMethod<void (QDBusMenuConnection::*)()>(_a, &QDBusMenuConnection::trayIconRegistered, 0))
+            return;
+    }
+}
+
+const QMetaObject *QDBusMenuConnection::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *QDBusMenuConnection::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN19QDBusMenuConnectionE_t>.strings))
+        return static_cast<void*>(this);
+    return QObject::qt_metacast(_clname);
+}
+
+int QDBusMenuConnection::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QObject::qt_metacall(_c, _id, _a);
+    if (_id < 0)
+        return _id;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        if (_id < 2)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 2;
+    }
+    if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        if (_id < 2)
+            *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
+        _id -= 2;
+    }
+    return _id;
+}
+
+// SIGNAL 0
+void QDBusMenuConnection::trayIconRegistered()
+{
+    QMetaObject::activate(this, &staticMetaObject, 0, nullptr);
+}
+QT_WARNING_POP
+
+//  from src/gui/platform/unix/dbusmenu/qdbusmenuconnection.cpp, line 59, as _ZN19QDBusMenuConnection9dbusErrorERK10QDBusError
+inline void QDBusMenuConnection::dbusError(const QDBusError &error)
+{
+    qWarning() << "QDBusTrayIcon encountered a D-Bus error:" << error;
+}
+
+//  from src/gui/platform/unix/dbusmenu/qdbusmenuconnection.cpp, line 36, as _ZN19QDBusMenuConnectionC1EP7QObjectRK7QString
+inline QDBusMenuConnection::QDBusMenuConnection(QObject *parent, const QString &serviceName)
+    : QObject(parent)
+    , m_serviceName(serviceName)
+    , m_connection(serviceName.isNull() ? QDBusConnection::sessionBus()
+                                        : QDBusConnection::connectToBus(QDBusConnection::SessionBus, serviceName))
+    , m_dbusWatcher(new QDBusServiceWatcher(StatusNotifierWatcherService, m_connection, QDBusServiceWatcher::WatchForRegistration, this))
+    , m_watcherRegistered(false)
+{
+#ifndef QT_NO_SYSTEMTRAYICON
+    // Start monitoring if any known tray-related services are registered.
+    if (m_connection.interface()->isServiceRegistered(StatusNotifierWatcherService))
+        m_watcherRegistered = true;
+    else
+        qCDebug(qLcMenu) << "failed to find service" << StatusNotifierWatcherService;
+#endif
+}
+
+//  from src/gui/platform/unix/dbusmenu/qdbusplatformmenu.cpp, line 13, as _Z7qLcMenuv
+inline const QLoggingCategory &qLcMenu()
+{
+    static const QLoggingCategory category("qt.qpa.menu");
+    return category;
+}
 
 //  from src/gui/platform/unix/dbusmenu/qdbusmenuconnection.cpp, line 53, as _ZN19QDBusMenuConnectionD1Ev
 inline QDBusMenuConnection::~QDBusMenuConnection()
@@ -246,6 +391,15 @@ int ritual_ZN19QDBusMenuConnection11qt_metacallEN11QMetaObject4CallEiPPv(
     int a1,
     void **a2) {
   return self->qt_metacall(a0, a1, a2);
+}
+
+//  QString QDBusMenuConnection::tr(const char *s, const char *c, int n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN19QDBusMenuConnection2trEPKcS1_i(
+    const char *s,
+    const char *c,
+    int n) {
+  return new QString(QDBusMenuConnection::tr(s, c, n));
 }
 
 //  QDBusMenuConnection::~QDBusMenuConnection()

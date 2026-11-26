@@ -1,6 +1,13 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtCore/6.12.0/QtCore/private/qabstractanimation_p.h, Qt 6.12.0. Changes
-//  made here are lost.
+//  QtCore/6.12.0/QtCore/private/qabstractanimation_p.h, Qt 6.12.0.
+//  Edited by hand on 2026-11-26: moc's output for 'QAnimationTimer' is
+//  pasted in, cut from what the moc of Qt 6.12.0 writes for its header: Qt's
+//  library keeps it to itself; added are 8 rituals that lean on what moc
+//  writes for a class of the part Qt keeps to itself, whose ritual file
+//  carries moc's output, drafted by a copy of the generator that lets those
+//  names through. A copy of a meta-object is a second one: 'qobject_cast'
+//  between it and Qt's own does not match. Kept as it is when the generator
+//  runs again.
 #include <QtCore/qglobal.h>
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #if QT_CONFIG(animation)
@@ -10,9 +17,14 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/6.12.0/QtCore/private/qabstractanimation_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
 #include <QtCore/qabstractanimation.h>
 #include <QtCore/qanimationgroup.h>
 #include <QtCore/qdebug.h>
@@ -38,15 +50,109 @@
 //  from src/corelib/animation/qabstractanimation.cpp, line 134, as local:qabstractanimation.cpp:AnimationListConstIt
 typedef QList<QAbstractAnimation*>::ConstIterator AnimationListConstIt;
 
-//  from src/corelib/animation/qabstractanimation.cpp, line 614, as _ZN15QAnimationTimer21restartAnimationTimerEv
-inline void QAnimationTimer::restartAnimationTimer()
+//  from QtCore__QAnimationTimer.cpp, line 1, as moc:QAnimationTimer
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN15QAnimationTimerE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto QAnimationTimer::qt_create_metaobjectdata<qt_meta_tag_ZN15QAnimationTimerE_t>()
 {
-    if (runningLeafAnimations == 0 && !runningPauseAnimations.isEmpty())
-        QUnifiedTimer::pauseAnimationTimer(this, closestPauseAnimationTimeToFinish());
-    else if (isPaused)
-        QUnifiedTimer::resumeAnimationTimer(this);
-    else if (!isRegistered)
-        QUnifiedTimer::startAnimationTimer(this);
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "QAnimationTimer",
+        "startAnimations",
+        "",
+        "stopTimer"
+    };
+
+    QtMocHelpers::UintData qt_methods {
+        // Slot 'startAnimations'
+        QtMocHelpers::SlotData<void()>(1, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'stopTimer'
+        QtMocHelpers::SlotData<void()>(3, 2, QMC::AccessPrivate, QMetaType::Void),
+    };
+    QtMocHelpers::UintData qt_properties {
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    return QtMocHelpers::metaObjectData<QAnimationTimer, qt_meta_tag_ZN15QAnimationTimerE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums);
+}
+Q_CONSTINIT const QMetaObject QAnimationTimer::staticMetaObject = { {
+    QMetaObject::SuperData::link<QAbstractAnimationTimer::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN15QAnimationTimerE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN15QAnimationTimerE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN15QAnimationTimerE_t>.metaTypes,
+    nullptr
+} };
+
+void QAnimationTimer::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<QAnimationTimer *>(_o);
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        switch (_id) {
+        case 0: _t->startAnimations(); break;
+        case 1: _t->stopTimer(); break;
+        default: ;
+        }
+    }
+    (void)_a;
+}
+
+const QMetaObject *QAnimationTimer::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *QAnimationTimer::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN15QAnimationTimerE_t>.strings))
+        return static_cast<void*>(this);
+    return QAbstractAnimationTimer::qt_metacast(_clname);
+}
+
+int QAnimationTimer::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QAbstractAnimationTimer::qt_metacall(_c, _id, _a);
+    if (_id < 0)
+        return _id;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        if (_id < 2)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 2;
+    }
+    if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        if (_id < 2)
+            *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
+        _id -= 2;
+    }
+    return _id;
+}
+QT_WARNING_POP
+
+//  from src/corelib/animation/qabstractanimation.cpp, line 624, as _ZN15QAnimationTimer15startAnimationsEv
+inline void QAnimationTimer::startAnimations()
+{
+    if (!startAnimationPending)
+        return;
+    startAnimationPending = false;
+
+    //force timer to update, which prevents large deltas for our newly added animations
+    QUnifiedTimer::instance()->maybeUpdateAnimationsToCurrentTime();
+
+    //we transfer the waiting animations into the "really running" state
+    animations += animationsToStart;
+    animationsToStart.clear();
+    if (!animations.isEmpty())
+        restartAnimationTimer();
 }
 
 //  from src/corelib/animation/qabstractanimation.cpp, line 584, as _ZN15QAnimationTimer20updateAnimationsTimeEx
@@ -71,6 +177,133 @@ inline void QAnimationTimer::updateAnimationsTime(qint64 delta)
         }
         currentAnimationIdx = 0;
     }
+}
+
+//  from src/corelib/animation/qabstractanimation.cpp, line 614, as _ZN15QAnimationTimer21restartAnimationTimerEv
+inline void QAnimationTimer::restartAnimationTimer()
+{
+    if (runningLeafAnimations == 0 && !runningPauseAnimations.isEmpty())
+        QUnifiedTimer::pauseAnimationTimer(this, closestPauseAnimationTimeToFinish());
+    else if (isPaused)
+        QUnifiedTimer::resumeAnimationTimer(this);
+    else if (!isRegistered)
+        QUnifiedTimer::startAnimationTimer(this);
+}
+
+//  from src/corelib/animation/qabstractanimation.cpp, line 640, as _ZN15QAnimationTimer9stopTimerEv
+inline void QAnimationTimer::stopTimer()
+{
+    stopTimerPending = false;
+    bool pendingStart = startAnimationPending && animationsToStart.size() > 0;
+    if (animations.isEmpty() && !pendingStart) {
+        QUnifiedTimer::resumeAnimationTimer(this);
+        QUnifiedTimer::stopAnimationTimer(this);
+        // invalidate the start reference time
+        lastTick = 0;
+    }
+}
+
+//  from src/corelib/animation/qabstractanimation.cpp, line 549, as _ZN15QAnimationTimerD0Ev
+inline QAnimationTimer::~QAnimationTimer()
+    = default;
+
+//  from src/corelib/animation/qabstractanimation.cpp, line 541, as _ZN15QAnimationTimerC1Ev
+inline QAnimationTimer::QAnimationTimer() :
+    QAbstractAnimationTimer(), lastTick(0),
+    currentAnimationIdx(0), insideTick(false),
+    startAnimationPending(false), stopTimerPending(false),
+    runningLeafAnimations(0)
+{
+}
+
+//  from src/corelib/animation/qabstractanimation.cpp, line 571, as _ZN15QAnimationTimer8instanceEv
+inline QAnimationTimer *QAnimationTimer::instance()
+{
+    return instance(true);
+}
+
+//  from src/corelib/animation/qabstractanimation.cpp, line 552, as _ZN15QAnimationTimer8instanceEb
+inline QAnimationTimer *QAnimationTimer::instance(bool create)
+{
+    QAnimationTimer *inst;
+#if QT_CONFIG(thread)
+    static thread_local std::unique_ptr<QAnimationTimer> animationTimer;
+    if (create && !animationTimer) {
+        inst = new QAnimationTimer;
+        animationTimer.reset(inst);
+    } else {
+        inst = animationTimer.get();
+    }
+#else
+    Q_UNUSED(create);
+    static QAnimationTimer animationTimer;
+    inst = &animationTimer;
+#endif
+    return inst;
+}
+
+//  from src/corelib/animation/qabstractanimation.cpp, line 652, as _ZN15QAnimationTimer17registerAnimationEP18QAbstractAnimationb
+inline void QAnimationTimer::registerAnimation(QAbstractAnimation *animation, bool isTopLevel)
+{
+    QAnimationTimer *inst = instance(true); //we create the instance if needed
+    inst->registerRunningAnimation(animation);
+    if (isTopLevel) {
+        Q_ASSERT(!QAbstractAnimationPrivate::get(animation)->hasRegisteredTimer);
+        QAbstractAnimationPrivate::get(animation)->hasRegisteredTimer = true;
+        inst->animationsToStart << animation;
+        if (!inst->startAnimationPending) {
+            inst->startAnimationPending = true;
+            QMetaObject::invokeMethod(inst, "startAnimations", Qt::QueuedConnection);
+        }
+    }
+}
+
+//  from src/corelib/animation/qabstractanimation.cpp, line 667, as _ZN15QAnimationTimer19unregisterAnimationEP18QAbstractAnimation
+inline void QAnimationTimer::unregisterAnimation(QAbstractAnimation *animation)
+{
+    QAnimationTimer *inst = QAnimationTimer::instance(false);
+    if (inst) {
+        //at this point the unified timer should have been created
+        //but it might also have been already destroyed in case the application is shutting down
+
+        inst->unregisterRunningAnimation(animation);
+
+        if (!QAbstractAnimationPrivate::get(animation)->hasRegisteredTimer)
+            return;
+
+        int idx = inst->animations.indexOf(animation);
+        if (idx != -1) {
+            inst->animations.removeAt(idx);
+            // this is needed if we unregister an animation while its running
+            if (idx <= inst->currentAnimationIdx)
+                --inst->currentAnimationIdx;
+
+            if (inst->animations.isEmpty() && !inst->stopTimerPending) {
+                inst->stopTimerPending = true;
+                QMetaObject::invokeMethod(inst, "stopTimer", Qt::QueuedConnection);
+            }
+        } else {
+            inst->animationsToStart.removeOne(animation);
+        }
+    }
+    QAbstractAnimationPrivate::get(animation)->hasRegisteredTimer = false;
+}
+
+//  from src/corelib/animation/qabstractanimation.cpp, line 576, as _ZN15QAnimationTimer17ensureTimerUpdateEv
+inline void QAnimationTimer::ensureTimerUpdate()
+{
+    QAnimationTimer *inst = QAnimationTimer::instance(false);
+    QUnifiedTimer *instU = QUnifiedTimer::instance(false);
+    if (instU && inst && inst->isPaused)
+        instU->updateAnimationTimers();
+}
+
+//  from src/corelib/animation/qabstractanimation.cpp, line 607, as _ZN15QAnimationTimer20updateAnimationTimerEv
+inline void QAnimationTimer::updateAnimationTimer()
+{
+    QAnimationTimer *inst = QAnimationTimer::instance(false);
+    if (inst)
+        inst->restartAnimationTimer();
 }
 
 //  from src/corelib/animation/qabstractanimation.cpp, line 697, as _ZN15QAnimationTimer24registerRunningAnimationEP18QAbstractAnimation
@@ -376,10 +609,65 @@ int ritual_ZN15QAnimationTimer11qt_metacallEN11QMetaObject4CallEiPPv(
   return self->qt_metacall(a0, a1, a2);
 }
 
+//  QString QAnimationTimer::tr(const char *s, const char *c, int n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN15QAnimationTimer2trEPKcS1_i(
+    const char *s,
+    const char *c,
+    int n) {
+  return new QString(QAnimationTimer::tr(s, c, n));
+}
+
+//  QAnimationTimer::QAnimationTimer()
+extern "C" Q_DECL_EXPORT
+QAnimationTimer *ritual_ZN15QAnimationTimerC1Ev() {
+  return new CuteQAnimationTimer();
+}
+
 //  QAnimationTimer::~QAnimationTimer()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QAnimationTimerD1Ev(QAnimationTimer *self) {
   delete self;
+}
+
+//  QAnimationTimer *QAnimationTimer::instance()
+extern "C" Q_DECL_EXPORT
+QAnimationTimer *ritual_ZN15QAnimationTimer8instanceEv() {
+  return QAnimationTimer::instance();
+}
+
+//  QAnimationTimer *QAnimationTimer::instance(bool create)
+extern "C" Q_DECL_EXPORT
+QAnimationTimer *ritual_ZN15QAnimationTimer8instanceEb(bool create) {
+  return QAnimationTimer::instance(create);
+}
+
+//  void QAnimationTimer::registerAnimation(QAbstractAnimation *animation,
+//      bool isTopLevel)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QAnimationTimer17registerAnimationEP18QAbstractAnimationb(
+    QAbstractAnimation *animation,
+    bool isTopLevel) {
+  QAnimationTimer::registerAnimation(animation, isTopLevel);
+}
+
+//  void QAnimationTimer::unregisterAnimation(QAbstractAnimation *animation)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QAnimationTimer19unregisterAnimationEP18QAbstractAnimation(
+    QAbstractAnimation *animation) {
+  QAnimationTimer::unregisterAnimation(animation);
+}
+
+//  void QAnimationTimer::ensureTimerUpdate()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QAnimationTimer17ensureTimerUpdateEv() {
+  QAnimationTimer::ensureTimerUpdate();
+}
+
+//  void QAnimationTimer::updateAnimationTimer()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QAnimationTimer20updateAnimationTimerEv() {
+  QAnimationTimer::updateAnimationTimer();
 }
 
 //  void QAnimationTimer::restartAnimationTimer()

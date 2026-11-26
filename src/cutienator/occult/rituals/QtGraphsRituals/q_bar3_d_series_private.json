@@ -13,6 +13,7 @@
     "ritual_ZN19QBar3DSeriesPrivate3getEP12QBar3DSeries": [
       "address", "address"
     ],
+    "ritual_ZN19QBar3DSeriesPrivateC1Ev": ["address"],
     "ritual_ZN19QBar3DSeriesPrivateD1Ev": ["nothing", "address"],
     "ritual_ZN19QBar3DSeriesPrivate12setDataProxyEP18QAbstractDataProxy": [
       "nothing", "address", "address"

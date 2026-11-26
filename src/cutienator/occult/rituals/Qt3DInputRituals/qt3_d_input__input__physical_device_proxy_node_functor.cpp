@@ -59,6 +59,25 @@ inline void PhysicalDeviceProxy::syncFromFrontEnd(const Qt3DCore::QNode *frontEn
 }
 }  // namespace Qt3DInput::Input
 
+//  from ../qt3d/src/input/backend/physicaldeviceproxy.cpp, line 79, as _ZN9Qt3DInput5Input30PhysicalDeviceProxyNodeFunctorC1EPNS0_26PhysicalDeviceProxyManagerE
+namespace Qt3DInput::Input {
+inline PhysicalDeviceProxyNodeFunctor::PhysicalDeviceProxyNodeFunctor(PhysicalDeviceProxyManager *manager)
+    : m_manager(manager)
+{
+}
+}  // namespace Qt3DInput::Input
+
+//  from ../qt3d/src/input/backend/physicaldeviceproxy.cpp, line 84, as _ZNK9Qt3DInput5Input30PhysicalDeviceProxyNodeFunctor6createEN8Qt3DCore7QNodeIdE
+namespace Qt3DInput::Input {
+inline Qt3DCore::QBackendNode *PhysicalDeviceProxyNodeFunctor::create(Qt3DCore::QNodeId id) const
+{
+    HPhysicalDeviceProxy handle = m_manager->getOrAcquireHandle(id);
+    PhysicalDeviceProxy *backend = m_manager->data(handle);
+    backend->setManager(m_manager);
+    return backend;
+}
+}  // namespace Qt3DInput::Input
+
 //  from ../qt3d/src/input/backend/physicaldeviceproxy.cpp, line 92, as _ZNK9Qt3DInput5Input30PhysicalDeviceProxyNodeFunctor3getEN8Qt3DCore7QNodeIdE
 namespace Qt3DInput::Input {
 inline Qt3DCore::QBackendNode *PhysicalDeviceProxyNodeFunctor::get(Qt3DCore::QNodeId id) const
@@ -75,6 +94,23 @@ inline void PhysicalDeviceProxyNodeFunctor::destroy(Qt3DCore::QNodeId id) const
 }
 }  // namespace Qt3DInput::Input
 //  -----------------------------------------------------------------------
+
+//  Qt3DInput::Input::PhysicalDeviceProxyNodeFunctor::PhysicalDeviceProxyNode
+//      Functor(PhysicalDeviceProxyManager *manager)
+extern "C" Q_DECL_EXPORT
+Qt3DInput::Input::PhysicalDeviceProxyNodeFunctor *ritual_ZN9Qt3DInput5Input30PhysicalDeviceProxyNodeFunctorC1EPNS0_26PhysicalDeviceProxyManagerE(
+    Qt3DInput::Input::PhysicalDeviceProxyManager *manager) {
+  return new Qt3DInput::Input::PhysicalDeviceProxyNodeFunctor(manager);
+}
+
+//  Qt3DCore::QBackendNode *Qt3DInput::Input::PhysicalDeviceProxyNodeFunctor:
+//      :create(Qt3DCore::QNodeId id) const
+extern "C" Q_DECL_EXPORT
+Qt3DCore::QBackendNode *ritual_ZNK9Qt3DInput5Input30PhysicalDeviceProxyNodeFunctor6createEN8Qt3DCore7QNodeIdE(
+    const Qt3DInput::Input::PhysicalDeviceProxyNodeFunctor *self,
+    const Qt3DCore::QNodeId *id) {
+  return self->create(*id);
+}
 
 //  Qt3DCore::QBackendNode
 //      *Qt3DInput::Input::PhysicalDeviceProxyNodeFunctor::get(Qt3DCore::QNod

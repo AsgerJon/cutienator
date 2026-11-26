@@ -1,15 +1,30 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtDataVisualization/6.12.0/QtDataVisualization/private/qcustom3ditem_p.h,
-//  Qt 6.12.0. Changes made here are lost.
+//  Qt 6.12.0.
+//  Edited by hand on 2026-11-26: moc's output for 'QCustom3DItemPrivate' is
+//  pasted in, cut from what the moc of Qt 6.12.0 writes for its header: Qt's
+//  library keeps it to itself; added are 3 rituals that lean on what moc
+//  writes for a class of the part Qt keeps to itself, whose ritual file
+//  carries moc's output, drafted by a copy of the generator that lets those
+//  names through. A copy of a meta-object is a second one: 'qobject_cast'
+//  between it and Qt's own does not match. Kept as it is when the generator
+//  runs again.
 #include <QtDataVisualization/6.12.0/QtDataVisualization/private/datavisualizationglobal_p.h>
 #include <QtDataVisualization/QtDataVisualization>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtDataVisualization/6.12.0/QtDataVisualization/private/qcustom3ditem_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
+#include <QtGui/qvectornd.h>
+#include <QtGui/qquaternion.h>
 #include <QtGui/qimage.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
 #include <QtDataVisualization/private/qcustom3ditem_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
@@ -19,6 +34,139 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  from QtDataVisualization__QCustom3DItemPrivate.cpp, line 1, as moc:QCustom3DItemPrivate
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN20QCustom3DItemPrivateE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto QCustom3DItemPrivate::qt_create_metaobjectdata<qt_meta_tag_ZN20QCustom3DItemPrivateE_t>()
+{
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "QCustom3DItemPrivate",
+        "needUpdate",
+        ""
+    };
+
+    QtMocHelpers::UintData qt_methods {
+        // Signal 'needUpdate'
+        QtMocHelpers::SignalData<void()>(1, 2, QMC::AccessPublic, QMetaType::Void),
+    };
+    QtMocHelpers::UintData qt_properties {
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    return QtMocHelpers::metaObjectData<QCustom3DItemPrivate, qt_meta_tag_ZN20QCustom3DItemPrivateE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums);
+}
+Q_CONSTINIT const QMetaObject QCustom3DItemPrivate::staticMetaObject = { {
+    QMetaObject::SuperData::link<QObject::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN20QCustom3DItemPrivateE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN20QCustom3DItemPrivateE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN20QCustom3DItemPrivateE_t>.metaTypes,
+    nullptr
+} };
+
+void QCustom3DItemPrivate::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<QCustom3DItemPrivate *>(_o);
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        switch (_id) {
+        case 0: _t->needUpdate(); break;
+        default: ;
+        }
+    }
+    if (_c == QMetaObject::IndexOfMethod) {
+        if (QtMocHelpers::indexOfMethod<void (QCustom3DItemPrivate::*)()>(_a, &QCustom3DItemPrivate::needUpdate, 0))
+            return;
+    }
+}
+
+const QMetaObject *QCustom3DItemPrivate::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *QCustom3DItemPrivate::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN20QCustom3DItemPrivateE_t>.strings))
+        return static_cast<void*>(this);
+    return QObject::qt_metacast(_clname);
+}
+
+int QCustom3DItemPrivate::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QObject::qt_metacall(_c, _id, _a);
+    if (_id < 0)
+        return _id;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        if (_id < 1)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 1;
+    }
+    if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        if (_id < 1)
+            *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
+        _id -= 1;
+    }
+    return _id;
+}
+
+// SIGNAL 0
+void QCustom3DItemPrivate::needUpdate()
+{
+    QMetaObject::activate(this, &staticMetaObject, 0, nullptr);
+}
+QT_WARNING_POP
+
+//  from ../qtdatavis3d/src/datavisualization/data/qcustom3ditem.cpp, line 493, as _ZN20QCustom3DItemPrivateD0Ev
+inline QCustom3DItemPrivate::~QCustom3DItemPrivate()
+{
+}
+
+//  from ../qtdatavis3d/src/datavisualization/data/qcustom3ditem.cpp, line 460, as _ZN20QCustom3DItemPrivateC1EP13QCustom3DItem
+inline QCustom3DItemPrivate::QCustom3DItemPrivate(QCustom3DItem *q) :
+    q_ptr(q),
+    m_textureImage(QImage(1, 1, QImage::Format_ARGB32)),
+    m_position(QVector3D(0.0f, 0.0f, 0.0f)),
+    m_positionAbsolute(false),
+    m_scaling(QVector3D(0.1f, 0.1f, 0.1f)),
+    m_scalingAbsolute(true),
+    m_rotation(identityQuaternion),
+    m_visible(true),
+    m_shadowCasting(true),
+    m_isLabelItem(false),
+    m_isVolumeItem(false)
+{
+}
+
+//  from ../qtdatavis3d/src/datavisualization/data/qcustom3ditem.cpp, line 475, as _ZN20QCustom3DItemPrivateC1EP13QCustom3DItemRK7QStringRK9QVector3DS7_RK11QQuaternion
+inline QCustom3DItemPrivate::QCustom3DItemPrivate(QCustom3DItem *q, const QString &meshFile,
+                                           const QVector3D &position, const QVector3D &scaling,
+                                           const QQuaternion &rotation) :
+    q_ptr(q),
+    m_textureImage(QImage(1, 1, QImage::Format_ARGB32)),
+    m_meshFile(meshFile),
+    m_position(position),
+    m_positionAbsolute(false),
+    m_scaling(scaling),
+    m_scalingAbsolute(true),
+    m_rotation(rotation),
+    m_visible(true),
+    m_shadowCasting(true),
+    m_isLabelItem(false),
+    m_isVolumeItem(false)
+{
+}
 
 //  from ../qtdatavis3d/src/datavisualization/data/qcustom3ditem.cpp, line 497, as _ZN20QCustom3DItemPrivate12textureImageEv
 inline QImage QCustom3DItemPrivate::textureImage()
@@ -237,6 +385,40 @@ int ritual_ZN20QCustom3DItemPrivate11qt_metacallEN11QMetaObject4CallEiPPv(
     int a1,
     void **a2) {
   return self->qt_metacall(a0, a1, a2);
+}
+
+//  QString QCustom3DItemPrivate::tr(const char *s, const char *c, int n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN20QCustom3DItemPrivate2trEPKcS1_i(
+    const char *s,
+    const char *c,
+    int n) {
+  return new QString(QCustom3DItemPrivate::tr(s, c, n));
+}
+
+//  QCustom3DItemPrivate::QCustom3DItemPrivate(QCustom3DItem *q)
+extern "C" Q_DECL_EXPORT
+QCustom3DItemPrivate *ritual_ZN20QCustom3DItemPrivateC1EP13QCustom3DItem(
+    QCustom3DItem *q) {
+  return new CuteQCustom3DItemPrivate(q);
+}
+
+//  QCustom3DItemPrivate::QCustom3DItemPrivate(QCustom3DItem *q, const
+//      QString &meshFile, const QVector3D &position, const QVector3D
+//      &scaling, const QQuaternion &rotation)
+extern "C" Q_DECL_EXPORT
+QCustom3DItemPrivate *ritual_ZN20QCustom3DItemPrivateC1EP13QCustom3DItemRK7QStringRK9QVector3DS7_RK11QQuaternion(
+    QCustom3DItem *q,
+    const QString *meshFile,
+    const QVector3D *position,
+    const QVector3D *scaling,
+    const QQuaternion *rotation) {
+  return new CuteQCustom3DItemPrivate(
+      q,
+      *meshFile,
+      *position,
+      *scaling,
+      *rotation);
 }
 
 //  QCustom3DItemPrivate::~QCustom3DItemPrivate()

@@ -1,6 +1,10 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtNetwork/6.12.0/QtNetwork/private/qnetworkreplyimpl_p.h, Qt 6.12.0.
-//  Changes made here are lost.
+//  Edited by hand on 2026-11-26: added are 1 rituals whose code, copied from
+//  Qt's source, reads constant data Qt keeps to itself
+//  ('QNetworkReplyPrivate::progressSignalInterval'), copied with it 'inline'
+//  from Qt's source, drafted by a copy of the generator that takes it along.
+//  Kept as it is when the generator runs again.
 #include <QtNetwork/6.12.0/QtNetwork/private/qtnetworkglobal_p.h>
 #include <QtNetwork/QtNetwork>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -55,6 +59,46 @@
 
 using namespace Qt::StringLiterals;
 
+//  from src/network/access/qnetworkreplyimpl.cpp, line 830, as _ZN17QNetworkReplyImpl15ignoreSslErrorsEv
+#if !defined(QT_NO_SSL)
+inline void QNetworkReplyImpl::ignoreSslErrors()
+{
+    Q_D(QNetworkReplyImpl);
+    if (d->backend)
+        d->backend->ignoreSslErrors();
+}
+#endif  // !defined(QT_NO_SSL)
+
+//  from src/network/access/qnetworkreplyimpl.cpp, line 806, as _ZN17QNetworkReplyImpl17setReadBufferSizeEx
+inline void QNetworkReplyImpl::setReadBufferSize(qint64 size)
+{
+    Q_D(QNetworkReplyImpl);
+    qint64 oldMaxSize = d->readBufferMaxSize;
+    QNetworkReply::setReadBufferSize(size);
+    if (size > oldMaxSize && size > d->buffer.size())
+        d->readFromBackend();
+}
+
+//  from src/network/access/qnetworkreplyimpl.cpp, line 837, as _ZN17QNetworkReplyImpl29ignoreSslErrorsImplementationERK5QListI9QSslErrorE
+#if !defined(QT_NO_SSL)
+inline void QNetworkReplyImpl::ignoreSslErrorsImplementation(const QList<QSslError> &errors)
+{
+    Q_D(QNetworkReplyImpl);
+    if (d->backend)
+        d->backend->ignoreSslErrors(errors);
+}
+#endif  // !defined(QT_NO_SSL)
+
+//  from src/network/access/qnetworkreplyimpl.cpp, line 823, as _ZN17QNetworkReplyImpl33setSslConfigurationImplementationERK17QSslConfiguration
+#if !defined(QT_NO_SSL)
+inline void QNetworkReplyImpl::setSslConfigurationImplementation(const QSslConfiguration &config)
+{
+    Q_D(QNetworkReplyImpl);
+    if (d->backend && !config.isNull())
+        d->backend->setSslConfiguration(config);
+}
+#endif  // !defined(QT_NO_SSL)
+
 //  from src/network/access/qnetworkreplyimpl.cpp, line 739, as _ZN17QNetworkReplyImpl5abortEv
 inline void QNetworkReplyImpl::abort()
 {
@@ -103,26 +147,15 @@ inline void QNetworkReplyImpl::close()
     d->finished();
 }
 
-//  from src/network/access/qnetworkreplyimpl.cpp, line 795, as _ZNK17QNetworkReplyImpl14bytesAvailableEv
-inline qint64 QNetworkReplyImpl::bytesAvailable() const
+//  from src/network/access/qnetworkreplyimpl.cpp, line 905, as _ZN17QNetworkReplyImpl5eventEP6QEvent
+inline bool QNetworkReplyImpl::event(QEvent *e)
 {
-    // Special case for the "zero copy" download buffer
-    Q_D(const QNetworkReplyImpl);
-    if (d->downloadBuffer) {
-        qint64 maxAvail = d->downloadBufferCurrentSize - d->downloadBufferReadPosition;
-        return QNetworkReply::bytesAvailable() + maxAvail;
+    if (e->type() == QEvent::NetworkReplyUpdated) {
+        d_func()->handleNotifications();
+        return true;
     }
-    return QNetworkReply::bytesAvailable() + (d->backend ? d->backend->bytesAvailable() : 0);
-}
 
-//  from src/network/access/qnetworkreplyimpl.cpp, line 806, as _ZN17QNetworkReplyImpl17setReadBufferSizeEx
-inline void QNetworkReplyImpl::setReadBufferSize(qint64 size)
-{
-    Q_D(QNetworkReplyImpl);
-    qint64 oldMaxSize = d->readBufferMaxSize;
-    QNetworkReply::setReadBufferSize(size);
-    if (size > oldMaxSize && size > d->buffer.size())
-        d->readFromBackend();
+    return QObject::event(e);
 }
 
 //  from src/network/access/qnetworkreplyimpl.cpp, line 848, as _ZN17QNetworkReplyImpl8readDataEPcx
@@ -180,172 +213,6 @@ inline qint64 QNetworkReplyImpl::readData(char *data, qint64 maxlen)
     return 0;
 }
 
-//  from src/network/access/qnetworkreplyimpl.cpp, line 905, as _ZN17QNetworkReplyImpl5eventEP6QEvent
-inline bool QNetworkReplyImpl::event(QEvent *e)
-{
-    if (e->type() == QEvent::NetworkReplyUpdated) {
-        d_func()->handleNotifications();
-        return true;
-    }
-
-    return QObject::event(e);
-}
-
-//  from src/network/access/qnetworkreplyimpl.cpp, line 823, as _ZN17QNetworkReplyImpl33setSslConfigurationImplementationERK17QSslConfiguration
-#if !defined(QT_NO_SSL)
-inline void QNetworkReplyImpl::setSslConfigurationImplementation(const QSslConfiguration &config)
-{
-    Q_D(QNetworkReplyImpl);
-    if (d->backend && !config.isNull())
-        d->backend->setSslConfiguration(config);
-}
-#endif  // !defined(QT_NO_SSL)
-
-//  from src/network/access/qnetworkreplyimpl.cpp, line 830, as _ZN17QNetworkReplyImpl15ignoreSslErrorsEv
-#if !defined(QT_NO_SSL)
-inline void QNetworkReplyImpl::ignoreSslErrors()
-{
-    Q_D(QNetworkReplyImpl);
-    if (d->backend)
-        d->backend->ignoreSslErrors();
-}
-#endif  // !defined(QT_NO_SSL)
-
-//  from src/network/access/qnetworkreplyimpl.cpp, line 696, as _ZN24QNetworkReplyImplPrivate15readFromBackendEv
-inline void QNetworkReplyImplPrivate::readFromBackend()
-{
-    Q_Q(QNetworkReplyImpl);
-    if (!backend)
-        return;
-
-    if (backend->ioFeatures() & QNetworkAccessBackend::IOFeature::ZeroCopy) {
-        if (backend->bytesAvailable())
-            emit q->readyRead();
-    } else {
-        bool anyBytesRead = false;
-        while (backend->bytesAvailable()
-               && (!readBufferMaxSize || buffer.size() < readBufferMaxSize)) {
-            qint64 toRead = qMin(nextDownstreamBlockSize(), backend->bytesAvailable());
-            if (toRead == 0)
-                toRead = 16 * 1024; // try to read something
-            char *data = buffer.reserve(toRead);
-            qint64 bytesRead = backend->read(data, toRead);
-            Q_ASSERT(bytesRead <= toRead);
-            buffer.chop(toRead - bytesRead);
-            anyBytesRead |= bytesRead > 0;
-        }
-        if (anyBytesRead)
-            emit q->readyRead();
-    }
-}
-
-//  from src/network/access/qnetworkrequest.cpp, line 1885, as _ZN22QNetworkHeadersPrivate5toIntE14QByteArrayView
-inline std::optional<qint64> QNetworkHeadersPrivate::toInt(QByteArrayView value)
-{
-    if (value.empty())
-        return std::nullopt;
-
-    bool ok;
-    qint64 res = value.toLongLong(&ok);
-    if (ok)
-        return res;
-    return std::nullopt;
-}
-
-//  from src/network/access/qnetworkreplyimpl.cpp, line 274, as _ZN24QNetworkReplyImplPrivate13backendNotifyENS_21InternalNotificationsE
-inline void QNetworkReplyImplPrivate::backendNotify(InternalNotifications notification)
-{
-    Q_Q(QNetworkReplyImpl);
-    const auto it = std::find(pendingNotifications.cbegin(), pendingNotifications.cend(), notification);
-    if (it == pendingNotifications.cend())
-        pendingNotifications.push_back(notification);
-
-    if (pendingNotifications.size() == 1)
-        QCoreApplication::postEvent(q, new QEvent(QEvent::NetworkReplyUpdated));
-}
-
-//  from src/network/access/qnetworkreplyimpl.cpp, line 413, as _ZN24QNetworkReplyImplPrivate19initCacheSaveDeviceEv
-inline void QNetworkReplyImplPrivate::initCacheSaveDevice()
-{
-    Q_Q(QNetworkReplyImpl);
-
-    // The disk cache does not support partial content, so don't even try to
-    // save any such content into the cache.
-    if (q->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt() == 206) {
-        cacheEnabled = false;
-        return;
-    }
-
-    // save the meta data
-    QNetworkCacheMetaData metaData;
-    metaData.setUrl(url);
-    // @todo @future: fetchCacheMetaData is not currently implemented in any backend, but can be useful again in the future
-    // metaData = backend->fetchCacheMetaData(metaData);
-
-    // save the redirect request also in the cache
-    QVariant redirectionTarget = q->attribute(QNetworkRequest::RedirectionTargetAttribute);
-    if (redirectionTarget.isValid()) {
-        QNetworkCacheMetaData::AttributesMap attributes = metaData.attributes();
-        attributes.insert(QNetworkRequest::RedirectionTargetAttribute, redirectionTarget);
-        metaData.setAttributes(attributes);
-    }
-
-    cacheSaveDevice = networkCache()->prepare(metaData);
-
-    if (!cacheSaveDevice || !cacheSaveDevice->isOpen()) {
-        if (Q_UNLIKELY(cacheSaveDevice && !cacheSaveDevice->isOpen()))
-            qCritical("QNetworkReplyImpl: network cache returned a device that is not open -- "
-                  "class %s probably needs to be fixed",
-                  networkCache()->metaObject()->className());
-
-        networkCache()->remove(url);
-        cacheSaveDevice = nullptr;
-        cacheEnabled = false;
-    }
-}
-
-//  from src/network/access/qnetworkreplyimpl.cpp, line 285, as _ZN24QNetworkReplyImplPrivate19handleNotificationsEv
-inline void QNetworkReplyImplPrivate::handleNotifications()
-{
-    if (notificationHandlingPaused)
-        return;
-
-     for (InternalNotifications notification : std::exchange(pendingNotifications, {})) {
-        if (state != Working)
-            return;
-        switch (notification) {
-        case NotifyDownstreamReadyWrite:
-            if (copyDevice) {
-                _q_copyReadyRead();
-            } else if (backend) {
-                if (backend->bytesAvailable() > 0)
-                    readFromBackend();
-                else if (backend->wantToRead())
-                    readFromBackend();
-            }
-            break;
-        }
-    }
-}
-
-//  from src/network/access/qnetworkreplyimpl.cpp, line 404, as _ZNK24QNetworkReplyImplPrivate23nextDownstreamBlockSizeEv
-inline qint64 QNetworkReplyImplPrivate::nextDownstreamBlockSize() const
-{
-    enum { DesiredBufferSize = 32 * 1024 };
-    if (readBufferMaxSize == 0)
-        return DesiredBufferSize;
-
-    return qMax<qint64>(0, readBufferMaxSize - buffer.size());
-}
-
-//  from src/network/access/qnetworkreplyimpl.cpp, line 324, as _ZNK24QNetworkReplyImplPrivate12networkCacheEv
-inline QAbstractNetworkCache *QNetworkReplyImplPrivate::networkCache() const
-{
-    if (!backend)
-        return nullptr;
-    return backend->networkCache();
-}
-
 //  from src/network/access/qnetworkreplyimpl.cpp, line 83, as _ZN24QNetworkReplyImplPrivate16_q_copyReadyReadEv
 inline void QNetworkReplyImplPrivate::_q_copyReadyRead()
 {
@@ -399,6 +266,400 @@ inline void QNetworkReplyImplPrivate::_q_copyReadyRead()
         emit q->downloadProgress(bytesDownloaded, totalSizeOpt.value_or(-1));
     }
     resumeNotificationHandling();
+}
+
+//  from src/network/access/qnetworkreplyimpl.cpp, line 38, as _ZN24QNetworkReplyImplPrivate17_q_startOperationEv
+inline void QNetworkReplyImplPrivate::_q_startOperation()
+{
+    // ensure this function is only being called once
+    if (state == Working || state == Finished) {
+        qDebug() << "QNetworkReplyImpl::_q_startOperation was called more than once" << url;
+        return;
+    }
+    state = Working;
+
+    // note: if that method is called directly, it cannot happen that the backend is 0,
+    // because we just checked via a qobject_cast that we got a http backend (see
+    // QNetworkReplyImplPrivate::setup())
+    if (!backend) {
+        error(QNetworkReplyImpl::ProtocolUnknownError,
+              QCoreApplication::translate("QNetworkReply", "Protocol \"%1\" is unknown").arg(url.scheme())); // not really true!;
+        finished();
+        return;
+    }
+
+    if (!backend->start()) {
+        qWarning("Backend start failed");
+        state = Working;
+        error(QNetworkReplyImpl::UnknownNetworkError,
+              QCoreApplication::translate("QNetworkReply", "backend start error."));
+        finished();
+        return;
+    }
+
+    // Prepare timer for progress notifications
+    downloadProgressSignalChoke.start();
+    uploadProgressSignalChoke.invalidate();
+
+    if (backend && backend->isSynchronous()) {
+        state = Finished;
+        q_func()->setFinished(true);
+    } else {
+        if (state != Finished) {
+            if (operation == QNetworkAccessManager::GetOperation)
+                pendingNotifications.push_back(NotifyDownstreamReadyWrite);
+
+            handleNotifications();
+        }
+    }
+}
+
+//  from src/network/access/qnetworkreplyimpl.cpp, line 159, as _ZN24QNetworkReplyImplPrivate21_q_bufferOutgoingDataEv
+inline void QNetworkReplyImplPrivate::_q_bufferOutgoingData()
+{
+    Q_Q(QNetworkReplyImpl);
+
+    if (!outgoingDataBuffer) {
+        // first call, create our buffer
+        outgoingDataBuffer = std::make_shared<QRingBuffer>();
+
+        QObject::connect(outgoingData, SIGNAL(readyRead()), q, SLOT(_q_bufferOutgoingData()));
+        QObject::connect(outgoingData, SIGNAL(readChannelFinished()), q, SLOT(_q_bufferOutgoingDataFinished()));
+    }
+
+    qint64 bytesBuffered = 0;
+    qint64 bytesToBuffer = 0;
+
+    // read data into our buffer
+    forever {
+        bytesToBuffer = outgoingData->bytesAvailable();
+        // unknown? just try 2 kB, this also ensures we always try to read the EOF
+        if (bytesToBuffer <= 0)
+            bytesToBuffer = 2*1024;
+
+        char *dst = outgoingDataBuffer->reserve(bytesToBuffer);
+        bytesBuffered = outgoingData->read(dst, bytesToBuffer);
+
+        if (bytesBuffered == -1) {
+            // EOF has been reached.
+            outgoingDataBuffer->chop(bytesToBuffer);
+
+            _q_bufferOutgoingDataFinished();
+            break;
+        } else if (bytesBuffered == 0) {
+            // nothing read right now, just wait until we get called again
+            outgoingDataBuffer->chop(bytesToBuffer);
+
+            break;
+        } else {
+            // don't break, try to read() again
+            outgoingDataBuffer->chop(bytesToBuffer - bytesBuffered);
+        }
+    }
+}
+
+//  from src/network/access/qnetworkreplyimpl.cpp, line 137, as _ZN24QNetworkReplyImplPrivate26_q_copyReadChannelFinishedEv
+inline void QNetworkReplyImplPrivate::_q_copyReadChannelFinished()
+{
+    _q_copyReadyRead();
+}
+
+//  from src/network/access/qnetworkreplyimpl.cpp, line 142, as _ZN24QNetworkReplyImplPrivate29_q_bufferOutgoingDataFinishedEv
+inline void QNetworkReplyImplPrivate::_q_bufferOutgoingDataFinished()
+{
+    Q_Q(QNetworkReplyImpl);
+
+    // make sure this is only called once, ever.
+    //_q_bufferOutgoingData may call it or the readChannelFinished emission
+    if (state != Buffering)
+        return;
+
+    // disconnect signals
+    QObject::disconnect(outgoingData, SIGNAL(readyRead()), q, SLOT(_q_bufferOutgoingData()));
+    QObject::disconnect(outgoingData, SIGNAL(readChannelFinished()), q, SLOT(_q_bufferOutgoingDataFinished()));
+
+    // finally, start the request
+    QMetaObject::invokeMethod(q, "_q_startOperation", Qt::QueuedConnection);
+}
+
+//  from src/network/access/qnetworkreplyimpl.cpp, line 21, as _ZN24QNetworkReplyImplPrivateC1Ev
+inline QNetworkReplyImplPrivate::QNetworkReplyImplPrivate()
+    : backend(nullptr), outgoingData(nullptr),
+      copyDevice(nullptr),
+      cacheEnabled(false), cacheSaveDevice(nullptr),
+      notificationHandlingPaused(false),
+      bytesDownloaded(0), bytesUploaded(-1),
+      httpStatusCode(0),
+      state(Idle)
+      , downloadBufferReadPosition(0)
+      , downloadBufferCurrentSize(0)
+      , downloadBufferMaximumSize(0)
+      , downloadBuffer(nullptr)
+{
+    if (request.attribute(QNetworkRequest::EmitAllUploadProgressSignalsAttribute).toBool() == true)
+        emitAllUploadProgressSignals = true;
+}
+
+//  from src/network/access/qnetworkreplyimpl.cpp, line 795, as _ZNK17QNetworkReplyImpl14bytesAvailableEv
+inline qint64 QNetworkReplyImpl::bytesAvailable() const
+{
+    // Special case for the "zero copy" download buffer
+    Q_D(const QNetworkReplyImpl);
+    if (d->downloadBuffer) {
+        qint64 maxAvail = d->downloadBufferCurrentSize - d->downloadBufferReadPosition;
+        return QNetworkReply::bytesAvailable() + maxAvail;
+    }
+    return QNetworkReply::bytesAvailable() + (d->backend ? d->backend->bytesAvailable() : 0);
+}
+
+//  from src/network/access/qnetworkreplyimpl.cpp, line 816, as _ZNK17QNetworkReplyImpl30sslConfigurationImplementationER17QSslConfiguration
+#if !defined(QT_NO_SSL)
+inline void QNetworkReplyImpl::sslConfigurationImplementation(QSslConfiguration &configuration) const
+{
+    Q_D(const QNetworkReplyImpl);
+    if (d->backend)
+        configuration = d->backend->sslConfiguration();
+}
+#endif  // !defined(QT_NO_SSL)
+
+//  from src/network/access/qnetworkreplyimpl.cpp, line 324, as _ZNK24QNetworkReplyImplPrivate12networkCacheEv
+inline QAbstractNetworkCache *QNetworkReplyImplPrivate::networkCache() const
+{
+    if (!backend)
+        return nullptr;
+    return backend->networkCache();
+}
+
+//  from src/network/access/qnetworkreplyimpl.cpp, line 340, as _ZNK24QNetworkReplyImplPrivate16isCachingEnabledEv
+inline bool QNetworkReplyImplPrivate::isCachingEnabled() const
+{
+    return (cacheEnabled && networkCache() != nullptr);
+}
+
+//  from src/network/access/qnetworkreply.cpp, line 15, as _ZN20QNetworkReplyPrivate22progressSignalIntervalE
+inline const int QNetworkReplyPrivate::progressSignalInterval = 100;
+
+//  from src/network/access/qnetworkreply.cpp, line 17, as _ZN20QNetworkReplyPrivateC2Ev
+inline QNetworkReplyPrivate::QNetworkReplyPrivate()
+    : readBufferMaxSize(0),
+      emitAllUploadProgressSignals(false),
+      operation(QNetworkAccessManager::UnknownOperation),
+      errorCode(QNetworkReply::NoError)
+    , isFinished(false)
+{
+    // set the default attribute values
+    attributes.insert(QNetworkRequest::ConnectionEncryptedAttribute, false);
+}
+
+//  from src/network/access/qnetworkrequest.cpp, line 1885, as _ZN22QNetworkHeadersPrivate5toIntE14QByteArrayView
+inline std::optional<qint64> QNetworkHeadersPrivate::toInt(QByteArrayView value)
+{
+    if (value.empty())
+        return std::nullopt;
+
+    bool ok;
+    qint64 res = value.toLongLong(&ok);
+    if (ok)
+        return res;
+    return std::nullopt;
+}
+
+//  from src/network/access/qnetworkreplyimpl.cpp, line 274, as _ZN24QNetworkReplyImplPrivate13backendNotifyENS_21InternalNotificationsE
+inline void QNetworkReplyImplPrivate::backendNotify(InternalNotifications notification)
+{
+    Q_Q(QNetworkReplyImpl);
+    const auto it = std::find(pendingNotifications.cbegin(), pendingNotifications.cend(), notification);
+    if (it == pendingNotifications.cend())
+        pendingNotifications.push_back(notification);
+
+    if (pendingNotifications.size() == 1)
+        QCoreApplication::postEvent(q, new QEvent(QEvent::NetworkReplyUpdated));
+}
+
+//  from src/network/access/qnetworkreplyimpl.cpp, line 696, as _ZN24QNetworkReplyImplPrivate15readFromBackendEv
+inline void QNetworkReplyImplPrivate::readFromBackend()
+{
+    Q_Q(QNetworkReplyImpl);
+    if (!backend)
+        return;
+
+    if (backend->ioFeatures() & QNetworkAccessBackend::IOFeature::ZeroCopy) {
+        if (backend->bytesAvailable())
+            emit q->readyRead();
+    } else {
+        bool anyBytesRead = false;
+        while (backend->bytesAvailable()
+               && (!readBufferMaxSize || buffer.size() < readBufferMaxSize)) {
+            qint64 toRead = qMin(nextDownstreamBlockSize(), backend->bytesAvailable());
+            if (toRead == 0)
+                toRead = 16 * 1024; // try to read something
+            char *data = buffer.reserve(toRead);
+            qint64 bytesRead = backend->read(data, toRead);
+            Q_ASSERT(bytesRead <= toRead);
+            buffer.chop(toRead - bytesRead);
+            anyBytesRead |= bytesRead > 0;
+        }
+        if (anyBytesRead)
+            emit q->readyRead();
+    }
+}
+
+//  from src/network/access/qnetworkreplyimpl.cpp, line 285, as _ZN24QNetworkReplyImplPrivate19handleNotificationsEv
+inline void QNetworkReplyImplPrivate::handleNotifications()
+{
+    if (notificationHandlingPaused)
+        return;
+
+     for (InternalNotifications notification : std::exchange(pendingNotifications, {})) {
+        if (state != Working)
+            return;
+        switch (notification) {
+        case NotifyDownstreamReadyWrite:
+            if (copyDevice) {
+                _q_copyReadyRead();
+            } else if (backend) {
+                if (backend->bytesAvailable() > 0)
+                    readFromBackend();
+                else if (backend->wantToRead())
+                    readFromBackend();
+            }
+            break;
+        }
+    }
+}
+
+//  from src/network/access/qnetworkreplyimpl.cpp, line 413, as _ZN24QNetworkReplyImplPrivate19initCacheSaveDeviceEv
+inline void QNetworkReplyImplPrivate::initCacheSaveDevice()
+{
+    Q_Q(QNetworkReplyImpl);
+
+    // The disk cache does not support partial content, so don't even try to
+    // save any such content into the cache.
+    if (q->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt() == 206) {
+        cacheEnabled = false;
+        return;
+    }
+
+    // save the meta data
+    QNetworkCacheMetaData metaData;
+    metaData.setUrl(url);
+    // @todo @future: fetchCacheMetaData is not currently implemented in any backend, but can be useful again in the future
+    // metaData = backend->fetchCacheMetaData(metaData);
+
+    // save the redirect request also in the cache
+    QVariant redirectionTarget = q->attribute(QNetworkRequest::RedirectionTargetAttribute);
+    if (redirectionTarget.isValid()) {
+        QNetworkCacheMetaData::AttributesMap attributes = metaData.attributes();
+        attributes.insert(QNetworkRequest::RedirectionTargetAttribute, redirectionTarget);
+        metaData.setAttributes(attributes);
+    }
+
+    cacheSaveDevice = networkCache()->prepare(metaData);
+
+    if (!cacheSaveDevice || !cacheSaveDevice->isOpen()) {
+        if (Q_UNLIKELY(cacheSaveDevice && !cacheSaveDevice->isOpen()))
+            qCritical("QNetworkReplyImpl: network cache returned a device that is not open -- "
+                  "class %s probably needs to be fixed",
+                  networkCache()->metaObject()->className());
+
+        networkCache()->remove(url);
+        cacheSaveDevice = nullptr;
+        cacheEnabled = false;
+    }
+}
+
+//  from src/network/access/qnetworkreplyimpl.cpp, line 310, as _ZN24QNetworkReplyImplPrivate25pauseNotificationHandlingEv
+inline void QNetworkReplyImplPrivate::pauseNotificationHandling()
+{
+    notificationHandlingPaused = true;
+}
+
+//  from src/network/access/qnetworkreplyimpl.cpp, line 316, as _ZN24QNetworkReplyImplPrivate26resumeNotificationHandlingEv
+inline void QNetworkReplyImplPrivate::resumeNotificationHandling()
+{
+    Q_Q(QNetworkReplyImpl);
+    notificationHandlingPaused = false;
+    if (pendingNotifications.size() >= 1)
+        QCoreApplication::postEvent(q, new QEvent(QEvent::NetworkReplyUpdated));
+}
+
+//  from src/network/access/qnetworkreplyimpl.cpp, line 633, as _ZN24QNetworkReplyImplPrivate5errorEN13QNetworkReply12NetworkErrorERK7QString
+inline void QNetworkReplyImplPrivate::error(QNetworkReplyImpl::NetworkError code, const QString &errorMessage)
+{
+    Q_Q(QNetworkReplyImpl);
+    // Can't set and emit multiple errors.
+    if (errorCode != QNetworkReply::NoError) {
+        qWarning( "QNetworkReplyImplPrivate::error: Internal problem, this method must only be called once.");
+        return;
+    }
+
+    errorCode = code;
+    q->setErrorString(errorMessage);
+
+    // note: might not be a good idea, since users could decide to delete us
+    // which would delete the backend too...
+    // maybe we should protect the backend
+    emit q->errorOccurred(code);
+}
+
+//  from src/network/access/qnetworkreplyimpl.cpp, line 590, as _ZN24QNetworkReplyImplPrivate8finishedEv
+inline void QNetworkReplyImplPrivate::finished()
+{
+    Q_Q(QNetworkReplyImpl);
+
+    if (state == Finished || state == Aborted)
+        return;
+
+    pauseNotificationHandling();
+    const auto totalSizeOpt = QNetworkHeadersPrivate::toInt(
+            headers().value(QHttpHeaders::WellKnownHeader::ContentLength));
+    const auto totalSize = totalSizeOpt.value_or(-1);
+
+    resumeNotificationHandling();
+
+    state = Finished;
+    q->setFinished(true);
+
+    pendingNotifications.clear();
+
+    pauseNotificationHandling();
+    if (totalSize == -1) {
+        emit q->downloadProgress(bytesDownloaded, bytesDownloaded);
+    } else {
+        emit q->downloadProgress(bytesDownloaded, totalSize);
+    }
+
+    if (bytesUploaded == -1 && (outgoingData || outgoingDataBuffer))
+        emit q->uploadProgress(0, 0);
+    resumeNotificationHandling();
+
+    // if we don't know the total size of or we received everything save the cache
+    if (totalSize == -1 || bytesDownloaded == totalSize)
+        completeCacheSave();
+
+    // note: might not be a good idea, since users could decide to delete us
+    // which would delete the backend too...
+    // maybe we should protect the backend
+    pauseNotificationHandling();
+    emit q->readChannelFinished();
+    emit q->finished();
+    resumeNotificationHandling();
+}
+
+//  from src/network/access/qnetworkrequest.cpp, line 1669, as _ZNK22QNetworkHeadersPrivate7headersEv
+inline QHttpHeaders QNetworkHeadersPrivate::headers() const
+{
+    return httpHeaders;
+}
+
+//  from src/network/access/qnetworkreplyimpl.cpp, line 404, as _ZNK24QNetworkReplyImplPrivate23nextDownstreamBlockSizeEv
+inline qint64 QNetworkReplyImplPrivate::nextDownstreamBlockSize() const
+{
+    enum { DesiredBufferSize = 32 * 1024 };
+    if (readBufferMaxSize == 0)
+        return DesiredBufferSize;
+
+    return qMax<qint64>(0, readBufferMaxSize - buffer.size());
 }
 
 //  from src/network/access/qnetworkreplyimpl.cpp, line 728, as _ZN17QNetworkReplyImplD1Ev
@@ -1092,6 +1353,14 @@ qint64 ritual_own_ZN17QNetworkReplyImpl8readDataEPcx(
     char *data,
     qint64 maxlen) {
   return self->QNetworkReplyImpl::readData(data, maxlen);
+}
+
+//  bool QNetworkReplyImpl::event(QEvent *a0)
+extern "C" Q_DECL_EXPORT
+bool ritual_own_ZN17QNetworkReplyImpl5eventEP6QEvent(
+    QNetworkReplyImpl *self,
+    QEvent *a0) {
+  return self->QNetworkReplyImpl::event(a0);
 }
 
 #if !defined(QT_NO_SSL)

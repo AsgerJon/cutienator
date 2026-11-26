@@ -6,9 +6,9 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtSvg/6.12.0/QtSvg/private/qsvggraphics_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <QtCore/qrect.h>
-#include <QtCore/qstring.h>
 #include <QtCore/qpoint.h>
+#include <QtCore/qstring.h>
+#include <QtCore/qrect.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtSvg/6.12.0/QtSvg/private/qsvgstyle_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -104,6 +104,20 @@ inline QSvgNode::Type QSvgUse::type() const
 {
     return Use;
 }
+
+//  from ../qtsvg/src/svg/qsvggraphics.cpp, line 26, as _Z9lcSvgDrawv
+inline const QLoggingCategory &lcSvgDraw()
+{
+    static const QLoggingCategory category("qt.svg.draw");
+    return category;
+}
+
+//  from ../qtsvg/src/svg/qsvggraphics.cpp, line 592, as _ZN7QSvgUseC1ERK7QPointFP8QSvgNodeS4_
+inline QSvgUse::QSvgUse(const QPointF &start, QSvgNode *parent, QSvgNode *node)
+    : QSvgNode(parent), m_link(node), m_start(start), m_recursing(false)
+{
+
+}
 //  -----------------------------------------------------------------------
 
 //  A QSvgUse that Python can take functions over in. Every QSvgUse
@@ -169,6 +183,25 @@ public:
     return QSvgNode::requiresGroupRendering();
   }
 };
+
+//  QSvgUse::QSvgUse(const QPointF &start, QSvgNode *parent, QSvgNode *link)
+extern "C" Q_DECL_EXPORT
+QSvgUse *ritual_ZN7QSvgUseC1ERK7QPointFP8QSvgNodeS4_(
+    const QPointF *start,
+    QSvgNode *parent,
+    QSvgNode *link) {
+  return new CuteQSvgUse(*start, parent, link);
+}
+
+//  QSvgUse::QSvgUse(const QPointF &start, QSvgNode *parent, const QString
+//      &linkId)
+extern "C" Q_DECL_EXPORT
+QSvgUse *ritual_ZN7QSvgUseC1ERK7QPointFP8QSvgNodeRK7QString(
+    const QPointF *start,
+    QSvgNode *parent,
+    const QString *linkId) {
+  return new CuteQSvgUse(*start, parent, *linkId);
+}
 
 //  QSvgUse::~QSvgUse()
 extern "C" Q_DECL_EXPORT

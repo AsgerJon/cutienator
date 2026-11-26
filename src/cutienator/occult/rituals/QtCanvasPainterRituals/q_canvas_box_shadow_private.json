@@ -5,6 +5,8 @@
     "6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN23QCanvasBoxShadowPrivateC1Ev": ["address"],
+    "ritual_ZN23QCanvasBoxShadowPrivateC1ERKS_": ["address", "address"],
     "ritual_ZN23QCanvasBoxShadowPrivate5cloneEv": ["address", "address"],
     "ritual_ZNK23QCanvasBoxShadowPrivate6equalsERK19QCanvasBrushPrivate": [
       "bool", "address", "address"

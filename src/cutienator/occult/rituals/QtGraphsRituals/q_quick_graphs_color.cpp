@@ -1,16 +1,28 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtGraphs/6.12.0/QtGraphs/private/qquickgraphscolor_p.h, Qt 6.12.0.
-//  Changes made here are lost.
+//  Edited by hand on 2026-11-26: moc's output for 'QQuickGraphsColor' is
+//  pasted in, cut from what the moc of Qt 6.12.0 writes for its header: Qt's
+//  library keeps it to itself; added are 3 rituals that lean on what moc
+//  writes for a class of the part Qt keeps to itself, whose ritual file
+//  carries moc's output, drafted by a copy of the generator that lets those
+//  names through. A copy of a meta-object is a second one: 'qobject_cast'
+//  between it and Qt's own does not match. Kept as it is when the generator
+//  runs again.
 #include <QtGraphs/6.12.0/QtGraphs/private/qgraphsglobal_p.h>
 #include <QtGraphs/QtGraphs>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGraphs/6.12.0/QtGraphs/private/qquickgraphscolor_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 #include <QtGui/qcolor.h>
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
 #include <QtGraphs/private/qquickgraphscolor_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
@@ -20,6 +32,148 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  from QtGraphs__QQuickGraphsColor.cpp, line 1, as moc:QQuickGraphsColor
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN17QQuickGraphsColorE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto QQuickGraphsColor::qt_create_metaobjectdata<qt_meta_tag_ZN17QQuickGraphsColorE_t>()
+{
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "QQuickGraphsColor",
+        "QML.Element",
+        "Color",
+        "colorChanged",
+        "",
+        "QColor",
+        "color"
+    };
+
+    QtMocHelpers::UintData qt_methods {
+        // Signal 'colorChanged'
+        QtMocHelpers::SignalData<void(QColor)>(3, 4, QMC::AccessPublic, QMetaType::Void, {{
+            { 0x80000000 | 5, 6 },
+        }}),
+    };
+    QtMocHelpers::UintData qt_properties {
+        // property 'color'
+        QtMocHelpers::PropertyData<QColor>(6, 0x80000000 | 5, QMC::DefaultPropertyFlags | QMC::Writable | QMC::EnumOrFlag | QMC::StdCppSet, 0),
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    QtMocHelpers::UintData qt_constructors {};
+    QtMocHelpers::ClassInfos qt_classinfo({
+            {    1,    2 },
+    });
+    return QtMocHelpers::metaObjectData<QQuickGraphsColor, void>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums, qt_constructors, qt_classinfo);
+}
+Q_CONSTINIT const QMetaObject QQuickGraphsColor::staticMetaObject = { {
+    QMetaObject::SuperData::link<QObject::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN17QQuickGraphsColorE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN17QQuickGraphsColorE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN17QQuickGraphsColorE_t>.metaTypes,
+    nullptr
+} };
+
+void QQuickGraphsColor::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<QQuickGraphsColor *>(_o);
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        switch (_id) {
+        case 0: _t->colorChanged((*reinterpret_cast<std::add_pointer_t<QColor>>(_a[1]))); break;
+        default: ;
+        }
+    }
+    if (_c == QMetaObject::IndexOfMethod) {
+        if (QtMocHelpers::indexOfMethod<void (QQuickGraphsColor::*)(QColor )>(_a, &QQuickGraphsColor::colorChanged, 0))
+            return;
+    }
+    if (_c == QMetaObject::ReadProperty) {
+        void *_v = _a[0];
+        switch (_id) {
+        case 0: *reinterpret_cast<QColor*>(_v) = _t->color(); break;
+        default: break;
+        }
+    }
+    if (_c == QMetaObject::WriteProperty) {
+        void *_v = _a[0];
+        switch (_id) {
+        case 0: _t->setColor(*reinterpret_cast<QColor*>(_v)); break;
+        default: break;
+        }
+    }
+}
+
+const QMetaObject *QQuickGraphsColor::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *QQuickGraphsColor::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN17QQuickGraphsColorE_t>.strings))
+        return static_cast<void*>(this);
+    return QObject::qt_metacast(_clname);
+}
+
+int QQuickGraphsColor::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QObject::qt_metacall(_c, _id, _a);
+    if (_id < 0)
+        return _id;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        if (_id < 1)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 1;
+    }
+    if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        if (_id < 1)
+            *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
+        _id -= 1;
+    }
+    if (_c == QMetaObject::ReadProperty || _c == QMetaObject::WriteProperty
+            || _c == QMetaObject::ResetProperty || _c == QMetaObject::BindableProperty
+            || _c == QMetaObject::RegisterPropertyMetaType) {
+        qt_static_metacall(this, _c, _id, _a);
+        _id -= 1;
+    }
+    return _id;
+}
+
+// SIGNAL 0
+void QQuickGraphsColor::colorChanged(QColor _t1)
+{
+    QMetaObject::activate<void>(this, &staticMetaObject, 0, nullptr, _t1);
+}
+QT_WARNING_POP
+
+//  from ../qtgraphs/src/common/theme/qquickgraphscolor.cpp, line 14, as _ZN17QQuickGraphsColorD0Ev
+inline QQuickGraphsColor::~QQuickGraphsColor() {}
+
+//  from ../qtgraphs/src/common/theme/qquickgraphscolor.cpp, line 10, as _ZN17QQuickGraphsColorC1EP7QObject
+inline QQuickGraphsColor::QQuickGraphsColor(QObject *parent)
+    : QObject(parent)
+{}
+
+//  from ../qtgraphs/src/common/theme/qquickgraphscolor.cpp, line 16, as _ZN17QQuickGraphsColor8setColorE6QColor
+inline void QQuickGraphsColor::setColor(QColor color)
+{
+    if (m_color != color) {
+        m_color = color;
+        emit colorChanged(color);
+    }
+}
 
 //  from ../qtgraphs/src/common/theme/qquickgraphscolor.cpp, line 24, as _ZNK17QQuickGraphsColor5colorEv
 inline QColor QQuickGraphsColor::color() const
@@ -221,10 +375,34 @@ int ritual_ZN17QQuickGraphsColor11qt_metacallEN11QMetaObject4CallEiPPv(
   return self->qt_metacall(a0, a1, a2);
 }
 
+//  QString QQuickGraphsColor::tr(const char *s, const char *c, int n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN17QQuickGraphsColor2trEPKcS1_i(
+    const char *s,
+    const char *c,
+    int n) {
+  return new QString(QQuickGraphsColor::tr(s, c, n));
+}
+
+//  QQuickGraphsColor::QQuickGraphsColor(QObject *parent)
+extern "C" Q_DECL_EXPORT
+QQuickGraphsColor *ritual_ZN17QQuickGraphsColorC1EP7QObject(
+    QObject *parent) {
+  return new CuteQQuickGraphsColor(parent);
+}
+
 //  QQuickGraphsColor::~QQuickGraphsColor()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN17QQuickGraphsColorD1Ev(QQuickGraphsColor *self) {
   delete self;
+}
+
+//  void QQuickGraphsColor::setColor(QColor color)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN17QQuickGraphsColor8setColorE6QColor(
+    QQuickGraphsColor *self,
+    const QColor *color) {
+  self->setColor(*color);
 }
 
 //  QColor QQuickGraphsColor::color() const

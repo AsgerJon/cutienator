@@ -111,6 +111,23 @@ inline void ToolBoxCommand::init(QToolBox *toolBox)
 }
 }  // namespace qdesigner_internal
 
+//  from ../qttools/src/designer/src/lib/shared/qdesigner_command.cpp, line 934, as _ZN18qdesigner_internal14ToolBoxCommandD2Ev
+namespace qdesigner_internal {
+using namespace Qt::StringLiterals;
+inline ToolBoxCommand::~ToolBoxCommand() = default;
+}  // namespace qdesigner_internal
+
+//  from ../qttools/src/designer/src/lib/shared/qdesigner_command.cpp, line 974, as _ZN18qdesigner_internal22MoveToolBoxPageCommandC1EP28QDesignerFormWindowInterface
+namespace qdesigner_internal {
+using namespace Qt::StringLiterals;
+inline MoveToolBoxPageCommand::MoveToolBoxPageCommand(QDesignerFormWindowInterface *formWindow) :
+    ToolBoxCommand(formWindow),
+    m_newIndex(-1),
+    m_oldIndex(-1)
+{
+}
+}  // namespace qdesigner_internal
+
 //  from ../qttools/src/designer/src/lib/shared/qdesigner_command.cpp, line 983, as _ZN18qdesigner_internal22MoveToolBoxPageCommand4initEP8QToolBoxP7QWidgeti
 namespace qdesigner_internal {
 using namespace Qt::StringLiterals;
@@ -228,6 +245,14 @@ public:
   }
 #endif  // QT_CONFIG(undocommand)
 };
+
+//  qdesigner_internal::MoveToolBoxPageCommand::MoveToolBoxPageCommand(QDesig
+//      nerFormWindowInterface *formWindow)
+extern "C" Q_DECL_EXPORT
+qdesigner_internal::MoveToolBoxPageCommand *ritual_ZN18qdesigner_internal22MoveToolBoxPageCommandC1EP28QDesignerFormWindowInterface(
+    QDesignerFormWindowInterface *formWindow) {
+  return new Cuteqdesigner_internal_MoveToolBoxPageCommand(formWindow);
+}
 
 //  qdesigner_internal::MoveToolBoxPageCommand::~MoveToolBoxPageCommand()
 extern "C" Q_DECL_EXPORT

@@ -5,6 +5,9 @@
     "Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN29QGraphicsGridLayoutEngineItemC1EP19QGraphicsLayoutItemiiii6QFlagsIN2Qt13AlignmentFlagEE": [
+      "address", "address", "int", "int", "int", "int", "int"
+    ],
     "ritual_ZNK29QGraphicsGridLayoutEngineItem10sizePolicyEN2Qt11OrientationE": [
       "int", "address", "int"
     ],

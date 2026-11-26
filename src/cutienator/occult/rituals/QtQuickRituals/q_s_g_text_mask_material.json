@@ -16,6 +16,9 @@
     "ritual_ZN19QSGTextMaskMaterial8setColorERK6QColor": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN19QSGTextMaskMaterial8setColorERK9QVector4D": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK19QSGTextMaskMaterial5colorEv": ["address", "address"],
     "ritual_ZNK19QSGTextMaskMaterial7textureEv": ["address", "address"],
     "ritual_ZN19QSGTextMaskMaterial14ensureUpToDateEv": ["bool", "address"],
@@ -26,6 +29,12 @@
     "ritual_ZN19QSGTextMaskMaterial8populateERK7QPointFRK5QListIjERKS3_IS0_EP11QSGGeometryP6QRectFPS0_RK8QMargins": [
       "nothing", "address", "address", "address", "address", "address",
       "address", "address", "address"
+    ],
+    "ritual_ZN19QSGTextMaskMaterial4initEN11QFontEngine11GlyphFormatE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN19QSGTextMaskMaterial11updateCacheEN11QFontEngine11GlyphFormatE": [
+      "nothing", "address", "int"
     ],
     "ritual_take_QSGTextMaskMaterial": [
       "bool", "address", "chars", "address"

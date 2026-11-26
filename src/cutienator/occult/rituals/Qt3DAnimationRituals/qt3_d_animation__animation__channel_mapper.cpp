@@ -131,6 +131,16 @@ inline void Handler::setDirty(DirtyFlag flag, Qt3DCore::QNodeId nodeId)
 }
 }  // namespace Qt3DAnimation::Animation
 
+//  from ../qt3d/src/animation/backend/channelmapper.cpp, line 18, as _ZN13Qt3DAnimation9Animation13ChannelMapperC1Ev
+namespace Qt3DAnimation::Animation {
+inline ChannelMapper::ChannelMapper()
+    : BackendNode(ReadOnly)
+    , m_mappingIds()
+    , m_isDirty(true)
+{
+}
+}  // namespace Qt3DAnimation::Animation
+
 //  from ../qt3d/src/animation/backend/channelmapper.cpp, line 25, as _ZN13Qt3DAnimation9Animation13ChannelMapper7cleanupEv
 namespace Qt3DAnimation::Animation {
 inline void ChannelMapper::cleanup()
@@ -158,6 +168,12 @@ inline void ChannelMapper::updateMappings() const
 }
 }  // namespace Qt3DAnimation::Animation
 //  -----------------------------------------------------------------------
+
+//  Qt3DAnimation::Animation::ChannelMapper::ChannelMapper()
+extern "C" Q_DECL_EXPORT
+Qt3DAnimation::Animation::ChannelMapper *ritual_ZN13Qt3DAnimation9Animation13ChannelMapperC1Ev() {
+  return new Qt3DAnimation::Animation::ChannelMapper();
+}
 
 //  void Qt3DAnimation::Animation::ChannelMapper::cleanup()
 extern "C" Q_DECL_EXPORT

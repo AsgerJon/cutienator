@@ -5,6 +5,7 @@
     "made here are lost."
   ],
   "rows": {
+    "ritual_ZN19QQuickItemKeyFilterC1EP10QQuickItem": ["address", "address"],
     "ritual_ZN19QQuickItemKeyFilterD1Ev": ["nothing", "address"],
     "ritual_ZN19QQuickItemKeyFilter10keyPressedEP9QKeyEventb": [
       "nothing", "address", "address", "bool"

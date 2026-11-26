@@ -1,15 +1,27 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtDataVisualization/6.12.0/QtDataVisualization/private/drawer_p.h, Qt
-//  6.12.0. Changes made here are lost.
+//  6.12.0.
+//  Edited by hand on 2026-11-26: moc's output for 'Drawer' is pasted in, cut
+//  from what the moc of Qt 6.12.0 writes for its header: Qt's library keeps
+//  it to itself; added are 4 rituals that lean on what moc writes for a
+//  class of the part Qt keeps to itself, whose ritual file carries moc's
+//  output, drafted by a copy of the generator that lets those names through.
+//  A copy of a meta-object is a second one: 'qobject_cast' between it and
+//  Qt's own does not match. Kept as it is when the generator runs again.
 #include <QtDataVisualization/6.12.0/QtDataVisualization/private/datavisualizationglobal_p.h>
 #include <QtDataVisualization/QtDataVisualization>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtDataVisualization/6.12.0/QtDataVisualization/private/drawer_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 #include <QtGui/qfont.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
 #include <QtDataVisualization/private/texturehelper_p.h>
 #include <QtDataVisualization/private/utils_p.h>
 #include <QtGui/QImage>
@@ -51,12 +63,114 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from ../qtdatavis3d/src/datavisualization/engine/drawer.cpp, line 30, as local:drawer.cpp:line_data
-// Vertex array buffer for line
+//  from ../qtdatavis3d/src/datavisualization/engine/drawer.cpp, line 23, as local:drawer.cpp:point_data
+//  Left out by hand: 'initResources' and 'Q_CONSTRUCTOR_FUNCTION(
+//  initResources)' before this, which register the resources of
+//  QtDataVisualization when the library opens: Qt's own library does
+//  that, and the functions it calls Qt keeps to itself.
+// Vertex array buffer for point
+const GLfloat point_data[] = {0.0f, 0.0f, 0.0f};
+
+//  from ../qtdatavis3d/src/datavisualization/engine/drawer.cpp, line 31, as local:drawer.cpp:line_data
 const GLfloat line_data[] = {
     -1.0f, 0.0f, 0.0f,
     1.0f, 0.0f, 0.0f,
 };
+
+//  from QtDataVisualization__Drawer.cpp, line 1, as moc:Drawer
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN6DrawerE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto Drawer::qt_create_metaobjectdata<qt_meta_tag_ZN6DrawerE_t>()
+{
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "Drawer",
+        "drawerChanged",
+        ""
+    };
+
+    QtMocHelpers::UintData qt_methods {
+        // Signal 'drawerChanged'
+        QtMocHelpers::SignalData<void()>(1, 2, QMC::AccessPublic, QMetaType::Void),
+    };
+    QtMocHelpers::UintData qt_properties {
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    return QtMocHelpers::metaObjectData<Drawer, qt_meta_tag_ZN6DrawerE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums);
+}
+Q_CONSTINIT const QMetaObject Drawer::staticMetaObject = { {
+    QMetaObject::SuperData::link<QObject::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN6DrawerE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN6DrawerE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN6DrawerE_t>.metaTypes,
+    nullptr
+} };
+
+void Drawer::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<Drawer *>(_o);
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        switch (_id) {
+        case 0: _t->drawerChanged(); break;
+        default: ;
+        }
+    }
+    if (_c == QMetaObject::IndexOfMethod) {
+        if (QtMocHelpers::indexOfMethod<void (Drawer::*)()>(_a, &Drawer::drawerChanged, 0))
+            return;
+    }
+}
+
+const QMetaObject *Drawer::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *Drawer::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN6DrawerE_t>.strings))
+        return static_cast<void*>(this);
+    if (!strcmp(_clname, "QOpenGLFunctions"))
+        return static_cast< QOpenGLFunctions*>(this);
+    return QObject::qt_metacast(_clname);
+}
+
+int Drawer::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QObject::qt_metacall(_c, _id, _a);
+    if (_id < 0)
+        return _id;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        if (_id < 1)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 1;
+    }
+    if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        if (_id < 1)
+            *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
+        _id -= 1;
+    }
+    return _id;
+}
+
+// SIGNAL 0
+void Drawer::drawerChanged()
+{
+    QMetaObject::activate(this, &staticMetaObject, 0, nullptr);
+}
+QT_WARNING_POP
 
 //  from ../qtdatavis3d/src/datavisualization/utils/texturehelper.cpp, line 37, as _ZN13TextureHelperD1Ev
 inline TextureHelper::~TextureHelper()
@@ -184,6 +298,16 @@ inline QImage TextureHelper::convertToGLFormat(const QImage &srcImage)
     return res;
 }
 
+//  from ../qtdatavis3d/src/datavisualization/engine/drawer.cpp, line 36, as _ZN6DrawerC1EP8Q3DTheme
+inline Drawer::Drawer(Q3DTheme *theme)
+    : m_theme(theme),
+      m_textureHelper(0),
+      m_pointbuffer(0),
+      m_linebuffer(0),
+      m_scaledFontSize(0.0f)
+{
+}
+
 //  from ../qtdatavis3d/src/datavisualization/engine/drawer.cpp, line 45, as _ZN6DrawerD1Ev
 inline Drawer::~Drawer()
 {
@@ -192,6 +316,14 @@ inline Drawer::~Drawer()
         glDeleteBuffers(1, &m_pointbuffer);
         glDeleteBuffers(1, &m_linebuffer);
     }
+}
+
+//  from ../qtdatavis3d/src/datavisualization/engine/drawer.cpp, line 61, as _ZN6Drawer8setThemeEP8Q3DTheme
+inline void Drawer::setTheme(Q3DTheme *theme)
+{
+    m_theme = theme;
+    m_scaledFontSize = 0.05f + m_theme->font().pointSizeF() / 500.0f;
+    emit drawerChanged();
 }
 
 //  from ../qtdatavis3d/src/datavisualization/engine/drawer.cpp, line 68, as _ZNK6Drawer5themeEv
@@ -216,6 +348,32 @@ inline void Drawer::drawSelectionObject(ShaderHelper *shader, AbstractObjectHelp
     glDrawElements(GL_TRIANGLES, object->indexCount(), GL_UNSIGNED_INT, (void *)0);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
     glBindBuffer(GL_ARRAY_BUFFER, 0);
+    glDisableVertexAttribArray(shader->posAtt());
+}
+
+//  from ../qtdatavis3d/src/datavisualization/engine/drawer.cpp, line 194, as _ZN6Drawer9drawPointEP12ShaderHelper
+inline void Drawer::drawPoint(ShaderHelper *shader)
+{
+    // Draw a single point
+
+    // Generate vertex buffer for point if it does not exist
+    if (!m_pointbuffer) {
+        glGenBuffers(1, &m_pointbuffer);
+        glBindBuffer(GL_ARRAY_BUFFER, m_pointbuffer);
+        glBufferData(GL_ARRAY_BUFFER, sizeof(point_data), point_data, GL_STATIC_DRAW);
+    }
+
+    // 1st attribute buffer : vertices
+    glEnableVertexAttribArray(shader->posAtt());
+    glBindBuffer(GL_ARRAY_BUFFER, m_pointbuffer);
+    glVertexAttribPointer(shader->posAtt(), 3, GL_FLOAT, GL_FALSE, 0, (void*)0);
+
+    // Draw the point
+    glDrawArrays(GL_POINTS, 0, 1);
+
+    // Free buffers
+    glBindBuffer(GL_ARRAY_BUFFER, 0);
+
     glDisableVertexAttribArray(shader->posAtt());
 }
 
@@ -435,10 +593,28 @@ int ritual_ZN6Drawer11qt_metacallEN11QMetaObject4CallEiPPv(
   return self->qt_metacall(a0, a1, a2);
 }
 
+//  QString Drawer::tr(const char *s, const char *c, int n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN6Drawer2trEPKcS1_i(const char *s, const char *c, int n) {
+  return new QString(Drawer::tr(s, c, n));
+}
+
+//  Drawer::Drawer(Q3DTheme *theme)
+extern "C" Q_DECL_EXPORT
+Drawer *ritual_ZN6DrawerC1EP8Q3DTheme(Q3DTheme *theme) {
+  return new CuteDrawer(theme);
+}
+
 //  Drawer::~Drawer()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN6DrawerD1Ev(Drawer *self) {
   delete self;
+}
+
+//  void Drawer::setTheme(Q3DTheme *theme)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN6Drawer8setThemeEP8Q3DTheme(Drawer *self, Q3DTheme *theme) {
+  self->setTheme(theme);
 }
 
 //  Q3DTheme *Drawer::theme() const
@@ -467,6 +643,14 @@ void ritual_ZN6Drawer19drawSelectionObjectEP12ShaderHelperP20AbstractObjectHelpe
     ShaderHelper *shader,
     AbstractObjectHelper *object) {
   self->drawSelectionObject(shader, object);
+}
+
+//  void Drawer::drawPoint(ShaderHelper *shader)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN6Drawer9drawPointEP12ShaderHelper(
+    Drawer *self,
+    ShaderHelper *shader) {
+  self->drawPoint(shader);
 }
 
 //  void Drawer::drawLine(ShaderHelper *shader)

@@ -1,6 +1,13 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtQuick/6.12.0/QtQuick/private/qquickcanvascontext_p.h, Qt 6.12.0.
-//  Changes made here are lost.
+//  Edited by hand on 2026-11-26: moc's output for 'QQuickCanvasContext' is
+//  pasted in, cut from what the moc of Qt 6.12.0 writes for its header: Qt's
+//  library keeps it to itself; added are 1 rituals that lean on what moc
+//  writes for a class of the part Qt keeps to itself, whose ritual file
+//  carries moc's output, drafted by a copy of the generator that lets those
+//  names through. A copy of a meta-object is a second one: 'qobject_cast'
+//  between it and Qt's own does not match. Kept as it is when the generator
+//  runs again.
 #include <QtQuick/qtquickglobal.h>
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
 #if QT_CONFIG(quick_canvas)
@@ -22,6 +29,10 @@
 #include <iterator>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
 #include <QtQuick/private/qquickcanvascontext_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
@@ -32,6 +43,104 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from QtQuick__QQuickCanvasContext.cpp, line 1, as moc:QQuickCanvasContext
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN19QQuickCanvasContextE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto QQuickCanvasContext::qt_create_metaobjectdata<qt_meta_tag_ZN19QQuickCanvasContextE_t>()
+{
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "QQuickCanvasContext",
+        "textureChanged",
+        ""
+    };
+
+    QtMocHelpers::UintData qt_methods {
+        // Signal 'textureChanged'
+        QtMocHelpers::SignalData<void()>(1, 2, QMC::AccessPublic, QMetaType::Void),
+    };
+    QtMocHelpers::UintData qt_properties {
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    return QtMocHelpers::metaObjectData<QQuickCanvasContext, qt_meta_tag_ZN19QQuickCanvasContextE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums);
+}
+Q_CONSTINIT const QMetaObject QQuickCanvasContext::staticMetaObject = { {
+    QMetaObject::SuperData::link<QObject::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN19QQuickCanvasContextE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN19QQuickCanvasContextE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN19QQuickCanvasContextE_t>.metaTypes,
+    nullptr
+} };
+
+void QQuickCanvasContext::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<QQuickCanvasContext *>(_o);
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        switch (_id) {
+        case 0: _t->textureChanged(); break;
+        default: ;
+        }
+    }
+    if (_c == QMetaObject::IndexOfMethod) {
+        if (QtMocHelpers::indexOfMethod<void (QQuickCanvasContext::*)()>(_a, &QQuickCanvasContext::textureChanged, 0))
+            return;
+    }
+}
+
+const QMetaObject *QQuickCanvasContext::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *QQuickCanvasContext::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN19QQuickCanvasContextE_t>.strings))
+        return static_cast<void*>(this);
+    return QObject::qt_metacast(_clname);
+}
+
+int QQuickCanvasContext::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QObject::qt_metacall(_c, _id, _a);
+    if (_id < 0)
+        return _id;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        if (_id < 1)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 1;
+    }
+    if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        if (_id < 1)
+            *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
+        _id -= 1;
+    }
+    return _id;
+}
+
+// SIGNAL 0
+void QQuickCanvasContext::textureChanged()
+{
+    QMetaObject::activate(this, &staticMetaObject, 0, nullptr);
+}
+QT_WARNING_POP
+
+//  from ../qtdeclarative/src/quick/items/context2d/qquickcanvascontext.cpp, line 29, as _ZN19QQuickCanvasContext5flushEv
+inline void QQuickCanvasContext::flush()
+{
+}
+
 //  from ../qtdeclarative/src/quick/items/context2d/qquickcanvascontext.cpp, line 19, as _ZN19QQuickCanvasContext7prepareERK5QSizeS2_RK5QRectS5_bb
 inline void QQuickCanvasContext::prepare(const QSize& canvasSize, const QSize& tileSize, const QRect& canvasWindow, const QRect& dirtyRect, bool smooth, bool antialiasing)
 {
@@ -41,11 +150,6 @@ inline void QQuickCanvasContext::prepare(const QSize& canvasSize, const QSize& t
     Q_UNUSED(dirtyRect);
     Q_UNUSED(smooth);
     Q_UNUSED(antialiasing);
-}
-
-//  from ../qtdeclarative/src/quick/items/context2d/qquickcanvascontext.cpp, line 29, as _ZN19QQuickCanvasContext5flushEv
-inline void QQuickCanvasContext::flush()
-{
 }
 
 //  from ../qtdeclarative/src/quick/items/context2d/qquickcanvascontext.cpp, line 15, as _ZN19QQuickCanvasContextD1Ev
@@ -384,6 +488,15 @@ int ritual_ZN19QQuickCanvasContext11qt_metacallEN11QMetaObject4CallEiPPv(
     int a1,
     void **a2) {
   return self->qt_metacall(a0, a1, a2);
+}
+
+//  QString QQuickCanvasContext::tr(const char *s, const char *c, int n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN19QQuickCanvasContext2trEPKcS1_i(
+    const char *s,
+    const char *c,
+    int n) {
+  return new QString(QQuickCanvasContext::tr(s, c, n));
 }
 
 //  QQuickCanvasContext::~QQuickCanvasContext()

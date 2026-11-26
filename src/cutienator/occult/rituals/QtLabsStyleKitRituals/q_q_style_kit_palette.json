@@ -2,7 +2,7 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of QtLabsS",
     "tyleKit/6.12.0/QtLabsStyleKit/private/qqstylekitpalette_p.h, Qt",
-    "6.12.0. Changes made here are lost."
+    "6.12.0. Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZNK17QQStyleKitPalette10metaObjectEv": ["address", "address"],
@@ -12,8 +12,29 @@
     "ritual_ZN17QQStyleKitPalette11qt_metacallEN11QMetaObject4CallEiPPv": [
       "int", "address", "int", "int", "address"
     ],
+    "ritual_ZN17QQStyleKitPalette2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN17QQStyleKitPaletteC1EP7QObject": ["address", "address"],
+    "ritual_ZNK17QQStyleKitPalette6systemEv": ["address", "address"],
+    "ritual_ZNK17QQStyleKitPalette8checkBoxEv": ["address", "address"],
+    "ritual_ZNK17QQStyleKitPalette6buttonEv": ["address", "address"],
+    "ritual_ZNK17QQStyleKitPalette8comboBoxEv": ["address", "address"],
+    "ritual_ZNK17QQStyleKitPalette8groupBoxEv": ["address", "address"],
+    "ritual_ZNK17QQStyleKitPalette12itemDelegateEv": ["address", "address"],
+    "ritual_ZNK17QQStyleKitPalette5labelEv": ["address", "address"],
+    "ritual_ZNK17QQStyleKitPalette11radioButtonEv": ["address", "address"],
+    "ritual_ZNK17QQStyleKitPalette7spinBoxEv": ["address", "address"],
+    "ritual_ZNK17QQStyleKitPalette13switchControlEv": ["address", "address"],
+    "ritual_ZNK17QQStyleKitPalette6tabBarEv": ["address", "address"],
+    "ritual_ZNK17QQStyleKitPalette8textAreaEv": ["address", "address"],
+    "ritual_ZNK17QQStyleKitPalette9textFieldEv": ["address", "address"],
+    "ritual_ZNK17QQStyleKitPalette7toolBarEv": ["address", "address"],
     "ritual_ZNK17QQStyleKitPalette15fallbackPaletteEv": [
       "address", "address"
+    ],
+    "ritual_ZN17QQStyleKitPalette18setFallbackPaletteEPS_": [
+      "nothing", "address", "address"
     ],
     "ritual_ZN17QQStyleKitPalette13systemChangedEv": ["nothing", "address"],
     "ritual_ZN17QQStyleKitPalette15checkBoxChangedEv": [

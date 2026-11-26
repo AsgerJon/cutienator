@@ -2,7 +2,7 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtQuick3DXr/6.12.0/QtQuick3DXr/private/qquick3dxrhandinput_p.h, Qt",
-    "6.12.0. Changes made here are lost."
+    "6.12.0. Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZNK19QQuick3DXrHandInput10metaObjectEv": ["address", "address"],
@@ -12,7 +12,14 @@
     "ritual_ZN19QQuick3DXrHandInput11qt_metacallEN11QMetaObject4CallEiPPv": [
       "int", "address", "int", "int", "address"
     ],
+    "ritual_ZN19QQuick3DXrHandInput2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN19QQuick3DXrHandInputC1EP7QObject": ["address", "address"],
     "ritual_ZNK19QQuick3DXrHandInput8isActiveEv": ["bool", "address"],
+    "ritual_ZN19QQuick3DXrHandInput11setIsActiveEb": [
+      "nothing", "address", "bool"
+    ],
     "ritual_ZNK19QQuick3DXrHandInput14jointPositionsEv": [
       "address", "address"
     ],
@@ -22,8 +29,14 @@
     "ritual_ZNK19QQuick3DXrHandInput12pokePositionEv": [
       "address", "address"
     ],
+    "ritual_ZN19QQuick3DXrHandInput15setPokePositionERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK19QQuick3DXrHandInput20isHandTrackingActiveEv": [
       "bool", "address"
+    ],
+    "ritual_ZN19QQuick3DXrHandInput23setIsHandTrackingActiveEb": [
+      "nothing", "address", "bool"
     ],
     "ritual_ZN19QQuick3DXrHandInput15isActiveChangedEv": [
       "nothing", "address"

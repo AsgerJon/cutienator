@@ -2,7 +2,7 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtNetwork/6.12.0/QtNetwork/private/qnetworkreplydataimpl_p.h, Qt",
-    "6.12.0. Changes made here are lost."
+    "6.12.0. Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZNK21QNetworkReplyDataImpl10metaObjectEv": [
@@ -13,6 +13,12 @@
     ],
     "ritual_ZN21QNetworkReplyDataImpl11qt_metacallEN11QMetaObject4CallEiPPv": [
       "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN21QNetworkReplyDataImpl2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN21QNetworkReplyDataImplC1EP7QObjectRK15QNetworkRequestN21QNetworkAccessManager9OperationE": [
+      "address", "address", "address", "address"
     ],
     "ritual_ZN21QNetworkReplyDataImplD1Ev": ["nothing", "address"],
     "ritual_ZN21QNetworkReplyDataImpl5abortEv": ["nothing", "address"],

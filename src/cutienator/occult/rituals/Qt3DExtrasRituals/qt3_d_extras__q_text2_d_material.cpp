@@ -1,15 +1,27 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  Qt3DExtras/6.12.0/Qt3DExtras/private/qtext2dmaterial_p.h, Qt 6.12.0.
-//  Changes made here are lost.
+//  Edited by hand on 2026-11-26: moc's output for
+//  'Qt3DExtras::QText2DMaterial' is pasted in, cut from what the moc of Qt
+//  6.12.0 writes for its header: Qt's library keeps it to itself; added are
+//  2 rituals that lean on what moc writes for a class of the part Qt keeps
+//  to itself, whose ritual file carries moc's output, drafted by a copy of
+//  the generator that lets those names through. A copy of a meta-object is a
+//  second one: 'qobject_cast' between it and Qt's own does not match. Kept
+//  as it is when the generator runs again.
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <Qt3DExtras/Qt3DExtras>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <Qt3DExtras/6.12.0/Qt3DExtras/private/qtext2dmaterial_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 #include <QtGui/qcolor.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
 #include <Qt3DExtras/private/qtext2dmaterial_p.h>
 #include <Qt3DExtras/private/qtext2dmaterial_p_p.h>
 #include <Qt3DRender/qfilterkey.h>
@@ -35,6 +47,189 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  from Qt3DExtras__Qt3DExtras_QText2DMaterial.cpp, line 1, as moc:Qt3DExtras::QText2DMaterial
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN10Qt3DExtras15QText2DMaterialE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto Qt3DExtras::QText2DMaterial::qt_create_metaobjectdata<qt_meta_tag_ZN10Qt3DExtras15QText2DMaterialE_t>()
+{
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "Qt3DExtras::QText2DMaterial"
+    };
+
+    QtMocHelpers::UintData qt_methods {
+    };
+    QtMocHelpers::UintData qt_properties {
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    return QtMocHelpers::metaObjectData<QText2DMaterial, qt_meta_tag_ZN10Qt3DExtras15QText2DMaterialE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums);
+}
+Q_CONSTINIT const QMetaObject Qt3DExtras::QText2DMaterial::staticMetaObject = { {
+    QMetaObject::SuperData::link<Qt3DRender::QMaterial::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN10Qt3DExtras15QText2DMaterialE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN10Qt3DExtras15QText2DMaterialE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN10Qt3DExtras15QText2DMaterialE_t>.metaTypes,
+    nullptr
+} };
+
+void Qt3DExtras::QText2DMaterial::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<QText2DMaterial *>(_o);
+    (void)_t;
+    (void)_c;
+    (void)_id;
+    (void)_a;
+}
+
+const QMetaObject *Qt3DExtras::QText2DMaterial::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *Qt3DExtras::QText2DMaterial::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN10Qt3DExtras15QText2DMaterialE_t>.strings))
+        return static_cast<void*>(this);
+    return Qt3DRender::QMaterial::qt_metacast(_clname);
+}
+
+int Qt3DExtras::QText2DMaterial::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = Qt3DRender::QMaterial::qt_metacall(_c, _id, _a);
+    return _id;
+}
+QT_WARNING_POP
+
+//  from ../qt3d/src/extras/text/qtext2dmaterial.cpp, line 50, as _ZN10Qt3DExtras22QText2DMaterialPrivate4initEv
+namespace Qt3DExtras {
+inline void QText2DMaterialPrivate::init()
+{
+    m_rhiShaderProgram->setVertexShaderCode(Qt3DRender::QShaderProgram::loadSource(QUrl(QStringLiteral("qrc:/shaders/rhi/distancefieldtext.vert"))));
+    m_rhiShaderProgram->setFragmentShaderCode(Qt3DRender::QShaderProgram::loadSource(QUrl(QStringLiteral("qrc:/shaders/rhi/distancefieldtext.frag"))));
+
+    m_gl3ShaderProgram->setVertexShaderCode(Qt3DRender::QShaderProgram::loadSource(QUrl(QStringLiteral("qrc:/shaders/gl3/distancefieldtext.vert"))));
+    m_gl3ShaderProgram->setFragmentShaderCode(Qt3DRender::QShaderProgram::loadSource(QUrl(QStringLiteral("qrc:/shaders/gl3/distancefieldtext.frag"))));
+
+    m_gl2es2ShaderProgram->setVertexShaderCode(Qt3DRender::QShaderProgram::loadSource(QUrl(QStringLiteral("qrc:/shaders/es2/distancefieldtext.vert"))));
+    m_gl2es2ShaderProgram->setFragmentShaderCode(Qt3DRender::QShaderProgram::loadSource(QUrl(QStringLiteral("qrc:/shaders/es2/distancefieldtext.frag"))));
+
+    m_blend->setBlendFunction(Qt3DRender::QBlendEquation::Add);
+    m_blendArgs->setSourceRgba(Qt3DRender::QBlendEquationArguments::SourceAlpha);
+    m_blendArgs->setDestinationRgba(Qt3DRender::QBlendEquationArguments::OneMinusSourceAlpha);
+    m_depthTest->setDepthFunction(Qt3DRender::QDepthTest::LessOrEqual);
+
+    m_gl3RenderPass->setShaderProgram(m_gl3ShaderProgram);
+    m_gl3RenderPass->addRenderState(m_blend);
+    m_gl3RenderPass->addRenderState(m_blendArgs);
+    m_gl3RenderPass->addRenderState(m_depthTest);
+
+    m_gl2RenderPass->setShaderProgram(m_gl2es2ShaderProgram);
+    m_gl2RenderPass->addRenderState(m_blend);
+    m_gl2RenderPass->addRenderState(m_blendArgs);
+    m_gl2RenderPass->addRenderState(m_depthTest);
+
+    m_es2RenderPass->setShaderProgram(m_gl2es2ShaderProgram);
+    m_es2RenderPass->addRenderState(m_blend);
+    m_es2RenderPass->addRenderState(m_blendArgs);
+    m_es2RenderPass->addRenderState(m_depthTest);
+
+    m_rhiRenderPass->setShaderProgram(m_rhiShaderProgram);
+    m_rhiRenderPass->addRenderState(m_blend);
+    m_rhiRenderPass->addRenderState(m_blendArgs);
+    m_rhiRenderPass->addRenderState(m_depthTest);
+
+    m_gl3Technique->graphicsApiFilter()->setApi(Qt3DRender::QGraphicsApiFilter::OpenGL);
+    m_gl3Technique->graphicsApiFilter()->setMajorVersion(3);
+    m_gl3Technique->graphicsApiFilter()->setMinorVersion(1);
+    m_gl3Technique->graphicsApiFilter()->setProfile(Qt3DRender::QGraphicsApiFilter::CoreProfile);
+    m_gl3Technique->addRenderPass(m_gl3RenderPass);
+
+    m_gl2Technique->graphicsApiFilter()->setApi(Qt3DRender::QGraphicsApiFilter::OpenGL);
+    m_gl2Technique->graphicsApiFilter()->setMajorVersion(2);
+    m_gl2Technique->graphicsApiFilter()->setMinorVersion(0);
+    m_gl2Technique->graphicsApiFilter()->setProfile(Qt3DRender::QGraphicsApiFilter::NoProfile);
+    m_gl2Technique->addRenderPass(m_gl2RenderPass);
+
+    m_es2Technique->graphicsApiFilter()->setApi(Qt3DRender::QGraphicsApiFilter::OpenGLES);
+    m_es2Technique->graphicsApiFilter()->setMajorVersion(2);
+    m_es2Technique->graphicsApiFilter()->setMinorVersion(0);
+    m_es2Technique->graphicsApiFilter()->setProfile(Qt3DRender::QGraphicsApiFilter::NoProfile);
+    m_es2Technique->addRenderPass(m_es2RenderPass);
+
+    m_rhiTechnique->graphicsApiFilter()->setApi(Qt3DRender::QGraphicsApiFilter::RHI);
+    m_rhiTechnique->graphicsApiFilter()->setMajorVersion(1);
+    m_rhiTechnique->graphicsApiFilter()->setMinorVersion(0);
+    m_rhiTechnique->addRenderPass(m_rhiRenderPass);
+
+    Qt3DRender::QFilterKey *filterKey = new Qt3DRender::QFilterKey(q_func());
+    filterKey->setName(QStringLiteral("renderingStyle"));
+    filterKey->setValue(QStringLiteral("forward"));
+    m_gl3Technique->addFilterKey(filterKey);
+    m_gl2Technique->addFilterKey(filterKey);
+    m_es2Technique->addFilterKey(filterKey);
+    m_rhiTechnique->addFilterKey(filterKey);
+
+    m_effect->addTechnique(m_gl3Technique);
+    m_effect->addTechnique(m_gl2Technique);
+    m_effect->addTechnique(m_es2Technique);
+    m_effect->addTechnique(m_rhiTechnique);
+    m_effect->addParameter(m_textureParameter);
+    m_effect->addParameter(m_textureSizeParameter);
+    m_effect->addParameter(m_colorParameter);
+
+    q_func()->setEffect(m_effect);
+}
+}  // namespace Qt3DExtras
+
+//  from ../qt3d/src/extras/text/qtext2dmaterial.cpp, line 26, as _ZN10Qt3DExtras22QText2DMaterialPrivateC1Ev
+namespace Qt3DExtras {
+inline QText2DMaterialPrivate::QText2DMaterialPrivate()
+    : QMaterialPrivate()
+    , m_effect(new Qt3DRender::QEffect())
+    , m_distanceFieldTexture(nullptr)
+    , m_textureParameter(new Qt3DRender::QParameter(QStringLiteral("distanceFieldTexture"), QVariant(0)))
+    , m_textureSizeParameter(new Qt3DRender::QParameter(QStringLiteral("textureWidth"), QVariant(256.f)))
+    , m_colorParameter(new Qt3DRender::QParameter(QStringLiteral("color"), QVariant(QColor(255, 255, 255, 255))))
+    , m_gl3Technique(new Qt3DRender::QTechnique())
+    , m_gl2Technique(new Qt3DRender::QTechnique())
+    , m_es2Technique(new Qt3DRender::QTechnique())
+    , m_rhiTechnique(new Qt3DRender::QTechnique())
+    , m_gl3RenderPass(new Qt3DRender::QRenderPass())
+    , m_gl2RenderPass(new Qt3DRender::QRenderPass())
+    , m_es2RenderPass(new Qt3DRender::QRenderPass())
+    , m_rhiRenderPass(new Qt3DRender::QRenderPass())
+    , m_rhiShaderProgram(new Qt3DRender::QShaderProgram())
+    , m_gl3ShaderProgram(new Qt3DRender::QShaderProgram())
+    , m_gl2es2ShaderProgram(new Qt3DRender::QShaderProgram())
+    , m_blend(new Qt3DRender::QBlendEquation())
+    , m_blendArgs(new Qt3DRender::QBlendEquationArguments())
+    , m_depthTest(new Qt3DRender::QDepthTest())
+{
+}
+}  // namespace Qt3DExtras
+
+//  from ../qt3d/src/extras/text/qtext2dmaterial.cpp, line 128, as _ZN10Qt3DExtras15QText2DMaterialC1EPN8Qt3DCore5QNodeE
+namespace Qt3DExtras {
+inline QText2DMaterial::QText2DMaterial(Qt3DCore::QNode *parent)
+    : QMaterial(*new QText2DMaterialPrivate(), parent)
+{
+    Q_D(QText2DMaterial);
+    d->init();
+}
+}  // namespace Qt3DExtras
 
 //  from ../qt3d/src/extras/text/qtext2dmaterial.cpp, line 135, as _ZN10Qt3DExtras15QText2DMaterialD1Ev
 namespace Qt3DExtras {
@@ -261,6 +456,23 @@ int ritual_ZN10Qt3DExtras15QText2DMaterial11qt_metacallEN11QMetaObject4CallEiPPv
     int a1,
     void **a2) {
   return self->qt_metacall(a0, a1, a2);
+}
+
+//  QString Qt3DExtras::QText2DMaterial::tr(const char *s, const char *c, int
+//      n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN10Qt3DExtras15QText2DMaterial2trEPKcS2_i(
+    const char *s,
+    const char *c,
+    int n) {
+  return new QString(Qt3DExtras::QText2DMaterial::tr(s, c, n));
+}
+
+//  Qt3DExtras::QText2DMaterial::QText2DMaterial(Qt3DCore::QNode *parent)
+extern "C" Q_DECL_EXPORT
+Qt3DExtras::QText2DMaterial *ritual_ZN10Qt3DExtras15QText2DMaterialC1EPN8Qt3DCore5QNodeE(
+    Qt3DCore::QNode *parent) {
+  return new CuteQt3DExtras_QText2DMaterial(parent);
 }
 
 //  Qt3DExtras::QText2DMaterial::~QText2DMaterial()

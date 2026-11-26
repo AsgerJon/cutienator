@@ -2,7 +2,7 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of QtLabsS",
     "tyleKit/6.12.0/QtLabsStyleKit/private/qqstylekitcustomtheme_p.h,",
-    "Qt 6.12.0. Changes made here are lost."
+    "Qt 6.12.0. Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZNK21QQStyleKitCustomTheme10metaObjectEv": [
@@ -14,8 +14,18 @@
     "ritual_ZN21QQStyleKitCustomTheme11qt_metacallEN11QMetaObject4CallEiPPv": [
       "int", "address", "int", "int", "address"
     ],
+    "ritual_ZN21QQStyleKitCustomTheme2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN21QQStyleKitCustomThemeC1EP7QObject": ["address", "address"],
     "ritual_ZNK21QQStyleKitCustomTheme4nameEv": ["text", "address"],
+    "ritual_ZN21QQStyleKitCustomTheme7setNameERK7QString": [
+      "nothing", "address", "text"
+    ],
     "ritual_ZNK21QQStyleKitCustomTheme5themeEv": ["address", "address"],
+    "ritual_ZN21QQStyleKitCustomTheme8setThemeEP13QQmlComponent": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN21QQStyleKitCustomTheme11nameChangedEv": [
       "nothing", "address"
     ],

@@ -1,6 +1,14 @@
 //  Written by dev_tooling.RitualGenerator from the records of QtDataVisualiz
 //  ation/6.12.0/QtDataVisualization/private/qvalue3daxisformatter_p.h, Qt
-//  6.12.0. Changes made here are lost.
+//  6.12.0.
+//  Edited by hand on 2026-11-26: moc's output for
+//  'QValue3DAxisFormatterPrivate' is pasted in, cut from what the moc of Qt
+//  6.12.0 writes for its header: Qt's library keeps it to itself; added are
+//  4 rituals that lean on what moc writes for a class of the part Qt keeps
+//  to itself, whose ritual file carries moc's output, drafted by a copy of
+//  the generator that lets those names through. A copy of a meta-object is a
+//  second one: 'qobject_cast' between it and Qt's own does not match. Kept
+//  as it is when the generator runs again.
 #include <QtDataVisualization/6.12.0/QtDataVisualization/private/datavisualizationglobal_p.h>
 #include <QtDataVisualization/QtDataVisualization>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -10,6 +18,12 @@
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
+#include <QtDataVisualization/private/qvalue3daxisformatter_p.h>
+#include <QtDataVisualization/private/qvalue3daxis_p.h>
 #include <QtDataVisualization/private/utils_p.h>
 #include <QtGui/QPainter>
 #include <QtGui/QOpenGLContext>
@@ -18,8 +32,9 @@
 #include <QtCore/QCoreApplication>
 #include <QtCore/QRegularExpression>
 #include <QtCore/QLocale>
-#include <QtDataVisualization/private/qvalue3daxisformatter_p.h>
 #include <QtDataVisualization/private/qvalue3daxis_p.h>
+#include <QtDataVisualization/private/qvalue3daxisformatter_p.h>
+#include <QtDataVisualization/private/abstract3dcontroller_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -28,6 +43,101 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  from QtDataVisualization__QValue3DAxisFormatterPrivate.cpp, line 1, as moc:QValue3DAxisFormatterPrivate
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN28QValue3DAxisFormatterPrivateE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto QValue3DAxisFormatterPrivate::qt_create_metaobjectdata<qt_meta_tag_ZN28QValue3DAxisFormatterPrivateE_t>()
+{
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "QValue3DAxisFormatterPrivate",
+        "markDirtyNoLabelChange",
+        ""
+    };
+
+    QtMocHelpers::UintData qt_methods {
+        // Slot 'markDirtyNoLabelChange'
+        QtMocHelpers::SlotData<void()>(1, 2, QMC::AccessPublic, QMetaType::Void),
+    };
+    QtMocHelpers::UintData qt_properties {
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    return QtMocHelpers::metaObjectData<QValue3DAxisFormatterPrivate, qt_meta_tag_ZN28QValue3DAxisFormatterPrivateE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums);
+}
+Q_CONSTINIT const QMetaObject QValue3DAxisFormatterPrivate::staticMetaObject = { {
+    QMetaObject::SuperData::link<QObject::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN28QValue3DAxisFormatterPrivateE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN28QValue3DAxisFormatterPrivateE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN28QValue3DAxisFormatterPrivateE_t>.metaTypes,
+    nullptr
+} };
+
+void QValue3DAxisFormatterPrivate::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<QValue3DAxisFormatterPrivate *>(_o);
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        switch (_id) {
+        case 0: _t->markDirtyNoLabelChange(); break;
+        default: ;
+        }
+    }
+    (void)_a;
+}
+
+const QMetaObject *QValue3DAxisFormatterPrivate::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *QValue3DAxisFormatterPrivate::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN28QValue3DAxisFormatterPrivateE_t>.strings))
+        return static_cast<void*>(this);
+    return QObject::qt_metacast(_clname);
+}
+
+int QValue3DAxisFormatterPrivate::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QObject::qt_metacall(_c, _id, _a);
+    if (_id < 0)
+        return _id;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        if (_id < 1)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 1;
+    }
+    if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        if (_id < 1)
+            *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
+        _id -= 1;
+    }
+    return _id;
+}
+QT_WARNING_POP
+
+//  from ../qtdatavis3d/src/datavisualization/axis/qvalue3daxisformatter.cpp, line 440, as _ZN28QValue3DAxisFormatterPrivate22markDirtyNoLabelChangeEv
+inline void QValue3DAxisFormatterPrivate::markDirtyNoLabelChange()
+{
+    markDirty(false);
+}
+
+//  from ../qtdatavis3d/src/datavisualization/axis/qvalue3daxisformatter.cpp, line 307, as _ZN28QValue3DAxisFormatterPrivateD0Ev
+inline QValue3DAxisFormatterPrivate::~QValue3DAxisFormatterPrivate()
+{
+}
 
 //  from ../qtdatavis3d/src/datavisualization/utils/utils.cpp, line 197, as _ZN5Utils14preParseFormatERK7QStringRS0_S3_RiRc
 inline Utils::ParamType Utils::preParseFormat(const QString &format, QString &preStr, QString &postStr,
@@ -97,6 +207,13 @@ inline QString Utils::formatLabelLocalized(Utils::ParamType paramType, qreal val
     }
 }
 
+//  from ../qtdatavis3d/src/datavisualization/axis/qvalue3daxis.cpp, line 314, as _ZN19QValue3DAxisPrivate17emitLabelsChangedEv
+inline void QValue3DAxisPrivate::emitLabelsChanged()
+{
+    m_labelsDirty = true;
+    emit q_ptr->labelsChanged();
+}
+
 //  from ../qtdatavis3d/src/datavisualization/utils/utils.cpp, line 231, as _ZN5Utils24mapFormatCharToParamTypeEc
 inline Utils::ParamType Utils::mapFormatCharToParamType(char formatSpec)
 {
@@ -113,6 +230,24 @@ inline Utils::ParamType Utils::mapFormatCharToParamType(char formatSpec)
     }
 
     return retVal;
+}
+
+//  from ../qtdatavis3d/src/datavisualization/axis/qvalue3daxisformatter.cpp, line 290, as _ZN28QValue3DAxisFormatterPrivateC1EP21QValue3DAxisFormatter
+inline QValue3DAxisFormatterPrivate::QValue3DAxisFormatterPrivate(QValue3DAxisFormatter *q)
+    : QObject(0),
+      q_ptr(q),
+      m_needsRecalculate(true),
+      m_min(0.0f),
+      m_max(0.0f),
+      m_rangeNormalizer(0.0f),
+      m_axis(0),
+      m_preparsedParamType(Utils::ParamTypeUnknown),
+      m_allowNegatives(true),
+      m_allowZero(true),
+      m_formatPrecision(6), // 6 and 'g' are defaults in Qt API for format precision and spec
+      m_formatSpec('g'),
+      m_cLocaleInUse(true)
+{
 }
 
 //  from ../qtdatavis3d/src/datavisualization/axis/qvalue3daxisformatter.cpp, line 311, as _ZN28QValue3DAxisFormatterPrivate11recalculateEv
@@ -219,6 +354,38 @@ inline float QValue3DAxisFormatterPrivate::positionAt(float value) const
 inline float QValue3DAxisFormatterPrivate::valueAt(float position) const
 {
     return ((position * m_rangeNormalizer) + m_min);
+}
+
+//  from ../qtdatavis3d/src/datavisualization/axis/qvalue3daxisformatter.cpp, line 410, as _ZN28QValue3DAxisFormatterPrivate7setAxisEP12QValue3DAxis
+inline void QValue3DAxisFormatterPrivate::setAxis(QValue3DAxis *axis)
+{
+    Q_ASSERT(axis);
+
+    // These signals are all connected to markDirtyNoLabelChange slot, even though most of them
+    // do require labels to be regenerated. This is because the label regeneration is triggered
+    // elsewhere in these cases.
+    connect(axis, &QValue3DAxis::segmentCountChanged,
+            this, &QValue3DAxisFormatterPrivate::markDirtyNoLabelChange);
+    connect(axis, &QValue3DAxis::subSegmentCountChanged,
+            this, &QValue3DAxisFormatterPrivate::markDirtyNoLabelChange);
+    connect(axis, &QValue3DAxis::labelFormatChanged,
+            this, &QValue3DAxisFormatterPrivate::markDirtyNoLabelChange);
+    connect(axis, &QAbstract3DAxis::rangeChanged,
+            this, &QValue3DAxisFormatterPrivate::markDirtyNoLabelChange);
+
+    m_axis = axis;
+}
+
+//  from ../qtdatavis3d/src/datavisualization/axis/qvalue3daxisformatter.cpp, line 429, as _ZN28QValue3DAxisFormatterPrivate9markDirtyEb
+inline void QValue3DAxisFormatterPrivate::markDirty(bool labelsChange)
+{
+    m_needsRecalculate = true;
+    if (m_axis) {
+        if (labelsChange)
+            m_axis->dptr()->emitLabelsChanged();
+        if (m_axis && m_axis->orientation() != QAbstract3DAxis::AxisOrientationNone)
+            emit m_axis->dptr()->formatterDirty();
+    }
 }
 //  -----------------------------------------------------------------------
 
@@ -415,6 +582,24 @@ int ritual_ZN28QValue3DAxisFormatterPrivate11qt_metacallEN11QMetaObject4CallEiPP
   return self->qt_metacall(a0, a1, a2);
 }
 
+//  QString QValue3DAxisFormatterPrivate::tr(const char *s, const char *c,
+//      int n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN28QValue3DAxisFormatterPrivate2trEPKcS1_i(
+    const char *s,
+    const char *c,
+    int n) {
+  return new QString(QValue3DAxisFormatterPrivate::tr(s, c, n));
+}
+
+//  QValue3DAxisFormatterPrivate::QValue3DAxisFormatterPrivate(QValue3DAxisFo
+//      rmatter *q)
+extern "C" Q_DECL_EXPORT
+QValue3DAxisFormatterPrivate *ritual_ZN28QValue3DAxisFormatterPrivateC1EP21QValue3DAxisFormatter(
+    QValue3DAxisFormatter *q) {
+  return new CuteQValue3DAxisFormatterPrivate(q);
+}
+
 //  QValue3DAxisFormatterPrivate::~QValue3DAxisFormatterPrivate()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN28QValue3DAxisFormatterPrivateD1Ev(
@@ -479,6 +664,22 @@ float ritual_ZNK28QValue3DAxisFormatterPrivate7valueAtEf(
     const QValue3DAxisFormatterPrivate *self,
     float position) {
   return self->valueAt(position);
+}
+
+//  void QValue3DAxisFormatterPrivate::setAxis(QValue3DAxis *axis)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QValue3DAxisFormatterPrivate7setAxisEP12QValue3DAxis(
+    QValue3DAxisFormatterPrivate *self,
+    QValue3DAxis *axis) {
+  self->setAxis(axis);
+}
+
+//  void QValue3DAxisFormatterPrivate::markDirty(bool labelsChange)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN28QValue3DAxisFormatterPrivate9markDirtyEb(
+    QValue3DAxisFormatterPrivate *self,
+    bool labelsChange) {
+  self->markDirty(labelsChange);
 }
 
 //  void QValue3DAxisFormatterPrivate::markDirtyNoLabelChange()

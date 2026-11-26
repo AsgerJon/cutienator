@@ -1,6 +1,14 @@
 //  Written by dev_tooling.RitualGenerator from the records of Qt3DInput/6.12
 //  .0/Qt3DInput/private/keyboardmousegenericdeviceintegration_p.h, Qt
-//  6.12.0. Changes made here are lost.
+//  6.12.0.
+//  Edited by hand on 2026-11-26: moc's output for
+//  'Qt3DInput::Input::KeyboardMouseGenericDeviceIntegration' is pasted in,
+//  cut from what the moc of Qt 6.12.0 writes for its header: Qt's library
+//  keeps it to itself; added are 3 rituals that lean on what moc writes for
+//  a class of the part Qt keeps to itself, whose ritual file carries moc's
+//  output, drafted by a copy of the generator that lets those names through.
+//  A copy of a meta-object is a second one: 'qobject_cast' between it and
+//  Qt's own does not match. Kept as it is when the generator runs again.
 #include <Qt3DInput/6.12.0/Qt3DInput/private/qt3dinput_global_p.h>
 #include <Qt3DInput/Qt3DInput>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -9,11 +17,16 @@
 #include <QtCore/qstring.h>
 #include <Qt3DCore/qnodeid.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qlist.h>
 #include <cstring>
 #include <vector>
 #include <Qt3DCore/Qt3DCore>
 #include <QtCore/QList>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
 #include <Qt3DInput/private/keyboardmousegenericdeviceintegration_p.h>
 #include <Qt3DInput/private/inputhandler_p.h>
 #include <Qt3DInput/private/inputmanagers_p.h>
@@ -25,6 +38,80 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  from Qt3DInput__Qt3DInput_Input_KeyboardMouseGenericDeviceIntegration.cpp, line 1, as moc:Qt3DInput::Input::KeyboardMouseGenericDeviceIntegration
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN9Qt3DInput5Input37KeyboardMouseGenericDeviceIntegrationE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto Qt3DInput::Input::KeyboardMouseGenericDeviceIntegration::qt_create_metaobjectdata<qt_meta_tag_ZN9Qt3DInput5Input37KeyboardMouseGenericDeviceIntegrationE_t>()
+{
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "Qt3DInput::Input::KeyboardMouseGenericDeviceIntegration"
+    };
+
+    QtMocHelpers::UintData qt_methods {
+    };
+    QtMocHelpers::UintData qt_properties {
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    return QtMocHelpers::metaObjectData<KeyboardMouseGenericDeviceIntegration, qt_meta_tag_ZN9Qt3DInput5Input37KeyboardMouseGenericDeviceIntegrationE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums);
+}
+Q_CONSTINIT const QMetaObject Qt3DInput::Input::KeyboardMouseGenericDeviceIntegration::staticMetaObject = { {
+    QMetaObject::SuperData::link<Qt3DInput::QInputDeviceIntegration::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN9Qt3DInput5Input37KeyboardMouseGenericDeviceIntegrationE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN9Qt3DInput5Input37KeyboardMouseGenericDeviceIntegrationE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN9Qt3DInput5Input37KeyboardMouseGenericDeviceIntegrationE_t>.metaTypes,
+    nullptr
+} };
+
+void Qt3DInput::Input::KeyboardMouseGenericDeviceIntegration::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<KeyboardMouseGenericDeviceIntegration *>(_o);
+    (void)_t;
+    (void)_c;
+    (void)_id;
+    (void)_a;
+}
+
+const QMetaObject *Qt3DInput::Input::KeyboardMouseGenericDeviceIntegration::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *Qt3DInput::Input::KeyboardMouseGenericDeviceIntegration::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN9Qt3DInput5Input37KeyboardMouseGenericDeviceIntegrationE_t>.strings))
+        return static_cast<void*>(this);
+    return Qt3DInput::QInputDeviceIntegration::qt_metacast(_clname);
+}
+
+int Qt3DInput::Input::KeyboardMouseGenericDeviceIntegration::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = Qt3DInput::QInputDeviceIntegration::qt_metacall(_c, _id, _a);
+    return _id;
+}
+QT_WARNING_POP
+
+//  from ../qt3d/src/input/backend/keyboardmousegenericdeviceintegration.cpp, line 15, as _ZN9Qt3DInput5Input37KeyboardMouseGenericDeviceIntegrationC1EPNS0_12InputHandlerE
+namespace Qt3DInput::Input {
+inline KeyboardMouseGenericDeviceIntegration::KeyboardMouseGenericDeviceIntegration(InputHandler *handler)
+    : Qt3DInput::QInputDeviceIntegration()
+    , m_handler(handler)
+{
+}
+}  // namespace Qt3DInput::Input
 
 //  from ../qt3d/src/input/backend/keyboardmousegenericdeviceintegration.cpp, line 21, as _ZN9Qt3DInput5Input37KeyboardMouseGenericDeviceIntegrationD1Ev
 namespace Qt3DInput::Input {
@@ -70,6 +157,14 @@ inline QAbstractPhysicalDeviceBackendNode *KeyboardMouseGenericDeviceIntegration
     if (!device)
         device = m_handler->genericDeviceBackendNodeManager()->lookupResource(id);
     return device;
+}
+}  // namespace Qt3DInput::Input
+
+//  from ../qt3d/src/input/backend/keyboardmousegenericdeviceintegration.cpp, line 57, as _ZNK9Qt3DInput5Input37KeyboardMouseGenericDeviceIntegration11deviceNamesEv
+namespace Qt3DInput::Input {
+inline QStringList KeyboardMouseGenericDeviceIntegration::deviceNames() const
+{
+    return QStringList() << tr("Keyboard") << tr("Mouse");
 }
 }  // namespace Qt3DInput::Input
 
@@ -277,6 +372,29 @@ int ritual_ZN9Qt3DInput5Input37KeyboardMouseGenericDeviceIntegration11qt_metacal
   return self->qt_metacall(a0, a1, a2);
 }
 
+//  QString Qt3DInput::Input::KeyboardMouseGenericDeviceIntegration::tr(const
+//      char *s, const char *c, int n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN9Qt3DInput5Input37KeyboardMouseGenericDeviceIntegration2trEPKcS3_i(
+    const char *s,
+    const char *c,
+    int n) {
+  return new QString(
+      Qt3DInput::Input::KeyboardMouseGenericDeviceIntegration::tr(
+          s,
+          c,
+          n));
+}
+
+//  Qt3DInput::Input::KeyboardMouseGenericDeviceIntegration::KeyboardMouseGen
+//      ericDeviceIntegration(InputHandler *handleer)
+extern "C" Q_DECL_EXPORT
+Qt3DInput::Input::KeyboardMouseGenericDeviceIntegration *ritual_ZN9Qt3DInput5Input37KeyboardMouseGenericDeviceIntegrationC1EPNS0_12InputHandlerE(
+    Qt3DInput::Input::InputHandler *handleer) {
+  return new CuteQt3DInput_Input_KeyboardMouseGenericDeviceIntegration(
+      handleer);
+}
+
 //  Qt3DInput::Input::KeyboardMouseGenericDeviceIntegration::~KeyboardMouseGe
 //      nericDeviceIntegration()
 extern "C" Q_DECL_EXPORT
@@ -318,6 +436,15 @@ Qt3DInput::QAbstractPhysicalDeviceBackendNode *ritual_ZNK9Qt3DInput5Input37Keybo
     const Qt3DInput::Input::KeyboardMouseGenericDeviceIntegration *self,
     const Qt3DCore::QNodeId *id) {
   return self->physicalDevice(*id);
+}
+
+//  QStringList
+//      Qt3DInput::Input::KeyboardMouseGenericDeviceIntegration::deviceNames(
+//      ) const
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZNK9Qt3DInput5Input37KeyboardMouseGenericDeviceIntegration11deviceNamesEv(
+    const Qt3DInput::Input::KeyboardMouseGenericDeviceIntegration *self) {
+  return new QList<QString>(self->deviceNames());
 }
 
 //  void

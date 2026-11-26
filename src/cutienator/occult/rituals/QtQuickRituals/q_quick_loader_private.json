@@ -39,6 +39,9 @@
     "ritual_ZNK19QQuickLoaderPrivate17getImplicitHeightEv": [
       "double", "address"
     ],
+    "ritual_ZN19QQuickLoaderPrivate15_q_sourceLoadedEv": [
+      "nothing", "address"
+    ],
     "ritual_ZN19QQuickLoaderPrivate13_q_updateSizeEb": [
       "nothing", "address", "bool"
     ],

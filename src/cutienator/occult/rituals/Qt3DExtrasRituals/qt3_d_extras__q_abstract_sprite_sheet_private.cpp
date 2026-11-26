@@ -29,6 +29,17 @@ inline void QAbstractSpriteSheetPrivate::init()
 }
 }  // namespace Qt3DExtras
 
+//  from ../qt3d/src/extras/defaults/qabstractspritesheet.cpp, line 16, as _ZN10Qt3DExtras27QAbstractSpriteSheetPrivateC1Ev
+namespace Qt3DExtras {
+using namespace Qt3DCore;
+inline QAbstractSpriteSheetPrivate::QAbstractSpriteSheetPrivate()
+    : QNodePrivate()
+    , m_texture(nullptr)
+    , m_currentIndex(-1)
+{
+}
+}  // namespace Qt3DExtras
+
 //  from ../qt3d/src/extras/defaults/qabstractspritesheet.cpp, line 28, as _ZN10Qt3DExtras27QAbstractSpriteSheetPrivate13updateTextureEPN10Qt3DRender16QAbstractTextureE
 namespace Qt3DExtras {
 using namespace Qt3DCore;
@@ -172,6 +183,12 @@ public:
     Qt3DCore::QNodePrivate::update();
   }
 };
+
+//  Qt3DExtras::QAbstractSpriteSheetPrivate::QAbstractSpriteSheetPrivate()
+extern "C" Q_DECL_EXPORT
+Qt3DExtras::QAbstractSpriteSheetPrivate *ritual_ZN10Qt3DExtras27QAbstractSpriteSheetPrivateC1Ev() {
+  return new CuteQt3DExtras_QAbstractSpriteSheetPrivate();
+}
 
 //  void Qt3DExtras::QAbstractSpriteSheetPrivate::init()
 extern "C" Q_DECL_EXPORT

@@ -126,6 +126,48 @@
     ],
     "ritual_own_ZNK26QAccessibleAbstractSpinBox15minimumStepSizeEv": [
       "address", "address"
+    ],
+    "ritual_own_ZN26QAccessibleAbstractSpinBox12addSelectionEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_own_ZNK26QAccessibleAbstractSpinBox14cursorPositionEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZNK26QAccessibleAbstractSpinBox13characterRectEi": [
+      "address", "address", "int"
+    ],
+    "ritual_own_ZNK26QAccessibleAbstractSpinBox14selectionCountEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZNK26QAccessibleAbstractSpinBox13offsetAtPointERK6QPoint": [
+      "int", "address", "address"
+    ],
+    "ritual_own_ZNK26QAccessibleAbstractSpinBox4textEii": [
+      "text", "address", "int", "int"
+    ],
+    "ritual_own_ZN26QAccessibleAbstractSpinBox15removeSelectionEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN26QAccessibleAbstractSpinBox17setCursorPositionEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN26QAccessibleAbstractSpinBox12setSelectionEiii": [
+      "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_own_ZNK26QAccessibleAbstractSpinBox14characterCountEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZN26QAccessibleAbstractSpinBox17scrollToSubstringEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_own_ZN26QAccessibleAbstractSpinBox10deleteTextEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_own_ZN26QAccessibleAbstractSpinBox10insertTextEiRK7QString": [
+      "nothing", "address", "int", "text"
+    ],
+    "ritual_own_ZN26QAccessibleAbstractSpinBox11replaceTextEiiRK7QString": [
+      "nothing", "address", "int", "int", "text"
     ]
   }
 }

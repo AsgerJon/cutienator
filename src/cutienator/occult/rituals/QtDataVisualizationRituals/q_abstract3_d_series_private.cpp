@@ -1,6 +1,14 @@
 //  Written by dev_tooling.RitualGenerator from the records of QtDataVisualiz
 //  ation/6.12.0/QtDataVisualization/private/qabstract3dseries_p.h, Qt
-//  6.12.0. Changes made here are lost.
+//  6.12.0.
+//  Edited by hand on 2026-11-26: moc's output for 'QAbstract3DSeriesPrivate'
+//  is pasted in, cut from what the moc of Qt 6.12.0 writes for its header:
+//  Qt's library keeps it to itself; added are 2 rituals that lean on what
+//  moc writes for a class of the part Qt keeps to itself, whose ritual file
+//  carries moc's output, drafted by a copy of the generator that lets those
+//  names through. A copy of a meta-object is a second one: 'qobject_cast'
+//  between it and Qt's own does not match. Kept as it is when the generator
+//  runs again.
 #include <QtDataVisualization/6.12.0/QtDataVisualization/private/datavisualizationglobal_p.h>
 #include <QtDataVisualization/QtDataVisualization>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -13,6 +21,10 @@
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
 #include <QtDataVisualization/private/qabstract3dseries_p.h>
 #include <QtDataVisualization/private/qabstractdataproxy_p.h>
 #include <QtDataVisualization/private/abstract3dcontroller_p.h>
@@ -24,6 +36,71 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  from QtDataVisualization__QAbstract3DSeriesPrivate.cpp, line 1, as moc:QAbstract3DSeriesPrivate
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN24QAbstract3DSeriesPrivateE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto QAbstract3DSeriesPrivate::qt_create_metaobjectdata<qt_meta_tag_ZN24QAbstract3DSeriesPrivateE_t>()
+{
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "QAbstract3DSeriesPrivate"
+    };
+
+    QtMocHelpers::UintData qt_methods {
+    };
+    QtMocHelpers::UintData qt_properties {
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    return QtMocHelpers::metaObjectData<QAbstract3DSeriesPrivate, qt_meta_tag_ZN24QAbstract3DSeriesPrivateE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums);
+}
+Q_CONSTINIT const QMetaObject QAbstract3DSeriesPrivate::staticMetaObject = { {
+    QMetaObject::SuperData::link<QObject::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN24QAbstract3DSeriesPrivateE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN24QAbstract3DSeriesPrivateE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN24QAbstract3DSeriesPrivateE_t>.metaTypes,
+    nullptr
+} };
+
+void QAbstract3DSeriesPrivate::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<QAbstract3DSeriesPrivate *>(_o);
+    (void)_t;
+    (void)_c;
+    (void)_id;
+    (void)_a;
+}
+
+const QMetaObject *QAbstract3DSeriesPrivate::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *QAbstract3DSeriesPrivate::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN24QAbstract3DSeriesPrivateE_t>.strings))
+        return static_cast<void*>(this);
+    return QObject::qt_metacast(_clname);
+}
+
+int QAbstract3DSeriesPrivate::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QObject::qt_metacall(_c, _id, _a);
+    return _id;
+}
+QT_WARNING_POP
 
 //  from ../qtdatavis3d/src/datavisualization/data/qabstract3dseries.cpp, line 665, as _ZN24QAbstract3DSeriesPrivate12setDataProxyEP18QAbstractDataProxy
 inline void QAbstract3DSeriesPrivate::setDataProxy(QAbstractDataProxy *proxy)
@@ -48,6 +125,31 @@ inline void QAbstract3DSeriesPrivate::setController(Abstract3DController *contro
     m_controller = controller;
     q_ptr->setParent(controller);
     markItemLabelDirty();
+}
+
+//  from ../qtdatavis3d/src/datavisualization/data/qabstract3dseries.cpp, line 656, as _ZN24QAbstract3DSeriesPrivateD0Ev
+inline QAbstract3DSeriesPrivate::~QAbstract3DSeriesPrivate()
+{
+}
+
+//  from ../qtdatavis3d/src/datavisualization/data/qabstract3dseries.cpp, line 637, as _ZN24QAbstract3DSeriesPrivateC1EP17QAbstract3DSeriesNS0_10SeriesTypeE
+inline QAbstract3DSeriesPrivate::QAbstract3DSeriesPrivate(QAbstract3DSeries *q,
+                                                   QAbstract3DSeries::SeriesType type)
+    : QObject(0),
+      q_ptr(q),
+      m_type(type),
+      m_dataProxy(0),
+      m_visible(true),
+      m_controller(0),
+      m_mesh(QAbstract3DSeries::MeshCube),
+      m_meshSmooth(false),
+      m_colorStyle(Q3DTheme::ColorStyleUniform),
+      m_baseColor(Qt::black),
+      m_singleHighlightColor(Qt::black),
+      m_multiHighlightColor(Qt::black),
+      m_itemLabelDirty(true),
+      m_itemLabelVisible(true)
+{
 }
 
 //  from ../qtdatavis3d/src/datavisualization/data/qabstract3dseries.cpp, line 660, as _ZNK24QAbstract3DSeriesPrivate9dataProxyEv
@@ -524,6 +626,24 @@ int ritual_ZN24QAbstract3DSeriesPrivate11qt_metacallEN11QMetaObject4CallEiPPv(
     int a1,
     void **a2) {
   return self->qt_metacall(a0, a1, a2);
+}
+
+//  QString QAbstract3DSeriesPrivate::tr(const char *s, const char *c, int n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN24QAbstract3DSeriesPrivate2trEPKcS1_i(
+    const char *s,
+    const char *c,
+    int n) {
+  return new QString(QAbstract3DSeriesPrivate::tr(s, c, n));
+}
+
+//  QAbstract3DSeriesPrivate::QAbstract3DSeriesPrivate(QAbstract3DSeries *q,
+//      QAbstract3DSeries::SeriesType type)
+extern "C" Q_DECL_EXPORT
+QAbstract3DSeriesPrivate *ritual_ZN24QAbstract3DSeriesPrivateC1EP17QAbstract3DSeriesNS0_10SeriesTypeE(
+    QAbstract3DSeries *q,
+    QAbstract3DSeries::SeriesType type) {
+  return new CuteQAbstract3DSeriesPrivate(q, type);
 }
 
 //  QAbstract3DSeriesPrivate::~QAbstract3DSeriesPrivate()

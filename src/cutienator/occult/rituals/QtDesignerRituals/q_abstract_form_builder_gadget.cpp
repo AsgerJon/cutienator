@@ -1,16 +1,212 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtDesigner/6.12.0/QtDesigner/private/properties_p.h, Qt 6.12.0. Changes
-//  made here are lost.
+//  QtDesigner/6.12.0/QtDesigner/private/properties_p.h, Qt 6.12.0.
+//  Edited by hand on 2026-11-26: moc's output for
+//  'QAbstractFormBuilderGadget' is pasted in, cut from what the moc of Qt
+//  6.12.0 writes for its header: Qt's library keeps it to itself; added are
+//  2 rituals that lean on what moc writes for a class of the part Qt keeps
+//  to itself, whose ritual file carries moc's output, drafted by a copy of
+//  the generator that lets those names through. A copy of a meta-object is a
+//  second one: 'qobject_cast' between it and Qt's own does not match. Kept
+//  as it is when the generator runs again.
 #include <QtGui/qtguiglobal.h>
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtDesigner/QtDesigner>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtDesigner/6.12.0/QtDesigner/private/properties_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 #include <QtCore/qsize.h>
 #include <QtCore/qvariant.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+
+//  Qt's own code, from here to the line of dashes: taken from
+//  Qt's source, because Qt's library carries it under no name.
+//  Copyright (C) The Qt Company Ltd. It is licensed
+//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
+//  here. Each function is as Qt wrote it, with the word
+//  'inline' put before it where Qt did not write it.
+
+//  from QtDesigner__QAbstractFormBuilderGadget.cpp, line 1, as moc:QAbstractFormBuilderGadget
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN26QAbstractFormBuilderGadgetE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto QAbstractFormBuilderGadget::qt_create_metaobjectdata<qt_meta_tag_ZN26QAbstractFormBuilderGadgetE_t>()
+{
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "QAbstractFormBuilderGadget",
+        "itemFlags",
+        "Qt::ItemFlags",
+        "checkState",
+        "Qt::CheckState",
+        "textAlignment",
+        "Qt::Alignment",
+        "orientation",
+        "Qt::Orientation",
+        "sizeType",
+        "QSizePolicy::Policy",
+        "colorRole",
+        "QPalette::ColorRole",
+        "colorGroup",
+        "QPalette::ColorGroup",
+        "styleStrategy",
+        "QFont::StyleStrategy",
+        "hintingPreference",
+        "QFont::HintingPreference",
+        "fontWeight",
+        "QFont::Weight",
+        "cursorShape",
+        "Qt::CursorShape",
+        "brushStyle",
+        "Qt::BrushStyle",
+        "toolBarArea",
+        "Qt::ToolBarArea",
+        "gradientType",
+        "QGradient::Type",
+        "gradientSpread",
+        "QGradient::Spread",
+        "gradientCoordinate",
+        "QGradient::CoordinateMode",
+        "language",
+        "QLocale::Language",
+        "country",
+        "QLocale::Country"
+    };
+
+    QtMocHelpers::UintData qt_methods {
+    };
+    QtMocHelpers::UintData qt_properties {
+        // property 'itemFlags'
+        QtMocHelpers::PropertyData<Qt::ItemFlags>(1, 0x80000000 | 2, QMC::DefaultPropertyFlags | QMC::EnumOrFlag),
+        // property 'checkState'
+        QtMocHelpers::PropertyData<Qt::CheckState>(3, 0x80000000 | 4, QMC::DefaultPropertyFlags | QMC::EnumOrFlag),
+        // property 'textAlignment'
+        QtMocHelpers::PropertyData<Qt::Alignment>(5, 0x80000000 | 6, QMC::DefaultPropertyFlags | QMC::EnumOrFlag),
+        // property 'orientation'
+        QtMocHelpers::PropertyData<Qt::Orientation>(7, 0x80000000 | 8, QMC::DefaultPropertyFlags | QMC::EnumOrFlag),
+        // property 'sizeType'
+        QtMocHelpers::PropertyData<QSizePolicy::Policy>(9, 0x80000000 | 10, QMC::DefaultPropertyFlags | QMC::EnumOrFlag),
+        // property 'colorRole'
+        QtMocHelpers::PropertyData<QPalette::ColorRole>(11, 0x80000000 | 12, QMC::DefaultPropertyFlags | QMC::EnumOrFlag),
+        // property 'colorGroup'
+        QtMocHelpers::PropertyData<QPalette::ColorGroup>(13, 0x80000000 | 14, QMC::DefaultPropertyFlags | QMC::EnumOrFlag),
+        // property 'styleStrategy'
+        QtMocHelpers::PropertyData<QFont::StyleStrategy>(15, 0x80000000 | 16, QMC::DefaultPropertyFlags | QMC::EnumOrFlag),
+        // property 'hintingPreference'
+        QtMocHelpers::PropertyData<QFont::HintingPreference>(17, 0x80000000 | 18, QMC::DefaultPropertyFlags | QMC::EnumOrFlag),
+        // property 'fontWeight'
+        QtMocHelpers::PropertyData<QFont::Weight>(19, 0x80000000 | 20, QMC::DefaultPropertyFlags | QMC::EnumOrFlag),
+        // property 'cursorShape'
+        QtMocHelpers::PropertyData<Qt::CursorShape>(21, 0x80000000 | 22, QMC::DefaultPropertyFlags | QMC::EnumOrFlag),
+        // property 'brushStyle'
+        QtMocHelpers::PropertyData<Qt::BrushStyle>(23, 0x80000000 | 24, QMC::DefaultPropertyFlags | QMC::EnumOrFlag),
+        // property 'toolBarArea'
+        QtMocHelpers::PropertyData<Qt::ToolBarArea>(25, 0x80000000 | 26, QMC::DefaultPropertyFlags | QMC::EnumOrFlag),
+        // property 'gradientType'
+        QtMocHelpers::PropertyData<QGradient::Type>(27, 0x80000000 | 28, QMC::DefaultPropertyFlags | QMC::EnumOrFlag),
+        // property 'gradientSpread'
+        QtMocHelpers::PropertyData<QGradient::Spread>(29, 0x80000000 | 30, QMC::DefaultPropertyFlags | QMC::EnumOrFlag),
+        // property 'gradientCoordinate'
+        QtMocHelpers::PropertyData<QGradient::CoordinateMode>(31, 0x80000000 | 32, QMC::DefaultPropertyFlags | QMC::EnumOrFlag),
+        // property 'language'
+        QtMocHelpers::PropertyData<QLocale::Language>(33, 0x80000000 | 34, QMC::DefaultPropertyFlags | QMC::EnumOrFlag),
+        // property 'country'
+        QtMocHelpers::PropertyData<QLocale::Country>(35, 0x80000000 | 36, QMC::DefaultPropertyFlags | QMC::EnumOrFlag),
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    return QtMocHelpers::metaObjectData<QAbstractFormBuilderGadget, qt_meta_tag_ZN26QAbstractFormBuilderGadgetE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums);
+}
+Q_CONSTINIT static const QMetaObject::SuperData qt_meta_extradata_ZN26QAbstractFormBuilderGadgetE[] = {
+    QMetaObject::SuperData::link<QSizePolicy::staticMetaObject>(),
+    QMetaObject::SuperData::link<QPalette::staticMetaObject>(),
+    QMetaObject::SuperData::link<QFont::staticMetaObject>(),
+    QMetaObject::SuperData::link<QGradient::staticMetaObject>(),
+    QMetaObject::SuperData::link<QLocale::staticMetaObject>(),
+    nullptr
+};
+
+Q_CONSTINIT const QMetaObject QAbstractFormBuilderGadget::staticMetaObject = { {
+    QMetaObject::SuperData::link<QWidget::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN26QAbstractFormBuilderGadgetE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN26QAbstractFormBuilderGadgetE_t>.data,
+    qt_static_metacall,
+    qt_meta_extradata_ZN26QAbstractFormBuilderGadgetE,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN26QAbstractFormBuilderGadgetE_t>.metaTypes,
+    nullptr
+} };
+
+void QAbstractFormBuilderGadget::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<QAbstractFormBuilderGadget *>(_o);
+    if (_c == QMetaObject::ReadProperty) {
+        void *_v = _a[0];
+        switch (_id) {
+        case 0: *reinterpret_cast<Qt::ItemFlags*>(_v) = _t->fakeItemFlags(); break;
+        case 1: *reinterpret_cast<Qt::CheckState*>(_v) = _t->fakeCheckState(); break;
+        case 2: *reinterpret_cast<Qt::Alignment*>(_v) = _t->fakeAlignment(); break;
+        case 3: *reinterpret_cast<Qt::Orientation*>(_v) = _t->fakeOrientation(); break;
+        case 4: *reinterpret_cast<QSizePolicy::Policy*>(_v) = _t->fakeSizeType(); break;
+        case 5: *reinterpret_cast<QPalette::ColorRole*>(_v) = _t->fakeColorRole(); break;
+        case 6: *reinterpret_cast<QPalette::ColorGroup*>(_v) = _t->fakeColorGroup(); break;
+        case 7: *reinterpret_cast<QFont::StyleStrategy*>(_v) = _t->fakeStyleStrategy(); break;
+        case 8: *reinterpret_cast<QFont::HintingPreference*>(_v) = _t->fakeHintingPreference(); break;
+        case 9: *reinterpret_cast<QFont::Weight*>(_v) = _t->fakeFontWeight(); break;
+        case 10: *reinterpret_cast<Qt::CursorShape*>(_v) = _t->fakeCursorShape(); break;
+        case 11: *reinterpret_cast<Qt::BrushStyle*>(_v) = _t->fakeBrushStyle(); break;
+        case 12: *reinterpret_cast<Qt::ToolBarArea*>(_v) = _t->fakeToolBarArea(); break;
+        case 13: *reinterpret_cast<QGradient::Type*>(_v) = _t->fakeGradientType(); break;
+        case 14: *reinterpret_cast<QGradient::Spread*>(_v) = _t->fakeGradientSpread(); break;
+        case 15: *reinterpret_cast<QGradient::CoordinateMode*>(_v) = _t->fakeGradientCoordinate(); break;
+        case 16: *reinterpret_cast<QLocale::Language*>(_v) = _t->fakeLanguage(); break;
+        case 17: *reinterpret_cast<QLocale::Country*>(_v) = _t->fakeCountry(); break;
+        default: break;
+        }
+    }
+}
+
+const QMetaObject *QAbstractFormBuilderGadget::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *QAbstractFormBuilderGadget::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN26QAbstractFormBuilderGadgetE_t>.strings))
+        return static_cast<void*>(this);
+    return QWidget::qt_metacast(_clname);
+}
+
+int QAbstractFormBuilderGadget::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QWidget::qt_metacall(_c, _id, _a);
+    if (_id < 0)
+        return _id;
+    if (_c == QMetaObject::ReadProperty || _c == QMetaObject::WriteProperty
+            || _c == QMetaObject::ResetProperty || _c == QMetaObject::BindableProperty
+            || _c == QMetaObject::RegisterPropertyMetaType) {
+        qt_static_metacall(this, _c, _id, _a);
+        _id -= 18;
+    }
+    return _id;
+}
+QT_WARNING_POP
+//  -----------------------------------------------------------------------
 
 //  A QAbstractFormBuilderGadget that Python can take functions over in. Every QAbstractFormBuilderGadget
 //  Python makes is one. Each function below asks the Python
@@ -875,6 +1071,22 @@ int ritual_ZN26QAbstractFormBuilderGadget11qt_metacallEN11QMetaObject4CallEiPPv(
     int a1,
     void **a2) {
   return self->qt_metacall(a0, a1, a2);
+}
+
+//  QString QAbstractFormBuilderGadget::tr(const char *s, const char *c, int
+//      n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN26QAbstractFormBuilderGadget2trEPKcS1_i(
+    const char *s,
+    const char *c,
+    int n) {
+  return new QString(QAbstractFormBuilderGadget::tr(s, c, n));
+}
+
+//  QAbstractFormBuilderGadget::QAbstractFormBuilderGadget()
+extern "C" Q_DECL_EXPORT
+QAbstractFormBuilderGadget *ritual_ZN26QAbstractFormBuilderGadgetC1Ev() {
+  return new CuteQAbstractFormBuilderGadget();
 }
 
 //  Qt::Orientation QAbstractFormBuilderGadget::fakeOrientation() const

@@ -333,6 +333,26 @@ inline bool QGraphicsLayoutItemPrivate::hasWidthForHeight() const
     return q->sizePolicy().hasWidthForHeight();
 }
 
+//  from src/widgets/graphicsview/qgraphicswidget_p.cpp, line 55, as _ZN22QGraphicsWidgetPrivateC1Ev
+inline QGraphicsWidgetPrivate::QGraphicsWidgetPrivate()
+    : margins(nullptr),
+      layout(nullptr),
+      inheritedPaletteResolveMask(0),
+      inheritedFontResolveMask(0),
+      inSetGeometry(false),
+      polished(false),
+      inSetPos(false),
+      autoFillBackground(false),
+      focusPolicy(Qt::NoFocus),
+      focusNext(nullptr),
+      focusPrev(nullptr),
+      windowFlags(),
+      windowData(nullptr),
+      setWindowFrameMargins(false),
+      windowFrameMargins(nullptr)
+{
+}
+
 //  from src/widgets/graphicsview/qgraphicswidget_p.cpp, line 21, as _ZN22QGraphicsWidgetPrivate4initEP13QGraphicsItem6QFlagsIN2Qt10WindowTypeEE
 inline void QGraphicsWidgetPrivate::init(QGraphicsItem *parentItem, Qt::WindowFlags wFlags)
 {
@@ -1256,6 +1276,12 @@ extern "C" Q_DECL_EXPORT
 const QGraphicsWidget *ritual_ZNK22QGraphicsWidgetPrivate6q_funcEv(
     const QGraphicsWidgetPrivate *self) {
   return self->q_func();
+}
+
+//  QGraphicsWidgetPrivate::QGraphicsWidgetPrivate()
+extern "C" Q_DECL_EXPORT
+QGraphicsWidgetPrivate *ritual_ZN22QGraphicsWidgetPrivateC1Ev() {
+  return new CuteQGraphicsWidgetPrivate();
 }
 
 //  QGraphicsWidgetPrivate::~QGraphicsWidgetPrivate()

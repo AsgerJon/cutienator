@@ -6,6 +6,7 @@
   ],
   "rows": {
     "ritual_ZN23QGeoPositionInfoPrivateC1Ev": ["address"],
+    "ritual_ZN23QGeoPositionInfoPrivateC1ERKS_": ["address", "address"],
     "ritual_ZN23QGeoPositionInfoPrivateD1Ev": ["nothing", "address"],
     "ritual_ZNK23QGeoPositionInfoPrivateeqERKS_": [
       "bool", "address", "address"

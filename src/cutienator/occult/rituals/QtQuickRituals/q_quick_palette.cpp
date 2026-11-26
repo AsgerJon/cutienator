@@ -1,6 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtQuick/6.12.0/QtQuick/private/qquickpalette_p.h, Qt 6.12.0. Changes made
-//  here are lost.
+//  QtQuick/6.12.0/QtQuick/private/qquickpalette_p.h, Qt 6.12.0. Edited by
+//  hand on 2026-11-25, mended on 2026-11-26: added by hand, rituals for
+//  functions the generator leaves out: 1. Kept as it is when the generator
+//  runs again.
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
 #include <QtQuick/QtQuick>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -8,6 +10,7 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
 #include <QtGui/qpalette.h>
+#include <cstring>
 
 //  const QMetaObject *QQuickPalette::metaObject() const
 extern "C" Q_DECL_EXPORT
@@ -247,4 +250,32 @@ extern "C" Q_DECL_EXPORT
 void ritual_drop_QQuickPalette__QQuickColorGroup_GroupPtr(
     QQuickColorGroup::GroupPtr *self) {
   delete self;
+}
+
+//  void QQuickPalette::setColorGroup(QPalette::ColorGroup groupTag, const
+//      QQuickColorGroup::GroupPtr &group, void (QQuickPalette::*)()
+//      notifier)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13QQuickPalette13setColorGroupEN8QPalette10ColorGroupERK8QPointerI16QQuickColorGroupEMS_FvvE(
+    QQuickPalette *self,
+    int groupTag,
+    const QQuickColorGroup::GroupPtr *group,
+    const char *notifier) {
+  static const struct {
+    const char *name;
+    void (QQuickPalette::*member)();
+  } known[] = {
+      {"activeChanged", &QQuickPalette::activeChanged},
+      {"inactiveChanged", &QQuickPalette::inactiveChanged},
+      {"disabledChanged", &QQuickPalette::disabledChanged},
+  };
+  for (const auto &one : known) {
+    if (!std::strcmp(one.name, notifier)) {
+      self->setColorGroup(
+          static_cast<QPalette::ColorGroup>(groupTag), *group,
+          one.member);
+      return;
+    }
+  }
+  qFatal("no member function named %s here", notifier);
 }

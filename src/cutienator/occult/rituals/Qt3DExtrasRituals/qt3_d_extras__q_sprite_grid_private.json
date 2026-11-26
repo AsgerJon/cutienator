@@ -5,6 +5,7 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10Qt3DExtras18QSpriteGridPrivateC1Ev": ["address"],
     "ritual_ZNK10Qt3DExtras18QSpriteGridPrivate8maxIndexEv": [
       "int", "address"
     ],

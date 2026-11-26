@@ -10,6 +10,9 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGraphs/6.12.0/QtGraphs/private/qcustom3ditem_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
+#include <QtGui/qvectornd.h>
+#include <QtGui/qquaternion.h>
 #include <QtGui/qimage.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qfileinfo.h>
@@ -35,6 +38,25 @@ inline QCustom3DItemPrivate::QCustom3DItemPrivate()
     , m_scaling(QVector3D(0.1f, 0.1f, 0.1f))
     , m_scalingAbsolute(true)
     , m_rotation(QQuaternion())
+    , m_visible(true)
+    , m_shadowCasting(true)
+    , m_isLabelItem(false)
+    , m_isVolumeItem(false)
+{}
+
+//  from ../qtgraphs/src/graphs3d/data/qcustom3ditem.cpp, line 648, as _ZN20QCustom3DItemPrivateC1ERK7QString9QVector3DS3_RK11QQuaternion
+inline QCustom3DItemPrivate::QCustom3DItemPrivate(const QString &meshFile,
+                                           QVector3D position,
+                                           QVector3D scaling,
+                                           const QQuaternion &rotation)
+    : m_textureImage(QImage(1, 1, QImage::Format_ARGB32))
+    , m_meshFile(meshFile)
+    , m_position(position)
+    , m_positionAbsolute(false)
+    , m_scaling(scaling)
+    , m_scalingAbsolute(true)
+    , m_rotation(rotation)
+    , m_rotationAbsolute(true)
     , m_visible(true)
     , m_shadowCasting(true)
     , m_isLabelItem(false)
@@ -85,6 +107,17 @@ const QCustom3DItem *ritual_ZNK20QCustom3DItemPrivate6q_funcEv(
 extern "C" Q_DECL_EXPORT
 QCustom3DItemPrivate *ritual_ZN20QCustom3DItemPrivateC1Ev() {
   return new QCustom3DItemPrivate();
+}
+
+//  QCustom3DItemPrivate::QCustom3DItemPrivate(const QString &meshFile,
+//      QVector3D position, QVector3D scaling, const QQuaternion &rotation)
+extern "C" Q_DECL_EXPORT
+QCustom3DItemPrivate *ritual_ZN20QCustom3DItemPrivateC1ERK7QString9QVector3DS3_RK11QQuaternion(
+    const QString *meshFile,
+    const QVector3D *position,
+    const QVector3D *scaling,
+    const QQuaternion *rotation) {
+  return new QCustom3DItemPrivate(*meshFile, *position, *scaling, *rotation);
 }
 
 //  QCustom3DItemPrivate::~QCustom3DItemPrivate()

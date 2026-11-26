@@ -1,6 +1,11 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtDBus/6.12.0/QtDBus/private/qdbuspendingcall_p.h, Qt 6.12.0. Changes
-//  made here are lost.
+//  QtDBus/6.12.0/QtDBus/private/qdbuspendingcall_p.h, Qt 6.12.0.
+//  Edited by hand on 2026-11-26: added are 1 rituals that lean on what moc
+//  writes for a class of the part Qt keeps to itself, whose ritual file
+//  carries moc's output, drafted by a copy of the generator that lets those
+//  names through. A copy of a meta-object is a second one: 'qobject_cast'
+//  between it and Qt's own does not match. Kept as it is when the generator
+//  runs again.
 #include <QtDBus/qtdbusglobal.h>
 #include <QtDBus/6.12.0/QtDBus/private/qtdbusglobal_p.h>
 #if !defined(QT_NO_DBUS)
@@ -91,6 +96,29 @@ inline void QDBusPendingCallPrivate::waitForFinished()
 }
 #endif  // !defined(QT_NO_DBUS)
 
+//  from src/dbus/qdbuspendingcall.cpp, line 210, as _ZN23QDBusPendingCallPrivate22waitForFinishedWithGuiEv
+#if !defined(QT_NO_DBUS)
+inline void QDBusPendingCallPrivate::waitForFinishedWithGui()
+{
+    QEventLoop loop;
+
+    {
+        const auto locker = qt_scoped_lock(mutex);
+        if (replyMessage.type() != QDBusMessage::InvalidMessage)
+            return; // already finished
+
+        Q_ASSERT(!watcherHelper);
+        watcherHelper = new QDBusPendingCallWatcherHelper;
+        loop.connect(watcherHelper, &QDBusPendingCallWatcherHelper::reply, &loop,
+                     &QEventLoop::quit);
+        loop.connect(watcherHelper, &QDBusPendingCallWatcherHelper::error, &loop,
+                     &QEventLoop::quit);
+    }
+
+    loop.exec(QEventLoop::ExcludeUserInputEvents | QEventLoop::WaitForMoreEvents);
+}
+#endif  // !defined(QT_NO_DBUS)
+
 //  from src/dbus/qdbuspendingcall.cpp, line 158, as _ZN23QDBusPendingCallPrivate12setMetaTypesEiPK9QMetaType
 #if !defined(QT_NO_DBUS)
 inline void QDBusPendingCallPrivate::setMetaTypes(int count, const QMetaType *types)
@@ -155,6 +183,15 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN23QDBusPendingCallPrivate15waitForFinishedEv(
     QDBusPendingCallPrivate *self) {
   self->waitForFinished();
+}
+#endif  // !defined(QT_NO_DBUS)
+
+#if !defined(QT_NO_DBUS)
+//  void QDBusPendingCallPrivate::waitForFinishedWithGui()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QDBusPendingCallPrivate22waitForFinishedWithGuiEv(
+    QDBusPendingCallPrivate *self) {
+  self->waitForFinishedWithGui();
 }
 #endif  // !defined(QT_NO_DBUS)
 

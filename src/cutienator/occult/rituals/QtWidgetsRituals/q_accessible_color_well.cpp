@@ -1,6 +1,11 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/6.12.0/QtWidgets/private/qaccessiblecolorwell_p.h, Qt 6.12.0.
-//  Changes made here are lost.
+//  Edited by hand on 2026-11-26: added are 4 rituals that lean on what moc
+//  writes for a class of the part Qt keeps to itself, whose ritual file
+//  carries moc's output, drafted by a copy of the generator that lets those
+//  names through. A copy of a meta-object is a second one: 'qobject_cast'
+//  between it and Qt's own does not match. Kept as it is when the generator
+//  runs again.
 #include <QtGui/qtguiglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
@@ -279,6 +284,17 @@ inline QAccessibleInterface *QAccessibleColorWell::child(int index) const
     const QAccessible::Id id = QAccessible::registerAccessibleInterface(child);
     m_childIds[index] = id;
     return child;
+}
+#endif  // QT_CONFIG(colordialog)
+#endif  // QT_CONFIG(accessibility)
+
+//  from src/widgets/accessible/qaccessiblecolorwell.cpp, line 133, as _ZN20QAccessibleColorWellC1EP7QWidget
+#if QT_CONFIG(accessibility)
+#if QT_CONFIG(colordialog)
+inline QAccessibleColorWell::QAccessibleColorWell(QWidget *widget)
+    : QAccessibleWidgetV2(widget, QAccessible::List)
+{
+    m_childIds.resize(childCount());
 }
 #endif  // QT_CONFIG(colordialog)
 #endif  // QT_CONFIG(accessibility)
@@ -827,6 +843,17 @@ public:
 #endif  // QT_CONFIG(accessibility)
 };
 
+#if QT_CONFIG(accessibility)
+#if QT_CONFIG(colordialog)
+//  QAccessibleColorWell::QAccessibleColorWell(QWidget *widget)
+extern "C" Q_DECL_EXPORT
+QAccessibleColorWell *ritual_ZN20QAccessibleColorWellC1EP7QWidget(
+    QWidget *widget) {
+  return new CuteQAccessibleColorWell(widget);
+}
+#endif  // QT_CONFIG(colordialog)
+#endif  // QT_CONFIG(accessibility)
+
 //  QAccessibleColorWell::~QAccessibleColorWell()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QAccessibleColorWellD1Ev(QAccessibleColorWell *self) {
@@ -857,6 +884,17 @@ int ritual_ZNK20QAccessibleColorWell10childCountEv(
   return self->childCount();
 }
 
+#if QT_CONFIG(accessibility)
+#if QT_CONFIG(colordialog)
+//  QColorWell *QAccessibleColorWell::colorWell() const
+extern "C" Q_DECL_EXPORT
+QColorWell *ritual_ZNK20QAccessibleColorWell9colorWellEv(
+    const QAccessibleColorWell *self) {
+  return self->colorWell();
+}
+#endif  // QT_CONFIG(colordialog)
+#endif  // QT_CONFIG(accessibility)
+
 //  a Python function taken by a CuteQAccessibleColorWell, for the function
 //      named by the key
 extern "C" Q_DECL_EXPORT
@@ -869,6 +907,18 @@ bool ritual_take_QAccessibleColorWell(
 
 #if QT_CONFIG(accessibility)
 #if QT_CONFIG(colordialog)
+//  QAccessibleInterface *QAccessibleColorWell::child(int index) const
+extern "C" Q_DECL_EXPORT
+QAccessibleInterface *ritual_own_ZNK20QAccessibleColorWell5childEi(
+    const QAccessibleColorWell *self,
+    int index) {
+  return self->QAccessibleColorWell::child(index);
+}
+#endif  // QT_CONFIG(colordialog)
+#endif  // QT_CONFIG(accessibility)
+
+#if QT_CONFIG(accessibility)
+#if QT_CONFIG(colordialog)
 //  int QAccessibleColorWell::indexOfChild(const QAccessibleInterface *child)
 //      const
 extern "C" Q_DECL_EXPORT
@@ -876,6 +926,17 @@ int ritual_own_ZNK20QAccessibleColorWell12indexOfChildEPK20QAccessibleInterface(
     const QAccessibleColorWell *self,
     const QAccessibleInterface *child) {
   return self->QAccessibleColorWell::indexOfChild(child);
+}
+#endif  // QT_CONFIG(colordialog)
+#endif  // QT_CONFIG(accessibility)
+
+#if QT_CONFIG(accessibility)
+#if QT_CONFIG(colordialog)
+//  int QAccessibleColorWell::childCount() const
+extern "C" Q_DECL_EXPORT
+int ritual_own_ZNK20QAccessibleColorWell10childCountEv(
+    const QAccessibleColorWell *self) {
+  return self->QAccessibleColorWell::childCount();
 }
 #endif  // QT_CONFIG(colordialog)
 #endif  // QT_CONFIG(accessibility)

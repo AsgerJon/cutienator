@@ -26,6 +26,12 @@ inline QCoapInternalMessagePrivate::~QCoapInternalMessagePrivate()
 }
 //  -----------------------------------------------------------------------
 
+//  QCoapInternalRequestPrivate::QCoapInternalRequestPrivate()
+extern "C" Q_DECL_EXPORT
+QCoapInternalRequestPrivate *ritual_ZN27QCoapInternalRequestPrivateC1Ev() {
+  return new QCoapInternalRequestPrivate();
+}
+
 //  QCoapInternalRequest *QCoapInternalRequestPrivate::q_func()
 extern "C" Q_DECL_EXPORT
 QCoapInternalRequest *ritual_ZN27QCoapInternalRequestPrivate6q_funcEv(

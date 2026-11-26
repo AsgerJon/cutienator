@@ -1,16 +1,45 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtDataVisualization/6.12.0/QtDataVisualization/private/q3dsurface_p.h, Qt
-//  6.12.0. Changes made here are lost.
+//  6.12.0.
+//  Edited by hand on 2026-11-26: moc's output for 'Q3DSurfacePrivate' is
+//  pasted in, cut from what the moc of Qt 6.12.0 writes for its header: Qt's
+//  library keeps it to itself; added are 2 rituals that lean on what moc
+//  writes for a class of the part Qt keeps to itself, whose ritual file
+//  carries moc's output, drafted by a copy of the generator that lets those
+//  names through. A copy of a meta-object is a second one: 'qobject_cast'
+//  between it and Qt's own does not match. Kept as it is when the generator
+//  runs again.
 #include <QtDataVisualization/6.12.0/QtDataVisualization/private/datavisualizationglobal_p.h>
 #include <QtDataVisualization/QtDataVisualization>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtDataVisualization/6.12.0/QtDataVisualization/private/q3dsurface_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
 #include <QtDataVisualization/q3dsurface.h>
 #include <QtDataVisualization/private/q3dsurface_p.h>
+#include <QtDataVisualization/qabstract3dgraph.h>
+#include <QtDataVisualization/private/qabstract3dgraph_p.h>
+#include <QtDataVisualization/private/abstract3dcontroller_p.h>
+#include <QtDataVisualization/private/qabstract3dinputhandler_p.h>
+#include <QtDataVisualization/private/q3dscene_p.h>
+#include <QtDataVisualization/qutils.h>
+#include <QtDataVisualization/private/utils_p.h>
+#include <QtGui/QGuiApplication>
+#include <QtGui/QOpenGLContext>
+#include <QtOpenGL/QOpenGLPaintDevice>
+#include <QtGui/QPainter>
+#include <QtOpenGL/QOpenGLFramebufferObject>
+#include <QtGui/QOffscreenSurface>
+#if defined(Q_OS_MACOS)
+#include <QtGui/qpa/qplatformnativeinterface.h>
+#endif
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -19,6 +48,71 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  from QtDataVisualization__Q3DSurfacePrivate.cpp, line 1, as moc:Q3DSurfacePrivate
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN17Q3DSurfacePrivateE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto Q3DSurfacePrivate::qt_create_metaobjectdata<qt_meta_tag_ZN17Q3DSurfacePrivateE_t>()
+{
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "Q3DSurfacePrivate"
+    };
+
+    QtMocHelpers::UintData qt_methods {
+    };
+    QtMocHelpers::UintData qt_properties {
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    return QtMocHelpers::metaObjectData<Q3DSurfacePrivate, qt_meta_tag_ZN17Q3DSurfacePrivateE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums);
+}
+Q_CONSTINIT const QMetaObject Q3DSurfacePrivate::staticMetaObject = { {
+    QMetaObject::SuperData::link<QAbstract3DGraphPrivate::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN17Q3DSurfacePrivateE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN17Q3DSurfacePrivateE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN17Q3DSurfacePrivateE_t>.metaTypes,
+    nullptr
+} };
+
+void Q3DSurfacePrivate::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<Q3DSurfacePrivate *>(_o);
+    (void)_t;
+    (void)_c;
+    (void)_id;
+    (void)_a;
+}
+
+const QMetaObject *Q3DSurfacePrivate::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *Q3DSurfacePrivate::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN17Q3DSurfacePrivateE_t>.strings))
+        return static_cast<void*>(this);
+    return QAbstract3DGraphPrivate::qt_metacast(_clname);
+}
+
+int Q3DSurfacePrivate::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QAbstract3DGraphPrivate::qt_metacall(_c, _id, _a);
+    return _id;
+}
+QT_WARNING_POP
 
 //  from ../qtdatavis3d/src/datavisualization/engine/q3dsurface.cpp, line 323, as _ZN17Q3DSurfacePrivate18handleAxisXChangedEP15QAbstract3DAxis
 inline void Q3DSurfacePrivate::handleAxisXChanged(QAbstract3DAxis *axis)
@@ -36,6 +130,40 @@ inline void Q3DSurfacePrivate::handleAxisYChanged(QAbstract3DAxis *axis)
 inline void Q3DSurfacePrivate::handleAxisZChanged(QAbstract3DAxis *axis)
 {
     emit qptr()->axisZChanged(static_cast<QValue3DAxis *>(axis));
+}
+
+//  from ../qtdatavis3d/src/datavisualization/engine/qabstract3dgraph.cpp, line 1046, as _ZN23QAbstract3DGraphPrivateD2Ev
+inline QAbstract3DGraphPrivate::~QAbstract3DGraphPrivate()
+{
+    if (m_offscreenSurface) {
+        m_offscreenSurface->destroy();
+        delete m_offscreenSurface;
+    }
+    if (m_context) {
+        if (!m_context->makeCurrent(q_ptr))
+            m_context->doneCurrent();
+    }
+
+    delete m_visualController;
+}
+
+//  from ../qtdatavis3d/src/datavisualization/engine/qabstract3dgraph.cpp, line 1035, as _ZN23QAbstract3DGraphPrivateC2EP16QAbstract3DGraph
+inline QAbstract3DGraphPrivate::QAbstract3DGraphPrivate(QAbstract3DGraph *q)
+    : QObject(0),
+      q_ptr(q),
+      m_updatePending(false),
+      m_visualController(0),
+      m_devicePixelRatio(1.f),
+      m_offscreenSurface(0),
+      m_initialized(false)
+{
+}
+
+//  from ../qtdatavis3d/src/datavisualization/engine/q3dsurface.cpp, line 313, as _ZN17Q3DSurfacePrivateC1EP10Q3DSurface
+inline Q3DSurfacePrivate::Q3DSurfacePrivate(Q3DSurface *q)
+    : QAbstract3DGraphPrivate(q),
+      m_shared(0)
+{
 }
 
 //  from ../qtdatavis3d/src/datavisualization/engine/q3dsurface.cpp, line 319, as _ZN17Q3DSurfacePrivateD1Ev
@@ -289,6 +417,22 @@ int ritual_ZN17Q3DSurfacePrivate11qt_metacallEN11QMetaObject4CallEiPPv(
     int a1,
     void **a2) {
   return self->qt_metacall(a0, a1, a2);
+}
+
+//  QString Q3DSurfacePrivate::tr(const char *s, const char *c, int n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN17Q3DSurfacePrivate2trEPKcS1_i(
+    const char *s,
+    const char *c,
+    int n) {
+  return new QString(Q3DSurfacePrivate::tr(s, c, n));
+}
+
+//  Q3DSurfacePrivate::Q3DSurfacePrivate(Q3DSurface *q)
+extern "C" Q_DECL_EXPORT
+Q3DSurfacePrivate *ritual_ZN17Q3DSurfacePrivateC1EP10Q3DSurface(
+    Q3DSurface *q) {
+  return new CuteQ3DSurfacePrivate(q);
 }
 
 //  Q3DSurfacePrivate::~Q3DSurfacePrivate()

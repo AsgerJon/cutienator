@@ -6,6 +6,9 @@
   ],
   "rows": {
     "ritual_ZN13QTimerPrivateC1EP6QTimer": ["address", "address"],
+    "ritual_ZN13QTimerPrivateC1ENSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEP12QChronoTimer": [
+      "address", "long long", "address"
+    ],
     "ritual_ZN13QTimerPrivateD1Ev": ["nothing", "address"],
     "ritual_ZN13QTimerPrivate19setIntervalDurationENSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEE": [
       "nothing", "address", "long long"

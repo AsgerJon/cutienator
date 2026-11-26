@@ -1,6 +1,12 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtWidgets/6.12.0/QtWidgets/private/qcolorwell_p.h, Qt 6.12.0. Changes
-//  made here are lost.
+//  QtWidgets/6.12.0/QtWidgets/private/qcolorwell_p.h, Qt 6.12.0.
+//  Edited by hand on 2026-11-26: moc's output for 'QWellArray' is pasted in,
+//  cut from what the moc of Qt 6.12.0 writes for its header: Qt's library
+//  keeps it to itself; added are 5 rituals that lean on what moc writes for
+//  a class of the part Qt keeps to itself, whose ritual file carries moc's
+//  output, drafted by a copy of the generator that lets those names through.
+//  A copy of a meta-object is a second one: 'qobject_cast' between it and
+//  Qt's own does not match. Kept as it is when the generator runs again.
 #include <QtGui/qtguiglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
@@ -11,12 +17,17 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtWidgets/6.12.0/QtWidgets/private/qcolorwell_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 #include <QtCore/qsize.h>
 #include <QtCore/qrect.h>
 #include <QtCore/qvariant.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
 #include <QtWidgets/qcolordialog.h>
 #if QT_CONFIG(accessibility)
 #include <QtGui/qaccessible.h>
@@ -71,6 +82,154 @@
 //  'inline' put before it where Qt did not write it.
 
 using namespace Qt::StringLiterals;
+
+//  from QtWidgets__QWellArray.cpp, line 1, as moc:QWellArray
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN10QWellArrayE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto QWellArray::qt_create_metaobjectdata<qt_meta_tag_ZN10QWellArrayE_t>()
+{
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "QWellArray",
+        "selected",
+        "",
+        "row",
+        "col",
+        "currentChanged",
+        "colorChanged",
+        "index",
+        "QRgb",
+        "color",
+        "selectedColumn",
+        "selectedRow"
+    };
+
+    QtMocHelpers::UintData qt_methods {
+        // Signal 'selected'
+        QtMocHelpers::SignalData<void(int, int)>(1, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { QMetaType::Int, 3 }, { QMetaType::Int, 4 },
+        }}),
+        // Signal 'currentChanged'
+        QtMocHelpers::SignalData<void(int, int)>(5, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { QMetaType::Int, 3 }, { QMetaType::Int, 4 },
+        }}),
+        // Signal 'colorChanged'
+        QtMocHelpers::SignalData<void(int, QRgb)>(6, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { QMetaType::Int, 7 }, { 0x80000000 | 8, 9 },
+        }}),
+    };
+    QtMocHelpers::UintData qt_properties {
+        // property 'selectedColumn'
+        QtMocHelpers::PropertyData<int>(10, QMetaType::Int, QMC::DefaultPropertyFlags),
+        // property 'selectedRow'
+        QtMocHelpers::PropertyData<int>(11, QMetaType::Int, QMC::DefaultPropertyFlags),
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    return QtMocHelpers::metaObjectData<QWellArray, qt_meta_tag_ZN10QWellArrayE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums);
+}
+Q_CONSTINIT const QMetaObject QWellArray::staticMetaObject = { {
+    QMetaObject::SuperData::link<QWidget::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN10QWellArrayE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN10QWellArrayE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN10QWellArrayE_t>.metaTypes,
+    nullptr
+} };
+
+void QWellArray::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<QWellArray *>(_o);
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        switch (_id) {
+        case 0: _t->selected((*reinterpret_cast<std::add_pointer_t<int>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<int>>(_a[2]))); break;
+        case 1: _t->currentChanged((*reinterpret_cast<std::add_pointer_t<int>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<int>>(_a[2]))); break;
+        case 2: _t->colorChanged((*reinterpret_cast<std::add_pointer_t<int>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<QRgb>>(_a[2]))); break;
+        default: ;
+        }
+    }
+    if (_c == QMetaObject::IndexOfMethod) {
+        if (QtMocHelpers::indexOfMethod<void (QWellArray::*)(int , int )>(_a, &QWellArray::selected, 0))
+            return;
+        if (QtMocHelpers::indexOfMethod<void (QWellArray::*)(int , int )>(_a, &QWellArray::currentChanged, 1))
+            return;
+        if (QtMocHelpers::indexOfMethod<void (QWellArray::*)(int , QRgb )>(_a, &QWellArray::colorChanged, 2))
+            return;
+    }
+    if (_c == QMetaObject::ReadProperty) {
+        void *_v = _a[0];
+        switch (_id) {
+        case 0: *reinterpret_cast<int*>(_v) = _t->selectedColumn(); break;
+        case 1: *reinterpret_cast<int*>(_v) = _t->selectedRow(); break;
+        default: break;
+        }
+    }
+}
+
+const QMetaObject *QWellArray::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *QWellArray::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN10QWellArrayE_t>.strings))
+        return static_cast<void*>(this);
+    return QWidget::qt_metacast(_clname);
+}
+
+int QWellArray::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QWidget::qt_metacall(_c, _id, _a);
+    if (_id < 0)
+        return _id;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        if (_id < 3)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 3;
+    }
+    if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        if (_id < 3)
+            *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
+        _id -= 3;
+    }
+    if (_c == QMetaObject::ReadProperty || _c == QMetaObject::WriteProperty
+            || _c == QMetaObject::ResetProperty || _c == QMetaObject::BindableProperty
+            || _c == QMetaObject::RegisterPropertyMetaType) {
+        qt_static_metacall(this, _c, _id, _a);
+        _id -= 2;
+    }
+    return _id;
+}
+
+// SIGNAL 0
+void QWellArray::selected(int _t1, int _t2)
+{
+    QMetaObject::activate<void>(this, &staticMetaObject, 0, nullptr, _t1, _t2);
+}
+
+// SIGNAL 1
+void QWellArray::currentChanged(int _t1, int _t2)
+{
+    QMetaObject::activate<void>(this, &staticMetaObject, 1, nullptr, _t1, _t2);
+}
+
+// SIGNAL 2
+void QWellArray::colorChanged(int _t1, QRgb _t2)
+{
+    QMetaObject::activate<void>(this, &staticMetaObject, 2, nullptr, _t1, _t2);
+}
+QT_WARNING_POP
 
 //  from src/widgets/dialogs/qcolordialog.cpp, line 166, as _ZN10QWellArray10paintEventEP11QPaintEvent
 inline void QWellArray::paintEvent(QPaintEvent *e)
@@ -165,66 +324,18 @@ inline void QWellArray::setSelected(int row, int col)
 #endif
 }
 
-//  from src/widgets/dialogs/qcolordialog.cpp, line 226, as _ZNK10QWellArray8sizeHintEv
-inline QSize QWellArray::sizeHint() const
+//  from src/widgets/dialogs/qcolordialog.cpp, line 342, as _ZN10QWellArray12focusInEventEP11QFocusEvent
+inline void QWellArray::focusInEvent(QFocusEvent*)
 {
-    ensurePolished();
-    return gridSize().boundedTo(QSize(640, 480));
+    updateCell(curRow, curCol);
+    emit currentChanged(curRow, curCol);
+    sendAccessibleChildFocusEvent();
 }
 
-//  from src/widgets/dialogs/qcolordialog.cpp, line 233, as _ZN10QWellArray9paintCellEP8QPainteriiRK5QRect
-inline void QWellArray::paintCell(QPainter* p, int row, int col, const QRect &rect)
+//  from src/widgets/dialogs/qcolordialog.cpp, line 350, as _ZN10QWellArray13focusOutEventEP11QFocusEvent
+inline void QWellArray::focusOutEvent(QFocusEvent*)
 {
-    int b = 3; //margin
-
-    const QPalette & g = palette();
-    QStyleOptionFrame opt;
-    opt.initFrom(this);
-    int dfw = style()->pixelMetric(QStyle::PM_DefaultFrameWidth, &opt, this);
-    opt.lineWidth = dfw;
-    opt.midLineWidth = 1;
-    opt.rect = rect.adjusted(b, b, -b, -b);
-    opt.palette = g;
-    opt.state = QStyle::State_Enabled | QStyle::State_Sunken;
-    style()->drawPrimitive(QStyle::PE_Frame, &opt, p, this);
-    b += dfw;
-
-    if ((row == curRow) && (col == curCol)) {
-        if (hasFocus()) {
-            QStyleOptionFocusRect opt;
-            opt.palette = g;
-            opt.rect = rect;
-            opt.state = QStyle::State_None | QStyle::State_KeyboardFocusChange;
-            style()->drawPrimitive(QStyle::PE_FrameFocusRect, &opt, p, this);
-        }
-    }
-    paintCellContents(p, row, col, opt.rect.adjusted(dfw, dfw, -dfw, -dfw));
-}
-
-//  from src/widgets/dialogs/qcolordialog.cpp, line 264, as _ZN10QWellArray17paintCellContentsEP8QPainteriiRK5QRect
-inline void QWellArray::paintCellContents(QPainter *p, int row, int col, const QRect &r)
-{
-    Q_UNUSED(row);
-    Q_UNUSED(col);
-    p->fillRect(r, Qt::white);
-    p->setPen(Qt::black);
-    p->drawLine(r.topLeft(), r.bottomRight());
-    p->drawLine(r.topRight(), r.bottomLeft());
-}
-
-//  from src/widgets/dialogs/qcolordialog.cpp, line 274, as _ZN10QWellArray15mousePressEventEP11QMouseEvent
-inline void QWellArray::mousePressEvent(QMouseEvent *e)
-{
-    // The current cell marker is set to the cell the mouse is pressed in
-    QPoint pos = e->position().toPoint();
-    setCurrent(rowAt(pos.y()), columnAt(pos.x()));
-}
-
-//  from src/widgets/dialogs/qcolordialog.cpp, line 281, as _ZN10QWellArray17mouseReleaseEventEP11QMouseEvent
-inline void QWellArray::mouseReleaseEvent(QMouseEvent * /* event */)
-{
-    // The current cell marker is set to the cell the mouse is clicked in
-    setSelected(curRow, curCol);
+    updateCell(curRow, curCol);
 }
 
 //  from src/widgets/dialogs/qcolordialog.cpp, line 355, as _ZN10QWellArray13keyPressEventEP9QKeyEvent
@@ -256,18 +367,80 @@ inline void QWellArray::keyPressEvent(QKeyEvent* e)
     }
 }
 
-//  from src/widgets/dialogs/qcolordialog.cpp, line 342, as _ZN10QWellArray12focusInEventEP11QFocusEvent
-inline void QWellArray::focusInEvent(QFocusEvent*)
+//  from src/widgets/dialogs/qcolordialog.cpp, line 274, as _ZN10QWellArray15mousePressEventEP11QMouseEvent
+inline void QWellArray::mousePressEvent(QMouseEvent *e)
 {
-    updateCell(curRow, curCol);
-    emit currentChanged(curRow, curCol);
-    sendAccessibleChildFocusEvent();
+    // The current cell marker is set to the cell the mouse is pressed in
+    QPoint pos = e->position().toPoint();
+    setCurrent(rowAt(pos.y()), columnAt(pos.x()));
 }
 
-//  from src/widgets/dialogs/qcolordialog.cpp, line 350, as _ZN10QWellArray13focusOutEventEP11QFocusEvent
-inline void QWellArray::focusOutEvent(QFocusEvent*)
+//  from src/widgets/dialogs/qcolordialog.cpp, line 281, as _ZN10QWellArray17mouseReleaseEventEP11QMouseEvent
+inline void QWellArray::mouseReleaseEvent(QMouseEvent * /* event */)
 {
-    updateCell(curRow, curCol);
+    // The current cell marker is set to the cell the mouse is clicked in
+    setSelected(curRow, curCol);
+}
+
+//  from src/widgets/dialogs/qcolordialog.cpp, line 264, as _ZN10QWellArray17paintCellContentsEP8QPainteriiRK5QRect
+inline void QWellArray::paintCellContents(QPainter *p, int row, int col, const QRect &r)
+{
+    Q_UNUSED(row);
+    Q_UNUSED(col);
+    p->fillRect(r, Qt::white);
+    p->setPen(Qt::black);
+    p->drawLine(r.topLeft(), r.bottomRight());
+    p->drawLine(r.topRight(), r.bottomLeft());
+}
+
+//  from src/widgets/dialogs/qcolordialog.cpp, line 233, as _ZN10QWellArray9paintCellEP8QPainteriiRK5QRect
+inline void QWellArray::paintCell(QPainter* p, int row, int col, const QRect &rect)
+{
+    int b = 3; //margin
+
+    const QPalette & g = palette();
+    QStyleOptionFrame opt;
+    opt.initFrom(this);
+    int dfw = style()->pixelMetric(QStyle::PM_DefaultFrameWidth, &opt, this);
+    opt.lineWidth = dfw;
+    opt.midLineWidth = 1;
+    opt.rect = rect.adjusted(b, b, -b, -b);
+    opt.palette = g;
+    opt.state = QStyle::State_Enabled | QStyle::State_Sunken;
+    style()->drawPrimitive(QStyle::PE_Frame, &opt, p, this);
+    b += dfw;
+
+    if ((row == curRow) && (col == curCol)) {
+        if (hasFocus()) {
+            QStyleOptionFocusRect opt;
+            opt.palette = g;
+            opt.rect = rect;
+            opt.state = QStyle::State_None | QStyle::State_KeyboardFocusChange;
+            style()->drawPrimitive(QStyle::PE_FrameFocusRect, &opt, p, this);
+        }
+    }
+    paintCellContents(p, row, col, opt.rect.adjusted(dfw, dfw, -dfw, -dfw));
+}
+
+//  from src/widgets/dialogs/qcolordialog.cpp, line 226, as _ZNK10QWellArray8sizeHintEv
+inline QSize QWellArray::sizeHint() const
+{
+    ensurePolished();
+    return gridSize().boundedTo(QSize(640, 480));
+}
+
+//  from src/widgets/dialogs/qcolordialog.cpp, line 213, as _ZN10QWellArrayC1EiiP7QWidget
+inline QWellArray::QWellArray(int rows, int cols, QWidget *parent)
+    : QWidget(parent)
+        ,nrows(rows), ncols(cols)
+{
+    setFocusPolicy(Qt::StrongFocus);
+    cellw = 28;
+    cellh = 24;
+    curCol = 0;
+    curRow = 0;
+    selCol = -1;
+    selRow = -1;
 }
 
 //  from src/widgets/dialogs/qcolordialog.cpp, line 383, as _ZN10QWellArray29sendAccessibleChildFocusEventEv
@@ -295,6 +468,7 @@ struct OwnQWellArray : QWellArray {
   using QWellArray::mousePressEvent;
   using QWellArray::mouseReleaseEvent;
   using QWellArray::keyPressEvent;
+  using QWellArray::focusInEvent;
   using QWellArray::focusOutEvent;
   using QWellArray::paintEvent;
 };
@@ -1299,6 +1473,24 @@ int ritual_ZN10QWellArray11qt_metacallEN11QMetaObject4CallEiPPv(
   return self->qt_metacall(a0, a1, a2);
 }
 
+//  QString QWellArray::tr(const char *s, const char *c, int n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN10QWellArray2trEPKcS1_i(
+    const char *s,
+    const char *c,
+    int n) {
+  return new QString(QWellArray::tr(s, c, n));
+}
+
+//  QWellArray::QWellArray(int rows, int cols, QWidget *parent)
+extern "C" Q_DECL_EXPORT
+QWellArray *ritual_ZN10QWellArrayC1EiiP7QWidget(
+    int rows,
+    int cols,
+    QWidget *parent) {
+  return new CuteQWellArray(rows, cols, parent);
+}
+
 //  QWellArray::~QWellArray()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN10QWellArrayD1Ev(QWellArray *self) {
@@ -1578,6 +1770,24 @@ bool ritual_take_QWellArray(QWellArray *self, const char *key, void *call) {
   return static_cast<CuteQWellArray *>(self)->take(key, call);
 }
 
+//  void QWellArray::setCurrent(int row, int col)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN10QWellArray10setCurrentEii(
+    QWellArray *self,
+    int row,
+    int col) {
+  self->QWellArray::setCurrent(row, col);
+}
+
+//  void QWellArray::setSelected(int row, int col)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN10QWellArray11setSelectedEii(
+    QWellArray *self,
+    int row,
+    int col) {
+  self->QWellArray::setSelected(row, col);
+}
+
 //  QSize QWellArray::sizeHint() const
 extern "C" Q_DECL_EXPORT
 QSize *ritual_own_ZNK10QWellArray8sizeHintEv(const QWellArray *self) {
@@ -1638,6 +1848,14 @@ void ritual_own_ZN10QWellArray13keyPressEventEP9QKeyEvent(
     QWellArray *self,
     QKeyEvent *a0) {
   static_cast<OwnQWellArray *>(self)->OwnQWellArray::keyPressEvent(a0);
+}
+
+//  void QWellArray::focusInEvent(QFocusEvent *a0)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN10QWellArray12focusInEventEP11QFocusEvent(
+    QWellArray *self,
+    QFocusEvent *a0) {
+  static_cast<OwnQWellArray *>(self)->OwnQWellArray::focusInEvent(a0);
 }
 
 //  void QWellArray::focusOutEvent(QFocusEvent *a0)

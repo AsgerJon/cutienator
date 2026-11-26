@@ -484,6 +484,50 @@ inline void QDomCharacterDataPrivate::appendData(const QString& arg)
 }
 #endif  // QT_CONFIG(dom)
 
+//  from src/xml/dom/qdom.cpp, line 1050, as _ZN15QDomNodePrivateC1EP19QDomDocumentPrivatePS_
+#if QT_CONFIG(dom)
+inline QDomNodePrivate::QDomNodePrivate(QDomDocumentPrivate *doc, QDomNodePrivate *par) : ref(1)
+{
+    if (par)
+        setParent(par);
+    else
+        setOwnerDocument(doc);
+    prev = nullptr;
+    next = nullptr;
+    first = nullptr;
+    last = nullptr;
+    createdWithDom1Interface = true;
+    lineNumber = -1;
+    columnNumber = -1;
+}
+#endif  // QT_CONFIG(dom)
+
+//  from src/xml/dom/qdom.cpp, line 1065, as _ZN15QDomNodePrivateC1EPS_b
+#if QT_CONFIG(dom)
+inline QDomNodePrivate::QDomNodePrivate(QDomNodePrivate *n, bool deep) : ref(1)
+{
+    setOwnerDocument(n->ownerDocument());
+    prev = nullptr;
+    next = nullptr;
+    first = nullptr;
+    last = nullptr;
+
+    name = n->name;
+    value = n->value;
+    prefix = n->prefix;
+    namespaceURI = n->namespaceURI;
+    createdWithDom1Interface = n->createdWithDom1Interface;
+    lineNumber = -1;
+    columnNumber = -1;
+
+    if (!deep)
+        return;
+
+    for (QDomNodePrivate* x = n->first; x; x = x->next)
+        appendChild(x->cloneNode(true));
+}
+#endif  // QT_CONFIG(dom)
+
 //  from src/xml/dom/qdom.cpp, line 1460, as _ZN15QDomNodePrivate13ownerDocumentEv
 #if QT_CONFIG(dom)
 inline QDomDocumentPrivate* QDomNodePrivate::ownerDocument()
@@ -815,6 +859,27 @@ public:
   }
 #endif  // QT_CONFIG(dom)
 };
+
+#if QT_CONFIG(dom)
+//  QDomNodePrivate::QDomNodePrivate(QDomDocumentPrivate *a0, QDomNodePrivate
+//      *parent)
+extern "C" Q_DECL_EXPORT
+QDomNodePrivate *ritual_ZN15QDomNodePrivateC1EP19QDomDocumentPrivatePS_(
+    QDomDocumentPrivate *a0,
+    QDomNodePrivate *parent) {
+  return new CuteQDomNodePrivate(a0, parent);
+}
+#endif  // QT_CONFIG(dom)
+
+#if QT_CONFIG(dom)
+//  QDomNodePrivate::QDomNodePrivate(QDomNodePrivate *n, bool deep)
+extern "C" Q_DECL_EXPORT
+QDomNodePrivate *ritual_ZN15QDomNodePrivateC1EPS_b(
+    QDomNodePrivate *n,
+    bool deep) {
+  return new CuteQDomNodePrivate(n, deep);
+}
+#endif  // QT_CONFIG(dom)
 
 //  QDomNodePrivate::~QDomNodePrivate()
 extern "C" Q_DECL_EXPORT
@@ -1169,6 +1234,16 @@ QDomNodePrivate *ritual_own_ZN15QDomNodePrivate11appendChildEPS_(
     QDomNodePrivate *self,
     QDomNodePrivate *newChild) {
   return self->QDomNodePrivate::appendChild(newChild);
+}
+#endif  // QT_CONFIG(dom)
+
+#if QT_CONFIG(dom)
+//  QDomNodePrivate *QDomNodePrivate::cloneNode(bool deep)
+extern "C" Q_DECL_EXPORT
+QDomNodePrivate *ritual_own_ZN15QDomNodePrivate9cloneNodeEb(
+    QDomNodePrivate *self,
+    bool deep) {
+  return self->QDomNodePrivate::cloneNode(deep);
 }
 #endif  // QT_CONFIG(dom)
 

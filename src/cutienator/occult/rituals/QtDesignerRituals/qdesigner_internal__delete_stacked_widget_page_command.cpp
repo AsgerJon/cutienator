@@ -139,6 +139,21 @@ inline void StackedWidgetCommand::addPage()
 }
 }  // namespace qdesigner_internal
 
+//  from ../qttools/src/designer/src/lib/shared/qdesigner_command.cpp, line 1240, as _ZN18qdesigner_internal20StackedWidgetCommandD2Ev
+namespace qdesigner_internal {
+using namespace Qt::StringLiterals;
+inline StackedWidgetCommand::~StackedWidgetCommand() = default;
+}  // namespace qdesigner_internal
+
+//  from ../qttools/src/designer/src/lib/shared/qdesigner_command.cpp, line 1304, as _ZN18qdesigner_internal30DeleteStackedWidgetPageCommandC1EP28QDesignerFormWindowInterface
+namespace qdesigner_internal {
+using namespace Qt::StringLiterals;
+inline DeleteStackedWidgetPageCommand::DeleteStackedWidgetPageCommand(QDesignerFormWindowInterface *formWindow)
+    : StackedWidgetCommand(formWindow)
+{
+}
+}  // namespace qdesigner_internal
+
 //  from ../qttools/src/designer/src/lib/shared/qdesigner_command.cpp, line 1311, as _ZN18qdesigner_internal30DeleteStackedWidgetPageCommand4initEP14QStackedWidget
 namespace qdesigner_internal {
 using namespace Qt::StringLiterals;
@@ -250,6 +265,15 @@ public:
   }
 #endif  // QT_CONFIG(undocommand)
 };
+
+//  qdesigner_internal::DeleteStackedWidgetPageCommand::DeleteStackedWidgetPa
+//      geCommand(QDesignerFormWindowInterface *formWindow)
+extern "C" Q_DECL_EXPORT
+qdesigner_internal::DeleteStackedWidgetPageCommand *ritual_ZN18qdesigner_internal30DeleteStackedWidgetPageCommandC1EP28QDesignerFormWindowInterface(
+    QDesignerFormWindowInterface *formWindow) {
+  return new Cuteqdesigner_internal_DeleteStackedWidgetPageCommand(
+      formWindow);
+}
 
 //  qdesigner_internal::DeleteStackedWidgetPageCommand::~DeleteStackedWidgetP
 //      ageCommand()

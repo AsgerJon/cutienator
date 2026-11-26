@@ -1,6 +1,13 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtWidgets/6.12.0/QtWidgets/private/qscroller_p.h, Qt 6.12.0. Changes made
-//  here are lost.
+//  QtWidgets/6.12.0/QtWidgets/private/qscroller_p.h, Qt 6.12.0.
+//  Edited by hand on 2026-11-26: moc's output for 'QScrollerPrivate' is
+//  pasted in, cut from what the moc of Qt 6.12.0 writes for its header: Qt's
+//  library keeps it to itself; added are 1 rituals that lean on what moc
+//  writes for a class of the part Qt keeps to itself, whose ritual file
+//  carries moc's output, drafted by a copy of the generator that lets those
+//  names through. A copy of a meta-object is a second one: 'qobject_cast'
+//  between it and Qt's own does not match. Kept as it is when the generator
+//  runs again.
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #if QT_CONFIG(scroller)
@@ -10,10 +17,15 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtWidgets/6.12.0/QtWidgets/private/qscroller_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 #include <QtCore/qpoint.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
 #include <QtGui/qevent.h>
 #include <QtWidgets/qwidget.h>
 #include <QtWidgets/qscroller.h>
@@ -80,6 +92,127 @@ private:
     int skip;
 };
 #endif  // QT_CONFIG(animation)
+
+//  from QtWidgets__QScrollerPrivate.cpp, line 1, as moc:QScrollerPrivate
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN16QScrollerPrivateE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto QScrollerPrivate::qt_create_metaobjectdata<qt_meta_tag_ZN16QScrollerPrivateE_t>()
+{
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "QScrollerPrivate",
+        "targetDestroyed",
+        ""
+    };
+
+    QtMocHelpers::UintData qt_methods {
+        // Slot 'targetDestroyed'
+        QtMocHelpers::SlotData<void()>(1, 2, QMC::AccessPublic, QMetaType::Void),
+    };
+    QtMocHelpers::UintData qt_properties {
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    return QtMocHelpers::metaObjectData<QScrollerPrivate, qt_meta_tag_ZN16QScrollerPrivateE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums);
+}
+Q_CONSTINIT const QMetaObject QScrollerPrivate::staticMetaObject = { {
+    QMetaObject::SuperData::link<QObject::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN16QScrollerPrivateE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN16QScrollerPrivateE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN16QScrollerPrivateE_t>.metaTypes,
+    nullptr
+} };
+
+void QScrollerPrivate::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<QScrollerPrivate *>(_o);
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        switch (_id) {
+        case 0: _t->targetDestroyed(); break;
+        default: ;
+        }
+    }
+    (void)_a;
+}
+
+const QMetaObject *QScrollerPrivate::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *QScrollerPrivate::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN16QScrollerPrivateE_t>.strings))
+        return static_cast<void*>(this);
+    return QObject::qt_metacast(_clname);
+}
+
+int QScrollerPrivate::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QObject::qt_metacall(_c, _id, _a);
+    if (_id < 0)
+        return _id;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        if (_id < 1)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 1;
+    }
+    if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        if (_id < 1)
+            *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
+        _id -= 1;
+    }
+    return _id;
+}
+QT_WARNING_POP
+
+//  from src/widgets/util/qscroller.cpp, line 887, as _ZN16QScrollerPrivate15targetDestroyedEv
+inline void QScrollerPrivate::targetDestroyed()
+{
+#if QT_CONFIG(animation)
+    scrollTimer->stop();
+#endif
+    delete q_ptr;
+}
+
+//  from src/widgets/util/qscroller.cpp, line 895, as _ZN16QScrollerPrivate9timerTickEv
+inline void QScrollerPrivate::timerTick()
+{
+    struct timerevent {
+        QScroller::State state;
+        typedef void (QScrollerPrivate::*timerhandler_t)();
+        timerhandler_t handler;
+    };
+
+    timerevent timerevents[] = {
+        { QScroller::Dragging, &QScrollerPrivate::timerEventWhileDragging },
+        { QScroller::Scrolling, &QScrollerPrivate::timerEventWhileScrolling },
+    };
+
+    for (int i = 0; i < int(sizeof(timerevents) / sizeof(*timerevents)); ++i) {
+        timerevent *te = timerevents + i;
+
+        if (state == te->state) {
+            (this->*te->handler)();
+            return;
+        }
+    }
+
+#if QT_CONFIG(animation)
+    scrollTimer->stop();
+#endif
+}
 
 //  from src/widgets/util/qscroller.cpp, line 855, as _ZN16QScrollerPrivate4initEv
 inline void QScrollerPrivate::init()
@@ -525,6 +658,15 @@ int ritual_ZN16QScrollerPrivate11qt_metacallEN11QMetaObject4CallEiPPv(
     int a1,
     void **a2) {
   return self->qt_metacall(a0, a1, a2);
+}
+
+//  QString QScrollerPrivate::tr(const char *s, const char *c, int n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN16QScrollerPrivate2trEPKcS1_i(
+    const char *s,
+    const char *c,
+    int n) {
+  return new QString(QScrollerPrivate::tr(s, c, n));
 }
 
 //  QScroller *QScrollerPrivate::q_func()

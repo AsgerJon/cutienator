@@ -11,9 +11,7 @@
 #include <QtWidgets/6.12.0/QtWidgets/private/qcompleter_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
-#if QT_CONFIG(itemmodel)
 #include <QtCore/qabstractitemmodel.h>
-#endif
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtWidgets/private/qcompleter_p.h>
@@ -49,87 +47,6 @@
 //  'inline' put before it where Qt did not write it.
 
 using namespace Qt::StringLiterals;
-
-//  from src/widgets/util/qcompleter.cpp, line 523, as _ZN17QCompletionEngine11saveInCacheE7QStringRK11QModelIndexRK10QMatchData
-inline void QCompletionEngine::saveInCache(QString part, const QModelIndex& parent, const QMatchData& m)
-{
-    if (c->filterMode == Qt::MatchEndsWith)
-        return;
-    QMatchData old = cache[parent].take(part);
-    cost = cost + m.indices.cost() - old.indices.cost();
-    if (cost * sizeof(int) > 1024 * 1024) {
-        QMap<QModelIndex, CacheItem>::iterator it1 = cache.begin();
-        while (it1 != cache.end()) {
-            CacheItem& ci = it1.value();
-            int sz = ci.size()/2;
-            QMap<QString, QMatchData>::iterator it2 = ci.begin();
-            int i = 0;
-            while (it2 != ci.end() && i < sz) {
-                cost -= it2.value().indices.cost();
-                it2 = ci.erase(it2);
-                i++;
-            }
-            if (ci.size() == 0) {
-              it1 = cache.erase(it1);
-            } else {
-              ++it1;
-            }
-        }
-    }
-
-    if (c->cs == Qt::CaseInsensitive)
-        part = std::move(part).toLower();
-    cache[parent][part] = m;
-}
-
-//  from src/widgets/util/qcompleter.cpp, line 501, as _ZNK17QCompletionEngine11lookupCacheERK7QStringRK11QModelIndexP10QMatchData
-inline bool QCompletionEngine::lookupCache(const QString &part, const QModelIndex &parent, QMatchData *m) const
-{
-    if (part.isEmpty())
-        return false; // early out to avoid cache[parent] lookup costs
-
-    const auto cit = cache.find(parent);
-    if (cit == cache.end())
-        return false;
-
-    const CacheItem& map = *cit;
-
-    const QString key = c->cs == Qt::CaseInsensitive ? part.toLower() : part;
-
-    const auto it = map.find(key);
-    if (it == map.end())
-        return false;
-
-    *m = it.value();
-    return true;
-}
-
-//  from src/widgets/util/qcompleter.cpp, line 475, as _ZNK17QCompletionEngine9matchHintERK7QStringRK11QModelIndexP10QMatchData
-inline bool QCompletionEngine::matchHint(const QString &part, const QModelIndex &parent, QMatchData *hint) const
-{
-    if (part.isEmpty())
-        return false; // early out to avoid cache[parent] lookup costs
-
-    const auto cit = cache.find(parent);
-    if (cit == cache.end())
-        return false;
-
-    const CacheItem& map = *cit;
-    const auto mapEnd = map.end();
-
-    QString key = c->cs == Qt::CaseInsensitive ? part.toLower() : part;
-
-    while (!key.isEmpty()) {
-        key.chop(1);
-        const auto it = map.find(key);
-        if (it != mapEnd) {
-            *hint = *it;
-            return true;
-        }
-    }
-
-    return false;
-}
 
 //  from src/widgets/util/qcompleter.cpp, line 611, as _ZN18QSortedModelEngine6filterERK7QStringRK11QModelIndexi
 inline QMatchData QSortedModelEngine::filter(const QString& part, const QModelIndex& parent, int)
@@ -217,6 +134,87 @@ inline QMatchData QSortedModelEngine::filter(const QString& part, const QModelIn
     QMatchData m(order == Qt::AscendingOrder ? QIndexMapper(from, high - 1) : QIndexMapper(low+1, to), emi, false);
     saveInCache(part, parent, m);
     return m;
+}
+
+//  from src/widgets/util/qcompleter.cpp, line 523, as _ZN17QCompletionEngine11saveInCacheE7QStringRK11QModelIndexRK10QMatchData
+inline void QCompletionEngine::saveInCache(QString part, const QModelIndex& parent, const QMatchData& m)
+{
+    if (c->filterMode == Qt::MatchEndsWith)
+        return;
+    QMatchData old = cache[parent].take(part);
+    cost = cost + m.indices.cost() - old.indices.cost();
+    if (cost * sizeof(int) > 1024 * 1024) {
+        QMap<QModelIndex, CacheItem>::iterator it1 = cache.begin();
+        while (it1 != cache.end()) {
+            CacheItem& ci = it1.value();
+            int sz = ci.size()/2;
+            QMap<QString, QMatchData>::iterator it2 = ci.begin();
+            int i = 0;
+            while (it2 != ci.end() && i < sz) {
+                cost -= it2.value().indices.cost();
+                it2 = ci.erase(it2);
+                i++;
+            }
+            if (ci.size() == 0) {
+              it1 = cache.erase(it1);
+            } else {
+              ++it1;
+            }
+        }
+    }
+
+    if (c->cs == Qt::CaseInsensitive)
+        part = std::move(part).toLower();
+    cache[parent][part] = m;
+}
+
+//  from src/widgets/util/qcompleter.cpp, line 501, as _ZNK17QCompletionEngine11lookupCacheERK7QStringRK11QModelIndexP10QMatchData
+inline bool QCompletionEngine::lookupCache(const QString &part, const QModelIndex &parent, QMatchData *m) const
+{
+    if (part.isEmpty())
+        return false; // early out to avoid cache[parent] lookup costs
+
+    const auto cit = cache.find(parent);
+    if (cit == cache.end())
+        return false;
+
+    const CacheItem& map = *cit;
+
+    const QString key = c->cs == Qt::CaseInsensitive ? part.toLower() : part;
+
+    const auto it = map.find(key);
+    if (it == map.end())
+        return false;
+
+    *m = it.value();
+    return true;
+}
+
+//  from src/widgets/util/qcompleter.cpp, line 475, as _ZNK17QCompletionEngine9matchHintERK7QStringRK11QModelIndexP10QMatchData
+inline bool QCompletionEngine::matchHint(const QString &part, const QModelIndex &parent, QMatchData *hint) const
+{
+    if (part.isEmpty())
+        return false; // early out to avoid cache[parent] lookup costs
+
+    const auto cit = cache.find(parent);
+    if (cit == cache.end())
+        return false;
+
+    const CacheItem& map = *cit;
+    const auto mapEnd = map.end();
+
+    QString key = c->cs == Qt::CaseInsensitive ? part.toLower() : part;
+
+    while (!key.isEmpty()) {
+        key.chop(1);
+        const auto it = map.find(key);
+        if (it != mapEnd) {
+            *hint = *it;
+            return true;
+        }
+    }
+
+    return false;
 }
 
 //  from src/widgets/util/qcompleter.cpp, line 555, as _ZN18QSortedModelEngine9indexHintE7QStringRK11QModelIndexN2Qt9SortOrderE

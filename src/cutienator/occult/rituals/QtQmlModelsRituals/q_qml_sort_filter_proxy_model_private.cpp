@@ -1,6 +1,12 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtQmlModels/6.12.0/QtQmlModels/private/qqmlsortfilterproxymodel_p_p.h, Qt
-//  6.12.0. Changes made here are lost.
+//  6.12.0.
+//  Edited by hand on 2026-11-26: added are 1 rituals that lean on what moc
+//  writes for a class of the part Qt keeps to itself, whose ritual file
+//  carries moc's output, drafted by a copy of the generator that lets those
+//  names through. A copy of a meta-object is a second one: 'qobject_cast'
+//  between it and Qt's own does not match. Kept as it is when the generator
+//  runs again.
 #include <QtCore/qglobal.h>
 #include <QtQmlModels/qtqmlmodelsglobal.h>
 #include <QtQmlModels/6.12.0/QtQmlModels/private/qtqmlmodelsglobal_p.h>
@@ -153,6 +159,86 @@ inline void QQmlSorterCompositor::updateSorters()
     for (auto &sorter: d->m_sorters)
         sorter->update(d->m_sfpmModel);
     updateCache();
+}
+
+//  from ../qtdeclarative/src/qmlmodels/sfpm/sorters/qqmlsortercompositor.cpp, line 125, as _ZN20QQmlSorterCompositor22updateEffectiveSortersEv
+inline void QQmlSorterCompositor::updateEffectiveSorters()
+{
+    Q_D(QQmlSorterCompositor);
+
+    if (!d->m_primarySorter || !d->m_primarySorter->enabled()) {
+        updateCache();
+        return;
+    }
+
+    QList<QQmlSorterBase *> sorters;
+    sorters.append(d->m_primarySorter);
+    std::copy_if(d->m_effectiveSorters.constBegin(), d->m_effectiveSorters.constEnd(),
+                 std::back_inserter(sorters), [d](QQmlSorterBase *sorter){
+                     // Consider only the filters that are enabled and exclude the primary
+                     // sorter as its already added to the list
+                     return (sorter != d->m_primarySorter);
+                 });
+    d->m_effectiveSorters = sorters;
+}
+
+//  from ../qtdeclarative/src/qmlmodels/sfpm/sorters/qqmlsortercompositor.cpp, line 30, as _ZN27QQmlSorterCompositorPrivate4initEv
+inline void QQmlSorterCompositorPrivate::init()
+{
+    Q_Q(QQmlSorterCompositor);
+    m_sfpmModel = qobject_cast<QQmlSortFilterProxyModel *>(q->parent());
+}
+
+//  from ../qtdeclarative/src/qmlmodels/sfpm/sorters/qqmlsortercompositor.cpp, line 155, as _ZN20QQmlSorterCompositor11updateCacheEv
+inline void QQmlSorterCompositor::updateCache()
+{
+    Q_D(QQmlSorterCompositor);
+    // Clear the existing cache
+    d->m_effectiveSorters.clear();
+    if (d->m_sfpmModel && d->m_sfpmModel->sourceModel()) {
+        // Sort the filter according to their priority
+        QList<QQmlSorterBase *> sorters = d->m_sorters;
+        std::stable_sort(sorters.begin(), sorters.end(),
+                [](QQmlSorterBase *sorterLeft, QQmlSorterBase *sorterRight) {
+                        return sorterLeft->priority() < sorterRight->priority();
+                });
+        // Cache only the filters that are need to be evaluated (in order)
+        std::copy_if(sorters.begin(), sorters.end(), std::back_inserter(d->m_effectiveSorters),
+                [](QQmlSorterBase *sorter) { return sorter->enabled(); });
+        // If there is no primary sorter set by the user explicitly, reset the
+        // primary sorter according to the sorters in the lists
+        d->resetPrimarySorter();
+    }
+}
+
+//  from ../qtdeclarative/src/qmlmodels/sfpm/sorters/qqmlsortercompositor.cpp, line 210, as _ZN27QQmlSorterCompositorPrivate18resetPrimarySorterEv
+inline void QQmlSorterCompositorPrivate::resetPrimarySorter()
+{
+    if (!m_primarySorter) {
+        if (!m_effectiveSorters.isEmpty()) {
+            // Set the primary sort column and its order to the proxy model
+            const auto *sorter = m_effectiveSorters.at(0);
+            m_sfpmModel->setPrimarySortOrder(sorter->sortOrder());
+            m_sfpmModel->setPrimarySortColumn(sorter->column());
+        } else {
+            // By default reset the  sort order to ascending order and the
+            // column to 0
+            m_sfpmModel->setPrimarySortOrder(Qt::AscendingOrder);
+            m_sfpmModel->setPrimarySortColumn(0);
+        }
+    }
+}
+
+//  from ../qtdeclarative/src/qmlmodels/sfpm/qqmlsortfilterproxymodel.cpp, line 839, as _ZN31QQmlSortFilterProxyModelPrivate4initEv
+inline void QQmlSortFilterProxyModelPrivate::init()
+{
+    Q_Q(QQmlSortFilterProxyModel);
+    m_filters = new QQmlFilterCompositor(q);
+    QObject::connect(q, &QQmlSortFilterProxyModel::filtersChanged,
+                     q, &QQmlSortFilterProxyModel::invalidateFilter);
+    m_sorters = new QQmlSorterCompositor(q);
+    QObject::connect(q, &QQmlSortFilterProxyModel::sortersChanged,
+                     q, &QQmlSortFilterProxyModel::invalidateSorter);
 }
 
 //  from ../qtdeclarative/src/qmlmodels/sfpm/qqmlsortfilterproxymodel.cpp, line 1529, as _ZNK31QQmlSortFilterProxyModelPrivate29containRoleForRecursiveFilterERK5QListIiE
@@ -1231,6 +1317,13 @@ extern "C" Q_DECL_EXPORT
 const QQmlSortFilterProxyModel *ritual_ZNK31QQmlSortFilterProxyModelPrivate6q_funcEv(
     const QQmlSortFilterProxyModelPrivate *self) {
   return self->q_func();
+}
+
+//  void QQmlSortFilterProxyModelPrivate::init()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN31QQmlSortFilterProxyModelPrivate4initEv(
+    QQmlSortFilterProxyModelPrivate *self) {
+  self->init();
 }
 
 //  bool QQmlSortFilterProxyModelPrivate::containRoleForRecursiveFilter(const

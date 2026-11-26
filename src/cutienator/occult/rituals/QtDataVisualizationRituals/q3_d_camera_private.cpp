@@ -1,16 +1,29 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtDataVisualization/6.12.0/QtDataVisualization/private/q3dcamera_p.h, Qt
-//  6.12.0. Changes made here are lost.
+//  6.12.0.
+//  Edited by hand on 2026-11-26: moc's output for 'Q3DCameraPrivate' is
+//  pasted in, cut from what the moc of Qt 6.12.0 writes for its header: Qt's
+//  library keeps it to itself; added are 9 rituals that lean on what moc
+//  writes for a class of the part Qt keeps to itself, whose ritual file
+//  carries moc's output, drafted by a copy of the generator that lets those
+//  names through. A copy of a meta-object is a second one: 'qobject_cast'
+//  between it and Qt's own does not match. Kept as it is when the generator
+//  runs again.
 #include <QtDataVisualization/6.12.0/QtDataVisualization/private/datavisualizationglobal_p.h>
 #include <QtDataVisualization/QtDataVisualization>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtDataVisualization/6.12.0/QtDataVisualization/private/q3dcamera_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 #include <QtGui/qmatrix4x4.h>
 #include <QtGui/qvectornd.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
 #include <QtDataVisualization/private/q3dcamera_p.h>
 #include <QtDataVisualization/private/utils_p.h>
 #include <QtCore/qmath.h>
@@ -22,6 +35,194 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  from QtDataVisualization__Q3DCameraPrivate.cpp, line 1, as moc:Q3DCameraPrivate
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN16Q3DCameraPrivateE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto Q3DCameraPrivate::qt_create_metaobjectdata<qt_meta_tag_ZN16Q3DCameraPrivateE_t>()
+{
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "Q3DCameraPrivate",
+        "minXRotationChanged",
+        "",
+        "rotation",
+        "minYRotationChanged",
+        "maxXRotationChanged",
+        "maxYRotationChanged",
+        "viewMatrixChanged",
+        "QMatrix4x4",
+        "viewMatrix",
+        "viewMatrixAutoUpdateChanged",
+        "enabled"
+    };
+
+    QtMocHelpers::UintData qt_methods {
+        // Signal 'minXRotationChanged'
+        QtMocHelpers::SignalData<void(float)>(1, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { QMetaType::Float, 3 },
+        }}),
+        // Signal 'minYRotationChanged'
+        QtMocHelpers::SignalData<void(float)>(4, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { QMetaType::Float, 3 },
+        }}),
+        // Signal 'maxXRotationChanged'
+        QtMocHelpers::SignalData<void(float)>(5, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { QMetaType::Float, 3 },
+        }}),
+        // Signal 'maxYRotationChanged'
+        QtMocHelpers::SignalData<void(float)>(6, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { QMetaType::Float, 3 },
+        }}),
+        // Signal 'viewMatrixChanged'
+        QtMocHelpers::SignalData<void(const QMatrix4x4 &)>(7, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { 0x80000000 | 8, 9 },
+        }}),
+        // Signal 'viewMatrixAutoUpdateChanged'
+        QtMocHelpers::SignalData<void(bool)>(10, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { QMetaType::Bool, 11 },
+        }}),
+    };
+    QtMocHelpers::UintData qt_properties {
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    return QtMocHelpers::metaObjectData<Q3DCameraPrivate, qt_meta_tag_ZN16Q3DCameraPrivateE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums);
+}
+Q_CONSTINIT const QMetaObject Q3DCameraPrivate::staticMetaObject = { {
+    QMetaObject::SuperData::link<QObject::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN16Q3DCameraPrivateE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN16Q3DCameraPrivateE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN16Q3DCameraPrivateE_t>.metaTypes,
+    nullptr
+} };
+
+void Q3DCameraPrivate::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<Q3DCameraPrivate *>(_o);
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        switch (_id) {
+        case 0: _t->minXRotationChanged((*reinterpret_cast<std::add_pointer_t<float>>(_a[1]))); break;
+        case 1: _t->minYRotationChanged((*reinterpret_cast<std::add_pointer_t<float>>(_a[1]))); break;
+        case 2: _t->maxXRotationChanged((*reinterpret_cast<std::add_pointer_t<float>>(_a[1]))); break;
+        case 3: _t->maxYRotationChanged((*reinterpret_cast<std::add_pointer_t<float>>(_a[1]))); break;
+        case 4: _t->viewMatrixChanged((*reinterpret_cast<std::add_pointer_t<QMatrix4x4>>(_a[1]))); break;
+        case 5: _t->viewMatrixAutoUpdateChanged((*reinterpret_cast<std::add_pointer_t<bool>>(_a[1]))); break;
+        default: ;
+        }
+    }
+    if (_c == QMetaObject::IndexOfMethod) {
+        if (QtMocHelpers::indexOfMethod<void (Q3DCameraPrivate::*)(float )>(_a, &Q3DCameraPrivate::minXRotationChanged, 0))
+            return;
+        if (QtMocHelpers::indexOfMethod<void (Q3DCameraPrivate::*)(float )>(_a, &Q3DCameraPrivate::minYRotationChanged, 1))
+            return;
+        if (QtMocHelpers::indexOfMethod<void (Q3DCameraPrivate::*)(float )>(_a, &Q3DCameraPrivate::maxXRotationChanged, 2))
+            return;
+        if (QtMocHelpers::indexOfMethod<void (Q3DCameraPrivate::*)(float )>(_a, &Q3DCameraPrivate::maxYRotationChanged, 3))
+            return;
+        if (QtMocHelpers::indexOfMethod<void (Q3DCameraPrivate::*)(const QMatrix4x4 & )>(_a, &Q3DCameraPrivate::viewMatrixChanged, 4))
+            return;
+        if (QtMocHelpers::indexOfMethod<void (Q3DCameraPrivate::*)(bool )>(_a, &Q3DCameraPrivate::viewMatrixAutoUpdateChanged, 5))
+            return;
+    }
+}
+
+const QMetaObject *Q3DCameraPrivate::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *Q3DCameraPrivate::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN16Q3DCameraPrivateE_t>.strings))
+        return static_cast<void*>(this);
+    return QObject::qt_metacast(_clname);
+}
+
+int Q3DCameraPrivate::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QObject::qt_metacall(_c, _id, _a);
+    if (_id < 0)
+        return _id;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        if (_id < 6)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 6;
+    }
+    if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        if (_id < 6)
+            *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
+        _id -= 6;
+    }
+    return _id;
+}
+
+// SIGNAL 0
+void Q3DCameraPrivate::minXRotationChanged(float _t1)
+{
+    QMetaObject::activate<void>(this, &staticMetaObject, 0, nullptr, _t1);
+}
+
+// SIGNAL 1
+void Q3DCameraPrivate::minYRotationChanged(float _t1)
+{
+    QMetaObject::activate<void>(this, &staticMetaObject, 1, nullptr, _t1);
+}
+
+// SIGNAL 2
+void Q3DCameraPrivate::maxXRotationChanged(float _t1)
+{
+    QMetaObject::activate<void>(this, &staticMetaObject, 2, nullptr, _t1);
+}
+
+// SIGNAL 3
+void Q3DCameraPrivate::maxYRotationChanged(float _t1)
+{
+    QMetaObject::activate<void>(this, &staticMetaObject, 3, nullptr, _t1);
+}
+
+// SIGNAL 4
+void Q3DCameraPrivate::viewMatrixChanged(const QMatrix4x4 & _t1)
+{
+    QMetaObject::activate<void>(this, &staticMetaObject, 4, nullptr, _t1);
+}
+
+// SIGNAL 5
+void Q3DCameraPrivate::viewMatrixAutoUpdateChanged(bool _t1)
+{
+    QMetaObject::activate<void>(this, &staticMetaObject, 5, nullptr, _t1);
+}
+QT_WARNING_POP
+
+//  from ../qtdatavis3d/src/datavisualization/engine/q3dcamera.cpp, line 612, as _ZN16Q3DCameraPrivateC1EP9Q3DCamera
+inline Q3DCameraPrivate::Q3DCameraPrivate(Q3DCamera *q) :
+    q_ptr(q),
+    m_isViewMatrixUpdateActive(true),
+    m_xRotation(0.0f),
+    m_yRotation(0.0f),
+    m_minXRotation(-180.0f),
+    m_minYRotation(0.0f),
+    m_maxXRotation(180.0f),
+    m_maxYRotation(90.0f),
+    m_zoomLevel(100.0f),
+    m_minZoomLevel(10.0f),
+    m_maxZoomLevel(500.0f),
+    m_wrapXRotation(true),
+    m_wrapYRotation(false),
+    m_activePreset(Q3DCamera::CameraPresetNone)
+{
+}
 
 //  from ../qtdatavis3d/src/datavisualization/engine/q3dcamera.cpp, line 630, as _ZN16Q3DCameraPrivateD1Ev
 inline Q3DCameraPrivate::~Q3DCameraPrivate()
@@ -56,10 +257,44 @@ inline void Q3DCameraPrivate::setYRotation(const float rotation)
     }
 }
 
+//  from ../qtdatavis3d/src/datavisualization/engine/q3dcamera.cpp, line 674, as _ZN16Q3DCameraPrivate15setMinXRotationEf
+inline void Q3DCameraPrivate::setMinXRotation(float minRotation)
+{
+    minRotation = qBound(-180.0f, minRotation, 180.0f);
+    if (minRotation > m_maxXRotation)
+        minRotation = m_maxXRotation;
+
+    if (m_minXRotation != minRotation) {
+        m_minXRotation = minRotation;
+        emit minXRotationChanged(minRotation);
+
+        if (m_xRotation < m_minXRotation)
+            setXRotation(m_xRotation);
+        q_ptr->setDirty(true);
+    }
+}
+
 //  from ../qtdatavis3d/src/datavisualization/engine/q3dcamera.cpp, line 669, as _ZNK16Q3DCameraPrivate12minXRotationEv
 inline float Q3DCameraPrivate::minXRotation() const
 {
     return m_minXRotation;
+}
+
+//  from ../qtdatavis3d/src/datavisualization/engine/q3dcamera.cpp, line 703, as _ZN16Q3DCameraPrivate15setMinYRotationEf
+inline void Q3DCameraPrivate::setMinYRotation(float minRotation)
+{
+    minRotation = qBound(-90.0f, minRotation, 90.0f);
+    if (minRotation > m_maxYRotation)
+        minRotation = m_maxYRotation;
+
+    if (m_minYRotation != minRotation) {
+        m_minYRotation = minRotation;
+        emit minYRotationChanged(minRotation);
+
+        if (m_yRotation < m_minYRotation)
+            setYRotation(m_yRotation);
+        q_ptr->setDirty(true);
+    }
 }
 
 //  from ../qtdatavis3d/src/datavisualization/engine/q3dcamera.cpp, line 698, as _ZNK16Q3DCameraPrivate12minYRotationEv
@@ -68,10 +303,46 @@ inline float Q3DCameraPrivate::minYRotation() const
     return m_minYRotation;
 }
 
+//  from ../qtdatavis3d/src/datavisualization/engine/q3dcamera.cpp, line 732, as _ZN16Q3DCameraPrivate15setMaxXRotationEf
+inline void Q3DCameraPrivate::setMaxXRotation(float maxRotation)
+{
+    maxRotation = qBound(-180.0f, maxRotation, 180.0f);
+
+    if (maxRotation < m_minXRotation)
+        maxRotation = m_minXRotation;
+
+    if (m_maxXRotation != maxRotation) {
+        m_maxXRotation = maxRotation;
+        emit maxXRotationChanged(maxRotation);
+
+        if (m_xRotation > m_maxXRotation)
+            setXRotation(m_xRotation);
+        q_ptr->setDirty(true);
+    }
+}
+
 //  from ../qtdatavis3d/src/datavisualization/engine/q3dcamera.cpp, line 727, as _ZNK16Q3DCameraPrivate12maxXRotationEv
 inline float Q3DCameraPrivate::maxXRotation() const
 {
     return m_maxXRotation;
+}
+
+//  from ../qtdatavis3d/src/datavisualization/engine/q3dcamera.cpp, line 762, as _ZN16Q3DCameraPrivate15setMaxYRotationEf
+inline void Q3DCameraPrivate::setMaxYRotation(float maxRotation)
+{
+    maxRotation = qBound(-90.0f, maxRotation, 90.0f);
+
+    if (maxRotation < m_minYRotation)
+        maxRotation = m_minYRotation;
+
+    if (m_maxYRotation != maxRotation) {
+        m_maxYRotation = maxRotation;
+        emit maxYRotationChanged(maxRotation);
+
+        if (m_yRotation > m_maxYRotation)
+            setYRotation(m_yRotation);
+        q_ptr->setDirty(true);
+    }
 }
 
 //  from ../qtdatavis3d/src/datavisualization/engine/q3dcamera.cpp, line 757, as _ZNK16Q3DCameraPrivate12maxYRotationEv
@@ -80,16 +351,60 @@ inline float Q3DCameraPrivate::maxYRotation() const
     return m_maxYRotation;
 }
 
+//  from ../qtdatavis3d/src/datavisualization/engine/q3dcamera.cpp, line 781, as _ZN16Q3DCameraPrivate16updateViewMatrixEf
+inline void Q3DCameraPrivate::updateViewMatrix(float zoomAdjustment)
+{
+    if (!m_isViewMatrixUpdateActive)
+        return;
+
+    GLfloat zoom = m_zoomLevel * zoomAdjustment;
+    QMatrix4x4 viewMatrix;
+
+    // Apply to view matrix
+    viewMatrix.lookAt(q_ptr->position(), m_actualTarget, m_up);
+    // Compensate for translation (if d_ptr->m_target is off origin)
+    viewMatrix.translate(m_actualTarget.x(), m_actualTarget.y(), m_actualTarget.z());
+    // Apply rotations
+    // Handle x and z rotation when y -angle is other than 0
+    viewMatrix.rotate(m_xRotation, 0, qCos(qDegreesToRadians(m_yRotation)),
+                      qSin(qDegreesToRadians(m_yRotation)));
+    // y rotation is always "clean"
+    viewMatrix.rotate(m_yRotation, 1.0f, 0.0f, 0.0f);
+    // handle zoom by scaling
+    viewMatrix.scale(zoom / 100.0f);
+    // Compensate for translation (if d_ptr->m_target is off origin)
+    viewMatrix.translate(-m_actualTarget.x(), -m_actualTarget.y(), -m_actualTarget.z());
+
+    setViewMatrix(viewMatrix);
+}
+
 //  from ../qtdatavis3d/src/datavisualization/engine/q3dcamera.cpp, line 815, as _ZNK16Q3DCameraPrivate10viewMatrixEv
 inline QMatrix4x4 Q3DCameraPrivate::viewMatrix() const
 {
     return m_viewMatrix;
 }
 
+//  from ../qtdatavis3d/src/datavisualization/engine/q3dcamera.cpp, line 820, as _ZN16Q3DCameraPrivate13setViewMatrixERK10QMatrix4x4
+inline void Q3DCameraPrivate::setViewMatrix(const QMatrix4x4 &viewMatrix)
+{
+    if (m_viewMatrix != viewMatrix) {
+        m_viewMatrix = viewMatrix;
+        q_ptr->setDirty(true);
+        emit viewMatrixChanged(m_viewMatrix);
+    }
+}
+
 //  from ../qtdatavis3d/src/datavisualization/engine/q3dcamera.cpp, line 835, as _ZNK16Q3DCameraPrivate29isViewMatrixAutoUpdateEnabledEv
 inline bool Q3DCameraPrivate::isViewMatrixAutoUpdateEnabled() const
 {
     return m_isViewMatrixUpdateActive;
+}
+
+//  from ../qtdatavis3d/src/datavisualization/engine/q3dcamera.cpp, line 840, as _ZN16Q3DCameraPrivate30setViewMatrixAutoUpdateEnabledEb
+inline void Q3DCameraPrivate::setViewMatrixAutoUpdateEnabled(bool isEnabled)
+{
+    m_isViewMatrixUpdateActive = isEnabled;
+    emit viewMatrixAutoUpdateChanged(isEnabled);
 }
 
 //  from ../qtdatavis3d/src/datavisualization/engine/q3dcamera.cpp, line 854, as _ZN16Q3DCameraPrivate18setBaseOrientationERK9QVector3DS2_S2_
@@ -339,6 +654,21 @@ int ritual_ZN16Q3DCameraPrivate11qt_metacallEN11QMetaObject4CallEiPPv(
   return self->qt_metacall(a0, a1, a2);
 }
 
+//  QString Q3DCameraPrivate::tr(const char *s, const char *c, int n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN16Q3DCameraPrivate2trEPKcS1_i(
+    const char *s,
+    const char *c,
+    int n) {
+  return new QString(Q3DCameraPrivate::tr(s, c, n));
+}
+
+//  Q3DCameraPrivate::Q3DCameraPrivate(Q3DCamera *q)
+extern "C" Q_DECL_EXPORT
+Q3DCameraPrivate *ritual_ZN16Q3DCameraPrivateC1EP9Q3DCamera(Q3DCamera *q) {
+  return new CuteQ3DCameraPrivate(q);
+}
+
 //  Q3DCameraPrivate::~Q3DCameraPrivate()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN16Q3DCameraPrivateD1Ev(Q3DCameraPrivate *self) {
@@ -369,11 +699,27 @@ void ritual_ZN16Q3DCameraPrivate12setYRotationEf(
   self->setYRotation(rotation);
 }
 
+//  void Q3DCameraPrivate::setMinXRotation(float rotation)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16Q3DCameraPrivate15setMinXRotationEf(
+    Q3DCameraPrivate *self,
+    float rotation) {
+  self->setMinXRotation(rotation);
+}
+
 //  float Q3DCameraPrivate::minXRotation() const
 extern "C" Q_DECL_EXPORT
 float ritual_ZNK16Q3DCameraPrivate12minXRotationEv(
     const Q3DCameraPrivate *self) {
   return self->minXRotation();
+}
+
+//  void Q3DCameraPrivate::setMinYRotation(float rotation)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16Q3DCameraPrivate15setMinYRotationEf(
+    Q3DCameraPrivate *self,
+    float rotation) {
+  self->setMinYRotation(rotation);
 }
 
 //  float Q3DCameraPrivate::minYRotation() const
@@ -383,11 +729,27 @@ float ritual_ZNK16Q3DCameraPrivate12minYRotationEv(
   return self->minYRotation();
 }
 
+//  void Q3DCameraPrivate::setMaxXRotation(float rotation)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16Q3DCameraPrivate15setMaxXRotationEf(
+    Q3DCameraPrivate *self,
+    float rotation) {
+  self->setMaxXRotation(rotation);
+}
+
 //  float Q3DCameraPrivate::maxXRotation() const
 extern "C" Q_DECL_EXPORT
 float ritual_ZNK16Q3DCameraPrivate12maxXRotationEv(
     const Q3DCameraPrivate *self) {
   return self->maxXRotation();
+}
+
+//  void Q3DCameraPrivate::setMaxYRotation(float rotation)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16Q3DCameraPrivate15setMaxYRotationEf(
+    Q3DCameraPrivate *self,
+    float rotation) {
+  self->setMaxYRotation(rotation);
 }
 
 //  float Q3DCameraPrivate::maxYRotation() const
@@ -397,6 +759,14 @@ float ritual_ZNK16Q3DCameraPrivate12maxYRotationEv(
   return self->maxYRotation();
 }
 
+//  void Q3DCameraPrivate::updateViewMatrix(float zoomAdjustment)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16Q3DCameraPrivate16updateViewMatrixEf(
+    Q3DCameraPrivate *self,
+    float zoomAdjustment) {
+  self->updateViewMatrix(zoomAdjustment);
+}
+
 //  QMatrix4x4 Q3DCameraPrivate::viewMatrix() const
 extern "C" Q_DECL_EXPORT
 QMatrix4x4 *ritual_ZNK16Q3DCameraPrivate10viewMatrixEv(
@@ -404,11 +774,27 @@ QMatrix4x4 *ritual_ZNK16Q3DCameraPrivate10viewMatrixEv(
   return new QMatrix4x4(self->viewMatrix());
 }
 
+//  void Q3DCameraPrivate::setViewMatrix(const QMatrix4x4 &viewMatrix)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16Q3DCameraPrivate13setViewMatrixERK10QMatrix4x4(
+    Q3DCameraPrivate *self,
+    const QMatrix4x4 *viewMatrix) {
+  self->setViewMatrix(*viewMatrix);
+}
+
 //  bool Q3DCameraPrivate::isViewMatrixAutoUpdateEnabled() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK16Q3DCameraPrivate29isViewMatrixAutoUpdateEnabledEv(
     const Q3DCameraPrivate *self) {
   return self->isViewMatrixAutoUpdateEnabled();
+}
+
+//  void Q3DCameraPrivate::setViewMatrixAutoUpdateEnabled(bool isEnabled)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16Q3DCameraPrivate30setViewMatrixAutoUpdateEnabledEb(
+    Q3DCameraPrivate *self,
+    bool isEnabled) {
+  self->setViewMatrixAutoUpdateEnabled(isEnabled);
 }
 
 //  void Q3DCameraPrivate::setBaseOrientation(const QVector3D

@@ -10,6 +10,8 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGraphs/6.12.0/QtGraphs/private/qcustom3dvolume_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtGui/qvectornd.h>
+#include <QtGui/qquaternion.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qfileinfo.h>
 #include <QtGraphs/private/qcustom3ditem_p.h>
@@ -104,6 +106,53 @@ inline QCustom3DVolumePrivate::QCustom3DVolumePrivate()
     m_meshFile = QStringLiteral(":/defaultMeshes/barMeshFull");
 }
 
+//  from ../qtgraphs/src/graphs3d/data/qcustom3dvolume.cpp, line 1372, as _ZN22QCustom3DVolumePrivateC1E9QVector3DS0_RK11QQuaternioniiiP5QListIhEN6QImage6FormatERKS4_IjE
+inline QCustom3DVolumePrivate::QCustom3DVolumePrivate(QVector3D position,
+                                               QVector3D scaling,
+                                               const QQuaternion &rotation,
+                                               int textureWidth,
+                                               int textureHeight,
+                                               int textureDepth,
+                                               QList<uchar> *textureData,
+                                               QImage::Format textureFormat,
+                                               const QList<QRgb> &colorTable)
+    : QCustom3DItemPrivate(QStringLiteral(":/defaultMeshes/barMeshFull"),
+                           position,
+                           scaling,
+                           rotation)
+    , m_textureWidth(textureWidth)
+    , m_textureHeight(textureHeight)
+    , m_textureDepth(textureDepth)
+    , m_sliceIndexX(-1)
+    , m_sliceIndexY(-1)
+    , m_sliceIndexZ(-1)
+    , m_textureFormat(textureFormat)
+    , m_colorTable(colorTable)
+    , m_textureData(textureData)
+    , m_alphaMultiplier(1.0f)
+    , m_preserveOpacity(true)
+    , m_useHighDefShader(true)
+    , m_drawSlices(false)
+    , m_drawSliceFrames(false)
+    , m_sliceFrameColor(Qt::black)
+    , m_sliceFrameWidths(QVector3D(0.01f, 0.01f, 0.01f))
+    , m_sliceFrameGaps(QVector3D(0.01f, 0.01f, 0.01f))
+    , m_sliceFrameThicknesses(QVector3D(0.01f, 0.01f, 0.01f))
+{
+    m_isVolumeItem = true;
+    m_shadowCasting = false;
+
+    if (m_textureWidth < 0)
+        m_textureWidth = 0;
+    if (m_textureHeight < 0)
+        m_textureHeight = 0;
+    if (m_textureDepth < 0)
+        m_textureDepth = 0;
+
+    if (m_textureFormat != QImage::Format_Indexed8)
+        m_textureFormat = QImage::Format_ARGB32;
+}
+
 //  from ../qtgraphs/src/graphs3d/data/qcustom3dvolume.cpp, line 1423, as _ZN22QCustom3DVolumePrivate14resetDirtyBitsEv
 inline void QCustom3DVolumePrivate::resetDirtyBits()
 {
@@ -148,6 +197,33 @@ const QCustom3DVolume *ritual_ZNK22QCustom3DVolumePrivate6q_funcEv(
 extern "C" Q_DECL_EXPORT
 QCustom3DVolumePrivate *ritual_ZN22QCustom3DVolumePrivateC1Ev() {
   return new QCustom3DVolumePrivate();
+}
+
+//  QCustom3DVolumePrivate::QCustom3DVolumePrivate(QVector3D position,
+//      QVector3D scaling, const QQuaternion &rotation, int textureWidth, int
+//      textureHeight, int textureDepth, QList<uchar> *textureData,
+//      QImage::Format textureFormat, const QList<QRgb> &colorTable)
+extern "C" Q_DECL_EXPORT
+QCustom3DVolumePrivate *ritual_ZN22QCustom3DVolumePrivateC1E9QVector3DS0_RK11QQuaternioniiiP5QListIhEN6QImage6FormatERKS4_IjE(
+    const QVector3D *position,
+    const QVector3D *scaling,
+    const QQuaternion *rotation,
+    int textureWidth,
+    int textureHeight,
+    int textureDepth,
+    QList<uchar> *textureData,
+    QImage::Format textureFormat,
+    const QList<QRgb> *colorTable) {
+  return new QCustom3DVolumePrivate(
+      *position,
+      *scaling,
+      *rotation,
+      textureWidth,
+      textureHeight,
+      textureDepth,
+      textureData,
+      textureFormat,
+      *colorTable);
 }
 
 //  QCustom3DVolumePrivate::~QCustom3DVolumePrivate()

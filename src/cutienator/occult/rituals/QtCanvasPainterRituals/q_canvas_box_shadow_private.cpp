@@ -222,6 +222,20 @@ public:
   }
 };
 
+//  QCanvasBoxShadowPrivate::QCanvasBoxShadowPrivate()
+extern "C" Q_DECL_EXPORT
+QCanvasBoxShadowPrivate *ritual_ZN23QCanvasBoxShadowPrivateC1Ev() {
+  return new CuteQCanvasBoxShadowPrivate();
+}
+
+//  QCanvasBoxShadowPrivate::QCanvasBoxShadowPrivate(const
+//      QCanvasBoxShadowPrivate &a0)
+extern "C" Q_DECL_EXPORT
+QCanvasBoxShadowPrivate *ritual_ZN23QCanvasBoxShadowPrivateC1ERKS_(
+    const QCanvasBoxShadowPrivate *a0) {
+  return new CuteQCanvasBoxShadowPrivate(*a0);
+}
+
 //  QCanvasBrushPrivate *QCanvasBoxShadowPrivate::clone()
 extern "C" Q_DECL_EXPORT
 QCanvasBrushPrivate *ritual_ZN23QCanvasBoxShadowPrivate5cloneEv(

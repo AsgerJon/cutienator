@@ -315,6 +315,12 @@ const QSqlTableModel *ritual_ZNK21QSqlTableModelPrivate6q_funcEv(
   return self->q_func();
 }
 
+//  QSqlTableModelPrivate::QSqlTableModelPrivate()
+extern "C" Q_DECL_EXPORT
+QSqlTableModelPrivate *ritual_ZN21QSqlTableModelPrivateC1Ev() {
+  return new CuteQSqlTableModelPrivate();
+}
+
 //  void QSqlTableModelPrivate::clear()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN21QSqlTableModelPrivate5clearEv(QSqlTableModelPrivate *self) {

@@ -1,6 +1,11 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtQuick/6.12.0/QtQuick/private/qsgsoftwarepainternode_p.h, Qt 6.12.0.
-//  Changes made here are lost.
+//  Edited by hand on 2026-11-26: added are 2 rituals that lean on what moc
+//  writes for a class of the part Qt keeps to itself, whose ritual file
+//  carries moc's output, drafted by a copy of the generator that lets those
+//  names through. A copy of a meta-object is a second one: 'qobject_cast'
+//  between it and Qt's own does not match. Kept as it is when the generator
+//  runs again.
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
 #include <QtQuick/QtQuick>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -156,6 +161,26 @@ inline QImage QSGSoftwarePainterNode::toImage() const
 inline QSGSoftwarePixmapTexture::QSGSoftwarePixmapTexture(const QPixmap &pixmap)
     : m_pixmap(pixmap)
 {
+}
+
+//  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarepainternode.cpp, line 11, as _ZN22QSGSoftwarePainterNodeC1EP17QQuickPaintedItem
+inline QSGSoftwarePainterNode::QSGSoftwarePainterNode(QQuickPaintedItem *item)
+    : QSGPainterNode()
+    , m_preferredRenderTarget(QQuickPaintedItem::Image)
+    , m_item(item)
+    , m_texture(nullptr)
+    , m_dirtyContents(false)
+    , m_opaquePainting(false)
+    , m_linear_filtering(false)
+    , m_mipmapping(false)
+    , m_smoothPainting(false)
+    , m_fastFBOResizing(false)
+    , m_fillColor(Qt::transparent)
+    , m_contentsScale(1.0)
+    , m_dirtyGeometry(false)
+{
+    setMaterial((QSGMaterial*)1);
+    setGeometry((QSGGeometry*)1);
 }
 
 //  from ../qtdeclarative/src/quick/scenegraph/adaptations/software/qsgsoftwarepainternode.cpp, line 30, as _ZN22QSGSoftwarePainterNodeD1Ev
@@ -504,6 +529,13 @@ public:
   }
 };
 
+//  QSGSoftwarePainterNode::QSGSoftwarePainterNode(QQuickPaintedItem *item)
+extern "C" Q_DECL_EXPORT
+QSGSoftwarePainterNode *ritual_ZN22QSGSoftwarePainterNodeC1EP17QQuickPaintedItem(
+    QQuickPaintedItem *item) {
+  return new CuteQSGSoftwarePainterNode(item);
+}
+
 //  QSGSoftwarePainterNode::~QSGSoftwarePainterNode()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN22QSGSoftwarePainterNodeD1Ev(QSGSoftwarePainterNode *self) {
@@ -794,6 +826,13 @@ extern "C" Q_DECL_EXPORT
 QImage *ritual_own_ZNK22QSGSoftwarePainterNode7toImageEv(
     const QSGSoftwarePainterNode *self) {
   return new QImage(self->QSGSoftwarePainterNode::toImage());
+}
+
+//  void QSGSoftwarePainterNode::update()
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN22QSGSoftwarePainterNode6updateEv(
+    QSGSoftwarePainterNode *self) {
+  self->QSGSoftwarePainterNode::update();
 }
 
 //  QSGTexture *QSGSoftwarePainterNode::texture() const

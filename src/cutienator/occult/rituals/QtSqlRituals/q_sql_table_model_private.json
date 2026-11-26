@@ -7,6 +7,7 @@
   "rows": {
     "ritual_ZN21QSqlTableModelPrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK21QSqlTableModelPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN21QSqlTableModelPrivateC1Ev": ["address"],
     "ritual_ZN21QSqlTableModelPrivate5clearEv": ["nothing", "address"],
     "ritual_ZN21QSqlTableModelPrivate10clearCacheEv": ["nothing", "address"],
     "ritual_ZNK21QSqlTableModelPrivate6recordERK5QListI8QVariantE": [

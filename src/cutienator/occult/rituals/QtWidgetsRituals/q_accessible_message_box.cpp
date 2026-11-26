@@ -15,9 +15,7 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qvariant.h>
 #include <QtCore/qrect.h>
-#if QT_CONFIG(accessibility)
 #include <QtGui/qaccessible.h>
-#endif
 #include <QtGui/qcolor.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -89,17 +87,6 @@
 
 using namespace Qt::StringLiterals;
 
-//  from src/widgets/accessible/simplewidgets.cpp, line 962, as _ZN21QAccessibleMessageBoxC1EP7QWidget
-#if QT_CONFIG(accessibility)
-#if QT_CONFIG(messagebox)
-inline QAccessibleMessageBox::QAccessibleMessageBox(QWidget *widget)
-    : QAccessibleWidgetV2(widget, QAccessible::AlertMessage)
-{
-    Q_ASSERT(qobject_cast<QMessageBox *>(widget));
-}
-#endif  // QT_CONFIG(messagebox)
-#endif  // QT_CONFIG(accessibility)
-
 //  from src/widgets/accessible/simplewidgets.cpp, line 973, as _ZNK21QAccessibleMessageBox4textEN11QAccessible4TextE
 #if QT_CONFIG(accessibility)
 #if QT_CONFIG(messagebox)
@@ -125,6 +112,17 @@ inline QString QAccessibleMessageBox::text(QAccessible::Text t) const
     }
 
     return str;
+}
+#endif  // QT_CONFIG(messagebox)
+#endif  // QT_CONFIG(accessibility)
+
+//  from src/widgets/accessible/simplewidgets.cpp, line 962, as _ZN21QAccessibleMessageBoxC1EP7QWidget
+#if QT_CONFIG(accessibility)
+#if QT_CONFIG(messagebox)
+inline QAccessibleMessageBox::QAccessibleMessageBox(QWidget *widget)
+    : QAccessibleWidgetV2(widget, QAccessible::AlertMessage)
+{
+    Q_ASSERT(qobject_cast<QMessageBox *>(widget));
 }
 #endif  // QT_CONFIG(messagebox)
 #endif  // QT_CONFIG(accessibility)

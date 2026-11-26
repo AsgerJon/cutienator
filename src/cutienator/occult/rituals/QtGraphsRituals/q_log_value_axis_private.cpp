@@ -112,6 +112,26 @@ inline const QLoggingCategory &lcAxis2D()
     return category;
 }
 
+//  from ../qtgraphs/src/graphs2d/axis/qabstractaxis.cpp, line 699, as _ZN20QAbstractAxisPrivateD1Ev
+inline QAbstractAxisPrivate::~QAbstractAxisPrivate()
+{
+    Q_Q(QAbstractAxis);
+    if (m_graph)
+        m_graph->removeAxis(q, true);
+}
+
+//  from ../qtgraphs/src/graphs2d/axis/logvalueaxis/qlogvalueaxis.cpp, line 529, as _ZN20QLogValueAxisPrivateC1Ev
+inline QLogValueAxisPrivate::QLogValueAxisPrivate()
+    : m_min(0)
+    , m_max(10)
+    , m_base(10.0)
+    , m_subTickCount(-1)
+    , m_format()
+    , m_postFormat(QLatin1StringView("%1"))
+    , m_precision(6)
+    , m_tickCount(-1)
+{}
+
 //  from ../qtgraphs/src/graphs2d/axis/logvalueaxis/qlogvalueaxis.cpp, line 609, as _ZN20QLogValueAxisPrivate20calculateVisualRangeEv
 inline void QLogValueAxisPrivate::calculateVisualRange()
 {
@@ -264,6 +284,12 @@ public:
     QLogValueAxisPrivate::setRange(min, max);
   }
 };
+
+//  QLogValueAxisPrivate::QLogValueAxisPrivate()
+extern "C" Q_DECL_EXPORT
+QLogValueAxisPrivate *ritual_ZN20QLogValueAxisPrivateC1Ev() {
+  return new CuteQLogValueAxisPrivate();
+}
 
 //  QLogValueAxisPrivate::~QLogValueAxisPrivate()
 extern "C" Q_DECL_EXPORT

@@ -1,8 +1,8 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "Qt3DLogic/6.12.0/Qt3DLogic/private/executor_p.h, Qt 6.12.0.",
-    "Changes made here are lost."
+    "Qt3DLogic/6.12.0/Qt3DLogic/private/executor_p.h, Qt 6.12.0. Edited",
+    "by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZNK9Qt3DLogic5Logic8Executor10metaObjectEv": [
@@ -14,6 +14,10 @@
     "ritual_ZN9Qt3DLogic5Logic8Executor11qt_metacallEN11QMetaObject4CallEiPPv": [
       "int", "address", "int", "int", "address"
     ],
+    "ritual_ZN9Qt3DLogic5Logic8Executor2trEPKcS3_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN9Qt3DLogic5Logic8ExecutorC1EP7QObject": ["address", "address"],
     "ritual_ZN9Qt3DLogic5Logic8Executor8setSceneEPN8Qt3DCore6QSceneE": [
       "nothing", "address", "address"
     ],

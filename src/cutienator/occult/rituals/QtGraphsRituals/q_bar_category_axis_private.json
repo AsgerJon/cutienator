@@ -8,6 +8,7 @@
     "QtGraphs", "QtCore", "QtGui", "QtQuick", "QtQml", "QtQmlIntegration"
   ],
   "rows": {
+    "ritual_ZN23QBarCategoryAxisPrivateC1Ev": ["address"],
     "ritual_ZN23QBarCategoryAxisPrivateD1Ev": ["nothing", "address"],
     "ritual_ZN23QBarCategoryAxisPrivate8setRangeERK8QVariantS2_": [
       "nothing", "address", "address", "address"

@@ -95,6 +95,9 @@ inline void QQuickAbstractColorPickerPrivate::itemImplicitHeightChanged(QQuickIt
         emit q->implicitHandleHeightChanged();
 }
 
+//  from ../qtdeclarative/src/quickdialogs/quickdialogsquickimpl/qquickabstractcolorpicker.cpp, line 15, as _ZN32QQuickAbstractColorPickerPrivateC1Ev
+inline QQuickAbstractColorPickerPrivate::QQuickAbstractColorPickerPrivate() = default;
+
 //  from ../qtdeclarative/src/quickdialogs/quickdialogsquickimpl/qquickabstractcolorpicker.cpp, line 56, as _ZN32QQuickAbstractColorPickerPrivate12cancelHandleEv
 inline void QQuickAbstractColorPickerPrivate::cancelHandle()
 {
@@ -825,6 +828,12 @@ extern "C" Q_DECL_EXPORT
 const QQuickAbstractColorPicker *ritual_ZNK32QQuickAbstractColorPickerPrivate6q_funcEv(
     const QQuickAbstractColorPickerPrivate *self) {
   return self->q_func();
+}
+
+//  QQuickAbstractColorPickerPrivate::QQuickAbstractColorPickerPrivate()
+extern "C" Q_DECL_EXPORT
+QQuickAbstractColorPickerPrivate *ritual_ZN32QQuickAbstractColorPickerPrivateC1Ev() {
+  return new CuteQQuickAbstractColorPickerPrivate();
 }
 
 //  QQuickAbstractColorPickerPrivate

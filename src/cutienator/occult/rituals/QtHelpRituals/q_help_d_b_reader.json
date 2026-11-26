@@ -1,8 +1,8 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "QtHelp/6.12.0/QtHelp/private/qhelpdbreader_p.h, Qt 6.12.0. Changes",
-    "made here are lost."
+    "QtHelp/6.12.0/QtHelp/private/qhelpdbreader_p.h, Qt 6.12.0. Edited",
+    "by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZNK13QHelpDBReader10metaObjectEv": ["address", "address"],
@@ -12,7 +12,13 @@
     "ritual_ZN13QHelpDBReader11qt_metacallEN11QMetaObject4CallEiPPv": [
       "int", "address", "int", "int", "address"
     ],
+    "ritual_ZN13QHelpDBReader2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN13QHelpDBReaderC1ERK7QString": ["address", "text"],
+    "ritual_ZN13QHelpDBReaderC1ERK7QStringS2_P7QObject": [
+      "address", "text", "text", "address"
+    ],
     "ritual_ZN13QHelpDBReaderD1Ev": ["nothing", "address"],
+    "ritual_ZN13QHelpDBReader4initEv": ["bool", "address"],
     "ritual_ZNK13QHelpDBReader13namespaceNameEv": ["text", "address"],
     "ritual_ZNK13QHelpDBReader13virtualFolderEv": ["text", "address"],
     "ritual_ZNK13QHelpDBReader7versionEv": ["text", "address"],
@@ -38,6 +44,7 @@
     "ritual_ZNK13QHelpDBReader5quoteERK7QString": [
       "text", "address", "text"
     ],
+    "ritual_ZN13QHelpDBReader6initDBEv": ["bool", "address"],
     "ritual_take_QHelpDBReader": ["bool", "address", "chars", "address"],
     "ritual_drop_QHelpDBReader__QList_QStringList": ["nothing", "address"],
     "ritual_drop_QHelpDBReader__QMultiMap_QString_QByteArray": [

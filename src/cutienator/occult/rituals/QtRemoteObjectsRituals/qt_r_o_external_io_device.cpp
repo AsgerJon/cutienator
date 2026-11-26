@@ -1,6 +1,14 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtRemoteObjects/6.12.0/QtRemoteObjects/private/qconnectionfactories_p.h,
-//  Qt 6.12.0. Changes made here are lost.
+//  Qt 6.12.0.
+//  Edited by hand on 2026-11-26: moc's output for 'QtROExternalIoDevice' is
+//  pasted in, cut from what the moc of Qt 6.12.0 writes for its header: Qt's
+//  library keeps it to itself; added are 1 rituals that lean on what moc
+//  writes for a class of the part Qt keeps to itself, whose ritual file
+//  carries moc's output, drafted by a copy of the generator that lets those
+//  names through. A copy of a meta-object is a second one: 'qobject_cast'
+//  between it and Qt's own does not match. Kept as it is when the generator
+//  runs again.
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtRemoteObjects/QtRemoteObjects>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -8,6 +16,10 @@
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
 #include <QtRemoteObjects/private/qconnectionfactories_p.h>
 #include <QtRemoteObjects/private/qremoteobjectpacket_p.h>
 #if defined(Q_OS_QNX)
@@ -24,21 +36,70 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from ../qtremoteobjects/src/remoteobjects/qconnectionfactories.cpp, line 231, as _ZNK20QtROExternalIoDevice10connectionEv
-inline QIODevice *QtROExternalIoDevice::connection() const
+//  from QtRemoteObjects__QtROExternalIoDevice.cpp, line 1, as moc:QtROExternalIoDevice
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN20QtROExternalIoDeviceE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto QtROExternalIoDevice::qt_create_metaobjectdata<qt_meta_tag_ZN20QtROExternalIoDeviceE_t>()
 {
-    Q_D(const QtROExternalIoDevice);
-    return d->m_device;
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "QtROExternalIoDevice"
+    };
+
+    QtMocHelpers::UintData qt_methods {
+    };
+    QtMocHelpers::UintData qt_properties {
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    return QtMocHelpers::metaObjectData<QtROExternalIoDevice, qt_meta_tag_ZN20QtROExternalIoDeviceE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums);
+}
+Q_CONSTINIT const QMetaObject QtROExternalIoDevice::staticMetaObject = { {
+    QMetaObject::SuperData::link<QtROIoDeviceBase::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN20QtROExternalIoDeviceE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN20QtROExternalIoDeviceE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN20QtROExternalIoDeviceE_t>.metaTypes,
+    nullptr
+} };
+
+void QtROExternalIoDevice::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<QtROExternalIoDevice *>(_o);
+    (void)_t;
+    (void)_c;
+    (void)_id;
+    (void)_a;
 }
 
-//  from ../qtremoteobjects/src/remoteobjects/qconnectionfactories.cpp, line 237, as _ZNK20QtROExternalIoDevice6isOpenEv
-inline bool QtROExternalIoDevice::isOpen() const
+const QMetaObject *QtROExternalIoDevice::metaObject() const
 {
-    Q_D(const QtROExternalIoDevice);
-    if (!d->m_device)
-        return false;
-    return d->m_device->isOpen() && QtROIoDeviceBase::isOpen();
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
 }
+
+void *QtROExternalIoDevice::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN20QtROExternalIoDeviceE_t>.strings))
+        return static_cast<void*>(this);
+    return QtROIoDeviceBase::qt_metacast(_clname);
+}
+
+int QtROExternalIoDevice::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QtROIoDeviceBase::qt_metacall(_c, _id, _a);
+    return _id;
+}
+QT_WARNING_POP
 
 //  from ../qtremoteobjects/src/remoteobjects/qconnectionfactories.cpp, line 245, as _ZN20QtROExternalIoDevice7doCloseEv
 inline void QtROExternalIoDevice::doClose()
@@ -48,10 +109,26 @@ inline void QtROExternalIoDevice::doClose()
         d->m_device->close();
 }
 
+//  from ../qtremoteobjects/src/remoteobjects/qconnectionfactories.cpp, line 231, as _ZNK20QtROExternalIoDevice10connectionEv
+inline QIODevice *QtROExternalIoDevice::connection() const
+{
+    Q_D(const QtROExternalIoDevice);
+    return d->m_device;
+}
+
 //  from ../qtremoteobjects/src/remoteobjects/qconnectionfactories.cpp, line 252, as _ZNK20QtROExternalIoDevice10deviceTypeEv
 inline QString QtROExternalIoDevice::deviceType() const
 {
     return QStringLiteral("QtROExternalIoDevice");
+}
+
+//  from ../qtremoteobjects/src/remoteobjects/qconnectionfactories.cpp, line 237, as _ZNK20QtROExternalIoDevice6isOpenEv
+inline bool QtROExternalIoDevice::isOpen() const
+{
+    Q_D(const QtROExternalIoDevice);
+    if (!d->m_device)
+        return false;
+    return d->m_device->isOpen() && QtROIoDeviceBase::isOpen();
 }
 //  -----------------------------------------------------------------------
 
@@ -86,6 +163,15 @@ int ritual_ZN20QtROExternalIoDevice11qt_metacallEN11QMetaObject4CallEiPPv(
     int a1,
     void **a2) {
   return self->qt_metacall(a0, a1, a2);
+}
+
+//  QString QtROExternalIoDevice::tr(const char *s, const char *c, int n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN20QtROExternalIoDevice2trEPKcS1_i(
+    const char *s,
+    const char *c,
+    int n) {
+  return new QString(QtROExternalIoDevice::tr(s, c, n));
 }
 
 //  QIODevice *QtROExternalIoDevice::connection() const

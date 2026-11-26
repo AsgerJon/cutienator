@@ -1,6 +1,11 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtQuick/6.12.0/QtQuick/private/qquicksmoothedanimation_p_p.h, Qt 6.12.0.
-//  Changes made here are lost.
+//  Edited by hand on 2026-11-26: added are 1 rituals that lean on what moc
+//  writes for a class of the part Qt keeps to itself, whose ritual file
+//  carries moc's output, drafted by a copy of the generator that lets those
+//  names through. A copy of a meta-object is a second one: 'qobject_cast'
+//  between it and Qt's own does not match. Kept as it is when the generator
+//  runs again.
 #include <QtQml/6.12.0/QtQml/private/qtqmlglobal_p.h>
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
 #include <QtQuick/QtQuick>
@@ -262,6 +267,19 @@ inline qreal QSmoothedAnimation::easeFollow(qreal time_seconds)
     return value;
 }
 
+//  from ../qtdeclarative/src/quick/util/qquicksmoothedanimation.cpp, line 100, as _ZN18QSmoothedAnimation11delayedStopEv
+inline void QSmoothedAnimation::delayedStop()
+{
+    if (!delayedStopTimer->isActive())
+        delayedStopTimer->start();
+}
+
+//  from ../qtdeclarative/src/quick/util/qquicksmoothedanimation.cpp, line 337, as _ZN30QQuickSmoothedAnimationPrivateC1Ev
+inline QQuickSmoothedAnimationPrivate::QQuickSmoothedAnimationPrivate()
+    : anim(new QSmoothedAnimation)
+{
+}
+
 //  from ../qtdeclarative/src/quick/util/qquicksmoothedanimation.cpp, line 342, as _ZN30QQuickSmoothedAnimationPrivateD1Ev
 inline QQuickSmoothedAnimationPrivate::~QQuickSmoothedAnimationPrivate()
 {
@@ -409,6 +427,12 @@ extern "C" Q_DECL_EXPORT
 const QQuickSmoothedAnimation *ritual_ZNK30QQuickSmoothedAnimationPrivate6q_funcEv(
     const QQuickSmoothedAnimationPrivate *self) {
   return self->q_func();
+}
+
+//  QQuickSmoothedAnimationPrivate::QQuickSmoothedAnimationPrivate()
+extern "C" Q_DECL_EXPORT
+QQuickSmoothedAnimationPrivate *ritual_ZN30QQuickSmoothedAnimationPrivateC1Ev() {
+  return new CuteQQuickSmoothedAnimationPrivate();
 }
 
 //  QQuickSmoothedAnimationPrivate::~QQuickSmoothedAnimationPrivate()

@@ -1,11 +1,19 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtNfc/6.12.0/QtNfc/private/qnearfieldtarget_p.h, Qt 6.12.0. Changes made
-//  here are lost.
+//  QtNfc/6.12.0/QtNfc/private/qnearfieldtarget_p.h, Qt 6.12.0.
+//  Edited by hand on 2026-11-26: moc's output for 'QNearFieldTargetPrivate'
+//  is pasted in, cut from what the moc of Qt 6.12.0 writes for its header:
+//  Qt's library keeps it to itself; added are 7 rituals that lean on what
+//  moc writes for a class of the part Qt keeps to itself, whose ritual file
+//  carries moc's output, drafted by a copy of the generator that lets those
+//  names through. A copy of a meta-object is a second one: 'qobject_cast'
+//  between it and Qt's own does not match. Kept as it is when the generator
+//  runs again.
 #include <QtNfc/6.12.0/QtNfc/private/qtnfcglobal_p.h>
 #include <QtNfc/QtNfc>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtNfc/6.12.0/QtNfc/private/qnearfieldtarget_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
 #include <QtCore/qbytearray.h>
 #include <QtNfc/qnearfieldtarget.h>
 #include <QtNfc/qndefmessage.h>
@@ -14,6 +22,10 @@
 #include <QtCore/qlist.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
 #include <QtNfc/private/qnearfieldtarget_p.h>
 #include <QtCore/QCoreApplication>
 #include <QtCore/QElapsedTimer>
@@ -27,28 +39,179 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+//  from QtNfc__QNearFieldTargetPrivate.cpp, line 1, as moc:QNearFieldTargetPrivate
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN23QNearFieldTargetPrivateE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto QNearFieldTargetPrivate::qt_create_metaobjectdata<qt_meta_tag_ZN23QNearFieldTargetPrivateE_t>()
+{
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "QNearFieldTargetPrivate",
+        "disconnected",
+        "",
+        "ndefMessageRead",
+        "QNdefMessage",
+        "message",
+        "requestCompleted",
+        "QNearFieldTarget::RequestId",
+        "id",
+        "error",
+        "QNearFieldTarget::Error"
+    };
+
+    QtMocHelpers::UintData qt_methods {
+        // Signal 'disconnected'
+        QtMocHelpers::SignalData<void()>(1, 2, QMC::AccessPublic, QMetaType::Void),
+        // Signal 'ndefMessageRead'
+        QtMocHelpers::SignalData<void(const QNdefMessage &)>(3, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { 0x80000000 | 4, 5 },
+        }}),
+        // Signal 'requestCompleted'
+        QtMocHelpers::SignalData<void(const QNearFieldTarget::RequestId &)>(6, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { 0x80000000 | 7, 8 },
+        }}),
+        // Signal 'error'
+        QtMocHelpers::SignalData<void(QNearFieldTarget::Error, const QNearFieldTarget::RequestId &)>(9, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { 0x80000000 | 10, 9 }, { 0x80000000 | 7, 8 },
+        }}),
+    };
+    QtMocHelpers::UintData qt_properties {
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    return QtMocHelpers::metaObjectData<QNearFieldTargetPrivate, qt_meta_tag_ZN23QNearFieldTargetPrivateE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums);
+}
+Q_CONSTINIT const QMetaObject QNearFieldTargetPrivate::staticMetaObject = { {
+    QMetaObject::SuperData::link<QObject::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN23QNearFieldTargetPrivateE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN23QNearFieldTargetPrivateE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN23QNearFieldTargetPrivateE_t>.metaTypes,
+    nullptr
+} };
+
+void QNearFieldTargetPrivate::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<QNearFieldTargetPrivate *>(_o);
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        switch (_id) {
+        case 0: _t->disconnected(); break;
+        case 1: _t->ndefMessageRead((*reinterpret_cast<std::add_pointer_t<QNdefMessage>>(_a[1]))); break;
+        case 2: _t->requestCompleted((*reinterpret_cast<std::add_pointer_t<QNearFieldTarget::RequestId>>(_a[1]))); break;
+        case 3: _t->error((*reinterpret_cast<std::add_pointer_t<QNearFieldTarget::Error>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<QNearFieldTarget::RequestId>>(_a[2]))); break;
+        default: ;
+        }
+    }
+    if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        switch (_id) {
+        default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
+        case 2:
+            switch (*reinterpret_cast<int*>(_a[1])) {
+            default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
+            case 0:
+                *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType::fromType< QNearFieldTarget::RequestId >(); break;
+            }
+            break;
+        case 3:
+            switch (*reinterpret_cast<int*>(_a[1])) {
+            default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
+            case 1:
+                *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType::fromType< QNearFieldTarget::RequestId >(); break;
+            }
+            break;
+        }
+    }
+    if (_c == QMetaObject::IndexOfMethod) {
+        if (QtMocHelpers::indexOfMethod<void (QNearFieldTargetPrivate::*)()>(_a, &QNearFieldTargetPrivate::disconnected, 0))
+            return;
+        if (QtMocHelpers::indexOfMethod<void (QNearFieldTargetPrivate::*)(const QNdefMessage & )>(_a, &QNearFieldTargetPrivate::ndefMessageRead, 1))
+            return;
+        if (QtMocHelpers::indexOfMethod<void (QNearFieldTargetPrivate::*)(const QNearFieldTarget::RequestId & )>(_a, &QNearFieldTargetPrivate::requestCompleted, 2))
+            return;
+        if (QtMocHelpers::indexOfMethod<void (QNearFieldTargetPrivate::*)(QNearFieldTarget::Error , const QNearFieldTarget::RequestId & )>(_a, &QNearFieldTargetPrivate::error, 3))
+            return;
+    }
+}
+
+const QMetaObject *QNearFieldTargetPrivate::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *QNearFieldTargetPrivate::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN23QNearFieldTargetPrivateE_t>.strings))
+        return static_cast<void*>(this);
+    return QObject::qt_metacast(_clname);
+}
+
+int QNearFieldTargetPrivate::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QObject::qt_metacall(_c, _id, _a);
+    if (_id < 0)
+        return _id;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        if (_id < 4)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 4;
+    }
+    if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        if (_id < 4)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 4;
+    }
+    return _id;
+}
+
+// SIGNAL 0
+void QNearFieldTargetPrivate::disconnected()
+{
+    QMetaObject::activate(this, &staticMetaObject, 0, nullptr);
+}
+
+// SIGNAL 1
+void QNearFieldTargetPrivate::ndefMessageRead(const QNdefMessage & _t1)
+{
+    QMetaObject::activate<void>(this, &staticMetaObject, 1, nullptr, _t1);
+}
+
+// SIGNAL 2
+void QNearFieldTargetPrivate::requestCompleted(const QNearFieldTarget::RequestId & _t1)
+{
+    QMetaObject::activate<void>(this, &staticMetaObject, 2, nullptr, _t1);
+}
+
+// SIGNAL 3
+void QNearFieldTargetPrivate::error(QNearFieldTarget::Error _t1, const QNearFieldTarget::RequestId & _t2)
+{
+    QMetaObject::activate<void>(this, &staticMetaObject, 3, nullptr, _t1, _t2);
+}
+QT_WARNING_POP
+
 //  from ../qtconnectivity/src/nfc/qnearfieldtarget_p.cpp, line 34, as _ZN23QNearFieldTargetPrivate10disconnectEv
 inline bool QNearFieldTargetPrivate::disconnect()
 {
     return false;
 }
 
-//  from ../qtconnectivity/src/nfc/qnearfieldtarget_p.cpp, line 19, as _ZNK23QNearFieldTargetPrivate3uidEv
-inline QByteArray QNearFieldTargetPrivate::uid() const
+//  from ../qtconnectivity/src/nfc/qnearfieldtarget_p.cpp, line 68, as _ZN23QNearFieldTargetPrivate11sendCommandERK10QByteArray
+inline QNearFieldTarget::RequestId QNearFieldTargetPrivate::sendCommand(const QByteArray &command)
 {
-    return QByteArray();
-}
+    Q_UNUSED(command);
 
-//  from ../qtconnectivity/src/nfc/qnearfieldtarget_p.cpp, line 24, as _ZNK23QNearFieldTargetPrivate4typeEv
-inline QNearFieldTarget::Type QNearFieldTargetPrivate::type() const
-{
-    return QNearFieldTarget::Type::ProprietaryTag;
-}
-
-//  from ../qtconnectivity/src/nfc/qnearfieldtarget_p.cpp, line 29, as _ZNK23QNearFieldTargetPrivate13accessMethodsEv
-inline QNearFieldTarget::AccessMethods QNearFieldTargetPrivate::accessMethods() const
-{
-    return QNearFieldTarget::AccessMethod::UnknownAccess;
+    const QNearFieldTarget::RequestId id;
+    Q_EMIT error(QNearFieldTarget::UnsupportedError, id);
+    return id;
 }
 
 //  from ../qtconnectivity/src/nfc/qnearfieldtarget_p.cpp, line 40, as _ZN23QNearFieldTargetPrivate14hasNdefMessageEv
@@ -65,16 +228,11 @@ inline QNearFieldTarget::RequestId QNearFieldTargetPrivate::readNdefMessages()
     return id;
 }
 
-//  from ../qtconnectivity/src/nfc/qnearfieldtarget_p.cpp, line 63, as _ZNK23QNearFieldTargetPrivate16maxCommandLengthEv
-inline int QNearFieldTargetPrivate::maxCommandLength() const
+//  from ../qtconnectivity/src/nfc/qnearfieldtarget_p.cpp, line 52, as _ZN23QNearFieldTargetPrivate17writeNdefMessagesERK5QListI12QNdefMessageE
+inline QNearFieldTarget::RequestId
+QNearFieldTargetPrivate::writeNdefMessages(const QList<QNdefMessage> &messages)
 {
-    return 0;
-}
-
-//  from ../qtconnectivity/src/nfc/qnearfieldtarget_p.cpp, line 68, as _ZN23QNearFieldTargetPrivate11sendCommandERK10QByteArray
-inline QNearFieldTarget::RequestId QNearFieldTargetPrivate::sendCommand(const QByteArray &command)
-{
-    Q_UNUSED(command);
+    Q_UNUSED(messages);
 
     const QNearFieldTarget::RequestId id;
     Q_EMIT error(QNearFieldTarget::UnsupportedError, id);
@@ -100,12 +258,83 @@ inline void QNearFieldTargetPrivate::setResponseForRequest(const QNearFieldTarge
         Q_EMIT requestCompleted(id);
 }
 
+//  from ../qtconnectivity/src/nfc/qnearfieldtarget_p.cpp, line 29, as _ZNK23QNearFieldTargetPrivate13accessMethodsEv
+inline QNearFieldTarget::AccessMethods QNearFieldTargetPrivate::accessMethods() const
+{
+    return QNearFieldTarget::AccessMethod::UnknownAccess;
+}
+
+//  from ../qtconnectivity/src/nfc/qnearfieldtarget_p.cpp, line 63, as _ZNK23QNearFieldTargetPrivate16maxCommandLengthEv
+inline int QNearFieldTargetPrivate::maxCommandLength() const
+{
+    return 0;
+}
+
+//  from ../qtconnectivity/src/nfc/qnearfieldtarget_p.cpp, line 19, as _ZNK23QNearFieldTargetPrivate3uidEv
+inline QByteArray QNearFieldTargetPrivate::uid() const
+{
+    return QByteArray();
+}
+
+//  from ../qtconnectivity/src/nfc/qnearfieldtarget_p.cpp, line 24, as _ZNK23QNearFieldTargetPrivate4typeEv
+inline QNearFieldTarget::Type QNearFieldTargetPrivate::type() const
+{
+    return QNearFieldTarget::Type::ProprietaryTag;
+}
+
+//  from ../qtconnectivity/src/nfc/qnearfieldtarget_p.cpp, line 13, as _ZN23QNearFieldTargetPrivateC1EP7QObject
+inline QNearFieldTargetPrivate::QNearFieldTargetPrivate(QObject *parent)
+:   QObject(parent)
+,   q_ptr(nullptr)
+{
+}
+
+//  from ../qtconnectivity/src/nfc/qnearfieldtarget_p.cpp, line 77, as _ZN23QNearFieldTargetPrivate23waitForRequestCompletedERKN16QNearFieldTarget9RequestIdEi
+inline bool QNearFieldTargetPrivate::waitForRequestCompleted(const QNearFieldTarget::RequestId &id,
+                                                      int msecs)
+{
+    QElapsedTimer timer;
+    timer.start();
+
+    const QPointer<QNearFieldTargetPrivate> weakThis = this;
+
+    do {
+        if (!weakThis)
+            return false;
+
+        if (m_decodedResponses.contains(id))
+            return true;
+        else
+            QCoreApplication::processEvents(QEventLoop::WaitForMoreEvents, 1);
+    } while (timer.elapsed() <= msecs);
+
+    reportError(QNearFieldTarget::TimeoutError, id);
+
+    return false;
+}
+
 //  from ../qtconnectivity/src/nfc/qnearfieldtarget_p.cpp, line 100, as _ZNK23QNearFieldTargetPrivate15requestResponseERKN16QNearFieldTarget9RequestIdE
 inline QVariant QNearFieldTargetPrivate::requestResponse(const QNearFieldTarget::RequestId &id) const
 {
     return m_decodedResponses.value(id);
 }
+
+//  from ../qtconnectivity/src/nfc/qnearfieldtarget_p.cpp, line 123, as _ZN23QNearFieldTargetPrivate11reportErrorEN16QNearFieldTarget5ErrorERKNS0_9RequestIdE
+inline void QNearFieldTargetPrivate::reportError(QNearFieldTarget::Error error,
+                                          const QNearFieldTarget::RequestId &id)
+{
+    setResponseForRequest(id, QVariant(), false);
+    QMetaObject::invokeMethod(this, [this, error, id]() {
+        Q_EMIT this->error(error, id);
+    }, Qt::QueuedConnection);
+}
 //  -----------------------------------------------------------------------
+
+//  Only a class built on QNearFieldTargetPrivate may call these functions of it.
+//  This one is, and makes them free for the rituals to call.
+struct OwnQNearFieldTargetPrivate : QNearFieldTargetPrivate {
+  using QNearFieldTargetPrivate::setResponseForRequest;
+};
 
 //  A QNearFieldTargetPrivate that Python can take functions over in. Every QNearFieldTargetPrivate
 //  Python makes is one. Each function below asks the Python
@@ -453,6 +682,22 @@ int ritual_ZN23QNearFieldTargetPrivate11qt_metacallEN11QMetaObject4CallEiPPv(
   return self->qt_metacall(a0, a1, a2);
 }
 
+//  QString QNearFieldTargetPrivate::tr(const char *s, const char *c, int n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN23QNearFieldTargetPrivate2trEPKcS1_i(
+    const char *s,
+    const char *c,
+    int n) {
+  return new QString(QNearFieldTargetPrivate::tr(s, c, n));
+}
+
+//  QNearFieldTargetPrivate::QNearFieldTargetPrivate(QObject *parent)
+extern "C" Q_DECL_EXPORT
+QNearFieldTargetPrivate *ritual_ZN23QNearFieldTargetPrivateC1EP7QObject(
+    QObject *parent) {
+  return new CuteQNearFieldTargetPrivate(parent);
+}
+
 //  QNearFieldTargetPrivate::~QNearFieldTargetPrivate()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN23QNearFieldTargetPrivateD1Ev(QNearFieldTargetPrivate *self) {
@@ -526,6 +771,16 @@ QNearFieldTarget::RequestId *ritual_ZN23QNearFieldTargetPrivate11sendCommandERK1
     QNearFieldTargetPrivate *self,
     const QByteArray *command) {
   return new QNearFieldTarget::RequestId(self->sendCommand(*command));
+}
+
+//  bool QNearFieldTargetPrivate::waitForRequestCompleted(const
+//      QNearFieldTarget::RequestId &id, int msecs)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN23QNearFieldTargetPrivate23waitForRequestCompletedERKN16QNearFieldTarget9RequestIdEi(
+    QNearFieldTargetPrivate *self,
+    const QNearFieldTarget::RequestId *id,
+    int msecs) {
+  return self->waitForRequestCompleted(*id, msecs);
 }
 
 //  QVariant QNearFieldTargetPrivate::requestResponse(const
@@ -660,6 +915,16 @@ void ritual_ZN23QNearFieldTargetPrivate21setResponseForRequestERKN16QNearFieldTa
   self->setResponseForRequest(*id, *response, emitRequestCompleted);
 }
 
+//  void QNearFieldTargetPrivate::reportError(QNearFieldTarget::Error error,
+//      const QNearFieldTarget::RequestId &id)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN23QNearFieldTargetPrivate11reportErrorEN16QNearFieldTarget5ErrorERKNS0_9RequestIdE(
+    QNearFieldTargetPrivate *self,
+    QNearFieldTarget::Error error,
+    const QNearFieldTarget::RequestId *id) {
+  self->reportError(error, *id);
+}
+
 //  a Python function taken by a CuteQNearFieldTargetPrivate, for the
 //      function named by the key
 extern "C" Q_DECL_EXPORT
@@ -707,9 +972,43 @@ bool ritual_own_ZN23QNearFieldTargetPrivate14hasNdefMessageEv(
   return self->QNearFieldTargetPrivate::hasNdefMessage();
 }
 
+//  QNearFieldTarget::RequestId QNearFieldTargetPrivate::readNdefMessages()
+extern "C" Q_DECL_EXPORT
+QNearFieldTarget::RequestId *ritual_own_ZN23QNearFieldTargetPrivate16readNdefMessagesEv(
+    QNearFieldTargetPrivate *self) {
+  return new QNearFieldTarget::RequestId(
+      self->QNearFieldTargetPrivate::readNdefMessages());
+}
+
 //  int QNearFieldTargetPrivate::maxCommandLength() const
 extern "C" Q_DECL_EXPORT
 int ritual_own_ZNK23QNearFieldTargetPrivate16maxCommandLengthEv(
     const QNearFieldTargetPrivate *self) {
   return self->QNearFieldTargetPrivate::maxCommandLength();
+}
+
+//  QNearFieldTarget::RequestId QNearFieldTargetPrivate::sendCommand(const
+//      QByteArray &command)
+extern "C" Q_DECL_EXPORT
+QNearFieldTarget::RequestId *ritual_own_ZN23QNearFieldTargetPrivate11sendCommandERK10QByteArray(
+    QNearFieldTargetPrivate *self,
+    const QByteArray *command) {
+  return new QNearFieldTarget::RequestId(
+      self->QNearFieldTargetPrivate::sendCommand(
+          *command));
+}
+
+//  void QNearFieldTargetPrivate::setResponseForRequest(const
+//      QNearFieldTarget::RequestId &id, const QVariant &response, bool
+//      emitRequestCompleted)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN23QNearFieldTargetPrivate21setResponseForRequestERKN16QNearFieldTarget9RequestIdERK8QVariantb(
+    QNearFieldTargetPrivate *self,
+    const QNearFieldTarget::RequestId *id,
+    const QVariant *response,
+    bool emitRequestCompleted) {
+  static_cast<OwnQNearFieldTargetPrivate *>(self)->OwnQNearFieldTargetPrivate::setResponseForRequest(
+      *id,
+      *response,
+      emitRequestCompleted);
 }

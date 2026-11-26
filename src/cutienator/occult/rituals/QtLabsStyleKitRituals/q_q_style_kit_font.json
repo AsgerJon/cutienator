@@ -2,7 +2,7 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtLabsStyleKit/6.12.0/QtLabsStyleKit/private/qqstylekitfont_p.h,",
-    "Qt 6.12.0. Changes made here are lost."
+    "Qt 6.12.0. Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZNK14QQStyleKitFont10metaObjectEv": ["address", "address"],
@@ -12,21 +12,70 @@
     "ritual_ZN14QQStyleKitFont11qt_metacallEN11QMetaObject4CallEiPPv": [
       "int", "address", "int", "int", "address"
     ],
+    "ritual_ZN14QQStyleKitFont2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN14QQStyleKitFontC1EP7QObject": ["address", "address"],
     "ritual_ZNK14QQStyleKitFont6systemEv": ["address", "address"],
+    "ritual_ZN14QQStyleKitFont9setSystemERK5QFont": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK14QQStyleKitFont6buttonEv": ["address", "address"],
+    "ritual_ZN14QQStyleKitFont9setButtonERK5QFont": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK14QQStyleKitFont8checkBoxEv": ["address", "address"],
+    "ritual_ZN14QQStyleKitFont11setCheckBoxERK5QFont": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK14QQStyleKitFont8comboBoxEv": ["address", "address"],
+    "ritual_ZN14QQStyleKitFont11setComboBoxERK5QFont": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK14QQStyleKitFont8groupBoxEv": ["address", "address"],
+    "ritual_ZN14QQStyleKitFont11setGroupBoxERK5QFont": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK14QQStyleKitFont12itemDelegateEv": ["address", "address"],
+    "ritual_ZN14QQStyleKitFont15setItemDelegateERK5QFont": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK14QQStyleKitFont5labelEv": ["address", "address"],
+    "ritual_ZN14QQStyleKitFont8setLabelERK5QFont": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK14QQStyleKitFont11radioButtonEv": ["address", "address"],
+    "ritual_ZN14QQStyleKitFont14setRadioButtonERK5QFont": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK14QQStyleKitFont7spinBoxEv": ["address", "address"],
+    "ritual_ZN14QQStyleKitFont10setSpinBoxERK5QFont": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK14QQStyleKitFont13switchControlEv": ["address", "address"],
+    "ritual_ZN14QQStyleKitFont16setSwitchControlERK5QFont": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK14QQStyleKitFont6tabBarEv": ["address", "address"],
+    "ritual_ZN14QQStyleKitFont9setTabBarERK5QFont": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK14QQStyleKitFont8textAreaEv": ["address", "address"],
+    "ritual_ZN14QQStyleKitFont11setTextAreaERK5QFont": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK14QQStyleKitFont9textFieldEv": ["address", "address"],
+    "ritual_ZN14QQStyleKitFont12setTextFieldERK5QFont": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK14QQStyleKitFont7toolBarEv": ["address", "address"],
+    "ritual_ZN14QQStyleKitFont10setToolBarERK5QFont": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK14QQStyleKitFont12fallbackFontEv": ["address", "address"],
+    "ritual_ZN14QQStyleKitFont15setFallbackFontEPS_": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN14QQStyleKitFont13systemChangedEv": ["nothing", "address"],
     "ritual_ZN14QQStyleKitFont13buttonChangedEv": ["nothing", "address"],
     "ritual_ZN14QQStyleKitFont15checkBoxChangedEv": ["nothing", "address"],

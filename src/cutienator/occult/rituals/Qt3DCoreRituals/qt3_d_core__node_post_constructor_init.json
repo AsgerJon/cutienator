@@ -1,8 +1,8 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "Qt3DCore/6.12.0/Qt3DCore/private/qnode_p.h, Qt 6.12.0. Changes",
-    "made here are lost."
+    "Qt3DCore/6.12.0/Qt3DCore/private/qnode_p.h, Qt 6.12.0. Edited by",
+    "hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZNK8Qt3DCore23NodePostConstructorInit10metaObjectEv": [
@@ -13,6 +13,12 @@
     ],
     "ritual_ZN8Qt3DCore23NodePostConstructorInit11qt_metacallEN11QMetaObject4CallEiPPv": [
       "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN8Qt3DCore23NodePostConstructorInit2trEPKcS2_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN8Qt3DCore23NodePostConstructorInitC1EP7QObject": [
+      "address", "address"
     ],
     "ritual_ZN8Qt3DCore23NodePostConstructorInitD1Ev": [
       "nothing", "address"

@@ -2,7 +2,7 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of Qt3DInp",
     "ut/6.12.0/Qt3DInput/private/keyboardmousegenericdeviceintegration_",
-    "p.h, Qt 6.12.0. Changes made here are lost."
+    "p.h, Qt 6.12.0. Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZNK9Qt3DInput5Input37KeyboardMouseGenericDeviceIntegration10metaObjectEv": [
@@ -13,6 +13,12 @@
     ],
     "ritual_ZN9Qt3DInput5Input37KeyboardMouseGenericDeviceIntegration11qt_metacallEN11QMetaObject4CallEiPPv": [
       "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN9Qt3DInput5Input37KeyboardMouseGenericDeviceIntegration2trEPKcS3_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN9Qt3DInput5Input37KeyboardMouseGenericDeviceIntegrationC1EPNS0_12InputHandlerE": [
+      "address", "address"
     ],
     "ritual_ZN9Qt3DInput5Input37KeyboardMouseGenericDeviceIntegrationD1Ev": [
       "nothing", "address"
@@ -28,6 +34,9 @@
     ],
     "ritual_ZNK9Qt3DInput5Input37KeyboardMouseGenericDeviceIntegration14physicalDeviceEN8Qt3DCore7QNodeIdE": [
       "address", "address", "address"
+    ],
+    "ritual_ZNK9Qt3DInput5Input37KeyboardMouseGenericDeviceIntegration11deviceNamesEv": [
+      "address", "address"
     ],
     "ritual_ZN9Qt3DInput5Input37KeyboardMouseGenericDeviceIntegration12onInitializeEv": [
       "nothing", "address"

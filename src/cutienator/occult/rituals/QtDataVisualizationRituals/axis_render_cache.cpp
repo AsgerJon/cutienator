@@ -1,6 +1,13 @@
 //  Written by dev_tooling.RitualGenerator from the records of QtDataVisualiz
 //  ation/6.12.0/QtDataVisualization/private/axisrendercache_p.h, Qt 6.12.0.
-//  Changes made here are lost.
+//  Edited by hand on 2026-11-26: moc's output for 'AxisRenderCache' is
+//  pasted in, cut from what the moc of Qt 6.12.0 writes for its header: Qt's
+//  library keeps it to itself; added are 2 rituals that lean on what moc
+//  writes for a class of the part Qt keeps to itself, whose ritual file
+//  carries moc's output, drafted by a copy of the generator that lets those
+//  names through. A copy of a meta-object is a second one: 'qobject_cast'
+//  between it and Qt's own does not match. Kept as it is when the generator
+//  runs again.
 #include <QtDataVisualization/6.12.0/QtDataVisualization/private/datavisualizationglobal_p.h>
 #include <QtDataVisualization/QtDataVisualization>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -11,6 +18,13 @@
 #include <QtCore/qlist.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
+#include <QtDataVisualization/private/axisrendercache_p.h>
+#include <QtGui/QFontMetrics>
+#include <QtDataVisualization/private/labelitem_p.h>
 #include <QtDataVisualization/private/drawer_p.h>
 #include <QtDataVisualization/private/shaderhelper_p.h>
 #include <QtDataVisualization/private/surfaceobject_p.h>
@@ -21,14 +35,11 @@
 #include <QtGui/QMatrix4x4>
 #include <QtGui/qquaternion.h>
 #include <QtCore/qmath.h>
-#include <QtDataVisualization/private/labelitem_p.h>
 #include <QtDataVisualization/private/texturehelper_p.h>
 #include <QtDataVisualization/private/utils_p.h>
 #include <QtGui/QImage>
 #include <QtGui/QPainter>
 #include <QtCore/QTime>
-#include <QtDataVisualization/private/axisrendercache_p.h>
-#include <QtGui/QFontMetrics>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -37,6 +48,88 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  from QtDataVisualization__AxisRenderCache.cpp, line 1, as moc:AxisRenderCache
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN15AxisRenderCacheE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto AxisRenderCache::qt_create_metaobjectdata<qt_meta_tag_ZN15AxisRenderCacheE_t>()
+{
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "AxisRenderCache"
+    };
+
+    QtMocHelpers::UintData qt_methods {
+    };
+    QtMocHelpers::UintData qt_properties {
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    return QtMocHelpers::metaObjectData<AxisRenderCache, qt_meta_tag_ZN15AxisRenderCacheE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums);
+}
+Q_CONSTINIT const QMetaObject AxisRenderCache::staticMetaObject = { {
+    QMetaObject::SuperData::link<QObject::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN15AxisRenderCacheE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN15AxisRenderCacheE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN15AxisRenderCacheE_t>.metaTypes,
+    nullptr
+} };
+
+void AxisRenderCache::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<AxisRenderCache *>(_o);
+    (void)_t;
+    (void)_c;
+    (void)_id;
+    (void)_a;
+}
+
+const QMetaObject *AxisRenderCache::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *AxisRenderCache::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN15AxisRenderCacheE_t>.strings))
+        return static_cast<void*>(this);
+    return QObject::qt_metacast(_clname);
+}
+
+int AxisRenderCache::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QObject::qt_metacall(_c, _id, _a);
+    return _id;
+}
+QT_WARNING_POP
+
+//  from ../qtdatavis3d/src/datavisualization/engine/axisrendercache.cpp, line 32, as _ZN15AxisRenderCacheD0Ev
+inline AxisRenderCache::~AxisRenderCache()
+{
+    for (auto label: m_labelItems)
+        delete label;
+    m_titleItem.clear();
+
+    delete m_formatter;
+}
+
+//  from ../qtdatavis3d/src/datavisualization/data/labelitem.cpp, line 8, as _ZN9LabelItemC1Ev
+inline LabelItem::LabelItem()
+    : m_size(QSize(0, 0)),
+      m_textureId(0)
+{
+}
 
 //  from ../qtdatavis3d/src/datavisualization/engine/drawer.cpp, line 407, as _ZN6Drawer17generateLabelItemER9LabelItemRK7QStringi
 inline void Drawer::generateLabelItem(LabelItem &item, const QString &text, int widestLabel)
@@ -82,13 +175,6 @@ inline QFont Drawer::font() const
 inline LabelItem::~LabelItem()
 {
     clear();
-}
-
-//  from ../qtdatavis3d/src/datavisualization/data/labelitem.cpp, line 8, as _ZN9LabelItemC1Ev
-inline LabelItem::LabelItem()
-    : m_size(QSize(0, 0)),
-      m_textureId(0)
-{
 }
 
 //  from ../qtdatavis3d/src/datavisualization/data/labelitem.cpp, line 24, as _ZNK9LabelItem4sizeEv
@@ -168,6 +254,27 @@ inline QImage TextureHelper::convertToGLFormat(const QImage &srcImage)
     QImage res(srcImage.size(), QImage::Format_ARGB32);
     convertToGLFormatHelper(res, srcImage.convertToFormat(QImage::Format_ARGB32), GL_RGBA);
     return res;
+}
+
+//  from ../qtdatavis3d/src/datavisualization/engine/axisrendercache.cpp, line 12, as _ZN15AxisRenderCacheC1Ev
+inline AxisRenderCache::AxisRenderCache()
+    : m_type(QAbstract3DAxis::AxisTypeNone),
+      m_min(0.0f),
+      m_max(10.0f),
+      m_segmentCount(5),
+      m_subSegmentCount(1),
+      m_reversed(false),
+      m_font(QFont(QStringLiteral("Arial"))),
+      m_formatter(0),
+      m_ctrlFormatter(0),
+      m_drawer(0),
+      m_positionsDirty(true),
+      m_translate(0.0f),
+      m_scale(1.0f),
+      m_labelAutoRotation(0.0f),
+      m_titleVisible(false),
+      m_titleFixed(false)
+{
 }
 
 //  from ../qtdatavis3d/src/datavisualization/engine/axisrendercache.cpp, line 49, as _ZN15AxisRenderCache7setTypeEN15QAbstract3DAxis8AxisTypeE
@@ -445,6 +552,21 @@ int ritual_ZN15AxisRenderCache11qt_metacallEN11QMetaObject4CallEiPPv(
     int a1,
     void **a2) {
   return self->qt_metacall(a0, a1, a2);
+}
+
+//  QString AxisRenderCache::tr(const char *s, const char *c, int n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN15AxisRenderCache2trEPKcS1_i(
+    const char *s,
+    const char *c,
+    int n) {
+  return new QString(AxisRenderCache::tr(s, c, n));
+}
+
+//  AxisRenderCache::AxisRenderCache()
+extern "C" Q_DECL_EXPORT
+AxisRenderCache *ritual_ZN15AxisRenderCacheC1Ev() {
+  return new CuteAxisRenderCache();
 }
 
 //  AxisRenderCache::~AxisRenderCache()

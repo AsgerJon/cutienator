@@ -49,6 +49,14 @@ inline QString QQmlExpressionPrivate::expressionIdentifier() const
     return QLatin1Char('"') + expression + QLatin1Char('"');
 }
 
+//  from ../qtdeclarative/src/qml/qml/qqmlexpression.cpp, line 18, as _ZN21QQmlExpressionPrivateC1Ev
+inline QQmlExpressionPrivate::QQmlExpressionPrivate()
+: QQmlJavaScriptExpression(),
+  expressionFunctionValid(true),
+  line(0), column(0)
+{
+}
+
 //  from ../qtdeclarative/src/qml/qml/qqmlexpression.cpp, line 29, as _ZN21QQmlExpressionPrivate4initERK14QQmlRefPointerI15QQmlContextDataERK7QStringP7QObject
 inline void QQmlExpressionPrivate::init(const QQmlRefPointer<QQmlContextData> &ctxt, const QString &expr,
                                  QObject *me)
@@ -212,6 +220,12 @@ extern "C" Q_DECL_EXPORT
 const QQmlExpression *ritual_ZNK21QQmlExpressionPrivate6q_funcEv(
     const QQmlExpressionPrivate *self) {
   return self->q_func();
+}
+
+//  QQmlExpressionPrivate::QQmlExpressionPrivate()
+extern "C" Q_DECL_EXPORT
+QQmlExpressionPrivate *ritual_ZN21QQmlExpressionPrivateC1Ev() {
+  return new CuteQQmlExpressionPrivate();
 }
 
 //  QQmlExpressionPrivate::~QQmlExpressionPrivate()

@@ -5,6 +5,7 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN19QQuickContext2DTileC1Ev": ["address"],
     "ritual_ZN19QQuickContext2DTileD1Ev": ["nothing", "address"],
     "ritual_ZNK19QQuickContext2DTile5dirtyEv": ["bool", "address"],
     "ritual_ZN19QQuickContext2DTile9markDirtyEb": [

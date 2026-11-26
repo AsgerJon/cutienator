@@ -211,6 +211,31 @@ inline void QDBusConnectionPrivate::activateObject(ObjectTreeNode &node, const Q
         sendError(msg, QDBusError::UnknownInterface);
 }
 #endif  // !defined(QT_NO_DBUS)
+
+//  from src/dbus/qdbusintegrator.cpp, line 1371, as _ZN22QDBusConnectionPrivate9sendErrorERK12QDBusMessageN10QDBusError9ErrorTypeE
+#if !defined(QT_NO_DBUS)
+inline void QDBusConnectionPrivate::sendError(const QDBusMessage &msg, QDBusError::ErrorType code)
+{
+    if (code == QDBusError::UnknownMethod) {
+        QString interfaceMsg;
+        if (msg.interface().isEmpty())
+            interfaceMsg = "any interface"_L1;
+        else
+            interfaceMsg = "interface '%1'"_L1.arg(msg.interface());
+
+        send(msg.createErrorReply(code, "No such method '%1' in %2 at object path '%3' "
+                                        "(signature '%4')"_L1
+                                  .arg(msg.member(), interfaceMsg, msg.path(), msg.signature())));
+    } else if (code == QDBusError::UnknownInterface) {
+        send(msg.createErrorReply(QDBusError::UnknownInterface,
+                                  "No such interface '%1' at object path '%2'"_L1
+                                  .arg(msg.interface(), msg.path())));
+    } else if (code == QDBusError::UnknownObject) {
+        send(msg.createErrorReply(QDBusError::UnknownObject,
+                                  "No such object path '%1'"_L1.arg(msg.path())));
+    }
+}
+#endif  // !defined(QT_NO_DBUS)
 //  -----------------------------------------------------------------------
 
 //  A QDBusActivateObjectEvent that Python can take functions over in. Every QDBusActivateObjectEvent

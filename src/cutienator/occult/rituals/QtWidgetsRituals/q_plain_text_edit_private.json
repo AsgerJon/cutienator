@@ -2,12 +2,15 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtWidgets/6.12.0/QtWidgets/private/qplaintextedit_p.h, Qt 6.12.0.",
-    "Changes made here are lost."
+    "Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZN21QPlainTextEditPrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK21QPlainTextEditPrivate6q_funcEv": ["address", "address"],
     "ritual_ZN21QPlainTextEditPrivateC1Ev": ["address"],
+    "ritual_ZN21QPlainTextEditPrivate4initERK7QString": [
+      "nothing", "address", "text"
+    ],
     "ritual_ZN21QPlainTextEditPrivate15repaintContentsERK6QRectF": [
       "nothing", "address", "address"
     ],

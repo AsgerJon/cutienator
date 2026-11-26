@@ -64,6 +64,15 @@ inline BackendNode::~BackendNode()
 }
 }  // namespace Qt3DAnimation::Animation
 
+//  from ../qt3d/src/animation/backend/clock.cpp, line 14, as _ZN13Qt3DAnimation9Animation5ClockC1Ev
+namespace Qt3DAnimation::Animation {
+inline Clock::Clock()
+    : BackendNode(ReadOnly)
+    , m_playbackRate(1.f)
+{
+}
+}  // namespace Qt3DAnimation::Animation
+
 //  from ../qt3d/src/animation/backend/clock.cpp, line 32, as _ZN13Qt3DAnimation9Animation5Clock7cleanupEv
 namespace Qt3DAnimation::Animation {
 inline void Clock::cleanup()
@@ -72,6 +81,12 @@ inline void Clock::cleanup()
 }
 }  // namespace Qt3DAnimation::Animation
 //  -----------------------------------------------------------------------
+
+//  Qt3DAnimation::Animation::Clock::Clock()
+extern "C" Q_DECL_EXPORT
+Qt3DAnimation::Animation::Clock *ritual_ZN13Qt3DAnimation9Animation5ClockC1Ev() {
+  return new Qt3DAnimation::Animation::Clock();
+}
 
 //  void Qt3DAnimation::Animation::Clock::syncFromFrontEnd(const
 //      Qt3DCore::QNode *frontEnd, bool firstTime)

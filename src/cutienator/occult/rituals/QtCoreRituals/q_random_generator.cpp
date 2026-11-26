@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtCore/qrandom.h, Qt 6.12.0. Changes made here are lost.
+//  QtCore/qrandom.h, Qt 6.12.0. Edited by hand on 2026-11-25, mended on
+//  2026-11-26: added by hand, instances of templates of the class: 2. Kept
+//  as it is when the generator runs again.
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtCore/qrandom.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -337,4 +339,24 @@ quint64 ritual_ZN16QRandomGenerator10_fillRangeEPvx(
     void *buffer,
     qptrdiff count) {
   return self->_fillRange(buffer, count);
+}
+
+//  void QRandomGenerator::fillRange<quint32>(quint32 *buffer, qsizetype
+//      count)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QRandomGenerator9fillRangeIjLb1EEvPT_l(
+    QRandomGenerator *self,
+    unsigned int *buffer,
+    long long count) {
+  self->fillRange<quint32>(buffer, count);
+}
+
+//  void QRandomGenerator::fillRange<quint64>(quint64 *buffer, qsizetype
+//      count)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QRandomGenerator9fillRangeIyLb1EEvPT_l(
+    QRandomGenerator *self,
+    unsigned long long *buffer,
+    long long count) {
+  self->fillRange<quint64>(buffer, count);
 }

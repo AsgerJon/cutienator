@@ -21,14 +21,6 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from ../qt3d/src/quick3d/quick3drender/items/quick3dparameter.cpp, line 15, as _ZN10Qt3DRender6Render5Quick23Quick3DParameterPrivateC1Ev
-namespace Qt3DRender::Render::Quick {
-inline Quick3DParameterPrivate::Quick3DParameterPrivate()
-    : QParameterPrivate()
-{
-}
-}  // namespace Qt3DRender::Render::Quick
-
 //  from ../qt3d/src/quick3d/quick3drender/items/quick3dparameter.cpp, line 20, as _ZN10Qt3DRender6Render5Quick23Quick3DParameterPrivate8setValueERK8QVariant
 namespace Qt3DRender::Render::Quick {
 inline void Quick3DParameterPrivate::setValue(const QVariant &value)
@@ -42,6 +34,14 @@ inline void Quick3DParameterPrivate::setValue(const QVariant &value)
     } else {
         QParameterPrivate::setValue(value);
     }
+}
+}  // namespace Qt3DRender::Render::Quick
+
+//  from ../qt3d/src/quick3d/quick3drender/items/quick3dparameter.cpp, line 15, as _ZN10Qt3DRender6Render5Quick23Quick3DParameterPrivateC1Ev
+namespace Qt3DRender::Render::Quick {
+inline Quick3DParameterPrivate::Quick3DParameterPrivate()
+    : QParameterPrivate()
+{
 }
 }  // namespace Qt3DRender::Render::Quick
 //  -----------------------------------------------------------------------

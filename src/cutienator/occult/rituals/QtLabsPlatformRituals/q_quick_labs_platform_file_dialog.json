@@ -2,7 +2,7 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of QtLabsP",
     "latform/6.12.0/QtLabsPlatform/private/qquicklabsplatformfiledialog",
-    "_p.h, Qt 6.12.0. Changes made here are lost."
+    "_p.h, Qt 6.12.0. Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZNK28QQuickLabsPlatformFileDialog10metaObjectEv": [
@@ -49,6 +49,9 @@
     ],
     "ritual_ZNK28QQuickLabsPlatformFileDialog7optionsEv": ["int", "address"],
     "ritual_ZNK28QQuickLabsPlatformFileDialog11nameFiltersEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK28QQuickLabsPlatformFileDialog18selectedNameFilterEv": [
       "address", "address"
     ],
     "ritual_ZNK28QQuickLabsPlatformFileDialog13defaultSuffixEv": [
@@ -116,6 +119,12 @@
     ],
     "ritual_own_ZNK28QQuickLabsPlatformFileDialog15useNativeDialogEv": [
       "bool", "address"
+    ],
+    "ritual_own_ZN28QQuickLabsPlatformFileDialog6onShowEP21QPlatformDialogHelper": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN28QQuickLabsPlatformFileDialog6onHideEP21QPlatformDialogHelper": [
+      "nothing", "address", "address"
     ]
   }
 }

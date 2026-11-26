@@ -1,6 +1,14 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtQmlModels/6.12.0/QtQmlModels/private/qqmlsortercompositor_p.h, Qt
-//  6.12.0. Changes made here are lost.
+//  6.12.0.
+//  Edited by hand on 2026-11-26: moc's output for 'QQmlSorterCompositor' is
+//  pasted in, cut from what the moc of Qt 6.12.0 writes for its header: Qt's
+//  library keeps it to itself; added are 5 rituals that lean on what moc
+//  writes for a class of the part Qt keeps to itself, whose ritual file
+//  carries moc's output, drafted by a copy of the generator that lets those
+//  names through. A copy of a meta-object is a second one: 'qobject_cast'
+//  between it and Qt's own does not match. Kept as it is when the generator
+//  runs again.
 #include <QtCore/qglobal.h>
 #include <QtQmlModels/qtqmlmodelsglobal.h>
 #include <QtQmlModels/6.12.0/QtQmlModels/private/qtqmlmodelsglobal_p.h>
@@ -9,6 +17,9 @@
 #include <QtQmlModels/QtQmlModels>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQmlModels/6.12.0/QtQmlModels/private/qqmlsortercompositor_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQmlModels/6.12.0/QtQmlModels/private/qqmlsorterbase_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qabstractitemmodel.h>
@@ -18,6 +29,10 @@
 #include <cstring>
 #include <QtQml/QQmlListProperty>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qmetatype.h>
+#include <QtCore/qtmochelpers.h>
+#include <memory>
+#include <QtCore/qxptype_traits.h>
 #include <QtQmlModels/private/qqmlsortercompositor_p.h>
 #include <QtQmlModels/private/qqmlsortfilterproxymodel_p_p.h>
 #include <QtQmlModels/private/qqmlsortfilterproxymodel_p.h>
@@ -29,6 +44,99 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  from QtQmlModels__QQmlSorterCompositor.cpp, line 1, as moc:QQmlSorterCompositor
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+namespace {
+struct qt_meta_tag_ZN20QQmlSorterCompositorE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto QQmlSorterCompositor::qt_create_metaobjectdata<qt_meta_tag_ZN20QQmlSorterCompositorE_t>()
+{
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "QQmlSorterCompositor",
+        "QML.Element",
+        "anonymous",
+        "QML.AddedInVersion",
+        "1546",
+        "updateCache",
+        ""
+    };
+
+    QtMocHelpers::UintData qt_methods {
+        // Slot 'updateCache'
+        QtMocHelpers::SlotData<void()>(5, 6, QMC::AccessPublic, QMetaType::Void),
+    };
+    QtMocHelpers::UintData qt_properties {
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    QtMocHelpers::UintData qt_constructors {};
+    QtMocHelpers::ClassInfos qt_classinfo({
+            {    1,    2 },
+            {    3,    4 },
+    });
+    return QtMocHelpers::metaObjectData<QQmlSorterCompositor, void>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums, qt_constructors, qt_classinfo);
+}
+Q_CONSTINIT const QMetaObject QQmlSorterCompositor::staticMetaObject = { {
+    QMetaObject::SuperData::link<QQmlSorterBase::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN20QQmlSorterCompositorE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN20QQmlSorterCompositorE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN20QQmlSorterCompositorE_t>.metaTypes,
+    nullptr
+} };
+
+void QQmlSorterCompositor::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<QQmlSorterCompositor *>(_o);
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        switch (_id) {
+        case 0: _t->updateCache(); break;
+        default: ;
+        }
+    }
+    (void)_a;
+}
+
+const QMetaObject *QQmlSorterCompositor::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *QQmlSorterCompositor::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN20QQmlSorterCompositorE_t>.strings))
+        return static_cast<void*>(this);
+    return QQmlSorterBase::qt_metacast(_clname);
+}
+
+int QQmlSorterCompositor::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QQmlSorterBase::qt_metacall(_c, _id, _a);
+    if (_id < 0)
+        return _id;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        if (_id < 1)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 1;
+    }
+    if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        if (_id < 1)
+            *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
+        _id -= 1;
+    }
+    return _id;
+}
+QT_WARNING_POP
 
 //  from ../qtdeclarative/src/qmlmodels/sfpm/sorters/qqmlsortercompositor.cpp, line 155, as _ZN20QQmlSorterCompositor11updateCacheEv
 inline void QQmlSorterCompositor::updateCache()
@@ -52,6 +160,19 @@ inline void QQmlSorterCompositor::updateCache()
     }
 }
 
+//  from ../qtdeclarative/src/qmlmodels/sfpm/sorters/qqmlsortercompositor.cpp, line 25, as _ZN20QQmlSorterCompositorD0Ev
+inline QQmlSorterCompositor::~QQmlSorterCompositor()
+{
+
+}
+
+//  from ../qtdeclarative/src/qmlmodels/sfpm/sorters/qqmlsortercompositor.cpp, line 30, as _ZN27QQmlSorterCompositorPrivate4initEv
+inline void QQmlSorterCompositorPrivate::init()
+{
+    Q_Q(QQmlSorterCompositor);
+    m_sfpmModel = qobject_cast<QQmlSortFilterProxyModel *>(q->parent());
+}
+
 //  from ../qtdeclarative/src/qmlmodels/sfpm/sorters/qqmlsortercompositor.cpp, line 210, as _ZN27QQmlSorterCompositorPrivate18resetPrimarySorterEv
 inline void QQmlSorterCompositorPrivate::resetPrimarySorter()
 {
@@ -70,11 +191,44 @@ inline void QQmlSorterCompositorPrivate::resetPrimarySorter()
     }
 }
 
+//  from ../qtdeclarative/src/qmlmodels/sfpm/sorters/qqmlsortercompositor.cpp, line 11, as _ZN20QQmlSorterCompositorC1EP7QObject
+inline QQmlSorterCompositor::QQmlSorterCompositor(QObject *parent)
+    : QQmlSorterBase(new QQmlSorterCompositorPrivate, parent)
+{
+    Q_D(QQmlSorterCompositor);
+    d->init();
+    // Connect the model reset with the update in the filter
+    // The cache need to be updated once the model is reset with the
+    // source model data.
+    connect(d->m_sfpmModel, &QQmlSortFilterProxyModel::modelReset,
+            this, &QQmlSorterCompositor::updateSorters);
+    connect(d->m_sfpmModel, &QQmlSortFilterProxyModel::primarySorterChanged,
+            this, &QQmlSorterCompositor::updateEffectiveSorters);
+}
+
 //  from ../qtdeclarative/src/qmlmodels/sfpm/sorters/qqmlsortercompositor.cpp, line 109, as _ZN20QQmlSorterCompositor7sortersEv
 inline QList<QQmlSorterBase *> QQmlSorterCompositor::sorters()
 {
     Q_D(QQmlSorterCompositor);
     return d->m_sorters;
+}
+
+//  from ../qtdeclarative/src/qmlmodels/sfpm/sorters/qqmlsortercompositor.cpp, line 115, as _ZN20QQmlSorterCompositor19sortersListPropertyEv
+inline QQmlListProperty<QQmlSorterBase> QQmlSorterCompositor::sortersListProperty()
+{
+    Q_D(QQmlSorterCompositor);
+    return QQmlListProperty<QQmlSorterBase>(reinterpret_cast<QObject*>(this), &d->m_sorters,
+                                                  QQmlSorterCompositor::append,
+                                                  QQmlSorterCompositor::count,
+                                                  QQmlSorterCompositor::at,
+                                                  QQmlSorterCompositor::clear);
+}
+
+//  from ../qtdeclarative/src/qmlmodels/sfpm/sorters/qqmlsortercompositor.cpp, line 36, as _ZN20QQmlSorterCompositor6appendEP16QQmlListPropertyI14QQmlSorterBaseEPS1_
+inline void QQmlSorterCompositor::append(QQmlListProperty<QQmlSorterBase> *sorterComp, QQmlSorterBase* sorter)
+{
+    auto *sorterCompositor = reinterpret_cast<QQmlSorterCompositor *>(sorterComp->object);
+    sorterCompositor->append(sorter);
 }
 
 //  from ../qtdeclarative/src/qmlmodels/sfpm/sorters/qqmlsortercompositor.cpp, line 42, as _ZN20QQmlSorterCompositor5countEP16QQmlListPropertyI14QQmlSorterBaseE
@@ -149,6 +303,35 @@ inline void QQmlSorterCompositor::updateEffectiveSorters()
                      return (sorter != d->m_primarySorter);
                  });
     d->m_effectiveSorters = sorters;
+}
+
+//  from ../qtdeclarative/src/qmlmodels/sfpm/sorters/qqmlsortercompositor.cpp, line 60, as _ZN20QQmlSorterCompositor6appendEP14QQmlSorterBase
+inline void QQmlSorterCompositor::append(QQmlSorterBase *sorter)
+{
+    if (!sorter)
+        return;
+    Q_D(QQmlSorterCompositor);
+    d->m_sorters.append(sorter);
+    // Update sorter cache depending on the priority
+    updateCache();
+    // Connect the sorter to the corresponding slot to invalidate the model
+    // and the sorter cache
+    QObject::connect(sorter, &QQmlSorterBase::invalidateModel,
+                         d->m_sfpmModel, &QQmlSortFilterProxyModel::invalidate);
+    // This is needed as its required to update cache when there is any
+    // change in the filter itself (for instance, a change in the priority of
+    // the filter)
+    QObject::connect(sorter, &QQmlSorterBase::invalidateCache,
+                     this, &QQmlSorterCompositor::updateCache);
+    // Reset the primary sort column when any sort order or column
+    // changed
+    QObject::connect(sorter, &QQmlSorterBase::sortOrderChanged,
+                     this, [d] { d->resetPrimarySorter(); });
+    QObject::connect(sorter, &QQmlSorterBase::columnChanged,
+                     this, [d] { d->resetPrimarySorter(); });
+    // Since we added new filter to the list, emit the filter changed signal
+    // for the filters thats been appended to the list
+    emit d->m_sfpmModel->sortersChanged();
 }
 
 //  from ../qtdeclarative/src/qmlmodels/sfpm/sorters/qqmlsortercompositor.cpp, line 88, as _ZN20QQmlSorterCompositor5countEv
@@ -405,11 +588,27 @@ int ritual_ZN20QQmlSorterCompositor11qt_metacallEN11QMetaObject4CallEiPPv(
   return self->qt_metacall(a0, a1, a2);
 }
 
+//  QString QQmlSorterCompositor::tr(const char *s, const char *c, int n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN20QQmlSorterCompositor2trEPKcS1_i(
+    const char *s,
+    const char *c,
+    int n) {
+  return new QString(QQmlSorterCompositor::tr(s, c, n));
+}
+
 //  void QQmlSorterCompositor::qt_qmlMarker_anonymous()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QQmlSorterCompositor22qt_qmlMarker_anonymousEv(
     QQmlSorterCompositor *self) {
   self->qt_qmlMarker_anonymous();
+}
+
+//  QQmlSorterCompositor::QQmlSorterCompositor(QObject *parent)
+extern "C" Q_DECL_EXPORT
+QQmlSorterCompositor *ritual_ZN20QQmlSorterCompositorC1EP7QObject(
+    QObject *parent) {
+  return new CuteQQmlSorterCompositor(parent);
 }
 
 //  QQmlSorterCompositor::~QQmlSorterCompositor()
@@ -423,6 +622,23 @@ extern "C" Q_DECL_EXPORT
 QList<QQmlSorterBase *> *ritual_ZN20QQmlSorterCompositor7sortersEv(
     QQmlSorterCompositor *self) {
   return new QList<QQmlSorterBase *>(self->sorters());
+}
+
+//  QQmlListProperty<QQmlSorterBase>
+//      QQmlSorterCompositor::sortersListProperty()
+extern "C" Q_DECL_EXPORT
+QQmlListProperty<QQmlSorterBase> *ritual_ZN20QQmlSorterCompositor19sortersListPropertyEv(
+    QQmlSorterCompositor *self) {
+  return new QQmlListProperty<QQmlSorterBase>(self->sortersListProperty());
+}
+
+//  void QQmlSorterCompositor::append(QQmlListProperty<QQmlSorterBase>
+//      *sorterComp, QQmlSorterBase *sorter)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQmlSorterCompositor6appendEP16QQmlListPropertyI14QQmlSorterBaseEPS1_(
+    QQmlListProperty<QQmlSorterBase> *sorterComp,
+    QQmlSorterBase *sorter) {
+  QQmlSorterCompositor::append(sorterComp, sorter);
 }
 
 //  qsizetype QQmlSorterCompositor::count(QQmlListProperty<QQmlSorterBase>
@@ -485,6 +701,14 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN20QQmlSorterCompositor22updateEffectiveSortersEv(
     QQmlSorterCompositor *self) {
   self->updateEffectiveSorters();
+}
+
+//  void QQmlSorterCompositor::append(QQmlSorterBase *sorter)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN20QQmlSorterCompositor6appendEP14QQmlSorterBase(
+    QQmlSorterCompositor *self,
+    QQmlSorterBase *sorter) {
+  self->append(sorter);
 }
 
 //  qsizetype QQmlSorterCompositor::count()

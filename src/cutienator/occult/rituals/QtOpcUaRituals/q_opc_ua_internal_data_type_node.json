@@ -2,7 +2,7 @@
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtOpcUa/6.12.0/QtOpcUa/private/qopcuainternaldatatypenode_p.h, Qt",
-    "6.12.0. Changes made here are lost."
+    "6.12.0. Edited by hand: see the ritual file."
   ],
   "rows": {
     "ritual_ZNK26QOpcUaInternalDataTypeNode10metaObjectEv": [
@@ -13,6 +13,15 @@
     ],
     "ritual_ZN26QOpcUaInternalDataTypeNode11qt_metacallEN11QMetaObject4CallEiPPv": [
       "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN26QOpcUaInternalDataTypeNode2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN26QOpcUaInternalDataTypeNodeC1EP12QOpcUaClient": [
+      "address", "address"
+    ],
+    "ritual_ZN26QOpcUaInternalDataTypeNode10initializeERK7QString": [
+      "bool", "address", "text"
     ],
     "ritual_ZNK26QOpcUaInternalDataTypeNode10definitionEv": [
       "address", "address"
@@ -26,6 +35,9 @@
       "address", "address"
     ],
     "ritual_ZN26QOpcUaInternalDataTypeNode18initializeFinishedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN26QOpcUaInternalDataTypeNode14handleFinishedEb": [
       "nothing", "address", "bool"
     ]
   }

@@ -1,6 +1,12 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtBluetooth/6.12.0/QtBluetooth/private/qlowenergycontrollerbase_p.h, Qt
-//  6.12.0. Changes made here are lost.
+//  6.12.0.
+//  Edited by hand on 2026-11-26: added are 1 rituals that lean on what moc
+//  writes for a class of the part Qt keeps to itself, whose ritual file
+//  carries moc's output, drafted by a copy of the generator that lets those
+//  names through. A copy of a meta-object is a second one: 'qobject_cast'
+//  between it and Qt's own does not match. Kept as it is when the generator
+//  runs again.
 #include <QtBluetooth/6.12.0/QtBluetooth/private/qtbluetoothglobal_p.h>
 #include <QtBluetooth/qlowenergycontroller.h>
 #include <QtBluetooth/QtBluetooth>
@@ -20,14 +26,14 @@
 #include <QtCore/QSharedPointer>
 #include <QtCore/QByteArray>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <QtBluetooth/private/qlowenergyserviceprivate_p.h>
-#include <QtBluetooth/private/qlowenergycontrollerbase_p.h>
 #include <QtBluetooth/private/qlowenergycontrollerbase_p.h>
 #include <QtCore/QLoggingCategory>
 #include <QtBluetooth/QBluetoothLocalDevice>
 #include <QtBluetooth/QLowEnergyCharacteristicData>
 #include <QtBluetooth/QLowEnergyDescriptorData>
 #include <QtBluetooth/QLowEnergyServiceData>
+#include <QtBluetooth/private/qlowenergyserviceprivate_p.h>
+#include <QtBluetooth/private/qlowenergycontrollerbase_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
@@ -36,6 +42,11 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  from ../qtconnectivity/src/bluetooth/qlowenergycontrollerbase.cpp, line 27, as _ZN27QLowEnergyControllerPrivateD0Ev
+inline QLowEnergyControllerPrivate::~QLowEnergyControllerPrivate()
+{
+}
 
 //  from ../qtconnectivity/src/bluetooth/qlowenergyserviceprivate.cpp, line 19, as _ZN24QLowEnergyServicePrivate13setControllerEP27QLowEnergyControllerPrivate
 inline void QLowEnergyServicePrivate::setController(QLowEnergyControllerPrivate *control)
@@ -239,6 +250,20 @@ inline quint16 QLowEnergyControllerPrivate::updateValueOfDescriptor(
     }
 
     return 0;
+}
+
+//  from ../qtconnectivity/src/bluetooth/qlowenergycontrollerbase.cpp, line 236, as _ZN27QLowEnergyControllerPrivate18invalidateServicesEv
+inline void QLowEnergyControllerPrivate::invalidateServices()
+{
+    for (const QSharedPointer<QLowEnergyServicePrivate> &service : std::as_const(serviceList))
+        service->setController(nullptr);
+
+    for (const QSharedPointer<QLowEnergyServicePrivate> &service : std::as_const(localServices))
+        service->setController(nullptr);
+
+    serviceList.clear();
+    localServices.clear();
+    lastLocalHandle = {};
 }
 //  -----------------------------------------------------------------------
 
@@ -871,6 +896,13 @@ quint16 ritual_ZN27QLowEnergyControllerPrivate23updateValueOfDescriptorEttRK10QB
       descriptorHandle,
       *value,
       appendValue);
+}
+
+//  void QLowEnergyControllerPrivate::invalidateServices()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN27QLowEnergyControllerPrivate18invalidateServicesEv(
+    QLowEnergyControllerPrivate *self) {
+  self->invalidateServices();
 }
 
 //  QLowEnergyController *QLowEnergyControllerPrivate::q_func()
