@@ -17,6 +17,8 @@ from ..occult import Rituals
 from . import Qt, QList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Never
+
   from . import QMargins, QSizeF
 else:
   #  The cute classes this file names and is not built on. Each is brought in
@@ -48,13 +50,15 @@ class QSize(CuteMixin, metaclass=MetaCute):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'QSize::QSize(Representation w, Representation h)': takes a type
+    Python has no way to hand over yet.
   - Qt's 'QSize::~QSize()': the destructor: Python removes its C++ QSize by
     it, and has no other use for it.
 
   What has no ritual
   ------------------
 
-  3 of the 35 functions Qt declares: 3 takes or gives a type that cannot be
+  2 of the 35 functions Qt declares: 2 takes or gives a type that cannot be
   passed yet.
 
   What to expect
@@ -68,6 +72,9 @@ class QSize(CuteMixin, metaclass=MetaCute):
     is as in C++.
   - A function giving a QSize back gives a copy the ritual made for Python,
     in a new cute QSize.
+  - Each name of Qt's QSize that has no cute function yet, 'rheight',
+    'rwidth', holds a function that raises 'NotImplementedError', and its
+    docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -827,6 +834,28 @@ class QSize(CuteMixin, metaclass=MetaCute):
         'ritual_ZN5QSize5scaleERKS_N2Qt15AspectRatioModeE',
         self._valueOf(s), mode.value,
     )
+
+  @staticmethod
+  def rheight(*__, **_) -> Never:
+    """
+    Qt's 'int &QSize::rheight()': takes or gives a type that cannot be passed
+    yet: int &.
+    """
+    raise NotImplementedError(
+        "'QSize.rheight' has no cute function yet. Qt's 'int "
+        "&QSize::rheight()': takes or gives a type that cannot be passed "
+        "yet: int &.")
+
+  @staticmethod
+  def rwidth(*__, **_) -> Never:
+    """
+    Qt's 'int &QSize::rwidth()': takes or gives a type that cannot be passed
+    yet: int &.
+    """
+    raise NotImplementedError(
+        "'QSize.rwidth' has no cute function yet. Qt's 'int "
+        "&QSize::rwidth()': takes or gives a type that cannot be passed "
+        "yet: int &.")
 
 
 #  Qt's 'QList<QSize>': the list of QSize, which 'QList[QSize]' gives. It is

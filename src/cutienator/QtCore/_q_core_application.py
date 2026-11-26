@@ -16,7 +16,7 @@ from ..occult import Rituals
 from . import Qt, QEventLoop, QObject, QStringList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from . import QAbstractEventDispatcher, QAbstractNativeEventFilter
   from . import QDeadlineTimer, QEvent, QMetaObject, QPermission, QTranslator
@@ -48,7 +48,7 @@ class QCoreApplication(QObject):
   -----------
 
   Every function of Qt's QCoreApplication that has a ritual and that Python
-  can call so far, 49 names in all: 'metaObject', 'tr', 'arguments',
+  can call so far, 54 names in all: 'metaObject', 'tr', 'arguments',
   'setAttribute', 'testAttribute', 'setOrganizationDomain',
   'organizationDomain', 'setOrganizationName', 'organizationName',
   'setApplicationName', 'applicationName', 'setApplicationVersion',
@@ -60,22 +60,41 @@ class QCoreApplication(QObject):
   'checkPermission', 'setLibraryPaths', 'libraryPaths', 'addLibraryPath',
   'removeLibraryPath', 'installTranslator', 'removeTranslator', 'translate',
   'installNativeEventFilter', 'removeNativeEventFilter', 'isQuitLockEnabled',
-  'setQuitLockEnabled', 'quit', 'exit', 'event', 'sendSpontaneousEvent',
-  'notifyInternal2', 'forwardEvent'. It can be made from Python, in 1 way;
-  see '__init__'.
+  'setQuitLockEnabled', 'quit', 'exit', 'aboutToQuit',
+  'organizationNameChanged', 'organizationDomainChanged',
+  'applicationNameChanged', 'applicationVersionChanged', 'event',
+  'sendSpontaneousEvent', 'notifyInternal2', 'forwardEvent'. It can be made
+  from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QCoreApplication::qt_metacast(const char *a0)': one of Qt's
+    own inner workings.
+  - Qt's 'int QCoreApplication::qt_metacall(QMetaObject::Call a0, int a1,
+    void **a2)': one of Qt's own inner workings.
+  - Qt's 'QCoreApplicationPrivate *QCoreApplication::d_func()': gives
+    'QCoreApplicationPrivate', which has no cute class yet.
+  - Qt's 'const QCoreApplicationPrivate *QCoreApplication::d_func() const':
+    gives 'QCoreApplicationPrivate', which has no cute class yet.
   - Qt's 'QCoreApplication::~QCoreApplication()': the destructor: Python
     never removes a C++ QCoreApplication.
+  - Qt's 'void *QCoreApplication::resolveInterface(const char *name, int
+    revision) const': gives 'void', which has no cute class yet.
+  - Qt's 'bool QCoreApplication::compressEvent(QEvent *a0, QObject *receiver,
+    QPostEventList *a2)': names 'QPostEventList', which has no cute class
+    yet.
+  - Qt's 'QCoreApplication::QCoreApplication(QCoreApplicationPrivate &p)':
+    takes a type Python has no way to hand over yet.
+  - Qt's 'void QCoreApplication::requestPermissionImpl(const QPermission
+    &permission, QtPrivate::QSlotObjectBase *slotObj, const QObject
+    *context)': names 'QtPrivate::QSlotObjectBase', which has no cute class
+    yet.
 
   What has no ritual
   ------------------
 
-  20 of the 73 functions Qt declares: 8 takes or gives a type that cannot be
-  passed yet; 5 a signal; 4 a template; 2 forbidden; 1 declared and nowhere
-  to be found.
+  7 of the 73 functions Qt declares: 3 a template; 2 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -91,6 +110,10 @@ class QCoreApplication(QObject):
   - Qt tells when it has removed the C++ QCoreApplication. Every call on the
     cute object, and every use of it as an argument, then raises
     'RuntimeError', and nothing reaches C++.
+  - Each name of Qt's QCoreApplication that has no cute function yet,
+    'compressEvent', 'nativeInterface', 'requestPermission',
+    'requestPermissionImpl', 'resolveInterface', holds a function that raises
+    'NotImplementedError', and its docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -1404,6 +1427,65 @@ class QCoreApplication(QObject):
         self._addressOf(filterObj),
     )
 
+  def aboutToQuit(self) -> None:
+    """
+    Calls Qt's 'void QCoreApplication::aboutToQuit(QPrivateSignal a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcoreapplication.html#aboutToQuit
+    """
+    #  void QCoreApplication::aboutToQuit(QPrivateSignal a0)
+    self.uglySide.call(
+        'ritual_ZN16QCoreApplication11aboutToQuitENS_14QPrivateSignalE',
+    )
+
+  def organizationNameChanged(self) -> None:
+    """
+    Calls Qt's 'void QCoreApplication::organizationNameChanged()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qcoreapplication.html#organizationNameChanged
+    """
+    #  void QCoreApplication::organizationNameChanged()
+    self.uglySide.call(
+        'ritual_ZN16QCoreApplication23organizationNameChangedEv',
+    )
+
+  def organizationDomainChanged(self) -> None:
+    """
+    Calls Qt's 'void QCoreApplication::organizationDomainChanged()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qcoreapplication.html#organizationDomainChanged
+    """
+    #  void QCoreApplication::organizationDomainChanged()
+    self.uglySide.call(
+        'ritual_ZN16QCoreApplication25organizationDomainChangedEv',
+    )
+
+  def applicationNameChanged(self) -> None:
+    """
+    Calls Qt's 'void QCoreApplication::applicationNameChanged()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qcoreapplication.html#applicationNameChanged
+    """
+    #  void QCoreApplication::applicationNameChanged()
+    self.uglySide.call(
+        'ritual_ZN16QCoreApplication22applicationNameChangedEv',
+    )
+
+  def applicationVersionChanged(self) -> None:
+    """
+    Calls Qt's 'void QCoreApplication::applicationVersionChanged()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qcoreapplication.html#applicationVersionChanged
+    """
+    #  void QCoreApplication::applicationVersionChanged()
+    self.uglySide.call(
+        'ritual_ZN16QCoreApplication25applicationVersionChangedEv',
+    )
+
   @overload(QEvent)
   @overload(NoneType)
   def event(self, a0: Optional[QEvent]) -> bool:
@@ -1424,3 +1506,64 @@ class QCoreApplication(QObject):
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZN16QCoreApplication5eventEP6QEvent'
     return self.uglySide.call(ritual, self._addressOf(a0))
+
+  @staticmethod
+  def compressEvent(*__, **_) -> Never:
+    """
+    Qt's 'bool QCoreApplication::compressEvent(QEvent *a0, QObject *receiver,
+    QPostEventList *a2)': names 'QPostEventList', which has no cute class
+    yet.
+    """
+    raise NotImplementedError(
+        "'QCoreApplication.compressEvent' has no cute function yet. Qt's "
+        "'bool QCoreApplication::compressEvent(QEvent *a0, QObject "
+        "*receiver, QPostEventList *a2)': names 'QPostEventList', which has "
+        "no cute class yet.")
+
+  @staticmethod
+  def nativeInterface(*__, **_) -> Never:
+    """
+    Qt's 'QCoreApplication::nativeInterface': a template: a pattern and no
+    single function.
+    """
+    raise NotImplementedError(
+        "'QCoreApplication.nativeInterface' has no cute function yet. Qt's "
+        "'QCoreApplication::nativeInterface': a template: a pattern and no "
+        "single function.")
+
+  @staticmethod
+  def requestPermission(*__, **_) -> Never:
+    """
+    Qt's 'QCoreApplication::requestPermission': a template: a pattern and no
+    single function.
+    """
+    raise NotImplementedError(
+        "'QCoreApplication.requestPermission' has no cute function yet. "
+        "Qt's 'QCoreApplication::requestPermission': a template: a pattern "
+        "and no single function.")
+
+  @staticmethod
+  def requestPermissionImpl(*__, **_) -> Never:
+    """
+    Qt's 'void QCoreApplication::requestPermissionImpl(const QPermission
+    &permission, QtPrivate::QSlotObjectBase *slotObj, const QObject
+    *context)': names 'QtPrivate::QSlotObjectBase', which has no cute class
+    yet.
+    """
+    raise NotImplementedError(
+        "'QCoreApplication.requestPermissionImpl' has no cute function yet. "
+        "Qt's 'void QCoreApplication::requestPermissionImpl(const "
+        "QPermission &permission, QtPrivate::QSlotObjectBase *slotObj, "
+        "const QObject *context)': names 'QtPrivate::QSlotObjectBase', "
+        "which has no cute class yet.")
+
+  @staticmethod
+  def resolveInterface(*__, **_) -> Never:
+    """
+    Qt's 'void *QCoreApplication::resolveInterface(const char *name, int
+    revision) const': gives 'void', which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QCoreApplication.resolveInterface' has no cute function yet. Qt's "
+        "'void *QCoreApplication::resolveInterface(const char *name, int "
+        "revision) const': gives 'void', which has no cute class yet.")

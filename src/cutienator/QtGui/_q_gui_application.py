@@ -16,7 +16,7 @@ from ..occult import Rituals
 from ..QtCore import Qt, QCoreApplication, QList, QObject
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from ..QtCore import QEvent, QMetaObject, QPoint
   from . import QClipboard, QCursor, QFont, QIcon, QInputMethod, QPalette
@@ -31,6 +31,8 @@ else:
   QIcon = WAIT['QIcon']
   QPalette = WAIT['QPalette']
   QPoint = WAIT['QPoint']
+  QScreen = WAIT['QScreen']
+  QWindow = WAIT['QWindow']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -49,7 +51,7 @@ class QGuiApplication(QCoreApplication):
   -----------
 
   Every function of Qt's QGuiApplication that has a ritual and that Python
-  can call so far, 53 names in all: 'metaObject', 'tr',
+  can call so far, 65 names in all: 'metaObject', 'tr',
   'setApplicationDisplayName', 'applicationDisplayName', 'setBadgeNumber',
   'setDesktopFileName', 'desktopFileName', 'allWindows', 'topLevelWindows',
   'topLevelAt', 'setWindowIcon', 'windowIcon', 'platformName', 'modalWindow',
@@ -63,21 +65,47 @@ class QGuiApplication(QCoreApplication):
   'setQuitOnLastWindowClosed', 'quitOnLastWindowClosed', 'applicationState',
   'setHighDpiScaleFactorRoundingPolicy', 'highDpiScaleFactorRoundingPolicy',
   'exec', 'notify', 'isSessionRestored', 'sessionId', 'sessionKey',
-  'isSavingSession', 'sync', 'event'. It can be made from Python, in 1 way;
-  see '__init__'.
+  'isSavingSession', 'sync', 'fontDatabaseChanged', 'screenAdded',
+  'screenRemoved', 'primaryScreenChanged', 'lastWindowClosed',
+  'focusObjectChanged', 'focusWindowChanged', 'applicationStateChanged',
+  'layoutDirectionChanged', 'applicationDisplayNameChanged',
+  'paletteChanged', 'fontChanged', 'event'. It can be made from Python, in 1
+  way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QGuiApplication::qt_metacast(const char *a0)': one of Qt's
+    own inner workings.
+  - Qt's 'int QGuiApplication::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
   - Qt's 'QGuiApplication::~QGuiApplication()': the destructor: Python never
     removes a C++ QGuiApplication.
+  - Qt's 'QPlatformNativeInterface
+    *QGuiApplication::platformNativeInterface()': gives
+    'QPlatformNativeInterface', which has no cute class yet.
+  - Qt's 'QFunctionPointer QGuiApplication::platformFunction(const QByteArray
+    &function)': gives a type Python has no way to take yet.
+  - Qt's 'void *QGuiApplication::resolveInterface(const char *name, int
+    revision) const': gives 'void', which has no cute class yet.
+  - Qt's 'void QGuiApplication::commitDataRequest(QSessionManager
+    &sessionManager)': takes a type Python has no way to hand over yet.
+  - Qt's 'void QGuiApplication::saveStateRequest(QSessionManager
+    &sessionManager)': takes a type Python has no way to hand over yet.
+  - Qt's 'bool QGuiApplication::compressEvent(QEvent *a0, QObject *receiver,
+    QPostEventList *a2)': names 'QPostEventList', which has no cute class
+    yet.
+  - Qt's 'QGuiApplication::QGuiApplication(QGuiApplicationPrivate &p)': takes
+    a type Python has no way to hand over yet.
+  - Qt's 'QGuiApplicationPrivate *QGuiApplication::d_func()': gives
+    'QGuiApplicationPrivate', which has no cute class yet.
+  - Qt's 'const QGuiApplicationPrivate *QGuiApplication::d_func() const':
+    gives 'QGuiApplicationPrivate', which has no cute class yet.
 
   What has no ritual
   ------------------
 
-  28 of the 83 functions Qt declares: 14 a signal; 9 takes or gives a type
-  that cannot be passed yet; 2 a template; 2 forbidden; 1 declared and
-  nowhere to be found.
+  5 of the 83 functions Qt declares: 2 not a gap; 2 forbidden; 1 a template.
 
   What to expect
   --------------
@@ -93,6 +121,10 @@ class QGuiApplication(QCoreApplication):
   - Qt tells when it has removed the C++ QGuiApplication. Every call on the
     cute object, and every use of it as an argument, then raises
     'RuntimeError', and nothing reaches C++.
+  - Each name of Qt's QGuiApplication that has no cute function yet,
+    'commitDataRequest', 'platformFunction', 'platformNativeInterface',
+    'saveStateRequest', holds a function that raises 'NotImplementedError',
+    and its docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -1171,6 +1203,234 @@ class QGuiApplication(QCoreApplication):
         ritual, self._addressOf(a0, 'QObject'), self._addressOf(a1),
     )
 
+  def fontDatabaseChanged(self) -> None:
+    """
+    Calls Qt's 'void QGuiApplication::fontDatabaseChanged()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qguiapplication.html#fontDatabaseChanged
+    """
+    #  void QGuiApplication::fontDatabaseChanged()
+    self.uglySide.call('ritual_ZN15QGuiApplication19fontDatabaseChangedEv')
+
+  @overload(QScreen)
+  @overload(NoneType)
+  def screenAdded(self, screen: Optional[QScreen]) -> None:
+    """
+    Calls Qt's 'void QGuiApplication::screenAdded(QScreen *screen)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qguiapplication.html#screenAdded
+
+    Parameters
+    ----------
+
+    screen : Optional[QScreen]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QGuiApplication::screenAdded(QScreen *screen)
+    self.uglySide.call(
+        'ritual_ZN15QGuiApplication11screenAddedEP7QScreen',
+        self._addressOf(screen),
+    )
+
+  @overload(QScreen)
+  @overload(NoneType)
+  def screenRemoved(self, screen: Optional[QScreen]) -> None:
+    """
+    Calls Qt's 'void QGuiApplication::screenRemoved(QScreen *screen)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qguiapplication.html#screenRemoved
+
+    Parameters
+    ----------
+
+    screen : Optional[QScreen]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QGuiApplication::screenRemoved(QScreen *screen)
+    self.uglySide.call(
+        'ritual_ZN15QGuiApplication13screenRemovedEP7QScreen',
+        self._addressOf(screen),
+    )
+
+  @overload(QScreen)
+  @overload(NoneType)
+  def primaryScreenChanged(self, screen: Optional[QScreen]) -> None:
+    """
+    Calls Qt's 'void QGuiApplication::primaryScreenChanged(QScreen *screen)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qguiapplication.html#primaryScreenChanged
+
+    Parameters
+    ----------
+
+    screen : Optional[QScreen]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QGuiApplication::primaryScreenChanged(QScreen *screen)
+    self.uglySide.call(
+        'ritual_ZN15QGuiApplication20primaryScreenChangedEP7QScreen',
+        self._addressOf(screen),
+    )
+
+  def lastWindowClosed(self) -> None:
+    """
+    Calls Qt's 'void QGuiApplication::lastWindowClosed()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qguiapplication.html#lastWindowClosed
+    """
+    #  void QGuiApplication::lastWindowClosed()
+    self.uglySide.call('ritual_ZN15QGuiApplication16lastWindowClosedEv')
+
+  @overload(QObject)
+  @overload(NoneType)
+  def focusObjectChanged(self, focusObject: Optional[QObject]) -> None:
+    """
+    Calls Qt's 'void QGuiApplication::focusObjectChanged(QObject
+    *focusObject)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qguiapplication.html#focusObjectChanged
+
+    Parameters
+    ----------
+
+    focusObject : Optional[QObject]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QGuiApplication::focusObjectChanged(QObject *focusObject)
+    self.uglySide.call(
+        'ritual_ZN15QGuiApplication18focusObjectChangedEP7QObject',
+        self._addressOf(focusObject, 'QObject'),
+    )
+
+  @overload(QWindow)
+  @overload(NoneType)
+  def focusWindowChanged(self, focusWindow: Optional[QWindow]) -> None:
+    """
+    Calls Qt's 'void QGuiApplication::focusWindowChanged(QWindow
+    *focusWindow)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qguiapplication.html#focusWindowChanged
+
+    Parameters
+    ----------
+
+    focusWindow : Optional[QWindow]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QGuiApplication::focusWindowChanged(QWindow *focusWindow)
+    self.uglySide.call(
+        'ritual_ZN15QGuiApplication18focusWindowChangedEP7QWindow',
+        self._addressOf(focusWindow),
+    )
+
+  @overload(Qt.ApplicationState)
+  def applicationStateChanged(self, state: Qt.ApplicationState) -> None:
+    """
+    Calls Qt's 'void
+    QGuiApplication::applicationStateChanged(Qt::ApplicationState state)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qguiapplication.html#applicationStateChanged
+
+    Parameters
+    ----------
+
+    state : Qt.ApplicationState
+      Passed on as its number.
+    """
+    #  void QGuiApplication::applicationStateChanged(Qt::ApplicationState
+    #      state)
+    self.uglySide.call(
+        'ritual_ZN15QGuiApplication23applicationStateChangedEN2Qt16Applicat'
+        'ionStateE',
+        state.value,
+    )
+
+  @overload(Qt.LayoutDirection)
+  def layoutDirectionChanged(self, direction: Qt.LayoutDirection) -> None:
+    """
+    Calls Qt's 'void
+    QGuiApplication::layoutDirectionChanged(Qt::LayoutDirection direction)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qguiapplication.html#layoutDirectionChanged
+
+    Parameters
+    ----------
+
+    direction : Qt.LayoutDirection
+      Passed on as its number.
+    """
+    #  void QGuiApplication::layoutDirectionChanged(Qt::LayoutDirection
+    #      direction)
+    self.uglySide.call(
+        'ritual_ZN15QGuiApplication22layoutDirectionChangedEN2Qt15LayoutDir'
+        'ectionE',
+        direction.value,
+    )
+
+  def applicationDisplayNameChanged(self) -> None:
+    """
+    Calls Qt's 'void QGuiApplication::applicationDisplayNameChanged()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qguiapplication.html#applicationDisplayNameChanged
+    """
+    #  void QGuiApplication::applicationDisplayNameChanged()
+    self.uglySide.call(
+        'ritual_ZN15QGuiApplication29applicationDisplayNameChangedEv',
+    )
+
+  @overload(QPalette)
+  def paletteChanged(self, pal: QPalette) -> None:
+    """
+    Calls Qt's 'void QGuiApplication::paletteChanged(const QPalette &pal)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qguiapplication.html#paletteChanged
+
+    Parameters
+    ----------
+
+    pal : QPalette
+      Passed on as a value: Qt reads the C++ QPalette, which stays Python's
+      own.
+    """
+    #  void QGuiApplication::paletteChanged(const QPalette &pal)
+    self.uglySide.call(
+        'ritual_ZN15QGuiApplication14paletteChangedERK8QPalette',
+        self._valueOf(pal),
+    )
+
+  @overload(QFont)
+  def fontChanged(self, font: QFont) -> None:
+    """
+    Calls Qt's 'void QGuiApplication::fontChanged(const QFont &font)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qguiapplication.html#fontChanged
+
+    Parameters
+    ----------
+
+    font : QFont
+      Passed on as a value: Qt reads the C++ QFont, which stays Python's own.
+    """
+    #  void QGuiApplication::fontChanged(const QFont &font)
+    self.uglySide.call(
+        'ritual_ZN15QGuiApplication11fontChangedERK5QFont',
+        self._valueOf(font),
+    )
+
   @overload(QEvent)
   @overload(NoneType)
   def event(self, a0: Optional[QEvent]) -> bool:
@@ -1191,3 +1451,52 @@ class QGuiApplication(QCoreApplication):
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZN15QGuiApplication5eventEP6QEvent'
     return self.uglySide.call(ritual, self._addressOf(a0))
+
+  @staticmethod
+  def commitDataRequest(*__, **_) -> Never:
+    """
+    Qt's 'void QGuiApplication::commitDataRequest(QSessionManager
+    &sessionManager)': takes a type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QGuiApplication.commitDataRequest' has no cute function yet. Qt's "
+        "'void QGuiApplication::commitDataRequest(QSessionManager "
+        "&sessionManager)': takes a type Python has no way to hand over yet."
+    )
+
+  @staticmethod
+  def platformFunction(*__, **_) -> Never:
+    """
+    Qt's 'QFunctionPointer QGuiApplication::platformFunction(const QByteArray
+    &function)': gives a type Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QGuiApplication.platformFunction' has no cute function yet. Qt's "
+        "'QFunctionPointer QGuiApplication::platformFunction(const "
+        "QByteArray &function)': gives a type Python has no way to take yet."
+    )
+
+  @staticmethod
+  def platformNativeInterface(*__, **_) -> Never:
+    """
+    Qt's 'QPlatformNativeInterface
+    *QGuiApplication::platformNativeInterface()': gives
+    'QPlatformNativeInterface', which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QGuiApplication.platformNativeInterface' has no cute function "
+        "yet. Qt's 'QPlatformNativeInterface "
+        "*QGuiApplication::platformNativeInterface()': gives "
+        "'QPlatformNativeInterface', which has no cute class yet.")
+
+  @staticmethod
+  def saveStateRequest(*__, **_) -> Never:
+    """
+    Qt's 'void QGuiApplication::saveStateRequest(QSessionManager
+    &sessionManager)': takes a type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QGuiApplication.saveStateRequest' has no cute function yet. Qt's "
+        "'void QGuiApplication::saveStateRequest(QSessionManager "
+        "&sessionManager)': takes a type Python has no way to hand over yet."
+    )

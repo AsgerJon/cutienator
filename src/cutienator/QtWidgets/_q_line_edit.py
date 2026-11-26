@@ -69,7 +69,7 @@ class QLineEdit(QWidget):
   -----------
 
   Every function of Qt's QLineEdit that has a ritual and that Python can call
-  so far, 87 names in all: 'metaObject', 'tr', 'text', 'displayText',
+  so far, 94 names in all: 'metaObject', 'tr', 'text', 'displayText',
   'placeholderText', 'setPlaceholderText', 'maxLength', 'setMaxLength',
   'setFrame', 'hasFrame', 'setClearButtonEnabled', 'isClearButtonEnabled',
   'echoMode', 'setEchoMode', 'isReadOnly', 'setReadOnly', 'setValidator',
@@ -83,7 +83,9 @@ class QLineEdit(QWidget):
   'cursorMoveStyle', 'inputMask', 'setInputMask', 'hasAcceptableInput',
   'setTextMargins', 'textMargins', 'addAction', 'setText', 'clear',
   'selectAll', 'undo', 'redo', 'cut', 'copy', 'paste', 'deselect', 'insert',
-  'createStandardContextMenu', 'mousePressEvent', 'mouseMoveEvent',
+  'createStandardContextMenu', 'textChanged', 'textEdited',
+  'cursorPositionChanged', 'returnPressed', 'editingFinished',
+  'selectionChanged', 'inputRejected', 'mousePressEvent', 'mouseMoveEvent',
   'mouseReleaseEvent', 'mouseDoubleClickEvent', 'keyPressEvent',
   'keyReleaseEvent', 'focusInEvent', 'focusOutEvent', 'paintEvent',
   'dragEnterEvent', 'dragMoveEvent', 'dragLeaveEvent', 'dropEvent',
@@ -94,15 +96,21 @@ class QLineEdit(QWidget):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QLineEdit::qt_metacast(const char *a0)': one of Qt's own
+    inner workings.
+  - Qt's 'int QLineEdit::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
   - Qt's 'QLineEdit::~QLineEdit()': the destructor: Python never removes a
     C++ QLineEdit.
+  - Qt's 'QLineEditPrivate *QLineEdit::d_func()': gives 'QLineEditPrivate',
+    which has no cute class yet.
+  - Qt's 'const QLineEditPrivate *QLineEdit::d_func() const': gives
+    'QLineEditPrivate', which has no cute class yet.
 
   What has no ritual
   ------------------
 
-  15 of the 108 functions Qt declares: 7 a signal; 4 takes or gives a type
-  that cannot be passed yet; 2 forbidden; 1 a template; 1 declared and
-  nowhere to be found.
+  4 of the 108 functions Qt declares: 2 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -1418,6 +1426,96 @@ class QLineEdit(QWidget):
     )
     from . import QMenu
     return QMenu._cuteAt(address)
+
+  @overload(str)
+  def textChanged(self, a0: str) -> None:
+    """
+    Calls Qt's 'void QLineEdit::textChanged(const QString &a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlineedit.html#textChanged
+
+    Parameters
+    ----------
+
+    a0 : str
+      Passed on as it is: a QString is made of it for the call.
+    """
+    #  void QLineEdit::textChanged(const QString &a0)
+    self.uglySide.call('ritual_ZN9QLineEdit11textChangedERK7QString', a0)
+
+  @overload(str)
+  def textEdited(self, a0: str) -> None:
+    """
+    Calls Qt's 'void QLineEdit::textEdited(const QString &a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlineedit.html#textEdited
+
+    Parameters
+    ----------
+
+    a0 : str
+      Passed on as it is: a QString is made of it for the call.
+    """
+    #  void QLineEdit::textEdited(const QString &a0)
+    self.uglySide.call('ritual_ZN9QLineEdit10textEditedERK7QString', a0)
+
+  @overload(int, int)
+  def cursorPositionChanged(self, a0: int, a1: int) -> None:
+    """
+    Calls Qt's 'void QLineEdit::cursorPositionChanged(int a0, int a1)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qlineedit.html#cursorPositionChanged
+
+    Parameters
+    ----------
+
+    a0 : int
+      Passed on as it is.
+
+    a1 : int
+      Passed on as it is.
+    """
+    #  void QLineEdit::cursorPositionChanged(int a0, int a1)
+    self.uglySide.call(
+        'ritual_ZN9QLineEdit21cursorPositionChangedEii', a0, a1,
+    )
+
+  def returnPressed(self) -> None:
+    """
+    Calls Qt's 'void QLineEdit::returnPressed()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlineedit.html#returnPressed
+    """
+    #  void QLineEdit::returnPressed()
+    self.uglySide.call('ritual_ZN9QLineEdit13returnPressedEv')
+
+  def editingFinished(self) -> None:
+    """
+    Calls Qt's 'void QLineEdit::editingFinished()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlineedit.html#editingFinished
+    """
+    #  void QLineEdit::editingFinished()
+    self.uglySide.call('ritual_ZN9QLineEdit15editingFinishedEv')
+
+  def selectionChanged(self) -> None:
+    """
+    Calls Qt's 'void QLineEdit::selectionChanged()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlineedit.html#selectionChanged
+    """
+    #  void QLineEdit::selectionChanged()
+    self.uglySide.call('ritual_ZN9QLineEdit16selectionChangedEv')
+
+  def inputRejected(self) -> None:
+    """
+    Calls Qt's 'void QLineEdit::inputRejected()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlineedit.html#inputRejected
+    """
+    #  void QLineEdit::inputRejected()
+    self.uglySide.call('ritual_ZN9QLineEdit13inputRejectedEv')
 
   @overload(QMouseEvent)
   @overload(NoneType)

@@ -32,6 +32,8 @@ from ._namespace_generator import NamespaceGenerator
 from ._enum_tester import EnumTester
 from ._cute_name import CuteName
 from ._default_value import DefaultValue
+from ._function_plan import FunctionPlan
+from ._class_text import ClassText
 from ._class_generator import ClassGenerator
 from ._class_tester import ClassTester
 

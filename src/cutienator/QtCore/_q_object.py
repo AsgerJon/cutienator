@@ -17,7 +17,7 @@ from ..occult import Rituals
 from . import Qt, QList, QMetaObject
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from . import QBindingStorage, QByteArray, QChildEvent, QEvent, QMetaMethod
   from . import QThread, QTimerEvent, QVariant
@@ -45,32 +45,62 @@ class QObject(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QObject that has a ritual and that Python can call
-  so far, 41 names in all: 'metaObject', 'tr', 'event', 'eventFilter',
+  so far, 43 names in all: 'metaObject', 'tr', 'event', 'eventFilter',
   'objectName', 'setObjectName', 'isWidgetType', 'isWindowType',
   'isQuickItemType', 'isQmlExposed', 'signalsBlocked', 'blockSignals',
   'thread', 'startTimer', 'killTimer', 'children', 'setParent',
   'installEventFilter', 'removeEventFilter', 'connect', 'disconnect',
   'dumpObjectTree', 'dumpObjectInfo', 'setProperty', 'property',
-  'dynamicPropertyNames', 'bindingStorage', 'parent', 'inherits',
-  'deleteLater', 'sender', 'senderSignalIndex', 'receivers',
-  'isSignalConnected', 'timerEvent', 'childEvent', 'customEvent',
-  'connectNotify', 'disconnectNotify', 'doSetObjectName', 'doSetProperty'. It
-  can be made from Python, in 1 way; see '__init__'.
+  'dynamicPropertyNames', 'bindingStorage', 'destroyed', 'objectNameChanged',
+  'parent', 'inherits', 'deleteLater', 'sender', 'senderSignalIndex',
+  'receivers', 'isSignalConnected', 'timerEvent', 'childEvent',
+  'customEvent', 'connectNotify', 'disconnectNotify', 'doSetObjectName',
+  'doSetProperty'. It can be made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QObject::qt_metacast(const char *a0)': one of Qt's own inner
+    workings.
+  - Qt's 'int QObject::qt_metacall(QMetaObject::Call a0, int a1, void **a2)':
+    one of Qt's own inner workings.
+  - Qt's 'QObjectPrivate *QObject::d_func()': gives 'QObjectPrivate', which
+    has no cute class yet.
+  - Qt's 'const QObjectPrivate *QObject::d_func() const': gives
+    'QObjectPrivate', which has no cute class yet.
   - Qt's 'QObject::~QObject()': the destructor: Python never removes a C++
     QObject.
+  - Qt's 'QBindable<QString> QObject::bindableObjectName()': gives a type
+    Python has no way to take yet.
+  - Qt's 'bool QObject::moveToThread(QThread *thread, Qt::Disambiguated_t
+    a1)': takes a type Python has no way to hand over yet.
+  - Qt's 'int QObject::startTimer(std::chrono::nanoseconds time,
+    Qt::TimerType timerType)': takes a type Python has no way to hand over
+    yet.
+  - Qt's 'bool QObject::disconnect(QMetaObject::Connection &a0)': takes a
+    type Python has no way to hand over yet.
+  - Qt's 'bool QObject::disconnect(QMetaObject::Connection &&conn)': takes a
+    type Python has no way to hand over yet.
+  - Qt's 'bool QObject::setProperty(const char *name, QVariant &&value)':
+    takes a type Python has no way to hand over yet.
   - Qt's 'const QBindingStorage *QObject::bindingStorage() const': takes in
     Python what 'QBindingStorage *QObject::bindingStorage()' takes.
+  - Qt's 'QObject::QObject(QObjectPrivate &dd, QObject *parent)': takes a
+    type Python has no way to hand over yet.
+  - Qt's 'QMetaObject::Connection QObject::connectImpl(const QObject *sender,
+    void **signal, const QObject *receiver, void **slotPtr,
+    QtPrivate::QSlotObjectBase *slot, Qt::ConnectionType type, const int
+    *types, const QMetaObject *senderMetaObject)': takes a type Python has no
+    way to hand over yet.
+  - Qt's 'bool QObject::disconnectImpl(const QObject *sender, void **signal,
+    const QObject *receiver, void **slot, const QMetaObject
+    *senderMetaObject)': takes a type Python has no way to hand over yet.
 
   What has no ritual
   ------------------
 
-  29 of the 80 functions Qt declares: 13 takes or gives a type that cannot be
-  passed yet; 11 a template; 2 a signal; 2 forbidden; 1 declared and nowhere
-  to be found.
+  14 of the 80 functions Qt declares: 10 a template; 2 not a gap; 2
+  forbidden.
 
   What to expect
   --------------
@@ -85,6 +115,10 @@ class QObject(CuteMixin, metaclass=MetaCute):
   - Qt tells when it has removed the C++ QObject. Every call on the cute
     object, and every use of it as an argument, then raises 'RuntimeError',
     and nothing reaches C++.
+  - Each name of Qt's QObject that has no cute function yet,
+    'bindableObjectName', 'connectImpl', 'd_func', 'disconnectImpl',
+    'findChild', 'findChildren', 'moveToThread', holds a function that raises
+    'NotImplementedError', and its docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -1233,6 +1267,51 @@ class QObject(CuteMixin, metaclass=MetaCute):
     from . import QBindingStorage
     return QBindingStorage._cuteAt(address)
 
+  @overload()
+  @overload(THIS)
+  @overload(NoneType)
+  def destroyed(self, a0: Optional[QObject] = None) -> None:
+    """
+    Calls Qt's 'void QObject::destroyed(QObject *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qobject.html#destroyed
+
+    Parameters
+    ----------
+
+    a0 : Optional[QObject]
+      Passed on as the address of its C++ object. None is passed on as no
+      object. May be left out, as in Qt: it is then None.
+    """
+    #  void QObject::destroyed(QObject *a0)
+    self._callAs(
+        'QObject', 'ritual_ZN7QObject9destroyedEPS_',
+        self._addressOf(a0, 'QObject'),
+    )
+
+  @overload(str)
+  def objectNameChanged(self, objectName: str) -> None:
+    """
+    Calls Qt's 'void QObject::objectNameChanged(const QString &objectName,
+    QPrivateSignal a1)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qobject.html#objectNameChanged
+
+    Parameters
+    ----------
+
+    objectName : str
+      Passed on as it is: a QString is made of it for the call.
+    """
+    #  void QObject::objectNameChanged(const QString &objectName,
+    #      QPrivateSignal a1)
+    self._callAs(
+        'QObject',
+        'ritual_ZN7QObject17objectNameChangedERK7QStringNS_14QPrivateSignal'
+        'E',
+        objectName,
+    )
+
   def deleteLater(self) -> None:
     """
     Calls Qt's 'void QObject::deleteLater()'.
@@ -1399,6 +1478,94 @@ class QObject(CuteMixin, metaclass=MetaCute):
         'QObject', 'ritual_ZN7QObject13doSetPropertyEPKcRK8QVariantPS2_',
         self._bytesOf(name), self._valueOf(value), self._addressOf(rvalue),
     )
+
+  @staticmethod
+  def bindableObjectName(*__, **_) -> Never:
+    """
+    Qt's 'QBindable<QString> QObject::bindableObjectName()': gives a type
+    Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QObject.bindableObjectName' has no cute function yet. Qt's "
+        "'QBindable<QString> QObject::bindableObjectName()': gives a type "
+        "Python has no way to take yet.")
+
+  @staticmethod
+  def connectImpl(*__, **_) -> Never:
+    """
+    Qt's 'QMetaObject::Connection QObject::connectImpl(const QObject *sender,
+    void **signal, const QObject *receiver, void **slotPtr,
+    QtPrivate::QSlotObjectBase *slot, Qt::ConnectionType type, const int
+    *types, const QMetaObject *senderMetaObject)': takes a type Python has no
+    way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QObject.connectImpl' has no cute function yet. Qt's "
+        "'QMetaObject::Connection QObject::connectImpl(const QObject "
+        "*sender, void **signal, const QObject *receiver, void **slotPtr, "
+        "QtPrivate::QSlotObjectBase *slot, Qt::ConnectionType type, const "
+        "int *types, const QMetaObject *senderMetaObject)': takes a type "
+        "Python has no way to hand over yet.")
+
+  @staticmethod
+  def d_func(*__, **_) -> Never:
+    """
+    - Qt's 'QObjectPrivate *QObject::d_func()': gives 'QObjectPrivate', which
+      has no cute class yet.
+    - Qt's 'const QObjectPrivate *QObject::d_func() const': gives
+      'QObjectPrivate', which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QObject.d_func' has no cute function yet. Qt's 'QObjectPrivate "
+        "*QObject::d_func()': gives 'QObjectPrivate', which has no cute "
+        "class yet. Qt's 'const QObjectPrivate *QObject::d_func() const': "
+        "gives 'QObjectPrivate', which has no cute class yet.")
+
+  @staticmethod
+  def disconnectImpl(*__, **_) -> Never:
+    """
+    Qt's 'bool QObject::disconnectImpl(const QObject *sender, void **signal,
+    const QObject *receiver, void **slot, const QMetaObject
+    *senderMetaObject)': takes a type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QObject.disconnectImpl' has no cute function yet. Qt's 'bool "
+        "QObject::disconnectImpl(const QObject *sender, void **signal, "
+        "const QObject *receiver, void **slot, const QMetaObject "
+        "*senderMetaObject)': takes a type Python has no way to hand over "
+        "yet.")
+
+  @staticmethod
+  def findChild(*__, **_) -> Never:
+    """
+    Qt's 'QObject::findChild': a template: a pattern and no single function.
+    """
+    raise NotImplementedError(
+        "'QObject.findChild' has no cute function yet. Qt's "
+        "'QObject::findChild': a template: a pattern and no single function."
+    )
+
+  @staticmethod
+  def findChildren(*__, **_) -> Never:
+    """
+    Qt's 'QObject::findChildren': a template: a pattern and no single
+    function.
+    """
+    raise NotImplementedError(
+        "'QObject.findChildren' has no cute function yet. Qt's "
+        "'QObject::findChildren': a template: a pattern and no single "
+        "function.")
+
+  @staticmethod
+  def moveToThread(*__, **_) -> Never:
+    """
+    Qt's 'bool QObject::moveToThread(QThread *thread, Qt::Disambiguated_t
+    a1)': takes a type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QObject.moveToThread' has no cute function yet. Qt's 'bool "
+        "QObject::moveToThread(QThread *thread, Qt::Disambiguated_t a1)': "
+        "takes a type Python has no way to hand over yet.")
 
 
 #  Qt's 'QList<QObject *>': the list of QObject, which 'QList[QObject]'

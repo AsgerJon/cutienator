@@ -45,9 +45,8 @@ class QPaintDevice(CuteMixin, metaclass=MetaCute):
   'width', 'height', 'widthMM', 'heightMM', 'logicalDpiX', 'logicalDpiY',
   'physicalDpiX', 'physicalDpiY', 'devicePixelRatio', 'devicePixelRatioF',
   'colorCount', 'depth', 'devicePixelRatioFScale', 'encodeMetricF', 'metric',
-  'initPainter', 'redirected', 'sharedPainter', 'getDecodedMetricF'. None can
-  be made from Python: one comes out of a function of another class that
-  gives one back.
+  'initPainter', 'redirected', 'sharedPainter', 'getDecodedMetricF'. It can
+  be made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -58,8 +57,7 @@ class QPaintDevice(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  3 of the 26 functions Qt declares: 2 forbidden; 1 the class is abstract, so
-  C++ cannot make one.
+  2 of the 26 functions Qt declares: 2 forbidden.
 
   What to expect
   --------------
@@ -490,6 +488,19 @@ class QPaintDevice(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload()
+  def __init__(self) -> None:
+    """
+    Notes what was given, for Qt's 'QPaintDevice::QPaintDevice()', which is
+    called at the first use.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpaintdevice.html#QPaintDevice
+    """
+    #  QPaintDevice::QPaintDevice()
+    self._noteCreation(QPaintDevice, lambda: Rituals.call(
+        'ritual_ZN12QPaintDeviceC1Ev',
+    ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #

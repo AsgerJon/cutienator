@@ -18,7 +18,7 @@ from ..occult import Rituals
 from ..QtCore import Qt, QList, QStringList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from ..QtCore import QRect, QSize
   from . import QIconEngine, QPainter, QPixmap, QWindow
@@ -62,16 +62,29 @@ class QIcon(CuteMixin, metaclass=MetaCute):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'QIcon::QIcon(QIcon &&other)': takes a type Python has no way to
+    hand over yet.
   - Qt's 'QIcon::~QIcon()': the destructor: Python removes its C++ QIcon by
     it, and has no other use for it.
+  - Qt's 'QIcon &QIcon::operator=(const QIcon &other)': assignment: Python
+    binds a name and has no operator for it.
+  - Qt's 'QIcon &QIcon::operator=(QIcon &&other)': assignment: Python binds a
+    name and has no operator for it.
+  - Qt's 'void QIcon::swap(QIcon &other)': takes a type Python has no way to
+    hand over yet.
   - Qt's 'QVariant QIcon::operator QVariant() const': an operator Python has
     no name for.
+  - Qt's 'QDataStream &operator<<(QDataStream &a0, const QIcon &a1)': takes a
+    type Python has no way to hand over yet.
+  - Qt's 'QDataStream &operator>>(QDataStream &a0, QIcon &a1)': an operator
+    between other classes, written inside this one.
+  - Qt's 'DataPtr &QIcon::data_ptr()': gives a type Python has no way to take
+    yet.
 
   What has no ritual
   ------------------
 
-  12 of the 52 functions Qt declares: 7 takes or gives a type that cannot be
-  passed yet; 2 declared and nowhere to be found; 2 forbidden; 1 a template.
+  5 of the 52 functions Qt declares: 3 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -84,6 +97,9 @@ class QIcon(CuteMixin, metaclass=MetaCute):
     is as in C++.
   - A function giving a QIcon back gives a copy the ritual made for Python,
     in a new cute QIcon.
+  - Each name of Qt's QIcon that has no cute function yet, 'data_ptr',
+    'swap', holds a function that raises 'NotImplementedError', and its
+    docstring says why.
   """
 
   #  The enums Qt writes inside QIcon, each a class in here as in C++, and
@@ -1354,3 +1370,24 @@ class QIcon(CuteMixin, metaclass=MetaCute):
         'ritual_ZN5QIcon7addFileERK7QStringRK5QSizeNS_4ModeENS_5StateE',
         fileName, self._valueOf(size), mode.value, state.value,
     )
+
+  @staticmethod
+  def data_ptr(*__, **_) -> Never:
+    """
+    Qt's 'DataPtr &QIcon::data_ptr()': gives a type Python has no way to take
+    yet.
+    """
+    raise NotImplementedError(
+        "'QIcon.data_ptr' has no cute function yet. Qt's 'DataPtr "
+        "&QIcon::data_ptr()': gives a type Python has no way to take yet.")
+
+  @staticmethod
+  def swap(*__, **_) -> Never:
+    """
+    Qt's 'void QIcon::swap(QIcon &other)': takes a type Python has no way to
+    hand over yet.
+    """
+    raise NotImplementedError(
+        "'QIcon.swap' has no cute function yet. Qt's 'void "
+        "QIcon::swap(QIcon &other)': takes a type Python has no way to hand "
+        "over yet.")

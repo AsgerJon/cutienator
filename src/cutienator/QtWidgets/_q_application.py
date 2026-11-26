@@ -50,7 +50,7 @@ class QApplication(QGuiApplication):
   -----------
 
   Every function of Qt's QApplication that has a ritual and that Python can
-  call so far, 43 names in all: 'metaObject', 'tr', 'style', 'setStyle',
+  call so far, 44 names in all: 'metaObject', 'tr', 'style', 'setStyle',
   'palette', 'setPalette', 'font', 'setFont', 'fontMetrics', 'allWidgets',
   'topLevelWidgets', 'activePopupWidget', 'activeModalWidget', 'focusWidget',
   'activeWindow', 'setActiveWindow', 'widgetAt', 'topLevelAt', 'beep',
@@ -58,22 +58,34 @@ class QApplication(QGuiApplication):
   'doubleClickInterval', 'setKeyboardInputInterval', 'keyboardInputInterval',
   'setWheelScrollLines', 'wheelScrollLines', 'setStartDragTime',
   'startDragTime', 'setStartDragDistance', 'startDragDistance',
-  'isEffectEnabled', 'setEffectEnabled', 'exec', 'notify', 'styleSheet',
-  'autoSipEnabled', 'setStyleSheet', 'setAutoSipEnabled', 'closeAllWindows',
-  'aboutQt', 'event'. It can be made from Python, in 1 way; see '__init__'.
+  'isEffectEnabled', 'setEffectEnabled', 'exec', 'notify', 'focusChanged',
+  'styleSheet', 'autoSipEnabled', 'setStyleSheet', 'setAutoSipEnabled',
+  'closeAllWindows', 'aboutQt', 'event'. It can be made from Python, in 1
+  way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QApplication::qt_metacast(const char *a0)': one of Qt's own
+    inner workings.
+  - Qt's 'int QApplication::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
   - Qt's 'QApplication::~QApplication()': the destructor: Python never
     removes a C++ QApplication.
+  - Qt's 'void *QApplication::resolveInterface(const char *name, int
+    revision) const': gives 'void', which has no cute class yet.
+  - Qt's 'bool QApplication::compressEvent(QEvent *a0, QObject *receiver,
+    QPostEventList *a2)': names 'QPostEventList', which has no cute class
+    yet.
+  - Qt's 'QApplicationPrivate *QApplication::d_func()': gives
+    'QApplicationPrivate', which has no cute class yet.
+  - Qt's 'const QApplicationPrivate *QApplication::d_func() const': gives
+    'QApplicationPrivate', which has no cute class yet.
 
   What has no ritual
   ------------------
 
-  12 of the 63 functions Qt declares: 6 takes or gives a type that cannot be
-  passed yet; 2 a template; 2 forbidden; 1 declared and nowhere to be found;
-  1 a signal.
+  5 of the 63 functions Qt declares: 2 not a gap; 2 forbidden; 1 a template.
 
   What to expect
   --------------
@@ -1138,6 +1150,37 @@ class QApplication(QGuiApplication):
       ritual = 'ritual_own_ZN12QApplication6notifyEP7QObjectP6QEvent'
     return self.uglySide.call(
         ritual, self._addressOf(a0, 'QObject'), self._addressOf(a1),
+    )
+
+  @overload(QWidget, QWidget)
+  @overload(QWidget, NoneType)
+  @overload(NoneType, QWidget)
+  @overload(NoneType, NoneType)
+  def focusChanged(
+      self,
+      old: Optional[QWidget],
+      now: Optional[QWidget],
+  ) -> None:
+    """
+    Calls Qt's 'void QApplication::focusChanged(QWidget *old, QWidget *now)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qapplication.html#focusChanged
+
+    Parameters
+    ----------
+
+    old : Optional[QWidget]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    now : Optional[QWidget]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QApplication::focusChanged(QWidget *old, QWidget *now)
+    self.uglySide.call(
+        'ritual_ZN12QApplication12focusChangedEP7QWidgetS1_',
+        self._addressOf(old), self._addressOf(now),
     )
 
   @overload(QEvent)

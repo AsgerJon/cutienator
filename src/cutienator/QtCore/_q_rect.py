@@ -17,6 +17,8 @@ from ..occult import Rituals
 from . import QList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Never
+
   from . import QMargins, QPoint, QRectF, QSize
 else:
   #  The cute classes this file names and is not built on. Each is brought in
@@ -60,14 +62,11 @@ class QRect(CuteMixin, metaclass=MetaCute):
     number to change where it is.
   - Qt's 'void QRect::getCoords(int *x1, int *y1, int *x2, int *y2) const':
     takes a number to change where it is.
+  - Qt's 'QRect::QRect(Representation aleft, Representation atop,
+    Representation awidth, Representation aheight)': takes a type Python has
+    no way to hand over yet.
   - Qt's 'QRect::~QRect()': the destructor: Python removes its C++ QRect by
     it, and has no other use for it.
-
-  What has no ritual
-  ------------------
-
-  1 of the 78 functions Qt declares: 1 takes or gives a type that cannot be
-  passed yet.
 
   What to expect
   --------------
@@ -80,6 +79,9 @@ class QRect(CuteMixin, metaclass=MetaCute):
     is as in C++.
   - A function giving a QRect back gives a copy the ritual made for Python,
     in a new cute QRect.
+  - Each name of Qt's QRect that has no cute function yet, 'getCoords',
+    'getRect', holds a function that raises 'NotImplementedError', and its
+    docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -1566,6 +1568,28 @@ class QRect(CuteMixin, metaclass=MetaCute):
     """
     #  void QRect::adjust(int x1, int y1, int x2, int y2)
     self.uglySide.call('ritual_ZN5QRect6adjustEiiii', x1, y1, x2, y2)
+
+  @staticmethod
+  def getCoords(*__, **_) -> Never:
+    """
+    Qt's 'void QRect::getCoords(int *x1, int *y1, int *x2, int *y2) const':
+    takes a number to change where it is.
+    """
+    raise NotImplementedError(
+        "'QRect.getCoords' has no cute function yet. Qt's 'void "
+        "QRect::getCoords(int *x1, int *y1, int *x2, int *y2) const': takes "
+        "a number to change where it is.")
+
+  @staticmethod
+  def getRect(*__, **_) -> Never:
+    """
+    Qt's 'void QRect::getRect(int *x, int *y, int *w, int *h) const': takes a
+    number to change where it is.
+    """
+    raise NotImplementedError(
+        "'QRect.getRect' has no cute function yet. Qt's 'void "
+        "QRect::getRect(int *x, int *y, int *w, int *h) const': takes a "
+        "number to change where it is.")
 
 
 #  Qt's 'QList<QRect>': the list of QRect, which 'QList[QRect]' gives. It is

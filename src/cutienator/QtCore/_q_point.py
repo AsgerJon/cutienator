@@ -17,6 +17,8 @@ from ..occult import Rituals
 from . import QList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Never
+
   from . import QPointF
 
 
@@ -48,13 +50,15 @@ class QPoint(CuteMixin, metaclass=MetaCute):
     what 'QPoint operator*(const QPoint &p, float factor)' takes.
   - Qt's 'QPoint operator*(double factor, const QPoint &p)': takes in Python
     what 'QPoint operator*(float factor, const QPoint &p)' takes.
+  - Qt's 'QPoint::QPoint(Representation xpos, Representation ypos)': takes a
+    type Python has no way to hand over yet.
   - Qt's 'QPoint::~QPoint()': the destructor: Python removes its C++ QPoint
     by it, and has no other use for it.
 
   What has no ritual
   ------------------
 
-  3 of the 34 functions Qt declares: 3 takes or gives a type that cannot be
+  2 of the 34 functions Qt declares: 2 takes or gives a type that cannot be
   passed yet.
 
   What to expect
@@ -68,6 +72,8 @@ class QPoint(CuteMixin, metaclass=MetaCute):
     is as in C++.
   - A function giving a QPoint back gives a copy the ritual made for Python,
     in a new cute QPoint.
+  - Each name of Qt's QPoint that has no cute function yet, 'rx', 'ry', holds
+    a function that raises 'NotImplementedError', and its docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -729,6 +735,26 @@ class QPoint(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def rx(*__, **_) -> Never:
+    """
+    Qt's 'int &QPoint::rx()': takes or gives a type that cannot be passed
+    yet: int &.
+    """
+    raise NotImplementedError(
+        "'QPoint.rx' has no cute function yet. Qt's 'int &QPoint::rx()': "
+        "takes or gives a type that cannot be passed yet: int &.")
+
+  @staticmethod
+  def ry(*__, **_) -> Never:
+    """
+    Qt's 'int &QPoint::ry()': takes or gives a type that cannot be passed
+    yet: int &.
+    """
+    raise NotImplementedError(
+        "'QPoint.ry' has no cute function yet. Qt's 'int &QPoint::ry()': "
+        "takes or gives a type that cannot be passed yet: int &.")
 
 
 #  Qt's 'QList<QPoint>': the list of QPoint, which 'QList[QPoint]' gives. It

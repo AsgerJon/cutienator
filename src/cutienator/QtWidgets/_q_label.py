@@ -17,7 +17,7 @@ from ..QtCore import Qt
 from . import QFrame, QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from ..QtCore import QEvent, QMetaObject, QSize
   from ..QtGui import QContextMenuEvent, QFocusEvent, QKeyEvent, QMouseEvent
@@ -53,7 +53,7 @@ class QLabel(QFrame):
   -----------
 
   Every function of Qt's QLabel that has a ritual and that Python can call so
-  far, 48 names in all: 'metaObject', 'tr', 'text', 'pixmap', 'picture',
+  far, 50 names in all: 'metaObject', 'tr', 'text', 'pixmap', 'picture',
   'movie', 'textFormat', 'setTextFormat', 'alignment', 'setAlignment',
   'setWordWrap', 'wordWrap', 'indent', 'setIndent', 'margin', 'setMargin',
   'hasScaledContents', 'setScaledContents', 'sizeHint', 'minimumSizeHint',
@@ -61,23 +61,34 @@ class QLabel(QFrame):
   'setOpenExternalLinks', 'setTextInteractionFlags', 'textInteractionFlags',
   'setSelection', 'hasSelectedText', 'selectedText', 'selectionStart',
   'setText', 'setPixmap', 'setPicture', 'setMovie', 'setNum', 'clear',
-  'event', 'keyPressEvent', 'paintEvent', 'changeEvent', 'mousePressEvent',
-  'mouseMoveEvent', 'mouseReleaseEvent', 'contextMenuEvent', 'focusInEvent',
-  'focusOutEvent', 'focusNextPrevChild'. It can be made from Python, in 2
-  ways; see '__init__'.
+  'linkActivated', 'linkHovered', 'event', 'keyPressEvent', 'paintEvent',
+  'changeEvent', 'mousePressEvent', 'mouseMoveEvent', 'mouseReleaseEvent',
+  'contextMenuEvent', 'focusInEvent', 'focusOutEvent', 'focusNextPrevChild'.
+  It can be made from Python, in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QLabel::qt_metacast(const char *a0)': one of Qt's own inner
+    workings.
+  - Qt's 'int QLabel::qt_metacall(QMetaObject::Call a0, int a1, void **a2)':
+    one of Qt's own inner workings.
   - Qt's 'QLabel::~QLabel()': the destructor: Python never removes a C++
     QLabel.
+  - Qt's 'QTextDocument::ResourceProvider QLabel::resourceProvider() const':
+    gives a type Python has no way to take yet.
+  - Qt's 'void QLabel::setResourceProvider(const
+    QTextDocument::ResourceProvider &provider)': takes a type Python has no
+    way to hand over yet.
+  - Qt's 'QLabelPrivate *QLabel::d_func()': gives 'QLabelPrivate', which has
+    no cute class yet.
+  - Qt's 'const QLabelPrivate *QLabel::d_func() const': gives
+    'QLabelPrivate', which has no cute class yet.
 
   What has no ritual
   ------------------
 
-  12 of the 66 functions Qt declares: 6 takes or gives a type that cannot be
-  passed yet; 2 a signal; 2 forbidden; 1 a template; 1 declared and nowhere
-  to be found.
+  4 of the 66 functions Qt declares: 2 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -92,6 +103,9 @@ class QLabel(QFrame):
   - Qt tells when it has removed the C++ QLabel. Every call on the cute
     object, and every use of it as an argument, then raises 'RuntimeError',
     and nothing reaches C++.
+  - Each name of Qt's QLabel that has no cute function yet,
+    'resourceProvider', 'setResourceProvider', holds a function that raises
+    'NotImplementedError', and its docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -911,6 +925,38 @@ class QLabel(QFrame):
     #  void QLabel::clear()
     self.uglySide.call('ritual_ZN6QLabel5clearEv')
 
+  @overload(str)
+  def linkActivated(self, link: str) -> None:
+    """
+    Calls Qt's 'void QLabel::linkActivated(const QString &link)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlabel.html#linkActivated
+
+    Parameters
+    ----------
+
+    link : str
+      Passed on as it is: a QString is made of it for the call.
+    """
+    #  void QLabel::linkActivated(const QString &link)
+    self.uglySide.call('ritual_ZN6QLabel13linkActivatedERK7QString', link)
+
+  @overload(str)
+  def linkHovered(self, link: str) -> None:
+    """
+    Calls Qt's 'void QLabel::linkHovered(const QString &link)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlabel.html#linkHovered
+
+    Parameters
+    ----------
+
+    link : str
+      Passed on as it is: a QString is made of it for the call.
+    """
+    #  void QLabel::linkHovered(const QString &link)
+    self.uglySide.call('ritual_ZN6QLabel11linkHoveredERK7QString', link)
+
   @overload(QEvent)
   @overload(NoneType)
   def event(self, e: Optional[QEvent]) -> bool:
@@ -1139,3 +1185,26 @@ class QLabel(QFrame):
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZN6QLabel18focusNextPrevChildEb'
     return self.uglySide.call(ritual, next)
+
+  @staticmethod
+  def resourceProvider(*__, **_) -> Never:
+    """
+    Qt's 'QTextDocument::ResourceProvider QLabel::resourceProvider() const':
+    gives a type Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QLabel.resourceProvider' has no cute function yet. Qt's "
+        "'QTextDocument::ResourceProvider QLabel::resourceProvider() "
+        "const': gives a type Python has no way to take yet.")
+
+  @staticmethod
+  def setResourceProvider(*__, **_) -> Never:
+    """
+    Qt's 'void QLabel::setResourceProvider(const
+    QTextDocument::ResourceProvider &provider)': takes a type Python has no
+    way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QLabel.setResourceProvider' has no cute function yet. Qt's 'void "
+        "QLabel::setResourceProvider(const QTextDocument::ResourceProvider "
+        "&provider)': takes a type Python has no way to hand over yet.")

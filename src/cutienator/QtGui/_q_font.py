@@ -18,7 +18,7 @@ from ..occult import Rituals
 from ..QtCore import QStringList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from ..QtCore import QByteArray, QDebug
   from . import QPaintDevice
@@ -70,16 +70,33 @@ class QFont(CuteMixin, metaclass=MetaCute):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'QFont::QFont(QFont &&a0)': takes a type Python has no way to hand
+    over yet.
   - Qt's 'QFont::~QFont()': the destructor: Python removes its C++ QFont by
     it, and has no other use for it.
+  - Qt's 'void QFont::swap(QFont &other)': takes a type Python has no way to
+    hand over yet.
+  - Qt's 'QList<Tag> QFont::featureTags() const': gives a type Python has no
+    way to take yet.
+  - Qt's 'QList<Tag> QFont::variableAxisTags() const': gives a type Python
+    has no way to take yet.
+  - Qt's 'QFont &QFont::operator=(const QFont &a0)': assignment: Python binds
+    a name and has no operator for it.
   - Qt's 'QVariant QFont::operator QVariant() const': an operator Python has
     no name for.
+  - Qt's 'QFont &QFont::operator=(QFont &&other)': assignment: Python binds a
+    name and has no operator for it.
+  - Qt's 'QFont::QFont(QFontPrivate *a0)': names 'QFontPrivate', which has no
+    cute class yet.
+  - Qt's 'QDataStream &operator<<(QDataStream &a0, const QFont &a1)': takes a
+    type Python has no way to hand over yet.
+  - Qt's 'QDataStream &operator>>(QDataStream &a0, QFont &a1)': an operator
+    between other classes, written inside this one.
 
   What has no ritual
   ------------------
 
-  12 of the 99 functions Qt declares: 9 takes or gives a type that cannot be
-  passed yet; 2 declared and nowhere to be found; 1 a template.
+  3 of the 99 functions Qt declares: 3 not a gap.
 
   What to expect
   --------------
@@ -92,6 +109,9 @@ class QFont(CuteMixin, metaclass=MetaCute):
     is as in C++.
   - A function giving a QFont back gives a copy the ritual made for Python,
     in a new cute QFont.
+  - Each name of Qt's QFont that has no cute function yet, 'featureTags',
+    'swap', 'variableAxisTags', holds a function that raises
+    'NotImplementedError', and its docstring says why.
   """
 
   #  The enums Qt writes inside QFont, each a class in here as in C++, and
@@ -251,14 +271,21 @@ class QFont(CuteMixin, metaclass=MetaCute):
     What has a ritual and is left out, and why
     ------------------------------------------
 
+    - Qt's 'std::optional<Tag> QFont::Tag::fromValue(quint32 value)': gives a
+      type Python has no way to take yet.
+    - Qt's 'std::optional<Tag> QFont::Tag::fromString(QAnyStringView view)':
+      gives a type Python has no way to take yet.
+    - Qt's 'QDataStream &operator<<(QDataStream &a0, Tag a1)': takes a type
+      Python has no way to hand over yet.
+    - Qt's 'QDataStream &operator>>(QDataStream &a0, Tag &a1)': an operator
+      between other classes, written inside this one.
     - Qt's 'QFont::Tag::~Tag()': the destructor: Python removes its C++
       QFont::Tag by it, and has no other use for it.
 
     What has no ritual
     ------------------
 
-    5 of the 17 functions Qt declares: 4 takes or gives a type that cannot be
-    passed yet; 1 a template.
+    1 of the 17 functions Qt declares: 1 a template.
 
     What to expect
     --------------
@@ -272,6 +299,9 @@ class QFont(CuteMixin, metaclass=MetaCute):
       there is as in C++.
     - A function giving a QFont::Tag back gives a copy the ritual made for
       Python, in a new cute QFont::Tag.
+    - Each name of Qt's QFont::Tag that has no cute function yet,
+      'fromString', 'fromValue', holds a function that raises
+      'NotImplementedError', and its docstring says why.
     """
 
     #  The cute classes this class names and is not built on. Each waits
@@ -608,6 +638,28 @@ class QFont(CuteMixin, metaclass=MetaCute):
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    @staticmethod
+    def fromString(*__, **_) -> Never:
+      """
+      Qt's 'std::optional<Tag> QFont::Tag::fromString(QAnyStringView view)':
+      gives a type Python has no way to take yet.
+      """
+      raise NotImplementedError(
+          "'QFont.Tag.fromString' has no cute function yet. Qt's "
+          "'std::optional<Tag> QFont::Tag::fromString(QAnyStringView "
+          "view)': gives a type Python has no way to take yet.")
+
+    @staticmethod
+    def fromValue(*__, **_) -> Never:
+      """
+      Qt's 'std::optional<Tag> QFont::Tag::fromValue(quint32 value)': gives a
+      type Python has no way to take yet.
+      """
+      raise NotImplementedError(
+          "'QFont.Tag.fromValue' has no cute function yet. Qt's "
+          "'std::optional<Tag> QFont::Tag::fromValue(quint32 value)': gives "
+          "a type Python has no way to take yet.")
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -2102,3 +2154,36 @@ class QFont(CuteMixin, metaclass=MetaCute):
     """
     #  void QFont::detach()
     self.uglySide.call('ritual_ZN5QFont6detachEv')
+
+  @staticmethod
+  def featureTags(*__, **_) -> Never:
+    """
+    Qt's 'QList<Tag> QFont::featureTags() const': gives a type Python has no
+    way to take yet.
+    """
+    raise NotImplementedError(
+        "'QFont.featureTags' has no cute function yet. Qt's 'QList<Tag> "
+        "QFont::featureTags() const': gives a type Python has no way to "
+        "take yet.")
+
+  @staticmethod
+  def swap(*__, **_) -> Never:
+    """
+    Qt's 'void QFont::swap(QFont &other)': takes a type Python has no way to
+    hand over yet.
+    """
+    raise NotImplementedError(
+        "'QFont.swap' has no cute function yet. Qt's 'void "
+        "QFont::swap(QFont &other)': takes a type Python has no way to hand "
+        "over yet.")
+
+  @staticmethod
+  def variableAxisTags(*__, **_) -> Never:
+    """
+    Qt's 'QList<Tag> QFont::variableAxisTags() const': gives a type Python
+    has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QFont.variableAxisTags' has no cute function yet. Qt's "
+        "'QList<Tag> QFont::variableAxisTags() const': gives a type Python "
+        "has no way to take yet.")

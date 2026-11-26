@@ -19,7 +19,7 @@ from ..QtGui import QPaintDevice, QPalette
 from . import QSizePolicy
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from ..QtCore import QByteArray, QEvent, QLocale, QMargins, QMetaObject
   from ..QtCore import QPoint, QPointF, QRect, QSize, QVariant
@@ -98,7 +98,7 @@ class QWidget(QObject, QPaintDevice):
   -----------
 
   Every function of Qt's QWidget that has a ritual and that Python can call
-  so far, 267 names in all: 'metaObject', 'tr', 'devType', 'winId',
+  so far, 271 names in all: 'metaObject', 'tr', 'devType', 'winId',
   'createWinId', 'internalWinId', 'effectiveWinId', 'style', 'setStyle',
   'isTopLevel', 'isWindow', 'isModal', 'windowModality', 'setWindowModality',
   'isEnabled', 'isEnabledTo', 'setEnabled', 'setDisabled',
@@ -150,14 +150,15 @@ class QWidget(QObject, QPaintDevice):
   'windowType', 'find', 'childAt', 'setAttribute', 'testAttribute',
   'paintEngine', 'ensurePolished', 'isAncestorOf', 'autoFillBackground',
   'setAutoFillBackground', 'backingStore', 'windowHandle', 'screen',
-  'setScreen', 'createWindowContainer', 'event', 'mousePressEvent',
-  'mouseReleaseEvent', 'mouseDoubleClickEvent', 'mouseMoveEvent',
-  'wheelEvent', 'keyPressEvent', 'keyReleaseEvent', 'focusInEvent',
-  'focusOutEvent', 'enterEvent', 'leaveEvent', 'paintEvent', 'moveEvent',
-  'resizeEvent', 'closeEvent', 'contextMenuEvent', 'tabletEvent',
-  'actionEvent', 'dragEnterEvent', 'dragMoveEvent', 'dragLeaveEvent',
-  'dropEvent', 'showEvent', 'hideEvent', 'changeEvent', 'metric',
-  'initPainter', 'redirected', 'sharedPainter', 'inputMethodEvent',
+  'setScreen', 'createWindowContainer', 'windowTitleChanged',
+  'windowIconChanged', 'windowIconTextChanged', 'customContextMenuRequested',
+  'event', 'mousePressEvent', 'mouseReleaseEvent', 'mouseDoubleClickEvent',
+  'mouseMoveEvent', 'wheelEvent', 'keyPressEvent', 'keyReleaseEvent',
+  'focusInEvent', 'focusOutEvent', 'enterEvent', 'leaveEvent', 'paintEvent',
+  'moveEvent', 'resizeEvent', 'closeEvent', 'contextMenuEvent',
+  'tabletEvent', 'actionEvent', 'dragEnterEvent', 'dragMoveEvent',
+  'dragLeaveEvent', 'dropEvent', 'showEvent', 'hideEvent', 'changeEvent',
+  'metric', 'initPainter', 'redirected', 'sharedPainter', 'inputMethodEvent',
   'inputMethodQuery', 'inputMethodHints', 'setInputMethodHints',
   'updateMicroFocus', 'create', 'destroy', 'focusNextPrevChild',
   'focusNextChild', 'focusPreviousChild', 'setBackingStore',
@@ -167,15 +168,27 @@ class QWidget(QObject, QPaintDevice):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QWidget::qt_metacast(const char *a0)': one of Qt's own inner
+    workings.
+  - Qt's 'int QWidget::qt_metacall(QMetaObject::Call a0, int a1, void **a2)':
+    one of Qt's own inner workings.
+  - Qt's 'QWidgetPrivate *QWidget::d_func()': gives 'QWidgetPrivate', which
+    has no cute class yet.
+  - Qt's 'const QWidgetPrivate *QWidget::d_func() const': gives
+    'QWidgetPrivate', which has no cute class yet.
   - Qt's 'QWidget::~QWidget()': the destructor: Python never removes a C++
     QWidget.
+  - Qt's 'void QWidget::setTabOrder(std::initializer_list<QWidget *>
+    widgets)': takes a type Python has no way to hand over yet.
+  - Qt's 'bool QWidget::nativeEvent(const QByteArray &eventType, void
+    *message, qintptr *result)': names 'void', which has no cute class yet.
+  - Qt's 'QWidget::QWidget(QWidgetPrivate &d, QWidget *parent,
+    Qt::WindowFlags f)': takes a type Python has no way to hand over yet.
 
   What has no ritual
   ------------------
 
-  19 of the 326 functions Qt declares: 7 takes or gives a type that cannot be
-  passed yet; 5 a template; 4 a signal; 2 forbidden; 1 declared and nowhere
-  to be found.
+  8 of the 326 functions Qt declares: 4 a template; 2 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -190,6 +203,9 @@ class QWidget(QObject, QPaintDevice):
   - Qt tells when it has removed the C++ QWidget. Every call on the cute
     object, and every use of it as an argument, then raises 'RuntimeError',
     and nothing reaches C++.
+  - Each name of Qt's QWidget that has no cute function yet, 'nativeEvent',
+    holds a function that raises 'NotImplementedError', and its docstring
+    says why.
   """
 
   #  The enums Qt writes inside QWidget, each a class in here as in C++, and
@@ -5579,6 +5595,82 @@ class QWidget(QObject, QPaintDevice):
     #  void QWidget::ensurePolished() const
     self.uglySide.call('ritual_ZNK7QWidget14ensurePolishedEv')
 
+  @overload(str)
+  def windowTitleChanged(self, title: str) -> None:
+    """
+    Calls Qt's 'void QWidget::windowTitleChanged(const QString &title)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qwidget.html#windowTitleChanged
+
+    Parameters
+    ----------
+
+    title : str
+      Passed on as it is: a QString is made of it for the call.
+    """
+    #  void QWidget::windowTitleChanged(const QString &title)
+    self.uglySide.call(
+        'ritual_ZN7QWidget18windowTitleChangedERK7QString', title,
+    )
+
+  @overload(QIcon)
+  def windowIconChanged(self, icon: QIcon) -> None:
+    """
+    Calls Qt's 'void QWidget::windowIconChanged(const QIcon &icon)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qwidget.html#windowIconChanged
+
+    Parameters
+    ----------
+
+    icon : QIcon
+      Passed on as a value: Qt reads the C++ QIcon, which stays Python's own.
+    """
+    #  void QWidget::windowIconChanged(const QIcon &icon)
+    self.uglySide.call(
+        'ritual_ZN7QWidget17windowIconChangedERK5QIcon', self._valueOf(icon),
+    )
+
+  @overload(str)
+  def windowIconTextChanged(self, iconText: str) -> None:
+    """
+    Calls Qt's 'void QWidget::windowIconTextChanged(const QString
+    &iconText)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qwidget.html#windowIconTextChanged
+
+    Parameters
+    ----------
+
+    iconText : str
+      Passed on as it is: a QString is made of it for the call.
+    """
+    #  void QWidget::windowIconTextChanged(const QString &iconText)
+    self.uglySide.call(
+        'ritual_ZN7QWidget21windowIconTextChangedERK7QString', iconText,
+    )
+
+  @overload(QPoint)
+  def customContextMenuRequested(self, pos: QPoint) -> None:
+    """
+    Calls Qt's 'void QWidget::customContextMenuRequested(const QPoint &pos)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qwidget.html#customContextMenuRequested
+
+    Parameters
+    ----------
+
+    pos : QPoint
+      Passed on as a value: Qt reads the C++ QPoint, which stays Python's
+      own.
+    """
+    #  void QWidget::customContextMenuRequested(const QPoint &pos)
+    self.uglySide.call(
+        'ritual_ZN7QWidget26customContextMenuRequestedERK6QPoint',
+        self._valueOf(pos),
+    )
+
   @overload(QEvent)
   @overload(NoneType)
   def event(self, event: Optional[QEvent]) -> bool:
@@ -6308,6 +6400,17 @@ class QWidget(QObject, QPaintDevice):
     address = self.uglySide.call('ritual_ZN7QWidget10takeLayoutEv')
     from . import QLayout
     return QLayout._cuteAt(address)
+
+  @staticmethod
+  def nativeEvent(*__, **_) -> Never:
+    """
+    Qt's 'bool QWidget::nativeEvent(const QByteArray &eventType, void
+    *message, qintptr *result)': names 'void', which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QWidget.nativeEvent' has no cute function yet. Qt's 'bool "
+        "QWidget::nativeEvent(const QByteArray &eventType, void *message, "
+        "qintptr *result)': names 'void', which has no cute class yet.")
 
 
 #  Qt's 'QList<QWidget *>': the list of QWidget, which 'QList[QWidget]'

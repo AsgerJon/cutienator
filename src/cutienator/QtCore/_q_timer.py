@@ -16,7 +16,7 @@ from ..occult import Rituals
 from . import Qt, QObject
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from . import QMetaObject, QTimerEvent
 else:
@@ -42,24 +42,66 @@ class QTimer(QObject):
   -----------
 
   Every function of Qt's QTimer that has a ritual and that Python can call so
-  far, 19 names in all: 'metaObject', 'tr', 'isActive', 'timerId', 'id',
+  far, 20 names in all: 'metaObject', 'tr', 'isActive', 'timerId', 'id',
   'setInterval', 'interval', 'remainingTime', 'setTimerType', 'timerType',
-  'setSingleShot', 'isSingleShot', 'singleShot', 'start', 'stop',
+  'setSingleShot', 'isSingleShot', 'singleShot', 'start', 'stop', 'timeout',
   'timerEvent', 'startTimer', 'killTimer', 'defaultTypeFor'. It can be made
   from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QTimer::qt_metacast(const char *a0)': one of Qt's own inner
+    workings.
+  - Qt's 'int QTimer::qt_metacall(QMetaObject::Call a0, int a1, void **a2)':
+    one of Qt's own inner workings.
   - Qt's 'QTimer::~QTimer()': the destructor: Python never removes a C++
     QTimer.
+  - Qt's 'QBindable<bool> QTimer::bindableActive()': gives a type Python has
+    no way to take yet.
+  - Qt's 'QBindable<int> QTimer::bindableInterval()': gives a type Python has
+    no way to take yet.
+  - Qt's 'QBindable<Qt::TimerType> QTimer::bindableTimerType()': gives a type
+    Python has no way to take yet.
+  - Qt's 'QBindable<bool> QTimer::bindableSingleShot()': gives a type Python
+    has no way to take yet.
+  - Qt's 'void QTimer::setInterval(std::chrono::milliseconds value)': takes a
+    type Python has no way to hand over yet.
+  - Qt's 'std::chrono::milliseconds QTimer::intervalAsDuration() const':
+    gives a type Python has no way to take yet.
+  - Qt's 'std::chrono::milliseconds QTimer::remainingTimeAsDuration() const':
+    gives a type Python has no way to take yet.
+  - Qt's 'void QTimer::singleShot(std::chrono::nanoseconds value, const
+    QObject *receiver, const char *member)': takes a type Python has no way
+    to hand over yet.
+  - Qt's 'void QTimer::singleShot(std::chrono::nanoseconds interval,
+    Qt::TimerType timerType, const QObject *receiver, const char *member)':
+    takes a type Python has no way to hand over yet.
+  - Qt's 'void QTimer::start(std::chrono::milliseconds value)': takes a type
+    Python has no way to hand over yet.
+  - Qt's 'QTimerPrivate *QTimer::d_func()': gives 'QTimerPrivate', which has
+    no cute class yet.
+  - Qt's 'const QTimerPrivate *QTimer::d_func() const': gives
+    'QTimerPrivate', which has no cute class yet.
+  - Qt's 'std::chrono::nanoseconds
+    QTimer::from_msecs(std::chrono::milliseconds a0)': takes a type Python
+    has no way to hand over yet.
+  - Qt's 'std::chrono::nanoseconds QTimer::toDuration(int msecs)': gives a
+    type Python has no way to take yet.
+  - Qt's 'std::chrono::nanoseconds
+    QTimer::toDuration(std::chrono::nanoseconds ns)': takes a type Python has
+    no way to hand over yet.
+  - Qt's 'Qt::TimerType QTimer::defaultTypeFor(std::chrono::nanoseconds
+    interval)': takes a type Python has no way to hand over yet.
+  - Qt's 'void QTimer::singleShotImpl(std::chrono::nanoseconds interval,
+    Qt::TimerType timerType, const QObject *receiver,
+    QtPrivate::QSlotObjectBase *slotObj)': takes a type Python has no way to
+    hand over yet.
 
   What has no ritual
   ------------------
 
-  29 of the 52 functions Qt declares: 19 takes or gives a type that cannot be
-  passed yet; 6 a template; 2 forbidden; 1 declared and nowhere to be found;
-  1 a signal.
+  9 of the 52 functions Qt declares: 5 a template; 2 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -74,6 +116,11 @@ class QTimer(QObject):
   - Qt tells when it has removed the C++ QTimer. Every call on the cute
     object, and every use of it as an argument, then raises 'RuntimeError',
     and nothing reaches C++.
+  - Each name of Qt's QTimer that has no cute function yet, 'bindableActive',
+    'bindableInterval', 'bindableSingleShot', 'bindableTimerType',
+    'callOnTimeout', 'from_msecs', 'intervalAsDuration',
+    'remainingTimeAsDuration', 'singleShotImpl', 'toDuration', holds a
+    function that raises 'NotImplementedError', and its docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -492,6 +539,15 @@ class QTimer(QObject):
     #  void QTimer::stop()
     self.uglySide.call('ritual_ZN6QTimer4stopEv')
 
+  def timeout(self) -> None:
+    """
+    Calls Qt's 'void QTimer::timeout(QPrivateSignal a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtimer.html#timeout
+    """
+    #  void QTimer::timeout(QPrivateSignal a0)
+    self.uglySide.call('ritual_ZN6QTimer7timeoutENS_14QPrivateSignalE')
+
   @overload(QTimerEvent)
   @overload(NoneType)
   def timerEvent(self, a0: Optional[QTimerEvent]) -> None:
@@ -544,3 +600,124 @@ class QTimer(QObject):
     """
     #  void QTimer::killTimer(int a0)
     self.uglySide.call('ritual_ZN6QTimer9killTimerEi', a0)
+
+  @staticmethod
+  def bindableActive(*__, **_) -> Never:
+    """
+    Qt's 'QBindable<bool> QTimer::bindableActive()': gives a type Python has
+    no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QTimer.bindableActive' has no cute function yet. Qt's "
+        "'QBindable<bool> QTimer::bindableActive()': gives a type Python "
+        "has no way to take yet.")
+
+  @staticmethod
+  def bindableInterval(*__, **_) -> Never:
+    """
+    Qt's 'QBindable<int> QTimer::bindableInterval()': gives a type Python has
+    no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QTimer.bindableInterval' has no cute function yet. Qt's "
+        "'QBindable<int> QTimer::bindableInterval()': gives a type Python "
+        "has no way to take yet.")
+
+  @staticmethod
+  def bindableSingleShot(*__, **_) -> Never:
+    """
+    Qt's 'QBindable<bool> QTimer::bindableSingleShot()': gives a type Python
+    has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QTimer.bindableSingleShot' has no cute function yet. Qt's "
+        "'QBindable<bool> QTimer::bindableSingleShot()': gives a type "
+        "Python has no way to take yet.")
+
+  @staticmethod
+  def bindableTimerType(*__, **_) -> Never:
+    """
+    Qt's 'QBindable<Qt::TimerType> QTimer::bindableTimerType()': gives a type
+    Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QTimer.bindableTimerType' has no cute function yet. Qt's "
+        "'QBindable<Qt::TimerType> QTimer::bindableTimerType()': gives a "
+        "type Python has no way to take yet.")
+
+  @staticmethod
+  def callOnTimeout(*__, **_) -> Never:
+    """
+    Qt's 'QTimer::callOnTimeout': a template: a pattern and no single
+    function.
+    """
+    raise NotImplementedError(
+        "'QTimer.callOnTimeout' has no cute function yet. Qt's "
+        "'QTimer::callOnTimeout': a template: a pattern and no single "
+        "function.")
+
+  @staticmethod
+  def from_msecs(*__, **_) -> Never:
+    """
+    Qt's 'std::chrono::nanoseconds
+    QTimer::from_msecs(std::chrono::milliseconds a0)': takes a type Python
+    has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QTimer.from_msecs' has no cute function yet. Qt's "
+        "'std::chrono::nanoseconds "
+        "QTimer::from_msecs(std::chrono::milliseconds a0)': takes a type "
+        "Python has no way to hand over yet.")
+
+  @staticmethod
+  def intervalAsDuration(*__, **_) -> Never:
+    """
+    Qt's 'std::chrono::milliseconds QTimer::intervalAsDuration() const':
+    gives a type Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QTimer.intervalAsDuration' has no cute function yet. Qt's "
+        "'std::chrono::milliseconds QTimer::intervalAsDuration() const': "
+        "gives a type Python has no way to take yet.")
+
+  @staticmethod
+  def remainingTimeAsDuration(*__, **_) -> Never:
+    """
+    Qt's 'std::chrono::milliseconds QTimer::remainingTimeAsDuration() const':
+    gives a type Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QTimer.remainingTimeAsDuration' has no cute function yet. Qt's "
+        "'std::chrono::milliseconds QTimer::remainingTimeAsDuration() "
+        "const': gives a type Python has no way to take yet.")
+
+  @staticmethod
+  def singleShotImpl(*__, **_) -> Never:
+    """
+    Qt's 'void QTimer::singleShotImpl(std::chrono::nanoseconds interval,
+    Qt::TimerType timerType, const QObject *receiver,
+    QtPrivate::QSlotObjectBase *slotObj)': takes a type Python has no way to
+    hand over yet.
+    """
+    raise NotImplementedError(
+        "'QTimer.singleShotImpl' has no cute function yet. Qt's 'void "
+        "QTimer::singleShotImpl(std::chrono::nanoseconds interval, "
+        "Qt::TimerType timerType, const QObject *receiver, "
+        "QtPrivate::QSlotObjectBase *slotObj)': takes a type Python has no "
+        "way to hand over yet.")
+
+  @staticmethod
+  def toDuration(*__, **_) -> Never:
+    """
+    - Qt's 'std::chrono::nanoseconds QTimer::toDuration(int msecs)': gives a
+      type Python has no way to take yet.
+    - Qt's 'std::chrono::nanoseconds
+      QTimer::toDuration(std::chrono::nanoseconds ns)': takes a type Python
+      has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QTimer.toDuration' has no cute function yet. Qt's "
+        "'std::chrono::nanoseconds QTimer::toDuration(int msecs)': gives a "
+        "type Python has no way to take yet. Qt's 'std::chrono::nanoseconds "
+        "QTimer::toDuration(std::chrono::nanoseconds ns)': takes a type "
+        "Python has no way to hand over yet.")

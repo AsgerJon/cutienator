@@ -19,7 +19,7 @@ from ..QtCore import Qt, QObject
 from . import QLayoutItem, QSizePolicy
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from ..QtCore import QChildEvent, QEvent, QMargins, QMetaObject, QRect
   from ..QtCore import QSize
@@ -68,23 +68,31 @@ class QLayout(QObject, QLayoutItem):
   'totalSizeHint', 'layout', 'setEnabled', 'isEnabled',
   'closestAcceptableSize', 'widgetEvent', 'childEvent', 'addChildLayout',
   'addChildWidget', 'adoptLayout', 'alignmentRect',
-  'activateRecursiveHelper'. None can be made from Python: one comes out of a
-  function of another class that gives one back.
+  'activateRecursiveHelper'. It can be made from Python, in 1 way; see
+  '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QLayout::qt_metacast(const char *a0)': one of Qt's own inner
+    workings.
+  - Qt's 'int QLayout::qt_metacall(QMetaObject::Call a0, int a1, void **a2)':
+    one of Qt's own inner workings.
+  - Qt's 'QLayoutPrivate *QLayout::d_func()': gives 'QLayoutPrivate', which
+    has no cute class yet.
+  - Qt's 'const QLayoutPrivate *QLayout::d_func() const': gives
+    'QLayoutPrivate', which has no cute class yet.
   - Qt's 'QLayout::~QLayout()': the destructor: Python never removes a C++
     QLayout.
   - Qt's 'void QLayout::getContentsMargins(int *left, int *top, int *right,
     int *bottom) const': takes a number to change where it is.
+  - Qt's 'QLayout::QLayout(QLayoutPrivate &d, QLayout *a1, QWidget *a2)':
+    takes a type Python has no way to hand over yet.
 
   What has no ritual
   ------------------
 
-  10 of the 69 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet; 2 the class is abstract, so C++ cannot make one; 2 forbidden; 1
-  a template; 1 declared and nowhere to be found.
+  4 of the 69 functions Qt declares: 2 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -99,6 +107,9 @@ class QLayout(QObject, QLayoutItem):
   - Qt tells when it has removed the C++ QLayout. Every call on the cute
     object, and every use of it as an argument, then raises 'RuntimeError',
     and nothing reaches C++.
+  - Each name of Qt's QLayout that has no cute function yet,
+    'getContentsMargins', holds a function that raises 'NotImplementedError',
+    and its docstring says why.
   """
 
   #  The enums Qt writes inside QLayout, each a class in here as in C++, and
@@ -1076,6 +1087,28 @@ class QLayout(QObject, QLayoutItem):
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  @overload()
+  @overload(QWidget)
+  @overload(NoneType)
+  def __init__(self, parent: Optional[QWidget] = None) -> None:
+    """
+    Notes what was given, for Qt's 'QLayout::QLayout(QWidget *parent)', which
+    is called at the first use.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlayout.html#QLayout
+
+    Parameters
+    ----------
+
+    parent : Optional[QWidget]
+      Passed on as the address of its C++ object. None is passed on as no
+      object. May be left out, as in Qt: it is then None.
+    """
+    #  QLayout::QLayout(QWidget *parent)
+    self._noteCreation(QLayout, lambda: Rituals.call(
+        'ritual_ZN7QLayoutC1EP7QWidget', self._addressOf(parent),
+    ))
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -1418,3 +1451,14 @@ class QLayout(QObject, QLayoutItem):
     return self.uglySide.call(
         'ritual_ZN7QLayout11adoptLayoutEPS_', self._addressOf(layout),
     )
+
+  @staticmethod
+  def getContentsMargins(*__, **_) -> Never:
+    """
+    Qt's 'void QLayout::getContentsMargins(int *left, int *top, int *right,
+    int *bottom) const': takes a number to change where it is.
+    """
+    raise NotImplementedError(
+        "'QLayout.getContentsMargins' has no cute function yet. Qt's 'void "
+        "QLayout::getContentsMargins(int *left, int *top, int *right, int "
+        "*bottom) const': takes a number to change where it is.")

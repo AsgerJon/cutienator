@@ -12,6 +12,7 @@ from typing import TYPE_CHECKING
 from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, MetaCute, WAIT
+from ..occult import Rituals
 from ..QtCore import Qt
 from . import QSizePolicy
 
@@ -40,20 +41,14 @@ class QLayoutItem(CuteMixin, metaclass=MetaCute):
   'expandingDirections', 'setGeometry', 'geometry', 'isEmpty',
   'hasHeightForWidth', 'heightForWidth', 'minimumHeightForWidth',
   'invalidate', 'widget', 'layout', 'spacerItem', 'alignment',
-  'setAlignment', 'controlTypes'. None can be made from Python: one comes out
-  of a function of another class that gives one back.
+  'setAlignment', 'controlTypes'. It can be made from Python, in 1 way; see
+  '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
   - Qt's 'QLayoutItem::~QLayoutItem()': the destructor: Python never removes
     a C++ QLayoutItem.
-
-  What has no ritual
-  ------------------
-
-  1 of the 19 functions Qt declares: 1 the class is abstract, so C++ cannot
-  make one.
 
   What to expect
   --------------
@@ -449,6 +444,28 @@ class QLayoutItem(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload()
+  @overload(Qt.Alignment)
+  def __init__(self, alignment: Qt.Alignment = Qt.Alignment()) -> None:
+    """
+    Notes what was given, for Qt's 'QLayoutItem::QLayoutItem(Qt::Alignment
+    alignment)', which is called at the first use.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlayoutitem.html#QLayoutItem
+
+    Parameters
+    ----------
+
+    alignment : Qt.Alignment
+      Passed on as its number. May be left out, as in Qt: it is then
+      Qt.Alignment().
+    """
+    #  QLayoutItem::QLayoutItem(Qt::Alignment alignment)
+    self._noteCreation(QLayoutItem, lambda: Rituals.call(
+        'ritual_ZN11QLayoutItemC1E6QFlagsIN2Qt13AlignmentFlagEE',
+        alignment.value,
+    ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #

@@ -17,7 +17,7 @@ from ..QtCore import Qt, QList
 from . import QTabWidget, QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from ..QtCore import QByteArray, QEvent, QMetaObject, QPoint, QSize
   from ..QtGui import QContextMenuEvent
@@ -53,7 +53,7 @@ class QMainWindow(QWidget):
   -----------
 
   Every function of Qt's QMainWindow that has a ritual and that Python can
-  call so far, 52 names in all: 'metaObject', 'tr', 'iconSize',
+  call so far, 55 names in all: 'metaObject', 'tr', 'iconSize',
   'setIconSize', 'toolButtonStyle', 'setToolButtonStyle', 'isAnimated',
   'isDockNestingEnabled', 'documentMode', 'setDocumentMode', 'tabShape',
   'setTabShape', 'tabPosition', 'setTabPosition', 'setDockOptions',
@@ -66,21 +66,32 @@ class QMainWindow(QWidget):
   'tabifyDockWidget', 'tabifiedDockWidgets', 'removeDockWidget',
   'restoreDockWidget', 'dockWidgetArea', 'saveState', 'restoreState',
   'createPopupMenu', 'setAnimated', 'setDockNestingEnabled',
-  'setUnifiedTitleAndToolBarOnMac', 'contextMenuEvent', 'event'. It can be
-  made from Python, in 1 way; see '__init__'.
+  'setUnifiedTitleAndToolBarOnMac', 'iconSizeChanged',
+  'toolButtonStyleChanged', 'tabifiedDockWidgetActivated',
+  'contextMenuEvent', 'event'. It can be made from Python, in 1 way; see
+  '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QMainWindow::qt_metacast(const char *a0)': one of Qt's own
+    inner workings.
+  - Qt's 'int QMainWindow::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
   - Qt's 'QMainWindow::~QMainWindow()': the destructor: Python never removes
     a C++ QMainWindow.
+  - Qt's 'void QMainWindow::resizeDocks(const QList<QDockWidget *> &docks,
+    const QList<int> &sizes, Qt::Orientation orientation)': takes a type
+    Python has no way to hand over yet.
+  - Qt's 'QMainWindowPrivate *QMainWindow::d_func()': gives
+    'QMainWindowPrivate', which has no cute class yet.
+  - Qt's 'const QMainWindowPrivate *QMainWindow::d_func() const': gives
+    'QMainWindowPrivate', which has no cute class yet.
 
   What has no ritual
   ------------------
 
-  12 of the 69 functions Qt declares: 5 takes or gives a type that cannot be
-  passed yet; 3 a signal; 2 forbidden; 1 a template; 1 declared and nowhere
-  to be found.
+  4 of the 69 functions Qt declares: 2 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -96,6 +107,9 @@ class QMainWindow(QWidget):
   - Qt tells when it has removed the C++ QMainWindow. Every call on the cute
     object, and every use of it as an argument, then raises 'RuntimeError',
     and nothing reaches C++.
+  - Each name of Qt's QMainWindow that has no cute function yet,
+    'resizeDocks', holds a function that raises 'NotImplementedError', and
+    its docstring says why.
   """
 
   #  The enums Qt writes inside QMainWindow, each a class in here as in C++,
@@ -1425,6 +1439,77 @@ class QMainWindow(QWidget):
     from . import QMenu
     return QMenu._cuteAt(address)
 
+  @overload(QSize)
+  def iconSizeChanged(self, iconSize: QSize) -> None:
+    """
+    Calls Qt's 'void QMainWindow::iconSizeChanged(const QSize &iconSize)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmainwindow.html#iconSizeChanged
+
+    Parameters
+    ----------
+
+    iconSize : QSize
+      Passed on as a value: Qt reads the C++ QSize, which stays Python's own.
+    """
+    #  void QMainWindow::iconSizeChanged(const QSize &iconSize)
+    self.uglySide.call(
+        'ritual_ZN11QMainWindow15iconSizeChangedERK5QSize',
+        self._valueOf(iconSize),
+    )
+
+  @overload(Qt.ToolButtonStyle)
+  def toolButtonStyleChanged(
+      self,
+      toolButtonStyle: Qt.ToolButtonStyle,
+  ) -> None:
+    """
+    Calls Qt's 'void QMainWindow::toolButtonStyleChanged(Qt::ToolButtonStyle
+    toolButtonStyle)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qmainwindow.html#toolButtonStyleChanged
+
+    Parameters
+    ----------
+
+    toolButtonStyle : Qt.ToolButtonStyle
+      Passed on as its number.
+    """
+    #  void QMainWindow::toolButtonStyleChanged(Qt::ToolButtonStyle
+    #      toolButtonStyle)
+    self.uglySide.call(
+        'ritual_ZN11QMainWindow22toolButtonStyleChangedEN2Qt15ToolButtonSty'
+        'leE',
+        toolButtonStyle.value,
+    )
+
+  @overload(QDockWidget)
+  @overload(NoneType)
+  def tabifiedDockWidgetActivated(
+      self,
+      dockWidget: Optional[QDockWidget],
+  ) -> None:
+    """
+    Calls Qt's 'void QMainWindow::tabifiedDockWidgetActivated(QDockWidget
+    *dockWidget)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qmainwindow.html#tabifiedDockWidgetActivated
+
+    Parameters
+    ----------
+
+    dockWidget : Optional[QDockWidget]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QMainWindow::tabifiedDockWidgetActivated(QDockWidget *dockWidget)
+    self.uglySide.call(
+        'ritual_ZN11QMainWindow27tabifiedDockWidgetActivatedEP11QDockWidget',
+        self._addressOf(dockWidget),
+    )
+
   @overload(QContextMenuEvent)
   @overload(NoneType)
   def contextMenuEvent(self, event: Optional[QContextMenuEvent]) -> None:
@@ -1469,3 +1554,16 @@ class QMainWindow(QWidget):
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZN11QMainWindow5eventEP6QEvent'
     return self.uglySide.call(ritual, self._addressOf(event))
+
+  @staticmethod
+  def resizeDocks(*__, **_) -> Never:
+    """
+    Qt's 'void QMainWindow::resizeDocks(const QList<QDockWidget *> &docks,
+    const QList<int> &sizes, Qt::Orientation orientation)': takes a type
+    Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QMainWindow.resizeDocks' has no cute function yet. Qt's 'void "
+        "QMainWindow::resizeDocks(const QList<QDockWidget *> &docks, const "
+        "QList<int> &sizes, Qt::Orientation orientation)': takes a type "
+        "Python has no way to hand over yet.")

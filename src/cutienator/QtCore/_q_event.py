@@ -36,14 +36,23 @@ class QEvent(CuteMixin, metaclass=MetaCute):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'QEvent::QEvent(const QEvent &a0)': takes a type Python has no way
+    to hand over yet.
+  - Qt's 'QEvent &QEvent::operator=(const QEvent &other)': assignment: Python
+    binds a name and has no operator for it.
   - Qt's 'QEvent::~QEvent()': the destructor: Python never removes a C++
     QEvent.
+  - Qt's 'QEvent::QEvent(Type type, InputEventTag a1)': takes a type Python
+    has no way to hand over yet.
+  - Qt's 'QEvent::QEvent(Type type, PointerEventTag a1)': takes a type Python
+    has no way to hand over yet.
+  - Qt's 'QEvent::QEvent(Type type, SinglePointEventTag a1)': takes a type
+    Python has no way to hand over yet.
 
   What has no ritual
   ------------------
 
-  10 of the 24 functions Qt declares: 5 takes or gives a type that cannot be
-  passed yet; 2 declared and nowhere to be found; 2 forbidden; 1 a template.
+  5 of the 24 functions Qt declares: 3 not a gap; 2 forbidden.
 
   What to expect
   --------------

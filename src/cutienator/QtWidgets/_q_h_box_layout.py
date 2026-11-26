@@ -49,14 +49,17 @@ class QHBoxLayout(QBoxLayout):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QHBoxLayout::qt_metacast(const char *a0)': one of Qt's own
+    inner workings.
+  - Qt's 'int QHBoxLayout::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
   - Qt's 'QHBoxLayout::~QHBoxLayout()': the destructor: Python never removes
     a C++ QHBoxLayout.
 
   What has no ritual
   ------------------
 
-  6 of the 11 functions Qt declares: 2 takes or gives a type that cannot be
-  passed yet; 2 forbidden; 1 a template; 1 declared and nowhere to be found.
+  4 of the 11 functions Qt declares: 2 not a gap; 2 forbidden.
 
   What to expect
   --------------

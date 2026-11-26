@@ -21,7 +21,7 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
 
   from ..QtCore import QEvent, QMetaObject, QPoint, QSize, QTimerEvent
   from ..QtGui import QFocusEvent, QIcon, QKeyEvent, QKeySequence
-  from ..QtGui import QMouseEvent
+  from ..QtGui import QMouseEvent, QPaintEvent
   from . import QButtonGroup
 else:
   #  The cute classes this file names and is not built on. Each is brought in
@@ -33,6 +33,7 @@ else:
   QKeyEvent = WAIT['QKeyEvent']
   QKeySequence = WAIT['QKeySequence']
   QMouseEvent = WAIT['QMouseEvent']
+  QPaintEvent = WAIT['QPaintEvent']
   QPoint = WAIT['QPoint']
   QSize = WAIT['QSize']
   QTimerEvent = WAIT['QTimerEvent']
@@ -54,30 +55,38 @@ class QAbstractButton(QWidget):
   -----------
 
   Every function of Qt's QAbstractButton that has a ritual and that Python
-  can call so far, 41 names in all: 'metaObject', 'tr', 'setText', 'text',
+  can call so far, 46 names in all: 'metaObject', 'tr', 'setText', 'text',
   'setIcon', 'icon', 'iconSize', 'setShortcut', 'shortcut', 'setCheckable',
   'isCheckable', 'isChecked', 'setDown', 'isDown', 'setAutoRepeat',
   'autoRepeat', 'setAutoRepeatDelay', 'autoRepeatDelay',
   'setAutoRepeatInterval', 'autoRepeatInterval', 'setAutoExclusive',
   'autoExclusive', 'group', 'setIconSize', 'animateClick', 'click', 'toggle',
-  'setChecked', 'hitButton', 'checkStateSet', 'nextCheckState', 'event',
-  'keyPressEvent', 'keyReleaseEvent', 'mousePressEvent', 'mouseReleaseEvent',
+  'setChecked', 'pressed', 'released', 'clicked', 'toggled', 'paintEvent',
+  'hitButton', 'checkStateSet', 'nextCheckState', 'event', 'keyPressEvent',
+  'keyReleaseEvent', 'mousePressEvent', 'mouseReleaseEvent',
   'mouseMoveEvent', 'focusInEvent', 'focusOutEvent', 'changeEvent',
-  'timerEvent'. None can be made from Python: one comes out of a function of
-  another class that gives one back.
+  'timerEvent'. It can be made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QAbstractButton::qt_metacast(const char *a0)': one of Qt's
+    own inner workings.
+  - Qt's 'int QAbstractButton::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
   - Qt's 'QAbstractButton::~QAbstractButton()': the destructor: Python never
     removes a C++ QAbstractButton.
+  - Qt's 'QAbstractButton::QAbstractButton(QAbstractButtonPrivate &dd,
+    QWidget *parent)': takes a type Python has no way to hand over yet.
+  - Qt's 'QAbstractButtonPrivate *QAbstractButton::d_func()': gives
+    'QAbstractButtonPrivate', which has no cute class yet.
+  - Qt's 'const QAbstractButtonPrivate *QAbstractButton::d_func() const':
+    gives 'QAbstractButtonPrivate', which has no cute class yet.
 
   What has no ritual
   ------------------
 
-  15 of the 57 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet; 4 a signal; 2 declared and nowhere to be found; 2 the class is
-  abstract, so C++ cannot make one; 2 forbidden; 1 a template.
+  4 of the 57 functions Qt declares: 2 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -590,6 +599,29 @@ class QAbstractButton(QWidget):
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  @overload()
+  @overload(QWidget)
+  @overload(NoneType)
+  def __init__(self, parent: Optional[QWidget] = None) -> None:
+    """
+    Notes what was given, for Qt's 'QAbstractButton::QAbstractButton(QWidget
+    *parent)', which is called at the first use.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractbutton.html#QAbstractButton
+
+    Parameters
+    ----------
+
+    parent : Optional[QWidget]
+      Passed on as the address of its C++ object. None is passed on as no
+      object. May be left out, as in Qt: it is then None.
+    """
+    #  QAbstractButton::QAbstractButton(QWidget *parent)
+    self._noteCreation(QAbstractButton, lambda: Rituals.call(
+        'ritual_ZN15QAbstractButtonC1EP7QWidget', self._addressOf(parent),
+    ))
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -636,6 +668,78 @@ class QAbstractButton(QWidget):
     """
     #  void QAbstractButton::toggle()
     self.uglySide.call('ritual_ZN15QAbstractButton6toggleEv')
+
+  def pressed(self) -> None:
+    """
+    Calls Qt's 'void QAbstractButton::pressed()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qabstractbutton.html#pressed
+    """
+    #  void QAbstractButton::pressed()
+    self.uglySide.call('ritual_ZN15QAbstractButton7pressedEv')
+
+  def released(self) -> None:
+    """
+    Calls Qt's 'void QAbstractButton::released()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qabstractbutton.html#released
+    """
+    #  void QAbstractButton::released()
+    self.uglySide.call('ritual_ZN15QAbstractButton8releasedEv')
+
+  @overload()
+  @overload(bool)
+  def clicked(self, checked: bool = False) -> None:
+    """
+    Calls Qt's 'void QAbstractButton::clicked(bool checked)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qabstractbutton.html#clicked
+
+    Parameters
+    ----------
+
+    checked : bool
+      Passed on as it is. May be left out, as in Qt: it is then False.
+    """
+    #  void QAbstractButton::clicked(bool checked)
+    self.uglySide.call('ritual_ZN15QAbstractButton7clickedEb', checked)
+
+  @overload(bool)
+  def toggled(self, checked: bool) -> None:
+    """
+    Calls Qt's 'void QAbstractButton::toggled(bool checked)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qabstractbutton.html#toggled
+
+    Parameters
+    ----------
+
+    checked : bool
+      Passed on as it is.
+    """
+    #  void QAbstractButton::toggled(bool checked)
+    self.uglySide.call('ritual_ZN15QAbstractButton7toggledEb', checked)
+
+  @overload(QPaintEvent)
+  @overload(NoneType)
+  def paintEvent(self, e: Optional[QPaintEvent]) -> None:
+    """
+    Calls Qt's 'void QAbstractButton::paintEvent(QPaintEvent *e)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qabstractbutton.html#paintEvent
+
+    Parameters
+    ----------
+
+    e : Optional[QPaintEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QAbstractButton::paintEvent(QPaintEvent *e)
+    self.uglySide.call(
+        'ritual_ZN15QAbstractButton10paintEventEP11QPaintEvent',
+        self._addressOf(e),
+    )
 
   def checkStateSet(self) -> None:
     """
