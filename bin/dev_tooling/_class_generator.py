@@ -16,7 +16,7 @@ from ._default_value import DefaultValue
 from ._class_text import ClassText
 from ._function_plan import FunctionPlan
 from .class_tables import (
-    APPLICATION_NAME, BINARY_OPERATORS, IN_PLACE_OPERATORS, PART_ORDER)
+    APPLICATION_NAME, BINARY_OPERATORS, IN_PLACE_OPERATORS)
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Any, Dict, List, Optional, Set, Tuple
@@ -543,9 +543,9 @@ class ClassGenerator:
       #  Worked out twice: the first time tells which classes have an
       #  enum this one names, and those are no late classes the second
       #  time.
-      self.__owners__ = ()
+      self.__owner_classes__ = ()
       self._createFunctions()
-      self.__owners__ = (*self.__needed_names__['owners'],)
+      self.__owner_classes__ = (*self.__needed_names__['owners'],)
       self._createFunctions()
       return self.getFunctions(_recursion=True)
     return self.__made_functions__
@@ -781,6 +781,35 @@ class ClassGenerator:
       generator.setWorkFolder(self.__work_folder__)
     return generator
 
+  def getImportOrder(self, partNames: Any) -> Names:
+    """
+    Gives parts of Qt in the order the file brings names in from them:
+    first the parts the part of the class needs, its own part among
+    them, each after the parts it is built on, as 'QtCore', 'QtGui',
+    'QtWidgets' for a class of QtWidgets; then any other of them, in
+    the same order.
+
+    A part needs more parts than any part it is built on, since it
+    needs those too, so ordering by how many parts each needs puts
+    every part after those it is built on. Parts that need as many are
+    in alphabetical order.
+
+    Parameters
+    ----------
+
+    partNames : Any
+      The parts the file brings names in from, in any order.
+    """
+    tree, wanted = self.getDependencyTree(), {*partNames}
+    needed = {*tree.getNeededParts(self.getPartName())}
+
+    def depth(partName: str) -> Tuple[int, str]:
+      """Gives how many parts a part needs, then its name."""
+      return len(tree.getNeededParts(partName)), partName
+
+    first = sorted(wanted & needed, key=depth)
+    return (*first, *sorted(wanted - needed, key=depth))
+
   def _isMadeBefore(self, otherName: str) -> bool:
     """
     Says whether the cute class of another class of Qt is made before
@@ -790,11 +819,10 @@ class ClassGenerator:
     when the dependency tree makes it earlier.
     """
     tree, className = self.getDependencyTree(), self.getClassName()
-    order = PART_ORDER
-    here = order.index(self.getPartName())
-    there = order.index(self.getPartName(otherName))
+    here, there = self.getPartName(), self.getPartName(otherName)
     if there != here:
-      return True if there < here else False
+      #  A part this one needs is made first.
+      return there in tree.getNeededParts(here)
     #  A class written inside another is made right before the
     #  outermost class around it, whose file brings it in.
     mine, theirs = className.split('::')[0], otherName.split('::')[0]
@@ -872,7 +900,7 @@ class ClassGenerator:
   #  The classes that hold an enum or a class this one names, known
   #  after the functions are worked out a first time. Their files are
   #  brought in.
-  __owners__ = None
+  __owner_classes__ = None
   #  The generators of the classes written inside this one.
   __inner_generators__ = None
   #  The classes whose part of an object may begin inside the object.

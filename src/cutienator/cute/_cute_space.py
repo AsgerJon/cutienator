@@ -222,7 +222,7 @@ class CuteSpace(BaseSpace):
   __inherited_spaces__: Optional[Dict[str, List[Any]]] = None
   #  The doors of each overloaded name asked about so far, each with the
   #  kind of method it is; see '_getDoors'.
-  __doors__: Optional[Dict[str, List[Tuple[Callable, Any]]]] = None
+  __name_doors__: Optional[Dict[str, List[Tuple[Callable, Any]]]] = None
 
   #  Public Variables
 
@@ -681,16 +681,16 @@ class CuteSpace(BaseSpace):
     call as written. 'collectFallback' and 'collectFallbacks' hand them
     to worktoy, and 'collectFunctionKinds' tells worktoy their kinds.
     """
-    if self.__doors__ is None:
-      self.__doors__ = dict()
+    if self.__name_doors__ is None:
+      self.__name_doors__ = dict()
     try:
-      return self.__doors__[methodName]
+      return self.__name_doors__[methodName]
     except KeyError:
       doors = [
           (self._createDoor(methodName, doorKind), doorKind)
           for doorKind in self._findDoorKinds(methodName)
       ]
-      self.__doors__[methodName] = doors
+      self.__name_doors__[methodName] = doors
       return doors
 
   def _createDoor(self, methodName: str, doorKind: Any) -> Callable:
@@ -942,7 +942,7 @@ class CuteSpace(BaseSpace):
       'staticmethod', or None for an ordinary method.
     """
     kinds = BaseSpace.collectFunctionKinds(self, name)
-    doors = (self.__doors__ or dict()).get(name, ())
+    doors = (self.__name_doors__ or dict()).get(name, ())
     return [*kinds, *doors]
 
   def _hasWaiting(self, name: str) -> bool:

@@ -42,7 +42,7 @@ class CuteName:
 
   #  Private Variables
   __qt_name__ = None  # type: Optional[str]
-  __viewer__ = None  # type: Any
+  __class_generator__ = None  # type: Any
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  GETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -76,9 +76,9 @@ class CuteName:
     MissingVariable
       'setViewer' has not been called.
     """
-    if self.__viewer__ is None:
-      raise MissingVariable(self, '__viewer__', object)
-    return self.__viewer__
+    if self.__class_generator__ is None:
+      raise MissingVariable(self, '__class_generator__', object)
+    return self.__class_generator__
 
   def getParts(self) -> Record:
     """
@@ -160,7 +160,7 @@ class CuteName:
       #  class that holds an enum or a class this one names is brought
       #  in for that already.
       late = otherName not in viewer._getBuiltOn() and (
-          otherName not in (viewer.__owners__ or ()))
+          otherName not in (viewer.__owner_classes__ or ()))
       if mine == theirs:
         late = True
       return dict(
@@ -298,4 +298,4 @@ class CuteName:
   def setViewer(self, viewer: Any) -> None:
     """Sets the 'ClassGenerator' of the cute class the name is seen
     from."""
-    self.__viewer__ = viewer
+    self.__class_generator__ = viewer

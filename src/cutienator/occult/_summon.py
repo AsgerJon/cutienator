@@ -226,7 +226,7 @@ class Summon:
   __qt_shared_objects__ = None
   __static_dependencies__ = ()
   __job_count__ = None
-  __components__ = None
+  __include_parts__ = None
   #  What 'getPrivateIncludeFolders' found, kept until 'setComponents'.
   __private_include_folders__ = None
 
@@ -704,7 +704,7 @@ class Summon:
     name, as 'QtCore'. Provided by you, through 'setComponents'; none
     when it was not called.
     """
-    return self.__components__ or ()
+    return self.__include_parts__ or ()
 
   def getPrivateIncludeFolders(self) -> Paths:
     """
@@ -1030,7 +1030,7 @@ class Summon:
     for component in components:
       if not isinstance(component, str):
         raise TypeException('component', component, str)
-    self.__components__ = (*components,)
+    self.__include_parts__ = (*components,)
     self.__private_include_folders__ = None
 
   def setJobCount(self, jobCount: int) -> None:

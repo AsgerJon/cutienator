@@ -81,9 +81,12 @@ class MetaCute(BaseMeta):
   - One list of waiting fields and one list of made classes serve every
     cute class in the program, also the classes of a metaclass based on
     this one.
-  - A class is recognised by its name alone, as its '__name__'. Two
-    cute classes of one name are not told apart: the one made last is
-    the one a later 'WAIT' is settled with.
+  - A class is recognised by its name alone: a cute class by the name
+    Qt has for it, its own '__qt_class__' with dots for '::', as
+    'Qt3DCore.QEntity' or 'QV4.Heap.Object', and any other class, as
+    one a program writes, by its '__name__'. Two classes of one name
+    are not told apart: the one made last is the one a later 'WAIT' is
+    settled with.
   - A 'WAIT' for a class that is made already is settled right as its
     waiting class is made.
   - 'getStillWaiting' names what is waited for and not made. After
@@ -260,16 +263,20 @@ class MetaCute(BaseMeta):
     """
     mcls = type(cls)
     madeClasses = mcls._getMadeClasses()
-    madeBefore = madeClasses.get(name, None)
+    #  Its own '__qt_class__' only: a class a program builds on a cute
+    #  class inherits that, and is not the class of Qt.
+    qtName = dict.get(space, '__qt_class__', None)
+    known = qtName.replace('::', '.') if isinstance(qtName, str) else name
+    madeBefore = madeClasses.get(known, None)
     try:
       super().__init__(name, bases, space, **kwargs)
-      madeClasses[name] = cls
+      madeClasses[known] = cls
       mcls._settleReady()
     except BaseException:
       if madeBefore is None:
-        madeClasses.pop(name, None)
+        madeClasses.pop(known, None)
       else:
-        madeClasses[name] = madeBefore
+        madeClasses[known] = madeBefore
       mcls._forgetClass(cls)
       raise
 

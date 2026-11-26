@@ -177,8 +177,10 @@ class Rituals:
   )[sys.byteorder]
 
   #  The parts of Qt that have cute classes, each a package of
-  #  cutienator. The rituals call into more parts: see 'getRitualParts'.
-  __components__ = ('QtCore', 'QtGui', 'QtWidgets')
+  #  cutienator, found the first time they are asked for; see
+  #  'getComponents'. The rituals call into more parts: see
+  #  'getRitualParts'.
+  __cute_parts__ = None  # type: Optional[Paths]
 
   #  The ritual of Qt's 'QCoreApplication::exit(int)', which tells the
   #  loop of events to stop. See 'keepException'.
@@ -372,10 +374,25 @@ class Rituals:
 
   @classmethod
   def getComponents(cls) -> Paths:
-    """Gives the parts of Qt that have cute classes, as 'QtCore'. Each
-    is a package of cutienator, holding the cute classes of that part.
-    The rituals may call into more parts; see 'getRitualParts'."""
-    return cls.__components__
+    """
+    Gives the parts of Qt that have cute classes, as 'QtCore', in
+    alphabetical order. Each is a package of cutienator, holding the
+    cute classes of that part. The rituals may call into more parts;
+    see 'getRitualParts'.
+
+    Found for you, the first time it is asked for: each folder of the
+    package 'cutienator' named after a part of Qt, as 'QtCore' or
+    'Qt3DCore', that is a package itself, with its '__init__.py'. So a
+    part whose package the dev tooling wrote counts at once, and nobody
+    lists the parts by hand.
+    """
+    if cls.__cute_parts__ is None:
+      here = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+      cls.__cute_parts__ = (*(
+          name for name in sorted(os.listdir(here))
+          if name.startswith('Qt')
+          and os.path.isfile(os.path.join(here, name, '__init__.py'))),)
+    return cls.__cute_parts__
 
   @classmethod
   def getRitualParts(cls) -> Paths:

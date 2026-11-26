@@ -1,1 +1,1 @@
-worktoy>=1.2.3
+worktoy>=1.3.0.dev1

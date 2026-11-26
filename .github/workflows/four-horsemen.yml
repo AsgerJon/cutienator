@@ -82,14 +82,37 @@ jobs:
           qmake6 -query QT_VERSION | tr -d '\r' | grep -Fx '6.12.0'
           clang++ --version
       # The report is written whatever the check finds, and the step
-      # fails when something was refused, so the run shows red.
+      # fails when something was refused, so the run shows red. As it
+      # works, the check prints a line of progress at most every half
+      # minute, and one as each part begins: a bar, how many of all the
+      # ritual files are compiled, the part, the time gone and the time
+      # left at the pace so far. '-u' has Python print each line at
+      # once, so the log of the step shows it as it comes.
       - name: Compile and join every ritual file
         shell: bash
         env:
           PYTHONPATH: ${{ github.workspace }}/src
         run: |
           mkdir -p horsemen
-          python -B bin/check_summon.py horsemen/report.txt
+          python -u -B bin/check_summon.py horsemen/report.txt
+      # The head of the report and its verdict, on the page of the run,
+      # one block for each machine, so that how each system did shows
+      # without opening a log or an artifact.
+      - name: Say how it went
+        if: ${{ always() }}
+        shell: bash
+        run: |
+          {
+            echo "### ${{ matrix.name }}"
+            echo '```'
+            if [ -f horsemen/report.txt ]; then
+              head -5 horsemen/report.txt
+              grep -E '^(seconds|verdict):' horsemen/report.txt
+            else
+              echo 'no report: the check ended before it wrote one'
+            fi
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
       # Also when the step above failed. The object files lie in
       # 'demons', one for each ritual file that compiled.
       - name: Hand over what the compile produced

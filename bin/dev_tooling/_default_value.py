@@ -82,9 +82,9 @@ class DefaultValue:
   __constant_lock__ = threading.RLock()
 
   #  Private Variables
-  __argument__ = None  # type: Optional[Record]
-  __parameter__ = None  # type: Optional[Record]
-  __viewer__ = None  # type: Any
+  __plan_argument__ = None  # type: Optional[Record]
+  __python_parameter__ = None  # type: Optional[Record]
+  __class_generator__ = None  # type: Any
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  GETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -103,9 +103,9 @@ class DefaultValue:
     MissingVariable
       'setArgument' has not been called.
     """
-    if self.__argument__ is None:
-      raise MissingVariable(self, '__argument__', dict)
-    return self.__argument__
+    if self.__plan_argument__ is None:
+      raise MissingVariable(self, '__plan_argument__', dict)
+    return self.__plan_argument__
 
   def getParameter(self) -> Record:
     """
@@ -120,9 +120,9 @@ class DefaultValue:
     MissingVariable
       'setParameter' has not been called.
     """
-    if self.__parameter__ is None:
-      raise MissingVariable(self, '__parameter__', dict)
-    return self.__parameter__
+    if self.__python_parameter__ is None:
+      raise MissingVariable(self, '__python_parameter__', dict)
+    return self.__python_parameter__
 
   def getViewer(self) -> Any:
     """
@@ -136,9 +136,9 @@ class DefaultValue:
     MissingVariable
       'setViewer' has not been called.
     """
-    if self.__viewer__ is None:
-      raise MissingVariable(self, '__viewer__', object)
-    return self.__viewer__
+    if self.__class_generator__ is None:
+      raise MissingVariable(self, '__class_generator__', object)
+    return self.__class_generator__
 
   def getParts(self) -> Record:
     """
@@ -549,12 +549,12 @@ class DefaultValue:
 
   def setArgument(self, argument: Record) -> None:
     """Sets the argument as the plan of the ritual has it."""
-    self.__argument__ = argument
+    self.__plan_argument__ = argument
 
   def setParameter(self, parameter: Record) -> None:
     """Sets the same argument as the 'ClassGenerator' has it in Python."""
-    self.__parameter__ = parameter
+    self.__python_parameter__ = parameter
 
   def setViewer(self, viewer: Any) -> None:
     """Sets the 'ClassGenerator' of the cute class the argument is of."""
-    self.__viewer__ = viewer
+    self.__class_generator__ = viewer

@@ -35,6 +35,7 @@ from ._default_value import DefaultValue
 from ._function_plan import FunctionPlan
 from ._class_text import ClassText
 from ._class_generator import ClassGenerator
+from ._package_generator import PackageGenerator
 from ._class_tester import ClassTester
 
 __all__ = (

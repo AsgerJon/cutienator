@@ -132,7 +132,9 @@ class WAIT(Object):
   - Read through the waiting class, the name gives this 'WAIT' until
     the late class is made, and the class from then on. Read through an
     object it raises 'MissingVariable' until then.
-  - A late class is recognised by its name alone, as its '__name__'.
+  - A late class is recognised by its name alone: a cute class by the
+    name Qt has for it, with dots for '::', as 'Qt3DCore.QEntity', and
+    any other class by its '__name__'; see 'MetaCute'.
   - A 'WAIT' for a class that is made already is settled as the waiting
     class is made.
   - 'MetaCute.getStillWaiting()' names the classes that are waited for
@@ -220,8 +222,10 @@ class WAIT(Object):
     ----------
 
     lateClassName : str
-      The name of the late class, exactly as its class statement will
-      have it: 'QThread' for 'class QThread(QObject)'.
+      The name of the late class: 'QThread' for 'class QThread(QObject)'.
+      A cute class goes by the name Qt has for it, with dots for '::':
+      'Qt3DCore.QEntity' for Qt's 'Qt3DCore::QEntity', which tells it
+      apart from a class of the same last name in another namespace.
 
     Returns
     -------
@@ -240,9 +244,11 @@ class WAIT(Object):
     """
     if not isinstance(lateClassName, str):
       raise TypeException('lateClassName', lateClassName, str)
-    if not lateClassName.isidentifier():
+    pieces = lateClassName.split('.')
+    if not all(piece.isidentifier() for piece in pieces):
       infoSpec = """'WAIT' takes the name of a class between its
-      brackets, as WAIT['QThread'], but received '%s'."""
+      brackets, as WAIT['QThread'] or WAIT['Qt3DCore.QEntity'], but
+      received '%s'."""
       raise ValueError(' '.join((infoSpec % lateClassName).split()))
     self = object.__new__(cls)
     object.__setattr__(self, '__waiting_name__', lateClassName)

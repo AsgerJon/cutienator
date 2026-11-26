@@ -84,7 +84,7 @@ class Machine:
   #  drops a '_' in front of each name unless told '-n', since names
   #  in an object file of macOS carry one more; the names the
   #  generator reads have none, as on the other systems.
-  __demanglers__ = dict(
+  __system_demanglers__ = dict(
       Linux=('c++filt',), Darwin=('c++filt', '-n'),
       Windows=('llvm-cxxfilt',),
   )  # type: Dict[str, Words]
@@ -148,7 +148,7 @@ class Machine:
     """Gives the program, with what it is told, that reads the
     compiler's own names of functions, one to a line, and writes each
     back as C++, as ('c++filt',) on Linux."""
-    return cls.__demanglers__[cls.getSystemName()]
+    return cls.__system_demanglers__[cls.getSystemName()]
 
   @classmethod
   def getLibraryName(cls, stem: str) -> str:

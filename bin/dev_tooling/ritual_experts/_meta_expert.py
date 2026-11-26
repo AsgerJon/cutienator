@@ -60,7 +60,7 @@ class MetaExpert(ReachExpert):
       r'^\s*(?:(?:public|protected|private)\s*:'
       r'|(?:public\s+|protected\s+|private\s+)?(?:Q_SIGNALS|signals)\s*:'
       r'|\};)')
-  __marked__ = re.compile(r'\b(?:Q_INVOKABLE|Q_SLOT)\b')
+  __invokable_marks__ = re.compile(r'\b(?:Q_INVOKABLE|Q_SLOT)\b')
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  GETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -85,9 +85,9 @@ class MetaExpert(ReachExpert):
         inside = True
       elif cls.__section_closing__.match(line):
         inside = False
-      elif inside or cls.__marked__.search(line):
+      elif inside or cls.__invokable_marks__.search(line):
         found.add(number)
-      elif number > 1 and cls.__marked__.search(lines[number - 2]):
+      elif number > 1 and cls.__invokable_marks__.search(lines[number - 2]):
         #  The mark alone on the line before the function.
         found.add(number)
     cls.__invokable_lines__[headerPath] = frozenset(found)

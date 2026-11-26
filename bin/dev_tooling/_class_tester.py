@@ -317,6 +317,11 @@ class ClassTester:
           if plan['baseName'] in one.getFurtherBaseNames():
             named.append(plan['ritualName'])
           continue
+        if plan['kind'] == 'drop':
+          #  No function of Qt: it removes a value Python holds of a type
+          #  no cute class stands for, as 'QBindable<bool>'. No file
+          #  calls it until the cute side takes such values.
+          continue
         if plan['kind'] in ('take', 'list', 'map'):
           #  No function of Qt either: the class names it as the ritual
           #  that hands a Python function over, or as a ritual of a kind

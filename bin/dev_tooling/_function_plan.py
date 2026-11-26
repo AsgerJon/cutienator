@@ -102,7 +102,7 @@ class FunctionPlan:
 
   #  Private Variables
   __ritual_plan__ = None  # type: Optional[Record]
-  __viewer__ = None  # type: Any
+  __class_generator__ = None  # type: Any
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  GETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -137,9 +137,9 @@ class FunctionPlan:
     MissingVariable
       'setViewer' has not been called.
     """
-    if self.__viewer__ is None:
-      raise MissingVariable(self, '__viewer__', object)
-    return self.__viewer__
+    if self.__class_generator__ is None:
+      raise MissingVariable(self, '__class_generator__', object)
+    return self.__class_generator__
 
   def getParts(self) -> Record:
     """
@@ -639,4 +639,4 @@ class FunctionPlan:
 
   def setViewer(self, viewer: Any) -> None:
     """Sets the 'ClassGenerator' of the cute class the function is of."""
-    self.__viewer__ = viewer
+    self.__class_generator__ = viewer

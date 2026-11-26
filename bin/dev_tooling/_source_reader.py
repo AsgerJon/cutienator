@@ -101,7 +101,7 @@ class SourceReader:
       r'^[ \t]*#[ \t]*define[ \t]+([A-Za-z_]\w*)\(([^)]*)\)'
       r'((?:.*\\\n)*.*)', re.M)
   #  A comment, either kind.
-  __comment__ = re.compile(r'/\*.*?\*/|//[^\n]*', re.S)
+  __comment_pattern__ = re.compile(r'/\*.*?\*/|//[^\n]*', re.S)
   #  A name right before a bracket: a shorthand where one is defined
   #  under that name.
   __called_name__ = re.compile(r'\b([A-Za-z_]\w*)\s*\(')
@@ -272,7 +272,8 @@ class SourceReader:
     'HeaderReader.getShorthands' reads those of a header file."""
     found = dict()  # type: Shorthands
     for match in cls.__shorthand_line__.finditer(text):
-      body = cls.__comment__.sub(' ', match.group(3).replace('\\\n', ' '))
+      joined = match.group(3).replace('\\\n', ' ')
+      body = cls.__comment_pattern__.sub(' ', joined)
       taken = (*(one.strip() for one in match.group(2).split(',')),)
       found.setdefault(match.group(1), []).append(
           (taken, ' '.join(body.split())))
@@ -382,7 +383,7 @@ class SourceReader:
       known[name] = [*forms]
     for name, forms in self._readShorthands(text).items():
       known.setdefault(name, []).extend(forms)
-    written = self._writeOut(self.__comment__.sub(' ', text), known)
+    written = self._writeOut(self.__comment_pattern__.sub(' ', text), known)
     #  A name in the file as each namespace around it would give it;
     #  see 'qualifyName'. What the shorthands stand for stands nowhere.
     scopes = self.findScopes(text)

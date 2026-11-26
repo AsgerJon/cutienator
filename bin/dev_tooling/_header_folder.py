@@ -108,7 +108,7 @@ class HeaderFolder:
   #  in capitals. A part with no header file of the first kind, as
   #  QtQmlMeta, has its file of words for export there, which this
   #  folder writes as Qt's build does.
-  __parts__ = (
+  __part_rows__ = (
       ('QtCore', 'src/corelib', 'qglobal.h', 'qglobal_p.h', ()),
       ('QtGui', 'src/gui', 'qtguiglobal.h', 'qtguiglobal_p.h', ('QtCore',)),
       ('QtWidgets', 'src/widgets',
@@ -400,12 +400,12 @@ class HeaderFolder:
        'qtwaylandglobal-config.h', '',
        ()),
   )
-  __part_folders__ = {row[0]: row[1] for row in __parts__}
-  __part_words__ = {row[0]: row[0][2:].upper() for row in __parts__}
-  __global_headers__ = {row[0]: row[2] for row in __parts__}
+  __part_folders__ = {row[0]: row[1] for row in __part_rows__}
+  __part_words__ = {row[0]: row[0][2:].upper() for row in __part_rows__}
+  __global_headers__ = {row[0]: row[2] for row in __part_rows__}
   __private_global_headers__ = {
-      row[0]: row[3] for row in __parts__ if row[3]}
-  __part_needs__ = {row[0]: row[4] for row in __parts__}
+      row[0]: row[3] for row in __part_rows__ if row[3]}
+  __part_needs__ = {row[0]: row[4] for row in __part_rows__}
   #  The name of the lists of switches of a part, where it is not the
   #  name of the part in small letters: its 'CMakeLists.txt' says
   #  'CONFIG_MODULE_NAME', as 'testlib' for QtTest.
@@ -972,7 +972,7 @@ class HeaderFolder:
 
   def _readModuleRows(self) -> Dict[str, Any]:
     """
-    Gives a row, as those of '__parts__', for every module of Qt's
+    Gives a row, as those of '__part_rows__', for every module of Qt's
     source: each 'qt_internal_add_module' and 'qt_internal_add_qml_module'
     of the 'CMakeLists.txt' files under a folder 'src' of 'qtbase' and
     of the folders beside it. Left out are a module Qt builds as a

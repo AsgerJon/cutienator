@@ -80,12 +80,13 @@ class TestQWidgets(BaseTest):
     self.assertTrue(issubclass(QWidget, QObject))
     self.assertEqual(QPushButton.__qt_class__, 'QPushButton')
 
-  def test_a_class_qt_cannot_make_is_refused(self) -> None:
-    """Qt's QAbstractButton is abstract. It has the '__init__' of the
-    class it is built on, which makes a QWidget, and that is refused."""
-    with self.assertRaises(TypeError) as context:
-      QAbstractButton()
-    self.assertIn('QAbstractButton', str(context.exception))
+  def test_an_abstract_class_is_made_as_ours(self) -> None:
+    """Qt's QAbstractButton is abstract: C++ cannot make one. The C++
+    class of ours built on it gives every function it leaves open, so
+    a QAbstractButton is made all the same, by its own '__init__'."""
+    button = QAbstractButton()
+    self.assertIsInstance(button, QAbstractButton)
+    self.assertIsInstance(button, QWidget)
 
   def test_a_class_of_a_program_is_made_as_its_cute_class(self) -> None:
     """A class built on 'QWidget' is made by what 'QWidget' is made

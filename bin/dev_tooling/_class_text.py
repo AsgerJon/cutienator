@@ -13,7 +13,7 @@ from typing import TYPE_CHECKING
 from worktoy.waitaminute import MissingVariable
 
 from . import HeaderReader
-from .class_tables import PART_ORDER, SECTION_NAMES, WATCHED_NAME
+from .class_tables import SECTION_NAMES, WATCHED_NAME
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Any, Dict, List, Tuple
@@ -113,7 +113,7 @@ class ClassText:
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   #  Private Variables
-  __viewer__ = None  # type: Any
+  __class_generator__ = None  # type: Any
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  GETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -131,9 +131,9 @@ class ClassText:
     MissingVariable
       'setViewer' has not been called.
     """
-    if self.__viewer__ is None:
-      raise MissingVariable(self, '__viewer__', object)
-    return self.__viewer__
+    if self.__class_generator__ is None:
+      raise MissingVariable(self, '__class_generator__', object)
+    return self.__class_generator__
 
   def _getHeading(self) -> List[str]:
     """Says who wrote the file, from what, and that it is written
@@ -187,7 +187,9 @@ class ClassText:
     #  class that holds an enum or a class this file names, are asked of
     #  the package of their part, the cute way. The package brings in
     #  the one file each of them is in, and no other.
-    for partName in PART_ORDER:
+    asked = {viewer.getPartName(n) for n in classes}
+    asked.add('QtCore')
+    for partName in viewer.getImportOrder(asked):
       names = sorted(n for n in classes if viewer.getPartName(n) == partName)
       if partName == 'QtCore':
         #  'QList' and 'QStringList' are classes of QtCore the tree
@@ -214,7 +216,8 @@ class ClassText:
     #  A type checker is shown each class the cute way, from the
     #  package of its part. Python never runs these lines, so they
     #  bring nothing in.
-    for partName in PART_ORDER:
+    shown = {viewer.getPartName(n) for n in hinted}
+    for partName in viewer.getImportOrder(shown):
       names = [n for n in hinted if viewer.getPartName(n) == partName]
       lines.extend(self._writeAsking(partName, names, '  '))
     if late:
@@ -1261,4 +1264,4 @@ class ClassText:
 
   def setViewer(self, viewer: Any) -> None:
     """Sets the 'ClassGenerator' of the cute class the text is of."""
-    self.__viewer__ = viewer
+    self.__class_generator__ = viewer

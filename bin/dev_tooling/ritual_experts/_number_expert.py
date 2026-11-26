@@ -100,7 +100,8 @@ class NumberExpert(TypeExpert):
   __size_names__ = {'size_t': 'size_t', 'std::size_t': 'size_t'}
   #  The widest number of each sign, which a number of no word crosses
   #  as; see 'findPassing'.
-  __widened__ = {'long': 'long long', 'unsigned long': 'unsigned long long'}
+  __widened_numbers__ = {
+      'long': 'long long', 'unsigned long': 'unsigned long long'}
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  GETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -137,8 +138,8 @@ class NumberExpert(TypeExpert):
     the class."""
     readOnly = self.findReadOnlyNumber(plain)
     word = self.findNumberWord(CppText.stripReadOnly(written), readOnly)
-    if not word and readOnly in self.__widened__:
-      widened = self.__widened__[readOnly]
+    if not word and readOnly in self.__widened_numbers__:
+      widened = self.__widened_numbers__[readOnly]
       return dict(
           kind='number', word=widened, className=widened, widened=True)
     return dict(kind='number', word=word, className=readOnly)
