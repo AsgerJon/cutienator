@@ -7,6 +7,7 @@ on whichever system the tests run.
 #  Copyright (c) 2026 Asger Jon Vistisen
 from __future__ import annotations
 
+import ctypes
 import os
 import shutil
 import tempfile
@@ -300,6 +301,26 @@ class TestSummon(BaseTest):
     then = os.path.getmtime(path) - seconds
     os.utime(path, (then, then))
 
+  @staticmethod
+  def _writeRituals(ritualFile: str, head: str, **bodies: str) -> None:
+    """Writes a ritual file of the shape the generator writes, which
+    'Exorcist' reads: the head given, then each ritual 'ritual_NAME',
+    giving an 'int', with its comment, its body the text given."""
+    lines = [
+        '#ifdef _WIN32',
+        '#define Q_DECL_EXPORT __declspec(dllexport)',
+        '#else',
+        '#define Q_DECL_EXPORT __attribute__((visibility("default")))',
+        '#endif',
+        head,
+    ]
+    for name, body in bodies.items():
+      lines.extend((
+          '', '//  int %s()' % name, 'extern "C" Q_DECL_EXPORT',
+          'int ritual_%s() {' % name, '  %s' % body, '}'))
+    with open(ritualFile, 'w') as file:
+      file.write('%s\n' % '\n'.join(lines))
+
   def test_every_ritual_file_is_compiled_the_first_time(self) -> None:
     """A build that never ran has every ritual file to compile, and
     leaves an object file for each beside the target file."""
@@ -341,18 +362,72 @@ class TestSummon(BaseTest):
     with open(build.getToldFile()) as file:
       self.assertEqual(file.read(), build.getToldText())
 
-  def test_a_ritual_file_clang_refuses_is_named(self) -> None:
-    """The refusal names the ritual file, and the other one keeps its
-    object file."""
+  def test_a_ritual_clang_refuses_is_left_out_alone(self) -> None:
+    """The target file is built, with every ritual but the one
+    'clang++' refused, which the left-out file names with why."""
+    build = self._makeSummon()
+    one, two = build.getRitualFiles()
+    self._writeRituals(two, '', good='return 2;',
+                       bad='return undeclared_name_of_cutienator;')
+    self.assertEqual(build.run(), build.getTargetFile())
+    leftOut = build.getLeftOut()
+    self.assertEqual(list(leftOut), ['ritual_bad'])
+    function, reason = leftOut['ritual_bad']
+    self.assertEqual(function, 'int bad()')
+    self.assertIn('undeclared_name_of_cutienator', reason)
+    self.assertIn('two.cpp', reason)
+    self.assertTrue(os.path.isfile(build.getLeftOutFile()))
+    built = ctypes.CDLL(build.getTargetFile())
+    self.assertEqual(built.ritual_good(), 2)
+    self.assertFalse(hasattr(built, 'ritual_bad'))
+
+  def test_a_ritual_the_linker_refuses_is_left_out_alone(self) -> None:
+    """A ritual needing what no library offers is left out when the
+    object files are joined, and the others stay."""
+    build = self._makeSummon()
+    one, two = build.getRitualFiles()
+    head = 'extern "C" int cutienator_no_such_function();'
+    self._writeRituals(two, head, good='return 2;',
+                       needy='return cutienator_no_such_function();')
+    build.run()
+    leftOut = build.getLeftOut()
+    self.assertEqual(list(leftOut), ['ritual_needy'])
+    self.assertIn('linker', leftOut['ritual_needy'][1])
+    self.assertIn('cutienator_no_such_function', leftOut['ritual_needy'][1])
+    built = ctypes.CDLL(build.getTargetFile())
+    self.assertEqual(built.ritual_good(), 2)
+    self.assertFalse(hasattr(built, 'ritual_needy'))
+
+  def test_what_was_left_out_is_kept_until_its_file_changes(self) -> None:
+    """A build with nothing to compile keeps the left-out file; once
+    the ritual file is mended, nothing is left out."""
+    build = self._makeSummon()
+    one, two = build.getRitualFiles()
+    self._writeRituals(two, '', bad='return undeclared_name_of_cutienator;')
+    build.run()
+    self.assertEqual(list(build.getLeftOut()), ['ritual_bad'])
+    build.run()
+    self.assertEqual(list(build.getLeftOut()), ['ritual_bad'])
+    self._writeRituals(two, '', bad='return 3;')
+    self._setBack(build.getObjectFile(two), 100)
+    build.run()
+    self.assertEqual(build.getLeftOut(), {})
+    self.assertFalse(os.path.isfile(build.getLeftOutFile()))
+
+  def test_a_ritual_file_nothing_saves_is_left_out_whole(self) -> None:
+    """The record names the ritual file, and the other one is built."""
     build = self._makeSummon()
     one, two = build.getRitualFiles()
     with open(two, 'w') as file:
       file.write('this is no C++\n')
-    with self.assertRaises(RuntimeError) as context:
-      build.run()
-    self.assertIn(two, str(context.exception))
+    self.assertEqual(build.run(), build.getTargetFile())
+    record = build.getRecord()['ritual files']
+    entry = record[build._getRecordKey(two)]
+    with open(build.getExorcisedFile(two)) as file:
+      self.assertEqual(file.read().strip(), '')
+    self.assertIsNotNone(entry['whole'])
     self.assertTrue(os.path.isfile(build.getObjectFile(one)))
-    self.assertFalse(os.path.isfile(build.getTargetFile()))
+    self.assertTrue(os.path.isfile(build.getTargetFile()))
 
   def test_the_common_header_names_each_header_once(self) -> None:
     """Every '#include' line of the ritual files, in the order they
@@ -390,21 +465,24 @@ class TestSummon(BaseTest):
         os.path.getmtime(build.getCommonHeaderFile()), written)
     self.assertFalse(os.path.isfile(build.getPrecompiledHeaderFile()))
 
-  def test_a_header_clang_refuses_names_the_common_header(self) -> None:
-    """A ritual file naming a header that is nowhere stops the build
-    before any ritual file is compiled. The refusal names the common
-    header and the header that is missing."""
+  def test_a_refused_common_header_stops_nothing(self) -> None:
+    """A ritual file naming a header that is nowhere makes the common
+    header refused: every ritual file is then compiled reading its own
+    headers, and that line of the file is left out, as no ritual needs
+    it. The left-out file says the common header was refused."""
     build = self._makeSummonWithHeaders()
     one, two = build.getRitualFiles()
     with open(two, 'a') as file:
       file.write('#include <no_such_header_of_cutienator.h>\n')
-    with self.assertRaises(RuntimeError) as context:
-      build.run()
-    self.assertIn(build.getCommonHeaderFile(), str(context.exception))
-    self.assertIn('no_such_header_of_cutienator.h', str(context.exception))
+    self.assertEqual(build.run(), build.getTargetFile())
+    record = build.getRecord()
+    self.assertIn(build.getCommonHeaderFile(), record['common header'])
+    self.assertIn('no_such_header_of_cutienator.h', record['common header'])
+    entry = record['ritual files'][build._getRecordKey(two)]
+    self.assertEqual([d[0] for d in entry['dropped']], ['include'])
+    self.assertEqual(build.getLeftOut(), {})
     self.assertFalse(os.path.isfile(build.getPrecompiledHeaderFile()))
-    self.assertFalse(os.path.isfile(build.getObjectFile(one)))
-    self.assertFalse(os.path.isfile(build.getTargetFile()))
+    self.assertTrue(os.path.isfile(build.getObjectFile(one)))
 
   def test_the_precompiled_header_is_gone_after_a_refusal(self) -> None:
     """When 'clang++' refuses a ritual file, the precompiled header
@@ -413,9 +491,10 @@ class TestSummon(BaseTest):
     one, two = build.getRitualFiles()
     with open(two, 'a') as file:
       file.write('this is no C++\n')
-    with self.assertRaises(RuntimeError) as context:
-      build.run()
-    self.assertIn(two, str(context.exception))
+    build.run()
+    self.assertIsNotNone(
+        build.getRecord()['ritual files'][build._getRecordKey(two)][
+            'whole'])
     self.assertTrue(os.path.isfile(build.getObjectFile(one)))
     self.assertFalse(os.path.isfile(build.getPrecompiledHeaderFile()))
 

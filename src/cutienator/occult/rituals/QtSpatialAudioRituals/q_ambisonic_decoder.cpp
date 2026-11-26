@@ -1,6 +1,12 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtSpatialAudio/6.12.0/QtSpatialAudio/private/qambisonicdecoder_p.h, Qt
-//  6.12.0. Changes made here are lost.
+//  6.12.0.
+//  Edited by hand on 2026-11-26: the class QAmbisonicDecoderFilter, taken
+//  from Qt's qambisonicdecoder.cpp, no longer stands under
+//  'defined(Q_PROCESSOR_X86_64)', which Qt does not write there: Qt defines
+//  it for every processor, only one line of it for x86, and the destructor
+//  taken, which stands everywhere here, needs it whole (Apple silicon
+//  refused it). Kept as it is when the generator runs again.
 #include <QtSpatialAudio/6.12.0/QtSpatialAudio/private/qtspatialaudioglobal_p.h>
 #include <QtSpatialAudio/QtSpatialAudio>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -57,7 +63,6 @@ constexpr float reverb_x_1[] = {
 };
 
 //  from ../qtmultimedia/src/spatialaudio/qambisonicdecoder.cpp, line 82, as local:qambisonicdecoder.cpp:QAmbisonicDecoderFilter
-#if defined(Q_PROCESSOR_X86_64)
 class QAmbisonicDecoderFilter
 {
 public:
@@ -118,7 +123,6 @@ private:
     double s1_lf = 0.0, s2_lf = 0.0;
     double s1_hf = 0.0, s2_hf = 0.0;
 };
-#endif  // defined(Q_PROCESSOR_X86_64)
 
 //  from ../qtmultimedia/src/spatialaudio/qambisonicdecoder.cpp, line 145, as local:qambisonicdecoder.cpp:inputChannelsForAmbisonicOrder
 namespace {

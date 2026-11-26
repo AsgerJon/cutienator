@@ -1,6 +1,12 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtPrintSupport/6.12.0/QtPrintSupport/private/qcocoaprintersupport_p.h, Qt
-//  6.12.0. Changes made here are lost.
+//  6.12.0.
+//  Edited by hand on 2026-11-26: Qt's 'qprintdevice_p.h' is pulled in, which
+//  defines the QPrintDevice that 'createPrintDevice' gives; it, the ritual
+//  of 'createPrintDevice' and the ritual dropping a QPrintDevice stand under
+//  '__has_include(<cups/ppd.h>)', since on macOS Qt's 'qprint_p.h', which it
+//  includes, includes that header of CUPS, as in q_print_device.cpp. Kept as
+//  it is when the generator runs again.
 #include <QtPrintSupport/qtprintsupportglobal.h>
 #include <QtPrintSupport/6.12.0/QtPrintSupport/private/qtprintsupportglobal_p.h>
 #if defined(Q_OS_MACOS)
@@ -10,6 +16,11 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtPrintSupport/6.12.0/QtPrintSupport/private/qcocoaprintersupport_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#if __has_include(<cups/ppd.h>)
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtPrintSupport/6.12.0/QtPrintSupport/private/qprintdevice_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#endif  // __has_include(<cups/ppd.h>)
 #include <QtCore/qstring.h>
 #include <QtCore/qlist.h>
 #include <cstring>
@@ -139,6 +150,7 @@ QPaintEngine *ritual_ZN20QCocoaPrinterSupport17createPaintEngineEP12QPrintEngine
   return self->createPaintEngine(a0, printerMode);
 }
 
+#if __has_include(<cups/ppd.h>)
 //  QPrintDevice QCocoaPrinterSupport::createPrintDevice(const QString &id)
 extern "C" Q_DECL_EXPORT
 QPrintDevice *ritual_ZN20QCocoaPrinterSupport17createPrintDeviceERK7QString(
@@ -146,6 +158,7 @@ QPrintDevice *ritual_ZN20QCocoaPrinterSupport17createPrintDeviceERK7QString(
     const QString *id) {
   return new QPrintDevice(self->createPrintDevice(*id));
 }
+#endif  // __has_include(<cups/ppd.h>)
 
 //  QStringList QCocoaPrinterSupport::availablePrintDeviceIds() const
 extern "C" Q_DECL_EXPORT
@@ -201,11 +214,13 @@ QString *ritual_own_ZNK20QCocoaPrinterSupport20defaultPrintDeviceIdEv(
   return new QString(self->QCocoaPrinterSupport::defaultPrintDeviceId());
 }
 
+#if __has_include(<cups/ppd.h>)
 //  a QPrintDevice a ritual of QCocoaPrinterSupport gave
 extern "C" Q_DECL_EXPORT
 void ritual_drop_QCocoaPrinterSupport__QPrintDevice(QPrintDevice *self) {
   delete self;
 }
+#endif  // __has_include(<cups/ppd.h>)
 
 #endif  // !defined(QT_NO_PRINTER)
 #endif  // defined(Q_OS_MACOS)

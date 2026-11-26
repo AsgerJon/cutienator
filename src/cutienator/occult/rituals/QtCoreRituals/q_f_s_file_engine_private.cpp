@@ -1,6 +1,17 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtCore/6.12.0/QtCore/private/qfsfileengine_p.h, Qt 6.12.0. Changes made
-//  here are lost.
+//  QtCore/6.12.0/QtCore/private/qfsfileengine_p.h, Qt 6.12.0.
+//  Edited by hand on 2026-11-26: the lines pulling in Unix's headers
+//  'qcore_unix_p.h', 'grp.h', 'pwd.h' and 'unistd.h', and the code
+//  taken for 'fillMetaData(int, QFileSystemMetaData &)', which Qt
+//  declares on Unix only, stand under 'defined(Q_OS_UNIX)', for Windows
+//  has none of them; the lines pulling in the Objective-C headers
+//  'UTType.h', 'UTCoreTypes.h' and 'Foundation.h' stand under
+//  '__OBJC__', as 'Foundation.h' does in Qt's 'qcore_mac_p.h', for Qt
+//  compiles this source as Objective-C++ on Apple and a ritual file is
+//  C++; and Qt's own stand-in for 'struct statx' and its 'qt_fstatx'
+//  for a system without statx, as macOS, are taken from
+//  qfilesystemengine_unix.cpp. Kept as it is when the generator runs
+//  again.
 #include <QtCore/qglobal.h>
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #if !defined(QT_NO_FSFILEENGINE)
@@ -37,7 +48,9 @@
 #include <QtCore/qstorageinfo.h>
 #include <QtCore/qurl.h>
 #include <QtCore/qoperatingsystemversion.h>
+#if defined(Q_OS_UNIX)
 #include <QtCore/private/qcore_unix_p.h>
+#endif  // defined(Q_OS_UNIX)
 #include <QtCore/private/qfiledevice_p.h>
 #include <QtCore/private/qfunctions_p.h>
 #include <QtCore/qvarlengtharray.h>
@@ -45,10 +58,14 @@
 # include <QtCore/qstandardpaths.h>
 # include <QtCore/private/qtemporaryfile_p.h>
 #endif
+#if defined(Q_OS_UNIX)
 #include <grp.h>
 #include <pwd.h>
+#endif  // defined(Q_OS_UNIX)
 #include <stdlib.h> // for realpath()
+#if defined(Q_OS_UNIX)
 #include <unistd.h>
+#endif  // defined(Q_OS_UNIX)
 #include <stdio.h>
 #include <errno.h>
 #include <chrono>
@@ -61,9 +78,11 @@
 #if defined(Q_OS_DARWIN)
 # include <QtCore/private/qcore_mac_p.h>
 # include <CoreFoundation/CFBundle.h>
-# include <UniformTypeIdentifiers/UTType.h>
-# include <UniformTypeIdentifiers/UTCoreTypes.h>
-# include <Foundation/Foundation.h>
+# ifdef __OBJC__
+#  include <UniformTypeIdentifiers/UTType.h>
+#  include <UniformTypeIdentifiers/UTCoreTypes.h>
+#  include <Foundation/Foundation.h>
+# endif  // __OBJC__
 # include <copyfile.h>
 #endif
 #ifdef Q_OS_MACOS
@@ -171,6 +190,11 @@ flagsFromStMode(mode_t mode, [[maybe_unused]] quint64 attributes)
 }
 #endif  // defined(Q_OS_LINUX)
 
+//  from src/corelib/io/qfilesystemengine_unix.cpp, line 86, taken by hand
+#if defined(Q_OS_UNIX) && !defined(STATX_ALL)
+struct statx { mode_t stx_mode; };      // dummy
+#endif  // defined(Q_OS_UNIX) && !defined(STATX_ALL)
+
 //  from src/corelib/io/qfilesystemengine_unix.cpp, line 355, as local:qfilesystemengine_unix.cpp:qt_real_statx
 #if defined(STATX_BASIC_STATS)
 static int qt_real_statx(int fd, const char *pathname, int flags, struct statx *statxBuffer)
@@ -187,6 +211,10 @@ static int qt_fstatx(int fd, struct statx *statxBuffer)
 {
     return qt_real_statx(fd, "", AT_EMPTY_PATH, statxBuffer);
 }
+#elif defined(Q_OS_UNIX)
+//  from src/corelib/io/qfilesystemengine_unix.cpp, line 407, taken by hand
+static int qt_fstatx(int, struct statx *)
+{ return -ENOSYS; }
 #endif  // defined(STATX_BASIC_STATS)
 
 //  from src/corelib/io/qfsfileengine.cpp, line 49, as local:qfsfileengine.cpp:SignedIOType
@@ -229,6 +257,7 @@ inline QAbstractFileEnginePrivate::~QAbstractFileEnginePrivate()
     = default;
 
 //  from src/corelib/io/qfilesystemengine_unix.cpp, line 415, as _ZN17QFileSystemEngine12fillMetaDataEiR19QFileSystemMetaData
+#if defined(Q_OS_UNIX)
 inline bool QFileSystemEngine::fillMetaData(int fd, QFileSystemMetaData &data)
 {
     auto getSizeForBlockDev = [&](mode_t st_mode) {
@@ -283,6 +312,7 @@ inline bool QFileSystemEngine::fillMetaData(int fd, QFileSystemMetaData &data)
 
     return false;
 }
+#endif  // defined(Q_OS_UNIX)
 
 //  from src/corelib/io/qfilesystementry.cpp, line 106, as _ZNK16QFileSystemEntry14nativeFilePathEv
 inline QFileSystemEntry::NativePath QFileSystemEntry::nativeFilePath() const

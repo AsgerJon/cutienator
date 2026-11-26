@@ -1,6 +1,9 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCore5Compat/6.12.0/QtCore5Compat/private/qtsciicodec_p.h, Qt 6.12.0.
-//  Changes made here are lost.
+//  Edited by hand on 2026-11-26: the notice above the code taken from Qt
+//  names BSD-2-Clause too, and those who first wrote qtsciicodec.cpp, as
+//  Qt's REUSE.toml has them for that file. Kept as it is when the generator
+//  runs again.
 #include <QtCore5Compat/qcore5global.h>
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #if QT_CONFIG(codecs) && QT_CONFIG(textcodec)
@@ -24,6 +27,10 @@
 //  of each file it comes from, as its own SPDX line has it:
 //    LicenseRef-Qt-Commercial OR LGPL-3.0-only OR GPL-2.0-only OR
 //      GPL-3.0-only
+//  Qt's REUSE.toml puts the code of qtsciicodec.cpp also under
+//    BSD-2-Clause
+//  for those who first wrote it:
+//    Copyright (C) 2000 Hans Petter Bieker.
 //  Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 

@@ -239,6 +239,44 @@ class TestRituals(BaseTest):
       self.assertEqual(Rituals._findPart(shared, 'QtGraphs'), 'QtGraphs')
       self.assertEqual(Rituals._findPart(shared, 'QtCharts'), 'QtCharts')
 
+  def test_a_missing_ritual_raises_not_implemented(self) -> None:
+    """A ritual 'summon' left out raises 'NotImplementedError' naming
+    the function it calls and what the compiler said; one Qt's own
+    '#if' compiled out raises it too."""
+    rows = dict(q_made_up=dict(ritual_gone=['nothing'],
+                               ritual_hidden=['nothing']))
+    reason = 'the compiler refused it on this machine: x.cpp:3:1: oops'
+    leftOut = dict(ritual_gone=('void QMadeUp::gone()', reason))
+    missing = frozenset(('ritual_gone', 'ritual_hidden'))
+    with self._madeUpRows(dict(QtCore=rows)), mock.patch.dict(
+        Rituals.__opened_targets__, dict(QtCore=object())), mock.patch.dict(
+        Rituals.__missing_rituals__, dict(QtCore=missing)), mock.patch.dict(
+        Rituals.__left_out_rituals__, dict(QtCore=leftOut)):
+      with self.assertRaises(NotImplementedError) as caught:
+        Rituals.call('ritual_gone')
+      self.assertIn('void QMadeUp::gone()', str(caught.exception))
+      self.assertIn('x.cpp:3:1: oops', str(caught.exception))
+      with self.assertRaises(NotImplementedError) as caught:
+        Rituals.call('ritual_hidden')
+      self.assertIn("'#if'", str(caught.exception))
+
+  def test_what_summon_left_out_is_read_beside_the_target(self) -> None:
+    """The left-out file beside the target file of a part says which
+    rituals were left out; no file, none."""
+    with tempfile.TemporaryDirectory() as folder:
+      target = os.path.join(folder, 'libcutienator_QtCore.so')
+      with mock.patch.object(Rituals, 'getTargetFile', lambda p: target):
+        self.assertEqual(Rituals.getLeftOut('QtCore'), {})
+        record = {'ritual files': {'QtCoreRituals/q_made_up.cpp': dict(
+            dropped=[], whole=None, leftOut=dict(
+                ritual_gone=['void QMadeUp::gone()', 'why']))}}
+        leftOutFile = os.path.join(
+            folder, 'libcutienator_QtCore.left_out.json')
+        with open(leftOutFile, 'w') as file:
+          json.dump(record, file)
+        self.assertEqual(Rituals.getLeftOut('QtCore'), dict(
+            ritual_gone=('void QMadeUp::gone()', 'why')))
+
   def test_the_parts_a_part_sees_first(self) -> None:
     """What the rows files of a part say under 'parts first' comes
     first in the order the part sees the parts in, after the part

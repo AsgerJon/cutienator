@@ -12,6 +12,20 @@
 //  function of it copied, its virtual ones among them, so that the compiler
 //  writes its table of virtual functions here, which Qt's library keeps to
 //  itself.
+//  Edited by hand on 2026-11-26: Qt's 'enum class BindingType' of
+//  qrhimetal.mm, line 1195, is taken too, which 'mapBinding' and the code
+//  that calls it name; it was missing (the Apple-silicon Mac refused the
+//  file); so are the struct 'QMetalPipelineCacheDataHeader', line 1023,
+//  which the code taken for the pipeline cache names, and
+//  'QMetalGraphicsPipelineData::ExtraBufferManager::acquireWorkBuffer',
+//  line 6215, with the word 'inline' put before it, which the code taken
+//  calls and Qt's library keeps to itself, and so, at the end of the
+//  code taken, are 'QMetalGraphicsPipelineData::setupStageInputDescriptor'
+//  and the four functions of its 'Tessellation' that the code taken
+//  calls, lines 5542 to 5986, each with the word 'inline' put before it,
+//  after the eight static functions of the file they call; and the
+//  static 'tempComputeEncoder', line 2134, before the code that calls it.
+//  Kept as it is when the generator runs again.
 #include <QtGui/qtguiglobal.h>
 #include <QtGui/6.12.0/QtGui/private/qtguiglobal_p.h>
 #if QT_CONFIG(metal)
@@ -445,6 +459,13 @@ inline bool QRhiMetalData::setupBinaryArchive(NSURL *sourceFileUrl)
     }
     return true;
 }
+
+//  from qtbase/src/gui/rhi/qrhimetal.mm, line 1195
+enum class BindingType {
+    Buffer,
+    Texture,
+    Sampler
+};
 
 //  from qtbase/src/gui/rhi/qrhimetal.mm, line 1201
 static inline int mapBinding(int binding,
@@ -2002,6 +2023,17 @@ inline bool QRhiMetal::isDeviceLost() const
     return false;
 }
 
+//  from qtbase/src/gui/rhi/qrhimetal.mm, line 1023
+struct QMetalPipelineCacheDataHeader
+{
+    quint32 rhiId;
+    quint32 arch;
+    quint32 dataSize;
+    quint32 osMajor;
+    quint32 osMinor;
+    char driver[236];
+};
+
 //  from qtbase/src/gui/rhi/qrhimetal.mm, line 1033
 inline QByteArray QRhiMetal::pipelineCacheData()
 {
@@ -2944,6 +2976,66 @@ inline void QRhiMetal::interruptRenderPass(QMetalCommandBuffer *cbD)
     finalizeDeferredStoreActions(cbD, false);
     [cbD->d->currentRenderPassEncoder endEncoding];
     cbD->d->currentRenderPassEncoder = nil;
+}
+
+//  from qtbase/src/gui/rhi/qrhimetal.mm, line 6215
+inline QMetalBuffer *QMetalGraphicsPipelineData::ExtraBufferManager::acquireWorkBuffer(QRhiMetal *rhiD, quint32 size, WorkBufType type)
+{
+    QVector<QMetalBuffer *> *workBuffers = type == WorkBufType::DeviceLocal ? &deviceLocalWorkBuffers : &hostVisibleWorkBuffers;
+
+    // Check if something is reusable as-is.
+    for (QMetalBuffer *workBuf : *workBuffers) {
+        if (workBuf && workBuf->lastActiveFrameSlot == -1 && workBuf->size() >= size) {
+            workBuf->lastActiveFrameSlot = rhiD->currentFrameSlot;
+            return workBuf;
+        }
+    }
+
+    // Once the pool is above a certain threshold, see if there is something
+    // unused (but too small) and recreate that our size.
+    if (workBuffers->count() > QMTL_FRAMES_IN_FLIGHT * 8) {
+        for (QMetalBuffer *workBuf : *workBuffers) {
+            if (workBuf && workBuf->lastActiveFrameSlot == -1) {
+                workBuf->setSize(size);
+                if (workBuf->create()) {
+                    workBuf->lastActiveFrameSlot = rhiD->currentFrameSlot;
+                    return workBuf;
+                }
+            }
+        }
+    }
+
+    // Add a new buffer to the pool.
+    QMetalBuffer *buf;
+    if (type == WorkBufType::DeviceLocal) {
+        // for GPU->GPU data (non-slotted, not necessarily host writable)
+        buf = new QMetalBuffer(rhiD, QRhiBuffer::Static, QRhiBuffer::UsageFlags(QMetalBuffer::WorkBufPoolUsage), size);
+    } else {
+        // for CPU->GPU (non-slotted, host writable/coherent)
+        buf = new QMetalBuffer(rhiD, QRhiBuffer::Dynamic, QRhiBuffer::UsageFlags(QMetalBuffer::WorkBufPoolUsage), size);
+    }
+    if (buf->create()) {
+        buf->lastActiveFrameSlot = rhiD->currentFrameSlot;
+        workBuffers->append(buf);
+        return buf;
+    }
+
+    qWarning("Failed to acquire work buffer of size %u", size);
+    return nullptr;
+}
+
+//  from qtbase/src/gui/rhi/qrhimetal.mm, line 2134
+static id<MTLComputeCommandEncoder>
+tempComputeEncoder(QRhiMetal *rhiD, QMetalCommandBuffer *cbD,
+                   id<MTLComputeCommandEncoder> maybeComputeEncoder)
+{
+    if (cbD->d->currentRenderPassEncoder)
+        rhiD->interruptRenderPass(cbD);
+
+    if (!maybeComputeEncoder)
+        maybeComputeEncoder = [cbD->d->cb computeCommandEncoder];
+
+    return maybeComputeEncoder;
 }
 
 //  from qtbase/src/gui/rhi/qrhimetal.mm, line 2222
@@ -6321,6 +6413,524 @@ inline QRhiSwapChainHdrInfo QMetalSwapChain::hdrInfo()
     }
 
     return info;
+}
+
+//  from qtbase/src/gui/rhi/qrhimetal.mm, line 5324
+static inline MTLWinding toMetalTessellationWindingOrder(QShaderDescription::TessellationWindingOrder w)
+{
+    switch (w) {
+    case QShaderDescription::CwTessellationWindingOrder:
+        return MTLWindingClockwise;
+    case QShaderDescription::CcwTessellationWindingOrder:
+        return MTLWindingCounterClockwise;
+    default:
+        // this is reachable, consider a tess.eval. shader not declaring it, the value is then Unknown
+        return MTLWindingCounterClockwise;
+    }
+}
+
+//  from qtbase/src/gui/rhi/qrhimetal.mm, line 5337
+static inline MTLTessellationPartitionMode toMetalTessellationPartitionMode(QShaderDescription::TessellationPartitioning p)
+{
+    switch (p) {
+    case QShaderDescription::EqualTessellationPartitioning:
+        return MTLTessellationPartitionModePow2;
+    case QShaderDescription::FractionalEvenTessellationPartitioning:
+        return MTLTessellationPartitionModeFractionalEven;
+    case QShaderDescription::FractionalOddTessellationPartitioning:
+        return MTLTessellationPartitionModeFractionalOdd;
+    default:
+        // this is reachable, consider a tess.eval. shader not declaring it, the value is then Unknown
+        return MTLTessellationPartitionModePow2;
+    }
+}
+
+//  from qtbase/src/gui/rhi/qrhimetal.mm, line 5816
+static inline bool indexTaken(quint32 index, quint64 indices)
+{
+    return (indices >> index) & 0x1;
+}
+
+//  from qtbase/src/gui/rhi/qrhimetal.mm, line 5826
+static inline int nextAttributeIndex(quint64 indices)
+{
+    // Maximum number of vertex attributes per vertex descriptor. There does
+    // not appear to be a way to query this from the implementation.
+    // https://developer.apple.com/metal/Metal-Feature-Set-Tables.pdf indicates
+    // that all GPU families have a value of 31.
+    static const int maxVertexAttributes = 31;
+
+    for (int index = 0; index < maxVertexAttributes; ++index) {
+        if (!indexTaken(index, indices))
+            return index;
+    }
+
+    Q_UNREACHABLE_RETURN(-1);
+}
+
+//  from qtbase/src/gui/rhi/qrhimetal.mm, line 5847
+template<typename T>
+static void addUnusedVertexAttribute(const T &variable, QRhiMetal *rhiD, quint32 &offset, quint32 &vertexAlignment)
+{
+
+    int elements = 1;
+    for (const int dim : variable.arrayDims)
+        elements *= dim;
+
+    if (variable.type == QShaderDescription::VariableType::Struct) {
+        for (int element = 0; element < elements; ++element) {
+            for (const auto &member : variable.structMembers) {
+                addUnusedVertexAttribute(member, rhiD, offset, vertexAlignment);
+            }
+        }
+    } else {
+        const QRhiVertexInputAttribute::Format format = rhiD->shaderDescVariableFormatToVertexInputFormat(variable.type);
+        const quint32 size = rhiD->byteSizePerVertexForVertexInputFormat(format);
+
+        // MSL specification 3.0 says alignment = size for non packed scalars and vectors
+        const quint32 alignment = size;
+        vertexAlignment = std::max(vertexAlignment, alignment);
+
+        for (int element = 0; element < elements; ++element) {
+            // adjust alignment
+            offset = aligned(offset, alignment);
+            offset += size;
+        }
+    }
+}
+
+//  from qtbase/src/gui/rhi/qrhimetal.mm, line 5877
+template<typename T>
+static void addVertexAttribute(const T &variable, int binding, QRhiMetal *rhiD, int &index, quint32 &offset, MTLVertexAttributeDescriptorArray *attributes, quint64 &indices, quint32 &vertexAlignment)
+{
+
+    int elements = 1;
+    for (const int dim : variable.arrayDims)
+        elements *= dim;
+
+    if (variable.type == QShaderDescription::VariableType::Struct) {
+        for (int element = 0; element < elements; ++element) {
+            for (const auto &member : variable.structMembers) {
+                addVertexAttribute(member, binding, rhiD, index, offset, attributes, indices, vertexAlignment);
+            }
+        }
+    } else {
+        const QRhiVertexInputAttribute::Format format = rhiD->shaderDescVariableFormatToVertexInputFormat(variable.type);
+        const quint32 size = rhiD->byteSizePerVertexForVertexInputFormat(format);
+
+        // MSL specification 3.0 says alignment = size for non packed scalars and vectors
+        const quint32 alignment = size;
+        vertexAlignment = std::max(vertexAlignment, alignment);
+
+        for (int element = 0; element < elements; ++element) {
+            Q_ASSERT(!indexTaken(index, indices));
+
+            // adjust alignment
+            offset = aligned(offset, alignment);
+
+            attributes[index].bufferIndex = binding;
+            attributes[index].format = toMetalAttributeFormat(format);
+            attributes[index].offset = offset;
+
+            takeIndex(index, indices);
+            index++;
+            if (indexTaken(index, indices))
+                index = nextAttributeIndex(indices);
+
+            offset += size;
+        }
+    }
+}
+
+//  from qtbase/src/gui/rhi/qrhimetal.mm, line 5919
+static inline bool matches(const QList<QShaderDescription::BlockVariable> &a, const QList<QShaderDescription::BlockVariable> &b)
+{
+    if (a.size() == b.size()) {
+        bool match = true;
+        for (int i = 0; i < a.size() && match; ++i) {
+            match &= a[i].type == b[i].type
+                    && a[i].arrayDims == b[i].arrayDims
+                    && matches(a[i].structMembers, b[i].structMembers);
+        }
+        return match;
+    }
+
+    return false;
+}
+
+//  from qtbase/src/gui/rhi/qrhimetal.mm, line 5934
+static inline bool matches(const QShaderDescription::InOutVariable &a, const QShaderDescription::InOutVariable &b)
+{
+    return a.location == b.location
+            && a.type == b.type
+            && a.perPatch == b.perPatch
+            && matches(a.structMembers, b.structMembers);
+}
+
+//  from qtbase/src/gui/rhi/qrhimetal.mm, line 5542
+inline void QMetalGraphicsPipelineData::setupStageInputDescriptor(MTLStageInputOutputDescriptor *desc)
+{
+    // same binding space for vertex and constant buffers - work it around
+    // should be in native resource binding not SPIR-V, but this will work anyway
+    const int firstVertexBinding = QRHI_RES(QMetalShaderResourceBindings, q->shaderResourceBindings())->maxBinding + 1;
+
+    QRhiVertexInputLayout vertexInputLayout = q->vertexInputLayout();
+    for (auto it = vertexInputLayout.cbeginAttributes(), itEnd = vertexInputLayout.cendAttributes();
+         it != itEnd; ++it)
+    {
+        const uint loc = uint(it->location());
+        desc.attributes[loc].format = decltype(desc.attributes[loc].format)(toMetalAttributeFormat(it->format()));
+        desc.attributes[loc].offset = NSUInteger(it->offset());
+        desc.attributes[loc].bufferIndex = NSUInteger(firstVertexBinding + it->binding());
+    }
+    int bindingIndex = 0;
+    for (auto it = vertexInputLayout.cbeginBindings(), itEnd = vertexInputLayout.cendBindings();
+         it != itEnd; ++it, ++bindingIndex)
+    {
+        const uint layoutIdx = uint(firstVertexBinding + bindingIndex);
+        if (desc.indexBufferIndex) {
+            desc.layouts[layoutIdx].stepFunction =
+                    it->classification() == QRhiVertexInputBinding::PerInstance
+                    ? MTLStepFunctionThreadPositionInGridY : MTLStepFunctionThreadPositionInGridXIndexed;
+        } else {
+            desc.layouts[layoutIdx].stepFunction =
+                    it->classification() == QRhiVertexInputBinding::PerInstance
+                    ? MTLStepFunctionThreadPositionInGridY : MTLStepFunctionThreadPositionInGridX;
+        }
+        desc.layouts[layoutIdx].stepRate = NSUInteger(it->instanceStepRate());
+        desc.layouts[layoutIdx].stride = it->stride();
+    }
+}
+
+//  from qtbase/src/gui/rhi/qrhimetal.mm, line 5718
+inline int QMetalGraphicsPipelineData::Tessellation::vsCompVariantToIndex(QShader::Variant vertexCompVariant)
+{
+    switch (vertexCompVariant) {
+    case QShader::NonIndexedVertexAsComputeShader:
+        return 0;
+    case QShader::UInt32IndexedVertexAsComputeShader:
+        return 1;
+    case QShader::UInt16IndexedVertexAsComputeShader:
+        return 2;
+    default:
+        break;
+    }
+    return -1;
+}
+
+//  from qtbase/src/gui/rhi/qrhimetal.mm, line 5733
+inline id<MTLComputePipelineState> QMetalGraphicsPipelineData::Tessellation::vsCompPipeline(QRhiMetal *rhiD, QShader::Variant vertexCompVariant)
+{
+    const int varIndex = vsCompVariantToIndex(vertexCompVariant);
+    if (varIndex >= 0 && vertexComputeState[varIndex])
+        return vertexComputeState[varIndex];
+
+    id<MTLFunction> func = nil;
+    if (varIndex >= 0)
+        func = compVs[varIndex].func;
+
+    if (!func) {
+        qWarning("No compute function found for vertex shader translated for tessellation, this should not happen");
+        return nil;
+    }
+
+    const QMap<int, int> &ebb(compVs[varIndex].nativeShaderInfo.extraBufferBindings);
+    const int indexBufferBinding = ebb.value(QShaderPrivate::MslTessVertIndicesBufferBinding, -1);
+
+    MTLComputePipelineDescriptor *cpDesc = [MTLComputePipelineDescriptor new];
+    cpDesc.computeFunction = func;
+    cpDesc.threadGroupSizeIsMultipleOfThreadExecutionWidth = YES;
+    cpDesc.stageInputDescriptor = [MTLStageInputOutputDescriptor stageInputOutputDescriptor];
+    if (indexBufferBinding >= 0) {
+        if (vertexCompVariant == QShader::UInt32IndexedVertexAsComputeShader) {
+            cpDesc.stageInputDescriptor.indexType = MTLIndexTypeUInt32;
+            cpDesc.stageInputDescriptor.indexBufferIndex = indexBufferBinding;
+        } else if (vertexCompVariant == QShader::UInt16IndexedVertexAsComputeShader) {
+            cpDesc.stageInputDescriptor.indexType = MTLIndexTypeUInt16;
+            cpDesc.stageInputDescriptor.indexBufferIndex = indexBufferBinding;
+        }
+    }
+    q->setupStageInputDescriptor(cpDesc.stageInputDescriptor);
+
+    rhiD->d->trySeedingComputePipelineFromBinaryArchive(cpDesc);
+
+    if (rhiD->rhiFlags.testFlag(QRhi::EnablePipelineCacheDataSave))
+        rhiD->d->addComputePipelineToBinaryArchive(cpDesc);
+
+    NSError *err = nil;
+    id<MTLComputePipelineState> ps = [rhiD->d->dev newComputePipelineStateWithDescriptor: cpDesc
+            options: MTLPipelineOptionNone
+            reflection: nil
+            error: &err];
+    [cpDesc release];
+    if (!ps) {
+        const QString msg = QString::fromNSString(err.localizedDescription);
+        qWarning("Failed to create compute pipeline state: %s", qPrintable(msg));
+    } else {
+        vertexComputeState[varIndex] = ps;
+    }
+    // not retained, the only owner is vertexComputeState and so the QRhiGraphicsPipeline
+    return ps;
+}
+
+//  from qtbase/src/gui/rhi/qrhimetal.mm, line 5787
+inline id<MTLComputePipelineState> QMetalGraphicsPipelineData::Tessellation::tescCompPipeline(QRhiMetal *rhiD)
+{
+    if (tessControlComputeState)
+        return tessControlComputeState;
+
+    MTLComputePipelineDescriptor *cpDesc = [MTLComputePipelineDescriptor new];
+    cpDesc.computeFunction = compTesc.func;
+
+    rhiD->d->trySeedingComputePipelineFromBinaryArchive(cpDesc);
+
+    if (rhiD->rhiFlags.testFlag(QRhi::EnablePipelineCacheDataSave))
+        rhiD->d->addComputePipelineToBinaryArchive(cpDesc);
+
+    NSError *err = nil;
+    id<MTLComputePipelineState> ps = [rhiD->d->dev newComputePipelineStateWithDescriptor: cpDesc
+            options: MTLPipelineOptionNone
+            reflection: nil
+            error: &err];
+    [cpDesc release];
+    if (!ps) {
+        const QString msg = QString::fromNSString(err.localizedDescription);
+        qWarning("Failed to create compute pipeline state: %s", qPrintable(msg));
+    } else {
+        tessControlComputeState = ps;
+    }
+    // not retained, the only owner is tessControlComputeState and so the QRhiGraphicsPipeline
+    return ps;
+}
+
+//  from qtbase/src/gui/rhi/qrhimetal.mm, line 5986
+inline id<MTLRenderPipelineState> QMetalGraphicsPipelineData::Tessellation::teseFragRenderPipeline(QRhiMetal *rhiD, QMetalGraphicsPipeline *pipeline)
+{
+    if (pipeline->d->ps)
+        return pipeline->d->ps;
+
+    MTLRenderPipelineDescriptor *rpDesc = [[MTLRenderPipelineDescriptor alloc] init];
+    MTLVertexDescriptor *vertexDesc = [MTLVertexDescriptor vertexDescriptor];
+
+    // tesc output buffers
+    const QMap<int, int> &ebb(compTesc.nativeShaderInfo.extraBufferBindings);
+    const int tescOutputBufferBinding = ebb.value(QShaderPrivate::MslTessVertTescOutputBufferBinding, -1);
+    const int tescPatchOutputBufferBinding = ebb.value(QShaderPrivate::MslTessTescPatchOutputBufferBinding, -1);
+    const int tessFactorBufferBinding = ebb.value(QShaderPrivate::MslTessTescTessLevelBufferBinding, -1);
+    quint32 offsetInTescOutput = 0;
+    quint32 offsetInTescPatchOutput = 0;
+    quint32 offsetInTessFactorBuffer = 0;
+    quint32 tescOutputAlignment = 0;
+    quint32 tescPatchOutputAlignment = 0;
+    quint32 tessFactorAlignment = 0;
+    QSet<int> usedBuffers;
+
+    // tesc output variables in ascending location order
+    QMap<int, QShaderDescription::InOutVariable> tescOutVars;
+    for (const auto &tescOutVar : compTesc.desc.outputVariables())
+        tescOutVars[tescOutVar.location] = tescOutVar;
+
+    // tese input variables in ascending location order
+    QMap<int, QShaderDescription::InOutVariable> teseInVars;
+    for (const auto &teseInVar : vertTese.desc.inputVariables())
+        teseInVars[teseInVar.location] = teseInVar;
+
+    // bit mask tracking usage of vertex attribute indices
+    quint64 indices = 0;
+
+    for (QShaderDescription::InOutVariable &tescOutVar : tescOutVars) {
+
+        int index = tescOutVar.location;
+        int binding = -1;
+        quint32 *offset = nullptr;
+        quint32 *alignment = nullptr;
+
+        if (tescOutVar.perPatch) {
+            binding = tescPatchOutputBufferBinding;
+            offset = &offsetInTescPatchOutput;
+            alignment = &tescPatchOutputAlignment;
+        } else {
+            tescOutVar.arrayDims.removeLast();
+            binding = tescOutputBufferBinding;
+            offset = &offsetInTescOutput;
+            alignment = &tescOutputAlignment;
+        }
+
+        if (teseInVars.contains(index)) {
+
+            if (!matches(teseInVars[index], tescOutVar)) {
+                qWarning() << "mismatched tessellation control output -> tesssellation evaluation input at location" << index;
+                qWarning() << "    tesc out:" << tescOutVar;
+                qWarning() << "    tese in:" << teseInVars[index];
+            }
+
+            if (binding != -1) {
+                addVertexAttribute(tescOutVar, binding, rhiD, index, *offset, vertexDesc.attributes, indices, *alignment);
+                usedBuffers << binding;
+            } else {
+                qWarning() << "baked tessellation control shader missing output buffer binding information";
+                addUnusedVertexAttribute(tescOutVar, rhiD, *offset, *alignment);
+            }
+
+        } else {
+            qWarning() << "missing tessellation evaluation input for tessellation control output:" << tescOutVar;
+            addUnusedVertexAttribute(tescOutVar, rhiD, *offset, *alignment);
+        }
+
+        teseInVars.remove(tescOutVar.location);
+    }
+
+    for (const QShaderDescription::InOutVariable &teseInVar : teseInVars)
+        qWarning() << "missing tessellation control output for tessellation evaluation input:" << teseInVar;
+
+    // tesc output builtins in ascending location order
+    QMap<QShaderDescription::BuiltinType, QShaderDescription::BuiltinVariable> tescOutBuiltins;
+    for (const auto &tescOutBuiltin : compTesc.desc.outputBuiltinVariables())
+        tescOutBuiltins[tescOutBuiltin.type] = tescOutBuiltin;
+
+    // tese input builtins in ascending location order
+    QMap<QShaderDescription::BuiltinType, QShaderDescription::BuiltinVariable> teseInBuiltins;
+    for (const auto &teseInBuiltin : vertTese.desc.inputBuiltinVariables())
+        teseInBuiltins[teseInBuiltin.type] = teseInBuiltin;
+
+    const bool trianglesMode = vertTese.desc.tessellationMode() == QShaderDescription::TrianglesTessellationMode;
+    bool tessLevelAdded = false;
+
+    for (const QShaderDescription::BuiltinVariable &builtin : tescOutBuiltins) {
+
+        QShaderDescription::InOutVariable variable;
+        int binding = -1;
+        quint32 *offset = nullptr;
+        quint32 *alignment = nullptr;
+
+        switch (builtin.type) {
+        case QShaderDescription::BuiltinType::PositionBuiltin:
+            variable.type = QShaderDescription::VariableType::Vec4;
+            binding = tescOutputBufferBinding;
+            offset = &offsetInTescOutput;
+            alignment = &tescOutputAlignment;
+            break;
+        case QShaderDescription::BuiltinType::PointSizeBuiltin:
+            variable.type = QShaderDescription::VariableType::Float;
+            binding = tescOutputBufferBinding;
+            offset = &offsetInTescOutput;
+            alignment = &tescOutputAlignment;
+            break;
+        case QShaderDescription::BuiltinType::ClipDistanceBuiltin:
+            variable.type = QShaderDescription::VariableType::Float;
+            variable.arrayDims = builtin.arrayDims;
+            binding = tescOutputBufferBinding;
+            offset = &offsetInTescOutput;
+            alignment = &tescOutputAlignment;
+            break;
+        case QShaderDescription::BuiltinType::TessLevelOuterBuiltin:
+            variable.type = QShaderDescription::VariableType::Half4;
+            binding = tessFactorBufferBinding;
+            offset = &offsetInTessFactorBuffer;
+            tessLevelAdded = trianglesMode;
+            alignment = &tessFactorAlignment;
+            break;
+        case QShaderDescription::BuiltinType::TessLevelInnerBuiltin:
+            if (trianglesMode) {
+                if (!tessLevelAdded) {
+                    variable.type = QShaderDescription::VariableType::Half4;
+                    binding = tessFactorBufferBinding;
+                    offsetInTessFactorBuffer = 0;
+                    offset = &offsetInTessFactorBuffer;
+                    alignment = &tessFactorAlignment;
+                    tessLevelAdded = true;
+                } else {
+                    teseInBuiltins.remove(builtin.type);
+                    continue;
+                }
+            } else {
+                variable.type = QShaderDescription::VariableType::Half2;
+                binding = tessFactorBufferBinding;
+                offsetInTessFactorBuffer = 8;
+                offset = &offsetInTessFactorBuffer;
+                alignment = &tessFactorAlignment;
+            }
+            break;
+        default:
+            Q_UNREACHABLE();
+            break;
+        }
+
+        if (teseInBuiltins.contains(builtin.type)) {
+            if (binding != -1) {
+                int index = nextAttributeIndex(indices);
+                addVertexAttribute(variable, binding, rhiD, index, *offset, vertexDesc.attributes, indices, *alignment);
+                usedBuffers << binding;
+            } else {
+                qWarning() << "baked tessellation control shader missing output buffer binding information";
+                addUnusedVertexAttribute(variable, rhiD, *offset, *alignment);
+            }
+        } else {
+            addUnusedVertexAttribute(variable, rhiD, *offset, *alignment);
+        }
+
+        teseInBuiltins.remove(builtin.type);
+    }
+
+    for (const QShaderDescription::BuiltinVariable &builtin : teseInBuiltins) {
+        switch (builtin.type) {
+        case QShaderDescription::BuiltinType::PositionBuiltin:
+        case QShaderDescription::BuiltinType::PointSizeBuiltin:
+        case QShaderDescription::BuiltinType::ClipDistanceBuiltin:
+            qWarning() << "missing tessellation control output for tessellation evaluation builtin input:" << builtin;
+            break;
+        default:
+            break;
+        }
+    }
+
+    if (usedBuffers.contains(tescOutputBufferBinding)) {
+        vertexDesc.layouts[tescOutputBufferBinding].stepFunction = MTLVertexStepFunctionPerPatchControlPoint;
+        vertexDesc.layouts[tescOutputBufferBinding].stride = aligned(offsetInTescOutput, tescOutputAlignment);
+    }
+
+    if (usedBuffers.contains(tescPatchOutputBufferBinding)) {
+        vertexDesc.layouts[tescPatchOutputBufferBinding].stepFunction = MTLVertexStepFunctionPerPatch;
+        vertexDesc.layouts[tescPatchOutputBufferBinding].stride = aligned(offsetInTescPatchOutput, tescPatchOutputAlignment);
+    }
+
+    if (usedBuffers.contains(tessFactorBufferBinding)) {
+        vertexDesc.layouts[tessFactorBufferBinding].stepFunction = MTLVertexStepFunctionPerPatch;
+        vertexDesc.layouts[tessFactorBufferBinding].stride = trianglesMode ? sizeof(MTLTriangleTessellationFactorsHalf) : sizeof(MTLQuadTessellationFactorsHalf);
+    }
+
+    rpDesc.vertexDescriptor = vertexDesc;
+    rpDesc.vertexFunction = vertTese.func;
+    rpDesc.fragmentFunction = pipeline->d->fs.func;
+
+    // The portable, cross-API approach is to use CCW, the results are then
+    // identical (assuming the applied clipSpaceCorrMatrix) for all the 3D
+    // APIs. The tess.eval. GLSL shader is thus expected to specify ccw. If it
+    // doesn't, things may not work as expected.
+    rpDesc.tessellationOutputWindingOrder = toMetalTessellationWindingOrder(vertTese.desc.tessellationWindingOrder());
+
+    rpDesc.tessellationPartitionMode = toMetalTessellationPartitionMode(vertTese.desc.tessellationPartitioning());
+
+    QMetalRenderPassDescriptor *rpD = QRHI_RES(QMetalRenderPassDescriptor, pipeline->renderPassDescriptor());
+    pipeline->setupAttachmentsInMetalRenderPassDescriptor(rpDesc, rpD);
+
+    rhiD->d->trySeedingRenderPipelineFromBinaryArchive(rpDesc);
+
+    if (rhiD->rhiFlags.testFlag(QRhi::EnablePipelineCacheDataSave))
+        rhiD->d->addRenderPipelineToBinaryArchive(rpDesc);
+
+    NSError *err = nil;
+    id<MTLRenderPipelineState> ps = [rhiD->d->dev newRenderPipelineStateWithDescriptor: rpDesc error: &err];
+    [rpDesc release];
+    if (!ps) {
+        const QString msg = QString::fromNSString(err.localizedDescription);
+        qWarning("Failed to create render pipeline state for tessellation: %s", qPrintable(msg));
+    } else {
+        // ps is stored in the QMetalGraphicsPipelineData so the end result in this
+        // regard is no different from what createVertexFragmentPipeline does
+        pipeline->d->ps = ps;
+    }
+    return ps;
 }
 
 QT_END_NAMESPACE

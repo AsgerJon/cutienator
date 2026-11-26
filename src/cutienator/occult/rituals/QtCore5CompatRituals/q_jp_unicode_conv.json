@@ -6,6 +6,7 @@
   ],
   "rows": {
     "ritual_ZN14QJpUnicodeConvD1Ev": ["nothing", "address"],
+    "ritual_ZN14QJpUnicodeConv12newConverterEi": ["address", "int"],
     "ritual_ZNK14QJpUnicodeConv14asciiToUnicodeEjj": [
       "unsigned int", "address", "unsigned int", "unsigned int"
     ],

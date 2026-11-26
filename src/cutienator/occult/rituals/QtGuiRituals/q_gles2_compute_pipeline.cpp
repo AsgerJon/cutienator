@@ -1,6 +1,10 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtGui/6.12.0/QtGui/private/qrhigles2_p.h, Qt 6.12.0. Changes made here
-//  are lost.
+//  QtGui/6.12.0/QtGui/private/qrhigles2_p.h, Qt 6.12.0.
+//  Edited by hand on 2026-11-26: defines, with Qt's own #ifndef lines of
+//  qrhigles2.cpp, the constants of the code taken from Qt that Qt defines
+//  for itself where the OpenGL headers lack them (GL_COMPUTE_SHADER, which
+//  macOS's OpenGL lacks, among them). Kept as it is when the generator runs
+//  again.
 #include <QtGui/qtguiglobal.h>
 #include <QtGui/6.12.0/QtGui/private/qtguiglobal_p.h>
 #if QT_CONFIG(opengl)
@@ -32,6 +36,29 @@
 //      GPL-3.0-only
 //  Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  The constants Qt defines for itself where the OpenGL headers
+//  lack them.
+//  from src/gui/rhi/qrhigles2.cpp, line 353
+#ifndef GL_COMPUTE_SHADER
+#define GL_COMPUTE_SHADER                 0x91B9
+#endif
+//  from src/gui/rhi/qrhigles2.cpp, line 457
+#ifndef GL_PROGRAM_BINARY_LENGTH
+#define GL_PROGRAM_BINARY_LENGTH          0x8741
+#endif
+//  from src/gui/rhi/qrhigles2.cpp, line 525
+#ifndef GL_TESS_CONTROL_SHADER
+#define GL_TESS_CONTROL_SHADER            0x8E88
+#endif
+//  from src/gui/rhi/qrhigles2.cpp, line 529
+#ifndef GL_TESS_EVALUATION_SHADER
+#define GL_TESS_EVALUATION_SHADER         0x8E87
+#endif
+//  from src/gui/rhi/qrhigles2.cpp, line 549
+#ifndef GL_GEOMETRY_SHADER
+#define GL_GEOMETRY_SHADER                0x8DD9
+#endif
 
 //  from src/gui/rhi/qrhigles2.cpp, line 674, as local:qrhigles2.cpp:currentSurfaceForCurrentContext
 static inline QSurface *currentSurfaceForCurrentContext(QOpenGLContext *ctx)

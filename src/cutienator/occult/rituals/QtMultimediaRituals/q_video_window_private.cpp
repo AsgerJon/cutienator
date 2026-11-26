@@ -1,6 +1,11 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtMultimedia/6.12.0/QtMultimedia/private/qvideowindow_p.h, Qt 6.12.0.
-//  Changes made here are lost.
+//  Edited by hand on 2026-11-26: in the code taken for 'initRhi', the
+//  part for Vulkan stands under 'QT_CONFIG(vulkan) &&
+//  __has_include(<vulkan/vulkan.h>)', the condition under which Qt's
+//  'qrhi_platform.h' declares 'QRhiVulkanInitParams': a machine
+//  whose Qt has Vulkan may lack Vulkan's headers. Kept as it is when
+//  the generator runs again.
 #include <QtMultimedia/6.12.0/QtMultimedia/private/qtmultimediaglobal_p.h>
 #include <QtMultimedia/QtMultimedia>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -85,7 +90,7 @@ inline void QVideoWindowPrivate::initRhi()
     }
 #endif
 
-#if QT_CONFIG(vulkan)
+#if QT_CONFIG(vulkan) && __has_include(<vulkan/vulkan.h>)
     if (m_graphicsApi == QRhi::Vulkan) {
         QRhiVulkanInitParams params;
         params.inst = q->vulkanInstance();

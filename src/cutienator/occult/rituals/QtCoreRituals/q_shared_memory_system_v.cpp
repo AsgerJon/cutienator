@@ -1,6 +1,9 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtCore/6.12.0/QtCore/private/qsharedmemory_p.h, Qt 6.12.0. Changes made
-//  here are lost.
+//  QtCore/6.12.0/QtCore/private/qsharedmemory_p.h, Qt 6.12.0.
+//  Edited by hand on 2026-11-26: the ritual dropping a 'key_t' stands
+//  under 'QT_CONFIG(sysv_shm)', as the ritual of 'handle' that gives one
+//  does: Windows has no 'key_t' and no System V shared memory. Kept as
+//  it is when the generator runs again.
 #include <QtCore/qglobal.h>
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #if QT_CONFIG(sharedmemory)
@@ -337,10 +340,12 @@ void ritual_ZN20QSharedMemorySystemVD1Ev(QSharedMemorySystemV *self) {
   delete self;
 }
 
+#if QT_CONFIG(sysv_shm)
 //  a key_t a ritual of QSharedMemorySystemV gave
 extern "C" Q_DECL_EXPORT
 void ritual_drop_QSharedMemorySystemV__key_t(key_t *self) {
   delete self;
 }
+#endif  // QT_CONFIG(sysv_shm)
 
 #endif  // QT_CONFIG(sharedmemory)

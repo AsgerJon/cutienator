@@ -112,8 +112,10 @@ class Rituals:
     not offer is one the Qt of this machine has no function for: its
     ritual file has it between Qt's own '#if' lines, and they do not
     hold here. The target file opens all the same, and 'call' raises
-    'LookupError' for that ritual alone, when it is called. See
-    'getMissing'.
+    'NotImplementedError' for that ritual alone, when it is called. See
+    'getMissing'. So does a ritual 'summon' left out because the
+    compiler or the linker refused it on this machine, with what they
+    said; see 'getLeftOut'.
   - Anything but a 'str' in the place of text is refused here, with
     'TypeException'. No other wrong argument is caught here. C++ takes
     what it is given, and a wrong address ends the whole program.
@@ -217,6 +219,9 @@ class Rituals:
   #  For each opened part, the rituals its rows files list and its
   #  target file does not offer; see 'getMissing'.
   __missing_rituals__ = dict()  # type: Dict[str, FrozenSet[str]]
+  #  For each opened part, each ritual 'summon' left out of its target
+  #  file, with the function it calls and why; see 'getLeftOut'.
+  __left_out_rituals__ = dict()  # type: Dict[str, Dict[str, Any]]
   #  The part 'callFrom' found for a ritual several parts list, under
   #  the part it was seen from and the name of the ritual.
   __seen_parts__ = dict()  # type: Dict[Tuple[str, str], str]
@@ -898,6 +903,7 @@ class Rituals:
           info = infoSpec % (name, target)
           raise LookupError(' '.join(info.split()))
     cls.__missing_rituals__[partName] = frozenset(missing)
+    cls.__left_out_rituals__[partName] = cls.getLeftOut(partName)
     cls.__opened_targets__[partName] = opened
 
   @classmethod
@@ -951,7 +957,9 @@ class Rituals:
     not installed here, which 'summon' leaves out, that is every one of
     them. For one installed, those its target file does not offer:
     their ritual files have them between Qt's own '#if' lines, which
-    do not hold here, so 'summon' compiled them out.
+    do not hold here, so 'summon' compiled them out; or the compiler or
+    the linker refused them here, and 'summon' left them out, as
+    'getLeftOut' says.
 
     Found for you: for an installed part, when its target file is
     opened, as 'getOpened' does.
@@ -967,6 +975,20 @@ class Rituals:
       return frozenset(rows)
     cls.getOpened(partName)
     return cls.__missing_rituals__[partName]
+
+  @classmethod
+  def getLeftOut(cls, partName: str) -> Dict[str, Tuple[str, str]]:
+    """
+    Gives each ritual of one part of Qt that 'summon' left out of its
+    target file on this machine, because the compiler or the linker
+    refused it here: its name, with the function it calls and what the
+    compiler or the linker said. Each raises 'NotImplementedError' when
+    called; every other ritual of its ritual file runs. Read from the
+    left-out file beside the target file, which 'Summon' writes; empty
+    when there is none.
+    """
+    target = cls.getTargetFile(partName)
+    return Summon.readLeftOut(Summon.getLeftOutFileOf(target))
 
   @classmethod
   def hasKeptException(cls) -> bool:
@@ -1318,6 +1340,12 @@ class Rituals:
     same time, and no more programs at once than the machine has
     processors.
 
+    What 'clang++' refuses on this machine costs only the rituals that
+    fail: each is left out of its target file, and raises
+    'NotImplementedError' when called, with what the compiler or the
+    linker said; every other ritual is built. Every part is built
+    before anything is raised.
+
     Returns
     -------
 
@@ -1329,9 +1357,12 @@ class Rituals:
     ------
 
     RuntimeError
-      A target file is already open in this Python, or 'clang++'
-      refused a ritual file; its own message is then included, after
-      the part. The other parts are built all the same.
+      Rituals were left out: every target file is built, and the
+      message says how many of each part, and where the left-out files
+      say what and why; see 'getLeftOut'. Or a target file is already
+      open in this Python; or a target file could not be built at all,
+      as when a Qt shared object is not there, and the message of each
+      such part is included.
 
     FileNotFoundError
       There is no ritual file of a part of Qt this machine has, or
@@ -1349,9 +1380,36 @@ class Rituals:
       machine has."""
       info = infoSpec % cls.getRitualFolder()
       raise FileNotFoundError(' '.join(info.split()))
+    failures = []  # type: List[str]
+
+    def summonPart(partName: str) -> Optional[str]:
+      try:
+        return cls._summonPart(partName)
+      except RuntimeError as runtimeError:
+        failures.append(str(runtimeError))
+        return None
+
     jobCount = os.cpu_count() or 1
     with ThreadPoolExecutor(max_workers=jobCount) as pool:
-      return (*pool.map(cls._summonPart, partNames),)
+      targets = (*pool.map(summonPart, partNames),)
+    said = []
+    if failures:
+      infoSpec = """%d of %d target files were not built."""
+      said.append(infoSpec % (len(failures), len(partNames)))
+      said.extend(failures)
+    leftOut = {p: len(cls.getLeftOut(p)) for p in partNames}
+    if any(leftOut.values()):
+      counts = ', '.join(
+          '%d of %s' % (n, p) for p, n in leftOut.items() if n)
+      infoSpec = """The compiler or the linker refused %d rituals on
+      this machine (%s); 'summon' left them out of the target files,
+      and built every other ritual. Each raises NotImplementedError
+      when called. The left-out file beside each target file says what
+      and why, as 'Rituals.getLeftOut' gives it."""
+      said.append(infoSpec % (sum(leftOut.values()), counts))
+    if said:
+      raise RuntimeError(' '.join(' '.join(said).split()))
+    return targets
 
   @classmethod
   def createPartSummon(cls, partName: str) -> Summon:
@@ -1440,14 +1498,23 @@ class Rituals:
         machine does not have: its ritual file is of %s, which is not
         installed here."""
         info = infoSpec % (ritualName, partName)
-        raise LookupError(' '.join(info.split()))
+        raise NotImplementedError(' '.join(info.split()))
       opened = cls.getOpened(partName)
     if ritualName in cls.__missing_rituals__[partName]:
+      leftOut = cls.__left_out_rituals__.get(partName, {}).get(ritualName)
+      if leftOut is not None:
+        infoSpec = """'%s' cannot be called on this machine: its ritual
+        '%s' was left out of '%s', because %s. Every other ritual of its
+        ritual file is there."""
+        info = infoSpec % (
+            leftOut[0], ritualName, cls.getTargetFile(partName),
+            leftOut[1])
+        raise NotImplementedError(' '.join(info.split()))
       infoSpec = """The ritual '%s' calls a function the Qt of this
       machine does not have: its ritual file has it between Qt's own
       '#if' lines, which do not hold here, so '%s' does not offer it."""
       info = infoSpec % (ritualName, cls.getTargetFile(partName))
-      raise LookupError(' '.join(info.split()))
+      raise NotImplementedError(' '.join(info.split()))
     row = cls.__ritual_rows__[partName][ritualName]
     ritual = getattr(opened, ritualName)
     try:
@@ -1490,9 +1557,13 @@ class Rituals:
     ------
 
     LookupError
-      No rows file lists a ritual of that name, several parts list it,
-      or the Qt of this machine has no function for it; see
-      'getMissing'.
+      No rows file lists a ritual of that name, or several parts list
+      it.
+
+    NotImplementedError
+      The Qt of this machine has no function for the ritual, or
+      'summon' left it out, as the compiler or the linker refused it
+      here; see 'getMissing' and 'getLeftOut'.
 
     FileNotFoundError
       The target file of the part is missing.
@@ -1539,13 +1610,12 @@ class Rituals:
     ------
 
     LookupError
-      No rows file lists a ritual of that name, several parts list it
-      and none of them is installed here, or the Qt of this machine has
-      no function for it; see 'getMissing'. Also when the ritual
+      No rows file lists a ritual of that name, or several parts list
+      it and none of them is installed here. Also when the ritual
       folder has no folder of the part it is seen from, and several
       parts list the ritual.
 
-    FileNotFoundError, TypeException, BaseException
+    NotImplementedError, FileNotFoundError, TypeException, BaseException
       As for 'call'.
     """
     return cls._runIn(cls._findPart(name, partName), name, args)

@@ -1,6 +1,14 @@
 //  Written by dev_tooling.RitualGenerator from the records of QtWaylandCompo
 //  sitor/6.12.0/QtWaylandCompositor/private/qwaylandquickshellsurfaceitem_p.
-//  h, Qt 6.12.0. Changes made here are lost.
+//  h, Qt 6.12.0.
+//  Edited by hand on 2026-11-26: the includes of
+//  'qwlclientbufferintegration_p.h' and 'wayland-server-core.h', taken
+//  with Qt's code from qwaylandquickitem.cpp, stand under
+//  '__has_include(<wayland-server-core.h>)': the first includes the
+//  header of the Wayland server library, which a machine with Qt's kit
+//  but without the development headers of that library lacks, and no
+//  code here uses Wayland. Kept as it is when the generator runs
+//  again.
 #include <QtGui/qtguiglobal.h>
 #include <QtWaylandCompositor/qtwaylandcompositorglobal.h>
 #include <QtWaylandCompositor/6.12.0/QtWaylandCompositor/private/qtwaylandcompositorglobal_p.h>
@@ -27,7 +35,9 @@
 #if QT_CONFIG(draganddrop)
 #include <QtWaylandCompositor/QWaylandDrag>
 #endif
+#if __has_include(<wayland-server-core.h>)
 #include <QtWaylandCompositor/private/qwlclientbufferintegration_p.h>
+#endif  // __has_include(<wayland-server-core.h>)
 #if QT_CONFIG(opengl)
 #  include <QtOpenGL/QOpenGLTexture>
 #  include <QtGui/QOpenGLFunctions>
@@ -41,7 +51,9 @@
 #include <QtCore/QFile>
 #include <QtCore/QMutexLocker>
 #include <QtCore/QMutex>
+#if __has_include(<wayland-server-core.h>)
 #include <wayland-server-core.h>
+#endif  // __has_include(<wayland-server-core.h>)
 #include <QtCore/QThread>
 #if QT_CONFIG(opengl)
 #include <QtGui/private/qshaderdescription_p.h>

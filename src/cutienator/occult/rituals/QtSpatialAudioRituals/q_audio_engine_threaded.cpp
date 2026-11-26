@@ -1,6 +1,11 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtSpatialAudio/6.12.0/QtSpatialAudio/private/qaudioengine_threaded_p.h,
-//  Qt 6.12.0. Changes made here are lost.
+//  Qt 6.12.0.
+//  Edited by hand on 2026-11-26: the class QAudioOutputStream, taken from
+//  Qt's qaudioengine_threaded.cpp, no longer stands under
+//  'defined(Q_OS_LINUX)', which Qt does not write there: Qt defines it on
+//  every system, and the code taken for its functions, which stands on every
+//  system here, needs it whole. Kept as it is when the generator runs again.
 #include <QtSpatialAudio/6.12.0/QtSpatialAudio/private/qtspatialaudioglobal_p.h>
 #include <QtSpatialAudio/QtSpatialAudio>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -175,7 +180,6 @@ inline QAudioFormat::ChannelConfig ambisonicDecoderChannelConfig(QAudioFormat::C
 const int bufferTimeMs = 100;
 
 //  from ../qtmultimedia/src/spatialaudio/qaudioengine_threaded.cpp, line 36, as local:qaudioengine_threaded.cpp:QAudioOutputStream
-#if defined(Q_OS_LINUX)
 class QAudioOutputStream : public QIODevice
 {
 public:
@@ -255,7 +259,6 @@ private:
     std::unique_ptr<QAudioSink> sink;
     std::unique_ptr<QAmbisonicDecoder> ambisonicDecoder;
 };
-#endif  // defined(Q_OS_LINUX)
 
 //  from ../qtmultimedia/src/spatialaudio/qaudioengine_threaded.cpp, line 118, as local:qaudioengine_threaded.cpp:QAudioOutputStream::writeData
 inline qint64 QAudioOutputStream::writeData(const char *, qint64)

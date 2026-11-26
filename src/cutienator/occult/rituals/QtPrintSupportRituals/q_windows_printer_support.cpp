@@ -1,6 +1,9 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtPrintSupport/6.12.0/QtPrintSupport/private/qwindowsprintersupport_p.h,
-//  Qt 6.12.0. Changes made here are lost.
+//  Qt 6.12.0.
+//  Edited by hand on 2026-11-26: Qt's 'qprintdevice_p.h' is pulled in, which
+//  defines the QPrintDevice that 'createPrintDevice' gives. Kept as it is
+//  when the generator runs again.
 #include <QtPrintSupport/qtprintsupportglobal.h>
 #include <QtPrintSupport/6.12.0/QtPrintSupport/private/qtprintsupportglobal_p.h>
 #if defined(Q_OS_WIN)
@@ -9,6 +12,7 @@
 #include <QtPrintSupport/QtPrintSupport>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtPrintSupport/6.12.0/QtPrintSupport/private/qwindowsprintersupport_p.h>
+#include <QtPrintSupport/6.12.0/QtPrintSupport/private/qprintdevice_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
 #include <QtCore/qlist.h>

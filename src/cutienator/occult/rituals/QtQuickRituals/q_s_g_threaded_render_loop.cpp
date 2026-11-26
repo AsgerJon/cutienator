@@ -1,6 +1,10 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtQuick/6.12.0/QtQuick/private/qsgthreadedrenderloop_p.h, Qt 6.12.0.
-//  Changes made here are lost.
+//  Edited by hand on 2026-11-26: the class QSGRenderThread, taken from Qt's
+//  qsgthreadedrenderloop.cpp, no longer stands under 'defined(Q_OS_LINUX)',
+//  which Qt does not write there: Qt defines it on every system, and the
+//  code taken for its functions, which stands on every system here, needs it
+//  whole. Kept as it is when the generator runs again.
 #include <QtCore/qglobal.h>
 #include <QtQuick/qtquickglobal.h>
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
@@ -146,7 +150,6 @@ private:
 };
 
 //  from ../qtdeclarative/src/quick/scenegraph/qsgthreadedrenderloop.cpp, line 221, as local:qsgthreadedrenderloop.cpp:QSGRenderThread
-#if defined(Q_OS_LINUX)
 class QSGRenderThread : public QThread
 {
     Q_OBJECT
@@ -239,7 +242,6 @@ public:
     bool stopEventProcessing;
     QSGRenderThreadEventQueue eventQueue;
 };
-#endif  // defined(Q_OS_LINUX)
 
 //  from ../qtdeclarative/src/quick/scenegraph/qsgthreadedrenderloop.cpp, line 579, as local:qsgthreadedrenderloop.cpp:QSGRenderThread::teardownGraphics
 inline void QSGRenderThread::teardownGraphics()

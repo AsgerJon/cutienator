@@ -3,6 +3,15 @@
 //  dirent': its ritual takes a 'const QT_DIRENT *', and is named by
 //  'dirent64' as Qt's Linux library names it. Kept as it is when the
 //  generator runs again.
+//  Edited by hand again on 2026-11-26: the lines pulling in Unix's
+//  headers 'qcore_unix_p.h', 'grp.h', 'pwd.h' and 'unistd.h' stand
+//  under 'defined(Q_OS_UNIX)', for Windows has none of them, and the
+//  lines pulling in the Objective-C headers 'UTType.h',
+//  'UTCoreTypes.h' and 'Foundation.h' under '__OBJC__', as
+//  'Foundation.h' does in Qt's 'qcore_mac_p.h', for Qt compiles
+//  qfilesystemengine_unix.cpp, where they come from, as Objective-C++
+//  on Apple and a ritual file is C++. Kept as it is when the generator
+//  runs again.
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCore/6.12.0/QtCore/private/qfilesystemmetadata_p.h, Qt 6.12.0.
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
@@ -18,7 +27,9 @@
 #include <QtCore/qstorageinfo.h>
 #include <QtCore/qurl.h>
 #include <QtCore/qoperatingsystemversion.h>
+#if defined(Q_OS_UNIX)
 #include <QtCore/private/qcore_unix_p.h>
+#endif  // defined(Q_OS_UNIX)
 #include <QtCore/private/qfiledevice_p.h>
 #include <QtCore/private/qfunctions_p.h>
 #include <QtCore/qvarlengtharray.h>
@@ -26,10 +37,14 @@
 # include <QtCore/qstandardpaths.h>
 # include <QtCore/private/qtemporaryfile_p.h>
 #endif
+#if defined(Q_OS_UNIX)
 #include <grp.h>
 #include <pwd.h>
+#endif  // defined(Q_OS_UNIX)
 #include <stdlib.h> // for realpath()
+#if defined(Q_OS_UNIX)
 #include <unistd.h>
+#endif  // defined(Q_OS_UNIX)
 #include <stdio.h>
 #include <errno.h>
 #include <chrono>
@@ -42,9 +57,11 @@
 #if defined(Q_OS_DARWIN)
 # include <QtCore/private/qcore_mac_p.h>
 # include <CoreFoundation/CFBundle.h>
-# include <UniformTypeIdentifiers/UTType.h>
-# include <UniformTypeIdentifiers/UTCoreTypes.h>
-# include <Foundation/Foundation.h>
+# ifdef __OBJC__
+#  include <UniformTypeIdentifiers/UTType.h>
+#  include <UniformTypeIdentifiers/UTCoreTypes.h>
+#  include <Foundation/Foundation.h>
+# endif  // __OBJC__
 # include <copyfile.h>
 #endif
 #ifdef Q_OS_MACOS

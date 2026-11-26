@@ -1,6 +1,11 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtCore/6.12.0/QtCore/private/qthread_p.h, Qt 6.12.0. Changes made here
-//  are lost.
+//  QtCore/6.12.0/QtCore/private/qthread_p.h, Qt 6.12.0.
+//  Edited by hand on 2026-11-26: the lines pulling in Unix's headers
+//  'qcore_unix_p.h', the event dispatchers of Unix and 'sched.h', and
+//  the code taken from qthread_unix.cpp, for 'wakeAll' and 'cleanup',
+//  which Qt declares on Unix only, stand under 'defined(Q_OS_UNIX)',
+//  for Windows has none of them. Kept as it is when the generator runs
+//  again.
 #include <QtCore/qglobal.h>
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #if QT_CONFIG(thread)
@@ -21,10 +26,13 @@
 #include <QtCore/qthread.h>
 #include <QtCore/private/qthread_p.h>
 #include <QtCore/private/qcoreapplication_p.h>
+#if defined(Q_OS_UNIX)
 #include <QtCore/private/qcore_unix_p.h>
+#endif  // defined(Q_OS_UNIX)
 #include <QtCore/qdebug.h>
 #include <QtCore/qloggingcategory.h>
 #include <QtCore/private/qtools_p.h>
+#if defined(Q_OS_UNIX)
 #if defined(Q_OS_WASM)
 #  include <QtCore/private/qeventdispatcher_wasm_p.h>
 #else
@@ -36,6 +44,7 @@
 #  endif
 #endif
 #include <sched.h>
+#endif  // defined(Q_OS_UNIX)
 #include <errno.h>
 #if __has_include(<pthread_np.h>)
 #  include <pthread_np.h>
@@ -72,13 +81,13 @@
 using namespace Qt::StringLiterals;
 
 //  from src/corelib/thread/qthread_unix.cpp, line 100, as local:qthread_unix.cpp:UsingPThreadTimedJoin
-#if QT_CONFIG(thread)
+#if QT_CONFIG(thread) && defined(Q_OS_UNIX)
 static constexpr bool UsingPThreadTimedJoin = QT_CONFIG(pthread_clockjoin)
         || (QT_CONFIG(pthread_timedjoin) && QWaitConditionClockId == CLOCK_REALTIME);
-#endif  // QT_CONFIG(thread)
+#endif  // QT_CONFIG(thread) && defined(Q_OS_UNIX)
 
 //  from src/corelib/thread/qthread_unix.cpp, line 413, as local:qthread_unix.cpp:setCancellationEnabled
-#if QT_CONFIG(thread)
+#if QT_CONFIG(thread) && defined(Q_OS_UNIX)
 static void setCancellationEnabled(bool enable)
 {
 #ifdef PTHREAD_CANCEL_DISABLE
@@ -94,17 +103,17 @@ static void setCancellationEnabled(bool enable)
     Q_UNUSED(enable)
 #endif
 }
-#endif  // QT_CONFIG(thread)
+#endif  // QT_CONFIG(thread) && defined(Q_OS_UNIX)
 
 //  from src/corelib/thread/qthread_unix.cpp, line 958, as local:qthread_unix.cpp:wakeAllInternal
-#if QT_CONFIG(thread)
+#if QT_CONFIG(thread) && defined(Q_OS_UNIX)
 static void wakeAllInternal(QThreadPrivate *d)
 {
     d->threadState = QThreadPrivate::Finished;
     if (d->waiters)
         d->thread_done.wakeAll();
 }
-#endif  // QT_CONFIG(thread)
+#endif  // QT_CONFIG(thread) && defined(Q_OS_UNIX)
 
 //  from src/corelib/thread/qthread.cpp, line 688, as _ZN9QtPrivate19BindingStatusOrList28addObjectUnlessAlreadyStatusEP7QObject
 #if QT_CONFIG(thread)
@@ -144,16 +153,16 @@ inline Qt::HANDLE QThreadPrivate::threadId() const noexcept
 #endif  // QT_CONFIG(thread)
 
 //  from src/corelib/thread/qthread_unix.cpp, line 965, as _ZN14QThreadPrivate7wakeAllEv
-#if QT_CONFIG(thread)
+#if QT_CONFIG(thread) && defined(Q_OS_UNIX)
 inline void QThreadPrivate::wakeAll()
 {
     if (data->isAdopted || !UsingPThreadTimedJoin)
         wakeAllInternal(this);
 }
-#endif  // QT_CONFIG(thread)
+#endif  // QT_CONFIG(thread) && defined(Q_OS_UNIX)
 
 //  from src/corelib/thread/qthread_unix.cpp, line 511, as _ZN14QThreadPrivate7cleanupEv
-#if QT_CONFIG(thread)
+#if QT_CONFIG(thread) && defined(Q_OS_UNIX)
 inline void QThreadPrivate::cleanup()
 {
     QThreadPrivate *d = this;
@@ -178,7 +187,7 @@ inline void QThreadPrivate::cleanup()
 
     d->wakeAll();
 }
-#endif  // QT_CONFIG(thread)
+#endif  // QT_CONFIG(thread) && defined(Q_OS_UNIX)
 
 //  from src/corelib/thread/qthread.cpp, line 715, as _ZN14QThreadPrivate39addObjectWithPendingBindingStatusChangeEP7QObject
 #if QT_CONFIG(thread)

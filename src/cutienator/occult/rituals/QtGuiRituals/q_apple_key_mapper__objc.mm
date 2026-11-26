@@ -5,8 +5,13 @@
 //  compiler of Objective-C++ on Apple's systems reads it; 'summon' builds
 //  this file there only. Qt's library offers the class, and the rituals call
 //  it. 'NSEventModifierFlags' is a number, an 'unsigned long'.
+//  Edited by hand on 2026-11-26: AppKit's 'AppKit.h' is pulled in before
+//  Qt's header, as Qt's qapplekeymapper.mm does, for the header names
+//  AppKit's 'NSEventModifierFlags' and includes nothing that declares
+//  it. Kept as it is when the generator runs again.
 #include <QtGui/qtguiglobal.h>
 #if defined(Q_OS_MACOS)
+#include <AppKit/AppKit.h>
 #include <QtGui/6.12.0/QtGui/private/qapplekeymapper_p.h>
 #include <QtGui/qevent.h>
 

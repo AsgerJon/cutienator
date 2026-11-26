@@ -1,6 +1,10 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtGui/6.12.0/QtGui/private/qxbmhandler_p.h, Qt 6.12.0. Changes made here
-//  are lost.
+//  QtGui/6.12.0/QtGui/private/qxbmhandler_p.h, Qt 6.12.0.
+//  Edited by hand on 2026-11-26: the code taken for 'write_xbm_image' no
+//  longer stands under 'defined(Q_OS_LINUX)', which Qt's qxbmhandler.cpp
+//  does not write: Qt builds it on every system, and 'write', which
+//  calls it, stands on every system here. Kept as it is when the
+//  generator runs again.
 #include <QtGui/qtguiglobal.h>
 #include <QtGui/6.12.0/QtGui/private/qtguiglobal_p.h>
 #if !defined(QT_NO_IMAGEFORMAT_XBM)
@@ -104,7 +108,6 @@ static bool read_xbm_body(QIODevice *device, int w, int h, QImage *outImage)
 
 //  from src/gui/image/qxbmhandler.cpp, line 162, as local:qxbmhandler.cpp:write_xbm_image
 #if !defined(QT_NO_IMAGEFORMAT_XBM)
-#if defined(Q_OS_LINUX)
 static bool write_xbm_image(const QImage &sourceImage, QIODevice *device, const QString &fileName)
 {
     QImage image = sourceImage;
@@ -178,7 +181,6 @@ static bool write_xbm_image(const QImage &sourceImage, QIODevice *device, const 
     delete [] buf;
     return true;
 }
-#endif  // defined(Q_OS_LINUX)
 #endif  // !defined(QT_NO_IMAGEFORMAT_XBM)
 
 //  from src/gui/image/qxbmhandler.cpp, line 250, as _ZNK11QXbmHandler7canReadEv

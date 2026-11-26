@@ -1,6 +1,9 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtCore/6.12.0/QtCore/private/qsystemsemaphore_p.h, Qt 6.12.0. Changes
-//  made here are lost.
+//  QtCore/6.12.0/QtCore/private/qsystemsemaphore_p.h, Qt 6.12.0.
+//  Edited by hand on 2026-11-26: the ritual dropping a 'key_t' stands
+//  under 'QT_CONFIG(sysv_sem)', as the ritual of 'handle' that gives one
+//  does: Windows has no 'key_t' and no System V semaphores. Kept as it
+//  is when the generator runs again.
 #include <QtCore/qglobal.h>
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #if QT_CONFIG(systemsemaphore)
@@ -267,10 +270,12 @@ void ritual_ZN23QSystemSemaphoreSystemVD1Ev(QSystemSemaphoreSystemV *self) {
   delete self;
 }
 
+#if QT_CONFIG(sysv_sem)
 //  a key_t a ritual of QSystemSemaphoreSystemV gave
 extern "C" Q_DECL_EXPORT
 void ritual_drop_QSystemSemaphoreSystemV__key_t(key_t *self) {
   delete self;
 }
+#endif  // QT_CONFIG(sysv_sem)
 
 #endif  // QT_CONFIG(systemsemaphore)

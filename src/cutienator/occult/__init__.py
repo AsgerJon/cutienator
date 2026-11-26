@@ -9,6 +9,7 @@ from __future__ import annotations
 from ._symbol import Symbol
 from ._shared_object import SharedObject
 from ._system import System
+from ._exorcist import Exorcist
 from ._summon import Summon
 from ._linux import Linux
 from ._mac_os import MacOS
@@ -20,6 +21,7 @@ __all__ = (
     'Symbol',
     'SharedObject',
     'System',
+    'Exorcist',
     'Summon',
     'Linux',
     'MacOS',

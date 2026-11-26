@@ -37,6 +37,15 @@ code, and so is under GPL-3.0-only, with the exception where Qt gives
 it, when it is given to anyone. So is that part of Qt itself: Qt gives
 these parts no LGPL.
 
+The ritual files of QtCore5Compat for its codecs of Chinese, Japanese,
+Korean and Tamil hold code that Qt's REUSE.toml puts under
+BSD-2-Clause as well, for those who first wrote it, and each names
+them in its notice:
+
+  q_big5_codec, q_big5hkscs_codec, q_c_p949_codec, q_euc_jp_codec,
+  q_euc_kr_codec, q_gb18030_codec, q_gb2312_codec, q_gbk_codec,
+  q_jis_codec, q_sjis_codec, q_tscii_codec
+
 The SPDX lines of Qt name 'LicenseRef-Qt-Commercial' as well, the
 license Qt sells. cutienator has no such license, and gives the code
 taken from Qt under the other licenses of each line only.

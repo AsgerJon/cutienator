@@ -1,9 +1,16 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtGui/qwindowsmimeconverter.h, Qt 6.12.0. Changes made here are lost.
+//  QtGui/qwindowsmimeconverter.h, Qt 6.12.0.
+//  Edited by hand on 2026-11-26: Qt's 'qt_windows.h' is pulled in, as Qt's
+//  qwindowsmimeconverter.cpp does, for the COM structs FORMATETC and
+//  STGMEDIUM, which Qt's header only names and the rituals that give a
+//  QList<FORMATETC> need whole. Kept as it is when the generator runs again.
 #include <QtGui/qtguiglobal.h>
 #if defined(Q_OS_WIN)
 #include <QtGui/QtGui>
 #include <QtGui/qwindowsmimeconverter.h>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qt_windows.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
 #include <QtCore/qmetatype.h>
 #include <QtCore/qvariant.h>

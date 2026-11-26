@@ -3,6 +3,11 @@
 //  Qt installs the first for Windows only and the second for Apple
 //  systems only (file not found on Linux), and no ritual here uses
 //  them. Kept as it is when the generator runs again.
+//  Edited by hand again on 2026-11-26: the include of
+//  QtCore/private/qelfparser_p.h is taken out too: Qt installs it for
+//  Linux and the other systems of ELF only (file not found on macOS and
+//  Windows), and no ritual here uses it. Kept as it is when the
+//  generator runs again.
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCore/6.12.0/QtCore/private/qlibrary_p.h, Qt 6.12.0.
 #include <QtCore/qglobal.h>
@@ -35,7 +40,6 @@
 #include <QtCore/private/qcoreapplication_p.h>
 #include <QtCore/private/qloggingregistry_p.h>
 #include <QtCore/private/qsystemerror_p.h>
-#include <QtCore/private/qelfparser_p.h>
 #include <QtCore/private/qfactoryloader_p.h>
 #include <QtCore/q20map.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER

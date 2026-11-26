@@ -409,7 +409,7 @@ class TestQObject(BaseTest):
   def test_a_missing_ritual_stands_under_an_if(self) -> None:
     """A ritual the shared object does not offer is of a part of Qt
     not installed here, or stands in its ritual file between Qt's own
-    '#if' lines, which do not hold here."""
+    '#if' lines, which do not hold here, or 'summon' left it out."""
     underIf = set()
     built = {*Rituals.getBuiltRitualFiles()}
     for ritualFile in Rituals.getRitualFiles():
@@ -428,6 +428,11 @@ class TestQObject(BaseTest):
           elif depth and not word.startswith('//'):
             underIf.update(re.findall(r'\b(ritual\w+)\(', line))
     for partName in Rituals.getRitualParts():
+      leftOut = Rituals.getLeftOut(partName)
       for ritualName in sorted(Rituals.getMissing(partName)):
+        if ritualName in leftOut:
+          #  'summon' left it out: the compiler or the linker refused it
+          #  on this machine, and the left-out file says why.
+          continue
         with self.subTest(partName=partName, ritualName=ritualName):
           self.assertIn(ritualName, underIf)

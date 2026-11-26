@@ -1,15 +1,14 @@
 # Four horsemen: makes the demons of all four systems at one press.
 # Manual trigger only. On a Linux machine, a Windows machine, an Apple
-# silicon Mac and an Intel Mac it compiles every ritual file and joins
-# them, with 'bin/check_summon.py', which names EVERYTHING the compiler
-# and the linker refuse, not the first. It releases nothing, changes
-# nothing on 'main' and reads no safety.
-# Each machine hands over what its compile produced as an artifact of
-# the run, to download from the page of the run: every object file
-# (the folder 'demons'), the joined library of each part of Qt, and the
-# report. They are for looking at during development. They are not
-# given out with cutienator: each fits only the Qt and the compiler of
-# the machine that made it.
+# silicon Mac and an Intel Mac it builds the library of every part of
+# Qt as 'Rituals.summon()' does, with 'bin/check_summon.py': what the
+# compiler or the linker refuses is left out, the ritual alone where it
+# can be, and the report names EVERYTHING left out and why. It
+# releases nothing, changes nothing on 'main' and reads no safety.
+# Each machine hands over what its build produced as an artifact of the
+# run, to download from the page of the run: every object file (the
+# folder 'demons'), the library of each part of Qt with its left-out
+# file, which says what was left out of it and why, and the report.
 on:
   workflow_dispatch:
 

@@ -1,5 +1,12 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtLocation/qplacematchrequest.h, Qt 6.12.0. Changes made here are lost.
+//  QtLocation/qplacematchrequest.h, Qt 6.12.0.
+//  Edited by hand on 2026-11-26: the line
+//  'QT_DEFINE_QSDP_SPECIALIZATION_DTOR(QPlaceMatchRequestPrivate)', taken
+//  from Qt's qplacematchrequest.cpp, is taken out, and the word 'inline' put
+//  before 'operator==' below it, where the generator meant it: Qt's header
+//  declares that destructor exported from QtLocation, and Qt's library
+//  offers it, so a ritual file may not define it (Windows refused it as a
+//  dllimport). Kept as it is when the generator runs again.
 #include <QtLocation/6.12.0/QtLocation/private/qlocationglobal_p.h>
 #include <QtLocation/qplacematchrequest.h>
 #include <QtLocation/qplace.h>
@@ -39,9 +46,7 @@ public:
 };
 
 //  from ../qtlocation/src/location/places/qplacematchrequest.cpp, line 25, as local:qplacematchrequest.cpp:QPlaceMatchRequestPrivate::operator==
-inline QT_DEFINE_QSDP_SPECIALIZATION_DTOR(QPlaceMatchRequestPrivate)
-
-bool QPlaceMatchRequestPrivate::operator==(const QPlaceMatchRequestPrivate &other) const
+inline bool QPlaceMatchRequestPrivate::operator==(const QPlaceMatchRequestPrivate &other) const
 {
     return (places == other.places
             && parameters == other.parameters);
