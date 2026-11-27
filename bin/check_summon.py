@@ -11,7 +11,9 @@ four horsemen ('four-horsemen-short.yml') names the parts something of
 which was refused in the last full run, or whose ritual files changed
 since; a part is joined whole, so it is the smallest piece that can be
 built apart. A part named that this machine's Qt does not have, or that
-has no ritual files, is refused at the start, naming it.
+has no ritual files, costs that part alone: the report names it, and
+the other parts are built. So does a part whose build fails for any
+other reason, as a file of Qt the machine lacks.
 
 Each part is built by its own 'Summon', as 'summon' builds it: what the
 compiler or the linker refuses is left out, the ritual alone where it
@@ -88,7 +90,7 @@ def sayProgress(step: str, done: int = 0, force: bool = False) -> None:
       flush=True)
 
 
-def describeMachine(build: Summon) -> List[str]:
+def describeMachine() -> List[str]:
   """Says which system, processor, Qt and compiler the check ran with."""
   compiler = subprocess.run(
       ('clang++', '--version'), stdout=subprocess.PIPE,
@@ -96,10 +98,16 @@ def describeMachine(build: Summon) -> List[str]:
   return [
       'system: %s %s, %s' % (
           platform.system(), platform.release(), platform.machine()),
-      'Qt: %s' % build.getQtVersion(),
+      'Qt: %s' % Summon.getQtVersion(),
       'compiler: %s' % (compiler.split('\n')[0] or 'unknown'),
       'Python: %s' % platform.python_version(),
   ]
+
+
+def describeRaised(exception: BaseException) -> str:
+  """Gives what was raised on one line, its kind in front."""
+  said = ' '.join(str(exception).split())[-20000:]
+  return '  %s: %s' % (type(exception).__name__, said)
 
 
 def buildPart(partName: str, build: Summon) -> List[str]:
@@ -122,11 +130,18 @@ def buildPart(partName: str, build: Summon) -> List[str]:
   sayProgress('%s, %d ritual files' % (
       partName, len(build.getRitualFiles())), force=True)
   lines = []
+  failed = None  # type: Optional[str]
   try:
     build.run()
-  except RuntimeError as runtimeError:
+  except Exception as exception:
+    #  Whatever stops one part, a file of Qt this machine lacks among
+    #  it, costs that part alone: it is named here, and the other parts
+    #  are built.
     lines.append('the target file of %s was not built:' % partName)
-    lines.append('  %s' % ' '.join(str(runtimeError).split())[-20000:])
+    lines.append(describeRaised(exception))
+    failed = ' '.join(str(exception).split())
+    if not isinstance(exception, RuntimeError):
+      failed = '%s: %s' % (type(exception).__name__, failed)
   record = build.getRecord()
   if record['common header'] is not None:
     lines.append('the common header of %s was refused, and every ritual '
@@ -134,6 +149,11 @@ def buildPart(partName: str, build: Summon) -> List[str]:
     lines.append('  %s' % ' '.join(record['common header'].split())[-3000:])
   for key, entry in sorted(record['ritual files'].items()):
     lines.extend(describeLeftOut(key, entry))
+  if failed is not None:
+    #  Its placeholder goes where its target file goes, as
+    #  'Rituals.summon' puts it: the left-out file saying why, so each
+    #  of its rituals raises with that reason when called.
+    Summon.writeNotBuilt(build.getLeftOutFile(), failed)
   return lines
 
 
@@ -157,6 +177,13 @@ def main(reportFile: str, *named: str) -> int:
   """
   Runs the check and writes the report.
 
+  A part named that this machine's Qt lacks, and a part whose build
+  could not even be set up, cost that part alone: each is named in the
+  report, counts as refused, and every other part is built. Parts that
+  have ritual files and that this machine's Qt lacks are listed in the
+  report either way: a part Qt has for one system only is lacking on
+  the others.
+
   Parameters
   ----------
 
@@ -173,33 +200,37 @@ def main(reportFile: str, *named: str) -> int:
   int
     The exit code: 0 when every ritual file compiled and no link
     missed anything, else 1.
-
-  Raises
-  ------
-
-  LookupError
-    A part named is not among the parts of Qt this machine has that
-    have ritual files.
   """
-  partNames = Rituals.getBuiltParts()
+  found = []  # type: List[str]
+  here = Rituals.getBuiltParts()
+  lacking = [name for name in Rituals.getRitualParts() if name not in here]
   if named:
-    missing = [name for name in named if name not in partNames]
-    if missing:
-      infoSpec = """The parts %s were named, and the Qt of this machine
-      has no such part with ritual files. It has: %s."""
-      info = infoSpec % (' '.join(missing), ' '.join(partNames))
-      raise LookupError(' '.join(info.split()))
-    partNames = [name for name in partNames if name in named]
-  builds = [Rituals.createPartSummon(partName) for partName in partNames]
+    for name in named:
+      if name not in here:
+        found.append('the target file of %s was not built:' % name)
+        found.append('  the Qt of this machine has no %s, or it has no '
+                     'ritual files' % name)
+    partNames = [name for name in here if name in named]
+  else:
+    partNames = [*here]
+  builds = []  # type: List[Summon]
+  for partName in [*partNames]:
+    try:
+      builds.append(Rituals.createPartSummon(partName))
+    except Exception as exception:
+      partNames.remove(partName)
+      found.append('the target file of %s was not built:' % partName)
+      found.append(describeRaised(exception))
   began = time.time()
-  lines = [*describeMachine(builds[0])]
+  lines = [*describeMachine()]
   if named:
-    lines.append('parts named: %s' % ' '.join(partNames))
+    lines.append('parts named: %s' % ' '.join(named))
+  lines.append('parts with ritual files this Qt lacks: %s' % (
+      ' '.join(lacking) or 'none'))
   _PROGRESS.update(
       total=sum(len(build.getRitualFiles()) for build in builds),
       began=began)
   sayProgress('%d parts of Qt' % len(builds), force=True)
-  found = []
   for partName, build in zip(partNames, builds):
     found.extend(buildPart(partName, build))
   sayProgress('done', force=True)
@@ -208,9 +239,10 @@ def main(reportFile: str, *named: str) -> int:
   touched = sum(len(record) for record in records)
   leftOut = sum(len(build.getLeftOut()) for build in builds)
   built = sum(os.path.isfile(build.getTargetFile()) for build in builds)
+  asked = len(named) if named else len(here)
   lines.append('target files: %d of %d built, ritual files: %d, with '
                'something left out: %d, rituals left out: %d' % (
-                   built, len(builds), ritualCount, touched, leftOut))
+                   built, asked, ritualCount, touched, leftOut))
   lines.extend(found)
   verdict = 1 if found else 0
   lines.append('seconds: %d' % (time.time() - began))

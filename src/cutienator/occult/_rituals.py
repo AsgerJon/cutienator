@@ -1375,33 +1375,34 @@ class Rituals:
     same time, and no more programs at once than the machine has
     processors.
 
-    What 'clang++' refuses on this machine costs only the rituals that
-    fail: each is left out of its target file, and raises
-    'NotImplementedError' when called, with what the compiler or the
-    linker said; every other ritual is built. Every part is built
-    before anything is raised.
+    A gap of this machine fails where it is used, not here. What
+    'clang++' refuses costs only the rituals that fail: each is left out
+    of its target file, and raises 'NotImplementedError' when called,
+    with what the compiler or the linker said; the left-out file beside
+    the target file says the same, as 'getLeftOut' gives it. Whatever
+    stops one part from being built at all, as a file of Qt this machine
+    lacks or no 'clang++', costs that part alone: the other parts are
+    built, and a ritual of that part raises 'NotImplementedError' when
+    called, naming what stopped it. Nothing of this is raised here.
 
     Returns
     -------
 
     Paths
-      The full path of each target file, which now exists, in the
-      order of 'getBuiltParts'.
+      The full path of each target file built, which now exists, in the
+      order of 'getBuiltParts'. A part that could not be built has
+      none.
 
     Raises
     ------
 
     RuntimeError
-      Rituals were left out: every target file is built, and the
-      message says how many of each part, and where the left-out files
-      say what and why; see 'getLeftOut'. Or a target file is already
-      open in this Python; or a target file could not be built at all,
-      as when a Qt shared object is not there, and the message of each
-      such part is included.
+      A target file is already open in this Python, so none can be
+      swapped for a new one.
 
     FileNotFoundError
       There is no ritual file of a part of Qt this machine has, or
-      'clang++' or 'qmake6' is not installed.
+      'qmake6' is not installed.
     """
     if cls.__opened_targets__:
       infoSpec = """The shared objects of %s are already open in this
@@ -1415,36 +1416,25 @@ class Rituals:
       machine has."""
       info = infoSpec % cls.getRitualFolder()
       raise FileNotFoundError(' '.join(info.split()))
-    failures = []  # type: List[str]
-
     def summonPart(partName: str) -> Optional[str]:
       try:
         return cls._summonPart(partName)
-      except RuntimeError as runtimeError:
-        failures.append(str(runtimeError))
+      except Exception as exception:
+        #  Whatever stops one part, as a file of Qt the machine lacks,
+        #  costs that part alone. Its placeholder, the left-out file
+        #  saying why, is put where the target file goes, and each of
+        #  its rituals raises with that reason when called.
+        said = ' '.join(str(exception).split())
+        if not isinstance(exception, RuntimeError):
+          said = '%s: %s' % (type(exception).__name__, said)
+        Summon.writeNotBuilt(
+            Summon.getLeftOutFileOf(cls.getTargetFile(partName)), said)
         return None
 
     jobCount = os.cpu_count() or 1
     with ThreadPoolExecutor(max_workers=jobCount) as pool:
       targets = (*pool.map(summonPart, partNames),)
-    said = []
-    if failures:
-      infoSpec = """%d of %d target files were not built."""
-      said.append(infoSpec % (len(failures), len(partNames)))
-      said.extend(failures)
-    leftOut = {p: len(cls.getLeftOut(p)) for p in partNames}
-    if any(leftOut.values()):
-      counts = ', '.join(
-          '%d of %s' % (n, p) for p, n in leftOut.items() if n)
-      infoSpec = """The compiler or the linker refused %d rituals on
-      this machine (%s); 'summon' left them out of the target files,
-      and built every other ritual. Each raises NotImplementedError
-      when called. The left-out file beside each target file says what
-      and why, as 'Rituals.getLeftOut' gives it."""
-      said.append(infoSpec % (sum(leftOut.values()), counts))
-    if said:
-      raise RuntimeError(' '.join(' '.join(said).split()))
-    return targets
+    return (*(target for target in targets if target is not None),)
 
   @classmethod
   def createPartSummon(cls, partName: str) -> Summon:
@@ -1533,6 +1523,18 @@ class Rituals:
         machine does not have: its ritual file is of %s, which is not
         installed here."""
         info = infoSpec % (ritualName, partName)
+        raise NotImplementedError(' '.join(info.split()))
+      target = cls.getTargetFile(partName)
+      if not os.path.isfile(target):
+        #  The part is a gap on this machine as a whole, and that is
+        #  said when one of its rituals is called, not before.
+        why = Summon.readNotBuilt(Summon.getLeftOutFileOf(target))
+        if why is None:
+          why = ('it has not been summoned here; Rituals.summon() '
+                 'builds it')
+        infoSpec = """The ritual '%s' cannot be called on this machine:
+        the target file of %s, '%s', was not built here: %s."""
+        info = infoSpec % (ritualName, partName, target, why)
         raise NotImplementedError(' '.join(info.split()))
       opened = cls.getOpened(partName)
     if ritualName in cls.__missing_rituals__[partName]:

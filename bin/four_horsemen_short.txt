@@ -6,15 +6,17 @@
 # in the full run these lines come from, and its ritual files have not
 # changed since: there is nothing in it to see again.
 #
-# Made by hand on 2026-11-27 from four-horsemen run 6 (on 4e07399d):
-# - the parts something of which was left out on that machine, as its
-#   'scrolls-<machine>' artifact records them;
-# - QtCore, whose ritual files changed since (the destructors of seven
-#   deprecated classes, written back by hand);
-# - QtPdf, QtPdfWidgets, QtWebEngineCore, QtWebEngineQuick and
-#   QtWebEngineWidgets, new since: their ritual files were not there.
-# Made anew after each full run.
-linux: QtCore QtPdf QtPdfWidgets QtWebEngineCore QtWebEngineQuick QtWebEngineWidgets
-mac: QtBluetooth QtCore QtGui QtMultimedia QtNetwork QtPrintSupport QtQuick QtQuickNativeStyle QtSerialPort QtSpatialAudio QtWidgets QtPdf QtPdfWidgets QtWebEngineCore QtWebEngineQuick QtWebEngineWidgets
-intel-mac: QtBluetooth QtCore QtGui QtMultimedia QtNetwork QtPrintSupport QtQuick QtQuickNativeStyle QtSerialPort QtWidgets QtPdf QtPdfWidgets QtWebEngineCore QtWebEngineQuick QtWebEngineWidgets
-windows: Qt3DExtras QtCore QtGraphs QtGui QtQmlModels QtQuickNativeStyle QtRemoteObjects QtWebSockets QtWidgets QtPdf QtPdfWidgets QtWebEngineCore QtWebEngineQuick QtWebEngineWidgets
+# Made by hand on 2026-11-27 from four-horsemen run 6 (on 4e07399d) and
+# the short run after it: the parts something of which was left out on
+# that machine, as its 'scrolls-<machine>' artifact records them. The
+# short run built the seven destructors of QtCore written back by hand,
+# and QtPdf, QtPdfWidgets, QtWebEngineCore, QtWebEngineQuick and
+# QtWebEngineWidgets (new), on all four machines with nothing of them
+# left out: the five new parts are off every list, and QtCore is off
+# that of Linux, where nothing else of it is left out. A line naming no
+# part: nothing to build on that machine. Made anew after each full
+# run, and when ritual files of a part change.
+linux:
+mac: QtBluetooth QtCore QtGui QtMultimedia QtNetwork QtPrintSupport QtQuick QtQuickNativeStyle QtSerialPort QtSpatialAudio QtWidgets
+intel-mac: QtBluetooth QtCore QtGui QtMultimedia QtNetwork QtPrintSupport QtQuick QtQuickNativeStyle QtSerialPort QtWidgets
+windows: Qt3DExtras QtCore QtGraphs QtGui QtQmlModels QtQuickNativeStyle QtRemoteObjects QtWebSockets QtWidgets

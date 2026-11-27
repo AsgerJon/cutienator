@@ -835,6 +835,43 @@ class Summon:
     function it calls and why, as the left-out file says it."""
     return self.readLeftOut(self.getLeftOutFile())
 
+  @staticmethod
+  def readNotBuilt(leftOutFile: str) -> Optional[str]:
+    """
+    Gives why the target file of a left-out file could not be built at
+    all, as 'writeNotBuilt' put it there, or None when the file says
+    no such thing or is not there.
+    """
+    if not os.path.isfile(leftOutFile):
+      return None
+    with open(leftOutFile, encoding='utf-8') as file:
+      record = json.load(file)
+    return record.get('not built', None)
+
+  @staticmethod
+  def writeNotBuilt(leftOutFile: str, reason: str) -> None:
+    """
+    Puts the placeholder of a target file that could not be built at
+    all: its left-out file, saying why under 'not built', beside what
+    an earlier step of the build put in it. A ritual of the part then
+    raises 'NotImplementedError' with that reason when called, in this
+    Python and in any later one, until a build of the part succeeds and
+    writes the left-out file anew.
+    """
+    record = dict()  # type: Dict[str, Any]
+    if os.path.isfile(leftOutFile):
+      with open(leftOutFile, encoding='utf-8') as file:
+        record.update(json.load(file))
+    record['about'] = [
+        'The target file beside this file could not be built on this',
+        "machine; 'not built' says why. Each ritual of its part raises",
+        'NotImplementedError when called, saying so.',
+    ]
+    record['not built'] = reason
+    with open(leftOutFile, 'w', encoding='utf-8') as file:
+      json.dump(record, file, indent=2, sort_keys=True)
+      file.write('\n')
+
   def getJobCount(self) -> int:
     """
     Gives how many ritual files are compiled at the same time.
@@ -1699,6 +1736,9 @@ class Summon:
     toldFile, toldText = self.getToldFile(), self.getToldText()
     stale = self.getStaleRitualFiles()
     record = self.getRecord()
+    #  The placeholder of an earlier build that failed as a whole says
+    #  nothing of this one; see 'writeNotBuilt'.
+    record.pop('not built', None)
     if len(stale) == len(ritualFiles):
       #  Every object file is made anew. Until all of them are, nothing
       #  says what the ones lying there were made with, and nothing of

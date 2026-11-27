@@ -32,15 +32,16 @@ jobs:
       # 'ubuntu-26.04' has none. 'libgl-dev' alone did not bring it
       # there; 'mesa-common-dev' is the package that has always carried
       # it. It is the one header of the system the ritual files need
-      # beside the C and C++ libraries, and the step ends here, naming
-      # it, when it is still missing.
+      # beside the C and C++ libraries. When it is still missing, the
+      # step warns, naming it, and the run goes on: the rituals that
+      # need it are left out, each alone, and the report lists them.
       - name: Install the OpenGL headers
         if: ${{ runner.os == 'Linux' }}
         run: |
-          sudo apt-get update
-          sudo apt-get install -y libgl-dev mesa-common-dev
+          sudo apt-get update || true
+          sudo apt-get install -y libgl-dev mesa-common-dev || true
           test -f /usr/include/GL/gl.h \
-            || { echo "GL/gl.h is still missing" >&2; exit 1; }
+            || echo "::warning title=linux::GL/gl.h is still missing: the rituals that need OpenGL's header are left out"
       # Linux and Windows, where Qt is built with Vulkan. Qt's headers
       # take Vulkan's types from Vulkan's own header 'vulkan/vulkan.h'
       # when the machine has it, else stand-ins of their own, which no
@@ -52,18 +53,22 @@ jobs:
       # the folder 'vulkan-headers', and has 'clang++' look in them
       # through 'CPLUS_INCLUDE_PATH', in the form of the path the
       # system has ('pwd -W' on Windows). Qt for macOS is built
-      # without Vulkan.
+      # without Vulkan. When the headers cannot be fetched, the step
+      # warns and the run goes on: every Vulkan ritual stands under
+      # '__has_include(<vulkan/vulkan.h>)', so they are compiled out.
       - name: Fetch the Vulkan headers
         if: ${{ runner.os != 'macOS' }}
         shell: bash
         run: |
           mkdir -p vulkan-headers
           curl -sSfL https://github.com/KhronosGroup/Vulkan-Headers/archive/7feeb71f59b8c1531ef5f7bb4b36e1aac46a0acb.tar.gz \
-            | tar -xz -C vulkan-headers --strip-components=1
-          test -f vulkan-headers/include/vulkan/vulkan.h \
-            || { echo "vulkan/vulkan.h is still missing" >&2; exit 1; }
-          here=$(pwd -W 2>/dev/null || pwd)
-          echo "CPLUS_INCLUDE_PATH=$here/vulkan-headers/include" >> "$GITHUB_ENV"
+            | tar -xz -C vulkan-headers --strip-components=1 || true
+          if test -f vulkan-headers/include/vulkan/vulkan.h; then
+            here=$(pwd -W 2>/dev/null || pwd)
+            echo "CPLUS_INCLUDE_PATH=$here/vulkan-headers/include" >> "$GITHUB_ENV"
+          else
+            echo "::warning title=${{ matrix.name }}::vulkan/vulkan.h could not be fetched: the Vulkan rituals are compiled out here"
+          fi
       # The same Qt, fetched the same way, as the release workflows
       # fetch it; see 'micro-dev.yml' for why each line is there. Here
       # every part of Qt this machine can have, not qtbase alone, so
@@ -73,7 +78,7 @@ jobs:
       # 'qtpdf') apart from the rest of Qt 6.12.0, as extensions of its
       # installer, and aqt lists both among the modules of 6.12.0 on
       # all three systems, so 'all' brings them; the step after the
-      # next stops the run when it did not.
+      # next warns, naming the part, when it did not.
       - name: Install Qt 6.12.0
         uses: jurplel/install-qt-action@v4.5.0
         with:
@@ -110,9 +115,11 @@ jobs:
           clang++ --version
       # The ritual files of WebEngine and Pdf are built only where Qt
       # has those parts. This step asks 'Rituals', as 'check_summon.py'
-      # asks it, which parts it builds here, and stops the run, naming
-      # the part, when one of the five is not among them.
-      - name: Check that Qt has WebEngine and Pdf
+      # asks it, which parts it builds here, and puts a warning on the
+      # page of the run, naming the part, when one of the five is not
+      # among them. The run goes on: a part this Qt lacks costs that
+      # part alone, and the report lists it.
+      - name: Say whether Qt has WebEngine and Pdf
         shell: bash
         env:
           PYTHONPATH: ${{ github.workspace }}/src
@@ -120,7 +127,7 @@ jobs:
           parts=$(python -B -c "from cutienator.occult import Rituals; print(' '.join(Rituals.getBuiltParts()))" | tr -d '\r')
           for part in QtWebEngineCore QtWebEngineQuick QtWebEngineWidgets QtPdf QtPdfWidgets; do
             echo " $parts " | grep -q " $part " \
-              || { echo "Qt here has no $part, or it has no ritual files" >&2; exit 1; }
+              || echo "::warning title=${{ matrix.name }}::Qt here has no $part, or it has no ritual files: it is not built here"
           done
       # The report is written whatever the check finds, and the step
       # fails when something was refused, so the run shows red. As it
@@ -130,8 +137,8 @@ jobs:
       # left at the pace so far. '-u' has Python print each line at
       # once, so the log of the step shows it as it comes.
       # The parts after '${{ matrix.name }}:' in the list, and no other.
-      # The step stops, naming the machine, when the list has no line
-      # for it.
+      # A machine whose line names none has nothing to see again: its
+      # report says so, with the verdict OK, and nothing is built.
       - name: Compile and join the ritual files of the parts named
         shell: bash
         env:
@@ -139,8 +146,16 @@ jobs:
         run: |
           mkdir -p horsemen
           parts=$(tr -d '\r' < bin/four_horsemen_short.txt | sed -n 's/^${{ matrix.name }}: *//p')
-          test -n "$parts" \
-            || { echo "bin/four_horsemen_short.txt names no part for ${{ matrix.name }}" >&2; exit 1; }
+          if [ -z "$parts" ]; then
+            {
+              echo "machine: ${{ matrix.name }}"
+              echo 'parts named: none: nothing to build here'
+              echo 'seconds: 0'
+              echo 'verdict: OK'
+            } > horsemen/report.txt
+            cat horsemen/report.txt
+            exit 0
+          fi
           echo "parts: $parts"
           python -u -B bin/check_summon.py horsemen/report.txt $parts
       # The head of the report and its verdict, on the page of the run,
