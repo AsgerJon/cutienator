@@ -1,14 +1,17 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtQmlModels/6.12.0/QtQmlModels/private/qqmlsortercompositor_p.h, Qt
-//  6.12.0.
-//  Edited by hand on 2026-11-26: moc's output for 'QQmlSorterCompositor' is
-//  pasted in, cut from what the moc of Qt 6.12.0 writes for its header: Qt's
-//  library keeps it to itself; added are 5 rituals that lean on what moc
-//  writes for a class of the part Qt keeps to itself, whose ritual file
-//  carries moc's output, drafted by a copy of the generator that lets those
-//  names through. A copy of a meta-object is a second one: 'qobject_cast'
-//  between it and Qt's own does not match. Kept as it is when the generator
-//  runs again.
+//  6.12.0. Edited by hand on 2026-11-26: moc's output for
+//  'QQmlSorterCompositor' is pasted in, cut from what the moc of Qt 6.12.0
+//  writes for its header: Qt's library keeps it to itself; added are 5
+//  rituals that lean on what moc writes for a class of the part Qt keeps to
+//  itself, whose ritual file carries moc's output, drafted by a copy of the
+//  generator that lets those names through. A copy of a meta-object is a
+//  second one: 'qobject_cast' between it and Qt's own does not match. Edited
+//  by hand on 2026-11-27: the constructors and the destructor of
+//  QQmlSorterCompositor taken from Qt are no longer 'inline' (2): the one
+//  definition the target file has of each, which the ritual files of other
+//  classes of the part call, as Microsoft's ABI emits an 'inline' one only
+//  where it is used. Kept as it is when the generator runs again.
 #include <QtCore/qglobal.h>
 #include <QtQmlModels/qtqmlmodelsglobal.h>
 #include <QtQmlModels/6.12.0/QtQmlModels/private/qtqmlmodelsglobal_p.h>
@@ -163,7 +166,7 @@ inline void QQmlSorterCompositor::updateCache()
 }
 
 //  from ../qtdeclarative/src/qmlmodels/sfpm/sorters/qqmlsortercompositor.cpp, line 25, as _ZN20QQmlSorterCompositorD0Ev
-inline QQmlSorterCompositor::~QQmlSorterCompositor()
+QQmlSorterCompositor::~QQmlSorterCompositor()
 {
 
 }
@@ -194,7 +197,7 @@ inline void QQmlSorterCompositorPrivate::resetPrimarySorter()
 }
 
 //  from ../qtdeclarative/src/qmlmodels/sfpm/sorters/qqmlsortercompositor.cpp, line 11, as _ZN20QQmlSorterCompositorC1EP7QObject
-inline QQmlSorterCompositor::QQmlSorterCompositor(QObject *parent)
+QQmlSorterCompositor::QQmlSorterCompositor(QObject *parent)
     : QQmlSorterBase(new QQmlSorterCompositorPrivate, parent)
 {
     Q_D(QQmlSorterCompositor);

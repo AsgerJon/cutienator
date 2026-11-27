@@ -1,6 +1,9 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtCore/6.12.0/QtCore/private/qfiledevice_p.h, Qt 6.12.0. Changes made
-//  here are lost.
+//  QtCore/6.12.0/QtCore/private/qfiledevice_p.h, Qt 6.12.0. Edited by hand
+//  on 2026-11-27: code taken from Qt's source no longer stands under
+//  defined(Q_OS_LINUX), which Qt does not write there; its rituals no longer
+//  stand under defined(Q_OS_LINUX), as the code taken from Qt they call no
+//  longer does. Kept as it is when the generator runs again.
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtCore/qfiledevice.h>
 #include <QtCore/QtCore>
@@ -30,7 +33,6 @@
 #define QFILE_WRITEBUFFER_SIZE 16384
 
 //  from src/corelib/io/qfiledevice.cpp, line 507, as _ZN18QFileDevicePrivate13putCharHelperEc
-#if defined(Q_OS_LINUX)
 inline bool QFileDevicePrivate::putCharHelper(char c)
 {
 #ifdef QT_NO_QOBJECT
@@ -84,7 +86,6 @@ inline bool QFileDevicePrivate::putCharHelper(char c)
     return true;
 #endif
 }
-#endif  // defined(Q_OS_LINUX)
 
 //  from src/corelib/io/qfiledevice.cpp, line 42, as _ZN18QFileDevicePrivate14setPermissionsE6QFlagsIN11QFileDevice10PermissionEE
 inline bool QFileDevicePrivate::setPermissions(QFileDevice::Permissions perms)
@@ -275,13 +276,11 @@ const QFileDevice *ritual_ZNK18QFileDevicePrivate6q_funcEv(
   return self->q_func();
 }
 
-#if defined(Q_OS_LINUX)
 //  QFileDevicePrivate::QFileDevicePrivate()
 extern "C" Q_DECL_EXPORT
 QFileDevicePrivate *ritual_ZN18QFileDevicePrivateC1Ev() {
   return new CuteQFileDevicePrivate();
 }
-#endif  // defined(Q_OS_LINUX)
 
 //  QFileDevicePrivate::~QFileDevicePrivate()
 extern "C" Q_DECL_EXPORT
@@ -387,7 +386,6 @@ bool ritual_own_ZN18QFileDevicePrivate14setPermissionsE6QFlagsIN11QFileDevice10P
       QFlags<QFileDevice::Permission>::fromInt(perms));
 }
 
-#if defined(Q_OS_LINUX)
 //  bool QFileDevicePrivate::putCharHelper(char c)
 extern "C" Q_DECL_EXPORT
 bool ritual_own_ZN18QFileDevicePrivate13putCharHelperEc(
@@ -396,4 +394,3 @@ bool ritual_own_ZN18QFileDevicePrivate13putCharHelperEc(
   return static_cast<OwnQFileDevicePrivate *>(self)->OwnQFileDevicePrivate::putCharHelper(
       c);
 }
-#endif  // defined(Q_OS_LINUX)

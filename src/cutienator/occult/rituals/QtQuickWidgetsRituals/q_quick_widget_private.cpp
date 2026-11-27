@@ -1,6 +1,9 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtQuickWidgets/6.12.0/QtQuickWidgets/private/qquickwidget_p.h, Qt 6.12.0.
-//  Changes made here are lost.
+//  Edited by hand on 2026-11-27: code taken from Qt's source no longer
+//  stands under defined(Q_OS_LINUX), which Qt does not write there; its
+//  rituals no longer stand under defined(Q_OS_LINUX), as the code taken from
+//  Qt they call no longer does. Kept as it is when the generator runs again.
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtQuickWidgets/qquickwidget.h>
 #include <QtQuickWidgets/QtQuickWidgets>
@@ -432,7 +435,6 @@ inline bool QQuickWidgetPrivate::setRootObject(QObject *obj)
 }
 
 //  from ../qtdeclarative/src/quickwidgets/qquickwidget.cpp, line 1097, as _ZN19QQuickWidgetPrivate28handleContextCreationFailureERK14QSurfaceFormat
-#if defined(Q_OS_LINUX)
 inline void QQuickWidgetPrivate::handleContextCreationFailure(const QSurfaceFormat &)
 {
     Q_Q(QQuickWidget);
@@ -453,7 +455,6 @@ inline void QQuickWidgetPrivate::handleContextCreationFailure(const QSurfaceForm
     if (!signalConnected)
         qFatal("%s", qPrintable(untranslatedMessage));
 }
-#endif  // defined(Q_OS_LINUX)
 
 //  from ../qtdeclarative/src/quickwidgets/qquickwidget.cpp, line 269, as _ZNK19QQuickWidgetPrivate12ensureEngineEv
 inline void QQuickWidgetPrivate::ensureEngine() const
@@ -928,7 +929,6 @@ bool ritual_ZN19QQuickWidgetPrivate13setRootObjectEP7QObject(
   return self->setRootObject(a0);
 }
 
-#if defined(Q_OS_LINUX)
 //  void QQuickWidgetPrivate::handleContextCreationFailure(const
 //      QSurfaceFormat &format)
 extern "C" Q_DECL_EXPORT
@@ -937,7 +937,6 @@ void ritual_ZN19QQuickWidgetPrivate28handleContextCreationFailureERK14QSurfaceFo
     const QSurfaceFormat *format) {
   self->handleContextCreationFailure(*format);
 }
-#endif  // defined(Q_OS_LINUX)
 
 //  QPlatformBackingStoreRhiConfig QQuickWidgetPrivate::rhiConfig() const
 extern "C" Q_DECL_EXPORT

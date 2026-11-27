@@ -1,9 +1,12 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtCore/6.12.0/QtCore/private/qsharedmemory_p.h, Qt 6.12.0.
-//  Edited by hand on 2026-11-26: the ritual dropping a 'key_t' stands
-//  under 'QT_CONFIG(sysv_shm)', as the ritual of 'handle' that gives one
-//  does: Windows has no 'key_t' and no System V shared memory. Kept as
-//  it is when the generator runs again.
+//  QtCore/6.12.0/QtCore/private/qsharedmemory_p.h, Qt 6.12.0. Edited by hand
+//  on 2026-11-26: the ritual dropping a 'key_t' stands under
+//  'QT_CONFIG(sysv_shm)', as the ritual of 'handle' that gives one does:
+//  Windows has no 'key_t' and no System V shared memory. Edited by hand on
+//  2026-11-27: code taken from Qt's source no longer stands under
+//  defined(Q_OS_LINUX), which Qt does not write there; its rituals no longer
+//  stand under defined(Q_OS_LINUX), as the code taken from Qt they call no
+//  longer does. Kept as it is when the generator runs again.
 #include <QtCore/qglobal.h>
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #if QT_CONFIG(sharedmemory)
@@ -96,7 +99,6 @@ inline void QSharedMemoryPrivate::setUnixErrorString(QLatin1StringView function)
 //  from src/corelib/ipc/qsharedmemory_systemv.cpp, line 35, as _ZN20QSharedMemorySystemV19runtimeSupportCheckEv
 #if QT_CONFIG(sharedmemory)
 #if QT_CONFIG(sysv_shm)
-#if defined(Q_OS_LINUX)
 inline bool QSharedMemorySystemV::runtimeSupportCheck()
 {
 #if defined(Q_OS_DARWIN)
@@ -109,7 +111,6 @@ inline bool QSharedMemorySystemV::runtimeSupportCheck()
     }();
     return result;
 }
-#endif  // defined(Q_OS_LINUX)
 #endif  // QT_CONFIG(sysv_shm)
 #endif  // QT_CONFIG(sharedmemory)
 
@@ -261,13 +262,11 @@ bool ritual_ZN20QSharedMemorySystemV8supportsEN13QNativeIpcKey4TypeE(
 
 #if QT_CONFIG(sharedmemory)
 #if QT_CONFIG(sysv_shm)
-#if defined(Q_OS_LINUX)
 //  bool QSharedMemorySystemV::runtimeSupportCheck()
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN20QSharedMemorySystemV19runtimeSupportCheckEv() {
   return QSharedMemorySystemV::runtimeSupportCheck();
 }
-#endif  // defined(Q_OS_LINUX)
 #endif  // QT_CONFIG(sysv_shm)
 #endif  // QT_CONFIG(sharedmemory)
 

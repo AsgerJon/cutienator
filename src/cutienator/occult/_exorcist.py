@@ -190,8 +190,13 @@ class Exorcist:
     lldSymbol = re.compile(
         r'(?:ld\.lld|ld64\.lld|lld-link|lld)(?:\.exe)?: error: '
         r'(?P<what>undefined|duplicate) symbol: (?P<symbol>.+)$')
+    #  'ld.lld' names the function after the object file, as
+    #  'q_foo.o:(QFoo::bar())'; 'lld-link' names the object file alone
+    #  for one without debugging records, as ours are, with every
+    #  backslash of its path doubled.
     lldWhere = re.compile(
-        r'^>>>\s+(?:referenced by\s+)?%s:\((?P<ref>.+)\)$' % objectFile)
+        r'^>>>\s+(?:referenced by\s+)?%s(?::\((?P<ref>.+)\))?$' % (
+            objectFile,))
     appleSymbol = re.compile(
         r'^\s+"?(?P<symbol>.+?)"?, referenced from:$')
     appleWhere = re.compile(r'^\s+(?P<ref>.+?) in %s$' % objectFile)

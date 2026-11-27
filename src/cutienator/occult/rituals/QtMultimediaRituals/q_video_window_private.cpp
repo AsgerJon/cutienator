@@ -1,11 +1,14 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtMultimedia/6.12.0/QtMultimedia/private/qvideowindow_p.h, Qt 6.12.0.
-//  Edited by hand on 2026-11-26: in the code taken for 'initRhi', the
-//  part for Vulkan stands under 'QT_CONFIG(vulkan) &&
+//  Edited by hand on 2026-11-26: in the code taken for 'initRhi', the part
+//  for Vulkan stands under 'QT_CONFIG(vulkan) &&
 //  __has_include(<vulkan/vulkan.h>)', the condition under which Qt's
-//  'qrhi_platform.h' declares 'QRhiVulkanInitParams': a machine
-//  whose Qt has Vulkan may lack Vulkan's headers. Kept as it is when
-//  the generator runs again.
+//  'qrhi_platform.h' declares 'QRhiVulkanInitParams': a machine whose Qt has
+//  Vulkan may lack Vulkan's headers. Edited by hand on 2026-11-27: code
+//  taken from Qt's source no longer stands under defined(Q_OS_LINUX), which
+//  Qt does not write there; its rituals no longer stand under
+//  defined(Q_OS_LINUX), as the code taken from Qt they call no longer does.
+//  Kept as it is when the generator runs again.
 #include <QtMultimedia/6.12.0/QtMultimedia/private/qtmultimediaglobal_p.h>
 #include <QtMultimedia/QtMultimedia>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -71,7 +74,6 @@ static QShader vwGetShader(const QString &name)
 }
 
 //  from ../qtmultimedia/src/multimedia/video/qvideowindow.cpp, line 110, as _ZN19QVideoWindowPrivate7initRhiEv
-#if defined(Q_OS_LINUX)
 inline void QVideoWindowPrivate::initRhi()
 {
     if (m_graphicsApi == QRhi::Null)
@@ -138,7 +140,6 @@ inline void QVideoWindowPrivate::initRhi()
     m_subtitleUniformBuf.reset(m_rhi->newBuffer(QRhiBuffer::Dynamic, QRhiBuffer::UniformBuffer, sizeof(QVideoTextureHelper::UniformData)));
     m_subtitleUniformBuf->create();
 }
-#endif  // defined(Q_OS_LINUX)
 
 //  from ../qtmultimedia/src/multimedia/video/qvideowindow.cpp, line 177, as _ZN19QVideoWindowPrivate21setupGraphicsPipelineEP20QRhiGraphicsPipelineP26QRhiShaderResourceBindingsRK17QVideoFrameFormat
 inline void QVideoWindowPrivate::setupGraphicsPipeline(QRhiGraphicsPipeline *pipeline, QRhiShaderResourceBindings *bindings, const QVideoFrameFormat &fmt)
@@ -444,21 +445,17 @@ QRhi *ritual_ZNK19QVideoWindowPrivate3rhiEv(
   return self->rhi();
 }
 
-#if defined(Q_OS_LINUX)
 //  void QVideoWindowPrivate::init()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN19QVideoWindowPrivate4initEv(QVideoWindowPrivate *self) {
   self->init();
 }
-#endif  // defined(Q_OS_LINUX)
 
-#if defined(Q_OS_LINUX)
 //  void QVideoWindowPrivate::render()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN19QVideoWindowPrivate6renderEv(QVideoWindowPrivate *self) {
   self->render();
 }
-#endif  // defined(Q_OS_LINUX)
 
 //  void QVideoWindowPrivate::resizeSwapChain()
 extern "C" Q_DECL_EXPORT

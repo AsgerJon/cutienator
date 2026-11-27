@@ -1,14 +1,18 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtCore/6.12.0/QtCore/private/qfilesystemengine_p.h, Qt 6.12.0.
-//  Edited by hand on 2026-11-25: the lines pulling in Unix's headers
-//  'qcore_unix_p.h', 'grp.h', 'pwd.h' and 'unistd.h', and the code
-//  taken for 'id(int)', which Qt declares on Unix only, stand under
-//  'defined(Q_OS_UNIX)', for Windows has none of them, and the lines
-//  pulling in the Objective-C headers 'UTType.h', 'UTCoreTypes.h' and
-//  'Foundation.h' stand under '__OBJC__', as 'Foundation.h' does in
-//  Qt's 'qcore_mac_p.h', for Qt compiles this source as Objective-C++
-//  on Apple and a ritual file is C++. Kept as it is when the generator
-//  runs again.
+//  QtCore/6.12.0/QtCore/private/qfilesystemengine_p.h, Qt 6.12.0. Edited by
+//  hand on 2026-11-25: the lines pulling in Unix's headers 'qcore_unix_p.h',
+//  'grp.h', 'pwd.h' and 'unistd.h', and the code taken for 'id(int)', which
+//  Qt declares on Unix only, stand under 'defined(Q_OS_UNIX)', for Windows
+//  has none of them, and the lines pulling in the Objective-C headers
+//  'UTType.h', 'UTCoreTypes.h' and 'Foundation.h' stand under '__OBJC__', as
+//  'Foundation.h' does in Qt's 'qcore_mac_p.h', for Qt compiles this source
+//  as Objective-C++ on Apple and a ritual file is C++. Edited by hand on
+//  2026-11-27: code taken from Qt's source no longer stands under
+//  defined(Q_OS_LINUX), which Qt does not write there; code taken from Qt's
+//  qfilesystemengine_unix.cpp stands under defined(Q_OS_UNIX), as Qt builds
+//  that file, not defined(Q_OS_LINUX); its rituals stand under
+//  defined(Q_OS_UNIX), as the code taken from Qt for Unix they call does,
+//  not defined(Q_OS_LINUX). Kept as it is when the generator runs again.
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtCore/QtCore>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -102,7 +106,7 @@
 //  'inline' put before it where Qt did not write it.
 
 //  from src/corelib/io/qfilesystemengine_unix.cpp, line 810, as _ZN17QFileSystemEngine15resolveUserNameEj
-#if defined(Q_OS_LINUX)
+#if defined(Q_OS_UNIX)
 inline QString QFileSystemEngine::resolveUserName(uint userId)
 {
 #if QT_CONFIG(thread) && defined(_POSIX_THREAD_SAFE_FUNCTIONS) && !defined(Q_OS_OPENBSD)
@@ -127,10 +131,10 @@ inline QString QFileSystemEngine::resolveUserName(uint userId)
 #endif
     return QString();
 }
-#endif  // defined(Q_OS_LINUX)
+#endif  // defined(Q_OS_UNIX)
 
 //  from src/corelib/io/qfilesystemengine_unix.cpp, line 836, as _ZN17QFileSystemEngine16resolveGroupNameEj
-#if defined(Q_OS_LINUX)
+#if defined(Q_OS_UNIX)
 inline QString QFileSystemEngine::resolveGroupName(uint groupId)
 {
 #if QT_CONFIG(thread) && defined(_POSIX_THREAD_SAFE_FUNCTIONS) && !defined(Q_OS_OPENBSD)
@@ -168,10 +172,10 @@ inline QString QFileSystemEngine::resolveGroupName(uint groupId)
 #endif
     return QString();
 }
-#endif  // defined(Q_OS_LINUX)
+#endif  // defined(Q_OS_UNIX)
 
 //  from src/corelib/io/qfilesystemengine_unix.cpp, line 1142, as _ZN17QFileSystemEngine9cloneFileEiiRK19QFileSystemMetaData
-#if defined(Q_OS_LINUX)
+#if defined(Q_OS_UNIX)
 inline auto QFileSystemEngine::cloneFile(int srcfd, int dstfd, const QFileSystemMetaData &knownData) -> TriStateResult
 {
     QT_STATBUF statBuffer;
@@ -277,7 +281,7 @@ inline auto QFileSystemEngine::cloneFile(int srcfd, int dstfd, const QFileSystem
     return TriStateResult::NotSupported;
 #endif
 }
-#endif  // defined(Q_OS_LINUX)
+#endif  // defined(Q_OS_UNIX)
 
 //  from src/corelib/io/qfilesystemengine_unix.cpp, line 796, as _ZN17QFileSystemEngine2idEi
 #if defined(Q_OS_UNIX)
@@ -296,7 +300,6 @@ inline QByteArray QFileSystemEngine::id(int fd)
 #endif  // defined(Q_OS_UNIX)
 
 //  from src/corelib/io/qfilesystemengine.cpp, line 49, as _ZN17QFileSystemEngine17slowCanonicalizedERK7QString
-#if defined(Q_OS_LINUX)
 inline QString QFileSystemEngine::slowCanonicalized(const QString &path)
 {
     if (path.isEmpty())
@@ -347,27 +350,26 @@ inline QString QFileSystemEngine::slowCanonicalized(const QString &path)
 
     return QDir::cleanPath(tmpPath);
 }
-#endif  // defined(Q_OS_LINUX)
 //  -----------------------------------------------------------------------
 
 #if defined(Q_OS_UNIX)
-#if defined(Q_OS_LINUX)
+#if defined(Q_OS_UNIX)
 //  QString QFileSystemEngine::resolveUserName(uint userId)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN17QFileSystemEngine15resolveUserNameEj(uint userId) {
   return new QString(QFileSystemEngine::resolveUserName(userId));
 }
-#endif  // defined(Q_OS_LINUX)
+#endif  // defined(Q_OS_UNIX)
 #endif  // defined(Q_OS_UNIX)
 
 #if defined(Q_OS_UNIX)
-#if defined(Q_OS_LINUX)
+#if defined(Q_OS_UNIX)
 //  QString QFileSystemEngine::resolveGroupName(uint groupId)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN17QFileSystemEngine16resolveGroupNameEj(uint groupId) {
   return new QString(QFileSystemEngine::resolveGroupName(groupId));
 }
-#endif  // defined(Q_OS_LINUX)
+#endif  // defined(Q_OS_UNIX)
 #endif  // defined(Q_OS_UNIX)
 
 #if !(defined(Q_OS_DARWIN))
@@ -380,7 +382,7 @@ QString *ritual_ZN17QFileSystemEngine10bundleNameERK16QFileSystemEntry(
 #endif  // !(defined(Q_OS_DARWIN))
 
 #if defined(Q_OS_UNIX)
-#if defined(Q_OS_LINUX)
+#if defined(Q_OS_UNIX)
 //  TriStateResult QFileSystemEngine::cloneFile(int srcfd, int dstfd, const
 //      QFileSystemMetaData &knownData)
 extern "C" Q_DECL_EXPORT
@@ -390,7 +392,7 @@ QFileSystemEngine::TriStateResult ritual_ZN17QFileSystemEngine9cloneFileEiiRK19Q
     const QFileSystemMetaData *knownData) {
   return QFileSystemEngine::cloneFile(srcfd, dstfd, *knownData);
 }
-#endif  // defined(Q_OS_LINUX)
+#endif  // defined(Q_OS_UNIX)
 #endif  // defined(Q_OS_UNIX)
 
 #if defined(Q_OS_UNIX)
@@ -401,14 +403,14 @@ QByteArray *ritual_ZN17QFileSystemEngine2idEi(int fd) {
 }
 #endif  // defined(Q_OS_UNIX)
 
-#if defined(Q_OS_LINUX)
+#if defined(Q_OS_UNIX)
 //  QString QFileSystemEngine::slowCanonicalized(const QString &path)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN17QFileSystemEngine17slowCanonicalizedERK7QString(
     const QString *path) {
   return new QString(QFileSystemEngine::slowCanonicalized(*path));
 }
-#endif  // defined(Q_OS_LINUX)
+#endif  // defined(Q_OS_UNIX)
 
 //  QFileSystemEngine::~QFileSystemEngine()
 extern "C" Q_DECL_EXPORT

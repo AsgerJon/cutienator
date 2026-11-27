@@ -1,11 +1,17 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtWidgets/6.12.0/QtWidgets/private/qfiledialog_p.h, Qt 6.12.0.
-//  Edited by hand on 2026-11-26: added are 1 rituals that lean on what moc
-//  writes for a class of the part Qt keeps to itself, whose ritual file
-//  carries moc's output, drafted by a copy of the generator that lets those
-//  names through. A copy of a meta-object is a second one: 'qobject_cast'
-//  between it and Qt's own does not match. Kept as it is when the generator
-//  runs again.
+//  QtWidgets/6.12.0/QtWidgets/private/qfiledialog_p.h, Qt 6.12.0. Edited by
+//  hand on 2026-11-26: added are 1 rituals that lean on what moc writes for
+//  a class of the part Qt keeps to itself, whose ritual file carries moc's
+//  output, drafted by a copy of the generator that lets those names through.
+//  A copy of a meta-object is a second one: 'qobject_cast' between it and
+//  Qt's own does not match. Edited by hand on 2026-11-27: code taken from
+//  Qt's source no longer stands under defined(Q_OS_LINUX), which Qt does not
+//  write there; its rituals no longer stand under defined(Q_OS_LINUX), as
+//  the code taken from Qt they call no longer does; the copy of QUrlModel's
+//  constructor taken from Qt is taken out: under Microsoft's ABI it had this
+//  file write QUrlModel's whole table of virtual functions, each of which
+//  only the ritual file of QUrlModel carries; that file now carries the
+//  constructor alone. Kept as it is when the generator runs again.
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #if QT_CONFIG(filedialog)
@@ -179,11 +185,6 @@ inline void QUrlModel::setFileSystemModel(QFileSystemModel *model)
     insertColumns(0, 1);
 }
 
-//  from src/widgets/dialogs/qsidebar.cpp, line 43, as _ZN9QUrlModelC1EP7QObject
-inline QUrlModel::QUrlModel(QObject *parent) : QStandardItemModel(parent), showFullPath(false), fileSystemModel(nullptr)
-{
-}
-
 //  from src/widgets/dialogs/qsidebar.cpp, line 217, as _ZN9QUrlModel7setUrlsERK5QListI4QUrlE
 inline void QUrlModel::setUrls(const QList<QUrl> &list)
 {
@@ -194,7 +195,6 @@ inline void QUrlModel::setUrls(const QList<QUrl> &list)
 }
 
 //  from src/widgets/dialogs/qsidebar.cpp, line 231, as _ZN9QUrlModel7addUrlsERK5QListI4QUrlEib
-#if defined(Q_OS_LINUX)
 inline void QUrlModel::addUrls(const QList<QUrl> &list, int row, bool move)
 {
     if (row == -1)
@@ -233,7 +233,6 @@ inline void QUrlModel::addUrls(const QList<QUrl> &list, int row, bool move)
         watching.append({idx, cleanUrl});
     }
 }
-#endif  // defined(Q_OS_LINUX)
 
 //  from src/widgets/dialogs/qsidebar.cpp, line 312, as _ZN9QUrlModel11dataChangedERK11QModelIndexS2_
 inline void QUrlModel::dataChanged(const QModelIndex &topLeft, const QModelIndex &bottomRight)
@@ -359,14 +358,12 @@ inline void QFileDialogComboBox::setHistory(const QStringList &paths)
 }
 //  -----------------------------------------------------------------------
 
-#if defined(Q_OS_LINUX)
 //  QFileDialogComboBox::QFileDialogComboBox(QWidget *parent)
 extern "C" Q_DECL_EXPORT
 QFileDialogComboBox *ritual_ZN19QFileDialogComboBoxC1EP7QWidget(
     QWidget *parent) {
   return new QFileDialogComboBox(parent);
 }
-#endif  // defined(Q_OS_LINUX)
 
 //  void QFileDialogComboBox::setFileDialogPrivate(QFileDialogPrivate
 //      *d_pointer)
@@ -383,7 +380,6 @@ void ritual_ZN19QFileDialogComboBox9showPopupEv(QFileDialogComboBox *self) {
   self->showPopup();
 }
 
-#if defined(Q_OS_LINUX)
 //  void QFileDialogComboBox::setHistory(const QStringList &paths)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN19QFileDialogComboBox10setHistoryERK5QListI7QStringE(
@@ -391,7 +387,6 @@ void ritual_ZN19QFileDialogComboBox10setHistoryERK5QListI7QStringE(
     const QList<QString> *paths) {
   self->setHistory(*paths);
 }
-#endif  // defined(Q_OS_LINUX)
 
 //  QStringList QFileDialogComboBox::history() const
 extern "C" Q_DECL_EXPORT
@@ -408,14 +403,12 @@ void ritual_ZN19QFileDialogComboBox10paintEventEP11QPaintEvent(
   self->paintEvent(a0);
 }
 
-#if defined(Q_OS_LINUX)
 //  void QFileDialogComboBox::showPopup()
 extern "C" Q_DECL_EXPORT
 void ritual_own_ZN19QFileDialogComboBox9showPopupEv(
     QFileDialogComboBox *self) {
   self->QFileDialogComboBox::showPopup();
 }
-#endif  // defined(Q_OS_LINUX)
 
 //  void QFileDialogComboBox::paintEvent(QPaintEvent *a0)
 extern "C" Q_DECL_EXPORT

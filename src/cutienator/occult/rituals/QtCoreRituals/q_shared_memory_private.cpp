@@ -1,6 +1,9 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtCore/6.12.0/QtCore/private/qsharedmemory_p.h, Qt 6.12.0. Changes made
-//  here are lost.
+//  QtCore/6.12.0/QtCore/private/qsharedmemory_p.h, Qt 6.12.0. Edited by hand
+//  on 2026-11-27: code taken from Qt's source no longer stands under
+//  defined(Q_OS_LINUX), which Qt does not write there; its rituals no longer
+//  stand under defined(Q_OS_LINUX), as the code taken from Qt they call no
+//  longer does. Kept as it is when the generator runs again.
 #include <QtCore/qglobal.h>
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #if QT_CONFIG(sharedmemory)
@@ -306,7 +309,6 @@ inline bool QSharedMemorySystemV::attach(QSharedMemoryPrivate *self, QSharedMemo
 //  from src/corelib/ipc/qsharedmemory_posix.cpp, line 149, as _ZN18QSharedMemoryPosix6detachEP20QSharedMemoryPrivate
 #if QT_CONFIG(sharedmemory)
 #if QT_CONFIG(posix_shm)
-#if defined(Q_OS_LINUX)
 inline bool QSharedMemoryPosix::detach(QSharedMemoryPrivate *self)
 {
     // detach from the memory segment
@@ -347,7 +349,6 @@ inline bool QSharedMemoryPosix::detach(QSharedMemoryPrivate *self)
 
     return true;
 }
-#endif  // defined(Q_OS_LINUX)
 #endif  // QT_CONFIG(posix_shm)
 #endif  // QT_CONFIG(sharedmemory)
 
@@ -538,7 +539,6 @@ bool ritual_ZN20QSharedMemoryPrivate6attachEN13QSharedMemory10AccessModeE(
 
 #if QT_CONFIG(sharedmemory)
 #if QT_CONFIG(posix_shm)
-#if defined(Q_OS_LINUX)
 #if QT_CONFIG(sysv_shm)
 //  bool QSharedMemoryPrivate::detach()
 extern "C" Q_DECL_EXPORT
@@ -546,7 +546,6 @@ bool ritual_ZN20QSharedMemoryPrivate6detachEv(QSharedMemoryPrivate *self) {
   return self->detach();
 }
 #endif  // QT_CONFIG(sysv_shm)
-#endif  // defined(Q_OS_LINUX)
 #endif  // QT_CONFIG(posix_shm)
 #endif  // QT_CONFIG(sharedmemory)
 

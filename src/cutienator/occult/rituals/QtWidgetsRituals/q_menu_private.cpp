@@ -1,6 +1,9 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtWidgets/6.12.0/QtWidgets/private/qmenu_p.h, Qt 6.12.0. Changes made
-//  here are lost.
+//  QtWidgets/6.12.0/QtWidgets/private/qmenu_p.h, Qt 6.12.0. Edited by hand
+//  on 2026-11-27: code taken from Qt's source no longer stands under
+//  defined(Q_OS_LINUX), which Qt does not write there; its rituals no longer
+//  stand under defined(Q_OS_LINUX), as the code taken from Qt they call no
+//  longer does. Kept as it is when the generator runs again.
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #if QT_CONFIG(menu)
@@ -1453,7 +1456,6 @@ inline void QMenuPrivate::_q_actionHovered()
 }
 
 //  from src/widgets/widgets/qmenu.cpp, line 1558, as _ZN12QMenuPrivate26_q_platformMenuAboutToShowEv
-#if defined(Q_OS_LINUX)
 inline void QMenuPrivate::_q_platformMenuAboutToShow()
 {
     Q_Q(QMenu);
@@ -1474,7 +1476,6 @@ inline void QMenuPrivate::_q_platformMenuAboutToShow()
     }
 #endif
 }
-#endif  // defined(Q_OS_LINUX)
 
 //  from src/widgets/widgets/qmenu.cpp, line 1579, as _ZNK12QMenuPrivate13hasMouseMovedERK7QPointF
 inline bool QMenuPrivate::hasMouseMoved(const QPointF &globalPos) const
@@ -2117,14 +2118,12 @@ void ritual_ZN12QMenuPrivate16_q_actionHoveredEv(QMenuPrivate *self) {
   self->_q_actionHovered();
 }
 
-#if defined(Q_OS_LINUX)
 //  void QMenuPrivate::_q_platformMenuAboutToShow()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN12QMenuPrivate26_q_platformMenuAboutToShowEv(
     QMenuPrivate *self) {
   self->_q_platformMenuAboutToShow();
 }
-#endif  // defined(Q_OS_LINUX)
 
 //  bool QMenuPrivate::hasMouseMoved(const QPointF &globalPos) const
 extern "C" Q_DECL_EXPORT

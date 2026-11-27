@@ -1,11 +1,15 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtWidgets/6.12.0/QtWidgets/private/qlistwidget_p.h, Qt 6.12.0.
-//  Edited by hand on 2026-11-26: added are 10 rituals that lean on what moc
-//  writes for a class of the part Qt keeps to itself, whose ritual file
-//  carries moc's output, drafted by a copy of the generator that lets those
-//  names through. A copy of a meta-object is a second one: 'qobject_cast'
-//  between it and Qt's own does not match. Kept as it is when the generator
-//  runs again.
+//  QtWidgets/6.12.0/QtWidgets/private/qlistwidget_p.h, Qt 6.12.0. Edited by
+//  hand on 2026-11-26: added are 10 rituals that lean on what moc writes for
+//  a class of the part Qt keeps to itself, whose ritual file carries moc's
+//  output, drafted by a copy of the generator that lets those names through.
+//  A copy of a meta-object is a second one: 'qobject_cast' between it and
+//  Qt's own does not match. Edited by hand on 2026-11-27: the copy of
+//  QListModel's constructor taken from Qt is taken out: under Microsoft's
+//  ABI it had this file write QListModel's whole table of virtual functions,
+//  each of which only the ritual file of QListModel carries; that file now
+//  carries the constructor alone. Kept as it is when the generator runs
+//  again.
 #include <QtGui/qtguiglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
@@ -419,12 +423,6 @@ inline void QListModel::ensureSorted(int column, Qt::SortOrder order, int start,
 
     if (needsSorting)
         sort(column, order);
-}
-
-//  from src/widgets/itemviews/qlistwidget.cpp, line 26, as _ZN10QListModelC1EP11QListWidget
-inline QListModel::QListModel(QListWidget *parent)
-    : QAbstractListModel(parent)
-{
 }
 
 //  from src/widgets/itemviews/qlistwidget.cpp, line 50, as _ZNK10QListModel2atEi

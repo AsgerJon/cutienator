@@ -1,6 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtQml/6.12.0/QtQml/private/qv4mathobject_p.h, Qt 6.12.0. Changes made
-//  here are lost.
+//  QtQml/6.12.0/QtQml/private/qv4mathobject_p.h, Qt 6.12.0. Edited by hand
+//  on 2026-11-27: code taken from Qt's source no longer stands under
+//  defined(Q_OS_LINUX), which Qt does not write there. Kept as it is when
+//  the generator runs again.
 #include <QtQml/6.12.0/QtQml/private/qtqmlglobal_p.h>
 #include <QtQml/QtQml>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -252,7 +254,6 @@ inline ReturnedValue MathObject::method_tanh(const FunctionObject *, const Value
 }  // namespace QV4
 
 //  from ../qtdeclarative/src/qml/jsruntime/qv4mathobject.cpp, line 106, as _ZN3QV410MathObject12method_acoshEPKNS_14FunctionObjectEPKNS_5ValueES6_i
-#if defined(Q_OS_LINUX)
 namespace QV4 {
 inline ReturnedValue MathObject::method_acosh(const FunctionObject *, const Value *, const Value *argv, int argc)
 {
@@ -268,7 +269,6 @@ inline ReturnedValue MathObject::method_acosh(const FunctionObject *, const Valu
     RETURN_RESULT(Encode(std::acosh(v)));
 }
 }  // namespace QV4
-#endif  // defined(Q_OS_LINUX)
 
 //  from ../qtdeclarative/src/qml/jsruntime/qv4mathobject.cpp, line 129, as _ZN3QV410MathObject12method_asinhEPKNS_14FunctionObjectEPKNS_5ValueES6_i
 namespace QV4 {
@@ -344,7 +344,6 @@ inline ReturnedValue MathObject::method_log10(const FunctionObject *, const Valu
 }  // namespace QV4
 
 //  from ../qtdeclarative/src/qml/jsruntime/qv4mathobject.cpp, line 292, as _ZN3QV410MathObject12method_log1pEPKNS_14FunctionObjectEPKNS_5ValueES6_i
-#if defined(Q_OS_LINUX)
 namespace QV4 {
 inline ReturnedValue MathObject::method_log1p(const FunctionObject *, const Value *, const Value *argv, int argc)
 {
@@ -358,7 +357,6 @@ inline ReturnedValue MathObject::method_log1p(const FunctionObject *, const Valu
         RETURN_RESULT(Encode(log1p(v)));
 }
 }  // namespace QV4
-#endif  // defined(Q_OS_LINUX)
 
 //  from ../qtdeclarative/src/qml/jsruntime/qv4mathobject.cpp, line 353, as _ZN3QV410MathObject12method_roundEPKNS_14FunctionObjectEPKNS_5ValueES6_i
 namespace QV4 {

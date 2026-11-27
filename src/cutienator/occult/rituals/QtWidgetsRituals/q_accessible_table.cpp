@@ -1,6 +1,9 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtWidgets/6.12.0/QtWidgets/private/itemviews_p.h, Qt 6.12.0. Changes made
-//  here are lost.
+//  QtWidgets/6.12.0/QtWidgets/private/itemviews_p.h, Qt 6.12.0. Edited by
+//  hand on 2026-11-27: code taken from Qt's source no longer stands under
+//  defined(Q_OS_LINUX), which Qt does not write there; its rituals no longer
+//  stand under defined(Q_OS_LINUX), as the code taken from Qt they call no
+//  longer does. Kept as it is when the generator runs again.
 #include <QtGui/qtguiglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
@@ -1118,7 +1121,6 @@ inline QStringList QAccessibleTableCell::actionNames() const
 
 //  from src/widgets/accessible/itemviews.cpp, line 1155, as _ZN20QAccessibleTableCell8doActionERK7QString
 #if QT_CONFIG(accessibility)
-#if defined(Q_OS_LINUX)
 inline void QAccessibleTableCell::doAction(const QString& actionName)
 {
     if (actionName == toggleAction()) {
@@ -1141,7 +1143,6 @@ inline void QAccessibleTableCell::doAction(const QString& actionName)
         }
     }
 }
-#endif  // defined(Q_OS_LINUX)
 #endif  // QT_CONFIG(accessibility)
 
 //  from src/widgets/accessible/itemviews.cpp, line 1178, as _ZNK20QAccessibleTableCell20keyBindingsForActionERK7QString
@@ -3003,7 +3004,6 @@ QAccessibleInterface *ritual_own_ZNK16QAccessibleTable6parentEv(
 #endif  // QT_CONFIG(accessibility)
 
 #if QT_CONFIG(accessibility)
-#if defined(Q_OS_LINUX)
 //  QAccessibleInterface *QAccessibleTable::child(int index) const
 extern "C" Q_DECL_EXPORT
 QAccessibleInterface *ritual_own_ZNK16QAccessibleTable5childEi(
@@ -3011,7 +3011,6 @@ QAccessibleInterface *ritual_own_ZNK16QAccessibleTable5childEi(
     int index) {
   return self->QAccessibleTable::child(index);
 }
-#endif  // defined(Q_OS_LINUX)
 #endif  // QT_CONFIG(accessibility)
 
 #if QT_CONFIG(accessibility)

@@ -1,9 +1,12 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtCore/6.12.0/QtCore/private/qsystemsemaphore_p.h, Qt 6.12.0.
-//  Edited by hand on 2026-11-26: the ritual dropping a 'key_t' stands
-//  under 'QT_CONFIG(sysv_sem)', as the ritual of 'handle' that gives one
-//  does: Windows has no 'key_t' and no System V semaphores. Kept as it
-//  is when the generator runs again.
+//  QtCore/6.12.0/QtCore/private/qsystemsemaphore_p.h, Qt 6.12.0. Edited by
+//  hand on 2026-11-26: the ritual dropping a 'key_t' stands under
+//  'QT_CONFIG(sysv_sem)', as the ritual of 'handle' that gives one does:
+//  Windows has no 'key_t' and no System V semaphores. Edited by hand on
+//  2026-11-27: code taken from Qt's source no longer stands under
+//  defined(Q_OS_LINUX), which Qt does not write there; its rituals no longer
+//  stand under defined(Q_OS_LINUX), as the code taken from Qt they call no
+//  longer does. Kept as it is when the generator runs again.
 #include <QtCore/qglobal.h>
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #if QT_CONFIG(systemsemaphore)
@@ -90,7 +93,6 @@ inline void QSystemSemaphorePrivate::setUnixErrorString(QLatin1StringView functi
 
 //  from src/corelib/ipc/qsystemsemaphore_systemv.cpp, line 37, as _ZN23QSystemSemaphoreSystemV19runtimeSupportCheckEv
 #if QT_CONFIG(sysv_sem)
-#if defined(Q_OS_LINUX)
 inline bool QSystemSemaphoreSystemV::runtimeSupportCheck()
 {
 #if defined(Q_OS_DARWIN)
@@ -103,12 +105,10 @@ inline bool QSystemSemaphoreSystemV::runtimeSupportCheck()
     }();
     return result;
 }
-#endif  // defined(Q_OS_LINUX)
 #endif  // QT_CONFIG(sysv_sem)
 
 //  from src/corelib/ipc/qsystemsemaphore_systemv.cpp, line 55, as _ZN23QSystemSemaphoreSystemV6handleEP23QSystemSemaphorePrivateN16QSystemSemaphore10AccessModeE
 #if QT_CONFIG(sysv_sem)
-#if defined(Q_OS_LINUX)
 inline key_t QSystemSemaphoreSystemV::handle(QSystemSemaphorePrivate *self, QSystemSemaphore::AccessMode mode)
 {
     if (unix_key != -1)
@@ -188,7 +188,6 @@ inline key_t QSystemSemaphoreSystemV::handle(QSystemSemaphorePrivate *self, QSys
 
     return unix_key;
 }
-#endif  // defined(Q_OS_LINUX)
 #endif  // QT_CONFIG(sysv_sem)
 
 //  from src/corelib/ipc/qsystemsemaphore_systemv.cpp, line 140, as _ZN23QSystemSemaphoreSystemV11cleanHandleEP23QSystemSemaphorePrivate
@@ -227,18 +226,15 @@ bool ritual_ZN23QSystemSemaphoreSystemV8supportsEN13QNativeIpcKey4TypeE(
 }
 
 #if QT_CONFIG(sysv_sem)
-#if defined(Q_OS_LINUX)
 //  bool QSystemSemaphoreSystemV::runtimeSupportCheck()
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN23QSystemSemaphoreSystemV19runtimeSupportCheckEv() {
   return QSystemSemaphoreSystemV::runtimeSupportCheck();
 }
-#endif  // defined(Q_OS_LINUX)
 #endif  // QT_CONFIG(sysv_sem)
 
 #if QT_CONFIG(sysv_sem)
 #if QT_CONFIG(systemsemaphore)
-#if defined(Q_OS_LINUX)
 //  key_t QSystemSemaphoreSystemV::handle(QSystemSemaphorePrivate *self_,
 //      QSystemSemaphore::AccessMode mode)
 extern "C" Q_DECL_EXPORT
@@ -248,7 +244,6 @@ key_t *ritual_ZN23QSystemSemaphoreSystemV6handleEP23QSystemSemaphorePrivateN16QS
     QSystemSemaphore::AccessMode mode) {
   return new key_t(self->handle(self_, mode));
 }
-#endif  // defined(Q_OS_LINUX)
 #endif  // QT_CONFIG(systemsemaphore)
 #endif  // QT_CONFIG(sysv_sem)
 

@@ -1,6 +1,9 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtCore/6.12.0/QtCore/private/qtemporaryfile_p.h, Qt 6.12.0. Changes made
-//  here are lost.
+//  QtCore/6.12.0/QtCore/private/qtemporaryfile_p.h, Qt 6.12.0. Edited by
+//  hand on 2026-11-27: code taken from Qt's source no longer stands under
+//  defined(Q_OS_LINUX), which Qt does not write there; its rituals no longer
+//  stand under defined(Q_OS_LINUX), as the code taken from Qt they call no
+//  longer does. Kept as it is when the generator runs again.
 #include <QtCore/qglobal.h>
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #if QT_CONFIG(temporaryfile)
@@ -110,7 +113,6 @@ inline void QTemporaryFileEngine::setFileName(const QString &file)
 
 //  from src/corelib/io/qtemporaryfile.cpp, line 389, as _ZN20QTemporaryFileEngine15renameOverwriteERK7QString
 #if QT_CONFIG(temporaryfile)
-#if defined(Q_OS_LINUX)
 inline bool QTemporaryFileEngine::renameOverwrite(const QString &newName)
 {
     if (isUnnamedFile()) {
@@ -133,7 +135,6 @@ inline bool QTemporaryFileEngine::renameOverwrite(const QString &newName)
     QFSFileEngine::close();
     return QFSFileEngine::renameOverwrite(newName);
 }
-#endif  // defined(Q_OS_LINUX)
 #endif  // QT_CONFIG(temporaryfile)
 
 //  from src/corelib/io/qtemporaryfile.cpp, line 412, as _ZN20QTemporaryFileEngine5closeEv
@@ -290,7 +291,6 @@ inline QTemporaryFileEngine::~QTemporaryFileEngine()
 
 //  from src/corelib/io/qtemporaryfile.cpp, line 289, as _ZNK20QTemporaryFileEngine12isReallyOpenEv
 #if QT_CONFIG(temporaryfile)
-#if defined(Q_OS_LINUX)
 inline bool QTemporaryFileEngine::isReallyOpen() const
 {
     Q_D(const QFSFileEngine);
@@ -305,7 +305,6 @@ inline bool QTemporaryFileEngine::isReallyOpen() const
     return false;
 
 }
-#endif  // defined(Q_OS_LINUX)
 #endif  // QT_CONFIG(temporaryfile)
 
 //  from src/corelib/io/qtemporaryfile.cpp, line 492, as _ZNK20QTemporaryFileEngine13isUnnamedFileEv
@@ -1015,14 +1014,12 @@ void ritual_ZN20QTemporaryFileEngineD1Ev(QTemporaryFileEngine *self) {
 }
 
 #if QT_CONFIG(temporaryfile)
-#if defined(Q_OS_LINUX)
 //  bool QTemporaryFileEngine::isReallyOpen() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK20QTemporaryFileEngine12isReallyOpenEv(
     const QTemporaryFileEngine *self) {
   return self->isReallyOpen();
 }
-#endif  // defined(Q_OS_LINUX)
 #endif  // QT_CONFIG(temporaryfile)
 
 //  void QTemporaryFileEngine::setFileName(const QString &file)

@@ -1,6 +1,9 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtCore/6.12.0/QtCore/private/qfilesystemwatcher_p.h, Qt 6.12.0. Changes
-//  made here are lost.
+//  QtCore/6.12.0/QtCore/private/qfilesystemwatcher_p.h, Qt 6.12.0. Edited by
+//  hand on 2026-11-27: code taken from Qt's source no longer stands under
+//  defined(Q_OS_LINUX), which Qt does not write there; its rituals no longer
+//  stand under defined(Q_OS_LINUX), as the code taken from Qt they call no
+//  longer does. Kept as it is when the generator runs again.
 #include <QtCore/qglobal.h>
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #if QT_CONFIG(filesystemwatcher)
@@ -45,7 +48,6 @@
 using namespace Qt::StringLiterals;
 
 //  from src/corelib/io/qfilesystemwatcher.cpp, line 38, as _ZN25QFileSystemWatcherPrivate18createNativeEngineEP7QObject
-#if defined(Q_OS_LINUX)
 inline QFileSystemWatcherEngine *QFileSystemWatcherPrivate::createNativeEngine(QObject *parent)
 {
 #if defined(Q_OS_WIN)
@@ -63,7 +65,6 @@ inline QFileSystemWatcherEngine *QFileSystemWatcherPrivate::createNativeEngine(Q
     return 0;
 #endif
 }
-#endif  // defined(Q_OS_LINUX)
 
 //  from src/corelib/io/qfilesystemwatcher.cpp, line 56, as _ZN25QFileSystemWatcherPrivateC1Ev
 inline QFileSystemWatcherPrivate::QFileSystemWatcherPrivate()
@@ -86,7 +87,6 @@ const QFileSystemWatcher *ritual_ZNK25QFileSystemWatcherPrivate6q_funcEv(
   return self->q_func();
 }
 
-#if defined(Q_OS_LINUX)
 //  QFileSystemWatcherEngine
 //      *QFileSystemWatcherPrivate::createNativeEngine(QObject *parent)
 extern "C" Q_DECL_EXPORT
@@ -94,7 +94,6 @@ QFileSystemWatcherEngine *ritual_ZN25QFileSystemWatcherPrivate18createNativeEngi
     QObject *parent) {
   return QFileSystemWatcherPrivate::createNativeEngine(parent);
 }
-#endif  // defined(Q_OS_LINUX)
 
 //  QFileSystemWatcherPrivate::QFileSystemWatcherPrivate()
 extern "C" Q_DECL_EXPORT

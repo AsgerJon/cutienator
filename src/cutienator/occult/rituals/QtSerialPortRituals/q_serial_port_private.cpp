@@ -1,10 +1,12 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtSerialPort/6.12.0/QtSerialPort/private/qserialport_p.h, Qt 6.12.0.
-//  Edited by hand on 2026-11-25: the lines pulling in the headers of
-//  Unix, copied from Qt's 'qserialport_unix.cpp', and the code taken from
-//  that file stand under the condition its rituals stand under,
+//  Edited by hand on 2026-11-25: the lines pulling in the headers of Unix,
+//  copied from Qt's 'qserialport_unix.cpp', and the code taken from that
+//  file stand under the condition its rituals stand under,
 //  '(!(defined(Q_OS_WIN32))) && (defined(Q_OS_UNIX))', as Qt builds that
-//  file on Unix alone. Kept as it is when the generator runs again.
+//  file on Unix alone. Edited by hand on 2026-11-27: code taken from Qt's
+//  source no longer stands under defined(Q_OS_LINUX), which Qt does not
+//  write there. Kept as it is when the generator runs again.
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtSerialPort/qserialport.h>
 #include <QtSerialPort/QtSerialPort>
@@ -103,7 +105,6 @@ inline qint64 QSerialPortPrivate::readFromPort(char *data, qint64 maxSize)
 #endif  // (!(defined(Q_OS_WIN32))) && (defined(Q_OS_UNIX))
 
 //  from ../qtserialport/src/serialport/qserialport.cpp, line 54, as _ZN18QSerialPortPrivateC1Ev
-#if defined(Q_OS_LINUX)
 inline QSerialPortPrivate::QSerialPortPrivate()
 #if defined(Q_OS_WIN32)
     : readChunkBuffer(QSERIALPORT_BUFFERSIZE, 0)
@@ -112,7 +113,6 @@ inline QSerialPortPrivate::QSerialPortPrivate()
     writeBufferChunkSize = QSERIALPORT_BUFFERSIZE;
     readBufferChunkSize = QSERIALPORT_BUFFERSIZE;
 }
-#endif  // defined(Q_OS_LINUX)
 
 //  from ../qtserialport/src/serialport/qserialport.cpp, line 63, as _ZN18QSerialPortPrivate8setErrorERK20QSerialPortErrorInfo
 inline void QSerialPortPrivate::setError(const QSerialPortErrorInfo &errorInfo)

@@ -1,12 +1,16 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtWidgets/6.12.0/QtWidgets/private/qcombobox_p.h, Qt 6.12.0.
-//  Edited by hand on 2026-11-26: moc's output for 'QComboMenuDelegate' is
-//  pasted in, cut from what the moc of Qt 6.12.0 writes for its header: Qt's
-//  library keeps it to itself; added are 2 rituals that lean on what moc
-//  writes for a class of the part Qt keeps to itself, whose ritual file
-//  carries moc's output, drafted by a copy of the generator that lets those
-//  names through. A copy of a meta-object is a second one: 'qobject_cast'
-//  between it and Qt's own does not match. Kept as it is when the generator
+//  QtWidgets/6.12.0/QtWidgets/private/qcombobox_p.h, Qt 6.12.0. Edited by
+//  hand on 2026-11-26: moc's output for 'QComboMenuDelegate' is pasted in,
+//  cut from what the moc of Qt 6.12.0 writes for its header: Qt's library
+//  keeps it to itself; added are 2 rituals that lean on what moc writes for
+//  a class of the part Qt keeps to itself, whose ritual file carries moc's
+//  output, drafted by a copy of the generator that lets those names through.
+//  A copy of a meta-object is a second one: 'qobject_cast' between it and
+//  Qt's own does not match. Edited by hand on 2026-11-27: the constructors
+//  and the destructor of QComboMenuDelegate taken from Qt are no longer
+//  'inline' (2): the one definition the target file has of each, which the
+//  ritual files of other classes of the part call, as Microsoft's ABI emits
+//  an 'inline' one only where it is used. Kept as it is when the generator
 //  runs again.
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
@@ -210,7 +214,7 @@ inline bool QComboMenuDelegate::editorEvent(QEvent *event, QAbstractItemModel *m
 }
 
 //  from src/widgets/widgets/qcombobox.cpp, line 232, as _ZN18QComboMenuDelegateD0Ev
-inline QComboMenuDelegate::~QComboMenuDelegate()
+QComboMenuDelegate::~QComboMenuDelegate()
     = default;
 
 //  from src/widgets/widgets/qcombobox.cpp, line 235, as _ZNK18QComboMenuDelegate5paintEP8QPainterRK20QStyleOptionViewItemRK11QModelIndex
@@ -238,7 +242,7 @@ inline bool QComboBoxDelegate::isSeparator(const QModelIndex &index)
 }
 
 //  from src/widgets/widgets/qcombobox.cpp, line 227, as _ZN18QComboMenuDelegateC1EP7QObjectP9QComboBox
-inline QComboMenuDelegate::QComboMenuDelegate(QObject *parent, QComboBox *cmb)
+QComboMenuDelegate::QComboMenuDelegate(QObject *parent, QComboBox *cmb)
     : QAbstractItemDelegate(parent), mCombo(cmb), pressedIndex(-1)
 {
 }

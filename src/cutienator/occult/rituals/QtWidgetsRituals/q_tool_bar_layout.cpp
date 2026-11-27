@@ -1,11 +1,14 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtWidgets/6.12.0/QtWidgets/private/qtoolbarlayout_p.h, Qt 6.12.0.
-//  Edited by hand on 2026-11-26: added are 2 rituals that lean on what moc
-//  writes for a class of the part Qt keeps to itself, whose ritual file
-//  carries moc's output, drafted by a copy of the generator that lets those
-//  names through. A copy of a meta-object is a second one: 'qobject_cast'
-//  between it and Qt's own does not match. Kept as it is when the generator
-//  runs again.
+//  QtWidgets/6.12.0/QtWidgets/private/qtoolbarlayout_p.h, Qt 6.12.0. Edited
+//  by hand on 2026-11-26: added are 2 rituals that lean on what moc writes
+//  for a class of the part Qt keeps to itself, whose ritual file carries
+//  moc's output, drafted by a copy of the generator that lets those names
+//  through. A copy of a meta-object is a second one: 'qobject_cast' between
+//  it and Qt's own does not match. Edited by hand on 2026-11-27: code taken
+//  from Qt's source no longer stands under defined(Q_OS_LINUX), which Qt
+//  does not write there; its rituals no longer stand under
+//  defined(Q_OS_LINUX), as the code taken from Qt they call no longer does.
+//  Kept as it is when the generator runs again.
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #if QT_CONFIG(toolbar)
@@ -573,7 +576,6 @@ inline bool QToolBarLayout::hasExpandFlag() const
 }
 
 //  from src/widgets/widgets/qtoolbarlayout.cpp, line 314, as _ZN14QToolBarLayout22updateMacBorderMetricsEv
-#if defined(Q_OS_LINUX)
 inline void QToolBarLayout::updateMacBorderMetrics()
 {
 #ifdef Q_OS_MACOS
@@ -599,7 +601,6 @@ inline void QToolBarLayout::updateMacBorderMetrics()
         mainWindowLayout->registerUnifiedToolBarArea(tb, 0, 0);
 #endif
 }
-#endif  // defined(Q_OS_LINUX)
 
 //  from src/widgets/widgets/qtoolbarlayout.cpp, line 222, as _ZNK14QToolBarLayout15updateGeomArrayEv
 inline void QToolBarLayout::updateGeomArray() const
@@ -1520,14 +1521,12 @@ bool ritual_ZNK14QToolBarLayout13hasExpandFlagEv(
   return self->hasExpandFlag();
 }
 
-#if defined(Q_OS_LINUX)
 //  void QToolBarLayout::updateMacBorderMetrics()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN14QToolBarLayout22updateMacBorderMetricsEv(
     QToolBarLayout *self) {
   self->updateMacBorderMetrics();
 }
-#endif  // defined(Q_OS_LINUX)
 
 //  void QToolBarLayout::setExpanded(bool b)
 extern "C" Q_DECL_EXPORT
@@ -1629,7 +1628,6 @@ int ritual_own_ZNK14QToolBarLayout19expandingDirectionsEv(
       self->QToolBarLayout::expandingDirections().toInt());
 }
 
-#if defined(Q_OS_LINUX)
 //  void QToolBarLayout::setGeometry(const QRect &r)
 extern "C" Q_DECL_EXPORT
 void ritual_own_ZN14QToolBarLayout11setGeometryERK5QRect(
@@ -1637,7 +1635,6 @@ void ritual_own_ZN14QToolBarLayout11setGeometryERK5QRect(
     const QRect *r) {
   self->QToolBarLayout::setGeometry(*r);
 }
-#endif  // defined(Q_OS_LINUX)
 
 //  QSize QToolBarLayout::minimumSize() const
 extern "C" Q_DECL_EXPORT

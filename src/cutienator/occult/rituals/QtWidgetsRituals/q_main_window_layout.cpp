@@ -1,6 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/6.12.0/QtWidgets/private/qmainwindowlayout_p.h, Qt 6.12.0.
-//  Changes made here are lost.
+//  Edited by hand on 2026-11-27: code taken from Qt's source no longer
+//  stands under defined(Q_OS_LINUX), which Qt does not write there. Kept as
+//  it is when the generator runs again.
 #include <QtGui/qtguiglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
@@ -1302,7 +1304,6 @@ inline void QMainWindowLayout::addItem(QLayoutItem *)
 { qWarning("QMainWindowLayout::addItem: Please use the public QMainWindow API instead"); }
 
 //  from src/widgets/widgets/qmainwindowlayout.cpp, line 2490, as _ZN17QMainWindowLayout11setGeometryERK5QRect
-#if defined(Q_OS_LINUX)
 inline void QMainWindowLayout::setGeometry(const QRect &_r)
 {
     // Check if the state is valid, and avoid replacing it again if it is currently used
@@ -1359,7 +1360,6 @@ inline void QMainWindowLayout::setGeometry(const QRect &_r)
     updateUnifiedToolBarArea();
 #endif
 }
-#endif  // defined(Q_OS_LINUX)
 
 //  from src/widgets/widgets/qmainwindowlayout.cpp, line 2410, as _ZNK17QMainWindowLayout6itemAtEi
 inline QLayoutItem *QMainWindowLayout::itemAt(int index) const

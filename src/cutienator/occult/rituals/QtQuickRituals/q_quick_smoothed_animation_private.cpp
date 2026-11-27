@@ -4,8 +4,13 @@
 //  writes for a class of the part Qt keeps to itself, whose ritual file
 //  carries moc's output, drafted by a copy of the generator that lets those
 //  names through. A copy of a meta-object is a second one: 'qobject_cast'
-//  between it and Qt's own does not match. Kept as it is when the generator
-//  runs again.
+//  between it and Qt's own does not match. Edited by hand on 2026-11-27: the
+//  copy of QSmoothedAnimationTimer's constructor taken from Qt is taken out
+//  (1): under Microsoft's ABI it had this file write
+//  QSmoothedAnimationTimer's whole table of virtual functions, each of which
+//  only the ritual file of QSmoothedAnimationTimer carries; that file now
+//  carries the constructor alone. Kept as it is when the generator runs
+//  again.
 #include <QtQml/6.12.0/QtQml/private/qtqmlglobal_p.h>
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
 #include <QtQuick/QtQuick>
@@ -101,14 +106,6 @@ inline void QSmoothedAnimation::init()
         stop();
         return;
     }
-}
-
-//  from ../qtdeclarative/src/quick/util/qquicksmoothedanimation.cpp, line 25, as _ZN23QSmoothedAnimationTimerC1EP18QSmoothedAnimationP7QObject
-inline QSmoothedAnimationTimer::QSmoothedAnimationTimer(QSmoothedAnimation *animation, QObject *parent)
-    : QTimer(parent)
-    , m_animation(animation)
-{
-    connect(this, SIGNAL(timeout()), this, SLOT(stopAnimation()));
 }
 
 //  from ../qtdeclarative/src/quick/util/qquicksmoothedanimation.cpp, line 51, as _ZN18QSmoothedAnimationD1Ev

@@ -1,12 +1,14 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtBluetooth/6.12.0/QtBluetooth/private/qlowenergycontrollerbase_p.h, Qt
-//  6.12.0.
-//  Edited by hand on 2026-11-26: added are 1 rituals that lean on what moc
-//  writes for a class of the part Qt keeps to itself, whose ritual file
-//  carries moc's output, drafted by a copy of the generator that lets those
-//  names through. A copy of a meta-object is a second one: 'qobject_cast'
-//  between it and Qt's own does not match. Kept as it is when the generator
-//  runs again.
+//  6.12.0. Edited by hand on 2026-11-26: added are 1 rituals that lean on
+//  what moc writes for a class of the part Qt keeps to itself, whose ritual
+//  file carries moc's output, drafted by a copy of the generator that lets
+//  those names through. A copy of a meta-object is a second one:
+//  'qobject_cast' between it and Qt's own does not match. Edited by hand on
+//  2026-11-27: code taken from Qt's source no longer stands under
+//  defined(Q_OS_LINUX), which Qt does not write there; its rituals no longer
+//  stand under defined(Q_OS_LINUX), as the code taken from Qt they call no
+//  longer does. Kept as it is when the generator runs again.
 #include <QtBluetooth/6.12.0/QtBluetooth/private/qtbluetoothglobal_p.h>
 #include <QtBluetooth/qlowenergycontroller.h>
 #include <QtBluetooth/QtBluetooth>
@@ -72,7 +74,6 @@ inline void QLowEnergyServicePrivate::setState(QLowEnergyService::ServiceState n
 }
 
 //  from ../qtconnectivity/src/bluetooth/qlowenergycontrollerbase.cpp, line 31, as _ZN27QLowEnergyControllerPrivate19isValidLocalAdapterEv
-#if defined(Q_OS_LINUX)
 inline bool QLowEnergyControllerPrivate::isValidLocalAdapter()
 {
 #if defined(QT_WINRT_BLUETOOTH) || defined(Q_OS_DARWIN)
@@ -93,7 +94,6 @@ inline bool QLowEnergyControllerPrivate::isValidLocalAdapter()
 
     return adapterFound;
 }
-#endif  // defined(Q_OS_LINUX)
 
 //  from ../qtconnectivity/src/bluetooth/qlowenergycontrollerbase.cpp, line 53, as _ZN27QLowEnergyControllerPrivate8setErrorEN20QLowEnergyController5ErrorE
 inline void QLowEnergyControllerPrivate::setError(
@@ -820,14 +820,12 @@ QLowEnergyService *ritual_ZN27QLowEnergyControllerPrivate16addServiceHelperERK21
   return self->addServiceHelper(*service);
 }
 
-#if defined(Q_OS_LINUX)
 //  bool QLowEnergyControllerPrivate::isValidLocalAdapter()
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN27QLowEnergyControllerPrivate19isValidLocalAdapterEv(
     QLowEnergyControllerPrivate *self) {
   return self->isValidLocalAdapter();
 }
-#endif  // defined(Q_OS_LINUX)
 
 //  void QLowEnergyControllerPrivate::setError(QLowEnergyController::Error
 //      newError)

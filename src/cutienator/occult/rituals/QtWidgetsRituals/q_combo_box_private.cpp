@@ -1,11 +1,20 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtWidgets/6.12.0/QtWidgets/private/qcombobox_p.h, Qt 6.12.0.
-//  Edited by hand on 2026-11-26: added are 1 rituals that lean on what moc
-//  writes for a class of the part Qt keeps to itself, whose ritual file
-//  carries moc's output, drafted by a copy of the generator that lets those
-//  names through. A copy of a meta-object is a second one: 'qobject_cast'
-//  between it and Qt's own does not match. Kept as it is when the generator
-//  runs again.
+//  QtWidgets/6.12.0/QtWidgets/private/qcombobox_p.h, Qt 6.12.0. Edited by
+//  hand on 2026-11-26: added are 1 rituals that lean on what moc writes for
+//  a class of the part Qt keeps to itself, whose ritual file carries moc's
+//  output, drafted by a copy of the generator that lets those names through.
+//  A copy of a meta-object is a second one: 'qobject_cast' between it and
+//  Qt's own does not match. Edited by hand on 2026-11-27: code taken from
+//  Qt's source no longer stands under defined(Q_OS_LINUX), which Qt does not
+//  write there; its rituals no longer stand under defined(Q_OS_LINUX), as
+//  the code taken from Qt they call no longer does; the copy of
+//  QComboMenuDelegate's constructor taken from Qt is taken out: under
+//  Microsoft's ABI it had this file write QComboMenuDelegate's whole table
+//  of virtual functions, each of which only the ritual file of
+//  QComboMenuDelegate carries; that file now carries the constructor alone;
+//  so is the copy of QComboBoxDelegate's constructor, for the same reason,
+//  its ritual file carrying it alone. Kept as it is when the generator runs
+//  again.
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #if QT_CONFIG(combobox)
@@ -114,25 +123,6 @@
 
 using namespace Qt::StringLiterals;
 
-//  from src/widgets/widgets/qcombobox.cpp, line 384, as _ZN17QComboBoxDelegateC1EP7QObjectP9QComboBox
-inline QComboBoxDelegate::QComboBoxDelegate(QObject *parent, QComboBox *cmb)
-    : QStyledItemDelegate(parent),
-      mCombo(cmb)
-{}
-
-//  from src/widgets/widgets/qcombobox.cpp, line 74, as _ZN17QComboBoxListViewC1EP9QComboBox
-inline QComboBoxListView::QComboBoxListView(QComboBox *cmb) : combo(cmb)
-{
-    if (cmb)
-        setScreen(cmb->screen());
-}
-
-//  from src/widgets/widgets/qcombobox.cpp, line 227, as _ZN18QComboMenuDelegateC1EP7QObjectP9QComboBox
-inline QComboMenuDelegate::QComboMenuDelegate(QObject *parent, QComboBox *cmb)
-    : QAbstractItemDelegate(parent), mCombo(cmb), pressedIndex(-1)
-{
-}
-
 //  from src/widgets/styles/qstyle.cpp, line 2475, as _ZN13QStylePrivate21useFullScreenForPopupEv
 inline bool QStylePrivate::useFullScreenForPopup()
 {
@@ -152,7 +142,6 @@ inline QComboBoxPrivate::QComboBoxPrivate()
 }
 
 //  from src/widgets/widgets/qcombobox.cpp, line 215, as _ZN16QComboBoxPrivateD1Ev
-#if defined(Q_OS_LINUX)
 inline QComboBoxPrivate::~QComboBoxPrivate()
 {
     disconnectModel();
@@ -160,10 +149,8 @@ inline QComboBoxPrivate::~QComboBoxPrivate()
     cleanupNativePopup();
 #endif
 }
-#endif  // defined(Q_OS_LINUX)
 
 //  from src/widgets/widgets/qcombobox.cpp, line 1292, as _ZN16QComboBoxPrivate4initEv
-#if defined(Q_OS_LINUX)
 inline void QComboBoxPrivate::init()
 {
     Q_Q(QComboBox);
@@ -187,7 +174,6 @@ inline void QComboBoxPrivate::init()
     else
         q->setAttribute(Qt::WA_InputMethodEnabled);
 }
-#endif  // defined(Q_OS_LINUX)
 
 //  from src/widgets/widgets/qcombobox.cpp, line 1316, as _ZN16QComboBoxPrivate13viewContainerEv
 inline QComboBoxPrivateContainer* QComboBoxPrivate::viewContainer()
@@ -887,7 +873,6 @@ inline void QComboBoxPrivate::updateViewContainerPaletteAndOpacity()
 }
 
 //  from src/widgets/widgets/qcombobox.cpp, line 1470, as _ZN16QComboBoxPrivate17updateFocusPolicyEv
-#if defined(Q_OS_LINUX)
 inline void QComboBoxPrivate::updateFocusPolicy()
 {
 #ifdef Q_OS_MACOS
@@ -900,7 +885,6 @@ inline void QComboBoxPrivate::updateFocusPolicy()
         q->setFocusPolicy(Qt::TabFocus);
 #endif
 }
-#endif  // defined(Q_OS_LINUX)
 
 //  from src/widgets/widgets/qcombobox.cpp, line 3434, as _ZN16QComboBoxPrivate23showPopupFromMouseEventEP11QMouseEvent
 inline void QComboBoxPrivate::showPopupFromMouseEvent(QMouseEvent *e)
@@ -1314,13 +1298,11 @@ void ritual_ZN16QComboBoxPrivateD1Ev(QComboBoxPrivate *self) {
   delete self;
 }
 
-#if defined(Q_OS_LINUX)
 //  void QComboBoxPrivate::init()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN16QComboBoxPrivate4initEv(QComboBoxPrivate *self) {
   self->init();
 }
-#endif  // defined(Q_OS_LINUX)
 
 //  void QComboBoxPrivate::updateLineEditGeometry()
 extern "C" Q_DECL_EXPORT
@@ -1531,14 +1513,12 @@ void ritual_ZN16QComboBoxPrivate36updateViewContainerPaletteAndOpacityEv(
   self->updateViewContainerPaletteAndOpacity();
 }
 
-#if defined(Q_OS_LINUX)
 //  void QComboBoxPrivate::updateFocusPolicy()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN16QComboBoxPrivate17updateFocusPolicyEv(
     QComboBoxPrivate *self) {
   self->updateFocusPolicy();
 }
-#endif  // defined(Q_OS_LINUX)
 
 //  void QComboBoxPrivate::doHidePopup()
 extern "C" Q_DECL_EXPORT

@@ -1,11 +1,14 @@
 //  Written by dev_tooling.RitualGenerator from the records of QtWaylandCompo
 //  sitor/6.12.0/QtWaylandCompositor/private/qwaylandquickitem_p.h, Qt
-//  6.12.0.
-//  Edited by hand on 2026-11-25: the whole file stands also under
+//  6.12.0. Edited by hand on 2026-11-25: the whole file stands also under
 //  '__has_include(<wayland-server-core.h>)', because Qt's header it needs
 //  includes the header of the Wayland server library, which a machine with
 //  Qt's kit but without the development headers of the Wayland server
-//  library lacks. Kept as it is when the generator runs again.
+//  library lacks. Edited by hand on 2026-11-27: code taken from Qt's source
+//  no longer stands under defined(Q_OS_LINUX), which Qt does not write
+//  there; its rituals no longer stand under defined(Q_OS_LINUX), as the code
+//  taken from Qt they call no longer does. Kept as it is when the generator
+//  runs again.
 #include <QtGui/qtguiglobal.h>
 #include <QtWaylandCompositor/qtwaylandcompositorglobal.h>
 #include <QtWaylandCompositor/6.12.0/QtWaylandCompositor/private/qtwaylandcompositorglobal_p.h>
@@ -116,7 +119,6 @@ inline void QWaylandQuickItemPrivate::handleDragUpdate(QWaylandSeat *seat, const
 }
 
 //  from ../qtwayland/src/compositor/compositor_api/qwaylandquickitem.cpp, line 1760, as _ZNK24QWaylandQuickItemPrivate11scaleFactorEv
-#if defined(Q_OS_LINUX)
 inline qreal QWaylandQuickItemPrivate::scaleFactor() const
 {
     qreal f = view->output() ? view->output()->scaleFactor() : 1;
@@ -126,7 +128,6 @@ inline qreal QWaylandQuickItemPrivate::scaleFactor() const
 #endif
     return f;
 }
-#endif  // defined(Q_OS_LINUX)
 
 //  from ../qtwayland/src/compositor/compositor_api/qwaylandquickitem.cpp, line 1770, as _ZNK24QWaylandQuickItemPrivate11findSiblingEP15QWaylandSurface
 inline QWaylandQuickItem *QWaylandQuickItemPrivate::findSibling(QWaylandSurface *surface) const
@@ -621,14 +622,12 @@ bool ritual_ZNK24QWaylandQuickItemPrivate21shouldSendInputEventsEv(
   return self->shouldSendInputEvents();
 }
 
-#if defined(Q_OS_LINUX)
 //  qreal QWaylandQuickItemPrivate::scaleFactor() const
 extern "C" Q_DECL_EXPORT
 qreal ritual_ZNK24QWaylandQuickItemPrivate11scaleFactorEv(
     const QWaylandQuickItemPrivate *self) {
   return self->scaleFactor();
 }
-#endif  // defined(Q_OS_LINUX)
 
 //  QWaylandQuickItem *QWaylandQuickItemPrivate::findSibling(QWaylandSurface
 //      *surface) const

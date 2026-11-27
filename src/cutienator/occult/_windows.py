@@ -157,6 +157,12 @@ class Windows(System):
       narrow text, 'TranslateAcceleratorA', where Qt, built with them,
       has the 'W' function of wide text, 'TranslateAcceleratorW', and
       a ritual calling it finds nothing to join to.
+      '-mcx16', so 'clang++' compares and swaps sixteen bytes at once
+      with the instruction 'cmpxchg16b' itself, as Microsoft's compiler
+      does, where it would leave that to '__atomic_compare_exchange_16',
+      a function Microsoft's libraries do not have: C++/WinRT's code,
+      which Qt's WinRT parts take, asks for it. Every 64-bit Windows
+      since 8.1 has the instruction.
 
     Left out, though the other systems are told them: '-fPIC', which
     'clang++' refuses for Windows, where code can sit at any address as
@@ -165,7 +171,7 @@ class Windows(System):
     """
     return ('-fms-runtime-lib=dll', '-DNOMINMAX', '-DWIN32', '-DWIN64',
             '-D_WIN64', '-D_ENABLE_EXTENDED_ALIGNED_STORAGE', '-DUNICODE',
-            '-D_UNICODE')
+            '-D_UNICODE', '-mcx16')
 
   def buildsObjectiveC(self) -> bool:
     """No: Objective-C++ is for Apple's systems."""

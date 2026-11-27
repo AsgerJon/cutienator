@@ -2,7 +2,9 @@
 //  QtNetwork/6.12.0/QtNetwork/private/qnetworkreplyhttpimpl_p.h, Qt 6.12.0.
 //  Edited by hand on 2026-11-25: took out the include of
 //  qnetworkaccessdebugpipebackend_p.h, which Qt installs only when built
-//  with private tests, and which no ritual here needs. Kept as it is when
+//  with private tests, and which no ritual here needs. Edited by hand on
+//  2026-11-27: code taken from Qt's source no longer stands under
+//  defined(Q_OS_LINUX), which Qt does not write there. Kept as it is when
 //  the generator runs again.
 #include <QtNetwork/qtnetworkglobal.h>
 #include <QtNetwork/6.12.0/QtNetwork/private/qtnetworkglobal_p.h>
@@ -288,7 +290,6 @@ inline bool QHttpNetworkRequest::withCredentials() const
 
 //  from src/network/access/qnetworkaccessmanager.cpp, line 1670, as _ZN28QNetworkAccessManagerPrivate27proxyAuthenticationRequiredERK4QUrlRK13QNetworkProxybP14QAuthenticatorPS3_
 #if !defined(QT_NO_NETWORKPROXY)
-#if defined(Q_OS_LINUX)
 inline void QNetworkAccessManagerPrivate::proxyAuthenticationRequired(const QUrl &url,
                                                                const QNetworkProxy &proxy,
                                                                bool synchronous,
@@ -335,7 +336,6 @@ inline void QNetworkAccessManagerPrivate::proxyAuthenticationRequired(const QUrl
     emit q->proxyAuthenticationRequired(proxy, authenticator);
     authenticationManager->cacheProxyCredentials(proxy, authenticator);
 }
-#endif  // defined(Q_OS_LINUX)
 #endif  // !defined(QT_NO_NETWORKPROXY)
 
 //  from src/network/access/qnetworkrequest.cpp, line 1932, as _ZN22QNetworkHeadersPrivate21invalidateHeaderCacheEv

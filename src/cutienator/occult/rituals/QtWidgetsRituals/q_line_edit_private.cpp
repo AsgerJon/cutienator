@@ -1,11 +1,15 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtWidgets/6.12.0/QtWidgets/private/qlineedit_p.h, Qt 6.12.0.
-//  Edited by hand on 2026-11-26: added are 3 rituals that lean on what moc
-//  writes for a class of the part Qt keeps to itself, whose ritual file
-//  carries moc's output, drafted by a copy of the generator that lets those
-//  names through. A copy of a meta-object is a second one: 'qobject_cast'
-//  between it and Qt's own does not match. Kept as it is when the generator
-//  runs again.
+//  QtWidgets/6.12.0/QtWidgets/private/qlineedit_p.h, Qt 6.12.0. Edited by
+//  hand on 2026-11-26: added are 3 rituals that lean on what moc writes for
+//  a class of the part Qt keeps to itself, whose ritual file carries moc's
+//  output, drafted by a copy of the generator that lets those names through.
+//  A copy of a meta-object is a second one: 'qobject_cast' between it and
+//  Qt's own does not match. Edited by hand on 2026-11-27: code taken from
+//  Qt's source no longer stands under defined(Q_OS_LINUX), which Qt does not
+//  write there; its rituals no longer stand under defined(Q_OS_LINUX), as
+//  the code taken from Qt they call no longer does; its rituals no longer
+//  stand under defined(Q_OS_LINUX), as the code taken from Qt they call no
+//  longer does. Kept as it is when the generator runs again.
 #include <QtGui/qtguiglobal.h>
 #include <QtCore/qglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
@@ -346,7 +350,6 @@ inline void QLineEditPrivate::disconnectCompleter()
 
 //  from src/widgets/widgets/qlineedit_p.cpp, line 96, as _ZN16QLineEditPrivate21completionHighlightedERK7QString
 #if QT_CONFIG(completer)
-#if defined(Q_OS_LINUX)
 inline void QLineEditPrivate::completionHighlighted(const QString &newText)
 {
     Q_Q(QLineEdit);
@@ -365,7 +368,6 @@ inline void QLineEditPrivate::completionHighlighted(const QString &newText)
         control->moveCursor(c, mark);
     }
 }
-#endif  // defined(Q_OS_LINUX)
 #endif  // QT_CONFIG(completer)
 
 //  from src/widgets/widgets/qlineedit_p.cpp, line 318, as _ZN16QLineEditPrivate4dragEv
@@ -405,7 +407,6 @@ inline void QLineEditPrivate::controlEditingFinished()
 
 //  from src/widgets/widgets/qlineedit_p.cpp, line 568, as _ZN16QLineEditPrivate9addActionEP7QActionS1_N9QLineEdit14ActionPositionEi
 #if QT_CONFIG(action)
-#if defined(Q_OS_LINUX)
 inline QWidget *QLineEditPrivate::addAction(QAction *newAction, QAction *before, QLineEdit::ActionPosition position, int flags)
 {
     Q_Q(QLineEdit);
@@ -477,7 +478,6 @@ inline QWidget *QLineEditPrivate::addAction(QAction *newAction, QAction *before,
     w->show();
     return w;
 }
-#endif  // defined(Q_OS_LINUX)
 #endif  // QT_CONFIG(action)
 
 //  from src/widgets/widgets/qlineedit_p.cpp, line 640, as _ZN16QLineEditPrivate12removeActionEP7QAction
@@ -1021,29 +1021,24 @@ void ritual_ZN16QLineEditPrivate21cursorPositionChangedEii(
 }
 
 #if QT_CONFIG(completer)
-#if defined(Q_OS_LINUX)
 //  void QLineEditPrivate::connectCompleter()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN16QLineEditPrivate16connectCompleterEv(
     QLineEditPrivate *self) {
   self->connectCompleter();
 }
-#endif  // defined(Q_OS_LINUX)
 #endif  // QT_CONFIG(completer)
 
 #if QT_CONFIG(completer)
-#if defined(Q_OS_LINUX)
 //  void QLineEditPrivate::disconnectCompleter()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN16QLineEditPrivate19disconnectCompleterEv(
     QLineEditPrivate *self) {
   self->disconnectCompleter();
 }
-#endif  // defined(Q_OS_LINUX)
 #endif  // QT_CONFIG(completer)
 
 #if QT_CONFIG(completer)
-#if defined(Q_OS_LINUX)
 //  void QLineEditPrivate::completionHighlighted(const QString &a0)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN16QLineEditPrivate21completionHighlightedERK7QString(
@@ -1051,7 +1046,6 @@ void ritual_ZN16QLineEditPrivate21completionHighlightedERK7QString(
     const QString *a0) {
   self->completionHighlighted(*a0);
 }
-#endif  // defined(Q_OS_LINUX)
 #endif  // QT_CONFIG(completer)
 
 #if QT_CONFIG(draganddrop)
@@ -1077,7 +1071,6 @@ void ritual_ZN16QLineEditPrivate22controlEditingFinishedEv(
 }
 
 #if QT_CONFIG(action)
-#if defined(Q_OS_LINUX)
 #if QT_CONFIG(toolbutton)
 #if QT_CONFIG(animation)
 //  QWidget *QLineEditPrivate::addAction(QAction *newAction, QAction *before,
@@ -1093,7 +1086,6 @@ QWidget *ritual_ZN16QLineEditPrivate9addActionEP7QActionS1_N9QLineEdit14ActionPo
 }
 #endif  // QT_CONFIG(animation)
 #endif  // QT_CONFIG(toolbutton)
-#endif  // defined(Q_OS_LINUX)
 #endif  // QT_CONFIG(action)
 
 #if QT_CONFIG(action)

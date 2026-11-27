@@ -1,12 +1,18 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtNetwork/6.12.0/QtNetwork/private/qhostinfo_p.h, Qt 6.12.0.
-//  Edited by hand on 2026-11-25: Qt's own line defining 'QT_SOCKLEN_T'
-//  as 'int' on Windows, which follows 'ws2tcpip.h' in Qt's
-//  'qhostinfo.cpp', is put back, for the code taken for 'reverseLookup'
-//  names that type and Windows' 'qplatformdefs.h' does not define it.
-//  So are its lines defining 'Q_ADDRCONFIG' on Unix, without which the
-//  code taken for 'lookup' never asks for 'AI_ADDRCONFIG' as Qt does.
-//  Kept as it is when the generator runs again.
+//  QtNetwork/6.12.0/QtNetwork/private/qhostinfo_p.h, Qt 6.12.0. Edited by
+//  hand on 2026-11-25: Qt's own line defining 'QT_SOCKLEN_T' as 'int' on
+//  Windows, which follows 'ws2tcpip.h' in Qt's 'qhostinfo.cpp', is put back,
+//  for the code taken for 'reverseLookup' names that type and Windows'
+//  'qplatformdefs.h' does not define it. So are its lines defining
+//  'Q_ADDRCONFIG' on Unix, without which the code taken for 'lookup' never
+//  asks for 'AI_ADDRCONFIG' as Qt does. Edited by hand on 2026-11-27: code
+//  taken from Qt's source no longer stands under defined(Q_OS_LINUX), which
+//  Qt does not write there; its rituals no longer stand under
+//  defined(Q_OS_LINUX), as the code taken from Qt they call no longer does.
+//  Edited by hand on 2026-11-27: on Windows the code taken from Qt calls
+//  Winsock (htons, htonl, getnameinfo), which lies in 'ws2_32.lib';
+//  QtNetwork joins that library for itself, and this file asks the linker
+//  for it too, under Q_OS_WIN. Kept as it is when the generator runs again.
 #include <QtNetwork/6.12.0/QtNetwork/private/qtnetworkglobal_p.h>
 #include <QtNetwork/QtNetwork>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -42,6 +48,13 @@
 #endif
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
+//  Winsock, which the code taken from Qt calls on Windows, lies in
+//  'ws2_32.lib', which QtNetwork joins for itself: this file asks the
+//  linker for it as well.
+#if defined(Q_OS_WIN)
+#pragma comment(lib, "ws2_32")
+#endif
+
 //  Qt's own code, from here to the line of dashes: taken from
 //  Qt's source, because Qt's library carries it under no name.
 //  Copyright (C) The Qt Company Ltd. It stays under the license
@@ -52,7 +65,6 @@
 //  'inline' put before it where Qt did not write it.
 
 //  from src/network/kernel/qhostinfo.cpp, line 395, as _ZN14QHostInfoAgent6lookupERK7QString
-#if defined(Q_OS_LINUX)
 inline QHostInfo QHostInfoAgent::lookup(const QString &hostName)
 {
     QHostInfo results;
@@ -173,7 +185,6 @@ inline QHostInfo QHostInfoAgent::lookup(const QString &hostName)
 
     return results;
 }
-#endif  // defined(Q_OS_LINUX)
 
 //  from src/network/kernel/qhostinfo.cpp, line 359, as _ZN14QHostInfoAgent13reverseLookupERK12QHostAddress
 inline QHostInfo QHostInfoAgent::reverseLookup(const QHostAddress &address)
@@ -210,14 +221,12 @@ inline QHostInfo QHostInfoAgent::reverseLookup(const QHostAddress &address)
 }
 //  -----------------------------------------------------------------------
 
-#if defined(Q_OS_LINUX)
 //  QHostInfo QHostInfoAgent::lookup(const QString &hostName)
 extern "C" Q_DECL_EXPORT
 QHostInfo *ritual_ZN14QHostInfoAgent6lookupERK7QString(
     const QString *hostName) {
   return new QHostInfo(QHostInfoAgent::lookup(*hostName));
 }
-#endif  // defined(Q_OS_LINUX)
 
 //  QHostInfo QHostInfoAgent::reverseLookup(const QHostAddress &address)
 extern "C" Q_DECL_EXPORT

@@ -1,11 +1,15 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtWidgets/6.12.0/QtWidgets/private/qcolumnview_p.h, Qt 6.12.0.
-//  Edited by hand on 2026-11-26: added are 6 rituals that lean on what moc
-//  writes for a class of the part Qt keeps to itself, whose ritual file
-//  carries moc's output, drafted by a copy of the generator that lets those
-//  names through. A copy of a meta-object is a second one: 'qobject_cast'
-//  between it and Qt's own does not match. Kept as it is when the generator
-//  runs again.
+//  QtWidgets/6.12.0/QtWidgets/private/qcolumnview_p.h, Qt 6.12.0. Edited by
+//  hand on 2026-11-26: added are 6 rituals that lean on what moc writes for
+//  a class of the part Qt keeps to itself, whose ritual file carries moc's
+//  output, drafted by a copy of the generator that lets those names through.
+//  A copy of a meta-object is a second one: 'qobject_cast' between it and
+//  Qt's own does not match. Edited by hand on 2026-11-27: the copy of
+//  QColumnViewGrip's constructor taken from Qt is taken out: under
+//  Microsoft's ABI it had this file write QColumnViewGrip's whole table of
+//  virtual functions, each of which only the ritual file of QColumnViewGrip
+//  carries; that file now carries the constructor alone. Kept as it is when
+//  the generator runs again.
 #include <QtGui/qtguiglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
@@ -443,15 +447,6 @@ inline void QAbstractItemViewPrivate::columnsInserted(const QModelIndex &index, 
     }
 #endif
     updateGeometry();
-}
-
-//  from src/widgets/itemviews/qcolumnviewgrip.cpp, line 31, as _ZN15QColumnViewGripC1EP7QWidget
-inline QColumnViewGrip::QColumnViewGrip(QWidget *parent)
-    :  QWidget(*new QColumnViewGripPrivate, parent, { })
-{
-#ifndef QT_NO_CURSOR
-    setCursor(Qt::SplitHCursor);
-#endif
 }
 
 //  from src/widgets/itemviews/qcolumnview.cpp, line 1165, as _ZNK19QColumnViewDelegate5paintEP8QPainterRK20QStyleOptionViewItemRK11QModelIndex

@@ -1,14 +1,16 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtNetwork/6.12.0/QtNetwork/private/qnetworkaccessfilebackend_p.h, Qt
-//  6.12.0.
-//  Edited by hand on 2026-11-26: moc's output for
+//  6.12.0. Edited by hand on 2026-11-26: moc's output for
 //  'QNetworkAccessFileBackend' is pasted in, cut from what the moc of Qt
 //  6.12.0 writes for its header: Qt's library keeps it to itself; added are
 //  2 rituals that lean on what moc writes for a class of the part Qt keeps
 //  to itself, whose ritual file carries moc's output, drafted by a copy of
 //  the generator that lets those names through. A copy of a meta-object is a
-//  second one: 'qobject_cast' between it and Qt's own does not match. Kept
-//  as it is when the generator runs again.
+//  second one: 'qobject_cast' between it and Qt's own does not match. Edited
+//  by hand on 2026-11-27: code taken from Qt's source no longer stands under
+//  defined(Q_OS_LINUX), which Qt does not write there; its rituals no longer
+//  stand under defined(Q_OS_LINUX), as the code taken from Qt they call no
+//  longer does. Kept as it is when the generator runs again.
 #include <QtNetwork/6.12.0/QtNetwork/private/qtnetworkglobal_p.h>
 #include <QtNetwork/QtNetwork>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -170,7 +172,6 @@ inline void QNetworkAccessFileBackend::uploadReadyReadSlot()
 }
 
 //  from src/network/access/qnetworkaccessfilebackend.cpp, line 78, as _ZN25QNetworkAccessFileBackend4openEv
-#if defined(Q_OS_LINUX)
 inline void QNetworkAccessFileBackend::open()
 {
     QUrl url = this->url();
@@ -248,7 +249,6 @@ inline void QNetworkAccessFileBackend::open()
         finished();
     }
 }
-#endif  // defined(Q_OS_LINUX)
 
 //  from src/network/access/qnetworkaccessfilebackend.cpp, line 230, as _ZN25QNetworkAccessFileBackend4readEPcx
 inline qint64 QNetworkAccessFileBackend::read(char *data, qint64 maxlen)
@@ -708,7 +708,6 @@ int ritual_ZN25QNetworkAccessFileBackend11qt_metacallEN11QMetaObject4CallEiPPv(
   return self->qt_metacall(a0, a1, a2);
 }
 
-#if defined(Q_OS_LINUX)
 //  QString QNetworkAccessFileBackend::tr(const char *s, const char *c, int
 //      n)
 extern "C" Q_DECL_EXPORT
@@ -718,15 +717,12 @@ QString *ritual_ZN25QNetworkAccessFileBackend2trEPKcS1_i(
     int n) {
   return new QString(QNetworkAccessFileBackend::tr(s, c, n));
 }
-#endif  // defined(Q_OS_LINUX)
 
-#if defined(Q_OS_LINUX)
 //  QNetworkAccessFileBackend::QNetworkAccessFileBackend()
 extern "C" Q_DECL_EXPORT
 QNetworkAccessFileBackend *ritual_ZN25QNetworkAccessFileBackendC1Ev() {
   return new CuteQNetworkAccessFileBackend();
 }
-#endif  // defined(Q_OS_LINUX)
 
 //  QNetworkAccessFileBackend::~QNetworkAccessFileBackend()
 extern "C" Q_DECL_EXPORT
@@ -807,14 +803,12 @@ bool ritual_take_QNetworkAccessFileBackend(
   return static_cast<CuteQNetworkAccessFileBackend *>(self)->take(key, call);
 }
 
-#if defined(Q_OS_LINUX)
 //  void QNetworkAccessFileBackend::open()
 extern "C" Q_DECL_EXPORT
 void ritual_own_ZN25QNetworkAccessFileBackend4openEv(
     QNetworkAccessFileBackend *self) {
   self->QNetworkAccessFileBackend::open();
 }
-#endif  // defined(Q_OS_LINUX)
 
 //  void QNetworkAccessFileBackend::close()
 extern "C" Q_DECL_EXPORT

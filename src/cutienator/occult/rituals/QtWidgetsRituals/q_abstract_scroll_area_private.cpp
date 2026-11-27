@@ -4,8 +4,11 @@
 //  writes for a class of the part Qt keeps to itself, whose ritual file
 //  carries moc's output, drafted by a copy of the generator that lets those
 //  names through. A copy of a meta-object is a second one: 'qobject_cast'
-//  between it and Qt's own does not match. Kept as it is when the generator
-//  runs again.
+//  between it and Qt's own does not match. Edited by hand on 2026-11-27:
+//  code taken from Qt's source no longer stands under defined(Q_OS_LINUX),
+//  which Qt does not write there; its rituals no longer stand under
+//  defined(Q_OS_LINUX), as the code taken from Qt they call no longer does.
+//  Kept as it is when the generator runs again.
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #if QT_CONFIG(scrollarea)
@@ -233,7 +236,6 @@ inline void QAbstractScrollAreaPrivate::replaceScrollBar(QScrollBar *scrollBar,
 
 //  from src/widgets/widgets/qabstractscrollarea.cpp, line 251, as _ZN26QAbstractScrollAreaPrivate4initEv
 #if QT_CONFIG(scrollarea)
-#if defined(Q_OS_LINUX)
 inline void QAbstractScrollAreaPrivate::init()
 {
     Q_Q(QAbstractScrollArea);
@@ -270,7 +272,6 @@ inline void QAbstractScrollAreaPrivate::init()
 #  endif
 #endif
 }
-#endif  // defined(Q_OS_LINUX)
 #endif  // QT_CONFIG(scrollarea)
 
 //  from src/widgets/widgets/qabstractscrollarea.cpp, line 288, as _ZN26QAbstractScrollAreaPrivate14layoutChildrenEv
@@ -857,14 +858,12 @@ void ritual_ZN26QAbstractScrollAreaPrivate16replaceScrollBarEP10QScrollBarN2Qt11
 #endif  // QT_CONFIG(scrollarea)
 
 #if QT_CONFIG(scrollarea)
-#if defined(Q_OS_LINUX)
 //  void QAbstractScrollAreaPrivate::init()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN26QAbstractScrollAreaPrivate4initEv(
     QAbstractScrollAreaPrivate *self) {
   self->init();
 }
-#endif  // defined(Q_OS_LINUX)
 #endif  // QT_CONFIG(scrollarea)
 
 #if QT_CONFIG(scrollarea)

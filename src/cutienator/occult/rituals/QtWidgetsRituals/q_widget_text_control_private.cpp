@@ -1,6 +1,9 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/6.12.0/QtWidgets/private/qwidgettextcontrol_p_p.h, Qt 6.12.0.
-//  Changes made here are lost.
+//  Edited by hand on 2026-11-27: code taken from Qt's source no longer
+//  stands under defined(Q_OS_LINUX), which Qt does not write there; its
+//  rituals no longer stand under defined(Q_OS_LINUX), as the code taken from
+//  Qt they call no longer does. Kept as it is when the generator runs again.
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #if QT_CONFIG(widgettextcontrol)
@@ -353,7 +356,6 @@ inline void QWidgetTextControlPrivate::extendWordwiseSelection(int suggestedNewP
 
 //  from src/widgets/widgets/qwidgettextcontrol.cpp, line 100, as _ZN25QWidgetTextControlPrivateC1Ev
 #if !defined(QT_NO_TEXTCONTROL)
-#if defined(Q_OS_LINUX)
 inline QWidgetTextControlPrivate::QWidgetTextControlPrivate()
     : doc(nullptr), cursorOn(false), cursorVisible(false), cursorIsFocusIndicator(false),
 #ifndef Q_OS_ANDROID
@@ -377,7 +379,6 @@ inline QWidgetTextControlPrivate::QWidgetTextControlPrivate()
       openExternalLinks(false),
       wordSelectionEnabled(false)
 {}
-#endif  // defined(Q_OS_LINUX)
 #endif  // !defined(QT_NO_TEXTCONTROL)
 
 //  from src/widgets/widgets/qwidgettextcontrol.cpp, line 283, as _ZN25QWidgetTextControlPrivate23updateCurrentCharFormatEv
@@ -622,7 +623,6 @@ inline void QWidgetTextControlPrivate::setContent(Qt::TextFormat format, const Q
 
 //  from src/widgets/widgets/qwidgettextcontrol.cpp, line 499, as _ZN25QWidgetTextControlPrivate9startDragEv
 #if !defined(QT_NO_TEXTCONTROL)
-#if defined(Q_OS_LINUX)
 inline void QWidgetTextControlPrivate::startDrag()
 {
 
@@ -655,7 +655,6 @@ inline void QWidgetTextControlPrivate::startDrag()
         cursor.removeSelectedText();
 #endif
 }
-#endif  // defined(Q_OS_LINUX)
 #endif  // !defined(QT_NO_TEXTCONTROL)
 
 //  from src/widgets/widgets/qwidgettextcontrol.cpp, line 532, as _ZN25QWidgetTextControlPrivate17setCursorPositionERK7QPointF
@@ -2133,14 +2132,12 @@ void ritual_ZN25QWidgetTextControlPrivate10setContentEN2Qt10TextFormatERK7QStrin
 #endif  // !defined(QT_NO_TEXTCONTROL)
 
 #if !defined(QT_NO_TEXTCONTROL)
-#if defined(Q_OS_LINUX)
 //  void QWidgetTextControlPrivate::startDrag()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN25QWidgetTextControlPrivate9startDragEv(
     QWidgetTextControlPrivate *self) {
   self->startDrag();
 }
-#endif  // defined(Q_OS_LINUX)
 #endif  // !defined(QT_NO_TEXTCONTROL)
 
 #if !defined(QT_NO_TEXTCONTROL)
@@ -2381,7 +2378,6 @@ void ritual_ZN25QWidgetTextControlPrivate15mousePressEventEP6QEventN2Qt11MouseBu
 
 #if !defined(QT_NO_TEXTCONTROL)
 #if !defined(QT_NO_CLIPBOARD)
-#if defined(Q_OS_LINUX)
 //  void QWidgetTextControlPrivate::mouseMoveEvent(QEvent *e, Qt::MouseButton
 //      button, const QPointF &pos, Qt::KeyboardModifiers modifiers,
 //      Qt::MouseButtons buttons, const QPointF &globalPos)
@@ -2402,7 +2398,6 @@ void ritual_ZN25QWidgetTextControlPrivate14mouseMoveEventEP6QEventN2Qt11MouseBut
       QFlags<Qt::MouseButton>::fromInt(buttons),
       *globalPos);
 }
-#endif  // defined(Q_OS_LINUX)
 #endif  // !defined(QT_NO_CLIPBOARD)
 #endif  // !defined(QT_NO_TEXTCONTROL)
 

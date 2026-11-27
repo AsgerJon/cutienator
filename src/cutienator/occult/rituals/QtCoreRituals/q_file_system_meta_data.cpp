@@ -1,19 +1,20 @@
-//  Edited by hand on 2026-11-25: 'fillFromDirEnt' takes Qt's
-//  'QT_DIRENT', which on Linux is 'struct dirent64', not 'struct
-//  dirent': its ritual takes a 'const QT_DIRENT *', and is named by
-//  'dirent64' as Qt's Linux library names it. Kept as it is when the
-//  generator runs again.
-//  Edited by hand again on 2026-11-26: the lines pulling in Unix's
-//  headers 'qcore_unix_p.h', 'grp.h', 'pwd.h' and 'unistd.h' stand
-//  under 'defined(Q_OS_UNIX)', for Windows has none of them, and the
-//  lines pulling in the Objective-C headers 'UTType.h',
-//  'UTCoreTypes.h' and 'Foundation.h' under '__OBJC__', as
-//  'Foundation.h' does in Qt's 'qcore_mac_p.h', for Qt compiles
-//  qfilesystemengine_unix.cpp, where they come from, as Objective-C++
-//  on Apple and a ritual file is C++. Kept as it is when the generator
-//  runs again.
-//  Written by dev_tooling.RitualGenerator from the records of
-//  QtCore/6.12.0/QtCore/private/qfilesystemmetadata_p.h, Qt 6.12.0.
+//  Edited by hand on 2026-11-25: 'fillFromDirEnt' takes Qt's 'QT_DIRENT',
+//  which on Linux is 'struct dirent64', not 'struct dirent': its ritual
+//  takes a 'const QT_DIRENT *', and is named by 'dirent64' as Qt's Linux
+//  library names it. Edited by hand again on 2026-11-26: the lines pulling
+//  in Unix's headers 'qcore_unix_p.h', 'grp.h', 'pwd.h' and 'unistd.h' stand
+//  under 'defined(Q_OS_UNIX)', for Windows has none of them, and the lines
+//  pulling in the Objective-C headers 'UTType.h', 'UTCoreTypes.h' and
+//  'Foundation.h' under '__OBJC__', as 'Foundation.h' does in Qt's
+//  'qcore_mac_p.h', for Qt compiles qfilesystemengine_unix.cpp, where they
+//  come from, as Objective-C++ on Apple and a ritual file is C++. Written by
+//  dev_tooling.RitualGenerator from the records of
+//  QtCore/6.12.0/QtCore/private/qfilesystemmetadata_p.h, Qt 6.12.0. Edited
+//  by hand on 2026-11-27: code taken from Qt's qfilesystemengine_unix.cpp
+//  stands under defined(Q_OS_UNIX), as Qt builds that file, not
+//  defined(Q_OS_LINUX); its rituals stand under defined(Q_OS_UNIX), as the
+//  code taken from Qt for Unix they call does, not defined(Q_OS_LINUX). Kept
+//  as it is when the generator runs again.
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtCore/QtCore>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -93,7 +94,7 @@
 //  'inline' put before it where Qt did not write it.
 
 //  from src/corelib/io/qfilesystemengine_unix.cpp, line 517, as _ZN19QFileSystemMetaData14fillFromDirEntERK6dirent
-#if defined(Q_OS_LINUX)
+#if defined(Q_OS_UNIX)
 inline void QFileSystemMetaData::fillFromDirEnt(const QT_DIRENT &entry)
 {
 #if defined(_DEXTRA_FIRST)
@@ -211,7 +212,7 @@ inline void QFileSystemMetaData::fillFromDirEnt(const QT_DIRENT &entry)
     Q_UNUSED(entry);
 #endif
 }
-#endif  // defined(Q_OS_LINUX)
+#endif  // defined(Q_OS_UNIX)
 //  -----------------------------------------------------------------------
 
 //  QFileSystemMetaData::QFileSystemMetaData()
@@ -431,7 +432,7 @@ bool ritual_ZNK19QFileSystemMetaData12isExecutableEv(
 }
 
 #if defined(Q_OS_UNIX)
-#if defined(Q_OS_LINUX)
+#if defined(Q_OS_UNIX)
 //  void QFileSystemMetaData::fillFromDirEnt(const QT_DIRENT &statBuffer)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN19QFileSystemMetaData14fillFromDirEntERK8dirent64(
@@ -439,7 +440,7 @@ void ritual_ZN19QFileSystemMetaData14fillFromDirEntERK8dirent64(
     const QT_DIRENT *statBuffer) {
   self->fillFromDirEnt(*statBuffer);
 }
-#endif  // defined(Q_OS_LINUX)
+#endif  // defined(Q_OS_UNIX)
 #endif  // defined(Q_OS_UNIX)
 
 //  QFileSystemMetaData::~QFileSystemMetaData()

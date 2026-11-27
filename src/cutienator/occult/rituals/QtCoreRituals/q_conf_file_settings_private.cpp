@@ -1,6 +1,9 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtCore/6.12.0/QtCore/private/qsettings_p.h, Qt 6.12.0. Changes made here
-//  are lost.
+//  QtCore/6.12.0/QtCore/private/qsettings_p.h, Qt 6.12.0. Edited by hand on
+//  2026-11-27: code taken from Qt's source no longer stands under
+//  defined(Q_OS_LINUX), which Qt does not write there; its rituals no longer
+//  stand under defined(Q_OS_LINUX), as the code taken from Qt they call no
+//  longer does. Kept as it is when the generator runs again.
 #include <QtCore/qglobal.h>
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #if QT_CONFIG(settings)
@@ -93,7 +96,6 @@ inline QSettingsPrivate::~QSettingsPrivate()
 }
 
 //  from src/corelib/io/qsettings.cpp, line 906, as _ZN24QConfFileSettingsPrivate10initAccessEv
-#if defined(Q_OS_LINUX)
 inline void QConfFileSettingsPrivate::initAccess()
 {
     if (!confFiles.isEmpty()) {
@@ -109,7 +111,6 @@ inline void QConfFileSettingsPrivate::initAccess()
 
     sync();       // loads the files the first time
 }
-#endif  // defined(Q_OS_LINUX)
 
 //  from src/corelib/io/qsettings.cpp, line 1194, as _ZN24QConfFileSettingsPrivate3setERK7QStringRK8QVariant
 inline void QConfFileSettingsPrivate::set(const QString &key, const QVariant &value)
@@ -190,7 +191,6 @@ inline void QConfFileSettingsPrivate::remove(const QString &key)
 }
 
 //  from src/corelib/io/qsettings.cpp, line 1314, as _ZNK24QConfFileSettingsPrivate10isWritableEv
-#if defined(Q_OS_LINUX)
 inline bool QConfFileSettingsPrivate::isWritable() const
 {
 #if defined(Q_OS_WASM)
@@ -205,7 +205,6 @@ inline bool QConfFileSettingsPrivate::isWritable() const
 
     return confFiles.at(0)->isWritable();
 }
-#endif  // defined(Q_OS_LINUX)
 
 //  from src/corelib/io/qsettings.cpp, line 1208, as _ZNK24QConfFileSettingsPrivate3getERK7QString
 inline std::optional<QVariant> QConfFileSettingsPrivate::get(const QString &key) const
@@ -741,14 +740,12 @@ void ritual_own_ZN24QConfFileSettingsPrivate5flushEv(
   self->QConfFileSettingsPrivate::flush();
 }
 
-#if defined(Q_OS_LINUX)
 //  bool QConfFileSettingsPrivate::isWritable() const
 extern "C" Q_DECL_EXPORT
 bool ritual_own_ZNK24QConfFileSettingsPrivate10isWritableEv(
     const QConfFileSettingsPrivate *self) {
   return self->QConfFileSettingsPrivate::isWritable();
 }
-#endif  // defined(Q_OS_LINUX)
 
 //  QString QConfFileSettingsPrivate::fileName() const
 extern "C" Q_DECL_EXPORT
@@ -757,14 +754,12 @@ QString *ritual_own_ZNK24QConfFileSettingsPrivate8fileNameEv(
   return new QString(self->QConfFileSettingsPrivate::fileName());
 }
 
-#if defined(Q_OS_LINUX)
 //  void QConfFileSettingsPrivate::initAccess()
 extern "C" Q_DECL_EXPORT
 void ritual_own_ZN24QConfFileSettingsPrivate10initAccessEv(
     QConfFileSettingsPrivate *self) {
   self->QConfFileSettingsPrivate::initAccess();
 }
-#endif  // defined(Q_OS_LINUX)
 
 //  a std::optional<QVariant> a ritual of QConfFileSettingsPrivate gave
 extern "C" Q_DECL_EXPORT

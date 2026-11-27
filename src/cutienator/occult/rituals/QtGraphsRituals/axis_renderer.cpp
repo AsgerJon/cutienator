@@ -1,13 +1,17 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtGraphs/6.12.0/QtGraphs/private/axisrenderer_p.h, Qt 6.12.0.
-//  Edited by hand on 2026-11-26: moc's output for 'AxisRenderer' is pasted
-//  in, cut from what the moc of Qt 6.12.0 writes for its header: Qt's
-//  library keeps it to itself; added are 9 rituals that lean on what moc
-//  writes for a class of the part Qt keeps to itself, whose ritual file
-//  carries moc's output, drafted by a copy of the generator that lets those
-//  names through. A copy of a meta-object is a second one: 'qobject_cast'
-//  between it and Qt's own does not match. Kept as it is when the generator
-//  runs again.
+//  QtGraphs/6.12.0/QtGraphs/private/axisrenderer_p.h, Qt 6.12.0. Edited by
+//  hand on 2026-11-26: moc's output for 'AxisRenderer' is pasted in, cut
+//  from what the moc of Qt 6.12.0 writes for its header: Qt's library keeps
+//  it to itself; added are 9 rituals that lean on what moc writes for a
+//  class of the part Qt keeps to itself, whose ritual file carries moc's
+//  output, drafted by a copy of the generator that lets those names through.
+//  A copy of a meta-object is a second one: 'qobject_cast' between it and
+//  Qt's own does not match. Edited by hand on 2026-11-27: the copy of
+//  AxisTicker's constructor taken from Qt is taken out (1): under
+//  Microsoft's ABI it had this file write AxisTicker's whole table of
+//  virtual functions, each of which only the ritual file of AxisTicker
+//  carries; that file now carries the constructor alone. Kept as it is when
+//  the generator runs again.
 #include <QtGui/qtguiglobal.h>
 #include <QtQuick/qtquickglobal.h>
 #include <QtGraphs/qgraphsglobal.h>
@@ -173,12 +177,6 @@ inline void AxisTicker::setOrigo(int newOrigo)
         return;
     m_origo = newOrigo;
     emit origoChanged();
-}
-
-//  from ../qtgraphs/src/graphs2d/axis/axisticker.cpp, line 10, as _ZN10AxisTickerC1EP10QQuickItem
-inline AxisTicker::AxisTicker(QQuickItem *parent) :
-      QQuickShaderEffect(parent)
-{
 }
 
 //  from ../qtgraphs/src/graphs2d/axis/axisgrid.cpp, line 31, as _ZN8AxisGrid12setupShadersEv

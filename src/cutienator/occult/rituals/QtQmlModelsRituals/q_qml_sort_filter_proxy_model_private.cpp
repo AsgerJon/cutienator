@@ -1,12 +1,16 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtQmlModels/6.12.0/QtQmlModels/private/qqmlsortfilterproxymodel_p_p.h, Qt
-//  6.12.0.
-//  Edited by hand on 2026-11-26: added are 1 rituals that lean on what moc
-//  writes for a class of the part Qt keeps to itself, whose ritual file
-//  carries moc's output, drafted by a copy of the generator that lets those
-//  names through. A copy of a meta-object is a second one: 'qobject_cast'
-//  between it and Qt's own does not match. Kept as it is when the generator
-//  runs again.
+//  6.12.0. Edited by hand on 2026-11-26: added are 1 rituals that lean on
+//  what moc writes for a class of the part Qt keeps to itself, whose ritual
+//  file carries moc's output, drafted by a copy of the generator that lets
+//  those names through. A copy of a meta-object is a second one:
+//  'qobject_cast' between it and Qt's own does not match. Edited by hand on
+//  2026-11-27: the copy of QQmlSorterCompositor's constructor taken from Qt
+//  is taken out (1): under Microsoft's ABI it had this file write
+//  QQmlSorterCompositor's whole table of virtual functions, each of which
+//  only the ritual file of QQmlSorterCompositor carries; that file now
+//  carries the constructor alone. Kept as it is when the generator runs
+//  again.
 #include <QtCore/qglobal.h>
 #include <QtQmlModels/qtqmlmodelsglobal.h>
 #include <QtQmlModels/6.12.0/QtQmlModels/private/qtqmlmodelsglobal_p.h>
@@ -44,21 +48,6 @@
 //      GPL-3.0-only
 //  Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
-
-//  from ../qtdeclarative/src/qmlmodels/sfpm/sorters/qqmlsortercompositor.cpp, line 11, as _ZN20QQmlSorterCompositorC1EP7QObject
-inline QQmlSorterCompositor::QQmlSorterCompositor(QObject *parent)
-    : QQmlSorterBase(new QQmlSorterCompositorPrivate, parent)
-{
-    Q_D(QQmlSorterCompositor);
-    d->init();
-    // Connect the model reset with the update in the filter
-    // The cache need to be updated once the model is reset with the
-    // source model data.
-    connect(d->m_sfpmModel, &QQmlSortFilterProxyModel::modelReset,
-            this, &QQmlSorterCompositor::updateSorters);
-    connect(d->m_sfpmModel, &QQmlSortFilterProxyModel::primarySorterChanged,
-            this, &QQmlSorterCompositor::updateEffectiveSorters);
-}
 
 //  from ../qtdeclarative/src/qmlmodels/sfpm/qqmlsortfilterproxymodel.cpp, line 1594, as _ZN31QQmlSortFilterProxyModelPrivate15beginInsertRowsERK11QModelIndexii
 inline void QQmlSortFilterProxyModelPrivate::beginInsertRows(const QModelIndex &parent, int first, int last) {

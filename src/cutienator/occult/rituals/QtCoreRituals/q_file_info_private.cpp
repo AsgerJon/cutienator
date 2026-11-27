@@ -1,6 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtCore/6.12.0/QtCore/private/qfileinfo_p.h, Qt 6.12.0. Changes made here
-//  are lost.
+//  QtCore/6.12.0/QtCore/private/qfileinfo_p.h, Qt 6.12.0. Edited by hand on
+//  2026-11-27: code taken from Qt's source no longer stands under
+//  defined(Q_OS_LINUX), which Qt does not write there. Kept as it is when
+//  the generator runs again.
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtCore/QtCore>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -70,7 +72,6 @@ inline QFileSystemEntry::QFileSystemEntry()
 }
 
 //  from src/corelib/io/qfilesystemengine.cpp, line 213, as _ZN17QFileSystemEngine15resolveUserNameERK16QFileSystemEntryR19QFileSystemMetaData
-#if defined(Q_OS_LINUX)
 inline QString QFileSystemEngine::resolveUserName(const QFileSystemEntry &entry, QFileSystemMetaData &metaData)
 {
 #if defined(Q_OS_WIN)
@@ -84,10 +85,8 @@ inline QString QFileSystemEngine::resolveUserName(const QFileSystemEntry &entry,
     return resolveUserName(metaData.userId());
 #endif
 }
-#endif  // defined(Q_OS_LINUX)
 
 //  from src/corelib/io/qfilesystemengine.cpp, line 228, as _ZN17QFileSystemEngine16resolveGroupNameERK16QFileSystemEntryR19QFileSystemMetaData
-#if defined(Q_OS_LINUX)
 inline QString QFileSystemEngine::resolveGroupName(const QFileSystemEntry &entry, QFileSystemMetaData &metaData)
 {
 #if defined(Q_OS_WIN)
@@ -101,7 +100,6 @@ inline QString QFileSystemEngine::resolveGroupName(const QFileSystemEntry &entry
     return resolveGroupName(metaData.groupId());
 #endif
 }
-#endif  // defined(Q_OS_LINUX)
 
 //  from src/corelib/io/qfileinfo.cpp, line 101, as _ZNK16QFileInfoPrivate12getFileFlagsE6QFlagsIN19QAbstractFileEngine8FileFlagEE
 inline uint QFileInfoPrivate::getFileFlags(QAbstractFileEngine::FileFlags request) const

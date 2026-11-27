@@ -1,6 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtNetwork/6.12.0/QtNetwork/private/qnetworkaccessfilebackend_p.h, Qt
-//  6.12.0. Changes made here are lost.
+//  6.12.0. Edited by hand on 2026-11-27: code taken from Qt's source no
+//  longer stands under defined(Q_OS_LINUX), which Qt does not write there.
+//  Kept as it is when the generator runs again.
 #include <QtNetwork/6.12.0/QtNetwork/private/qtnetworkglobal_p.h>
 #include <QtNetwork/QtNetwork>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -32,7 +34,6 @@
 using namespace Qt::StringLiterals;
 
 //  from src/network/access/qnetworkaccessfilebackend.cpp, line 28, as _ZNK32QNetworkAccessFileBackendFactory6createEN21QNetworkAccessManager9OperationERK15QNetworkRequest
-#if defined(Q_OS_LINUX)
 inline QNetworkAccessBackend *
 QNetworkAccessFileBackendFactory::create(QNetworkAccessManager::Operation op,
                                          const QNetworkRequest &request) const
@@ -69,7 +70,6 @@ QNetworkAccessFileBackendFactory::create(QNetworkAccessManager::Operation op,
 
     return nullptr;
 }
-#endif  // defined(Q_OS_LINUX)
 
 //  from src/network/access/qnetworkaccessfilebackend.cpp, line 67, as _ZN25QNetworkAccessFileBackendC1Ev
 inline QNetworkAccessFileBackend::QNetworkAccessFileBackend()

@@ -1,6 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtCore/6.12.0/QtCore/private/qioring_p.h, Qt 6.12.0. Changes made here
-//  are lost.
+//  QtCore/6.12.0/QtCore/private/qioring_p.h, Qt 6.12.0. Edited by hand on
+//  2026-11-27: its rituals no longer stand under defined(Q_OS_LINUX), as the
+//  code taken from Qt they call no longer does. Kept as it is when the
+//  generator runs again.
 #include <QtCore/qglobal.h>
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #if (QT_CONFIG(liburing)) || (QT_CONFIG(windows_ioring))
@@ -206,13 +208,11 @@ QIORing::QueuedRequestStatus ritual_ZN7QIORing20queueRequestInternalERNS_18Gener
   return self->queueRequestInternal(*request);
 }
 
-#if defined(Q_OS_LINUX)
 //  bool QIORing::isResultFailure(NativeResultType result)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN7QIORing15isResultFailureEi(QIORing::NativeResultType result) {
   return QIORing::isResultFailure(result);
 }
-#endif  // defined(Q_OS_LINUX)
 
 //  ReadWriteStatus QIORing::handleReadCompletion(size_t value,
 //      QSpan<std::byte> *destinations, void *voidExtra, SetResultFn

@@ -4,8 +4,11 @@
 //  writes for a class of the part Qt keeps to itself, whose ritual file
 //  carries moc's output, drafted by a copy of the generator that lets those
 //  names through. A copy of a meta-object is a second one: 'qobject_cast'
-//  between it and Qt's own does not match. Kept as it is when the generator
-//  runs again.
+//  between it and Qt's own does not match. Edited by hand on 2026-11-27:
+//  code taken from Qt's source no longer stands under defined(Q_OS_LINUX),
+//  which Qt does not write there; its rituals no longer stand under
+//  defined(Q_OS_LINUX), as the code taken from Qt they call no longer does.
+//  Kept as it is when the generator runs again.
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtWebSockets/qwebsocket.h>
 #include <QtWebSockets/QtWebSockets>
@@ -195,7 +198,6 @@ inline QWebSocketDataProcessor::QWebSocketDataProcessor(QObject *parent) :
 }
 
 //  from ../qtwebsockets/src/websockets/qwebsocket_p.cpp, line 179, as _ZN17QWebSocketPrivateD1Ev
-#if defined(Q_OS_LINUX)
 inline QWebSocketPrivate::~QWebSocketPrivate()
 {
 #ifdef Q_OS_WASM
@@ -209,7 +211,6 @@ inline QWebSocketPrivate::~QWebSocketPrivate()
     }
 #endif
 }
-#endif  // defined(Q_OS_LINUX)
 
 //  from ../qtwebsockets/src/websockets/qwebsockethandshakerequest.cpp, line 159, as _ZNK26QWebSocketHandshakeRequest10requestUrlEv
 inline QUrl QWebSocketHandshakeRequest::requestUrl() const
@@ -669,7 +670,6 @@ const QWebSocket *ritual_ZNK17QWebSocketPrivate6q_funcEv(
   return self->q_func();
 }
 
-#if defined(Q_OS_LINUX)
 //  QWebSocketPrivate::QWebSocketPrivate(const QString &origin,
 //      QWebSocketProtocol::Version version)
 extern "C" Q_DECL_EXPORT
@@ -678,7 +678,6 @@ QWebSocketPrivate *ritual_ZN17QWebSocketPrivateC1ERK7QStringN18QWebSocketProtoco
     QWebSocketProtocol::Version version) {
   return new QWebSocketPrivate(*origin, version);
 }
-#endif  // defined(Q_OS_LINUX)
 
 //  QWebSocketPrivate::~QWebSocketPrivate()
 extern "C" Q_DECL_EXPORT

@@ -1,6 +1,9 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/6.12.0/QtWidgets/private/qstandardgestures_p.h, Qt 6.12.0.
-//  Changes made here are lost.
+//  Edited by hand on 2026-11-27: code taken from Qt's source no longer
+//  stands under defined(Q_OS_LINUX), which Qt does not write there; its
+//  rituals no longer stand under defined(Q_OS_LINUX), as the code taken from
+//  Qt they call no longer does. Kept as it is when the generator runs again.
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #if !defined(QT_NO_GESTURES)
@@ -47,7 +50,6 @@ static QPointF panOffset(const QList<QEventPoint> &touchPoints, int maxCount)
 
 //  from src/widgets/kernel/qstandardgestures.cpp, line 29, as _ZN21QPanGestureRecognizer6createEP7QObject
 #if !defined(QT_NO_GESTURES)
-#if defined(Q_OS_LINUX)
 inline QGesture *QPanGestureRecognizer::create(QObject *target)
 {
     if (target && target->isWidgetType()) {
@@ -61,7 +63,6 @@ inline QGesture *QPanGestureRecognizer::create(QObject *target)
     }
     return new QPanGesture;
 }
-#endif  // defined(Q_OS_LINUX)
 #endif  // !defined(QT_NO_GESTURES)
 
 //  from src/widgets/kernel/qstandardgestures.cpp, line 101, as _ZN21QPanGestureRecognizer5resetEP8QGesture
@@ -113,7 +114,6 @@ void ritual_ZN21QPanGestureRecognizerD1Ev(QPanGestureRecognizer *self) {
 }
 
 #if !defined(QT_NO_GESTURES)
-#if defined(Q_OS_LINUX)
 //  QGesture *QPanGestureRecognizer::create(QObject *target)
 extern "C" Q_DECL_EXPORT
 QGesture *ritual_own_ZN21QPanGestureRecognizer6createEP7QObject(
@@ -121,7 +121,6 @@ QGesture *ritual_own_ZN21QPanGestureRecognizer6createEP7QObject(
     QObject *target) {
   return self->QPanGestureRecognizer::create(target);
 }
-#endif  // defined(Q_OS_LINUX)
 #endif  // !defined(QT_NO_GESTURES)
 
 #if !defined(QT_NO_GESTURES)

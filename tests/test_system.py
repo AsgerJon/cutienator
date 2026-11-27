@@ -118,7 +118,7 @@ class TestSystem(BaseTest):
         (
           '-fms-runtime-lib=dll', '-DNOMINMAX', '-DWIN32', '-DWIN64',
           '-D_WIN64', '-D_ENABLE_EXTENDED_ALIGNED_STORAGE', '-DUNICODE',
-          '-D_UNICODE',
+          '-D_UNICODE', '-mcx16',
         ),
     )
 

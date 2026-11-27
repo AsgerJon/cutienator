@@ -1,17 +1,21 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtCore/6.12.0/QtCore/private/qfsfileengine_p.h, Qt 6.12.0.
-//  Edited by hand on 2026-11-26: the lines pulling in Unix's headers
-//  'qcore_unix_p.h', 'grp.h', 'pwd.h' and 'unistd.h', and the code
-//  taken for 'fillMetaData(int, QFileSystemMetaData &)', which Qt
-//  declares on Unix only, stand under 'defined(Q_OS_UNIX)', for Windows
-//  has none of them; the lines pulling in the Objective-C headers
-//  'UTType.h', 'UTCoreTypes.h' and 'Foundation.h' stand under
-//  '__OBJC__', as 'Foundation.h' does in Qt's 'qcore_mac_p.h', for Qt
-//  compiles this source as Objective-C++ on Apple and a ritual file is
-//  C++; and Qt's own stand-in for 'struct statx' and its 'qt_fstatx'
-//  for a system without statx, as macOS, are taken from
-//  qfilesystemengine_unix.cpp. Kept as it is when the generator runs
-//  again.
+//  QtCore/6.12.0/QtCore/private/qfsfileengine_p.h, Qt 6.12.0. Edited by hand
+//  on 2026-11-26: the lines pulling in Unix's headers 'qcore_unix_p.h',
+//  'grp.h', 'pwd.h' and 'unistd.h', and the code taken for
+//  'fillMetaData(int, QFileSystemMetaData &)', which Qt declares on Unix
+//  only, stand under 'defined(Q_OS_UNIX)', for Windows has none of them; the
+//  lines pulling in the Objective-C headers 'UTType.h', 'UTCoreTypes.h' and
+//  'Foundation.h' stand under '__OBJC__', as 'Foundation.h' does in Qt's
+//  'qcore_mac_p.h', for Qt compiles this source as Objective-C++ on Apple
+//  and a ritual file is C++; and Qt's own stand-in for 'struct statx' and
+//  its 'qt_fstatx' for a system without statx, as macOS, are taken from
+//  qfilesystemengine_unix.cpp. Edited by hand on 2026-11-27: code taken from
+//  Qt's qfilesystemengine_unix.cpp stands under defined(Q_OS_UNIX), as Qt
+//  builds that file, not defined(Q_OS_LINUX). Edited by hand on 2026-11-27:
+//  code taken from Qt's source no longer stands under defined(Q_OS_LINUX),
+//  which Qt does not write there; its rituals stand under
+//  defined(Q_OS_UNIX), as the code taken from Qt for Unix they call does,
+//  not defined(Q_OS_LINUX). Kept as it is when the generator runs again.
 #include <QtCore/qglobal.h>
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #if !defined(QT_NO_FSFILEENGINE)
@@ -133,7 +137,7 @@
 using namespace Qt::StringLiterals;
 
 //  from src/corelib/io/qfilesystemengine_unix.cpp, line 299, as local:qfilesystemengine_unix.cpp:flagsFromStMode
-#if defined(Q_OS_LINUX)
+#if defined(Q_OS_UNIX)
 static QFileSystemMetaData::MetaDataFlags
 flagsFromStMode(mode_t mode, [[maybe_unused]] quint64 attributes)
 {
@@ -188,7 +192,7 @@ flagsFromStMode(mode_t mode, [[maybe_unused]] quint64 attributes)
 #endif
     return entryFlags;
 }
-#endif  // defined(Q_OS_LINUX)
+#endif  // defined(Q_OS_UNIX)
 
 //  from src/corelib/io/qfilesystemengine_unix.cpp, line 86, taken by hand
 #if defined(Q_OS_UNIX) && !defined(STATX_ALL)
@@ -504,7 +508,6 @@ inline bool QFSFileEnginePrivate::seekFdFh(qint64 pos)
 
 //  from src/corelib/io/qfsfileengine.cpp, line 682, as _ZN20QFSFileEnginePrivate12readLineFdFhEPcx
 #if !defined(QT_NO_FSFILEENGINE)
-#if defined(Q_OS_LINUX)
 inline qint64 QFSFileEnginePrivate::readLineFdFh(char *data, qint64 maxlen)
 {
     Q_Q(QFSFileEngine);
@@ -536,7 +539,6 @@ inline qint64 QFSFileEnginePrivate::readLineFdFh(char *data, qint64 maxlen)
     qint64 lineLength = QT_FTELL(fh) - oldPos;
     return lineLength > 0 ? lineLength : qstrlen(data);
 }
-#endif  // defined(Q_OS_LINUX)
 #endif  // !defined(QT_NO_FSFILEENGINE)
 
 //  from src/corelib/io/qfsfileengine.cpp, line 80, as _ZN20QFSFileEnginePrivateC1EP19QAbstractFileEngine
@@ -550,7 +552,6 @@ inline QFSFileEnginePrivate::QFSFileEnginePrivate(QAbstractFileEngine *q)
 
 //  from src/corelib/io/qfsfileengine.cpp, line 89, as _ZN20QFSFileEnginePrivate4initEv
 #if !defined(QT_NO_FSFILEENGINE)
-#if defined(Q_OS_LINUX)
 inline void QFSFileEnginePrivate::init()
 {
     is_sequential = 0;
@@ -570,7 +571,6 @@ inline void QFSFileEnginePrivate::init()
     cachedFd = -1;
 #endif
 }
-#endif  // defined(Q_OS_LINUX)
 #endif  // !defined(QT_NO_FSFILEENGINE)
 //  -----------------------------------------------------------------------
 
@@ -651,7 +651,7 @@ bool ritual_ZN20QFSFileEnginePrivate8seekFdFhEx(
 #endif  // !defined(QT_NO_FSFILEENGINE)
 
 #if !defined(QT_NO_FSFILEENGINE)
-#if defined(Q_OS_LINUX)
+#if defined(Q_OS_UNIX)
 //  qint64 QFSFileEnginePrivate::readLineFdFh(char *data, qint64 maxlen)
 extern "C" Q_DECL_EXPORT
 qint64 ritual_ZN20QFSFileEnginePrivate12readLineFdFhEPcx(
@@ -660,7 +660,7 @@ qint64 ritual_ZN20QFSFileEnginePrivate12readLineFdFhEPcx(
     qint64 maxlen) {
   return self->readLineFdFh(data, maxlen);
 }
-#endif  // defined(Q_OS_LINUX)
+#endif  // defined(Q_OS_UNIX)
 #endif  // !defined(QT_NO_FSFILEENGINE)
 
 //  bool QFSFileEnginePrivate::openModeCanCreate(QIODevice::OpenMode
@@ -683,24 +683,24 @@ int ritual_ZN20QFSFileEnginePrivate19openModeToOpenFlagsE6QFlagsIN13QIODeviceBas
 #endif  // defined(Q_OS_UNIX)
 
 #if !defined(QT_NO_FSFILEENGINE)
-#if defined(Q_OS_LINUX)
+#if defined(Q_OS_UNIX)
 //  QFSFileEnginePrivate::QFSFileEnginePrivate(QAbstractFileEngine *q)
 extern "C" Q_DECL_EXPORT
 QFSFileEnginePrivate *ritual_ZN20QFSFileEnginePrivateC1EP19QAbstractFileEngine(
     QAbstractFileEngine *q) {
   return new QFSFileEnginePrivate(q);
 }
-#endif  // defined(Q_OS_LINUX)
+#endif  // defined(Q_OS_UNIX)
 #endif  // !defined(QT_NO_FSFILEENGINE)
 
 #if !defined(QT_NO_FSFILEENGINE)
-#if defined(Q_OS_LINUX)
+#if defined(Q_OS_UNIX)
 //  void QFSFileEnginePrivate::init()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QFSFileEnginePrivate4initEv(QFSFileEnginePrivate *self) {
   self->init();
 }
-#endif  // defined(Q_OS_LINUX)
+#endif  // defined(Q_OS_UNIX)
 #endif  // !defined(QT_NO_FSFILEENGINE)
 
 //  QFSFileEnginePrivate::~QFSFileEnginePrivate()

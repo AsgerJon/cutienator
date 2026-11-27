@@ -1,6 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/6.12.0/QtWidgets/private/qmainwindowlayout_p.h, Qt 6.12.0.
-//  Changes made here are lost.
+//  Edited by hand on 2026-11-27: code taken from Qt's source no longer
+//  stands under defined(Q_OS_LINUX), which Qt does not write there. Kept as
+//  it is when the generator runs again.
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #if QT_CONFIG(mainwindow)
@@ -399,7 +401,6 @@ inline void QDockWidgetGroupWindow::paintEvent(QPaintEvent *)
 #endif  // QT_CONFIG(dockwidget)
 
 //  from src/widgets/widgets/qdockwidget.cpp, line 1083, as _ZN18QDockWidgetPrivate23nonClientAreaMouseEventEP11QMouseEvent
-#if defined(Q_OS_LINUX)
 inline void QDockWidgetPrivate::nonClientAreaMouseEvent(QMouseEvent *event)
 {
     Q_Q(QDockWidget);
@@ -455,7 +456,6 @@ inline void QDockWidgetPrivate::nonClientAreaMouseEvent(QMouseEvent *event)
             break;
     }
 }
-#endif  // defined(Q_OS_LINUX)
 
 //  from src/widgets/widgets/qdockarealayout.cpp, line 3440, as _ZN19QDockAreaLayoutInfo13separatorMoveERK5QListIiERK6QPointS6_
 inline int QDockAreaLayoutInfo::separatorMove(const QList<int> &separator, const QPoint &origin,

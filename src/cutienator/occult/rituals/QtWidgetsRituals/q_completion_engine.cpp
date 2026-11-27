@@ -1,6 +1,9 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtWidgets/6.12.0/QtWidgets/private/qcompleter_p.h, Qt 6.12.0. Changes
-//  made here are lost.
+//  QtWidgets/6.12.0/QtWidgets/private/qcompleter_p.h, Qt 6.12.0. Edited by
+//  hand on 2026-11-27: code taken from Qt's source no longer stands under
+//  defined(Q_OS_LINUX), which Qt does not write there; its rituals no longer
+//  stand under defined(Q_OS_LINUX), as the code taken from Qt they call no
+//  longer does. Kept as it is when the generator runs again.
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #if QT_CONFIG(completer)
@@ -89,7 +92,6 @@ inline void QCompletionEngine::filter(const QStringList& parts)
 }
 
 //  from src/widgets/util/qcompleter.cpp, line 446, as _ZN17QCompletionEngine13filterHistoryEv
-#if defined(Q_OS_LINUX)
 inline QMatchData QCompletionEngine::filterHistory()
 {
     QAbstractItemModel *source = c->proxy->sourceModel();
@@ -117,7 +119,6 @@ inline QMatchData QCompletionEngine::filterHistory()
     }
     return m;
 }
-#endif  // defined(Q_OS_LINUX)
 
 //  from src/widgets/util/qcompleter.cpp, line 475, as _ZNK17QCompletionEngine9matchHintERK7QStringRK11QModelIndexP10QMatchData
 inline bool QCompletionEngine::matchHint(const QString &part, const QModelIndex &parent, QMatchData *hint) const
@@ -275,7 +276,6 @@ void ritual_ZN17QCompletionEngineD1Ev(QCompletionEngine *self) {
   delete self;
 }
 
-#if defined(Q_OS_LINUX)
 //  void QCompletionEngine::filter(const QStringList &parts)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN17QCompletionEngine6filterERK5QListI7QStringE(
@@ -283,16 +283,13 @@ void ritual_ZN17QCompletionEngine6filterERK5QListI7QStringE(
     const QList<QString> *parts) {
   self->filter(*parts);
 }
-#endif  // defined(Q_OS_LINUX)
 
-#if defined(Q_OS_LINUX)
 //  QMatchData QCompletionEngine::filterHistory()
 extern "C" Q_DECL_EXPORT
 QMatchData *ritual_ZN17QCompletionEngine13filterHistoryEv(
     QCompletionEngine *self) {
   return new QMatchData(self->filterHistory());
 }
-#endif  // defined(Q_OS_LINUX)
 
 //  bool QCompletionEngine::matchHint(const QString &part, const QModelIndex
 //      &parent, QMatchData *m) const

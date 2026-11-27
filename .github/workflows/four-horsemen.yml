@@ -1,4 +1,5 @@
-# Four horsemen: makes the demons of all four systems at one press.
+# Four horsemen: makes the scrolls of all four systems at one press:
+# the library of every part of Qt, as each system builds it.
 # Manual trigger only. On a Linux machine, a Windows machine, an Apple
 # silicon Mac and an Intel Mac it builds the library of every part of
 # Qt as 'Rituals.summon()' does, with 'bin/check_summon.py': what the
@@ -6,14 +7,15 @@
 # can be, and the report names EVERYTHING left out and why. It
 # releases nothing, changes nothing on 'main' and reads no safety.
 # Each machine hands over what its build produced as an artifact of the
-# run, to download from the page of the run: every object file (the
-# folder 'demons'), the library of each part of Qt with its left-out
-# file, which says what was left out of it and why, and the report.
+# run, 'scrolls-linux' and so on, to download from the page of the run:
+# the library of each part of Qt with its left-out file, which says what
+# was left out of it and why, the report, and every object file the
+# libraries were joined from (the folder 'demons').
 on:
   workflow_dispatch:
 
 jobs:
-  demons:
+  scrolls:
     strategy:
       # One system refusing must not keep the others from reporting.
       fail-fast: false
@@ -141,7 +143,7 @@ jobs:
         if: ${{ always() }}
         uses: actions/upload-artifact@v7
         with:
-          name: demons-${{ matrix.name }}
+          name: scrolls-${{ matrix.name }}
           path: |
             src/cutienator/occult/demons/
             src/cutienator/occult/libcutienator_*

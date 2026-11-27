@@ -1,6 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtCore/6.12.0/QtCore/private/qtemporaryfile_p.h, Qt 6.12.0. Changes made
-//  here are lost.
+//  QtCore/6.12.0/QtCore/private/qtemporaryfile_p.h, Qt 6.12.0. Edited by
+//  hand on 2026-11-27: code taken from Qt's source no longer stands under
+//  defined(Q_OS_LINUX), which Qt does not write there. Kept as it is when
+//  the generator runs again.
 #include <QtCore/qglobal.h>
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #if QT_CONFIG(temporaryfile)
@@ -84,7 +86,6 @@ inline QFilePrivate::~QFilePrivate()
 }
 
 //  from src/corelib/io/qfiledevice.cpp, line 507, as _ZN18QFileDevicePrivate13putCharHelperEc
-#if defined(Q_OS_LINUX)
 inline bool QFileDevicePrivate::putCharHelper(char c)
 {
 #ifdef QT_NO_QOBJECT
@@ -138,7 +139,6 @@ inline bool QFileDevicePrivate::putCharHelper(char c)
     return true;
 #endif
 }
-#endif  // defined(Q_OS_LINUX)
 
 //  from src/corelib/io/qfiledevice.cpp, line 42, as _ZN18QFileDevicePrivate14setPermissionsE6QFlagsIN11QFileDevice10PermissionEE
 inline bool QFileDevicePrivate::setPermissions(QFileDevice::Permissions perms)
@@ -198,7 +198,6 @@ inline QFileSystemEntry::QFileSystemEntry()
 
 //  from src/corelib/io/qtemporaryfile.cpp, line 289, as _ZNK20QTemporaryFileEngine12isReallyOpenEv
 #if QT_CONFIG(temporaryfile)
-#if defined(Q_OS_LINUX)
 inline bool QTemporaryFileEngine::isReallyOpen() const
 {
     Q_D(const QFSFileEngine);
@@ -213,7 +212,6 @@ inline bool QTemporaryFileEngine::isReallyOpen() const
     return false;
 
 }
-#endif  // defined(Q_OS_LINUX)
 #endif  // QT_CONFIG(temporaryfile)
 
 //  from src/corelib/io/qtemporaryfile.cpp, line 516, as _ZN21QTemporaryFilePrivateD1Ev

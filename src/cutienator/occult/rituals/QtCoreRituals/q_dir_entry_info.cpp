@@ -1,6 +1,9 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtCore/6.12.0/QtCore/private/qdirentryinfo_p.h, Qt 6.12.0. Changes made
-//  here are lost.
+//  QtCore/6.12.0/QtCore/private/qdirentryinfo_p.h, Qt 6.12.0. Edited by hand
+//  on 2026-11-27: code taken from Qt's source no longer stands under
+//  defined(Q_OS_LINUX), which Qt does not write there; its rituals no longer
+//  stand under defined(Q_OS_LINUX), as the code taken from Qt they call no
+//  longer does. Kept as it is when the generator runs again.
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtCore/QtCore>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -55,7 +58,6 @@ inline QFileSystemEntry::QFileSystemEntry()
 }
 
 //  from src/corelib/io/qfilesystementry.cpp, line 137, as _ZNK16QFileSystemEntry8fileNameEv
-#if defined(Q_OS_LINUX)
 inline QString QFileSystemEntry::fileName() const
 {
     findLastSeparator();
@@ -65,10 +67,8 @@ inline QString QFileSystemEntry::fileName() const
 #endif
     return m_filePath.mid(m_lastSeparator + 1);
 }
-#endif  // defined(Q_OS_LINUX)
 
 //  from src/corelib/io/qfilesystementry.cpp, line 166, as _ZNK16QFileSystemEntry8baseNameEv
-#if defined(Q_OS_LINUX)
 inline QString QFileSystemEntry::baseName() const
 {
     findFileNameSeparators();
@@ -84,10 +84,8 @@ inline QString QFileSystemEntry::baseName() const
 #endif
     return m_filePath.mid(m_lastSeparator + 1, length);
 }
-#endif  // defined(Q_OS_LINUX)
 
 //  from src/corelib/io/qfilesystementry.cpp, line 182, as _ZNK16QFileSystemEntry16completeBaseNameEv
-#if defined(Q_OS_LINUX)
 inline QString QFileSystemEntry::completeBaseName() const
 {
     findFileNameSeparators();
@@ -103,7 +101,6 @@ inline QString QFileSystemEntry::completeBaseName() const
 #endif
     return m_filePath.mid(m_lastSeparator + 1, length);
 }
-#endif  // defined(Q_OS_LINUX)
 
 //  from src/corelib/io/qfilesystementry.cpp, line 198, as _ZNK16QFileSystemEntry6suffixEv
 inline QString QFileSystemEntry::suffix() const
@@ -143,7 +140,6 @@ inline void QFileSystemEntry::findLastSeparator() const
 }
 
 //  from src/corelib/io/qfilesystementry.cpp, line 112, as _ZNK16QFileSystemEntry15resolveFilePathEv
-#if defined(Q_OS_LINUX)
 inline void QFileSystemEntry::resolveFilePath() const
 {
     if (m_filePath.isEmpty() && !m_nativeFilePath.isEmpty()) {
@@ -154,7 +150,6 @@ inline void QFileSystemEntry::resolveFilePath() const
 #endif
     }
 }
-#endif  // defined(Q_OS_LINUX)
 //  -----------------------------------------------------------------------
 
 //  QDirEntryInfo::QDirEntryInfo()
@@ -185,21 +180,17 @@ QDirEntryInfo *ritual_ZN13QDirEntryInfoC1EO9QFileInfo(QFileInfo *info) {
   return new QDirEntryInfo(std::move(*info));
 }
 
-#if defined(Q_OS_LINUX)
 //  QString QDirEntryInfo::fileName()
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN13QDirEntryInfo8fileNameEv(QDirEntryInfo *self) {
   return new QString(self->fileName());
 }
-#endif  // defined(Q_OS_LINUX)
 
-#if defined(Q_OS_LINUX)
 //  QString QDirEntryInfo::filePath()
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN13QDirEntryInfo8filePathEv(QDirEntryInfo *self) {
   return new QString(self->filePath());
 }
-#endif  // defined(Q_OS_LINUX)
 
 //  QDirEntryInfo::~QDirEntryInfo()
 extern "C" Q_DECL_EXPORT

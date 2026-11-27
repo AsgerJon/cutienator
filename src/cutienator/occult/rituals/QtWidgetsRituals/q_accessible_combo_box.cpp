@@ -1,6 +1,9 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtWidgets/6.12.0/QtWidgets/private/complexwidgets_p.h, Qt 6.12.0. Changes
-//  made here are lost.
+//  QtWidgets/6.12.0/QtWidgets/private/complexwidgets_p.h, Qt 6.12.0. Edited
+//  by hand on 2026-11-27: code taken from Qt's source no longer stands under
+//  defined(Q_OS_LINUX), which Qt does not write there; its rituals no longer
+//  stand under defined(Q_OS_LINUX), as the code taken from Qt they call no
+//  longer does. Kept as it is when the generator runs again.
 #include <QtGui/qtguiglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
@@ -164,7 +167,6 @@ inline QAccessibleInterface *QAccessibleComboBox::focusChild() const
 //  from src/widgets/accessible/complexwidgets.cpp, line 410, as _ZNK19QAccessibleComboBox4textEN11QAccessible4TextE
 #if QT_CONFIG(accessibility)
 #if QT_CONFIG(combobox)
-#if defined(Q_OS_LINUX)
 inline QString QAccessibleComboBox::text(QAccessible::Text t) const
 {
     QString str;
@@ -194,7 +196,6 @@ inline QString QAccessibleComboBox::text(QAccessible::Text t) const
     }
     return str;
 }
-#endif  // defined(Q_OS_LINUX)
 #endif  // QT_CONFIG(combobox)
 #endif  // QT_CONFIG(accessibility)
 
@@ -240,7 +241,6 @@ inline QString QAccessibleComboBox::localizedActionDescription(const QString &ac
 //  from src/widgets/accessible/complexwidgets.cpp, line 464, as _ZN19QAccessibleComboBox8doActionERK7QString
 #if QT_CONFIG(accessibility)
 #if QT_CONFIG(combobox)
-#if defined(Q_OS_LINUX)
 inline void QAccessibleComboBox::doAction(const QString &actionName)
 {
     if (QComboBox *cBox = comboBox()) {
@@ -268,7 +268,6 @@ inline void QAccessibleComboBox::doAction(const QString &actionName)
         }
     }
 }
-#endif  // defined(Q_OS_LINUX)
 #endif  // QT_CONFIG(combobox)
 #endif  // QT_CONFIG(accessibility)
 
@@ -866,13 +865,11 @@ public:
 
 #if QT_CONFIG(accessibility)
 #if QT_CONFIG(combobox)
-#if defined(Q_OS_LINUX)
 //  QAccessibleComboBox::QAccessibleComboBox(QWidget *w)
 extern "C" Q_DECL_EXPORT
 QAccessibleComboBox *ritual_ZN19QAccessibleComboBoxC1EP7QWidget(QWidget *w) {
   return new CuteQAccessibleComboBox(w);
 }
-#endif  // defined(Q_OS_LINUX)
 #endif  // QT_CONFIG(combobox)
 #endif  // QT_CONFIG(accessibility)
 
@@ -1047,7 +1044,6 @@ QAccessibleInterface *ritual_own_ZNK19QAccessibleComboBox10focusChildEv(
 
 #if QT_CONFIG(accessibility)
 #if QT_CONFIG(combobox)
-#if defined(Q_OS_LINUX)
 //  QString QAccessibleComboBox::text(QAccessible::Text t) const
 extern "C" Q_DECL_EXPORT
 QString *ritual_own_ZNK19QAccessibleComboBox4textEN11QAccessible4TextE(
@@ -1055,7 +1051,6 @@ QString *ritual_own_ZNK19QAccessibleComboBox4textEN11QAccessible4TextE(
     QAccessible::Text t) {
   return new QString(self->QAccessibleComboBox::text(t));
 }
-#endif  // defined(Q_OS_LINUX)
 #endif  // QT_CONFIG(combobox)
 #endif  // QT_CONFIG(accessibility)
 
@@ -1087,7 +1082,6 @@ QString *ritual_own_ZNK19QAccessibleComboBox26localizedActionDescriptionERK7QStr
 
 #if QT_CONFIG(accessibility)
 #if QT_CONFIG(combobox)
-#if defined(Q_OS_LINUX)
 //  void QAccessibleComboBox::doAction(const QString &actionName)
 extern "C" Q_DECL_EXPORT
 void ritual_own_ZN19QAccessibleComboBox8doActionERK7QString(
@@ -1095,7 +1089,6 @@ void ritual_own_ZN19QAccessibleComboBox8doActionERK7QString(
     const QString *actionName) {
   self->QAccessibleComboBox::doAction(*actionName);
 }
-#endif  // defined(Q_OS_LINUX)
 #endif  // QT_CONFIG(combobox)
 #endif  // QT_CONFIG(accessibility)
 

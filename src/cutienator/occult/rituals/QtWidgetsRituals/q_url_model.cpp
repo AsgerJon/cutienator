@@ -1,12 +1,19 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtWidgets/6.12.0/QtWidgets/private/qsidebar_p.h, Qt 6.12.0.
-//  Edited by hand on 2026-11-26: moc's output for 'QUrlModel' is pasted in,
-//  cut from what the moc of Qt 6.12.0 writes for its header: Qt's library
-//  keeps it to itself; added are 3 rituals that lean on what moc writes for
-//  a class of the part Qt keeps to itself, whose ritual file carries moc's
-//  output, drafted by a copy of the generator that lets those names through.
-//  A copy of a meta-object is a second one: 'qobject_cast' between it and
-//  Qt's own does not match. Kept as it is when the generator runs again.
+//  QtWidgets/6.12.0/QtWidgets/private/qsidebar_p.h, Qt 6.12.0. Edited by
+//  hand on 2026-11-26: moc's output for 'QUrlModel' is pasted in, cut from
+//  what the moc of Qt 6.12.0 writes for its header: Qt's library keeps it to
+//  itself; added are 3 rituals that lean on what moc writes for a class of
+//  the part Qt keeps to itself, whose ritual file carries moc's output,
+//  drafted by a copy of the generator that lets those names through. A copy
+//  of a meta-object is a second one: 'qobject_cast' between it and Qt's own
+//  does not match. Edited by hand on 2026-11-27: code taken from Qt's source
+//  no longer stands under defined(Q_OS_LINUX), which Qt does not write
+//  there; its rituals no longer stand under defined(Q_OS_LINUX), as the code
+//  taken from Qt they call no longer does; the constructors and the
+//  destructor of QUrlModel taken from Qt are no longer 'inline' (2): the one
+//  definition the target file has of each, which the ritual files of other
+//  classes of the part call, as Microsoft's ABI emits an 'inline' one only
+//  where it is used. Kept as it is when the generator runs again.
 #include <QtGui/qtguiglobal.h>
 #include <QtCore/qglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
@@ -266,12 +273,12 @@ inline QStringList QUrlModel::mimeTypes() const
 }
 
 //  from src/widgets/dialogs/qsidebar.cpp, line 43, as _ZN9QUrlModelC1EP7QObject
-inline QUrlModel::QUrlModel(QObject *parent) : QStandardItemModel(parent), showFullPath(false), fileSystemModel(nullptr)
+QUrlModel::QUrlModel(QObject *parent) : QStandardItemModel(parent), showFullPath(false), fileSystemModel(nullptr)
 {
 }
 
 //  from src/widgets/dialogs/qsidebar.cpp, line 47, as _ZN9QUrlModelD1Ev
-inline QUrlModel::~QUrlModel()
+QUrlModel::~QUrlModel()
 {
     for (auto &conn : modelConnections)
         disconnect(conn);
@@ -304,7 +311,6 @@ inline void QUrlModel::setUrls(const QList<QUrl> &list)
 }
 
 //  from src/widgets/dialogs/qsidebar.cpp, line 231, as _ZN9QUrlModel7addUrlsERK5QListI4QUrlEib
-#if defined(Q_OS_LINUX)
 inline void QUrlModel::addUrls(const QList<QUrl> &list, int row, bool move)
 {
     if (row == -1)
@@ -343,7 +349,6 @@ inline void QUrlModel::addUrls(const QList<QUrl> &list, int row, bool move)
         watching.append({idx, cleanUrl});
     }
 }
-#endif  // defined(Q_OS_LINUX)
 
 //  from src/widgets/dialogs/qsidebar.cpp, line 273, as _ZNK9QUrlModel4urlsEv
 inline QList<QUrl> QUrlModel::urls() const
@@ -1501,7 +1506,6 @@ int ritual_ZN9QUrlModel11qt_metacallEN11QMetaObject4CallEiPPv(
 }
 
 #if QT_CONFIG(draganddrop)
-#if defined(Q_OS_LINUX)
 //  QString QUrlModel::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN9QUrlModel2trEPKcS1_i(
@@ -1510,17 +1514,14 @@ QString *ritual_ZN9QUrlModel2trEPKcS1_i(
     int n) {
   return new QString(QUrlModel::tr(s, c, n));
 }
-#endif  // defined(Q_OS_LINUX)
 #endif  // QT_CONFIG(draganddrop)
 
 #if QT_CONFIG(draganddrop)
-#if defined(Q_OS_LINUX)
 //  QUrlModel::QUrlModel(QObject *parent)
 extern "C" Q_DECL_EXPORT
 QUrlModel *ritual_ZN9QUrlModelC1EP7QObject(QObject *parent) {
   return new CuteQUrlModel(parent);
 }
-#endif  // defined(Q_OS_LINUX)
 #endif  // QT_CONFIG(draganddrop)
 
 //  QUrlModel::~QUrlModel()
@@ -1587,7 +1588,6 @@ bool ritual_ZN9QUrlModel7setDataERK11QModelIndexRK8QVarianti(
   return self->setData(*index, *value, role);
 }
 
-#if defined(Q_OS_LINUX)
 //  void QUrlModel::setUrls(const QList<QUrl> &list)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN9QUrlModel7setUrlsERK5QListI4QUrlE(
@@ -1595,9 +1595,7 @@ void ritual_ZN9QUrlModel7setUrlsERK5QListI4QUrlE(
     const QList<QUrl> *list) {
   self->setUrls(*list);
 }
-#endif  // defined(Q_OS_LINUX)
 
-#if defined(Q_OS_LINUX)
 //  void QUrlModel::addUrls(const QList<QUrl> &urls, int row, bool move)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN9QUrlModel7addUrlsERK5QListI4QUrlEib(
@@ -1607,7 +1605,6 @@ void ritual_ZN9QUrlModel7addUrlsERK5QListI4QUrlEib(
     bool move) {
   self->addUrls(*urls, row, move);
 }
-#endif  // defined(Q_OS_LINUX)
 
 //  QList<QUrl> QUrlModel::urls() const
 extern "C" Q_DECL_EXPORT
@@ -1616,7 +1613,6 @@ QList<QUrl> *ritual_ZNK9QUrlModel4urlsEv(const QUrlModel *self) {
 }
 
 #if QT_CONFIG(draganddrop)
-#if defined(Q_OS_LINUX)
 //  void QUrlModel::setFileSystemModel(QFileSystemModel *model)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN9QUrlModel18setFileSystemModelEP16QFileSystemModel(
@@ -1624,7 +1620,6 @@ void ritual_ZN9QUrlModel18setFileSystemModelEP16QFileSystemModel(
     QFileSystemModel *model) {
   self->setFileSystemModel(model);
 }
-#endif  // defined(Q_OS_LINUX)
 #endif  // QT_CONFIG(draganddrop)
 
 //  void QUrlModel::dataChanged(const QModelIndex &topLeft, const QModelIndex
@@ -1708,7 +1703,6 @@ bool ritual_take_QUrlModel(QUrlModel *self, const char *key, void *call) {
 }
 
 #if QT_CONFIG(draganddrop)
-#if defined(Q_OS_LINUX)
 //  bool QUrlModel::dropMimeData(const QMimeData *data, Qt::DropAction
 //      action, int row, int column, const QModelIndex &parent)
 extern "C" Q_DECL_EXPORT
@@ -1721,7 +1715,6 @@ bool ritual_own_ZN9QUrlModel12dropMimeDataEPK9QMimeDataN2Qt10DropActionEiiRK11QM
     const QModelIndex *parent) {
   return self->QUrlModel::dropMimeData(data, action, row, column, *parent);
 }
-#endif  // defined(Q_OS_LINUX)
 #endif  // QT_CONFIG(draganddrop)
 
 //  Qt::ItemFlags QUrlModel::flags(const QModelIndex &index) const

@@ -1,6 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtCore/6.12.0/QtCore/private/qsavefile_p.h, Qt 6.12.0. Changes made here
-//  are lost.
+//  QtCore/6.12.0/QtCore/private/qsavefile_p.h, Qt 6.12.0. Edited by hand on
+//  2026-11-27: code taken from Qt's source no longer stands under
+//  defined(Q_OS_LINUX), which Qt does not write there. Kept as it is when
+//  the generator runs again.
 #include <QtCore/qglobal.h>
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #if QT_CONFIG(temporaryfile)
@@ -70,7 +72,6 @@ inline bool QSaveFilePrivate::setPermissions(QFileDevice::Permissions perms)
 #endif  // QT_CONFIG(temporaryfile)
 
 //  from src/corelib/io/qfiledevice.cpp, line 507, as _ZN18QFileDevicePrivate13putCharHelperEc
-#if defined(Q_OS_LINUX)
 inline bool QFileDevicePrivate::putCharHelper(char c)
 {
 #ifdef QT_NO_QOBJECT
@@ -124,7 +125,6 @@ inline bool QFileDevicePrivate::putCharHelper(char c)
     return true;
 #endif
 }
-#endif  // defined(Q_OS_LINUX)
 
 //  from src/corelib/io/qfiledevice.cpp, line 20, as _ZN18QFileDevicePrivateC2Ev
 inline QFileDevicePrivate::QFileDevicePrivate()

@@ -367,6 +367,23 @@ class TestExorcist(BaseTest):
     self.assertTrue(self.exorcist.blameLinker([b for n, b in found]))
     self.assertEqual(set(self.exorcist.getLeftOut()), {HELPER, CONSTRUCTOR})
 
+  def test_lld_link_names_the_object_file_alone(self) -> None:
+    """'lld-link' names an object file without debugging records alone,
+    its path with each backslash doubled, as GitHub's Windows machine
+    wrote it on 2026-11-27: what needs the symbol is then not said."""
+    said = '\n'.join((
+        'lld-link: error: undefined symbol: public: virtual __cdecl '
+        'QMadeUp::~QMadeUp(void)',
+        r'>>> referenced by D:\\a\\x\\QtCoreDemons\\q_made_up.o',
+        'clang++: error: linker command failed with exit code 1',
+    ))
+    found = Exorcist.readLinkerRefusal(said)
+    self.assertEqual(found, [
+        ('q_made_up.o', (
+            None, 'public: virtual __cdecl QMadeUp::~QMadeUp(void)',
+            'undefined')),
+    ])
+
   def test_apple_ld(self) -> None:
     """Apple's 'ld', with the names between quotes and without, the
     function a C name with its underscore."""

@@ -1,6 +1,9 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtNetwork/6.12.0/QtNetwork/private/qhttpnetworkconnection_p.h, Qt 6.12.0.
-//  Changes made here are lost.
+//  Edited by hand on 2026-11-27: code taken from Qt's source no longer
+//  stands under defined(Q_OS_LINUX), which Qt does not write there; its
+//  rituals no longer stand under defined(Q_OS_LINUX), as the code taken from
+//  Qt they call no longer does. Kept as it is when the generator runs again.
 #include <QtNetwork/qtnetworkglobal.h>
 #include <QtNetwork/6.12.0/QtNetwork/private/qtnetworkglobal_p.h>
 #if QT_CONFIG(http)
@@ -1346,7 +1349,6 @@ inline bool QHttpNetworkConnectionPrivate::dequeueRequest(QIODevice *socket)
 }
 
 //  from src/network/access/qhttpnetworkconnection.cpp, line 251, as _ZN29QHttpNetworkConnectionPrivate14prepareRequestERSt4pairI19QHttpNetworkRequestP17QHttpNetworkReplyE
-#if defined(Q_OS_LINUX)
 inline void QHttpNetworkConnectionPrivate::prepareRequest(HttpMessagePair &messagePair)
 {
     QHttpNetworkRequest &request = messagePair.first;
@@ -1449,7 +1451,6 @@ inline void QHttpNetworkConnectionPrivate::prepareRequest(HttpMessagePair &messa
 
     reply->d_func()->requestIsPrepared = true;
 }
-#endif  // defined(Q_OS_LINUX)
 
 //  from src/network/access/qhttpnetworkconnection.cpp, line 752, as _ZN29QHttpNetworkConnectionPrivate13updateChannelEiRKSt4pairI19QHttpNetworkRequestP17QHttpNetworkReplyE
 inline void QHttpNetworkConnectionPrivate::updateChannel(int i, const HttpMessagePair &messagePair)
@@ -2075,16 +2076,13 @@ void ritual_ZN29QHttpNetworkConnectionPrivate14requeueRequestERKSt4pairI19QHttpN
   self->requeueRequest(*pair);
 }
 
-#if defined(Q_OS_LINUX)
 //  void QHttpNetworkConnectionPrivate::fillHttp2Queue()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN29QHttpNetworkConnectionPrivate14fillHttp2QueueEv(
     QHttpNetworkConnectionPrivate *self) {
   self->fillHttp2Queue();
 }
-#endif  // defined(Q_OS_LINUX)
 
-#if defined(Q_OS_LINUX)
 //  bool QHttpNetworkConnectionPrivate::dequeueRequest(QIODevice *socket)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN29QHttpNetworkConnectionPrivate14dequeueRequestEP9QIODevice(
@@ -2092,9 +2090,7 @@ bool ritual_ZN29QHttpNetworkConnectionPrivate14dequeueRequestEP9QIODevice(
     QIODevice *socket) {
   return self->dequeueRequest(socket);
 }
-#endif  // defined(Q_OS_LINUX)
 
-#if defined(Q_OS_LINUX)
 //  void QHttpNetworkConnectionPrivate::prepareRequest(HttpMessagePair
 //      &request)
 extern "C" Q_DECL_EXPORT
@@ -2103,7 +2099,6 @@ void ritual_ZN29QHttpNetworkConnectionPrivate14prepareRequestERSt4pairI19QHttpNe
     HttpMessagePair *request) {
   self->prepareRequest(*request);
 }
-#endif  // defined(Q_OS_LINUX)
 
 //  void QHttpNetworkConnectionPrivate::updateChannel(int i, const
 //      HttpMessagePair &messagePair)
@@ -2131,7 +2126,6 @@ QHttpNetworkReply *ritual_ZNK29QHttpNetworkConnectionPrivate24predictNextRequest
   return self->predictNextRequestsReply();
 }
 
-#if defined(Q_OS_LINUX)
 //  bool QHttpNetworkConnectionPrivate::fillPipeline(QList<HttpMessagePair>
 //      &queue, QHttpNetworkConnectionChannel &channel)
 extern "C" Q_DECL_EXPORT
@@ -2141,7 +2135,6 @@ bool ritual_ZN29QHttpNetworkConnectionPrivate12fillPipelineER5QListISt4pairI19QH
     QHttpNetworkConnectionChannel *channel) {
   return self->fillPipeline(*queue, *channel);
 }
-#endif  // defined(Q_OS_LINUX)
 
 //  void QHttpNetworkConnectionPrivate::readMoreLater(QHttpNetworkReply
 //      *reply)

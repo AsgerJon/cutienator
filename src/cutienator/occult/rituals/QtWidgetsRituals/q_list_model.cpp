@@ -1,12 +1,16 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtWidgets/6.12.0/QtWidgets/private/qlistwidget_p.h, Qt 6.12.0.
-//  Edited by hand on 2026-11-26: moc's output for 'QListModel' is pasted in,
-//  cut from what the moc of Qt 6.12.0 writes for its header: Qt's library
-//  keeps it to itself; added are 2 rituals that lean on what moc writes for
-//  a class of the part Qt keeps to itself, whose ritual file carries moc's
-//  output, drafted by a copy of the generator that lets those names through.
-//  A copy of a meta-object is a second one: 'qobject_cast' between it and
-//  Qt's own does not match. Kept as it is when the generator runs again.
+//  QtWidgets/6.12.0/QtWidgets/private/qlistwidget_p.h, Qt 6.12.0. Edited by
+//  hand on 2026-11-26: moc's output for 'QListModel' is pasted in, cut from
+//  what the moc of Qt 6.12.0 writes for its header: Qt's library keeps it to
+//  itself; added are 2 rituals that lean on what moc writes for a class of
+//  the part Qt keeps to itself, whose ritual file carries moc's output,
+//  drafted by a copy of the generator that lets those names through. A copy
+//  of a meta-object is a second one: 'qobject_cast' between it and Qt's own
+//  does not match. Edited by hand on 2026-11-27: the constructors and the
+//  destructor of QListModel taken from Qt are no longer 'inline' (2): the
+//  one definition the target file has of each, which the ritual files of
+//  other classes of the part call, as Microsoft's ABI emits an 'inline' one
+//  only where it is used. Kept as it is when the generator runs again.
 #include <QtGui/qtguiglobal.h>
 #include <QtCore/qglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
@@ -340,13 +344,13 @@ inline QStringList QListModel::mimeTypes() const
 }
 
 //  from src/widgets/itemviews/qlistwidget.cpp, line 26, as _ZN10QListModelC1EP11QListWidget
-inline QListModel::QListModel(QListWidget *parent)
+QListModel::QListModel(QListWidget *parent)
     : QAbstractListModel(parent)
 {
 }
 
 //  from src/widgets/itemviews/qlistwidget.cpp, line 31, as _ZN10QListModelD1Ev
-inline QListModel::~QListModel()
+QListModel::~QListModel()
 {
     clear();
 }

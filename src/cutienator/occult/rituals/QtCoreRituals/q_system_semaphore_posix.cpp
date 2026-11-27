@@ -1,6 +1,9 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtCore/6.12.0/QtCore/private/qsystemsemaphore_p.h, Qt 6.12.0. Changes
-//  made here are lost.
+//  QtCore/6.12.0/QtCore/private/qsystemsemaphore_p.h, Qt 6.12.0. Edited by
+//  hand on 2026-11-27: code taken from Qt's source no longer stands under
+//  defined(Q_OS_LINUX), which Qt does not write there; its rituals no longer
+//  stand under defined(Q_OS_LINUX), as the code taken from Qt they call no
+//  longer does. Kept as it is when the generator runs again.
 #include <QtCore/qglobal.h>
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #if QT_CONFIG(systemsemaphore)
@@ -176,7 +179,6 @@ inline void QSystemSemaphorePosix::cleanHandle(QSystemSemaphorePrivate *self)
 
 //  from src/corelib/ipc/qsystemsemaphore_posix.cpp, line 121, as _ZN21QSystemSemaphorePosix15modifySemaphoreEP23QSystemSemaphorePrivatei
 #if QT_CONFIG(posix_sem)
-#if defined(Q_OS_LINUX)
 inline bool QSystemSemaphorePosix::modifySemaphore(QSystemSemaphorePrivate *self, int count)
 {
     if (!handle(self, QSystemSemaphore::Open))
@@ -225,7 +227,6 @@ inline bool QSystemSemaphorePosix::modifySemaphore(QSystemSemaphorePrivate *self
     self->clearError();
     return true;
 }
-#endif  // defined(Q_OS_LINUX)
 #endif  // QT_CONFIG(posix_sem)
 //  -----------------------------------------------------------------------
 
@@ -271,7 +272,6 @@ void ritual_ZN21QSystemSemaphorePosix11cleanHandleEP23QSystemSemaphorePrivate(
 #endif  // QT_CONFIG(posix_sem)
 
 #if QT_CONFIG(posix_sem)
-#if defined(Q_OS_LINUX)
 #if QT_CONFIG(systemsemaphore)
 //  bool QSystemSemaphorePosix::modifySemaphore(QSystemSemaphorePrivate
 //      *self_, int count)
@@ -283,7 +283,6 @@ bool ritual_ZN21QSystemSemaphorePosix15modifySemaphoreEP23QSystemSemaphorePrivat
   return self->modifySemaphore(self_, count);
 }
 #endif  // QT_CONFIG(systemsemaphore)
-#endif  // defined(Q_OS_LINUX)
 #endif  // QT_CONFIG(posix_sem)
 
 //  QSystemSemaphorePosix::~QSystemSemaphorePosix()

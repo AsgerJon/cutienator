@@ -1,6 +1,9 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtCore/6.12.0/QtCore/private/qprocess_p.h, Qt 6.12.0. Changes made here
-//  are lost.
+//  QtCore/6.12.0/QtCore/private/qprocess_p.h, Qt 6.12.0. Edited by hand on
+//  2026-11-27: code taken from Qt's source no longer stands under
+//  defined(Q_OS_LINUX), which Qt does not write there; its rituals no longer
+//  stand under defined(Q_OS_LINUX), as the code taken from Qt they call no
+//  longer does. Kept as it is when the generator runs again.
 #include <QtCore/qglobal.h>
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #if QT_CONFIG(processenvironment)
@@ -81,7 +84,6 @@ inline QStringList QProcessEnvironmentPrivate::keys() const
 }
 
 //  from src/corelib/io/qprocess.cpp, line 107, as _ZN26QProcessEnvironmentPrivate6insertERKS_
-#if defined(Q_OS_LINUX)
 inline void QProcessEnvironmentPrivate::insert(const QProcessEnvironmentPrivate &other)
 {
     auto it = other.vars.constBegin();
@@ -96,7 +98,6 @@ inline void QProcessEnvironmentPrivate::insert(const QProcessEnvironmentPrivate 
         nameMap.insert(nit.key(), nit.value());
 #endif
 }
-#endif  // defined(Q_OS_LINUX)
 //  -----------------------------------------------------------------------
 
 #if !(defined(Q_OS_WIN))
@@ -183,7 +184,6 @@ QList<QString> *ritual_ZNK26QProcessEnvironmentPrivate4keysEv(
   return new QList<QString>(self->keys());
 }
 
-#if defined(Q_OS_LINUX)
 //  void QProcessEnvironmentPrivate::insert(const QProcessEnvironmentPrivate
 //      &other)
 extern "C" Q_DECL_EXPORT
@@ -192,7 +192,6 @@ void ritual_ZN26QProcessEnvironmentPrivate6insertERKS_(
     const QProcessEnvironmentPrivate *other) {
   self->insert(*other);
 }
-#endif  // defined(Q_OS_LINUX)
 
 //  QProcessEnvironmentPrivate::~QProcessEnvironmentPrivate()
 extern "C" Q_DECL_EXPORT

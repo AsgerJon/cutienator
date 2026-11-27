@@ -1,6 +1,11 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtNetwork/6.12.0/QtNetwork/private/qnativesocketengine_p_p.h, Qt 6.12.0.
-//  Changes made here are lost.
+//  Edited by hand on 2026-11-27: code taken from Qt's source no longer
+//  stands under defined(Q_OS_LINUX), which Qt does not write there. Edited
+//  by hand on 2026-11-27: on Windows the code taken from Qt calls Winsock
+//  (htons, htonl, getnameinfo), which lies in 'ws2_32.lib'; QtNetwork joins
+//  that library for itself, and this file asks the linker for it too, under
+//  Q_OS_WIN. Kept as it is when the generator runs again.
 #include <QtNetwork/6.12.0/QtNetwork/private/qtnetworkglobal_p.h>
 #include <QtNetwork/QtNetwork>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -28,6 +33,13 @@
 # include <QtNetwork/qsctpserver.h>
 #endif
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+
+//  Winsock, which the code taken from Qt calls on Windows, lies in
+//  'ws2_32.lib', which QtNetwork joins for itself: this file asks the
+//  linker for it as well.
+#if defined(Q_OS_WIN)
+#pragma comment(lib, "ws2_32")
+#endif
 
 //  Qt's own code, from here to the line of dashes: taken from
 //  Qt's source, because Qt's library carries it under no name.
@@ -57,7 +69,6 @@ inline QAbstractSocketEnginePrivate::QAbstractSocketEnginePrivate()
 }
 
 //  from src/network/socket/qnativesocketengine.cpp, line 164, as _ZN26QNativeSocketEnginePrivateC1Ev
-#if defined(Q_OS_LINUX)
 inline QNativeSocketEnginePrivate::QNativeSocketEnginePrivate() :
     socketDescriptor(-1),
     readNotifier(nullptr),
@@ -68,7 +79,6 @@ inline QNativeSocketEnginePrivate::QNativeSocketEnginePrivate() :
     QSysInfo::machineHostName();        // this initializes ws2_32.dll
 #endif
 }
-#endif  // defined(Q_OS_LINUX)
 
 //  from src/network/socket/qnativesocketengine.cpp, line 178, as _ZN26QNativeSocketEnginePrivateD1Ev
 inline QNativeSocketEnginePrivate::~QNativeSocketEnginePrivate()

@@ -1,6 +1,9 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtNetwork/6.12.0/QtNetwork/private/qnetworkrequest_p.h, Qt 6.12.0.
-//  Changes made here are lost.
+//  QtNetwork/6.12.0/QtNetwork/private/qnetworkrequest_p.h, Qt 6.12.0. Edited
+//  by hand on 2026-11-27: code taken from Qt's source no longer stands under
+//  defined(Q_OS_LINUX), which Qt does not write there; its rituals no longer
+//  stand under defined(Q_OS_LINUX), as the code taken from Qt they call no
+//  longer does. Kept as it is when the generator runs again.
 #include <QtNetwork/6.12.0/QtNetwork/private/qtnetworkglobal_p.h>
 #include <QtNetwork/QtNetwork>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -357,7 +360,6 @@ inline void QNetworkHeadersPrivate::clearHeaders()
 }
 
 //  from src/network/access/qnetworkrequest.cpp, line 1782, as _ZN22QNetworkHeadersPrivate12fromHttpDateE14QByteArrayView
-#if defined(Q_OS_LINUX)
 inline QDateTime QNetworkHeadersPrivate::fromHttpDate(QByteArrayView value)
 {
     // HTTP dates have three possible formats:
@@ -401,7 +403,6 @@ inline QDateTime QNetworkHeadersPrivate::fromHttpDate(QByteArrayView value)
         dt.setTimeZone(QTimeZone::UTC);
     return dt;
 }
-#endif  // defined(Q_OS_LINUX)
 
 //  from src/network/access/qnetworkrequest.cpp, line 1826, as _ZN22QNetworkHeadersPrivate10toHttpDateERK9QDateTime
 inline QByteArray QNetworkHeadersPrivate::toHttpDate(const QDateTime &dt)
@@ -561,14 +562,12 @@ void ritual_ZN22QNetworkHeadersPrivate12clearHeadersEv(
   self->clearHeaders();
 }
 
-#if defined(Q_OS_LINUX)
 //  QDateTime QNetworkHeadersPrivate::fromHttpDate(QByteArrayView value)
 extern "C" Q_DECL_EXPORT
 QDateTime *ritual_ZN22QNetworkHeadersPrivate12fromHttpDateE14QByteArrayView(
     const QByteArrayView *value) {
   return new QDateTime(QNetworkHeadersPrivate::fromHttpDate(*value));
 }
-#endif  // defined(Q_OS_LINUX)
 
 //  QByteArray QNetworkHeadersPrivate::toHttpDate(const QDateTime &dt)
 extern "C" Q_DECL_EXPORT

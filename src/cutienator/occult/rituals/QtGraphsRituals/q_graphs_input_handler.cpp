@@ -1,6 +1,9 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtGraphs/6.12.0/QtGraphs/private/qgraphsinputhandler_p.h, Qt 6.12.0.
-//  Changes made here are lost.
+//  Edited by hand on 2026-11-27: code taken from Qt's source no longer
+//  stands under defined(Q_OS_LINUX), which Qt does not write there; its
+//  rituals no longer stand under defined(Q_OS_LINUX), as the code taken from
+//  Qt they call no longer does. Kept as it is when the generator runs again.
 #include <QtGui/qtguiglobal.h>
 #include <QtQuick/qtquickglobal.h>
 #include <QtGraphs/qgraphsglobal.h>
@@ -245,7 +248,6 @@ inline void QGraphsInputHandler::onTapped()
 }
 
 //  from ../qtgraphs/src/graphs3d/input/qgraphsinputhandler.cpp, line 255, as _ZN19QGraphsInputHandler20onTranslationChangedE9QVector2D
-#if defined(Q_OS_LINUX)
 inline void QGraphsInputHandler::onTranslationChanged(QVector2D delta)
 {
 
@@ -284,7 +286,6 @@ inline void QGraphsInputHandler::onTranslationChanged(QVector2D delta)
         item->setCameraYRotation(yRotation);
     }
 }
-#endif  // defined(Q_OS_LINUX)
 
 //  from ../qtgraphs/src/graphs3d/input/qgraphsinputhandler.cpp, line 294, as _ZN19QGraphsInputHandler13onGrabChangedEN15QPointingDevice14GrabTransitionE11QEventPoint
 inline void QGraphsInputHandler::onGrabChanged(QPointingDevice::GrabTransition transition,
@@ -1349,14 +1350,12 @@ void ritual_ZN19QGraphsInputHandler22unsetDefaultTapHandlerEv(
   self->unsetDefaultTapHandler();
 }
 
-#if defined(Q_OS_LINUX)
 //  void QGraphsInputHandler::unsetDefaultDragHandler()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN19QGraphsInputHandler23unsetDefaultDragHandlerEv(
     QGraphsInputHandler *self) {
   self->unsetDefaultDragHandler();
 }
-#endif  // defined(Q_OS_LINUX)
 
 //  void QGraphsInputHandler::unsetDefaultWheelHandler()
 extern "C" Q_DECL_EXPORT
@@ -1394,7 +1393,6 @@ void ritual_ZN19QGraphsInputHandler8onTappedEv(QGraphsInputHandler *self) {
   self->onTapped();
 }
 
-#if defined(Q_OS_LINUX)
 //  void QGraphsInputHandler::onTranslationChanged(QVector2D delta)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN19QGraphsInputHandler20onTranslationChangedE9QVector2D(
@@ -1402,7 +1400,6 @@ void ritual_ZN19QGraphsInputHandler20onTranslationChangedE9QVector2D(
     const QVector2D *delta) {
   self->onTranslationChanged(*delta);
 }
-#endif  // defined(Q_OS_LINUX)
 
 //  void QGraphsInputHandler::onGrabChanged(QPointingDevice::GrabTransition
 //      transition, QEventPoint point)

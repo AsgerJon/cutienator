@@ -1,6 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  Qt3DRender/6.12.0/Qt3DRender/private/qtextureimage_p.h, Qt 6.12.0.
-//  Changes made here are lost.
+//  Qt3DRender/6.12.0/Qt3DRender/private/qtextureimage_p.h, Qt 6.12.0. Edited
+//  by hand on 2026-11-27: code taken from Qt's source no longer stands under
+//  defined(Q_OS_LINUX), which Qt does not write there. Kept as it is when
+//  the generator runs again.
 #include <Qt3DRender/6.12.0/Qt3DRender/private/qt3drender_global_p.h>
 #include <Qt3DRender/Qt3DRender>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -714,7 +716,6 @@ inline QTextureImageDataPtr setHdrFile(QIODevice *source)
 }  // namespace Qt3DRender
 
 //  from ../qt3d/src/render/texture/qtexture.cpp, line 962, as _ZN10Qt3DRender20TextureLoadingHelper15loadTextureDataERK4QUrlbb
-#if defined(Q_OS_LINUX)
 namespace Qt3DRender {
 inline QTextureImageDataPtr TextureLoadingHelper::loadTextureData(const QUrl &url, bool allow3D, bool mirrored)
 {
@@ -734,7 +735,6 @@ inline QTextureImageDataPtr TextureLoadingHelper::loadTextureData(const QUrl &ur
     return textureData;
 }
 }  // namespace Qt3DRender
-#endif  // defined(Q_OS_LINUX)
 
 //  from ../qt3d/src/render/texture/qtextureimage.cpp, line 261, as _ZNK10Qt3DRender24QImageTextureDataFunctoreqERKNS_26QTextureImageDataGeneratorE
 namespace Qt3DRender {

@@ -1,6 +1,9 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtQml/6.12.0/QtQml/private/qv4mathobject_p.h, Qt 6.12.0. Changes made
-//  here are lost.
+//  QtQml/6.12.0/QtQml/private/qv4mathobject_p.h, Qt 6.12.0. Edited by hand
+//  on 2026-11-27: code taken from Qt's source no longer stands under
+//  defined(Q_OS_LINUX), which Qt does not write there; its rituals no longer
+//  stand under defined(Q_OS_LINUX), as the code taken from Qt they call no
+//  longer does. Kept as it is when the generator runs again.
 #include <QtQml/6.12.0/QtQml/private/qtqmlglobal_p.h>
 #include <QtQml/QtQml>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -65,7 +68,6 @@ inline ReturnedValue MathObject::method_acos(const FunctionObject *, const Value
 }  // namespace QV4
 
 //  from ../qtdeclarative/src/qml/jsruntime/qv4mathobject.cpp, line 106, as _ZN3QV410MathObject12method_acoshEPKNS_14FunctionObjectEPKNS_5ValueES6_i
-#if defined(Q_OS_LINUX)
 namespace QV4 {
 inline ReturnedValue MathObject::method_acosh(const FunctionObject *, const Value *, const Value *argv, int argc)
 {
@@ -81,7 +83,6 @@ inline ReturnedValue MathObject::method_acosh(const FunctionObject *, const Valu
     RETURN_RESULT(Encode(std::acosh(v)));
 }
 }  // namespace QV4
-#endif  // defined(Q_OS_LINUX)
 
 //  from ../qtdeclarative/src/qml/jsruntime/qv4mathobject.cpp, line 120, as _ZN3QV410MathObject11method_asinEPKNS_14FunctionObjectEPKNS_5ValueES6_i
 namespace QV4 {
@@ -243,7 +244,6 @@ inline ReturnedValue MathObject::method_log10(const FunctionObject *, const Valu
 }  // namespace QV4
 
 //  from ../qtdeclarative/src/qml/jsruntime/qv4mathobject.cpp, line 292, as _ZN3QV410MathObject12method_log1pEPKNS_14FunctionObjectEPKNS_5ValueES6_i
-#if defined(Q_OS_LINUX)
 namespace QV4 {
 inline ReturnedValue MathObject::method_log1p(const FunctionObject *, const Value *, const Value *argv, int argc)
 {
@@ -257,7 +257,6 @@ inline ReturnedValue MathObject::method_log1p(const FunctionObject *, const Valu
         RETURN_RESULT(Encode(log1p(v)));
 }
 }  // namespace QV4
-#endif  // defined(Q_OS_LINUX)
 
 //  from ../qtdeclarative/src/qml/jsruntime/qv4mathobject.cpp, line 304, as _ZN3QV410MathObject11method_log2EPKNS_14FunctionObjectEPKNS_5ValueES6_i
 namespace QV4 {
@@ -432,7 +431,6 @@ QV4::ReturnedValue ritual_ZN3QV410MathObject11method_acosEPKNS_14FunctionObjectE
   return QV4::MathObject::method_acos(a0, thisObject, argv, argc);
 }
 
-#if defined(Q_OS_LINUX)
 //  ReturnedValue QV4::MathObject::method_acosh(const FunctionObject *a0,
 //      const Value *thisObject, const Value *argv, int argc)
 extern "C" Q_DECL_EXPORT
@@ -443,7 +441,6 @@ QV4::ReturnedValue ritual_ZN3QV410MathObject12method_acoshEPKNS_14FunctionObject
     int argc) {
   return QV4::MathObject::method_acosh(a0, thisObject, argv, argc);
 }
-#endif  // defined(Q_OS_LINUX)
 
 //  ReturnedValue QV4::MathObject::method_asin(const FunctionObject *a0,
 //      const Value *thisObject, const Value *argv, int argc)
@@ -599,7 +596,6 @@ QV4::ReturnedValue ritual_ZN3QV410MathObject12method_log10EPKNS_14FunctionObject
   return QV4::MathObject::method_log10(a0, thisObject, argv, argc);
 }
 
-#if defined(Q_OS_LINUX)
 //  ReturnedValue QV4::MathObject::method_log1p(const FunctionObject *a0,
 //      const Value *thisObject, const Value *argv, int argc)
 extern "C" Q_DECL_EXPORT
@@ -610,7 +606,6 @@ QV4::ReturnedValue ritual_ZN3QV410MathObject12method_log1pEPKNS_14FunctionObject
     int argc) {
   return QV4::MathObject::method_log1p(a0, thisObject, argv, argc);
 }
-#endif  // defined(Q_OS_LINUX)
 
 //  ReturnedValue QV4::MathObject::method_log2(const FunctionObject *a0,
 //      const Value *thisObject, const Value *argv, int argc)

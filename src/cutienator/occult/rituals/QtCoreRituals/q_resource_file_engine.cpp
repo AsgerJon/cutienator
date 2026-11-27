@@ -1,6 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtCore/6.12.0/QtCore/private/qresource_p.h, Qt 6.12.0. Changes made here
-//  are lost.
+//  QtCore/6.12.0/QtCore/private/qresource_p.h, Qt 6.12.0. Edited by hand on
+//  2026-11-27: code taken from Qt's source no longer stands under
+//  defined(Q_OS_LINUX), which Qt does not write there. Kept as it is when
+//  the generator runs again.
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtCore/QtCore>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -723,7 +725,6 @@ inline void QResourceFileEnginePrivate::mapUncompressed()
 
 //  from src/corelib/io/qresource.cpp, line 1734, as local:qresource.cpp:mappingBoundaries
 #if !defined(QT_BOOTSTRAPPED)
-#if defined(Q_OS_LINUX)
 static auto mappingBoundaries(const void *location, qsizetype size)
 {
 #ifdef Q_OS_WIN
@@ -748,12 +749,10 @@ static auto mappingBoundaries(const void *location, qsizetype size)
     r.offset = data & pageMask;
     return r;
 }
-#endif  // defined(Q_OS_LINUX)
 #endif  // !defined(QT_BOOTSTRAPPED)
 
 //  from src/corelib/io/qresource.cpp, line 1759, as local:qresource.cpp:QResourceFileEnginePrivate::mapUncompressed_sys
 #if !defined(QT_BOOTSTRAPPED)
-#if defined(Q_OS_LINUX)
 inline bool QResourceFileEnginePrivate::mapUncompressed_sys()
 {
     auto r = mappingBoundaries(resource.data(), resource.uncompressedSize());
@@ -806,7 +805,6 @@ inline bool QResourceFileEnginePrivate::mapUncompressed_sys()
     mustUnmap = true;
     return true;
 }
-#endif  // defined(Q_OS_LINUX)
 #endif  // !defined(QT_BOOTSTRAPPED)
 
 //  from src/corelib/io/qresource.cpp, line 1459, as _ZN19QResourceFileEngine11setFileNameERK7QString

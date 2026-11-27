@@ -1,12 +1,16 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtWidgets/6.12.0/QtWidgets/private/qcombobox_p.h, Qt 6.12.0.
-//  Edited by hand on 2026-11-26: moc's output for 'QComboBoxDelegate' is
-//  pasted in, cut from what the moc of Qt 6.12.0 writes for its header: Qt's
-//  library keeps it to itself; added are 2 rituals that lean on what moc
-//  writes for a class of the part Qt keeps to itself, whose ritual file
-//  carries moc's output, drafted by a copy of the generator that lets those
-//  names through. A copy of a meta-object is a second one: 'qobject_cast'
-//  between it and Qt's own does not match. Kept as it is when the generator
+//  QtWidgets/6.12.0/QtWidgets/private/qcombobox_p.h, Qt 6.12.0. Edited by
+//  hand on 2026-11-26: moc's output for 'QComboBoxDelegate' is pasted in,
+//  cut from what the moc of Qt 6.12.0 writes for its header: Qt's library
+//  keeps it to itself; added are 2 rituals that lean on what moc writes for
+//  a class of the part Qt keeps to itself, whose ritual file carries moc's
+//  output, drafted by a copy of the generator that lets those names through.
+//  A copy of a meta-object is a second one: 'qobject_cast' between it and
+//  Qt's own does not match. Edited by hand on 2026-11-27: the constructors
+//  and the destructor of QComboBoxDelegate taken from Qt are no longer
+//  'inline' (2): the one definition the target file has of each, which the
+//  ritual files of other classes of the part call, as Microsoft's ABI emits
+//  an 'inline' one only where it is used. Kept as it is when the generator
 //  runs again.
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
@@ -162,7 +166,7 @@ int QComboBoxDelegate::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 QT_WARNING_POP
 
 //  from src/widgets/widgets/qcombobox.cpp, line 389, as _ZN17QComboBoxDelegateD0Ev
-inline QComboBoxDelegate::~QComboBoxDelegate()
+QComboBoxDelegate::~QComboBoxDelegate()
     = default;
 
 //  from src/widgets/widgets/qcombobox.cpp, line 407, as _ZNK17QComboBoxDelegate5paintEP8QPainterRK20QStyleOptionViewItemRK11QModelIndex
@@ -194,7 +198,7 @@ inline QSize QComboBoxDelegate::sizeHint(const QStyleOptionViewItem &option,
 }
 
 //  from src/widgets/widgets/qcombobox.cpp, line 384, as _ZN17QComboBoxDelegateC1EP7QObjectP9QComboBox
-inline QComboBoxDelegate::QComboBoxDelegate(QObject *parent, QComboBox *cmb)
+QComboBoxDelegate::QComboBoxDelegate(QObject *parent, QComboBox *cmb)
     : QStyledItemDelegate(parent),
       mCombo(cmb)
 {}

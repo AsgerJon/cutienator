@@ -2,16 +2,18 @@
 //  QtGui/6.12.0/QtGui/private/qrhigles2_p.h, Qt 6.12.0. Edited by hand on
 //  2026-11-25: the include of Qt's 'qrhivulkan_p.h' also stands under
 //  '__has_include(<vulkan/vulkan.h>)', since it does not compile on a
-//  machine without the headers of Vulkan. The OpenGL headers of macOS
-//  lack 'GL_ALL_BARRIER_BITS' and 'GL_SHADER_STORAGE_BUFFER', which
-//  Qt's code of 'QRhiGles2::beginExternal' uses, so the file defines
-//  every constant of the code taken from Qt that Qt's 'qrhigles2.cpp'
-//  defines for itself, with Qt's own '#ifndef' lines and values. The
-//  line pulling in 'qrhid3d12_p.h' stands under
-//  '__has_include(<D3D12MemAlloc.h>)': that header includes
-//  'D3D12MemAlloc.h', a library Qt keeps in its source and never
-//  installs, and no ritual here needs it. Kept as it is when the
-//  generator runs again.
+//  machine without the headers of Vulkan. The OpenGL headers of macOS lack
+//  'GL_ALL_BARRIER_BITS' and 'GL_SHADER_STORAGE_BUFFER', which Qt's code of
+//  'QRhiGles2::beginExternal' uses, so the file defines every constant of
+//  the code taken from Qt that Qt's 'qrhigles2.cpp' defines for itself, with
+//  Qt's own '#ifndef' lines and values. The line pulling in 'qrhid3d12_p.h'
+//  stands under '__has_include(<D3D12MemAlloc.h>)': that header includes
+//  'D3D12MemAlloc.h', a library Qt keeps in its source and never installs,
+//  and no ritual here needs it. Edited by hand on 2026-11-27: code taken
+//  from Qt's source no longer stands under defined(Q_OS_LINUX), which Qt
+//  does not write there; its rituals no longer stand under
+//  defined(Q_OS_LINUX), as the code taken from Qt they call no longer does.
+//  Kept as it is when the generator runs again.
 #include <QtGui/qtguiglobal.h>
 #include <QtGui/6.12.0/QtGui/private/qtguiglobal_p.h>
 #if QT_CONFIG(opengl)
@@ -1666,7 +1668,6 @@ inline bool QRhiGles2::isDeviceLost() const
 }
 
 //  from src/gui/rhi/qrhigles2.cpp, line 694, as _ZNK9QRhiGles223evaluateFallbackSurfaceEv
-#if defined(Q_OS_LINUX)
 inline QSurface *QRhiGles2::evaluateFallbackSurface() const
 {
     // With Apple's deprecated OpenGL support we need to minimize the usage of
@@ -1678,7 +1679,6 @@ inline QSurface *QRhiGles2::evaluateFallbackSurface() const
     return fallbackSurface;
 #endif
 }
-#endif  // defined(Q_OS_LINUX)
 
 //  from src/gui/rhi/qrhigles2.cpp, line 1321, as _ZN9QRhiGles223executeDeferredReleasesEv
 inline void QRhiGles2::executeDeferredReleases()
@@ -3376,14 +3376,12 @@ bool ritual_ZNK9QRhiGles212isDeviceLostEv(const QRhiGles2 *self) {
   return self->isDeviceLost();
 }
 
-#if defined(Q_OS_LINUX)
 //  QSurface *QRhiGles2::evaluateFallbackSurface() const
 extern "C" Q_DECL_EXPORT
 QSurface *ritual_ZNK9QRhiGles223evaluateFallbackSurfaceEv(
     const QRhiGles2 *self) {
   return self->evaluateFallbackSurface();
 }
-#endif  // defined(Q_OS_LINUX)
 
 //  void QRhiGles2::executeDeferredReleases()
 extern "C" Q_DECL_EXPORT

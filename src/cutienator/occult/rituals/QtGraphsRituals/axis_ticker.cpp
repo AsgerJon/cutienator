@@ -1,12 +1,16 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtGraphs/6.12.0/QtGraphs/private/axisticker_p.h, Qt 6.12.0.
-//  Edited by hand on 2026-11-26: moc's output for 'AxisTicker' is pasted in,
-//  cut from what the moc of Qt 6.12.0 writes for its header: Qt's library
-//  keeps it to itself; added are 18 rituals that lean on what moc writes for
-//  a class of the part Qt keeps to itself, whose ritual file carries moc's
-//  output, drafted by a copy of the generator that lets those names through.
-//  A copy of a meta-object is a second one: 'qobject_cast' between it and
-//  Qt's own does not match. Kept as it is when the generator runs again.
+//  QtGraphs/6.12.0/QtGraphs/private/axisticker_p.h, Qt 6.12.0. Edited by
+//  hand on 2026-11-26: moc's output for 'AxisTicker' is pasted in, cut from
+//  what the moc of Qt 6.12.0 writes for its header: Qt's library keeps it to
+//  itself; added are 18 rituals that lean on what moc writes for a class of
+//  the part Qt keeps to itself, whose ritual file carries moc's output,
+//  drafted by a copy of the generator that lets those names through. A copy
+//  of a meta-object is a second one: 'qobject_cast' between it and Qt's own
+//  does not match. Edited by hand on 2026-11-27: the constructors and the
+//  destructor of AxisTicker taken from Qt are no longer 'inline' (2): the
+//  one definition the target file has of each, which the ritual files of
+//  other classes of the part call, as Microsoft's ABI emits an 'inline' one
+//  only where it is used. Kept as it is when the generator runs again.
 #include <QtQuick/qtquickglobal.h>
 #include <QtGui/qtguiglobal.h>
 #include <QtGraphs/qgraphsglobal.h>
@@ -432,10 +436,10 @@ inline void AxisTicker::componentComplete()
 }
 
 //  from ../qtgraphs/src/graphs2d/axis/axisticker.cpp, line 15, as _ZN10AxisTickerD0Ev
-inline AxisTicker::~AxisTicker() {}
+AxisTicker::~AxisTicker() {}
 
 //  from ../qtgraphs/src/graphs2d/axis/axisticker.cpp, line 10, as _ZN10AxisTickerC1EP10QQuickItem
-inline AxisTicker::AxisTicker(QQuickItem *parent) :
+AxisTicker::AxisTicker(QQuickItem *parent) :
       QQuickShaderEffect(parent)
 {
 }

@@ -1,6 +1,9 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtCore/6.12.0/QtCore/private/qtextstream_p.h, Qt 6.12.0. Changes made
-//  here are lost.
+//  QtCore/6.12.0/QtCore/private/qtextstream_p.h, Qt 6.12.0. Edited by hand
+//  on 2026-11-27: code taken from Qt's source no longer stands under
+//  defined(Q_OS_LINUX), which Qt does not write there; its rituals no longer
+//  stand under defined(Q_OS_LINUX), as the code taken from Qt they call no
+//  longer does. Kept as it is when the generator runs again.
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtCore/qtextstream.h>
 #include <QtCore/QtCore>
@@ -54,7 +57,6 @@ inline void QTextStreamPrivate::Params::reset()
 }
 
 //  from src/corelib/serialization/qtextstream.cpp, line 348, as _ZN18QTextStreamPrivate14fillReadBufferEx
-#if defined(Q_OS_LINUX)
 inline bool QTextStreamPrivate::fillReadBuffer(qint64 maxBytes)
 {
     // no buffer next to the QString itself; this function should only
@@ -165,7 +167,6 @@ inline bool QTextStreamPrivate::fillReadBuffer(qint64 maxBytes)
 #endif
     return true;
 }
-#endif  // defined(Q_OS_LINUX)
 
 //  from src/corelib/serialization/qtextstream.cpp, line 259, as _ZN18QTextStreamPrivateC1EP11QTextStream
 inline QTextStreamPrivate::QTextStreamPrivate(QTextStream *q_ptr)
@@ -625,7 +626,6 @@ inline void QTextStreamPrivate::resetReadBuffer()
 }
 
 //  from src/corelib/serialization/qtextstream.cpp, line 472, as _ZN18QTextStreamPrivate16flushWriteBufferEv
-#if defined(Q_OS_LINUX)
 inline void QTextStreamPrivate::flushWriteBuffer()
 {
     // no buffer next to the QString itself; this function should only
@@ -687,7 +687,6 @@ inline void QTextStreamPrivate::flushWriteBuffer()
     if (!flushed || bytesWritten != qint64(data.size()))
         status = QTextStream::WriteFailed;
 }
-#endif  // defined(Q_OS_LINUX)
 //  -----------------------------------------------------------------------
 
 //  QTextStream *QTextStreamPrivate::q_func()
@@ -723,7 +722,6 @@ void ritual_ZN18QTextStreamPrivate5resetEv(QTextStreamPrivate *self) {
   self->reset();
 }
 
-#if defined(Q_OS_LINUX)
 //  void QTextStreamPrivate::setupDevice(QIODevice *device)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN18QTextStreamPrivate11setupDeviceEP9QIODevice(
@@ -731,7 +729,6 @@ void ritual_ZN18QTextStreamPrivate11setupDeviceEP9QIODevice(
     QIODevice *device) {
   self->setupDevice(device);
 }
-#endif  // defined(Q_OS_LINUX)
 
 //  void QTextStreamPrivate::disconnectFromDevice()
 extern "C" Q_DECL_EXPORT
@@ -740,7 +737,6 @@ void ritual_ZN18QTextStreamPrivate20disconnectFromDeviceEv(
   self->disconnectFromDevice();
 }
 
-#if defined(Q_OS_LINUX)
 //  QString QTextStreamPrivate::read(qsizetype maxlen)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN18QTextStreamPrivate4readEx(
@@ -748,9 +744,7 @@ QString *ritual_ZN18QTextStreamPrivate4readEx(
     qsizetype maxlen) {
   return new QString(self->read(maxlen));
 }
-#endif  // defined(Q_OS_LINUX)
 
-#if defined(Q_OS_LINUX)
 //  bool QTextStreamPrivate::scan(const QChar **ptr, qsizetype *tokenLength,
 //      qsizetype maxlen, TokenDelimiter delimiter)
 extern "C" Q_DECL_EXPORT
@@ -762,7 +756,6 @@ bool ritual_ZN18QTextStreamPrivate4scanEPPK5QCharPxxNS_14TokenDelimiterE(
     QTextStreamPrivate::TokenDelimiter delimiter) {
   return self->scan(ptr, tokenLength, maxlen, delimiter);
 }
-#endif  // defined(Q_OS_LINUX)
 
 //  const QChar *QTextStreamPrivate::readPtr() const
 extern "C" Q_DECL_EXPORT
@@ -801,7 +794,6 @@ void ritual_ZN18QTextStreamPrivate28restoreToSavedConverterStateEv(
   self->restoreToSavedConverterState();
 }
 
-#if defined(Q_OS_LINUX)
 //  bool QTextStreamPrivate::getChar(QChar *ch)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN18QTextStreamPrivate7getCharEP5QChar(
@@ -809,7 +801,6 @@ bool ritual_ZN18QTextStreamPrivate7getCharEP5QChar(
     QChar *ch) {
   return self->getChar(ch);
 }
-#endif  // defined(Q_OS_LINUX)
 
 //  void QTextStreamPrivate::ungetChar(QChar ch)
 extern "C" Q_DECL_EXPORT
@@ -819,7 +810,6 @@ void ritual_ZN18QTextStreamPrivate9ungetCharE5QChar(
   self->ungetChar(*ch);
 }
 
-#if defined(Q_OS_LINUX)
 //  bool QTextStreamPrivate::getReal(double *f)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN18QTextStreamPrivate7getRealEPd(
@@ -827,7 +817,6 @@ bool ritual_ZN18QTextStreamPrivate7getRealEPd(
     double *f) {
   return self->getReal(f);
 }
-#endif  // defined(Q_OS_LINUX)
 
 //  PaddingResult QTextStreamPrivate::padding(qsizetype len) const
 extern "C" Q_DECL_EXPORT
@@ -844,11 +833,9 @@ void ritual_ZN18QTextStreamPrivate15resetReadBufferEv(
   self->resetReadBuffer();
 }
 
-#if defined(Q_OS_LINUX)
 //  void QTextStreamPrivate::flushWriteBuffer()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN18QTextStreamPrivate16flushWriteBufferEv(
     QTextStreamPrivate *self) {
   self->flushWriteBuffer();
 }
-#endif  // defined(Q_OS_LINUX)

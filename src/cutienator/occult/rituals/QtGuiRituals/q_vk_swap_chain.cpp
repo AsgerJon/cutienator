@@ -1,10 +1,13 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtGui/6.12.0/QtGui/private/qrhivulkan_p.h, Qt 6.12.0.
-//  Edited by hand on 2026-11-25: the whole file stands under
-//  '__has_include(<vulkan/vulkan.h>)' as well, as Qt's
-//  'qvulkaninstance.h' checks it: 'qrhivulkan_p.h' needs the headers
-//  of Vulkan, outside Qt, which a machine may lack.
-//  Kept as it is when the generator runs again.
+//  QtGui/6.12.0/QtGui/private/qrhivulkan_p.h, Qt 6.12.0. Edited by hand on
+//  2026-11-25: the whole file stands under
+//  '__has_include(<vulkan/vulkan.h>)' as well, as Qt's 'qvulkaninstance.h'
+//  checks it: 'qrhivulkan_p.h' needs the headers of Vulkan, outside Qt,
+//  which a machine may lack. Edited by hand on 2026-11-27: code taken from
+//  Qt's source no longer stands under defined(Q_OS_LINUX), which Qt does not
+//  write there; its rituals no longer stand under defined(Q_OS_LINUX), as
+//  the code taken from Qt they call no longer does. Kept as it is when the
+//  generator runs again.
 #include <QtGui/qtguiglobal.h>
 #include <QtGui/6.12.0/QtGui/private/qtguiglobal_p.h>
 #if QT_CONFIG(vulkan) && __has_include(<vulkan/vulkan.h>)
@@ -195,7 +198,6 @@ inline QSize QVkSwapChain::surfacePixelSize()
 }
 
 //  from src/gui/rhi/qrhivulkan.cpp, line 9224, as _ZN12QVkSwapChain7hdrInfoEv
-#if defined(Q_OS_LINUX)
 inline QRhiSwapChainHdrInfo QVkSwapChain::hdrInfo()
 {
     QRhiSwapChainHdrInfo info = QRhiSwapChain::hdrInfo();
@@ -207,7 +209,6 @@ inline QRhiSwapChainHdrInfo QVkSwapChain::hdrInfo()
 #endif
     return info;
 }
-#endif  // defined(Q_OS_LINUX)
 
 //  from src/gui/rhi/qrhivulkan.cpp, line 9236, as _ZN12QVkSwapChain33newCompatibleRenderPassDescriptorEv
 inline QRhiRenderPassDescriptor *QVkSwapChain::newCompatibleRenderPassDescriptor()
@@ -503,13 +504,11 @@ QRhiRenderTarget *ritual_own_ZN12QVkSwapChain24currentFrameRenderTargetEN13QRhiS
   return self->QVkSwapChain::currentFrameRenderTarget(targetBuffer);
 }
 
-#if defined(Q_OS_LINUX)
 //  QRhiSwapChainHdrInfo QVkSwapChain::hdrInfo()
 extern "C" Q_DECL_EXPORT
 QRhiSwapChainHdrInfo *ritual_own_ZN12QVkSwapChain7hdrInfoEv(
     QVkSwapChain *self) {
   return new QRhiSwapChainHdrInfo(self->QVkSwapChain::hdrInfo());
 }
-#endif  // defined(Q_OS_LINUX)
 
 #endif  // QT_CONFIG(vulkan) && __has_include(<vulkan/vulkan.h>)

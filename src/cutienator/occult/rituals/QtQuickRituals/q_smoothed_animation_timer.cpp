@@ -6,8 +6,12 @@
 //  moc writes for a class of the part Qt keeps to itself, whose ritual file
 //  carries moc's output, drafted by a copy of the generator that lets those
 //  names through. A copy of a meta-object is a second one: 'qobject_cast'
-//  between it and Qt's own does not match. Kept as it is when the generator
-//  runs again.
+//  between it and Qt's own does not match. Edited by hand on 2026-11-27: the
+//  constructors and the destructor of QSmoothedAnimationTimer taken from Qt
+//  are no longer 'inline' (2): the one definition the target file has of
+//  each, which the ritual files of other classes of the part call, as
+//  Microsoft's ABI emits an 'inline' one only where it is used. Kept as it
+//  is when the generator runs again.
 #include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
 #include <QtQuick/QtQuick>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -132,7 +136,7 @@ inline void QSmoothedAnimationTimer::stopAnimation()
 }
 
 //  from ../qtdeclarative/src/quick/util/qquicksmoothedanimation.cpp, line 25, as _ZN23QSmoothedAnimationTimerC1EP18QSmoothedAnimationP7QObject
-inline QSmoothedAnimationTimer::QSmoothedAnimationTimer(QSmoothedAnimation *animation, QObject *parent)
+QSmoothedAnimationTimer::QSmoothedAnimationTimer(QSmoothedAnimation *animation, QObject *parent)
     : QTimer(parent)
     , m_animation(animation)
 {
@@ -140,7 +144,7 @@ inline QSmoothedAnimationTimer::QSmoothedAnimationTimer(QSmoothedAnimation *anim
 }
 
 //  from ../qtdeclarative/src/quick/util/qquicksmoothedanimation.cpp, line 32, as _ZN23QSmoothedAnimationTimerD1Ev
-inline QSmoothedAnimationTimer::~QSmoothedAnimationTimer()
+QSmoothedAnimationTimer::~QSmoothedAnimationTimer()
 {
 }
 //  -----------------------------------------------------------------------

@@ -1,6 +1,9 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtWidgets/6.12.0/QtWidgets/private/qmenubar_p.h, Qt 6.12.0. Changes made
-//  here are lost.
+//  QtWidgets/6.12.0/QtWidgets/private/qmenubar_p.h, Qt 6.12.0. Edited by
+//  hand on 2026-11-27: code taken from Qt's source no longer stands under
+//  defined(Q_OS_LINUX), which Qt does not write there; its rituals no longer
+//  stand under defined(Q_OS_LINUX), as the code taken from Qt they call no
+//  longer does. Kept as it is when the generator runs again.
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #if QT_CONFIG(menubar)
@@ -158,7 +161,6 @@ inline QSize QMenuBarExtension::sizeHint() const
 }
 
 //  from src/widgets/widgets/qmenubar.cpp, line 128, as _ZN15QMenuBarPrivate16updateGeometriesEv
-#if defined(Q_OS_LINUX)
 inline void QMenuBarPrivate::updateGeometries()
 {
     Q_Q(QMenuBar);
@@ -252,7 +254,6 @@ inline void QMenuBarPrivate::updateGeometries()
     }
     q->updateGeometry();
 }
-#endif  // defined(Q_OS_LINUX)
 
 //  from src/widgets/widgets/qmenu.cpp, line 685, as _ZN12QMenuPrivate20setFirstActionActiveEv
 inline void QMenuPrivate::setFirstActionActive()
@@ -1677,7 +1678,6 @@ void ritual_ZN15QMenuBarPrivateD1Ev(QMenuBarPrivate *self) {
   delete self;
 }
 
-#if defined(Q_OS_LINUX)
 //  QAction *QMenuBarPrivate::getNextAction(const qsizetype start, const
 //      qsizetype increment) const
 extern "C" Q_DECL_EXPORT
@@ -1687,7 +1687,6 @@ QAction *ritual_ZNK15QMenuBarPrivate13getNextActionExx(
     qsizetype increment) {
   return self->getNextAction(start, increment);
 }
-#endif  // defined(Q_OS_LINUX)
 
 //  void QMenuBarPrivate::calcActionRects(int max_width, int start) const
 extern "C" Q_DECL_EXPORT
@@ -1698,7 +1697,6 @@ void ritual_ZNK15QMenuBarPrivate15calcActionRectsEii(
   self->calcActionRects(max_width, start);
 }
 
-#if defined(Q_OS_LINUX)
 //  QRect QMenuBarPrivate::actionRect(QAction *a0) const
 extern "C" Q_DECL_EXPORT
 QRect *ritual_ZNK15QMenuBarPrivate10actionRectEP7QAction(
@@ -1706,18 +1704,14 @@ QRect *ritual_ZNK15QMenuBarPrivate10actionRectEP7QAction(
     QAction *a0) {
   return new QRect(self->actionRect(a0));
 }
-#endif  // defined(Q_OS_LINUX)
 
-#if defined(Q_OS_LINUX)
 //  void QMenuBarPrivate::mouseRelaseEventFromQMenu()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QMenuBarPrivate25mouseRelaseEventFromQMenuEv(
     QMenuBarPrivate *self) {
   self->mouseRelaseEventFromQMenu();
 }
-#endif  // defined(Q_OS_LINUX)
 
-#if defined(Q_OS_LINUX)
 //  QAction *QMenuBarPrivate::actionAt(QPoint p) const
 extern "C" Q_DECL_EXPORT
 QAction *ritual_ZNK15QMenuBarPrivate8actionAtE6QPoint(
@@ -1725,9 +1719,7 @@ QAction *ritual_ZNK15QMenuBarPrivate8actionAtE6QPoint(
     const QPoint *p) {
   return self->actionAt(*p);
 }
-#endif  // defined(Q_OS_LINUX)
 
-#if defined(Q_OS_LINUX)
 //  void QMenuBarPrivate::setCurrentAction(QAction *a0, bool a1, bool a2)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QMenuBarPrivate16setCurrentActionEP7QActionbb(
@@ -1737,9 +1729,7 @@ void ritual_ZN15QMenuBarPrivate16setCurrentActionEP7QActionbb(
     bool a2) {
   self->setCurrentAction(a0, a1, a2);
 }
-#endif  // defined(Q_OS_LINUX)
 
-#if defined(Q_OS_LINUX)
 //  void QMenuBarPrivate::popupAction(QAction *a0, bool a1)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QMenuBarPrivate11popupActionEP7QActionb(
@@ -1748,17 +1738,13 @@ void ritual_ZN15QMenuBarPrivate11popupActionEP7QActionb(
     bool a1) {
   self->popupAction(a0, a1);
 }
-#endif  // defined(Q_OS_LINUX)
 
-#if defined(Q_OS_LINUX)
 //  void QMenuBarPrivate::focusFirstAction()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QMenuBarPrivate16focusFirstActionEv(QMenuBarPrivate *self) {
   self->focusFirstAction();
 }
-#endif  // defined(Q_OS_LINUX)
 
-#if defined(Q_OS_LINUX)
 //  void QMenuBarPrivate::setKeyboardMode(bool a0)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QMenuBarPrivate15setKeyboardModeEb(
@@ -1766,7 +1752,6 @@ void ritual_ZN15QMenuBarPrivate15setKeyboardModeEb(
     bool a0) {
   self->setKeyboardMode(a0);
 }
-#endif  // defined(Q_OS_LINUX)
 
 //  void QMenuBarPrivate::activateAction(QAction *a0, QAction::ActionEvent
 //      a1)
@@ -1791,7 +1776,6 @@ void ritual_ZN15QMenuBarPrivate16_q_actionHoveredEv(QMenuBarPrivate *self) {
   self->_q_actionHovered();
 }
 
-#if defined(Q_OS_LINUX)
 //  void QMenuBarPrivate::_q_internalShortcutActivated(int a0)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QMenuBarPrivate28_q_internalShortcutActivatedEi(
@@ -1799,15 +1783,12 @@ void ritual_ZN15QMenuBarPrivate28_q_internalShortcutActivatedEi(
     int a0) {
   self->_q_internalShortcutActivated(a0);
 }
-#endif  // defined(Q_OS_LINUX)
 
-#if defined(Q_OS_LINUX)
 //  void QMenuBarPrivate::_q_updateLayout()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QMenuBarPrivate15_q_updateLayoutEv(QMenuBarPrivate *self) {
   self->_q_updateLayout();
 }
-#endif  // defined(Q_OS_LINUX)
 
 //  bool QMenuBarPrivate::isVisible(QAction *action)
 extern "C" Q_DECL_EXPORT

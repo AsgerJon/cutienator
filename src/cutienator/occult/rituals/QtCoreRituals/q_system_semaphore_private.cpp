@@ -1,6 +1,9 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtCore/6.12.0/QtCore/private/qsystemsemaphore_p.h, Qt 6.12.0. Changes
-//  made here are lost.
+//  QtCore/6.12.0/QtCore/private/qsystemsemaphore_p.h, Qt 6.12.0. Edited by
+//  hand on 2026-11-27: code taken from Qt's source no longer stands under
+//  defined(Q_OS_LINUX), which Qt does not write there; its rituals no longer
+//  stand under defined(Q_OS_LINUX), as the code taken from Qt they call no
+//  longer does. Kept as it is when the generator runs again.
 #include <QtCore/qglobal.h>
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #if QT_CONFIG(systemsemaphore)
@@ -115,7 +118,6 @@ inline bool QSystemSemaphorePosix::handle(QSystemSemaphorePrivate *self, QSystem
 
 //  from src/corelib/ipc/qsystemsemaphore_systemv.cpp, line 55, as _ZN23QSystemSemaphoreSystemV6handleEP23QSystemSemaphorePrivateN16QSystemSemaphore10AccessModeE
 #if QT_CONFIG(sysv_sem)
-#if defined(Q_OS_LINUX)
 inline key_t QSystemSemaphoreSystemV::handle(QSystemSemaphorePrivate *self, QSystemSemaphore::AccessMode mode)
 {
     if (unix_key != -1)
@@ -195,7 +197,6 @@ inline key_t QSystemSemaphoreSystemV::handle(QSystemSemaphorePrivate *self, QSys
 
     return unix_key;
 }
-#endif  // defined(Q_OS_LINUX)
 #endif  // QT_CONFIG(sysv_sem)
 
 //  from src/corelib/ipc/qsystemsemaphore_posix.cpp, line 97, as _ZN21QSystemSemaphorePosix11cleanHandleEP23QSystemSemaphorePrivate
@@ -254,7 +255,6 @@ inline void QSystemSemaphoreSystemV::cleanHandle(QSystemSemaphorePrivate *self)
 
 //  from src/corelib/ipc/qsystemsemaphore_posix.cpp, line 121, as _ZN21QSystemSemaphorePosix15modifySemaphoreEP23QSystemSemaphorePrivatei
 #if QT_CONFIG(posix_sem)
-#if defined(Q_OS_LINUX)
 inline bool QSystemSemaphorePosix::modifySemaphore(QSystemSemaphorePrivate *self, int count)
 {
     if (!handle(self, QSystemSemaphore::Open))
@@ -303,7 +303,6 @@ inline bool QSystemSemaphorePosix::modifySemaphore(QSystemSemaphorePrivate *self
     self->clearError();
     return true;
 }
-#endif  // defined(Q_OS_LINUX)
 #endif  // QT_CONFIG(posix_sem)
 
 //  from src/corelib/ipc/qsystemsemaphore.cpp, line 342, as _ZN23QSystemSemaphorePrivate18setUnixErrorStringE13QLatin1String
@@ -431,7 +430,6 @@ void ritual_ZN23QSystemSemaphorePrivate15destructBackendEv(
 #if QT_CONFIG(posix_sem)
 #if QT_CONFIG(systemsemaphore)
 #if QT_CONFIG(sysv_sem)
-#if defined(Q_OS_LINUX)
 //  void QSystemSemaphorePrivate::handle(QSystemSemaphore::AccessMode mode)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN23QSystemSemaphorePrivate6handleEN16QSystemSemaphore10AccessModeE(
@@ -439,7 +437,6 @@ void ritual_ZN23QSystemSemaphorePrivate6handleEN16QSystemSemaphore10AccessModeE(
     QSystemSemaphore::AccessMode mode) {
   self->handle(mode);
 }
-#endif  // defined(Q_OS_LINUX)
 #endif  // QT_CONFIG(sysv_sem)
 #endif  // QT_CONFIG(systemsemaphore)
 #endif  // QT_CONFIG(posix_sem)

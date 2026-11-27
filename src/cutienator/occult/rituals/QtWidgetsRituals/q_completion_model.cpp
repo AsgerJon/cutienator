@@ -1,13 +1,16 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtWidgets/6.12.0/QtWidgets/private/qcompleter_p.h, Qt 6.12.0.
-//  Edited by hand on 2026-11-26: moc's output for 'QCompletionModel' is
-//  pasted in, cut from what the moc of Qt 6.12.0 writes for its header: Qt's
-//  library keeps it to itself; added are 2 rituals that lean on what moc
-//  writes for a class of the part Qt keeps to itself, whose ritual file
-//  carries moc's output, drafted by a copy of the generator that lets those
-//  names through. A copy of a meta-object is a second one: 'qobject_cast'
-//  between it and Qt's own does not match. Kept as it is when the generator
-//  runs again.
+//  QtWidgets/6.12.0/QtWidgets/private/qcompleter_p.h, Qt 6.12.0. Edited by
+//  hand on 2026-11-26: moc's output for 'QCompletionModel' is pasted in, cut
+//  from what the moc of Qt 6.12.0 writes for its header: Qt's library keeps
+//  it to itself; added are 2 rituals that lean on what moc writes for a
+//  class of the part Qt keeps to itself, whose ritual file carries moc's
+//  output, drafted by a copy of the generator that lets those names through.
+//  A copy of a meta-object is a second one: 'qobject_cast' between it and
+//  Qt's own does not match. Edited by hand on 2026-11-27: code taken from
+//  Qt's source no longer stands under defined(Q_OS_LINUX), which Qt does not
+//  write there; its rituals no longer stand under defined(Q_OS_LINUX), as
+//  the code taken from Qt they call no longer does. Kept as it is when the
+//  generator runs again.
 #include <QtCore/qglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
@@ -536,7 +539,6 @@ inline void QCompletionEngine::filter(const QStringList& parts)
 }
 
 //  from src/widgets/util/qcompleter.cpp, line 446, as _ZN17QCompletionEngine13filterHistoryEv
-#if defined(Q_OS_LINUX)
 inline QMatchData QCompletionEngine::filterHistory()
 {
     QAbstractItemModel *source = c->proxy->sourceModel();
@@ -564,7 +566,6 @@ inline QMatchData QCompletionEngine::filterHistory()
     }
     return m;
 }
-#endif  // defined(Q_OS_LINUX)
 
 //  from src/widgets/util/qcompleter.cpp, line 523, as _ZN17QCompletionEngine11saveInCacheE7QStringRK11QModelIndexRK10QMatchData
 inline void QCompletionEngine::saveInCache(QString part, const QModelIndex& parent, const QMatchData& m)
@@ -2080,7 +2081,6 @@ int ritual_ZN16QCompletionModel11qt_metacallEN11QMetaObject4CallEiPPv(
   return self->qt_metacall(a0, a1, a2);
 }
 
-#if defined(Q_OS_LINUX)
 //  QString QCompletionModel::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN16QCompletionModel2trEPKcS1_i(
@@ -2089,9 +2089,7 @@ QString *ritual_ZN16QCompletionModel2trEPKcS1_i(
     int n) {
   return new QString(QCompletionModel::tr(s, c, n));
 }
-#endif  // defined(Q_OS_LINUX)
 
-#if defined(Q_OS_LINUX)
 //  QCompletionModel::QCompletionModel(QCompleterPrivate *c, QObject *parent)
 extern "C" Q_DECL_EXPORT
 QCompletionModel *ritual_ZN16QCompletionModelC1EP17QCompleterPrivateP7QObject(
@@ -2099,7 +2097,6 @@ QCompletionModel *ritual_ZN16QCompletionModelC1EP17QCompleterPrivateP7QObject(
     QObject *parent) {
   return new CuteQCompletionModel(c, parent);
 }
-#endif  // defined(Q_OS_LINUX)
 
 //  void QCompletionModel::createEngine()
 extern "C" Q_DECL_EXPORT
@@ -2115,7 +2112,6 @@ void ritual_ZN16QCompletionModel11setFilteredEb(
   self->setFiltered(a0);
 }
 
-#if defined(Q_OS_LINUX)
 //  void QCompletionModel::filter(const QStringList &parts)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN16QCompletionModel6filterERK5QListI7QStringE(
@@ -2123,7 +2119,6 @@ void ritual_ZN16QCompletionModel6filterERK5QListI7QStringE(
     const QList<QString> *parts) {
   self->filter(*parts);
 }
-#endif  // defined(Q_OS_LINUX)
 
 //  int QCompletionModel::completionCount() const
 extern "C" Q_DECL_EXPORT
@@ -2405,7 +2400,6 @@ QVariant *ritual_own_ZNK16QCompletionModel4dataERK11QModelIndexi(
   return new QVariant(self->QCompletionModel::data(*index, role));
 }
 
-#if defined(Q_OS_LINUX)
 //  void QCompletionModel::setSourceModel(QAbstractItemModel *sourceModel)
 extern "C" Q_DECL_EXPORT
 void ritual_own_ZN16QCompletionModel14setSourceModelEP18QAbstractItemModel(
@@ -2413,7 +2407,6 @@ void ritual_own_ZN16QCompletionModel14setSourceModelEP18QAbstractItemModel(
     QAbstractItemModel *sourceModel) {
   self->QCompletionModel::setSourceModel(sourceModel);
 }
-#endif  // defined(Q_OS_LINUX)
 
 //  QModelIndex QCompletionModel::mapToSource(const QModelIndex &proxyIndex)
 //      const

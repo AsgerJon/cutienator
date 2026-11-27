@@ -1,12 +1,16 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtWidgets/6.12.0/QtWidgets/private/qcolumnviewgrip_p.h, Qt 6.12.0.
-//  Edited by hand on 2026-11-26: moc's output for 'QColumnViewGrip' is
-//  pasted in, cut from what the moc of Qt 6.12.0 writes for its header: Qt's
-//  library keeps it to itself; added are 6 rituals that lean on what moc
-//  writes for a class of the part Qt keeps to itself, whose ritual file
-//  carries moc's output, drafted by a copy of the generator that lets those
-//  names through. A copy of a meta-object is a second one: 'qobject_cast'
-//  between it and Qt's own does not match. Kept as it is when the generator
+//  QtWidgets/6.12.0/QtWidgets/private/qcolumnviewgrip_p.h, Qt 6.12.0. Edited
+//  by hand on 2026-11-26: moc's output for 'QColumnViewGrip' is pasted in,
+//  cut from what the moc of Qt 6.12.0 writes for its header: Qt's library
+//  keeps it to itself; added are 6 rituals that lean on what moc writes for
+//  a class of the part Qt keeps to itself, whose ritual file carries moc's
+//  output, drafted by a copy of the generator that lets those names through.
+//  A copy of a meta-object is a second one: 'qobject_cast' between it and
+//  Qt's own does not match. Edited by hand on 2026-11-27: the constructors
+//  and the destructor of QColumnViewGrip taken from Qt are no longer
+//  'inline' (3): the one definition the target file has of each, which the
+//  ritual files of other classes of the part call, as Microsoft's ABI emits
+//  an 'inline' one only where it is used. Kept as it is when the generator
 //  runs again.
 #include <QtGui/qtguiglobal.h>
 #include <QtWidgets/qtwidgetsglobal.h>
@@ -196,7 +200,7 @@ originalXLocation(-1)
 }
 
 //  from src/widgets/itemviews/qcolumnviewgrip.cpp, line 31, as _ZN15QColumnViewGripC1EP7QWidget
-inline QColumnViewGrip::QColumnViewGrip(QWidget *parent)
+QColumnViewGrip::QColumnViewGrip(QWidget *parent)
     :  QWidget(*new QColumnViewGripPrivate, parent, { })
 {
 #ifndef QT_NO_CURSOR
@@ -205,7 +209,7 @@ inline QColumnViewGrip::QColumnViewGrip(QWidget *parent)
 }
 
 //  from src/widgets/itemviews/qcolumnviewgrip.cpp, line 50, as _ZN15QColumnViewGripD1Ev
-inline QColumnViewGrip::~QColumnViewGrip()
+QColumnViewGrip::~QColumnViewGrip()
 {
 }
 
@@ -235,7 +239,7 @@ inline int QColumnViewGrip::moveGrip(int offset)
 }
 
 //  from src/widgets/itemviews/qcolumnviewgrip.cpp, line 42, as _ZN15QColumnViewGripC1ER22QColumnViewGripPrivateP7QWidget6QFlagsIN2Qt10WindowTypeEE
-inline QColumnViewGrip::QColumnViewGrip(QColumnViewGripPrivate & dd, QWidget *parent, Qt::WindowFlags f)
+QColumnViewGrip::QColumnViewGrip(QColumnViewGripPrivate & dd, QWidget *parent, Qt::WindowFlags f)
 :  QWidget(dd, parent, f)
 {
 }

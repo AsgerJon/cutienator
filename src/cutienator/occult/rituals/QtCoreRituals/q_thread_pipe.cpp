@@ -1,6 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtCore/6.12.0/QtCore/private/qeventdispatcher_unix_p.h, Qt 6.12.0.
-//  Changes made here are lost.
+//  QtCore/6.12.0/QtCore/private/qeventdispatcher_unix_p.h, Qt 6.12.0. Edited
+//  by hand on 2026-11-27: code taken from Qt's qeventdispatcher_unix.cpp
+//  stands under defined(Q_OS_UNIX), as Qt builds that file, not
+//  defined(Q_OS_LINUX). Kept as it is when the generator runs again.
 #include <QtCore/qglobal.h>
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #if defined(Q_OS_UNIX) && !defined(Q_OS_WASM)
@@ -62,7 +64,7 @@ inline QThreadPipe::QThreadPipe()
 }
 
 //  from src/corelib/kernel/qeventdispatcher_unix.cpp, line 68, as _ZN11QThreadPipeD1Ev
-#if defined(Q_OS_LINUX)
+#if defined(Q_OS_UNIX)
 inline QThreadPipe::~QThreadPipe()
 {
     if (fds[0] >= 0)
@@ -75,7 +77,7 @@ inline QThreadPipe::~QThreadPipe()
     pipeDevDelete(name, true);
 #endif
 }
-#endif  // defined(Q_OS_LINUX)
+#endif  // defined(Q_OS_UNIX)
 
 //  from src/corelib/kernel/qeventdispatcher_unix.cpp, line 149, as _ZNK11QThreadPipe7prepareEv
 inline pollfd QThreadPipe::prepare() const
