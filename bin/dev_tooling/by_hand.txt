@@ -889,3 +889,19 @@ QtQuick QSGThreadedRenderLoop q_s_g_threaded_render_loop EDITED the class QSGRen
 QtSpatialAudio QAmbisonicDecoder q_ambisonic_decoder EDITED the class QAmbisonicDecoderFilter, taken from qambisonicdecoder.cpp, no longer stands under defined(Q_PROCESSOR_X86_64), which Qt does not write there (Apple silicon refused it)
 QtSpatialAudio QAudioEngineThreaded q_audio_engine_threaded EDITED the class QAudioOutputStream, taken from qaudioengine_threaded.cpp, no longer stands under defined(Q_OS_LINUX), which Qt does not write there
 QtWaylandCompositor QWaylandQuickShellSurfaceItemPrivate q_wayland_quick_shell_surface_item_private EDITED the includes of qwlclientbufferintegration_p.h and wayland-server-core.h, taken with the code of qwaylandquickitem.cpp, stand under __has_include(<wayland-server-core.h>); no code here uses Wayland
+
+# Found by the four-horsemen run of 2026-11-27 (run 4: Linux left out
+# 6 rituals, Windows the file of QSGTexturePlatformVulkan whole) and
+# fixed by hand on 2026-11-27: ritual files naming Vulkan's types that
+# stood under Qt's QT_CONFIG(vulkan) alone. Without Vulkan's headers
+# Qt's 'qvulkaninstance.h' gives types of its own ('quint64' for
+# 'VkImage'), which no function of Qt's library takes. Now, as every
+# other ritual file naming them, under QT_CONFIG(vulkan) &&
+# __has_include(<vulkan/vulkan.h>): compiled for Linux and Windows on
+# gcloud without Vulkan's headers (no Vulkan ritual left) and with
+# Khronos' of tag v1.4.363 (every one).
+QtOpenGL QVkConvenience q_vk_convenience EDITED the file stands under QT_CONFIG(vulkan) && __has_include(<vulkan/vulkan.h>), not QT_CONFIG(vulkan) alone
+QtQuick QNativeInterface::QSGVulkanTexture q_native_interface__q_s_g_vulkan_texture EDITED the file stands under QT_CONFIG(vulkan) && __has_include(<vulkan/vulkan.h>), not Qt's QT_CONFIG(vulkan) || defined(Q_QDOC)
+QtQuick QQuickGraphicsDevice q_quick_graphics_device EDITED the rituals of fromPhysicalDevice and fromDeviceObjects stand under QT_CONFIG(vulkan) && __has_include(<vulkan/vulkan.h>), not Qt's QT_CONFIG(vulkan) || defined(Q_QDOC)
+QtQuick QQuickRenderTarget q_quick_render_target EDITED the three rituals of fromVulkanImage stand under QT_CONFIG(vulkan) && __has_include(<vulkan/vulkan.h>), not Qt's QT_CONFIG(vulkan) || defined(Q_QDOC)
+QtQuick QSGTexturePlatformVulkan q_s_g_texture_platform_vulkan EDITED the file stands under QT_CONFIG(vulkan) && __has_include(<vulkan/vulkan.h>), not QT_CONFIG(vulkan) alone

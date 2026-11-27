@@ -41,6 +41,29 @@ jobs:
           sudo apt-get install -y libgl-dev mesa-common-dev
           test -f /usr/include/GL/gl.h \
             || { echo "GL/gl.h is still missing" >&2; exit 1; }
+      # Linux and Windows, where Qt is built with Vulkan. Qt's headers
+      # take Vulkan's types from Vulkan's own header 'vulkan/vulkan.h'
+      # when the machine has it, else stand-ins of their own, which no
+      # function of Qt's library takes: a number for 'VkImage', where
+      # the library takes a pointer. A machine of GitHub has no such
+      # header, so the rituals of every Vulkan function of Qt were
+      # compiled out, or refused by the linker. This step fetches
+      # Khronos' headers, at the commit of their tag 'v1.4.363', into
+      # the folder 'vulkan-headers', and has 'clang++' look in them
+      # through 'CPLUS_INCLUDE_PATH', in the form of the path the
+      # system has ('pwd -W' on Windows). Qt for macOS is built
+      # without Vulkan.
+      - name: Fetch the Vulkan headers
+        if: ${{ runner.os != 'macOS' }}
+        shell: bash
+        run: |
+          mkdir -p vulkan-headers
+          curl -sSfL https://github.com/KhronosGroup/Vulkan-Headers/archive/7feeb71f59b8c1531ef5f7bb4b36e1aac46a0acb.tar.gz \
+            | tar -xz -C vulkan-headers --strip-components=1
+          test -f vulkan-headers/include/vulkan/vulkan.h \
+            || { echo "vulkan/vulkan.h is still missing" >&2; exit 1; }
+          here=$(pwd -W 2>/dev/null || pwd)
+          echo "CPLUS_INCLUDE_PATH=$here/vulkan-headers/include" >> "$GITHUB_ENV"
       # The same Qt, fetched the same way, as the release workflows
       # fetch it; see 'micro-dev.yml' for why each line is there. Here
       # every part of Qt this machine can have, not qtbase alone, so

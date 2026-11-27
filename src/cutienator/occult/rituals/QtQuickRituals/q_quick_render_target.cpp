@@ -1,5 +1,11 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtQuick/qquickrendertarget.h, Qt 6.12.0. Changes made here are lost.
+//  QtQuick/qquickrendertarget.h, Qt 6.12.0. Edited by hand on 2026-11-27:
+//  what names Vulkan's types stands under '__has_include(<vulkan/vulkan.h>)'
+//  as well, as in every other ritual file naming them, since Qt's
+//  'qvulkaninstance.h' stands in for those types with others of its own
+//  ('quint64' for 'VkImage') when Vulkan's headers are missing, which no
+//  function of Qt's library takes. Kept as it is when the generator runs
+//  again.
 #include <QtGui/qtguiglobal.h>
 #include <QtQuick/QtQuick>
 #include <QtQuick/qquickrendertarget.h>
@@ -220,7 +226,7 @@ QQuickRenderTarget *ritual_ZN18QQuickRenderTarget16fromMetalTextureEP10MTLTextur
 }
 #endif  // QT_CONFIG(metal) || defined(Q_QDOC)
 
-#if QT_CONFIG(vulkan) || defined(Q_QDOC)
+#if QT_CONFIG(vulkan) && __has_include(<vulkan/vulkan.h>)
 //  QQuickRenderTarget QQuickRenderTarget::fromVulkanImage(VkImage image,
 //      VkImageLayout layout, const QSize &pixelSize, int sampleCount)
 extern "C" Q_DECL_EXPORT
@@ -236,9 +242,9 @@ QQuickRenderTarget *ritual_ZN18QQuickRenderTarget15fromVulkanImageEP9VkImage_T13
           *pixelSize,
           sampleCount));
 }
-#endif  // QT_CONFIG(vulkan) || defined(Q_QDOC)
+#endif  // QT_CONFIG(vulkan) && __has_include(<vulkan/vulkan.h>)
 
-#if QT_CONFIG(vulkan) || defined(Q_QDOC)
+#if QT_CONFIG(vulkan) && __has_include(<vulkan/vulkan.h>)
 //  QQuickRenderTarget QQuickRenderTarget::fromVulkanImage(VkImage image,
 //      VkImageLayout layout, VkFormat format, const QSize &pixelSize, int
 //      sampleCount)
@@ -257,9 +263,9 @@ QQuickRenderTarget *ritual_ZN18QQuickRenderTarget15fromVulkanImageEP9VkImage_T13
           *pixelSize,
           sampleCount));
 }
-#endif  // QT_CONFIG(vulkan) || defined(Q_QDOC)
+#endif  // QT_CONFIG(vulkan) && __has_include(<vulkan/vulkan.h>)
 
-#if QT_CONFIG(vulkan) || defined(Q_QDOC)
+#if QT_CONFIG(vulkan) && __has_include(<vulkan/vulkan.h>)
 //  QQuickRenderTarget QQuickRenderTarget::fromVulkanImage(VkImage image,
 //      VkImageLayout layout, VkFormat format, VkFormat viewFormat, QSize
 //      pixelSize, int sampleCount, int arraySize, Flags flags)
@@ -284,7 +290,7 @@ QQuickRenderTarget *ritual_ZN18QQuickRenderTarget15fromVulkanImageEP9VkImage_T13
           arraySize,
           QFlags<QQuickRenderTarget::Flag>::fromInt(flags)));
 }
-#endif  // QT_CONFIG(vulkan) || defined(Q_QDOC)
+#endif  // QT_CONFIG(vulkan) && __has_include(<vulkan/vulkan.h>)
 
 //  QQuickRenderTarget
 //      QQuickRenderTarget::fromRhiRenderTarget(QRhiRenderTarget

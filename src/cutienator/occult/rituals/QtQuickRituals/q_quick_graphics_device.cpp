@@ -1,5 +1,11 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtQuick/qquickgraphicsdevice.h, Qt 6.12.0. Changes made here are lost.
+//  QtQuick/qquickgraphicsdevice.h, Qt 6.12.0. Edited by hand on 2026-11-27:
+//  what names Vulkan's types stands under '__has_include(<vulkan/vulkan.h>)'
+//  as well, as in every other ritual file naming them, since Qt's
+//  'qvulkaninstance.h' stands in for those types with others of its own
+//  ('quint64' for 'VkImage') when Vulkan's headers are missing, which no
+//  function of Qt's library takes. Kept as it is when the generator runs
+//  again.
 #include <QtGui/qtguiglobal.h>
 #include <QtQuick/QtQuick>
 #include <QtQuick/qquickgraphicsdevice.h>
@@ -67,7 +73,7 @@ QQuickGraphicsDevice *ritual_ZN20QQuickGraphicsDevice25fromDeviceAndCommandQueue
 }
 #endif  // QT_CONFIG(metal) || defined(Q_QDOC)
 
-#if QT_CONFIG(vulkan) || defined(Q_QDOC)
+#if QT_CONFIG(vulkan) && __has_include(<vulkan/vulkan.h>)
 //  QQuickGraphicsDevice
 //      QQuickGraphicsDevice::fromPhysicalDevice(VkPhysicalDevice
 //      physicalDevice)
@@ -78,9 +84,9 @@ QQuickGraphicsDevice *ritual_ZN20QQuickGraphicsDevice18fromPhysicalDeviceEP18VkP
       QQuickGraphicsDevice::fromPhysicalDevice(
           physicalDevice));
 }
-#endif  // QT_CONFIG(vulkan) || defined(Q_QDOC)
+#endif  // QT_CONFIG(vulkan) && __has_include(<vulkan/vulkan.h>)
 
-#if QT_CONFIG(vulkan) || defined(Q_QDOC)
+#if QT_CONFIG(vulkan) && __has_include(<vulkan/vulkan.h>)
 //  QQuickGraphicsDevice
 //      QQuickGraphicsDevice::fromDeviceObjects(VkPhysicalDevice
 //      physicalDevice, VkDevice device, int queueFamilyIndex, int
@@ -98,7 +104,7 @@ QQuickGraphicsDevice *ritual_ZN20QQuickGraphicsDevice17fromDeviceObjectsEP18VkPh
           queueFamilyIndex,
           queueIndex));
 }
-#endif  // QT_CONFIG(vulkan) || defined(Q_QDOC)
+#endif  // QT_CONFIG(vulkan) && __has_include(<vulkan/vulkan.h>)
 
 //  QQuickGraphicsDevice QQuickGraphicsDevice::fromRhi(QRhi *rhi)
 extern "C" Q_DECL_EXPORT

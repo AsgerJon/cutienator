@@ -1,8 +1,14 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtQuick/qsgtexture_platform.h, Qt 6.12.0. Changes made here are lost.
+//  QtQuick/qsgtexture_platform.h, Qt 6.12.0. Edited by hand on 2026-11-27:
+//  what names Vulkan's types stands under '__has_include(<vulkan/vulkan.h>)'
+//  as well, as in every other ritual file naming them, since Qt's
+//  'qvulkaninstance.h' stands in for those types with others of its own
+//  ('quint64' for 'VkImage') when Vulkan's headers are missing, which no
+//  function of Qt's library takes. Kept as it is when the generator runs
+//  again.
 #include <QtGui/qtguiglobal.h>
 #include <QtQuick/qtquickglobal.h>
-#if QT_CONFIG(vulkan) || defined(Q_QDOC)
+#if QT_CONFIG(vulkan) && __has_include(<vulkan/vulkan.h>)
 #include <QtQuick/QtQuick>
 #include <QtQuick/qsgtexture_platform.h>
 #include <QtCore/qsize.h>
@@ -63,4 +69,4 @@ void ritual_drop_QNativeInterface_QSGVulkanTexture__VkImageLayout(
   delete self;
 }
 
-#endif  // QT_CONFIG(vulkan) || defined(Q_QDOC)
+#endif  // QT_CONFIG(vulkan) && __has_include(<vulkan/vulkan.h>)
