@@ -10,9 +10,9 @@ from typing import TYPE_CHECKING
 
 from worktoy.waitaminute import MissingVariable, TypeException
 
-from . import DependencyTree
+from . import DependencyTree, NamespaceGenerator
 from ._class_generator import ClassGenerator
-from .class_tables import ENUM_SPACES, LISTED_FIRST
+from .class_tables import LISTED_FIRST
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Dict, List, Optional, Tuple
@@ -221,16 +221,30 @@ class PackageGenerator:
         found.setdefault(cuteName.getSpaceName(), []).append(name)
     return {space: (*names,) for space, names in found.items()}
 
+  def getEnumSpaces(self) -> Tuple[str, ...]:
+    """Gives each namespace Qt writes enums directly in, in the part,
+    in alphabetical order, as 'Qt' for QtCore and 'QSsl' for QtNetwork;
+    see 'DependencyTree.getEnumSpaces'."""
+    return self.getDependencyTree().getEnumSpaces(self.getPartName())
+
+  def _createNamespaceGenerator(self, spaceName: str) -> NamespaceGenerator:
+    """Gives the 'NamespaceGenerator' of the file of the enums one
+    namespace has in the part, with the same tree and folder."""
+    generator = NamespaceGenerator()
+    generator.setDependencyTree(self.getDependencyTree())
+    generator.setPartName(self.getPartName())
+    generator.setNamespaceName(spaceName)
+    generator.setWorkFolder(self.getWorkFolder())
+    return generator
+
   def getSpaceNames(self) -> Tuple[str, ...]:
     """
     Gives every namespace of the part that is a package, in alphabetical
-    order: each that holds a cute class, each namespace around those,
-    as 'QV4' around 'QV4::Heap', and each whose enums the table
-    'ENUM_SPACES' names, as 'Qt'.
+    order: each that holds a cute class, each that Qt writes enums
+    directly in, as 'Qt' and 'QSsl', and each namespace around those,
+    as 'QV4' around 'QV4::Heap'.
     """
-    spaces = [*self.getSpaceClasses()]
-    enumSpaces = ENUM_SPACES.get(self.getPartName(), ())
-    spaces.extend(name for name, _ in enumSpaces)
+    spaces = [*self.getSpaceClasses(), *self.getEnumSpaces()]
     found = set()
     for space in spaces:
       pieces = space.split('::')
@@ -386,8 +400,9 @@ class PackageGenerator:
     cute classes Qt writes right inside the namespace, each brought in
     from its file in the folder of the part the first time it is asked
     for, as 'Qt3DCore.QEntity'; the namespaces right inside it, each a
-    package of its own; and, for a namespace of 'ENUM_SPACES', its
-    enums and the names of their members, as 'Qt.AlignLeft'.
+    package of its own; and, for a namespace Qt writes enums in, its
+    enums and the names of their members, as 'Qt.AlignLeft', from the
+    file 'NamespaceGenerator' writes of them.
 
     Raises
     ------
@@ -407,7 +422,10 @@ class PackageGenerator:
     inner = [
         name.rpartition('::')[2] for name in self.getSpaceNames()
         if name.rpartition('::')[0] == spaceName]
-    enumStem = dict(ENUM_SPACES.get(partName, ())).get(spaceName, '')
+    enumStem = ''
+    if spaceName in self.getEnumSpaces():
+      enumStem = self._createNamespaceGenerator(spaceName).getFileStem()
+    ownName = spaceName.split('::')[-1]
     outermost = spaceName.split('::')[0]
     example = '%s.%s' % (dotted, files[0][0]) if files else ''
     lines = [
@@ -433,7 +451,7 @@ class PackageGenerator:
     ]
     if enumStem:
       lines.extend((
-          'from %s%s import %s as _Enums' % (up, enumStem, outermost),
+          'from %s%s import %s as _Enums' % (up, enumStem, ownName),
           '',
           '#  The enums of the namespace, and the names of their',
           '#  members, as names of the package itself, where C++ has',
@@ -467,13 +485,13 @@ class PackageGenerator:
         '', '',
         '  def __getattr__(name: str) -> Any:',
         '    """',
-        '    Brings in a class or a namespace of this namespace the',
-        "    first time it is asked for, as by '%s'. Python calls" % (
-            example or 'from cutienator.%s import %s' % (
-                partName, outermost)),
-        '    this for a'
-        ' name the package does not hold yet, and what it gives is kept',
-        '    here for the next time.',
+        *('    %s' % line for line in textwrap.wrap(
+            "Brings in a class or a namespace of this namespace the first "
+            "time it is asked for, as by '%s'. Python calls this for a "
+            "name the package does not hold yet, and what it gives is "
+            "kept here for the next time." % (
+                example or 'from cutienator.%s import %s' % (
+                    partName, outermost)), 73)),
         '',
         '    Raises',
         '    ------',
@@ -498,8 +516,15 @@ class PackageGenerator:
         '', '',
         '  def __dir__() -> List[str]:',
         '    """Names everything of the namespace, brought in or not."""',
-        '    return [*__all__]',
     ))
+    if enumStem:
+      lines.extend((
+          '    return [*__all__, *(',
+          '        name for name in _Enums.__dict__'
+          " if not name.startswith('_'))]",
+      ))
+    else:
+      lines.append('    return [*__all__]')
     return '%s\n' % '\n'.join(lines)
 
   def getStaleFiles(self) -> Tuple[str, ...]:
@@ -513,6 +538,10 @@ class PackageGenerator:
     if not os.path.isdir(folder):
       return ()
     known = {'%s.py' % stem for _, stem in self.getEntries()}
+    #  The file of the enums of each namespace of the part.
+    known.update(
+        '%s.py' % self._createNamespaceGenerator(space).getFileStem()
+        for space in self.getEnumSpaces())
     return (*(
         os.path.join(folder, name) for name in sorted(os.listdir(folder))
         if name.startswith('_q') and name.endswith('.py')
@@ -579,7 +608,9 @@ class PackageGenerator:
   def write(self) -> str:
     """
     Writes the package of the part, replacing the file written before,
-    and makes its folder when there is none.
+    and makes its folder when there is none; also the package of each
+    of its namespaces, and the file of the enums of each namespace Qt
+    writes enums in, which 'NamespaceGenerator' writes.
 
     Returns
     -------
@@ -589,6 +620,10 @@ class PackageGenerator:
     """
     text = self.getPackageText()
     spaces = {name: self.getSpaceText(name) for name in self.getSpaceNames()}
+    enumTexts = dict()  # type: Dict[str, str]
+    for spaceName in self.getEnumSpaces():
+      generator = self._createNamespaceGenerator(spaceName)
+      enumTexts[generator.getNamespaceFile()] = generator.getNamespaceText()
     os.makedirs(self.getPackageFolder(), exist_ok=True)
     with open(self.getPackageFile(), 'w') as file:
       file.write(text)
@@ -597,4 +632,8 @@ class PackageGenerator:
       os.makedirs(os.path.dirname(spaceFile), exist_ok=True)
       with open(spaceFile, 'w') as file:
         file.write(spaceText)
+    #  The enums of each namespace, which its package brings in.
+    for enumFile, enumText in enumTexts.items():
+      with open(enumFile, 'w') as file:
+        file.write(enumText)
     return self.getPackageFile()

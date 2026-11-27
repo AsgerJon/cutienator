@@ -267,15 +267,7 @@ class MetaCute(BaseMeta):
     """
     mcls = type(cls)
     madeClasses = mcls._getMadeClasses()
-    #  Its own '__qt_class__' only: a class a program builds on a cute
-    #  class inherits that, and is not the class of Qt.
-    qtName = dict.get(space, '__qt_class__', None)
-    known = qtName.replace('::', '.') if isinstance(qtName, str) else name
-    #  Its own '__qt_part__' too, which only a class whose name another
-    #  part of Qt has as well says.
-    qtPart = dict.get(space, '__qt_part__', None)
-    if isinstance(qtPart, str):
-      known = '%s:%s' % (qtPart, known)
+    known = mcls._getKnownName(name, space)
     madeBefore = madeClasses.get(known, None)
     try:
       super().__init__(name, bases, space, **kwargs)
@@ -296,6 +288,49 @@ class MetaCute(BaseMeta):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def _getKnownName(name: str, space: Any) -> str:
+    """
+    Gives the name a class just made is noted under: the dotted name of
+    its own '__qt_class__', as 'Qt3DCore.QEntity', and before it its own
+    '__qt_part__', which only a class whose name another part of Qt has
+    as well says, as 'QtCharts:QBarSeries'. A class without its own
+    '__qt_class__', as one a program builds on a cute class, which
+    inherits that and is not the class of Qt, is noted by its name.
+    """
+    qtName = dict.get(space, '__qt_class__', None)
+    known = qtName.replace('::', '.') if isinstance(qtName, str) else name
+    qtPart = dict.get(space, '__qt_part__', None)
+    if isinstance(qtPart, str):
+      known = '%s:%s' % (qtPart, known)
+    return known
+
+  @classmethod
+  def noteStandIn(mcls, standIn: type) -> None:
+    """
+    Notes a class that stands in a cute class, one 'UnsupportedMeta'
+    makes for a class of Qt that has no cute class yet, as made, under
+    the name a cute class of its '__qt_class__' and '__qt_part__' would
+    be noted under, and settles each waiting field waiting for it. So a
+    'WAIT' for that class holds the stand-in, and what takes or gives
+    one raises NotImplementedError, saying why, when it is used.
+
+    'UnsupportedMeta' calls this at the end of the class statement of a
+    stand-in with a '__qt_class__' of its own. You never call it.
+    """
+    madeClasses = mcls._getMadeClasses()
+    known = mcls._getKnownName(standIn.__name__, dict(vars(standIn)))
+    madeBefore = madeClasses.get(known, None)
+    madeClasses[known] = standIn
+    try:
+      mcls._settleReady()
+    except BaseException:
+      if madeBefore is None:
+        madeClasses.pop(known, None)
+      else:
+        madeClasses[known] = madeBefore
+      raise
 
   @classmethod
   def _settleReady(mcls) -> None:

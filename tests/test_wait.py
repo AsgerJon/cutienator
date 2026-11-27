@@ -13,7 +13,7 @@ from worktoy.waitaminute import MissingVariable, TypeException
 from worktoy.waitaminute.desc import ReadOnlyError, ProtectedError
 from worktoy.work_test import BaseTest
 
-from cutienator.cute import MetaCute, WAIT
+from cutienator.cute import MetaCute, UnsupportedMeta, WAIT
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Any
@@ -128,6 +128,28 @@ class TestWAIT(BaseTest):
     self.assertNotIn('QtMadeUpGraphs:PartLate', MetaCute.getStillWaiting())
     self.assertIs(PartEarly.GraphsLate, GraphsPartLate)
     self.assertIs(PartEarly.ChartsLate, ChartsPartLate)
+
+  def test_a_class_without_cute_class_is_waited_for_by_its_stand_in(
+      self) -> None:
+    """A class 'UnsupportedMeta' makes, standing in for a class of Qt
+    that has no cute class yet, settles the WAIT for that class as a
+    cute class would: the waiting class holds the stand-in, and making
+    one raises, saying why."""
+
+    class StandInEarly(BaseObject, metaclass=MetaCute):
+      Missing = WAIT['StandInLate']
+
+    self.assertIn('StandInLate', MetaCute.getStillWaiting())
+
+    class StandInLate(metaclass=UnsupportedMeta):
+      """Qt's class 'StandInLate' of QtMadeUp: no ritual file yet."""
+      __qt_class__ = 'StandInLate'
+
+    self.assertNotIn('StandInLate', MetaCute.getStillWaiting())
+    self.assertIs(StandInEarly.Missing, StandInLate)
+    with self.assertRaises(NotImplementedError) as context:
+      StandInEarly.Missing()
+    self.assertIn('no ritual file yet', str(context.exception))
 
   def test_refuses_an_owner_that_is_not_cute(self) -> None:
     """'hookSetName' refuses a class whose metaclass notices nothing."""

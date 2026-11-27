@@ -192,14 +192,19 @@ class ClassText:
     asking = {viewer.getImportName(n) for n in classes}
     asked = {partName for partName, _ in asking}
     asked.add('QtCore')
+    #  The namespaces whose enums the file names, as 'QtCore:Qt' or
+    #  'QtNetwork:QSsl': each is asked of the package of the part its
+    #  enums lie in, before the classes of that part.
+    spaces = {(*noted.split(':'),) for noted in needed['namespace']}
+    asked.update(partName for partName, _ in spaces)
     for partName in viewer.getImportOrder(asked):
       names = sorted({n for p, n in asking if p == partName})
       if partName == 'QtCore':
         #  'QList' and 'QStringList' are classes of QtCore the tree
         #  knows nothing of: cutienator writes them by hand.
         names = sorted({*names, *needed['lists']})
-      if partName == 'QtCore' and 'Qt' in needed['namespace']:
-        names.insert(0, 'Qt')
+      first = sorted({n for p, n in spaces if p == partName})
+      names = [*first, *(n for n in names if n not in first)]
       ours.extend(self._writeAsking(partName, names, ''))
     lines.extend(ours)
     typing = sorted(needed['typing'])
@@ -1237,6 +1242,59 @@ class ClassText:
     return dict(
         opening=opening, heading=heading, imports=imports, body=body,
         lists=self._writeListKinds())
+
+  def getStandInText(self, reason: str) -> str:
+    """
+    Gives the whole text of the file of a class of Qt that has no cute
+    class yet: a class 'UnsupportedMeta' makes, at the name and in the
+    file the cute class would have, whose docstring names the class of
+    Qt and says why. Making one, or reading an attribute it lacks,
+    raises NotImplementedError saying that; and a 'WAIT' for the class
+    holds it.
+
+    Raises
+    ------
+
+    ValueError
+      Qt writes the class inside another, so it has no file of its own.
+    """
+    viewer = self.getViewer()
+    className, partName = viewer.getClassName(), viewer.getPartName()
+    if viewer.isNested():
+      infoSpec = """Qt writes '%s' inside another class, so it has no
+      file of its own: the generator of '%s' writes it."""
+      info = infoSpec % (
+          className, viewer.getCuteName().getTopClassName())
+      raise ValueError(' '.join(info.split()))
+    pythonName = viewer.getPythonName()
+    infoSpec = """%s stands in for the class '%s' of Qt, which has no
+    cute class yet."""
+    about = ' '.join((infoSpec % (pythonName, className)).split())
+    infoSpec = """Qt's class '%s' of %s: %s"""
+    said = ' '.join((infoSpec % (className, partName, reason)).split())
+    lines = [
+        '"""', *textwrap.wrap(about, _width()), '"""',
+        '#  Apache-2.0 license',
+        '#  Copyright (c) 2026 Asger Jon Vistisen',
+        *self._getHeading(),
+        'from __future__ import annotations',
+        '',
+        'from ..cute import UnsupportedMeta',
+        '',
+        '',
+        'class %s(metaclass=UnsupportedMeta):' % pythonName,
+        '  """',
+        *('  %s' % line for line in textwrap.wrap(said, _width() - 2)),
+        '  """',
+        '',
+        '  #  The class of Qt this class stands in for.',
+        "  __qt_class__ = '%s'" % className,
+    ]
+    if viewer.isShared():
+      lines.append('  #  The part of Qt it is of, as another part has a '
+                   'class of its name too.')
+      lines.append("  __qt_part__ = '%s'" % partName)
+    return '%s\n' % '\n'.join(lines)
 
   def getText(self) -> str:
     """

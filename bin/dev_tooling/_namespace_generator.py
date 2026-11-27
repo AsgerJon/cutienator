@@ -24,6 +24,7 @@ class NamespaceGenerator:
 
     generator = NamespaceGenerator()
     generator.setDependencyTree(tree)
+    generator.setPartName('QtCore')
     generator.setNamespaceName('Qt')
     generator.setWorkFolder('src/cutienator')
     generator.write()                 # src/cutienator/QtCore/_qt.py
@@ -39,8 +40,10 @@ class NamespaceGenerator:
     lists them.
   - Where Qt names a type for the combinations of a flags enum, as
     'Qt::Alignment', that name holds the same class.
-  - The enums of the namespace have to lie in one part of Qt; the file
-    goes into the folder of that part.
+  - The file holds the enums of the namespace that lie in the part it
+    is told, and goes into the folder of that part. A namespace with
+    enums in two parts, as 'QtPrivate' in QtCore and in QtMultimedia,
+    has a file in each.
   - Functions that Qt writes in the namespace are not in the file.
   """
 
@@ -50,6 +53,7 @@ class NamespaceGenerator:
 
   #  Private Variables
   __dependency_tree__ = None  # type: Optional[DependencyTree]
+  __part_name__ = None  # type: Optional[str]
   __namespace_name__ = None  # type: Optional[str]
   __work_folder__ = None  # type: Optional[str]
 
@@ -86,13 +90,16 @@ class NamespaceGenerator:
     return generator
 
   def _getEnumParts(self) -> Dict[str, str]:
-    """Gives the part of each enum Qt writes directly in the namespace,
-    under its full name."""
+    """Gives the part of each enum Qt writes directly in the namespace
+    in the part of the file, under its full name."""
     tree, namespaceName = self.getDependencyTree(), self.getNamespaceName()
+    ownPart = self.getPartName()
     found = dict()  # type: Dict[str, str]
     for partName, enumName in tree.getEnumRecordNames():
       record = tree.getEnumRecord(enumName, partName)
       if record['insideClass'] or record['ownerName'] != namespaceName:
+        continue
+      if record['partName'] != ownPart:
         continue
       found.setdefault(enumName, partName)
     return found
@@ -100,14 +107,14 @@ class NamespaceGenerator:
   def getEnumNames(self) -> Names:
     """
     Gives the full name of each enum the file holds, in alphabetical
-    order: every enum Qt writes directly in the namespace that
-    'EnumGenerator' does not refuse.
+    order: every enum Qt writes directly in the namespace, in the part,
+    that 'EnumGenerator' does not refuse.
 
     Raises
     ------
 
     ValueError
-      Qt writes no such enum in the namespace.
+      Qt writes no such enum in the namespace in the part.
     """
     namespaceName = self.getNamespaceName()
     enumNames = []  # type: List[str]
@@ -115,31 +122,16 @@ class NamespaceGenerator:
       if self.getEnumGenerator(enumName).findRefusal() is None:
         enumNames.append(enumName)
     if not enumNames:
-      infoSpec = """Qt writes no enum in a namespace named '%s'."""
-      raise ValueError(infoSpec % namespaceName)
+      infoSpec = """Qt writes no enum in a namespace named '%s' in %s."""
+      raise ValueError(infoSpec % (namespaceName, self.getPartName()))
     return (*enumNames,)
 
   def getPartName(self) -> str:
-    """
-    Gives the part of Qt the enums of the namespace lie in, as 'QtCore'.
-
-    Raises
-    ------
-
-    ValueError
-      The enums of the namespace lie in more than one part.
-    """
-    enumParts = self._getEnumParts()
-    partNames = set()
-    for enumName in self.getEnumNames():
-      partNames.add(enumParts[enumName])
-    if len(partNames) > 1:
-      infoSpec = """The enums of the namespace '%s' lie in more than one
-      part of Qt: %s."""
-      found = ', '.join(sorted(partNames))
-      info = infoSpec % (self.getNamespaceName(), found)
-      raise ValueError(' '.join(info.split()))
-    return partNames.pop()
+    """Gives the part of Qt whose enums of the namespace the file holds,
+    as 'QtCore'."""
+    if self.__part_name__ is None:
+      raise MissingVariable(self, '__part_name__', str)
+    return self.__part_name__
 
   def getFileStem(self) -> str:
     """Gives the name of the file without its ending, as '_qt'."""
@@ -193,7 +185,7 @@ class NamespaceGenerator:
     infoSpec = """%s stands for the namespace '%s' of Qt."""
     lines = [
       '"""',
-      infoSpec % (ownName, namespaceName),
+      *textwrap.wrap(infoSpec % (ownName, namespaceName), 77),
       '"""',
       '#  Apache-2.0 license',
       '#  Copyright (c) 2026 Asger Jon Vistisen',
@@ -221,6 +213,13 @@ class NamespaceGenerator:
     if not isinstance(dependencyTree, DependencyTree):
       raise TypeException('dependencyTree', dependencyTree, DependencyTree)
     self.__dependency_tree__ = dependencyTree
+
+  def setPartName(self, partName: str) -> None:
+    """Tells the generator which part of Qt the enums of the file lie
+    in, as 'QtCore'."""
+    if not isinstance(partName, str):
+      raise TypeException('partName', partName, str)
+    self.__part_name__ = partName
 
   def setNamespaceName(self, namespaceName: str) -> None:
     """Tells the generator which namespace to write, as 'Qt'."""

@@ -283,9 +283,9 @@ class CuteName:
       a signature writes it, as 'Qt.WindowFlags' or 'QPalette.ColorRole';
       'shown': the class as an annotation writes it, as
       'QPalette.ColorRole'; 'owner': the class it is reached through,
-      or '' for the namespace 'Qt', for an enum of the class being
-      written and for one brought in from its own file; 'generator':
-      the 'EnumGenerator' of the enum.
+      or '' for an enum of a namespace, as 'Qt' or 'QSsl', for an enum
+      of the class being written and for one brought in from its own
+      file; 'generator': the 'EnumGenerator' of the enum.
     """
     viewer, enumName = self.getViewer(), self.getName()
     tree = viewer.getDependencyTree()
@@ -306,12 +306,17 @@ class CuteName:
       return dict(
           entry=ownName, shown=ownName, owner='', generator=generator,
           own=True)
-    if ownerName == 'Qt':
-      viewer._note('namespace', 'Qt')
-      entry = 'Qt.%s' % ownName
-      return dict(entry=entry, shown=entry, owner='', generator=generator)
-    if not record['insideClass']:
+    if not ownerName:
       return None
+    if not record['insideClass']:
+      #  An enum Qt writes in a namespace, as 'Qt::AlignmentFlag' or
+      #  'QSsl::SslProtocol': the package of that namespace in the part
+      #  the enum lies in holds it, and the file asks that part for the
+      #  namespace at its top, as 'QSsl.SslProtocol'.
+      viewer._note('namespace', '%s:%s' % (
+          record['partName'], ownerName.split('::')[0]))
+      entry = '%s.%s' % (ownerName.replace('::', '.'), ownName)
+      return dict(entry=entry, shown=entry, owner='', generator=generator)
     if not viewer._isCute(ownerName):
       return None
     className = viewer.getClassName()
@@ -342,11 +347,24 @@ class CuteName:
     #  The combinations of an enum are values of the class of the enum.
     listed = how in ('enum', 'flags')
     holder = what.rpartition('::')[0] if listed else what
-    if not viewer._isCute(holder) and holder != 'Qt':
+    if listed and not viewer._isClassName(holder):
+      #  An enum of a namespace, as 'QSsl::SslProtocol', lies in the
+      #  package of that namespace in the part of the enum.
+      try:
+        record = viewer.getDependencyTree().getEnumRecord(
+            what, viewer.getPartName())
+      except ValueError:
+        return None
+      if record['insideClass'] or not record['ownerName']:
+        return None
+      if viewer._getEnumGenerator(what).findRefusal() is not None:
+        return None
+      return '%s:%s' % (record['partName'], what.replace('::', '.'))
+    if not viewer._isCute(holder):
       return None
     if not listed and not self.isCute():
       return None
-    partName = 'QtCore' if holder == 'Qt' else viewer.getPartName(
+    partName = viewer.getPartName(
         viewer.getCuteName(holder).getTopClassName())
     return '%s:%s' % (partName, what.replace('::', '.'))
 

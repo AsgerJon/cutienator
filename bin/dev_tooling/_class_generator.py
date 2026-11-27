@@ -112,9 +112,10 @@ class ClassGenerator:
   What it writes at the top of the file
   -------------------------------------
 
-  - The file brings in what its class is built on, and the namespace
-    'Qt', the cute way: it asks the package of their part, as
-    'from ..QtCore import Qt, QObject'. The package brings in the one
+  - The file brings in what its class is built on, and each namespace
+    whose enums it names, as 'Qt' or 'QSsl', the cute way: it asks the
+    package of their part, as 'from ..QtCore import Qt, QObject' or
+    'from ..QtNetwork import QSsl'. The package brings in the one
     file each is in, the first time it is asked for. So bringing in
     one class brings in the files of the classes it is built on, and
     of the classes holding what it names, and no others.
@@ -1497,6 +1498,12 @@ class ClassGenerator:
     """
     return self._createClassText().getText()
 
+  def getStandInText(self, reason: str) -> str:
+    """Gives the whole text of the file of the class when it has no
+    cute class, a stand-in saying why, without writing it, as
+    'ClassText.getStandInText' writes it."""
+    return self._createClassText().getStandInText(reason)
+
   def getNamedLists(self) -> List[str]:
     """Gives the names Qt has for the kinds of list that hold the
     class, as 'QModelIndexList' in the file of QModelIndex. The package
@@ -1557,6 +1564,25 @@ class ClassGenerator:
     """
     classFile = self.getClassFile()
     text = self.getClassText()
+    with open(classFile, 'w') as file:
+      file.write(text)
+    return classFile
+
+  def writeStandIn(self, reason: str) -> str:
+    """
+    Writes, for a class of Qt that has no cute class, the class standing
+    in for it into the file the cute class would have, replacing the
+    one written before; see 'getStandInText'. 'reason' says why the
+    class has none, as what 'write' raised.
+
+    Returns
+    -------
+
+    str
+      The full path of the file, which now exists.
+    """
+    classFile = self.getClassFile()
+    text = self.getStandInText(reason)
     with open(classFile, 'w') as file:
       file.write(text)
     return classFile

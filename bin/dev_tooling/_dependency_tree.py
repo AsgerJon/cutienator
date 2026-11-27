@@ -232,6 +232,9 @@ class DependencyTree:
   __class_numbers__ = None  # type: Optional[Dict[Key, str]]
   #  The names of classes two or more parts have; see 'getSharedNames'.
   __shared_names__ = None  # type: Optional[FrozenSet[str]]
+  #  The namespaces Qt writes enums directly in, by part; see
+  #  'getEnumSpaces'.
+  __enum_spaces__ = None  # type: Optional[Dict[str, Names]]
   #  Each enum, each fixed number type of one, each enum with names in
   #  it, and each second name for a type, under its part as a class is.
   __enum_names__ = None  # type: Optional[FrozenSet[Key]]
@@ -628,6 +631,29 @@ class DependencyTree:
       self.__shared_names__ = frozenset(
           name for name, holders in parts.items() if len(holders) > 1)
     return self.__shared_names__
+
+  def getEnumSpaces(self, partName: str) -> Names:
+    """
+    Gives the full name of each namespace of a part that Qt writes enums
+    directly in, not inside a class, in alphabetical order: 'Qt' for
+    QtCore, 'QSsl' for QtNetwork, 'QOpcUa::NodeIds' for QtOpcUa. One
+    namespace may have enums in more than one part, as 'QtPrivate' in
+    QtCore and in QtMultimedia; each of those parts lists it.
+
+    Made for you, at the first call, from 'getEnumRecordNames', and
+    kept.
+    """
+    if self.__enum_spaces__ is None:
+      found = dict()  # type: Dict[str, Set[str]]
+      for enumPart, enumName in self.getEnumRecordNames():
+        record = self.getEnumRecord(enumName, enumPart)
+        if record['insideClass'] or not record['ownerName']:
+          continue
+        found.setdefault(record['partName'], set()).add(
+            record['ownerName'])
+      self.__enum_spaces__ = {
+          part: (*sorted(spaces),) for part, spaces in found.items()}
+    return self.__enum_spaces__.get(partName, ())
 
   def getClassKey(self, className: str, partName: str) -> Key:
     """

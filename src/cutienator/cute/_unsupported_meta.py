@@ -1,6 +1,6 @@
 """
-UnsupportedMeta makes the classes that stand in a cute class at the
-names of functions of Qt that have no cute function yet.
+UnsupportedMeta makes the classes that stand in a cute class for a
+class of Qt that has no cute class yet.
 """
 #  Apache-2.0 license
 #  Copyright (c) 2026 Asger Jon Vistisen
@@ -14,32 +14,32 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
 
 class UnsupportedMeta(type):
   """
-  The metaclass of a class that stands in a cute class at the name of a
-  function of Qt that has no cute function yet, as 'nativeEvent' in the
-  body of 'QWidget'. Its docstring names each function of Qt at that
-  name, as Qt declares it, and says why it has none:
+  The metaclass of a class that stands in a cute class for a class of
+  Qt that has none yet, as 'Q3DBarsWidgetItemPrivate' of
+  QtGraphsWidgets. It lies where the cute class would, in the package
+  of its part, so a program finds it by the name C++ has. Its docstring
+  names the class of Qt and says why it has no cute class:
 
-    class nativeEvent(metaclass=UnsupportedMeta):
+    class Q3DBarsWidgetItemPrivate(metaclass=UnsupportedMeta):
       \"\"\"
-      Qt's 'bool QWidget::nativeEvent(const QByteArray &eventType, void
-      *message, qintptr *result)': names 'void', which has no cute
-      class yet.
+      Qt's class 'Q3DBarsWidgetItemPrivate' of QtGraphsWidgets: the
+      dev tooling cannot write its ritual file yet, for ...
       \"\"\"
 
-    QWidget.nativeEvent(...)   # NotImplementedError
-    widget.nativeEvent(...)    # NotImplementedError
-    QWidget.nativeEvent.oops   # NotImplementedError
+    Q3DBarsWidgetItemPrivate()       # NotImplementedError
+    Q3DBarsWidgetItemPrivate.oops    # NotImplementedError
 
-  You never use it by name: the dev tooling writes such classes into
-  the files of the cute classes. A function of Qt that gets its ritual
-  later gets its cute function when its cute class is generated anew.
+  You never use it by name: the dev tooling writes such a class into
+  the file the cute class would have. A function of Qt that is missing
+  from a cute class gets a stub of its own instead, raising
+  NotImplementedError as well. A class of Qt that gets its cute class
+  later loses its stand-in when the dev tooling writes it.
 
   What to expect
   --------------
 
-  - Calling the class raises 'NotImplementedError', through the cute
-    class and through an object of it alike: a class is no descriptor,
-    so an object hands it on as it is.
+  - Calling the class, as to make an object of it, raises
+    'NotImplementedError'. No object of it is ever made.
   - Reading an attribute the class does not have raises
     'NotImplementedError' as well, saying what the class stands for.
   - A name with two underscores before and after it, as '__wrapped__',
@@ -48,6 +48,9 @@ class UnsupportedMeta(type):
     which lets only that error pass.
   - The message is the docstring. Under 'python -OO', which drops
     docstrings, it names the class alone.
+  - A stand-in with a '__qt_class__' of its own is noted as the class of
+    that name, as a cute class is: a 'WAIT' for it holds the stand-in,
+    and what takes or gives one raises when it is used.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -55,27 +58,39 @@ class UnsupportedMeta(type):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   def getInfo(cls) -> str:
-    """Gives the docstring of the class on one line: each function of Qt
-    the class stands for, and why it has no cute function."""
+    """Gives the docstring of the class on one line: the class of Qt it
+    stands for, and why that has no cute class."""
     return ' '.join((cls.__doc__ or '').split())
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  def __init__(cls, name: str, bases: tuple, space: dict, **kw) -> None:
+    """
+    Finishes the class, and notes a stand-in with a '__qt_class__' of
+    its own as the class of that name, as 'MetaCute' notes a cute
+    class; see 'MetaCute.noteStandIn'. A 'WAIT' for it then holds the
+    stand-in.
+    """
+    super().__init__(name, bases, space, **kw)
+    if '__qt_class__' in space:
+      #  Brought in here: 'MetaCute' is made after this metaclass.
+      from ._meta_cute import MetaCute
+      MetaCute.noteStandIn(cls)
+
   def __call__(cls, *__, **_) -> Never:
     """
-    Refuses the call.
+    Refuses the call, which would make an object of the class.
 
     Raises
     ------
 
     NotImplementedError
-      Always, naming the function of Qt and why it has no cute
-      function.
+      Always, naming the class of Qt and why it has no cute class.
     """
-    infoSpec = """'%s' cannot be called: it stands for a function of Qt
-    that has no cute function yet. %s"""
+    infoSpec = """'%s' cannot be called: it stands for a class of Qt that
+    has no cute class yet. %s"""
     info = infoSpec % (cls.__qualname__, cls.getInfo())
     raise NotImplementedError(' '.join(info.split()))
 
@@ -91,13 +106,13 @@ class UnsupportedMeta(type):
       The name has two underscores before and after it.
 
     NotImplementedError
-      Any other name, naming the function of Qt and why it has no cute
-      function.
+      Any other name, naming the class of Qt and why it has no cute
+      class.
     """
     if key.startswith('__') and key.endswith('__'):
       infoSpec = """type object '%s' has no attribute '%s'"""
       raise AttributeError(infoSpec % (cls.__qualname__, key))
-    infoSpec = """'%s' has no attribute '%s': it stands for a function of
-    Qt that has no cute function yet. %s"""
+    infoSpec = """'%s' has no attribute '%s': it stands for a class of
+    Qt that has no cute class yet. %s"""
     info = infoSpec % (cls.__qualname__, key, cls.getInfo())
     raise NotImplementedError(' '.join(info.split()))

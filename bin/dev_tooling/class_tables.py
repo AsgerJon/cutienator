@@ -64,11 +64,3 @@ LISTED_FIRST = dict(
         ('QMap', '_q_map'), ('QHash', '_q_hash'),
     ),
 )
-
-#  The namespaces of a part whose enums 'NamespaceGenerator' writes,
-#  each with the stem of the file of its enums. Each namespace is a
-#  package of its part, which binds those enums as its own names; see
-#  'PackageGenerator'.
-ENUM_SPACES = dict(
-    QtCore=(('Qt', '_qt'),),
-)

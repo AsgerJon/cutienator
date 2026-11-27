@@ -983,11 +983,14 @@ class CopyExpert(ReachExpert):
     may be pulled in first: a class of the tree other than the class
     itself, of its part or of a part that part needs, as Qt's own
     '.cpp' files of the part can pull in, and in a header file Qt
-    installs on every system. Another part may hold a class of that
-    name whose header file must never stand beside the part's own, as
-    QtCharts beside QtGraphs; and a header file installed for one
-    system only, as 'qquick3dxrinputmanager_visionos_p.h', is not
-    there on the others.
+    installs on every system: under no condition, or under Qt's own
+    features alone, as 'qquickgraphsitem_p.h' under
+    'QT_CONFIG(graphs_3d)', which the ritual file then pulls in as
+    plainly as Qt's '.cpp' files do; see 'RitualFileExpert'. Another
+    part may hold a class of that name whose header file must never
+    stand beside the part's own, as QtCharts beside QtGraphs; and a
+    header file installed for one system only, as
+    'qquick3dxrinputmanager_visionos_p.h', is not there on the others.
     """
     generator = self.getGenerator()
     tree = generator.getDependencyTree()
@@ -998,7 +1001,14 @@ class CopyExpert(ReachExpert):
       return False
     folder = HeaderReader.getHeaderFolder()
     path = tree.getHeaderPath(name, partName)
-    return folder.getInstallCondition(path) == ''
+    installed = folder.getInstallCondition(path)
+    if installed is None:
+      #  A condition no compiler knows, or a file of no part.
+      return False
+    #  What is left of the condition without Qt's features: nothing but
+    #  the signs joining them for one that asks for features alone.
+    rest = re.sub(r'QT_CONFIG\(\w+\)', '', installed)
+    return True if re.fullmatch(r'[\s()!&|]*', rest) else False
 
   def _findFileMembers(self, path: str, typeName: str) -> List[Record]:
     """Gives the functions of a type of a '.cpp' file that the file
