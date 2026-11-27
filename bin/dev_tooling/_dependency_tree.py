@@ -230,6 +230,8 @@ class DependencyTree:
   __class_places__ = None  # type: Optional[Dict[Key, str]]
   __left_out_names__ = None  # type: Optional[Keys]
   __class_numbers__ = None  # type: Optional[Dict[Key, str]]
+  #  The names of classes two or more parts have; see 'getSharedNames'.
+  __shared_names__ = None  # type: Optional[FrozenSet[str]]
   #  Each enum, each fixed number type of one, each enum with names in
   #  it, and each second name for a type, under its part as a class is.
   __enum_names__ = None  # type: Optional[FrozenSet[Key]]
@@ -610,6 +612,22 @@ class DependencyTree:
       self._createTree()
       return self.getClasses(_recursion=True)
     return self.__ordered_names__
+
+  def getSharedNames(self) -> FrozenSet[str]:
+    """
+    Gives the full name of each class two or more parts of the tree
+    have, as 'QBarSeries', which QtCharts and QtGraphs both have. A cute
+    class of such a name says its part as well; see 'MetaCute'.
+
+    Made for you, at the first call, from 'getClasses', and kept.
+    """
+    if self.__shared_names__ is None:
+      parts = dict()  # type: Dict[str, Set[str]]
+      for partName, className in self.getClasses():
+        parts.setdefault(className, set()).add(partName)
+      self.__shared_names__ = frozenset(
+          name for name, holders in parts.items() if len(holders) > 1)
+    return self.__shared_names__
 
   def getClassKey(self, className: str, partName: str) -> Key:
     """

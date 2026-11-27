@@ -56,10 +56,18 @@ class TestWAIT(BaseTest):
 
   def test_brackets_refuse_what_no_class_is_called(self) -> None:
     """'WAIT[...]' refuses text that no class could have as its name."""
-    for wrong in ('', '2x', 'two words', 'dotted.name', 'Late!'):
+    for wrong in ('', '2x', 'two words', 'dotted..name', 'Late!',
+                  ':Late', 'Part:', 'a:b:C', 'Qt Charts:Late'):
       with self.subTest(wrong=wrong):
         with self.assertRaises(ValueError):
           _ = WAIT[wrong]
+
+  def test_brackets_take_a_dotted_name_and_a_part(self) -> None:
+    """A class of a namespace goes by its dotted name, and one two
+    parts of Qt have by its part as well."""
+    for right in ('Ns.Late', 'QtCharts:Late', 'QtCharts:Ns.Late'):
+      with self.subTest(right=right):
+        self.assertEqual(WAIT[right].getWaitingName(), right)
 
   def test_made_around_the_brackets_has_no_name(self) -> None:
     """A WAIT made without the brackets has no name to give."""
@@ -91,6 +99,35 @@ class TestWAIT(BaseTest):
       pass
 
     self.assertNotIn('TellLate', MetaCute.getStillWaiting())
+
+  def test_a_class_of_two_parts_is_told_by_its_part(self) -> None:
+    """A cute class whose body says its part is what a WAIT with that
+    part waits for, and not a WAIT of the name alone."""
+
+    class PartEarly(BaseObject, metaclass=MetaCute):
+      ChartsLate = WAIT['QtMadeUpCharts:PartLate']
+      GraphsLate = WAIT['QtMadeUpGraphs:PartLate']
+
+    still = MetaCute.getStillWaiting()
+    self.assertIn('QtMadeUpCharts:PartLate', still)
+    self.assertIn('QtMadeUpGraphs:PartLate', still)
+
+    class ChartsPartLate(BaseObject, metaclass=MetaCute):
+      __qt_class__ = 'PartLate'
+      __qt_part__ = 'QtMadeUpCharts'
+
+    still = MetaCute.getStillWaiting()
+    self.assertNotIn('QtMadeUpCharts:PartLate', still)
+    self.assertIn('QtMadeUpGraphs:PartLate', still)
+    self.assertIs(PartEarly.ChartsLate, ChartsPartLate)
+
+    class GraphsPartLate(BaseObject, metaclass=MetaCute):
+      __qt_class__ = 'PartLate'
+      __qt_part__ = 'QtMadeUpGraphs'
+
+    self.assertNotIn('QtMadeUpGraphs:PartLate', MetaCute.getStillWaiting())
+    self.assertIs(PartEarly.GraphsLate, GraphsPartLate)
+    self.assertIs(PartEarly.ChartsLate, ChartsPartLate)
 
   def test_refuses_an_owner_that_is_not_cute(self) -> None:
     """'hookSetName' refuses a class whose metaclass notices nothing."""

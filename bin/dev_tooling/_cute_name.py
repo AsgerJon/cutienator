@@ -257,7 +257,8 @@ class CuteName:
     builtOn = otherName in viewer._getBuiltOn()
     if not builtOn:
       viewer._note('top', 'WAIT')
-    entry = dotted if builtOn else "WAIT['%s']" % dotted
+    entry = dotted if builtOn else "WAIT['%s']" % (
+        viewer.getWaitKeyOf(otherName))
     return dict(
         entry=entry, name=dotted, late=False, bring=otherName, hint='',
         holder=dotted)

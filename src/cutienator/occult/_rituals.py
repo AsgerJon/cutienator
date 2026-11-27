@@ -81,6 +81,8 @@ class Rituals:
     of its ritual.
   - 'getPartsOf': the parts whose rows files list a ritual.
   - 'getPartOrder': the order a part sees the parts in.
+  - 'getJoinedParts': the parts whose files of Qt the target file of a
+    part is joined to.
   - 'getTargetFile': 'libcutienator_QtCore.so' beside that folder for
     'QtCore', and the same for each part.
   - 'getQtSharedObjects': the Qt shared objects the rituals call into.
@@ -507,9 +509,9 @@ class Rituals:
     Gives the order a part of Qt sees the parts in: the part itself,
     then those of 'getPartsFirst', then the other parts of
     'getInstalledParts', in alphabetical order. The target file of the
-    part is joined to their shared objects in that order, so a
-    function two of them offer by one name is taken from the first;
-    and 'callFrom' finds a ritual several parts list by it.
+    part is joined to the files of Qt of 'getJoinedParts' in that
+    order, so a function two of them offer by one name is taken from
+    the first; and 'callFrom' finds a ritual several parts list by it.
 
     Raises
     ------
@@ -524,27 +526,60 @@ class Rituals:
     return (*order,)
 
   @classmethod
+  def getJoinedParts(cls, partName: str) -> Paths:
+    """
+    Gives the parts of Qt whose files the target file of a part is
+    joined to, in the order of 'getPartOrder': every part installed here
+    that Qt builds as a shared object, and of those Qt builds as a
+    static library only the part itself and the parts it needs, those
+    of 'getPartsFirst' and 'getQtDependencies'.
+
+    A shared object brings only what the target file takes from it. A
+    static library is built into the target file, and may need what
+    only a program gives: ActiveQt's 'QtAxServer' on Windows needs
+    'qax_instantiate', which a program serving ActiveX writes, and
+    which here only the ritual files of 'QtAxServer' write. Joined to
+    the target file of any other part, it refused the join.
+
+    Raises
+    ------
+
+    LookupError
+      The ritual folder has no folder of that part.
+    """
+    folder = Summon.getQtSharedObjectFolder()
+    system = System.getHere()
+    needed = (partName, *cls.getPartsFirst(partName),
+              *cls.getQtDependencies(partName))
+    joined = []  # type: List[str]
+    for part in cls.getPartOrder(partName):
+      if cls._findQtFile(part) is None:
+        continue
+      if part not in needed and system.isQtStaticLibrary(folder, part):
+        continue
+      joined.append(part)
+    return (*joined,)
+
+  @classmethod
   def getPartSharedObjects(cls, partName: str) -> Paths:
-    """Gives the Qt shared objects the target file of a part is joined
-    to: those of 'getQtSharedObjects', in the order of
-    'getPartOrder'."""
-    return cls._findSharedObjects(cls.getPartOrder(partName))
+    """Gives the files of Qt the target file of a part is joined to:
+    the shared object, or the static library, of each part of
+    'getJoinedParts', in that order."""
+    return cls._findSharedObjects(cls.getJoinedParts(partName))
 
   @classmethod
   def getPartStaticDependencies(cls, partName: str) -> Paths:
     """
-    Gives what the target file of a part is joined to beside its Qt
-    shared objects: for each part of 'getPartOrder' that Qt builds as a
-    static library, what its '.prl' file lists, as 'System.
+    Gives what the target file of a part is joined to beside its files
+    of Qt: for each part of 'getJoinedParts' that Qt builds as a static
+    library, what its '.prl' file lists, as 'System.
     readStaticDependencies' reads it, each word once, in that order.
-    Empty when no such part is installed here.
+    Empty when no such part is joined.
     """
     folder = Summon.getQtSharedObjectFolder()
     system = System.getHere()
     words = []  # type: List[str]
-    for part in cls.getPartOrder(partName):
-      if cls._findQtFile(part) is None:
-        continue
+    for part in cls.getJoinedParts(partName):
       for word in system.readStaticDependencies(folder, part):
         if word == '-framework' or word not in words or (
             words and words[-1] == '-framework'):

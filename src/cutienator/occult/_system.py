@@ -10,7 +10,7 @@ from abc import abstractmethod
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import List, Optional, Tuple
+  from typing import Dict, List, Optional, Tuple
 
   Paths = Tuple[str, ...]
 
@@ -60,9 +60,10 @@ class System:
 
   - On any other system 'getHere' raises 'NotImplementedError', with
     the name Python has for that system.
-  - 'readStaticDependencies' is the same on every system: what a
-    static library of Qt needs on the line that joins a built file, as
-    its '.prl' file lists it.
+  - 'isQtStaticLibrary' and 'readStaticDependencies' are the same on
+    every system: whether Qt builds a part as a static library, and
+    what such a library needs on the line that joins a built file, as
+    its '.prl' file says them.
   - 'System' itself answers none of the others: asked of it and not of a
     'Linux', a 'MacOS' or a 'Windows', each raises 'NotImplementedError'.
   - To teach cutienator a new system, write one more subclass in a file
@@ -241,6 +242,47 @@ class System:
     """
     raise self._refuse('getQtPrlFileName')
 
+  def _readPrlFile(self, qtFolder: str, part: str) -> Dict[str, str]:
+    """Gives each line of the '.prl' file of a part as its key and its
+    value, as 'QMAKE_PRL_CONFIG' and 'static'; empty for a part with no
+    '.prl' file."""
+    path = os.path.join(qtFolder, self.getQtPrlFileName(part))
+    if not os.path.isfile(path):
+      return {}
+    values = {}  # type: Dict[str, str]
+    with open(path, encoding='utf-8') as file:
+      for line in file:
+        key, _, value = line.partition('=')
+        values[key.strip()] = value.strip()
+    return values
+
+  def isQtStaticLibrary(self, qtFolder: str, part: str) -> bool:
+    """
+    Says whether Qt builds a part as a static library, as ActiveQt's
+    'QtAxServer' on Windows: its '.prl' file says 'static' under
+    'QMAKE_PRL_CONFIG'. On Windows the static library has the name the
+    list of a DLL has, so the name of the file cannot tell.
+
+    Parameters
+    ----------
+
+    qtFolder : str
+      The folder where Qt keeps its shared objects.
+
+    part : str
+      The part of Qt, as 'QtAxServer'.
+
+    Returns
+    -------
+
+    bool
+      False for a part with no '.prl' file, and for one Qt builds as a
+      shared object.
+    """
+    values = self._readPrlFile(qtFolder, part)
+    config = values.get('QMAKE_PRL_CONFIG', '').split()
+    return True if 'static' in config else False
+
   def readStaticDependencies(self, qtFolder: str, part: str) -> Paths:
     """
     Gives what the line joining a built file needs beside a part of Qt
@@ -270,16 +312,9 @@ class System:
       name as two. Empty for a part with no '.prl' file, and for one Qt
       builds as a shared object.
     """
-    path = os.path.join(qtFolder, self.getQtPrlFileName(part))
-    if not os.path.isfile(path):
+    if not self.isQtStaticLibrary(qtFolder, part):
       return ()
-    values = {}
-    with open(path, encoding='utf-8') as file:
-      for line in file:
-        key, _, value = line.partition('=')
-        values[key.strip()] = value.strip()
-    if 'static' not in values.get('QMAKE_PRL_CONFIG', '').split():
-      return ()
+    values = self._readPrlFile(qtFolder, part)
     libraries = values.get('QMAKE_PRL_LIBS', '')
     words = libraries.replace('$$[QT_INSTALL_LIBS]', qtFolder).split()
     return (*words,)

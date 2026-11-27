@@ -16,7 +16,7 @@ from unittest import mock
 from worktoy.waitaminute import TypeException
 from worktoy.work_test import BaseTest
 
-from cutienator.occult import Rituals
+from cutienator.occult import Linux, Rituals, Summon, System
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Any, Dict, Iterator, List, Set
@@ -301,6 +301,60 @@ class TestRituals(BaseTest):
       rest = seen[1 + len(needs):]
       self.assertEqual(rest, (*sorted(rest),))
       self.assertNotIn('QtCore', seen[1:])
+
+  def test_a_static_library_only_for_the_parts_needing_it(self) -> None:
+    """The target file of a part is joined to the shared object of every
+    installed part, and to a static library only when it is of the part
+    itself or of a part it needs, with what its '.prl' file lists: the
+    target file of QtGui gets neither of ActiveQt's two, that of
+    QtAxContainer its own alone."""
+    plain = dict(q_plain=dict(ritual_plain=['nothing']))
+    parts = ('QtAxContainer', 'QtAxServer', 'QtCore', 'QtGui')
+    needs = dict(QtCore=(), QtGui=('QtCore',),
+                 QtAxContainer=('QtGui', 'QtCore'),
+                 QtAxServer=('QtGui', 'QtCore'))
+    with tempfile.TemporaryDirectory() as folder:
+      for name in ('libQt6Core.so.6', 'libQt6Gui.so.6', 'libQt6AxServer.a',
+                   'libQt6AxContainer.a'):
+        open(os.path.join(folder, name), 'w').close()
+      prl = dict(
+          libQt6Core='shared\nQMAKE_PRL_LIBS = -lpthread',
+          libQt6AxServer='static\nQMAKE_PRL_LIBS = -lole32',
+          libQt6AxContainer=(
+              'static\nQMAKE_PRL_LIBS = $$[QT_INSTALL_LIBS]/libQt6AxBase.a'
+              ' -luuid'))
+      for stem, text in prl.items():
+        path = os.path.join(folder, '%s.prl' % stem)
+        with open(path, 'w', encoding='utf-8') as file:
+          file.write('QMAKE_PRL_CONFIG = %s\n' % text)
+      with contextlib.ExitStack() as stack:
+        stack.enter_context(self._madeUpRows({p: plain for p in parts}))
+        stack.enter_context(
+            mock.patch.object(System, 'getHere', lambda: Linux()))
+        stack.enter_context(mock.patch.object(
+            Summon, 'getQtSharedObjectFolder', lambda: folder))
+        stack.enter_context(
+            mock.patch.object(Rituals, 'getInstalledParts', lambda: parts))
+        stack.enter_context(
+            mock.patch.object(Rituals, '__qt_dependencies__', needs))
+        self.assertEqual(
+            Rituals.getJoinedParts('QtGui'), ('QtGui', 'QtCore'))
+        self.assertEqual(
+            Rituals.getJoinedParts('QtAxContainer'),
+            ('QtAxContainer', 'QtCore', 'QtGui'))
+        self.assertEqual(
+            Rituals.getJoinedParts('QtAxServer'),
+            ('QtAxServer', 'QtCore', 'QtGui'))
+        self.assertEqual(
+            Rituals.getPartSharedObjects('QtGui'),
+            (os.path.join(folder, 'libQt6Gui.so.6'),
+             os.path.join(folder, 'libQt6Core.so.6')))
+        self.assertEqual(Rituals.getPartStaticDependencies('QtGui'), ())
+        self.assertEqual(
+            Rituals.getPartStaticDependencies('QtAxContainer'),
+            (os.path.join(folder, 'libQt6AxBase.a'), '-luuid'))
+        self.assertEqual(
+            Rituals.getPartStaticDependencies('QtAxServer'), ('-lole32',))
 
   def test_qt_module_files_are_read(self) -> None:
     """Qt's files describing its parts give, for each part, the parts

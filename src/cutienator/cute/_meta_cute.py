@@ -84,9 +84,13 @@ class MetaCute(BaseMeta):
   - A class is recognised by its name alone: a cute class by the name
     Qt has for it, its own '__qt_class__' with dots for '::', as
     'Qt3DCore.QEntity' or 'QV4.Heap.Object', and any other class, as
-    one a program writes, by its '__name__'. Two classes of one name
-    are not told apart: the one made last is the one a later 'WAIT' is
-    settled with.
+    one a program writes, by its '__name__'. Where two parts of Qt have
+    a class of the same name, as 'QBarSeries' of QtCharts and of
+    QtGraphs, the body of each says its part as well, in its own
+    '__qt_part__', and the class is recognised by both, as
+    'QtCharts:QBarSeries'. Two classes of one name are not told apart
+    otherwise: the one made last is the one a later 'WAIT' is settled
+    with.
   - A 'WAIT' for a class that is made already is settled right as its
     waiting class is made.
   - 'getStillWaiting' names what is waited for and not made. After
@@ -267,6 +271,11 @@ class MetaCute(BaseMeta):
     #  class inherits that, and is not the class of Qt.
     qtName = dict.get(space, '__qt_class__', None)
     known = qtName.replace('::', '.') if isinstance(qtName, str) else name
+    #  Its own '__qt_part__' too, which only a class whose name another
+    #  part of Qt has as well says.
+    qtPart = dict.get(space, '__qt_part__', None)
+    if isinstance(qtPart, str):
+      known = '%s:%s' % (qtPart, known)
     madeBefore = madeClasses.get(known, None)
     try:
       super().__init__(name, bases, space, **kwargs)

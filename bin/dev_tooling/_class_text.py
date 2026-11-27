@@ -496,6 +496,10 @@ class ClassText:
     lines = ['  #  Class Variables']
     lines.append('  #  The class of Qt this class stands for.')
     lines.append("  __qt_class__ = '%s'" % className)
+    if viewer.isShared():
+      lines.append('  #  The part of Qt it is of, as another part has a '
+                   'class of its name too.')
+      lines.append("  __qt_part__ = '%s'" % viewer.getPartName())
     if className == WATCHED_NAME:
       infoSpec = """Qt can watch a %s and tell when it has removed it.
       Every class built on this one is a %s too, and inherits this."""

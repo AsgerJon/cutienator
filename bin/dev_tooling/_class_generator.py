@@ -390,19 +390,39 @@ class ClassGenerator:
 
   def getWaitKey(self, boundName: str) -> str:
     """
-    Gives what a 'WAIT' bound at a name of the file stands for, the name
-    Qt has for its late class with dots for '::': for a class this one
-    is written inside, bound at its local name, as 'QTransform' for
-    'Qt3DCore::QTransform', that class's full name,
-    'Qt3DCore.QTransform'; for any other, the bound name itself.
+    Gives what a 'WAIT' bound at a name of the file stands for, as
+    'getWaitKeyOf' gives it of its late class: for a class this one is
+    written inside, bound at its local name, as 'QTransform' for
+    'Qt3DCore::QTransform', that class, 'Qt3DCore.QTransform'; for any
+    other, the class of the bound name.
     """
     pieces = self.getClassName().split('::')
     for depth in range(1, len(pieces)):
       around = '::'.join(pieces[:depth])
       if self._isClassName(around) and (
           self.getLocalName(around) == boundName):
-        return around.replace('::', '.')
-    return boundName
+        return self.getWaitKeyOf(around)
+    return self.getWaitKeyOf(boundName)
+
+  def getWaitKeyOf(self, className: str) -> str:
+    """
+    Gives the name a 'WAIT' waits for a class by: the name Qt has for
+    it with dots for '::', as 'Qt3DCore.QEntity'; and for a class whose
+    name another part has too, its part before a colon, the part it is
+    seen of from this one: 'QtGraphs:QBarSeries'. That class says its
+    part in its body; see 'isShared'.
+    """
+    dotted = className.replace('::', '.')
+    if className not in self.getDependencyTree().getSharedNames():
+      return dotted
+    return '%s:%s' % (self._keyOf(className)[0], dotted)
+
+  def isShared(self) -> bool:
+    """Says whether another part of Qt has a class of the name of this
+    one too, as QtCharts and QtGraphs both have 'QBarSeries': its body
+    then says its part, in '__qt_part__'."""
+    tree = self.getDependencyTree()
+    return self.getClassName() in tree.getSharedNames()
 
   def getInnerGenerators(self) -> Tuple[Any, ...]:
     """
@@ -1055,7 +1075,7 @@ class ClassGenerator:
       #  The list of the class being written is made after the class,
       #  further down this file, so a signature naming it waits.
       self._note('top', 'WAIT')
-      entry = "WAIT['%s']" % holds
+      entry = "WAIT['%s']" % self.getWaitKeyOf(holds)
     return dict(
         found, entry='QList[%s]' % entry, name='QList[%s]' % found['name'],
         holder='QList[%s]' % found['holder'], lateName=found['entry'],
@@ -1083,7 +1103,7 @@ class ClassGenerator:
     entry = found['entry']
     if entry == 'THIS':
       self._note('top', 'WAIT')
-      entry = "WAIT['%s']" % holds
+      entry = "WAIT['%s']" % self.getWaitKeyOf(holds)
     key = 'str' if mapped['keyWord'] == 'text' else 'int'
     return dict(
         found, entry='%s[%s, %s]' % (pattern, key, entry),

@@ -149,13 +149,23 @@ class Windows(System):
       'QtInternalTargets.cmake'): without it 'windows.h' makes 'min'
       and 'max' macros, and the code taken from Qt's source, as
       'std::numeric_limits<quint64>::max()', no longer compiles.
+      Then what Qt tells the compiler for everything built against
+      Qt on Windows ('Qt6::Platform' in Qt's 'Qt6Targets.cmake'):
+      'WIN32', 'WIN64', '_WIN64', '_ENABLE_EXTENDED_ALIGNED_STORAGE',
+      and 'UNICODE' and '_UNICODE'. Without the last two 'windows.h'
+      turns a name as 'TranslateAccelerator' into the 'A' function of
+      narrow text, 'TranslateAcceleratorA', where Qt, built with them,
+      has the 'W' function of wide text, 'TranslateAcceleratorW', and
+      a ritual calling it finds nothing to join to.
 
     Left out, though the other systems are told them: '-fPIC', which
     'clang++' refuses for Windows, where code can sit at any address as
     it is; and the two '-fvisibility' flags, since a DLL offers only
     what is marked for it anyway.
     """
-    return ('-fms-runtime-lib=dll', '-DNOMINMAX')
+    return ('-fms-runtime-lib=dll', '-DNOMINMAX', '-DWIN32', '-DWIN64',
+            '-D_WIN64', '-D_ENABLE_EXTENDED_ALIGNED_STORAGE', '-DUNICODE',
+            '-D_UNICODE')
 
   def buildsObjectiveC(self) -> bool:
     """No: Objective-C++ is for Apple's systems."""

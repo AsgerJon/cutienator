@@ -115,7 +115,11 @@ class TestSystem(BaseTest):
     )
     self.assertEqual(
         Windows().getCompilerFlags('C:/Qt/lib'),
-        ('-fms-runtime-lib=dll', '-DNOMINMAX'),
+        (
+          '-fms-runtime-lib=dll', '-DNOMINMAX', '-DWIN32', '-DWIN64',
+          '-D_WIN64', '-D_ENABLE_EXTENDED_ALIGNED_STORAGE', '-DUNICODE',
+          '-D_UNICODE',
+        ),
     )
 
   def test_builds_objective_c(self) -> None:
@@ -304,6 +308,22 @@ QMAKE_PRL_LIBS = -lole32
     with tempfile.TemporaryDirectory() as folder:
       words = Linux().readStaticDependencies(folder, 'QtAxContainer')
     self.assertEqual(words, ())
+
+  def test_the_prl_file_says_a_static_library(self) -> None:
+    """A part is a static library when its '.prl' file says 'static',
+    whatever its name; one saying 'shared', or with no '.prl' file, is
+    none."""
+    with tempfile.TemporaryDirectory() as folder:
+      for name, config in (('Qt6AxServer', 'static'),
+                           ('Qt6Core', 'shared')):
+        path = os.path.join(folder, '%s.prl' % name)
+        with open(path, 'w', encoding='utf-8') as file:
+          file.write('QMAKE_PRL_TARGET = %s.lib\n' % name)
+          file.write('QMAKE_PRL_CONFIG = lib_bundle %s\n' % config)
+      windows = Windows()
+      self.assertTrue(windows.isQtStaticLibrary(folder, 'QtAxServer'))
+      self.assertFalse(windows.isQtStaticLibrary(folder, 'QtCore'))
+      self.assertFalse(windows.isQtStaticLibrary(folder, 'QtGui'))
 
   def test_mac_private_headers_lie_in_the_framework(self) -> None:
     """On macOS the private headers of a part with a framework lie in

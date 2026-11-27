@@ -226,6 +226,9 @@ class WAIT(Object):
       A cute class goes by the name Qt has for it, with dots for '::':
       'Qt3DCore.QEntity' for Qt's 'Qt3DCore::QEntity', which tells it
       apart from a class of the same last name in another namespace.
+      Where two parts of Qt have a class of the same name, it goes by
+      its part as well, before a colon: 'QtCharts:QBarSeries'; see
+      'MetaCute'.
 
     Returns
     -------
@@ -244,10 +247,12 @@ class WAIT(Object):
     """
     if not isinstance(lateClassName, str):
       raise TypeException('lateClassName', lateClassName, str)
-    pieces = lateClassName.split('.')
+    part, colon, dotted = lateClassName.rpartition(':')
+    pieces = dotted.split('.') + ([part] if colon else [])
     if not all(piece.isidentifier() for piece in pieces):
       infoSpec = """'WAIT' takes the name of a class between its
-      brackets, as WAIT['QThread'] or WAIT['Qt3DCore.QEntity'], but
+      brackets, as WAIT['QThread'], WAIT['Qt3DCore.QEntity'] or, for a
+      class two parts of Qt have, WAIT['QtCharts:QBarSeries'], but
       received '%s'."""
       raise ValueError(' '.join((infoSpec % lateClassName).split()))
     self = object.__new__(cls)
