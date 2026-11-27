@@ -4,7 +4,7 @@
     "QtAxServer/qaxfactory.h, Qt 6.12.0, from Qt's source. Kept as it",
     "is when the generator runs again."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN10QAxFactoryD1Ev": ["nothing", "address"],
     "ritual_ZN10QAxFactory12createObjectERK7QString": [
       "address", "address", "text"

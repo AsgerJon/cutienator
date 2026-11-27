@@ -4,7 +4,7 @@
     "QtGui/6.12.0/QtGui/private/qcoretextfontdatabase_p.h, Qt 6.12.0, as the Qt of",
     "macOS installs it. Kept as it is when the generator runs again."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN21QCoreTextFontDatabaseD1Ev": ["nothing", "address"],
     "ritual_ZN21QCoreTextFontDatabase20populateFontDatabaseEv": [
       "nothing", "address"

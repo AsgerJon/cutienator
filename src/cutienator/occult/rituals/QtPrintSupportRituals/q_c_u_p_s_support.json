@@ -4,7 +4,7 @@
     "QtPrintSupport/6.12.0/QtPrintSupport/private/qcups_p.h, Qt 6.12.0.",
     "Edited by hand: see the ritual file."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN12QCUPSSupport13setCupsOptionEP8QPrinterRK7QStringS4_": [
       "nothing", "address", "text", "text"
     ],

@@ -4,7 +4,7 @@
     "dels/6.12.0/QtQmlModels/private/qsortfilterproxymodelhelper_p.h,",
     "Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN27QSortFilterProxyModelHelperC1Ev": ["address"],
     "ritual_ZN27QSortFilterProxyModelHelperD1Ev": ["nothing", "address"],
     "ritual_ZN27QSortFilterProxyModelHelper13setPropertiesEP8QVariantPK24QQmlSortFilterProxyModelRK11QModelIndex": [

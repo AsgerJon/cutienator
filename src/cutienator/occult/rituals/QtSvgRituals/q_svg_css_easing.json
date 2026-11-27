@@ -4,7 +4,7 @@
     "QtSvg/6.12.0/QtSvg/private/qsvgcsseasing_p.h, Qt 6.12.0. Changes",
     "made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN13QSvgCssEasingC1EN13QSvgCssValues14EasingFunctionE": [
       "address", "unsigned char"
     ],

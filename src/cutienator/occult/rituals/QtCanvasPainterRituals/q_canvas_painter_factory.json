@@ -4,7 +4,7 @@
     "QtCanvasPainter/qcanvaspainterfactory.h, Qt 6.12.0. Changes made",
     "here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN21QCanvasPainterFactoryC1Ev": ["address"],
     "ritual_ZN21QCanvasPainterFactoryD1Ev": ["nothing", "address"],
     "ritual_ZN21QCanvasPainterFactory14sharedInstanceEP4QRhi": [

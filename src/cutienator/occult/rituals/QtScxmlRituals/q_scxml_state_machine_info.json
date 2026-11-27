@@ -4,7 +4,7 @@
     "QtScxml/6.12.0/QtScxml/private/qscxmlstatemachineinfo_p.h, Qt",
     "6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK22QScxmlStateMachineInfo10metaObjectEv": [
       "address", "address"
     ],

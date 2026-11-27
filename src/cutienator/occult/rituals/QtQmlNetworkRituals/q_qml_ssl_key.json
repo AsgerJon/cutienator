@@ -4,7 +4,7 @@
     "QtQmlNetwork/6.12.0/QtQmlNetwork/private/qqmlsslkey_p.h, Qt",
     "6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK10QQmlSslKey9getSslKeyEv": ["address", "address"],
     "ritual_ZNK10QQmlSslKey7keyFileEv": ["text", "address"],
     "ritual_ZNK10QQmlSslKey12keyAlgorithmEv": ["int", "address"],

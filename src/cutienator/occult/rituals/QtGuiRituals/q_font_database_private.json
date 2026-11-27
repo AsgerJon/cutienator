@@ -4,7 +4,7 @@
     "QtGui/6.12.0/QtGui/private/qfontdatabase_p.h, Qt 6.12.0. Changes",
     "made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN20QFontDatabasePrivateC1Ev": ["address"],
     "ritual_ZN20QFontDatabasePrivateD1Ev": ["nothing", "address"],
     "ritual_ZN20QFontDatabasePrivate13clearFamiliesEv": [

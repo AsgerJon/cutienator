@@ -3,7 +3,7 @@
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtCore/qxmlstream.h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN27QXmlStreamEntityDeclarationC1Ev": ["address"],
     "ritual_ZNK27QXmlStreamEntityDeclaration4nameEv": ["text", "address"],
     "ritual_ZNK27QXmlStreamEntityDeclaration12notationNameEv": [

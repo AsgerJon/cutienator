@@ -3,7 +3,7 @@
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtWidgets/qstylepainter.h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN13QStylePainterC1Ev": ["address"],
     "ritual_ZN13QStylePainterC1EP7QWidget": ["address", "address"],
     "ritual_ZN13QStylePainterC1EP12QPaintDeviceP7QWidget": [

@@ -6,7 +6,7 @@
   "parts first": [
     "QtGraphs", "QtCore", "QtGui", "QtQuick", "QtQml", "QtQmlIntegration"
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN12QBarDataItemC1Ev": ["address"],
     "ritual_ZN12QBarDataItemC1Ef": ["address", "float"],
     "ritual_ZN12QBarDataItemC1Eff": ["address", "float", "float"],

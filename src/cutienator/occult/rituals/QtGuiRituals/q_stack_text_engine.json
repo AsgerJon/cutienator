@@ -4,7 +4,7 @@
     "QtGui/6.12.0/QtGui/private/qtextengine_p.h, Qt 6.12.0. Changes",
     "made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN16QStackTextEngineC1ERK7QStringRK5QFont": [
       "address", "text", "address"
     ],

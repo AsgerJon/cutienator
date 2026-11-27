@@ -3,7 +3,7 @@
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtQuick3D/qquick3dobject.h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK14QQuick3DObject10metaObjectEv": ["address", "address"],
     "ritual_ZN14QQuick3DObject11qt_metacastEPKc": [
       "address", "address", "chars"

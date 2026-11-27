@@ -1,0 +1,20 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtWebEn",
+    "gineCore/6.12.0/QtWebEngineCore/private/qwebenginehistory_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "sigils": {
+    "ritual_ZN24QWebEngineHistoryPrivateC1EPN15QtWebEngineCore24WebContentsAdapterClientERKSt8functionIF4QUrlRKS4_EE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN24QWebEngineHistoryPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZNK24QWebEngineHistoryPrivate11updateItemsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK24QWebEngineHistoryPrivate7adapterEv": ["address", "address"],
+    "ritual_ZNK24QWebEngineHistoryPrivate21urlOrImageProviderUrlERK4QUrl": [
+      "address", "address", "address"
+    ]
+  }
+}

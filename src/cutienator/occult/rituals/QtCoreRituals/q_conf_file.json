@@ -4,7 +4,7 @@
     "QtCore/6.12.0/QtCore/private/qsettings_p.h, Qt 6.12.0. Changes",
     "made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK9QConfFile12mergedKeyMapEv": ["address", "address"],
     "ritual_ZNK9QConfFile10isWritableEv": ["bool", "address"],
     "ritual_list_make_QConfFile_ptr": ["address"],

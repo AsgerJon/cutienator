@@ -4,7 +4,7 @@
     "QtSvg/6.12.0/QtSvg/private/qsvgstructure_p.h, Qt 6.12.0. Changes",
     "made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN8QSvgMaskC1EP8QSvgNode9QSvgRectFN5QtSvg9UnitTypesE": [
       "address", "address", "address", "unsigned int"
     ],

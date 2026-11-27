@@ -3,7 +3,7 @@
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtOpcUa/qopcuaclient.h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK12QOpcUaClient10metaObjectEv": ["address", "address"],
     "ritual_ZN12QOpcUaClient11qt_metacastEPKc": [
       "address", "address", "chars"

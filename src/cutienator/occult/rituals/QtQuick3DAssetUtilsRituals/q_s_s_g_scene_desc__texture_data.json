@@ -4,7 +4,7 @@
     "3DAssetUtils/6.12.0/QtQuick3DAssetUtils/private/qssgscenedesc_p.h,",
     "Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN13QSSGSceneDesc11TextureDataC1ERK10QByteArray5QSizeS3_hS1_": [
       "address", "address", "address", "address", "unsigned char", "address"
     ],

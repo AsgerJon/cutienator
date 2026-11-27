@@ -4,7 +4,7 @@
     "QtSerialBus/6.12.0/QtSerialBus/private/qmodbuscommevent_p.h, Qt",
     "6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN16QModbusCommEventC1ENS_9EventByteE": ["address", "int"],
     "ritual_ZNK16QModbusCommEventcvhEv": ["unsigned char", "address"],
     "ritual_ZNK16QModbusCommEventcvNS_9EventByteEEv": ["int", "address"],

@@ -4,7 +4,7 @@
     "QtPrintSupport/qabstractprintdialog.h, Qt 6.12.0. Changes made",
     "here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN20QAbstractPrintDialog6d_funcEv": ["address", "address"],
     "ritual_ZNK20QAbstractPrintDialog6d_funcEv": ["address", "address"],
     "ritual_ZNK20QAbstractPrintDialog10metaObjectEv": ["address", "address"],

@@ -4,7 +4,7 @@
     "tyleKit/6.12.0/QtLabsStyleKit/private/qqstylekitcontrols_p.h, Qt",
     "6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK18QQStyleKitControls10metaObjectEv": ["address", "address"],
     "ritual_ZN18QQStyleKitControls11qt_metacastEPKc": [
       "address", "address", "chars"

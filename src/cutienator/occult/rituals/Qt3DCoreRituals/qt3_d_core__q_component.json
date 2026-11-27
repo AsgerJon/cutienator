@@ -3,7 +3,7 @@
     "Written by dev_tooling.RitualGenerator from the records of",
     "Qt3DCore/qcomponent.h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK8Qt3DCore10QComponent10metaObjectEv": ["address", "address"],
     "ritual_ZN8Qt3DCore10QComponent11qt_metacastEPKc": [
       "address", "address", "chars"

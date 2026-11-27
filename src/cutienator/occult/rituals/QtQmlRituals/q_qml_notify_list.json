@@ -4,7 +4,7 @@
     "QtQml/6.12.0/QtQml/private/qqmlnotifylist_p.h, Qt 6.12.0. Changes",
     "made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN14QQmlNotifyList6layoutEv": ["nothing", "address"],
     "ritual_ZN14QQmlNotifyList6layoutEP20QQmlNotifierEndpoint": [
       "nothing", "address", "address"

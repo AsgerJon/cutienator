@@ -1,0 +1,55 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWebEngineCore/qwebenginefilesystemaccessrequest.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "sigils": {
+    "ritual_ZN33QWebEngineFileSystemAccessRequestC1Ev": ["address"],
+    "ritual_ZN33QWebEngineFileSystemAccessRequestC1ERKS_": [
+      "address", "address"
+    ],
+    "ritual_ZN33QWebEngineFileSystemAccessRequestaSERKS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN33QWebEngineFileSystemAccessRequestC1EOS_": [
+      "address", "address"
+    ],
+    "ritual_ZN33QWebEngineFileSystemAccessRequestaSEOS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN33QWebEngineFileSystemAccessRequestD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZN33QWebEngineFileSystemAccessRequest4swapERS_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN33QWebEngineFileSystemAccessRequest6acceptEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN33QWebEngineFileSystemAccessRequest6rejectEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK33QWebEngineFileSystemAccessRequest6originEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK33QWebEngineFileSystemAccessRequest8filePathEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK33QWebEngineFileSystemAccessRequest10handleTypeEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK33QWebEngineFileSystemAccessRequest11accessFlagsEv": [
+      "int", "address"
+    ],
+    "ritual_ZeqRK33QWebEngineFileSystemAccessRequestS1_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZneRK33QWebEngineFileSystemAccessRequestS1_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN33QWebEngineFileSystemAccessRequestC1ESt10shared_ptrIN15QtWebEngineCore43FileSystemAccessPermissionRequestControllerEE": [
+      "address", "address"
+    ]
+  }
+}

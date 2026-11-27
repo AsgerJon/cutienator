@@ -4,7 +4,7 @@
     "Templates2/6.12.0/QtQuickTemplates2/private/qquickdialog_p_p.h, Qt",
     "6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN19QQuickDialogPrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK19QQuickDialogPrivate6q_funcEv": ["address", "address"],
     "ritual_ZN19QQuickDialogPrivateC1Ev": ["address"],

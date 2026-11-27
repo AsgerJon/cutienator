@@ -4,7 +4,7 @@
     "Templates2/6.12.0/QtQuickTemplates2/private/qquickswipe_p.h, Qt",
     "6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK11QQuickSwipe10metaObjectEv": ["address", "address"],
     "ritual_ZN11QQuickSwipe11qt_metacastEPKc": [
       "address", "address", "chars"

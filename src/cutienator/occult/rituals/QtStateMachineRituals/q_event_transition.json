@@ -4,7 +4,7 @@
     "Qt 6.12.0, the same text on every system. Kept as it is when the",
     "generator runs again. Not written: the 'bindable...' functions,"
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK16QEventTransition10metaObjectEv": ["address", "address"],
     "ritual_ZN16QEventTransition2trEPKcS1_i": [
       "text", "chars", "chars", "int"

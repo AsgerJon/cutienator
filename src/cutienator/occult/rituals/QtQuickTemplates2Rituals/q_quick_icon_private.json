@@ -4,7 +4,7 @@
     "Templates2/6.12.0/QtQuickTemplates2/private/qquickicon_p_p.h, Qt",
     "6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN17QQuickIconPrivate10isResolvedERK10QQuickIconi": [
       "bool", "address", "int"
     ],

@@ -1,0 +1,312 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWebEngineCore/qwebenginepage.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "sigils": {
+    "ritual_ZNK14QWebEnginePage10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QWebEnginePage11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN14QWebEnginePage11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN14QWebEnginePage2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN14QWebEnginePageC1EP7QObject": ["address", "address"],
+    "ritual_ZN14QWebEnginePageC1EP17QWebEngineProfileP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN14QWebEnginePageD1Ev": ["nothing", "address"],
+    "ritual_ZNK14QWebEnginePage7historyEv": ["address", "address"],
+    "ritual_ZNK14QWebEnginePage12hasSelectionEv": ["bool", "address"],
+    "ritual_ZNK14QWebEnginePage12selectedTextEv": ["text", "address"],
+    "ritual_ZNK14QWebEnginePage7profileEv": ["address", "address"],
+    "ritual_ZNK14QWebEnginePage6actionENS_9WebActionE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN14QWebEnginePage13triggerActionENS_9WebActionEb": [
+      "nothing", "address", "int", "bool"
+    ],
+    "ritual_ZN14QWebEnginePage21replaceMisspelledWordERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN14QWebEnginePage5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN14QWebEnginePage8findTextERK7QString6QFlagsINS_8FindFlagEERKSt8functionIFvRK24QWebEngineFindTextResultEE": [
+      "nothing", "address", "text", "int", "address"
+    ],
+    "ritual_ZN14QWebEnginePage20setFeaturePermissionERK4QUrlNS_7FeatureENS_16PermissionPolicyE": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZNK14QWebEnginePage9isLoadingEv": ["bool", "address"],
+    "ritual_ZN14QWebEnginePage4loadERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QWebEnginePage4loadERK21QWebEngineHttpRequest": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QWebEnginePage8downloadERK4QUrlRK7QString": [
+      "nothing", "address", "address", "text"
+    ],
+    "ritual_ZN14QWebEnginePage7setHtmlERK7QStringRK4QUrl": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_ZN14QWebEnginePage10setContentERK10QByteArrayRK7QStringRK4QUrl": [
+      "nothing", "address", "address", "text", "address"
+    ],
+    "ritual_ZNK14QWebEnginePage6toHtmlERKSt8functionIFvRK7QStringEE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14QWebEnginePage11toPlainTextERKSt8functionIFvRK7QStringEE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14QWebEnginePage5titleEv": ["text", "address"],
+    "ritual_ZN14QWebEnginePage6setUrlERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14QWebEnginePage3urlEv": ["address", "address"],
+    "ritual_ZNK14QWebEnginePage12requestedUrlEv": ["address", "address"],
+    "ritual_ZNK14QWebEnginePage7iconUrlEv": ["address", "address"],
+    "ritual_ZNK14QWebEnginePage4iconEv": ["address", "address"],
+    "ritual_ZNK14QWebEnginePage10zoomFactorEv": ["double", "address"],
+    "ritual_ZN14QWebEnginePage13setZoomFactorEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK14QWebEnginePage14scrollPositionEv": ["address", "address"],
+    "ritual_ZNK14QWebEnginePage12contentsSizeEv": ["address", "address"],
+    "ritual_ZN14QWebEnginePage13runJavaScriptERK7QStringj": [
+      "nothing", "address", "text", "unsigned int"
+    ],
+    "ritual_ZN14QWebEnginePage7scriptsEv": ["address", "address"],
+    "ritual_ZNK14QWebEnginePage8settingsEv": ["address", "address"],
+    "ritual_ZNK14QWebEnginePage10webChannelEv": ["address", "address"],
+    "ritual_ZN14QWebEnginePage13setWebChannelEP11QWebChannelj": [
+      "nothing", "address", "address", "unsigned int"
+    ],
+    "ritual_ZNK14QWebEnginePage15backgroundColorEv": ["address", "address"],
+    "ritual_ZN14QWebEnginePage18setBackgroundColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14QWebEnginePage4saveERK7QStringN25QWebEngineDownloadRequest14SavePageFormatE": [
+      "nothing", "address", "text", "int"
+    ],
+    "ritual_ZNK14QWebEnginePage12isAudioMutedEv": ["bool", "address"],
+    "ritual_ZN14QWebEnginePage13setAudioMutedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK14QWebEnginePage15recentlyAudibleEv": ["bool", "address"],
+    "ritual_ZNK14QWebEnginePage16renderProcessPidEv": [
+      "long long", "address"
+    ],
+    "ritual_ZN14QWebEnginePage10printToPdfERK7QStringRK11QPageLayoutRK11QPageRanges": [
+      "nothing", "address", "text", "address", "address"
+    ],
+    "ritual_ZN14QWebEnginePage10printToPdfERKSt8functionIFvRK10QByteArrayEERK11QPageLayoutRK11QPageRanges": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN14QWebEnginePage16setInspectedPageEPS_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14QWebEnginePage13inspectedPageEv": ["address", "address"],
+    "ritual_ZN14QWebEnginePage15setDevToolsPageEPS_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14QWebEnginePage12devToolsPageEv": ["address", "address"],
+    "ritual_ZNK14QWebEnginePage10devToolsIdEv": ["text", "address"],
+    "ritual_ZN14QWebEnginePage24setUrlRequestInterceptorEP31QWebEngineUrlRequestInterceptor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14QWebEnginePage14lifecycleStateEv": ["int", "address"],
+    "ritual_ZN14QWebEnginePage17setLifecycleStateENS_14LifecycleStateE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK14QWebEnginePage16recommendedStateEv": ["int", "address"],
+    "ritual_ZNK14QWebEnginePage9isVisibleEv": ["bool", "address"],
+    "ritual_ZN14QWebEnginePage10setVisibleEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN14QWebEnginePage9mainFrameEv": ["address", "address"],
+    "ritual_ZN14QWebEnginePage15findFrameByNameE14QAnyStringView": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN14QWebEnginePage17acceptAsNewWindowER26QWebEngineNewWindowRequest": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QWebEnginePage11loadStartedEv": ["nothing", "address"],
+    "ritual_ZN14QWebEnginePage12loadProgressEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN14QWebEnginePage12loadFinishedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN14QWebEnginePage14loadingChangedERK21QWebEngineLoadingInfo": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QWebEnginePage11linkHoveredERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN14QWebEnginePage16selectionChangedEv": ["nothing", "address"],
+    "ritual_ZN14QWebEnginePage23geometryChangeRequestedERK5QRect": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QWebEnginePage20windowCloseRequestedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QWebEnginePage26featurePermissionRequestedERK4QUrlNS_7FeatureE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN14QWebEnginePage32featurePermissionRequestCanceledERK4QUrlNS_7FeatureE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN14QWebEnginePage19fullScreenRequestedE27QWebEngineFullScreenRequest": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QWebEnginePage19permissionRequestedE20QWebEnginePermission": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QWebEnginePage14quotaRequestedE22QWebEngineQuotaRequest": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QWebEnginePage32registerProtocolHandlerRequestedE40QWebEngineRegisterProtocolHandlerRequest": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QWebEnginePage25fileSystemAccessRequestedE33QWebEngineFileSystemAccessRequest": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QWebEnginePage23selectClientCertificateE36QWebEngineClientCertificateSelection": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QWebEnginePage22authenticationRequiredERK4QUrlP14QAuthenticator": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN14QWebEnginePage27proxyAuthenticationRequiredERK4QUrlP14QAuthenticatorRK7QString": [
+      "nothing", "address", "address", "address", "text"
+    ],
+    "ritual_ZN14QWebEnginePage23renderProcessTerminatedENS_30RenderProcessTerminationStatusEi": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN14QWebEnginePage21desktopMediaRequestedERK29QWebEngineDesktopMediaRequest": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QWebEnginePage16certificateErrorERK26QWebEngineCertificateError": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QWebEnginePage19navigationRequestedER27QWebEngineNavigationRequest": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QWebEnginePage18newWindowRequestedER26QWebEngineNewWindowRequest": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QWebEnginePage12titleChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN14QWebEnginePage10urlChangedERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QWebEnginePage14iconUrlChangedERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QWebEnginePage11iconChangedERK5QIcon": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QWebEnginePage17zoomFactorChangedEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN14QWebEnginePage21scrollPositionChangedERK7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QWebEnginePage19contentsSizeChangedERK6QSizeF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QWebEnginePage17audioMutedChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN14QWebEnginePage22recentlyAudibleChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN14QWebEnginePage23renderProcessPidChangedEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZN14QWebEnginePage19pdfPrintingFinishedERK7QStringb": [
+      "nothing", "address", "text", "bool"
+    ],
+    "ritual_ZN14QWebEnginePage14printRequestedEv": ["nothing", "address"],
+    "ritual_ZN14QWebEnginePage21printRequestedByFrameE15QWebEngineFrame": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QWebEnginePage14visibleChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN14QWebEnginePage21lifecycleStateChangedENS_14LifecycleStateE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN14QWebEnginePage23recommendedStateChangedENS_14LifecycleStateE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN14QWebEnginePage16findTextFinishedERK24QWebEngineFindTextResult": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QWebEnginePage16_q_aboutToDeleteEv": ["nothing", "address"],
+    "ritual_ZN14QWebEnginePage18webAuthUxRequestedEP26QWebEngineWebAuthUxRequest": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QWebEnginePage12createWindowENS_13WebWindowTypeE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN14QWebEnginePage11chooseFilesENS_17FileSelectionModeERK5QListI7QStringES5_": [
+      "address", "address", "int", "address", "address"
+    ],
+    "ritual_ZN14QWebEnginePage15javaScriptAlertERK4QUrlRK7QString": [
+      "nothing", "address", "address", "text"
+    ],
+    "ritual_ZN14QWebEnginePage17javaScriptConfirmERK4QUrlRK7QString": [
+      "bool", "address", "address", "text"
+    ],
+    "ritual_ZN14QWebEnginePage16javaScriptPromptERK4QUrlRK7QStringS5_PS3_": [
+      "bool", "address", "address", "text", "text", "address"
+    ],
+    "ritual_ZN14QWebEnginePage24javaScriptConsoleMessageENS_29JavaScriptConsoleMessageLevelERK7QStringiS3_": [
+      "nothing", "address", "int", "text", "int", "text"
+    ],
+    "ritual_ZN14QWebEnginePage23acceptNavigationRequestERK4QUrlNS_14NavigationTypeEb": [
+      "bool", "address", "address", "int", "bool"
+    ],
+    "ritual_ZN14QWebEnginePage6d_funcEv": ["address", "address"],
+    "ritual_ZNK14QWebEnginePage6d_funcEv": ["address", "address"],
+    "ritual_ZN14QWebEnginePage17runJavaScriptImplERK7QStringjPN9QtPrivate15QSlotObjectBaseE": [
+      "nothing", "address", "text", "unsigned int", "address"
+    ],
+    "ritual_take_QWebEnginePage": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN14QWebEnginePage13triggerActionENS_9WebActionEb": [
+      "nothing", "address", "int", "bool"
+    ],
+    "ritual_own_ZN14QWebEnginePage5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN14QWebEnginePage12createWindowENS_13WebWindowTypeE": [
+      "address", "address", "int"
+    ],
+    "ritual_own_ZN14QWebEnginePage15javaScriptAlertERK4QUrlRK7QString": [
+      "nothing", "address", "address", "text"
+    ],
+    "ritual_own_ZN14QWebEnginePage17javaScriptConfirmERK4QUrlRK7QString": [
+      "bool", "address", "address", "text"
+    ],
+    "ritual_own_ZN14QWebEnginePage16javaScriptPromptERK4QUrlRK7QStringS5_PS3_": [
+      "bool", "address", "address", "text", "text", "address"
+    ],
+    "ritual_own_ZN14QWebEnginePage24javaScriptConsoleMessageENS_29JavaScriptConsoleMessageLevelERK7QStringiS3_": [
+      "nothing", "address", "int", "text", "int", "text"
+    ],
+    "ritual_own_ZN14QWebEnginePage23acceptNavigationRequestERK4QUrlNS_14NavigationTypeEb": [
+      "bool", "address", "address", "int", "bool"
+    ],
+    "ritual_drop_QWebEnginePage__std_optional_QWebEngineFrame": [
+      "nothing", "address"
+    ]
+  }
+}

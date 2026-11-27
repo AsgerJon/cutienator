@@ -7,7 +7,7 @@
   "parts first": [
     "QtGraphs", "QtCore", "QtGui", "QtQuick", "QtQml", "QtQmlIntegration"
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN13BarItemHolderD1Ev": ["nothing", "address"],
     "ritual_list_make_BarItemHolder_ptr": ["address"],
     "ritual_list_add_BarItemHolder_ptr": ["nothing", "address", "address"],

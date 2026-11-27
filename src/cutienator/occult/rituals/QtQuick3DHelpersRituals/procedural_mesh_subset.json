@@ -4,7 +4,7 @@
     "3DHelpers/6.12.0/QtQuick3DHelpers/private/proceduralmesh_p.h, Qt",
     "6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK20ProceduralMeshSubset10metaObjectEv": ["address", "address"],
     "ritual_ZN20ProceduralMeshSubset11qt_metacastEPKc": [
       "address", "address", "chars"

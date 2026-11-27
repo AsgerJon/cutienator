@@ -2,7 +2,7 @@
   "about": [
     "Edited by hand: see the ritual file."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN10Qt3DRender12QTextureData6d_funcEv": ["address", "address"],
     "ritual_ZNK10Qt3DRender12QTextureData6d_funcEv": ["address", "address"]
   }

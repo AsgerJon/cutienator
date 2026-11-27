@@ -1,0 +1,67 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWebEngineCore/qwebengineextensionmanager.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "sigils": {
+    "ritual_ZNK26QWebEngineExtensionManager10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QWebEngineExtensionManager11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN26QWebEngineExtensionManager11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN26QWebEngineExtensionManager2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN26QWebEngineExtensionManagerD1Ev": ["nothing", "address"],
+    "ritual_ZN26QWebEngineExtensionManager13loadExtensionERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN26QWebEngineExtensionManager16installExtensionERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN26QWebEngineExtensionManager15unloadExtensionERK23QWebEngineExtensionInfo": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN26QWebEngineExtensionManager18uninstallExtensionERK23QWebEngineExtensionInfo": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN26QWebEngineExtensionManager19setExtensionEnabledERK23QWebEngineExtensionInfob": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZNK26QWebEngineExtensionManager11installPathEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK26QWebEngineExtensionManager10extensionsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QWebEngineExtensionManager12loadFinishedERK23QWebEngineExtensionInfo": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN26QWebEngineExtensionManager15installFinishedERK23QWebEngineExtensionInfo": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN26QWebEngineExtensionManager14unloadFinishedERK23QWebEngineExtensionInfo": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN26QWebEngineExtensionManager17uninstallFinishedERK23QWebEngineExtensionInfo": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN26QWebEngineExtensionManager5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN26QWebEngineExtensionManagerC1EPN15QtWebEngineCore16ExtensionManagerE": [
+      "address", "address"
+    ],
+    "ritual_take_QWebEngineExtensionManager": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN26QWebEngineExtensionManager5eventEP6QEvent": [
+      "bool", "address", "address"
+    ]
+  }
+}

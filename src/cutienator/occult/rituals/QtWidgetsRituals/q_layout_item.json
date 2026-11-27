@@ -3,7 +3,7 @@
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtWidgets/qlayoutitem.h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN11QLayoutItemC1E6QFlagsIN2Qt13AlignmentFlagEE": [
       "address", "int"
     ],

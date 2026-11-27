@@ -1,0 +1,88 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWebEngineCore/qwebenginecontextmenurequest.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "sigils": {
+    "ritual_ZNK28QWebEngineContextMenuRequest10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QWebEngineContextMenuRequest11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN28QWebEngineContextMenuRequest11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN28QWebEngineContextMenuRequest2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN28QWebEngineContextMenuRequestD1Ev": ["nothing", "address"],
+    "ritual_ZNK28QWebEngineContextMenuRequest8positionEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK28QWebEngineContextMenuRequest12selectedTextEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK28QWebEngineContextMenuRequest8linkTextEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK28QWebEngineContextMenuRequest7linkUrlEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK28QWebEngineContextMenuRequest8mediaUrlEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK28QWebEngineContextMenuRequest9mediaTypeEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK28QWebEngineContextMenuRequest17isContentEditableEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK28QWebEngineContextMenuRequest14misspelledWordEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK28QWebEngineContextMenuRequest23spellCheckerSuggestionsEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK28QWebEngineContextMenuRequest10isAcceptedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN28QWebEngineContextMenuRequest11setAcceptedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK28QWebEngineContextMenuRequest10mediaFlagsEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK28QWebEngineContextMenuRequest9editFlagsEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK28QWebEngineContextMenuRequest15filteredLinkUrlEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK28QWebEngineContextMenuRequest7altTextEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK28QWebEngineContextMenuRequest9titleTextEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK28QWebEngineContextMenuRequest11referrerUrlEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK28QWebEngineContextMenuRequest14referrerPolicyEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK28QWebEngineContextMenuRequest15hasImageContentEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK28QWebEngineContextMenuRequest17suggestedFileNameEv": [
+      "text", "address"
+    ],
+    "ritual_ZN28QWebEngineContextMenuRequestC1EP35QWebEngineContextMenuRequestPrivate": [
+      "address", "address"
+    ],
+    "ritual_take_QWebEngineContextMenuRequest": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

@@ -1,13 +1,14 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "QtCore/qsequentialiterable.h, Qt 6.12.0. Changes made here are",
-    "lost."
+    "QtCore/qsequentialiterable.h, Qt 6.12.0. Edited by hand: see the",
+    "ritual file."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN24QSequentialConstIteratorC1EO14QConstIteratorI13QMetaSequenceE": [
       "address", "address"
     ],
-    "ritual_ZNK24QSequentialConstIteratordeEv": ["address", "address"]
+    "ritual_ZNK24QSequentialConstIteratordeEv": ["address", "address"],
+    "ritual_ZN24QSequentialConstIteratorD1Ev": ["nothing", "address"]
   }
 }

@@ -4,7 +4,7 @@
     "QtWidgets/6.12.0/QtWidgets/private/qcompleter_p.h, Qt 6.12.0.",
     "Edited by hand: see the ritual file."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN17QCompleterPrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK17QCompleterPrivate6q_funcEv": ["address", "address"],
     "ritual_ZN17QCompleterPrivateC1Ev": ["address"],

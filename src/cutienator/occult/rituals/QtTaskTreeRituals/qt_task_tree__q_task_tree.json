@@ -2,7 +2,7 @@
   "about": [
     "Edited by hand: see the ritual file."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK10QtTaskTree9QTaskTree10metaObjectEv": ["address", "address"],
     "ritual_ZN10QtTaskTree9QTaskTree11qt_metacastEPKc": [
       "address", "address", "chars"

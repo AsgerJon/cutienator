@@ -5,7 +5,7 @@
   "parts first": [
     "QtGraphs", "QtCore", "QtGui", "QtQuick", "QtQml", "QtQmlIntegration"
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK17QScatterDataProxy10metaObjectEv": ["address", "address"],
     "ritual_ZN17QScatterDataProxy11qt_metacastEPKc": [
       "address", "address", "chars"

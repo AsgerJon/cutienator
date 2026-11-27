@@ -2,7 +2,7 @@
   "about": [
     "Edited by hand: see the ritual file."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN10QtTaskTree23QParallelTaskTreeRunnerC1Ev": ["address"],
     "ritual_ZN10QtTaskTree23QParallelTaskTreeRunnerD1Ev": [
       "nothing", "address"

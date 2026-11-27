@@ -4,7 +4,7 @@
     "ndCompositor/6.12.0/QtWaylandCompositor/private/qwaylandkeymap_p.h",
     ", Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN21QWaylandKeymapPrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK21QWaylandKeymapPrivate6q_funcEv": ["address", "address"],
     "ritual_ZN21QWaylandKeymapPrivateC1ERK7QStringS2_S2_S2_S2_": [

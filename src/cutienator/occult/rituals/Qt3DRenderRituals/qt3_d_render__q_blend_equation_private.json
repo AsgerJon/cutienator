@@ -4,7 +4,7 @@
     "Qt3DRender/6.12.0/Qt3DRender/private/qblendequation_p.h, Qt",
     "6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN10Qt3DRender21QBlendEquationPrivateC1Ev": ["address"],
     "ritual_ZN10Qt3DRender21QBlendEquationPrivate6q_funcEv": [
       "address", "address"

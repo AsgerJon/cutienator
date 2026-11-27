@@ -185,7 +185,7 @@ class EnumGenerator:
   def getNumberName(self) -> str:
     """
     Gives the C++ number the names of the enum are kept as, in the
-    words the rows files of the rituals use, as 'int' or 'unsigned
+    words the sigil files of the rituals use, as 'int' or 'unsigned
     int'.
 
     Found for you: the number the header fixes for the enum, as the

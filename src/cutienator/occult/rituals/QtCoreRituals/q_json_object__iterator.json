@@ -3,7 +3,7 @@
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtCore/qjsonobject.h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN11QJsonObject8iteratorC1Ev": ["address"],
     "ritual_ZN11QJsonObject8iteratorC1EPS_x": [
       "address", "address", "long long"

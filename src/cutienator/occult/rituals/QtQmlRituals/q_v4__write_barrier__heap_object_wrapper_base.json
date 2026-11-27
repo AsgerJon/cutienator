@@ -4,7 +4,7 @@
     "QtQml/6.12.0/QtQml/private/qv4writebarrier_p.h, Qt 6.12.0. Changes",
     "made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN3QV412WriteBarrier21HeapObjectWrapperBase5clearEv": [
       "nothing", "address"
     ],

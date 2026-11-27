@@ -4,7 +4,7 @@
     "QtCore5Compat/6.12.0/QtCore5Compat/private/qgb18030codec_p.h, Qt",
     "6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN13QGb18030CodecC1Ev": ["address"],
     "ritual_ZN13QGb18030Codec5_nameEv": ["address"],
     "ritual_ZN13QGb18030Codec8_aliasesEv": ["address"],

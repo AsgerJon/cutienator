@@ -4,7 +4,7 @@
     "latform/6.12.0/QtLabsPlatform/private/qquicklabsplatformmenusepara",
     "tor_p.h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK31QQuickLabsPlatformMenuSeparator10metaObjectEv": [
       "address", "address"
     ],

@@ -4,7 +4,7 @@
     "QtQuick/6.12.0/QtQuick/private/qquickpainteditem_p.h, Qt 6.12.0.",
     "Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN24QQuickPaintedItemPrivateC1Ev": ["address"],
     "ritual_take_QQuickPaintedItemPrivate": [
       "bool", "address", "chars", "address"

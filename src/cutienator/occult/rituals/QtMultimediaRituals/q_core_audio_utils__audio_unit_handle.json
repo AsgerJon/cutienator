@@ -4,7 +4,7 @@
     "QtMultimedia/6.12.0/QtMultimedia/private/qcoreaudioutils_p.h, Qt 6.12.0,",
     "as the Qt of macOS installs it. Kept as it is when the generator runs"
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK15QCoreAudioUtils15AudioUnitHandle13isInitializedEv": [
       "bool", "address"
     ]

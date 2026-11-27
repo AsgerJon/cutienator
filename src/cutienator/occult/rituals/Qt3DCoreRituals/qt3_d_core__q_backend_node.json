@@ -3,7 +3,7 @@
     "Written by dev_tooling.RitualGenerator from the records of",
     "Qt3DCore/qbackendnode.h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN8Qt3DCore12QBackendNodeC1ENS0_4ModeE": ["address", "int"],
     "ritual_ZN8Qt3DCore12QBackendNodeD1Ev": ["nothing", "address"],
     "ritual_ZNK8Qt3DCore12QBackendNode6peerIdEv": ["address", "address"],

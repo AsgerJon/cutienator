@@ -4,7 +4,7 @@
     "QtQml/6.12.0/QtQml/private/qv4runtimeapi_p.h, Qt 6.12.0. Changes",
     "made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN3QV47Runtime11symbolTableEv": ["address"],
     "ritual_ZN3QV47RuntimeD1Ev": ["nothing", "address"],
     "ritual_drop_QV4_Runtime__QHash_const_void_const_char": [

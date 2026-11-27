@@ -4,7 +4,7 @@
     "QtCharts/6.12.0/QtCharts/private/chartthememanager_p.h, Qt 6.12.0.",
     "Edited by hand: see the ritual file."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK17ChartThemeManager10metaObjectEv": ["address", "address"],
     "ritual_ZN17ChartThemeManager11qt_metacastEPKc": [
       "address", "address", "chars"

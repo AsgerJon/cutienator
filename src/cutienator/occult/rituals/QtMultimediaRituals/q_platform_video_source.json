@@ -4,7 +4,7 @@
     "QtMultimedia/6.12.0/QtMultimedia/private/qplatformvideosource_p.h,",
     "Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK20QPlatformVideoSource10metaObjectEv": ["address", "address"],
     "ritual_ZN20QPlatformVideoSource11qt_metacastEPKc": [
       "address", "address", "chars"

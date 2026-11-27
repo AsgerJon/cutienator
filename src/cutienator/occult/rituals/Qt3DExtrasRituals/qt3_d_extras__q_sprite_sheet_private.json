@@ -4,7 +4,7 @@
     "Qt3DExtras/6.12.0/Qt3DExtras/private/qspritesheet_p.h, Qt 6.12.0.",
     "Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN10Qt3DExtras19QSpriteSheetPrivateC1Ev": ["address"],
     "ritual_ZNK10Qt3DExtras19QSpriteSheetPrivate8maxIndexEv": [
       "int", "address"

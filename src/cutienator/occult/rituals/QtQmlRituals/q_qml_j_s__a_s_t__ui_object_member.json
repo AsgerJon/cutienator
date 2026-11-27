@@ -4,7 +4,7 @@
     "QtQml/6.12.0/QtQml/private/qqmljsast_p.h, Qt 6.12.0, from Qt's",
     "source. Kept as it is when the generator runs again."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK6QQmlJS3AST14UiObjectMember19firstSourceLocationEv": [
       "address",
       "address"

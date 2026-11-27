@@ -4,7 +4,7 @@
     "QtQuick/6.12.0/QtQuick/private/qquickitemviewfxitem_p_p.h, Qt",
     "6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN20QQuickItemViewFxItemC1EP10QQuickItembP24QQuickItemChangeListener": [
       "address", "address", "bool", "address"
     ],

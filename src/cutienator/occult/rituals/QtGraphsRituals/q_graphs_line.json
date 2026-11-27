@@ -6,7 +6,7 @@
   "parts first": [
     "QtGraphs", "QtCore", "QtGui", "QtQuick", "QtQml", "QtQmlIntegration"
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN11QGraphsLine6createERK8QJSValue": ["address", "address"],
     "ritual_ZN11QGraphsLineC1Ev": ["address"],
     "ritual_ZN11QGraphsLineC1ERKS_": ["address", "address"],

@@ -4,7 +4,7 @@
     "QtWidgets/qgraphicseffect.h, Qt 6.12.0. Changes made here are",
     "lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK15QGraphicsEffect10metaObjectEv": ["address", "address"],
     "ritual_ZN15QGraphicsEffect11qt_metacastEPKc": [
       "address", "address", "chars"

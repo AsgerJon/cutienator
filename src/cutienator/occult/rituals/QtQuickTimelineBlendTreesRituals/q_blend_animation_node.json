@@ -4,7 +4,7 @@
     "TimelineBlendTrees/6.12.0/QtQuickTimelineBlendTrees/private/qblend",
     "animationnode_p.h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK19QBlendAnimationNode10metaObjectEv": ["address", "address"],
     "ritual_ZN19QBlendAnimationNode11qt_metacastEPKc": [
       "address", "address", "chars"

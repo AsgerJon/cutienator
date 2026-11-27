@@ -1,0 +1,81 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWebEngineCore/qwebengineclienthints.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "sigils": {
+    "ritual_ZNK21QWebEngineClientHints10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QWebEngineClientHints11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN21QWebEngineClientHints11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN21QWebEngineClientHints2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN21QWebEngineClientHintsD1Ev": ["nothing", "address"],
+    "ritual_ZNK21QWebEngineClientHints4archEv": ["text", "address"],
+    "ritual_ZNK21QWebEngineClientHints8platformEv": ["text", "address"],
+    "ritual_ZNK21QWebEngineClientHints5modelEv": ["text", "address"],
+    "ritual_ZNK21QWebEngineClientHints8isMobileEv": ["bool", "address"],
+    "ritual_ZNK21QWebEngineClientHints11fullVersionEv": ["text", "address"],
+    "ritual_ZNK21QWebEngineClientHints15platformVersionEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK21QWebEngineClientHints7bitnessEv": ["text", "address"],
+    "ritual_ZNK21QWebEngineClientHints15fullVersionListEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK21QWebEngineClientHints7isWow64Ev": ["bool", "address"],
+    "ritual_ZNK21QWebEngineClientHints11formFactorsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QWebEngineClientHints7setArchERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN21QWebEngineClientHints11setPlatformERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN21QWebEngineClientHints8setModelERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN21QWebEngineClientHints11setIsMobileEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN21QWebEngineClientHints14setFullVersionERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN21QWebEngineClientHints18setPlatformVersionERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN21QWebEngineClientHints10setBitnessERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN21QWebEngineClientHints18setFullVersionListERK4QMapI7QString8QVariantE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QWebEngineClientHints10setIsWow64Eb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN21QWebEngineClientHints14setFormFactorsERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QWebEngineClientHints23isAllClientHintsEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN21QWebEngineClientHints24setAllClientHintsEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN21QWebEngineClientHints8resetAllEv": ["nothing", "address"],
+    "ritual_ZN21QWebEngineClientHintsC1EPN15QtWebEngineCore14ProfileAdapterE": [
+      "address", "address"
+    ],
+    "ritual_take_QWebEngineClientHints": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

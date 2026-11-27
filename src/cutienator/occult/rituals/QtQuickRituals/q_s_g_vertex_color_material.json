@@ -4,7 +4,7 @@
     "QtQuick/qsgvertexcolormaterial.h, Qt 6.12.0. Changes made here are",
     "lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN22QSGVertexColorMaterialC1Ev": ["address"],
     "ritual_ZNK22QSGVertexColorMaterial7compareEPK11QSGMaterial": [
       "int", "address", "address"

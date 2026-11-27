@@ -4,7 +4,7 @@
     "isualization/6.12.0/QtDataVisualization/private/customrenderitem_p",
     ".h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN16CustomRenderItemD1Ev": ["nothing", "address"],
     "ritual_ZN16CustomRenderItem10setTextureEj": [
       "nothing", "address", "unsigned int"

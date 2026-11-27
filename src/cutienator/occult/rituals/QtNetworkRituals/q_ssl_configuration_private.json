@@ -4,7 +4,7 @@
     "QtNetwork/6.12.0/QtNetwork/private/qsslconfiguration_p.h, Qt",
     "6.12.0. Edited by hand: see the ritual file."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN24QSslConfigurationPrivateC1Ev": ["address"],
     "ritual_ZN24QSslConfigurationPrivate20peerSessionWasSharedERK17QSslConfiguration": [
       "bool", "address"

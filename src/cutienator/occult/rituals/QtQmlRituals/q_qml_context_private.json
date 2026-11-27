@@ -4,7 +4,7 @@
     "QtQml/6.12.0/QtQml/private/qqmlcontext_p.h, Qt 6.12.0. Changes",
     "made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN18QQmlContextPrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK18QQmlContextPrivate6q_funcEv": ["address", "address"],
     "ritual_ZN18QQmlContextPrivate3getEP11QQmlContext": [

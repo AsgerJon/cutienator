@@ -4,7 +4,7 @@
     "ckScene3D/6.12.0/Qt3DQuickScene3D/private/scene3dsgnode_p.h, Qt",
     "6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN10Qt3DRender13Scene3DSGNodeD1Ev": ["nothing", "address"],
     "ritual_ZN10Qt3DRender13Scene3DSGNode10setTextureEP10QSGTexture": [
       "nothing", "address", "address"

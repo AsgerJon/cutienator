@@ -4,7 +4,7 @@
     "Qt3DRender/6.12.0/Qt3DRender/private/entity_p.h, Qt 6.12.0. Edited",
     "by hand: see the ritual file."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN10Qt3DRender6Render6EntityC1Ev": ["address"],
     "ritual_ZN10Qt3DRender6Render6EntityD1Ev": ["nothing", "address"],
     "ritual_ZN10Qt3DRender6Render6Entity7cleanupEv": ["nothing", "address"],

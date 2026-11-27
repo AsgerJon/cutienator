@@ -1,0 +1,30 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtWebEn",
+    "gineWidgets/6.12.0/QtWebEngineWidgets/private/qwebengine_accessibl",
+    "e_p.h, Qt 6.12.0. Edited by hand: see the ritual file."
+  ],
+  "sigils": {
+    "ritual_ZNK24QWebEngineViewAccessible7isValidEv": ["bool", "address"],
+    "ritual_ZNK24QWebEngineViewAccessible10focusChildEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK24QWebEngineViewAccessible10childCountEv": ["int", "address"],
+    "ritual_ZNK24QWebEngineViewAccessible5childEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK24QWebEngineViewAccessible12indexOfChildEPK20QAccessibleInterface": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK24QWebEngineViewAccessible4viewEv": ["address", "address"],
+    "ritual_own_ZNK24QWebEngineViewAccessible10focusChildEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK24QWebEngineViewAccessible10childCountEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZNK24QWebEngineViewAccessible12indexOfChildEPK20QAccessibleInterface": [
+      "int", "address", "address"
+    ]
+  }
+}

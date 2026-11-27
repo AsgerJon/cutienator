@@ -4,7 +4,7 @@
     "Templates2/6.12.0/QtQuickTemplates2/private/qquickpresshandler_p_p",
     ".h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN18QQuickPressHandler15mousePressEventEP11QMouseEvent": [
       "nothing", "address", "address"
     ],

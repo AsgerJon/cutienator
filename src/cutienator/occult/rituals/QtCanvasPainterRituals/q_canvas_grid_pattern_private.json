@@ -4,7 +4,7 @@
     "sPainter/6.12.0/QtCanvasPainter/private/qcanvasgridpattern_p.h, Qt",
     "6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN25QCanvasGridPatternPrivateC1ERKS_": ["address", "address"],
     "ritual_ZN25QCanvasGridPatternPrivateC1Ev": ["address"],
     "ritual_ZN25QCanvasGridPatternPrivate5cloneEv": ["address", "address"],

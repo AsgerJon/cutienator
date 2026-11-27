@@ -4,7 +4,7 @@
     "QtOpcUa/qopcuaapplicationidentity.h, Qt 6.12.0. Changes made here",
     "are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN25QOpcUaApplicationIdentityC1Ev": ["address"],
     "ritual_ZN25QOpcUaApplicationIdentityD1Ev": ["nothing", "address"],
     "ritual_ZN25QOpcUaApplicationIdentityC1ERKS_": ["address", "address"],

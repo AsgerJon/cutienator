@@ -1,0 +1,57 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWebEngineCore/qwebenginehttprequest.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "sigils": {
+    "ritual_ZN21QWebEngineHttpRequestC1ERK4QUrlRKNS_6MethodE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN21QWebEngineHttpRequestC1ERKS_": ["address", "address"],
+    "ritual_ZN21QWebEngineHttpRequestD1Ev": ["nothing", "address"],
+    "ritual_ZN21QWebEngineHttpRequestaSEOS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN21QWebEngineHttpRequestaSERKS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN21QWebEngineHttpRequest11postRequestERK4QUrlRK4QMapI7QStringS4_E": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN21QWebEngineHttpRequest4swapERS_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK21QWebEngineHttpRequesteqERKS_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK21QWebEngineHttpRequestneERKS_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK21QWebEngineHttpRequest6methodEv": ["int", "address"],
+    "ritual_ZN21QWebEngineHttpRequest9setMethodENS_6MethodE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK21QWebEngineHttpRequest3urlEv": ["address", "address"],
+    "ritual_ZN21QWebEngineHttpRequest6setUrlERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK21QWebEngineHttpRequest8postDataEv": ["address", "address"],
+    "ritual_ZN21QWebEngineHttpRequest11setPostDataERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK21QWebEngineHttpRequest9hasHeaderERK10QByteArray": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK21QWebEngineHttpRequest7headersEv": ["address", "address"],
+    "ritual_ZNK21QWebEngineHttpRequest6headerERK10QByteArray": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN21QWebEngineHttpRequest9setHeaderERK10QByteArrayS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN21QWebEngineHttpRequest11unsetHeaderERK10QByteArray": [
+      "nothing", "address", "address"
+    ]
+  }
+}

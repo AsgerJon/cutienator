@@ -4,7 +4,7 @@
     "QtWaylandCompositor/qwaylandkeymap.h, Qt 6.12.0. Changes made here",
     "are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK14QWaylandKeymap10metaObjectEv": ["address", "address"],
     "ritual_ZN14QWaylandKeymap11qt_metacastEPKc": [
       "address", "address", "chars"

@@ -4,7 +4,7 @@
     "QtDataVisualization/qabstract3dinputhandler.h, Qt 6.12.0. Changes",
     "made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK23QAbstract3DInputHandler10metaObjectEv": [
       "address", "address"
     ],

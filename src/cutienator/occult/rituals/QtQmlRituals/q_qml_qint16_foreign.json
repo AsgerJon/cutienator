@@ -4,7 +4,7 @@
     "QtQml/6.12.0/QtQml/private/qqmlbuiltins_p.h, Qt 6.12.0. Changes",
     "made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN17QQmlQint16Foreign20qt_qmlMarker_foreignEv": [
       "nothing", "address"
     ],

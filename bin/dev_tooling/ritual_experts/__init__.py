@@ -21,7 +21,7 @@ its work to, one kind of work each.
   'SpellingExpert' writes names in full, 'ProbeExpert' asks the
   compiler, 'CuteClassExpert' writes the C++ class of ours through which
   Python takes functions over, and 'RitualFileExpert' writes the text
-  of the ritual file and of the rows file.
+  of the ritual file and of the sigil file.
 
 Every expert is built on 'RitualExpert', which knows the generator it
 works for. 'CppText' takes apart and puts together types as C++ writes

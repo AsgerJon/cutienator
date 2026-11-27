@@ -4,7 +4,7 @@
     "QtHttpServer/qhttpserverconfiguration.h, Qt 6.12.0. Changes made",
     "here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN24QHttpServerConfigurationC1Ev": ["address"],
     "ritual_ZN24QHttpServerConfigurationC1ERKS_": ["address", "address"],
     "ritual_ZN24QHttpServerConfigurationC1EOS_": ["address", "address"],

@@ -4,7 +4,7 @@
     "QtQml/6.12.0/QtQml/private/qqmlmetaobject_p.h, Qt 6.12.0. Edited",
     "by hand: see the ritual file."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN14QQmlMetaObjectC1Ev": ["address"],
     "ritual_ZN14QQmlMetaObjectC1EPK7QObject": ["address", "address"],
     "ritual_ZN14QQmlMetaObjectC1EPK11QMetaObject": ["address", "address"],

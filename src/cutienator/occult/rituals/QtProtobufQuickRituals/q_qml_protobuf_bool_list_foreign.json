@@ -4,7 +4,7 @@
     "bufQuick/6.12.0/QtProtobufQuick/private/qqmlprotobuftypes_p.h, Qt",
     "6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN27QQmlProtobufBoolListForeign22qt_qmlMarker_anonymousEv": [
       "nothing", "address"
     ],

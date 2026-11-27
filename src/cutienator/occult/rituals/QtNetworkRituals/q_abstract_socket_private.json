@@ -4,7 +4,7 @@
     "QtNetwork/6.12.0/QtNetwork/private/qabstractsocket_p.h, Qt 6.12.0.",
     "Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN22QAbstractSocketPrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK22QAbstractSocketPrivate6q_funcEv": ["address", "address"],
     "ritual_ZN22QAbstractSocketPrivateC1E16QtPrivate_6_12_0": [

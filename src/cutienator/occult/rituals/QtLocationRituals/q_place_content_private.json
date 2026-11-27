@@ -4,7 +4,7 @@
     "QtLocation/6.12.0/QtLocation/private/qplacecontent_p.h, Qt 6.12.0.",
     "Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN20QPlaceContentPrivateC1EN13QPlaceContent4TypeE": [
       "address", "int"
     ],

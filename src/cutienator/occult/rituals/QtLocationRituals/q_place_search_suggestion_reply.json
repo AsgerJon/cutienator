@@ -4,7 +4,7 @@
     "QtLocation/qplacesearchsuggestionreply.h, Qt 6.12.0. Changes made",
     "here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK27QPlaceSearchSuggestionReply10metaObjectEv": [
       "address", "address"
     ],

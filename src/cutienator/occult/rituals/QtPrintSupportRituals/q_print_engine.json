@@ -4,7 +4,7 @@
     "QtPrintSupport/qprintengine.h, Qt 6.12.0. Changes made here are",
     "lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN12QPrintEngineD1Ev": ["nothing", "address"],
     "ritual_ZN12QPrintEngine11setPropertyENS_22PrintEnginePropertyKeyERK8QVariant": [
       "nothing", "address", "int", "address"

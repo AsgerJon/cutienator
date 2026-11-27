@@ -4,7 +4,7 @@
     "QtQuick/6.12.0/QtQuick/private/qsgnode_p.h, Qt 6.12.0. Changes",
     "made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN14QSGNodePrivateC1Ev": ["address"],
     "ritual_ZN14QSGNodePrivateD1Ev": ["nothing", "address"],
     "ritual_ZN14QSGNodePrivate15mutabilityGroupEPK7QSGNode": [

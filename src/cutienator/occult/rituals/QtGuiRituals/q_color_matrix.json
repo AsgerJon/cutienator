@@ -4,7 +4,7 @@
     "QtGui/6.12.0/QtGui/private/qcolormatrix_p.h, Qt 6.12.0. Changes",
     "made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK12QColorMatrix6isNullEv": ["bool", "address"],
     "ritual_ZNK12QColorMatrix11determinantEv": ["float", "address"],
     "ritual_ZNK12QColorMatrix7isValidEv": ["bool", "address"],

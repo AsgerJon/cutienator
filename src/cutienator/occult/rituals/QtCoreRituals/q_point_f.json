@@ -3,7 +3,7 @@
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtCore/qpoint.h, Qt 6.12.0. Edited by hand: see the ritual file."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN7QPointFC1Ev": ["address"],
     "ritual_ZN7QPointFC1ERK6QPoint": ["address", "address"],
     "ritual_ZN7QPointFC1Edd": ["address", "double", "double"],

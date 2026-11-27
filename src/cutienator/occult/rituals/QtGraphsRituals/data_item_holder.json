@@ -7,7 +7,7 @@
   "parts first": [
     "QtGraphs", "QtCore", "QtGui", "QtQuick", "QtQml", "QtQmlIntegration"
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN14DataItemHolderD1Ev": ["nothing", "address"],
     "ritual_list_make_DataItemHolder": ["address"],
     "ritual_list_add_DataItemHolder": ["nothing", "address", "address"],

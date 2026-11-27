@@ -1,0 +1,63 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWebEngineCore/qwebenginenavigationrequest.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "sigils": {
+    "ritual_ZNK27QWebEngineNavigationRequest10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN27QWebEngineNavigationRequest11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN27QWebEngineNavigationRequest11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN27QWebEngineNavigationRequest2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN27QWebEngineNavigationRequestD1Ev": ["nothing", "address"],
+    "ritual_ZNK27QWebEngineNavigationRequest3urlEv": ["address", "address"],
+    "ritual_ZNK27QWebEngineNavigationRequest11isMainFrameEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK27QWebEngineNavigationRequest11hasFormDataEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK27QWebEngineNavigationRequest14navigationTypeEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK27QWebEngineNavigationRequest15isUserInitiatedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN27QWebEngineNavigationRequest6acceptEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QWebEngineNavigationRequest6rejectEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK27QWebEngineNavigationRequest6actionEv": ["int", "address"],
+    "ritual_ZN27QWebEngineNavigationRequest9setActionENS_23NavigationRequestActionE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN27QWebEngineNavigationRequest13actionChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QWebEngineNavigationRequestC1ERK4QUrlNS_14NavigationTypeEbbbP7QObject": [
+      "address", "address", "int", "bool", "bool", "bool", "address"
+    ],
+    "ritual_ZNK27QWebEngineNavigationRequest10isAcceptedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN27QWebEngineNavigationRequest6d_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK27QWebEngineNavigationRequest6d_funcEv": [
+      "address", "address"
+    ],
+    "ritual_take_QWebEngineNavigationRequest": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

@@ -4,7 +4,7 @@
     "Qt3DRender/6.12.0/Qt3DRender/private/techniquemanager_p.h, Qt",
     "6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN10Qt3DRender6Render16TechniqueManagerC1Ev": ["address"],
     "ritual_ZN10Qt3DRender6Render16TechniqueManager17addDirtyTechniqueEN8Qt3DCore7QNodeIdE": [
       "nothing", "address", "address"

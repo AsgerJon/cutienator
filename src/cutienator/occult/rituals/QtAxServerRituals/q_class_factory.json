@@ -4,7 +4,7 @@
     "QtAxServer/6.12.0/QtAxServer/private/qclassfactory_p.h, Qt 6.12.0,",
     "from Qt's source. Kept as it is when the generator runs again."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN13QClassFactoryC1E5_GUID": ["address", "address"],
     "ritual_ZN13QClassFactoryD1Ev": ["nothing", "address"],
     "ritual_ZN13QClassFactory20CreateInstanceHelperEP8IUnknownRK5_GUIDPPv": [

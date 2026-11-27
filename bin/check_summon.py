@@ -3,7 +3,15 @@ Builds the target file of every part of Qt on the machine it runs on, as
 'Rituals.summon()' does, and says EVERYTHING the compiler and the linker
 refused on the way.
 
-  PYTHONPATH=src python bin/check_summon.py REPORT_FILE
+  PYTHONPATH=src python bin/check_summon.py REPORT_FILE [PART ...]
+
+With no PART named, every part of Qt this machine has is built. Named
+parts, as 'QtCore QtPdf', are built and no other: the short run of the
+four horsemen ('four-horsemen-short.yml') names the parts something of
+which was refused in the last full run, or whose ritual files changed
+since; a part is joined whole, so it is the smallest piece that can be
+built apart. A part named that this machine's Qt does not have, or that
+has no ritual files, is refused at the start, naming it.
 
 Each part is built by its own 'Summon', as 'summon' builds it: what the
 compiler or the linker refuses is left out, the ritual alone where it
@@ -145,7 +153,7 @@ def describeLeftOut(key: str, entry: Dict[str, Any]) -> List[str]:
   return lines
 
 
-def main(reportFile: str) -> int:
+def main(reportFile: str, *named: str) -> int:
   """
   Runs the check and writes the report.
 
@@ -155,17 +163,38 @@ def main(reportFile: str) -> int:
   reportFile : str
     Where the report is written. Its folder has to exist.
 
+  named : str
+    The parts to build, as 'QtCore'. None named: every part of Qt this
+    machine has.
+
   Returns
   -------
 
   int
     The exit code: 0 when every ritual file compiled and no link
     missed anything, else 1.
+
+  Raises
+  ------
+
+  LookupError
+    A part named is not among the parts of Qt this machine has that
+    have ritual files.
   """
   partNames = Rituals.getBuiltParts()
+  if named:
+    missing = [name for name in named if name not in partNames]
+    if missing:
+      infoSpec = """The parts %s were named, and the Qt of this machine
+      has no such part with ritual files. It has: %s."""
+      info = infoSpec % (' '.join(missing), ' '.join(partNames))
+      raise LookupError(' '.join(info.split()))
+    partNames = [name for name in partNames if name in named]
   builds = [Rituals.createPartSummon(partName) for partName in partNames]
   began = time.time()
   lines = [*describeMachine(builds[0])]
+  if named:
+    lines.append('parts named: %s' % ' '.join(partNames))
   _PROGRESS.update(
       total=sum(len(build.getRitualFiles()) for build in builds),
       began=began)
@@ -194,7 +223,7 @@ def main(reportFile: str) -> int:
 
 
 if __name__ == '__main__':
-  if len(sys.argv) != 2:
+  if len(sys.argv) < 2:
     print(__doc__.strip(), file=sys.stderr)
     sys.exit(2)
-  sys.exit(main(sys.argv[1]))
+  sys.exit(main(*sys.argv[1:]))

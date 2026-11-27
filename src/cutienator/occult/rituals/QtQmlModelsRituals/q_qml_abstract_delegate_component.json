@@ -4,7 +4,7 @@
     "dels/6.12.0/QtQmlModels/private/qqmlabstractdelegatecomponent_p.h,",
     "Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK29QQmlAbstractDelegateComponent10metaObjectEv": [
       "address", "address"
     ],

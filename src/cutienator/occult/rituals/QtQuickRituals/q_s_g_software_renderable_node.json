@@ -4,7 +4,7 @@
     "QtQuick/6.12.0/QtQuick/private/qsgsoftwarerenderablenode_p.h, Qt",
     "6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN25QSGSoftwareRenderableNodeC1ENS_8NodeTypeEP7QSGNode": [
       "address", "int", "address"
     ],

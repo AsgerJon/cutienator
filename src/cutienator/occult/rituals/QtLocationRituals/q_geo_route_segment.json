@@ -4,7 +4,7 @@
     "QtLocation/qgeoroutesegment.h, Qt 6.12.0. Changes made here are",
     "lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN16QGeoRouteSegmentC1Ev": ["address"],
     "ritual_ZN16QGeoRouteSegmentC1ERKS_": ["address", "address"],
     "ritual_ZN16QGeoRouteSegmentC1EOS_": ["address", "address"],

@@ -1,0 +1,57 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtWebEn",
+    "gineQuick/6.12.0/QtWebEngineQuick/private/qquickwebenginedialogreq",
+    "uests_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "sigils": {
+    "ritual_ZNK42QQuickWebEngineAuthenticationDialogRequest10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN42QQuickWebEngineAuthenticationDialogRequest11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN42QQuickWebEngineAuthenticationDialogRequest11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN42QQuickWebEngineAuthenticationDialogRequest2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN42QQuickWebEngineAuthenticationDialogRequest24qt_qmlMarker_uncreatableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN42QQuickWebEngineAuthenticationDialogRequestD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK42QQuickWebEngineAuthenticationDialogRequest3urlEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK42QQuickWebEngineAuthenticationDialogRequest5realmEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK42QQuickWebEngineAuthenticationDialogRequest9proxyHostEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK42QQuickWebEngineAuthenticationDialogRequest4typeEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK42QQuickWebEngineAuthenticationDialogRequest10isAcceptedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN42QQuickWebEngineAuthenticationDialogRequest11setAcceptedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN42QQuickWebEngineAuthenticationDialogRequest12dialogAcceptERK7QStringS2_": [
+      "nothing", "address", "text", "text"
+    ],
+    "ritual_ZN42QQuickWebEngineAuthenticationDialogRequest12dialogRejectEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN42QQuickWebEngineAuthenticationDialogRequestC1E14QSharedPointerIN15QtWebEngineCore30AuthenticationDialogControllerEEP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_take_QQuickWebEngineAuthenticationDialogRequest": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

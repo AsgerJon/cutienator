@@ -4,7 +4,7 @@
     "QtQml/6.12.0/QtQml/private/qv4functionobject_p.h, Qt 6.12.0.",
     "Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN3QV44Heap22IndexedBuiltinFunction4initEPNS_15ExecutionEngineExPFyPKNS_14FunctionObjectEPKNS_5ValueES9_iE": [
       "nothing", "address", "address", "long long", "address"
     ]

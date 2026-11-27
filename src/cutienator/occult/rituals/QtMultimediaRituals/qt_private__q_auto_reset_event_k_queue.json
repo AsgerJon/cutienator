@@ -4,7 +4,7 @@
     "QtMultimedia/6.12.0/QtMultimedia/private/qautoresetevent_kqueue_p.h, Qt",
     "6.12.0, as the Qt of macOS installs it. Kept as it is when the generator"
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK9QtPrivate21QAutoResetEventKQueue10metaObjectEv": [
       "address", "address"
     ],

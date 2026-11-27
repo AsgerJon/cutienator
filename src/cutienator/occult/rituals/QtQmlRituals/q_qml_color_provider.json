@@ -4,7 +4,7 @@
     "QtQml/6.12.0/QtQml/private/qqmlglobal_p.h, Qt 6.12.0. Changes made",
     "here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN17QQmlColorProviderD1Ev": ["nothing", "address"],
     "ritual_ZN17QQmlColorProvider15colorFromStringERK7QStringPb": [
       "address", "address", "text", "address"

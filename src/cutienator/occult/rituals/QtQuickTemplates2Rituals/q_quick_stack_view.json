@@ -4,7 +4,7 @@
     "Templates2/6.12.0/QtQuickTemplates2/private/qquickstackview_p.h,",
     "Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK15QQuickStackView10metaObjectEv": ["address", "address"],
     "ritual_ZN15QQuickStackView11qt_metacastEPKc": [
       "address", "address", "chars"

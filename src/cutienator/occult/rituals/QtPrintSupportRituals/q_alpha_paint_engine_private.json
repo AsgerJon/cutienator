@@ -4,7 +4,7 @@
     "Support/6.12.0/QtPrintSupport/private/qpaintengine_alpha_p.h, Qt",
     "6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN24QAlphaPaintEnginePrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK24QAlphaPaintEnginePrivate6q_funcEv": ["address", "address"],
     "ritual_ZN24QAlphaPaintEnginePrivateC1Ev": ["address"],

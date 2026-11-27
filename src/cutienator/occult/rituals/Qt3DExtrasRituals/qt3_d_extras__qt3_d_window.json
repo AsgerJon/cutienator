@@ -3,7 +3,7 @@
     "Written by dev_tooling.RitualGenerator from the records of",
     "Qt3DExtras/qt3dwindow.h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK10Qt3DExtras10Qt3DWindow10metaObjectEv": [
       "address", "address"
     ],

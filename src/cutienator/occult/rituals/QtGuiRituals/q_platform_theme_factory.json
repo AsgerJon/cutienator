@@ -4,7 +4,7 @@
     "QtGui/6.12.0/QtGui/qpa/qplatformthemefactory_p.h, Qt 6.12.0.",
     "Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN21QPlatformThemeFactory4keysERK7QString": ["address", "text"],
     "ritual_ZN21QPlatformThemeFactory6createERK7QStringS2_": [
       "address", "text", "text"

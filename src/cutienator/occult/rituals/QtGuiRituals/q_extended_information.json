@@ -4,7 +4,7 @@
     "QtGui/6.12.0/QtGui/private/qfileinfogatherer_p.h, Qt 6.12.0.",
     "Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN20QExtendedInformationC1Ev": ["address"],
     "ritual_ZN20QExtendedInformationC1ERK9QFileInfo": ["address", "address"],
     "ritual_ZN20QExtendedInformation5isDirEv": ["bool", "address"],

@@ -3,7 +3,7 @@
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtGui/qtestsupport_gui.h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN5QTest19QTouchEventSequenceD1Ev": ["nothing", "address"],
     "ritual_ZN5QTest19QTouchEventSequence5pressEiRK6QPointP7QWindow": [
       "address", "address", "int", "address", "address"

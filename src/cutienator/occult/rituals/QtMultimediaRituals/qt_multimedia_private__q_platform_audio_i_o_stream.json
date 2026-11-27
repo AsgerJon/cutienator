@@ -4,7 +4,7 @@
     "media/6.12.0/QtMultimedia/private/qaudiosystem_platform_stream_sup",
     "port_p.h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN19QtMultimediaPrivate22QPlatformAudioIOStream21inferRingbufferFramesERKSt8optionalIiERKS1_INS_18NativePeriodFramesEERK12QAudioFormat": [
       "long long", "address", "address", "address"
     ],

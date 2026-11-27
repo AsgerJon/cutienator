@@ -4,7 +4,7 @@
     "isualization/6.12.0/QtDataVisualization/private/abstract3dcontroll",
     "er_p.h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK20Abstract3DController10metaObjectEv": ["address", "address"],
     "ritual_ZN20Abstract3DController11qt_metacastEPKc": [
       "address", "address", "chars"

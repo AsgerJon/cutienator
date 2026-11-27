@@ -4,7 +4,7 @@
     "QtQml/qqmlengine.h, Qt 6.12.0. Edited by hand: see the ritual",
     "file."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK10QQmlEngine10metaObjectEv": ["address", "address"],
     "ritual_ZN10QQmlEngine11qt_metacastEPKc": [
       "address", "address", "chars"

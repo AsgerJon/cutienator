@@ -4,7 +4,7 @@
     "Controls2Fusion/6.12.0/QtQuickControls2Fusion/private/qquickfusion",
     "style_p.h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK17QQuickFusionStyle10metaObjectEv": ["address", "address"],
     "ritual_ZN17QQuickFusionStyle11qt_metacastEPKc": [
       "address", "address", "chars"

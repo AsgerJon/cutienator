@@ -4,7 +4,7 @@
     "QtMultimedia/6.12.0/QtMultimedia/private/qplatformmediaplayer_p.h,",
     "Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN20QPlatformMediaPlayerD1Ev": ["nothing", "address"],
     "ritual_ZNK20QPlatformMediaPlayer5stateEv": ["int", "address"],
     "ritual_ZNK20QPlatformMediaPlayer11mediaStatusEv": ["int", "address"],

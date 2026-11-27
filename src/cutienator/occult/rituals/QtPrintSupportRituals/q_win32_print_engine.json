@@ -4,7 +4,7 @@
     "QtPrintSupport/6.12.0/QtPrintSupport/private/qprintengine_win_p.h, Qt",
     "6.12.0, as the Qt of Windows installs it. Kept as it is when the"
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN17QWin32PrintEngineC1EN8QPrinter11PrinterModeERK7QString": [
       "address", "int", "text"
     ],

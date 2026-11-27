@@ -4,7 +4,7 @@
     "QtHelp/qcompressedhelpinfo.h, Qt 6.12.0. Changes made here are",
     "lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN19QCompressedHelpInfoC1Ev": ["address"],
     "ritual_ZN19QCompressedHelpInfoC1ERKS_": ["address", "address"],
     "ritual_ZN19QCompressedHelpInfoC1EOS_": ["address", "address"],

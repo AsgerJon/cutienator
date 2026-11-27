@@ -3,7 +3,7 @@
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtDesigner/extension.h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN25QAbstractExtensionManagerD1Ev": ["nothing", "address"],
     "ritual_ZN25QAbstractExtensionManager18registerExtensionsEP25QAbstractExtensionFactoryRK7QString": [
       "nothing", "address", "address", "text"

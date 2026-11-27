@@ -4,7 +4,7 @@
     "isualization/6.12.0/QtDataVisualization/private/thememanager_p.h,",
     "Qt 6.12.0. Edited by hand: see the ritual file."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK12ThemeManager10metaObjectEv": ["address", "address"],
     "ritual_ZN12ThemeManager11qt_metacastEPKc": [
       "address", "address", "chars"

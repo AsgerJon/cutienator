@@ -4,7 +4,7 @@
     "QtGui/6.12.0/QtGui/qpa/qplatformclipboard.h, Qt 6.12.0. Changes",
     "made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN18QPlatformClipboardC1Ev": ["address"],
     "ritual_ZN18QPlatformClipboardD1Ev": ["nothing", "address"],
     "ritual_ZN18QPlatformClipboard8mimeDataEN10QClipboard4ModeE": [

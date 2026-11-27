@@ -3,7 +3,7 @@
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtPrintSupport/qprinter.h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN8QPrinter6d_funcEv": ["address", "address"],
     "ritual_ZNK8QPrinter6d_funcEv": ["address", "address"],
     "ritual_ZN8QPrinterC1ENS_11PrinterModeE": ["address", "int"],

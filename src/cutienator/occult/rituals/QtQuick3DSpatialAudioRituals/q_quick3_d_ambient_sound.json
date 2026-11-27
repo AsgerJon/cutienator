@@ -4,7 +4,7 @@
     "3DSpatialAudio/6.12.0/QtQuick3DSpatialAudio/private/qquick3dambien",
     "tsound_p.h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK20QQuick3DAmbientSound10metaObjectEv": ["address", "address"],
     "ritual_ZN20QQuick3DAmbientSound11qt_metacastEPKc": [
       "address", "address", "chars"

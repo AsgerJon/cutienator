@@ -1,0 +1,44 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtPdfWidgets/6.12.0/QtPdfWidgets/private/qpdfpageselector_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "sigils": {
+    "ritual_ZNK23QPdfPageSelectorSpinBox10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23QPdfPageSelectorSpinBox11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN23QPdfPageSelectorSpinBox11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN23QPdfPageSelectorSpinBoxD1Ev": ["nothing", "address"],
+    "ritual_ZNK23QPdfPageSelectorSpinBox8documentEv": ["address", "address"],
+    "ritual_ZN23QPdfPageSelectorSpinBox18_q_documentChangedEP12QPdfDocument": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK23QPdfPageSelectorSpinBox13valueFromTextERK7QString": [
+      "int", "address", "text"
+    ],
+    "ritual_ZNK23QPdfPageSelectorSpinBox13textFromValueEi": [
+      "text", "address", "int"
+    ],
+    "ritual_ZNK23QPdfPageSelectorSpinBox8validateER7QStringRi": [
+      "int", "address", "address", "address"
+    ],
+    "ritual_ZN23QPdfPageSelectorSpinBox21documentStatusChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QPdfPageSelectorSpinBox": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK23QPdfPageSelectorSpinBox13valueFromTextERK7QString": [
+      "int", "address", "text"
+    ],
+    "ritual_own_ZNK23QPdfPageSelectorSpinBox13textFromValueEi": [
+      "text", "address", "int"
+    ]
+  }
+}

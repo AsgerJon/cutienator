@@ -1,0 +1,35 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtWebEn",
+    "gineQuick/6.12.0/QtWebEngineQuick/private/qquickwebenginefaviconpr",
+    "ovider_p_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "sigils": {
+    "ritual_ZNK32QQuickWebEngineFaviconDBProvider10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN32QQuickWebEngineFaviconDBProvider11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN32QQuickWebEngineFaviconDBProvider11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN32QQuickWebEngineFaviconDBProvider2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN32QQuickWebEngineFaviconDBProvider10identifierEv": ["text"],
+    "ritual_ZN32QQuickWebEngineFaviconDBProvider18faviconProviderUrlERK4QUrl": [
+      "address", "address"
+    ],
+    "ritual_ZN32QQuickWebEngineFaviconDBProviderC1Ev": ["address"],
+    "ritual_ZNK32QQuickWebEngineFaviconDBProvider9isIconUrlEv": [
+      "bool", "address"
+    ],
+    "ritual_take_QQuickWebEngineFaviconDBProvider": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK32QQuickWebEngineFaviconDBProvider9isIconUrlEv": [
+      "bool", "address"
+    ]
+  }
+}

@@ -2,7 +2,7 @@
   "about": [
     "Edited by hand: see the ritual file."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN7QSampleD1Ev": ["nothing", "address"],
     "ritual_ZNK7QSample5stateEv": ["unsigned char", "address"],
     "ritual_ZNK7QSample4dataEv": ["address", "address"],

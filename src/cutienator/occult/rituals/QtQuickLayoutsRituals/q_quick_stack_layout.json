@@ -4,7 +4,7 @@
     "Layouts/6.12.0/QtQuickLayouts/private/qquickstacklayout_p.h, Qt",
     "6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK17QQuickStackLayout10metaObjectEv": ["address", "address"],
     "ritual_ZN17QQuickStackLayout11qt_metacastEPKc": [
       "address", "address", "chars"

@@ -1,0 +1,25 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWebEngineCore/qwebengineclientcertificatestore.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "sigils": {
+    "ritual_ZN32QWebEngineClientCertificateStore3addERK15QSslCertificateRK7QSslKey": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK32QWebEngineClientCertificateStore12certificatesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN32QWebEngineClientCertificateStore6removeERK15QSslCertificate": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN32QWebEngineClientCertificateStore5clearEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN32QWebEngineClientCertificateStoreC1EPN15QtWebEngineCore26ClientCertificateStoreDataE": [
+      "address", "address"
+    ],
+    "ritual_ZN32QWebEngineClientCertificateStoreD1Ev": ["nothing", "address"]
+  }
+}

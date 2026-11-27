@@ -4,7 +4,7 @@
     "Qt3DCore/6.12.0/Qt3DCore/private/qcomponent_p.h, Qt 6.12.0.",
     "Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN8Qt3DCore17QComponentPrivateC1Ev": ["address"],
     "ritual_ZN8Qt3DCore17QComponentPrivateD1Ev": ["nothing", "address"],
     "ritual_ZN8Qt3DCore17QComponentPrivate9addEntityEPNS_7QEntityE": [

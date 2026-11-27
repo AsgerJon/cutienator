@@ -4,7 +4,7 @@
     "3DRuntimeRender/6.12.0/QtQuick3DRuntimeRender/private/qssgrenderge",
     "ometry_p.h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN18QSSGRenderGeometry15TargetAttributeD1Ev": [
       "nothing", "address"
     ]

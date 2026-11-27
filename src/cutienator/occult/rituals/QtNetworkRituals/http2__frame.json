@@ -4,7 +4,7 @@
     "QtNetwork/6.12.0/QtNetwork/private/http2frames_p.h, Qt 6.12.0.",
     "Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN5Http25FrameC1Ev": ["address"],
     "ritual_ZNK5Http25Frame4typeEv": ["unsigned char", "address"],
     "ritual_ZNK5Http25Frame8streamIDEv": ["unsigned int", "address"],

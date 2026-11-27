@@ -4,7 +4,7 @@
     "QtQml/6.12.0/QtQml/private/qqmlcomponent_p.h, Qt 6.12.0. Changes",
     "made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN20QQmlComponentPrivate17ConstructionStateC1Ev": ["address"],
     "ritual_ZN20QQmlComponentPrivate17ConstructionStateC1EOS0_": [
       "address", "address"

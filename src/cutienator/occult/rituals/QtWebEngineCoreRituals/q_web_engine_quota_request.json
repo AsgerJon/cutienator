@@ -1,0 +1,23 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWebEngineCore/qwebenginequotarequest.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "sigils": {
+    "ritual_ZN22QWebEngineQuotaRequestC1Ev": ["address"],
+    "ritual_ZN22QWebEngineQuotaRequest6acceptEv": ["nothing", "address"],
+    "ritual_ZN22QWebEngineQuotaRequest6rejectEv": ["nothing", "address"],
+    "ritual_ZNK22QWebEngineQuotaRequest6originEv": ["address", "address"],
+    "ritual_ZNK22QWebEngineQuotaRequest13requestedSizeEv": [
+      "long long", "address"
+    ],
+    "ritual_ZNK22QWebEngineQuotaRequesteqERKS_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK22QWebEngineQuotaRequestneERKS_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN22QWebEngineQuotaRequestD1Ev": ["nothing", "address"]
+  }
+}

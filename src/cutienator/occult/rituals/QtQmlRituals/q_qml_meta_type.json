@@ -4,7 +4,7 @@
     "QtQml/6.12.0/QtQml/private/qqmlmetatype_p.h, Qt 6.12.0. Edited by",
     "hand: see the ritual file."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN12QQmlMetaType18inlineComponentUrlERK4QUrlRK7QString": [
       "address", "address", "text"
     ],

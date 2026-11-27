@@ -3,7 +3,7 @@
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtGui/qpageranges.h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK11QPageRanges5Range8containsEi": ["bool", "address", "int"],
     "ritual_ZeqN11QPageRanges5RangeES0_": ["bool", "address", "address"],
     "ritual_ZneN11QPageRanges5RangeES0_": ["bool", "address", "address"],

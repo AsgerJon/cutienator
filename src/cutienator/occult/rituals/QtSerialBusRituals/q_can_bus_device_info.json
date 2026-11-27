@@ -4,7 +4,7 @@
     "QtSerialBus/qcanbusdeviceinfo.h, Qt 6.12.0. Changes made here are",
     "lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN17QCanBusDeviceInfoC1ERKS_": ["address", "address"],
     "ritual_ZN17QCanBusDeviceInfoC1EOS_": ["address", "address"],
     "ritual_ZN17QCanBusDeviceInfoD1Ev": ["nothing", "address"],

@@ -4,7 +4,7 @@
     "QtLottie/6.12.0/QtLottie/private/qlottietrimpath_p.h, Qt 6.12.0.",
     "Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN15QLottieTrimPathC1EP11QLottieBase": ["address", "address"],
     "ritual_ZN15QLottieTrimPathC1ERKS_": ["address", "address"],
     "ritual_ZNK15QLottieTrimPath5cloneEv": ["address", "address"],

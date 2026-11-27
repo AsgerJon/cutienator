@@ -4,7 +4,7 @@
     "QtCanvasPainter/qcanvaspainteritemrenderer.h, Qt 6.12.0. Changes",
     "made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN26QCanvasPainterItemRendererC1Ev": ["address"],
     "ritual_ZN26QCanvasPainterItemRendererD1Ev": ["nothing", "address"],
     "ritual_ZNK26QCanvasPainterItemRenderer9fillColorEv": [

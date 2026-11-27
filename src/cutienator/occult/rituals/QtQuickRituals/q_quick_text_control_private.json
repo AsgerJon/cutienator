@@ -4,7 +4,7 @@
     "QtQuick/6.12.0/QtQuick/private/qquicktextcontrol_p_p.h, Qt 6.12.0.",
     "Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN24QQuickTextControlPrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK24QQuickTextControlPrivate6q_funcEv": ["address", "address"],
     "ritual_ZN24QQuickTextControlPrivateC1Ev": ["address"],

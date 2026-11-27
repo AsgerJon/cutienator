@@ -4,7 +4,7 @@
     "QtQml/6.12.0/QtQml/private/qv4string_p.h, Qt 6.12.0. Changes made",
     "here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN3QV44Heap14StringOrSymbol4initEv": ["nothing", "address"],
     "ritual_ZNK3QV44Heap14StringOrSymbol4textEv": ["address", "address"],
     "ritual_ZNK3QV44Heap14StringOrSymbol9toQStringEv": ["text", "address"],

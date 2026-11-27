@@ -7,7 +7,7 @@
   "parts first": [
     "QtGraphs", "QtCore", "QtGui", "QtQuick", "QtQml", "QtQmlIntegration"
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN31QAbstract3DSeriesChangeBitFieldC1Ev": ["address"],
     "ritual_ZN31QAbstract3DSeriesChangeBitFieldD1Ev": ["nothing", "address"]
   }

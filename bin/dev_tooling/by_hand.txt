@@ -1006,3 +1006,23 @@ QtQuick QQuickSmoothedAnimationPrivate q_quick_smoothed_animation_private EDITED
 QtQuick QSmoothedAnimation q_smoothed_animation EDITED the copy of QSmoothedAnimationTimer's constructor taken from Qt is taken out (1): under Microsoft's ABI it had this file write QSmoothedAnimationTimer's whole table of virtual functions, each of which only the ritual file of QSmoothedAnimationTimer carries; that file now carries the constructor alone
 QtQuick QSmoothedAnimationTimer q_smoothed_animation_timer EDITED the constructors and the destructor of QSmoothedAnimationTimer taken from Qt are no longer 'inline' (2): the one definition the target file has of each, which the ritual files of other classes of the part call, as Microsoft's ABI emits an 'inline' one only where it is used
 QtWidgets QComboBoxDelegate q_combo_box_delegate EDITED the constructors and the destructor of QComboBoxDelegate taken from Qt are no longer 'inline' (2): the one definition the target file has of each, which the ritual files of other classes of the part call, as Microsoft's ABI emits an 'inline' one only where it is used
+# Found on 2026-11-27 by checking every ritual the cute classes of QtCore,
+# QtGui and QtWidgets name against the sigil files: seven deprecated
+# classes of QtCore name in '__delete_ritual__' the destructor the
+# compiler writes for them, which the generator wrote until 2026-11-25
+# and no longer does. Written back by hand as it was; compiled for Linux
+# and compiled and joined as Windows here.
+QtCore QSequentialIterable q_sequential_iterable EDITED the ritual of the destructor the compiler writes for the class, which its cute class calls to remove what Python holds, and which the generator no longer writes for it
+QtCore QSequentialIterator q_sequential_iterator EDITED the ritual of the destructor the compiler writes for the class, which its cute class calls to remove what Python holds, and which the generator no longer writes for it
+QtCore QAssociativeIterable q_associative_iterable EDITED the ritual of the destructor the compiler writes for the class, which its cute class calls to remove what Python holds, and which the generator no longer writes for it
+QtCore QAssociativeIterator q_associative_iterator EDITED the ritual of the destructor the compiler writes for the class, which its cute class calls to remove what Python holds, and which the generator no longer writes for it
+QtCore QVariantConstPointer q_variant_const_pointer EDITED the ritual of the destructor the compiler writes for the class, which its cute class calls to remove what Python holds, and which the generator no longer writes for it
+QtCore QSequentialConstIterator q_sequential_const_iterator EDITED the ritual of the destructor the compiler writes for the class, which its cute class calls to remove what Python holds, and which the generator no longer writes for it
+QtCore QAssociativeConstIterator q_associative_const_iterator EDITED the ritual of the destructor the compiler writes for the class, which its cute class calls to remove what Python holds, and which the generator no longer writes for it
+# WebEngine (QtWebEngineCore, QtWebEngineQuick, QtWebEngineWidgets, QtPdf,
+# QtPdfWidgets), generated on gcloud on 2026-11-27 from the source of the
+# WebEngine the official Qt 6.12.0 ships (Qt's installer extension
+# extensions.qtwebengine.6120: qtwebengine-everywhere-src-6.12.0-beta2,
+# whose 119 headers are the kit's, byte for byte). RitualTester against
+# the official Linux kit: 137 of 138 files pass; the one is mended here.
+QtWebEngineWidgets QWebEngineViewAccessible q_web_engine_view_accessible EDITED the constructor's ritual and the copy of the constructor are taken out: making one needs the class's table of virtual functions, which Qt's library does not offer, and isValid and child call WebEngine's Chromium side, whose headers Qt does not install, so they cannot be copied

@@ -4,7 +4,7 @@
     "QtQuick3DUtils/6.12.0/QtQuick3DUtils/private/qssgutils_p.h, Qt",
     "6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN14QSSGRenderFlagC1Ev": ["address"],
     "ritual_ZN14QSSGRenderFlagC1Ej": ["address", "unsigned int"],
     "ritual_ZNK14QSSGRenderFlag5valueEv": ["unsigned int", "address"],

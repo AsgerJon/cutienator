@@ -4,7 +4,7 @@
     "QtGui/6.12.0/QtGui/qpa/qwindowsysteminterface_p.h, Qt 6.12.0.",
     "Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN29QWindowSystemInterfacePrivate10WheelEventC1EP7QWindowmRK7QPointFS5_6QPointS6_iN2Qt11OrientationE6QFlagsINS7_16KeyboardModifierEENS7_11ScrollPhaseENS7_16MouseEventSourceEbPK15QPointingDevice": [
       "address", "address", "unsigned long", "address", "address", "address",
       "address", "int", "int", "int", "int", "int", "bool", "address"

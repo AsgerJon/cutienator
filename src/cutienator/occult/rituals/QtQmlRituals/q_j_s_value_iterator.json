@@ -3,7 +3,7 @@
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtQml/qjsvalueiterator.h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN16QJSValueIteratorC1ERK8QJSValue": ["address", "address"],
     "ritual_ZN16QJSValueIteratorD1Ev": ["nothing", "address"],
     "ritual_ZNK16QJSValueIterator7hasNextEv": ["bool", "address"],

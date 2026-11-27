@@ -4,7 +4,7 @@
     "QtQmlCompiler/6.12.0/QtQmlCompiler/private/qqmljsscopesbyid_p.h,",
     "Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN16QQmlJSScopesById11IdWithScopeD1Ev": ["nothing", "address"]
   }
 }

@@ -4,7 +4,7 @@
     "QtXml/6.12.0/QtXml/private/qdom_p.h, Qt 6.12.0. Changes made here",
     "are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN25QDomImplementationPrivateC1Ev": ["address"],
     "ritual_ZN25QDomImplementationPrivate5cloneEv": ["address", "address"],
     "ritual_ZN25QDomImplementationPrivateD1Ev": ["nothing", "address"]

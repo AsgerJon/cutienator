@@ -7,7 +7,7 @@
   "parts first": [
     "QtGraphs", "QtCore", "QtGui", "QtQuick", "QtQml", "QtQmlIntegration"
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN16QSurfaceDataItemC1Ev": ["address"],
     "ritual_ZN16QSurfaceDataItemC1E9QVector3D": ["address", "address"],
     "ritual_ZN16QSurfaceDataItemC1Efff": [

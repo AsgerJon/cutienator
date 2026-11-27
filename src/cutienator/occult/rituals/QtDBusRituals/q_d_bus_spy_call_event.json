@@ -4,7 +4,7 @@
     "QtDBus/6.12.0/QtDBus/private/qdbusintegrator_p.h, Qt 6.12.0.",
     "Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN17QDBusSpyCallEventD1Ev": ["nothing", "address"],
     "ritual_ZN17QDBusSpyCallEvent13placeMetaCallEP7QObject": [
       "nothing", "address", "address"

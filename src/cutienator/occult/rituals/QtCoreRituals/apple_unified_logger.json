@@ -4,7 +4,7 @@
     "QtCore/6.12.0/QtCore/private/qcore_mac_p.h, Qt 6.12.0, as the Qt of",
     "macOS installs it. Kept as it is when the generator runs again."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN18AppleUnifiedLogger14messageHandlerE9QtMsgTypeRK18QMessageLogContextRK7QString": [
       "bool", "int", "address", "text"
     ],

@@ -4,7 +4,7 @@
     "QtCore/qmetaassociation.h, Qt 6.12.0. Edited by hand: see the",
     "ritual file."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN22QtMetaContainerPrivate11AssociationC1Ev": ["address"],
     "ritual_ZN22QtMetaContainerPrivate11AssociationC1ERK16QMetaAssociation9QMetaTypePv": [
       "address", "address", "address", "address"

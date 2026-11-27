@@ -4,7 +4,7 @@
     "QtCanvasPainter/qcanvasgradient.h, Qt 6.12.0. Changes made here",
     "are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK15QCanvasGradient4typeEv": ["int", "address"],
     "ritual_ZNK15QCanvasGradient10startColorEv": ["address", "address"],
     "ritual_ZN15QCanvasGradient13setStartColorE6QColor": [

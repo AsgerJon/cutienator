@@ -4,7 +4,7 @@
     "3DRuntimeRender/6.12.0/QtQuick3DRuntimeRender/private/qssgrenderra",
     "y_p.h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN13QSSGRenderRayC1Ev": ["address"],
     "ritual_ZN13QSSGRenderRayC1ERK9QVector3DS2_": [
       "address", "address", "address"

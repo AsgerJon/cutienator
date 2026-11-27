@@ -4,7 +4,7 @@
     "QtQuick/6.12.0/QtQuick/private/qquickitem_p.h, Qt 6.12.0. Changes",
     "made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN17QQuickItemPrivate14ChangeListenerC1EP24QQuickItemChangeListener6QFlagsINS_10ChangeTypeEE": [
       "address", "address", "int"
     ],

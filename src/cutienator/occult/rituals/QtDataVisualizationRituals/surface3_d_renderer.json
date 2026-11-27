@@ -4,7 +4,7 @@
     "isualization/6.12.0/QtDataVisualization/private/surface3drenderer_",
     "p.h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK17Surface3DRenderer10metaObjectEv": ["address", "address"],
     "ritual_ZN17Surface3DRenderer11qt_metacastEPKc": [
       "address", "address", "chars"

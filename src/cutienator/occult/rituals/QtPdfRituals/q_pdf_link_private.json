@@ -1,0 +1,17 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtPdf/6.12.0/QtPdf/private/qpdflink_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "sigils": {
+    "ritual_ZN15QPdfLinkPrivateC1Ev": ["address"],
+    "ritual_ZN15QPdfLinkPrivateC1Ei7QPointFd": [
+      "address", "int", "address", "double"
+    ],
+    "ritual_ZN15QPdfLinkPrivateC1Ei5QListI6QRectFE7QStringS3_": [
+      "address", "int", "address", "text", "text"
+    ],
+    "ritual_ZN15QPdfLinkPrivateD1Ev": ["nothing", "address"]
+  }
+}

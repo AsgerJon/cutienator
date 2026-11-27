@@ -2,7 +2,7 @@
   "about": [
     "Edited by hand: see the ritual file."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN10Qt3DRender10RayCasting6QRay3DC1Ev": ["address"],
     "ritual_ZN10Qt3DRender10RayCasting6QRay3DC1ERK9QVector3DS4_f": [
       "address", "address", "address", "float"

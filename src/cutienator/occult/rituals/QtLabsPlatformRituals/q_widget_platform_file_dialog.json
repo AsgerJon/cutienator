@@ -4,7 +4,7 @@
     "QtLabsPlatform/6.12.0/QtLabsPlatform/private/qwidgetplatformfiledialog_p.h,",
     "Qt 6.12.0, as the Qt of macOS and of Windows installs it, the"
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK25QWidgetPlatformFileDialog10metaObjectEv": [
       "address", "address"
     ],

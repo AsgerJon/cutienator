@@ -7,7 +7,7 @@
   "parts first": [
     "QtGraphs", "QtCore", "QtGui", "QtQuick", "QtQml", "QtQmlIntegration"
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN23QBarCategoryAxisPrivateC1Ev": ["address"],
     "ritual_ZN23QBarCategoryAxisPrivateD1Ev": ["nothing", "address"],
     "ritual_ZN23QBarCategoryAxisPrivate8setRangeERK8QVariantS2_": [

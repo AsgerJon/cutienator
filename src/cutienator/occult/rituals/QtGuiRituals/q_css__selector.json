@@ -4,7 +4,7 @@
     "QtGui/6.12.0/QtGui/private/qcssparser_p.h, Qt 6.12.0. Changes made",
     "here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK4QCss8Selector11specificityEv": ["int", "address"],
     "ritual_ZNK4QCss8Selector11pseudoClassEPy": [
       "unsigned long long", "address", "address"

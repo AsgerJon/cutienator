@@ -1,0 +1,174 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWebEngineCore/qwebengineprofile.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "sigils": {
+    "ritual_ZNK17QWebEngineProfile10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QWebEngineProfile11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN17QWebEngineProfile11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN17QWebEngineProfile2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN17QWebEngineProfileC1EP7QObject": ["address", "address"],
+    "ritual_ZN17QWebEngineProfileC1ERK7QStringP7QObject": [
+      "address", "text", "address"
+    ],
+    "ritual_ZN17QWebEngineProfileD1Ev": ["nothing", "address"],
+    "ritual_ZNK17QWebEngineProfile11storageNameEv": ["text", "address"],
+    "ritual_ZNK17QWebEngineProfile14isOffTheRecordEv": ["bool", "address"],
+    "ritual_ZNK17QWebEngineProfile21persistentStoragePathEv": [
+      "text", "address"
+    ],
+    "ritual_ZN17QWebEngineProfile24setPersistentStoragePathERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK17QWebEngineProfile9cachePathEv": ["text", "address"],
+    "ritual_ZN17QWebEngineProfile12setCachePathERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK17QWebEngineProfile13httpUserAgentEv": ["text", "address"],
+    "ritual_ZN17QWebEngineProfile16setHttpUserAgentERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK17QWebEngineProfile13httpCacheTypeEv": ["int", "address"],
+    "ritual_ZN17QWebEngineProfile16setHttpCacheTypeENS_13HttpCacheTypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QWebEngineProfile21setHttpAcceptLanguageERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK17QWebEngineProfile18httpAcceptLanguageEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK17QWebEngineProfile23persistentCookiesPolicyEv": [
+      "int", "address"
+    ],
+    "ritual_ZN17QWebEngineProfile26setPersistentCookiesPolicyENS_23PersistentCookiesPolicyE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK17QWebEngineProfile27persistentPermissionsPolicyEv": [
+      "unsigned char", "address"
+    ],
+    "ritual_ZN17QWebEngineProfile30setPersistentPermissionsPolicyENS_27PersistentPermissionsPolicyE": [
+      "nothing", "address", "unsigned char"
+    ],
+    "ritual_ZNK17QWebEngineProfile20httpCacheMaximumSizeEv": [
+      "int", "address"
+    ],
+    "ritual_ZN17QWebEngineProfile23setHttpCacheMaximumSizeEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QWebEngineProfile11cookieStoreEv": ["address", "address"],
+    "ritual_ZN17QWebEngineProfile24setUrlRequestInterceptorEP31QWebEngineUrlRequestInterceptor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QWebEngineProfile20clearAllVisitedLinksEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QWebEngineProfile17clearVisitedLinksERK5QListI4QUrlE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QWebEngineProfile23visitedLinksContainsUrlERK4QUrl": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK17QWebEngineProfile8settingsEv": ["address", "address"],
+    "ritual_ZNK17QWebEngineProfile7scriptsEv": ["address", "address"],
+    "ritual_ZNK17QWebEngineProfile11clientHintsEv": ["address", "address"],
+    "ritual_ZNK17QWebEngineProfile16urlSchemeHandlerERK10QByteArray": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN17QWebEngineProfile23installUrlSchemeHandlerERK10QByteArrayP26QWebEngineUrlSchemeHandler": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN17QWebEngineProfile15removeUrlSchemeERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QWebEngineProfile22removeUrlSchemeHandlerEP26QWebEngineUrlSchemeHandler": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QWebEngineProfile26removeAllUrlSchemeHandlersEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QWebEngineProfile14clearHttpCacheEv": ["nothing", "address"],
+    "ritual_ZN17QWebEngineProfile22setSpellCheckLanguagesERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QWebEngineProfile19spellCheckLanguagesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN17QWebEngineProfile20setSpellCheckEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK17QWebEngineProfile19isSpellCheckEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK17QWebEngineProfile12downloadPathEv": ["text", "address"],
+    "ritual_ZN17QWebEngineProfile15setDownloadPathERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK17QWebEngineProfile20isPushServiceEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN17QWebEngineProfile21setPushServiceEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN17QWebEngineProfile24setNotificationPresenterESt8functionIFvSt10unique_ptrI22QWebEngineNotificationSt14default_deleteIS2_EEEE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QWebEngineProfile22clientCertificateStoreEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK17QWebEngineProfile29additionalTrustedCertificatesEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK17QWebEngineProfile21requestIconForPageURLERK4QUrliSt8functionIFvRK5QIconS2_S2_EE": [
+      "nothing", "address", "address", "int", "address"
+    ],
+    "ritual_ZNK17QWebEngineProfile21requestIconForIconURLERK4QUrliSt8functionIFvRK5QIconS2_EE": [
+      "nothing", "address", "address", "int", "address"
+    ],
+    "ritual_ZNK17QWebEngineProfile15queryPermissionERK4QUrlN20QWebEnginePermission14PermissionTypeE": [
+      "address", "address", "address", "unsigned char"
+    ],
+    "ritual_ZNK17QWebEngineProfile18listAllPermissionsEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK17QWebEngineProfile24listPermissionsForOriginERK4QUrl": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK17QWebEngineProfile32listPermissionsForPermissionTypeEN20QWebEnginePermission14PermissionTypeE": [
+      "address", "address", "unsigned char"
+    ],
+    "ritual_ZNK17QWebEngineProfile16extensionManagerEv": [
+      "address", "address"
+    ],
+    "ritual_ZN17QWebEngineProfile31setCryptoModulePasswordFunctionESt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_bEE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QWebEngineProfile14defaultProfileEv": ["address"],
+    "ritual_ZN17QWebEngineProfile17downloadRequestedEP25QWebEngineDownloadRequest": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QWebEngineProfile23clearHttpCacheCompletedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QWebEngineProfile6d_funcEv": ["address", "address"],
+    "ritual_ZNK17QWebEngineProfile6d_funcEv": ["address", "address"],
+    "ritual_ZN17QWebEngineProfileC1EP24QWebEngineProfilePrivateP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN17QWebEngineProfile21notificationPresenterEv": [
+      "address", "address"
+    ],
+    "ritual_take_QWebEngineProfile": ["bool", "address", "chars", "address"],
+    "ritual_drop_QWebEngineProfile__std_function_void_std_unique_ptr_QWebEngineNotification": [
+      "nothing", "address"
+    ]
+  }
+}

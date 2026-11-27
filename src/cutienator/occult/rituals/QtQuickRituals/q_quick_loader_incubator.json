@@ -4,7 +4,7 @@
     "QtQuick/6.12.0/QtQuick/private/qquickloader_p_p.h, Qt 6.12.0.",
     "Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN21QQuickLoaderIncubatorC1EP19QQuickLoaderPrivateN13QQmlIncubator14IncubationModeE": [
       "address", "address", "int"
     ],

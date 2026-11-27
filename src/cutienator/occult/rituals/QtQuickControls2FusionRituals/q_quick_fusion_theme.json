@@ -4,7 +4,7 @@
     "Controls2Fusion/6.12.0/QtQuickControls2Fusion/private/qquickfusion",
     "theme_p.h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN17QQuickFusionTheme10initializeEP11QQuickTheme": [
       "nothing", "address"
     ],

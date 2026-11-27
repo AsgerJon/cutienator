@@ -4,7 +4,7 @@
     "QtQml/6.12.0/QtQml/private/qqmlvmemetaobject_p.h, Qt 6.12.0.",
     "Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN24QQmlVMEVariantQObjectPtr15setGuardedValueEP7QObjectP17QQmlVMEMetaObjecti": [
       "nothing", "address", "address", "address", "int"
     ],

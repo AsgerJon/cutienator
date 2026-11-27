@@ -3,7 +3,7 @@
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtCore/qbytearraymatcher.h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN27QStaticByteArrayMatcherBaseC1EPKcm": [
       "address", "chars", "size_t"
     ],

@@ -6,7 +6,7 @@
   "parts first": [
     "QtGraphs", "QtCore", "QtGui", "QtQuick", "QtQml", "QtQmlIntegration"
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN11QLegendDataD1Ev": ["nothing", "address"],
     "ritual_list_make_QLegendData": ["address"],
     "ritual_list_add_QLegendData": ["nothing", "address", "address"],

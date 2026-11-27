@@ -4,7 +4,7 @@
     "Support/6.12.0/QtPrintSupport/private/qabstractprintdialog_p.h, Qt",
     "6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN27QAbstractPrintDialogPrivate6q_funcEv": [
       "address", "address"
     ],

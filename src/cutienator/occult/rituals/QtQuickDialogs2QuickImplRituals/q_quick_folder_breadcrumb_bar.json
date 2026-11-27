@@ -4,7 +4,7 @@
     "Dialogs2QuickImpl/6.12.0/QtQuickDialogs2QuickImpl/private/qquickfo",
     "lderbreadcrumbbar_p.h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK25QQuickFolderBreadcrumbBar10metaObjectEv": [
       "address", "address"
     ],

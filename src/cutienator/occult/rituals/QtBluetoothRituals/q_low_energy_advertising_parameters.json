@@ -4,7 +4,7 @@
     "QtBluetooth/qlowenergyadvertisingparameters.h, Qt 6.12.0. Changes",
     "made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN31QLowEnergyAdvertisingParametersC1Ev": ["address"],
     "ritual_ZN31QLowEnergyAdvertisingParametersC1ERKS_": [
       "address", "address"

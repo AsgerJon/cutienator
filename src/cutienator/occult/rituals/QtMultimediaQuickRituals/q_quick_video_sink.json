@@ -4,7 +4,7 @@
     "mediaQuick/6.12.0/QtMultimediaQuick/private/qquickvideooutput_p.h,",
     "Qt 6.12.0. Edited by hand: see the ritual file."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK15QQuickVideoSink10metaObjectEv": ["address", "address"],
     "ritual_ZN15QQuickVideoSink11qt_metacastEPKc": [
       "address", "address", "chars"

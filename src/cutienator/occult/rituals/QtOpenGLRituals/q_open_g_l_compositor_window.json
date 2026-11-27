@@ -4,7 +4,7 @@
     "QtOpenGL/6.12.0/QtOpenGL/private/qopenglcompositor_p.h, Qt 6.12.0.",
     "Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN23QOpenGLCompositorWindowD1Ev": ["nothing", "address"],
     "ritual_ZNK23QOpenGLCompositorWindow12sourceWindowEv": [
       "address", "address"

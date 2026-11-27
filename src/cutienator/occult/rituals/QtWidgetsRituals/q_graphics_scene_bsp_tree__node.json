@@ -4,7 +4,7 @@
     "QtWidgets/6.12.0/QtWidgets/private/qgraphicsscene_bsp_p.h, Qt",
     "6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN21QGraphicsSceneBspTree4NodeD1Ev": ["nothing", "address"]
   }
 }

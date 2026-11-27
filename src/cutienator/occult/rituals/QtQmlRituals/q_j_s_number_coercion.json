@@ -3,7 +3,7 @@
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtQml/qjsnumbercoercion.h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN17QJSNumberCoercion9isIntegerEd": ["bool", "double"],
     "ritual_ZN17QJSNumberCoercion12isArrayIndexEd": ["bool", "double"],
     "ritual_ZN17QJSNumberCoercion12isArrayIndexEx": ["bool", "long long"],

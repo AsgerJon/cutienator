@@ -4,7 +4,7 @@
     "QtGui/6.12.0/QtGui/private/qtriangulator_p.h, Qt 6.12.0. Changes",
     "made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK18QVertexIndexVector4typeEv": ["int", "address"],
     "ritual_ZN18QVertexIndexVector11setDataUintERK5QListIjE": [
       "nothing", "address", "address"

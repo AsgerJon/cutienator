@@ -4,7 +4,7 @@
     "QtOpcUa/6.12.0/QtOpcUa/private/qopcuaclientimpl_p.h, Qt 6.12.0.",
     "Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK16QOpcUaClientImpl10metaObjectEv": ["address", "address"],
     "ritual_ZN16QOpcUaClientImpl11qt_metacastEPKc": [
       "address", "address", "chars"

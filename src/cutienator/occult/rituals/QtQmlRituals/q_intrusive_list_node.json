@@ -4,7 +4,7 @@
     "QtQml/6.12.0/QtQml/private/qintrusivelist_p.h, Qt 6.12.0. Changes",
     "made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN18QIntrusiveListNodeD1Ev": ["nothing", "address"],
     "ritual_ZN18QIntrusiveListNode6removeEv": ["nothing", "address"],
     "ritual_ZNK18QIntrusiveListNode8isInListEv": ["bool", "address"]

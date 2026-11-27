@@ -4,7 +4,7 @@
     "QtDesigner/abstractdnditem.h, Qt 6.12.0. Changes made here are",
     "lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN25QDesignerDnDItemInterfaceC1Ev": ["address"],
     "ritual_ZN25QDesignerDnDItemInterfaceD1Ev": ["nothing", "address"],
     "ritual_ZNK25QDesignerDnDItemInterface5domUiEv": ["address", "address"],

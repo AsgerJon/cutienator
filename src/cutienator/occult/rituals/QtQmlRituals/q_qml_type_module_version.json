@@ -4,7 +4,7 @@
     "QtQml/6.12.0/QtQml/private/qqmltypemoduleversion_p.h, Qt 6.12.0.",
     "Edited by hand: see the ritual file."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN21QQmlTypeModuleVersionC1Ev": ["address"],
     "ritual_ZN21QQmlTypeModuleVersionC1EP14QQmlTypeModule13QTypeRevision": [
       "address", "address", "address"

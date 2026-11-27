@@ -4,7 +4,7 @@
     "avefrontMesh/6.12.0/QtLabsWavefrontMesh/private/qwavefrontmesh_p.h",
     ", Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK14QWavefrontMesh10metaObjectEv": ["address", "address"],
     "ritual_ZN14QWavefrontMesh11qt_metacastEPKc": [
       "address", "address", "chars"

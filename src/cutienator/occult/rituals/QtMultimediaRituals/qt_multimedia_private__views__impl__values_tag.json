@@ -4,7 +4,7 @@
     "QtMultimedia/6.12.0/QtMultimedia/private/qmultimedia_ranges_p.h,",
     "Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN19QtMultimediaPrivate5views4impl10values_tagD1Ev": [
       "nothing", "address"
     ]

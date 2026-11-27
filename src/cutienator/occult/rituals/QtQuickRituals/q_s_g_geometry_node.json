@@ -3,7 +3,7 @@
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtQuick/qsgnode.h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN15QSGGeometryNodeC1Ev": ["address"],
     "ritual_ZN15QSGGeometryNodeD1Ev": ["nothing", "address"],
     "ritual_ZN15QSGGeometryNode11setMaterialEP11QSGMaterial": [

@@ -4,7 +4,7 @@
     "QtQuick/6.12.0/QtQuick/private/qsgsoftwareglyphnode_p.h, Qt",
     "6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN20QSGSoftwareGlyphNodeC1Ev": ["address"],
     "ritual_ZN20QSGSoftwareGlyphNode9setGlyphsERK7QPointFRK9QGlyphRun": [
       "nothing", "address", "address", "address"

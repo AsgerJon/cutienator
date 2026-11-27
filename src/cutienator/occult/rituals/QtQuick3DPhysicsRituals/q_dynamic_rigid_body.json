@@ -4,7 +4,7 @@
     "3DPhysics/6.12.0/QtQuick3DPhysics/private/qdynamicrigidbody_p.h,",
     "Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK17QDynamicRigidBody10metaObjectEv": ["address", "address"],
     "ritual_ZN17QDynamicRigidBody11qt_metacastEPKc": [
       "address", "address", "chars"

@@ -4,7 +4,7 @@
     "Templates2/6.12.0/QtQuickTemplates2/private/qquickmenu_p_p.h, Qt",
     "6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN17QQuickMenuPrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK17QQuickMenuPrivate6q_funcEv": ["address", "address"],
     "ritual_ZN17QQuickMenuPrivateC1Ev": ["address"],

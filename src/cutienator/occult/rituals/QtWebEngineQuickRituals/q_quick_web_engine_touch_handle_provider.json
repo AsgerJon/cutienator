@@ -1,0 +1,29 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtWebEn",
+    "gineQuick/6.12.0/QtWebEngineQuick/private/qquickwebenginetouchhand",
+    "leprovider_p_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "sigils": {
+    "ritual_ZN34QQuickWebEngineTouchHandleProvider10identifierEv": ["text"],
+    "ritual_ZN34QQuickWebEngineTouchHandleProvider3urlEi": [
+      "address", "int"
+    ],
+    "ritual_ZN34QQuickWebEngineTouchHandleProviderC1Ev": ["address"],
+    "ritual_ZN34QQuickWebEngineTouchHandleProviderD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZN34QQuickWebEngineTouchHandleProvider4initERK4QMapIi6QImageE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN34QQuickWebEngineTouchHandleProvider12requestImageERK7QStringP5QSizeRKS3_": [
+      "address", "address", "text", "address", "address"
+    ],
+    "ritual_take_QQuickWebEngineTouchHandleProvider": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN34QQuickWebEngineTouchHandleProvider12requestImageERK7QStringP5QSizeRKS3_": [
+      "address", "address", "text", "address", "address"
+    ]
+  }
+}

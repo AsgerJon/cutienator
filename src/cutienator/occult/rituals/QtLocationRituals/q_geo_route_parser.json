@@ -4,7 +4,7 @@
     "QtLocation/6.12.0/QtLocation/private/qgeorouteparser_p.h, Qt",
     "6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK15QGeoRouteParser10metaObjectEv": ["address", "address"],
     "ritual_ZN15QGeoRouteParser11qt_metacastEPKc": [
       "address", "address", "chars"

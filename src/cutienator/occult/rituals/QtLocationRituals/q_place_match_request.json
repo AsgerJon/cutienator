@@ -4,7 +4,7 @@
     "QtLocation/qplacematchrequest.h, Qt 6.12.0. Changes made here are",
     "lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN18QPlaceMatchRequestC1Ev": ["address"],
     "ritual_ZN18QPlaceMatchRequestC1ERKS_": ["address", "address"],
     "ritual_ZN18QPlaceMatchRequestC1EOS_": ["address", "address"],

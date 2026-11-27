@@ -4,7 +4,7 @@
     "QtSql/6.12.0/QtSql/private/qsqlnulldriver_p.h, Qt 6.12.0. Changes",
     "made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN14QSqlNullResultC1EPK10QSqlDriver": ["address", "address"],
     "ritual_ZN14QSqlNullResult4dataEi": ["address", "address", "int"],
     "ritual_ZN14QSqlNullResult5resetERK7QString": [

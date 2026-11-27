@@ -2,7 +2,7 @@
   "about": [
     "Edited by hand: see the ritual file."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN24QQuickVectorImagePrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK24QQuickVectorImagePrivate6q_funcEv": ["address", "address"],
     "ritual_ZN24QQuickVectorImagePrivateC1Ev": ["address"],

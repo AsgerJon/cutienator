@@ -4,7 +4,7 @@
     "3DAssetUtils/6.12.0/QtQuick3DAssetUtils/private/qssgscenedesc_p.h,",
     "Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN13QSSGSceneDesc5JointC1Ev": ["address"],
     "ritual_ZN13QSSGSceneDesc5JointD1Ev": ["nothing", "address"]
   }

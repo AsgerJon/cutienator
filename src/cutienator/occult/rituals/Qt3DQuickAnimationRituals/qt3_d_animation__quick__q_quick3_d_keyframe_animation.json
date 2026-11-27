@@ -4,7 +4,7 @@
     "ckAnimation/6.12.0/Qt3DQuickAnimation/private/quick3dkeyframeanima",
     "tion_p.h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK13Qt3DAnimation5Quick25QQuick3DKeyframeAnimation10metaObjectEv": [
       "address", "address"
     ],

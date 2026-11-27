@@ -4,7 +4,7 @@
     "Qt3DAnimation/qabstractchannelmapping.h, Qt 6.12.0. Changes made",
     "here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK13Qt3DAnimation23QAbstractChannelMapping10metaObjectEv": [
       "address", "address"
     ],

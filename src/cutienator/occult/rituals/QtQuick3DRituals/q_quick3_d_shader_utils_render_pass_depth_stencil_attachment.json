@@ -4,7 +4,7 @@
     "QtQuick3D/6.12.0/QtQuick3D/private/qquick3dshaderutils_p.h, Qt",
     "6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK51QQuick3DShaderUtilsRenderPassDepthStencilAttachment10metaObjectEv": [
       "address", "address"
     ],

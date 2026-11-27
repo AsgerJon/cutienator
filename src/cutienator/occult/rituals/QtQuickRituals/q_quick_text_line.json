@@ -4,7 +4,7 @@
     "QtQuick/6.12.0/QtQuick/private/qquicktext_p.h, Qt 6.12.0. Changes",
     "made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK14QQuickTextLine10metaObjectEv": ["address", "address"],
     "ritual_ZN14QQuickTextLine11qt_metacastEPKc": [
       "address", "address", "chars"

@@ -4,7 +4,7 @@
     "QtQml/6.12.0/QtQml/private/qqmljsast_p.h, Qt 6.12.0. Changes made",
     "here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN6QQmlJS3AST19FunctionDeclarationC1E11QStringViewPNS0_19FormalParameterListEPNS0_13StatementListEPNS0_14TypeAnnotationE": [
       "address", "address", "text", "address", "address", "address"
     ],

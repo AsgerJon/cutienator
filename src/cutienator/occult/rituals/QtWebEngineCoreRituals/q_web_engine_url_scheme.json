@@ -1,0 +1,50 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWebEngineCore/qwebengineurlscheme.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "sigils": {
+    "ritual_ZN19QWebEngineUrlSchemeC1Ev": ["address"],
+    "ritual_ZN19QWebEngineUrlSchemeC1ERK10QByteArray": [
+      "address", "address"
+    ],
+    "ritual_ZN19QWebEngineUrlSchemeC1ERKS_": ["address", "address"],
+    "ritual_ZN19QWebEngineUrlSchemeaSERKS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN19QWebEngineUrlSchemeC1EOS_": ["address", "address"],
+    "ritual_ZN19QWebEngineUrlSchemeaSEOS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN19QWebEngineUrlSchemeD1Ev": ["nothing", "address"],
+    "ritual_ZNK19QWebEngineUrlSchemeeqERKS_": ["bool", "address", "address"],
+    "ritual_ZNK19QWebEngineUrlSchemeneERKS_": ["bool", "address", "address"],
+    "ritual_ZNK19QWebEngineUrlScheme4nameEv": ["address", "address"],
+    "ritual_ZN19QWebEngineUrlScheme7setNameERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK19QWebEngineUrlScheme6syntaxEv": ["int", "address"],
+    "ritual_ZN19QWebEngineUrlScheme9setSyntaxENS_6SyntaxE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK19QWebEngineUrlScheme11defaultPortEv": ["int", "address"],
+    "ritual_ZN19QWebEngineUrlScheme14setDefaultPortEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK19QWebEngineUrlScheme5flagsEv": ["int", "address"],
+    "ritual_ZN19QWebEngineUrlScheme8setFlagsE6QFlagsINS_4FlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN19QWebEngineUrlScheme14registerSchemeERKS_": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QWebEngineUrlScheme12schemeByNameERK10QByteArray": [
+      "address", "address"
+    ],
+    "ritual_ZN19QWebEngineUrlScheme11lockSchemesEv": ["nothing"],
+    "ritual_ZN19QWebEngineUrlSchemeC1EP26QWebEngineUrlSchemePrivate": [
+      "address", "address"
+    ]
+  }
+}

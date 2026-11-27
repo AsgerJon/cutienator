@@ -4,7 +4,7 @@
     "isualization/6.12.0/QtDataVisualization/private/surface3dcontrolle",
     "r_p.h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN19Surface3DController9ChangeRowD1Ev": ["nothing", "address"]
   }
 }

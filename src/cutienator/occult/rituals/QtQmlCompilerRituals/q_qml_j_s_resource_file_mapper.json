@@ -4,7 +4,7 @@
     "mpiler/6.12.0/QtQmlCompiler/private/qqmljsresourcefilemapper_p.h,",
     "Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN24QQmlJSResourceFileMapper14allQmlJSFilterEv": ["address"],
     "ritual_ZN24QQmlJSResourceFileMapper15localFileFilterERK7QString": [
       "address", "text"

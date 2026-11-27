@@ -60,7 +60,7 @@ class RitualTester:
   --------------
 
   1. The ritual file on disk is what the generator would write now,
-     and so is the rows file beside it, which reads back as the rows
+     and so is the sigil file beside it, which reads back as the sigils
      the generator decided.
   2. 'clang++' compiles it against the header files of the installed
      Qt, and finds every Qt function it calls in that Qt's shared
@@ -484,29 +484,29 @@ class RitualTester:
       write now. It was changed by hand, or written from other
       records."""
       faults.append(' '.join((infoSpec % ritualFile).split()))
-    rowsFile = generator.getRowsFile()
+    sigilFile = generator.getSigilFile()
     onDisk = None  # type: Optional[str]
-    if os.path.isfile(rowsFile):
-      with open(rowsFile) as file:
+    if os.path.isfile(sigilFile):
+      with open(sigilFile) as file:
         onDisk = file.read()
-    if onDisk != generator.getRowsText():
-      infoSpec = """The rows file '%s' is not what the generator would
+    if onDisk != generator.getSigilText():
+      infoSpec = """The sigil file '%s' is not what the generator would
       write now. It is missing, was changed by hand, or was written from
       other records."""
-      faults.append(' '.join((infoSpec % rowsFile).split()))
+      faults.append(' '.join((infoSpec % sigilFile).split()))
     else:
-      #  What the file says has to be read back as the rows themselves.
+      #  What the file says has to be read back as the sigils themselves.
       try:
-        held = json.loads(onDisk)['rows']
+        held = json.loads(onDisk)['sigils']
       except (ValueError, KeyError) as exception:
-        infoSpec = """The rows file '%s' cannot be read back: %s"""
-        faults.append(infoSpec % (rowsFile, exception))
+        infoSpec = """The sigil file '%s' cannot be read back: %s"""
+        faults.append(infoSpec % (sigilFile, exception))
       else:
-        rows = generator.getRows()
-        if held != {name: [*row] for name, row in rows.items()}:
-          infoSpec = """The rows file '%s' reads back as other rows
+        sigils = generator.getSigils()
+        if held != {name: [*sigil] for name, sigil in sigils.items()}:
+          infoSpec = """The sigil file '%s' reads back as other sigils
           than the generator decided."""
-          faults.append(' '.join((infoSpec % rowsFile).split()))
+          faults.append(' '.join((infoSpec % sigilFile).split()))
     written = generator.getWritten()
     notWritten = generator.getNotWritten()
     names = [ritual['ritualName'] for ritual in written]

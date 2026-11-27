@@ -3,7 +3,7 @@
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtCore/qbytearray.h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN10QByteArrayC1Ev": ["address"],
     "ritual_ZN10QByteArrayC1EPKcx": ["address", "chars", "long long"],
     "ritual_ZN10QByteArrayC1Exc": ["address", "long long", "char"],

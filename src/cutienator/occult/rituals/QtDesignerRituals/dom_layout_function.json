@@ -4,7 +4,7 @@
     "QtDesigner/6.12.0/QtDesigner/private/ui4_p.h, Qt 6.12.0. Changes",
     "made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN17DomLayoutFunctionC1Ev": ["address"],
     "ritual_ZN17DomLayoutFunctionD1Ev": ["nothing", "address"],
     "ritual_ZN17DomLayoutFunction4readER16QXmlStreamReader": [

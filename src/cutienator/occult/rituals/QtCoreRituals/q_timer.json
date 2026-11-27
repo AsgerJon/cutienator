@@ -3,7 +3,7 @@
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtCore/qtimer.h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK6QTimer10metaObjectEv": ["address", "address"],
     "ritual_ZN6QTimer11qt_metacastEPKc": ["address", "address", "chars"],
     "ritual_ZN6QTimer11qt_metacallEN11QMetaObject4CallEiPPv": [

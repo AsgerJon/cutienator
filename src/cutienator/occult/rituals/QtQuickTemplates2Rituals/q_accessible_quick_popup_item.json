@@ -4,7 +4,7 @@
     "Templates2/6.12.0/QtQuickTemplates2/private/qaccessiblequickpopupi",
     "tem_p.h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN25QAccessibleQuickPopupItemC1EP15QQuickPopupItem": [
       "address", "address"
     ],

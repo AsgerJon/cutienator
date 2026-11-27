@@ -3,7 +3,7 @@
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtGui/qpainter.h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN8QPainter6d_funcEv": ["address", "address"],
     "ritual_ZNK8QPainter6d_funcEv": ["address", "address"],
     "ritual_ZN8QPainterC1Ev": ["address"],

@@ -1,0 +1,55 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWebEngineCore/qwebenginecookiestore.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "sigils": {
+    "ritual_ZNK21QWebEngineCookieStore10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QWebEngineCookieStore11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN21QWebEngineCookieStore11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN21QWebEngineCookieStore2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN21QWebEngineCookieStoreD1Ev": ["nothing", "address"],
+    "ritual_ZN21QWebEngineCookieStore15setCookieFilterERKSt8functionIFbRKNS_13FilterRequestEEE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QWebEngineCookieStore15setCookieFilterEOSt8functionIFbRKNS_13FilterRequestEEE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QWebEngineCookieStore9setCookieERK14QNetworkCookieRK4QUrl": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN21QWebEngineCookieStore12deleteCookieERK14QNetworkCookieRK4QUrl": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN21QWebEngineCookieStore20deleteSessionCookiesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QWebEngineCookieStore16deleteAllCookiesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QWebEngineCookieStore14loadAllCookiesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QWebEngineCookieStore11cookieAddedERK14QNetworkCookie": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QWebEngineCookieStore13cookieRemovedERK14QNetworkCookie": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QWebEngineCookieStoreC1EP7QObject": ["address", "address"],
+    "ritual_ZN21QWebEngineCookieStore6d_funcEv": ["address", "address"],
+    "ritual_ZNK21QWebEngineCookieStore6d_funcEv": ["address", "address"],
+    "ritual_take_QWebEngineCookieStore": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

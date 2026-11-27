@@ -4,7 +4,7 @@
     "QtQml/6.12.0/QtQml/private/qqmljsast_p.h, Qt 6.12.0. Changes made",
     "here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN6QQmlJS3AST17VariableStatementC1EPNS0_23VariableDeclarationListE": [
       "address", "address", "address"
     ],

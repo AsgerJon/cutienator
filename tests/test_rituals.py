@@ -1,5 +1,5 @@
 """
-TestRituals tests the rows of 'Rituals' and how text crosses.
+TestRituals tests the sigils of 'Rituals' and how text crosses.
 """
 #  Apache-2.0 license
 #  Copyright (c) 2026 Asger Jon Vistisen
@@ -24,7 +24,7 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
 
 class TestRituals(BaseTest):
   """
-  Tests what 'Rituals' reads from the rows files, and that a 'str'
+  Tests what 'Rituals' reads from the sigil files, and that a 'str'
   crosses to Qt and back as text. The rituals are called for real;
   'setUpClass' builds the shared object of rituals when a ritual file
   is newer than it.
@@ -42,92 +42,93 @@ class TestRituals(BaseTest):
       Rituals.summon()
 
   @contextlib.contextmanager
-  def _madeUpRows(self, parts: Dict[str, Dict[str, Any]]) -> Iterator:
+  def _madeUpSigils(self, parts: Dict[str, Dict[str, Any]]) -> Iterator:
     """
-    Has 'Rituals' read rows files made up for one test, while the test
+    Has 'Rituals' read sigil files made up for one test, while the test
     runs inside: under each part of Qt, a ritual file for each entry,
-    with a rows file holding what the entry says, or none at all for an
+    with a sigil file holding what the entry says, or none at all for an
     entry that is None. What 'Rituals' read before is put back
     afterwards.
     """
-    names = ('__ritual_rows__', '__ritual_parts__', '__parts_first__')
+    names = ('__ritual_sigils__', '__ritual_parts__', '__parts_first__')
     kept = {name: getattr(Rituals, name) for name in names}
     with tempfile.TemporaryDirectory() as folder:
       for partName, written in parts.items():
         partFolder = os.path.join(folder, '%sRituals' % partName)
         os.makedirs(partFolder)
-        for stem, rows in written.items():
+        for stem, sigils in written.items():
           open(os.path.join(partFolder, '%s.cpp' % stem), 'w').close()
-          if rows is None:
+          if sigils is None:
             continue
-          if 'rows' not in rows:
-            rows = dict(about=[], rows=rows)
+          if 'sigils' not in sigils:
+            sigils = dict(about=[], sigils=sigils)
           path = os.path.join(partFolder, '%s.json' % stem)
           with open(path, 'w') as file:
-            json.dump(rows, file)
+            json.dump(sigils, file)
       try:
         with mock.patch.object(Rituals, 'getRitualFolder', lambda: folder):
-          Rituals._createRows()
+          Rituals._createSigils()
           yield
       finally:
         for name, value in kept.items():
           setattr(Rituals, name, value)
 
-  def _readRowsOf(self, parts: Dict[str, Dict[str, Any]]) -> None:
-    """Has 'Rituals' read rows files made up for one test, as
-    '_madeUpRows' does, and puts back what it read before."""
-    with self._madeUpRows(parts):
+  def _readSigilsOf(self, parts: Dict[str, Dict[str, Any]]) -> None:
+    """Has 'Rituals' read sigil files made up for one test, as
+    '_madeUpSigils' does, and puts back what it read before."""
+    with self._madeUpSigils(parts):
       pass
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  TESTS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-  def test_every_ritual_file_has_its_rows_file(self) -> None:
-    """Beside each ritual file lies the rows file of the same name."""
-    ritualFiles, rowsFiles = Rituals.getRitualFiles(), Rituals.getRowsFiles()
+  def test_every_ritual_file_has_its_sigil_file(self) -> None:
+    """Beside each ritual file lies the sigil file of the same name."""
+    ritualFiles = Rituals.getRitualFiles()
+    sigilFiles = Rituals.getSigilFiles()
     self.assertTrue(ritualFiles)
-    self.assertEqual(len(ritualFiles), len(rowsFiles))
-    for ritualFile, rowsFile in zip(ritualFiles, rowsFiles):
+    self.assertEqual(len(ritualFiles), len(sigilFiles))
+    for ritualFile, sigilFile in zip(ritualFiles, sigilFiles):
       with self.subTest(ritualFile=ritualFile):
         self.assertEqual(
-            os.path.splitext(ritualFile)[0], os.path.splitext(rowsFile)[0])
-        self.assertTrue(os.path.isfile(rowsFile))
+            os.path.splitext(ritualFile)[0], os.path.splitext(sigilFile)[0])
+        self.assertTrue(os.path.isfile(sigilFile))
 
-  def test_a_row_says_what_comes_back_and_what_goes_in(self) -> None:
-    """Rows of three rituals, read from the rows files."""
-    rows = Rituals.getRows('QtCore')
+  def test_a_sigil_says_what_comes_back_and_what_goes_in(self) -> None:
+    """Sigils of three rituals, read from the sigil files."""
+    sigils = Rituals.getSigils('QtCore')
     expected = dict(
         ritual_ZN7QObject12blockSignalsEb=('bool', 'address', 'bool'),
         ritual_ZNK7QObject10objectNameEv=('text', 'address'),
         ritual_ZN5QSizeD1Ev=('nothing', 'address'),
     )
-    for name, row in expected.items():
+    for name, sigil in expected.items():
       with self.subTest(name=name):
-        self.assertEqual(rows[name], row)
+        self.assertEqual(sigils[name], sigil)
 
   def test_every_ritual_named_once_and_in_known_words(self) -> None:
-    """Each ritual of the ritual files of a part has one row of known
+    """Each ritual of the ritual files of a part has one sigil of known
     words, and each is named once in all. A ritual may be written in
     two files of the part for two systems, as one of Objective-C++ for
-    visionOS and one of C++ for the others; its row is one."""
+    visionOS and one of C++ for the others; its sigil is one."""
     names = []  # type: List[str]
     written = re.compile(
         r'extern "C" Q_DECL_EXPORT\n[^\n]*?\b(ritual\w*)\(')
     for partName in Rituals.getRitualParts():
-      rows = Rituals.getRows(partName)
+      sigils = Rituals.getSigils(partName)
       found = set()  # type: Set[str]
       for ritualFile in Rituals.getPartRitualFiles(partName):
         with open(ritualFile) as file:
           found.update(written.findall(file.read()))
       with self.subTest(partName=partName):
-        self.assertEqual({*rows}, found)
-      for name, row in rows.items():
+        self.assertEqual({*sigils}, found)
+      for name, sigil in sigils.items():
         self.assertIn(partName, Rituals.getPartsOf(name))
         if name not in names:
           names.append(name)
-        for word in row:
-          self.assertIn(word, Rituals.__row_words__, name)
+        for word in sigil:
+          self.assertIn(word, Rituals.__sigil_words__, name)
     self.assertEqual((*names,), Rituals.getRitualNames())
 
   def test_text_crosses_as_a_str_both_ways(self) -> None:
@@ -192,46 +193,46 @@ class TestRituals(BaseTest):
     back = Rituals.call('ritual_ZNK7QObject10objectNameEv', address)
     self.assertEqual(back, 'kept')
 
-  def test_a_ritual_no_rows_file_lists_is_refused(self) -> None:
+  def test_a_ritual_no_sigil_file_lists_is_refused(self) -> None:
     """'call' names the ritual it does not know."""
     with self.assertRaises(LookupError) as caught:
       Rituals.call('ritual_of_nothing')
     self.assertIn('ritual_of_nothing', str(caught.exception))
 
-  def test_a_ritual_file_without_rows_file_is_refused(self) -> None:
+  def test_a_ritual_file_without_sigil_file_is_refused(self) -> None:
     """A ritual file alone says nothing of what its rituals take."""
     with self.assertRaises(FileNotFoundError) as caught:
-      self._readRowsOf(dict(QtCore=dict(alone=None)))
+      self._readSigilsOf(dict(QtCore=dict(alone=None)))
     self.assertIn('alone.json', str(caught.exception))
 
-  def test_a_word_that_is_no_word_of_a_row_is_refused(self) -> None:
-    """A row may hold the words 'Rituals' knows, and no other."""
+  def test_a_word_that_is_no_word_of_a_sigil_is_refused(self) -> None:
+    """A sigil may hold the words 'Rituals' knows, and no other."""
     with self.assertRaises(ValueError) as caught:
       odd = dict(odd=dict(ritual_odd=['nothing', 'pointer']))
-      self._readRowsOf(dict(QtCore=odd))
+      self._readSigilsOf(dict(QtCore=odd))
     self.assertIn('pointer', str(caught.exception))
 
   def test_a_ritual_listed_twice_is_refused(self) -> None:
-    """Two rows files of one part naming one ritual leave it open which
+    """Two sigil files of one part naming one ritual leave it open which
     one holds."""
-    rows = dict(ritual_twice=['nothing'])
+    sigils = dict(ritual_twice=['nothing'])
     with self.assertRaises(ValueError) as caught:
-      self._readRowsOf(dict(QtCore=dict(first=rows, second=rows)))
+      self._readSigilsOf(dict(QtCore=dict(first=sigils, second=sigils)))
     self.assertIn('ritual_twice', str(caught.exception))
 
   def test_two_parts_may_list_one_ritual(self) -> None:
     """A ritual of a class two parts each have, as 'QBarSeries' of
-    QtCharts and of QtGraphs, is listed by both, each with its row;
+    QtCharts and of QtGraphs, is listed by both, each with its sigil;
     'call' refuses it, as it cannot tell which part it is for."""
     shared = 'ritual_ZNK10QBarSeries5countEv'
     charts = dict(q_bar_series={shared: ['int', 'address']})
     graphs = dict(q_bar_series={shared: ['long long', 'address']})
-    with self._madeUpRows(dict(QtCharts=charts, QtGraphs=graphs)):
+    with self._madeUpSigils(dict(QtCharts=charts, QtGraphs=graphs)):
       self.assertEqual(Rituals.getPartsOf(shared), ('QtCharts', 'QtGraphs'))
       self.assertEqual(
-          Rituals.getRows('QtCharts')[shared], ('int', 'address'))
+          Rituals.getSigils('QtCharts')[shared], ('int', 'address'))
       self.assertEqual(
-          Rituals.getRows('QtGraphs')[shared], ('long long', 'address'))
+          Rituals.getSigils('QtGraphs')[shared], ('long long', 'address'))
       self.assertEqual(Rituals.getRitualNames(), (shared,))
       with self.assertRaises(LookupError) as caught:
         Rituals.call(shared, None)
@@ -243,12 +244,12 @@ class TestRituals(BaseTest):
     """A ritual 'summon' left out raises 'NotImplementedError' naming
     the function it calls and what the compiler said; one Qt's own
     '#if' compiled out raises it too."""
-    rows = dict(q_made_up=dict(ritual_gone=['nothing'],
+    sigils = dict(q_made_up=dict(ritual_gone=['nothing'],
                                ritual_hidden=['nothing']))
     reason = 'the compiler refused it on this machine: x.cpp:3:1: oops'
     leftOut = dict(ritual_gone=('void QMadeUp::gone()', reason))
     missing = frozenset(('ritual_gone', 'ritual_hidden'))
-    with self._madeUpRows(dict(QtCore=rows)), mock.patch.dict(
+    with self._madeUpSigils(dict(QtCore=sigils)), mock.patch.dict(
         Rituals.__opened_targets__, dict(QtCore=object())), mock.patch.dict(
         Rituals.__missing_rituals__, dict(QtCore=missing)), mock.patch.dict(
         Rituals.__left_out_rituals__, dict(QtCore=leftOut)):
@@ -278,16 +279,16 @@ class TestRituals(BaseTest):
             ritual_gone=('void QMadeUp::gone()', 'why')))
 
   def test_the_parts_a_part_sees_first(self) -> None:
-    """What the rows files of a part say under 'parts first' comes
+    """What the sigil files of a part say under 'parts first' comes
     first in the order the part sees the parts in, after the part
-    itself; a part whose rows files say nothing sees itself first and
+    itself; a part whose sigil files say nothing sees itself first and
     then the installed parts, in alphabetical order."""
     first = ['QtGraphsWidgets', 'QtGraphs', 'QtWidgets', 'QtGui']
-    rows = {'parts first': first, 'about': [], 'rows': dict(ritual_a=[
+    sigils = {'parts first': first, 'about': [], 'sigils': dict(ritual_a=[
         'nothing'])}
     plain = dict(q_plain=dict(ritual_b=['nothing']))
-    made = dict(QtGraphsWidgets=dict(one=rows), QtCore=plain)
-    with self._madeUpRows(made):
+    made = dict(QtGraphsWidgets=dict(one=sigils), QtCore=plain)
+    with self._madeUpSigils(made):
       self.assertEqual(Rituals.getPartsFirst('QtGraphsWidgets'), (*first,))
       self.assertEqual(Rituals.getPartsFirst('QtCore'), ())
       order = Rituals.getPartOrder('QtGraphsWidgets')
@@ -328,7 +329,7 @@ class TestRituals(BaseTest):
         with open(path, 'w', encoding='utf-8') as file:
           file.write('QMAKE_PRL_CONFIG = %s\n' % text)
       with contextlib.ExitStack() as stack:
-        stack.enter_context(self._madeUpRows({p: plain for p in parts}))
+        stack.enter_context(self._madeUpSigils({p: plain for p in parts}))
         stack.enter_context(
             mock.patch.object(System, 'getHere', lambda: Linux()))
         stack.enter_context(mock.patch.object(
@@ -407,26 +408,26 @@ class TestRituals(BaseTest):
 
   def test_the_parts_first_of_one_part_must_agree(self) -> None:
     """The ritual files of a part are made with one order of the parts:
-    rows files of it saying two orders are refused."""
+    sigil files of it saying two orders are refused."""
     one = {'parts first': ['QtGraphs', 'QtGui'], 'about': [],
-           'rows': dict(ritual_one=['nothing'])}
+           'sigils': dict(ritual_one=['nothing'])}
     two = {'parts first': ['QtGraphs', 'QtQuick'], 'about': [],
-           'rows': dict(ritual_two=['nothing'])}
+           'sigils': dict(ritual_two=['nothing'])}
     with self.assertRaises(ValueError) as caught:
-      self._readRowsOf(dict(QtGraphs=dict(one=one, two=two)))
+      self._readSigilsOf(dict(QtGraphs=dict(one=one, two=two)))
     self.assertIn('parts first', str(caught.exception))
 
-  def test_rows_made_up_for_a_test_leave_the_real_ones(self) -> None:
-    """The helper of these tests puts the rows of 'Rituals' back."""
-    before = Rituals.getRows('QtCore')
+  def test_sigils_made_up_for_a_test_leave_the_real_ones(self) -> None:
+    """The helper of these tests puts the sigils of 'Rituals' back."""
+    before = Rituals.getSigils('QtCore')
     fine = dict(fine=dict(ritual_fine=['nothing', 'int']))
-    self._readRowsOf(dict(QtCore=fine))
-    self.assertIs(Rituals.getRows('QtCore'), before)
+    self._readSigilsOf(dict(QtCore=fine))
+    self.assertIs(Rituals.getSigils('QtCore'), before)
 
   def test_a_part_with_no_ritual_folder_is_refused(self) -> None:
-    """'getRows' names the part it has no ritual files of."""
+    """'getSigils' names the part it has no ritual files of."""
     with self.assertRaises(LookupError) as caught:
-      Rituals.getRows('QtOfNothing')
+      Rituals.getSigils('QtOfNothing')
     self.assertIn('QtOfNothing', str(caught.exception))
 
   def test_the_target_file_of_a_part(self) -> None:
@@ -442,10 +443,10 @@ class TestRituals(BaseTest):
       Rituals.getTargetFile(None)
 
   def test_text_needs_the_rituals_of_qstring(self) -> None:
-    """With a row taking text and no ritual of QString listed for
+    """With a sigil taking text and no ritual of QString listed for
     QtCore, nothing is opened."""
     takes = dict(q_takes=dict(ritual_takes_text=['nothing', 'text']))
-    with self._madeUpRows(dict(QtCore=takes)):
+    with self._madeUpSigils(dict(QtCore=takes)):
       with self.assertRaises(LookupError) as caught:
         Rituals._createOpened('QtCore')
     self.assertIn('QString', str(caught.exception))

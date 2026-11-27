@@ -4,7 +4,7 @@
     "dels/6.12.0/QtQmlModels/private/qqmladaptormodelenginedata_p.h, Qt",
     "6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN26QQmlAdaptorModelEngineData11addPropertyEP18QMetaObjectBuilderiRK10QByteArrayS4_b": [
       "nothing", "address", "int", "address", "address", "bool"
     ],

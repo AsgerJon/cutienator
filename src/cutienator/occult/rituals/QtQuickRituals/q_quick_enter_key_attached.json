@@ -4,7 +4,7 @@
     "QtQuick/6.12.0/QtQuick/private/qquickitem_p.h, Qt 6.12.0. Edited",
     "by hand: see the ritual file."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK22QQuickEnterKeyAttached10metaObjectEv": [
       "address", "address"
     ],

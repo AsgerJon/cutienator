@@ -4,7 +4,7 @@
     "QtSensorsQuick/6.12.0/QtSensorsQuick/private/qmlcompass_p.h, Qt",
     "6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK10QmlCompass10metaObjectEv": ["address", "address"],
     "ritual_ZN10QmlCompass11qt_metacastEPKc": [
       "address", "address", "chars"

@@ -3,7 +3,7 @@
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtCore/qsize.h, Qt 6.12.0. Edited by hand: see the ritual file."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN6QSizeFC1Ev": ["address"],
     "ritual_ZN6QSizeFC1ERK5QSize": ["address", "address"],
     "ritual_ZN6QSizeFC1Edd": ["address", "double", "double"],

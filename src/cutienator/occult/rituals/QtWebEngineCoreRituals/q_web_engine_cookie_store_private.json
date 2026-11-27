@@ -1,0 +1,46 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtWebEn",
+    "gineCore/6.12.0/QtWebEngineCore/private/qwebenginecookiestore_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "sigils": {
+    "ritual_ZN28QWebEngineCookieStorePrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK28QWebEngineCookieStorePrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QWebEngineCookieStorePrivateC1EP21QWebEngineCookieStore": [
+      "address", "address"
+    ],
+    "ritual_ZN28QWebEngineCookieStorePrivate25processPendingUserCookiesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QWebEngineCookieStorePrivate24rejectPendingUserCookiesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QWebEngineCookieStorePrivate9setCookieERK14QNetworkCookieRK4QUrl": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN28QWebEngineCookieStorePrivate12deleteCookieERK14QNetworkCookieRK4QUrl": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN28QWebEngineCookieStorePrivate20deleteSessionCookiesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QWebEngineCookieStorePrivate16deleteAllCookiesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QWebEngineCookieStorePrivate13getAllCookiesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK28QWebEngineCookieStorePrivate16canAccessCookiesERK4QUrlS2_": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN28QWebEngineCookieStorePrivate15onCookieChangedERK14QNetworkCookieb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZN28QWebEngineCookieStorePrivateD1Ev": ["nothing", "address"]
+  }
+}

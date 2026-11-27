@@ -4,7 +4,7 @@
     "QtDesigner/abstractwidgetbox.h, Qt 6.12.0. Changes made here are",
     "lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN27QDesignerWidgetBoxInterface6WidgetC1ERK7QStringS3_S3_NS0_4TypeE": [
       "address", "text", "text", "text", "int"
     ],

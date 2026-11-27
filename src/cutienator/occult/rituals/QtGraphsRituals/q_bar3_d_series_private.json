@@ -7,7 +7,7 @@
   "parts first": [
     "QtGraphs", "QtCore", "QtGui", "QtQuick", "QtQml", "QtQmlIntegration"
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN19QBar3DSeriesPrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK19QBar3DSeriesPrivate6q_funcEv": ["address", "address"],
     "ritual_ZN19QBar3DSeriesPrivate3getEP12QBar3DSeries": [

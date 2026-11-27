@@ -1,0 +1,36 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWebEngineCore/qwebengineloadinginfo.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "sigils": {
+    "ritual_ZN21QWebEngineLoadingInfoC1Ev": ["address"],
+    "ritual_ZN21QWebEngineLoadingInfoC1ERKS_": ["address", "address"],
+    "ritual_ZN21QWebEngineLoadingInfoaSERKS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN21QWebEngineLoadingInfoC1EOS_": ["address", "address"],
+    "ritual_ZN21QWebEngineLoadingInfoaSEOS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN21QWebEngineLoadingInfoD1Ev": ["nothing", "address"],
+    "ritual_ZNK21QWebEngineLoadingInfo3urlEv": ["address", "address"],
+    "ritual_ZNK21QWebEngineLoadingInfo11isErrorPageEv": ["bool", "address"],
+    "ritual_ZNK21QWebEngineLoadingInfo6statusEv": ["int", "address"],
+    "ritual_ZNK21QWebEngineLoadingInfo11errorStringEv": ["text", "address"],
+    "ritual_ZNK21QWebEngineLoadingInfo11errorDomainEv": ["int", "address"],
+    "ritual_ZNK21QWebEngineLoadingInfo9errorCodeEv": ["int", "address"],
+    "ritual_ZNK21QWebEngineLoadingInfo15responseHeadersEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK21QWebEngineLoadingInfo10isDownloadEv": ["bool", "address"],
+    "ritual_ZN21QWebEngineLoadingInfoC1ERK4QUrlNS_10LoadStatusEbRK7QStringiNS_11ErrorDomainERK9QMultiMapI10QByteArrayS9_Eb": [
+      "address", "address", "int", "bool", "text", "int", "int", "address",
+      "bool"
+    ],
+    "ritual_drop_QWebEngineLoadingInfo__QMultiMap_QByteArray_QByteArray": [
+      "nothing", "address"
+    ]
+  }
+}

@@ -4,7 +4,7 @@
     "QtMultimedia/6.12.0/QtMultimedia/private/qdmabufvideobuffer_p.h,",
     "Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN19QtMultimediaPrivate18QDmaBufVideoBufferC1EN17QVideoFrameFormat11PixelFormatE5QSize5QSpanIKNS_11DmaBufPlaneELm18446744073709551615EESt10shared_ptrIvE": [
       "address", "int", "address", "address", "address"
     ],

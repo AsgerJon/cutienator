@@ -4,7 +4,7 @@
     "QtNetwork/6.12.0/QtNetwork/private/qdnslookup_p.h, Qt 6.12.0.",
     "Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN31QDnsTlsAssociationRecordPrivateD1Ev": ["nothing", "address"]
   }
 }

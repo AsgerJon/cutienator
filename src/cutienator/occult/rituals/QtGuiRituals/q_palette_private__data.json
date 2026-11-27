@@ -4,7 +4,7 @@
     "QtGui/6.12.0/QtGui/private/qpalette_p.h, Qt 6.12.0. Changes made",
     "here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN15QPalettePrivate4DataC1ERKS0_": ["address", "address"],
     "ritual_ZN15QPalettePrivate4DataC1Ev": ["address"],
     "ritual_ZN15QPalettePrivate4DataD1Ev": ["nothing", "address"]

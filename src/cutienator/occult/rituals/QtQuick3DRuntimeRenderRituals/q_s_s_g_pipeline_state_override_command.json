@@ -4,7 +4,7 @@
     "3DRuntimeRender/6.12.0/QtQuick3DRuntimeRender/private/qssgrenderco",
     "mmands_p.h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN32QSSGPipelineStateOverrideCommandC1Ev": ["address"],
     "ritual_ZNK32QSSGPipelineStateOverrideCommand8addDebugER6QDebug": [
       "nothing", "address", "address"

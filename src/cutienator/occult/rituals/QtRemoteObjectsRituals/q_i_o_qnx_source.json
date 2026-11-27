@@ -4,7 +4,7 @@
     "QtRemoteObjects/qconnection_qnx_qiodevices.h, Qt 6.12.0. Changes",
     "made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK12QIOQnxSource10metaObjectEv": ["address", "address"],
     "ritual_ZN12QIOQnxSource11qt_metacastEPKc": [
       "address", "address", "chars"

@@ -4,7 +4,7 @@
     "QtQml/6.12.0/QtQml/private/qv4codegen_p.h, Qt 6.12.0. Changes made",
     "here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN3QV48Compiler7Codegen6RValue13fromStackSlotEPS1_NS_4Moth9StackSlotE": [
       "address", "address", "address"
     ],

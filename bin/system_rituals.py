@@ -10,7 +10,7 @@ of Windows. The workflow 'system-rituals' runs it on GitHub's machines.
 QTBASE     the folder 'qtbase' of Qt's source, with the others beside it
 WORK       a folder for the header folder and the readings
 INSTALLED  the installed Qt each ritual file is tested against
-OUT        where the ritual file and the rows file of each class that
+OUT        where the ritual file and the sigil file of each class that
            passed are written, in the folder of its part, as
            'QtCoreRituals', the way the package keeps them
 
@@ -225,7 +225,7 @@ def main(qtbase: str, work: str, installed: str, out: str) -> int:
     else:
       passed += 1
       lines.append('PASSED %s/%s' % (partName, className))
-    #  Only the ritual file and the rows file of a class that passed
+    #  Only the ritual file and the sigil file of a class that passed
     #  stay; what the tester built beside them goes.
     if generator is not None:
       stem = generator.getFileStem()

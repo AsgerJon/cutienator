@@ -4,7 +4,7 @@
     "QtDataVisualizationQml/6.12.0/QtDataVisualizationQml/private/",
     "declarativebars_p.h, Qt 6.12.0, from Qt's source."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK15DeclarativeBars10metaObjectEv": ["address", "address"],
     "ritual_ZN15DeclarativeBarsD1Ev": ["nothing", "address"],
     "ritual_ZN15DeclarativeBars18handleAxisXChangedEP15QAbstract3DAxis": [

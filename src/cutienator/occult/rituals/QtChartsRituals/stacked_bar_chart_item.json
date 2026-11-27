@@ -4,7 +4,7 @@
     "QtCharts/6.12.0/QtCharts/private/stackedbarchartitem_p.h, Qt",
     "6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK19StackedBarChartItem10metaObjectEv": ["address", "address"],
     "ritual_ZN19StackedBarChartItem11qt_metacastEPKc": [
       "address", "address", "chars"

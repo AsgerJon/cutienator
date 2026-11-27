@@ -1,0 +1,55 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtWebEn",
+    "gineQuick/6.12.0/QtWebEngineQuick/private/qquickwebengine_accessib",
+    "le_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "sigils": {
+    "ritual_ZNK29QQuickWebEngineViewAccessible7isValidEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK29QQuickWebEngineViewAccessible6parentEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK29QQuickWebEngineViewAccessible10focusChildEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK29QQuickWebEngineViewAccessible10childCountEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK29QQuickWebEngineViewAccessible5childEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK29QQuickWebEngineViewAccessible12indexOfChildEPK20QAccessibleInterface": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK29QQuickWebEngineViewAccessible4textEN11QAccessible4TextE": [
+      "text", "address", "int"
+    ],
+    "ritual_ZNK29QQuickWebEngineViewAccessible4roleEv": ["int", "address"],
+    "ritual_ZNK29QQuickWebEngineViewAccessible5stateEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK29QQuickWebEngineViewAccessible7isValidEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZNK29QQuickWebEngineViewAccessible10focusChildEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK29QQuickWebEngineViewAccessible10childCountEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZNK29QQuickWebEngineViewAccessible12indexOfChildEPK20QAccessibleInterface": [
+      "int", "address", "address"
+    ],
+    "ritual_own_ZNK29QQuickWebEngineViewAccessible4textEN11QAccessible4TextE": [
+      "text", "address", "int"
+    ],
+    "ritual_own_ZNK29QQuickWebEngineViewAccessible4roleEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZNK29QQuickWebEngineViewAccessible5stateEv": [
+      "address", "address"
+    ]
+  }
+}

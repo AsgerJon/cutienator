@@ -4,7 +4,7 @@
     "mation/6.12.0/Qt3DAnimation/private/evaluateblendclipanimatorjob_p",
     ".h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN13Qt3DAnimation9Animation28EvaluateBlendClipAnimatorJob10setHandlerEPNS0_7HandlerE": [
       "nothing", "address", "address"
     ],

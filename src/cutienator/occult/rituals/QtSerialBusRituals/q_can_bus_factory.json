@@ -4,7 +4,7 @@
     "QtSerialBus/qcanbusfactory.h, Qt 6.12.0. Changes made here are",
     "lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK14QCanBusFactory12createDeviceERK7QStringPS0_": [
       "address", "address", "text", "address"
     ],

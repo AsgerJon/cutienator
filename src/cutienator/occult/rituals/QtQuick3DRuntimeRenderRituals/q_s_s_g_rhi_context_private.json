@@ -4,7 +4,7 @@
     "3DRuntimeRender/6.12.0/QtQuick3DRuntimeRender/private/qssgrhiconte",
     "xt_p.h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN21QSSGRhiContextPrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK21QSSGRhiContextPrivate6q_funcEv": ["address", "address"],
     "ritual_ZN21QSSGRhiContextPrivateC1ER14QSSGRhiContextP4QRhi": [

@@ -4,7 +4,7 @@
     "QtProtobuf/6.12.0/QtProtobuf/private/qprotobufserializerbase_p.h,",
     "Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN23QProtobufSerializerBase16serializeMessageEPK16QProtobufMessage": [
       "nothing", "address", "address"
     ],

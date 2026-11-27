@@ -4,7 +4,7 @@
     "QtCanvasPainter/qcanvasboxshadow.h, Qt 6.12.0. Changes made here",
     "are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN16QCanvasBoxShadowC1Ev": ["address"],
     "ritual_ZN16QCanvasBoxShadowC1Edddd": [
       "address", "double", "double", "double", "double"

@@ -4,7 +4,7 @@
     "isualization/6.12.0/QtDataVisualization/private/q3dlight_p.h, Qt",
     "6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN15Q3DLightPrivateC1EP8Q3DLight": ["address", "address"],
     "ritual_ZN15Q3DLightPrivateD1Ev": ["nothing", "address"],
     "ritual_ZN15Q3DLightPrivate4syncER8Q3DLight": [

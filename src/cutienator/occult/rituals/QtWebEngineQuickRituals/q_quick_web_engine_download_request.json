@@ -1,0 +1,30 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWebEngineQuick/qquickwebenginedownloadrequest.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "sigils": {
+    "ritual_ZNK30QQuickWebEngineDownloadRequest10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN30QQuickWebEngineDownloadRequest11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN30QQuickWebEngineDownloadRequest11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN30QQuickWebEngineDownloadRequest2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN30QQuickWebEngineDownloadRequest24qt_qmlMarker_uncreatableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK30QQuickWebEngineDownloadRequest4viewEv": [
+      "address", "address"
+    ],
+    "ritual_ZN30QQuickWebEngineDownloadRequestC1EP32QWebEngineDownloadRequestPrivateP7QObject": [
+      "address", "address", "address"
+    ]
+  }
+}

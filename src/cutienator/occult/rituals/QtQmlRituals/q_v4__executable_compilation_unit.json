@@ -4,7 +4,7 @@
     "QtQml/6.12.0/QtQml/private/qv4executablecompilationunit_p.h, Qt",
     "6.12.0. Edited by hand: see the ritual file."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK3QV425ExecutableCompilationUnit14finalUrlStringEv": [
       "text", "address"
     ],

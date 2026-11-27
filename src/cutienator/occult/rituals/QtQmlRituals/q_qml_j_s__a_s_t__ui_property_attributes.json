@@ -4,7 +4,7 @@
     "QtQml/6.12.0/QtQml/private/qqmljsast_p.h, Qt 6.12.0. Edited by",
     "hand: see the ritual file."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN6QQmlJS3AST20UiPropertyAttributesC1Ev": ["address", "address"],
     "ritual_ZNK6QQmlJS3AST20UiPropertyAttributes12defaultTokenEv": [
       "address", "address"

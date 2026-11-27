@@ -4,7 +4,7 @@
     "QtQuick/6.12.0/QtQuick/private/qquickpathview_p.h, Qt 6.12.0.",
     "Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK14QQuickPathView10metaObjectEv": ["address", "address"],
     "ritual_ZN14QQuickPathView11qt_metacastEPKc": [
       "address", "address", "chars"

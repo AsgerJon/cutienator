@@ -4,7 +4,7 @@
     "Qt3DExtras/qabstractcameracontroller.h, Qt 6.12.0. Changes made",
     "here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN10Qt3DExtras25QAbstractCameraController10InputStateD1Ev": [
       "nothing", "address"
     ]

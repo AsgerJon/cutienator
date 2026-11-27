@@ -3,7 +3,7 @@
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtQml/qqmlparserstatus.h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN16QQmlParserStatusC1Ev": ["address"],
     "ritual_ZN16QQmlParserStatusD1Ev": ["nothing", "address"],
     "ritual_ZN16QQmlParserStatus10classBeginEv": ["nothing", "address"],

@@ -4,7 +4,7 @@
     "QtGui/6.12.0/QtGui/private/qvectorpath_p.h, Qt 6.12.0. Edited by",
     "hand: see the ritual file."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN11QVectorPathC1EPKdiPKN12QPainterPath11ElementTypeEj": [
       "address", "address", "int", "address", "unsigned int"
     ],

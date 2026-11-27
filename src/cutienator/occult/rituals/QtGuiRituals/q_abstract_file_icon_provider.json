@@ -4,7 +4,7 @@
     "QtGui/qabstractfileiconprovider.h, Qt 6.12.0. Changes made here",
     "are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN25QAbstractFileIconProviderC1Ev": ["address"],
     "ritual_ZN25QAbstractFileIconProviderD1Ev": ["nothing", "address"],
     "ritual_ZNK25QAbstractFileIconProvider4iconENS_8IconTypeE": [

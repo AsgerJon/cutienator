@@ -4,7 +4,7 @@
     "QtQml/6.12.0/QtQml/private/qqmlboundsignal_p.h, Qt 6.12.0. Changes",
     "made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN25QQmlBoundSignalExpressionC1EPK7QObjectiRK14QQmlRefPointerI15QQmlContextDataEPS0_RK7QStringSB_ttSB_SB_": [
       "address", "address", "int", "address", "address", "text", "text",
       "unsigned short", "unsigned short", "text", "text"

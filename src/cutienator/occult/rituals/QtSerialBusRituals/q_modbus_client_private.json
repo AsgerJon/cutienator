@@ -4,7 +4,7 @@
     "QtSerialBus/6.12.0/QtSerialBus/private/qmodbusclient_p.h, Qt",
     "6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN20QModbusClientPrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK20QModbusClientPrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK20QModbusClientPrivate17createReadRequestERK15QModbusDataUnit": [

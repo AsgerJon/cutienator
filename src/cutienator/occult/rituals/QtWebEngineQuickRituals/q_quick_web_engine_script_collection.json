@@ -1,0 +1,58 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtWebEn",
+    "gineQuick/6.12.0/QtWebEngineQuick/private/qquickwebenginescriptcol",
+    "lection_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "sigils": {
+    "ritual_ZNK31QQuickWebEngineScriptCollection10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN31QQuickWebEngineScriptCollection11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN31QQuickWebEngineScriptCollection11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN31QQuickWebEngineScriptCollection2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN31QQuickWebEngineScriptCollection22qt_qmlMarker_anonymousEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN31QQuickWebEngineScriptCollectionD1Ev": ["nothing", "address"],
+    "ritual_ZNK31QQuickWebEngineScriptCollection8containsERK16QWebEngineScript": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK31QQuickWebEngineScriptCollection4findERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN31QQuickWebEngineScriptCollection6insertERK16QWebEngineScript": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN31QQuickWebEngineScriptCollection6insertERK5QListI16QWebEngineScriptE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN31QQuickWebEngineScriptCollection6removeERK16QWebEngineScript": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN31QQuickWebEngineScriptCollection5clearEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK31QQuickWebEngineScriptCollection10collectionEv": [
+      "address", "address"
+    ],
+    "ritual_ZN31QQuickWebEngineScriptCollection13setCollectionERK5QListI16QWebEngineScriptE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN31QQuickWebEngineScriptCollection17collectionChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN31QQuickWebEngineScriptCollectionC1EP26QWebEngineScriptCollection": [
+      "address", "address"
+    ],
+    "ritual_take_QQuickWebEngineScriptCollection": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

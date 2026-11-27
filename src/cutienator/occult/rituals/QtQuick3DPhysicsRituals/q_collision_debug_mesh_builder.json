@@ -4,7 +4,7 @@
     "3DPhysics/6.12.0/QtQuick3DPhysics/private/qcollisiondebugmeshbuild",
     "er_p.h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN26QCollisionDebugMeshBuilderC1Ev": ["address"],
     "ritual_ZN26QCollisionDebugMeshBuilder5resetEv": ["nothing", "address"],
     "ritual_ZN26QCollisionDebugMeshBuilder7addLineERK9QVector3DS2_S2_": [

@@ -1,0 +1,363 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtWebEn",
+    "gineQuick/6.12.0/QtWebEngineQuick/private/qquickwebengineview_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "sigils": {
+    "ritual_ZNK19QQuickWebEngineView10metaObjectEv": ["address", "address"],
+    "ritual_ZN19QQuickWebEngineView11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN19QQuickWebEngineView11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN19QQuickWebEngineView2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN19QQuickWebEngineViewC1EP10QQuickItem": ["address", "address"],
+    "ritual_ZN19QQuickWebEngineViewD1Ev": ["nothing", "address"],
+    "ritual_ZNK19QQuickWebEngineView3urlEv": ["address", "address"],
+    "ritual_ZN19QQuickWebEngineView6setUrlERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK19QQuickWebEngineView4iconEv": ["address", "address"],
+    "ritual_ZNK19QQuickWebEngineView9isLoadingEv": ["bool", "address"],
+    "ritual_ZNK19QQuickWebEngineView12loadProgressEv": ["int", "address"],
+    "ritual_ZNK19QQuickWebEngineView5titleEv": ["text", "address"],
+    "ritual_ZNK19QQuickWebEngineView9canGoBackEv": ["bool", "address"],
+    "ritual_ZNK19QQuickWebEngineView12canGoForwardEv": ["bool", "address"],
+    "ritual_ZNK19QQuickWebEngineView12isFullScreenEv": ["bool", "address"],
+    "ritual_ZNK19QQuickWebEngineView10zoomFactorEv": ["double", "address"],
+    "ritual_ZN19QQuickWebEngineView13setZoomFactorEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK19QQuickWebEngineView15backgroundColorEv": [
+      "address", "address"
+    ],
+    "ritual_ZN19QQuickWebEngineView18setBackgroundColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK19QQuickWebEngineView12contentsSizeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QQuickWebEngineView14scrollPositionEv": [
+      "address", "address"
+    ],
+    "ritual_ZN19QQuickWebEngineView17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickWebEngineView7profileEv": ["address", "address"],
+    "ritual_ZN19QQuickWebEngineView10setProfileEP22QQuickWebEngineProfile": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQuickWebEngineView11userScriptsEv": ["address", "address"],
+    "ritual_ZN19QQuickWebEngineView8settingsEv": ["address", "address"],
+    "ritual_ZN19QQuickWebEngineView10webChannelEv": ["address", "address"],
+    "ritual_ZN19QQuickWebEngineView13setWebChannelEP14QQmlWebChannel": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK19QQuickWebEngineView7historyEv": ["address", "address"],
+    "ritual_ZNK19QQuickWebEngineView15webChannelWorldEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZN19QQuickWebEngineView18setWebChannelWorldEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN19QQuickWebEngineView6actionENS_9WebActionE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN19QQuickWebEngineView17acceptAsNewWindowEP26QWebEngineNewWindowRequest": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK19QQuickWebEngineView12isAudioMutedEv": ["bool", "address"],
+    "ritual_ZN19QQuickWebEngineView13setAudioMutedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK19QQuickWebEngineView15recentlyAudibleEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK19QQuickWebEngineView16renderProcessPidEv": [
+      "long long", "address"
+    ],
+    "ritual_ZNK19QQuickWebEngineView18activeFocusOnPressEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN19QQuickWebEngineView16setInspectedViewEPS_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK19QQuickWebEngineView13inspectedViewEv": [
+      "address", "address"
+    ],
+    "ritual_ZN19QQuickWebEngineView15setDevToolsViewEPS_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK19QQuickWebEngineView12devToolsViewEv": [
+      "address", "address"
+    ],
+    "ritual_ZN19QQuickWebEngineView10devToolsIdEv": ["text", "address"],
+    "ritual_ZNK19QQuickWebEngineView14lifecycleStateEv": ["int", "address"],
+    "ritual_ZN19QQuickWebEngineView17setLifecycleStateENS_14LifecycleStateE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK19QQuickWebEngineView16recommendedStateEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK19QQuickWebEngineView19touchHandleDelegateEv": [
+      "address", "address"
+    ],
+    "ritual_ZN19QQuickWebEngineView22setTouchHandleDelegateEP13QQmlComponent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQuickWebEngineView9mainFrameEv": ["address", "address"],
+    "ritual_ZN19QQuickWebEngineView15findFrameByNameERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN19QQuickWebEngineView13runJavaScriptERK7QStringRKSt8functionIFvRK8QVariantEE": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_ZN19QQuickWebEngineView13runJavaScriptERK7QStringRK8QJSValue": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_ZN19QQuickWebEngineView13runJavaScriptERK7QStringjRK8QJSValue": [
+      "nothing", "address", "text", "unsigned int", "address"
+    ],
+    "ritual_ZN19QQuickWebEngineView8loadHtmlERK7QStringRK4QUrl": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_ZN19QQuickWebEngineView6goBackEv": ["nothing", "address"],
+    "ritual_ZN19QQuickWebEngineView9goForwardEv": ["nothing", "address"],
+    "ritual_ZN19QQuickWebEngineView15goBackOrForwardEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN19QQuickWebEngineView6reloadEv": ["nothing", "address"],
+    "ritual_ZN19QQuickWebEngineView20reloadAndBypassCacheEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickWebEngineView4stopEv": ["nothing", "address"],
+    "ritual_ZN19QQuickWebEngineView8findTextERK7QString6QFlagsINS_8FindFlagEERK8QJSValue": [
+      "nothing", "address", "text", "int", "address"
+    ],
+    "ritual_ZN19QQuickWebEngineView19fullScreenCancelledEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickWebEngineView22grantFeaturePermissionERK4QUrlNS_7FeatureEb": [
+      "nothing", "address", "address", "int", "bool"
+    ],
+    "ritual_ZN19QQuickWebEngineView21setActiveFocusOnPressEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN19QQuickWebEngineView16triggerWebActionENS_9WebActionE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN19QQuickWebEngineView10printToPdfERK7QStringNS_17PrintedPageSizeIdENS_22PrintedPageOrientationE": [
+      "nothing", "address", "text", "int", "int"
+    ],
+    "ritual_ZN19QQuickWebEngineView10printToPdfERK8QJSValueNS_17PrintedPageSizeIdENS_22PrintedPageOrientationE": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN19QQuickWebEngineView21replaceMisspelledWordERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK19QQuickWebEngineView4saveERK7QStringN25QWebEngineDownloadRequest14SavePageFormatE": [
+      "nothing", "address", "text", "int"
+    ],
+    "ritual_ZN19QQuickWebEngineView14lazyInitializeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickWebEngineView12titleChangedEv": ["nothing", "address"],
+    "ritual_ZN19QQuickWebEngineView10urlChangedEv": ["nothing", "address"],
+    "ritual_ZN19QQuickWebEngineView11iconChangedEv": ["nothing", "address"],
+    "ritual_ZN19QQuickWebEngineView14loadingChangedERK21QWebEngineLoadingInfo": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQuickWebEngineView19loadProgressChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickWebEngineView11linkHoveredERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQuickWebEngineView19navigationRequestedEP27QWebEngineNavigationRequest": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQuickWebEngineView24javaScriptConsoleMessageENS_29JavaScriptConsoleMessageLevelERK7QStringiS3_": [
+      "nothing", "address", "int", "text", "int", "text"
+    ],
+    "ritual_ZN19QQuickWebEngineView16certificateErrorERK26QWebEngineCertificateError": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQuickWebEngineView19fullScreenRequestedERK27QWebEngineFullScreenRequest": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQuickWebEngineView19isFullScreenChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickWebEngineView26featurePermissionRequestedERK4QUrlNS_7FeatureE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN19QQuickWebEngineView17zoomFactorChangedEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN19QQuickWebEngineView14profileChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickWebEngineView17webChannelChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickWebEngineView25activeFocusOnPressChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN19QQuickWebEngineView22backgroundColorChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickWebEngineView23renderProcessTerminatedENS_30RenderProcessTerminationStatusEi": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN19QQuickWebEngineView20windowCloseRequestedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickWebEngineView19contentsSizeChangedERK6QSizeF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQuickWebEngineView21scrollPositionChangedERK7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQuickWebEngineView17audioMutedChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN19QQuickWebEngineView22recentlyAudibleChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN19QQuickWebEngineView22webChannelWorldChangedEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN19QQuickWebEngineView20contextMenuRequestedEP28QWebEngineContextMenuRequest": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQuickWebEngineView29authenticationDialogRequestedEP42QQuickWebEngineAuthenticationDialogRequest": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQuickWebEngineView25javaScriptDialogRequestedEP38QQuickWebEngineJavaScriptDialogRequest": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQuickWebEngineView20colorDialogRequestedEP33QQuickWebEngineColorDialogRequest": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQuickWebEngineView19fileDialogRequestedEP32QQuickWebEngineFileDialogRequest": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQuickWebEngineView19pdfPrintingFinishedERK7QStringb": [
+      "nothing", "address", "text", "bool"
+    ],
+    "ritual_ZN19QQuickWebEngineView14quotaRequestedERK22QWebEngineQuotaRequest": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQuickWebEngineView23geometryChangeRequestedERK5QRectS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN19QQuickWebEngineView20inspectedViewChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickWebEngineView19devToolsViewChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickWebEngineView32registerProtocolHandlerRequestedERK40QWebEngineRegisterProtocolHandlerRequest": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQuickWebEngineView14printRequestedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickWebEngineView23selectClientCertificateEP41QQuickWebEngineClientCertificateSelection": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQuickWebEngineView16tooltipRequestedEP29QQuickWebEngineTooltipRequest": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQuickWebEngineView21lifecycleStateChangedENS_14LifecycleStateE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN19QQuickWebEngineView23recommendedStateChangedENS_14LifecycleStateE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN19QQuickWebEngineView16findTextFinishedERK24QWebEngineFindTextResult": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQuickWebEngineView23renderProcessPidChangedEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZN19QQuickWebEngineView16canGoBackChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickWebEngineView19canGoForwardChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickWebEngineView18newWindowRequestedEP31QQuickWebEngineNewWindowRequest": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQuickWebEngineView27touchSelectionMenuRequestedEP40QQuickWebEngineTouchSelectionMenuRequest": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQuickWebEngineView26touchHandleDelegateChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickWebEngineView25fileSystemAccessRequestedERK33QWebEngineFileSystemAccessRequest": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQuickWebEngineView18webAuthUxRequestedEP26QWebEngineWebAuthUxRequest": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQuickWebEngineView21desktopMediaRequestedERK29QWebEngineDesktopMediaRequest": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQuickWebEngineView21printRequestedByFrameE20QQuickWebEngineFrame": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQuickWebEngineView19permissionRequestedE20QWebEnginePermission": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQuickWebEngineView14geometryChangeERK6QRectFS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN19QQuickWebEngineView10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN19QQuickWebEngineView14dragEnterEventEP15QDragEnterEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQuickWebEngineView14dragLeaveEventEP15QDragLeaveEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQuickWebEngineView13dragMoveEventEP14QDragMoveEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQuickWebEngineView9dropEventEP10QDropEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQuickWebEngineView6d_funcEv": ["address", "address"],
+    "ritual_ZNK19QQuickWebEngineView6d_funcEv": ["address", "address"],
+    "ritual_take_QQuickWebEngineView": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN19QQuickWebEngineView17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN19QQuickWebEngineView14geometryChangeERK6QRectFS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN19QQuickWebEngineView10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_own_ZN19QQuickWebEngineView14dragEnterEventEP15QDragEnterEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN19QQuickWebEngineView14dragLeaveEventEP15QDragLeaveEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN19QQuickWebEngineView13dragMoveEventEP14QDragMoveEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN19QQuickWebEngineView9dropEventEP10QDropEvent": [
+      "nothing", "address", "address"
+    ]
+  }
+}

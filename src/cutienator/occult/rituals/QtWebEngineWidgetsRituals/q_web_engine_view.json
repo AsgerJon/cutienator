@@ -1,0 +1,187 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWebEngineWidgets/qwebengineview.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "sigils": {
+    "ritual_ZNK14QWebEngineView10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QWebEngineView11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN14QWebEngineView11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN14QWebEngineView2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN14QWebEngineViewC1EP7QWidget": ["address", "address"],
+    "ritual_ZN14QWebEngineViewC1EP17QWebEngineProfileP7QWidget": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN14QWebEngineViewC1EP14QWebEnginePageP7QWidget": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN14QWebEngineViewD1Ev": ["nothing", "address"],
+    "ritual_ZN14QWebEngineView7forPageEPK14QWebEnginePage": [
+      "address", "address"
+    ],
+    "ritual_ZNK14QWebEngineView4pageEv": ["address", "address"],
+    "ritual_ZN14QWebEngineView7setPageEP14QWebEnginePage": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QWebEngineView4loadERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QWebEngineView4loadERK21QWebEngineHttpRequest": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QWebEngineView7setHtmlERK7QStringRK4QUrl": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_ZN14QWebEngineView10setContentERK10QByteArrayRK7QStringRK4QUrl": [
+      "nothing", "address", "address", "text", "address"
+    ],
+    "ritual_ZNK14QWebEngineView7historyEv": ["address", "address"],
+    "ritual_ZNK14QWebEngineView5titleEv": ["text", "address"],
+    "ritual_ZN14QWebEngineView6setUrlERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14QWebEngineView3urlEv": ["address", "address"],
+    "ritual_ZNK14QWebEngineView7iconUrlEv": ["address", "address"],
+    "ritual_ZNK14QWebEngineView4iconEv": ["address", "address"],
+    "ritual_ZNK14QWebEngineView12hasSelectionEv": ["bool", "address"],
+    "ritual_ZNK14QWebEngineView12selectedTextEv": ["text", "address"],
+    "ritual_ZNK14QWebEngineView10pageActionEN14QWebEnginePage9WebActionE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN14QWebEngineView17triggerPageActionEN14QWebEnginePage9WebActionEb": [
+      "nothing", "address", "int", "bool"
+    ],
+    "ritual_ZNK14QWebEngineView10zoomFactorEv": ["double", "address"],
+    "ritual_ZN14QWebEngineView13setZoomFactorEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN14QWebEngineView8findTextERK7QString6QFlagsIN14QWebEnginePage8FindFlagEERKSt8functionIFvRK24QWebEngineFindTextResultEE": [
+      "nothing", "address", "text", "int", "address"
+    ],
+    "ritual_ZNK14QWebEngineView8sizeHintEv": ["address", "address"],
+    "ritual_ZNK14QWebEngineView8settingsEv": ["address", "address"],
+    "ritual_ZN14QWebEngineView25createStandardContextMenuEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK14QWebEngineView22lastContextMenuRequestEv": [
+      "address", "address"
+    ],
+    "ritual_ZN14QWebEngineView10printToPdfERK7QStringRK11QPageLayoutRK11QPageRanges": [
+      "nothing", "address", "text", "address", "address"
+    ],
+    "ritual_ZN14QWebEngineView10printToPdfERKSt8functionIFvRK10QByteArrayEERK11QPageLayoutRK11QPageRanges": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN14QWebEngineView5printEP8QPrinter": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QWebEngineView4stopEv": ["nothing", "address"],
+    "ritual_ZN14QWebEngineView4backEv": ["nothing", "address"],
+    "ritual_ZN14QWebEngineView7forwardEv": ["nothing", "address"],
+    "ritual_ZN14QWebEngineView6reloadEv": ["nothing", "address"],
+    "ritual_ZN14QWebEngineView11loadStartedEv": ["nothing", "address"],
+    "ritual_ZN14QWebEngineView12loadProgressEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN14QWebEngineView12loadFinishedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN14QWebEngineView12titleChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN14QWebEngineView16selectionChangedEv": ["nothing", "address"],
+    "ritual_ZN14QWebEngineView10urlChangedERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QWebEngineView14iconUrlChangedERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QWebEngineView11iconChangedERK5QIcon": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QWebEngineView23renderProcessTerminatedEN14QWebEnginePage30RenderProcessTerminationStatusEi": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN14QWebEngineView19pdfPrintingFinishedERK7QStringb": [
+      "nothing", "address", "text", "bool"
+    ],
+    "ritual_ZN14QWebEngineView14printRequestedEv": ["nothing", "address"],
+    "ritual_ZN14QWebEngineView21printRequestedByFrameE15QWebEngineFrame": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QWebEngineView13printFinishedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN14QWebEngineView12createWindowEN14QWebEnginePage13WebWindowTypeE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN14QWebEngineView16contextMenuEventEP17QContextMenuEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QWebEngineView5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN14QWebEngineView9showEventEP10QShowEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QWebEngineView9hideEventEP10QHideEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QWebEngineView10closeEventEP11QCloseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QWebEngineView14dragEnterEventEP15QDragEnterEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QWebEngineView14dragLeaveEventEP15QDragLeaveEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QWebEngineView13dragMoveEventEP14QDragMoveEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QWebEngineView9dropEventEP10QDropEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QWebEngineView6d_funcEv": ["address", "address"],
+    "ritual_ZNK14QWebEngineView6d_funcEv": ["address", "address"],
+    "ritual_take_QWebEngineView": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK14QWebEngineView8sizeHintEv": ["address", "address"],
+    "ritual_own_ZN14QWebEngineView12createWindowEN14QWebEnginePage13WebWindowTypeE": [
+      "address", "address", "int"
+    ],
+    "ritual_own_ZN14QWebEngineView16contextMenuEventEP17QContextMenuEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN14QWebEngineView5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN14QWebEngineView9showEventEP10QShowEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN14QWebEngineView9hideEventEP10QHideEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN14QWebEngineView10closeEventEP11QCloseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN14QWebEngineView14dragEnterEventEP15QDragEnterEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN14QWebEngineView14dragLeaveEventEP15QDragLeaveEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN14QWebEngineView13dragMoveEventEP14QDragMoveEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN14QWebEngineView9dropEventEP10QDropEvent": [
+      "nothing", "address", "address"
+    ]
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWebEngineCore/qwebenginehistory.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "sigils": {
+    "ritual_ZNK17QWebEngineHistory10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QWebEngineHistory11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN17QWebEngineHistory11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN17QWebEngineHistory2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN17QWebEngineHistory5clearEv": ["nothing", "address"],
+    "ritual_ZNK17QWebEngineHistory5itemsEv": ["address", "address"],
+    "ritual_ZNK17QWebEngineHistory9backItemsEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK17QWebEngineHistory12forwardItemsEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK17QWebEngineHistory9canGoBackEv": ["bool", "address"],
+    "ritual_ZNK17QWebEngineHistory12canGoForwardEv": ["bool", "address"],
+    "ritual_ZN17QWebEngineHistory4backEv": ["nothing", "address"],
+    "ritual_ZN17QWebEngineHistory7forwardEv": ["nothing", "address"],
+    "ritual_ZN17QWebEngineHistory8goToItemERK21QWebEngineHistoryItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QWebEngineHistory8backItemEv": ["address", "address"],
+    "ritual_ZNK17QWebEngineHistory11currentItemEv": ["address", "address"],
+    "ritual_ZNK17QWebEngineHistory11forwardItemEv": ["address", "address"],
+    "ritual_ZNK17QWebEngineHistory6itemAtEi": ["address", "address", "int"],
+    "ritual_ZNK17QWebEngineHistory16currentItemIndexEv": ["int", "address"],
+    "ritual_ZNK17QWebEngineHistory5countEv": ["int", "address"],
+    "ritual_ZNK17QWebEngineHistory10itemsModelEv": ["address", "address"],
+    "ritual_ZNK17QWebEngineHistory14backItemsModelEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK17QWebEngineHistory17forwardItemsModelEv": [
+      "address", "address"
+    ],
+    "ritual_ZN17QWebEngineHistoryC1EP24QWebEngineHistoryPrivate": [
+      "address", "address"
+    ],
+    "ritual_ZN17QWebEngineHistoryD1Ev": ["nothing", "address"],
+    "ritual_ZN17QWebEngineHistory6d_funcEv": ["address", "address"],
+    "ritual_ZNK17QWebEngineHistory6d_funcEv": ["address", "address"],
+    "ritual_ZN17QWebEngineHistory5resetEv": ["nothing", "address"],
+    "ritual_ZrsR11QDataStreamR17QWebEngineHistory": [
+      "address", "address", "address"
+    ],
+    "ritual_ZlsR11QDataStreamRK17QWebEngineHistory": [
+      "address", "address", "address"
+    ]
+  }
+}

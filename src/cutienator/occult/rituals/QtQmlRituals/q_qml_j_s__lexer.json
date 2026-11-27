@@ -4,7 +4,7 @@
     "QtQml/6.12.0/QtQml/private/qqmljslexer_p.h, Qt 6.12.0, as the Qt of",
     "macOS and of Windows install it, and that of Linux alike. Kept as"
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN6QQmlJS5LexerC1EPNS_6EngineENS0_7LexModeE": [
       "address", "address", "int"
     ],

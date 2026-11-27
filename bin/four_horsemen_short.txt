@@ -1,0 +1,20 @@
+# The parts the short run of the four horsemen builds, one line for each
+# machine: 'four-horsemen-short.yml' hands the parts after the colon to
+# 'bin/check_summon.py', which builds those and no other. A part is
+# joined whole, so it is the smallest piece that can be built apart.
+# Every part not named here built on that machine with nothing left out
+# in the full run these lines come from, and its ritual files have not
+# changed since: there is nothing in it to see again.
+#
+# Made by hand on 2026-11-27 from four-horsemen run 6 (on 4e07399d):
+# - the parts something of which was left out on that machine, as its
+#   'scrolls-<machine>' artifact records them;
+# - QtCore, whose ritual files changed since (the destructors of seven
+#   deprecated classes, written back by hand);
+# - QtPdf, QtPdfWidgets, QtWebEngineCore, QtWebEngineQuick and
+#   QtWebEngineWidgets, new since: their ritual files were not there.
+# Made anew after each full run.
+linux: QtCore QtPdf QtPdfWidgets QtWebEngineCore QtWebEngineQuick QtWebEngineWidgets
+mac: QtBluetooth QtCore QtGui QtMultimedia QtNetwork QtPrintSupport QtQuick QtQuickNativeStyle QtSerialPort QtSpatialAudio QtWidgets QtPdf QtPdfWidgets QtWebEngineCore QtWebEngineQuick QtWebEngineWidgets
+intel-mac: QtBluetooth QtCore QtGui QtMultimedia QtNetwork QtPrintSupport QtQuick QtQuickNativeStyle QtSerialPort QtWidgets QtPdf QtPdfWidgets QtWebEngineCore QtWebEngineQuick QtWebEngineWidgets
+windows: Qt3DExtras QtCore QtGraphs QtGui QtQmlModels QtQuickNativeStyle QtRemoteObjects QtWebSockets QtWidgets QtPdf QtPdfWidgets QtWebEngineCore QtWebEngineQuick QtWebEngineWidgets

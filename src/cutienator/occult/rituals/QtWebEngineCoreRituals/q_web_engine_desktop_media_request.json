@@ -1,0 +1,42 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWebEngineCore/qwebenginedesktopmediarequest.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "sigils": {
+    "ritual_ZN29QWebEngineDesktopMediaRequestC1Ev": ["address"],
+    "ritual_ZN29QWebEngineDesktopMediaRequestD1Ev": ["nothing", "address"],
+    "ritual_ZN29QWebEngineDesktopMediaRequestC1ERKS_": [
+      "address", "address"
+    ],
+    "ritual_ZN29QWebEngineDesktopMediaRequestC1EOS_": ["address", "address"],
+    "ritual_ZN29QWebEngineDesktopMediaRequestaSERKS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN29QWebEngineDesktopMediaRequestaSEOS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN29QWebEngineDesktopMediaRequest4swapERS_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK29QWebEngineDesktopMediaRequest12screensModelEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK29QWebEngineDesktopMediaRequest12windowsModelEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK29QWebEngineDesktopMediaRequest12selectScreenERK11QModelIndex": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK29QWebEngineDesktopMediaRequest12selectWindowERK11QModelIndex": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK29QWebEngineDesktopMediaRequest6cancelEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN29QWebEngineDesktopMediaRequestC1EPN15QtWebEngineCore22DesktopMediaControllerE": [
+      "address", "address"
+    ]
+  }
+}

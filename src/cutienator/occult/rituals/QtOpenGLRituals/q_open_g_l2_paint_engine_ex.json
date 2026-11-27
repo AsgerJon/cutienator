@@ -5,7 +5,7 @@
     "Qt 6.12.0, from Qt's source. Kept as it is when the generator",
     "runs again."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN21QOpenGL2PaintEngineEx6d_funcEv": ["address", "address"],
     "ritual_ZNK21QOpenGL2PaintEngineEx6d_funcEv": ["address", "address"],
     "ritual_ZN21QOpenGL2PaintEngineExC1Ev": ["address"],

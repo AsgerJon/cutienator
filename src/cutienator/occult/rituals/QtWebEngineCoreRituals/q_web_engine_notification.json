@@ -1,0 +1,44 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWebEngineCore/qwebenginenotification.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "sigils": {
+    "ritual_ZNK22QWebEngineNotification10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN22QWebEngineNotification11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN22QWebEngineNotification11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN22QWebEngineNotification2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN22QWebEngineNotificationD1Ev": ["nothing", "address"],
+    "ritual_ZNK22QWebEngineNotification7matchesEPKS_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK22QWebEngineNotification6originEv": ["address", "address"],
+    "ritual_ZNK22QWebEngineNotification4iconEv": ["address", "address"],
+    "ritual_ZNK22QWebEngineNotification5titleEv": ["text", "address"],
+    "ritual_ZNK22QWebEngineNotification7messageEv": ["text", "address"],
+    "ritual_ZNK22QWebEngineNotification3tagEv": ["text", "address"],
+    "ritual_ZNK22QWebEngineNotification8languageEv": ["text", "address"],
+    "ritual_ZNK22QWebEngineNotification9directionEv": ["int", "address"],
+    "ritual_ZNK22QWebEngineNotification4showEv": ["nothing", "address"],
+    "ritual_ZNK22QWebEngineNotification5clickEv": ["nothing", "address"],
+    "ritual_ZNK22QWebEngineNotification5closeEv": ["nothing", "address"],
+    "ritual_ZN22QWebEngineNotification6closedEv": ["nothing", "address"],
+    "ritual_ZN22QWebEngineNotification6d_funcEv": ["address", "address"],
+    "ritual_ZNK22QWebEngineNotification6d_funcEv": ["address", "address"],
+    "ritual_ZN22QWebEngineNotificationC1ERK14QSharedPointerIN15QtWebEngineCore26UserNotificationControllerEE": [
+      "address", "address"
+    ],
+    "ritual_take_QWebEngineNotification": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

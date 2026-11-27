@@ -4,7 +4,7 @@
     "QtGui/6.12.0/QtGui/private/qfont_p.h, Qt 6.12.0. Changes made here",
     "are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN12QFontPrivateC1Ev": ["address"],
     "ritual_ZN12QFontPrivateC1ERKS_": ["address", "address"],
     "ritual_ZN12QFontPrivateD1Ev": ["nothing", "address"],

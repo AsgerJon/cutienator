@@ -4,7 +4,7 @@
     "QtGui/6.12.0/QtGui/private/qrhivulkan_p.h, Qt 6.12.0. Changes made",
     "here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN23QVkRenderPassDescriptorD1Ev": ["nothing", "address"],
     "ritual_ZN23QVkRenderPassDescriptor7destroyEv": ["nothing", "address"],
     "ritual_ZN23QVkRenderPassDescriptor13nativeHandlesEv": [

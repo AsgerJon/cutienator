@@ -3,7 +3,7 @@
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtCore/qrangemodel.h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK11QRangeModel10metaObjectEv": ["address", "address"],
     "ritual_ZN11QRangeModel11qt_metacastEPKc": [
       "address", "address", "chars"

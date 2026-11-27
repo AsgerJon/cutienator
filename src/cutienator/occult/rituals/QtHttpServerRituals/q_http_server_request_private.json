@@ -4,7 +4,7 @@
     "QtHttpServer/6.12.0/QtHttpServer/private/qhttpserverrequest_p.h,",
     "Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN25QHttpServerRequestPrivateC1ERK12QHostAddresstS2_t": [
       "address", "address", "unsigned short", "address", "unsigned short"
     ],

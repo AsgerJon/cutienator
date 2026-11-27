@@ -4,7 +4,7 @@
     "Effects/6.12.0/QtQuickEffects/private/qquickrectangularshadow_p_p.",
     "h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN30QQuickRectangularShadowPrivate6q_funcEv": [
       "address", "address"
     ],

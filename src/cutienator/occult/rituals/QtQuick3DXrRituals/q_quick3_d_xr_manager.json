@@ -4,7 +4,7 @@
     "QtQuick3DXr/6.12.0/QtQuick3DXr/private/qquick3dxrmanager_p.h, Qt",
     "6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK17QQuick3DXrManager10metaObjectEv": ["address", "address"],
     "ritual_ZN17QQuick3DXrManager11qt_metacastEPKc": [
       "address", "address", "chars"

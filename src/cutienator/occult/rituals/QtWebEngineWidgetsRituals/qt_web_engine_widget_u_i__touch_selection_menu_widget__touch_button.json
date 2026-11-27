@@ -1,0 +1,24 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtWebEn",
+    "gineWidgets/6.12.0/QtWebEngineWidgets/private/touchselectionmenuwi",
+    "dget_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "sigils": {
+    "ritual_ZN19QtWebEngineWidgetUI24TouchSelectionMenuWidget11TouchButtonC1E7QStringP7QWidget": [
+      "address", "text", "address"
+    ],
+    "ritual_ZN19QtWebEngineWidgetUI24TouchSelectionMenuWidget11TouchButtonD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QtWebEngineWidgetUI24TouchSelectionMenuWidget11TouchButton5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_take_QtWebEngineWidgetUI_TouchSelectionMenuWidget_TouchButton": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN19QtWebEngineWidgetUI24TouchSelectionMenuWidget11TouchButton5eventEP6QEvent": [
+      "bool", "address", "address"
+    ]
+  }
+}

@@ -4,7 +4,7 @@
     "QtGui/6.12.0/QtGui/private/qxpmhandler_p.h, Qt 6.12.0. Changes",
     "made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK11QXpmHandler7canReadEv": ["bool", "address"],
     "ritual_ZN11QXpmHandler4readEP6QImage": ["bool", "address", "address"],
     "ritual_ZN11QXpmHandler5writeERK6QImage": ["bool", "address", "address"],

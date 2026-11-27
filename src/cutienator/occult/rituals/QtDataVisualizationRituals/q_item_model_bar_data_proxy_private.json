@@ -4,7 +4,7 @@
     "isualization/6.12.0/QtDataVisualization/private/qitemmodelbardatap",
     "roxy_p.h, Qt 6.12.0. Edited by hand: see the ritual file."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK29QItemModelBarDataProxyPrivate10metaObjectEv": [
       "address", "address"
     ],

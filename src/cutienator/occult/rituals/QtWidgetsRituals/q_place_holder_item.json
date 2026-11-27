@@ -4,7 +4,7 @@
     "QtWidgets/6.12.0/QtWidgets/private/qdockarealayout_p.h, Qt 6.12.0.",
     "Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN16QPlaceHolderItemC1Ev": ["address"],
     "ritual_ZN16QPlaceHolderItemC1EP7QWidget": ["address", "address"],
     "ritual_ZN16QPlaceHolderItemD1Ev": ["nothing", "address"]

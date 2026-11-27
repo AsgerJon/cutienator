@@ -4,7 +4,7 @@
     "Qt3DQuickScene3D/6.12.0/Qt3DQuickScene3D/private/scene3ditem_p.h,",
     "Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK10Qt3DRender11Scene3DItem10metaObjectEv": [
       "address", "address"
     ],

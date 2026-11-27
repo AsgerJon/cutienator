@@ -4,7 +4,7 @@
     "QtLabsStyleKit/6.12.0/QtLabsStyleKit/private/qstylekitstyle_p.h,",
     "Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN21QStyleKitStylePrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK21QStyleKitStylePrivate6q_funcEv": ["address", "address"],
     "ritual_ZN21QStyleKitStylePrivateC1Ev": ["address"],

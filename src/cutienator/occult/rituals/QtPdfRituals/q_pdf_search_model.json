@@ -1,0 +1,70 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtPdf/qpdfsearchmodel.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "sigils": {
+    "ritual_ZNK15QPdfSearchModel10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QPdfSearchModel11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN15QPdfSearchModel11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN15QPdfSearchModel2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN15QPdfSearchModelC1Ev": ["address"],
+    "ritual_ZN15QPdfSearchModelC1EP7QObject": ["address", "address"],
+    "ritual_ZN15QPdfSearchModelD1Ev": ["nothing", "address"],
+    "ritual_ZNK15QPdfSearchModel13resultsOnPageEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK15QPdfSearchModel13resultAtIndexEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK15QPdfSearchModel8documentEv": ["address", "address"],
+    "ritual_ZNK15QPdfSearchModel12searchStringEv": ["text", "address"],
+    "ritual_ZNK15QPdfSearchModel9roleNamesEv": ["address", "address"],
+    "ritual_ZNK15QPdfSearchModel8rowCountERK11QModelIndex": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK15QPdfSearchModel4dataERK11QModelIndexi": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZNK15QPdfSearchModel5countEv": ["int", "address"],
+    "ritual_ZNK15QPdfSearchModel6statusEv": ["int", "address"],
+    "ritual_ZN15QPdfSearchModel15setSearchStringERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN15QPdfSearchModel11setDocumentEP12QPdfDocument": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QPdfSearchModel15documentChangedEv": ["nothing", "address"],
+    "ritual_ZN15QPdfSearchModel19searchStringChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QPdfSearchModel12countChangedEv": ["nothing", "address"],
+    "ritual_ZN15QPdfSearchModel13statusChangedENS_6StatusE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN15QPdfSearchModel10updatePageEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN15QPdfSearchModel10timerEventEP11QTimerEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QPdfSearchModel6d_funcEv": ["address", "address"],
+    "ritual_ZNK15QPdfSearchModel6d_funcEv": ["address", "address"],
+    "ritual_take_QPdfSearchModel": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK15QPdfSearchModel8rowCountERK11QModelIndex": [
+      "int", "address", "address"
+    ],
+    "ritual_own_ZNK15QPdfSearchModel4dataERK11QModelIndexi": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_own_ZN15QPdfSearchModel10timerEventEP11QTimerEvent": [
+      "nothing", "address", "address"
+    ]
+  }
+}

@@ -4,7 +4,7 @@
     "QtOpcUa/qopcuareferencedescription.h, Qt 6.12.0. Changes made here",
     "are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN26QOpcUaReferenceDescriptionC1Ev": ["address"],
     "ritual_ZN26QOpcUaReferenceDescriptionC1ERKS_": ["address", "address"],
     "ritual_ZN26QOpcUaReferenceDescriptionaSERKS_": [

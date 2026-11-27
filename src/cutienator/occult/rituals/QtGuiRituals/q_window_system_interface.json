@@ -2,7 +2,7 @@
   "about": [
     "Edited by hand: see the ritual file."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN22QWindowSystemInterface19handleShortcutEventEP7QWindowmi6QFlagsIN2Qt16KeyboardModifierEEjjjRK7QStringbt": [
       "bool", "address", "unsigned long", "int", "int", "unsigned int",
       "unsigned int", "unsigned int", "text", "bool", "unsigned short"

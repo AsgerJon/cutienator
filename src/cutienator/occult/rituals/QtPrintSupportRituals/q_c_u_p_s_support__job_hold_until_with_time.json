@@ -4,7 +4,7 @@
     "QtPrintSupport/6.12.0/QtPrintSupport/private/qcups_p.h, Qt 6.12.0.",
     "Edited by hand: see the ritual file."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN12QCUPSSupport20JobHoldUntilWithTimeC1ENS_12JobHoldUntilE5QTime": [
       "address", "int", "address"
     ],

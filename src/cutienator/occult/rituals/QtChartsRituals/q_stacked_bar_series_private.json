@@ -4,7 +4,7 @@
     "QtCharts/6.12.0/QtCharts/private/qstackedbarseries_p.h, Qt 6.12.0.",
     "Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN24QStackedBarSeriesPrivateC1EP17QStackedBarSeries": [
       "address", "address"
     ],

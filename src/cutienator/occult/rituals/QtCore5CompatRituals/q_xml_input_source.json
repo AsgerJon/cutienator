@@ -3,7 +3,7 @@
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtCore5Compat/qxml.h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN15QXmlInputSourceC1Ev": ["address"],
     "ritual_ZN15QXmlInputSourceC1EP9QIODevice": ["address", "address"],
     "ritual_ZN15QXmlInputSourceD1Ev": ["nothing", "address"],

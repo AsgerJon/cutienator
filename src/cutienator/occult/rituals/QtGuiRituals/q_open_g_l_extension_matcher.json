@@ -4,7 +4,7 @@
     "QtGui/6.12.0/QtGui/private/qopengl_p.h, Qt 6.12.0. Changes made",
     "here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN23QOpenGLExtensionMatcherC1Ev": ["address"],
     "ritual_ZNK23QOpenGLExtensionMatcher5matchERK10QByteArray": [
       "bool", "address", "address"

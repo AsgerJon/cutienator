@@ -8,7 +8,7 @@
     "QtGraphsWidgets", "QtGraphs", "QtQuickWidgets", "QtCore", "QtGui",
     "QtQuick", "QtQml", "QtWidgets", "QtQmlIntegration"
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN27Q3DScatterWidgetItemPrivate6q_funcEv": [
       "address", "address"
     ],

@@ -4,7 +4,7 @@
     "QtDesigner/6.12.0/QtDesigner/private/zoomwidget_p.h, Qt 6.12.0.",
     "Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN18qdesigner_internal15ZoomProxyWidgetC1EP13QGraphicsItem6QFlagsIN2Qt10WindowTypeEE": [
       "address", "address", "int"
     ],

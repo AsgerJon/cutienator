@@ -4,7 +4,7 @@
     "Dialogs2/6.12.0/QtQuickDialogs2/private/qquickfolderdialog_p.h, Qt",
     "6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK18QQuickFolderDialog10metaObjectEv": ["address", "address"],
     "ritual_ZN18QQuickFolderDialog11qt_metacastEPKc": [
       "address", "address", "chars"

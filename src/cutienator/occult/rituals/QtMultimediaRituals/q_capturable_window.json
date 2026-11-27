@@ -4,7 +4,7 @@
     "QtMultimedia/qcapturablewindow.h, Qt 6.12.0. Changes made here are",
     "lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN17QCapturableWindowC1Ev": ["address"],
     "ritual_ZN17QCapturableWindowC1EP7QWindow": ["address", "address"],
     "ritual_ZN17QCapturableWindowD1Ev": ["nothing", "address"],

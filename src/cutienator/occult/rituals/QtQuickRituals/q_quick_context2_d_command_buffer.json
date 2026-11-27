@@ -4,7 +4,7 @@
     "QtQuick/6.12.0/QtQuick/private/qquickcontext2dcommandbuffer_p.h,",
     "Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN28QQuickContext2DCommandBufferC1Ev": ["address"],
     "ritual_ZN28QQuickContext2DCommandBufferD1Ev": ["nothing", "address"],
     "ritual_ZN28QQuickContext2DCommandBuffer5resetEv": [

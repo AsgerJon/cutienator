@@ -4,7 +4,7 @@
     "QtQuick3DPhysics/6.12.0/QtQuick3DPhysics/private/qsphereshape_p.h,",
     "Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK12QSphereShape10metaObjectEv": ["address", "address"],
     "ritual_ZN12QSphereShape11qt_metacastEPKc": [
       "address", "address", "chars"

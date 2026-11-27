@@ -3,7 +3,7 @@
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtCore/qmetaobject.h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN13QMetaPropertyC1Ev": ["address"],
     "ritual_ZNK13QMetaProperty4nameEv": ["chars", "address"],
     "ritual_ZNK13QMetaProperty8typeNameEv": ["chars", "address"],

@@ -4,7 +4,7 @@
     "QtCore/qabstractitemmodel.h, Qt 6.12.0. Changes made here are",
     "lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN21QPersistentModelIndexC1Ev": ["address"],
     "ritual_ZN21QPersistentModelIndexC1ERK11QModelIndex": [
       "address", "address"

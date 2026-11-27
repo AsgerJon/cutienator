@@ -4,7 +4,7 @@
     "QtWidgets/6.12.0/QtWidgets/private/qwindowcontainer_p.h, Qt",
     "6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK16QWindowContainer10metaObjectEv": ["address", "address"],
     "ritual_ZN16QWindowContainer11qt_metacastEPKc": [
       "address", "address", "chars"

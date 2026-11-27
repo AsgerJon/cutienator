@@ -4,7 +4,7 @@
     "QtLottie/6.12.0/QtLottie/private/qlottierasterrenderer_p.h, Qt",
     "6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN21QLottieRasterRendererD1Ev": ["nothing", "address"],
     "ritual_ZN21QLottieRasterRenderer9saveStateEv": ["nothing", "address"],
     "ritual_ZN21QLottieRasterRenderer12restoreStateEv": [

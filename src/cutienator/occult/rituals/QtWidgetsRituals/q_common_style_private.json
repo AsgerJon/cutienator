@@ -4,7 +4,7 @@
     "QtWidgets/6.12.0/QtWidgets/private/qcommonstyle_p.h, Qt 6.12.0.",
     "Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN19QCommonStylePrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK19QCommonStylePrivate6q_funcEv": ["address", "address"],
     "ritual_ZN19QCommonStylePrivateC1Ev": ["address"],

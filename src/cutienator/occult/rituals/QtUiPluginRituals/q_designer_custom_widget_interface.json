@@ -3,7 +3,7 @@
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtUiPlugin/customwidget.h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN30QDesignerCustomWidgetInterfaceD1Ev": ["nothing", "address"],
     "ritual_ZNK30QDesignerCustomWidgetInterface4nameEv": ["text", "address"],
     "ritual_ZNK30QDesignerCustomWidgetInterface5groupEv": [

@@ -9,7 +9,7 @@
     "QtGui", "QtQml", "QtConcurrent", "QtNetwork", "QtQuick", "QtOpenGL",
     "QtQmlIntegration"
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN10Qt3DRender5Quick12Scene2DEventC1ENS1_4TypeE": [
       "address", "int"
     ],

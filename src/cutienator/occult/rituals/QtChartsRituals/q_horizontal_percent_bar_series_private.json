@@ -4,7 +4,7 @@
     "QtCharts/6.12.0/QtCharts/private/qhorizontalpercentbarseries_p.h,",
     "Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN34QHorizontalPercentBarSeriesPrivateC1EP27QHorizontalPercentBarSeries": [
       "address", "address"
     ],

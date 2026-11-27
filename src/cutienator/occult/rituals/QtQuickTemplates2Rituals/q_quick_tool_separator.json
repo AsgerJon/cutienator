@@ -4,7 +4,7 @@
     "Templates2/6.12.0/QtQuickTemplates2/private/qquicktoolseparator_p.",
     "h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK19QQuickToolSeparator10metaObjectEv": ["address", "address"],
     "ritual_ZN19QQuickToolSeparator11qt_metacastEPKc": [
       "address", "address", "chars"

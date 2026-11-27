@@ -4,7 +4,7 @@
     "QtCore/qassociativeiterable.h, Qt 6.12.0. Edited by hand: see the",
     "ritual file."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN20QAssociativeIterableC1Ev": ["address"],
     "ritual_ZN20QAssociativeIterableC1ERK16QMetaAssociationRK9QMetaTypePv": [
       "address", "address", "address", "address"
@@ -70,6 +70,7 @@
     ],
     "ritual_ZN20QAssociativeIterableC1I5QHashI7QString8QVariantEEEPT_": [
       "address", "address"
-    ]
+    ],
+    "ritual_ZN20QAssociativeIterableD1Ev": ["nothing", "address"]
   }
 }

@@ -4,7 +4,7 @@
     "QtGui/6.12.0/QtGui/private/qimage_p.h, Qt 6.12.0. Changes made",
     "here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN10QImageDataC1Ev": ["address"],
     "ritual_ZN10QImageDataD1Ev": ["nothing", "address"],
     "ritual_ZN10QImageData6createERK5QSizeN6QImage6FormatE": [

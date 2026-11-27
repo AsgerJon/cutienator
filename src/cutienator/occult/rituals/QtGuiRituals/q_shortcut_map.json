@@ -4,7 +4,7 @@
     "QtGui/6.12.0/QtGui/private/qshortcutmap_p.h, Qt 6.12.0. Changes",
     "made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN12QShortcutMap6d_funcEv": ["address", "address"],
     "ritual_ZNK12QShortcutMap6d_funcEv": ["address", "address"],
     "ritual_ZN12QShortcutMapC1Ev": ["address"],

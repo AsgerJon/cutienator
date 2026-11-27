@@ -4,7 +4,7 @@
     "QtCharts/6.12.0/QtCharts/private/qdatetimeaxis_p.h, Qt 6.12.0.",
     "Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK20QDateTimeAxisPrivate10metaObjectEv": ["address", "address"],
     "ritual_ZN20QDateTimeAxisPrivate11qt_metacastEPKc": [
       "address", "address", "chars"

@@ -4,7 +4,7 @@
     "QtSpatialAudio/6.12.0/QtSpatialAudio/private/qaudioengine_p.h, Qt",
     "6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN19QAudioEnginePrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK19QAudioEnginePrivate6q_funcEv": ["address", "address"],
     "ritual_ZN19QAudioEnginePrivate3getEP12QAudioEngine": [

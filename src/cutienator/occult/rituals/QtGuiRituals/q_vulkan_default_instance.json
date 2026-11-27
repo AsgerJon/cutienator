@@ -4,7 +4,7 @@
     "QtGui/6.12.0/QtGui/private/qvulkandefaultinstance_p.h, Qt 6.12.0.",
     "Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN22QVulkanDefaultInstance5flagsEv": ["int"],
     "ritual_ZN22QVulkanDefaultInstance7setFlagENS_4FlagEb": [
       "nothing", "int", "bool"

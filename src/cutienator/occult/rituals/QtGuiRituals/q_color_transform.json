@@ -3,7 +3,7 @@
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtGui/qcolortransform.h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN15QColorTransformC1Ev": ["address"],
     "ritual_ZN15QColorTransformD1Ev": ["nothing", "address"],
     "ritual_ZN15QColorTransformC1ERKS_": ["address", "address"],

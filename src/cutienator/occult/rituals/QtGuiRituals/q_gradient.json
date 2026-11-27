@@ -3,7 +3,7 @@
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtGui/qbrush.h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN9QGradientC1Ev": ["address"],
     "ritual_ZN9QGradientC1ENS_6PresetE": ["address", "int"],
     "ritual_ZN9QGradientD1Ev": ["nothing", "address"],

@@ -4,7 +4,7 @@
     "QtNetwork/6.12.0/QtNetwork/private/qhostinfo_p.h, Qt 6.12.0.",
     "Edited by hand: see the ritual file."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK15QHostInfoResult10metaObjectEv": ["address", "address"],
     "ritual_ZN15QHostInfoResult11qt_metacastEPKc": [
       "address", "address", "chars"

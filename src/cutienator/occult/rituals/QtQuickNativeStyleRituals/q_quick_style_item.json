@@ -4,7 +4,7 @@
     "QtQuickNativeStyle/6.12.0/QtQuickNativeStyle/private/qquickstyleitem_p.h,",
     "Qt 6.12.0, from Qt's source. Kept as it is when the generator"
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK15QQuickStyleItem10metaObjectEv": ["address", "address"],
     "ritual_ZN15QQuickStyleItemD1Ev": ["nothing", "address"],
     "ritual_ZNK15QQuickStyleItem11contentSizeEv": ["address", "address"],

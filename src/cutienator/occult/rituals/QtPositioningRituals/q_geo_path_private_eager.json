@@ -4,7 +4,7 @@
     "QtPositioning/6.12.0/QtPositioning/private/qgeopath_p.h, Qt",
     "6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN20QGeoPathPrivateEagerC1Ev": ["address"],
     "ritual_ZN20QGeoPathPrivateEagerC1ERK5QListI14QGeoCoordinateEd": [
       "address", "address", "double"

@@ -4,7 +4,7 @@
     "QtNetwork/6.12.0/QtNetwork/private/qnetworkreply_p.h, Qt 6.12.0.",
     "Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN20QNetworkReplyPrivateC1Ev": ["address"],
     "ritual_ZN20QNetworkReplyPrivate10setManagerEP13QNetworkReplyP21QNetworkAccessManager": [
       "nothing", "address", "address"

@@ -4,7 +4,7 @@
     "QtSensors/6.12.0/QtSensors/private/qhumiditysensor_p.h, Qt 6.12.0.",
     "Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN23QHumidityReadingPrivateC1Ev": ["address"],
     "ritual_ZN23QHumidityReadingPrivateD1Ev": ["nothing", "address"]
   }

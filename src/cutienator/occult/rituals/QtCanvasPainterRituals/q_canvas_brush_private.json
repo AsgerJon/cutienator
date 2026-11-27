@@ -4,7 +4,7 @@
     "QtCanvasPainter/6.12.0/QtCanvasPainter/private/qcanvasbrush_p.h,",
     "Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN19QCanvasBrushPrivateD1Ev": ["nothing", "address"],
     "ritual_ZN19QCanvasBrushPrivate5cloneEv": ["address", "address"],
     "ritual_ZNK19QCanvasBrushPrivate11createPaintEP14QCanvasPainter": [

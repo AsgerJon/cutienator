@@ -5,7 +5,7 @@
     "from Qt's source: Objective-C++, built on Apple's systems only.",
     "Kept as it is when the generator runs again."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN20QAppleFileIconEngineC1ERK9QFileInfo6QFlagsIN14QPlatformTheme10IconOptionEE": ["address", "address", "int"],
     "ritual_ZN20QAppleFileIconEngineD1Ev": ["nothing", "address"],
     "ritual_ZN20QAppleFileIconEngine6isNullEv": ["bool", "address"],

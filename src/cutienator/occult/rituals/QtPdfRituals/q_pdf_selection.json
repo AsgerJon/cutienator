@@ -1,0 +1,30 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtPdf/qpdfselection.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "sigils": {
+    "ritual_ZN13QPdfSelectionD1Ev": ["nothing", "address"],
+    "ritual_ZN13QPdfSelectionC1ERKS_": ["address", "address"],
+    "ritual_ZN13QPdfSelectionaSERKS_": ["address", "address", "address"],
+    "ritual_ZN13QPdfSelectionC1EOS_": ["address", "address"],
+    "ritual_ZN13QPdfSelectionaSEOS_": ["address", "address", "address"],
+    "ritual_ZN13QPdfSelection4swapERS_": ["nothing", "address", "address"],
+    "ritual_ZNK13QPdfSelection7isValidEv": ["bool", "address"],
+    "ritual_ZNK13QPdfSelection6boundsEv": ["address", "address"],
+    "ritual_ZNK13QPdfSelection4textEv": ["text", "address"],
+    "ritual_ZNK13QPdfSelection17boundingRectangleEv": ["address", "address"],
+    "ritual_ZNK13QPdfSelection10startIndexEv": ["int", "address"],
+    "ritual_ZNK13QPdfSelection8endIndexEv": ["int", "address"],
+    "ritual_ZNK13QPdfSelection15copyToClipboardEN10QClipboard4ModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN13QPdfSelectionC1Ev": ["address"],
+    "ritual_ZN13QPdfSelectionC1ERK7QString5QListI9QPolygonFE6QRectFii": [
+      "address", "text", "address", "address", "int", "int"
+    ],
+    "ritual_ZN13QPdfSelectionC1EP20QPdfSelectionPrivate": [
+      "address", "address"
+    ]
+  }
+}

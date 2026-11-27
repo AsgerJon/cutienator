@@ -4,7 +4,7 @@
     "QtWidgets/qgraphicssceneevent.h, Qt 6.12.0. Changes made here are",
     "lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN19QGraphicsSceneEventC1EN6QEvent4TypeE": ["address", "int"],
     "ritual_ZN19QGraphicsSceneEventD1Ev": ["nothing", "address"],
     "ritual_ZNK19QGraphicsSceneEvent6widgetEv": ["address", "address"],

@@ -4,7 +4,7 @@
     "QtCore/6.12.0/QtCore/private/qcfsocketnotifier_p.h, Qt 6.12.0, as the Qt of",
     "macOS installs it. Kept as it is when the generator runs again."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN13MacSocketInfoC1Ev": ["address"],
     "ritual_ZN13MacSocketInfoD1Ev": ["nothing", "address"]
   }

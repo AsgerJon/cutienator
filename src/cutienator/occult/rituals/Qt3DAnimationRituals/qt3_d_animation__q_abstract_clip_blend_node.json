@@ -4,7 +4,7 @@
     "Qt3DAnimation/qabstractclipblendnode.h, Qt 6.12.0. Changes made",
     "here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK13Qt3DAnimation22QAbstractClipBlendNode10metaObjectEv": [
       "address", "address"
     ],

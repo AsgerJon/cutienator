@@ -4,7 +4,7 @@
     "QtCore/qresultstore.h, Qt 6.12.0. Edited by hand: see the ritual",
     "file."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN9QtPrivate18ResultIteratorBaseC1Ev": ["address"],
     "ritual_ZN9QtPrivate18ResultIteratorBaseC1EN4QMapIiNS_10ResultItemEE14const_iteratorEi": [
       "address", "address", "int"

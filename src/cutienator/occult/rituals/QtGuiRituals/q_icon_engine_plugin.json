@@ -3,7 +3,7 @@
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtGui/qiconengineplugin.h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK17QIconEnginePlugin10metaObjectEv": ["address", "address"],
     "ritual_ZN17QIconEnginePlugin11qt_metacastEPKc": [
       "address", "address", "chars"

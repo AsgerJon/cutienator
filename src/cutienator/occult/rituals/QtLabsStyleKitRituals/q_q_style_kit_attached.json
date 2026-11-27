@@ -4,7 +4,7 @@
     "QtLabsStyleKit/6.12.0/QtLabsStyleKit/private/qqstylekit_p.h, Qt",
     "6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK18QQStyleKitAttached10metaObjectEv": ["address", "address"],
     "ritual_ZN18QQStyleKitAttached11qt_metacastEPKc": [
       "address", "address", "chars"

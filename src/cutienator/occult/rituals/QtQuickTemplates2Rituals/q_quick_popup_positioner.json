@@ -4,7 +4,7 @@
     "Templates2/6.12.0/QtQuickTemplates2/private/qquickpopuppositioner_",
     "p_p.h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN21QQuickPopupPositionerC1EP11QQuickPopup": [
       "address", "address"
     ],

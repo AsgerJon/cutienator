@@ -1,0 +1,34 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWebEngineCore/qwebenginescriptcollection.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "sigils": {
+    "ritual_ZN26QWebEngineScriptCollectionD1Ev": ["nothing", "address"],
+    "ritual_ZNK26QWebEngineScriptCollection7isEmptyEv": ["bool", "address"],
+    "ritual_ZNK26QWebEngineScriptCollection5countEv": ["int", "address"],
+    "ritual_ZNK26QWebEngineScriptCollection8containsERK16QWebEngineScript": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK26QWebEngineScriptCollection4findERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN26QWebEngineScriptCollection6insertERK16QWebEngineScript": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN26QWebEngineScriptCollection6insertERK5QListI16QWebEngineScriptE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN26QWebEngineScriptCollection6removeERK16QWebEngineScript": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN26QWebEngineScriptCollection5clearEv": ["nothing", "address"],
+    "ritual_ZNK26QWebEngineScriptCollection6toListEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QWebEngineScriptCollectionC1EP33QWebEngineScriptCollectionPrivate": [
+      "address", "address"
+    ]
+  }
+}

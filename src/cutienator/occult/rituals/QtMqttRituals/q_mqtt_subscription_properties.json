@@ -4,7 +4,7 @@
     "QtMqtt/qmqttsubscriptionproperties.h, Qt 6.12.0. Changes made here",
     "are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN27QMqttSubscriptionPropertiesC1Ev": ["address"],
     "ritual_ZN27QMqttSubscriptionPropertiesC1ERKS_": ["address", "address"],
     "ritual_ZN27QMqttSubscriptionPropertiesaSERKS_": [

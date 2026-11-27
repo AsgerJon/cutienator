@@ -1,0 +1,60 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtWebEn",
+    "gineQuick/6.12.0/QtWebEngineQuick/private/qquickwebenginedialogreq",
+    "uests_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "sigils": {
+    "ritual_ZNK38QQuickWebEngineJavaScriptDialogRequest10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN38QQuickWebEngineJavaScriptDialogRequest11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN38QQuickWebEngineJavaScriptDialogRequest11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN38QQuickWebEngineJavaScriptDialogRequest2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN38QQuickWebEngineJavaScriptDialogRequest24qt_qmlMarker_uncreatableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN38QQuickWebEngineJavaScriptDialogRequestD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK38QQuickWebEngineJavaScriptDialogRequest7messageEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK38QQuickWebEngineJavaScriptDialogRequest11defaultTextEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK38QQuickWebEngineJavaScriptDialogRequest5titleEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK38QQuickWebEngineJavaScriptDialogRequest4typeEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK38QQuickWebEngineJavaScriptDialogRequest14securityOriginEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK38QQuickWebEngineJavaScriptDialogRequest10isAcceptedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN38QQuickWebEngineJavaScriptDialogRequest11setAcceptedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN38QQuickWebEngineJavaScriptDialogRequest12dialogAcceptERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN38QQuickWebEngineJavaScriptDialogRequest12dialogRejectEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN38QQuickWebEngineJavaScriptDialogRequestC1E14QSharedPointerIN15QtWebEngineCore26JavaScriptDialogControllerEEP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_take_QQuickWebEngineJavaScriptDialogRequest": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

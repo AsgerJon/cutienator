@@ -3,7 +3,7 @@
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtCore/qresultstore.h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN9QtPrivate10ResultItemC1EPKvi": ["address", "address", "int"],
     "ritual_ZN9QtPrivate10ResultItemC1EPKv": ["address", "address"],
     "ritual_ZN9QtPrivate10ResultItemC1Ev": ["address"],

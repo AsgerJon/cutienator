@@ -4,7 +4,7 @@
     "QtMqtt/qmqttconnectionproperties.h, Qt 6.12.0. Changes made here",
     "are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN23QMqttLastWillPropertiesC1Ev": ["address"],
     "ritual_ZN23QMqttLastWillPropertiesC1ERKS_": ["address", "address"],
     "ritual_ZN23QMqttLastWillPropertiesaSERKS_": [

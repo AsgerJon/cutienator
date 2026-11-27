@@ -4,7 +4,7 @@
     "QtCore/6.12.0/QtCore/private/qdir_p.h, Qt 6.12.0. Changes made",
     "here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN11QDirPrivateC1ERKS_": ["address", "address"],
     "ritual_ZN11QDirPrivate17toDirListingFlagsE6QFlagsIN4QDir6FilterEE": [
       "int", "int"

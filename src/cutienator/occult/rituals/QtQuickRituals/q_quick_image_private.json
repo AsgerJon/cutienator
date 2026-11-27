@@ -4,7 +4,7 @@
     "QtQuick/6.12.0/QtQuick/private/qquickimage_p_p.h, Qt 6.12.0.",
     "Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN18QQuickImagePrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK18QQuickImagePrivate6q_funcEv": ["address", "address"],
     "ritual_ZN18QQuickImagePrivateC1Ev": ["address"],

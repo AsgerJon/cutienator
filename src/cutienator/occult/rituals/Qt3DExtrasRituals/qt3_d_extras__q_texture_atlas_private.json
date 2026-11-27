@@ -4,7 +4,7 @@
     "Qt3DExtras/6.12.0/Qt3DExtras/private/qtextureatlas_p_p.h, Qt",
     "6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN10Qt3DExtras20QTextureAtlasPrivateC1Ev": ["address"],
     "ritual_ZN10Qt3DExtras20QTextureAtlasPrivateD1Ev": [
       "nothing", "address"

@@ -4,7 +4,7 @@
     "QtLocation/6.12.0/QtLocation/private/qgeomaptype_p.h, Qt 6.12.0.",
     "Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN11QGeoMapTypeC1Ev": ["address"],
     "ritual_ZN11QGeoMapTypeC1ERKS_": ["address", "address"],
     "ritual_ZN11QGeoMapTypeC1EOS_": ["address", "address"],

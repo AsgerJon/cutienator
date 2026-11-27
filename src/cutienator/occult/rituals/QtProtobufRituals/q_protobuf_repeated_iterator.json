@@ -4,7 +4,7 @@
     "QtProtobuf/qprotobufrepeatediterator.h, Qt 6.12.0. Changes made",
     "here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN25QProtobufRepeatedIteratorC1Ev": ["address"],
     "ritual_ZN25QProtobufRepeatedIteratorD1Ev": ["nothing", "address"],
     "ritual_ZN25QProtobufRepeatedIteratorC1EOS_": ["address", "address"],

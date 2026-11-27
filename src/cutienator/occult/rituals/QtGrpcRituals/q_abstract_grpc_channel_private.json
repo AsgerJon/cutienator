@@ -4,7 +4,7 @@
     "QtGrpc/6.12.0/QtGrpc/private/qabstractgrpcchannel_p.h, Qt 6.12.0.",
     "Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN27QAbstractGrpcChannelPrivateC1ERK19QGrpcChannelOptionsP20QAbstractGrpcChannel": [
       "address", "address", "address"
     ],

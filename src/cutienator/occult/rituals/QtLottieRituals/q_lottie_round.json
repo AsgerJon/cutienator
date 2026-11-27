@@ -4,7 +4,7 @@
     "QtLottie/6.12.0/QtLottie/private/qlottieround_p.h, Qt 6.12.0.",
     "Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN12QLottieRoundC1ERKS_": ["address", "address"],
     "ritual_ZN12QLottieRoundC1EP11QLottieBase": ["address", "address"],
     "ritual_ZNK12QLottieRound5cloneEv": ["address", "address"],

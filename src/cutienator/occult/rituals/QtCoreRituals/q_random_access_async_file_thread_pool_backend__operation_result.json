@@ -4,7 +4,7 @@
     "QtCore/6.12.0/QtCore/private/qrandomaccessasyncfile_p_p.h, Qt",
     "6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN39QRandomAccessAsyncFileThreadPoolBackend15OperationResultD1Ev": [
       "nothing", "address"
     ]

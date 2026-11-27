@@ -1,0 +1,22 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWebEngineCore/qwebenginefindtextresult.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "sigils": {
+    "ritual_ZNK24QWebEngineFindTextResult15numberOfMatchesEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK24QWebEngineFindTextResult11activeMatchEv": [
+      "int", "address"
+    ],
+    "ritual_ZN24QWebEngineFindTextResultC1Ev": ["address"],
+    "ritual_ZN24QWebEngineFindTextResultC1ERKS_": ["address", "address"],
+    "ritual_ZN24QWebEngineFindTextResultaSERKS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN24QWebEngineFindTextResultD1Ev": ["nothing", "address"],
+    "ritual_ZN24QWebEngineFindTextResultC1Eii": ["address", "int", "int"]
+  }
+}

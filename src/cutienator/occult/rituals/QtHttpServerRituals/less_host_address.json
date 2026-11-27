@@ -4,7 +4,7 @@
     "QtHttpServer/6.12.0/QtHttpServer/private/qabstracthttpserver_p.h,",
     "Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK15LessHostAddressclERK12QHostAddressS2_": [
       "bool", "address", "address", "address"
     ],

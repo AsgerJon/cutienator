@@ -4,7 +4,7 @@
     "QtQml/6.12.0/QtQml/private/qqmlpropertybinding_p.h, Qt 6.12.0.",
     "Edited by hand: see the ritual file."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN19QQmlPropertyBinding24jsExpressionOffsetLengthEv": ["size_t"],
     "ritual_ZN19QQmlPropertyBinding12jsExpressionEv": ["address", "address"],
     "ritual_ZNK19QQmlPropertyBinding12jsExpressionEv": [

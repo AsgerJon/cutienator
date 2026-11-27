@@ -18,7 +18,7 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
 class EnumExpert(TypeExpert):
   """
   Says how an enum crosses, as 'Qt::TimerType': as the number type it
-  is kept as, and by that number's word in the row. An enum kept as a
+  is kept as, and by that number's word in the sigil. An enum kept as a
   type that is no number cannot be passed.
   """
 

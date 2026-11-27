@@ -4,7 +4,7 @@
     "Qt3DInput/6.12.0/Qt3DInput/private/qinputdeviceintegration_p_p.h,",
     "Qt 6.12.0, from Qt's source."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN9Qt3DInput30QInputDeviceIntegrationPrivateC1Ev": ["address"],
     "ritual_ZN9Qt3DInput30QInputDeviceIntegrationPrivate6q_funcEv": [
       "address", "address"

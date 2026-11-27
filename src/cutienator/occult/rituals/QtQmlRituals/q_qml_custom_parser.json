@@ -4,7 +4,7 @@
     "QtQml/6.12.0/QtQml/private/qqmlcustomparser_p.h, Qt 6.12.0.",
     "Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN16QQmlCustomParserD1Ev": ["nothing", "address"],
     "ritual_ZN16QQmlCustomParser11clearErrorsEv": ["nothing", "address"],
     "ritual_ZNK16QQmlCustomParser5flagsEv": ["int", "address"],

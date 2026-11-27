@@ -4,7 +4,7 @@
     "QtCore/6.12.0/QtCore/private/qmimeglobpattern_p.h, Qt 6.12.0.",
     "Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN16QMimeGlobPatternC1ERK7QStringS2_jN2Qt15CaseSensitivityE": [
       "address", "text", "text", "unsigned int", "int"
     ],

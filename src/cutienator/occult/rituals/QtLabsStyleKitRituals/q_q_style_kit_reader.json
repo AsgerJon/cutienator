@@ -4,7 +4,7 @@
     "QtLabsStyleKit/6.12.0/QtLabsStyleKit/private/qqstylekitreader_p.h,",
     "Qt 6.12.0. Edited by hand: see the ritual file."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK16QQStyleKitReader10metaObjectEv": ["address", "address"],
     "ritual_ZN16QQStyleKitReader11qt_metacastEPKc": [
       "address", "address", "chars"

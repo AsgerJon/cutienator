@@ -4,7 +4,7 @@
     "QtDBus/6.12.0/QtDBus/private/qdbusxmlparser_p.h, Qt 6.12.0.",
     "Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK14QDBusXmlParser10interfacesEv": ["address", "address"],
     "ritual_ZNK14QDBusXmlParser6objectEv": ["address", "address"],
     "ritual_ZN14QDBusXmlParser20readNextStartElementEv": ["bool", "address"],

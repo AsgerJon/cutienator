@@ -4,7 +4,7 @@
     "Controls2Universal/6.12.0/QtQuickControls2Universal/private/qquick",
     "universaltheme_p.h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN20QQuickUniversalTheme10initializeEP11QQuickTheme": [
       "nothing", "address"
     ],

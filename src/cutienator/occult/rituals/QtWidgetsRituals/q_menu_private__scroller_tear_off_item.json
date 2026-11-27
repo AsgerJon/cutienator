@@ -4,7 +4,7 @@
     "QtWidgets/6.12.0/QtWidgets/private/qmenu_p.h, Qt 6.12.0. Changes",
     "made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN12QMenuPrivate19ScrollerTearOffItemC1ENS0_4TypeEPS_P7QWidget6QFlagsIN2Qt10WindowTypeEE": [
       "address", "int", "address", "address", "int"
     ],

@@ -4,7 +4,7 @@
     "QtCore/6.12.0/QtCore/private/qgregoriancalendar_p.h, Qt 6.12.0.",
     "Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK18QGregorianCalendar4nameEv": ["text", "address"],
     "ritual_ZN18QGregorianCalendar8nameListEv": ["address"],
     "ritual_ZNK18QGregorianCalendar10isLeapYearEi": [

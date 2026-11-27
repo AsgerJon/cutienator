@@ -1,0 +1,45 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWebEngineCore/qwebenginehistory.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "sigils": {
+    "ritual_ZN21QWebEngineHistoryItemC1ERKS_": ["address", "address"],
+    "ritual_ZN21QWebEngineHistoryItemC1EOS_": ["address", "address"],
+    "ritual_ZN21QWebEngineHistoryItemaSERKS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN21QWebEngineHistoryItemaSEOS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN21QWebEngineHistoryItemD1Ev": ["nothing", "address"],
+    "ritual_ZNK21QWebEngineHistoryItem11originalUrlEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK21QWebEngineHistoryItem3urlEv": ["address", "address"],
+    "ritual_ZNK21QWebEngineHistoryItem5titleEv": ["text", "address"],
+    "ritual_ZNK21QWebEngineHistoryItem11lastVisitedEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK21QWebEngineHistoryItem7iconUrlEv": ["address", "address"],
+    "ritual_ZNK21QWebEngineHistoryItem7isValidEv": ["bool", "address"],
+    "ritual_ZN21QWebEngineHistoryItem4swapERS_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QWebEngineHistoryItemC1EP28QWebEngineHistoryItemPrivate": [
+      "address", "address"
+    ],
+    "ritual_ZN21QWebEngineHistoryItem6d_funcEv": ["address", "address"],
+    "ritual_ZNK21QWebEngineHistoryItem6d_funcEv": ["address", "address"],
+    "ritual_list_make_QWebEngineHistoryItem": ["address"],
+    "ritual_list_add_QWebEngineHistoryItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_list_size_QWebEngineHistoryItem": ["long long", "address"],
+    "ritual_list_at_QWebEngineHistoryItem": [
+      "address", "address", "long long"
+    ],
+    "ritual_list_drop_QWebEngineHistoryItem": ["nothing", "address"]
+  }
+}

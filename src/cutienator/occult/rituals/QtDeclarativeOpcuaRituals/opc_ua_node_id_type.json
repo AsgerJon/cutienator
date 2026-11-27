@@ -4,7 +4,7 @@
     "QtDeclarativeOpcua/6.12.0/QtDeclarativeOpcua/private/",
     "opcuanodeidtype_p.h, Qt 6.12.0, from Qt's source."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK15OpcUaNodeIdType10metaObjectEv": ["address", "address"],
     "ritual_ZN15OpcUaNodeIdTypeD1Ev": ["nothing", "address"]
   }

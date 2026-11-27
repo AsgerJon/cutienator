@@ -4,7 +4,7 @@
     "3DRuntimeRender/6.12.0/QtQuick3DRuntimeRender/private/qssgrenderer",
     "_p.h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN19QSSGRendererPrivateC1Ev": ["address"],
     "ritual_ZN19QSSGRendererPrivate29generateRhiShaderPipelineImplER20QSSGSubsetRenderableR24QSSGShaderLibraryManagerR15QSSGShaderCacheR20QSSGProgramGeneratorRK38QSSGShaderDefaultMaterialKeyPropertiesRK18QSSGShaderFeaturesRK26QSSGUserShaderAugmentationR10QByteArray": [
       "address", "address", "address", "address", "address", "address",

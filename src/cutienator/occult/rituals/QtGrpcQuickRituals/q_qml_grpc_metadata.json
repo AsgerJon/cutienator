@@ -4,7 +4,7 @@
     "QtGrpcQuick/6.12.0/QtGrpcQuick/private/qqmlgrpcmetadata_p.h, Qt",
     "6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK16QQmlGrpcMetadata10metaObjectEv": ["address", "address"],
     "ritual_ZN16QQmlGrpcMetadata11qt_metacastEPKc": [
       "address", "address", "chars"

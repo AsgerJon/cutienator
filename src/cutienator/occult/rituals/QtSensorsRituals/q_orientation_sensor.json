@@ -4,7 +4,7 @@
     "QtSensors/qorientationsensor.h, Qt 6.12.0. Changes made here are",
     "lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK18QOrientationSensor10metaObjectEv": ["address", "address"],
     "ritual_ZN18QOrientationSensor11qt_metacastEPKc": [
       "address", "address", "chars"

@@ -50,7 +50,7 @@ test = [
 
 # The ritual files are C++ that 'cutienator.occult.Rituals' compiles on the
 # machine the package is installed on, so they ship with the package,
-# each with its rows file, which says what its rituals take and give.
+# each with its sigil file, which says what its rituals take and give.
 [tool.setuptools.package-data]
 cutienator = [
     "occult/rituals/*/*.cpp", "occult/rituals/*/*.mm",

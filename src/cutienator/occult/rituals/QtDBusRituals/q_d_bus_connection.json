@@ -3,7 +3,7 @@
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtDBus/qdbusconnection.h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN15QDBusConnectionC1ERK7QString": ["address", "text"],
     "ritual_ZN15QDBusConnectionC1ERKS_": ["address", "address"],
     "ritual_ZN15QDBusConnectionC1EOS_": ["address", "address"],

@@ -4,7 +4,7 @@
     "Qt3DCore/6.12.0/Qt3DCore/private/qthreadpooler_p.h, Qt 6.12.0.",
     "Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK8Qt3DCore13QThreadPooler10metaObjectEv": [
       "address", "address"
     ],

@@ -4,7 +4,7 @@
     "QtQuick/6.12.0/QtQuick/private/qquickitemsmodule_p.h, Qt 6.12.0.",
     "Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN22QPointingDeviceForeign20qt_qmlMarker_foreignEv": [
       "nothing", "address"
     ],

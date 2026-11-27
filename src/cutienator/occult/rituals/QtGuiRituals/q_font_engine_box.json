@@ -4,7 +4,7 @@
     "QtGui/6.12.0/QtGui/private/qfontengine_p.h, Qt 6.12.0. Changes",
     "made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN14QFontEngineBoxD1Ev": ["nothing", "address"],
     "ritual_ZNK14QFontEngineBox10glyphIndexEj": [
       "unsigned int", "address", "unsigned int"

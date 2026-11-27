@@ -4,7 +4,7 @@
     "QtNetwork/6.12.0/QtNetwork/private/qnetworkdiskcache_p.h, Qt",
     "6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN10QCacheItemC1Ev": ["address"],
     "ritual_ZN10QCacheItemD1Ev": ["nothing", "address"],
     "ritual_ZNK10QCacheItem4sizeEv": ["long long", "address"],

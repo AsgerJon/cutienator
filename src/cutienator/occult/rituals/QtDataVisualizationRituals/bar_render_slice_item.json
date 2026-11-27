@@ -4,7 +4,7 @@
     "isualization/6.12.0/QtDataVisualization/private/barrenderitem_p.h,",
     "Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN18BarRenderSliceItemC1Ev": ["address"],
     "ritual_ZN18BarRenderSliceItemC1ERKS_": ["address", "address"],
     "ritual_ZN18BarRenderSliceItemaSERKS_": [

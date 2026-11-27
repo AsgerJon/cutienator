@@ -4,7 +4,7 @@
     "QtWidgets/6.12.0/QtWidgets/private/qsimplex_p.h, Qt 6.12.0.",
     "Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN8QSimplexC1Ev": ["address"],
     "ritual_ZN8QSimplexD1Ev": ["nothing", "address"],
     "ritual_ZN8QSimplex8solveMinEv": ["double", "address"],

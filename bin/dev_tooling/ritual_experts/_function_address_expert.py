@@ -23,7 +23,7 @@ class FunctionAddressExpert(TypeExpert):
   Qt's 'QFunctionPointer': the ritual takes it as 'void *', and hands
   Qt the address made the function's type again; a function Qt gives
   goes back the same way. Python hands over the address of a function
-  it made, as 'ctypes' makes one. Its word in the row is 'address'.
+  it made, as 'ctypes' makes one. Its word in the sigil is 'address'.
 
   The address of a function of a class, as 'void (QObject::*)()', is
   no plain address: C++ keeps more in it, and it cannot be handed over

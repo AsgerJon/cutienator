@@ -4,7 +4,7 @@
     "nimation/6.12.0/QtLabsAnimation/private/qquickboundaryrule_p.h, Qt",
     "6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK18QQuickBoundaryRule10metaObjectEv": ["address", "address"],
     "ritual_ZN18QQuickBoundaryRule11qt_metacastEPKc": [
       "address", "address", "chars"

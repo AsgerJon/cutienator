@@ -4,7 +4,7 @@
     "QtLottie/6.12.0/QtLottie/private/qlottievectorimagecontroller_p.h, Qt",
     "6.12.0, as the Qt of macOS and of Windows installs it (the two texts"
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK28QLottieVectorImageController10metaObjectEv": [
       "address", "address"
     ],

@@ -22,11 +22,11 @@ class NumberExpert(TypeExpert):
   Says how a number crosses that Qt takes to read only: 'bool' and the
   numbers built into C++, as 'int' and 'double', also under a second
   name, as 'qsizetype', and taken as 'const bool' or 'const int &'. It
-  crosses as a copy, and goes by the name C++ has for it in the row, as
+  crosses as a copy, and goes by the name C++ has for it in the sigil, as
   'int', 'bool' and 'long long'.
 
   'long' and 'unsigned long' are 64 bits wide on Linux and macOS and 32
-  on Windows, so the row would be right on one of them only: such a
+  on Windows, so the sigil would be right on one of them only: such a
   number has a word only where the header writes 'long' itself, or a
   name known to follow the system, as 'size_t'; see 'findNumberWord'.
   Other experts ask that of this one as well.
@@ -50,7 +50,7 @@ class NumberExpert(TypeExpert):
   @staticmethod
   def findNumberWord(written: str, plain: str) -> str:
     """
-    Gives the word a number goes by in a row, or '' when no word is
+    Gives the word a number goes by in a sigil, or '' when no word is
     right on every system.
 
     Parameters
@@ -96,7 +96,7 @@ class NumberExpert(TypeExpert):
   #  'long' under any other name is as wide as its system makes it.
   __long_names__ = ('long', 'unsigned long', 'ulong')
   #  The names that end as 'long' on Linux and macOS and as another type
-  #  on Windows, each with the word it goes by in a row.
+  #  on Windows, each with the word it goes by in a sigil.
   __size_names__ = {'size_t': 'size_t', 'std::size_t': 'size_t'}
   #  The widest number of each sign, which a number of no word crosses
   #  as; see 'findPassing'.

@@ -4,7 +4,7 @@
     "QtConcurrent/qtconcurrentthreadengine.h, Qt 6.12.0. Changes made",
     "here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN12QtConcurrent19ThreadEngineBarrierC1Ev": ["address"],
     "ritual_ZN12QtConcurrent19ThreadEngineBarrier7acquireEv": [
       "nothing", "address"

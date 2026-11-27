@@ -1,0 +1,34 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWebEngineCore/qwebenginefullscreenrequest.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "sigils": {
+    "ritual_ZN27QWebEngineFullScreenRequestC1Ev": ["address"],
+    "ritual_ZN27QWebEngineFullScreenRequestC1ERKS_": ["address", "address"],
+    "ritual_ZN27QWebEngineFullScreenRequestaSERKS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN27QWebEngineFullScreenRequestC1EOS_": ["address", "address"],
+    "ritual_ZN27QWebEngineFullScreenRequestaSEOS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN27QWebEngineFullScreenRequestD1Ev": ["nothing", "address"],
+    "ritual_ZN27QWebEngineFullScreenRequest6rejectEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QWebEngineFullScreenRequest6acceptEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK27QWebEngineFullScreenRequest8toggleOnEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK27QWebEngineFullScreenRequest6originEv": [
+      "address", "address"
+    ],
+    "ritual_ZN27QWebEngineFullScreenRequestC1ERK4QUrlbRKSt8functionIFvbEE": [
+      "address", "address", "bool", "address"
+    ]
+  }
+}

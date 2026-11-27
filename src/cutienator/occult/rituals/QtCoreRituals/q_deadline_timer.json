@@ -4,7 +4,7 @@
     "QtCore/qdeadlinetimer.h, Qt 6.12.0. Edited by hand: see the ritual",
     "file."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN14QDeadlineTimerC1Ev": ["address"],
     "ritual_ZN14QDeadlineTimerC1EN2Qt9TimerTypeE": ["address", "int"],
     "ritual_ZN14QDeadlineTimerC1ENS_15ForeverConstantEN2Qt9TimerTypeE": [

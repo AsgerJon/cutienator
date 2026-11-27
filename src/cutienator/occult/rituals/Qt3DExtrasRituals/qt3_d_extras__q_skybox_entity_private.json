@@ -4,7 +4,7 @@
     "Qt3DExtras/6.12.0/Qt3DExtras/private/qskyboxentity_p.h, Qt 6.12.0.",
     "Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN10Qt3DExtras20QSkyboxEntityPrivateC1Ev": ["address"],
     "ritual_ZN10Qt3DExtras20QSkyboxEntityPrivate4initEv": [
       "nothing", "address"

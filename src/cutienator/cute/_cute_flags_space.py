@@ -29,7 +29,7 @@ class CuteFlagsSpace(BaseSpace):
     the order written. 'CuteFlags' reads them with 'getFlagNumbers' once
     the class is made.
   - The class statement may name the C++ number the flags are, with the
-    words the rows files of the rituals use:
+    words the sigil files of the rituals use:
 
       class KeyboardModifier(CuteFlags, number='unsigned int'):
 

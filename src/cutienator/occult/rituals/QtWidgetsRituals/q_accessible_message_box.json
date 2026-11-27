@@ -4,7 +4,7 @@
     "QtWidgets/6.12.0/QtWidgets/private/simplewidgets_p.h, Qt 6.12.0.",
     "Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN21QAccessibleMessageBoxC1EP7QWidget": ["address", "address"],
     "ritual_ZNK21QAccessibleMessageBox4textEN11QAccessible4TextE": [
       "text", "address", "int"

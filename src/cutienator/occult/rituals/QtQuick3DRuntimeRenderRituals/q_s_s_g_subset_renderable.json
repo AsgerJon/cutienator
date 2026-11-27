@@ -4,7 +4,7 @@
     "3DRuntimeRender/6.12.0/QtQuick3DRuntimeRender/private/qssgrenderab",
     "leobjects_p.h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN20QSSGSubsetRenderableC1EN20QSSGRenderableObject4TypeE25QSSGRenderableObjectFlagsRK9QVector3DP12QSSGRendererRK16QSSGRenderSubsetRK16QSSGModelContextfjRK21QSSGRenderGraphObjectP19QSSGRenderableImage25QSSGShaderBaseMaterialKeyI38QSSGShaderDefaultMaterialKeyPropertiesLm25EERK12QSSGDataViewI15QSSGShaderLightEb": [
       "address", "unsigned char", "address", "address", "address", "address",
       "address", "float", "unsigned int", "address", "address", "address",

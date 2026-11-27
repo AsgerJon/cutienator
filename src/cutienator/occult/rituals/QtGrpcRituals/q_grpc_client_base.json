@@ -3,7 +3,7 @@
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtGrpc/qgrpcclientbase.h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK15QGrpcClientBase10metaObjectEv": ["address", "address"],
     "ritual_ZN15QGrpcClientBase11qt_metacastEPKc": [
       "address", "address", "chars"

@@ -4,7 +4,7 @@
     "alKeyboard/6.12.0/QtVirtualKeyboard/private/unipentrace_p.h, Qt",
     "6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK17QtVirtualKeyboard11UnipenTrace10metaObjectEv": [
       "address", "address"
     ],

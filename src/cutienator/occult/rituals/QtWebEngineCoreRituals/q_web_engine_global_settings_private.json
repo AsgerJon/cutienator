@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtWebEn",
+    "gineCore/6.12.0/QtWebEngineCore/private/qwebengineglobalsettings_p",
+    ".h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "sigils": {
+    "ritual_ZN31QWebEngineGlobalSettingsPrivateC1Ev": ["address"],
+    "ritual_ZN31QWebEngineGlobalSettingsPrivate8instanceEv": ["address"],
+    "ritual_ZN31QWebEngineGlobalSettingsPrivate25configureStubHostResolverEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN31QWebEngineGlobalSettingsPrivateD1Ev": ["nothing", "address"]
+  }
+}

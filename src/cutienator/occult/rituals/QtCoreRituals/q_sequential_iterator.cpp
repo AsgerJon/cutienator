@@ -1,5 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtCore/qsequentialiterable.h, Qt 6.12.0. Changes made here are lost.
+//  QtCore/qsequentialiterable.h, Qt 6.12.0. Edited by hand on 2026-11-27:
+//  the ritual of the destructor the compiler writes for the class, which its
+//  cute class calls to remove what Python holds, and which the generator no
+//  longer writes for it. Kept as it is when the generator runs again.
 #include <QtCore/qglobal.h>
 #if QT_DEPRECATED_SINCE(6, 15)
 #include <QtCore/qsequentialiterable.h>
@@ -39,6 +42,12 @@ void ritual_drop_QSequentialIterator__QVariantRef_QSequentialIterator(
 extern "C" Q_DECL_EXPORT
 void ritual_drop_QSequentialIterator__QVariantPointer_QSequentialIterator(
     QVariantPointer<QSequentialIterator> *self) {
+  delete self;
+}
+
+//  QSequentialIterator::~QSequentialIterator()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QSequentialIteratorD1Ev(QSequentialIterator *self) {
   delete self;
 }
 

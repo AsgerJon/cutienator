@@ -1,4 +1,4 @@
-"""RitualGenerator writes the ritual file of one Qt class, and the rows
+"""RitualGenerator writes the ritual file of one Qt class, and the sigil
 file that goes with it."""
 #  Apache-2.0 license
 #  Copyright (c) 2026 Asger Jon Vistisen
@@ -30,14 +30,14 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   Rituals = Tuple[Record, ...]
   Records = Tuple[Record, ...]
   Reasons = Tuple[Tuple[str, str], ...]
-  Rows = Dict[str, Tuple[str, ...]]
+  Sigils = Dict[str, Tuple[str, ...]]
   Names = Tuple[str, ...]
 
 
 class RitualGenerator:
   """
   Writes the ritual file of one Qt class: one ritual for each function
-  of the class whose types it can pass. Beside it goes the rows file,
+  of the class whose types it can pass. Beside it goes the sigil file,
   which says for Python what each ritual takes and gives. This is the
   generator side of the tooling; 'RitualTester' is the side that
   verifies what it wrote.
@@ -61,9 +61,9 @@ class RitualGenerator:
   - A ritual file is a C++ file holding rituals.
   - To pass a type is to hand a value of it from Python to C++, or
     back.
-  - A row says, for one ritual, what comes back from it and then what
+  - A sigil says, for one ritual, what comes back from it and then what
     goes into it, one word each. 'cutienator.occult.Rituals' reads the
-    rows to know how to call each ritual.
+    sigils to know how to call each ritual.
   - A value class is a class C++ can copy, as 'QSize'. C++ hands such
     an object around as a copy, where it hands a 'QObject' around by
     its address.
@@ -89,7 +89,7 @@ class RitualGenerator:
     written in full ('SpellingExpert'), the compiler's view of a file
     ('ProbeExpert'), the C++ class of ours through which Python takes
     functions over ('CuteClassExpert'), and the text of the ritual file
-    and of the rows file ('RitualFileExpert').
+    and of the sigil file ('RitualFileExpert').
 
   You provide
   -----------
@@ -137,14 +137,14 @@ class RitualGenerator:
     ritual has to remove it. Text: Qt's 'QString' in each of those
     three spellings, and the two classes that look at text held
     elsewhere, 'QStringView' and 'QAnyStringView'. It is passed as a
-    value of 'QString', and its word in the row is 'text', so Python
+    value of 'QString', and its word in the sigil is 'text', so Python
     passes a plain 'str' ('ValueExpert').
   - A value Qt may take over, 'T &&', by its address, moved to Qt
     ('MovedExpert').
   - An object Qt reads or changes where it is, 'T &', by its address
     ('ReferenceExpert').
 
-  The words of a row
+  The words of a sigil
   ------------------
 
   - 'nothing': the ritual gives nothing back.
@@ -179,12 +179,12 @@ class RitualGenerator:
     emits it.
   - A number that ends as 'long' on this system, under a name that
     says no width, is not written either. 'long' is 64 bits wide on
-    Linux and macOS and 32 on Windows, and the row would be right on
+    Linux and macOS and 32 on Windows, and the sigil would be right on
     one of them only.
   - The ritual file pulls in the header file of every value class its
     rituals copy, since a copy needs the whole class.
   - The getters decide and write nothing. Only 'write' touches a file,
-    and it replaces the ritual file and the rows file whole.
+    and it replaces the ritual file and the sigil file whole.
   - Whether what was written is right is not checked here. That is the
     job of 'RitualTester'.
   """
@@ -440,9 +440,9 @@ class RitualGenerator:
     name = '%s.cpp' % self.getFileStem()
     return os.path.join(self.getWorkFolder(), name)
 
-  def getRowsFile(self) -> str:
+  def getSigilFile(self) -> str:
     """
-    Gives the full path of the rows file, as
+    Gives the full path of the sigil file, as
     '/some/folder/q_object.json': the ritual file with another ending.
 
     Found for you, from the work folder and the name of the class.
@@ -526,7 +526,7 @@ class RitualGenerator:
       'takes': what the ritual takes, in order, each as a name and a
       type. For a ritual on an object the first is 'self', the address
       of the object.
-      'row': the row of the ritual: the word for what it gives, then
+      'sigil': the sigil of the ritual: the word for what it gives, then
       one word for each thing it takes.
       'needs': the value classes the ritual copies.
       'text': the C++ text of the ritual.
@@ -589,9 +589,9 @@ class RitualGenerator:
     """Gives the name of every ritual of the class, in order."""
     return (*(ritual['ritualName'] for ritual in self.getWritten()),)
 
-  def getRows(self) -> Rows:
+  def getSigils(self) -> Sigils:
     """
-    Gives the row of every ritual of the class, under the name of the
+    Gives the sigil of every ritual of the class, under the name of the
     ritual, in the order of 'getWritten'.
 
     Decided for you, together with 'getWritten'.
@@ -599,14 +599,14 @@ class RitualGenerator:
     Returns
     -------
 
-    Rows
+    Sigils
       A 'Dict[str, Tuple[str, ...]]'. For
       'ritual_ZN7QObject12blockSignalsEb' it holds
       ('bool', 'address', 'bool'): a 'bool' comes back, and the address
       of the object and a 'bool' go in.
     """
     return {
-        ritual['ritualName']: ritual['row'] for ritual in self.getWritten()
+        ritual['ritualName']: ritual['sigil'] for ritual in self.getWritten()
     }
 
   def getRitualText(self) -> str:
@@ -630,10 +630,10 @@ class RitualGenerator:
       self.__written_rituals__ = None
       self.__unwritten_functions__ = None
 
-  def getRowsText(self) -> str:
-    """Gives the whole text of the rows file, without writing it; see
-    'RitualFileExpert.getRowsText'."""
-    return self.getExpert(RitualFileExpert).getRowsText()
+  def getSigilText(self) -> str:
+    """Gives the whole text of the sigil file, without writing it; see
+    'RitualFileExpert.getSigilText'."""
+    return self.getExpert(RitualFileExpert).getSigilText()
 
   def getFileConditions(self) -> Tuple[str, ...]:
     """Gives the conditions the whole ritual file stands under,
@@ -1021,7 +1021,7 @@ class RitualGenerator:
       None for a type that cannot be passed yet: no expert claims it,
       or the one that claims it cannot pass it. Else a record saying:
       'kind': one of the kinds of the experts, as 'number', 'list' or
-      'reference'; 'word': its word in the row, '' for a number that
+      'reference'; 'word': its word in the sigil, '' for a number that
       has no word that is right on every system; and what the kind
       needs besides, as 'className'.
     """
@@ -1241,7 +1241,7 @@ class RitualGenerator:
   def _planFunction(self, member: Record, **kwargs) -> Record:
     """
     Works out the ritual of one function of the class, whether or not
-    it can be written: its name, what it takes and gives, its row and
+    it can be written: its name, what it takes and gives, its sigil and
     its text. The keyword 'friend=True' says the function is one Qt
     writes inside the class with 'friend' in front, which belongs to
     no object and is called by its bare name. How each type crosses is
@@ -1295,7 +1295,7 @@ class RitualGenerator:
     #  the class and needs every name in full.
     given = self._spellOutside(given)
     unknown, unsure = [], []  # type: List[str], List[str]
-    takes, passed, row, needs = [], [], [], []
+    takes, passed, sigil, needs = [], [], [], []
     noted = []  # type: List[Record]
     placed = 0
     if kind == 'constructor':
@@ -1351,7 +1351,7 @@ class RitualGenerator:
         needs.extend(needed)
         takes.append((name, takenType))
         passed.append(handed)
-      row.append(passing['word'])
+      sigil.append(passing['word'])
     opening, closing = '', ');'
     giving = None  # type: Optional[Record]
     inPlace = False
@@ -1368,7 +1368,7 @@ class RitualGenerator:
     elif kind == 'destructor':
       given, gives = 'void', 'nothing'
       takes.insert(0, ('self', '%s *' % className))
-      row.insert(0, 'address')
+      sigil.insert(0, 'address')
     else:
       ownName = member['name']
       if member['kind'] == 'CXXConversionDecl':
@@ -1384,7 +1384,7 @@ class RitualGenerator:
       else:
         const = 'const ' if 'const' in words else ''
         takes.insert(0, ('self', '%s%s *' % (const, className)))
-        row.insert(0, 'address')
+        sigil.insert(0, 'address')
         called = 'self->%s' % ownName
         if own and hidden:
           #  Just this function of this class, which only a class built
@@ -1424,7 +1424,7 @@ class RitualGenerator:
         ritualName='ritual%s%s' % (
             '_own' if own else '', member.get('mangledName', '')),
         function=shown, kind=kind, gives=given, takes=(*takes,),
-        row=(gives, *row), needs=(*dict.fromkeys(needs),),
+        sigil=(gives, *sigil), needs=(*dict.fromkeys(needs),),
         unknownTypes=(*dict.fromkeys(unknown),),
         unsureNumbers=(*dict.fromkeys(unsure),),
         words=(*words,), variadic='...' in taken,
@@ -1459,7 +1459,7 @@ class RitualGenerator:
         function='%s as the %s it is built on' % (className, baseName),
         kind='cast', gives='%s *' % baseName,
         takes=(('self', '%s *' % className),),
-        row=('address', 'address'), needs=(), unknownTypes=(),
+        sigil=('address', 'address'), needs=(), unknownTypes=(),
         unsureNumbers=(), words=(), variadic=False,
         name='', arguments=(), giving=None, baseName=baseName,
     )
@@ -1486,7 +1486,7 @@ class RitualGenerator:
         function='%s::~%s()' % (className, words[-1]),
         kind='destructor', gives='void',
         takes=(('self', '%s *' % className),),
-        row=('nothing', 'address'), needs=(), unknownTypes=(),
+        sigil=('nothing', 'address'), needs=(), unknownTypes=(),
         unsureNumbers=(), words=(), variadic=False,
         name='~%s' % words[-1], arguments=(), giving=None,
     )
@@ -1601,14 +1601,14 @@ class RitualGenerator:
   def write(self) -> str:
     """
     Writes the ritual file of the class into the work folder, and the
-    rows file beside it, replacing those written before.
+    sigil file beside it, replacing those written before.
 
     Returns
     -------
 
     str
-      The full path of the ritual file, which now exists. The rows file
-      is at 'getRowsFile'.
+      The full path of the ritual file, which now exists. The sigil file
+      is at 'getSigilFile'.
 
     Raises
     ------
@@ -1627,6 +1627,6 @@ class RitualGenerator:
     ritualFile = self.getRitualFile()
     with open(ritualFile, 'w') as file:
       file.write(self.getRitualText())
-    with open(self.getRowsFile(), 'w') as file:
-      file.write(self.getRowsText())
+    with open(self.getSigilFile(), 'w') as file:
+      file.write(self.getSigilText())
     return ritualFile

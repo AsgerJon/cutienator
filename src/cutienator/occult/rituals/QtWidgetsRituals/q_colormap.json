@@ -3,7 +3,7 @@
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtWidgets/qcolormap.h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN9QColormap10initializeEv": ["nothing"],
     "ritual_ZN9QColormap7cleanupEv": ["nothing"],
     "ritual_ZN9QColormap8instanceEi": ["address", "int"],

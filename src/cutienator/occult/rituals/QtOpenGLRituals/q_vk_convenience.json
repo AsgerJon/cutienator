@@ -4,7 +4,7 @@
     "QtOpenGL/6.12.0/QtOpenGL/private/qvkconvenience_p.h, Qt 6.12.0.",
     "Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN14QVkConvenience20vkFormatFromGlFormatEj": [
       "address", "unsigned int"
     ],

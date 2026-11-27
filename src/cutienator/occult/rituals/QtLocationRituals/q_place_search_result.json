@@ -4,7 +4,7 @@
     "QtLocation/qplacesearchresult.h, Qt 6.12.0. Changes made here are",
     "lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN18QPlaceSearchResultC1Ev": ["address"],
     "ritual_ZN18QPlaceSearchResultC1ERKS_": ["address", "address"],
     "ritual_ZN18QPlaceSearchResultD1Ev": ["nothing", "address"],

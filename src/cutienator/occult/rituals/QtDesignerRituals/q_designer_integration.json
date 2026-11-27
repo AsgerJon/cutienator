@@ -4,7 +4,7 @@
     "QtDesigner/abstractintegration.h, Qt 6.12.0. Changes made here are",
     "lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK20QDesignerIntegration10metaObjectEv": ["address", "address"],
     "ritual_ZN20QDesignerIntegration11qt_metacastEPKc": [
       "address", "address", "chars"

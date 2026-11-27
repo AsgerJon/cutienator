@@ -4,7 +4,7 @@
     "Controls2Basic/6.12.0/QtQuickControls2Basic/private/qtquickcontrol",
     "s2basicforeign_p.h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN28QQuickOverlayAttachedForeign20qt_qmlMarker_foreignEv": [
       "nothing", "address"
     ],

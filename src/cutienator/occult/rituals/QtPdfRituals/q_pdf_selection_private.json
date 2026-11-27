@@ -1,0 +1,14 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtPdf/6.12.0/QtPdf/private/qpdfselection_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "sigils": {
+    "ritual_ZN20QPdfSelectionPrivateC1Ev": ["address"],
+    "ritual_ZN20QPdfSelectionPrivateC1ERK7QString5QListI9QPolygonFE6QRectFii": [
+      "address", "text", "address", "address", "int", "int"
+    ],
+    "ritual_ZN20QPdfSelectionPrivateD1Ev": ["nothing", "address"]
+  }
+}

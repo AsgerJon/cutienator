@@ -100,7 +100,7 @@ class MapExpert(TypeExpert):
       text, or its values are no class written inside no other. Else
       'mapType': the map as C++ writes it; 'pattern': 'QMap' or
       'QHash'; 'key': the keys, as C++ writes them; 'keyWord': their
-      word in a row, 'int' or 'text'; 'value': the values, as C++
+      word in a sigil, 'int' or 'text'; 'value': the values, as C++
       writes them; 'crossing': how one value crosses, 'value' or
       'address'; 'holds': the class of the values; 'tag': the kind as
       the names of its rituals have it, as 'QMap_int_QVariant'.
@@ -225,11 +225,11 @@ class MapExpert(TypeExpert):
           ('drop', '~%s()' % mapped['pattern'], 'void', (('self', own),),
            ('nothing', 'address'), 'delete self;'),
       )
-      for role, shown, gives, takes, row, line in shapes:
+      for role, shown, gives, takes, sigil, line in shapes:
         plan = dict(
             ritualName='ritual_map_%s_%s' % (role, mapped['tag']),
             function='%s: %s' % (mapType, shown), kind='map',
-            gives=gives, takes=takes, row=row, needs=(),
+            gives=gives, takes=takes, sigil=sigil, needs=(),
             unknownTypes=(), unsureNumbers=(), words=(), variadic=False,
             name='', arguments=(), giving=None, inPlace=False,
             mapped=mapped, mapRole=role,

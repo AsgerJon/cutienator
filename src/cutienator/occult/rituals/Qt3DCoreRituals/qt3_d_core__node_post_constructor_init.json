@@ -4,7 +4,7 @@
     "Qt3DCore/6.12.0/Qt3DCore/private/qnode_p.h, Qt 6.12.0. Edited by",
     "hand: see the ritual file."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK8Qt3DCore23NodePostConstructorInit10metaObjectEv": [
       "address", "address"
     ],

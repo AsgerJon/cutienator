@@ -3,7 +3,7 @@
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtNfc/qnearfieldtarget.h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN16QNearFieldTarget9RequestIdC1Ev": ["address"],
     "ritual_ZN16QNearFieldTarget9RequestIdC1ERKS0_": ["address", "address"],
     "ritual_ZN16QNearFieldTarget9RequestIdC1EPNS_16RequestIdPrivateE": [

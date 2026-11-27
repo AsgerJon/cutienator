@@ -3,7 +3,7 @@
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtSensors/qtiltsensor.h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN11QTiltFilter6filterEP12QTiltReading": [
       "bool", "address", "address"
     ],

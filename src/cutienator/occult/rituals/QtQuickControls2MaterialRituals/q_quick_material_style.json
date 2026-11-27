@@ -4,7 +4,7 @@
     "Controls2Material/6.12.0/QtQuickControls2Material/private/qquickma",
     "terialstyle_p.h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK19QQuickMaterialStyle10metaObjectEv": ["address", "address"],
     "ritual_ZN19QQuickMaterialStyle11qt_metacastEPKc": [
       "address", "address", "chars"

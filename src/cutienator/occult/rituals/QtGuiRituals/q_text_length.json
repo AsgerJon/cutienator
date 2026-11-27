@@ -3,7 +3,7 @@
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtGui/qtextformat.h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN11QTextLengthC1Ev": ["address"],
     "ritual_ZN11QTextLengthC1ENS_4TypeEd": ["address", "int", "double"],
     "ritual_ZNK11QTextLength4typeEv": ["int", "address"],

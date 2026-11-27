@@ -4,7 +4,7 @@
     "QtCore/6.12.0/QtCore/private/qstorageinfo_p.h, Qt 6.12.0. Changes",
     "made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN19QStorageInfoPrivate9MountInfoD1Ev": ["nothing", "address"]
   }
 }

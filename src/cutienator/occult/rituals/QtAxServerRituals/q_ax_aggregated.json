@@ -4,7 +4,7 @@
     "QtAxServer/qaxaggregated.h, Qt 6.12.0, from Qt's source. Kept as",
     "it is when the generator runs again."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN13QAxAggregatedD1Ev": ["nothing", "address"],
     "ritual_ZN13QAxAggregated14queryInterfaceERK5QUuidPPv": [
       "long", "address", "address", "address"

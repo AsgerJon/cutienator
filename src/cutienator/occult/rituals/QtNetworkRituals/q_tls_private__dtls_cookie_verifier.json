@@ -4,7 +4,7 @@
     "QtNetwork/6.12.0/QtNetwork/private/qtlsbackend_p.h, Qt 6.12.0.",
     "Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN11QTlsPrivate18DtlsCookieVerifier12verifyClientEP10QUdpSocketRK10QByteArrayRK12QHostAddresst": [
       "bool", "address", "address", "address", "address", "unsigned short"
     ],

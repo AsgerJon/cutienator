@@ -4,7 +4,7 @@
     "QtDataVisualizationQml/6.12.0/QtDataVisualizationQml/private/",
     "foreigntypes_p.h, Qt 6.12.0, from Qt's source."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN38QLogValue3DAxisFormatterDataVisForeignD1Ev": [
       "nothing", "address"
     ]

@@ -4,7 +4,7 @@
     "QtWidgets/6.12.0/QtWidgets/private/qgraphicsanchorlayout_p.h, Qt",
     "6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN22QtGraphicsAnchorLayout20SequentialAnchorData19updateChildrenSizesEv": [
       "nothing", "address"
     ],

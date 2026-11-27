@@ -4,7 +4,7 @@
     "QtNetwork/6.12.0/QtNetwork/private/qtcpsocket_p.h, Qt 6.12.0.",
     "Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN17QTcpSocketPrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK17QTcpSocketPrivate6q_funcEv": ["address", "address"]
   }

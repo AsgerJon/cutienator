@@ -4,7 +4,7 @@
     "QtMultimedia/6.12.0/QtMultimedia/private/qhwvideobuffer_p.h, Qt",
     "6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN19QVideoFrameTexturesD1Ev": ["nothing", "address"],
     "ritual_ZNK19QVideoFrameTextures7textureEj": [
       "address", "address", "unsigned int"

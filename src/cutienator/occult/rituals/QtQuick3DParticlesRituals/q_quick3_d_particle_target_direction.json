@@ -4,7 +4,7 @@
     "3DParticles/6.12.0/QtQuick3DParticles/private/qquick3dparticletarg",
     "etdirection_p.h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK31QQuick3DParticleTargetDirection10metaObjectEv": [
       "address", "address"
     ],

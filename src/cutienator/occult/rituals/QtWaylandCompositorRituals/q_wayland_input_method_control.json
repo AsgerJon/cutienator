@@ -4,7 +4,7 @@
     "QtWaylandCompositor/qwaylandinputmethodcontrol.h, Qt 6.12.0.",
     "Edited by hand: see the ritual file."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK26QWaylandInputMethodControl10metaObjectEv": [
       "address", "address"
     ],

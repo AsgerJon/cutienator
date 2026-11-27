@@ -4,7 +4,7 @@
     "sPainter/6.12.0/QtCanvasPainter/private/qcrhicolorglyphcache_p.h,",
     "Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN20QCRhiColorGlyphCacheC1EP4QRhi": ["address", "address"],
     "ritual_ZN20QCRhiColorGlyphCacheD1Ev": ["nothing", "address"],
     "ritual_ZN20QCRhiColorGlyphCache11addGlyphRunE7QPointFRK9QGlyphRun6QColorRK10QTransformfP15QVarLengthArrayIN28QCRhiDistanceFieldGlyphCache15TexturedPoint2DELx256EEPS8_IjLx384EE": [

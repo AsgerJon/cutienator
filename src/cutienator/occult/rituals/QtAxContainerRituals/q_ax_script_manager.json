@@ -4,7 +4,7 @@
     "QtAxContainer/qaxscript.h, Qt 6.12.0, from Qt's source. Kept as it is",
     "when the generator runs again. ActiveQt is built for Windows alone, as a"
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK16QAxScriptManager10metaObjectEv": ["address", "address"],
     "ritual_ZN16QAxScriptManager2trEPKcS1_i": [
       "text", "chars", "chars", "int"

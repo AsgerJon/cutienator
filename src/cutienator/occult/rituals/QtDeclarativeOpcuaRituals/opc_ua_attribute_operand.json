@@ -4,7 +4,7 @@
     "QtDeclarativeOpcua/6.12.0/QtDeclarativeOpcua/private/",
     "opcuaattributeoperand_p.h, Qt 6.12.0, from Qt's source."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK21OpcUaAttributeOperand10metaObjectEv": [
       "address", "address"
     ],

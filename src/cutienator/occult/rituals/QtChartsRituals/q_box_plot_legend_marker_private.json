@@ -4,7 +4,7 @@
     "QtCharts/6.12.0/QtCharts/private/qboxplotlegendmarker_p.h, Qt",
     "6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK27QBoxPlotLegendMarkerPrivate10metaObjectEv": [
       "address", "address"
     ],

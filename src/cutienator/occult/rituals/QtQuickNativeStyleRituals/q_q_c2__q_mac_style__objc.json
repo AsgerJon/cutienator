@@ -5,7 +5,7 @@
     "Qt's source: Objective-C++, built on Apple's systems only. Kept as",
     "it is when the generator runs again."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN4QQC29QMacStyleC1Ev": ["address"],
     "ritual_ZN4QQC29QMacStyle6createEv": ["address"],
     "ritual_ZN4QQC216QMacStylePrivate12CocoaControlC1Ev": ["address"],

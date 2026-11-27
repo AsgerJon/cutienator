@@ -4,7 +4,7 @@
     "QtCore/qbitarray.h, Qt 6.12.0. Edited by hand: see the ritual",
     "file."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZanRK9QBitArrayS1_": ["address", "address", "address"],
     "ritual_ZanO9QBitArrayRKS_": ["address", "address", "address"],
     "ritual_ZanRK9QBitArrayOS_": ["address", "address", "address"],

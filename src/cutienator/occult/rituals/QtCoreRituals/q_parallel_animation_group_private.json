@@ -4,7 +4,7 @@
     "QtCore/6.12.0/QtCore/private/qparallelanimationgroup_p.h, Qt 6.12.0.",
     "Edited by hand: see the ritual file."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN30QParallelAnimationGroupPrivate6q_funcEv": [
       "address",
       "address"

@@ -4,7 +4,7 @@
     "Controls2Impl/6.12.0/QtQuickControls2Impl/private/qquickitemgroup_",
     "p.h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK15QQuickItemGroup10metaObjectEv": ["address", "address"],
     "ritual_ZN15QQuickItemGroup11qt_metacastEPKc": [
       "address", "address", "chars"

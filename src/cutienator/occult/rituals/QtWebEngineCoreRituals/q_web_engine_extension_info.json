@@ -1,0 +1,49 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWebEngineCore/qwebengineextensioninfo.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "sigils": {
+    "ritual_ZN23QWebEngineExtensionInfoC1Ev": ["address"],
+    "ritual_ZN23QWebEngineExtensionInfoC1ERKS_": ["address", "address"],
+    "ritual_ZN23QWebEngineExtensionInfoC1EOS_": ["address", "address"],
+    "ritual_ZN23QWebEngineExtensionInfoaSERKS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN23QWebEngineExtensionInfoD1Ev": ["nothing", "address"],
+    "ritual_ZN23QWebEngineExtensionInfoaSEOS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN23QWebEngineExtensionInfo4swapERS_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK23QWebEngineExtensionInfo4nameEv": ["text", "address"],
+    "ritual_ZNK23QWebEngineExtensionInfo2idEv": ["text", "address"],
+    "ritual_ZNK23QWebEngineExtensionInfo11descriptionEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK23QWebEngineExtensionInfo4pathEv": ["text", "address"],
+    "ritual_ZNK23QWebEngineExtensionInfo5errorEv": ["text", "address"],
+    "ritual_ZNK23QWebEngineExtensionInfo14actionPopupUrlEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK23QWebEngineExtensionInfo9isEnabledEv": ["bool", "address"],
+    "ritual_ZNK23QWebEngineExtensionInfo8isLoadedEv": ["bool", "address"],
+    "ritual_ZNK23QWebEngineExtensionInfo11isInstalledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN23QWebEngineExtensionInfoC1EP30QWebEngineExtensionInfoPrivate": [
+      "address", "address"
+    ],
+    "ritual_list_make_QWebEngineExtensionInfo": ["address"],
+    "ritual_list_add_QWebEngineExtensionInfo": [
+      "nothing", "address", "address"
+    ],
+    "ritual_list_size_QWebEngineExtensionInfo": ["long long", "address"],
+    "ritual_list_at_QWebEngineExtensionInfo": [
+      "address", "address", "long long"
+    ],
+    "ritual_list_drop_QWebEngineExtensionInfo": ["nothing", "address"]
+  }
+}

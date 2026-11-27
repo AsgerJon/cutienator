@@ -4,7 +4,7 @@
     "Templates2/6.12.0/QtQuickTemplates2/private/qquickradiobutton_p.h,",
     "Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK17QQuickRadioButton10metaObjectEv": ["address", "address"],
     "ritual_ZN17QQuickRadioButton11qt_metacastEPKc": [
       "address", "address", "chars"

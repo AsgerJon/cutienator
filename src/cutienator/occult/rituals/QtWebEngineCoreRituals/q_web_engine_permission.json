@@ -1,0 +1,51 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWebEngineCore/qwebenginepermission.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "sigils": {
+    "ritual_ZN20QWebEnginePermissionC1Ev": ["address"],
+    "ritual_ZN20QWebEnginePermissionC1ERKS_": ["address", "address"],
+    "ritual_ZN20QWebEnginePermissionC1EOS_": ["address", "address"],
+    "ritual_ZN20QWebEnginePermissionD1Ev": ["nothing", "address"],
+    "ritual_ZN20QWebEnginePermissionaSERKS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN20QWebEnginePermissionaSEOS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN20QWebEnginePermission4swapERS_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20QWebEnginePermission6originEv": ["address", "address"],
+    "ritual_ZNK20QWebEnginePermission14permissionTypeEv": [
+      "unsigned char", "address"
+    ],
+    "ritual_ZNK20QWebEnginePermission5stateEv": ["unsigned char", "address"],
+    "ritual_ZNK20QWebEnginePermission7isValidEv": ["bool", "address"],
+    "ritual_ZNK20QWebEnginePermission5grantEv": ["nothing", "address"],
+    "ritual_ZNK20QWebEnginePermission4denyEv": ["nothing", "address"],
+    "ritual_ZNK20QWebEnginePermission5resetEv": ["nothing", "address"],
+    "ritual_ZN20QWebEnginePermission12isPersistentENS_14PermissionTypeE": [
+      "bool", "unsigned char"
+    ],
+    "ritual_ZeqRK20QWebEnginePermissionS1_": ["bool", "address", "address"],
+    "ritual_ZneRK20QWebEnginePermissionS1_": ["bool", "address", "address"],
+    "ritual_ZNK20QWebEnginePermission6equalsERKS_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN20QWebEnginePermissionC1EP27QWebEnginePermissionPrivate": [
+      "address", "address"
+    ],
+    "ritual_list_make_QWebEnginePermission": ["address"],
+    "ritual_list_add_QWebEnginePermission": [
+      "nothing", "address", "address"
+    ],
+    "ritual_list_size_QWebEnginePermission": ["long long", "address"],
+    "ritual_list_at_QWebEnginePermission": [
+      "address", "address", "long long"
+    ],
+    "ritual_list_drop_QWebEnginePermission": ["nothing", "address"]
+  }
+}

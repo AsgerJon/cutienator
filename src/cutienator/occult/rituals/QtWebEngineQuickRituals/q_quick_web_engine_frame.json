@@ -1,0 +1,37 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtWebEn",
+    "gineQuick/6.12.0/QtWebEngineQuick/private/qquickwebengineframe_p.h",
+    ", Qt 6.12.0. Changes made here are lost."
+  ],
+  "sigils": {
+    "ritual_ZN20QQuickWebEngineFrame20qt_qmlMarker_foreignEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickWebEngineFrame21qt_qmlMarker_extendedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickWebEngineFrame13runJavaScriptERK7QStringRK8QJSValue": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_ZN20QQuickWebEngineFrame13runJavaScriptERK7QStringjRK8QJSValue": [
+      "nothing", "address", "text", "unsigned int", "address"
+    ],
+    "ritual_ZN20QQuickWebEngineFrame10printToPdfERK8QJSValue": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QQuickWebEngineFrameC1E12QWeakPointerIN15QtWebEngineCore18WebContentsAdapterEEy": [
+      "address", "address", "unsigned long long"
+    ],
+    "ritual_ZN20QQuickWebEngineFrameD1Ev": ["nothing", "address"],
+    "ritual_list_make_QQuickWebEngineFrame": ["address"],
+    "ritual_list_add_QQuickWebEngineFrame": [
+      "nothing", "address", "address"
+    ],
+    "ritual_list_size_QQuickWebEngineFrame": ["long long", "address"],
+    "ritual_list_at_QQuickWebEngineFrame": [
+      "address", "address", "long long"
+    ],
+    "ritual_list_drop_QQuickWebEngineFrame": ["nothing", "address"]
+  }
+}

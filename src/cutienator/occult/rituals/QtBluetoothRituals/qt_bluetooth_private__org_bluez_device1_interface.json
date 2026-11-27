@@ -4,7 +4,7 @@
     "QtBluetooth/6.12.0/QtBluetooth/private/device1_bluez5_p.h, Qt",
     "6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK18QtBluetoothPrivate24OrgBluezDevice1Interface10metaObjectEv": [
       "address", "address"
     ],

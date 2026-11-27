@@ -4,7 +4,7 @@
     "rk/6.12.0/QtNetwork/private/qabstractsocketenginereceiver_p.h, Qt",
     "6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN29QAbstractSocketEngineReceiverD1Ev": ["nothing", "address"],
     "ritual_ZN29QAbstractSocketEngineReceiver16readNotificationEv": [
       "nothing", "address"

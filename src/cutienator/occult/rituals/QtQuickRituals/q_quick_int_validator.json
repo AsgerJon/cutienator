@@ -4,7 +4,7 @@
     "QtQuick/6.12.0/QtQuick/private/qquickvalidator_p.h, Qt 6.12.0.",
     "Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK18QQuickIntValidator10metaObjectEv": ["address", "address"],
     "ritual_ZN18QQuickIntValidator11qt_metacastEPKc": [
       "address", "address", "chars"

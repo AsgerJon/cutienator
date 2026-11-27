@@ -4,7 +4,7 @@
     "QtGui/6.12.0/QtGui/rhi/qrhi.h, Qt 6.12.0. Changes made here are",
     "lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN21QRhiVertexInputLayoutC1Ev": ["address"],
     "ritual_ZN21QRhiVertexInputLayout11setBindingsESt16initializer_listI22QRhiVertexInputBindingE": [
       "nothing", "address", "address"

@@ -4,7 +4,7 @@
     "3DIblBaker/6.12.0/QtQuick3DIblBaker/private/qssgiblbaker_p.h, Qt",
     "6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK12QSSGIblBaker15inputExtensionsEv": ["address", "address"],
     "ritual_ZNK12QSSGIblBaker15outputExtensionEv": ["text", "address"],
     "ritual_ZN12QSSGIblBaker6importERK7QStringRK4QDirP5QListIS0_E": [

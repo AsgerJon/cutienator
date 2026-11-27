@@ -7,7 +7,7 @@
   "parts first": [
     "QtGraphs", "QtCore", "QtGui", "QtQuick", "QtQml", "QtQmlIntegration"
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN22QPieModelMapperPrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK22QPieModelMapperPrivate6q_funcEv": ["address", "address"],
     "ritual_ZN22QPieModelMapperPrivateC1Ev": ["address"],

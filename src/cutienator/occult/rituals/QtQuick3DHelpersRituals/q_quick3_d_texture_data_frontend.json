@@ -4,7 +4,7 @@
     "3DHelpers/6.12.0/QtQuick3DHelpers/private/qquick3dtexturedatafront",
     "end_p.h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK27QQuick3DTextureDataFrontend10metaObjectEv": [
       "address", "address"
     ],

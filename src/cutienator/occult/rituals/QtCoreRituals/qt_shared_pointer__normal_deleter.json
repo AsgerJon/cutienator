@@ -4,7 +4,7 @@
     "QtCore/qsharedpointer_impl.h, Qt 6.12.0. Changes made here are",
     "lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN15QtSharedPointer13NormalDeleterD1Ev": ["nothing", "address"]
   }
 }

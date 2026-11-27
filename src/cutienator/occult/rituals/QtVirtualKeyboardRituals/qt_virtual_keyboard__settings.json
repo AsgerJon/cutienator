@@ -4,7 +4,7 @@
     "QtVirtualKeyboard/6.12.0/QtVirtualKeyboard/private/settings_p.h,",
     "Qt 6.12.0, from Qt's source."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK17QtVirtualKeyboard8Settings10metaObjectEv": [
       "address", "address"
     ],

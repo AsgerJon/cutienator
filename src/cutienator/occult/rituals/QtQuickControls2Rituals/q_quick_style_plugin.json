@@ -4,7 +4,7 @@
     "Controls2/6.12.0/QtQuickControls2/private/qquickstyleplugin_p.h,",
     "Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK17QQuickStylePlugin10metaObjectEv": ["address", "address"],
     "ritual_ZN17QQuickStylePlugin11qt_metacastEPKc": [
       "address", "address", "chars"

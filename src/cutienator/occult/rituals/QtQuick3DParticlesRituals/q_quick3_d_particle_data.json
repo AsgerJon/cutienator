@@ -4,7 +4,7 @@
     "3DParticles/6.12.0/QtQuick3DParticles/private/qquick3dparticledata",
     "_p.h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN20QQuick3DParticleDataD1Ev": ["nothing", "address"]
   }
 }

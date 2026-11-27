@@ -4,7 +4,7 @@
     "QtHttpServer/qhttpserverresponder.h, Qt 6.12.0. Changes made here",
     "are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN20QHttpServerResponder6d_funcEv": ["address", "address"],
     "ritual_ZNK20QHttpServerResponder6d_funcEv": ["address", "address"],
     "ritual_ZN20QHttpServerResponderC1EOS_": ["address", "address"],

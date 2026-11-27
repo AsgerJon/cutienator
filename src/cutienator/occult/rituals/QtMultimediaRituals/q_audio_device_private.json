@@ -4,7 +4,7 @@
     "QtMultimedia/6.12.0/QtMultimedia/private/qaudiodevice_p.h, Qt",
     "6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN19QAudioDevicePrivateC1ERK10QByteArrayN12QAudioDevice4ModeE7QStringbNS_17AudioDeviceFormatE": [
       "address", "address", "int", "text", "bool", "address"
     ],

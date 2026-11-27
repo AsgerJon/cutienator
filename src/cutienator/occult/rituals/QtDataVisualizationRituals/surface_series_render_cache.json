@@ -4,7 +4,7 @@
     "isualization/6.12.0/QtDataVisualization/private/surfaceseriesrende",
     "rcache_p.h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN24SurfaceSeriesRenderCacheD1Ev": ["nothing", "address"],
     "ritual_ZN24SurfaceSeriesRenderCache8populateEb": [
       "nothing", "address", "bool"

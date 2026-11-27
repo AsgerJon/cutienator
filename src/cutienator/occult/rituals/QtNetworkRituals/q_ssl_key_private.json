@@ -4,7 +4,7 @@
     "QtNetwork/6.12.0/QtNetwork/private/qsslkey_p.h, Qt 6.12.0. Changes",
     "made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN14QSslKeyPrivateD1Ev": ["nothing", "address"],
     "ritual_ZN14QSslKeyPrivate7decryptEN11QTlsPrivate6CipherERK10QByteArrayS4_S4_": [
       "address", "int", "address", "address", "address"

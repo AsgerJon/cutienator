@@ -3,7 +3,7 @@
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtGui/qshortcut.h, Qt 6.12.0. Edited by hand: see the ritual file."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK9QShortcut10metaObjectEv": ["address", "address"],
     "ritual_ZN9QShortcut11qt_metacastEPKc": ["address", "address", "chars"],
     "ritual_ZN9QShortcut11qt_metacallEN11QMetaObject4CallEiPPv": [

@@ -4,7 +4,7 @@
     "QtDesigner/6.12.0/QtDesigner/private/qlayout_widget_p.h, Qt",
     "6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN18qdesigner_internal16LayoutPropertiesC1Ev": ["address"],
     "ritual_ZN18qdesigner_internal16LayoutProperties5clearEv": [
       "nothing", "address"

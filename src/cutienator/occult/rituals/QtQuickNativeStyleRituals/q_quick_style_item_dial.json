@@ -4,7 +4,7 @@
     "QtQuickNativeStyle/6.12.0/QtQuickNativeStyle/private/qquickstyleitemdial_p.h,",
     "Qt 6.12.0, from Qt's source. Kept as it is when"
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK19QQuickStyleItemDial10metaObjectEv": ["address", "address"],
     "ritual_ZN19QQuickStyleItemDialD1Ev": ["nothing", "address"],
     "ritual_ZNK19QQuickStyleItemDial9styleFontEP10QQuickItem": [

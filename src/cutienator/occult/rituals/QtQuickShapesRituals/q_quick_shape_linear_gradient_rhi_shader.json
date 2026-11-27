@@ -4,7 +4,7 @@
     "Shapes/6.12.0/QtQuickShapes/private/qquickshapegenericrenderer_p.h",
     ", Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN34QQuickShapeLinearGradientRhiShaderC1Ei": ["address", "int"],
     "ritual_ZN34QQuickShapeLinearGradientRhiShader17updateUniformDataERN17QSGMaterialShader11RenderStateEP11QSGMaterialS4_": [
       "bool", "address", "address", "address", "address"

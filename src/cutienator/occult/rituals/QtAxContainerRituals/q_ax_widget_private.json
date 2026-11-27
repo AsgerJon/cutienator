@@ -4,7 +4,7 @@
     "QtAxContainer/6.12.0/QtAxContainer/private/qaxwidget_p.h, Qt 6.12.0, from",
     "Qt's source. Kept as it is when the generator runs again. ActiveQt is"
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN16QAxWidgetPrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK16QAxWidgetPrivate6q_funcEv": ["address", "address"],
     "ritual_ZN16QAxWidgetPrivate5clearEv": ["nothing", "address"],

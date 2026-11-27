@@ -4,7 +4,7 @@
     "QtBluetooth/6.12.0/QtBluetooth/private/btnotifier_p.h, Qt 6.12.0.",
     "Edited by hand: see the ritual file."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK15DarwinBluetooth19LECBManagerNotifier10metaObjectEv": [
       "address", "address"
     ],

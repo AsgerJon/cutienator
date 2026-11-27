@@ -4,7 +4,7 @@
     "QtGui/6.12.0/QtGui/private/qdbusmenubar_p.h, Qt 6.12.0. Edited by",
     "hand: see the ritual file."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK12QDBusMenuBar10metaObjectEv": ["address", "address"],
     "ritual_ZN12QDBusMenuBar11qt_metacastEPKc": [
       "address", "address", "chars"

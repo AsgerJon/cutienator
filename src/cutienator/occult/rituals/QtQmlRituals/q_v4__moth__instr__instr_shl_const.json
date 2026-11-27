@@ -4,7 +4,7 @@
     "QtQml/6.12.0/QtQml/private/qv4instr_moth_p.h, Qt 6.12.0. Changes",
     "made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN3QV44Moth5Instr14instr_ShlConstD1Ev": ["nothing", "address"]
   }
 }

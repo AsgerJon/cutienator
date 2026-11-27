@@ -4,7 +4,7 @@
     "QtWidgets/6.12.0/QtWidgets/private/qmdisubwindow_p.h, Qt 6.12.0.",
     "Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN4QMdi16ControlContainerD1Ev": ["nothing", "address"],
     "ritual_ZNK4QMdi16ControlContainer7menuBarEv": ["address", "address"],
     "ritual_ZN4QMdi16ControlContainer16updateWindowIconERK5QIcon": [

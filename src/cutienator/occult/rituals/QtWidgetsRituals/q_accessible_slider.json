@@ -4,7 +4,7 @@
     "QtWidgets/6.12.0/QtWidgets/private/rangecontrols_p.h, Qt 6.12.0.",
     "Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK17QAccessibleSlider4textEN11QAccessible4TextE": [
       "text", "address", "int"
     ],

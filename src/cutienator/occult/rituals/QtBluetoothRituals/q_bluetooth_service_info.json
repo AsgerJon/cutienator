@@ -4,7 +4,7 @@
     "QtBluetooth/qbluetoothserviceinfo.h, Qt 6.12.0. Changes made here",
     "are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN21QBluetoothServiceInfoC1Ev": ["address"],
     "ritual_ZN21QBluetoothServiceInfoC1ERKS_": ["address", "address"],
     "ritual_ZN21QBluetoothServiceInfoD1Ev": ["nothing", "address"],

@@ -4,7 +4,7 @@
     "3DRuntimeRender/6.12.0/QtQuick3DRuntimeRender/private/qssgrhiconte",
     "xt_p.h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN27QSSGComputePipelineStateKey6createERK7QShaderPK26QRhiShaderResourceBindings": [
       "address", "address", "address"
     ],

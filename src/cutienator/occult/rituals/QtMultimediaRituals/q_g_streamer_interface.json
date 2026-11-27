@@ -4,7 +4,7 @@
     "QtMultimedia/6.12.0/QtMultimedia/spi/qgstreamerinterface.h, Qt",
     "6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN19QGStreamerInterfaceD1Ev": ["nothing", "address"],
     "ritual_ZN19QGStreamerInterface8instanceEv": ["address"],
     "ritual_ZN19QGStreamerInterface25makeCustomGStreamerCameraERK10QByteArrayP7QObject": [

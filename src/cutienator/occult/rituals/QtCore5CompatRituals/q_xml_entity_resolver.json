@@ -4,7 +4,7 @@
     "QtCore5Compat/qxml.h, Qt 6.12.0. Edited by hand: see the ritual",
     "file."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN18QXmlEntityResolverD1Ev": ["nothing", "address"],
     "ritual_ZNK18QXmlEntityResolver11errorStringEv": ["text", "address"],
     "ritual_take_QXmlEntityResolver": [

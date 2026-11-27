@@ -4,7 +4,7 @@
     "QtGui/6.12.0/QtGui/private/qtextureglyphcache_p.h, Qt 6.12.0.",
     "Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK18QTextureGlyphCache5Coord6isNullEv": ["bool", "address"],
     "ritual_ZN18QTextureGlyphCache5CoordD1Ev": ["nothing", "address"]
   }

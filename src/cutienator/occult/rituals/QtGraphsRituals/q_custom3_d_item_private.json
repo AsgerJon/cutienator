@@ -7,7 +7,7 @@
   "parts first": [
     "QtGraphs", "QtCore", "QtGui", "QtQuick", "QtQml", "QtQmlIntegration"
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN20QCustom3DItemPrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK20QCustom3DItemPrivate6q_funcEv": ["address", "address"],
     "ritual_ZN20QCustom3DItemPrivateC1Ev": ["address"],

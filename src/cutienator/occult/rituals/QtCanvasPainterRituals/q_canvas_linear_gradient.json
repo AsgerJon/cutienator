@@ -4,7 +4,7 @@
     "QtCanvasPainter/qcanvaslineargradient.h, Qt 6.12.0. Changes made",
     "here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN21QCanvasLinearGradientC1Ev": ["address"],
     "ritual_ZN21QCanvasLinearGradientC1Edddd": [
       "address", "double", "double", "double", "double"

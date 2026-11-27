@@ -16,7 +16,7 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
 class CharsExpert(TypeExpert):
   """
   Says how text as C has it crosses, 'const char *': as it is, and its
-  word in the row is 'chars'.
+  word in the sigil is 'chars'.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

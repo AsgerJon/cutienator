@@ -1,0 +1,31 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWebEngineCore/qwebengineurlschemehandler.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "sigils": {
+    "ritual_ZNK26QWebEngineUrlSchemeHandler10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QWebEngineUrlSchemeHandler11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN26QWebEngineUrlSchemeHandler11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN26QWebEngineUrlSchemeHandler2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN26QWebEngineUrlSchemeHandlerC1EP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZN26QWebEngineUrlSchemeHandlerD1Ev": ["nothing", "address"],
+    "ritual_ZN26QWebEngineUrlSchemeHandler14requestStartedEP23QWebEngineUrlRequestJob": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QWebEngineUrlSchemeHandler": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

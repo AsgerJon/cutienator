@@ -4,7 +4,7 @@
     "QtScxml/qscxmlstatemachine.h, Qt 6.12.0. Changes made here are",
     "lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN18QScxmlStateMachine6d_funcEv": ["address", "address"],
     "ritual_ZNK18QScxmlStateMachine6d_funcEv": ["address", "address"],
     "ritual_ZNK18QScxmlStateMachine10metaObjectEv": ["address", "address"],

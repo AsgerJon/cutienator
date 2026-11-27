@@ -4,7 +4,7 @@
     "QtWidgets/6.12.0/QtWidgets/private/qbsptree_p.h, Qt 6.12.0.",
     "Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN8QBspTreeC1Ev": ["address"],
     "ritual_ZN8QBspTree6createEii": ["nothing", "address", "int", "int"],
     "ritual_ZN8QBspTree7destroyEv": ["nothing", "address"],

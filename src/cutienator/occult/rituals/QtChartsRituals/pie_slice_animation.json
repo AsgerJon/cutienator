@@ -4,7 +4,7 @@
     "QtCharts/6.12.0/QtCharts/private/piesliceanimation_p.h, Qt 6.12.0.",
     "Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN17PieSliceAnimationC1EP12PieSliceItem": ["address", "address"],
     "ritual_ZN17PieSliceAnimationD1Ev": ["nothing", "address"],
     "ritual_ZN17PieSliceAnimation8setValueERK12PieSliceDataS2_": [

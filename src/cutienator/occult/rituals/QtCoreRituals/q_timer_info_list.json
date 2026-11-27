@@ -4,7 +4,7 @@
     "QtCore/6.12.0/QtCore/private/qtimerinfo_unix_p.h, Qt 6.12.0.",
     "Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN14QTimerInfoListC1Ev": ["address"],
     "ritual_ZN14QTimerInfoList9timerWaitEv": ["address", "address"],
     "ritual_ZN14QTimerInfoList11timerInsertEP10QTimerInfo": [

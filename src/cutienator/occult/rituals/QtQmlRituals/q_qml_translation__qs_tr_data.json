@@ -4,7 +4,7 @@
     "QtQml/6.12.0/QtQml/private/qqmltranslation_p.h, Qt 6.12.0. Changes",
     "made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN15QQmlTranslation8QsTrDataC1ERK7QStringS3_S3_i": [
       "address", "text", "text", "text", "int"
     ],

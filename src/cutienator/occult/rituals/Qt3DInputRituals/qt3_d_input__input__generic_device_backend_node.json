@@ -4,7 +4,7 @@
     "Qt3DInput/6.12.0/Qt3DInput/private/genericdevicebackendnode_p.h,",
     "Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN9Qt3DInput5Input24GenericDeviceBackendNodeC1EN8Qt3DCore12QBackendNode4ModeE": [
       "address", "int"
     ],

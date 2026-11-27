@@ -4,7 +4,7 @@
     "QtQml/6.12.0/QtQml/private/qqmllistwrapper_p.h, Qt 6.12.0. Changes",
     "made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN3QV414QmlListWrapper12staticVTableEv": ["address"],
     "ritual_ZN3QV414QmlListWrapper10__dataTestEv": ["nothing", "address"],
     "ritual_ZNK3QV414QmlListWrapper11d_uncheckedEv": ["address", "address"],

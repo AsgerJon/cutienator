@@ -4,7 +4,7 @@
     "QtOpenGL/qopenglfunctions_3_1.h, Qt 6.12.0. Changes made here are",
     "lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN20QOpenGLFunctions_3_1C1Ev": ["address"],
     "ritual_ZN20QOpenGLFunctions_3_1D1Ev": ["nothing", "address"],
     "ritual_ZN20QOpenGLFunctions_3_125initializeOpenGLFunctionsEv": [

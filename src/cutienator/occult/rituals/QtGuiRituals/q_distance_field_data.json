@@ -4,7 +4,7 @@
     "QtGui/6.12.0/QtGui/private/qdistancefield_p.h, Qt 6.12.0. Changes",
     "made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN18QDistanceFieldDataC1Ev": ["address"],
     "ritual_ZN18QDistanceFieldDataC1ERKS_": ["address", "address"],
     "ritual_ZN18QDistanceFieldDataD1Ev": ["nothing", "address"],

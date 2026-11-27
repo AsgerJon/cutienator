@@ -4,7 +4,7 @@
     "QtQuick/6.12.0/QtQuick/private/qsgdistancefieldglyphnode_p_p.h, Qt",
     "6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN35QSGDistanceFieldOutlineTextMaterialC1Ev": ["address"],
     "ritual_ZN35QSGDistanceFieldOutlineTextMaterialD1Ev": [
       "nothing", "address"

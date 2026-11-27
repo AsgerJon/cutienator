@@ -4,7 +4,7 @@
     "QtWidgets/6.12.0/QtWidgets/private/qabstractslider_p.h, Qt 6.12.0.",
     "Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN22QAbstractSliderPrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK22QAbstractSliderPrivate6q_funcEv": ["address", "address"],
     "ritual_ZN22QAbstractSliderPrivateC1Ev": ["address"],

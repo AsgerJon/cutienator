@@ -3,7 +3,7 @@
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtGui/qtransform.h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN10QTransformC1EN2Qt14InitializationE": ["address", "int"],
     "ritual_ZN10QTransformC1Ev": ["address"],
     "ritual_ZN10QTransformC1Eddddddddd": [

@@ -1,0 +1,36 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtWebEn",
+    "gineWidgets/6.12.0/QtWebEngineWidgets/private/autofillpopupwidget_",
+    "p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "sigils": {
+    "ritual_ZNK19QtWebEngineWidgetUI19AutofillPopupWidget10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN19QtWebEngineWidgetUI19AutofillPopupWidget11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN19QtWebEngineWidgetUI19AutofillPopupWidget11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN19QtWebEngineWidgetUI19AutofillPopupWidgetD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QtWebEngineWidgetUI19AutofillPopupWidget11eventFilterEP7QObjectP6QEvent": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN19QtWebEngineWidgetUI19AutofillPopupWidget13keyPressEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QtWebEngineWidgetUI19AutofillPopupWidget15keyReleaseEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QtWebEngineWidgetUI_AutofillPopupWidget": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN19QtWebEngineWidgetUI19AutofillPopupWidget15keyReleaseEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ]
+  }
+}

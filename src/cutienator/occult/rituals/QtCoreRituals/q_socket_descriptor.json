@@ -3,7 +3,7 @@
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtCore/qsocketnotifier.h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN17QSocketDescriptorC1Ei": ["address", "int"],
     "ritual_ZNK17QSocketDescriptorcviEv": ["int", "address"],
     "ritual_ZNK17QSocketDescriptor7isValidEv": ["bool", "address"],

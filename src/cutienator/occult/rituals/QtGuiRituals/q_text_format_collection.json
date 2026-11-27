@@ -4,7 +4,7 @@
     "QtGui/6.12.0/QtGui/private/qtextformat_p.h, Qt 6.12.0. Changes",
     "made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN21QTextFormatCollectionC1Ev": ["address"],
     "ritual_ZN21QTextFormatCollectionD1Ev": ["nothing", "address"],
     "ritual_ZN21QTextFormatCollection5clearEv": ["nothing", "address"],

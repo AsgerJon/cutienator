@@ -4,7 +4,7 @@
     "Layouts/6.12.0/QtQuickLayouts/private/qquickgridlayoutengine_p.h,",
     "Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN22QQuickGridLayoutEngineC1Ev": ["address"],
     "ritual_ZNK22QQuickGridLayoutEngine7indexOfEP10QQuickItem": [
       "int", "address", "address"

@@ -559,7 +559,7 @@ class CuteClassExpert(RitualExpert):
         kind='take', gives='bool',
         takes=(('self', '%s *' % className), ('key', 'const char *'),
                ('call', 'void *')),
-        row=('bool', 'address', 'chars', 'address'), needs=(),
+        sigil=('bool', 'address', 'chars', 'address'), needs=(),
         unknownTypes=(), unsureNumbers=(), words=(), variadic=False,
         name='', arguments=(), giving=None, inPlace=False,
     )

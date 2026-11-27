@@ -4,7 +4,7 @@
     "QtCharts/6.12.0/QtCharts/private/chartlogvalueaxisx_p.h, Qt",
     "6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK18ChartLogValueAxisX10metaObjectEv": ["address", "address"],
     "ritual_ZN18ChartLogValueAxisX11qt_metacastEPKc": [
       "address", "address", "chars"

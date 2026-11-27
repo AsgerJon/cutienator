@@ -4,7 +4,7 @@
     "3DParticles/6.12.0/QtQuick3DParticles/private/qquick3dparticleshap",
     "edatautils_p.h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN30QQuick3DParticleShapeDataUtils9readValueER17QCborStreamReaderN9QMetaType4TypeE": [
       "address", "address", "int"
     ],

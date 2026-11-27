@@ -4,7 +4,7 @@
     "Support/6.12.0/QtPrintSupport/qpa/qplatformprintersupport.h, Qt",
     "6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN23QPlatformPrinterSupportC1Ev": ["address"],
     "ritual_ZN23QPlatformPrinterSupportD1Ev": ["nothing", "address"],
     "ritual_ZN23QPlatformPrinterSupport23createNativePrintEngineEN8QPrinter11PrinterModeERK7QString": [

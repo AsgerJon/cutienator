@@ -4,7 +4,7 @@
     "QtSvg/6.12.0/QtSvg/private/qsvgcssproperties_p.h, Qt 6.12.0.",
     "Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN21QSvgAnimationPropertyD1Ev": ["nothing", "address"],
     "ritual_list_make_QSvgAnimationProperty": ["address"],
     "ritual_list_add_QSvgAnimationProperty": [

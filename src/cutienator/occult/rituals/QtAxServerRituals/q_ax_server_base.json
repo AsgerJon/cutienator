@@ -4,7 +4,7 @@
     "QtAxServer/6.12.0/QtAxServer/private/qaxserverbase_p.h, Qt 6.12.0,",
     "from Qt's source. Kept as it is when the generator runs again."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN13QAxServerBaseC1ERK7QStringP8IUnknown": [
       "address", "text", "address"
     ],

@@ -1,0 +1,63 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWebEngineCore/qwebengineurlrequestinfo.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "sigils": {
+    "ritual_ZNK24QWebEngineUrlRequestInfo12resourceTypeEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK24QWebEngineUrlRequestInfo14navigationTypeEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK24QWebEngineUrlRequestInfo10requestUrlEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK24QWebEngineUrlRequestInfo13firstPartyUrlEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK24QWebEngineUrlRequestInfo9initiatorEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK24QWebEngineUrlRequestInfo13requestMethodEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK24QWebEngineUrlRequestInfo11requestBodyEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK24QWebEngineUrlRequestInfo7changedEv": ["bool", "address"],
+    "ritual_ZNK24QWebEngineUrlRequestInfo10isDownloadEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN24QWebEngineUrlRequestInfo5blockEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN24QWebEngineUrlRequestInfo8redirectERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QWebEngineUrlRequestInfo13setHttpHeaderERK10QByteArrayS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK24QWebEngineUrlRequestInfo11httpHeadersEv": [
+      "address", "address"
+    ],
+    "ritual_ZN24QWebEngineUrlRequestInfo6d_funcEv": ["address", "address"],
+    "ritual_ZNK24QWebEngineUrlRequestInfo6d_funcEv": ["address", "address"],
+    "ritual_ZN24QWebEngineUrlRequestInfo12resetChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QWebEngineUrlRequestInfoC1Ev": ["address"],
+    "ritual_ZN24QWebEngineUrlRequestInfoC1EP31QWebEngineUrlRequestInfoPrivate": [
+      "address", "address"
+    ],
+    "ritual_ZN24QWebEngineUrlRequestInfoC1EOS_": ["address", "address"],
+    "ritual_ZN24QWebEngineUrlRequestInfoaSEOS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN24QWebEngineUrlRequestInfoD1Ev": ["nothing", "address"],
+    "ritual_drop_QWebEngineUrlRequestInfo__QHash_QByteArray_QByteArray": [
+      "nothing", "address"
+    ]
+  }
+}

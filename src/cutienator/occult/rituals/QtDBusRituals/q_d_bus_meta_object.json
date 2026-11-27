@@ -4,7 +4,7 @@
     "QtDBus/6.12.0/QtDBus/private/qdbusmetaobject_p.h, Qt 6.12.0.",
     "Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN15QDBusMetaObject16createMetaObjectERK7QStringS2_R5QHashIS0_PS_ER10QDBusError": [
       "address", "text", "text", "address", "address"
     ],

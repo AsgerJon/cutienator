@@ -4,7 +4,7 @@
     "QtQmlModels/6.12.0/QtQmlModels/private/qqmldelegatemodel_p_p.h, Qt",
     "6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN29QQmlDelegateModelGroupEmitterD1Ev": ["nothing", "address"],
     "ritual_ZN29QQmlDelegateModelGroupEmitter16emitModelUpdatedERK13QQmlChangeSetb": [
       "nothing", "address", "address", "bool"

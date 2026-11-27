@@ -1,0 +1,36 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtPdf/qpdfdocumentrenderoptions.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "sigils": {
+    "ritual_ZN25QPdfDocumentRenderOptionsC1Ev": ["address"],
+    "ritual_ZNK25QPdfDocumentRenderOptions8rotationEv": ["int", "address"],
+    "ritual_ZN25QPdfDocumentRenderOptions11setRotationENS_8RotationE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK25QPdfDocumentRenderOptions11renderFlagsEv": [
+      "int", "address"
+    ],
+    "ritual_ZN25QPdfDocumentRenderOptions14setRenderFlagsE6QFlagsINS_10RenderFlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK25QPdfDocumentRenderOptions14scaledClipRectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN25QPdfDocumentRenderOptions17setScaledClipRectERK5QRect": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK25QPdfDocumentRenderOptions10scaledSizeEv": [
+      "address", "address"
+    ],
+    "ritual_ZN25QPdfDocumentRenderOptions13setScaledSizeERK5QSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZeqRK25QPdfDocumentRenderOptionsS1_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN25QPdfDocumentRenderOptionsD1Ev": ["nothing", "address"]
+  }
+}

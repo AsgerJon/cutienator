@@ -4,7 +4,7 @@
     "QtOpcUa/qopcuaqualifiedname.h, Qt 6.12.0. Changes made here are",
     "lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN19QOpcUaQualifiedNameC1Ev": ["address"],
     "ritual_ZN19QOpcUaQualifiedNameC1ERKS_": ["address", "address"],
     "ritual_ZN19QOpcUaQualifiedNameC1EtRK7QString": [

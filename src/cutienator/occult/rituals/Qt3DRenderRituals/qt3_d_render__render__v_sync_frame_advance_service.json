@@ -2,7 +2,7 @@
   "about": [
     "Written by hand: see the ritual file."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN10Qt3DRender6Render24VSyncFrameAdvanceServiceC1Eb": ["address", "bool"],
     "ritual_ZN10Qt3DRender6Render24VSyncFrameAdvanceServiceD1Ev": ["nothing", "address"],
     "ritual_ZN10Qt3DRender6Render24VSyncFrameAdvanceService16waitForNextFrameEv": ["long long", "address"],

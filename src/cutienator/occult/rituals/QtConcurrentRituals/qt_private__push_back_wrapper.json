@@ -4,7 +4,7 @@
     "QtConcurrent/qtconcurrentfunctionwrappers.h, Qt 6.12.0. Changes",
     "made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN9QtPrivate15PushBackWrapperD1Ev": ["nothing", "address"]
   }
 }

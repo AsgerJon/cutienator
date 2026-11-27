@@ -4,7 +4,7 @@
     "QtSvg/6.12.0/QtSvg/private/qsvgfont_p.h, Qt 6.12.0. Changes made",
     "here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN8QSvgFontC1Ed": ["address", "double"],
     "ritual_ZN8QSvgFontD1Ev": ["nothing", "address"],
     "ritual_ZNK8QSvgFont4typeEv": ["int", "address"],

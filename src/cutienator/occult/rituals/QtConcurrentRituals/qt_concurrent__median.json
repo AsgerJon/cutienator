@@ -4,7 +4,7 @@
     "QtConcurrent/qtconcurrentmedian.h, Qt 6.12.0. Changes made here",
     "are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN12QtConcurrent6MedianC1Ev": ["address"],
     "ritual_ZN12QtConcurrent6Median5resetEv": ["nothing", "address"],
     "ritual_ZN12QtConcurrent6Median8addValueEd": [

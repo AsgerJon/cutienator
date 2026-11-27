@@ -4,7 +4,7 @@
     "QtLocation/qplacedetailsreply.h, Qt 6.12.0. Changes made here are",
     "lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK18QPlaceDetailsReply10metaObjectEv": ["address", "address"],
     "ritual_ZN18QPlaceDetailsReply11qt_metacastEPKc": [
       "address", "address", "chars"

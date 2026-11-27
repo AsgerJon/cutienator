@@ -4,7 +4,7 @@
     "QtCharts/6.12.0/QtCharts/private/legendlayout_p.h, Qt 6.12.0.",
     "Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN12LegendLayoutC1EP7QLegend": ["address", "address"],
     "ritual_ZN12LegendLayoutD1Ev": ["nothing", "address"],
     "ritual_ZN12LegendLayout11setGeometryERK6QRectF": [

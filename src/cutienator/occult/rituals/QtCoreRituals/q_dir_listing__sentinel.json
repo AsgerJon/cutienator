@@ -3,7 +3,7 @@
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtCore/qdirlisting.h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZeqN11QDirListing8sentinelES0_": ["bool", "address", "address"],
     "ritual_ZneN11QDirListing8sentinelES0_": ["bool", "address", "address"],
     "ritual_ZN11QDirListing8sentinelD1Ev": ["nothing", "address"]

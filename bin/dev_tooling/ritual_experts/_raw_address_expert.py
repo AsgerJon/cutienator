@@ -25,7 +25,7 @@ class RawAddressExpert(TypeExpert):
   that is an address by its name, as 'GLsync'. The ritual takes it as
   the header writes it and hands it on; Python hands over a number,
   and what lies there is for the Python side to know. Its word in the
-  row is 'address'; its kind, 'raw address', tells it from the address
+  sigil is 'address'; its kind, 'raw address', tells it from the address
   of an object of a class, which Python knows by its cute class.
   """
 

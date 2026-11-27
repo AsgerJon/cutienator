@@ -7,7 +7,7 @@
   "parts first": [
     "QtGraphs", "QtCore", "QtGui", "QtQuick", "QtQml", "QtQmlIntegration"
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN20QLogValueAxisPrivateC1Ev": ["address"],
     "ritual_ZN20QLogValueAxisPrivateD1Ev": ["nothing", "address"],
     "ritual_ZN20QLogValueAxisPrivate3minEv": ["double", "address"],

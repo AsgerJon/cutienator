@@ -4,7 +4,7 @@
     "QtSpatialAudio/qambientsound.h, Qt 6.12.0. Changes made here are",
     "lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK13QAmbientSound10metaObjectEv": ["address", "address"],
     "ritual_ZN13QAmbientSound11qt_metacastEPKc": [
       "address", "address", "chars"

@@ -3,7 +3,7 @@
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtCore/qnamespace.h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN15QKeyCombinationC1EN2Qt3KeyE": ["address", "int"],
     "ritual_ZN15QKeyCombinationC1E6QFlagsIN2Qt8ModifierEENS1_3KeyE": [
       "address", "int", "int"

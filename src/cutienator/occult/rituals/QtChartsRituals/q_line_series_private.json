@@ -4,7 +4,7 @@
     "QtCharts/6.12.0/QtCharts/private/qlineseries_p.h, Qt 6.12.0.",
     "Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN18QLineSeriesPrivateC1EP11QLineSeries": ["address", "address"],
     "ritual_ZN18QLineSeriesPrivate18initializeGraphicsEP13QGraphicsItem": [
       "nothing", "address", "address"

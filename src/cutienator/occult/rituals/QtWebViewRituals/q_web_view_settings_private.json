@@ -4,7 +4,7 @@
     "QtWebView/6.12.0/QtWebView/private/qwebview_p.h, Qt 6.12.0.",
     "Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN23QWebViewSettingsPrivateD1Ev": ["nothing", "address"],
     "ritual_ZN23QWebViewSettingsPrivateC1Ev": ["address"],
     "ritual_take_QWebViewSettingsPrivate": [

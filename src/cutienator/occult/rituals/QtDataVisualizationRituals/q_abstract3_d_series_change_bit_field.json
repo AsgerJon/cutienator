@@ -4,7 +4,7 @@
     "isualization/6.12.0/QtDataVisualization/private/qabstract3dseries_",
     "p.h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN31QAbstract3DSeriesChangeBitFieldC1Ev": ["address"],
     "ritual_ZN31QAbstract3DSeriesChangeBitFieldD1Ev": ["nothing", "address"]
   }

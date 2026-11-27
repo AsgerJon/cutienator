@@ -3,7 +3,7 @@
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtCore/qdebug.h, Qt 6.12.0. Edited by hand: see the ritual file."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN6QDebug7putUcs4Ej": ["nothing", "address", "unsigned int"],
     "ritual_ZN6QDebug9putStringEPK5QCharm": [
       "nothing", "address", "address", "size_t"

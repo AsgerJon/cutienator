@@ -4,7 +4,7 @@
     "QtCore/6.12.0/QtCore/private/qexpected_p.h, Qt 6.12.0. Changes",
     "made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN3q236detail9no_init_tD1Ev": ["nothing", "address"]
   }
 }

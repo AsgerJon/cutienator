@@ -4,7 +4,7 @@
     "QtQml/6.12.0/QtQml/private/qdoubleendedlist_p.h, Qt 6.12.0.",
     "Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN18QInheritedListNodeD1Ev": ["nothing", "address"],
     "ritual_ZNK18QInheritedListNode8isInListEv": ["bool", "address"],
     "ritual_ZN18QInheritedListNode6removeEv": ["nothing", "address"]

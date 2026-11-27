@@ -4,7 +4,7 @@
     "QtNetwork/qabstractnetworkcache.h, Qt 6.12.0. Changes made here",
     "are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN21QNetworkCacheMetaDataC1Ev": ["address"],
     "ritual_ZN21QNetworkCacheMetaDataC1ERKS_": ["address", "address"],
     "ritual_ZN21QNetworkCacheMetaDataD1Ev": ["nothing", "address"],

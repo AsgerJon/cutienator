@@ -4,7 +4,7 @@
     "QtGui/6.12.0/QtGui/private/qpainter_p.h, Qt 6.12.0. Changes made",
     "here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN16QPainterClipInfoC1Ev": ["address"],
     "ritual_ZN16QPainterClipInfoC1ERK12QPainterPathN2Qt13ClipOperationERK10QTransform": [
       "address", "address", "int", "address"

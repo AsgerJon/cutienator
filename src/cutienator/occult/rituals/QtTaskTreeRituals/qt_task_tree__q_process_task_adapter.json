@@ -3,7 +3,7 @@
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtTaskTree/qprocesstask.h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK10QtTaskTree19QProcessTaskAdapterclEP8QProcessPNS_14QTaskInterfaceE": [
       "nothing", "address", "address", "address"
     ],

@@ -4,7 +4,7 @@
     "QtGui/6.12.0/QtGui/private/qstroker_p.h, Qt 6.12.0. Changes made",
     "here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN12QDashStrokerC1EP8QStroker": ["address", "address"],
     "ritual_ZN12QDashStrokerD1Ev": ["nothing", "address"],
     "ritual_ZNK12QDashStroker7strokerEv": ["address", "address"],

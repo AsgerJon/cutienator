@@ -4,7 +4,7 @@
     "ckets/6.12.0/QtWebSockets/private/qwebsockethandshakeoptions_p.h,",
     "Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK33QWebSocketHandshakeOptionsPrivateeqERKS_": [
       "bool", "address", "address"
     ],

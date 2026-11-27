@@ -4,7 +4,7 @@
     "QtQml/6.12.0/QtQml/private/qqmlopenmetaobject_p.h, Qt 6.12.0.",
     "Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN18QQmlOpenMetaObjectC1EP7QObjectPK11QMetaObject": [
       "address", "address", "address"
     ],

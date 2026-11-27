@@ -4,7 +4,7 @@
     "Qt3DRender/6.12.0/Qt3DRender/private/textureimage_p.h, Qt 6.12.0.",
     "Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN10Qt3DRender6Render12TextureImageC1Ev": ["address"],
     "ritual_ZN10Qt3DRender6Render12TextureImageD1Ev": ["nothing", "address"],
     "ritual_ZN10Qt3DRender6Render12TextureImage7cleanupEv": [

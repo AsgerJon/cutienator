@@ -4,7 +4,7 @@
     "QtGui/6.12.0/QtGui/private/qsimpledrag_p.h, Qt 6.12.0. Changes",
     "made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN10QBasicDragD1Ev": ["nothing", "address"],
     "ritual_ZN10QBasicDrag4dragEP5QDrag": ["int", "address", "address"],
     "ritual_ZN10QBasicDrag10cancelDragEv": ["nothing", "address"],

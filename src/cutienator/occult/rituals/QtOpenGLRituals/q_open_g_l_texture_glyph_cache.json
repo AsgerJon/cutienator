@@ -4,7 +4,7 @@
     "QtOpenGL/6.12.0/QtOpenGL/private/qopengltextureglyphcache_p.h, Qt",
     "6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN24QOpenGLTextureGlyphCacheC1EN11QFontEngine11GlyphFormatERK10QTransformRK6QColor": [
       "address", "int", "address", "address"
     ],

@@ -4,7 +4,7 @@
     "QtSvg/6.12.0/QtSvg/private/qsvgpaintserver_p.h, Qt 6.12.0. Changes",
     "made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN15QSvgPaintServerD1Ev": ["nothing", "address"],
     "ritual_ZN15QSvgPaintServer5brushEP8QPainterPK8QSvgNodeR15QSvgExtraStates": [
       "address", "address", "address", "address", "address"

@@ -4,7 +4,7 @@
     "QtNfc/6.12.0/QtNfc/private/neard_helper_p.h, Qt 6.12.0, from Qt's",
     "source. Kept as it is when the generator runs again."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK11NeardHelper10metaObjectEv": ["address", "address"]
   }
 }

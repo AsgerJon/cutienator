@@ -4,7 +4,7 @@
     "QtCharts/qvboxplotmodelmapper.h, Qt 6.12.0. Changes made here are",
     "lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK20QVBoxPlotModelMapper10metaObjectEv": ["address", "address"],
     "ritual_ZN20QVBoxPlotModelMapper11qt_metacastEPKc": [
       "address", "address", "chars"

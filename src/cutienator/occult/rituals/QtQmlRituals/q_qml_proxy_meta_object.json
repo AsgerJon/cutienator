@@ -4,7 +4,7 @@
     "QtQml/6.12.0/QtQml/private/qqmlproxymetaobject_p.h, Qt 6.12.0.",
     "Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN19QQmlProxyMetaObjectC1EP7QObjectPK5QListINS_9ProxyDataEE": [
       "address", "address", "address"
     ],

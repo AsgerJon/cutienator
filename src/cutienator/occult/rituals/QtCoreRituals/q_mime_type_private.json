@@ -4,7 +4,7 @@
     "QtCore/6.12.0/QtCore/private/qmimetype_p.h, Qt 6.12.0. Changes",
     "made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN16QMimeTypePrivateC1Ev": ["address"],
     "ritual_ZN16QMimeTypePrivateC1ERK7QString": ["address", "text"],
     "ritual_ZN16QMimeTypePrivateD1Ev": ["nothing", "address"]

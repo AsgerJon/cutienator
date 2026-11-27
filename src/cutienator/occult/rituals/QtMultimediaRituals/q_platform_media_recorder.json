@@ -4,7 +4,7 @@
     "media/6.12.0/QtMultimedia/private/qplatformmediarecorder_p.h, Qt",
     "6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN22QPlatformMediaRecorderD1Ev": ["nothing", "address"],
     "ritual_ZNK22QPlatformMediaRecorder18isLocationWritableERK4QUrl": [
       "bool", "address", "address"

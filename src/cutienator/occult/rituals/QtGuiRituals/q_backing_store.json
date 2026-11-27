@@ -3,7 +3,7 @@
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtGui/qbackingstore.h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN13QBackingStoreC1EP7QWindow": ["address", "address"],
     "ritual_ZN13QBackingStoreD1Ev": ["nothing", "address"],
     "ritual_ZNK13QBackingStore6windowEv": ["address", "address"],

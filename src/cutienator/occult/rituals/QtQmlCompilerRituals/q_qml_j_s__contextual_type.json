@@ -2,7 +2,7 @@
   "about": [
     "Written by hand on 2026-11-25: see the ritual file."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN6QQmlJS14ContextualTypeC1Ev": ["address"],
     "ritual_ZN6QQmlJS14ContextualTypeD1Ev": ["nothing", "address"]
   }

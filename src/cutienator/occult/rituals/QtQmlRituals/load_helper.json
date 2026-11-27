@@ -4,7 +4,7 @@
     "QtQml/6.12.0/QtQml/private/qqmlengine_p.h, Qt 6.12.0. Changes made",
     "here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK10LoadHelper4typeEv": ["address", "address"],
     "ritual_ZNK10LoadHelper4modeEv": ["int", "address"],
     "ritual_ZNK10LoadHelper17resolveTypeResultEv": ["int", "address"],

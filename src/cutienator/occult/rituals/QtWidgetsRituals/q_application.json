@@ -4,7 +4,7 @@
     "QtWidgets/qapplication.h, Qt 6.12.0. Edited by hand: see the",
     "ritual file."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK12QApplication10metaObjectEv": ["address", "address"],
     "ritual_ZN12QApplication11qt_metacastEPKc": [
       "address", "address", "chars"

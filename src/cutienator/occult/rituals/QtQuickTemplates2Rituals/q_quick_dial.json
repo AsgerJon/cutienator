@@ -4,7 +4,7 @@
     "QtQuickTemplates2/6.12.0/QtQuickTemplates2/private/qquickdial_p.h,",
     "Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK10QQuickDial10metaObjectEv": ["address", "address"],
     "ritual_ZN10QQuickDial11qt_metacastEPKc": [
       "address", "address", "chars"

@@ -4,7 +4,7 @@
     "QtGui/6.12.0/QtGui/qpa/qplatformservices.h, Qt 6.12.0. Changes",
     "made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN17QPlatformServicesC1Ev": ["address"],
     "ritual_ZN17QPlatformServicesD1Ev": ["nothing", "address"],
     "ritual_ZN17QPlatformServices7openUrlERK4QUrl": [

@@ -4,7 +4,7 @@
     "QtDataVisualization/qsurfacedataproxy.h, Qt 6.12.0. Changes made",
     "here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK17QSurfaceDataProxy10metaObjectEv": ["address", "address"],
     "ritual_ZN17QSurfaceDataProxy11qt_metacastEPKc": [
       "address", "address", "chars"

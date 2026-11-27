@@ -7,7 +7,7 @@
   "parts first": [
     "QtGraphs", "QtCore", "QtGui", "QtQuick", "QtQml", "QtQmlIntegration"
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN22QAbstract3DAxisPrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK22QAbstract3DAxisPrivate6q_funcEv": ["address", "address"],
     "ritual_ZN22QAbstract3DAxisPrivateC1EN15QAbstract3DAxis8AxisTypeE": [

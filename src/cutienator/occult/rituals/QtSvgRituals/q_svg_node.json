@@ -4,7 +4,7 @@
     "QtSvg/6.12.0/QtSvg/private/qsvgnode_p.h, Qt 6.12.0. Changes made",
     "here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN8QSvgNodeD1Ev": ["nothing", "address"],
     "ritual_ZN8QSvgNode4drawEP8QPainterR15QSvgExtraStates": [
       "nothing", "address", "address", "address"

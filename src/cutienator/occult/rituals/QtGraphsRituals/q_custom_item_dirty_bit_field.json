@@ -7,7 +7,7 @@
   "parts first": [
     "QtGraphs", "QtCore", "QtGui", "QtQuick", "QtQml", "QtQmlIntegration"
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN24QCustomItemDirtyBitFieldC1Ev": ["address"],
     "ritual_ZN24QCustomItemDirtyBitFieldD1Ev": ["nothing", "address"]
   }

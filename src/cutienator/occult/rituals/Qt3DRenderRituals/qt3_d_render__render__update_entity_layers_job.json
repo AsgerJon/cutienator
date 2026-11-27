@@ -4,7 +4,7 @@
     "Qt3DRender/6.12.0/Qt3DRender/private/updateentitylayersjob_p.h, Qt",
     "6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN10Qt3DRender6Render21UpdateEntityLayersJobC1Ev": ["address"],
     "ritual_ZN10Qt3DRender6Render21UpdateEntityLayersJob10setManagerEPNS0_12NodeManagersE": [
       "nothing", "address", "address"

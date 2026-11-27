@@ -4,7 +4,7 @@
     "QtNetwork/6.12.0/QtNetwork/private/qhttp2protocolhandler_p.h, Qt",
     "6.12.0. Edited by hand: see the ritual file."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK21QHttp2ProtocolHandler10metaObjectEv": [
       "address", "address"
     ],

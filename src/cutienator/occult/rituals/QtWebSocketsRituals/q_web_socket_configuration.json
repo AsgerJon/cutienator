@@ -4,7 +4,7 @@
     "QtWebSockets/6.12.0/QtWebSockets/private/qwebsocket_p.h, Qt",
     "6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN23QWebSocketConfigurationC1Ev": ["address"]
   }
 }

@@ -4,7 +4,7 @@
     "QtPositioning/6.12.0/QtPositioning/private/qgeopositioninfo_p.h,",
     "Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN23QGeoPositionInfoPrivateC1Ev": ["address"],
     "ritual_ZN23QGeoPositionInfoPrivateC1ERKS_": ["address", "address"],
     "ritual_ZN23QGeoPositionInfoPrivateD1Ev": ["nothing", "address"],

@@ -4,7 +4,7 @@
     "QtDesigner/abstractformbuilder.h, Qt 6.12.0. Changes made here are",
     "lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN20QAbstractFormBuilderC1Ev": ["address"],
     "ritual_ZN20QAbstractFormBuilderD1Ev": ["nothing", "address"],
     "ritual_ZNK20QAbstractFormBuilder16workingDirectoryEv": [

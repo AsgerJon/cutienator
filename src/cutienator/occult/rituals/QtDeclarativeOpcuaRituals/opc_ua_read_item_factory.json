@@ -4,7 +4,7 @@
     "QtDeclarativeOpcua/6.12.0/QtDeclarativeOpcua/private/opcuareaditem_p.h,",
     "Qt 6.12.0, from Qt's source. Kept as it is when the generator runs again."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK20OpcUaReadItemFactory10metaObjectEv": ["address", "address"],
     "ritual_ZN20OpcUaReadItemFactoryD1Ev": ["nothing", "address"]
   }

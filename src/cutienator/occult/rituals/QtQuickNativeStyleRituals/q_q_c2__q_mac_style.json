@@ -4,7 +4,7 @@
     "QtQuickNativeStyle/6.12.0/QtQuickNativeStyle/private/qquickmacstyle_mac_p.h,",
     "Qt 6.12.0, as the Qt of macOS installs it. Edited from the"
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK4QQC29QMacStyle10metaObjectEv": ["address", "address"],
     "ritual_ZN4QQC29QMacStyleD1Ev": ["nothing", "address"],
     "ritual_ZN4QQC29QMacStyle6d_funcEv": ["address", "address"],

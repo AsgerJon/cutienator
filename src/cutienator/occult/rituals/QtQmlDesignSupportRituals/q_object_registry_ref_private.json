@@ -4,7 +4,7 @@
     "signSupport/6.12.0/QtQmlDesignSupport/private/qobjectregistryref_p",
     ".h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN25QObjectRegistryRefPrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK25QObjectRegistryRefPrivate6q_funcEv": ["address", "address"],
     "ritual_ZN25QObjectRegistryRefPrivateC1EP10QQmlEngine": [

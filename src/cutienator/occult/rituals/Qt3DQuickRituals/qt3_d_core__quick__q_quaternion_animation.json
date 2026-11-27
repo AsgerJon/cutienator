@@ -5,7 +5,7 @@
     "Qt 6.12.0, from Qt's source. Kept as it is when the generator runs",
     "again."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK8Qt3DCore5Quick20QQuaternionAnimation10metaObjectEv": [
       "address", "address"
     ],

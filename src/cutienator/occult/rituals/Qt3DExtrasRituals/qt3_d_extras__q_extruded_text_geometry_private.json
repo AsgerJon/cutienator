@@ -4,7 +4,7 @@
     "Qt3DExtras/6.12.0/Qt3DExtras/private/qextrudedtextgeometry_p.h, Qt",
     "6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN10Qt3DExtras28QExtrudedTextGeometryPrivate4initEv": [
       "nothing", "address"
     ],

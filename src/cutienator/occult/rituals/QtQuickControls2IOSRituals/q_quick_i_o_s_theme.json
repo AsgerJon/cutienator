@@ -4,7 +4,7 @@
     "QtQuickControls2IOS/6.12.0/QtQuickControls2IOS/private/",
     "qquickiostheme_p.h, Qt 6.12.0, from Qt's source. Kept as it is"
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN14QQuickIOSTheme10initializeEP11QQuickTheme": [
       "nothing", "address"
     ]

@@ -4,7 +4,7 @@
     "dels/6.12.0/QtQmlModels/private/qqmldmabstractitemmodeldata_p.h,",
     "Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK28VDMAbstractItemModelDataType11notifyItemsERK15QVarLengthArrayI9QQmlGuardI27QQmlDMAbstractItemModelDataELx256EEiN17QQmlDelegateModel19DelegateModelAccessE": [
       "nothing", "address", "address", "int", "unsigned char"
     ],

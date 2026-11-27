@@ -2,7 +2,7 @@
   "about": [
     "Edited by hand: see the ritual file."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN16QDBusPendingCallC1ERKS_": ["address", "address"],
     "ritual_ZN16QDBusPendingCallC1EOS_": ["address", "address"],
     "ritual_ZN16QDBusPendingCallD1Ev": ["nothing", "address"],

@@ -4,7 +4,7 @@
     "QtGui/6.12.0/QtGui/private/qappleiconengine_p.h, Qt 6.12.0, as the Qt of",
     "macOS installs it. Kept as it is when the generator runs again."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN16QAppleIconEngineC1ERK7QString": ["address", "text"],
     "ritual_ZN16QAppleIconEngineD1Ev": ["nothing", "address"],
     "ritual_ZN16QAppleIconEngine9fromThemeERK7QString": ["address", "text"],

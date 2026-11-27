@@ -1,0 +1,94 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtWebEn",
+    "gineQuick/6.12.0/QtWebEngineQuick/private/qquickwebengineprofilepr",
+    "ototype_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "sigils": {
+    "ritual_ZNK31QQuickWebEngineProfilePrototype10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN31QQuickWebEngineProfilePrototype11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN31QQuickWebEngineProfilePrototype11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN31QQuickWebEngineProfilePrototype2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN31QQuickWebEngineProfilePrototypeC1EP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZN31QQuickWebEngineProfilePrototypeD1Ev": ["nothing", "address"],
+    "ritual_ZNK31QQuickWebEngineProfilePrototype11storageNameEv": [
+      "text", "address"
+    ],
+    "ritual_ZN31QQuickWebEngineProfilePrototype14setStorageNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK31QQuickWebEngineProfilePrototype21persistentStoragePathEv": [
+      "text", "address"
+    ],
+    "ritual_ZN31QQuickWebEngineProfilePrototype24setPersistentStoragePathERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK31QQuickWebEngineProfilePrototype9cachePathEv": [
+      "text", "address"
+    ],
+    "ritual_ZN31QQuickWebEngineProfilePrototype12setCachePathERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK31QQuickWebEngineProfilePrototype13httpCacheTypeEv": [
+      "int", "address"
+    ],
+    "ritual_ZN31QQuickWebEngineProfilePrototype16setHttpCacheTypeEN22QQuickWebEngineProfile13HttpCacheTypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK31QQuickWebEngineProfilePrototype23persistentCookiesPolicyEv": [
+      "int", "address"
+    ],
+    "ritual_ZN31QQuickWebEngineProfilePrototype26setPersistentCookiesPolicyEN22QQuickWebEngineProfile23PersistentCookiesPolicyE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN31QQuickWebEngineProfilePrototype23setHttpCacheMaximumSizeEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK31QQuickWebEngineProfilePrototype20httpCacheMaximumSizeEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK31QQuickWebEngineProfilePrototype27persistentPermissionsPolicyEv": [
+      "unsigned char", "address"
+    ],
+    "ritual_ZN31QQuickWebEngineProfilePrototype30setPersistentPermissionsPolicyEN22QQuickWebEngineProfile27PersistentPermissionsPolicyE": [
+      "nothing", "address", "unsigned char"
+    ],
+    "ritual_ZNK31QQuickWebEngineProfilePrototype33additionalTrustedCertificateFilesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN31QQuickWebEngineProfilePrototype36setAdditionalTrustedCertificateFilesERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN31QQuickWebEngineProfilePrototype8instanceEv": [
+      "address", "address"
+    ],
+    "ritual_ZN31QQuickWebEngineProfilePrototype17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN31QQuickWebEngineProfilePrototype10classBeginEv": [
+      "nothing", "address"
+    ],
+    "ritual_cast_QQuickWebEngineProfilePrototype_QQmlParserStatus": [
+      "address", "address"
+    ],
+    "ritual_take_QQuickWebEngineProfilePrototype": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN31QQuickWebEngineProfilePrototype17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN31QQuickWebEngineProfilePrototype10classBeginEv": [
+      "nothing", "address"
+    ]
+  }
+}

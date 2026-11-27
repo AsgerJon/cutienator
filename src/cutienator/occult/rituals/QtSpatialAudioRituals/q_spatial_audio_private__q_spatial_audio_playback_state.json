@@ -4,7 +4,7 @@
     "alAudio/6.12.0/QtSpatialAudio/private/qspatialaudiosound_p.h, Qt",
     "6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN20QSpatialAudioPrivate26QSpatialAudioPlaybackStateC1E12QAudioBufferbi": [
       "address", "address", "bool", "int"
     ],

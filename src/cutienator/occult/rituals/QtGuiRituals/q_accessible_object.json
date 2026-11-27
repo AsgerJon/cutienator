@@ -3,7 +3,7 @@
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtGui/qaccessibleobject.h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN17QAccessibleObjectC1EP7QObject": ["address", "address"],
     "ritual_ZNK17QAccessibleObject7isValidEv": ["bool", "address"],
     "ritual_ZNK17QAccessibleObject6objectEv": ["address", "address"],

@@ -4,7 +4,7 @@
     "Qt3DLogic/6.12.0/Qt3DLogic/private/manager_p.h, Qt 6.12.0. Changes",
     "made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN9Qt3DLogic5Logic7ManagerC1Ev": ["address"],
     "ritual_ZN9Qt3DLogic5Logic7ManagerD1Ev": ["nothing", "address"],
     "ritual_ZN9Qt3DLogic5Logic7Manager14setLogicAspectEPNS_12QLogicAspectE": [

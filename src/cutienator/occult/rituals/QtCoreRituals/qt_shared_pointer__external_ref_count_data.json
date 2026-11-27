@@ -4,7 +4,7 @@
     "QtCore/qsharedpointer_impl.h, Qt 6.12.0. Edited by hand: see the",
     "ritual file."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN15QtSharedPointer20ExternalRefCountDataD1Ev": [
       "nothing", "address"
     ],

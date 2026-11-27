@@ -4,7 +4,7 @@
     "Qt3DCore/6.12.0/Qt3DCore/private/coresettings_p.h, Qt 6.12.0.",
     "Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN8Qt3DCore12CoreSettingsC1Ev": ["address"],
     "ritual_ZN8Qt3DCore12CoreSettings9setAspectEPNS_11QCoreAspectE": [
       "nothing", "address", "address"

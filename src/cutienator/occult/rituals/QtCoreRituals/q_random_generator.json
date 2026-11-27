@@ -3,7 +3,7 @@
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtCore/qrandom.h, Qt 6.12.0. Edited by hand: see the ritual file."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN16QRandomGeneratorC1Ej": ["address", "unsigned int"],
     "ritual_ZN16QRandomGeneratorC1EPKjx": [
       "address", "address", "long long"

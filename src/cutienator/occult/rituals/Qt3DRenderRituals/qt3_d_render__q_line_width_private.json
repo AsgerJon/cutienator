@@ -4,7 +4,7 @@
     "Qt3DRender/6.12.0/Qt3DRender/private/qlinewidth_p.h, Qt 6.12.0.",
     "Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN10Qt3DRender17QLineWidthPrivateC1Ef": ["address", "float"],
     "ritual_ZN10Qt3DRender17QLineWidthPrivate6q_funcEv": [
       "address", "address"

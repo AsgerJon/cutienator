@@ -4,7 +4,7 @@
     "QtQml/6.12.0/QtQml/private/qqmltype_p.h, Qt 6.12.0. Changes made",
     "here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN8QQmlType21SingletonInstanceInfo6createEv": ["address"],
     "ritual_ZN8QQmlType21SingletonInstanceInfoC1Ev": ["address"],
     "ritual_drop_QQmlType_SingletonInstanceInfo__QQmlType_SingletonInstanceInfo_Ptr": [

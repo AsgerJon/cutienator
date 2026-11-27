@@ -4,7 +4,7 @@
     "QtGui/6.12.0/QtGui/private/qtextdocument_p.h, Qt 6.12.0. Changes",
     "made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN17QTextFragmentData10initializeEv": ["nothing", "address"],
     "ritual_ZNK17QTextFragmentData10invalidateEv": ["nothing", "address"],
     "ritual_ZN17QTextFragmentData4freeEv": ["nothing", "address"],

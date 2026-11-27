@@ -1,0 +1,115 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtPdfWidgets/qpdfview.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "sigils": {
+    "ritual_ZNK8QPdfView10metaObjectEv": ["address", "address"],
+    "ritual_ZN8QPdfView11qt_metacastEPKc": ["address", "address", "chars"],
+    "ritual_ZN8QPdfView11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN8QPdfView2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN8QPdfViewC1Ev": ["address"],
+    "ritual_ZN8QPdfViewC1EP7QWidget": ["address", "address"],
+    "ritual_ZN8QPdfViewD1Ev": ["nothing", "address"],
+    "ritual_ZN8QPdfView11setDocumentEP12QPdfDocument": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK8QPdfView8documentEv": ["address", "address"],
+    "ritual_ZNK8QPdfView11searchModelEv": ["address", "address"],
+    "ritual_ZN8QPdfView14setSearchModelEP15QPdfSearchModel": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK8QPdfView24currentSearchResultIndexEv": ["int", "address"],
+    "ritual_ZNK8QPdfView13pageNavigatorEv": ["address", "address"],
+    "ritual_ZNK8QPdfView8pageModeEv": ["int", "address"],
+    "ritual_ZNK8QPdfView8zoomModeEv": ["int", "address"],
+    "ritual_ZNK8QPdfView10zoomFactorEv": ["double", "address"],
+    "ritual_ZNK8QPdfView11pageSpacingEv": ["int", "address"],
+    "ritual_ZN8QPdfView14setPageSpacingEi": ["nothing", "address", "int"],
+    "ritual_ZNK8QPdfView15documentMarginsEv": ["address", "address"],
+    "ritual_ZN8QPdfView18setDocumentMarginsE8QMargins": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8QPdfView11setPageModeENS_8PageModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN8QPdfView11setZoomModeENS_8ZoomModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN8QPdfView13setZoomFactorEd": ["nothing", "address", "double"],
+    "ritual_ZN8QPdfView27setCurrentSearchResultIndexEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN8QPdfView15documentChangedEP12QPdfDocument": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8QPdfView15pageModeChangedENS_8PageModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN8QPdfView15zoomModeChangedENS_8ZoomModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN8QPdfView17zoomFactorChangedEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN8QPdfView18pageSpacingChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN8QPdfView22documentMarginsChangedE8QMargins": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8QPdfView18searchModelChangedEP15QPdfSearchModel": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8QPdfView31currentSearchResultIndexChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN8QPdfView10paintEventEP11QPaintEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8QPdfView11resizeEventEP12QResizeEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8QPdfView16scrollContentsByEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN8QPdfView15mousePressEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8QPdfView14mouseMoveEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8QPdfView17mouseReleaseEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8QPdfView10wheelEventEP11QWheelEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8QPdfView6d_funcEv": ["address", "address"],
+    "ritual_ZNK8QPdfView6d_funcEv": ["address", "address"],
+    "ritual_take_QPdfView": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN8QPdfView10paintEventEP11QPaintEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN8QPdfView11resizeEventEP12QResizeEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN8QPdfView16scrollContentsByEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_own_ZN8QPdfView15mousePressEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN8QPdfView14mouseMoveEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN8QPdfView17mouseReleaseEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN8QPdfView10wheelEventEP11QWheelEvent": [
+      "nothing", "address", "address"
+    ]
+  }
+}

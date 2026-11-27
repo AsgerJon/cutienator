@@ -4,7 +4,7 @@
     "QtCharts/6.12.0/QtCharts/private/chartelement_p.h, Qt 6.12.0.",
     "Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK12ChartElement9animationEv": ["address", "address"],
     "ritual_ZN12ChartElement12setPresenterEP14ChartPresenter": [
       "nothing", "address", "address"

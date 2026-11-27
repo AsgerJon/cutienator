@@ -4,7 +4,7 @@
     "QtQmlModels/6.12.0/QtQmlModels/private/qqmladaptormodel_p.h, Qt",
     "6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN16QQmlAdaptorModelC1Ev": ["address"],
     "ritual_ZN16QQmlAdaptorModelD1Ev": ["nothing", "address"],
     "ritual_ZNK16QQmlAdaptorModel5modelEv": ["address", "address"],

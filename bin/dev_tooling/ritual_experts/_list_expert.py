@@ -270,11 +270,11 @@ class ListExpert(TypeExpert):
            (('self', '%s *' % listType),), ('nothing', 'address'),
            'delete self;'),
       )
-      for role, shown, gives, takes, row, line in shapes:
+      for role, shown, gives, takes, sigil, line in shapes:
         plan = dict(
             ritualName='ritual_list_%s_%s' % (role, listed['tag']),
             function=shown, kind='list', gives=gives, takes=takes,
-            row=row, needs=(), unknownTypes=(), unsureNumbers=(),
+            sigil=sigil, needs=(), unknownTypes=(), unsureNumbers=(),
             words=(), variadic=False, name='', arguments=(), giving=None,
             inPlace=False, listed=listed, listRole=role,
         )

@@ -4,7 +4,7 @@
     "QtGui/6.12.0/QtGui/private/qwindow_p.h, Qt 6.12.0. Changes made",
     "here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN14QWindowPrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK14QWindowPrivate6q_funcEv": ["address", "address"],
     "ritual_ZN14QWindowPrivateC1E16QtPrivate_6_12_0": ["address", "int"],

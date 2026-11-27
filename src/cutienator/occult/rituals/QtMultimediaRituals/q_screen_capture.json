@@ -4,7 +4,7 @@
     "QtMultimedia/qscreencapture.h, Qt 6.12.0. Changes made here are",
     "lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK14QScreenCapture10metaObjectEv": ["address", "address"],
     "ritual_ZN14QScreenCapture11qt_metacastEPKc": [
       "address", "address", "chars"

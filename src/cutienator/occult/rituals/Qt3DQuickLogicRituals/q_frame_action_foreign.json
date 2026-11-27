@@ -4,7 +4,7 @@
     "ckLogic/6.12.0/Qt3DQuickLogic/private/qt3dquick3dlogicforeign_p.h,",
     "Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN19QFrameActionForeign20qt_qmlMarker_foreignEv": [
       "nothing", "address"
     ],

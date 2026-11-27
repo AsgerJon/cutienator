@@ -4,7 +4,7 @@
     "QtQuick3DPhysics/6.12.0/QtQuick3DPhysics/private/qboxshape_p.h, Qt",
     "6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK9QBoxShape10metaObjectEv": ["address", "address"],
     "ritual_ZN9QBoxShape11qt_metacastEPKc": ["address", "address", "chars"],
     "ritual_ZN9QBoxShape11qt_metacallEN11QMetaObject4CallEiPPv": [

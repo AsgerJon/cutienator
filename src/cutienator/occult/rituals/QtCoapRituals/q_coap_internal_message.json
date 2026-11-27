@@ -4,7 +4,7 @@
     "QtCoap/6.12.0/QtCoap/private/qcoapinternalmessage_p.h, Qt 6.12.0.",
     "Edited by hand: see the ritual file."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK20QCoapInternalMessage10metaObjectEv": ["address", "address"],
     "ritual_ZN20QCoapInternalMessage11qt_metacastEPKc": [
       "address", "address", "chars"

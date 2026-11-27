@@ -4,7 +4,7 @@
     "QtHelp/6.12.0/QtHelp/private/qfilternamedialog_p.h, Qt 6.12.0, as the",
     "Qt of macOS and of Windows install it, and that of Linux alike. Kept"
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK17QFilterNameDialog10metaObjectEv": ["address", "address"],
     "ritual_ZN17QFilterNameDialogD1Ev": ["nothing", "address"],
     "ritual_ZNK17QFilterNameDialog10filterNameEv": ["text", "address"]

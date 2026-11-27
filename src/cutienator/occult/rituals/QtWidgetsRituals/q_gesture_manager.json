@@ -4,7 +4,7 @@
     "QtWidgets/6.12.0/QtWidgets/private/qgesturemanager_p.h, Qt 6.12.0.",
     "Edited by hand: see the ritual file."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK15QGestureManager10metaObjectEv": ["address", "address"],
     "ritual_ZN15QGestureManager11qt_metacastEPKc": [
       "address", "address", "chars"

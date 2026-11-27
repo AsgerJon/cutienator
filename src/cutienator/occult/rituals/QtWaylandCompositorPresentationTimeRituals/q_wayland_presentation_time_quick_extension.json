@@ -6,7 +6,7 @@
     "qwaylandcompositorpresentationtimeforeign_p.h, Qt 6.12.0, from Qt's",
     "source. Kept as it is when the generator runs again."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK38QWaylandPresentationTimeQuickExtension10metaObjectEv": [
       "address", "address"
     ],

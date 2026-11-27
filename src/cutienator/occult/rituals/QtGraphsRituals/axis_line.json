@@ -7,7 +7,7 @@
   "parts first": [
     "QtGraphs", "QtCore", "QtGui", "QtQuick", "QtQml", "QtQmlIntegration"
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK8AxisLine10metaObjectEv": ["address", "address"],
     "ritual_ZN8AxisLine11qt_metacastEPKc": ["address", "address", "chars"],
     "ritual_ZN8AxisLine11qt_metacallEN11QMetaObject4CallEiPPv": [

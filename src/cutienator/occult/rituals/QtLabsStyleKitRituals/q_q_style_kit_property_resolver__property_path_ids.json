@@ -4,7 +4,7 @@
     "tyleKit/6.12.0/QtLabsStyleKit/private/qqstylekitpropertyresolver_p",
     ".h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN26QQStyleKitPropertyResolver15PropertyPathIdsD1Ev": [
       "nothing", "address"
     ]

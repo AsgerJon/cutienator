@@ -1,0 +1,58 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWebEngineCore/qwebengineurlrequestjob.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "sigils": {
+    "ritual_ZNK23QWebEngineUrlRequestJob10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23QWebEngineUrlRequestJob11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN23QWebEngineUrlRequestJob11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN23QWebEngineUrlRequestJob2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN23QWebEngineUrlRequestJobD1Ev": ["nothing", "address"],
+    "ritual_ZNK23QWebEngineUrlRequestJob10requestUrlEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK23QWebEngineUrlRequestJob13requestMethodEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK23QWebEngineUrlRequestJob9initiatorEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK23QWebEngineUrlRequestJob14requestHeadersEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK23QWebEngineUrlRequestJob11requestBodyEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23QWebEngineUrlRequestJob5replyERK10QByteArrayP9QIODevice": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN23QWebEngineUrlRequestJob4failENS_5ErrorE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN23QWebEngineUrlRequestJob8redirectERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK23QWebEngineUrlRequestJob28setAdditionalResponseHeadersERK9QMultiMapI10QByteArrayS1_E": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QWebEngineUrlRequestJobC1EPN15QtWebEngineCore27URLRequestCustomJobDelegateE": [
+      "address", "address"
+    ],
+    "ritual_take_QWebEngineUrlRequestJob": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_drop_QWebEngineUrlRequestJob__QMap_QByteArray_QByteArray": [
+      "nothing", "address"
+    ]
+  }
+}

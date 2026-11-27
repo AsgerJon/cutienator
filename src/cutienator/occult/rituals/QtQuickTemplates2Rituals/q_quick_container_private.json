@@ -4,7 +4,7 @@
     "Templates2/6.12.0/QtQuickTemplates2/private/qquickcontainer_p_p.h,",
     "Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN22QQuickContainerPrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK22QQuickContainerPrivate6q_funcEv": ["address", "address"],
     "ritual_ZN22QQuickContainerPrivate3getEP15QQuickContainer": [

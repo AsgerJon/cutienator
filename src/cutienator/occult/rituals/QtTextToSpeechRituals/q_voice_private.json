@@ -4,7 +4,7 @@
     "QtTextToSpeech/6.12.0/QtTextToSpeech/private/qvoice_p.h, Qt",
     "6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN13QVoicePrivateC1Ev": ["address"],
     "ritual_ZN13QVoicePrivateC1ERK7QStringRK7QLocaleN6QVoice6GenderENS6_3AgeERK8QVariant": [
       "address", "text", "address", "int", "int", "address"

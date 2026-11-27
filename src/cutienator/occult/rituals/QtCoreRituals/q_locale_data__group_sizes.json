@@ -4,7 +4,7 @@
     "QtCore/6.12.0/QtCore/private/qlocale_p.h, Qt 6.12.0. Changes made",
     "here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK11QLocaleData10GroupSizes7isValidEv": ["bool", "address"],
     "ritual_ZN11QLocaleData10GroupSizesD1Ev": ["nothing", "address"]
   }

@@ -4,7 +4,7 @@
     "QtGui/6.12.0/QtGui/private/qfont_p.h, Qt 6.12.0. Changes made here",
     "are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN10QFontCache8instanceEv": ["address"],
     "ritual_ZN10QFontCache7cleanupEv": ["nothing"],
     "ritual_ZN10QFontCacheC1Ev": ["address"],

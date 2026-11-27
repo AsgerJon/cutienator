@@ -86,7 +86,7 @@ class TypeExpert(RitualExpert):
   def findPassing(self, written: str, plain: str) -> Optional[Record]:
     """
     Says how a type this expert claims crosses: a record with 'kind',
-    one of 'getKinds', and 'word', its word in the row, '' for a number
+    one of 'getKinds', and 'word', its word in the sigil, '' for a number
     with no word that is right on every system; and what the kind
     needs besides. None when the expert claims the type and still
     cannot pass it.
@@ -97,7 +97,7 @@ class TypeExpert(RitualExpert):
   def isTakenFromPython(self) -> bool:
     """Says whether Python hands something for an argument of the type.
     A type that holds one value only, as 'std::nullptr_t', is made by
-    the ritual itself: it takes nothing for it, and its row has no word
+    the ritual itself: it takes nothing for it, and its sigil has no word
     for it."""
     return True
 

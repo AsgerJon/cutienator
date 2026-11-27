@@ -4,7 +4,7 @@
     "QtDeclarativeOpcua/6.12.0/QtDeclarativeOpcua/private/",
     "opcuapathresolver_p.h, Qt 6.12.0, from Qt's source. Kept as it is when"
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK17OpcUaPathResolver10metaObjectEv": ["address", "address"],
     "ritual_ZN17OpcUaPathResolverD1Ev": ["nothing", "address"]
   }

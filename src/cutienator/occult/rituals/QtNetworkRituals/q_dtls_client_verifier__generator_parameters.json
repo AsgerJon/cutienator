@@ -3,7 +3,7 @@
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtNetwork/qdtls.h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN19QDtlsClientVerifier19GeneratorParametersC1Ev": ["address"],
     "ritual_ZN19QDtlsClientVerifier19GeneratorParametersC1EN18QCryptographicHash9AlgorithmERK10QByteArray": [
       "address", "int", "address"

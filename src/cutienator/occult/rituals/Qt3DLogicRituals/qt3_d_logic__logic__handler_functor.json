@@ -4,7 +4,7 @@
     "Qt3DLogic/6.12.0/Qt3DLogic/private/handler_p.h, Qt 6.12.0. Changes",
     "made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN9Qt3DLogic5Logic14HandlerFunctorC1EPNS0_7ManagerE": [
       "address", "address"
     ],

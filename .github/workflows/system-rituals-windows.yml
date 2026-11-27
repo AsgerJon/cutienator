@@ -6,7 +6,7 @@
 # Windows' own header files, and writes and tests the rituals of their
 # classes with 'bin/system_rituals.py': only the header files it can
 # read and the package lacks.
-# It hands over the ritual files and rows files of the classes that
+# It hands over the ritual files and sigil files of the classes that
 # passed, with its report, as an artifact of the run, to download from
 # the page of the run and take into the package. It releases nothing
 # and changes nothing on 'main'.

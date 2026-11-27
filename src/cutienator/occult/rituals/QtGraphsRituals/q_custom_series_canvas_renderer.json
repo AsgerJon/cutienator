@@ -7,7 +7,7 @@
   "parts first": [
     "QtGraphs", "QtCore", "QtGui", "QtQuick", "QtQml", "QtQmlIntegration"
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN27QCustomSeriesCanvasRendererC1Ev": ["address"],
     "ritual_ZN27QCustomSeriesCanvasRendererD1Ev": ["nothing", "address"],
     "ritual_ZN27QCustomSeriesCanvasRenderer19initializeResourcesEP13QCustomSeriesP14QCanvasPainter": [

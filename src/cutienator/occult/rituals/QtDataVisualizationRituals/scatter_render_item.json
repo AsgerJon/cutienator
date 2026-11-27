@@ -4,7 +4,7 @@
     "isualization/6.12.0/QtDataVisualization/private/scatterrenderitem_",
     "p.h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN17ScatterRenderItemC1Ev": ["address"],
     "ritual_ZN17ScatterRenderItemC1ERKS_": ["address", "address"],
     "ritual_ZN17ScatterRenderItemaSERKS_": ["address", "address", "address"],

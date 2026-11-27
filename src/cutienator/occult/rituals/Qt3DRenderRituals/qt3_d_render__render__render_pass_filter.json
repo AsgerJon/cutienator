@@ -4,7 +4,7 @@
     "Qt3DRender/6.12.0/Qt3DRender/private/renderpassfilternode_p.h, Qt",
     "6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN10Qt3DRender6Render16RenderPassFilterC1Ev": ["address"],
     "ritual_ZNK10Qt3DRender6Render16RenderPassFilter7filtersEv": [
       "address", "address"

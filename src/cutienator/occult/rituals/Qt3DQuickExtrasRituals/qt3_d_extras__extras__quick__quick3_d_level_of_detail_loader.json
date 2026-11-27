@@ -4,7 +4,7 @@
     "ckExtras/6.12.0/Qt3DQuickExtras/private/quick3dlevelofdetailloader",
     "_p.h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK10Qt3DExtras6Extras5Quick26Quick3DLevelOfDetailLoader10metaObjectEv": [
       "address", "address"
     ],

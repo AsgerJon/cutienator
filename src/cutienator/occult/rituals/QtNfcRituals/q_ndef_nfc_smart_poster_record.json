@@ -4,7 +4,7 @@
     "QtNfc/qndefnfcsmartposterrecord.h, Qt 6.12.0. Changes made here",
     "are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN25QNdefNfcSmartPosterRecordC1Ev": ["address"],
     "ritual_ZN25QNdefNfcSmartPosterRecordC1ERK11QNdefRecord": [
       "address", "address"

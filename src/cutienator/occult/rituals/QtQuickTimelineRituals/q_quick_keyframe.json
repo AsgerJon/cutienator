@@ -4,7 +4,7 @@
     "QtQuickTimeline/6.12.0/QtQuickTimeline/private/qquickkeyframe_p.h,",
     "Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK14QQuickKeyframe10metaObjectEv": ["address", "address"],
     "ritual_ZN14QQuickKeyframe11qt_metacastEPKc": [
       "address", "address", "chars"

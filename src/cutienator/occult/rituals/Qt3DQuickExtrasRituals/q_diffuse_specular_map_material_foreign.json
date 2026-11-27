@@ -4,7 +4,7 @@
     "ckExtras/6.12.0/Qt3DQuickExtras/private/qt3dquick3dextrasforeign_p",
     ".h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN34QDiffuseSpecularMapMaterialForeign20qt_qmlMarker_foreignEv": [
       "nothing", "address"
     ],

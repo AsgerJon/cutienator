@@ -4,7 +4,7 @@
     "QtWidgets/6.12.0/QtWidgets/private/qwidgetresizehandler_p.h, Qt",
     "6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK20QWidgetResizeHandler10metaObjectEv": ["address", "address"],
     "ritual_ZN20QWidgetResizeHandler11qt_metacastEPKc": [
       "address", "address", "chars"

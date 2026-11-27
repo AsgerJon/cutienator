@@ -4,7 +4,7 @@
     "QtQuick/6.12.0/QtQuick/private/qsgbasicinternalimagenode_p.h, Qt",
     "6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN25QSGBasicInternalImageNodeC1Ev": ["address"],
     "ritual_ZN25QSGBasicInternalImageNode13setTargetRectERK6QRectF": [
       "nothing", "address", "address"

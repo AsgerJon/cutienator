@@ -4,7 +4,7 @@
     "QtChartsQml/6.12.0/QtChartsQml/private/declarativechart_p.h, Qt",
     "6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK16DeclarativeChart10metaObjectEv": ["address", "address"],
     "ritual_ZN16DeclarativeChart11qt_metacastEPKc": [
       "address", "address", "chars"

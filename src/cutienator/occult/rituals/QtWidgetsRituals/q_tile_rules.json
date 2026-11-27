@@ -3,7 +3,7 @@
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtWidgets/qdrawutil.h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN10QTileRulesC1EN2Qt8TileRuleES1_": ["address", "int", "int"],
     "ritual_ZN10QTileRulesC1EN2Qt8TileRuleE": ["address", "int"],
     "ritual_ZN10QTileRulesD1Ev": ["nothing", "address"]

@@ -1,0 +1,39 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtPdf/qpdflink.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "sigils": {
+    "ritual_ZN8QPdfLinkC1Ev": ["address"],
+    "ritual_ZN8QPdfLinkD1Ev": ["nothing", "address"],
+    "ritual_ZN8QPdfLinkaSERKS_": ["address", "address", "address"],
+    "ritual_ZN8QPdfLinkC1ERKS_": ["address", "address"],
+    "ritual_ZN8QPdfLinkC1EOS_": ["address", "address"],
+    "ritual_ZN8QPdfLinkaSEOS_": ["address", "address", "address"],
+    "ritual_ZN8QPdfLink4swapERS_": ["nothing", "address", "address"],
+    "ritual_ZNK8QPdfLink7isValidEv": ["bool", "address"],
+    "ritual_ZNK8QPdfLink4pageEv": ["int", "address"],
+    "ritual_ZNK8QPdfLink8locationEv": ["address", "address"],
+    "ritual_ZNK8QPdfLink4zoomEv": ["double", "address"],
+    "ritual_ZNK8QPdfLink3urlEv": ["address", "address"],
+    "ritual_ZNK8QPdfLink13contextBeforeEv": ["text", "address"],
+    "ritual_ZNK8QPdfLink12contextAfterEv": ["text", "address"],
+    "ritual_ZNK8QPdfLink10rectanglesEv": ["address", "address"],
+    "ritual_ZNK8QPdfLink8toStringEv": ["text", "address"],
+    "ritual_ZNK8QPdfLink15copyToClipboardEN10QClipboard4ModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN8QPdfLinkC1Ei7QPointFd": [
+      "address", "int", "address", "double"
+    ],
+    "ritual_ZN8QPdfLinkC1Ei5QListI6QRectFE7QStringS3_": [
+      "address", "int", "address", "text", "text"
+    ],
+    "ritual_ZN8QPdfLinkC1EP15QPdfLinkPrivate": ["address", "address"],
+    "ritual_list_make_QPdfLink": ["address"],
+    "ritual_list_add_QPdfLink": ["nothing", "address", "address"],
+    "ritual_list_size_QPdfLink": ["long long", "address"],
+    "ritual_list_at_QPdfLink": ["address", "address", "long long"],
+    "ritual_list_drop_QPdfLink": ["nothing", "address"]
+  }
+}

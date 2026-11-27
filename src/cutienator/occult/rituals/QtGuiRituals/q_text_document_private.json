@@ -2,7 +2,7 @@
   "about": [
     "Edited by hand: see the ritual file."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN20QTextDocumentPrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK20QTextDocumentPrivate6q_funcEv": ["address", "address"],
     "ritual_ZN20QTextDocumentPrivateC1Ev": ["address"],

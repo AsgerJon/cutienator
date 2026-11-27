@@ -10,7 +10,10 @@
 # run, 'scrolls-linux' and so on, to download from the page of the run:
 # the library of each part of Qt with its left-out file, which says what
 # was left out of it and why, the report, and every object file the
-# libraries were joined from (the folder 'demons').
+# libraries were joined from (the folder 'demons'). WebEngine and Pdf
+# are among the parts; the run stops early when Qt came without them.
+# 'four-horsemen-short.yml' is the short run: the same machines, only
+# the parts 'bin/four_horsemen_short.txt' names.
 on:
   workflow_dispatch:
 
@@ -70,7 +73,12 @@ jobs:
       # fetch it; see 'micro-dev.yml' for why each line is there. Here
       # every part of Qt this machine can have, not qtbase alone, so
       # that every ritual file of every part is compiled: no 'archives'
-      # line, and 'modules: all', which aqt takes as every add-on.
+      # line, and 'modules: all', which aqt takes as every add-on. Qt
+      # gives out WebEngine and Pdf (the modules 'qtwebengine' and
+      # 'qtpdf') apart from the rest of Qt 6.12.0, as extensions of its
+      # installer, and aqt lists both among the modules of 6.12.0 on
+      # all three systems, so 'all' brings them; the step after the
+      # next stops the run when it did not.
       - name: Install Qt 6.12.0
         uses: jurplel/install-qt-action@v4.5.0
         with:
@@ -105,6 +113,20 @@ jobs:
         run: |
           qmake6 -query QT_VERSION | tr -d '\r' | grep -Fx '6.12.0'
           clang++ --version
+      # The ritual files of WebEngine and Pdf are built only where Qt
+      # has those parts. This step asks 'Rituals', as 'check_summon.py'
+      # asks it, which parts it builds here, and stops the run, naming
+      # the part, when one of the five is not among them.
+      - name: Check that Qt has WebEngine and Pdf
+        shell: bash
+        env:
+          PYTHONPATH: ${{ github.workspace }}/src
+        run: |
+          parts=$(python -B -c "from cutienator.occult import Rituals; print(' '.join(Rituals.getBuiltParts()))" | tr -d '\r')
+          for part in QtWebEngineCore QtWebEngineQuick QtWebEngineWidgets QtPdf QtPdfWidgets; do
+            echo " $parts " | grep -q " $part " \
+              || { echo "Qt here has no $part, or it has no ritual files" >&2; exit 1; }
+          done
       # The report is written whatever the check finds, and the step
       # fails when something was refused, so the run shows red. As it
       # works, the check prints a line of progress at most every half

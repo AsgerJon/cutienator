@@ -4,7 +4,7 @@
     "QtQmlModels/6.12.0/QtQmlModels/private/qqmllistcompositor_p.h, Qt",
     "6.12.0. Edited by hand: see the ritual file."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN18QQmlListCompositor8iteratorC1Ev": ["address"],
     "ritual_ZN18QQmlListCompositor8iteratorC1EPNS_5RangeEiNS_5GroupEi": [
       "address", "address", "int", "int", "int"

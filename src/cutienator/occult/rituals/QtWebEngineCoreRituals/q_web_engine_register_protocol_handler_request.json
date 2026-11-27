@@ -1,0 +1,34 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWebEngineCore/qwebengineregisterprotocolhandlerrequest.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "sigils": {
+    "ritual_ZN40QWebEngineRegisterProtocolHandlerRequestC1Ev": ["address"],
+    "ritual_ZN40QWebEngineRegisterProtocolHandlerRequest6acceptEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN40QWebEngineRegisterProtocolHandlerRequest6rejectEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK40QWebEngineRegisterProtocolHandlerRequest6originEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK40QWebEngineRegisterProtocolHandlerRequest6schemeEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK40QWebEngineRegisterProtocolHandlerRequesteqERKS_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK40QWebEngineRegisterProtocolHandlerRequestneERKS_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN40QWebEngineRegisterProtocolHandlerRequestC1E14QSharedPointerIN15QtWebEngineCore40RegisterProtocolHandlerRequestControllerEE": [
+      "address", "address"
+    ],
+    "ritual_ZN40QWebEngineRegisterProtocolHandlerRequestD1Ev": [
+      "nothing", "address"
+    ]
+  }
+}

@@ -4,7 +4,7 @@
     "rsQuick/6.12.0/QtSensorsQuick/private/qmlambienttemperaturesensor_",
     "p.h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK28QmlAmbientTemperatureReading10metaObjectEv": [
       "address", "address"
     ],

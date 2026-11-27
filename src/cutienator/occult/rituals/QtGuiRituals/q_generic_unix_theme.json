@@ -4,7 +4,7 @@
     "QtGui/6.12.0/QtGui/private/qgenericunixtheme_p.h, Qt 6.12.0.",
     "Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN17QGenericUnixTheme6d_funcEv": ["address", "address"],
     "ritual_ZNK17QGenericUnixTheme6d_funcEv": ["address", "address"],
     "ritual_ZN17QGenericUnixThemeC1EP24QGenericUnixThemePrivate": [

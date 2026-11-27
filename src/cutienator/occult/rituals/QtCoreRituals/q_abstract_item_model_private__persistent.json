@@ -4,7 +4,7 @@
     "QtCore/6.12.0/QtCore/private/qabstractitemmodel_p.h, Qt 6.12.0.",
     "Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN25QAbstractItemModelPrivate10PersistentC1Ev": ["address"],
     "ritual_ZN25QAbstractItemModelPrivate10Persistent16insertMultiAtEndERK11QModelIndexP25QPersistentModelIndexData": [
       "nothing", "address", "address", "address"

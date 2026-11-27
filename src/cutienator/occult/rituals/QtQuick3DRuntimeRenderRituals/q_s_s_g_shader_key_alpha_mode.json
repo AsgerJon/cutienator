@@ -4,7 +4,7 @@
     "3DRuntimeRender/6.12.0/QtQuick3DRuntimeRender/private/qssgrendersh",
     "aderkeys_p.h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN22QSSGShaderKeyAlphaModeC1EPKc": ["address", "chars"],
     "ritual_ZN22QSSGShaderKeyAlphaMode12setAlphaModeE11QSSGDataRefIjEN25QSSGRenderDefaultMaterial17MaterialAlphaModeE": [
       "nothing", "address", "address", "unsigned char"

@@ -4,7 +4,7 @@
     "ewQuick/6.12.0/QtWebViewQuick/private/qquickwebviewloadrequest_p.h",
     ", Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK24QQuickWebViewLoadRequest10metaObjectEv": [
       "address", "address"
     ],

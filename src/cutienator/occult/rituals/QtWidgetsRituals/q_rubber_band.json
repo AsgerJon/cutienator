@@ -3,7 +3,7 @@
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtWidgets/qrubberband.h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK11QRubberBand10metaObjectEv": ["address", "address"],
     "ritual_ZN11QRubberBand11qt_metacastEPKc": [
       "address", "address", "chars"

@@ -4,7 +4,7 @@
     "Qt3DRender/qtexturedataupdate.h, Qt 6.12.0. Changes made here are",
     "lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN10Qt3DRender18QTextureDataUpdateC1Ev": ["address"],
     "ritual_ZN10Qt3DRender18QTextureDataUpdateC1ERKS0_": [
       "address", "address"

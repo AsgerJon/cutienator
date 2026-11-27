@@ -4,7 +4,7 @@
     "QtQuick3DUtils/6.12.0/QtQuick3DUtils/private/qssgfrustum_p.h, Qt",
     "6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK11QSSGFrustum8containsERK11QSSGBounds3": [
       "bool", "address", "address"
     ],

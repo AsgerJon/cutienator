@@ -5,7 +5,7 @@
     "source: Objective-C++, built on Apple's systems only. Kept as it is",
     "when the generator runs again."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN15QMacPrintEngineC1EN8QPrinter11PrinterModeERK7QString": ["address", "int", "text"],
     "ritual_ZN15QMacPrintEngineD1Ev": ["nothing", "address"],
     "ritual_ZNK15QMacPrintEngine6handleEv": ["address", "address"],

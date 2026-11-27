@@ -3,7 +3,7 @@
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtGui/qscreen.h, Qt 6.12.0. Edited by hand: see the ritual file."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK7QScreen10metaObjectEv": ["address", "address"],
     "ritual_ZN7QScreen11qt_metacastEPKc": ["address", "address", "chars"],
     "ritual_ZN7QScreen11qt_metacallEN11QMetaObject4CallEiPPv": [

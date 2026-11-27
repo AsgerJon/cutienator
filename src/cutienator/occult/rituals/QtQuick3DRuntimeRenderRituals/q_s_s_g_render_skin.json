@@ -4,7 +4,7 @@
     "3DRuntimeRender/6.12.0/QtQuick3DRuntimeRender/private/qssgrendersk",
     "in_p.h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN14QSSGRenderSkinC1Ev": ["address"],
     "ritual_ZN14QSSGRenderSkinD1Ev": ["nothing", "address"],
     "ritual_ZN14QSSGRenderSkin8boneDataEv": ["address", "address"]

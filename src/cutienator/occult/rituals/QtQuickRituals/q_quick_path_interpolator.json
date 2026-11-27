@@ -4,7 +4,7 @@
     "QtQuick/6.12.0/QtQuick/private/qquickpathinterpolator_p.h, Qt",
     "6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK22QQuickPathInterpolator10metaObjectEv": [
       "address", "address"
     ],

@@ -4,7 +4,7 @@
     "QtQml/6.12.0/QtQml/private/qqmlcomponentandaliasresolver_p.h, Qt",
     "6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN33QQmlComponentAndAliasResolverBase2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],

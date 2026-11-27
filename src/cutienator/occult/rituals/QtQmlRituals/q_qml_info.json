@@ -3,7 +3,7 @@
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtQml/qqmlinfo.h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN8QQmlInfoC1ERKS_": ["address", "address"],
     "ritual_ZN8QQmlInfoD1Ev": ["nothing", "address"],
     "ritual_ZN8QQmlInfolsE5QChar": ["address", "address", "address"],

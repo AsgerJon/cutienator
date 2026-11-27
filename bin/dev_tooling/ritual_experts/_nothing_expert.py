@@ -18,7 +18,7 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
 class NothingExpert(TypeExpert):
   """
   Says how 'void' crosses: a function giving back 'void' gives nothing,
-  and its row says 'nothing'.
+  and its sigil says 'nothing'.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

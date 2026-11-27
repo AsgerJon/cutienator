@@ -4,7 +4,7 @@
     "QtQuickNativeStyle/6.12.0/QtQuickNativeStyle/private/qquickstyleitemslider_p.h,",
     "Qt 6.12.0, as the Qt of macOS and of Windows installs it (Qt"
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK21QQuickStyleItemSlider10metaObjectEv": ["address", "address"],
     "ritual_ZNK21QQuickStyleItemSlider9styleFontEP10QQuickItem": [
       "address", "address", "address"

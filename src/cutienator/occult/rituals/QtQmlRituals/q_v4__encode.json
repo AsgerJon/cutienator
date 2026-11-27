@@ -4,7 +4,7 @@
     "QtQml/6.12.0/QtQml/private/qv4staticvalue_p.h, Qt 6.12.0. Edited",
     "by hand: see the ritual file."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN3QV46Encode9undefinedEv": ["unsigned long long"],
     "ritual_ZN3QV46Encode4nullEv": ["unsigned long long"],
     "ritual_ZN3QV46EncodeC1Eb": ["address", "bool"],

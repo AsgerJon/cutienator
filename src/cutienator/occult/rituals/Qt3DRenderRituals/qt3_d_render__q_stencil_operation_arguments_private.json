@@ -4,7 +4,7 @@
     "der/6.12.0/Qt3DRender/private/qstenciloperationarguments_p.h, Qt",
     "6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN10Qt3DRender33QStencilOperationArgumentsPrivateC1ENS_26QStencilOperationArguments8FaceModeE": [
       "address", "int"
     ],

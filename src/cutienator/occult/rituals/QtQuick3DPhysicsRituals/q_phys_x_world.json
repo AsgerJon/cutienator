@@ -4,7 +4,7 @@
     "QtQuick3DPhysics/6.12.0/QtQuick3DPhysics/private/qphysxworld_p.h,",
     "Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN11QPhysXWorldD1Ev": ["nothing", "address"]
   }
 }

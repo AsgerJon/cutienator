@@ -4,7 +4,7 @@
     "QtPositioning/6.12.0/QtPositioning/private/qlocationutils_p.h, Qt",
     "6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN14QLocationUtils10isValidLatEd": ["bool", "double"],
     "ritual_ZN14QLocationUtils11isValidLongEd": ["bool", "double"],
     "ritual_ZN14QLocationUtils7clipLatEdd": ["double", "double", "double"],

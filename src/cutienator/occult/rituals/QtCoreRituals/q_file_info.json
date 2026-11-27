@@ -4,7 +4,7 @@
     "QtCore/qfileinfo.h, Qt 6.12.0. Edited by hand: see the ritual",
     "file."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN9QFileInfoC1EP16QFileInfoPrivate": ["address", "address"],
     "ritual_ZN9QFileInfoC1Ev": ["address"],
     "ritual_ZN9QFileInfoC1ERK7QString": ["address", "text"],

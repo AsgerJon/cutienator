@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtWebEn",
+    "gineCore/6.12.0/QtWebEngineCore/private/qwebenginewebauthuxrequest",
+    "_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "sigils": {
+    "ritual_ZN33QWebEngineWebAuthUxRequestPrivateC1EPN15QtWebEngineCore36AuthenticatorRequestDialogControllerE": [
+      "address", "address"
+    ],
+    "ritual_ZN33QWebEngineWebAuthUxRequestPrivateD1Ev": [
+      "nothing", "address"
+    ]
+  }
+}

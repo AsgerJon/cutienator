@@ -509,7 +509,7 @@ class Judge:
     """
     faults = []
     for partName in Rituals.getBuiltParts():
-      listed = {*Rituals.getRows(partName)}
+      listed = {*Rituals.getSigils(partName)}
       sharedObject = SharedObject(Rituals.getTargetFile(partName))
       offered = {symbol.mangled for symbol in sharedObject.functions()}
       for name in sorted(listed - offered):

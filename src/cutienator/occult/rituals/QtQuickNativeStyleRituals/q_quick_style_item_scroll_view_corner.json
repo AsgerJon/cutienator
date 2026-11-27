@@ -4,7 +4,7 @@
     "NativeStyle/6.12.0/QtQuickNativeStyle/private/qquickstyleitemscrol",
     "lviewcorner_p.h, Qt 6.12.0. Edited by hand: see the ritual file."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK31QQuickStyleItemScrollViewCorner10metaObjectEv": [
       "address", "address"
     ],

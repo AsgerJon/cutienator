@@ -4,7 +4,7 @@
     "QtMultimedia/qmediacapturesession.h, Qt 6.12.0. Changes made here",
     "are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK20QMediaCaptureSession10metaObjectEv": ["address", "address"],
     "ritual_ZN20QMediaCaptureSession11qt_metacastEPKc": [
       "address", "address", "chars"

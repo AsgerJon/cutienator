@@ -4,7 +4,7 @@
     "QtWidgets/6.12.0/QtWidgets/private/qcolumnview_p.h, Qt 6.12.0.",
     "Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN24QColumnViewPreviewColumnC1EP7QWidget": [
       "address", "address"
     ],

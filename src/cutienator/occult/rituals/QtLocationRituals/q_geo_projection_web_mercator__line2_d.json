@@ -4,7 +4,7 @@
     "QtLocation/6.12.0/QtLocation/private/qgeoprojection_p.h, Qt",
     "6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN25QGeoProjectionWebMercator6Line2DC1Ev": ["address"],
     "ritual_ZN25QGeoProjectionWebMercator6Line2DC1ERK15QDoubleVector2DS3_": [
       "address", "address", "address"

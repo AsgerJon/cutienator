@@ -4,7 +4,7 @@
     "Qt3DRender/6.12.0/Qt3DRender/private/nodemanagers_p.h, Qt 6.12.0.",
     "Edited by hand: see the ritual file."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN10Qt3DRender6Render12NodeManagersC1Ev": ["address"],
     "ritual_ZN10Qt3DRender6Render12NodeManagersD1Ev": ["nothing", "address"],
     "ritual_ZNK10Qt3DRender6Render12NodeManagers13cameraManagerEv": [

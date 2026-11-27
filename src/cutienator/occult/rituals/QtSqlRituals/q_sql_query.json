@@ -3,7 +3,7 @@
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtSql/qsqlquery.h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN9QSqlQueryC1EP10QSqlResult": ["address", "address"],
     "ritual_ZN9QSqlQueryC1ERK7QStringRK12QSqlDatabase": [
       "address", "text", "address"

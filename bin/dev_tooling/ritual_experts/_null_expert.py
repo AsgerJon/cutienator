@@ -20,7 +20,7 @@ class NullExpert(TypeExpert):
   Says how 'std::nullptr_t' crosses, the type of 'nullptr' alone, as in
   'QByteArrayView(std::nullptr_t)': it does not. It holds one value
   only, so the ritual hands Qt 'nullptr' itself, takes nothing for it,
-  and its row has no word for it; Python hands nothing. A function
+  and its sigil has no word for it; Python hands nothing. A function
   giving one back is not written.
   """
 

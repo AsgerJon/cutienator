@@ -4,7 +4,7 @@
     "Controls2Impl/6.12.0/QtQuickControls2Impl/private/qquickmnemonicla",
     "bel_p.h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK19QQuickMnemonicLabel10metaObjectEv": ["address", "address"],
     "ritual_ZN19QQuickMnemonicLabel11qt_metacastEPKc": [
       "address", "address", "chars"

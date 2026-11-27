@@ -1,0 +1,30 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtWebEn",
+    "gineQuick/6.12.0/QtWebEngineQuick/private/ui_delegates_manager_p.h",
+    ", Qt 6.12.0. Changes made here are lost."
+  ],
+  "sigils": {
+    "ritual_ZN15QtWebEngineCore18UIDelegatesManager2trEPKcS2_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN15QtWebEngineCore18UIDelegatesManagerD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QtWebEngineCore18UIDelegatesManager11addMenuItemEP21QQuickWebEngineActionP7QObjectbb": [
+      "nothing", "address", "address", "address", "bool", "bool"
+    ],
+    "ritual_ZN15QtWebEngineCore18UIDelegatesManager7addMenuEP7QObjectRK7QStringRK6QPoint": [
+      "address", "address", "address", "text", "address"
+    ],
+    "ritual_ZN15QtWebEngineCore18UIDelegatesManager8showMenuEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QtWebEngineCore_UIDelegatesManager": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN15QtWebEngineCore18UIDelegatesManager8showMenuEP7QObject": [
+      "nothing", "address", "address"
+    ]
+  }
+}

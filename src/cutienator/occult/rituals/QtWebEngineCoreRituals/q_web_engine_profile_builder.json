@@ -1,0 +1,38 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWebEngineCore/qwebengineprofilebuilder.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "sigils": {
+    "ritual_ZN24QWebEngineProfileBuilderC1Ev": ["address"],
+    "ritual_ZN24QWebEngineProfileBuilderD1Ev": ["nothing", "address"],
+    "ritual_ZNK24QWebEngineProfileBuilder13createProfileERK7QStringP7QObject": [
+      "address", "address", "text", "address"
+    ],
+    "ritual_ZN24QWebEngineProfileBuilder25createOffTheRecordProfileEP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZN24QWebEngineProfileBuilder24setPersistentStoragePathERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN24QWebEngineProfileBuilder12setCachePathERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN24QWebEngineProfileBuilder16setHttpCacheTypeEN17QWebEngineProfile13HttpCacheTypeE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN24QWebEngineProfileBuilder26setPersistentCookiesPolicyEN17QWebEngineProfile23PersistentCookiesPolicyE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN24QWebEngineProfileBuilder23setHttpCacheMaximumSizeEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN24QWebEngineProfileBuilder30setPersistentPermissionsPolicyEN17QWebEngineProfile27PersistentPermissionsPolicyE": [
+      "address", "address", "unsigned char"
+    ],
+    "ritual_ZN24QWebEngineProfileBuilder32setAdditionalTrustedCertificatesERK5QListI15QSslCertificateE": [
+      "address", "address", "address"
+    ]
+  }
+}

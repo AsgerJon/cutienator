@@ -3,7 +3,7 @@
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtOpcUa/qopcuawriteitem.h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN15QOpcUaWriteItemC1Ev": ["address"],
     "ritual_ZN15QOpcUaWriteItemC1ERKS_": ["address", "address"],
     "ritual_ZN15QOpcUaWriteItemC1ERK7QStringN6QOpcUa13NodeAttributeERK8QVariantNS3_5TypesES2_": [

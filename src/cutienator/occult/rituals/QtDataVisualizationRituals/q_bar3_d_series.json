@@ -4,7 +4,7 @@
     "QtDataVisualization/qbar3dseries.h, Qt 6.12.0. Changes made here",
     "are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK12QBar3DSeries10metaObjectEv": ["address", "address"],
     "ritual_ZN12QBar3DSeries11qt_metacastEPKc": [
       "address", "address", "chars"

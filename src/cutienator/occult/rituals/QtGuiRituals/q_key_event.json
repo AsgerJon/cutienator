@@ -3,7 +3,7 @@
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtGui/qevent.h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN9QKeyEventC1ERKS_": ["address", "address"],
     "ritual_ZN9QKeyEventaSERKS_": ["address", "address", "address"],
     "ritual_ZNK9QKeyEvent5cloneEv": ["address", "address"],

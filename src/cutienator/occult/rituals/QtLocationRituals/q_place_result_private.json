@@ -4,7 +4,7 @@
     "QtLocation/6.12.0/QtLocation/private/qplaceresult_p.h, Qt 6.12.0.",
     "Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK19QPlaceResultPrivate7compareEPK25QPlaceSearchResultPrivate": [
       "bool", "address", "address"
     ],

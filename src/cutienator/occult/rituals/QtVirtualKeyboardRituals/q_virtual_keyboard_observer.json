@@ -4,7 +4,7 @@
     "QtVirtualKeyboard/qvirtualkeyboardobserver.h, Qt 6.12.0. Changes",
     "made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK24QVirtualKeyboardObserver10metaObjectEv": [
       "address", "address"
     ],

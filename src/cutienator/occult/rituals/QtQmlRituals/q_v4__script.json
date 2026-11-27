@@ -4,7 +4,7 @@
     "QtQml/6.12.0/QtQml/private/qv4script_p.h, Qt 6.12.0. Changes made",
     "here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN3QV46Script10precompileEPNS_8Compiler6ModuleEPN6QQmlJS6EngineEPNS1_15JSUnitGeneratorERK7QStringSB_P5QListI9QQmlErrorENS1_11ContextTypeENS0_14InheritContextE": [
       "address", "address", "address", "address", "text", "text", "address",
       "int", "int"

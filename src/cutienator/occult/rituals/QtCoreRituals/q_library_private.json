@@ -2,7 +2,7 @@
   "about": [
     "Edited by hand: see the ritual file."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK15QLibraryPrivate9loadHintsEv": ["int", "address"],
     "ritual_ZN15QLibraryPrivate10prefix_sysEv": ["text"],
     "ritual_ZN15QLibraryPrivate3getEP8QLibrary": ["address", "address"],

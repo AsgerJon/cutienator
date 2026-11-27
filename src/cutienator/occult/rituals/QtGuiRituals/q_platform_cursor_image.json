@@ -4,7 +4,7 @@
     "QtGui/6.12.0/QtGui/qpa/qplatformcursor.h, Qt 6.12.0. Changes made",
     "here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN20QPlatformCursorImageC1EPKhS1_iiii": [
       "address", "address", "address", "int", "int", "int", "int"
     ],

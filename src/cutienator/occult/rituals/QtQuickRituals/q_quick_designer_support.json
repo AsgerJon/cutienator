@@ -4,7 +4,7 @@
     "QtQuick/6.12.0/QtQuick/private/qquickdesignersupport_p.h, Qt",
     "6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN21QQuickDesignerSupportC1Ev": ["address"],
     "ritual_ZN21QQuickDesignerSupportD1Ev": ["nothing", "address"],
     "ritual_ZN21QQuickDesignerSupport17refFromEffectItemEP10QQuickItemb": [

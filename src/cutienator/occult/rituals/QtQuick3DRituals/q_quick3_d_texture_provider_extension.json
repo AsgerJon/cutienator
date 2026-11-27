@@ -4,7 +4,7 @@
     "QtQuick3D/qquick3dtextureproviderextension.h, Qt 6.12.0. Changes",
     "made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK32QQuick3DTextureProviderExtension10metaObjectEv": [
       "address", "address"
     ],

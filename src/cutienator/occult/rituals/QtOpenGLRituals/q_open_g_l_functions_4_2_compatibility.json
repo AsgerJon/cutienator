@@ -4,7 +4,7 @@
     "QtOpenGL/qopenglfunctions_4_2_compatibility.h, Qt 6.12.0. Changes",
     "made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN34QOpenGLFunctions_4_2_CompatibilityC1Ev": ["address"],
     "ritual_ZN34QOpenGLFunctions_4_2_CompatibilityD1Ev": [
       "nothing", "address"

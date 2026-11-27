@@ -2,7 +2,7 @@
   "about": [
     "Edited by hand: see the ritual file."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN28QNetworkReplyHttpImplPrivate7convertEN15QNetworkRequest8PriorityE": [
       "int", "int"
     ],

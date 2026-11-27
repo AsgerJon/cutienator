@@ -4,7 +4,7 @@
     "QtCore/6.12.0/QtCore/private/qabstractfileengine_p.h, Qt 6.12.0.",
     "Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN27QAbstractFileEngineIteratorC1ERK7QString6QFlagsIN4QDir6FilterEERK5QListIS0_E": [
       "address", "text", "int", "address"
     ],

@@ -4,7 +4,7 @@
     "QtQml/6.12.0/QtQml/private/qqmlvaluetype_p.h, Qt 6.12.0. Changes",
     "made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK10QQmlEasing10metaObjectEv": ["address", "address"],
     "ritual_ZN10QQmlEasing11qt_metacastEPKc": [
       "address", "address", "chars"

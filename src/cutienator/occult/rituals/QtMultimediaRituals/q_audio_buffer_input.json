@@ -4,7 +4,7 @@
     "QtMultimedia/qaudiobufferinput.h, Qt 6.12.0. Changes made here are",
     "lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK17QAudioBufferInput10metaObjectEv": ["address", "address"],
     "ritual_ZN17QAudioBufferInput11qt_metacastEPKc": [
       "address", "address", "chars"

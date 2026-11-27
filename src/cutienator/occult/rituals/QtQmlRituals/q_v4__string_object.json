@@ -4,7 +4,7 @@
     "QtQml/6.12.0/QtQml/private/qv4stringobject_p.h, Qt 6.12.0. Changes",
     "made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN3QV412StringObject10__dataTestEv": ["nothing", "address"],
     "ritual_ZNK3QV412StringObject11d_uncheckedEv": ["address", "address"],
     "ritual_ZNK3QV412StringObject1dEv": ["address", "address"],

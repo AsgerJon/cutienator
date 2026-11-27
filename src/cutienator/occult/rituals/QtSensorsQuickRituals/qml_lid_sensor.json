@@ -4,7 +4,7 @@
     "QtSensorsQuick/6.12.0/QtSensorsQuick/private/qmllidsensor_p.h, Qt",
     "6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK12QmlLidSensor10metaObjectEv": ["address", "address"],
     "ritual_ZN12QmlLidSensor11qt_metacastEPKc": [
       "address", "address", "chars"

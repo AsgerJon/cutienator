@@ -4,7 +4,7 @@
     "signSupport/6.12.0/QtQmlDesignSupport/private/qobjectregistry_p.h,",
     "Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK27QObjectRegistryAttachedType10metaObjectEv": [
       "address", "address"
     ],

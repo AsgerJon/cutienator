@@ -4,7 +4,7 @@
     "Qt3DCore/6.12.0/Qt3DCore/private/qcoreaspect_p.h, Qt 6.12.0.",
     "Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN8Qt3DCore18QCoreAspectPrivateC1Ev": ["address"],
     "ritual_ZN8Qt3DCore18QCoreAspectPrivateD1Ev": ["nothing", "address"],
     "ritual_ZN8Qt3DCore18QCoreAspectPrivate6q_funcEv": [

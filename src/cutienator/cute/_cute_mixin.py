@@ -192,7 +192,7 @@ class CuteMixin(BaseObject):
       The name of the function, as 'sizeHint', for the message.
 
     gives : Tuple[str, str, str]
-      What Qt's function gives: the word of it as a row has it, what
+      What Qt's function gives: the word of it as a sigil has it, what
       it is ('nothing', 'number', 'text', 'enum', 'flags', 'address'
       or 'value'), and where its cute class or enum is found.
 
@@ -700,7 +700,7 @@ class CuteMixin(BaseObject):
       The name of the function, as 'paintEvent'.
 
     gives : Tuple[str, str, str]
-      What Qt's function gives: the word of it as a row has it, what
+      What Qt's function gives: the word of it as a sigil has it, what
       it is ('nothing', 'number', 'text', 'enum', 'flags', 'address'
       or 'value'), and for the last four where its cute class or enum
       is found, as 'QtCore:QSize'.

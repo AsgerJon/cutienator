@@ -4,7 +4,7 @@
     "QtQml/6.12.0/QtQml/private/qqmltypedata_p.h, Qt 6.12.0. Changes",
     "made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN12QQmlTypeData2trEPKcS1_i": ["text", "chars", "chars", "int"],
     "ritual_ZN12QQmlTypeDataD1Ev": ["nothing", "address"],
     "ritual_ZNK12QQmlTypeData15compilationUnitEv": ["address", "address"],

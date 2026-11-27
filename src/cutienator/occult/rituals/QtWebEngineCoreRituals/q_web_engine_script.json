@@ -1,0 +1,50 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWebEngineCore/qwebenginescript.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "sigils": {
+    "ritual_ZN16QWebEngineScriptC1Ev": ["address"],
+    "ritual_ZN16QWebEngineScriptC1ERKS_": ["address", "address"],
+    "ritual_ZN16QWebEngineScriptD1Ev": ["nothing", "address"],
+    "ritual_ZN16QWebEngineScriptaSERKS_": ["address", "address", "address"],
+    "ritual_ZNK16QWebEngineScript4nameEv": ["text", "address"],
+    "ritual_ZN16QWebEngineScript7setNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK16QWebEngineScript9sourceUrlEv": ["address", "address"],
+    "ritual_ZN16QWebEngineScript12setSourceUrlERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QWebEngineScript10sourceCodeEv": ["text", "address"],
+    "ritual_ZN16QWebEngineScript13setSourceCodeERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK16QWebEngineScript14injectionPointEv": ["int", "address"],
+    "ritual_ZN16QWebEngineScript17setInjectionPointENS_14InjectionPointE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK16QWebEngineScript7worldIdEv": ["unsigned int", "address"],
+    "ritual_ZN16QWebEngineScript10setWorldIdEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZNK16QWebEngineScript15runsOnSubFramesEv": ["bool", "address"],
+    "ritual_ZN16QWebEngineScript18setRunsOnSubFramesEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK16QWebEngineScripteqERKS_": ["bool", "address", "address"],
+    "ritual_ZNK16QWebEngineScriptneERKS_": ["bool", "address", "address"],
+    "ritual_ZN16QWebEngineScript4swapERS_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QWebEngineScriptC1ERKN15QtWebEngineCore10UserScriptE": [
+      "address", "address"
+    ],
+    "ritual_list_make_QWebEngineScript": ["address"],
+    "ritual_list_add_QWebEngineScript": ["nothing", "address", "address"],
+    "ritual_list_size_QWebEngineScript": ["long long", "address"],
+    "ritual_list_at_QWebEngineScript": ["address", "address", "long long"],
+    "ritual_list_drop_QWebEngineScript": ["nothing", "address"]
+  }
+}

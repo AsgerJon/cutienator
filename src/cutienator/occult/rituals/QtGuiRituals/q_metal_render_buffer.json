@@ -4,7 +4,7 @@
     "QtGui/6.12.0/QtGui/private/qrhimetal_p.h, Qt 6.12.0. Changes made",
     "here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN18QMetalRenderBuffer7destroyEv": ["nothing", "address"],
     "ritual_ZN18QMetalRenderBuffer6createEv": ["bool", "address"],
     "ritual_ZNK18QMetalRenderBuffer13backingFormatEv": ["int", "address"],

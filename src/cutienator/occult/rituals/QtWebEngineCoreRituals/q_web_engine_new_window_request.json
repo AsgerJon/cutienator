@@ -1,0 +1,43 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWebEngineCore/qwebenginenewwindowrequest.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "sigils": {
+    "ritual_ZNK26QWebEngineNewWindowRequest10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QWebEngineNewWindowRequest11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN26QWebEngineNewWindowRequest11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN26QWebEngineNewWindowRequest2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN26QWebEngineNewWindowRequestD1Ev": ["nothing", "address"],
+    "ritual_ZNK26QWebEngineNewWindowRequest11destinationEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK26QWebEngineNewWindowRequest12requestedUrlEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK26QWebEngineNewWindowRequest17requestedGeometryEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK26QWebEngineNewWindowRequest15isUserInitiatedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN26QWebEngineNewWindowRequest6openInEP14QWebEnginePage": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN26QWebEngineNewWindowRequestC1ENS_15DestinationTypeERK5QRectRK4QUrlb14QSharedPointerIN15QtWebEngineCore18WebContentsAdapterEEP7QObject": [
+      "address", "int", "address", "address", "bool", "address", "address"
+    ],
+    "ritual_take_QWebEngineNewWindowRequest": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

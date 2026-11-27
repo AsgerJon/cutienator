@@ -4,7 +4,7 @@
     "isualization/6.12.0/QtDataVisualization/private/qabstract3dinputha",
     "ndler_p.h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN30QAbstract3DInputHandlerPrivateC1EP23QAbstract3DInputHandler": [
       "address", "address"
     ],

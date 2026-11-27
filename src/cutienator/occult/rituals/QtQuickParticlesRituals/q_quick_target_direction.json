@@ -4,7 +4,7 @@
     "Particles/6.12.0/QtQuickParticles/private/qquicktargetdirection_p.",
     "h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK21QQuickTargetDirection10metaObjectEv": [
       "address", "address"
     ],

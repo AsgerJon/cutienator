@@ -4,7 +4,7 @@
     "isualization/6.12.0/QtDataVisualization/private/shaderhelper_p.h,",
     "Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN12ShaderHelperC1EP7QObjectRK7QStringS4_S4_S4_": [
       "address", "address", "text", "text", "text", "text"
     ],

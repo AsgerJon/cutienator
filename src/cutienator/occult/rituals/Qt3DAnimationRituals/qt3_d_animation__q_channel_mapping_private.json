@@ -4,7 +4,7 @@
     "Qt3DAnimation/6.12.0/Qt3DAnimation/private/qchannelmapping_p.h, Qt",
     "6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN13Qt3DAnimation22QChannelMappingPrivateC1Ev": ["address"],
     "ritual_ZN13Qt3DAnimation22QChannelMappingPrivate6q_funcEv": [
       "address", "address"

@@ -4,7 +4,7 @@
     "Qt3DCore/6.12.0/Qt3DCore/private/qgeometryview_p.h, Qt 6.12.0.",
     "Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN8Qt3DCore20QGeometryViewPrivateC1Ev": ["address"],
     "ritual_ZN8Qt3DCore20QGeometryViewPrivateD1Ev": ["nothing", "address"],
     "ritual_ZN8Qt3DCore20QGeometryViewPrivate3getEPNS_13QGeometryViewE": [

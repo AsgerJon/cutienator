@@ -4,7 +4,7 @@
     "QtQml/6.12.0/QtQml/private/qv4promiseobject_p.h, Qt 6.12.0.",
     "Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN3QV413RejectWrapper10__dataTestEv": ["nothing", "address"],
     "ritual_ZNK3QV413RejectWrapper11d_uncheckedEv": ["address", "address"],
     "ritual_ZNK3QV413RejectWrapper1dEv": ["address", "address"]

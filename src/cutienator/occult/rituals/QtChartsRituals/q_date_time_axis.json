@@ -3,7 +3,7 @@
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtCharts/qdatetimeaxis.h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK13QDateTimeAxis10metaObjectEv": ["address", "address"],
     "ritual_ZN13QDateTimeAxis11qt_metacastEPKc": [
       "address", "address", "chars"

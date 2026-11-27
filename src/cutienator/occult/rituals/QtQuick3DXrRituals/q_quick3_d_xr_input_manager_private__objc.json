@@ -5,7 +5,7 @@
     "source: Objective-C++, built on Apple's systems only. Kept as it",
     "is when the generator runs again."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN29QQuick3DXrInputManagerPrivate16initHandtrackingEv": [
       "nothing", "address"
     ],

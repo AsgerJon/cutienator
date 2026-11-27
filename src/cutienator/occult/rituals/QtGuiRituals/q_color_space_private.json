@@ -4,7 +4,7 @@
     "QtGui/6.12.0/QtGui/private/qcolorspace_p.h, Qt 6.12.0. Changes",
     "made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN18QColorSpacePrivateC1Ev": ["address"],
     "ritual_ZN18QColorSpacePrivateC1EN11QColorSpace15NamedColorSpaceE": [
       "address", "int"

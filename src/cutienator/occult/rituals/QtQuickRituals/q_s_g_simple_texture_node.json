@@ -4,7 +4,7 @@
     "QtQuick/qsgsimpletexturenode.h, Qt 6.12.0. Changes made here are",
     "lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN20QSGSimpleTextureNodeC1Ev": ["address"],
     "ritual_ZN20QSGSimpleTextureNodeD1Ev": ["nothing", "address"],
     "ritual_ZN20QSGSimpleTextureNode7setRectERK6QRectF": [

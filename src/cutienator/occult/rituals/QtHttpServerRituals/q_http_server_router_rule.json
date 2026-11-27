@@ -4,7 +4,7 @@
     "QtHttpServer/qhttpserverrouterrule.h, Qt 6.12.0. Changes made here",
     "are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN21QHttpServerRouterRule6d_funcEv": ["address", "address"],
     "ritual_ZNK21QHttpServerRouterRule6d_funcEv": ["address", "address"],
     "ritual_ZN21QHttpServerRouterRuleC1ERK7QString6QFlagsIN18QHttpServerRequest6MethodEEPK7QObjectPN9QtPrivate15QSlotObjectBaseE": [

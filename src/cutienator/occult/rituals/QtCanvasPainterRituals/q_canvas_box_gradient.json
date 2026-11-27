@@ -4,7 +4,7 @@
     "QtCanvasPainter/qcanvasboxgradient.h, Qt 6.12.0. Changes made here",
     "are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN18QCanvasBoxGradientC1Ev": ["address"],
     "ritual_ZN18QCanvasBoxGradientC1Edddd": [
       "address", "double", "double", "double", "double"

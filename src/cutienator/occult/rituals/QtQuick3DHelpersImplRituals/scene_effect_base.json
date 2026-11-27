@@ -5,7 +5,7 @@
     "sceneeffects_p.h, Qt 6.12.0, from Qt's source. Kept as it is when",
     "the generator runs again."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK15SceneEffectBase10metaObjectEv": ["address", "address"],
     "ritual_ZN15SceneEffectBaseD1Ev": ["nothing", "address"],
     "ritual_ZN15SceneEffectBase15registerWithEnvEP22SceneEffectEnvironment": [

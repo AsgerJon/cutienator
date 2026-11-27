@@ -4,7 +4,7 @@
     "Templates2/6.12.0/QtQuickTemplates2/private/qquickmenuitem_p.h, Qt",
     "6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK14QQuickMenuItem10metaObjectEv": ["address", "address"],
     "ritual_ZN14QQuickMenuItem11qt_metacastEPKc": [
       "address", "address", "chars"

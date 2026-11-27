@@ -4,7 +4,7 @@
     "3DRuntimeRender/6.12.0/QtQuick3DRuntimeRender/private/qssgshaderre",
     "sourcemergecontext_p.h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN30QSSGShaderResourceMergeContext8InOutVarD1Ev": [
       "nothing", "address"
     ]

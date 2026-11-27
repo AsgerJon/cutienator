@@ -4,7 +4,7 @@
     "ion/6.12.0/QtLocation/private/qdeclarativesupportedcategoriesmodel",
     "_p.h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK36QDeclarativeSupportedCategoriesModel10metaObjectEv": [
       "address", "address"
     ],

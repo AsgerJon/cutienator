@@ -4,7 +4,7 @@
     "QtNetwork/qformdatabuilder.h, Qt 6.12.0. Edited by hand: see the",
     "ritual file."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN20QFormDataPartBuilderC1EP23QFormDataBuilderPrivatex": [
       "address", "address", "long long"
     ],

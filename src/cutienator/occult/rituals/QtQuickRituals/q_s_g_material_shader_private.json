@@ -4,7 +4,7 @@
     "QtQuick/6.12.0/QtQuick/private/qsgmaterialshader_p.h, Qt 6.12.0.",
     "Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN24QSGMaterialShaderPrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK24QSGMaterialShaderPrivate6q_funcEv": ["address", "address"],
     "ritual_ZN24QSGMaterialShaderPrivateC1EP17QSGMaterialShader": [

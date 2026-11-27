@@ -4,7 +4,7 @@
     "QtQuick3D/6.12.0/QtQuick3D/private/qquick3dgeometry_p.h, Qt",
     "6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN23QQuick3DGeometryPrivateC1Ev": ["address"],
     "ritual_ZN23QQuick3DGeometryPrivate16semanticFromNameERK10QByteArray": [
       "int", "address"

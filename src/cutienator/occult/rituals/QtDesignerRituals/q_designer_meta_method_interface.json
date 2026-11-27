@@ -4,7 +4,7 @@
     "QtDesigner/6.12.0/QtDesigner/private/abstractintrospection_p.h, Qt",
     "6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN28QDesignerMetaMethodInterfaceD1Ev": ["nothing", "address"],
     "ritual_ZNK28QDesignerMetaMethodInterface6accessEv": ["int", "address"],
     "ritual_ZNK28QDesignerMetaMethodInterface10methodTypeEv": [

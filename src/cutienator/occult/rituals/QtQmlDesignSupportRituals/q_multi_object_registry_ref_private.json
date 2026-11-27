@@ -4,7 +4,7 @@
     "signSupport/6.12.0/QtQmlDesignSupport/private/qmultiobjectregistry",
     "ref_p.h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN30QMultiObjectRegistryRefPrivate6q_funcEv": [
       "address", "address"
     ],

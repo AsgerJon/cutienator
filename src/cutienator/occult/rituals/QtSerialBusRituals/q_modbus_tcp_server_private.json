@@ -4,7 +4,7 @@
     "QtSerialBus/6.12.0/QtSerialBus/private/qmodbustcpserver_p.h, Qt",
     "6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN23QModbusTcpServerPrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK23QModbusTcpServerPrivate6q_funcEv": ["address", "address"],
     "ritual_ZN23QModbusTcpServerPrivate21forwardProcessRequestERK14QModbusRequest": [

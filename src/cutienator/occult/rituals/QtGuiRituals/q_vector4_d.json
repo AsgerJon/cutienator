@@ -3,7 +3,7 @@
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtGui/qvectornd.h, Qt 6.12.0. Edited by hand: see the ritual file."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN9QVector4DC1Ev": ["address"],
     "ritual_ZN9QVector4DC1EN2Qt14InitializationE": ["address", "int"],
     "ritual_ZN9QVector4DC1Effff": [

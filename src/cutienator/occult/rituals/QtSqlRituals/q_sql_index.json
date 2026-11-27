@@ -3,7 +3,7 @@
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtSql/qsqlindex.h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN9QSqlIndexC1ERK7QStringS2_": ["address", "text", "text"],
     "ritual_ZN9QSqlIndexC1ERKS_": ["address", "address"],
     "ritual_ZN9QSqlIndexC1EOS_": ["address", "address"],

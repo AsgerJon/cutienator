@@ -1,4 +1,4 @@
-"""RitualFileExpert writes the text of the ritual file and of the rows
+"""RitualFileExpert writes the text of the ritual file and of the sigil
 file of a class."""
 #  Apache-2.0 license
 #  Copyright (c) 2026 Asger Jon Vistisen
@@ -21,11 +21,11 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
 
 class RitualFileExpert(RitualExpert):
   """
-  Writes the text of the ritual file of a class and of the rows file
+  Writes the text of the ritual file of a class and of the sigil file
   that goes with it, from what the generator decided: a heading, the
   lines pulling in the header files the rituals need, the code taken
   from Qt's source, the classes of ours, and each ritual under the Qt
-  function it calls; see 'getRitualText' and 'getRowsText'. Nothing is
+  function it calls; see 'getRitualText' and 'getSigilText'. Nothing is
   written to a file here; 'RitualGenerator.write' does that.
   """
 
@@ -290,16 +290,16 @@ class RitualFileExpert(RitualExpert):
           '#endif  // %s' % one for one in reversed(conditions)))
     return '%s\n' % '\n\n'.join(blocks)
 
-  def getRowsText(self) -> str:
+  def getSigilText(self) -> str:
     """
-    Gives the whole text of the rows file, without writing it.
+    Gives the whole text of the sigil file, without writing it.
 
-    Written for you from 'RitualGenerator.getRows', as JSON: under
+    Written for you from 'RitualGenerator.getSigils', as JSON: under
     'about' the heading of the ritual file; for a part of
     'HeaderReader.getOwnOrderParts' only, under 'parts first' the part
     and the parts it needs, the nearest first, whose folders the
     compiler looked in first, so that 'Rituals.summon' does the same;
-    and under 'rows' each ritual with its row.
+    and under 'sigils' each ritual with its sigil.
     """
     generator = self.getGenerator()
     about = textwrap.wrap(self.getHeading(), 66)
@@ -324,11 +324,11 @@ class RitualFileExpert(RitualExpert):
         packed = '%s %s' % (packed, piece)
       lines.append(packed)
       lines.append('  ],')
-    lines.append('  "rows": {')
-    rows = [*generator.getRows().items()]
-    for index, (ritualName, row) in enumerate(rows):
-      end = '' if index == len(rows) - 1 else ','
-      words = ', '.join(json.dumps(word) for word in row)
+    lines.append('  "sigils": {')
+    sigils = [*generator.getSigils().items()]
+    for index, (ritualName, sigil) in enumerate(sigils):
+      end = '' if index == len(sigils) - 1 else ','
+      words = ', '.join(json.dumps(word) for word in sigil)
       whole = '    %s: [%s]%s' % (json.dumps(ritualName), words, end)
       if len(whole) <= 77:
         lines.append(whole)
@@ -337,9 +337,9 @@ class RitualFileExpert(RitualExpert):
       #  The words are put on lines one by one. A word may hold a space,
       #  as 'unsigned int', and must not be broken there.
       packed = '     '
-      for position, word in enumerate(row):
+      for position, word in enumerate(sigil):
         piece = json.dumps(word)
-        if position < len(row) - 1:
+        if position < len(sigil) - 1:
           piece = '%s,' % piece
         if len(packed) + 1 + len(piece) > 77 and packed.strip():
           lines.append(packed)

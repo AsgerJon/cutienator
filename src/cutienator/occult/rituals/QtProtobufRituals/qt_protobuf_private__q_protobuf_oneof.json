@@ -4,7 +4,7 @@
     "QtProtobuf/qprotobufoneof.h, Qt 6.12.0, from Qt's source. Kept as it",
     "is when the generator runs again."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN17QtProtobufPrivate14QProtobufOneofC1Ev": ["address"],
     "ritual_ZN17QtProtobufPrivate14QProtobufOneofD1Ev": [
       "nothing", "address"

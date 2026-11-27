@@ -4,7 +4,7 @@
     "3DRuntimeRender/6.12.0/QtQuick3DRuntimeRender/private/qssgrenderpa",
     "ss_p.h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK17SkyboxCubeMapPass8passTypeEv": ["int", "address"],
     "ritual_ZN17SkyboxCubeMapPass13resetForFrameEv": ["nothing", "address"],
     "ritual_ZN17SkyboxCubeMapPassD1Ev": ["nothing", "address"]

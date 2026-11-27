@@ -4,7 +4,7 @@
     "QtDesigner/abstractsettings.h, Qt 6.12.0. Changes made here are",
     "lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN26QDesignerSettingsInterfaceC1Ev": ["address"],
     "ritual_ZN26QDesignerSettingsInterfaceD1Ev": ["nothing", "address"],
     "ritual_ZN26QDesignerSettingsInterface10beginGroupERK7QString": [

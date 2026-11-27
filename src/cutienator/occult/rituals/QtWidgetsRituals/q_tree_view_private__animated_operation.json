@@ -4,7 +4,7 @@
     "QtWidgets/6.12.0/QtWidgets/private/qtreeview_p.h, Qt 6.12.0.",
     "Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN16QTreeViewPrivate17AnimatedOperationC1Ev": ["address"],
     "ritual_ZNK16QTreeViewPrivate17AnimatedOperation3topEv": [
       "int", "address"

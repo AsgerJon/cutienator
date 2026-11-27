@@ -4,7 +4,7 @@
     "QtLottie/6.12.0/QtLottie/private/qlottieprecomposition_p.h, Qt",
     "6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN21QLottiePrecompositionC1Ev": ["address"],
     "ritual_ZN21QLottiePrecompositionC1ERKS_": ["address", "address"],
     "ritual_ZNK21QLottiePrecomposition5cloneEv": ["address", "address"],

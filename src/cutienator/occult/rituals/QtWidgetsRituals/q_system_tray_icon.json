@@ -4,7 +4,7 @@
     "QtWidgets/qsystemtrayicon.h, Qt 6.12.0. Changes made here are",
     "lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK15QSystemTrayIcon10metaObjectEv": ["address", "address"],
     "ritual_ZN15QSystemTrayIcon11qt_metacastEPKc": [
       "address", "address", "chars"

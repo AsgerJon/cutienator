@@ -4,7 +4,7 @@
     "QtHelp/6.12.0/QtHelp/private/qoptionswidget_p.h,",
     "Qt 6.12.0, from Qt's source."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK14QOptionsWidget10metaObjectEv": ["address", "address"],
     "ritual_ZN14QOptionsWidgetD1Ev": ["nothing", "address"]
   }

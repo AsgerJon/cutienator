@@ -4,7 +4,7 @@
     "QtNetwork/6.12.0/QtNetwork/private/qnetworkdatagram_p.h, Qt",
     "6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN23QNetworkDatagramPrivateC1ERK10QByteArrayRK12QHostAddresst": [
       "address", "address", "address", "unsigned short"
     ],

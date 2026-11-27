@@ -4,7 +4,7 @@
     "QtCore/qsequentialiterable.h, Qt 6.12.0. Edited by hand: see the",
     "ritual file."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN19QSequentialIterableC1Ev": ["address"],
     "ritual_ZN19QSequentialIterableC1ERK13QMetaSequenceRK9QMetaTypePv": [
       "address", "address", "address", "address"
@@ -60,6 +60,9 @@
     "ritual_ZN19QSequentialIterableC2I5QListI7QStringEEEPKT_": [
       "address", "address"
     ],
-    "ritual_ZN19QSequentialIterableC2I5QListIiEEEPT_": ["address", "address"]
+    "ritual_ZN19QSequentialIterableC2I5QListIiEEEPT_": [
+      "address", "address"
+    ],
+    "ritual_ZN19QSequentialIterableD1Ev": ["nothing", "address"]
   }
 }

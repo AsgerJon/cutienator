@@ -2,7 +2,7 @@
   "about": [
     "Written by hand: see the ritual file."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN10Qt3DRender6Render32ComputeFilteredBoundingVolumeJobC1Ev": ["address"],
     "ritual_ZN10Qt3DRender6Render32ComputeFilteredBoundingVolumeJob7setRootEPNS0_6EntityE": ["nothing", "address", "address"],
     "ritual_ZN10Qt3DRender6Render32ComputeFilteredBoundingVolumeJob11setManagersEPNS0_12NodeManagersE": ["nothing", "address", "address"],

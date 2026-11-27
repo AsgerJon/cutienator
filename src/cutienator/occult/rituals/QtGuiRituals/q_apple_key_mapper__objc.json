@@ -5,7 +5,7 @@
     "Qt's source: Objective-C++, built on Apple's systems only. Kept as",
     "it is when the generator runs again."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK15QAppleKeyMapper22queryKeyboardModifiersEv": ["int", "address"],
     "ritual_ZNK15QAppleKeyMapper23possibleKeyCombinationsEPK9QKeyEvent": ["address", "address", "address"],
     "ritual_ZN15QAppleKeyMapper18fromCocoaModifiersEm": ["int", "unsigned long"],

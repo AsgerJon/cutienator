@@ -30,7 +30,7 @@ class ValueExpert(TypeExpert):
   Text is a value class as well: Qt's 'QString', and the two classes
   that look at text held elsewhere, 'QStringView' and
   'QAnyStringView'. It is passed as a value of 'QString', and its word
-  in the row is 'text', so Python passes a plain 'str'. Three kinds:
+  in the sigil is 'text', so Python passes a plain 'str'. Three kinds:
   'value', 'text' and 'view'.
   """
 

@@ -1,0 +1,401 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtWebEn",
+    "gineQuick/6.12.0/QtWebEngineQuick/private/qquickwebenginesettings_",
+    "p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "sigils": {
+    "ritual_ZNK23QQuickWebEngineSettings10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23QQuickWebEngineSettings11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN23QQuickWebEngineSettings11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN23QQuickWebEngineSettings2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN23QQuickWebEngineSettings24qt_qmlMarker_uncreatableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuickWebEngineSettingsD1Ev": ["nothing", "address"],
+    "ritual_ZNK23QQuickWebEngineSettings14autoLoadImagesEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK23QQuickWebEngineSettings17javascriptEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK23QQuickWebEngineSettings24javascriptCanOpenWindowsEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK23QQuickWebEngineSettings28javascriptCanAccessClipboardEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK23QQuickWebEngineSettings25linksIncludedInFocusChainEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK23QQuickWebEngineSettings19localStorageEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK23QQuickWebEngineSettings31localContentCanAccessRemoteUrlsEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK23QQuickWebEngineSettings24spatialNavigationEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK23QQuickWebEngineSettings29localContentCanAccessFileUrlsEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK23QQuickWebEngineSettings24hyperlinkAuditingEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK23QQuickWebEngineSettings16errorPageEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK23QQuickWebEngineSettings14pluginsEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK23QQuickWebEngineSettings24fullScreenSupportEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK23QQuickWebEngineSettings19defaultTextEncodingEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK23QQuickWebEngineSettings20screenCaptureEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK23QQuickWebEngineSettings12webGLEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK23QQuickWebEngineSettings26accelerated2dCanvasEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK23QQuickWebEngineSettings20autoLoadIconsForPageEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK23QQuickWebEngineSettings17touchIconsEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK23QQuickWebEngineSettings24focusOnNavigationEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK23QQuickWebEngineSettings23printElementBackgroundsEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK23QQuickWebEngineSettings27allowRunningInsecureContentEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK23QQuickWebEngineSettings33allowGeolocationOnInsecureOriginsEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK23QQuickWebEngineSettings35allowWindowActivationFromJavaScriptEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK23QQuickWebEngineSettings14showScrollBarsEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK23QQuickWebEngineSettings22unknownUrlSchemePolicyEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK23QQuickWebEngineSettings27playbackRequiresUserGestureEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK23QQuickWebEngineSettings26webRTCPublicInterfacesOnlyEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK23QQuickWebEngineSettings18javascriptCanPasteEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK23QQuickWebEngineSettings18dnsPrefetchEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK23QQuickWebEngineSettings16pdfViewerEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK23QQuickWebEngineSettings21navigateOnDropEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK23QQuickWebEngineSettings24readingFromCanvasEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK23QQuickWebEngineSettings13forceDarkModeEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK23QQuickWebEngineSettings21scrollAnimatorEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK23QQuickWebEngineSettings20imageAnimationPolicyEv": [
+      "unsigned char", "address"
+    ],
+    "ritual_ZNK23QQuickWebEngineSettings20printHeaderAndFooterEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK23QQuickWebEngineSettings27preferCSSMarginsForPrintingEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK23QQuickWebEngineSettings21touchEventsApiEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK23QQuickWebEngineSettings23backForwardCacheEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK23QQuickWebEngineSettings28trimAccessibilityIdentifiersEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN23QQuickWebEngineSettings17setAutoLoadImagesEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN23QQuickWebEngineSettings20setJavascriptEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN23QQuickWebEngineSettings27setJavascriptCanOpenWindowsEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN23QQuickWebEngineSettings31setJavascriptCanAccessClipboardEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN23QQuickWebEngineSettings28setLinksIncludedInFocusChainEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN23QQuickWebEngineSettings22setLocalStorageEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN23QQuickWebEngineSettings34setLocalContentCanAccessRemoteUrlsEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN23QQuickWebEngineSettings27setSpatialNavigationEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN23QQuickWebEngineSettings32setLocalContentCanAccessFileUrlsEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN23QQuickWebEngineSettings27setHyperlinkAuditingEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN23QQuickWebEngineSettings19setErrorPageEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN23QQuickWebEngineSettings17setPluginsEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN23QQuickWebEngineSettings27setFullScreenSupportEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN23QQuickWebEngineSettings22setDefaultTextEncodingE7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN23QQuickWebEngineSettings23setScreenCaptureEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN23QQuickWebEngineSettings15setWebGLEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN23QQuickWebEngineSettings29setAccelerated2dCanvasEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN23QQuickWebEngineSettings23setAutoLoadIconsForPageEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN23QQuickWebEngineSettings20setTouchIconsEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN23QQuickWebEngineSettings27setFocusOnNavigationEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN23QQuickWebEngineSettings26setPrintElementBackgroundsEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN23QQuickWebEngineSettings30setAllowRunningInsecureContentEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN23QQuickWebEngineSettings36setAllowGeolocationOnInsecureOriginsEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN23QQuickWebEngineSettings38setAllowWindowActivationFromJavaScriptEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN23QQuickWebEngineSettings17setShowScrollBarsEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN23QQuickWebEngineSettings25setUnknownUrlSchemePolicyENS_22UnknownUrlSchemePolicyE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN23QQuickWebEngineSettings30setPlaybackRequiresUserGestureEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN23QQuickWebEngineSettings29setWebRTCPublicInterfacesOnlyEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN23QQuickWebEngineSettings21setJavascriptCanPasteEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN23QQuickWebEngineSettings21setDnsPrefetchEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN23QQuickWebEngineSettings19setPdfViewerEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN23QQuickWebEngineSettings24setNavigateOnDropEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN23QQuickWebEngineSettings27setReadingFromCanvasEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN23QQuickWebEngineSettings16setForceDarkModeEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN23QQuickWebEngineSettings24setScrollAnimatorEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN23QQuickWebEngineSettings23setImageAnimationPolicyENS_20ImageAnimationPolicyE": [
+      "nothing", "address", "unsigned char"
+    ],
+    "ritual_ZN23QQuickWebEngineSettings23setPrintHeaderAndFooterEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN23QQuickWebEngineSettings30setPreferCSSMarginsForPrintingEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN23QQuickWebEngineSettings24setTouchEventsApiEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN23QQuickWebEngineSettings26setBackForwardCacheEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN23QQuickWebEngineSettings31setTrimAccessibilityIdentifiersEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN23QQuickWebEngineSettings21autoLoadImagesChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuickWebEngineSettings24javascriptEnabledChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuickWebEngineSettings31javascriptCanOpenWindowsChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuickWebEngineSettings35javascriptCanAccessClipboardChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuickWebEngineSettings32linksIncludedInFocusChainChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuickWebEngineSettings26localStorageEnabledChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuickWebEngineSettings38localContentCanAccessRemoteUrlsChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuickWebEngineSettings31spatialNavigationEnabledChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuickWebEngineSettings36localContentCanAccessFileUrlsChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuickWebEngineSettings31hyperlinkAuditingEnabledChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuickWebEngineSettings23errorPageEnabledChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuickWebEngineSettings21pluginsEnabledChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuickWebEngineSettings31fullScreenSupportEnabledChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuickWebEngineSettings26defaultTextEncodingChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuickWebEngineSettings27screenCaptureEnabledChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuickWebEngineSettings19webGLEnabledChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuickWebEngineSettings33accelerated2dCanvasEnabledChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuickWebEngineSettings27autoLoadIconsForPageChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuickWebEngineSettings24touchIconsEnabledChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuickWebEngineSettings31focusOnNavigationEnabledChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuickWebEngineSettings30printElementBackgroundsChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuickWebEngineSettings34allowRunningInsecureContentChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuickWebEngineSettings40allowGeolocationOnInsecureOriginsChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuickWebEngineSettings42allowWindowActivationFromJavaScriptChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuickWebEngineSettings21showScrollBarsChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuickWebEngineSettings29unknownUrlSchemePolicyChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuickWebEngineSettings34playbackRequiresUserGestureChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuickWebEngineSettings33webRTCPublicInterfacesOnlyChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuickWebEngineSettings25javascriptCanPasteChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuickWebEngineSettings25dnsPrefetchEnabledChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuickWebEngineSettings23pdfViewerEnabledChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuickWebEngineSettings28navigateOnDropEnabledChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuickWebEngineSettings31readingFromCanvasEnabledChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuickWebEngineSettings20forceDarkModeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuickWebEngineSettings28scrollAnimatorEnabledChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuickWebEngineSettings27imageAnimationPolicyChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuickWebEngineSettings27printHeaderAndFooterChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuickWebEngineSettings34preferCSSMarginsForPrintingChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuickWebEngineSettings28touchEventsApiEnabledChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuickWebEngineSettings30backForwardCacheEnabledChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuickWebEngineSettings35trimAccessibilityIdentifiersChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuickWebEngineSettingsC1EPS_": ["address", "address"],
+    "ritual_ZN23QQuickWebEngineSettings17setParentSettingsEPS_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QQuickWebEngineSettings": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

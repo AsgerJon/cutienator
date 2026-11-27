@@ -4,7 +4,7 @@
     "QtAxServer/6.12.0/QtAxServer/private/qaxsignalvec_p.h, Qt 6.12.0,",
     "from Qt's source. Kept as it is when the generator runs again."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN12QAxSignalVecC1ERKS_": ["address", "address"],
     "ritual_ZN12QAxSignalVec4NextEmPP16IConnectionPointPm": [
       "long", "address", "unsigned long", "address", "address"

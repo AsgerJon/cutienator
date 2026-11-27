@@ -4,7 +4,7 @@
     "QtDeclarativeOpcua/6.12.0/QtDeclarativeOpcua/private/",
     "opcuaoperandbase_p.h, Qt 6.12.0, from Qt's source. Kept as it is when the"
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK16OpcUaOperandBase10metaObjectEv": ["address", "address"],
     "ritual_ZN16OpcUaOperandBaseD1Ev": ["nothing", "address"],
     "ritual_ZNK16OpcUaOperandBase12toCppVariantEP12QOpcUaClient": [

@@ -4,7 +4,7 @@
     "mpiler/6.12.0/QtQmlCompiler/private/qqmljscodegenerator_p.h, Qt",
     "6.12.0. Edited by hand: see the ritual file."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN19QQmlJSCodeGeneratorC1EPKN3QV48Compiler7ContextEPKNS1_15JSUnitGeneratorEPK18QQmlJSTypeResolverP12QQmlJSLoggerRK8QFlatMapIiN17QQmlJSCompilePass10BasicBlockESt4lessIiE5QListIiESI_ISF_EERKSD_IiNSE_21InstructionAnnotationESH_SJ_SI_ISO_EEb": [
       "address", "address", "address", "address", "address", "address",
       "address", "bool"

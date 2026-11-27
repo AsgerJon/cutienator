@@ -1,0 +1,45 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtWebEn",
+    "gineWidgets/6.12.0/QtWebEngineWidgets/private/qwebengine_accessibl",
+    "e_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "sigils": {
+    "ritual_ZN15QtWebEngineCore46RenderWidgetHostViewQtDelegateWidgetAccessibleC1EP7QWidgetP14QWebEngineView": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK15QtWebEngineCore46RenderWidgetHostViewQtDelegateWidgetAccessible7isValidEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK15QtWebEngineCore46RenderWidgetHostViewQtDelegateWidgetAccessible10focusChildEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK15QtWebEngineCore46RenderWidgetHostViewQtDelegateWidgetAccessible10childCountEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK15QtWebEngineCore46RenderWidgetHostViewQtDelegateWidgetAccessible5childEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK15QtWebEngineCore46RenderWidgetHostViewQtDelegateWidgetAccessible12indexOfChildEPK20QAccessibleInterface": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK15QtWebEngineCore46RenderWidgetHostViewQtDelegateWidgetAccessible14viewAccessibleEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK15QtWebEngineCore46RenderWidgetHostViewQtDelegateWidgetAccessible7isValidEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZNK15QtWebEngineCore46RenderWidgetHostViewQtDelegateWidgetAccessible10focusChildEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK15QtWebEngineCore46RenderWidgetHostViewQtDelegateWidgetAccessible10childCountEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZNK15QtWebEngineCore46RenderWidgetHostViewQtDelegateWidgetAccessible5childEi": [
+      "address", "address", "int"
+    ],
+    "ritual_own_ZNK15QtWebEngineCore46RenderWidgetHostViewQtDelegateWidgetAccessible12indexOfChildEPK20QAccessibleInterface": [
+      "int", "address", "address"
+    ]
+  }
+}

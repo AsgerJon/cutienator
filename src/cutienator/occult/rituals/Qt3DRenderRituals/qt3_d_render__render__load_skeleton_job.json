@@ -2,7 +2,7 @@
   "about": [
     "Written by hand: see the ritual file."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN10Qt3DRender6Render15LoadSkeletonJob15setNodeManagersEPNS0_12NodeManagersE": ["nothing", "address", "address"],
     "ritual_ZN10Qt3DRender6Render15LoadSkeletonJob3runEv": ["nothing", "address"]
   }

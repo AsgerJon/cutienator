@@ -4,7 +4,7 @@
     "QtStateMachine/6.12.0/QtStateMachine/private/qstatemachine_p.h,",
     "Qt 6.12.0, as the Qt of macOS and of Windows install it, and that"
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN20QStateMachinePrivateC1Ev": ["address"],
     "ritual_ZN20QStateMachinePrivateD1Ev": ["nothing", "address"],
     "ritual_ZN20QStateMachinePrivate3getEP13QStateMachine": [

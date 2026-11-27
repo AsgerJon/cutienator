@@ -4,7 +4,7 @@
     "QtGui/6.12.0/QtGui/qpa/qplatformdrag.h, Qt 6.12.0. Changes made",
     "here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN23QPlatformDragQtResponseC1EbN2Qt10DropActionE5QRect": [
       "address", "bool", "int", "address"
     ],

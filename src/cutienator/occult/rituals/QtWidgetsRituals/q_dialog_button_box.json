@@ -4,7 +4,7 @@
     "QtWidgets/qdialogbuttonbox.h, Qt 6.12.0. Changes made here are",
     "lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK16QDialogButtonBox10metaObjectEv": ["address", "address"],
     "ritual_ZN16QDialogButtonBox11qt_metacastEPKc": [
       "address", "address", "chars"

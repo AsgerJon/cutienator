@@ -2,7 +2,7 @@
   "about": [
     "Edited by hand: see the ritual file."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN15QTextHtmlParserD1Ev": ["nothing", "address"],
     "ritual_ZNK15QTextHtmlParser2atEi": ["address", "address", "int"],
     "ritual_ZN15QTextHtmlParserixEi": ["address", "address", "int"],

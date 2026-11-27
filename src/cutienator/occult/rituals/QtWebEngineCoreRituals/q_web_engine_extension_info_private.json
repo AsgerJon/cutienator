@@ -1,0 +1,30 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtWebEn",
+    "gineCore/6.12.0/QtWebEngineCore/private/qwebengineextensioninfo_p.",
+    "h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "sigils": {
+    "ritual_ZN30QWebEngineExtensionInfoPrivateC1ERKNS_13ExtensionDataEPN15QtWebEngineCore16ExtensionManagerE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN30QWebEngineExtensionInfoPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZNK30QWebEngineExtensionInfoPrivate2idB5cxx11Ev": [
+      "address", "address"
+    ],
+    "ritual_ZNK30QWebEngineExtensionInfoPrivate4nameEv": ["text", "address"],
+    "ritual_ZNK30QWebEngineExtensionInfoPrivate11descriptionEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK30QWebEngineExtensionInfoPrivate4pathEv": ["text", "address"],
+    "ritual_ZNK30QWebEngineExtensionInfoPrivate5errorEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK30QWebEngineExtensionInfoPrivate14actionPopupUrlEv": [
+      "address", "address"
+    ],
+    "ritual_drop_QWebEngineExtensionInfoPrivate__std_string": [
+      "nothing", "address"
+    ]
+  }
+}

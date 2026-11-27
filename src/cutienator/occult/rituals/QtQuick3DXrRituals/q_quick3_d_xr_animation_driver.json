@@ -4,7 +4,7 @@
     "3DXr/6.12.0/QtQuick3DXr/private/qquick3dxranimationdriver_p.h, Qt",
     "6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN25QQuick3DXrAnimationDriverC1Ev": ["address"],
     "ritual_ZN25QQuick3DXrAnimationDriver7advanceEv": ["nothing", "address"],
     "ritual_ZNK25QQuick3DXrAnimationDriver7elapsedEv": [

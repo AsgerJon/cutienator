@@ -1,0 +1,42 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtWebEn",
+    "gineQuick/6.12.0/QtWebEngineQuick/private/qquickwebenginefaviconpr",
+    "ovider_p_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "sigils": {
+    "ritual_ZNK21FaviconProviderHelper10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21FaviconProviderHelper11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN21FaviconProviderHelper11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN21FaviconProviderHelper2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN21FaviconProviderHelper8instanceEv": ["address"],
+    "ritual_ZN21FaviconProviderHelper6attachE8QPointerI19QQuickWebEngineViewE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21FaviconProviderHelper6detachE8QPointerI19QQuickWebEngineViewE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK21FaviconProviderHelper5viewsEv": ["address", "address"],
+    "ritual_ZN21FaviconProviderHelper18handleImageRequestE8QPointerI20FaviconImageResponseE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21FaviconProviderHelperC1Ev": ["address"],
+    "ritual_ZN21FaviconProviderHelper19startFaviconRequestE8QPointerI20FaviconImageResponseE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK21FaviconProviderHelper21findViewByImageSourceERK4QUrlb": [
+      "address", "address", "address", "bool"
+    ],
+    "ritual_drop_FaviconProviderHelper__QPointer_QQuickWebEngineView": [
+      "nothing", "address"
+    ]
+  }
+}

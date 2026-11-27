@@ -4,7 +4,7 @@
     "QtLocation/6.12.0/QtLocation/private/qgeomap_p_p.h, Qt 6.12.0.",
     "Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN14QGeoMapPrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK14QGeoMapPrivate6q_funcEv": ["address", "address"],
     "ritual_ZN14QGeoMapPrivateC1EP24QGeoMappingManagerEngineP14QGeoProjection": [

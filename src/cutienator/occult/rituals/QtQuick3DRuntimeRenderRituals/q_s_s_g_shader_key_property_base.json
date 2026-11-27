@@ -4,7 +4,7 @@
     "3DRuntimeRender/6.12.0/QtQuick3DRuntimeRender/private/qssgrendersh",
     "aderkeys_p.h, Qt 6.12.0. Edited by hand: see the ritual file."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN25QSSGShaderKeyPropertyBaseC1EPKc": ["address", "chars"],
     "ritual_ZNK25QSSGShaderKeyPropertyBase9getOffsetEv": [
       "unsigned int", "address"

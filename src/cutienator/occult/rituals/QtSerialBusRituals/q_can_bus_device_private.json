@@ -4,7 +4,7 @@
     "QtSerialBus/6.12.0/QtSerialBus/private/qcanbusdevice_p.h, Qt",
     "6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN20QCanBusDevicePrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK20QCanBusDevicePrivate6q_funcEv": ["address", "address"],
     "ritual_ZN20QCanBusDevicePrivateC1Ev": ["address"]

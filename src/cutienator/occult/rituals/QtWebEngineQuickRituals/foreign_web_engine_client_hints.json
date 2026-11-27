@@ -1,0 +1,24 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtWebEn",
+    "gineQuick/6.12.0/QtWebEngineQuick/private/qquickwebengineforeignty",
+    "pes_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "sigils": {
+    "ritual_ZNK27ForeignWebEngineClientHints10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN27ForeignWebEngineClientHints11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN27ForeignWebEngineClientHints11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN27ForeignWebEngineClientHints20qt_qmlMarker_foreignEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27ForeignWebEngineClientHints24qt_qmlMarker_uncreatableEv": [
+      "nothing", "address"
+    ]
+  }
+}

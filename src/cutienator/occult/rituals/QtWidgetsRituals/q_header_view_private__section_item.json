@@ -4,7 +4,7 @@
     "QtWidgets/6.12.0/QtWidgets/private/qheaderview_p.h, Qt 6.12.0.",
     "Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN18QHeaderViewPrivate11SectionItemC1Ev": ["address"],
     "ritual_ZN18QHeaderViewPrivate11SectionItemC1EiN11QHeaderView10ResizeModeE": [
       "address", "int", "int"

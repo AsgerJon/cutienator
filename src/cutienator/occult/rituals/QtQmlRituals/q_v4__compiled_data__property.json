@@ -4,7 +4,7 @@
     "QtQml/6.12.0/QtQml/private/qv4compileddata_p.h, Qt 6.12.0. Changes",
     "made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK3QV412CompiledData8Property9nameIndexEv": [
       "unsigned int", "address"
     ],

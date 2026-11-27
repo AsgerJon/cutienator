@@ -3,7 +3,7 @@
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtGui/qtextformat.h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN16QTextTableFormatC1Ev": ["address"],
     "ritual_ZNK16QTextTableFormat7isValidEv": ["bool", "address"],
     "ritual_ZNK16QTextTableFormat7columnsEv": ["int", "address"],

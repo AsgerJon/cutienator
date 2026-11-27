@@ -4,7 +4,7 @@
     "QtBluetooth/6.12.0/QtBluetooth/private/qbluetoothsocket_dummy_p.h,",
     "Qt 6.12.0. Edited by hand: see the ritual file."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN28QBluetoothSocketPrivateDummyD1Ev": ["nothing", "address"],
     "ritual_ZN28QBluetoothSocketPrivateDummy22connectToServiceHelperERK17QBluetoothAddresst6QFlagsIN13QIODeviceBase12OpenModeFlagEE": [
       "nothing", "address", "address", "unsigned short", "int"

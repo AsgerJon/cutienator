@@ -1,0 +1,66 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtPdf/qpdfdocument.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "sigils": {
+    "ritual_ZNK12QPdfDocument10metaObjectEv": ["address", "address"],
+    "ritual_ZN12QPdfDocument11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN12QPdfDocument11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN12QPdfDocument2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN12QPdfDocumentC1Ev": ["address"],
+    "ritual_ZN12QPdfDocumentC1EP7QObject": ["address", "address"],
+    "ritual_ZN12QPdfDocumentD1Ev": ["nothing", "address"],
+    "ritual_ZN12QPdfDocument4loadERK7QString": ["int", "address", "text"],
+    "ritual_ZNK12QPdfDocument6statusEv": ["int", "address"],
+    "ritual_ZN12QPdfDocument4loadEP9QIODevice": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QPdfDocument11setPasswordERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK12QPdfDocument8passwordEv": ["text", "address"],
+    "ritual_ZNK12QPdfDocument8metaDataENS_13MetaDataFieldE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK12QPdfDocument5errorEv": ["int", "address"],
+    "ritual_ZN12QPdfDocument5closeEv": ["nothing", "address"],
+    "ritual_ZNK12QPdfDocument9pageCountEv": ["int", "address"],
+    "ritual_ZNK12QPdfDocument13pagePointSizeEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN12QPdfDocument9pageLabelEi": ["text", "address", "int"],
+    "ritual_ZN12QPdfDocument17pageIndexForLabelERK7QString": [
+      "int", "address", "text"
+    ],
+    "ritual_ZN12QPdfDocument9pageModelEv": ["address", "address"],
+    "ritual_ZN12QPdfDocument6renderEi5QSize25QPdfDocumentRenderOptions": [
+      "address", "address", "int", "address", "address"
+    ],
+    "ritual_ZN12QPdfDocument6renderEi5QSize25QPdfDocumentRenderOptionsN6QImage6FormatERK6QColor": [
+      "address", "address", "int", "address", "address", "int", "address"
+    ],
+    "ritual_ZN12QPdfDocument12getSelectionEi7QPointFS0_": [
+      "address", "address", "int", "address", "address"
+    ],
+    "ritual_ZN12QPdfDocument19getSelectionAtIndexEiii": [
+      "address", "address", "int", "int", "int"
+    ],
+    "ritual_ZN12QPdfDocument10getAllTextEi": ["address", "address", "int"],
+    "ritual_ZN12QPdfDocument15passwordChangedEv": ["nothing", "address"],
+    "ritual_ZN12QPdfDocument16passwordRequiredEv": ["nothing", "address"],
+    "ritual_ZN12QPdfDocument13statusChangedENS_6StatusE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN12QPdfDocument16pageCountChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN12QPdfDocument16pageModelChangedEv": ["nothing", "address"],
+    "ritual_ZNK12QPdfDocument8fileNameEv": ["text", "address"],
+    "ritual_take_QPdfDocument": ["bool", "address", "chars", "address"]
+  }
+}

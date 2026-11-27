@@ -4,7 +4,7 @@
     "QtLabsQmlModels/6.12.0/QtLabsQmlModels/private/qqmltablemodel_p.h,",
     "Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK14QQmlTableModel10metaObjectEv": ["address", "address"],
     "ritual_ZN14QQmlTableModel11qt_metacastEPKc": [
       "address", "address", "chars"

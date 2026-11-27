@@ -4,7 +4,7 @@
     "Templates2/6.12.0/QtQuickTemplates2/private/qquickswitch_p.h, Qt",
     "6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK12QQuickSwitch10metaObjectEv": ["address", "address"],
     "ritual_ZN12QQuickSwitch11qt_metacastEPKc": [
       "address", "address", "chars"

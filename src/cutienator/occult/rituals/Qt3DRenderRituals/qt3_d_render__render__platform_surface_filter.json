@@ -4,7 +4,7 @@
     "Qt3DRender/6.12.0/Qt3DRender/private/platformsurfacefilter_p.h, Qt",
     "6.12.0. Edited by hand: see the ritual file."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK10Qt3DRender6Render21PlatformSurfaceFilter10metaObjectEv": [
       "address", "address"
     ],

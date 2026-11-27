@@ -4,7 +4,7 @@
     "QtCore/6.12.0/QtCore/private/qlocale_p.h, Qt 6.12.0. Changes made",
     "here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN13QSystemLocaleC1Ev": ["address"],
     "ritual_ZN13QSystemLocaleD1Ev": ["nothing", "address"],
     "ritual_ZNK13QSystemLocale5queryENS_9QueryTypeEO8QVariant": [

@@ -4,7 +4,7 @@
     "QtLottie/6.12.0/QtLottie/private/qlottieflatlayers_p.h, Qt 6.12.0.",
     "Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN17QLottieImageLayerC1Ev": ["address"],
     "ritual_ZN17QLottieImageLayerC1ERKS_": ["address", "address"],
     "ritual_ZNK17QLottieImageLayer5cloneEv": ["address", "address"],

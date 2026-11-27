@@ -4,7 +4,7 @@
     "QtOpenGL/6.12.0/QtOpenGL/private/qopengltexturecache_p.h, Qt",
     "6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN20QOpenGLCachedTextureC1Ej6QFlagsIN22QOpenGLTextureUploader10BindOptionEEP14QOpenGLContext": [
       "address", "unsigned int", "int", "address"
     ],

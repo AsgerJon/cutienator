@@ -4,7 +4,7 @@
     "QtNetwork/6.12.0/QtNetwork/private/qdecompresshelper_p.h, Qt",
     "6.12.0. Edited by hand: see the ritual file."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN17QDecompressHelperC1Ev": ["address"],
     "ritual_ZN17QDecompressHelperD1Ev": ["nothing", "address"],
     "ritual_ZN17QDecompressHelper11setEncodingE14QByteArrayView": [

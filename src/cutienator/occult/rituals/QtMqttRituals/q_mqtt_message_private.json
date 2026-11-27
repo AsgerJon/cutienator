@@ -4,7 +4,7 @@
     "QtMqtt/6.12.0/QtMqtt/private/qmqttmessage_p.h, Qt 6.12.0. Changes",
     "made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK19QMqttMessagePrivateeqERKS_": ["bool", "address", "address"],
     "ritual_ZN19QMqttMessagePrivateD1Ev": ["nothing", "address"]
   }

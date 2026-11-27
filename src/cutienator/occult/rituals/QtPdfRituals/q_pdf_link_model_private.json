@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtPdf/6.12.0/QtPdf/private/qpdflinkmodel_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "sigils": {
+    "ritual_ZN20QPdfLinkModelPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK20QPdfLinkModelPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN20QPdfLinkModelPrivateC1EP13QPdfLinkModel": [
+      "address", "address"
+    ],
+    "ritual_ZN20QPdfLinkModelPrivateD1Ev": ["nothing", "address"]
+  }
+}

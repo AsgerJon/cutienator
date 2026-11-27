@@ -4,7 +4,7 @@
     "QtQuick/6.12.0/QtQuick/private/qsgbatchrenderer_p.h, Qt 6.12.0.",
     "Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK16QSGBatchRenderer4Node6parentEv": ["address", "address"],
     "ritual_ZN16QSGBatchRenderer4Node6appendEPS0_": [
       "nothing", "address", "address"

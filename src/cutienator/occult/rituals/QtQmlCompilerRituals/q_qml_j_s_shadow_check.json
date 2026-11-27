@@ -4,7 +4,7 @@
     "QtQmlCompiler/6.12.0/QtQmlCompiler/private/qqmljsshadowcheck_p.h,",
     "Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN17QQmlJSShadowCheckC1EPKN3QV48Compiler15JSUnitGeneratorEPK18QQmlJSTypeResolverP12QQmlJSLoggerRK8QFlatMapIiN17QQmlJSCompilePass10BasicBlockESt4lessIiE5QListIiESF_ISC_EERKSA_IiNSB_21InstructionAnnotationESE_SG_SF_ISL_EE": [
       "address", "address", "address", "address", "address", "address"
     ],

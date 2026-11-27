@@ -4,7 +4,7 @@
     "QtChartsQml/6.12.0/QtChartsQml/private/declarativechartnode_p.h,",
     "Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN20DeclarativeChartNodeD1Ev": ["nothing", "address"],
     "ritual_ZN20DeclarativeChartNode22createTextureFromImageERK6QImage": [
       "nothing", "address", "address"

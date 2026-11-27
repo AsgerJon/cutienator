@@ -4,7 +4,7 @@
     "QtCore/6.12.0/QtCore/private/qthread_p.h, Qt 6.12.0. Changes made",
     "here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN13QDaemonThreadC1EP7QObject": ["address", "address"],
     "ritual_ZN13QDaemonThreadD1Ev": ["nothing", "address"],
     "ritual_take_QDaemonThread": ["bool", "address", "chars", "address"]

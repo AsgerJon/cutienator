@@ -2,7 +2,7 @@
   "about": [
     "Edited by hand: see the ritual file."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN15QLottieRendererD1Ev": ["nothing", "address"],
     "ritual_ZN15QLottieRenderer9saveStateEv": ["nothing", "address"],
     "ritual_ZN15QLottieRenderer12restoreStateEv": ["nothing", "address"],

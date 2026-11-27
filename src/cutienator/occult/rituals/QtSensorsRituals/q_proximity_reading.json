@@ -4,7 +4,7 @@
     "QtSensors/qproximitysensor.h, Qt 6.12.0. Changes made here are",
     "lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK17QProximityReading10metaObjectEv": ["address", "address"],
     "ritual_ZN17QProximityReading11qt_metacastEPKc": [
       "address", "address", "chars"

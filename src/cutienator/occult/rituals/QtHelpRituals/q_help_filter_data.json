@@ -3,7 +3,7 @@
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtHelp/qhelpfilterdata.h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN15QHelpFilterDataC1Ev": ["address"],
     "ritual_ZN15QHelpFilterDataC1ERKS_": ["address", "address"],
     "ritual_ZN15QHelpFilterDataC1EOS_": ["address", "address"],

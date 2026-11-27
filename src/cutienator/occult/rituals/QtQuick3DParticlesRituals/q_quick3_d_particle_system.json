@@ -4,7 +4,7 @@
     "3DParticles/6.12.0/QtQuick3DParticles/private/qquick3dparticlesyst",
     "em_p.h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK22QQuick3DParticleSystem10metaObjectEv": [
       "address", "address"
     ],

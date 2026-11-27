@@ -4,7 +4,7 @@
     "QtCore/6.12.0/QtCore/private/qobject_p_p.h, Qt 6.12.0. Changes",
     "made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN14QObjectPrivate10ConnectionC1Ev": ["address"],
     "ritual_ZNK14QObjectPrivate10Connection6methodEv": ["int", "address"],
     "ritual_ZN14QObjectPrivate10Connection3refEv": ["nothing", "address"],

@@ -4,7 +4,7 @@
     "QtWaylandCompositor/qwaylandxdgshell.h, Qt 6.12.0. Changes made",
     "here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK16QWaylandXdgPopup10metaObjectEv": ["address", "address"],
     "ritual_ZN16QWaylandXdgPopup11qt_metacastEPKc": [
       "address", "address", "chars"

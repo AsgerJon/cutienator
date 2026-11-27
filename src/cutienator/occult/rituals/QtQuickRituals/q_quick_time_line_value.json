@@ -4,7 +4,7 @@
     "QtQuick/6.12.0/QtQuick/private/qquicktimeline_p_p.h, Qt 6.12.0.",
     "Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN19QQuickTimeLineValueC1Ed": ["address", "double"],
     "ritual_ZNK19QQuickTimeLineValue5valueEv": ["double", "address"],
     "ritual_ZN19QQuickTimeLineValue8setValueEd": [

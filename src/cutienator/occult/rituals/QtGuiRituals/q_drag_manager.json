@@ -4,7 +4,7 @@
     "QtGui/6.12.0/QtGui/private/qdnd_p.h, Qt 6.12.0. Changes made here",
     "are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK12QDragManager10metaObjectEv": ["address", "address"],
     "ritual_ZN12QDragManager11qt_metacastEPKc": [
       "address", "address", "chars"

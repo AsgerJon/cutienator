@@ -4,7 +4,7 @@
     "QtWebView/6.12.0/QtWebView/private/qwebviewfactory_p.h, Qt 6.12.0.",
     "Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN15QWebViewFactory11LoadingInfo6createERK4QUrlN19QWebViewLoadingInfo10LoadStatusERK7QString": [
       "address", "address", "int", "text"
     ],

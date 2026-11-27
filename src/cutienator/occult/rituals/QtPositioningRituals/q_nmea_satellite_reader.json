@@ -4,7 +4,7 @@
     "ioning/6.12.0/QtPositioning/private/qnmeasatelliteinfosource_p.h,",
     "Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN20QNmeaSatelliteReaderC1EP31QNmeaSatelliteInfoSourcePrivate": [
       "address", "address"
     ],

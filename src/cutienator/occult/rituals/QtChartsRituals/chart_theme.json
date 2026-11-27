@@ -4,7 +4,7 @@
     "QtCharts/6.12.0/QtCharts/private/charttheme_p.h, Qt 6.12.0.",
     "Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN10ChartThemeC1EN6QChart10ChartThemeE": ["address", "int"],
     "ritual_ZNK10ChartTheme2idEv": ["int", "address"],
     "ritual_ZNK10ChartTheme15seriesGradientsEv": ["address", "address"],

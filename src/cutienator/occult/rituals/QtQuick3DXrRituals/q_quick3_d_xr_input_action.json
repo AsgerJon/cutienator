@@ -4,7 +4,7 @@
     "QtQuick3DXr/6.12.0/QtQuick3DXr/private/qquick3dxractionmapper_p.h,",
     "Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK21QQuick3DXrInputAction10metaObjectEv": [
       "address", "address"
     ],

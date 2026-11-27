@@ -4,7 +4,7 @@
     "QtNetwork/6.12.0/QtNetwork/private/qhostinfo_p.h, Qt 6.12.0.",
     "Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN14QHostInfoCacheC1Ev": ["address"],
     "ritual_ZN14QHostInfoCache3getERK7QStringPb": [
       "address", "address", "text", "address"

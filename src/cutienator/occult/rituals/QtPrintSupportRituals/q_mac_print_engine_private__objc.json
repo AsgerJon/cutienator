@@ -5,7 +5,7 @@
     "Qt 6.12.0, from Qt's source: Objective-C++, built on Apple's",
     "systems only. Kept as it is when the generator runs again."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN22QMacPrintEnginePrivateC1Ev": ["address"],
     "ritual_ZN22QMacPrintEnginePrivateD1Ev": ["nothing", "address"],
     "ritual_ZN22QMacPrintEnginePrivate10initializeEv": ["nothing", "address"],

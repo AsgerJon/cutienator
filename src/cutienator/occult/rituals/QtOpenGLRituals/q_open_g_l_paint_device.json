@@ -4,7 +4,7 @@
     "QtOpenGL/qopenglpaintdevice.h, Qt 6.12.0. Changes made here are",
     "lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN18QOpenGLPaintDevice6d_funcEv": ["address", "address"],
     "ritual_ZNK18QOpenGLPaintDevice6d_funcEv": ["address", "address"],
     "ritual_ZN18QOpenGLPaintDeviceC1Ev": ["address"],

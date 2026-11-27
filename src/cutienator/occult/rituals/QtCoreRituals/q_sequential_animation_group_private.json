@@ -4,7 +4,7 @@
     "QtCore/6.12.0/QtCore/private/qsequentialanimationgroup_p.h, Qt 6.12.0.",
     "Edited by hand: see the ritual file."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN32QSequentialAnimationGroupPrivate6q_funcEv": [
       "address",
       "address"

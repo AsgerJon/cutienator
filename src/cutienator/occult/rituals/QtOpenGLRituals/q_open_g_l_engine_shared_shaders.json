@@ -2,7 +2,7 @@
   "about": [
     "Edited by hand: see the ritual file."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN26QOpenGLEngineSharedShadersC1EP14QOpenGLContext": [
       "address", "address"
     ],

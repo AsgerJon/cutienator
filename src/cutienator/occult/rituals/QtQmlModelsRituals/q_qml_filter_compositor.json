@@ -4,7 +4,7 @@
     "QtQmlModels/6.12.0/QtQmlModels/private/qqmlfiltercompositor_p.h,",
     "Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK20QQmlFilterCompositor10metaObjectEv": ["address", "address"],
     "ritual_ZN20QQmlFilterCompositor11qt_metacastEPKc": [
       "address", "address", "chars"

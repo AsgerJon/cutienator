@@ -4,7 +4,7 @@
     "mediaWidgets/6.12.0/QtMultimediaWidgets/private/qvideowidget_p.h,",
     "Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN19QVideoWidgetPrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK19QVideoWidgetPrivate6q_funcEv": ["address", "address"],
     "ritual_ZN19QVideoWidgetPrivateD1Ev": ["nothing", "address"]

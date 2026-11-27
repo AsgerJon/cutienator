@@ -4,7 +4,7 @@
     "QtSensors/qpressuresensor.h, Qt 6.12.0. Changes made here are",
     "lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN15QPressureFilter6filterEP16QPressureReading": [
       "bool", "address", "address"
     ],

@@ -4,7 +4,7 @@
     "QtCore/6.12.0/QtCore/private/qmimetypeparser_p.h, Qt 6.12.0.",
     "Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN16QMimeTypeXMLData5clearEv": ["nothing", "address"],
     "ritual_ZN16QMimeTypeXMLData14addGlobPatternERK7QString": [
       "nothing", "address", "text"

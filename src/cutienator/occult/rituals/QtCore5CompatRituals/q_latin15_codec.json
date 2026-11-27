@@ -4,7 +4,7 @@
     "QtCore5Compat/6.12.0/QtCore5Compat/private/qlatincodec_p.h, Qt",
     "6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN13QLatin15CodecD1Ev": ["nothing", "address"],
     "ritual_ZNK13QLatin15Codec16convertToUnicodeEPKciPN20QStringConverterBase5StateE": [
       "text", "address", "chars", "int", "address"

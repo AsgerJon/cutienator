@@ -4,7 +4,7 @@
     "3DRuntimeRender/6.12.0/QtQuick3DRuntimeRender/private/qssgrenderro",
     "ot_p.h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN14QSSGRenderRootC1Ev": ["address"],
     "ritual_ZN14QSSGRenderRootD1Ev": ["nothing", "address"],
     "ritual_ZNK14QSSGRenderRoot7isDirtyENS_9DirtyFlagE": [

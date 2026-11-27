@@ -4,7 +4,7 @@
     "QtQml/6.12.0/QtQml/private/qqmlobjectorgadget_p.h, Qt 6.12.0.",
     "Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN18QQmlObjectOrGadgetC1EP7QObject": ["address", "address"],
     "ritual_ZN18QQmlObjectOrGadgetC1EPK11QMetaObjectPv": [
       "address", "address", "address"

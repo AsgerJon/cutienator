@@ -4,7 +4,7 @@
     "QtQml/6.12.0/QtQml/private/qv4bytecodehandler_p.h, Qt 6.12.0.",
     "Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN3QV44Moth15ByteCodeHandlerD1Ev": ["nothing", "address"],
     "ritual_ZN3QV44Moth15ByteCodeHandler5resetEv": ["nothing", "address"],
     "ritual_ZNK3QV44Moth15ByteCodeHandler24currentInstructionOffsetEv": [

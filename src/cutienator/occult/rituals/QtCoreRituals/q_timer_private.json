@@ -4,7 +4,7 @@
     "QtCore/6.12.0/QtCore/private/qtimer_p.h, Qt 6.12.0. Changes made",
     "here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN13QTimerPrivateC1EP6QTimer": ["address", "address"],
     "ritual_ZN13QTimerPrivateC1ENSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEP12QChronoTimer": [
       "address", "long long", "address"

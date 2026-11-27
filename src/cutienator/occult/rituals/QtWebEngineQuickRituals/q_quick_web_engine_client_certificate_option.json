@@ -1,0 +1,45 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtWebEn",
+    "gineQuick/6.12.0/QtWebEngineQuick/private/qquickwebengineclientcer",
+    "tificateselection_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "sigils": {
+    "ritual_ZNK38QQuickWebEngineClientCertificateOption10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN38QQuickWebEngineClientCertificateOption11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN38QQuickWebEngineClientCertificateOption11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN38QQuickWebEngineClientCertificateOption2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN38QQuickWebEngineClientCertificateOption24qt_qmlMarker_uncreatableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK38QQuickWebEngineClientCertificateOption6issuerEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK38QQuickWebEngineClientCertificateOption7subjectEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK38QQuickWebEngineClientCertificateOption13effectiveDateEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK38QQuickWebEngineClientCertificateOption10expiryDateEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK38QQuickWebEngineClientCertificateOption12isSelfSignedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN38QQuickWebEngineClientCertificateOption6selectEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN38QQuickWebEngineClientCertificateOptionC1EP41QQuickWebEngineClientCertificateSelectioni": [
+      "address", "address", "int"
+    ]
+  }
+}

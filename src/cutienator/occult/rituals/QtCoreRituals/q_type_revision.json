@@ -4,7 +4,7 @@
     "QtCore/qtyperevision.h, Qt 6.12.0. Edited by hand: see the ritual",
     "file."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN13QTypeRevision4zeroEv": ["address"],
     "ritual_ZN13QTypeRevisionC1Ev": ["address"],
     "ritual_ZNK13QTypeRevision15hasMajorVersionEv": ["bool", "address"],

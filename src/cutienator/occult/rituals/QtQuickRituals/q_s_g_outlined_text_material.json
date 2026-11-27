@@ -4,7 +4,7 @@
     "QtQuick/6.12.0/QtQuick/private/qsgdefaultglyphnode_p_p.h, Qt",
     "6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN23QSGOutlinedTextMaterialD1Ev": ["nothing", "address"],
     "ritual_ZNK23QSGOutlinedTextMaterial4typeEv": ["address", "address"],
     "ritual_ZNK23QSGOutlinedTextMaterial12createShaderEN20QSGRendererInterface10RenderModeE": [

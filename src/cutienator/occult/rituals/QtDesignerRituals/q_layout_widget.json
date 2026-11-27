@@ -4,7 +4,7 @@
     "QtDesigner/6.12.0/QtDesigner/private/qlayout_widget_p.h, Qt",
     "6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK13QLayoutWidget10metaObjectEv": ["address", "address"],
     "ritual_ZN13QLayoutWidget11qt_metacastEPKc": [
       "address", "address", "chars"

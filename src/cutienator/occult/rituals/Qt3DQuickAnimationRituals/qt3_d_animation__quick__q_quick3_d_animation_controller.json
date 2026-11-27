@@ -4,7 +4,7 @@
     "ckAnimation/6.12.0/Qt3DQuickAnimation/private/quick3danimationcont",
     "roller_p.h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK13Qt3DAnimation5Quick27QQuick3DAnimationController10metaObjectEv": [
       "address", "address"
     ],

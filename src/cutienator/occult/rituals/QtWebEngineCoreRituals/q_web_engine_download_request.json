@@ -1,0 +1,108 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWebEngineCore/qwebenginedownloadrequest.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "sigils": {
+    "ritual_ZNK25QWebEngineDownloadRequest10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN25QWebEngineDownloadRequest11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN25QWebEngineDownloadRequest11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN25QWebEngineDownloadRequest2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN25QWebEngineDownloadRequestD1Ev": ["nothing", "address"],
+    "ritual_ZNK25QWebEngineDownloadRequest2idEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZNK25QWebEngineDownloadRequest5stateEv": ["int", "address"],
+    "ritual_ZNK25QWebEngineDownloadRequest10totalBytesEv": [
+      "long long", "address"
+    ],
+    "ritual_ZNK25QWebEngineDownloadRequest13receivedBytesEv": [
+      "long long", "address"
+    ],
+    "ritual_ZNK25QWebEngineDownloadRequest3urlEv": ["address", "address"],
+    "ritual_ZNK25QWebEngineDownloadRequest8mimeTypeEv": ["text", "address"],
+    "ritual_ZNK25QWebEngineDownloadRequest10isFinishedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK25QWebEngineDownloadRequest8isPausedEv": ["bool", "address"],
+    "ritual_ZNK25QWebEngineDownloadRequest14savePageFormatEv": [
+      "int", "address"
+    ],
+    "ritual_ZN25QWebEngineDownloadRequest17setSavePageFormatENS_14SavePageFormatE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK25QWebEngineDownloadRequest15interruptReasonEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK25QWebEngineDownloadRequest21interruptReasonStringEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK25QWebEngineDownloadRequest18isSavePageDownloadEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK25QWebEngineDownloadRequest17suggestedFileNameEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK25QWebEngineDownloadRequest17downloadDirectoryEv": [
+      "text", "address"
+    ],
+    "ritual_ZN25QWebEngineDownloadRequest20setDownloadDirectoryERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK25QWebEngineDownloadRequest16downloadFileNameEv": [
+      "text", "address"
+    ],
+    "ritual_ZN25QWebEngineDownloadRequest19setDownloadFileNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK25QWebEngineDownloadRequest4pageEv": ["address", "address"],
+    "ritual_ZN25QWebEngineDownloadRequest6acceptEv": ["nothing", "address"],
+    "ritual_ZN25QWebEngineDownloadRequest6cancelEv": ["nothing", "address"],
+    "ritual_ZN25QWebEngineDownloadRequest5pauseEv": ["nothing", "address"],
+    "ritual_ZN25QWebEngineDownloadRequest6resumeEv": ["nothing", "address"],
+    "ritual_ZN25QWebEngineDownloadRequest12stateChangedENS_13DownloadStateE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN25QWebEngineDownloadRequest21savePageFormatChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QWebEngineDownloadRequest20receivedBytesChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QWebEngineDownloadRequest17totalBytesChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QWebEngineDownloadRequest22interruptReasonChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QWebEngineDownloadRequest17isFinishedChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QWebEngineDownloadRequest15isPausedChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QWebEngineDownloadRequest24downloadDirectoryChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QWebEngineDownloadRequest23downloadFileNameChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QWebEngineDownloadRequest6d_funcEv": ["address", "address"],
+    "ritual_ZNK25QWebEngineDownloadRequest6d_funcEv": ["address", "address"],
+    "ritual_ZN25QWebEngineDownloadRequestC1EP32QWebEngineDownloadRequestPrivateP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_take_QWebEngineDownloadRequest": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

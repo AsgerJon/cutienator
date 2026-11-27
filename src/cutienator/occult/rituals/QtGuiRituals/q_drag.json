@@ -3,7 +3,7 @@
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtGui/qdrag.h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK5QDrag10metaObjectEv": ["address", "address"],
     "ritual_ZN5QDrag11qt_metacastEPKc": ["address", "address", "chars"],
     "ritual_ZN5QDrag11qt_metacallEN11QMetaObject4CallEiPPv": [

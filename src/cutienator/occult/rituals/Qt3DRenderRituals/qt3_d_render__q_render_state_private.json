@@ -4,7 +4,7 @@
     "Qt3DRender/6.12.0/Qt3DRender/private/qrenderstate_p.h, Qt 6.12.0.",
     "Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN10Qt3DRender19QRenderStatePrivateC1ENS_6Render9StateMaskE": [
       "address", "int"
     ],

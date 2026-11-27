@@ -4,7 +4,7 @@
     "QtGui/6.12.0/QtGui/qpa/qplatformoffscreensurface.h, Qt 6.12.0.",
     "Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN25QPlatformOffscreenSurface6d_funcEv": ["address", "address"],
     "ritual_ZNK25QPlatformOffscreenSurface6d_funcEv": ["address", "address"],
     "ritual_ZN25QPlatformOffscreenSurfaceC1EP17QOffscreenSurface": [

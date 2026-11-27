@@ -4,7 +4,7 @@
     "3DRuntimeRender/6.12.0/QtQuick3DRuntimeRender/private/qssgrendermo",
     "rphtarget_p.h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN21QSSGRenderMorphTargetC1Ev": ["address"],
     "ritual_ZN21QSSGRenderMorphTargetD1Ev": ["nothing", "address"]
   }

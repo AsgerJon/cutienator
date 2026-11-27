@@ -4,7 +4,7 @@
     "QtQuickVectorImage/6.12.0/QtQuickVectorImage/private/qquickvectorimageincubator_p.h,",
     "Qt 6.12.0, as the Qt of macOS and of Windows installs it, the"
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK26QQuickVectorImageIncubator10metaObjectEv": [
       "address", "address"
     ],

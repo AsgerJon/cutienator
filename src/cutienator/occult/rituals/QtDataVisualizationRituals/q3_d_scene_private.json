@@ -4,7 +4,7 @@
     "isualization/6.12.0/QtDataVisualization/private/q3dscene_p.h, Qt",
     "6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK15Q3DScenePrivate10metaObjectEv": ["address", "address"],
     "ritual_ZN15Q3DScenePrivate11qt_metacastEPKc": [
       "address", "address", "chars"

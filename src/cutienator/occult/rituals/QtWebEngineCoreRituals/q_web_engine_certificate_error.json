@@ -1,0 +1,39 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWebEngineCore/qwebenginecertificateerror.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "sigils": {
+    "ritual_ZN26QWebEngineCertificateErrorC1Ev": ["address"],
+    "ritual_ZN26QWebEngineCertificateErrorC1ERKS_": ["address", "address"],
+    "ritual_ZN26QWebEngineCertificateErroraSERKS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN26QWebEngineCertificateErrorD1Ev": ["nothing", "address"],
+    "ritual_ZNK26QWebEngineCertificateError4typeEv": ["int", "address"],
+    "ritual_ZNK26QWebEngineCertificateError3urlEv": ["address", "address"],
+    "ritual_ZNK26QWebEngineCertificateError13isOverridableEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK26QWebEngineCertificateError11descriptionEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK26QWebEngineCertificateError11isMainFrameEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN26QWebEngineCertificateError5deferEv": ["nothing", "address"],
+    "ritual_ZN26QWebEngineCertificateError17rejectCertificateEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QWebEngineCertificateError17acceptCertificateEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK26QWebEngineCertificateError16certificateChainEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QWebEngineCertificateErrorC1ERK14QSharedPointerIN15QtWebEngineCore26CertificateErrorControllerEE": [
+      "address", "address"
+    ]
+  }
+}

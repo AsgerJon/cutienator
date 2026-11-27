@@ -4,7 +4,7 @@
     "QtAxServer/6.12.0/QtAxServer/private/iaxserverbase_p.h, Qt 6.12.0,",
     "from Qt's source. Kept as it is when the generator runs again."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK13IAxServerBase10ClientSiteEv": ["address", "address"],
     "ritual_ZN13IAxServerBase19EmitPropertyChangedEPKc": [
       "nothing", "address", "chars"

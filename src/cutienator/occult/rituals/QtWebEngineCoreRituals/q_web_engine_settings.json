@@ -1,0 +1,65 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWebEngineCore/qwebenginesettings.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "sigils": {
+    "ritual_ZN18QWebEngineSettingsD1Ev": ["nothing", "address"],
+    "ritual_ZN18QWebEngineSettings13setFontFamilyENS_10FontFamilyERK7QString": [
+      "nothing", "address", "int", "text"
+    ],
+    "ritual_ZNK18QWebEngineSettings10fontFamilyENS_10FontFamilyE": [
+      "text", "address", "int"
+    ],
+    "ritual_ZN18QWebEngineSettings15resetFontFamilyENS_10FontFamilyE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN18QWebEngineSettings11setFontSizeENS_8FontSizeEi": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZNK18QWebEngineSettings8fontSizeENS_8FontSizeE": [
+      "int", "address", "int"
+    ],
+    "ritual_ZN18QWebEngineSettings13resetFontSizeENS_8FontSizeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN18QWebEngineSettings12setAttributeENS_12WebAttributeEb": [
+      "nothing", "address", "int", "bool"
+    ],
+    "ritual_ZNK18QWebEngineSettings13testAttributeENS_12WebAttributeE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN18QWebEngineSettings14resetAttributeENS_12WebAttributeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN18QWebEngineSettings22setDefaultTextEncodingERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK18QWebEngineSettings19defaultTextEncodingEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK18QWebEngineSettings22unknownUrlSchemePolicyEv": [
+      "int", "address"
+    ],
+    "ritual_ZN18QWebEngineSettings25setUnknownUrlSchemePolicyENS_22UnknownUrlSchemePolicyE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN18QWebEngineSettings27resetUnknownUrlSchemePolicyEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QWebEngineSettings23setImageAnimationPolicyENS_20ImageAnimationPolicyE": [
+      "nothing", "address", "unsigned char"
+    ],
+    "ritual_ZNK18QWebEngineSettings20imageAnimationPolicyEv": [
+      "unsigned char", "address"
+    ],
+    "ritual_ZN18QWebEngineSettings25resetImageAnimationPolicyEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QWebEngineSettingsC1EPS_": ["address", "address"],
+    "ritual_ZN18QWebEngineSettings17setParentSettingsEPS_": [
+      "nothing", "address", "address"
+    ]
+  }
+}

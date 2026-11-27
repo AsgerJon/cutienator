@@ -4,7 +4,7 @@
     "Qt3DAnimation/qabstractanimationclip.h, Qt 6.12.0. Changes made",
     "here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK13Qt3DAnimation22QAbstractAnimationClip10metaObjectEv": [
       "address", "address"
     ],

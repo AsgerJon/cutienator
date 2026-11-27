@@ -4,7 +4,7 @@
     "QtNetworkAuth/6.12.0/QtNetworkAuth/private/qabstractoauth_p.h, Qt",
     "6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN21QAbstractOAuthPrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK21QAbstractOAuthPrivate6q_funcEv": ["address", "address"],
     "ritual_ZN21QAbstractOAuthPrivateC1EPKcRK4QUrlRK7QStringP21QNetworkAccessManager": [

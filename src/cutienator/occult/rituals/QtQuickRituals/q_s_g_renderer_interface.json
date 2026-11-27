@@ -4,7 +4,7 @@
     "QtQuick/qsgrendererinterface.h, Qt 6.12.0. Changes made here are",
     "lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN20QSGRendererInterfaceD1Ev": ["nothing", "address"],
     "ritual_ZNK20QSGRendererInterface11graphicsApiEv": ["int", "address"],
     "ritual_ZNK20QSGRendererInterface11getResourceEP12QQuickWindowNS_8ResourceE": [

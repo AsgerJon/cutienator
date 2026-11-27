@@ -4,7 +4,7 @@
     "QtQml/6.12.0/QtQml/private/qqmlpropertybinding_p.h, Qt 6.12.0.",
     "Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN37QQmlTranslationPropertyBindingFunctorC1ERK14QQmlRefPointerIN3QV425ExecutableCompilationUnitEEPKNS1_12CompiledData7BindingE": [
       "address", "address", "address"
     ],

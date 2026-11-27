@@ -1,0 +1,60 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtPdf/qpdfbookmarkmodel.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "sigils": {
+    "ritual_ZNK17QPdfBookmarkModel10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QPdfBookmarkModel11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN17QPdfBookmarkModel11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN17QPdfBookmarkModel2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN17QPdfBookmarkModelC1Ev": ["address"],
+    "ritual_ZN17QPdfBookmarkModelC1EP7QObject": ["address", "address"],
+    "ritual_ZN17QPdfBookmarkModelD1Ev": ["nothing", "address"],
+    "ritual_ZNK17QPdfBookmarkModel8documentEv": ["address", "address"],
+    "ritual_ZN17QPdfBookmarkModel11setDocumentEP12QPdfDocument": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QPdfBookmarkModel4dataERK11QModelIndexi": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZNK17QPdfBookmarkModel5indexEiiRK11QModelIndex": [
+      "address", "address", "int", "int", "address"
+    ],
+    "ritual_ZNK17QPdfBookmarkModel6parentERK11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK17QPdfBookmarkModel8rowCountERK11QModelIndex": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK17QPdfBookmarkModel11columnCountERK11QModelIndex": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK17QPdfBookmarkModel9roleNamesEv": ["address", "address"],
+    "ritual_ZN17QPdfBookmarkModel15documentChangedEP12QPdfDocument": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QPdfBookmarkModel": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK17QPdfBookmarkModel4dataERK11QModelIndexi": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_own_ZNK17QPdfBookmarkModel5indexEiiRK11QModelIndex": [
+      "address", "address", "int", "int", "address"
+    ],
+    "ritual_own_ZNK17QPdfBookmarkModel6parentERK11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZNK17QPdfBookmarkModel8rowCountERK11QModelIndex": [
+      "int", "address", "address"
+    ],
+    "ritual_own_ZNK17QPdfBookmarkModel11columnCountERK11QModelIndex": [
+      "int", "address", "address"
+    ]
+  }
+}

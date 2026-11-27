@@ -4,7 +4,7 @@
     "QtCharts/6.12.0/QtCharts/private/qsplineseries_p.h, Qt 6.12.0.",
     "Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK20QSplineSeriesPrivate10metaObjectEv": ["address", "address"],
     "ritual_ZN20QSplineSeriesPrivate11qt_metacastEPKc": [
       "address", "address", "chars"

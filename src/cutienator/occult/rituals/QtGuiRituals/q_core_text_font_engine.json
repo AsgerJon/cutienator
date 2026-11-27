@@ -4,7 +4,7 @@
     "QtGui/6.12.0/QtGui/private/qfontengine_coretext_p.h, Qt 6.12.0, as the Qt of",
     "macOS installs it. Kept as it is when the generator runs again."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN19QCoreTextFontEngineC1EPK8__CTFontRK8QFontDef": [
       "address", "address", "address"
     ],

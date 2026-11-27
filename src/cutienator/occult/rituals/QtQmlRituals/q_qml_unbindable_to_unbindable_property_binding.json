@@ -4,7 +4,7 @@
     "QtQml/6.12.0/QtQml/private/qqmlpropertytopropertybinding_p.h, Qt",
     "6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN41QQmlUnbindableToUnbindablePropertyBinding15capturePropertyEPK11QMetaObjectRK13QMetaProperty": [
       "nothing", "address", "address", "address"
     ],

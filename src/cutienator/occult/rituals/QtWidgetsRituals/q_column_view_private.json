@@ -4,7 +4,7 @@
     "QtWidgets/6.12.0/QtWidgets/private/qcolumnview_p.h, Qt 6.12.0.",
     "Edited by hand: see the ritual file."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN18QColumnViewPrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK18QColumnViewPrivate6q_funcEv": ["address", "address"],
     "ritual_ZN18QColumnViewPrivateD1Ev": ["nothing", "address"],

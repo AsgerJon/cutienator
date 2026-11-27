@@ -25,7 +25,7 @@ class ClassTester:
   Verifies the file of a cute class that a 'ClassGenerator' wrote. This
   is the tester side of the tooling. It takes nothing the generator
   says on trust: it reads the file as Python reads it, compares what it
-  calls with the rows of the rituals, and has a Python of its own make
+  calls with the sigils of the rituals, and has a Python of its own make
   the class.
 
     tester = ClassTester()
@@ -38,7 +38,7 @@ class ClassTester:
   -----
 
   - A fault is one thing found wrong, said in a sentence.
-  - A ritual and a row are as 'RitualGenerator' explains them.
+  - A ritual and a sigil are as 'RitualGenerator' explains them.
 
   You provide
   -----------
@@ -54,7 +54,7 @@ class ClassTester:
   2. The file is Python as Python 3.7 reads it, and no line of it is
      longer than 77 letters.
   3. Every ritual the file calls is one the ritual file of the class
-     has, and is handed as many things as its row says it takes.
+     has, and is handed as many things as its sigil says it takes.
   4. Every ritual of the class is accounted for: the file calls it, or
      the generator lists it as left out with a reason. None is both.
   5. No two functions of one name are given the same signature.
@@ -299,7 +299,7 @@ class ClassTester:
 
   def _checkCalls(self, tree: ast.AST, faults: List[str]) -> None:
     """Compares the rituals the file calls with the rituals of the
-    class and their rows, and with what the generator left out."""
+    class and their sigils, and with what the generator left out."""
     generator = self.getClassGenerator()
     className = generator.getClassName()
     plans = dict()  # type: Dict[str, Tuple[str, ...]]
@@ -328,7 +328,7 @@ class ClassTester:
           #  of list that holds the class.
           named.append(plan['ritualName'])
           continue
-        plans[plan['ritualName']] = plan['row']
+        plans[plan['ritualName']] = plan['sigil']
         shown.setdefault(plan['function'], []).append(plan['ritualName'])
     texts = {
         node.value for node in ast.walk(tree)
@@ -351,7 +351,7 @@ class ClassTester:
       taken = len(plans[ritualName]) - 1
       if handed + (1 if onObject else 0) != taken:
         infoSpec = """The file of '%s' hands the ritual '%s' %d things,
-        and its row says it takes %d."""
+        and its sigil says it takes %d."""
         info = infoSpec % (
             className, ritualName, handed + (1 if onObject else 0), taken)
         faults.append(' '.join(info.split()))

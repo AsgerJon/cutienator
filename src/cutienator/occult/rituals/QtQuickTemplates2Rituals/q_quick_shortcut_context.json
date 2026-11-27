@@ -4,7 +4,7 @@
     "Templates2/6.12.0/QtQuickTemplates2/private/qquickshortcutcontext_",
     "p_p.h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN21QQuickShortcutContext7matcherEP7QObjectN2Qt15ShortcutContextE": [
       "bool", "address", "int"
     ],

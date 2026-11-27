@@ -1,0 +1,43 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtPdf/qpdfpagerenderer.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "sigils": {
+    "ritual_ZNK16QPdfPageRenderer10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QPdfPageRenderer11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN16QPdfPageRenderer11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN16QPdfPageRenderer2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN16QPdfPageRendererC1Ev": ["address"],
+    "ritual_ZN16QPdfPageRendererC1EP7QObject": ["address", "address"],
+    "ritual_ZN16QPdfPageRendererD1Ev": ["nothing", "address"],
+    "ritual_ZNK16QPdfPageRenderer10renderModeEv": ["int", "address"],
+    "ritual_ZN16QPdfPageRenderer13setRenderModeENS_10RenderModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK16QPdfPageRenderer8documentEv": ["address", "address"],
+    "ritual_ZN16QPdfPageRenderer11setDocumentEP12QPdfDocument": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QPdfPageRenderer11requestPageEi5QSize25QPdfDocumentRenderOptions": [
+      "unsigned long long", "address", "int", "address", "address"
+    ],
+    "ritual_ZN16QPdfPageRenderer15documentChangedEP12QPdfDocument": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QPdfPageRenderer17renderModeChangedENS_10RenderModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN16QPdfPageRenderer12pageRenderedEi5QSizeRK6QImage25QPdfDocumentRenderOptionsy": [
+      "nothing", "address", "int", "address", "address", "address",
+      "unsigned long long"
+    ],
+    "ritual_take_QPdfPageRenderer": ["bool", "address", "chars", "address"]
+  }
+}

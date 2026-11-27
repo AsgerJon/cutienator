@@ -4,7 +4,7 @@
     "QtLottie/6.12.0/QtLottie/private/qbeziereasing_p.h, Qt 6.12.0.",
     "Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN13QBezierEasing21addCubicBezierSegmentERK7QPointFS2_S2_": [
       "nothing", "address", "address", "address", "address"
     ],

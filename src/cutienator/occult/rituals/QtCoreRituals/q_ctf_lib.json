@@ -4,7 +4,7 @@
     "QtCore/6.12.0/QtCore/private/qctf_p.h, Qt 6.12.0. Changes made",
     "here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK7QCtfLib10metaObjectEv": ["address", "address"],
     "ritual_ZN7QCtfLib11qt_metacastEPKc": ["address", "address", "chars"],
     "ritual_ZN7QCtfLib11qt_metacallEN11QMetaObject4CallEiPPv": [

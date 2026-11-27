@@ -1,0 +1,294 @@
+//  Written by dev_tooling.RitualGenerator from the records of QtWebEngineQui
+//  ck/6.12.0/QtWebEngineQuick/private/qquickwebenginetouchselectionmenureque
+//  st_p.h, Qt 6.12.0. Changes made here are lost.
+#include <QtWebEngineQuick/6.12.0/QtWebEngineQuick/private/qtwebenginequickglobal_p.h>
+#include <QtWebEngineQuick/QtWebEngineQuick>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtWebEngineQuick/6.12.0/QtWebEngineQuick/private/qquickwebenginetouchselectionmenurequest_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
+#include <QtCore/qrect.h>
+#include <QtCore/qmetaobject.h>
+#include <cstring>
+
+//  A QQuickWebEngineTouchSelectionMenuRequest that Python can take functions over in. Every QQuickWebEngineTouchSelectionMenuRequest
+//  Python makes is one. Each function below asks the Python
+//  function handed over for it, and runs Qt's own without one.
+#if !defined(QT_NO_QOBJECT)
+typedef bool (*CuteQQuickWebEngineTouchSelectionMenuRequestCall0)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+typedef bool (*CuteQQuickWebEngineTouchSelectionMenuRequestCall1)(const void *, QObject *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+typedef void (*CuteQQuickWebEngineTouchSelectionMenuRequestCall2)(const void *, QTimerEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+typedef void (*CuteQQuickWebEngineTouchSelectionMenuRequestCall3)(const void *, QChildEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+typedef void (*CuteQQuickWebEngineTouchSelectionMenuRequestCall4)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+typedef void (*CuteQQuickWebEngineTouchSelectionMenuRequestCall5)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+typedef void (*CuteQQuickWebEngineTouchSelectionMenuRequestCall6)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+class CuteQQuickWebEngineTouchSelectionMenuRequest : public QQuickWebEngineTouchSelectionMenuRequest {
+public:
+  using QQuickWebEngineTouchSelectionMenuRequest::QQuickWebEngineTouchSelectionMenuRequest;
+  void *taken[7] = {};
+
+  bool take(const char *key, void *call) {
+#if !defined(QT_NO_QOBJECT)
+    if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
+      taken[0] = call;
+      return true;
+    }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
+      taken[1] = call;
+      return true;
+    }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
+      taken[2] = call;
+      return true;
+    }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
+      taken[3] = call;
+      return true;
+    }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
+      taken[4] = call;
+      return true;
+    }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
+      taken[5] = call;
+      return true;
+    }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+      taken[6] = call;
+      return true;
+    }
+#endif  // !defined(QT_NO_QOBJECT)
+    return false;
+  }
+
+#if !defined(QT_NO_QOBJECT)
+  //  bool QObject::event(QEvent *event)
+  bool event(QEvent *event) override {
+    if (taken[0]) {
+      int handled = 0;
+      CuteQQuickWebEngineTouchSelectionMenuRequestCall0 call = reinterpret_cast<CuteQQuickWebEngineTouchSelectionMenuRequestCall0>(taken[0]);
+      bool given = call(this, event, &handled);
+      if (handled) return given;
+    }
+    return QObject::event(event);
+  }
+#endif  // !defined(QT_NO_QOBJECT)
+
+#if !defined(QT_NO_QOBJECT)
+  //  bool QObject::eventFilter(QObject *watched, QEvent *event)
+  bool eventFilter(QObject *watched, QEvent *event) override {
+    if (taken[1]) {
+      int handled = 0;
+      CuteQQuickWebEngineTouchSelectionMenuRequestCall1 call = reinterpret_cast<CuteQQuickWebEngineTouchSelectionMenuRequestCall1>(taken[1]);
+      bool given = call(this, watched, event, &handled);
+      if (handled) return given;
+    }
+    return QObject::eventFilter(watched, event);
+  }
+#endif  // !defined(QT_NO_QOBJECT)
+
+#if !defined(QT_NO_QOBJECT)
+  //  void QObject::timerEvent(QTimerEvent *event)
+  void timerEvent(QTimerEvent *event) override {
+    if (taken[2]) {
+      int handled = 0;
+      CuteQQuickWebEngineTouchSelectionMenuRequestCall2 call = reinterpret_cast<CuteQQuickWebEngineTouchSelectionMenuRequestCall2>(taken[2]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QObject::timerEvent(event);
+  }
+#endif  // !defined(QT_NO_QOBJECT)
+
+#if !defined(QT_NO_QOBJECT)
+  //  void QObject::childEvent(QChildEvent *event)
+  void childEvent(QChildEvent *event) override {
+    if (taken[3]) {
+      int handled = 0;
+      CuteQQuickWebEngineTouchSelectionMenuRequestCall3 call = reinterpret_cast<CuteQQuickWebEngineTouchSelectionMenuRequestCall3>(taken[3]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QObject::childEvent(event);
+  }
+#endif  // !defined(QT_NO_QOBJECT)
+
+#if !defined(QT_NO_QOBJECT)
+  //  void QObject::customEvent(QEvent *event)
+  void customEvent(QEvent *event) override {
+    if (taken[4]) {
+      int handled = 0;
+      CuteQQuickWebEngineTouchSelectionMenuRequestCall4 call = reinterpret_cast<CuteQQuickWebEngineTouchSelectionMenuRequestCall4>(taken[4]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QObject::customEvent(event);
+  }
+#endif  // !defined(QT_NO_QOBJECT)
+
+#if !defined(QT_NO_QOBJECT)
+  //  void QObject::connectNotify(const QMetaMethod &signal)
+  void connectNotify(const QMetaMethod &signal) override {
+    if (taken[5]) {
+      int handled = 0;
+      CuteQQuickWebEngineTouchSelectionMenuRequestCall5 call = reinterpret_cast<CuteQQuickWebEngineTouchSelectionMenuRequestCall5>(taken[5]);
+      call(this, &signal, &handled);
+      if (handled) return;
+    }
+    QObject::connectNotify(signal);
+  }
+#endif  // !defined(QT_NO_QOBJECT)
+
+#if !defined(QT_NO_QOBJECT)
+  //  void QObject::disconnectNotify(const QMetaMethod &signal)
+  void disconnectNotify(const QMetaMethod &signal) override {
+    if (taken[6]) {
+      int handled = 0;
+      CuteQQuickWebEngineTouchSelectionMenuRequestCall6 call = reinterpret_cast<CuteQQuickWebEngineTouchSelectionMenuRequestCall6>(taken[6]);
+      call(this, &signal, &handled);
+      if (handled) return;
+    }
+    QObject::disconnectNotify(signal);
+  }
+#endif  // !defined(QT_NO_QOBJECT)
+};
+
+//  const QMetaObject *QQuickWebEngineTouchSelectionMenuRequest::metaObject()
+//      const
+extern "C" Q_DECL_EXPORT
+const QMetaObject *ritual_ZNK40QQuickWebEngineTouchSelectionMenuRequest10metaObjectEv(
+    const QQuickWebEngineTouchSelectionMenuRequest *self) {
+  return self->metaObject();
+}
+
+//  void *QQuickWebEngineTouchSelectionMenuRequest::qt_metacast(const char
+//      *a0)
+extern "C" Q_DECL_EXPORT
+void *ritual_ZN40QQuickWebEngineTouchSelectionMenuRequest11qt_metacastEPKc(
+    QQuickWebEngineTouchSelectionMenuRequest *self,
+    const char *a0) {
+  return self->qt_metacast(a0);
+}
+
+//  int
+//      QQuickWebEngineTouchSelectionMenuRequest::qt_metacall(QMetaObject::Ca
+//      ll a0, int a1, void **a2)
+extern "C" Q_DECL_EXPORT
+int ritual_ZN40QQuickWebEngineTouchSelectionMenuRequest11qt_metacallEN11QMetaObject4CallEiPPv(
+    QQuickWebEngineTouchSelectionMenuRequest *self,
+    QMetaObject::Call a0,
+    int a1,
+    void **a2) {
+  return self->qt_metacall(a0, a1, a2);
+}
+
+//  QString QQuickWebEngineTouchSelectionMenuRequest::tr(const char *s, const
+//      char *c, int n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN40QQuickWebEngineTouchSelectionMenuRequest2trEPKcS1_i(
+    const char *s,
+    const char *c,
+    int n) {
+  return new QString(QQuickWebEngineTouchSelectionMenuRequest::tr(s, c, n));
+}
+
+//  void QQuickWebEngineTouchSelectionMenuRequest::qt_qmlMarker_uncreatable()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN40QQuickWebEngineTouchSelectionMenuRequest24qt_qmlMarker_uncreatableEv(
+    QQuickWebEngineTouchSelectionMenuRequest *self) {
+  self->qt_qmlMarker_uncreatable();
+}
+
+//  QQuickWebEngineTouchSelectionMenuRequest::QQuickWebEngineTouchSelectionMe
+//      nuRequest(QRect bounds, QtWebEngineCore::TouchSelectionMenuController
+//      *touchSelectionMenuController)
+extern "C" Q_DECL_EXPORT
+QQuickWebEngineTouchSelectionMenuRequest *ritual_ZN40QQuickWebEngineTouchSelectionMenuRequestC1E5QRectPN15QtWebEngineCore28TouchSelectionMenuControllerE(
+    const QRect *bounds,
+    QtWebEngineCore::TouchSelectionMenuController *touchSelectionMenuController) {
+  return new CuteQQuickWebEngineTouchSelectionMenuRequest(
+      *bounds,
+      touchSelectionMenuController);
+}
+
+//  QQuickWebEngineTouchSelectionMenuRequest::~QQuickWebEngineTouchSelectionM
+//      enuRequest()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN40QQuickWebEngineTouchSelectionMenuRequestD1Ev(
+    QQuickWebEngineTouchSelectionMenuRequest *self) {
+  delete self;
+}
+
+//  int QQuickWebEngineTouchSelectionMenuRequest::buttonCount()
+extern "C" Q_DECL_EXPORT
+int ritual_ZN40QQuickWebEngineTouchSelectionMenuRequest11buttonCountEv(
+    QQuickWebEngineTouchSelectionMenuRequest *self) {
+  return self->buttonCount();
+}
+
+//  bool QQuickWebEngineTouchSelectionMenuRequest::isAccepted() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK40QQuickWebEngineTouchSelectionMenuRequest10isAcceptedEv(
+    const QQuickWebEngineTouchSelectionMenuRequest *self) {
+  return self->isAccepted();
+}
+
+//  void QQuickWebEngineTouchSelectionMenuRequest::setAccepted(bool accepted)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN40QQuickWebEngineTouchSelectionMenuRequest11setAcceptedEb(
+    QQuickWebEngineTouchSelectionMenuRequest *self,
+    bool accepted) {
+  self->setAccepted(accepted);
+}
+
+//  QRect QQuickWebEngineTouchSelectionMenuRequest::selectionBounds()
+extern "C" Q_DECL_EXPORT
+QRect *ritual_ZN40QQuickWebEngineTouchSelectionMenuRequest15selectionBoundsEv(
+    QQuickWebEngineTouchSelectionMenuRequest *self) {
+  return new QRect(self->selectionBounds());
+}
+
+//  TouchSelectionCommandFlags
+//      QQuickWebEngineTouchSelectionMenuRequest::touchSelectionCommandFlags(
+//      ) const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK40QQuickWebEngineTouchSelectionMenuRequest26touchSelectionCommandFlagsEv(
+    const QQuickWebEngineTouchSelectionMenuRequest *self) {
+  return static_cast<int>(self->touchSelectionCommandFlags().toInt());
+}
+
+//  a Python function taken by a
+//      CuteQQuickWebEngineTouchSelectionMenuRequest, for the function named
+//      by the key
+extern "C" Q_DECL_EXPORT
+bool ritual_take_QQuickWebEngineTouchSelectionMenuRequest(
+    QQuickWebEngineTouchSelectionMenuRequest *self,
+    const char *key,
+    void *call) {
+  return static_cast<CuteQQuickWebEngineTouchSelectionMenuRequest *>(self)->take(key, call);
+}

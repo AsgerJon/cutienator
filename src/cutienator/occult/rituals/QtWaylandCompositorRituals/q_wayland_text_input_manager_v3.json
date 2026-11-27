@@ -4,7 +4,7 @@
     "QtWaylandCompositor/qwaylandtextinputmanagerv3.h, Qt 6.12.0.",
     "Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK26QWaylandTextInputManagerV310metaObjectEv": [
       "address", "address"
     ],

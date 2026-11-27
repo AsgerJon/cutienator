@@ -4,7 +4,7 @@
     "QtQuickControls2IOSStyleImpl/6.12.0/QtQuickControls2IOSStyleImpl/private/",
     "qquickioscursorflashtimer_p.h, Qt 6.12.0, from Qt's source. Kept"
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK25QQuickIOSCursorFlashTimer10metaObjectEv": [
       "address", "address"
     ],

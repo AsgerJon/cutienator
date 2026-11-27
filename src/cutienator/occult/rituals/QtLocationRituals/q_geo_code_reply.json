@@ -3,7 +3,7 @@
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtLocation/qgeocodereply.h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK13QGeoCodeReply10metaObjectEv": ["address", "address"],
     "ritual_ZN13QGeoCodeReply11qt_metacastEPKc": [
       "address", "address", "chars"

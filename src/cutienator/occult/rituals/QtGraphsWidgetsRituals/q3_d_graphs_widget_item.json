@@ -8,7 +8,7 @@
     "QtGraphsWidgets", "QtGraphs", "QtQuickWidgets", "QtCore", "QtGui",
     "QtQuick", "QtQml", "QtWidgets", "QtQmlIntegration"
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK19Q3DGraphsWidgetItem10metaObjectEv": ["address", "address"],
     "ritual_ZN19Q3DGraphsWidgetItem11qt_metacastEPKc": [
       "address", "address", "chars"

@@ -4,7 +4,7 @@
     "QtQml/6.12.0/QtQml/private/qqmldirparser_p.h, Qt 6.12.0. Changes",
     "made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN13QQmlDirParser9ComponentC1Ev": ["address"],
     "ritual_ZN13QQmlDirParser9ComponentC1ERK7QStringS3_13QTypeRevision": [
       "address", "text", "text", "address"

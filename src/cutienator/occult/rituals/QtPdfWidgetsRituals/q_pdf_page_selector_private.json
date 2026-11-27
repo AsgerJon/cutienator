@@ -1,0 +1,10 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtPdfWidgets/6.12.0/QtPdfWidgets/private/qpdfpageselector_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "sigils": {
+    "ritual_ZN23QPdfPageSelectorPrivateD1Ev": ["nothing", "address"]
+  }
+}

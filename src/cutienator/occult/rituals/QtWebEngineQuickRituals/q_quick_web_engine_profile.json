@@ -1,0 +1,218 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWebEngineQuick/qquickwebengineprofile.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "sigils": {
+    "ritual_ZNK22QQuickWebEngineProfile10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN22QQuickWebEngineProfile11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN22QQuickWebEngineProfile11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN22QQuickWebEngineProfile2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN22QQuickWebEngineProfileC1EP7QObject": ["address", "address"],
+    "ritual_ZN22QQuickWebEngineProfileC1ERK7QStringP7QObject": [
+      "address", "text", "address"
+    ],
+    "ritual_ZN22QQuickWebEngineProfileD1Ev": ["nothing", "address"],
+    "ritual_ZNK22QQuickWebEngineProfile11storageNameEv": ["text", "address"],
+    "ritual_ZN22QQuickWebEngineProfile14setStorageNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK22QQuickWebEngineProfile14isOffTheRecordEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN22QQuickWebEngineProfile15setOffTheRecordEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK22QQuickWebEngineProfile21persistentStoragePathEv": [
+      "text", "address"
+    ],
+    "ritual_ZN22QQuickWebEngineProfile24setPersistentStoragePathERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK22QQuickWebEngineProfile9cachePathEv": ["text", "address"],
+    "ritual_ZN22QQuickWebEngineProfile12setCachePathERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK22QQuickWebEngineProfile13httpUserAgentEv": [
+      "text", "address"
+    ],
+    "ritual_ZN22QQuickWebEngineProfile16setHttpUserAgentERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK22QQuickWebEngineProfile13httpCacheTypeEv": [
+      "int", "address"
+    ],
+    "ritual_ZN22QQuickWebEngineProfile16setHttpCacheTypeENS_13HttpCacheTypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK22QQuickWebEngineProfile23persistentCookiesPolicyEv": [
+      "int", "address"
+    ],
+    "ritual_ZN22QQuickWebEngineProfile26setPersistentCookiesPolicyENS_23PersistentCookiesPolicyE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK22QQuickWebEngineProfile27persistentPermissionsPolicyEv": [
+      "unsigned char", "address"
+    ],
+    "ritual_ZN22QQuickWebEngineProfile30setPersistentPermissionsPolicyENS_27PersistentPermissionsPolicyE": [
+      "nothing", "address", "unsigned char"
+    ],
+    "ritual_ZNK22QQuickWebEngineProfile20httpCacheMaximumSizeEv": [
+      "int", "address"
+    ],
+    "ritual_ZN22QQuickWebEngineProfile23setHttpCacheMaximumSizeEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK22QQuickWebEngineProfile18httpAcceptLanguageEv": [
+      "text", "address"
+    ],
+    "ritual_ZN22QQuickWebEngineProfile21setHttpAcceptLanguageERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK22QQuickWebEngineProfile11cookieStoreEv": [
+      "address", "address"
+    ],
+    "ritual_ZN22QQuickWebEngineProfile24setUrlRequestInterceptorEP31QWebEngineUrlRequestInterceptor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK22QQuickWebEngineProfile16urlSchemeHandlerERK10QByteArray": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN22QQuickWebEngineProfile23installUrlSchemeHandlerERK10QByteArrayP26QWebEngineUrlSchemeHandler": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN22QQuickWebEngineProfile15removeUrlSchemeERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QQuickWebEngineProfile22removeUrlSchemeHandlerEP26QWebEngineUrlSchemeHandler": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QQuickWebEngineProfile26removeAllUrlSchemeHandlersEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickWebEngineProfile14clearHttpCacheEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickWebEngineProfile22setSpellCheckLanguagesERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK22QQuickWebEngineProfile19spellCheckLanguagesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN22QQuickWebEngineProfile20setSpellCheckEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK22QQuickWebEngineProfile19isSpellCheckEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK22QQuickWebEngineProfile11userScriptsEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK22QQuickWebEngineProfile12downloadPathEv": [
+      "text", "address"
+    ],
+    "ritual_ZN22QQuickWebEngineProfile15setDownloadPathERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK22QQuickWebEngineProfile20isPushServiceEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN22QQuickWebEngineProfile21setPushServiceEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN22QQuickWebEngineProfile22clientCertificateStoreEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK22QQuickWebEngineProfile11clientHintsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN22QQuickWebEngineProfile16extensionManagerEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK22QQuickWebEngineProfile15queryPermissionERK4QUrlN20QWebEnginePermission14PermissionTypeE": [
+      "address", "address", "address", "unsigned char"
+    ],
+    "ritual_ZNK22QQuickWebEngineProfile18listAllPermissionsEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK22QQuickWebEngineProfile24listPermissionsForOriginERK4QUrl": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK22QQuickWebEngineProfile32listPermissionsForPermissionTypeEN20QWebEnginePermission14PermissionTypeE": [
+      "address", "address", "unsigned char"
+    ],
+    "ritual_ZN22QQuickWebEngineProfile14defaultProfileEv": ["address"],
+    "ritual_ZN22QQuickWebEngineProfile18storageNameChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickWebEngineProfile19offTheRecordChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickWebEngineProfile28persistentStoragePathChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickWebEngineProfile16cachePathChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickWebEngineProfile20httpUserAgentChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickWebEngineProfile20httpCacheTypeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickWebEngineProfile30persistentCookiesPolicyChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickWebEngineProfile27httpCacheMaximumSizeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickWebEngineProfile25httpAcceptLanguageChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickWebEngineProfile26spellCheckLanguagesChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickWebEngineProfile24spellCheckEnabledChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickWebEngineProfile19downloadPathChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickWebEngineProfile25pushServiceEnabledChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickWebEngineProfile23clearHttpCacheCompletedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickWebEngineProfile34persistentPermissionsPolicyChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickWebEngineProfile17downloadRequestedEP30QQuickWebEngineDownloadRequest": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QQuickWebEngineProfile16downloadFinishedEP30QQuickWebEngineDownloadRequest": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QQuickWebEngineProfile19presentNotificationEP22QWebEngineNotification": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QQuickWebEngineProfile6d_funcEv": ["address", "address"],
+    "ritual_ZNK22QQuickWebEngineProfile6d_funcEv": ["address", "address"],
+    "ritual_ZN22QQuickWebEngineProfileC1EP29QQuickWebEngineProfilePrivateP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK22QQuickWebEngineProfile8settingsEv": ["address", "address"],
+    "ritual_take_QQuickWebEngineProfile": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

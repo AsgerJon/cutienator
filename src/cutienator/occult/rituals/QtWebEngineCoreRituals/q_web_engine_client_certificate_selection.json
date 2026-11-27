@@ -1,0 +1,33 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWebEngineCore/qwebengineclientcertificateselection.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "sigils": {
+    "ritual_ZN36QWebEngineClientCertificateSelectionC1ERKS_": [
+      "address", "address"
+    ],
+    "ritual_ZN36QWebEngineClientCertificateSelectionD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZN36QWebEngineClientCertificateSelectionaSERKS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK36QWebEngineClientCertificateSelection4hostEv": [
+      "address", "address"
+    ],
+    "ritual_ZN36QWebEngineClientCertificateSelection6selectERK15QSslCertificate": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN36QWebEngineClientCertificateSelection10selectNoneEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK36QWebEngineClientCertificateSelection12certificatesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN36QWebEngineClientCertificateSelectionC1E14QSharedPointerIN15QtWebEngineCore26ClientCertSelectControllerEE": [
+      "address", "address"
+    ]
+  }
+}

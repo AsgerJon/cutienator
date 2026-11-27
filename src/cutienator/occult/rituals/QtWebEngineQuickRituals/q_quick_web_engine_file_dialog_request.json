@@ -1,0 +1,54 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtWebEn",
+    "gineQuick/6.12.0/QtWebEngineQuick/private/qquickwebenginedialogreq",
+    "uests_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "sigils": {
+    "ritual_ZNK32QQuickWebEngineFileDialogRequest10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN32QQuickWebEngineFileDialogRequest11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN32QQuickWebEngineFileDialogRequest11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN32QQuickWebEngineFileDialogRequest2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN32QQuickWebEngineFileDialogRequest24qt_qmlMarker_uncreatableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN32QQuickWebEngineFileDialogRequestD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK32QQuickWebEngineFileDialogRequest17acceptedMimeTypesEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK32QQuickWebEngineFileDialogRequest15defaultFileNameEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK32QQuickWebEngineFileDialogRequest4modeEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK32QQuickWebEngineFileDialogRequest10isAcceptedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN32QQuickWebEngineFileDialogRequest11setAcceptedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN32QQuickWebEngineFileDialogRequest12dialogAcceptERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN32QQuickWebEngineFileDialogRequest12dialogRejectEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN32QQuickWebEngineFileDialogRequestC1E14QSharedPointerIN15QtWebEngineCore20FilePickerControllerEEP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_take_QQuickWebEngineFileDialogRequest": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

@@ -4,7 +4,7 @@
     "QtDesigner/6.12.0/QtDesigner/private/qdesigner_stackedbox_p.h, Qt",
     "6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN27QStackedWidgetPropertySheetC1EP14QStackedWidgetP7QObject": [
       "address", "address", "address"
     ],

@@ -4,7 +4,7 @@
     "QtLottie/6.12.0/QtLottie/private/qlottieanimation_p.h, Qt 6.12.0.",
     "Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK16QLottieAnimation10metaObjectEv": ["address", "address"],
     "ritual_ZN16QLottieAnimation11qt_metacastEPKc": [
       "address", "address", "chars"

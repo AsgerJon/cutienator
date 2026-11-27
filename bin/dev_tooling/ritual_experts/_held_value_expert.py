@@ -30,7 +30,7 @@ class HeldValueExpert(TypeExpert):
   does: the ritual takes the address of one and hands Qt the value
   there, and for one Qt gives back, makes a copy with 'new' and gives
   its address. Python holds that address without knowing the type, and
-  can hand it back to Qt. Its word in the row is 'address'.
+  can hand it back to Qt. Its word in the sigil is 'address'.
 
   For each such type a function of the class gives back, the class gets
   a ritual that removes a copy Python holds, named
@@ -202,7 +202,7 @@ class HeldValueExpert(TypeExpert):
           function='a %s a ritual of %s gave' % (
               className, generator.getClassName()),
           kind='drop', gives='void', takes=(('self', '%s *' % className),),
-          row=('nothing', 'address'), needs=(), unknownTypes=(),
+          sigil=('nothing', 'address'), needs=(), unknownTypes=(),
           unsureNumbers=(), words=(), variadic=False, name='',
           arguments=(), giving=None, inPlace=False, held=className,
       )

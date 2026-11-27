@@ -4,7 +4,7 @@
     "QtGui/6.12.0/QtGui/private/qiconengine_p.h, Qt 6.12.0. Changes",
     "made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN16QProxyIconEngine5paintEP8QPainterRK5QRectN5QIcon4ModeENS5_5StateE": [
       "nothing", "address", "address", "address", "int", "int"
     ],

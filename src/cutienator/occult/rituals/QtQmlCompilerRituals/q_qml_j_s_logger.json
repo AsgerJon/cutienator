@@ -4,7 +4,7 @@
     "QtQmlCompiler/6.12.0/QtQmlCompiler/private/qqmljslogger_p.h, Qt",
     "6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK12QQmlJSLogger10categoriesEv": ["address", "address"],
     "ritual_ZN12QQmlJSLogger17builtinCategoriesEv": ["address"],
     "ritual_ZN12QQmlJSLogger16registerCategoryERKN6QQmlJS14LoggerCategoryE": [

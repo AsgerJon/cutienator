@@ -4,7 +4,7 @@
     "QtGui/6.12.0/QtGui/private/qcolortransfertable_p.h, Qt 6.12.0.",
     "Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN19QColorTransferTableC1Ev": ["address"],
     "ritual_ZN19QColorTransferTableC1EjRK5QListIhENS_4TypeE": [
       "address", "unsigned int", "address", "unsigned char"

@@ -4,7 +4,7 @@
     "QtGui/6.12.0/QtGui/private/qrhivulkan_p.h, Qt 6.12.0. Changes made",
     "here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN25QVkShaderResourceBindings22BoundStorageBufferDataD1Ev": [
       "nothing", "address"
     ]

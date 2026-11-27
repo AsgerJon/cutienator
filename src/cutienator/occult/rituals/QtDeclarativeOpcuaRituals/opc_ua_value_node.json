@@ -4,7 +4,7 @@
     "QtDeclarativeOpcua/6.12.0/QtDeclarativeOpcua/private/opcuavaluenode_p.h,",
     "Qt 6.12.0, from Qt's source. Kept as it is when the generator runs again."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK14OpcUaValueNode10metaObjectEv": ["address", "address"],
     "ritual_ZN14OpcUaValueNodeD1Ev": ["nothing", "address"],
     "ritual_ZN14OpcUaValueNode9setupNodeERK7QString": [

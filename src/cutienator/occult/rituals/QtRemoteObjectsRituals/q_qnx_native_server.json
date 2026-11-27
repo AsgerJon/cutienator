@@ -4,7 +4,7 @@
     "QtRemoteObjects/qconnection_qnx_server.h, Qt 6.12.0. Changes made",
     "here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK16QQnxNativeServer10metaObjectEv": ["address", "address"],
     "ritual_ZN16QQnxNativeServer11qt_metacastEPKc": [
       "address", "address", "chars"

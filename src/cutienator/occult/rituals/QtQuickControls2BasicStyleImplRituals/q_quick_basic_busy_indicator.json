@@ -5,7 +5,7 @@
     "ate/qquickbasicbusyindicator_p.h, Qt 6.12.0. Changes made here are",
     "lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK24QQuickBasicBusyIndicator10metaObjectEv": [
       "address", "address"
     ],

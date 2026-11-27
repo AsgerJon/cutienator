@@ -3,7 +3,7 @@
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtGui/qpainterpath.h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK12QPainterPath7Element8isMoveToEv": ["bool", "address"],
     "ritual_ZNK12QPainterPath7Element8isLineToEv": ["bool", "address"],
     "ritual_ZNK12QPainterPath7Element9isCurveToEv": ["bool", "address"],

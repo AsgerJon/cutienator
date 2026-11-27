@@ -4,7 +4,7 @@
     "QtWaylandCompositor/qwaylandivisurface.h, Qt 6.12.0. Changes made",
     "here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK18QWaylandIviSurface10metaObjectEv": ["address", "address"],
     "ritual_ZN18QWaylandIviSurface11qt_metacastEPKc": [
       "address", "address", "chars"

@@ -4,7 +4,7 @@
     "QtCore/6.12.0/QtCore/private/qobject_p.h, Qt 6.12.0. Changes made",
     "here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN20QQueuedMetaCallEventC1EttPFvP7QObjectN11QMetaObject4CallEiPPvEPKS0_iiPKPKN9QtPrivate18QMetaTypeInterfaceEPKPKv": [
       "address", "unsigned short", "unsigned short", "address", "address",
       "int", "int", "address", "address"

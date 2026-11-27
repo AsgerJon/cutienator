@@ -4,7 +4,7 @@
     "QtQuick/qsgflatcolormaterial.h, Qt 6.12.0. Changes made here are",
     "lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN20QSGFlatColorMaterialC1Ev": ["address"],
     "ritual_ZNK20QSGFlatColorMaterial4typeEv": ["address", "address"],
     "ritual_ZNK20QSGFlatColorMaterial12createShaderEN20QSGRendererInterface10RenderModeE": [

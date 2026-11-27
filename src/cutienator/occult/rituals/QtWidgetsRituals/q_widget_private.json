@@ -4,7 +4,7 @@
     "QtWidgets/6.12.0/QtWidgets/private/qwidget_p.h, Qt 6.12.0. Edited",
     "by hand: see the ritual file."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN14QWidgetPrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK14QWidgetPrivate6q_funcEv": ["address", "address"],
     "ritual_ZN14QWidgetPrivateC1E16QtPrivate_6_12_0": ["address", "int"],

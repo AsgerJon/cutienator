@@ -4,7 +4,7 @@
     "QtMultimedia/6.12.0/QtMultimedia/private/qvideoframe_p.h, Qt",
     "6.12.0. Edited by hand: see the ritual file."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN18QVideoFramePrivateC1Ev": ["address"],
     "ritual_ZN18QVideoFramePrivateD1Ev": ["nothing", "address"],
     "ritual_ZN18QVideoFramePrivate6handleER11QVideoFrame": [

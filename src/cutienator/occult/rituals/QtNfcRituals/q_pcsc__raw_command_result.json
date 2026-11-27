@@ -4,7 +4,7 @@
     "QtNfc/6.12.0/QtNfc/private/qpcsc_p.h, Qt 6.12.0, as",
     "the Qt of macOS and of Windows install it."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK5QPcsc16RawCommandResult4isOkEv": ["bool", "address"],
     "ritual_ZN5QPcsc16RawCommandResultD1Ev": ["nothing", "address"]
   }

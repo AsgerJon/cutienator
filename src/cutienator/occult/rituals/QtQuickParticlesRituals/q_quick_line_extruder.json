@@ -4,7 +4,7 @@
     "Particles/6.12.0/QtQuickParticles/private/qquicklineextruder_p.h,",
     "Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK18QQuickLineExtruder10metaObjectEv": ["address", "address"],
     "ritual_ZN18QQuickLineExtruder11qt_metacastEPKc": [
       "address", "address", "chars"

@@ -4,7 +4,7 @@
     "QtQuick/6.12.0/QtQuick/private/qsgsoftwarelayer_p.h, Qt 6.12.0.",
     "Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK16QSGSoftwareLayer10metaObjectEv": ["address", "address"],
     "ritual_ZN16QSGSoftwareLayer11qt_metacastEPKc": [
       "address", "address", "chars"

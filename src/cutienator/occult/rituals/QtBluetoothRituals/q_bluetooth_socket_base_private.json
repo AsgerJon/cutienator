@@ -4,7 +4,7 @@
     "QtBluetooth/6.12.0/QtBluetooth/private/qbluetoothsocketbase_p.h,",
     "Qt 6.12.0. Edited by hand: see the ritual file."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK27QBluetoothSocketBasePrivate10metaObjectEv": [
       "address", "address"
     ],

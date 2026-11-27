@@ -4,7 +4,7 @@
     "QtNetwork/qssldiffiehellmanparameters.h, Qt 6.12.0. Changes made",
     "here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN27QSslDiffieHellmanParameters17defaultParametersEv": [
       "address"
     ],

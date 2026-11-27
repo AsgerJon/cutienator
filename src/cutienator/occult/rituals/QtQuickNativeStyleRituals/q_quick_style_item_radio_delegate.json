@@ -4,7 +4,7 @@
     "QtQuickNativeStyle/6.12.0/QtQuickNativeStyle/private/qquickstyleitemradiodelegate_p.h,",
     "Qt 6.12.0, as the Qt of macOS and of Windows installs it (Qt"
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK28QQuickStyleItemRadioDelegate10metaObjectEv": [
       "address", "address"
     ],

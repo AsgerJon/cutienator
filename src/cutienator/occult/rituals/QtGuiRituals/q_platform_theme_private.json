@@ -4,7 +4,7 @@
     "QtGui/6.12.0/QtGui/qpa/qplatformtheme_p.h, Qt 6.12.0. Changes made",
     "here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN21QPlatformThemePrivateC1Ev": ["address"],
     "ritual_ZN21QPlatformThemePrivateD1Ev": ["nothing", "address"],
     "ritual_ZN21QPlatformThemePrivate23initializeSystemPaletteEv": [

@@ -4,7 +4,7 @@
     "QtCoap/6.12.0/QtCoap/private/qcoapqudpconnection_p.h, Qt 6.12.0.",
     "Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK19QCoapQUdpConnection10metaObjectEv": ["address", "address"],
     "ritual_ZN19QCoapQUdpConnection11qt_metacastEPKc": [
       "address", "address", "chars"

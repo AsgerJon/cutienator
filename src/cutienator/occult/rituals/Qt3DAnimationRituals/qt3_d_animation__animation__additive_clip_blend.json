@@ -4,7 +4,7 @@
     "Qt3DAnimation/6.12.0/Qt3DAnimation/private/additiveclipblend_p.h,",
     "Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN13Qt3DAnimation9Animation17AdditiveClipBlendC1Ev": ["address"],
     "ritual_ZN13Qt3DAnimation9Animation17AdditiveClipBlendD1Ev": [
       "nothing", "address"

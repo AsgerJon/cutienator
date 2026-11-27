@@ -4,7 +4,7 @@
     "QtDataVisualization/6.12.0/QtDataVisualization/private/drawer_p.h,",
     "Qt 6.12.0. Edited by hand: see the ritual file."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK6Drawer10metaObjectEv": ["address", "address"],
     "ritual_ZN6Drawer11qt_metacastEPKc": ["address", "address", "chars"],
     "ritual_ZN6Drawer11qt_metacallEN11QMetaObject4CallEiPPv": [

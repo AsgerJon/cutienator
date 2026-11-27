@@ -7,7 +7,7 @@
   "parts first": [
     "QtGraphs", "QtCore", "QtGui", "QtQuick", "QtQml", "QtQmlIntegration"
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN18QGraphsLinePrivate22QGraphsLineCustomFieldC1Ev": ["address"],
     "ritual_ZN18QGraphsLinePrivate22QGraphsLineCustomFieldD1Ev": [
       "nothing", "address"

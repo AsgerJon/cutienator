@@ -4,7 +4,7 @@
     "QtCore5Compat/6.12.0/QtCore5Compat/private/qiconvcodec_p.h, Qt",
     "6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN11QIconvCodec10IconvStateC1EPv": ["address", "address"],
     "ritual_ZN11QIconvCodec10IconvStateD1Ev": ["nothing", "address"],
     "ritual_ZN11QIconvCodec10IconvState9saveCharsEPKci": [

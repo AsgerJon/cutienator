@@ -4,7 +4,7 @@
     "QtQml/6.12.0/QtQml/private/qv4include_p.h, Qt 6.12.0. Changes made",
     "here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN10QV4Include14method_includeEPN3QV415ExecutionEngineERK4QUrlRK8QJSValue": [
       "address", "address", "address", "address"
     ],

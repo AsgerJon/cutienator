@@ -4,7 +4,7 @@
     "QtQuick3D/6.12.0/QtQuick3D/ssg/qquick3dextensionhelpers.h, Qt",
     "6.12.0. Edited by hand: see the ritual file."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN24QQuick3DExtensionHelpersC1Ev": ["address"],
     "ritual_ZN24QQuick3DExtensionHelpers9getNodeIdERK14QQuick3DObject": [
       "unsigned long long", "address"

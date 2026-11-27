@@ -4,7 +4,7 @@
     "QtRemoteObjects/qremoteobjectnode.h, Qt 6.12.0. Changes made here",
     "are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK17QRemoteObjectHost10metaObjectEv": ["address", "address"],
     "ritual_ZN17QRemoteObjectHost11qt_metacastEPKc": [
       "address", "address", "chars"

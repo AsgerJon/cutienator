@@ -4,7 +4,7 @@
     "QtQuick/6.12.0/QtQuick/private/qquickmousearea_p_p.h, Qt 6.12.0.",
     "Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN22QQuickMouseAreaPrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK22QQuickMouseAreaPrivate6q_funcEv": ["address", "address"],
     "ritual_ZN22QQuickMouseAreaPrivateC1Ev": ["address"],

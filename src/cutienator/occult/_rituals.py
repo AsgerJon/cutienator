@@ -20,7 +20,7 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Any, Dict, FrozenSet, List, Optional, Set, Tuple
 
   Paths = Tuple[str, ...]
-  Row = Tuple[str, ...]
+  Sigil = Tuple[str, ...]
 
 
 class Rituals:
@@ -41,10 +41,10 @@ class Rituals:
     calls one Qt function. It is named 'ritual' followed by the
     compiler's own name for that Qt function, which has the types it
     takes packed into it: 'ritual_ZNK7QObject6parentEv' calls
-    'QObject::parent()'. Its ritual file and its rows file name it.
+    'QObject::parent()'. Its ritual file and its sigil file name it.
   - A ritual file is a C++ file holding rituals, in the ritual folder.
-  - The rows file of a ritual file lies beside it, under the same name
-    with the ending '.json'. It holds one row for each ritual: one word
+  - The sigil file of a ritual file lies beside it, under the same name
+    with the ending '.json'. It holds one sigil for each ritual: one word
     for what comes back from it, then one word for each thing that goes
     into it. 'q_object.json' goes with 'q_object.cpp'.
   - The target file of a part is the shared object built from the
@@ -57,7 +57,7 @@ class Rituals:
     the one never sees the other. 'call' runs a ritual only one part
     has. 'callFrom' runs a ritual as a part sees it: its own, else
     that of the first part in its order; see 'getPartOrder'.
-  - The rows files of a part whose own header files would find
+  - The sigil files of a part whose own header files would find
     another part's file by a bare name, as QtGraphs those of QtCharts,
     say under 'parts first' the parts that part sees first: itself,
     then the parts it needs, the nearest first. Its ritual files were
@@ -66,7 +66,7 @@ class Rituals:
   You provide
   -----------
 
-  Nothing at run time. To add rituals, put a ritual file and its rows
+  Nothing at run time. To add rituals, put a ritual file and its sigil
   file into the ritual folder, then call 'summon'. The program
   'dev_tooling.RitualGenerator' writes the two together, from one plan,
   so they agree.
@@ -76,10 +76,10 @@ class Rituals:
 
   - 'getRitualFolder': the folder 'rituals' beside this module.
   - 'getRitualFiles': every C++ and Objective-C++ file in that folder.
-  - 'getRowsFiles': the rows file of each of them.
-  - 'getRows': every row of the rows files of a part, under the name
+  - 'getSigilFiles': the sigil file of each of them.
+  - 'getSigils': every sigil of the sigil files of a part, under the name
     of its ritual.
-  - 'getPartsOf': the parts whose rows files list a ritual.
+  - 'getPartsOf': the parts whose sigil files list a ritual.
   - 'getPartOrder': the order a part sees the parts in.
   - 'getJoinedParts': the parts whose files of Qt the target file of a
     part is joined to.
@@ -87,7 +87,7 @@ class Rituals:
     'QtCore', and the same for each part.
   - 'getQtSharedObjects': the Qt shared objects the rituals call into.
 
-  The words of a row
+  The words of a sigil
   ------------------
 
   - 'nothing': nothing comes back.
@@ -108,9 +108,9 @@ class Rituals:
     when the target file of the part is missing.
   - The target file of a part is opened at the first ritual of that
     part that is called, once.
-  - A ritual that no rows file lists raises 'LookupError' naming it,
+  - A ritual that no sigil file lists raises 'LookupError' naming it,
     and so does one that several parts list, given to 'call'.
-  - A ritual a rows file lists and the target file of its part does
+  - A ritual a sigil file lists and the target file of its part does
     not offer is one the Qt of this machine has no function for: its
     ritual file has it between Qt's own '#if' lines, and they do not
     hold here. The target file opens all the same, and 'call' raises
@@ -140,11 +140,11 @@ class Rituals:
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   #  Class Variables
-  #  What each word of a row is to 'ctypes', which does the calling.
+  #  What each word of a sigil is to 'ctypes', which does the calling.
   #  'ctypes.c_void_p' means a number as wide as an address, and nothing
   #  more: it checks nothing and knows nothing of what the number is for.
   #  Text crosses as the address of a QString.
-  __row_words__ = {
+  __sigil_words__ = {
       'nothing': None,
       'address': ctypes.c_void_p,
       'text': ctypes.c_void_p,
@@ -198,18 +198,18 @@ class Rituals:
   #  What a Python function called by Qt gave back last. See 'keepGiven'.
   __kept_given__ = None  # type: Any
 
-  #  The rows of the rows files of each part, under the name of each
-  #  ritual, or None until they are read; the parts whose rows files
-  #  list each ritual; and what the rows files of each part say under
-  #  'parts first'. See '_createRows'.
-  __ritual_rows__ = None  # type: Optional[Dict[str, Dict[str, Row]]]
+  #  The sigils of the sigil files of each part, under the name of each
+  #  ritual, or None until they are read; the parts whose sigil files
+  #  list each ritual; and what the sigil files of each part say under
+  #  'parts first'. See '_createSigils'.
+  __ritual_sigils__ = None  # type: Optional[Dict[str, Dict[str, Sigil]]]
   __ritual_parts__ = None  # type: Optional[Dict[str, Paths]]
   __parts_first__ = None  # type: Optional[Dict[str, Paths]]
   #  The parts each part of Qt needs, as Qt's own files name them; see
   #  'getQtDependencies'.
   __qt_dependencies__ = None  # type: Optional[Dict[str, Paths]]
 
-  #  The key of the rows files that names the parts a part sees first.
+  #  The key of the sigil files that names the parts a part sees first.
   __parts_first_key__ = 'parts first'
 
   #  The part of Qt whose target file has the rituals text crosses by,
@@ -218,7 +218,7 @@ class Rituals:
 
   #  The opened target file of each part, once opened.
   __opened_targets__ = dict()  # type: Dict[str, ctypes.CDLL]
-  #  For each opened part, the rituals its rows files list and its
+  #  For each opened part, the rituals its sigil files list and its
   #  target file does not offer; see 'getMissing'.
   __missing_rituals__ = dict()  # type: Dict[str, FrozenSet[str]]
   #  For each opened part, each ritual 'summon' left out of its target
@@ -287,7 +287,7 @@ class Rituals:
     Objective-C++, in the folder of a part of Qt in the ritual folder,
     in alphabetical order. Putting a file there is all it takes. One of
     Objective-C++ is compiled only where 'System.buildsObjectiveC'
-    says so; its rows are read everywhere.
+    says so; its sigils are read everywhere.
 
     Returns
     -------
@@ -487,7 +487,7 @@ class Rituals:
   @classmethod
   def getPartsFirst(cls, partName: str) -> Paths:
     """
-    Gives the parts a part of Qt sees first, as the rows files of its
+    Gives the parts a part of Qt sees first, as the sigil files of its
     ritual files name them under 'parts first': itself, then the parts
     it needs, the nearest first. Only a part whose own header files
     would find another part's file by a bare name has them, as
@@ -500,7 +500,7 @@ class Rituals:
     LookupError
       The ritual folder has no folder of that part.
     """
-    cls.getRows(partName)
+    cls.getSigils(partName)
     return cls.__parts_first__[partName]
 
   @classmethod
@@ -694,9 +694,9 @@ class Rituals:
     return found
 
   @classmethod
-  def getRowsFiles(cls) -> Paths:
+  def getSigilFiles(cls) -> Paths:
     """
-    Gives the rows file of each ritual file, in the order of
+    Gives the sigil file of each ritual file, in the order of
     'getRitualFiles'.
 
     Found for you: the path of the ritual file with '.json' in the place
@@ -712,76 +712,76 @@ class Rituals:
     return (*('%s.json' % stem for stem in stems),)
 
   @classmethod
-  def _createRows(cls) -> None:
+  def _createSigils(cls) -> None:
     """
-    Reads every rows file and keeps the rows, part by part.
+    Reads every sigil file and keeps the sigils, part by part.
 
     Raises
     ------
 
     FileNotFoundError
-      A ritual file has no rows file beside it.
+      A ritual file has no sigil file beside it.
 
     ValueError
-      A row holds a word that is none of the words of a row, two rows
-      files of one part list one ritual, or the rows files of one part
+      A sigil holds a word that is none of the words of a sigil, two sigil
+      files of one part list one ritual, or the sigil files of one part
       do not all say the same under 'parts first'.
     """
-    rows = dict()  # type: Dict[str, Dict[str, Row]]
+    sigils = dict()  # type: Dict[str, Dict[str, Sigil]]
     named = dict()  # type: Dict[str, List[str]]
     partsFirst = dict()  # type: Dict[str, Paths]
     saidBy = dict()  # type: Dict[str, str]
     key = cls.__parts_first_key__
     for partName in cls.getRitualParts():
-      rows[partName] = dict()
+      sigils[partName] = dict()
       for ritualFile in cls.getPartRitualFiles(partName):
-        rowsFile = '%s.json' % os.path.splitext(ritualFile)[0]
-        if not os.path.isfile(rowsFile):
-          infoSpec = """The ritual file '%s' has no rows file '%s'
+        sigilFile = '%s.json' % os.path.splitext(ritualFile)[0]
+        if not os.path.isfile(sigilFile):
+          infoSpec = """The ritual file '%s' has no sigil file '%s'
           beside it. 'dev_tooling.RitualGenerator' writes the two
           together."""
-          info = infoSpec % (ritualFile, os.path.basename(rowsFile))
+          info = infoSpec % (ritualFile, os.path.basename(sigilFile))
           raise FileNotFoundError(' '.join(info.split()))
-        with open(rowsFile) as file:
+        with open(sigilFile) as file:
           written = json.load(file)
         said = (*written.get(key, ()),)
         if partName not in partsFirst:
-          partsFirst[partName], saidBy[partName] = said, rowsFile
+          partsFirst[partName], saidBy[partName] = said, sigilFile
         elif said != partsFirst[partName]:
-          infoSpec = """The rows files '%s' and '%s' of %s say different
+          infoSpec = """The sigil files '%s' and '%s' of %s say different
           things under '%s': the ritual files of a part are made with
           one order of the parts, and are written again together."""
-          info = infoSpec % (saidBy[partName], rowsFile, partName, key)
+          info = infoSpec % (saidBy[partName], sigilFile, partName, key)
           raise ValueError(' '.join(info.split()))
-        for name, row in written['rows'].items():
-          for word in row:
-            if word not in cls.__row_words__:
-              infoSpec = """The row of '%s' in '%s' holds '%s', which is
-              no word of a row. The words are: %s."""
-              words = ', '.join(cls.__row_words__)
-              info = infoSpec % (name, rowsFile, word, words)
+        for name, sigil in written['sigils'].items():
+          for word in sigil:
+            if word not in cls.__sigil_words__:
+              infoSpec = """The sigil of '%s' in '%s' holds '%s', which is
+              no word of a sigil. The words are: %s."""
+              words = ', '.join(cls.__sigil_words__)
+              info = infoSpec % (name, sigilFile, word, words)
               raise ValueError(' '.join(info.split()))
-          if name in rows[partName]:
+          if name in sigils[partName]:
             infoSpec = """The ritual '%s' is listed a second time in %s,
             in '%s'."""
-            info = infoSpec % (name, partName, rowsFile)
+            info = infoSpec % (name, partName, sigilFile)
             raise ValueError(' '.join(info.split()))
-          rows[partName][name] = (*row,)
+          sigils[partName][name] = (*sigil,)
           named.setdefault(name, []).append(partName)
       partsFirst.setdefault(partName, ())
     cls.__parts_first__ = partsFirst
     cls.__ritual_parts__ = {
         name: (*parts,) for name, parts in named.items()}
-    cls.__ritual_rows__ = rows
+    cls.__ritual_sigils__ = sigils
 
   @classmethod
-  def getRows(cls, partName: str, **kwargs) -> Dict[str, Row]:
+  def getSigils(cls, partName: str, **kwargs) -> Dict[str, Sigil]:
     """
-    Gives the row of every ritual the rows files of one part of Qt
+    Gives the sigil of every ritual the sigil files of one part of Qt
     list, under the name of the ritual.
 
-    Found for you: the rows files are read at the first call, and the
-    rows are kept. The keyword is for the method's own use.
+    Found for you: the sigil files are read at the first call, and the
+    sigils are kept. The keyword is for the method's own use.
 
     Parameters
     ----------
@@ -792,9 +792,9 @@ class Rituals:
     Returns
     -------
 
-    Dict[str, Row]
+    Dict[str, Sigil]
       A 'Dict[str, Tuple[str, ...]]'. Under
-      'ritual_ZN7QObject12blockSignalsEb' the rows of QtCore hold
+      'ritual_ZN7QObject12blockSignalsEb' the sigils of QtCore hold
       ('bool', 'address', 'bool'): a 'bool' comes back, and the address
       of the object and a 'bool' go in.
 
@@ -805,42 +805,42 @@ class Rituals:
       The ritual folder has no folder of that part.
 
     FileNotFoundError
-      A ritual file has no rows file beside it.
+      A ritual file has no sigil file beside it.
 
     ValueError
-      A rows file holds a word that is no word of a row, or lists a
-      ritual another rows file of its part lists; see '_createRows'.
+      A sigil file holds a word that is no word of a sigil, or lists a
+      ritual another sigil file of its part lists; see '_createSigils'.
     """
-    if cls.__ritual_rows__ is None:
+    if cls.__ritual_sigils__ is None:
       if kwargs.get('_recursion', False):
         raise RecursionError
-      cls._createRows()
-      return cls.getRows(partName, _recursion=True)
-    if partName not in cls.__ritual_rows__:
+      cls._createSigils()
+      return cls.getSigils(partName, _recursion=True)
+    if partName not in cls.__ritual_sigils__:
       infoSpec = """The ritual folder '%s' has no folder of ritual files
       of a part named '%s'."""
       info = infoSpec % (cls.getRitualFolder(), partName)
       raise LookupError(' '.join(info.split()))
-    return cls.__ritual_rows__[partName]
+    return cls.__ritual_sigils__[partName]
 
   @classmethod
   def getPartsOf(cls, ritualName: str) -> Paths:
     """
-    Gives the parts of Qt whose rows files list a ritual, in
+    Gives the parts of Qt whose sigil files list a ritual, in
     alphabetical order: one for most, as 'QtCore' for
     'ritual_ZNK7QObject6parentEv', two for a ritual of a class two
-    parts each have, and none for a name no rows file lists.
+    parts each have, and none for a name no sigil file lists.
     """
     if cls.__ritual_parts__ is None:
-      cls._createRows()
+      cls._createSigils()
     return cls.__ritual_parts__.get(ritualName, ())
 
   @classmethod
   def getRitualNames(cls) -> Tuple[str, ...]:
-    """Gives the name of every ritual the rows files list, once each,
+    """Gives the name of every ritual the sigil files list, once each,
     part by part in alphabetical order."""
     if cls.__ritual_parts__ is None:
-      cls._createRows()
+      cls._createSigils()
     return (*cls.__ritual_parts__,)
 
   @classmethod
@@ -871,7 +871,7 @@ class Rituals:
     """
     Makes sure text can cross for the rituals of a part: when one of
     them takes or gives text, the four rituals of Qt's QString that
-    text crosses by must be listed in the rows files of QtCore, whose
+    text crosses by must be listed in the sigil files of QtCore, whose
     target file runs them. Without them a 'str' could be handed to
     C++ and never be made into a QString.
 
@@ -882,14 +882,14 @@ class Rituals:
       A ritual of the part takes or gives text, and one of the four is
       not listed for QtCore.
     """
-    rows = cls.getRows(partName)
-    if not any('text' in row for row in rows.values()):
+    sigils = cls.getSigils(partName)
+    if not any('text' in sigil for sigil in sigils.values()):
       return
     textPart = cls.__text_part__
     for name in cls._getTextRituals():
       if textPart not in cls.getPartsOf(name):
         infoSpec = """A ritual of %s takes or gives text, and the ritual
-        '%s' that text crosses by is listed in no rows file of %s. The
+        '%s' that text crosses by is listed in no sigil file of %s. The
         ritual file of Qt's QString is missing from '%s'."""
         info = infoSpec % (
             partName, name, textPart, cls.getPartFolder(textPart))
@@ -898,8 +898,8 @@ class Rituals:
   @classmethod
   def _createOpened(cls, partName: str) -> None:
     """Opens the target file of a part and readies every ritual its
-    rows files list."""
-    rows = cls.getRows(partName)
+    sigil files list."""
+    sigils = cls.getSigils(partName)
     cls._checkTextRituals(partName)
     if partName not in cls.getInstalledParts():
       infoSpec = """%s is not installed here, so there is no target file
@@ -917,9 +917,9 @@ class Rituals:
     qtFiles = cls._findSharedObjects(seen)
     System.getHere().prepareOpening(*dict.fromkeys(qtFiles))
     opened = ctypes.CDLL(target)
-    words = cls.__row_words__
+    words = cls.__sigil_words__
     missing = set()  # type: Set[str]
-    for name, (gives, *takes) in rows.items():
+    for name, (gives, *takes) in sigils.items():
       try:
         ritual = getattr(opened, name)
       except AttributeError:
@@ -934,7 +934,7 @@ class Rituals:
       for name in cls._getTextRituals():
         if name in missing:
           infoSpec = """The ritual '%s', by which text crosses, is listed
-          in a rows file, and '%s' does not offer it."""
+          in a sigil file, and '%s' does not offer it."""
           info = infoSpec % (name, target)
           raise LookupError(' '.join(info.split()))
     cls.__missing_rituals__[partName] = frozenset(missing)
@@ -987,7 +987,7 @@ class Rituals:
   @classmethod
   def getMissing(cls, partName: str) -> FrozenSet[str]:
     """
-    Gives the name of every ritual the rows files of one part of Qt
+    Gives the name of every ritual the sigil files of one part of Qt
     list and the Qt of this machine has no function for. For a part
     not installed here, which 'summon' leaves out, that is every one of
     them. For one installed, those its target file does not offer:
@@ -1005,9 +1005,9 @@ class Rituals:
     LookupError
       The ritual folder has no folder of that part.
     """
-    rows = cls.getRows(partName)
+    sigils = cls.getSigils(partName)
     if partName not in cls.getInstalledParts():
-      return frozenset(rows)
+      return frozenset(sigils)
     cls.getOpened(partName)
     return cls.__missing_rituals__[partName]
 
@@ -1092,10 +1092,10 @@ class Rituals:
         raise TypeException('text', text, str)
       encoded.append(text.encode())
     count = ctypes.c_int(len(encoded))
-    #  C ends such a row of texts with one that is nowhere.
-    row = (ctypes.c_char_p * (len(encoded) + 1))(*encoded, None)
-    cls.__start_texts__.append((count, row))
-    return ctypes.addressof(count), ctypes.addressof(row)
+    #  C ends such a sigil of texts with one that is nowhere.
+    sigil = (ctypes.c_char_p * (len(encoded) + 1))(*encoded, None)
+    cls.__start_texts__.append((count, sigil))
+    return ctypes.addressof(count), ctypes.addressof(sigil)
 
   @classmethod
   def _makeText(cls, text: Any) -> int:
@@ -1136,11 +1136,11 @@ class Rituals:
     getattr(cls.getOpened(cls.__text_part__), drop)(address)
 
   @classmethod
-  def _callWithText(cls, ritual: Any, row: Row, args: Tuple) -> Any:
+  def _callWithText(cls, ritual: Any, sigil: Sigil, args: Tuple) -> Any:
     """
     Runs a ritual that takes or gives text.
 
-    A QString is made from each 'str' standing where the row says
+    A QString is made from each 'str' standing where the sigil says
     'text'. The ritual then runs. A QString it gives back is read into
     a 'str'. Every QString made for the call, the one given back
     included, is removed before this returns, also when something
@@ -1152,13 +1152,13 @@ class Rituals:
     ritual : Any
       The ritual, as the opened target file gives it.
 
-    row : Row
-      Its row.
+    sigil : Sigil
+      Its sigil.
 
     args : Tuple
       What goes into it, a 'str' in each place of text.
     """
-    gives, takes = row[0], row[1:]
+    gives, takes = sigil[0], sigil[1:]
     made = []  # type: List[int]
     try:
       passed = []
@@ -1192,7 +1192,7 @@ class Rituals:
     ----------
 
     gives : str
-      The word of what the function gives back, as a row has it:
+      The word of what the function gives back, as a sigil has it:
       'nothing', 'address', 'int', 'bool' and so on.
 
     takes : Tuple[str, ...]
@@ -1216,15 +1216,15 @@ class Rituals:
     ------
 
     ValueError
-      'gives' or one of 'takes' is no word of a row, or is 'text',
+      'gives' or one of 'takes' is no word of a sigil, or is 'text',
       which no Python function called by Qt takes or gives yet.
 
     LookupError
-      No rows file lists the ritual 'keepException' stops Qt's loop of
+      No sigil file lists the ritual 'keepException' stops Qt's loop of
       events by. Without it an exception raised in the function could
       not be raised where Python was.
     """
-    words = cls.__row_words__
+    words = cls.__sigil_words__
     for word in (gives, *takes):
       if word not in words or word == 'text':
         infoSpec = """A Python function called by Qt cannot take or give
@@ -1233,7 +1233,7 @@ class Rituals:
         raise ValueError(' '.join((infoSpec % (word, known)).split()))
     textPart = cls.__text_part__
     if textPart not in cls.getPartsOf(cls.__loop_stop_ritual__):
-      infoSpec = """No rows file in '%s' lists the ritual '%s', by which
+      infoSpec = """No sigil file in '%s' lists the ritual '%s', by which
       Qt's loop of events is stopped when a Python function called by Qt
       raises. The ritual file of Qt's QCoreApplication is missing."""
       info = infoSpec % (
@@ -1483,7 +1483,7 @@ class Rituals:
   def _findPart(cls, ritualName: str, partName: Optional[str]) -> str:
     """
     Gives the part whose target file runs a ritual, seen from a part:
-    the one part whose rows files list it; or, when several do, the
+    the one part whose sigil files list it; or, when several do, the
     first of them in the order of 'getPartOrder' of the part it is
     seen from. Seen from no part, only a ritual one part lists is
     found.
@@ -1492,14 +1492,14 @@ class Rituals:
     ------
 
     LookupError
-      No rows file lists the ritual; or several parts list it, and it
+      No sigil file lists the ritual; or several parts list it, and it
       is seen from no part, or from one that sees none of them.
     """
     parts = cls.getPartsOf(ritualName)
     if len(parts) == 1:
       return parts[0]
     if not parts:
-      infoSpec = """No rows file in '%s' lists a ritual named '%s'."""
+      infoSpec = """No sigil file in '%s' lists a ritual named '%s'."""
       info = infoSpec % (cls.getRitualFolder(), ritualName)
       raise LookupError(' '.join(info.split()))
     if partName is not None:
@@ -1550,11 +1550,11 @@ class Rituals:
       '#if' lines, which do not hold here, so '%s' does not offer it."""
       info = infoSpec % (ritualName, cls.getTargetFile(partName))
       raise NotImplementedError(' '.join(info.split()))
-    row = cls.__ritual_rows__[partName][ritualName]
+    sigil = cls.__ritual_sigils__[partName][ritualName]
     ritual = getattr(opened, ritualName)
     try:
-      if 'text' in row:
-        return cls._callWithText(ritual, row, args)
+      if 'text' in sigil:
+        return cls._callWithText(ritual, sigil, args)
       return ritual(*args)
     finally:
       #  Qt may have called a Python function meanwhile, and that one
@@ -1565,7 +1565,7 @@ class Rituals:
   def call(cls, name: str, *args: Any) -> Any:
     """
     Runs one ritual and gives what comes back. It is run in the target
-    file of the one part whose rows files list it. A ritual several
+    file of the one part whose sigil files list it. A ritual several
     parts list, as one of 'QBarSeries' of QtCharts and of QtGraphs, is
     run with 'callFrom'.
 
@@ -1574,7 +1574,7 @@ class Rituals:
 
     name : str
       The name of the ritual, as its ritual file has it:
-      'ritual_ZNK7QObject6parentEv'. A rows file must list it.
+      'ritual_ZNK7QObject6parentEv'. A sigil file must list it.
 
     *args : Any
       What goes into the ritual, in the order the ritual file declares.
@@ -1592,7 +1592,7 @@ class Rituals:
     ------
 
     LookupError
-      No rows file lists a ritual of that name, or several parts list
+      No sigil file lists a ritual of that name, or several parts list
       it.
 
     NotImplementedError
@@ -1617,7 +1617,7 @@ class Rituals:
   def callFrom(cls, partName: str, name: str, *args: Any) -> Any:
     """
     Runs one ritual as a part of Qt sees it, and gives what comes back:
-    in the target file of the one part whose rows files list it, or,
+    in the target file of the one part whose sigil files list it, or,
     when several do, of the first of them in the order of
     'getPartOrder' of that part, which is the part itself when it
     lists the ritual. A cute class of a part runs its rituals this way,
@@ -1645,7 +1645,7 @@ class Rituals:
     ------
 
     LookupError
-      No rows file lists a ritual of that name, or several parts list
+      No sigil file lists a ritual of that name, or several parts list
       it and none of them is installed here. Also when the ritual
       folder has no folder of the part it is seen from, and several
       parts list the ritual.

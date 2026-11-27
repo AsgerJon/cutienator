@@ -1,0 +1,60 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtPdf/qpdfpagenavigator.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "sigils": {
+    "ritual_ZNK17QPdfPageNavigator10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QPdfPageNavigator11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN17QPdfPageNavigator11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN17QPdfPageNavigator2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN17QPdfPageNavigatorC1Ev": ["address"],
+    "ritual_ZN17QPdfPageNavigatorC1EP7QObject": ["address", "address"],
+    "ritual_ZN17QPdfPageNavigatorD1Ev": ["nothing", "address"],
+    "ritual_ZNK17QPdfPageNavigator11currentPageEv": ["int", "address"],
+    "ritual_ZNK17QPdfPageNavigator15currentLocationEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK17QPdfPageNavigator11currentZoomEv": ["double", "address"],
+    "ritual_ZNK17QPdfPageNavigator13backAvailableEv": ["bool", "address"],
+    "ritual_ZNK17QPdfPageNavigator16forwardAvailableEv": ["bool", "address"],
+    "ritual_ZN17QPdfPageNavigator5clearEv": ["nothing", "address"],
+    "ritual_ZN17QPdfPageNavigator4jumpE8QPdfLink": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QPdfPageNavigator4jumpEiRK7QPointFd": [
+      "nothing", "address", "int", "address", "double"
+    ],
+    "ritual_ZN17QPdfPageNavigator6updateEiRK7QPointFd": [
+      "nothing", "address", "int", "address", "double"
+    ],
+    "ritual_ZN17QPdfPageNavigator7forwardEv": ["nothing", "address"],
+    "ritual_ZN17QPdfPageNavigator4backEv": ["nothing", "address"],
+    "ritual_ZN17QPdfPageNavigator18currentPageChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QPdfPageNavigator22currentLocationChangedE7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QPdfPageNavigator18currentZoomChangedEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN17QPdfPageNavigator20backAvailableChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN17QPdfPageNavigator23forwardAvailableChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN17QPdfPageNavigator6jumpedE8QPdfLink": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QPdfPageNavigator11currentLinkEv": ["address", "address"],
+    "ritual_take_QPdfPageNavigator": ["bool", "address", "chars", "address"]
+  }
+}

@@ -6,7 +6,7 @@
   "parts first": [
     "QtGraphs", "QtCore", "QtGui", "QtQuick", "QtQml", "QtQmlIntegration"
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK13QCustomSeries10metaObjectEv": ["address", "address"],
     "ritual_ZN13QCustomSeries11qt_metacastEPKc": [
       "address", "address", "chars"

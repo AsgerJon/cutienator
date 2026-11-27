@@ -3,7 +3,7 @@
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtSerialBus/qmodbuspdu.h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN14QModbusRequestC1Ev": ["address"],
     "ritual_ZN14QModbusRequestC1ERK10QModbusPdu": ["address", "address"],
     "ritual_ZN14QModbusRequestC1EN10QModbusPdu12FunctionCodeERK10QByteArray": [

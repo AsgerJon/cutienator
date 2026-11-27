@@ -4,7 +4,7 @@
     "QtLocation/qgeoserviceprovider.h, Qt 6.12.0. Changes made here are",
     "lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK19QGeoServiceProvider10metaObjectEv": ["address", "address"],
     "ritual_ZN19QGeoServiceProvider11qt_metacastEPKc": [
       "address", "address", "chars"

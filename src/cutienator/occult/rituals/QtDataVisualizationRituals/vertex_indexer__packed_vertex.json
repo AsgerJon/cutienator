@@ -4,7 +4,7 @@
     "isualization/6.12.0/QtDataVisualization/private/vertexindexer_p.h,",
     "Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK13VertexIndexer12PackedVertexltES0_": [
       "bool", "address", "address"
     ],

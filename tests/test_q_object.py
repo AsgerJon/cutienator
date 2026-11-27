@@ -401,7 +401,7 @@ class TestQObject(BaseTest):
     for partName in Rituals.getBuiltParts():
       opened = Rituals.getOpened(partName)
       missing = Rituals.getMissing(partName)
-      for ritualName in Rituals.getRows(partName):
+      for ritualName in Rituals.getSigils(partName):
         with self.subTest(partName=partName, ritualName=ritualName):
           offered = hasattr(opened, ritualName)
           self.assertIs(offered, ritualName not in missing)

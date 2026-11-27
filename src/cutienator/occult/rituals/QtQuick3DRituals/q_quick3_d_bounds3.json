@@ -4,7 +4,7 @@
     "QtQuick3D/6.12.0/QtQuick3D/private/qquick3dmodel_p.h, Qt 6.12.0.",
     "Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK15QQuick3DBounds37minimumEv": ["address", "address"],
     "ritual_ZNK15QQuick3DBounds37maximumEv": ["address", "address"],
     "ritual_ZN15QQuick3DBounds3D1Ev": ["nothing", "address"]

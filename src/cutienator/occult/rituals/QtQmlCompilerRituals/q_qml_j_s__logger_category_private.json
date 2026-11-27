@@ -2,7 +2,7 @@
   "about": [
     "Edited by hand: see the ritual file."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN6QQmlJS21LoggerCategoryPrivateC1Ev": ["address"],
     "ritual_ZNK6QQmlJS21LoggerCategoryPrivate2idEv": ["address", "address"],
     "ritual_ZNK6QQmlJS21LoggerCategoryPrivate4nameEv": ["text", "address"],

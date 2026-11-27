@@ -4,7 +4,7 @@
     "Templates2/6.12.0/QtQuickTemplates2/private/qquickscrollbar_p_p.h,",
     "Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN22QQuickScrollBarPrivate10VisualAreaC1Edd": [
       "address", "double", "double"
     ],

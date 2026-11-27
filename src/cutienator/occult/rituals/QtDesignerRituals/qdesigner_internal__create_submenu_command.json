@@ -4,7 +4,7 @@
     "QtDesigner/6.12.0/QtDesigner/private/qdesigner_command_p.h, Qt",
     "6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN18qdesigner_internal20CreateSubmenuCommandC1EP28QDesignerFormWindowInterface": [
       "address", "address"
     ],

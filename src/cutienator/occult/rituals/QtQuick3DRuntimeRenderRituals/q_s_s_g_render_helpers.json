@@ -4,7 +4,7 @@
     "3DRuntimeRender/6.12.0/QtQuick3DRuntimeRender/ssg/qssgrenderhelper",
     "s.h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN17QSSGRenderHelpers17createRenderablesERK13QSSGFrameData17QSSGPrepContextIdRK5QListI10QSSGNodeIdE6QFlagsINS_10CreateFlagEE": [
       "unsigned long long", "address", "unsigned long long", "address", "int"
     ],

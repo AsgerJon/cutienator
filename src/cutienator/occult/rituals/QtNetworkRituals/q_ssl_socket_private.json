@@ -4,7 +4,7 @@
     "QtNetwork/6.12.0/QtNetwork/private/qsslsocket_p.h, Qt 6.12.0.",
     "Edited by hand: see the ritual file."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN17QSslSocketPrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK17QSslSocketPrivate6q_funcEv": ["address", "address"],
     "ritual_ZN17QSslSocketPrivateC1Ev": ["address"],

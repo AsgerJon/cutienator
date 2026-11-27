@@ -4,7 +4,7 @@
     "QtDesigner/6.12.0/QtDesigner/private/pluginmanager_p.h, Qt 6.12.0.",
     "Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN25QDesignerCustomWidgetDataC1ERK7QString": ["address", "text"],
     "ritual_ZN25QDesignerCustomWidgetData8parseXmlERK7QStringS2_PS0_": [
       "int", "address", "text", "text", "address"

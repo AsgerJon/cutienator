@@ -4,7 +4,7 @@
     "QtLocation/6.12.0/QtLocation/private/qgeomappingmanager_p.h, Qt",
     "6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK18QGeoMappingManager10metaObjectEv": ["address", "address"],
     "ritual_ZN18QGeoMappingManager11qt_metacastEPKc": [
       "address", "address", "chars"

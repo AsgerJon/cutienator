@@ -4,7 +4,7 @@
     "QtQmlModels/6.12.0/QtQmlModels/private/qqmlchangeset_p.h, Qt",
     "6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN13QQmlChangeSet7MoveKeyC1Ev": ["address"],
     "ritual_ZN13QQmlChangeSet7MoveKeyC1Eii": ["address", "int", "int"],
     "ritual_ZN13QQmlChangeSet7MoveKeyD1Ev": ["nothing", "address"]

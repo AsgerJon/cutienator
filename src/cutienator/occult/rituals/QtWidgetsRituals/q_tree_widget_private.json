@@ -4,7 +4,7 @@
     "QtWidgets/6.12.0/QtWidgets/private/qtreewidget_p.h, Qt 6.12.0.",
     "Edited by hand: see the ritual file."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN18QTreeWidgetPrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK18QTreeWidgetPrivate6q_funcEv": ["address", "address"],
     "ritual_ZN18QTreeWidgetPrivate16clearConnectionsEv": [

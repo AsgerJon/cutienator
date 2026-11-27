@@ -1,0 +1,14 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtWebEn",
+    "gineCore/6.12.0/QtWebEngineCore/private/qwebenginepermission_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "sigils": {
+    "ritual_ZN27QWebEnginePermissionPrivateC1Ev": ["address"],
+    "ritual_ZN27QWebEnginePermissionPrivateC1ERK4QUrlN20QWebEnginePermission14PermissionTypeEPN15QtWebEngineCore14ProfileAdapterEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE": [
+      "address", "address", "unsigned char", "address", "int", "address"
+    ],
+    "ritual_ZN27QWebEnginePermissionPrivateD1Ev": ["nothing", "address"]
+  }
+}

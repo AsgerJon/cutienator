@@ -55,7 +55,7 @@ class TestPrivateAndProtected(BaseTest):
 
   def test_the_compiler_is_told_not_to_mind(self) -> None:
     """The ritual files are compiled with '-fno-access-control', and
-    the rows files list rituals of protected functions."""
+    the sigil files list rituals of protected functions."""
     names = Rituals.getRitualNames()
     self.assertIn('ritual_ZNK7QObject6senderEv', names)
     self.assertIn('ritual_ZN18QAbstractItemModel15beginResetModelEv', names)

@@ -4,7 +4,7 @@
     "eObjects/6.12.0/QtRemoteObjects/private/qremoteobjectsource_p.h,",
     "Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN23QRemoteObjectRootSourceD1Ev": ["nothing", "address"],
     "ritual_ZNK23QRemoteObjectRootSource6isRootEv": ["bool", "address"],
     "ritual_ZNK23QRemoteObjectRootSource4nameEv": ["text", "address"],

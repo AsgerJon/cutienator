@@ -4,7 +4,7 @@
     "tyleKit/6.12.0/QtLabsStyleKit/private/qqstylekitdelegate_p.h, Qt",
     "6.12.0. Edited by hand: see the ritual file."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK18QQStyleKitDelegate10metaObjectEv": ["address", "address"],
     "ritual_ZN18QQStyleKitDelegate11qt_metacastEPKc": [
       "address", "address", "chars"

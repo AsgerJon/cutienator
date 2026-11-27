@@ -4,7 +4,7 @@
     "QtCore/qmetasequence.h, Qt 6.12.0. Edited by hand: see the ritual",
     "file."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN22QtMetaContainerPrivate8SequenceC1Ev": ["address"],
     "ritual_ZN22QtMetaContainerPrivate8SequenceC1ERK13QMetaSequence9QMetaTypePv": [
       "address", "address", "address", "address"

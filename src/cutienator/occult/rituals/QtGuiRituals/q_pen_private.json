@@ -4,7 +4,7 @@
     "QtGui/6.12.0/QtGui/private/qpen_p.h, Qt 6.12.0. Changes made here",
     "are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN11QPenPrivateC1ERK6QBrushdN2Qt8PenStyleENS3_11PenCapStyleENS3_12PenJoinStyleE": [
       "address", "address", "double", "int", "int", "int"
     ],

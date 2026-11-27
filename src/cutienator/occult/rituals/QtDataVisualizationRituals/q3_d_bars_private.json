@@ -4,7 +4,7 @@
     "isualization/6.12.0/QtDataVisualization/private/q3dbars_p.h, Qt",
     "6.12.0. Edited by hand: see the ritual file."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK14Q3DBarsPrivate10metaObjectEv": ["address", "address"],
     "ritual_ZN14Q3DBarsPrivate11qt_metacastEPKc": [
       "address", "address", "chars"

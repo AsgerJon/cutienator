@@ -4,7 +4,7 @@
     "QtOpenGL/qopengltimerquery.h, Qt 6.12.0. Changes made here are",
     "lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK17QOpenGLTimerQuery10metaObjectEv": ["address", "address"],
     "ritual_ZN17QOpenGLTimerQuery11qt_metacastEPKc": [
       "address", "address", "chars"

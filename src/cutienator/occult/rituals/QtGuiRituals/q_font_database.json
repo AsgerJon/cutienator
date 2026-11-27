@@ -3,7 +3,7 @@
     "Written by dev_tooling.RitualGenerator from the records of",
     "QtGui/qfontdatabase.h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN13QFontDatabase13standardSizesEv": ["address"],
     "ritual_ZN13QFontDatabaseC1Ev": ["address"],
     "ritual_ZN13QFontDatabase14writingSystemsEv": ["address"],

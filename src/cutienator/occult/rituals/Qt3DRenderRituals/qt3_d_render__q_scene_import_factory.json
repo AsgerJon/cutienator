@@ -4,7 +4,7 @@
     "Qt3DRender/6.12.0/Qt3DRender/private/qsceneimportfactory_p.h, Qt",
     "6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN10Qt3DRender19QSceneImportFactory4keysEv": ["address"],
     "ritual_ZN10Qt3DRender19QSceneImportFactory6createERK7QStringRK5QListIS1_E": [
       "address", "text", "address"

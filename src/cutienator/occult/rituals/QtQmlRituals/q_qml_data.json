@@ -4,7 +4,7 @@
     "QtQml/6.12.0/QtQml/private/qqmldata_p.h, Qt 6.12.0. Edited by",
     "hand: see the ritual file."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN8QQmlDataC1ENS_9OwnershipE": ["address", "int"],
     "ritual_ZN8QQmlDataD1Ev": ["nothing", "address"],
     "ritual_ZN8QQmlData4initEv": ["nothing"],

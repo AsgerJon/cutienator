@@ -3,7 +3,7 @@
     "Written by dev_tooling.RitualGenerator from the records of",
     "Qt3DCore/qnode.h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN8Qt3DCore15QNodeIdTypePairC1Ev": ["address"],
     "ritual_ZN8Qt3DCore15QNodeIdTypePairC1ENS_7QNodeIdEPK11QMetaObject": [
       "address", "address", "address"

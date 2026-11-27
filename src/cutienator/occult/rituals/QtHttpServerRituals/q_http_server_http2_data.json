@@ -4,7 +4,7 @@
     "erver/6.12.0/QtHttpServer/private/qhttpserverhttp2protocolhandler_",
     "p.h, Qt 6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN20QHttpServerHttp2DataD1Ev": ["nothing", "address"]
   }
 }

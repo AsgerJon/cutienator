@@ -4,7 +4,7 @@
     "QtQml/6.12.0/QtQml/private/qqmlenumvalue_p.h, Qt 6.12.0. Changes",
     "made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN13QQmlEnumValueC1Ev": ["address"],
     "ritual_ZN13QQmlEnumValueC1ERK7QStringi": ["address", "text", "int"],
     "ritual_ZN13QQmlEnumValueD1Ev": ["nothing", "address"],

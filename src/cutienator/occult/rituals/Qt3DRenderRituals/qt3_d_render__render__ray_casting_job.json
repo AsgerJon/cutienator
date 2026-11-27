@@ -5,7 +5,7 @@
     "Qt 6.12.0, from Qt's source. Kept as it is when the generator",
     "runs again."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN10Qt3DRender6Render13RayCastingJobC1Ev": ["address"],
     "ritual_ZN10Qt3DRender6Render13RayCastingJobD1Ev": ["nothing", "address"],
     "ritual_ZN10Qt3DRender6Render13RayCastingJob16markCastersDirtyEv": ["nothing", "address"],

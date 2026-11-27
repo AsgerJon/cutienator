@@ -4,7 +4,7 @@
     "QtQmlCompiler/6.12.0/QtQmlCompiler/private/qqmlsa_p.h, Qt 6.12.0.",
     "Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN6QQmlSA19GenericPropertyPass16onBindingDefaultEPNS_12PropertyPassERKNS_7ElementERK7QStringRKNS_7BindingES5_S5_": [
       "nothing", "address", "address", "text", "address", "address",
       "address"

@@ -4,7 +4,7 @@
     "QtNetwork/6.12.0/QtNetwork/private/qnetworkreplydataimpl_p.h, Qt",
     "6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN28QNetworkReplyDataImplPrivateC1Ev": ["address"],
     "ritual_ZN28QNetworkReplyDataImplPrivateD1Ev": ["nothing", "address"],
     "ritual_ZN28QNetworkReplyDataImplPrivate6q_funcEv": [

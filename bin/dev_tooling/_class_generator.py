@@ -51,7 +51,7 @@ class ClassGenerator:
 
   - A cute class is a plain Python class standing for one class of Qt.
     An object of it stands in front of one C++ object.
-  - A ritual, a ritual file and a row are as 'RitualGenerator' explains
+  - A ritual, a ritual file and a sigil are as 'RitualGenerator' explains
     them.
   - A signature is what stands between the brackets of one
     '@overload(...)': the classes of the arguments one call may have.

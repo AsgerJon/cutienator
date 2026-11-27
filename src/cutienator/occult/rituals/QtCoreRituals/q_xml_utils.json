@@ -4,7 +4,7 @@
     "QtCore/6.12.0/QtCore/private/qxmlutils_p.h, Qt 6.12.0. Changes",
     "made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN9QXmlUtils9isEncNameE11QStringView": ["bool", "text"],
     "ritual_ZN9QXmlUtils6isCharEDi": ["bool", "unsigned int"],
     "ritual_ZN9QXmlUtils10isNameCharE5QChar": ["bool", "address"],

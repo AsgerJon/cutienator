@@ -4,7 +4,7 @@
     "QtCore/6.12.0/QtCore/private/qfutureinterface_p.h, Qt 6.12.0.",
     "Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN27QFutureInterfaceBasePrivate4Data12setExceptionERKNSt15__exception_ptr13exception_ptrE": [
       "nothing", "address", "address"
     ],

@@ -4,7 +4,7 @@
     "QtDeclarativeOpcua/6.12.0/QtDeclarativeOpcua/private/",
     "opcuarelativenodepath_p.h, Qt 6.12.0, from Qt's source. Kept as it is"
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK21OpcUaRelativeNodePath10metaObjectEv": [
       "address", "address"
     ],

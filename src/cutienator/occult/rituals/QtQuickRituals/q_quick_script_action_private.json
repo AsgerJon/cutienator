@@ -4,7 +4,7 @@
     "QtQuick/6.12.0/QtQuick/private/qquickanimation_p_p.h, Qt 6.12.0.",
     "Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN25QQuickScriptActionPrivate6q_funcEv": ["address", "address"],
     "ritual_ZNK25QQuickScriptActionPrivate6q_funcEv": ["address", "address"],
     "ritual_ZN25QQuickScriptActionPrivateC1Ev": ["address"],

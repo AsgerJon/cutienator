@@ -4,7 +4,7 @@
     "QtGui/6.12.0/QtGui/private/qpainter_p.h, Qt 6.12.0. Changes made",
     "here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN13QPainterStateC1Ev": ["address"],
     "ritual_ZN13QPainterStateC1EPKS_": ["address", "address"],
     "ritual_ZN13QPainterStateD1Ev": ["nothing", "address"],

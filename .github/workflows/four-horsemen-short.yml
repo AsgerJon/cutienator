@@ -1,0 +1,175 @@
+# Four horsemen, the short run: the same four machines as
+# 'four-horsemen.yml' (Linux, Windows, Apple silicon Mac, Intel Mac), the
+# same Qt, the same steps, but 'bin/check_summon.py' builds only the
+# parts 'bin/four_horsemen_short.txt' names for the machine: those
+# something of which was left out there in the last full run, and those
+# whose ritual files changed since. Every other part built there with
+# nothing left out, so the run skips it. A part is joined whole, so it
+# is the smallest piece that can be built apart. Manual trigger only;
+# it releases nothing and changes nothing on 'main'. Each machine hands
+# over 'scrolls-short-linux' and so on: the libraries of the parts it
+# built with their left-out files, the report, and the folder 'demons'.
+on:
+  workflow_dispatch:
+
+jobs:
+  scrolls:
+    strategy:
+      # One system refusing must not keep the others from reporting.
+      fail-fast: false
+      matrix:
+        include:
+          - { name: 'linux', os: ubuntu-latest }
+          - { name: 'windows', os: windows-latest }
+          - { name: 'mac', os: macos-latest }
+          - { name: 'intel-mac', os: macos-26-intel }
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v7
+      # Linux only. Qt's own header 'QtGui/qopengl.h' pulls in the
+      # OpenGL header 'GL/gl.h'. That file is no part of Qt, and a
+      # Linux machine of GitHub does not carry it by itself: the image
+      # 'ubuntu-26.04' has none. 'libgl-dev' alone did not bring it
+      # there; 'mesa-common-dev' is the package that has always carried
+      # it. It is the one header of the system the ritual files need
+      # beside the C and C++ libraries, and the step ends here, naming
+      # it, when it is still missing.
+      - name: Install the OpenGL headers
+        if: ${{ runner.os == 'Linux' }}
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libgl-dev mesa-common-dev
+          test -f /usr/include/GL/gl.h \
+            || { echo "GL/gl.h is still missing" >&2; exit 1; }
+      # Linux and Windows, where Qt is built with Vulkan. Qt's headers
+      # take Vulkan's types from Vulkan's own header 'vulkan/vulkan.h'
+      # when the machine has it, else stand-ins of their own, which no
+      # function of Qt's library takes: a number for 'VkImage', where
+      # the library takes a pointer. A machine of GitHub has no such
+      # header, so the rituals of every Vulkan function of Qt were
+      # compiled out, or refused by the linker. This step fetches
+      # Khronos' headers, at the commit of their tag 'v1.4.363', into
+      # the folder 'vulkan-headers', and has 'clang++' look in them
+      # through 'CPLUS_INCLUDE_PATH', in the form of the path the
+      # system has ('pwd -W' on Windows). Qt for macOS is built
+      # without Vulkan.
+      - name: Fetch the Vulkan headers
+        if: ${{ runner.os != 'macOS' }}
+        shell: bash
+        run: |
+          mkdir -p vulkan-headers
+          curl -sSfL https://github.com/KhronosGroup/Vulkan-Headers/archive/7feeb71f59b8c1531ef5f7bb4b36e1aac46a0acb.tar.gz \
+            | tar -xz -C vulkan-headers --strip-components=1
+          test -f vulkan-headers/include/vulkan/vulkan.h \
+            || { echo "vulkan/vulkan.h is still missing" >&2; exit 1; }
+          here=$(pwd -W 2>/dev/null || pwd)
+          echo "CPLUS_INCLUDE_PATH=$here/vulkan-headers/include" >> "$GITHUB_ENV"
+      # The same Qt, fetched the same way, as the release workflows
+      # fetch it; see 'micro-dev.yml' for why each line is there. Here
+      # every part of Qt this machine can have, not qtbase alone, so
+      # that every ritual file of every part is compiled: no 'archives'
+      # line, and 'modules: all', which aqt takes as every add-on. Qt
+      # gives out WebEngine and Pdf (the modules 'qtwebengine' and
+      # 'qtpdf') apart from the rest of Qt 6.12.0, as extensions of its
+      # installer, and aqt lists both among the modules of 6.12.0 on
+      # all three systems, so 'all' brings them; the step after the
+      # next stops the run when it did not.
+      - name: Install Qt 6.12.0
+        uses: jurplel/install-qt-action@v4.5.0
+        with:
+          version: '6.12.0'
+          modules: 'all'
+          install-deps: false
+          aqtsource: 'git+https://github.com/miurahr/aqtinstall.git@5a49f2b391ae8ee1d3c0dd87f8b33c1d49a4deb7'
+      - name: Set up Python 3.14
+        uses: actions/setup-python@v7
+        with:
+          python-version: '3.14'
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      # Windows only, as in the release workflows: the 'clang++' that
+      # comes with Visual Studio is put first in line; see
+      # 'micro-dev.yml'.
+      - name: Use the clang++ of Visual Studio
+        if: ${{ runner.os == 'Windows' }}
+        shell: pwsh
+        run: |
+          $installer = "${env:ProgramFiles(x86)}\Microsoft Visual Studio\Installer"
+          $studio = & "$installer\vswhere.exe" -latest -products * -property installationPath
+          $folder = Join-Path $studio 'VC\Tools\Llvm\x64\bin'
+          if (-not (Test-Path (Join-Path $folder 'clang++.exe'))) {
+            throw "Visual Studio has no clang++.exe in '$folder'."
+          }
+          Add-Content -Path $env:GITHUB_PATH -Value $folder
+      - name: Check the Qt and the compiler
+        shell: bash
+        run: |
+          qmake6 -query QT_VERSION | tr -d '\r' | grep -Fx '6.12.0'
+          clang++ --version
+      # The ritual files of WebEngine and Pdf are built only where Qt
+      # has those parts. This step asks 'Rituals', as 'check_summon.py'
+      # asks it, which parts it builds here, and stops the run, naming
+      # the part, when one of the five is not among them.
+      - name: Check that Qt has WebEngine and Pdf
+        shell: bash
+        env:
+          PYTHONPATH: ${{ github.workspace }}/src
+        run: |
+          parts=$(python -B -c "from cutienator.occult import Rituals; print(' '.join(Rituals.getBuiltParts()))" | tr -d '\r')
+          for part in QtWebEngineCore QtWebEngineQuick QtWebEngineWidgets QtPdf QtPdfWidgets; do
+            echo " $parts " | grep -q " $part " \
+              || { echo "Qt here has no $part, or it has no ritual files" >&2; exit 1; }
+          done
+      # The report is written whatever the check finds, and the step
+      # fails when something was refused, so the run shows red. As it
+      # works, the check prints a line of progress at most every half
+      # minute, and one as each part begins: a bar, how many of all the
+      # ritual files are compiled, the part, the time gone and the time
+      # left at the pace so far. '-u' has Python print each line at
+      # once, so the log of the step shows it as it comes.
+      # The parts after '${{ matrix.name }}:' in the list, and no other.
+      # The step stops, naming the machine, when the list has no line
+      # for it.
+      - name: Compile and join the ritual files of the parts named
+        shell: bash
+        env:
+          PYTHONPATH: ${{ github.workspace }}/src
+        run: |
+          mkdir -p horsemen
+          parts=$(tr -d '\r' < bin/four_horsemen_short.txt | sed -n 's/^${{ matrix.name }}: *//p')
+          test -n "$parts" \
+            || { echo "bin/four_horsemen_short.txt names no part for ${{ matrix.name }}" >&2; exit 1; }
+          echo "parts: $parts"
+          python -u -B bin/check_summon.py horsemen/report.txt $parts
+      # The head of the report and its verdict, on the page of the run,
+      # one block for each machine, so that how each system did shows
+      # without opening a log or an artifact.
+      - name: Say how it went
+        if: ${{ always() }}
+        shell: bash
+        run: |
+          {
+            echo "### ${{ matrix.name }}"
+            echo '```'
+            if [ -f horsemen/report.txt ]; then
+              head -5 horsemen/report.txt
+              grep -E '^(seconds|verdict):' horsemen/report.txt
+            else
+              echo 'no report: the check ended before it wrote one'
+            fi
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+      # Also when the step above failed. The object files lie in
+      # 'demons', one for each ritual file that compiled.
+      - name: Hand over what the compile produced
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v7
+        with:
+          name: scrolls-short-${{ matrix.name }}
+          path: |
+            src/cutienator/occult/demons/
+            src/cutienator/occult/libcutienator_*
+            horsemen/
+          if-no-files-found: warn

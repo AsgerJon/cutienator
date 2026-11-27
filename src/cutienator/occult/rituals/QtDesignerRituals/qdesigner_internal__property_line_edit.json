@@ -4,7 +4,7 @@
     "QtDesigner/6.12.0/QtDesigner/private/propertylineedit_p.h, Qt",
     "6.12.0. Edited by hand: see the ritual file."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK18qdesigner_internal16PropertyLineEdit10metaObjectEv": [
       "address", "address"
     ],

@@ -4,7 +4,7 @@
     "QtPositioning/6.12.0/QtPositioning/private/qgeocircle_p.h, Qt",
     "6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN17QGeoCirclePrivateC1Ev": ["address"],
     "ritual_ZN17QGeoCirclePrivateC1ERK14QGeoCoordinated": [
       "address", "address", "double"

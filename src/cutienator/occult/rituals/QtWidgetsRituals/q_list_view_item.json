@@ -4,7 +4,7 @@
     "QtWidgets/6.12.0/QtWidgets/private/qlistview_p.h, Qt 6.12.0.",
     "Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN13QListViewItemC1Ev": ["address"],
     "ritual_ZN13QListViewItemC1E5QRecti": ["address", "address", "int"],
     "ritual_ZNK13QListViewItemeqERKS_": ["bool", "address", "address"],

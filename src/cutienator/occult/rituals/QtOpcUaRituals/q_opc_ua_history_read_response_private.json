@@ -4,7 +4,7 @@
     "QtOpcUa/6.12.0/QtOpcUa/private/qopcuahistoryreadresponse_p.h, Qt",
     "6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN32QOpcUaHistoryReadResponsePrivate6q_funcEv": [
       "address", "address"
     ],

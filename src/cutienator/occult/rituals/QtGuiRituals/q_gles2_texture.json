@@ -4,7 +4,7 @@
     "QtGui/6.12.0/QtGui/private/qrhigles2_p.h, Qt 6.12.0. Edited by",
     "hand: see the ritual file."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN13QGles2TextureD1Ev": ["nothing", "address"],
     "ritual_ZN13QGles2Texture7destroyEv": ["nothing", "address"],
     "ritual_ZN13QGles2Texture6createEv": ["bool", "address"],

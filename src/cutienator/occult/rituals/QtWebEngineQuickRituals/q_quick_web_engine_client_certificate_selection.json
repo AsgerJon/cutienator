@@ -1,0 +1,52 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtWebEn",
+    "gineQuick/6.12.0/QtWebEngineQuick/private/qquickwebengineclientcer",
+    "tificateselection_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "sigils": {
+    "ritual_ZNK41QQuickWebEngineClientCertificateSelection10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN41QQuickWebEngineClientCertificateSelection11qt_metacastEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN41QQuickWebEngineClientCertificateSelection11qt_metacallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN41QQuickWebEngineClientCertificateSelection2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN41QQuickWebEngineClientCertificateSelection24qt_qmlMarker_uncreatableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN41QQuickWebEngineClientCertificateSelectionC1Ev": ["address"],
+    "ritual_ZNK41QQuickWebEngineClientCertificateSelection4hostEv": [
+      "address", "address"
+    ],
+    "ritual_ZN41QQuickWebEngineClientCertificateSelection6selectEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN41QQuickWebEngineClientCertificateSelection6selectEPK38QQuickWebEngineClientCertificateOption": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN41QQuickWebEngineClientCertificateSelection10selectNoneEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN41QQuickWebEngineClientCertificateSelection12certificatesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN41QQuickWebEngineClientCertificateSelection18certificates_countEP16QQmlListPropertyI38QQuickWebEngineClientCertificateOptionE": [
+      "long long", "address"
+    ],
+    "ritual_ZN41QQuickWebEngineClientCertificateSelection15certificates_atEP16QQmlListPropertyI38QQuickWebEngineClientCertificateOptionEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZN41QQuickWebEngineClientCertificateSelectionC1E14QSharedPointerIN15QtWebEngineCore26ClientCertSelectControllerEE": [
+      "address", "address"
+    ],
+    "ritual_drop_QQuickWebEngineClientCertificateSelection__QQmlListProperty_QQuickWebEngineClientCertificateOption": [
+      "nothing", "address"
+    ]
+  }
+}

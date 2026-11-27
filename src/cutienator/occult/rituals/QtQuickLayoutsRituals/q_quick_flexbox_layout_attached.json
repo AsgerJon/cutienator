@@ -4,7 +4,7 @@
     "Layouts/6.12.0/QtQuickLayouts/private/qquickflexboxlayout_p.h, Qt",
     "6.12.0. Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK27QQuickFlexboxLayoutAttached10metaObjectEv": [
       "address", "address"
     ],

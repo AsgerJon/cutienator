@@ -4,7 +4,7 @@
     "QtOpcUa/qopcuaenumdefinition.h, Qt 6.12.0. Changes made here are",
     "lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN20QOpcUaEnumDefinitionC1Ev": ["address"],
     "ritual_ZN20QOpcUaEnumDefinitionC1ERKS_": ["address", "address"],
     "ritual_ZN20QOpcUaEnumDefinition4swapERS_": [

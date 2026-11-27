@@ -4,7 +4,7 @@
     "QtDataVisualization/q3dinputhandler.h, Qt 6.12.0. Changes made",
     "here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK15Q3DInputHandler10metaObjectEv": ["address", "address"],
     "ritual_ZN15Q3DInputHandler11qt_metacastEPKc": [
       "address", "address", "chars"

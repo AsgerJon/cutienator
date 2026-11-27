@@ -1,0 +1,42 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtWebEn",
+    "gineQuick/6.12.0/QtWebEngineQuick/private/qquickwebengine_accessib",
+    "le_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "sigils": {
+    "ritual_ZNK15QtWebEngineCore45RenderWidgetHostViewQtDelegateQuickAccessible7isValidEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK15QtWebEngineCore45RenderWidgetHostViewQtDelegateQuickAccessible6parentEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK15QtWebEngineCore45RenderWidgetHostViewQtDelegateQuickAccessible4textEN11QAccessible4TextE": [
+      "text", "address", "int"
+    ],
+    "ritual_ZNK15QtWebEngineCore45RenderWidgetHostViewQtDelegateQuickAccessible4roleEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK15QtWebEngineCore45RenderWidgetHostViewQtDelegateQuickAccessible5stateEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK15QtWebEngineCore45RenderWidgetHostViewQtDelegateQuickAccessible10focusChildEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK15QtWebEngineCore45RenderWidgetHostViewQtDelegateQuickAccessible10childCountEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK15QtWebEngineCore45RenderWidgetHostViewQtDelegateQuickAccessible5childEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK15QtWebEngineCore45RenderWidgetHostViewQtDelegateQuickAccessible12indexOfChildEPK20QAccessibleInterface": [
+      "int", "address", "address"
+    ],
+    "ritual_own_ZNK15QtWebEngineCore45RenderWidgetHostViewQtDelegateQuickAccessible4textEN11QAccessible4TextE": [
+      "text", "address", "int"
+    ],
+    "ritual_own_ZNK15QtWebEngineCore45RenderWidgetHostViewQtDelegateQuickAccessible4roleEv": [
+      "int", "address"
+    ]
+  }
+}

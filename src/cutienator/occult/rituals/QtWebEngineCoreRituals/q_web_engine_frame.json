@@ -1,0 +1,53 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWebEngineCore/qwebengineframe.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "sigils": {
+    "ritual_ZN15QWebEngineFrameC1Ev": ["address"],
+    "ritual_ZN15QWebEngineFrameC1ERKS_": ["address", "address"],
+    "ritual_ZN15QWebEngineFrameaSERKS_": ["address", "address", "address"],
+    "ritual_ZN15QWebEngineFrameC1EOS_": ["address", "address"],
+    "ritual_ZN15QWebEngineFrameaSEOS_": ["address", "address", "address"],
+    "ritual_ZN15QWebEngineFrameD1Ev": ["nothing", "address"],
+    "ritual_ZNK15QWebEngineFrame7isValidEv": ["bool", "address"],
+    "ritual_ZNK15QWebEngineFrame4nameEv": ["text", "address"],
+    "ritual_ZNK15QWebEngineFrame8htmlNameEv": ["text", "address"],
+    "ritual_ZNK15QWebEngineFrame8childrenEv": ["address", "address"],
+    "ritual_ZNK15QWebEngineFrame3urlEv": ["address", "address"],
+    "ritual_ZNK15QWebEngineFrame4sizeEv": ["address", "address"],
+    "ritual_ZNK15QWebEngineFrame11isMainFrameEv": ["bool", "address"],
+    "ritual_ZN15QWebEngineFrame13runJavaScriptERK7QStringj": [
+      "nothing", "address", "text", "unsigned int"
+    ],
+    "ritual_ZN15QWebEngineFrame13runJavaScriptERK7QStringRK8QJSValue": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_ZN15QWebEngineFrame13runJavaScriptERK7QStringjRK8QJSValue": [
+      "nothing", "address", "text", "unsigned int", "address"
+    ],
+    "ritual_ZN15QWebEngineFrame10printToPdfERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN15QWebEngineFrame10printToPdfERKSt8functionIFvRK10QByteArrayEE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QWebEngineFrame10printToPdfERK8QJSValue": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZeqRK15QWebEngineFrameS1_": ["bool", "address", "address"],
+    "ritual_ZneRK15QWebEngineFrameS1_": ["bool", "address", "address"],
+    "ritual_ZN15QWebEngineFrame17runJavaScriptImplERK7QStringjPN9QtPrivate15QSlotObjectBaseE": [
+      "nothing", "address", "text", "unsigned int", "address"
+    ],
+    "ritual_ZN15QWebEngineFrameC1E12QWeakPointerIN15QtWebEngineCore18WebContentsAdapterEEy": [
+      "address", "address", "unsigned long long"
+    ],
+    "ritual_list_make_QWebEngineFrame": ["address"],
+    "ritual_list_add_QWebEngineFrame": ["nothing", "address", "address"],
+    "ritual_list_size_QWebEngineFrame": ["long long", "address"],
+    "ritual_list_at_QWebEngineFrame": ["address", "address", "long long"],
+    "ritual_list_drop_QWebEngineFrame": ["nothing", "address"]
+  }
+}

@@ -4,7 +4,7 @@
     "QtQuick/6.12.0/QtQuick/private/qquickrectangle_p.h, Qt 6.12.0.",
     "Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZNK14QQuickGradient10metaObjectEv": ["address", "address"],
     "ritual_ZN14QQuickGradient11qt_metacastEPKc": [
       "address", "address", "chars"

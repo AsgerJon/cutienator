@@ -4,7 +4,7 @@
     "QtQml/6.12.0/QtQml/private/qqmljsmemorypool_p.h, Qt 6.12.0.",
     "Changes made here are lost."
   ],
-  "rows": {
+  "sigils": {
     "ritual_ZN6QQmlJS10MemoryPoolC1Ev": ["address"],
     "ritual_ZN6QQmlJS10MemoryPoolD1Ev": ["nothing", "address"],
     "ritual_ZN6QQmlJS10MemoryPool8allocateEm": [
