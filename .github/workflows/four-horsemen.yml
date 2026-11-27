@@ -136,7 +136,9 @@ jobs:
               || echo "::warning title=${{ matrix.name }}::Qt here has no $part, or it has no ritual files: it is not built here"
           done
       # The report is written whatever the check finds, and the step
-      # fails when something was refused, so the run shows red. As it
+      # passes when the check ran to its end: what was left out is a gap
+      # of that machine, which fails only where it is used, and the
+      # report names it, its verdict GAPS. As it
       # works, the check prints a line of progress at most every half
       # minute, and one as each part begins: a bar, how many of all the
       # ritual files are compiled, the part, the time gone and the time

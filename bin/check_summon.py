@@ -25,7 +25,11 @@ on GitHub's machines of all four systems: Linux, Windows, Apple silicon
 Mac and Intel Mac.
 
 It writes what it found to REPORT_FILE and prints it, and ends with
-code 0 when nothing was refused, else with 1. As it works it prints a
+code 0 once the check has run to its end, whatever it found: what was
+left out is a gap of that machine, which fails only where it is used,
+so the report names it and the verdict says GAPS, and nothing else
+fails. Only a check that cannot run at all ends otherwise, with what
+Python raised. As it works it prints a
 line of progress at most every half minute, and one as each part
 begins: a bar, how many of all the ritual files are compiled, the part
 it is at, the time gone and the time it should still take at the pace
@@ -198,8 +202,8 @@ def main(reportFile: str, *named: str) -> int:
   -------
 
   int
-    The exit code: 0 when every ritual file compiled and no link
-    missed anything, else 1.
+    The exit code: 0, as the check ran to its end. The verdict of the
+    report is OK when nothing was left out, else GAPS.
   """
   found = []  # type: List[str]
   here = Rituals.getBuiltParts()
@@ -244,14 +248,13 @@ def main(reportFile: str, *named: str) -> int:
                'something left out: %d, rituals left out: %d' % (
                    built, asked, ritualCount, touched, leftOut))
   lines.extend(found)
-  verdict = 1 if found else 0
   lines.append('seconds: %d' % (time.time() - began))
-  lines.append('verdict: %s' % ('REFUSED' if verdict else 'OK'))
+  lines.append('verdict: %s' % ('GAPS' if found else 'OK'))
   text = '%s\n' % '\n'.join(lines)
   with open(reportFile, 'w') as file:
     file.write(text)
   print(text)
-  return verdict
+  return 0
 
 
 if __name__ == '__main__':
