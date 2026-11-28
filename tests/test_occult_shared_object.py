@@ -11,6 +11,7 @@ import pathlib
 import shutil
 import subprocess
 import tempfile
+import unittest
 from typing import TYPE_CHECKING
 from unittest import mock
 
@@ -36,6 +37,16 @@ namespace cutie {
 """
 
 
+#  The tests marked with '_compiles' start 'clang++' for real. They run
+#  where 'CUTIENATOR_TEST_COMPILES' is '1': on gcloud, and in a release
+#  run on one machine of each system. Every other machine skips them,
+#  so it compiles nothing.
+_COMPILES = os.environ.get('CUTIENATOR_TEST_COMPILES', '') == '1'
+_compiles = unittest.skipUnless(
+    _COMPILES, "starts clang++: runs where CUTIENATOR_TEST_COMPILES=1")
+
+
+@_compiles
 class TestOccultSharedObject(BaseTest):
   """
   Tests 'SharedObject': how a line of 'nm' is taken apart, how the

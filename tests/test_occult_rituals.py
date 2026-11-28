@@ -14,6 +14,7 @@ import shutil
 import subprocess
 import tempfile
 import time
+import unittest
 from typing import TYPE_CHECKING
 from unittest import mock
 
@@ -45,6 +46,15 @@ _LIBRARY = """
 extern "C" int ritual_cutie_plus(int x) { return x + 1; }
 extern "C" double ritual_cutie_half(double x) { return x / 2; }
 """
+
+
+#  The tests marked with '_compiles' start 'clang++' for real. They run
+#  where 'CUTIENATOR_TEST_COMPILES' is '1': on gcloud, and in a release
+#  run on one machine of each system. Every other machine skips them,
+#  so it compiles nothing.
+_COMPILES = os.environ.get('CUTIENATOR_TEST_COMPILES', '') == '1'
+_compiles = unittest.skipUnless(
+    _COMPILES, "starts clang++: runs where CUTIENATOR_TEST_COMPILES=1")
 
 
 class TestOccultRituals(BaseTest):
@@ -444,6 +454,7 @@ class TestOccultRituals(BaseTest):
   #  STALE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  @_compiles
   def test_stale_until_every_target_file_is_newer(self) -> None:
     """Stale while a built part has no target file, or one older than a
     ritual file it compiles; else not; nothing built is not stale."""
@@ -530,6 +541,7 @@ class TestOccultRituals(BaseTest):
       Rituals._checkTextRituals('QtCute')
     self.assertIn("'%s'" % _TEXT[1], str(caught.exception))
 
+  @_compiles
   def test_qtcore_must_offer_the_rituals_of_text(self) -> None:
     """A target file of QtCore not offering a ritual of text is refused
     when opened."""

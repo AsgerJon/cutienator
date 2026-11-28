@@ -53,60 +53,35 @@ jobs:
             exit 1
           fi
 
-  test:
+  libraries:
+    # The target files the tests call, of QtCore, QtGui and QtWidgets,
+    # built once for each system, on a machine of that very system, and
+    # handed to every machine of the 'test' job of that system, which
+    # compiles nothing. A target file holds no Python: the rituals are
+    # called through 'ctypes', so the files one machine of a system
+    # builds serve every Python of the system alike.
+    # Each is built on the oldest machine of its system that the tests
+    # use, since a file built there opens on the newer one and not the
+    # other way round: Ubuntu 22.04 for Linux, whose glibc the rows of
+    # Python 3.7 to 3.9 have, macOS 15 for the Intel Mac, which the row
+    # of Python 3.7 has, and Visual Studio 2022 for Windows, whose rows
+    # land on a machine with Visual Studio 2022 or 2026. The Intel build
+    # is made on an Intel Mac, not for one.
+    # The target files are kept from run to run under what they are made
+    # of, as 'bin/check_libraries.py key' says it: the Qt and what
+    # 'clang++' is told, as 'Summon' itself records them, the text of
+    # the ritual files and of 'cutienator.occult', and the 'clang++'.
+    # When nothing of it changed since a run that kept them, they are
+    # taken from there and nothing is compiled.
     needs: safety
     strategy:
-      # The outer loop is over the systems, the inner one over the
-      # Pythons. Every row runs to its end, also after another row has
-      # failed, so one press shows where the tests pass and where they
-      # do not. A release needs every row to pass.
       fail-fast: false
       matrix:
         include:
-          # Linux.
-          - { python-version: '3.7', os: ubuntu-22.04 }
-          - { python-version: '3.8', os: ubuntu-22.04 }
-          - { python-version: '3.9', os: ubuntu-22.04 }
-          - { python-version: '3.10', os: ubuntu-latest }
-          - { python-version: '3.11', os: ubuntu-latest }
-          - { python-version: '3.12', os: ubuntu-latest }
-          - { python-version: '3.13', os: ubuntu-latest }
-          - { python-version: '3.14', os: ubuntu-latest }
-          - { python-version: '3.15', os: ubuntu-latest }
-          # macOS on Apple silicon. There is no Python 3.7 for it.
-          - { python-version: '3.8', os: macos-latest }
-          - { python-version: '3.9', os: macos-latest }
-          - { python-version: '3.10', os: macos-latest }
-          - { python-version: '3.11', os: macos-latest }
-          - { python-version: '3.12', os: macos-latest }
-          - { python-version: '3.13', os: macos-latest }
-          - { python-version: '3.14', os: macos-latest }
-          - { python-version: '3.15', os: macos-latest }
-          # macOS on Intel chips. Python 3.7 runs on the older machine: it
-          # needs OpenSSL 1.1 to fetch anything, and the newer machine no
-          # longer has it, so Python 3.7 cannot be set up there.
-          - { python-version: '3.7', os: macos-15-intel }
-          - { python-version: '3.8', os: macos-26-intel }
-          - { python-version: '3.9', os: macos-26-intel }
-          - { python-version: '3.10', os: macos-26-intel }
-          - { python-version: '3.11', os: macos-26-intel }
-          - { python-version: '3.12', os: macos-26-intel }
-          - { python-version: '3.13', os: macos-26-intel }
-          - { python-version: '3.14', os: macos-26-intel }
-          - { python-version: '3.15', os: macos-26-intel }
-          # Windows. While GitHub moves 'windows-latest' from Visual
-          # Studio 2022 to 2026, a row lands on a machine with the one or
-          # with the other. The step 'Use the clang++ of Visual Studio'
-          # is what makes both work.
-          - { python-version: '3.7', os: windows-latest }
-          - { python-version: '3.8', os: windows-latest }
-          - { python-version: '3.9', os: windows-latest }
-          - { python-version: '3.10', os: windows-latest }
-          - { python-version: '3.11', os: windows-latest }
-          - { python-version: '3.12', os: windows-latest }
-          - { python-version: '3.13', os: windows-latest }
-          - { python-version: '3.14', os: windows-latest }
-          - { python-version: '3.15', os: windows-latest }
+          - { system: 'linux', os: ubuntu-22.04 }
+          - { system: 'mac', os: macos-latest }
+          - { system: 'intel-mac', os: macos-15-intel }
+          - { system: 'windows', os: windows-2022 }
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v7
@@ -168,6 +143,159 @@ jobs:
           archives: 'qtbase icu'
           install-deps: false
           aqtsource: 'git+https://github.com/miurahr/aqtinstall.git@5a49f2b391ae8ee1d3c0dd87f8b33c1d49a4deb7'
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      # Windows only. Such a machine has two 'clang++': one installed on
+      # its own, which is first in line, and the one that comes with
+      # Visual Studio. Microsoft keeps only the second in step with the
+      # C++ library of that Visual Studio, which refuses a 'clang++'
+      # older than it wants: Visual Studio 2026 refuses the clang 20 that
+      # is first in line on its machine. This step puts the second one
+      # first in line for the steps below, and stops here if it is not
+      # where Visual Studio keeps it.
+      - name: Use the clang++ of Visual Studio
+        if: ${{ runner.os == 'Windows' }}
+        shell: pwsh
+        run: |
+          $installer = "${env:ProgramFiles(x86)}\Microsoft Visual Studio\Installer"
+          $studio = & "$installer\vswhere.exe" -latest -products * -property installationPath
+          $folder = Join-Path $studio 'VC\Tools\Llvm\x64\bin'
+          if (-not (Test-Path (Join-Path $folder 'clang++.exe'))) {
+            throw "Visual Studio has no clang++.exe in '$folder'."
+          }
+          Add-Content -Path $env:GITHUB_PATH -Value $folder
+      # Stops here when the Python or the Qt the tests are about to run
+      # with is not the one this job names, and shows the compiler that
+      # builds the rituals. It names 'bash' so the same lines run on
+      # Windows, and 'tr' takes away the line ending Windows adds.
+      - name: Check the Qt and the compiler
+        shell: bash
+        run: |
+          qmake6 -query QT_VERSION | tr -d '\r' | grep -Fx '6.12.0'
+          clang++ --version
+      - name: Say what the target files are made of
+        id: made
+        shell: bash
+        env:
+          PYTHONPATH: ${{ github.workspace }}/src
+        run: |
+          python -B bin/check_libraries.py key QtCore QtGui QtWidgets \
+            | tr -d '\r' >> "$GITHUB_OUTPUT"
+      - name: Take the target files kept from a run before
+        id: kept
+        uses: actions/cache@v4
+        with:
+          path: |
+            src/cutienator/occult/libcutienator_QtCore.*
+            src/cutienator/occult/libcutienator_QtGui.*
+            src/cutienator/occult/libcutienator_QtWidgets.*
+          key: libraries-${{ matrix.system }}-${{ steps.made.outputs.key }}
+      # Only when nothing was kept under that key. The check builds the
+      # parts named as 'Rituals.summon()' builds them, and its report
+      # names anything left out; see 'bin/check_summon.py'.
+      - name: Build the target files of QtCore, QtGui and QtWidgets
+        if: ${{ steps.kept.outputs.cache-hit != 'true' }}
+        shell: bash
+        env:
+          PYTHONPATH: ${{ github.workspace }}/src
+        run: |
+          mkdir -p libraries
+          python -u -B bin/check_summon.py libraries/report.txt \
+            QtCore QtGui QtWidgets
+      - name: Hand the target files to the tests of this system
+        uses: actions/upload-artifact@v7
+        with:
+          name: libraries-${{ matrix.system }}
+          path: |
+            src/cutienator/occult/libcutienator_QtCore.*
+            src/cutienator/occult/libcutienator_QtGui.*
+            src/cutienator/occult/libcutienator_QtWidgets.*
+          if-no-files-found: error
+
+  test:
+    # The tests, on every row: each system with each Python. A row
+    # compiles nothing: it gets the target files the 'libraries' job
+    # built for its system, and 'bin/check_libraries.py check' proves
+    # after the tests that they are the files it got and that no object
+    # file was made. The tests that start 'clang++' on purpose run on
+    # one row of each system alone, the one marked 'compiles', and are
+    # skipped on every other; see 'CUTIENATOR_TEST_COMPILES' in them.
+    needs: [safety, libraries]
+    strategy:
+      # The outer loop is over the systems, the inner one over the
+      # Pythons. Every row runs to its end, also after another row has
+      # failed, so one press shows where the tests pass and where they
+      # do not. A release needs every row to pass. The row of Python
+      # 3.15 of each system is marked 'compiles'.
+      fail-fast: false
+      matrix:
+        include:
+          # Linux.
+          - { python-version: '3.7', os: ubuntu-22.04 }
+          - { python-version: '3.8', os: ubuntu-22.04 }
+          - { python-version: '3.9', os: ubuntu-22.04 }
+          - { python-version: '3.10', os: ubuntu-latest }
+          - { python-version: '3.11', os: ubuntu-latest }
+          - { python-version: '3.12', os: ubuntu-latest }
+          - { python-version: '3.13', os: ubuntu-latest }
+          - { python-version: '3.14', os: ubuntu-latest }
+          - { python-version: '3.15', os: ubuntu-latest, compiles: true }
+          # macOS on Apple silicon. There is no Python 3.7 for it.
+          - { python-version: '3.8', os: macos-latest }
+          - { python-version: '3.9', os: macos-latest }
+          - { python-version: '3.10', os: macos-latest }
+          - { python-version: '3.11', os: macos-latest }
+          - { python-version: '3.12', os: macos-latest }
+          - { python-version: '3.13', os: macos-latest }
+          - { python-version: '3.14', os: macos-latest }
+          - { python-version: '3.15', os: macos-latest, compiles: true }
+          # macOS on Intel chips. Python 3.7 runs on the older machine: it
+          # needs OpenSSL 1.1 to fetch anything, and the newer machine no
+          # longer has it, so Python 3.7 cannot be set up there.
+          - { python-version: '3.7', os: macos-15-intel }
+          - { python-version: '3.8', os: macos-26-intel }
+          - { python-version: '3.9', os: macos-26-intel }
+          - { python-version: '3.10', os: macos-26-intel }
+          - { python-version: '3.11', os: macos-26-intel }
+          - { python-version: '3.12', os: macos-26-intel }
+          - { python-version: '3.13', os: macos-26-intel }
+          - { python-version: '3.14', os: macos-26-intel }
+          - { python-version: '3.15', os: macos-26-intel, compiles: true }
+          # Windows. While GitHub moves 'windows-latest' from Visual
+          # Studio 2022 to 2026, a row lands on a machine with the one or
+          # with the other. The step 'Use the clang++ of Visual Studio'
+          # is what makes both work.
+          - { python-version: '3.7', os: windows-latest }
+          - { python-version: '3.8', os: windows-latest }
+          - { python-version: '3.9', os: windows-latest }
+          - { python-version: '3.10', os: windows-latest }
+          - { python-version: '3.11', os: windows-latest }
+          - { python-version: '3.12', os: windows-latest }
+          - { python-version: '3.13', os: windows-latest }
+          - { python-version: '3.14', os: windows-latest }
+          - { python-version: '3.15', os: windows-latest, compiles: true }
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v7
+      # Linux only. Qt's own header 'QtGui/qopengl.h' pulls in the
+      # OpenGL header 'GL/gl.h'. That file is no part of Qt, and a
+      # Linux machine of GitHub does not carry it by itself: the image
+      # 'ubuntu-26.04' has none. 'libgl-dev' brings it. It is the one
+      # header of the system the ritual files need beside the C and
+      # C++ libraries.
+      - name: Install Qt 6.12.0
+        uses: jurplel/install-qt-action@v4.5.0
+        with:
+          version: '6.12.0'
+          archives: 'qtbase icu'
+          install-deps: false
+          aqtsource: 'git+https://github.com/miurahr/aqtinstall.git@5a49f2b391ae8ee1d3c0dd87f8b33c1d49a4deb7'
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v7
         with:
@@ -205,17 +333,49 @@ jobs:
           python --version | grep -F 'Python ${{ matrix.python-version }}.'
           qmake6 -query QT_VERSION | tr -d '\r' | grep -Fx '6.12.0'
           clang++ --version
+      - name: Say which system this is
+        id: system
+        shell: bash
+        run: |
+          case "${{ runner.os }}-${{ runner.arch }}" in
+            Linux-*) echo 'name=linux' >> "$GITHUB_OUTPUT" ;;
+            Windows-*) echo 'name=windows' >> "$GITHUB_OUTPUT" ;;
+            macOS-ARM64) echo 'name=mac' >> "$GITHUB_OUTPUT" ;;
+            macOS-X64) echo 'name=intel-mac' >> "$GITHUB_OUTPUT" ;;
+          esac
+      - name: Get the target files of this system
+        uses: actions/download-artifact@v7
+        with:
+          name: libraries-${{ steps.system.outputs.name }}
+          path: src/cutienator/occult
+      - name: Note the target files this row got
+        shell: bash
+        env:
+          PYTHONPATH: ${{ github.workspace }}/src
+        run: |
+          python -B bin/check_libraries.py seal libraries.json \
+            QtCore QtGui QtWidgets
       - name: Run tests
         env:
           PYTHONPATH: ${{ github.workspace }}/src
+          CUTIENATOR_TEST_COMPILES: ${{ matrix.compiles && '1' || '' }}
         run: python -m unittest discover -s tests
       - name: Coverage (Linux, 3.15 only)
         if: ${{ runner.os == 'Linux' && matrix.python-version == '3.15' }}
         env:
           PYTHONPATH: ${{ github.workspace }}/src
+          CUTIENATOR_TEST_COMPILES: '1'
         run: |
           pip install pytest pytest-cov
           pytest --cov --cov-branch --cov-report=xml --cov-fail-under=100
+      - name: Check that nothing was compiled here
+        if: ${{ always() }}
+        shell: bash
+        env:
+          PYTHONPATH: ${{ github.workspace }}/src
+        run: |
+          python -B bin/check_libraries.py check libraries.json \
+            QtCore QtGui QtWidgets
       - name: Upload coverage to Codecov
         if: ${{ runner.os == 'Linux' && matrix.python-version == '3.15' }}
         uses: codecov/codecov-action@v7

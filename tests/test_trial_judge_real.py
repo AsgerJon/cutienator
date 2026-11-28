@@ -7,7 +7,9 @@ target file.
 #  Copyright (c) 2026 Asger Jon Vistisen
 from __future__ import annotations
 
+import os
 import tempfile
+import unittest
 from unittest import mock
 
 from worktoy.work_test import BaseTest
@@ -16,6 +18,16 @@ from cutienator.occult import Rituals
 from cutienator.trial import Judge, qObjectTrials
 
 
+#  The tests marked with '_compiles' start 'clang++' for real. They run
+#  where 'CUTIENATOR_TEST_COMPILES' is '1': on gcloud, and in a release
+#  run on one machine of each system. Every other machine skips them,
+#  so it compiles nothing.
+_COMPILES = os.environ.get('CUTIENATOR_TEST_COMPILES', '') == '1'
+_compiles = unittest.skipUnless(
+    _COMPILES, "starts clang++: runs where CUTIENATOR_TEST_COMPILES=1")
+
+
+@_compiles
 class TestTrialJudgeReal(BaseTest):
   """
   Tests 'Judge' for real: it compiles the C++ half of each trial of
