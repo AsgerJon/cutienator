@@ -1481,17 +1481,23 @@ class Rituals:
     Raises
     ------
 
+    NotImplementedError
+      No sigil file lists the ritual: cutienator ships no ritual of that
+      name, and the function calling it is a gap, said where it is
+      used.
+
     LookupError
-      No sigil file lists the ritual; or several parts list it, and it
-      is seen from no part, or from one that sees none of them.
+      Several parts list the ritual, and it is seen from no part, or
+      from one that sees none of them.
     """
     parts = cls.getPartsOf(ritualName)
     if len(parts) == 1:
       return parts[0]
     if not parts:
-      infoSpec = """No sigil file in '%s' lists a ritual named '%s'."""
-      info = infoSpec % (cls.getRitualFolder(), ritualName)
-      raise LookupError(' '.join(info.split()))
+      infoSpec = """The ritual '%s' cannot be called: no sigil file in
+      '%s' lists it, so cutienator ships no ritual of that name."""
+      info = infoSpec % (ritualName, cls.getRitualFolder())
+      raise NotImplementedError(' '.join(info.split()))
     if partName is not None:
       key = (partName, ritualName)
       found = cls.__seen_parts__.get(key, None)
@@ -1594,12 +1600,12 @@ class Rituals:
     ------
 
     LookupError
-      No sigil file lists a ritual of that name, or several parts list
-      it.
+      Several parts list a ritual of that name.
 
     NotImplementedError
-      The Qt of this machine has no function for the ritual, or
-      'summon' left it out, as the compiler or the linker refused it
+      No sigil file lists a ritual of that name, so cutienator ships
+      none. Or the Qt of this machine has no function for the ritual,
+      or 'summon' left it out, as the compiler or the linker refused it
       here; see 'getMissing' and 'getLeftOut'.
 
     FileNotFoundError
@@ -1647,10 +1653,9 @@ class Rituals:
     ------
 
     LookupError
-      No sigil file lists a ritual of that name, or several parts list
-      it and none of them is installed here. Also when the ritual
-      folder has no folder of the part it is seen from, and several
-      parts list the ritual.
+      Several parts list the ritual and none of them is installed here.
+      Also when the ritual folder has no folder of the part it is seen
+      from, and several parts list the ritual.
 
     NotImplementedError, FileNotFoundError, TypeException, BaseException
       As for 'call'.

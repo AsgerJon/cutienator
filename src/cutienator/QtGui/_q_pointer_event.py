@@ -17,7 +17,7 @@ from ..QtCore import Qt, QEvent, QList
 from . import QInputEvent, QPointingDevice
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from ..QtCore import QObject
   from . import QEventPoint
@@ -55,14 +55,24 @@ class QPointerEvent(QInputEvent):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'QPointerEvent::QPointerEvent(const QPointerEvent &a0)': takes a
+    type Python has no way to hand over yet.
+  - Qt's 'QPointerEvent &QPointerEvent::operator=(const QPointerEvent
+    &other)': assignment: Python binds a name and has no operator for it.
   - Qt's 'QPointerEvent::~QPointerEvent()': the destructor: Python never
     removes a C++ QPointerEvent.
+  - Qt's 'QEventPoint &QPointerEvent::point(qsizetype i)': gives a type
+    Python has no way to take yet.
+  - Qt's 'QList<QPointer<QObject>> QPointerEvent::passiveGrabbers(const
+    QEventPoint &point) const': gives a type Python has no way to take yet.
+  - Qt's 'QPointerEvent::QPointerEvent(Type type, SinglePointEventTag a1,
+    const QInputDevice *dev, Qt::KeyboardModifiers modifiers)': takes a type
+    Python has no way to hand over yet.
 
   What has no ritual
   ------------------
 
-  10 of the 30 functions Qt declares: 5 takes or gives a type that cannot be
-  passed yet; 2 declared and nowhere to be found; 2 forbidden; 1 a template.
+  5 of the 30 functions Qt declares: 3 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -75,6 +85,9 @@ class QPointerEvent(QInputEvent):
     has it, and is passed on as nothing. Whether Qt can do with nothing there
     is as in C++.
   - Python never removes the C++ QPointerEvent.
+  - Each name of Qt's QPointerEvent that has no cute function yet,
+    'passiveGrabbers', 'point', holds a function that raises
+    'NotImplementedError', and its docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -570,3 +583,26 @@ class QPointerEvent(QInputEvent):
         'bject',
         self._valueOf(point), self._addressOf(grabber, 'QObject'),
     )
+
+  @staticmethod
+  def passiveGrabbers(*__, **_) -> Never:
+    """
+    Qt's 'QList<QPointer<QObject>> QPointerEvent::passiveGrabbers(const
+    QEventPoint &point) const': gives a type Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QPointerEvent.passiveGrabbers' has no cute function yet. Qt's "
+        "'QList<QPointer<QObject>> QPointerEvent::passiveGrabbers(const "
+        "QEventPoint &point) const': gives a type Python has no way to take "
+        "yet.")
+
+  @staticmethod
+  def point(*__, **_) -> Never:
+    """
+    Qt's 'QEventPoint &QPointerEvent::point(qsizetype i)': gives a type
+    Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QPointerEvent.point' has no cute function yet. Qt's 'QEventPoint "
+        "&QPointerEvent::point(qsizetype i)': gives a type Python has no "
+        "way to take yet.")

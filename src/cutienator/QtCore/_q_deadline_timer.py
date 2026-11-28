@@ -17,6 +17,9 @@ from ..cute import CuteMixin, CuteNum, MetaCute
 from ..occult import Rituals
 from . import Qt
 
+if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Never
+
 
 class QDeadlineTimer(CuteMixin, metaclass=MetaCute):
   """
@@ -42,14 +45,17 @@ class QDeadlineTimer(CuteMixin, metaclass=MetaCute):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void QDeadlineTimer::swap(QDeadlineTimer &other)': takes a type
+    Python has no way to hand over yet.
+  - Qt's 'std::chrono::nanoseconds QDeadlineTimer::remainingTimeAsDuration()
+    const': gives a type Python has no way to take yet.
   - Qt's 'QDeadlineTimer::~QDeadlineTimer()': the destructor: Python removes
     its C++ QDeadlineTimer by it, and has no other use for it.
 
   What has no ritual
   ------------------
 
-  9 of the 41 functions Qt declares: 7 a template; 2 takes or gives a type
-  that cannot be passed yet.
+  7 of the 41 functions Qt declares: 7 a template.
 
   What to expect
   --------------
@@ -63,6 +69,9 @@ class QDeadlineTimer(CuteMixin, metaclass=MetaCute):
     is as in C++.
   - A function giving a QDeadlineTimer back gives a copy the ritual made for
     Python, in a new cute QDeadlineTimer.
+  - Each name of Qt's QDeadlineTimer that has no cute function yet,
+    'remainingTimeAsDuration', 'swap', holds a function that raises
+    'NotImplementedError', and its docstring says why.
   """
 
   #  The enums Qt writes inside QDeadlineTimer, each a class in here as in
@@ -892,3 +901,26 @@ class QDeadlineTimer(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def remainingTimeAsDuration(*__, **_) -> Never:
+    """
+    Qt's 'std::chrono::nanoseconds QDeadlineTimer::remainingTimeAsDuration()
+    const': gives a type Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QDeadlineTimer.remainingTimeAsDuration' has no cute function yet. "
+        "Qt's 'std::chrono::nanoseconds "
+        "QDeadlineTimer::remainingTimeAsDuration() const': gives a type "
+        "Python has no way to take yet.")
+
+  @staticmethod
+  def swap(*__, **_) -> Never:
+    """
+    Qt's 'void QDeadlineTimer::swap(QDeadlineTimer &other)': takes a type
+    Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QDeadlineTimer.swap' has no cute function yet. Qt's 'void "
+        "QDeadlineTimer::swap(QDeadlineTimer &other)': takes a type Python "
+        "has no way to hand over yet.")

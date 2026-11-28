@@ -17,6 +17,8 @@ from ..occult import Rituals
 from ..QtCore import Qt, QList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Never
+
   from ..QtCore import QPoint, QRect
   from . import QPolygonF
 else:
@@ -48,18 +50,27 @@ class QPolygon(CuteMixin, metaclass=MetaCute):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'QPolygon::QPolygon(QList<QPoint> &&v)': takes a type Python has no
+    way to hand over yet.
+  - Qt's 'QPolygon::QPolygon(int nPoints, const int *points)': names 'int',
+    which has no cute class yet.
+  - Qt's 'void QPolygon::swap(QPolygon &other)': takes a type Python has no
+    way to hand over yet.
   - Qt's 'QVariant QPolygon::operator QVariant() const': an operator Python
     has no name for.
   - Qt's 'void QPolygon::point(int i, int *x, int *y) const': takes a number
     to change where it is.
+  - Qt's 'void QPolygon::setPoints(int nPoints, const int *points)': names
+    'int', which has no cute class yet.
+  - Qt's 'void QPolygon::putPoints(int index, int nPoints, const int
+    *points)': names 'int', which has no cute class yet.
   - Qt's 'QPolygon::~QPolygon()': the destructor: Python removes its C++
     QPolygon by it, and has no other use for it.
 
   What has no ritual
   ------------------
 
-  7 of the 28 functions Qt declares: 5 takes or gives a type that cannot be
-  passed yet; 2 takes any number of arguments.
+  2 of the 28 functions Qt declares: 2 takes any number of arguments.
 
   What to expect
   --------------
@@ -72,6 +83,9 @@ class QPolygon(CuteMixin, metaclass=MetaCute):
     is as in C++.
   - A function giving a QPolygon back gives a copy the ritual made for
     Python, in a new cute QPolygon.
+  - Each name of Qt's QPolygon that has no cute function yet, 'setPoints',
+    'swap', holds a function that raises 'NotImplementedError', and its
+    docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -548,3 +562,28 @@ class QPolygon(CuteMixin, metaclass=MetaCute):
         'ritual_ZN8QPolygon9putPointsEiiRKS_i',
         index, nPoints, self._valueOf(from_), fromIndex,
     )
+
+  @staticmethod
+  def setPoints(*__, **_) -> Never:
+    """
+    - Qt's 'void QPolygon::setPoints(int nPoints, const int *points)': names
+      'int', which has no cute class yet.
+    - Qt's 'void QPolygon::setPoints(int nPoints, int firstx, int firsty)':
+      takes any number of arguments.
+    """
+    raise NotImplementedError(
+        "'QPolygon.setPoints' has no cute function yet. Qt's 'void "
+        "QPolygon::setPoints(int nPoints, const int *points)': names 'int', "
+        "which has no cute class yet. Qt's 'void QPolygon::setPoints(int "
+        "nPoints, int firstx, int firsty)': takes any number of arguments.")
+
+  @staticmethod
+  def swap(*__, **_) -> Never:
+    """
+    Qt's 'void QPolygon::swap(QPolygon &other)': takes a type Python has no
+    way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QPolygon.swap' has no cute function yet. Qt's 'void "
+        "QPolygon::swap(QPolygon &other)': takes a type Python has no way "
+        "to hand over yet.")

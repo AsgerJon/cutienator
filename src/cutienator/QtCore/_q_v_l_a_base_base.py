@@ -32,12 +32,14 @@ class QVLABaseBase(CuteMixin, metaclass=MetaCute):
 
   - Qt's 'QVLABaseBase::~QVLABaseBase()': the destructor: Python never
     removes a C++ QVLABaseBase.
-
-  What has no ritual
-  ------------------
-
-  4 of the 10 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet.
+  - Qt's 'QVLABaseBase::QVLABaseBase(const QVLABaseBase &a0)': takes a type
+    Python has no way to hand over yet.
+  - Qt's 'QVLABaseBase::QVLABaseBase(QVLABaseBase &&a0)': takes a type Python
+    has no way to hand over yet.
+  - Qt's 'QVLABaseBase &QVLABaseBase::operator=(const QVLABaseBase &a0)':
+    assignment: Python binds a name and has no operator for it.
+  - Qt's 'QVLABaseBase &QVLABaseBase::operator=(QVLABaseBase &&a0)':
+    assignment: Python binds a name and has no operator for it.
 
   What to expect
   --------------

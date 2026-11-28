@@ -45,8 +45,46 @@ class qfloat16(CuteMixin, metaclass=MetaCute):
     name for.
   - Qt's 'qfloat16 qfloat16::operator++(int a0)': an operator Python has no
     name for.
+  - Qt's 'qfloat16 &qfloat16::operator++()': an operator Python has no name
+    for.
   - Qt's 'qfloat16 qfloat16::operator--(int a0)': an operator Python has no
     name for.
+  - Qt's 'qfloat16 &qfloat16::operator--()': an operator Python has no name
+    for.
+  - Qt's 'qfloat16::qfloat16(Wrap nibble)': takes a type Python has no way to
+    hand over yet.
+  - Qt's 'long double operator+(qfloat16 lhs, long double rhs)': takes a type
+    Python has no way to hand over yet.
+  - Qt's 'long double operator+(long double lhs, qfloat16 rhs)': takes a type
+    Python has no way to hand over yet.
+  - Qt's 'long double operator-(qfloat16 lhs, long double rhs)': takes a type
+    Python has no way to hand over yet.
+  - Qt's 'long double operator-(long double lhs, qfloat16 rhs)': takes a type
+    Python has no way to hand over yet.
+  - Qt's 'long double operator*(qfloat16 lhs, long double rhs)': takes a type
+    Python has no way to hand over yet.
+  - Qt's 'long double operator*(long double lhs, qfloat16 rhs)': takes a type
+    Python has no way to hand over yet.
+  - Qt's 'long double operator/(qfloat16 lhs, long double rhs)': takes a type
+    Python has no way to hand over yet.
+  - Qt's 'long double operator/(long double lhs, qfloat16 rhs)': takes a type
+    Python has no way to hand over yet.
+  - Qt's 'qfloat16 &operator+=(qfloat16 &lhs, long double rhs)': an operator
+    Python has no name for.
+  - Qt's 'qfloat16 &operator-=(qfloat16 &lhs, long double rhs)': an operator
+    Python has no name for.
+  - Qt's 'qfloat16 &operator*=(qfloat16 &lhs, long double rhs)': an operator
+    Python has no name for.
+  - Qt's 'qfloat16 &operator/=(qfloat16 &lhs, long double rhs)': an operator
+    Python has no name for.
+  - Qt's 'qfloat16 &operator+=(qfloat16 &lhs, double rhs)': an operator
+    Python has no name for.
+  - Qt's 'qfloat16 &operator-=(qfloat16 &lhs, double rhs)': an operator
+    Python has no name for.
+  - Qt's 'qfloat16 &operator*=(qfloat16 &lhs, double rhs)': an operator
+    Python has no name for.
+  - Qt's 'qfloat16 &operator/=(qfloat16 &lhs, double rhs)': an operator
+    Python has no name for.
   - Qt's 'float operator+(qfloat16 lhs, float rhs)': takes in Python what
     'double operator+(qfloat16 lhs, double rhs)' takes.
   - Qt's 'float operator+(float lhs, qfloat16 rhs)': takes in Python what
@@ -63,6 +101,38 @@ class qfloat16(CuteMixin, metaclass=MetaCute):
     'double operator/(qfloat16 lhs, double rhs)' takes.
   - Qt's 'float operator/(float lhs, qfloat16 rhs)': takes in Python what
     'double operator/(double lhs, qfloat16 rhs)' takes.
+  - Qt's 'qfloat16 &operator+=(qfloat16 &lhs, float rhs)': an operator Python
+    has no name for.
+  - Qt's 'qfloat16 &operator-=(qfloat16 &lhs, float rhs)': an operator Python
+    has no name for.
+  - Qt's 'qfloat16 &operator*=(qfloat16 &lhs, float rhs)': an operator Python
+    has no name for.
+  - Qt's 'qfloat16 &operator/=(qfloat16 &lhs, float rhs)': an operator Python
+    has no name for.
+  - Qt's 'bool operator==(const qfloat16 &lhs, const long double &rhs)':
+    takes a type Python has no way to hand over yet.
+  - Qt's 'bool operator!=(const qfloat16 &lhs, const long double &rhs)':
+    takes a type Python has no way to hand over yet.
+  - Qt's 'bool operator<(const qfloat16 &lhs, const long double &rhs)': takes
+    a type Python has no way to hand over yet.
+  - Qt's 'bool operator>(const qfloat16 &lhs, const long double &rhs)': takes
+    a type Python has no way to hand over yet.
+  - Qt's 'bool operator<=(const qfloat16 &lhs, const long double &rhs)':
+    takes a type Python has no way to hand over yet.
+  - Qt's 'bool operator>=(const qfloat16 &lhs, const long double &rhs)':
+    takes a type Python has no way to hand over yet.
+  - Qt's 'bool operator==(const long double &lhs, const qfloat16 &rhs)':
+    takes a type Python has no way to hand over yet.
+  - Qt's 'bool operator!=(const long double &lhs, const qfloat16 &rhs)':
+    takes a type Python has no way to hand over yet.
+  - Qt's 'bool operator<(const long double &lhs, const qfloat16 &rhs)': takes
+    a type Python has no way to hand over yet.
+  - Qt's 'bool operator>(const long double &lhs, const qfloat16 &rhs)': takes
+    a type Python has no way to hand over yet.
+  - Qt's 'bool operator<=(const long double &lhs, const qfloat16 &rhs)':
+    takes a type Python has no way to hand over yet.
+  - Qt's 'bool operator>=(const long double &lhs, const qfloat16 &rhs)':
+    takes a type Python has no way to hand over yet.
   - Qt's 'bool operator==(const double &lhs, const qfloat16 &rhs)': takes in
     Python what 'bool operator==(const qfloat16 &lhs, const double &rhs)'
     takes.
@@ -459,14 +529,21 @@ class qfloat16(CuteMixin, metaclass=MetaCute):
   - Qt's 'bool operator>=(const quint64 &lhs, const qfloat16 &rhs)': takes in
     Python what 'bool operator<=(const qfloat16 &lhs, const qint8 &rhs)'
     takes.
+  - Qt's 'QDataStream &operator<<(QDataStream &ds, qfloat16 f)': takes a type
+    Python has no way to hand over yet.
+  - Qt's 'QDataStream &operator>>(QDataStream &ds, qfloat16 &f)': an operator
+    between other classes, written inside this one.
+  - Qt's 'QTextStream &operator<<(QTextStream &ts, qfloat16 f)': takes a type
+    Python has no way to hand over yet.
+  - Qt's 'QTextStream &operator>>(QTextStream &ts, qfloat16 &f)': an operator
+    between other classes, written inside this one.
   - Qt's 'qfloat16::~qfloat16()': the destructor: Python removes its C++
     qfloat16 by it, and has no other use for it.
 
   What has no ritual
   ------------------
 
-  40 of the 241 functions Qt declares: 39 takes or gives a type that cannot
-  be passed yet; 1 a template.
+  1 of the 241 functions Qt declares: 1 a template.
 
   What to expect
   --------------

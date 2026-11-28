@@ -21,15 +21,17 @@ from ..QtCore import Qt
 from . import QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from ..QtCore import QMetaObject, QSize
   from ..QtGui import QPaintEvent
+  from . import QStyleOption
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
   QPaintEvent = WAIT['QPaintEvent']
+  QStyleOption = WAIT['QStyleOption']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -48,16 +50,23 @@ class QToolBarSeparator(QWidget):
   -----------
 
   Every function of Qt's QToolBarSeparator that has a ritual and that Python
-  can call so far, 4 names in all: 'metaObject', 'sizeHint', 'paintEvent',
-  'setOrientation'. None can be made from Python: one comes out of a function
-  of another class that gives one back.
+  can call so far, 6 names in all: 'metaObject', 'orientation', 'sizeHint',
+  'paintEvent', 'initStyleOption', 'setOrientation'. None can be made from
+  Python: one comes out of a function of another class that gives one back.
+
+  What has a ritual and is left out, and why
+  ------------------------------------------
+
+  - Qt's 'void *QToolBarSeparator::qt_metacast(const char *a0)': one of Qt's
+    own inner workings.
+  - Qt's 'int QToolBarSeparator::qt_metacall(QMetaObject::Call a0, int a1,
+    void **a2)': one of Qt's own inner workings.
 
   What has no ritual
   ------------------
 
-  10 of the 14 functions Qt declares: 4 leans on 'QToolBarSeparator; 3
-  declared and nowhere to be found; 2 takes or gives a type that cannot be
-  passed yet; 1 a template.
+  4 of the 12 functions Qt declares: 2 not a gap; 2 leans on
+  'QToolBarSeparator.
 
   What to expect
   --------------
@@ -73,6 +82,9 @@ class QToolBarSeparator(QWidget):
   - Qt tells when it has removed the C++ QToolBarSeparator. Every call on the
     cute object, and every use of it as an argument, then raises
     'RuntimeError', and nothing reaches C++.
+  - Each name of Qt's QToolBarSeparator that has no cute function yet,
+    '__init__', holds a function that raises 'NotImplementedError', and its
+    docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -124,6 +136,25 @@ class QToolBarSeparator(QWidget):
     from ..QtCore import QMetaObject
     return QMetaObject._cuteAt(address)
 
+  def orientation(self) -> Qt.Orientation:
+    """
+    Calls Qt's 'Qt::Orientation QToolBarSeparator::orientation() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtoolbarseparator.html#orientation
+
+    Returns
+    -------
+
+    Qt.Orientation
+      The member standing for the number Qt gave back. For a number Qt gives
+      no name it is the member without a name that 'Qt.Orientation(number)'
+      gives.
+    """
+    #  Qt::Orientation QToolBarSeparator::orientation() const
+    return Qt.Orientation(self.uglySide.call(
+        'ritual_ZNK17QToolBarSeparator11orientationEv',
+    ))
+
   def sizeHint(self) -> QSize:
     """
     Calls Qt's 'QSize QToolBarSeparator::sizeHint() const'.
@@ -137,7 +168,10 @@ class QToolBarSeparator(QWidget):
       A new cute QSize around the copy Qt gave back. Python owns it.
     """
     #  QSize QToolBarSeparator::sizeHint() const
-    address = self.uglySide.call('ritual_ZNK17QToolBarSeparator8sizeHintEv')
+    ritual = 'ritual_ZNK17QToolBarSeparator8sizeHintEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK17QToolBarSeparator8sizeHintEv'
+    address = self.uglySide.call(ritual)
     from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
@@ -178,6 +212,21 @@ class QToolBarSeparator(QWidget):
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  @staticmethod
+  def __init__(*__, **_) -> Never:
+    """
+    Qt's 'QToolBarSeparator::QToolBarSeparator(QToolBar *parent)': leans on
+    'QToolBarSeparator::qt_metacall(QMetaObject::Call, int, void**)', which
+    Qt's source does not mark for use from outside Qt and has no code for
+    that could be taken.
+    """
+    raise NotImplementedError(
+        "'QToolBarSeparator.__init__' has no cute function yet. Qt's "
+        "'QToolBarSeparator::QToolBarSeparator(QToolBar *parent)': leans on "
+        "'QToolBarSeparator::qt_metacall(QMetaObject::Call, int, void**)', "
+        "which Qt's source does not mark for use from outside Qt and has no "
+        "code for that could be taken.")
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -214,7 +263,30 @@ class QToolBarSeparator(QWidget):
       object.
     """
     #  void QToolBarSeparator::paintEvent(QPaintEvent *a0)
+    ritual = 'ritual_ZN17QToolBarSeparator10paintEventEP11QPaintEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN17QToolBarSeparator10paintEventEP11QPaintEvent'
+    self.uglySide.call(ritual, self._addressOf(a0))
+
+  @overload(QStyleOption)
+  @overload(NoneType)
+  def initStyleOption(self, option: Optional[QStyleOption]) -> None:
+    """
+    Calls Qt's 'void QToolBarSeparator::initStyleOption(QStyleOption *option)
+    const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qtoolbarseparator.html#initStyleOption
+
+    Parameters
+    ----------
+
+    option : Optional[QStyleOption]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QToolBarSeparator::initStyleOption(QStyleOption *option) const
     self.uglySide.call(
-        'ritual_ZN17QToolBarSeparator10paintEventEP11QPaintEvent',
-        self._addressOf(a0),
+        'ritual_ZNK17QToolBarSeparator15initStyleOptionEP12QStyleOption',
+        self._addressOf(option),
     )

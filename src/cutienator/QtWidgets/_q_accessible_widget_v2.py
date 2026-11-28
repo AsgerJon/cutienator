@@ -55,12 +55,16 @@ class QAccessibleWidgetV2(QAccessibleWidget, QAccessibleAttributesInterface):
 
   - Qt's 'QAccessibleWidgetV2::~QAccessibleWidgetV2()': the destructor:
     Python never removes a C++ QAccessibleWidgetV2.
+  - Qt's 'void
+    *QAccessibleWidgetV2::interface_cast(QAccessible::InterfaceType t)':
+    gives 'void', which has no cute class yet.
+  - Qt's 'QList<QAccessible::Attribute> QAccessibleWidgetV2::attributeKeys()
+    const': gives a type Python has no way to take yet.
 
   What has no ritual
   ------------------
 
-  4 of the 8 functions Qt declares: 2 takes or gives a type that cannot be
-  passed yet; 2 forbidden.
+  2 of the 8 functions Qt declares: 2 forbidden.
 
   What to expect
   --------------
@@ -143,7 +147,7 @@ class QAccessibleWidgetV2(QAccessibleWidget, QAccessibleAttributesInterface):
       ritual = (
           'ritual_own_ZNK19QAccessibleWidgetV214attributeValueEN11QAccessib'
           'le9AttributeE')
-    address = self.uglySide.call(ritual, key.value)
+    address = self._callAs('QAccessibleWidgetV2', ritual, key.value)
     from ..QtCore import QVariant
     return QVariant._cuteOwning(address)
 

@@ -22,7 +22,7 @@ from ..QtCore import QObject
 from . import QLabel, QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from ..QtCore import QEvent, QMetaObject, QPoint, QRect, QTimerEvent
   from ..QtGui import QMouseEvent, QPaintEvent, QResizeEvent, QScreen
@@ -65,14 +65,18 @@ class QTipLabel(QLabel):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QTipLabel::qt_metacast(const char *a0)': one of Qt's own
+    inner workings.
+  - Qt's 'int QTipLabel::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
   - Qt's 'QTipLabel::~QTipLabel()': the destructor: Python never removes a
     C++ QTipLabel.
 
   What has no ritual
   ------------------
 
-  5 of the 24 functions Qt declares: 2 takes or gives a type that cannot be
-  passed yet; 2 declared and nowhere to be found; 1 a template.
+  3 of the 24 functions Qt declares: 2 not a gap; 1 cannot be called and
+  cannot be called through the meta-object and cannot be copied.
 
   What to expect
   --------------
@@ -87,6 +91,9 @@ class QTipLabel(QLabel):
   - Qt tells when it has removed the C++ QTipLabel. Every call on the cute
     object, and every use of it as an argument, then raises 'RuntimeError',
     and nothing reaches C++.
+  - Each name of Qt's QTipLabel that has no cute function yet,
+    'adjustTooltipScreen', holds a function that raises
+    'NotImplementedError', and its docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -565,3 +572,24 @@ class QTipLabel(QLabel):
     """
     #  void QTipLabel::styleSheetParentDestroyed()
     self.uglySide.call('ritual_ZN9QTipLabel25styleSheetParentDestroyedEv')
+
+  @staticmethod
+  def adjustTooltipScreen(*__, **_) -> Never:
+    """
+    Qt's 'void QTipLabel::adjustTooltipScreen(const QPoint &pos)': cannot be
+    called and cannot be called through the meta-object and cannot be copied:
+    no header file has its code, Qt's source does not mark it or its class
+    for use from outside Qt or writes it 'inline' or nowhere, and it is no
+    signal, slot or invokable function giving back nothing, of a class built
+    on QObject, and Qt's source has no code for it that could be told from
+    the rest.
+    """
+    raise NotImplementedError(
+        "'QTipLabel.adjustTooltipScreen' has no cute function yet. Qt's "
+        "'void QTipLabel::adjustTooltipScreen(const QPoint &pos)': cannot "
+        "be called and cannot be called through the meta-object and cannot "
+        "be copied: no header file has its code, Qt's source does not mark "
+        "it or its class for use from outside Qt or writes it 'inline' or "
+        "nowhere, and it is no signal, slot or invokable function giving "
+        "back nothing, of a class built on QObject, and Qt's source has no "
+        "code for it that could be told from the rest.")

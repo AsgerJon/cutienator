@@ -11,6 +11,9 @@ from typing import TYPE_CHECKING
 
 from ..cute import CuteMixin, MetaCute
 
+if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Never
+
 
 class QDebugStateSaver(CuteMixin, metaclass=MetaCute):
   """
@@ -26,14 +29,15 @@ class QDebugStateSaver(CuteMixin, metaclass=MetaCute):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'QDebugStateSaver::QDebugStateSaver(QDebug &dbg)': takes a type
+    Python has no way to hand over yet.
   - Qt's 'QDebugStateSaver::~QDebugStateSaver()': the destructor: Python
     never removes a C++ QDebugStateSaver.
 
   What has no ritual
   ------------------
 
-  3 of the 4 functions Qt declares: 2 forbidden; 1 takes or gives a type that
-  cannot be passed yet.
+  2 of the 4 functions Qt declares: 2 forbidden.
 
   What to expect
   --------------
@@ -46,6 +50,9 @@ class QDebugStateSaver(CuteMixin, metaclass=MetaCute):
     has it, and is passed on as nothing. Whether Qt can do with nothing there
     is as in C++.
   - Python never removes the C++ QDebugStateSaver.
+  - Each name of Qt's QDebugStateSaver that has no cute function yet,
+    '__init__', holds a function that raises 'NotImplementedError', and its
+    docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -87,6 +94,17 @@ class QDebugStateSaver(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def __init__(*__, **_) -> Never:
+    """
+    Qt's 'QDebugStateSaver::QDebugStateSaver(QDebug &dbg)': takes a type
+    Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QDebugStateSaver.__init__' has no cute function yet. Qt's "
+        "'QDebugStateSaver::QDebugStateSaver(QDebug &dbg)': takes a type "
+        "Python has no way to hand over yet.")
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #

@@ -12,8 +12,9 @@ from typing import TYPE_CHECKING
 from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin, MetaCute
+from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
+from . import QtPrivate, Qt
 
 
 class QPartialOrdering(CuteMixin, metaclass=MetaCute):
@@ -29,26 +30,47 @@ class QPartialOrdering(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QPartialOrdering that has a ritual and that Python
-  can call so far, 3 names in all: '__eq__', '__ne__', 'isOrdered'. None can
-  be made from Python: one comes out of a function of another class that
-  gives one back.
+  can call so far, 7 names in all: '__eq__', '__ne__', '__lt__', '__le__',
+  '__gt__', '__ge__', 'isOrdered'. It can be made from Python, in 5 ways; see
+  '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
-  - Qt's 'QPartialOrdering::QPartialOrdering(QtPrivate::Ordering order)':
-    names the enum 'QtPrivate::Ordering', whose class cannot be named here.
-  - Qt's 'QPartialOrdering::QPartialOrdering(QtPrivate::LegacyUncomparable
-    order)': names the enum 'QtPrivate::LegacyUncomparable', whose class
-    cannot be named here.
+  - Qt's 'bool operator==(QtPrivate::CompareAgainstLiteralZero a0,
+    QPartialOrdering rhs)': takes in Python what 'bool
+    operator==(QPartialOrdering lhs, QtPrivate::CompareAgainstLiteralZero
+    a1)' takes.
+  - Qt's 'bool operator!=(QtPrivate::CompareAgainstLiteralZero a0,
+    QPartialOrdering rhs)': takes in Python what 'bool
+    operator!=(QPartialOrdering lhs, QtPrivate::CompareAgainstLiteralZero
+    a1)' takes.
+  - Qt's 'bool operator<(QtPrivate::CompareAgainstLiteralZero a0,
+    QPartialOrdering rhs)': takes in Python what 'bool
+    operator>(QPartialOrdering lhs, QtPrivate::CompareAgainstLiteralZero a1)'
+    takes.
+  - Qt's 'bool operator<=(QtPrivate::CompareAgainstLiteralZero a0,
+    QPartialOrdering rhs)': takes in Python what 'bool
+    operator>=(QPartialOrdering lhs, QtPrivate::CompareAgainstLiteralZero
+    a1)' takes.
+  - Qt's 'bool operator>(QtPrivate::CompareAgainstLiteralZero a0,
+    QPartialOrdering rhs)': takes in Python what 'bool
+    operator<(QPartialOrdering lhs, QtPrivate::CompareAgainstLiteralZero a1)'
+    takes.
+  - Qt's 'bool operator>=(QtPrivate::CompareAgainstLiteralZero a0,
+    QPartialOrdering rhs)': takes in Python what 'bool
+    operator<=(QPartialOrdering lhs, QtPrivate::CompareAgainstLiteralZero
+    a1)' takes.
+  - Qt's 'Qt::partial_ordering QPartialOrdering::operator partial_ordering()
+    const': an operator Python has no name for.
+  - Qt's 'bool operator==(Qt::partial_ordering lhs, QPartialOrdering rhs)':
+    takes in Python what 'bool operator==(QPartialOrdering lhs,
+    Qt::partial_ordering rhs)' takes.
+  - Qt's 'bool operator!=(Qt::partial_ordering lhs, QPartialOrdering rhs)':
+    takes in Python what 'bool operator!=(QPartialOrdering lhs,
+    Qt::partial_ordering rhs)' takes.
   - Qt's 'QPartialOrdering::~QPartialOrdering()': the destructor: Python
     removes its C++ QPartialOrdering by it, and has no other use for it.
-
-  What has no ritual
-  ------------------
-
-  20 of the 26 functions Qt declares: 20 takes or gives a type that cannot be
-  passed yet.
 
   What to expect
   --------------
@@ -114,6 +136,29 @@ class QPartialOrdering(CuteMixin, metaclass=MetaCute):
   #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  @overload(WAIT['QtPrivate.CompareAgainstLiteralZero'])
+  def __eq__(self, a1: QtPrivate.CompareAgainstLiteralZero) -> bool:
+    """
+    Calls Qt's 'bool operator==(QPartialOrdering lhs,
+    QtPrivate::CompareAgainstLiteralZero a1)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpartialordering.html#operator==
+
+    Parameters
+    ----------
+
+    a1 : QtPrivate.CompareAgainstLiteralZero
+      Passed on as a value: Qt reads the C++
+      QtPrivate::CompareAgainstLiteralZero, which stays Python's own.
+    """
+    #  bool operator==(QPartialOrdering lhs,
+    #      QtPrivate::CompareAgainstLiteralZero a1)
+    return Rituals.call(
+        'ritual_Zeq16QPartialOrderingN9QtPrivate25CompareAgainstLiteralZero'
+        'E',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(a1),
+    )
+
   @overload(THIS)
   def __eq__(self, rhs: QPartialOrdering) -> bool:
     """
@@ -134,6 +179,27 @@ class QPartialOrdering(CuteMixin, metaclass=MetaCute):
         CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
     )
 
+  @overload(WAIT['Qt.partial_ordering'])
+  def __eq__(self, rhs: Qt.partial_ordering) -> bool:
+    """
+    Calls Qt's 'bool operator==(QPartialOrdering lhs, Qt::partial_ordering
+    rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpartialordering.html#operator==
+
+    Parameters
+    ----------
+
+    rhs : Qt.partial_ordering
+      Passed on as a value: Qt reads the C++ Qt::partial_ordering, which
+      stays Python's own.
+    """
+    #  bool operator==(QPartialOrdering lhs, Qt::partial_ordering rhs)
+    return Rituals.call(
+        'ritual_Zeq16QPartialOrderingN2Qt16partial_orderingE',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
   @overload.fallback
   def __eq__(self, *args: object) -> object:
     """
@@ -142,6 +208,29 @@ class QPartialOrdering(CuteMixin, metaclass=MetaCute):
     other side of the operator.
     """
     return NotImplemented
+
+  @overload(WAIT['QtPrivate.CompareAgainstLiteralZero'])
+  def __ne__(self, a1: QtPrivate.CompareAgainstLiteralZero) -> bool:
+    """
+    Calls Qt's 'bool operator!=(QPartialOrdering lhs,
+    QtPrivate::CompareAgainstLiteralZero a1)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpartialordering.html#operator!=
+
+    Parameters
+    ----------
+
+    a1 : QtPrivate.CompareAgainstLiteralZero
+      Passed on as a value: Qt reads the C++
+      QtPrivate::CompareAgainstLiteralZero, which stays Python's own.
+    """
+    #  bool operator!=(QPartialOrdering lhs,
+    #      QtPrivate::CompareAgainstLiteralZero a1)
+    return Rituals.call(
+        'ritual_Zne16QPartialOrderingN9QtPrivate25CompareAgainstLiteralZero'
+        'E',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(a1),
+    )
 
   @overload(THIS)
   def __ne__(self, rhs: QPartialOrdering) -> bool:
@@ -163,8 +252,157 @@ class QPartialOrdering(CuteMixin, metaclass=MetaCute):
         CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
     )
 
+  @overload(WAIT['Qt.partial_ordering'])
+  def __ne__(self, rhs: Qt.partial_ordering) -> bool:
+    """
+    Calls Qt's 'bool operator!=(QPartialOrdering lhs, Qt::partial_ordering
+    rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpartialordering.html#operator!=
+
+    Parameters
+    ----------
+
+    rhs : Qt.partial_ordering
+      Passed on as a value: Qt reads the C++ Qt::partial_ordering, which
+      stays Python's own.
+    """
+    #  bool operator!=(QPartialOrdering lhs, Qt::partial_ordering rhs)
+    return Rituals.call(
+        'ritual_Zne16QPartialOrderingN2Qt16partial_orderingE',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
   @overload.fallback
   def __ne__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(WAIT['QtPrivate.CompareAgainstLiteralZero'])
+  def __lt__(self, a1: QtPrivate.CompareAgainstLiteralZero) -> bool:
+    """
+    Calls Qt's 'bool operator<(QPartialOrdering lhs,
+    QtPrivate::CompareAgainstLiteralZero a1)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpartialordering.html#operator<
+
+    Parameters
+    ----------
+
+    a1 : QtPrivate.CompareAgainstLiteralZero
+      Passed on as a value: Qt reads the C++
+      QtPrivate::CompareAgainstLiteralZero, which stays Python's own.
+    """
+    #  bool operator<(QPartialOrdering lhs,
+    #      QtPrivate::CompareAgainstLiteralZero a1)
+    return Rituals.call(
+        'ritual_Zlt16QPartialOrderingN9QtPrivate25CompareAgainstLiteralZero'
+        'E',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(a1),
+    )
+
+  @overload.fallback
+  def __lt__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(WAIT['QtPrivate.CompareAgainstLiteralZero'])
+  def __le__(self, a1: QtPrivate.CompareAgainstLiteralZero) -> bool:
+    """
+    Calls Qt's 'bool operator<=(QPartialOrdering lhs,
+    QtPrivate::CompareAgainstLiteralZero a1)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpartialordering.html#operator<=
+
+    Parameters
+    ----------
+
+    a1 : QtPrivate.CompareAgainstLiteralZero
+      Passed on as a value: Qt reads the C++
+      QtPrivate::CompareAgainstLiteralZero, which stays Python's own.
+    """
+    #  bool operator<=(QPartialOrdering lhs,
+    #      QtPrivate::CompareAgainstLiteralZero a1)
+    return Rituals.call(
+        'ritual_Zle16QPartialOrderingN9QtPrivate25CompareAgainstLiteralZero'
+        'E',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(a1),
+    )
+
+  @overload.fallback
+  def __le__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(WAIT['QtPrivate.CompareAgainstLiteralZero'])
+  def __gt__(self, a1: QtPrivate.CompareAgainstLiteralZero) -> bool:
+    """
+    Calls Qt's 'bool operator>(QPartialOrdering lhs,
+    QtPrivate::CompareAgainstLiteralZero a1)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpartialordering.html#operator>
+
+    Parameters
+    ----------
+
+    a1 : QtPrivate.CompareAgainstLiteralZero
+      Passed on as a value: Qt reads the C++
+      QtPrivate::CompareAgainstLiteralZero, which stays Python's own.
+    """
+    #  bool operator>(QPartialOrdering lhs,
+    #      QtPrivate::CompareAgainstLiteralZero a1)
+    return Rituals.call(
+        'ritual_Zgt16QPartialOrderingN9QtPrivate25CompareAgainstLiteralZero'
+        'E',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(a1),
+    )
+
+  @overload.fallback
+  def __gt__(self, *args: object) -> object:
+    """
+    Tells Python that no function of this name takes what it was
+    handed, with Python's own word for it. Python then asks the
+    other side of the operator.
+    """
+    return NotImplemented
+
+  @overload(WAIT['QtPrivate.CompareAgainstLiteralZero'])
+  def __ge__(self, a1: QtPrivate.CompareAgainstLiteralZero) -> bool:
+    """
+    Calls Qt's 'bool operator>=(QPartialOrdering lhs,
+    QtPrivate::CompareAgainstLiteralZero a1)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpartialordering.html#operator>=
+
+    Parameters
+    ----------
+
+    a1 : QtPrivate.CompareAgainstLiteralZero
+      Passed on as a value: Qt reads the C++
+      QtPrivate::CompareAgainstLiteralZero, which stays Python's own.
+    """
+    #  bool operator>=(QPartialOrdering lhs,
+    #      QtPrivate::CompareAgainstLiteralZero a1)
+    return Rituals.call(
+        'ritual_Zge16QPartialOrderingN9QtPrivate25CompareAgainstLiteralZero'
+        'E',
+        CuteMixin._valueOf(self), CuteMixin._valueOf(a1),
+    )
+
+  @overload.fallback
+  def __ge__(self, *args: object) -> object:
     """
     Tells Python that no function of this name takes what it was
     handed, with Python's own word for it. Python then asks the
@@ -175,6 +413,119 @@ class QPartialOrdering(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(WAIT['Qt.partial_ordering'])
+  def __init__(self, order: Qt.partial_ordering) -> None:
+    """
+    Notes what was given, for Qt's
+    'QPartialOrdering::QPartialOrdering(Qt::partial_ordering order)', which
+    is called at the first use.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qpartialordering.html#QPartialOrdering
+
+    Parameters
+    ----------
+
+    order : Qt.partial_ordering
+      Passed on as a value: Qt reads the C++ Qt::partial_ordering, which
+      stays Python's own.
+    """
+    #  QPartialOrdering::QPartialOrdering(Qt::partial_ordering order)
+    self._noteCreation(QPartialOrdering, lambda: Rituals.call(
+        'ritual_ZN16QPartialOrderingC1EN2Qt16partial_orderingE',
+        self._valueOf(order),
+    ))
+
+  @overload(WAIT['Qt.weak_ordering'])
+  def __init__(self, stdorder: Qt.weak_ordering) -> None:
+    """
+    Notes what was given, for Qt's
+    'QPartialOrdering::QPartialOrdering(Qt::weak_ordering stdorder)', which
+    is called at the first use.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qpartialordering.html#QPartialOrdering
+
+    Parameters
+    ----------
+
+    stdorder : Qt.weak_ordering
+      Passed on as a value: Qt reads the C++ Qt::weak_ordering, which stays
+      Python's own.
+    """
+    #  QPartialOrdering::QPartialOrdering(Qt::weak_ordering stdorder)
+    self._noteCreation(QPartialOrdering, lambda: Rituals.call(
+        'ritual_ZN16QPartialOrderingC1EN2Qt13weak_orderingE',
+        self._valueOf(stdorder),
+    ))
+
+  @overload(WAIT['Qt.strong_ordering'])
+  def __init__(self, stdorder: Qt.strong_ordering) -> None:
+    """
+    Notes what was given, for Qt's
+    'QPartialOrdering::QPartialOrdering(Qt::strong_ordering stdorder)', which
+    is called at the first use.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qpartialordering.html#QPartialOrdering
+
+    Parameters
+    ----------
+
+    stdorder : Qt.strong_ordering
+      Passed on as a value: Qt reads the C++ Qt::strong_ordering, which stays
+      Python's own.
+    """
+    #  QPartialOrdering::QPartialOrdering(Qt::strong_ordering stdorder)
+    self._noteCreation(QPartialOrdering, lambda: Rituals.call(
+        'ritual_ZN16QPartialOrderingC1EN2Qt15strong_orderingE',
+        self._valueOf(stdorder),
+    ))
+
+  @overload(QtPrivate.Ordering)
+  def __init__(self, order: QtPrivate.Ordering) -> None:
+    """
+    Notes what was given, for Qt's
+    'QPartialOrdering::QPartialOrdering(QtPrivate::Ordering order)', which is
+    called at the first use.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qpartialordering.html#QPartialOrdering
+
+    Parameters
+    ----------
+
+    order : QtPrivate.Ordering
+      Passed on as its number.
+    """
+    #  QPartialOrdering::QPartialOrdering(QtPrivate::Ordering order)
+    self._noteCreation(QPartialOrdering, lambda: Rituals.call(
+        'ritual_ZN16QPartialOrderingC1EN9QtPrivate8OrderingE', order.value,
+    ))
+
+  @overload(QtPrivate.LegacyUncomparable)
+  def __init__(self, order: QtPrivate.LegacyUncomparable) -> None:
+    """
+    Notes what was given, for Qt's
+    'QPartialOrdering::QPartialOrdering(QtPrivate::LegacyUncomparable
+    order)', which is called at the first use.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qpartialordering.html#QPartialOrdering
+
+    Parameters
+    ----------
+
+    order : QtPrivate.LegacyUncomparable
+      Passed on as its number.
+    """
+    #  QPartialOrdering::QPartialOrdering(QtPrivate::LegacyUncomparable
+    #      order)
+    self._noteCreation(QPartialOrdering, lambda: Rituals.call(
+        'ritual_ZN16QPartialOrderingC1EN9QtPrivate18LegacyUncomparableE',
+        order.value,
+    ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #

@@ -17,6 +17,9 @@ from ..cute import CuteMixin, CuteFlags, CuteNum, MetaCute
 from ..occult import Rituals
 from ..QtCore import Qt
 
+if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Never
+
 
 class QTextOption(CuteMixin, metaclass=MetaCute):
   """
@@ -41,12 +44,16 @@ class QTextOption(CuteMixin, metaclass=MetaCute):
 
   - Qt's 'QTextOption::~QTextOption()': the destructor: Python removes its
     C++ QTextOption by it, and has no other use for it.
-
-  What has no ritual
-  ------------------
-
-  5 of the 21 functions Qt declares: 5 takes or gives a type that cannot be
-  passed yet.
+  - Qt's 'QTextOption &QTextOption::operator=(const QTextOption &o)':
+    assignment: Python binds a name and has no operator for it.
+  - Qt's 'void QTextOption::setTabArray(const QList<qreal> &tabStops)': takes
+    a type Python has no way to hand over yet.
+  - Qt's 'QList<qreal> QTextOption::tabArray() const': gives a type Python
+    has no way to take yet.
+  - Qt's 'void QTextOption::setTabs(const QList<Tab> &tabStops)': takes a
+    type Python has no way to hand over yet.
+  - Qt's 'QList<Tab> QTextOption::tabs() const': gives a type Python has no
+    way to take yet.
 
   What to expect
   --------------
@@ -60,6 +67,9 @@ class QTextOption(CuteMixin, metaclass=MetaCute):
     is as in C++.
   - A function giving a QTextOption back gives a copy the ritual made for
     Python, in a new cute QTextOption.
+  - Each name of Qt's QTextOption that has no cute function yet,
+    'setTabArray', 'setTabs', 'tabArray', 'tabs', holds a function that
+    raises 'NotImplementedError', and its docstring says why.
   """
 
   #  The enums Qt writes inside QTextOption, each a class in here as in C++,
@@ -595,3 +605,47 @@ class QTextOption(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def setTabArray(*__, **_) -> Never:
+    """
+    Qt's 'void QTextOption::setTabArray(const QList<qreal> &tabStops)': takes
+    a type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QTextOption.setTabArray' has no cute function yet. Qt's 'void "
+        "QTextOption::setTabArray(const QList<qreal> &tabStops)': takes a "
+        "type Python has no way to hand over yet.")
+
+  @staticmethod
+  def setTabs(*__, **_) -> Never:
+    """
+    Qt's 'void QTextOption::setTabs(const QList<Tab> &tabStops)': takes a
+    type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QTextOption.setTabs' has no cute function yet. Qt's 'void "
+        "QTextOption::setTabs(const QList<Tab> &tabStops)': takes a type "
+        "Python has no way to hand over yet.")
+
+  @staticmethod
+  def tabArray(*__, **_) -> Never:
+    """
+    Qt's 'QList<qreal> QTextOption::tabArray() const': gives a type Python
+    has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QTextOption.tabArray' has no cute function yet. Qt's "
+        "'QList<qreal> QTextOption::tabArray() const': gives a type Python "
+        "has no way to take yet.")
+
+  @staticmethod
+  def tabs(*__, **_) -> Never:
+    """
+    Qt's 'QList<Tab> QTextOption::tabs() const': gives a type Python has no
+    way to take yet.
+    """
+    raise NotImplementedError(
+        "'QTextOption.tabs' has no cute function yet. Qt's 'QList<Tab> "
+        "QTextOption::tabs() const': gives a type Python has no way to take "
+        "yet.")

@@ -36,14 +36,17 @@ class QIconDragEvent(QEvent):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'QIconDragEvent::QIconDragEvent(const QIconDragEvent &a0)': takes a
+    type Python has no way to hand over yet.
+  - Qt's 'QIconDragEvent &QIconDragEvent::operator=(const QIconDragEvent
+    &other)': assignment: Python binds a name and has no operator for it.
   - Qt's 'QIconDragEvent::~QIconDragEvent()': the destructor: Python never
     removes a C++ QIconDragEvent.
 
   What has no ritual
   ------------------
 
-  4 of the 7 functions Qt declares: 2 takes or gives a type that cannot be
-  passed yet; 2 forbidden.
+  2 of the 7 functions Qt declares: 2 forbidden.
 
   What to expect
   --------------

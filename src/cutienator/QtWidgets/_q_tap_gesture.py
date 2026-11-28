@@ -20,6 +20,7 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
   from ..QtCore import QMetaObject, QPointF
+  from . import QTapGesturePrivate
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -43,20 +44,25 @@ class QTapGesture(QGesture):
   -----------
 
   Every function of Qt's QTapGesture that has a ritual and that Python can
-  call so far, 4 names in all: 'metaObject', 'tr', 'position', 'setPosition'.
-  It can be made from Python, in 1 way; see '__init__'.
+  call so far, 5 names in all: 'metaObject', 'tr', 'd_func', 'position',
+  'setPosition'. It can be made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QTapGesture::qt_metacast(const char *a0)': one of Qt's own
+    inner workings.
+  - Qt's 'int QTapGesture::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
+  - Qt's 'const QTapGesturePrivate *QTapGesture::d_func() const': takes in
+    Python what 'QTapGesturePrivate *QTapGesture::d_func()' takes.
   - Qt's 'QTapGesture::~QTapGesture()': the destructor: Python never removes
     a C++ QTapGesture.
 
   What has no ritual
   ------------------
 
-  6 of the 12 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet; 1 a template; 1 declared and nowhere to be found.
+  2 of the 12 functions Qt declares: 2 not a gap.
 
   What to expect
   --------------
@@ -201,7 +207,8 @@ class QTapGesture(QGesture):
     """
     #  void QTapGesture::setPosition(const QPointF &pos)
     self.uglySide.call(
-        'ritual_ZN11QTapGesture11setPositionERK7QPointF', self._valueOf(pos),
+        'ritual_ZN11QTapGesture11setPositionERK7QPointF',
+        self._valueOf(pos, 'QPointF'),
     )
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -258,3 +265,21 @@ class QTapGesture(QGesture):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  def d_func(self) -> Optional[QTapGesturePrivate]:
+    """
+    Calls Qt's 'QTapGesturePrivate *QTapGesture::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtapgesture.html#d_func
+
+    Returns
+    -------
+
+    Optional[QTapGesturePrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QTapGesturePrivate *QTapGesture::d_func()
+    address = self.uglySide.call('ritual_ZN11QTapGesture6d_funcEv')
+    from . import QTapGesturePrivate
+    return QTapGesturePrivate._cuteAt(address)

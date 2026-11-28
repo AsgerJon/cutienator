@@ -18,7 +18,7 @@ from ..occult import Rituals
 from ..QtCore import Qt
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from ..QtCore import QSizeF
   from . import QFont, QTextOption, QTransform
@@ -52,14 +52,14 @@ class QStaticText(CuteMixin, metaclass=MetaCute):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'QStaticText &QStaticText::operator=(QStaticText &&other)':
+    assignment: Python binds a name and has no operator for it.
+  - Qt's 'QStaticText &QStaticText::operator=(const QStaticText &a0)':
+    assignment: Python binds a name and has no operator for it.
   - Qt's 'QStaticText::~QStaticText()': the destructor: Python removes its
     C++ QStaticText by it, and has no other use for it.
-
-  What has no ritual
-  ------------------
-
-  3 of the 22 functions Qt declares: 3 takes or gives a type that cannot be
-  passed yet.
+  - Qt's 'void QStaticText::swap(QStaticText &other)': takes a type Python
+    has no way to hand over yet.
 
   What to expect
   --------------
@@ -73,6 +73,9 @@ class QStaticText(CuteMixin, metaclass=MetaCute):
     is as in C++.
   - A function giving a QStaticText back gives a copy the ritual made for
     Python, in a new cute QStaticText.
+  - Each name of Qt's QStaticText that has no cute function yet, 'swap',
+    holds a function that raises 'NotImplementedError', and its docstring
+    says why.
   """
 
   #  The enums Qt writes inside QStaticText, each a class in here as in C++,
@@ -493,3 +496,14 @@ class QStaticText(CuteMixin, metaclass=MetaCute):
     """
     #  void QStaticText::detach()
     self.uglySide.call('ritual_ZN11QStaticText6detachEv')
+
+  @staticmethod
+  def swap(*__, **_) -> Never:
+    """
+    Qt's 'void QStaticText::swap(QStaticText &other)': takes a type Python
+    has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QStaticText.swap' has no cute function yet. Qt's 'void "
+        "QStaticText::swap(QStaticText &other)': takes a type Python has no "
+        "way to hand over yet.")

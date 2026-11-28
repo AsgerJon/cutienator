@@ -95,7 +95,7 @@ class QMargins(CuteMixin, metaclass=MetaCute):
     Qt's own words: https://doc.qt.io/qt-6/qmargins.html#isNull
     """
     #  bool QMargins::isNull() const
-    return self.uglySide.call('ritual_ZNK8QMargins6isNullEv')
+    return self._callAs('QMargins', 'ritual_ZNK8QMargins6isNullEv')
 
   def left(self) -> int:
     """
@@ -104,7 +104,7 @@ class QMargins(CuteMixin, metaclass=MetaCute):
     Qt's own words: https://doc.qt.io/qt-6/qmargins.html#left
     """
     #  int QMargins::left() const
-    return self.uglySide.call('ritual_ZNK8QMargins4leftEv')
+    return self._callAs('QMargins', 'ritual_ZNK8QMargins4leftEv')
 
   def top(self) -> int:
     """
@@ -113,7 +113,7 @@ class QMargins(CuteMixin, metaclass=MetaCute):
     Qt's own words: https://doc.qt.io/qt-6/qmargins.html#top
     """
     #  int QMargins::top() const
-    return self.uglySide.call('ritual_ZNK8QMargins3topEv')
+    return self._callAs('QMargins', 'ritual_ZNK8QMargins3topEv')
 
   def right(self) -> int:
     """
@@ -122,7 +122,7 @@ class QMargins(CuteMixin, metaclass=MetaCute):
     Qt's own words: https://doc.qt.io/qt-6/qmargins.html#right
     """
     #  int QMargins::right() const
-    return self.uglySide.call('ritual_ZNK8QMargins5rightEv')
+    return self._callAs('QMargins', 'ritual_ZNK8QMargins5rightEv')
 
   def bottom(self) -> int:
     """
@@ -131,7 +131,7 @@ class QMargins(CuteMixin, metaclass=MetaCute):
     Qt's own words: https://doc.qt.io/qt-6/qmargins.html#bottom
     """
     #  int QMargins::bottom() const
-    return self.uglySide.call('ritual_ZNK8QMargins6bottomEv')
+    return self._callAs('QMargins', 'ritual_ZNK8QMargins6bottomEv')
 
   def toMarginsF(self) -> QMarginsF:
     """
@@ -146,7 +146,7 @@ class QMargins(CuteMixin, metaclass=MetaCute):
       A new cute QMarginsF around the copy Qt gave back. Python owns it.
     """
     #  QMarginsF QMargins::toMarginsF() const
-    address = self.uglySide.call('ritual_ZNK8QMargins10toMarginsFEv')
+    address = self._callAs('QMargins', 'ritual_ZNK8QMargins10toMarginsFEv')
     from . import QMarginsF
     return QMarginsF._cuteOwning(address)
 
@@ -168,7 +168,7 @@ class QMargins(CuteMixin, metaclass=MetaCute):
       Passed on as it is.
     """
     #  void QMargins::setLeft(int left)
-    self.uglySide.call('ritual_ZN8QMargins7setLeftEi', left)
+    self._callAs('QMargins', 'ritual_ZN8QMargins7setLeftEi', left)
 
   @overload(int)
   def setTop(self, top: int) -> None:
@@ -184,7 +184,7 @@ class QMargins(CuteMixin, metaclass=MetaCute):
       Passed on as it is.
     """
     #  void QMargins::setTop(int top)
-    self.uglySide.call('ritual_ZN8QMargins6setTopEi', top)
+    self._callAs('QMargins', 'ritual_ZN8QMargins6setTopEi', top)
 
   @overload(int)
   def setRight(self, right: int) -> None:
@@ -200,7 +200,7 @@ class QMargins(CuteMixin, metaclass=MetaCute):
       Passed on as it is.
     """
     #  void QMargins::setRight(int right)
-    self.uglySide.call('ritual_ZN8QMargins8setRightEi', right)
+    self._callAs('QMargins', 'ritual_ZN8QMargins8setRightEi', right)
 
   @overload(int)
   def setBottom(self, bottom: int) -> None:
@@ -216,7 +216,7 @@ class QMargins(CuteMixin, metaclass=MetaCute):
       Passed on as it is.
     """
     #  void QMargins::setBottom(int bottom)
-    self.uglySide.call('ritual_ZN8QMargins9setBottomEi', bottom)
+    self._callAs('QMargins', 'ritual_ZN8QMargins9setBottomEi', bottom)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NOTIFIERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -241,7 +241,10 @@ class QMargins(CuteMixin, metaclass=MetaCute):
       own.
     """
     #  QMargins &QMargins::operator+=(const QMargins &margins)
-    self.uglySide.call('ritual_ZN8QMarginspLERKS_', self._valueOf(margins))
+    self._callAs(
+        'QMargins', 'ritual_ZN8QMarginspLERKS_',
+        self._valueOf(margins, 'QMargins'),
+    )
     return self
 
   @overload(int)
@@ -258,7 +261,7 @@ class QMargins(CuteMixin, metaclass=MetaCute):
       Passed on as it is.
     """
     #  QMargins &QMargins::operator+=(int a0)
-    self.uglySide.call('ritual_ZN8QMarginspLEi', a0)
+    self._callAs('QMargins', 'ritual_ZN8QMarginspLEi', a0)
     return self
 
   @overload.fallback
@@ -285,7 +288,10 @@ class QMargins(CuteMixin, metaclass=MetaCute):
       own.
     """
     #  QMargins &QMargins::operator-=(const QMargins &margins)
-    self.uglySide.call('ritual_ZN8QMarginsmIERKS_', self._valueOf(margins))
+    self._callAs(
+        'QMargins', 'ritual_ZN8QMarginsmIERKS_',
+        self._valueOf(margins, 'QMargins'),
+    )
     return self
 
   @overload(int)
@@ -302,7 +308,7 @@ class QMargins(CuteMixin, metaclass=MetaCute):
       Passed on as it is.
     """
     #  QMargins &QMargins::operator-=(int a0)
-    self.uglySide.call('ritual_ZN8QMarginsmIEi', a0)
+    self._callAs('QMargins', 'ritual_ZN8QMarginsmIEi', a0)
     return self
 
   @overload.fallback
@@ -328,7 +334,7 @@ class QMargins(CuteMixin, metaclass=MetaCute):
       Passed on as it is.
     """
     #  QMargins &QMargins::operator*=(int a0)
-    self.uglySide.call('ritual_ZN8QMarginsmLEi', a0)
+    self._callAs('QMargins', 'ritual_ZN8QMarginsmLEi', a0)
     return self
 
   @overload(float)
@@ -345,7 +351,7 @@ class QMargins(CuteMixin, metaclass=MetaCute):
       Passed on as it is.
     """
     #  QMargins &QMargins::operator*=(qreal a0)
-    self.uglySide.call('ritual_ZN8QMarginsmLEd', a0)
+    self._callAs('QMargins', 'ritual_ZN8QMarginsmLEd', a0)
     return self
 
   @overload.fallback
@@ -371,7 +377,7 @@ class QMargins(CuteMixin, metaclass=MetaCute):
       Passed on as it is.
     """
     #  QMargins &QMargins::operator/=(int a0)
-    self.uglySide.call('ritual_ZN8QMarginsdVEi', a0)
+    self._callAs('QMargins', 'ritual_ZN8QMarginsdVEi', a0)
     return self
 
   @overload(float)
@@ -388,7 +394,7 @@ class QMargins(CuteMixin, metaclass=MetaCute):
       Passed on as it is.
     """
     #  QMargins &QMargins::operator/=(qreal a0)
-    self.uglySide.call('ritual_ZN8QMarginsdVEd', a0)
+    self._callAs('QMargins', 'ritual_ZN8QMarginsdVEd', a0)
     return self
 
   @overload.fallback
@@ -423,7 +429,8 @@ class QMargins(CuteMixin, metaclass=MetaCute):
     #  QMargins operator+(const QMargins &m1, const QMargins &m2)
     address = Rituals.call(
         'ritual_ZplRK8QMarginsS1_',
-        CuteMixin._valueOf(self), CuteMixin._valueOf(m2),
+        CuteMixin._valueOf(self, 'QMargins'), CuteMixin._valueOf(m2,
+        'QMargins'),
     )
     return QMargins._cuteOwning(address)
 
@@ -448,7 +455,7 @@ class QMargins(CuteMixin, metaclass=MetaCute):
     """
     #  QMargins operator+(const QMargins &lhs, int rhs)
     address = Rituals.call(
-        'ritual_ZplRK8QMarginsi', CuteMixin._valueOf(self), rhs,
+        'ritual_ZplRK8QMarginsi', CuteMixin._valueOf(self, 'QMargins'), rhs,
     )
     return QMargins._cuteOwning(address)
 
@@ -484,7 +491,8 @@ class QMargins(CuteMixin, metaclass=MetaCute):
     #  QMargins operator-(const QMargins &m1, const QMargins &m2)
     address = Rituals.call(
         'ritual_ZmiRK8QMarginsS1_',
-        CuteMixin._valueOf(self), CuteMixin._valueOf(m2),
+        CuteMixin._valueOf(self, 'QMargins'), CuteMixin._valueOf(m2,
+        'QMargins'),
     )
     return QMargins._cuteOwning(address)
 
@@ -509,7 +517,7 @@ class QMargins(CuteMixin, metaclass=MetaCute):
     """
     #  QMargins operator-(const QMargins &lhs, int rhs)
     address = Rituals.call(
-        'ritual_ZmiRK8QMarginsi', CuteMixin._valueOf(self), rhs,
+        'ritual_ZmiRK8QMarginsi', CuteMixin._valueOf(self, 'QMargins'), rhs,
     )
     return QMargins._cuteOwning(address)
 
@@ -543,7 +551,7 @@ class QMargins(CuteMixin, metaclass=MetaCute):
     """
     #  QMargins operator+(int lhs, const QMargins &rhs)
     address = Rituals.call(
-        'ritual_ZpliRK8QMargins', lhs, CuteMixin._valueOf(self),
+        'ritual_ZpliRK8QMargins', lhs, CuteMixin._valueOf(self, 'QMargins'),
     )
     return QMargins._cuteOwning(address)
 
@@ -577,7 +585,8 @@ class QMargins(CuteMixin, metaclass=MetaCute):
     """
     #  QMargins operator*(const QMargins &margins, int factor)
     address = Rituals.call(
-        'ritual_ZmlRK8QMarginsi', CuteMixin._valueOf(self), factor,
+        'ritual_ZmlRK8QMarginsi',
+        CuteMixin._valueOf(self, 'QMargins'), factor,
     )
     return QMargins._cuteOwning(address)
 
@@ -602,7 +611,8 @@ class QMargins(CuteMixin, metaclass=MetaCute):
     """
     #  QMargins operator*(const QMargins &margins, qreal factor)
     address = Rituals.call(
-        'ritual_ZmlRK8QMarginsd', CuteMixin._valueOf(self), factor,
+        'ritual_ZmlRK8QMarginsd',
+        CuteMixin._valueOf(self, 'QMargins'), factor,
     )
     return QMargins._cuteOwning(address)
 
@@ -636,7 +646,8 @@ class QMargins(CuteMixin, metaclass=MetaCute):
     """
     #  QMargins operator*(int factor, const QMargins &margins)
     address = Rituals.call(
-        'ritual_ZmliRK8QMargins', factor, CuteMixin._valueOf(self),
+        'ritual_ZmliRK8QMargins',
+        factor, CuteMixin._valueOf(self, 'QMargins'),
     )
     return QMargins._cuteOwning(address)
 
@@ -661,7 +672,8 @@ class QMargins(CuteMixin, metaclass=MetaCute):
     """
     #  QMargins operator*(qreal factor, const QMargins &margins)
     address = Rituals.call(
-        'ritual_ZmldRK8QMargins', factor, CuteMixin._valueOf(self),
+        'ritual_ZmldRK8QMargins',
+        factor, CuteMixin._valueOf(self, 'QMargins'),
     )
     return QMargins._cuteOwning(address)
 
@@ -695,7 +707,8 @@ class QMargins(CuteMixin, metaclass=MetaCute):
     """
     #  QMargins operator/(const QMargins &margins, int divisor)
     address = Rituals.call(
-        'ritual_ZdvRK8QMarginsi', CuteMixin._valueOf(self), divisor,
+        'ritual_ZdvRK8QMarginsi',
+        CuteMixin._valueOf(self, 'QMargins'), divisor,
     )
     return QMargins._cuteOwning(address)
 
@@ -720,7 +733,8 @@ class QMargins(CuteMixin, metaclass=MetaCute):
     """
     #  QMargins operator/(const QMargins &margins, qreal divisor)
     address = Rituals.call(
-        'ritual_ZdvRK8QMarginsd', CuteMixin._valueOf(self), divisor,
+        'ritual_ZdvRK8QMarginsd',
+        CuteMixin._valueOf(self, 'QMargins'), divisor,
     )
     return QMargins._cuteOwning(address)
 
@@ -756,7 +770,8 @@ class QMargins(CuteMixin, metaclass=MetaCute):
     #  QMargins operator|(const QMargins &m1, const QMargins &m2)
     address = Rituals.call(
         'ritual_ZorRK8QMarginsS1_',
-        CuteMixin._valueOf(self), CuteMixin._valueOf(m2),
+        CuteMixin._valueOf(self, 'QMargins'), CuteMixin._valueOf(m2,
+        'QMargins'),
     )
     return QMargins._cuteOwning(address)
 
@@ -786,7 +801,8 @@ class QMargins(CuteMixin, metaclass=MetaCute):
     #  bool operator==(const QMargins &lhs, const QMargins &rhs)
     return Rituals.call(
         'ritual_ZeqRK8QMarginsS1_',
-        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+        CuteMixin._valueOf(self, 'QMargins'), CuteMixin._valueOf(rhs,
+        'QMargins'),
     )
 
   @overload.fallback
@@ -815,7 +831,8 @@ class QMargins(CuteMixin, metaclass=MetaCute):
     #  bool operator!=(const QMargins &lhs, const QMargins &rhs)
     return Rituals.call(
         'ritual_ZneRK8QMarginsS1_',
-        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+        CuteMixin._valueOf(self, 'QMargins'), CuteMixin._valueOf(rhs,
+        'QMargins'),
     )
 
   @overload.fallback

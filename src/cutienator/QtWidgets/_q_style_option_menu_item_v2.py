@@ -40,15 +40,12 @@ class QStyleOptionMenuItemV2(QStyleOptionMenuItem):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'QStyleOptionMenuItemV2 &QStyleOptionMenuItemV2::operator=(const
+    QStyleOptionMenuItemV2 &a0)': assignment: Python binds a name and has no
+    operator for it.
   - Qt's 'QStyleOptionMenuItemV2::~QStyleOptionMenuItemV2()': the destructor:
     Python removes its C++ QStyleOptionMenuItemV2 by it, and has no other use
     for it.
-
-  What has no ritual
-  ------------------
-
-  1 of the 5 functions Qt declares: 1 takes or gives a type that cannot be
-  passed yet.
 
   What to expect
   --------------

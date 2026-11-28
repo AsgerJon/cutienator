@@ -237,7 +237,7 @@ class QAccessibleAnnouncementEvent(QAccessibleEvent):
     self._noteCreation(QAccessibleAnnouncementEvent, lambda: Rituals.call(
         'ritual_ZN28QAccessibleAnnouncementEventC1EP20QAccessibleInterfaceR'
         'K7QString',
-        self._addressOf(iface), message,
+        self._addressOf(iface, 'QAccessibleInterface'), message,
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

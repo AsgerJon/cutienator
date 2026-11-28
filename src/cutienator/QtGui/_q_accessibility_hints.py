@@ -19,6 +19,7 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
   from ..QtCore import QEvent, QMetaObject
+  from . import QAccessibilityHintsPrivate
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -42,21 +43,28 @@ class QAccessibilityHints(QObject):
   -----------
 
   Every function of Qt's QAccessibilityHints that has a ritual and that
-  Python can call so far, 5 names in all: 'metaObject', 'tr',
-  'contrastPreference', 'motionPreference', 'event'. It can be made from
-  Python, in 1 way; see '__init__'.
+  Python can call so far, 8 names in all: 'metaObject', 'tr', 'd_func',
+  'contrastPreference', 'motionPreference', 'contrastPreferenceChanged',
+  'motionPreferenceChanged', 'event'. It can be made from Python, in 1 way;
+  see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QAccessibilityHints::qt_metacast(const char *a0)': one of
+    Qt's own inner workings.
+  - Qt's 'int QAccessibilityHints::qt_metacall(QMetaObject::Call a0, int a1,
+    void **a2)': one of Qt's own inner workings.
+  - Qt's 'const QAccessibilityHintsPrivate *QAccessibilityHints::d_func()
+    const': takes in Python what 'QAccessibilityHintsPrivate
+    *QAccessibilityHints::d_func()' takes.
   - Qt's 'QAccessibilityHints::~QAccessibilityHints()': the destructor:
     Python never removes a C++ QAccessibilityHints.
 
   What has no ritual
   ------------------
 
-  8 of the 15 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet; 2 a signal; 1 a template; 1 declared and nowhere to be found.
+  2 of the 15 functions Qt declares: 2 not a gap.
 
   What to expect
   --------------
@@ -269,6 +277,78 @@ class QAccessibilityHints(QObject):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  def d_func(self) -> Optional[QAccessibilityHintsPrivate]:
+    """
+    Calls Qt's 'QAccessibilityHintsPrivate *QAccessibilityHints::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qaccessibilityhints.html#d_func
+
+    Returns
+    -------
+
+    Optional[QAccessibilityHintsPrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QAccessibilityHintsPrivate *QAccessibilityHints::d_func()
+    address = self.uglySide.call('ritual_ZN19QAccessibilityHints6d_funcEv')
+    from . import QAccessibilityHintsPrivate
+    return QAccessibilityHintsPrivate._cuteAt(address)
+
+  @overload(Qt.ContrastPreference)
+  def contrastPreferenceChanged(
+      self,
+      contrastPreference: Qt.ContrastPreference,
+  ) -> None:
+    """
+    Calls Qt's 'void
+    QAccessibilityHints::contrastPreferenceChanged(Qt::ContrastPreference
+    contrastPreference)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qaccessibilityhints.html#contrastPreferenceChanged
+
+    Parameters
+    ----------
+
+    contrastPreference : Qt.ContrastPreference
+      Passed on as its number.
+    """
+    #  void QAccessibilityHints::contrastPreferenceChanged(Qt::
+    #      ContrastPreference contrastPreference)
+    self.uglySide.call(
+        'ritual_ZN19QAccessibilityHints25contrastPreferenceChangedEN2Qt18Co'
+        'ntrastPreferenceE',
+        contrastPreference.value,
+    )
+
+  @overload(Qt.MotionPreference)
+  def motionPreferenceChanged(
+      self,
+      motionPreference: Qt.MotionPreference,
+  ) -> None:
+    """
+    Calls Qt's 'void
+    QAccessibilityHints::motionPreferenceChanged(Qt::MotionPreference
+    motionPreference)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qaccessibilityhints.html#motionPreferenceChanged
+
+    Parameters
+    ----------
+
+    motionPreference : Qt.MotionPreference
+      Passed on as its number.
+    """
+    #  void QAccessibilityHints::motionPreferenceChanged(Qt::MotionPreference
+    #      motionPreference)
+    self.uglySide.call(
+        'ritual_ZN19QAccessibilityHints23motionPreferenceChangedEN2Qt16Moti'
+        'onPreferenceE',
+        motionPreference.value,
+    )
 
   @overload(QEvent)
   @overload(NoneType)

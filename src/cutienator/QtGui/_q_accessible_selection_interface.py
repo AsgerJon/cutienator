@@ -15,7 +15,7 @@ from ..cute import CuteMixin, MetaCute, WAIT
 from ..QtCore import QList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from . import QAccessibleInterface
 else:
@@ -53,7 +53,8 @@ class QAccessibleSelectionInterface(CuteMixin, metaclass=MetaCute):
   ------------------
 
   5 of the 14 functions Qt declares: 4 forbidden; 1 the class is abstract, so
-  C++ cannot make one.
+  C++ cannot make one, and the C++ class of ours does not fill in every
+  function it leaves open.
 
   What to expect
   --------------
@@ -66,6 +67,9 @@ class QAccessibleSelectionInterface(CuteMixin, metaclass=MetaCute):
     has it, and is passed on as nothing. Whether Qt can do with nothing there
     is as in C++.
   - Python never removes the C++ QAccessibleSelectionInterface.
+  - Each name of Qt's QAccessibleSelectionInterface that has no cute function
+    yet, '__init__', holds a function that raises 'NotImplementedError', and
+    its docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -171,7 +175,8 @@ class QAccessibleSelectionInterface(CuteMixin, metaclass=MetaCute):
     https://doc.qt.io/qt-6/qaccessibleselectioninterface.html
     """
     #  int QAccessibleSelectionInterface::selectedItemCount() const
-    return self.uglySide.call(
+    return self._callAs(
+        'QAccessibleSelectionInterface',
         'ritual_ZNK29QAccessibleSelectionInterface17selectedItemCountEv',
     )
 
@@ -191,7 +196,8 @@ class QAccessibleSelectionInterface(CuteMixin, metaclass=MetaCute):
     """
     #  QList<QAccessibleInterface *>
     #      QAccessibleSelectionInterface::selectedItems() const
-    address = self.uglySide.call(
+    address = self._callAs(
+        'QAccessibleSelectionInterface',
         'ritual_ZNK29QAccessibleSelectionInterface13selectedItemsEv',
     )
     from . import QAccessibleInterface
@@ -228,7 +234,9 @@ class QAccessibleSelectionInterface(CuteMixin, metaclass=MetaCute):
     if self.uglySide.isOurs():
       ritual = (
           'ritual_own_ZNK29QAccessibleSelectionInterface12selectedItemEi')
-    address = self.uglySide.call(ritual, selectionIndex)
+    address = self._callAs(
+        'QAccessibleSelectionInterface', ritual, selectionIndex,
+    )
     from . import QAccessibleInterface
     return QAccessibleInterface._cuteAt(address)
 
@@ -259,7 +267,10 @@ class QAccessibleSelectionInterface(CuteMixin, metaclass=MetaCute):
       ritual = (
           'ritual_own_ZNK29QAccessibleSelectionInterface10isSelectedEP20QAc'
           'cessibleInterface')
-    return self.uglySide.call(ritual, self._addressOf(childItem))
+    return self._callAs(
+        'QAccessibleSelectionInterface', ritual,
+        self._addressOf(childItem, 'QAccessibleInterface'),
+    )
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -276,6 +287,20 @@ class QAccessibleSelectionInterface(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def __init__(*__, **_) -> Never:
+    """
+    Qt's 'QAccessibleSelectionInterface::QAccessibleSelectionInterface()':
+    the class is abstract, so C++ cannot make one, and the C++ class of ours
+    does not fill in every function it leaves open.
+    """
+    raise NotImplementedError(
+        "'QAccessibleSelectionInterface.__init__' has no cute function yet. "
+        "Qt's "
+        "'QAccessibleSelectionInterface::QAccessibleSelectionInterface()': "
+        "the class is abstract, so C++ cannot make one, and the C++ class "
+        "of ours does not fill in every function it leaves open.")
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -316,10 +341,11 @@ class QAccessibleSelectionInterface(CuteMixin, metaclass=MetaCute):
     """
     #  bool QAccessibleSelectionInterface::select(QAccessibleInterface
     #      *childItem)
-    return self.uglySide.call(
+    return self._callAs(
+        'QAccessibleSelectionInterface',
         'ritual_ZN29QAccessibleSelectionInterface6selectEP20QAccessibleInte'
         'rface',
-        self._addressOf(childItem),
+        self._addressOf(childItem, 'QAccessibleInterface'),
     )
 
   @overload(QAccessibleInterface)
@@ -342,10 +368,11 @@ class QAccessibleSelectionInterface(CuteMixin, metaclass=MetaCute):
     """
     #  bool QAccessibleSelectionInterface::unselect(QAccessibleInterface
     #      *childItem)
-    return self.uglySide.call(
+    return self._callAs(
+        'QAccessibleSelectionInterface',
         'ritual_ZN29QAccessibleSelectionInterface8unselectEP20QAccessibleIn'
         'terface',
-        self._addressOf(childItem),
+        self._addressOf(childItem, 'QAccessibleInterface'),
     )
 
   def selectAll(self) -> bool:
@@ -356,7 +383,8 @@ class QAccessibleSelectionInterface(CuteMixin, metaclass=MetaCute):
     https://doc.qt.io/qt-6/qaccessibleselectioninterface.html#selectAll
     """
     #  bool QAccessibleSelectionInterface::selectAll()
-    return self.uglySide.call(
+    return self._callAs(
+        'QAccessibleSelectionInterface',
         'ritual_ZN29QAccessibleSelectionInterface9selectAllEv',
     )
 
@@ -368,6 +396,7 @@ class QAccessibleSelectionInterface(CuteMixin, metaclass=MetaCute):
     https://doc.qt.io/qt-6/qaccessibleselectioninterface.html#clear
     """
     #  bool QAccessibleSelectionInterface::clear()
-    return self.uglySide.call(
+    return self._callAs(
+        'QAccessibleSelectionInterface',
         'ritual_ZN29QAccessibleSelectionInterface5clearEv',
     )

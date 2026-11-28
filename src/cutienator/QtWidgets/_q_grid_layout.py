@@ -17,7 +17,7 @@ from ..QtCore import Qt
 from . import QLayout, QLayoutItem
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from ..QtCore import QMetaObject, QRect, QSize
   from . import QWidget
@@ -60,6 +60,14 @@ class QGridLayout(QLayout):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QGridLayout::qt_metacast(const char *a0)': one of Qt's own
+    inner workings.
+  - Qt's 'int QGridLayout::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
+  - Qt's 'QGridLayoutPrivate *QGridLayout::d_func()': gives
+    'QGridLayoutPrivate', which has no cute class yet.
+  - Qt's 'const QGridLayoutPrivate *QGridLayout::d_func() const': gives
+    'QGridLayoutPrivate', which has no cute class yet.
   - Qt's 'QGridLayout::~QGridLayout()': the destructor: Python never removes
     a C++ QGridLayout.
   - Qt's 'void QGridLayout::getItemPosition(int idx, int *row, int *column,
@@ -69,8 +77,7 @@ class QGridLayout(QLayout):
   What has no ritual
   ------------------
 
-  8 of the 53 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet; 2 forbidden; 1 a template; 1 declared and nowhere to be found.
+  4 of the 53 functions Qt declares: 2 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -86,6 +93,9 @@ class QGridLayout(QLayout):
   - Qt tells when it has removed the C++ QGridLayout. Every call on the cute
     object, and every use of it as an argument, then raises 'RuntimeError',
     and nothing reaches C++.
+  - Each name of Qt's QGridLayout that has no cute function yet,
+    'getItemPosition', holds a function that raises 'NotImplementedError',
+    and its docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -1124,3 +1134,16 @@ class QGridLayout(QLayout):
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZN11QGridLayout7addItemEP11QLayoutItem'
     self.uglySide.call(ritual, self._addressOf(a0, 'QLayoutItem'))
+
+  @staticmethod
+  def getItemPosition(*__, **_) -> Never:
+    """
+    Qt's 'void QGridLayout::getItemPosition(int idx, int *row, int *column,
+    int *rowSpan, int *columnSpan) const': takes a number to change where it
+    is.
+    """
+    raise NotImplementedError(
+        "'QGridLayout.getItemPosition' has no cute function yet. Qt's 'void "
+        "QGridLayout::getItemPosition(int idx, int *row, int *column, int "
+        "*rowSpan, int *columnSpan) const': takes a number to change where "
+        "it is.")

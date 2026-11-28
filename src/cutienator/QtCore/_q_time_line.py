@@ -17,7 +17,7 @@ from ..occult import Rituals
 from . import QObject
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from . import QEasingCurve, QMetaObject, QTimerEvent
 else:
@@ -44,27 +44,46 @@ class QTimeLine(QObject):
   -----------
 
   Every function of Qt's QTimeLine that has a ritual and that Python can call
-  so far, 30 names in all: 'metaObject', 'tr', 'state', 'loopCount',
+  so far, 34 names in all: 'metaObject', 'tr', 'state', 'loopCount',
   'setLoopCount', 'direction', 'setDirection', 'duration', 'setDuration',
   'startFrame', 'setStartFrame', 'endFrame', 'setEndFrame', 'setFrameRange',
   'updateInterval', 'setUpdateInterval', 'easingCurve', 'setEasingCurve',
   'currentTime', 'currentFrame', 'currentValue', 'frameForTime',
   'valueForTime', 'start', 'resume', 'stop', 'setPaused', 'setCurrentTime',
-  'toggleDirection', 'timerEvent'. It can be made from Python, in 1 way; see
+  'toggleDirection', 'valueChanged', 'frameChanged', 'stateChanged',
+  'finished', 'timerEvent'. It can be made from Python, in 1 way; see
   '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QTimeLine::qt_metacast(const char *a0)': one of Qt's own
+    inner workings.
+  - Qt's 'int QTimeLine::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
   - Qt's 'QTimeLine::~QTimeLine()': the destructor: Python never removes a
     C++ QTimeLine.
+  - Qt's 'QBindable<int> QTimeLine::bindableLoopCount()': gives a type Python
+    has no way to take yet.
+  - Qt's 'QBindable<Direction> QTimeLine::bindableDirection()': gives a type
+    Python has no way to take yet.
+  - Qt's 'QBindable<int> QTimeLine::bindableDuration()': gives a type Python
+    has no way to take yet.
+  - Qt's 'QBindable<int> QTimeLine::bindableUpdateInterval()': gives a type
+    Python has no way to take yet.
+  - Qt's 'QBindable<QEasingCurve> QTimeLine::bindableEasingCurve()': gives a
+    type Python has no way to take yet.
+  - Qt's 'QBindable<int> QTimeLine::bindableCurrentTime()': gives a type
+    Python has no way to take yet.
+  - Qt's 'QTimeLinePrivate *QTimeLine::d_func()': gives 'QTimeLinePrivate',
+    which has no cute class yet.
+  - Qt's 'const QTimeLinePrivate *QTimeLine::d_func() const': gives
+    'QTimeLinePrivate', which has no cute class yet.
 
   What has no ritual
   ------------------
 
-  18 of the 50 functions Qt declares: 10 takes or gives a type that cannot be
-  passed yet; 4 a signal; 2 forbidden; 1 a template; 1 declared and nowhere
-  to be found.
+  4 of the 50 functions Qt declares: 2 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -79,6 +98,11 @@ class QTimeLine(QObject):
   - Qt tells when it has removed the C++ QTimeLine. Every call on the cute
     object, and every use of it as an argument, then raises 'RuntimeError',
     and nothing reaches C++.
+  - Each name of Qt's QTimeLine that has no cute function yet,
+    'bindableCurrentTime', 'bindableDirection', 'bindableDuration',
+    'bindableEasingCurve', 'bindableLoopCount', 'bindableUpdateInterval',
+    holds a function that raises 'NotImplementedError', and its docstring
+    says why.
   """
 
   #  The enums Qt writes inside QTimeLine, each a class in here as in C++,
@@ -636,6 +660,72 @@ class QTimeLine(QObject):
     #  void QTimeLine::toggleDirection()
     self.uglySide.call('ritual_ZN9QTimeLine15toggleDirectionEv')
 
+  @overload(float)
+  def valueChanged(self, x: float) -> None:
+    """
+    Calls Qt's 'void QTimeLine::valueChanged(qreal x, QPrivateSignal a1)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtimeline.html#valueChanged
+
+    Parameters
+    ----------
+
+    x : float
+      Passed on as it is.
+    """
+    #  void QTimeLine::valueChanged(qreal x, QPrivateSignal a1)
+    self.uglySide.call(
+        'ritual_ZN9QTimeLine12valueChangedEdNS_14QPrivateSignalE', x,
+    )
+
+  @overload(int)
+  def frameChanged(self, a0: int) -> None:
+    """
+    Calls Qt's 'void QTimeLine::frameChanged(int a0, QPrivateSignal a1)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtimeline.html#frameChanged
+
+    Parameters
+    ----------
+
+    a0 : int
+      Passed on as it is.
+    """
+    #  void QTimeLine::frameChanged(int a0, QPrivateSignal a1)
+    self.uglySide.call(
+        'ritual_ZN9QTimeLine12frameChangedEiNS_14QPrivateSignalE', a0,
+    )
+
+  @overload(State)
+  def stateChanged(self, newState: State) -> None:
+    """
+    Calls Qt's 'void QTimeLine::stateChanged(QTimeLine::State newState,
+    QPrivateSignal a1)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtimeline.html#stateChanged
+
+    Parameters
+    ----------
+
+    newState : State
+      Passed on as its number.
+    """
+    #  void QTimeLine::stateChanged(QTimeLine::State newState, QPrivateSignal
+    #      a1)
+    self.uglySide.call(
+        'ritual_ZN9QTimeLine12stateChangedENS_5StateENS_14QPrivateSignalE',
+        newState.value,
+    )
+
+  def finished(self) -> None:
+    """
+    Calls Qt's 'void QTimeLine::finished(QPrivateSignal a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtimeline.html#finished
+    """
+    #  void QTimeLine::finished(QPrivateSignal a0)
+    self.uglySide.call('ritual_ZN9QTimeLine8finishedENS_14QPrivateSignalE')
+
   @overload(QTimerEvent)
   @overload(NoneType)
   def timerEvent(self, event: Optional[QTimerEvent]) -> None:
@@ -656,3 +746,69 @@ class QTimeLine(QObject):
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZN9QTimeLine10timerEventEP11QTimerEvent'
     self.uglySide.call(ritual, self._addressOf(event))
+
+  @staticmethod
+  def bindableCurrentTime(*__, **_) -> Never:
+    """
+    Qt's 'QBindable<int> QTimeLine::bindableCurrentTime()': gives a type
+    Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QTimeLine.bindableCurrentTime' has no cute function yet. Qt's "
+        "'QBindable<int> QTimeLine::bindableCurrentTime()': gives a type "
+        "Python has no way to take yet.")
+
+  @staticmethod
+  def bindableDirection(*__, **_) -> Never:
+    """
+    Qt's 'QBindable<Direction> QTimeLine::bindableDirection()': gives a type
+    Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QTimeLine.bindableDirection' has no cute function yet. Qt's "
+        "'QBindable<Direction> QTimeLine::bindableDirection()': gives a "
+        "type Python has no way to take yet.")
+
+  @staticmethod
+  def bindableDuration(*__, **_) -> Never:
+    """
+    Qt's 'QBindable<int> QTimeLine::bindableDuration()': gives a type Python
+    has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QTimeLine.bindableDuration' has no cute function yet. Qt's "
+        "'QBindable<int> QTimeLine::bindableDuration()': gives a type "
+        "Python has no way to take yet.")
+
+  @staticmethod
+  def bindableEasingCurve(*__, **_) -> Never:
+    """
+    Qt's 'QBindable<QEasingCurve> QTimeLine::bindableEasingCurve()': gives a
+    type Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QTimeLine.bindableEasingCurve' has no cute function yet. Qt's "
+        "'QBindable<QEasingCurve> QTimeLine::bindableEasingCurve()': gives "
+        "a type Python has no way to take yet.")
+
+  @staticmethod
+  def bindableLoopCount(*__, **_) -> Never:
+    """
+    Qt's 'QBindable<int> QTimeLine::bindableLoopCount()': gives a type Python
+    has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QTimeLine.bindableLoopCount' has no cute function yet. Qt's "
+        "'QBindable<int> QTimeLine::bindableLoopCount()': gives a type "
+        "Python has no way to take yet.")
+
+  @staticmethod
+  def bindableUpdateInterval(*__, **_) -> Never:
+    """
+    Qt's 'QBindable<int> QTimeLine::bindableUpdateInterval()': gives a type
+    Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QTimeLine.bindableUpdateInterval' has no cute function yet. Qt's "
+        "'QBindable<int> QTimeLine::bindableUpdateInterval()': gives a type "
+        "Python has no way to take yet.")

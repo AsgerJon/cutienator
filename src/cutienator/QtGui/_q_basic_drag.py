@@ -17,7 +17,9 @@ from typing import TYPE_CHECKING
 from worktoy.dispatch import overload
 
 from ..cute import WAIT
+from ..occult import Rituals
 from ..QtCore import Qt, QObject
+from . import QPlatformDrag
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
@@ -38,10 +40,15 @@ else:
 NoneType = type(None)
 
 
-class QBasicDrag(QObject):
+class QBasicDrag(QPlatformDrag, QObject):
   """
   The cute side of Qt's QBasicDrag: a plain Python object standing in front
   of one C++ QBasicDrag.
+
+  It is built on the cute 'QPlatformDrag', as Qt's QBasicDrag is built on
+  Qt's QPlatformDrag, and has everything that class has. It is built on the
+  cute 'QObject' as well, as Qt's QBasicDrag is built on Qt's QObject too,
+  and has everything that class has.
 
   What exists
   -----------
@@ -53,20 +60,13 @@ class QBasicDrag(QObject):
   'canDrop', 'setCanDrop', 'useCompositing', 'setUseCompositing',
   'setScreen', 'executedDropAction', 'setExecutedDropAction',
   'enableEventFilter', 'disableEventFilter', 'restoreCursor',
-  'exitDndEventLoop'. None can be made from Python: one comes out of a
-  function of another class that gives one back.
+  'exitDndEventLoop'. It can be made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
   - Qt's 'QBasicDrag::~QBasicDrag()': the destructor: Python never removes a
     C++ QBasicDrag.
-
-  What has no ritual
-  ------------------
-
-  1 of the 26 functions Qt declares: 1 the class is abstract, so C++ cannot
-  make one.
 
   What to expect
   --------------
@@ -113,18 +113,6 @@ class QBasicDrag(QObject):
   #  that. For each name: the key C++ knows the function by, what it gives,
   #  and what it takes.
   __virtual_functions__ = {
-      'drag': (
-          ('_ZN10QBasicDrag4dragEP5QDrag',
-           ('int', 'enum', 'QtCore:Qt.DropAction'),
-           (
-               ('address', 'address', 'QtGui:QDrag'),
-           )),
-      ),
-      'cancelDrag': (
-          ('_ZN10QBasicDrag10cancelDragEv',
-           ('nothing', 'nothing', ''),
-           ()),
-      ),
       'startDrag': (
           ('_ZN10QBasicDrag9startDragEv',
            ('nothing', 'nothing', ''),
@@ -318,6 +306,19 @@ class QBasicDrag(QObject):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload()
+  def __init__(self) -> None:
+    """
+    Notes what was given, for Qt's 'QBasicDrag::QBasicDrag()', which is
+    called at the first use.
+
+    Qt's own words: https://doc.qt.io/qt-6/qbasicdrag.html#QBasicDrag
+    """
+    #  QBasicDrag::QBasicDrag()
+    self._noteCreation(QBasicDrag, lambda: Rituals.call(
+        'ritual_ZN10QBasicDragC1Ev',
+    ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #

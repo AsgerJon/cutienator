@@ -40,12 +40,8 @@ class QException(CuteMixin, metaclass=MetaCute):
 
   - Qt's 'QException::~QException()': the destructor: Python removes its C++
     QException by it, and has no other use for it.
-
-  What has no ritual
-  ------------------
-
-  1 of the 6 functions Qt declares: 1 takes or gives a type that cannot be
-  passed yet.
+  - Qt's 'QException &QException::operator=(const QException &a0)':
+    assignment: Python binds a name and has no operator for it.
 
   What to expect
   --------------

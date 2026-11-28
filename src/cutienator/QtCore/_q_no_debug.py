@@ -11,6 +11,9 @@ from typing import TYPE_CHECKING
 
 from ..cute import CuteMixin, MetaCute
 
+if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Never
+
 
 class QNoDebug(CuteMixin, metaclass=MetaCute):
   """
@@ -30,14 +33,31 @@ class QNoDebug(CuteMixin, metaclass=MetaCute):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'QNoDebug &QNoDebug::operator<<(QTextStreamFunction a0)': takes a
+    type Python has no way to hand over yet.
+  - Qt's 'QNoDebug &QNoDebug::operator<<(QTextStreamManipulator a0)': gives a
+    type Python has no way to take yet.
+  - Qt's 'QNoDebug &QNoDebug::space()': gives a type Python has no way to
+    take yet.
+  - Qt's 'QNoDebug &QNoDebug::nospace()': gives a type Python has no way to
+    take yet.
+  - Qt's 'QNoDebug &QNoDebug::maybeSpace()': gives a type Python has no way
+    to take yet.
+  - Qt's 'QNoDebug &QNoDebug::quote()': gives a type Python has no way to
+    take yet.
+  - Qt's 'QNoDebug &QNoDebug::noquote()': gives a type Python has no way to
+    take yet.
+  - Qt's 'QNoDebug &QNoDebug::maybeQuote(const char a0)': takes a single
+    letter as C has it.
+  - Qt's 'QNoDebug &QNoDebug::verbosity(int a0)': gives a type Python has no
+    way to take yet.
   - Qt's 'QNoDebug::~QNoDebug()': the destructor: Python removes its C++
     QNoDebug by it, and has no other use for it.
 
   What has no ritual
   ------------------
 
-  10 of the 11 functions Qt declares: 9 takes or gives a type that cannot be
-  passed yet; 1 a template.
+  1 of the 11 functions Qt declares: 1 a template.
 
   What to expect
   --------------
@@ -50,6 +70,9 @@ class QNoDebug(CuteMixin, metaclass=MetaCute):
     is as in C++.
   - A function giving a QNoDebug back gives a copy the ritual made for
     Python, in a new cute QNoDebug.
+  - Each name of Qt's QNoDebug that has no cute function yet, 'maybeQuote',
+    'maybeSpace', 'noquote', 'nospace', 'quote', 'space', 'verbosity', holds
+    a function that raises 'NotImplementedError', and its docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -115,3 +138,76 @@ class QNoDebug(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def maybeQuote(*__, **_) -> Never:
+    """
+    Qt's 'QNoDebug &QNoDebug::maybeQuote(const char a0)': takes a single
+    letter as C has it.
+    """
+    raise NotImplementedError(
+        "'QNoDebug.maybeQuote' has no cute function yet. Qt's 'QNoDebug "
+        "&QNoDebug::maybeQuote(const char a0)': takes a single letter as C "
+        "has it.")
+
+  @staticmethod
+  def maybeSpace(*__, **_) -> Never:
+    """
+    Qt's 'QNoDebug &QNoDebug::maybeSpace()': gives a type Python has no way
+    to take yet.
+    """
+    raise NotImplementedError(
+        "'QNoDebug.maybeSpace' has no cute function yet. Qt's 'QNoDebug "
+        "&QNoDebug::maybeSpace()': gives a type Python has no way to take "
+        "yet.")
+
+  @staticmethod
+  def noquote(*__, **_) -> Never:
+    """
+    Qt's 'QNoDebug &QNoDebug::noquote()': gives a type Python has no way to
+    take yet.
+    """
+    raise NotImplementedError(
+        "'QNoDebug.noquote' has no cute function yet. Qt's 'QNoDebug "
+        "&QNoDebug::noquote()': gives a type Python has no way to take yet.")
+
+  @staticmethod
+  def nospace(*__, **_) -> Never:
+    """
+    Qt's 'QNoDebug &QNoDebug::nospace()': gives a type Python has no way to
+    take yet.
+    """
+    raise NotImplementedError(
+        "'QNoDebug.nospace' has no cute function yet. Qt's 'QNoDebug "
+        "&QNoDebug::nospace()': gives a type Python has no way to take yet.")
+
+  @staticmethod
+  def quote(*__, **_) -> Never:
+    """
+    Qt's 'QNoDebug &QNoDebug::quote()': gives a type Python has no way to
+    take yet.
+    """
+    raise NotImplementedError(
+        "'QNoDebug.quote' has no cute function yet. Qt's 'QNoDebug "
+        "&QNoDebug::quote()': gives a type Python has no way to take yet.")
+
+  @staticmethod
+  def space(*__, **_) -> Never:
+    """
+    Qt's 'QNoDebug &QNoDebug::space()': gives a type Python has no way to
+    take yet.
+    """
+    raise NotImplementedError(
+        "'QNoDebug.space' has no cute function yet. Qt's 'QNoDebug "
+        "&QNoDebug::space()': gives a type Python has no way to take yet.")
+
+  @staticmethod
+  def verbosity(*__, **_) -> Never:
+    """
+    Qt's 'QNoDebug &QNoDebug::verbosity(int a0)': gives a type Python has no
+    way to take yet.
+    """
+    raise NotImplementedError(
+        "'QNoDebug.verbosity' has no cute function yet. Qt's 'QNoDebug "
+        "&QNoDebug::verbosity(int a0)': gives a type Python has no way to "
+        "take yet.")

@@ -11,6 +11,9 @@ from typing import TYPE_CHECKING
 
 from ..cute import CuteMixin, MetaCute
 
+if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Never
+
 
 class QOpenGLFunctionsPrivate(CuteMixin, metaclass=MetaCute):
   """
@@ -37,9 +40,8 @@ class QOpenGLFunctionsPrivate(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  2 of the 3 functions Qt declares: 1 declared and nowhere to be found; 1
-  Qt's library has no name for it, and its code in Qt's source does not
-  compile apart from its file.
+  2 of the 3 functions Qt declares: 2 Qt's library has no name for it, and
+  its code in Qt's source does not compile apart from its file.
 
   What to expect
   --------------
@@ -53,6 +55,9 @@ class QOpenGLFunctionsPrivate(CuteMixin, metaclass=MetaCute):
     is as in C++.
   - A function giving a QOpenGLFunctionsPrivate back gives a copy the ritual
     made for Python, in a new cute QOpenGLFunctionsPrivate.
+  - Each name of Qt's QOpenGLFunctionsPrivate that has no cute function yet,
+    '__init__', 'init', holds a function that raises 'NotImplementedError',
+    and its docstring says why.
   """
 
   #  The classes Qt writes inside QOpenGLFunctionsPrivate, each a class in
@@ -207,6 +212,21 @@ class QOpenGLFunctionsPrivate(CuteMixin, metaclass=MetaCute):
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  @staticmethod
+  def __init__(*__, **_) -> Never:
+    """
+    Qt's 'QOpenGLFunctionsPrivate::QOpenGLFunctionsPrivate(QOpenGLContext
+    *ctx)': Qt's library has no name for it, and its code in Qt's source does
+    not compile apart from its file: use of undeclared identifier
+    'qopenglfSpecialClearDepthf'.
+    """
+    raise NotImplementedError(
+        "'QOpenGLFunctionsPrivate.__init__' has no cute function yet. Qt's "
+        "'QOpenGLFunctionsPrivate::QOpenGLFunctionsPrivate(QOpenGLContext "
+        "*ctx)': Qt's library has no name for it, and its code in Qt's "
+        "source does not compile apart from its file: use of undeclared "
+        "identifier 'qopenglfSpecialClearDepthf'.")
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -226,3 +246,18 @@ class QOpenGLFunctionsPrivate(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def init(*__, **_) -> Never:
+    """
+    Qt's 'void QOpenGLFunctionsPrivate::init(QOpenGLContext *context)': Qt's
+    library has no name for it, and its code in Qt's source does not compile
+    apart from its file: expected '(' for function-style cast or type
+    construction.
+    """
+    raise NotImplementedError(
+        "'QOpenGLFunctionsPrivate.init' has no cute function yet. Qt's "
+        "'void QOpenGLFunctionsPrivate::init(QOpenGLContext *context)': "
+        "Qt's library has no name for it, and its code in Qt's source does "
+        "not compile apart from its file: expected '(' for function-style "
+        "cast or type construction.")

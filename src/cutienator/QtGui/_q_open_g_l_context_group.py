@@ -19,7 +19,7 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
   from ..QtCore import QMetaObject
-  from . import QOpenGLContext
+  from . import QOpenGLContext, QOpenGLContextGroupPrivate
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -38,21 +38,27 @@ class QOpenGLContextGroup(QObject):
   -----------
 
   Every function of Qt's QOpenGLContextGroup that has a ritual and that
-  Python can call so far, 4 names in all: 'metaObject', 'tr', 'shares',
-  'currentContextGroup'. It can be made from Python, in 1 way; see
+  Python can call so far, 5 names in all: 'metaObject', 'tr', 'd_func',
+  'shares', 'currentContextGroup'. It can be made from Python, in 1 way; see
   '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QOpenGLContextGroup::qt_metacast(const char *a0)': one of
+    Qt's own inner workings.
+  - Qt's 'int QOpenGLContextGroup::qt_metacall(QMetaObject::Call a0, int a1,
+    void **a2)': one of Qt's own inner workings.
+  - Qt's 'const QOpenGLContextGroupPrivate *QOpenGLContextGroup::d_func()
+    const': takes in Python what 'QOpenGLContextGroupPrivate
+    *QOpenGLContextGroup::d_func()' takes.
   - Qt's 'QOpenGLContextGroup::~QOpenGLContextGroup()': the destructor:
     Python never removes a C++ QOpenGLContextGroup.
 
   What has no ritual
   ------------------
 
-  6 of the 12 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet; 1 a template; 1 declared and nowhere to be found.
+  2 of the 12 functions Qt declares: 2 not a gap.
 
   What to expect
   --------------
@@ -252,3 +258,21 @@ class QOpenGLContextGroup(QObject):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  def d_func(self) -> Optional[QOpenGLContextGroupPrivate]:
+    """
+    Calls Qt's 'QOpenGLContextGroupPrivate *QOpenGLContextGroup::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qopenglcontextgroup.html#d_func
+
+    Returns
+    -------
+
+    Optional[QOpenGLContextGroupPrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QOpenGLContextGroupPrivate *QOpenGLContextGroup::d_func()
+    address = self.uglySide.call('ritual_ZN19QOpenGLContextGroup6d_funcEv')
+    from . import QOpenGLContextGroupPrivate
+    return QOpenGLContextGroupPrivate._cuteAt(address)

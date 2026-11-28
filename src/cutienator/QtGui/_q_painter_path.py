@@ -18,10 +18,10 @@ from ..occult import Rituals
 from ..QtCore import Qt, QList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from ..QtCore import QPointF, QRectF
-  from . import QFont, QPolygonF, QRegion, QTransform
+  from . import QFont, QPainterPathPrivate, QPolygonF, QRegion, QTransform
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -47,7 +47,7 @@ class QPainterPath(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QPainterPath that has a ritual and that Python can
-  call so far, 62 names in all: 'clear', 'reserve', 'capacity',
+  call so far, 63 names in all: 'clear', 'reserve', 'capacity',
   'closeSubpath', 'moveTo', 'lineTo', 'arcMoveTo', 'arcTo', 'cubicTo',
   'quadTo', 'currentPosition', 'addRect', 'addEllipse', 'addPolygon',
   'addText', 'addPath', 'addRegion', 'addRoundedRect', 'connectPath',
@@ -60,20 +60,26 @@ class QPainterPath(CuteMixin, metaclass=MetaCute):
   'subtracted', 'simplified', '__eq__', '__ne__', '__and__', '__or__',
   '__add__', '__sub__', '__iand__', '__ior__', '__iadd__', '__isub__',
   'ensureData', 'ensureData_helper', 'setDirty', 'computeBoundingRect',
-  'computeControlPointRect'. It can be made from Python, in 3 ways; see
-  '__init__'.
+  'computeControlPointRect', 'd_func'. It can be made from Python, in 3 ways;
+  see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'QPainterPath &QPainterPath::operator=(const QPainterPath &other)':
+    assignment: Python binds a name and has no operator for it.
+  - Qt's 'QPainterPath::QPainterPath(QPainterPath &&other)': takes a type
+    Python has no way to hand over yet.
+  - Qt's 'QPainterPath &QPainterPath::operator=(QPainterPath &&other)':
+    assignment: Python binds a name and has no operator for it.
   - Qt's 'QPainterPath::~QPainterPath()': the destructor: Python removes its
     C++ QPainterPath by it, and has no other use for it.
-
-  What has no ritual
-  ------------------
-
-  7 of the 89 functions Qt declares: 7 takes or gives a type that cannot be
-  passed yet.
+  - Qt's 'void QPainterPath::swap(QPainterPath &other)': takes a type Python
+    has no way to hand over yet.
+  - Qt's 'QDataStream &operator<<(QDataStream &a0, const QPainterPath &a1)':
+    takes a type Python has no way to hand over yet.
+  - Qt's 'QDataStream &operator>>(QDataStream &a0, QPainterPath &a1)': an
+    operator between other classes, written inside this one.
 
   What to expect
   --------------
@@ -87,6 +93,9 @@ class QPainterPath(CuteMixin, metaclass=MetaCute):
     is as in C++.
   - A function giving a QPainterPath back gives a copy the ritual made for
     Python, in a new cute QPainterPath.
+  - Each name of Qt's QPainterPath that has no cute function yet, 'swap',
+    holds a function that raises 'NotImplementedError', and its docstring
+    says why.
   """
 
   #  The enums Qt writes inside QPainterPath, each a class in here as in C++,
@@ -379,7 +388,8 @@ class QPainterPath(CuteMixin, metaclass=MetaCute):
     """
     #  bool QPainterPath::contains(const QPointF &pt) const
     return self.uglySide.call(
-        'ritual_ZNK12QPainterPath8containsERK7QPointF', self._valueOf(pt),
+        'ritual_ZNK12QPainterPath8containsERK7QPointF',
+        self._valueOf(pt, 'QPointF'),
     )
 
   @overload(QRectF)
@@ -512,7 +522,7 @@ class QPainterPath(CuteMixin, metaclass=MetaCute):
     #  QPainterPath QPainterPath::translated(const QPointF &offset) const
     address = self.uglySide.call(
         'ritual_ZNK12QPainterPath10translatedERK7QPointF',
-        self._valueOf(offset),
+        self._valueOf(offset, 'QPointF'),
     )
     return QPainterPath._cuteOwning(address)
 
@@ -972,6 +982,24 @@ class QPainterPath(CuteMixin, metaclass=MetaCute):
     address = self.uglySide.call('ritual_ZNK12QPainterPath10simplifiedEv')
     return QPainterPath._cuteOwning(address)
 
+  def d_func(self) -> Optional[QPainterPathPrivate]:
+    """
+    Calls Qt's 'QPainterPathPrivate *QPainterPath::d_func() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpainterpath.html#d_func
+
+    Returns
+    -------
+
+    Optional[QPainterPathPrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QPainterPathPrivate *QPainterPath::d_func() const
+    address = self.uglySide.call('ritual_ZNK12QPainterPath6d_funcEv')
+    from . import QPainterPathPrivate
+    return QPainterPathPrivate._cuteAt(address)
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -1420,7 +1448,8 @@ class QPainterPath(CuteMixin, metaclass=MetaCute):
     """
     #  QPainterPath::QPainterPath(const QPointF &startPoint)
     self._noteCreation(QPainterPath, lambda: Rituals.call(
-        'ritual_ZN12QPainterPathC1ERK7QPointF', self._valueOf(startPoint),
+        'ritual_ZN12QPainterPathC1ERK7QPointF',
+        self._valueOf(startPoint, 'QPointF'),
     ))
 
   @overload(THIS)
@@ -1513,7 +1542,8 @@ class QPainterPath(CuteMixin, metaclass=MetaCute):
     """
     #  void QPainterPath::moveTo(const QPointF &p)
     self.uglySide.call(
-        'ritual_ZN12QPainterPath6moveToERK7QPointF', self._valueOf(p),
+        'ritual_ZN12QPainterPath6moveToERK7QPointF',
+        self._valueOf(p, 'QPointF'),
     )
 
   @overload(float, float)
@@ -1551,7 +1581,8 @@ class QPainterPath(CuteMixin, metaclass=MetaCute):
     """
     #  void QPainterPath::lineTo(const QPointF &p)
     self.uglySide.call(
-        'ritual_ZN12QPainterPath6lineToERK7QPointF', self._valueOf(p),
+        'ritual_ZN12QPainterPath6lineToERK7QPointF',
+        self._valueOf(p, 'QPointF'),
     )
 
   @overload(float, float)
@@ -1740,7 +1771,8 @@ class QPainterPath(CuteMixin, metaclass=MetaCute):
     #      &ctrlPt2, const QPointF &endPt)
     self.uglySide.call(
         'ritual_ZN12QPainterPath7cubicToERK7QPointFS2_S2_',
-        self._valueOf(ctrlPt1), self._valueOf(ctrlPt2), self._valueOf(endPt),
+        self._valueOf(ctrlPt1, 'QPointF'), self._valueOf(ctrlPt2, 'QPointF'),
+        self._valueOf(endPt, 'QPointF'),
     )
 
   @overload(float, float, float, float, float, float)
@@ -1809,7 +1841,7 @@ class QPainterPath(CuteMixin, metaclass=MetaCute):
     #  void QPainterPath::quadTo(const QPointF &ctrlPt, const QPointF &endPt)
     self.uglySide.call(
         'ritual_ZN12QPainterPath6quadToERK7QPointFS2_',
-        self._valueOf(ctrlPt), self._valueOf(endPt),
+        self._valueOf(ctrlPt, 'QPointF'), self._valueOf(endPt, 'QPointF'),
     )
 
   @overload(float, float, float, float)
@@ -1965,7 +1997,7 @@ class QPainterPath(CuteMixin, metaclass=MetaCute):
     #      ry)
     self.uglySide.call(
         'ritual_ZN12QPainterPath10addEllipseERK7QPointFdd',
-        self._valueOf(center), rx, ry,
+        self._valueOf(center, 'QPointF'), rx, ry,
     )
 
   @overload(QPolygonF)
@@ -2013,7 +2045,7 @@ class QPainterPath(CuteMixin, metaclass=MetaCute):
     #      QString &text)
     self.uglySide.call(
         'ritual_ZN12QPainterPath7addTextERK7QPointFRK5QFontRK7QString',
-        self._valueOf(point), self._valueOf(f), text,
+        self._valueOf(point, 'QPointF'), self._valueOf(f), text,
     )
 
   @overload(float, float, QFont, str)
@@ -2229,7 +2261,7 @@ class QPainterPath(CuteMixin, metaclass=MetaCute):
     #  void QPainterPath::translate(const QPointF &offset)
     self.uglySide.call(
         'ritual_ZN12QPainterPath9translateERK7QPointF',
-        self._valueOf(offset),
+        self._valueOf(offset, 'QPointF'),
     )
 
   def ensureData(self) -> None:
@@ -2270,3 +2302,27 @@ class QPainterPath(CuteMixin, metaclass=MetaCute):
     """
     #  void QPainterPath::computeControlPointRect() const
     self.uglySide.call('ritual_ZNK12QPainterPath23computeControlPointRectEv')
+
+  @staticmethod
+  def swap(*__, **_) -> Never:
+    """
+    Qt's 'void QPainterPath::swap(QPainterPath &other)': takes a type Python
+    has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QPainterPath.swap' has no cute function yet. Qt's 'void "
+        "QPainterPath::swap(QPainterPath &other)': takes a type Python has "
+        "no way to hand over yet.")
+
+
+#  Qt's 'QList<QPainterPath>': the list of QPainterPath, which
+#  'QList[QPainterPath]' gives. It is made here, so that there is one as soon
+#  as there can be a QPainterPath.
+QList.createKind(
+    QPainterPath, 'value',
+    make='ritual_list_make_QPainterPath',
+    add='ritual_list_add_QPainterPath',
+    size='ritual_list_size_QPainterPath',
+    at='ritual_list_at_QPainterPath',
+    drop='ritual_list_drop_QPainterPath',
+)

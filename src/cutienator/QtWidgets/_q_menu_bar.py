@@ -21,8 +21,9 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
 
   from ..QtCore import QEvent, QMetaObject, QPoint, QRect, QSize, QTimerEvent
   from ..QtGui import QAction, QActionEvent, QFocusEvent, QIcon, QKeyEvent
-  from ..QtGui import QMouseEvent, QPaintEvent, QResizeEvent
-  from . import QMenu, QStyleOptionMenuItem
+  from ..QtGui import QMouseEvent, QPaintEvent, QPlatformMenuBar
+  from ..QtGui import QResizeEvent
+  from . import QMenu, QMenuBarPrivate, QStyleOptionMenuItem
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -58,29 +59,33 @@ class QMenuBar(QWidget):
   -----------
 
   Every function of Qt's QMenuBar that has a ritual and that Python can call
-  so far, 36 names in all: 'metaObject', 'tr', 'addMenu', 'addSeparator',
+  so far, 40 names in all: 'metaObject', 'tr', 'addMenu', 'addSeparator',
   'insertSeparator', 'insertMenu', 'clear', 'activeAction',
   'setActiveAction', 'setDefaultUp', 'isDefaultUp', 'sizeHint',
   'minimumSizeHint', 'heightForWidth', 'actionGeometry', 'actionAt',
   'setCornerWidget', 'cornerWidget', 'isNativeMenuBar', 'setNativeMenuBar',
-  'setVisible', 'changeEvent', 'keyPressEvent', 'mouseReleaseEvent',
-  'mousePressEvent', 'mouseMoveEvent', 'leaveEvent', 'paintEvent',
-  'resizeEvent', 'actionEvent', 'focusOutEvent', 'focusInEvent',
-  'timerEvent', 'eventFilter', 'event', 'initStyleOption'. It can be made
-  from Python, in 1 way; see '__init__'.
+  'platformMenuBar', 'setVisible', 'triggered', 'hovered', 'changeEvent',
+  'keyPressEvent', 'mouseReleaseEvent', 'mousePressEvent', 'mouseMoveEvent',
+  'leaveEvent', 'paintEvent', 'resizeEvent', 'actionEvent', 'focusOutEvent',
+  'focusInEvent', 'timerEvent', 'eventFilter', 'event', 'initStyleOption',
+  'd_func'. It can be made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QMenuBar::qt_metacast(const char *a0)': one of Qt's own inner
+    workings.
+  - Qt's 'int QMenuBar::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
   - Qt's 'QMenuBar::~QMenuBar()': the destructor: Python never removes a C++
     QMenuBar.
+  - Qt's 'const QMenuBarPrivate *QMenuBar::d_func() const': takes in Python
+    what 'QMenuBarPrivate *QMenuBar::d_func()' takes.
 
   What has no ritual
   ------------------
 
-  11 of the 51 functions Qt declares: 5 takes or gives a type that cannot be
-  passed yet; 2 a signal; 2 forbidden; 1 a template; 1 declared and nowhere
-  to be found.
+  4 of the 51 functions Qt declares: 2 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -733,6 +738,64 @@ class QMenuBar(QWidget):
     #  void QMenuBar::clear()
     self.uglySide.call('ritual_ZN8QMenuBar5clearEv')
 
+  def platformMenuBar(self) -> Optional[QPlatformMenuBar]:
+    """
+    Calls Qt's 'QPlatformMenuBar *QMenuBar::platformMenuBar()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmenubar.html#platformMenuBar
+
+    Returns
+    -------
+
+    Optional[QPlatformMenuBar]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QPlatformMenuBar *QMenuBar::platformMenuBar()
+    address = self.uglySide.call('ritual_ZN8QMenuBar15platformMenuBarEv')
+    from ..QtGui import QPlatformMenuBar
+    return QPlatformMenuBar._cuteAt(address)
+
+  @overload(QAction)
+  @overload(NoneType)
+  def triggered(self, action: Optional[QAction]) -> None:
+    """
+    Calls Qt's 'void QMenuBar::triggered(QAction *action)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmenubar.html#triggered
+
+    Parameters
+    ----------
+
+    action : Optional[QAction]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QMenuBar::triggered(QAction *action)
+    self.uglySide.call(
+        'ritual_ZN8QMenuBar9triggeredEP7QAction', self._addressOf(action),
+    )
+
+  @overload(QAction)
+  @overload(NoneType)
+  def hovered(self, action: Optional[QAction]) -> None:
+    """
+    Calls Qt's 'void QMenuBar::hovered(QAction *action)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmenubar.html#hovered
+
+    Parameters
+    ----------
+
+    action : Optional[QAction]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QMenuBar::hovered(QAction *action)
+    self.uglySide.call(
+        'ritual_ZN8QMenuBar7hoveredEP7QAction', self._addressOf(action),
+    )
+
   @overload(QEvent)
   @overload(NoneType)
   def changeEvent(self, a0: Optional[QEvent]) -> None:
@@ -1073,3 +1136,21 @@ class QMenuBar(QWidget):
     self.uglySide.call(
         ritual, self._addressOf(option), self._addressOf(action),
     )
+
+  def d_func(self) -> Optional[QMenuBarPrivate]:
+    """
+    Calls Qt's 'QMenuBarPrivate *QMenuBar::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmenubar.html#d_func
+
+    Returns
+    -------
+
+    Optional[QMenuBarPrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QMenuBarPrivate *QMenuBar::d_func()
+    address = self.uglySide.call('ritual_ZN8QMenuBar6d_funcEv')
+    from . import QMenuBarPrivate
+    return QMenuBarPrivate._cuteAt(address)

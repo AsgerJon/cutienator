@@ -18,7 +18,8 @@ from . import Qt, QAbstractItemModel, QAbstractProxyModel, QList, QObject
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from . import QItemSelection, QMetaObject, QMimeData, QModelIndex, QVariant
+  from . import QIdentityProxyModelPrivate, QItemSelection, QMetaObject
+  from . import QMimeData, QModelIndex, QVariant
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -45,26 +46,34 @@ class QIdentityProxyModel(QAbstractProxyModel):
   -----------
 
   Every function of Qt's QIdentityProxyModel that has a ritual and that
-  Python can call so far, 25 names in all: 'metaObject', 'tr', 'columnCount',
+  Python can call so far, 26 names in all: 'metaObject', 'tr', 'columnCount',
   'index', 'mapFromSource', 'mapToSource', 'parent', 'rowCount',
   'headerData', 'dropMimeData', 'sibling', 'mapSelectionFromSource',
   'mapSelectionToSource', 'match', 'setSourceModel', 'insertColumns',
   'insertRows', 'removeColumns', 'removeRows', 'moveRows', 'moveColumns',
   'handleSourceLayoutChanges', 'handleSourceDataChanges',
-  'setHandleSourceLayoutChanges', 'setHandleSourceDataChanges'. It can be
-  made from Python, in 1 way; see '__init__'.
+  'setHandleSourceLayoutChanges', 'setHandleSourceDataChanges', 'd_func'. It
+  can be made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QIdentityProxyModel::qt_metacast(const char *a0)': one of
+    Qt's own inner workings.
+  - Qt's 'int QIdentityProxyModel::qt_metacall(QMetaObject::Call a0, int a1,
+    void **a2)': one of Qt's own inner workings.
   - Qt's 'QIdentityProxyModel::~QIdentityProxyModel()': the destructor:
     Python never removes a C++ QIdentityProxyModel.
+  - Qt's 'QIdentityProxyModel::QIdentityProxyModel(QIdentityProxyModelPrivate
+    &dd, QObject *parent)': takes a type Python has no way to hand over yet.
+  - Qt's 'const QIdentityProxyModelPrivate *QIdentityProxyModel::d_func()
+    const': takes in Python what 'QIdentityProxyModelPrivate
+    *QIdentityProxyModel::d_func()' takes.
 
   What has no ritual
   ------------------
 
-  9 of the 36 functions Qt declares: 5 takes or gives a type that cannot be
-  passed yet; 2 forbidden; 1 a template; 1 declared and nowhere to be found.
+  4 of the 36 functions Qt declares: 2 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -1061,3 +1070,21 @@ class QIdentityProxyModel(QAbstractProxyModel):
         self._valueOf(sourceParent), sourceColumn, count,
         self._valueOf(destinationParent), destinationChild,
     )
+
+  def d_func(self) -> Optional[QIdentityProxyModelPrivate]:
+    """
+    Calls Qt's 'QIdentityProxyModelPrivate *QIdentityProxyModel::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qidentityproxymodel.html#d_func
+
+    Returns
+    -------
+
+    Optional[QIdentityProxyModelPrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QIdentityProxyModelPrivate *QIdentityProxyModel::d_func()
+    address = self.uglySide.call('ritual_ZN19QIdentityProxyModel6d_funcEv')
+    from . import QIdentityProxyModelPrivate
+    return QIdentityProxyModelPrivate._cuteAt(address)

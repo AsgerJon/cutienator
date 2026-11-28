@@ -18,7 +18,7 @@ from ..occult import Rituals
 from . import QJsonDocument
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from . import QByteArray, QByteArrayView, QDebug, QJsonArray, QJsonObject
   from . import QJsonParseError, QLatin1String, QVariant
@@ -64,17 +64,30 @@ class QJsonValue(CuteMixin, metaclass=MetaCute):
 
   - Qt's 'QJsonValue::QJsonValue(qint64 v)': takes in Python what
     'QJsonValue::QJsonValue(int n)' takes.
+  - Qt's 'QJsonValue::QJsonValue(QJsonArray &&a)': takes a type Python has no
+    way to hand over yet.
+  - Qt's 'QJsonValue::QJsonValue(QJsonObject &&o)': takes a type Python has
+    no way to hand over yet.
   - Qt's 'QJsonValue::~QJsonValue()': the destructor: Python removes its C++
     QJsonValue by it, and has no other use for it.
+  - Qt's 'QJsonValue &QJsonValue::operator=(const QJsonValue &other)':
+    assignment: Python binds a name and has no operator for it.
+  - Qt's 'QJsonValue::QJsonValue(QJsonValue &&other)': takes a type Python
+    has no way to hand over yet.
+  - Qt's 'QJsonValue &QJsonValue::operator=(QJsonValue &&other)': assignment:
+    Python binds a name and has no operator for it.
+  - Qt's 'void QJsonValue::swap(QJsonValue &other)': takes a type Python has
+    no way to hand over yet.
   - Qt's 'const QJsonValue QJsonValue::operator[](QStringView key) const':
     takes in Python what 'const QJsonValue QJsonValue::operator[](const
     QString &key) const' takes.
+  - Qt's 'QDataStream &operator<<(QDataStream &a0, const QJsonValue &a1)':
+    takes a type Python has no way to hand over yet.
 
   What has no ritual
   ------------------
 
-  8 of the 50 functions Qt declares: 7 takes or gives a type that cannot be
-  passed yet; 1 forbidden.
+  1 of the 50 functions Qt declares: 1 forbidden.
 
   What to expect
   --------------
@@ -87,6 +100,8 @@ class QJsonValue(CuteMixin, metaclass=MetaCute):
     is as in C++.
   - A function giving a QJsonValue back gives a copy the ritual made for
     Python, in a new cute QJsonValue.
+  - Each name of Qt's QJsonValue that has no cute function yet, 'swap', holds
+    a function that raises 'NotImplementedError', and its docstring says why.
   """
 
   #  The enums Qt writes inside QJsonValue, each a class in here as in C++,
@@ -969,3 +984,14 @@ class QJsonValue(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def swap(*__, **_) -> Never:
+    """
+    Qt's 'void QJsonValue::swap(QJsonValue &other)': takes a type Python has
+    no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QJsonValue.swap' has no cute function yet. Qt's 'void "
+        "QJsonValue::swap(QJsonValue &other)': takes a type Python has no "
+        "way to hand over yet.")

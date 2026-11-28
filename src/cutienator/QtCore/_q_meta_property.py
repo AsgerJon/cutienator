@@ -16,7 +16,7 @@ from ..occult import Rituals
 from . import QHash, QVariant
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from . import QMetaEnum, QMetaMethod, QMetaObject, QMetaType, QObject
   from . import QUntypedBindable
@@ -58,14 +58,20 @@ class QMetaProperty(CuteMixin, metaclass=MetaCute):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'bool QMetaProperty::write(QObject *obj, QVariant &&value) const':
+    takes a type Python has no way to hand over yet.
+  - Qt's 'QVariant QMetaProperty::readOnGadget(const void *gadget) const':
+    names 'void', which has no cute class yet.
+  - Qt's 'bool QMetaProperty::writeOnGadget(void *gadget, const QVariant
+    &value) const': names 'void', which has no cute class yet.
+  - Qt's 'bool QMetaProperty::writeOnGadget(void *gadget, QVariant &&value)
+    const': names 'void', which has no cute class yet.
+  - Qt's 'bool QMetaProperty::resetOnGadget(void *gadget) const': names
+    'void', which has no cute class yet.
+  - Qt's 'Data QMetaProperty::getMetaPropertyData(const QMetaObject *mobj,
+    int index)': gives a type Python has no way to take yet.
   - Qt's 'QMetaProperty::~QMetaProperty()': the destructor: Python removes
     its C++ QMetaProperty by it, and has no other use for it.
-
-  What has no ritual
-  ------------------
-
-  6 of the 46 functions Qt declares: 6 takes or gives a type that cannot be
-  passed yet.
 
   What to expect
   --------------
@@ -79,6 +85,10 @@ class QMetaProperty(CuteMixin, metaclass=MetaCute):
     is as in C++.
   - A function giving a QMetaProperty back gives a copy the ritual made for
     Python, in a new cute QMetaProperty.
+  - Each name of Qt's QMetaProperty that has no cute function yet,
+    'getMetaPropertyData', 'readOnGadget', 'resetOnGadget', 'writeOnGadget',
+    holds a function that raises 'NotImplementedError', and its docstring
+    says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -634,7 +644,7 @@ class QMetaProperty(CuteMixin, metaclass=MetaCute):
     #  QMetaProperty::QMetaProperty(const QMetaObject *mobj, int index)
     self._noteCreation(QMetaProperty, lambda: Rituals.call(
         'ritual_ZN13QMetaPropertyC1EPK11QMetaObjecti',
-        self._addressOf(mobj), index,
+        self._addressOf(mobj, 'QMetaObject'), index,
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -656,6 +666,54 @@ class QMetaProperty(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def getMetaPropertyData(*__, **_) -> Never:
+    """
+    Qt's 'Data QMetaProperty::getMetaPropertyData(const QMetaObject *mobj,
+    int index)': gives a type Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QMetaProperty.getMetaPropertyData' has no cute function yet. Qt's "
+        "'Data QMetaProperty::getMetaPropertyData(const QMetaObject *mobj, "
+        "int index)': gives a type Python has no way to take yet.")
+
+  @staticmethod
+  def readOnGadget(*__, **_) -> Never:
+    """
+    Qt's 'QVariant QMetaProperty::readOnGadget(const void *gadget) const':
+    names 'void', which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QMetaProperty.readOnGadget' has no cute function yet. Qt's "
+        "'QVariant QMetaProperty::readOnGadget(const void *gadget) const': "
+        "names 'void', which has no cute class yet.")
+
+  @staticmethod
+  def resetOnGadget(*__, **_) -> Never:
+    """
+    Qt's 'bool QMetaProperty::resetOnGadget(void *gadget) const': names
+    'void', which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QMetaProperty.resetOnGadget' has no cute function yet. Qt's 'bool "
+        "QMetaProperty::resetOnGadget(void *gadget) const': names 'void', "
+        "which has no cute class yet.")
+
+  @staticmethod
+  def writeOnGadget(*__, **_) -> Never:
+    """
+    - Qt's 'bool QMetaProperty::writeOnGadget(void *gadget, const QVariant
+      &value) const': names 'void', which has no cute class yet.
+    - Qt's 'bool QMetaProperty::writeOnGadget(void *gadget, QVariant &&value)
+      const': names 'void', which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QMetaProperty.writeOnGadget' has no cute function yet. Qt's 'bool "
+        "QMetaProperty::writeOnGadget(void *gadget, const QVariant &value) "
+        "const': names 'void', which has no cute class yet. Qt's 'bool "
+        "QMetaProperty::writeOnGadget(void *gadget, QVariant &&value) "
+        "const': names 'void', which has no cute class yet.")
 
 
 #  Qt's 'QHash<int, QMetaProperty>': the QHash from a number to

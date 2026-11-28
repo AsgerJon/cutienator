@@ -39,15 +39,12 @@ class QStyleOptionViewItem(QStyleOption):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'QStyleOptionViewItem &QStyleOptionViewItem::operator=(const
+    QStyleOptionViewItem &a0)': assignment: Python binds a name and has no
+    operator for it.
   - Qt's 'QStyleOptionViewItem::~QStyleOptionViewItem()': the destructor:
     Python removes its C++ QStyleOptionViewItem by it, and has no other use
     for it.
-
-  What has no ritual
-  ------------------
-
-  1 of the 5 functions Qt declares: 1 takes or gives a type that cannot be
-  passed yet.
 
   What to expect
   --------------

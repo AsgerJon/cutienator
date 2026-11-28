@@ -139,7 +139,7 @@ class QConicalGradient(QGradient):
     #  void QConicalGradient::setCenter(const QPointF &center)
     self.uglySide.call(
         'ritual_ZN16QConicalGradient9setCenterERK7QPointF',
-        self._valueOf(center),
+        self._valueOf(center, 'QPointF'),
     )
 
   @overload(float, float)
@@ -226,7 +226,7 @@ class QConicalGradient(QGradient):
     #      startAngle)
     self._noteCreation(QConicalGradient, lambda: Rituals.call(
         'ritual_ZN16QConicalGradientC1ERK7QPointFd',
-        self._valueOf(center), startAngle,
+        self._valueOf(center, 'QPointF'), startAngle,
     ))
 
   @overload(float, float, float)

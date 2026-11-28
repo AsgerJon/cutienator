@@ -21,6 +21,7 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
 
   from ..QtCore import QMetaObject, QPointF, QRectF
   from ..QtGui import QColor, QPainter
+  from . import QGraphicsDropShadowEffectPrivate
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -48,23 +49,30 @@ class QGraphicsDropShadowEffect(QGraphicsEffect):
   -----------
 
   Every function of Qt's QGraphicsDropShadowEffect that has a ritual and that
-  Python can call so far, 14 names in all: 'metaObject', 'tr',
+  Python can call so far, 18 names in all: 'metaObject', 'tr',
   'boundingRectFor', 'offset', 'xOffset', 'yOffset', 'blurRadius', 'color',
   'setOffset', 'setXOffset', 'setYOffset', 'setBlurRadius', 'setColor',
-  'draw'. It can be made from Python, in 1 way; see '__init__'.
+  'offsetChanged', 'blurRadiusChanged', 'colorChanged', 'draw', 'd_func'. It
+  can be made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QGraphicsDropShadowEffect::qt_metacast(const char *a0)': one
+    of Qt's own inner workings.
+  - Qt's 'int QGraphicsDropShadowEffect::qt_metacall(QMetaObject::Call a0,
+    int a1, void **a2)': one of Qt's own inner workings.
   - Qt's 'QGraphicsDropShadowEffect::~QGraphicsDropShadowEffect()': the
     destructor: Python never removes a C++ QGraphicsDropShadowEffect.
+  - Qt's 'const QGraphicsDropShadowEffectPrivate
+    *QGraphicsDropShadowEffect::d_func() const': takes in Python what
+    'QGraphicsDropShadowEffectPrivate *QGraphicsDropShadowEffect::d_func()'
+    takes.
 
   What has no ritual
   ------------------
 
-  11 of the 29 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet; 3 a signal; 2 forbidden; 1 a template; 1 declared and nowhere
-  to be found.
+  4 of the 29 functions Qt declares: 2 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -310,7 +318,7 @@ class QGraphicsDropShadowEffect(QGraphicsEffect):
     #  void QGraphicsDropShadowEffect::setOffset(const QPointF &ofs)
     self.uglySide.call(
         'ritual_ZN25QGraphicsDropShadowEffect9setOffsetERK7QPointF',
-        self._valueOf(ofs),
+        self._valueOf(ofs, 'QPointF'),
     )
 
   @overload(float, float)
@@ -490,6 +498,71 @@ class QGraphicsDropShadowEffect(QGraphicsEffect):
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  @overload(QPointF)
+  def offsetChanged(self, offset: QPointF) -> None:
+    """
+    Calls Qt's 'void QGraphicsDropShadowEffect::offsetChanged(const QPointF
+    &offset)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#offsetChanged
+
+    Parameters
+    ----------
+
+    offset : QPointF
+      Passed on as a value: Qt reads the C++ QPointF, which stays Python's
+      own.
+    """
+    #  void QGraphicsDropShadowEffect::offsetChanged(const QPointF &offset)
+    self.uglySide.call(
+        'ritual_ZN25QGraphicsDropShadowEffect13offsetChangedERK7QPointF',
+        self._valueOf(offset, 'QPointF'),
+    )
+
+  @overload(float)
+  def blurRadiusChanged(self, blurRadius: float) -> None:
+    """
+    Calls Qt's 'void QGraphicsDropShadowEffect::blurRadiusChanged(qreal
+    blurRadius)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#blurRadiusChanged
+
+    Parameters
+    ----------
+
+    blurRadius : float
+      Passed on as it is.
+    """
+    #  void QGraphicsDropShadowEffect::blurRadiusChanged(qreal blurRadius)
+    self.uglySide.call(
+        'ritual_ZN25QGraphicsDropShadowEffect17blurRadiusChangedEd',
+        blurRadius,
+    )
+
+  @overload(QColor)
+  def colorChanged(self, color: QColor) -> None:
+    """
+    Calls Qt's 'void QGraphicsDropShadowEffect::colorChanged(const QColor
+    &color)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#colorChanged
+
+    Parameters
+    ----------
+
+    color : QColor
+      Passed on as a value: Qt reads the C++ QColor, which stays Python's
+      own.
+    """
+    #  void QGraphicsDropShadowEffect::colorChanged(const QColor &color)
+    self.uglySide.call(
+        'ritual_ZN25QGraphicsDropShadowEffect12colorChangedERK6QColor',
+        self._valueOf(color),
+    )
+
   @overload(QPainter)
   @overload(NoneType)
   def draw(self, painter: Optional[QPainter]) -> None:
@@ -511,3 +584,25 @@ class QGraphicsDropShadowEffect(QGraphicsEffect):
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZN25QGraphicsDropShadowEffect4drawEP8QPainter'
     self.uglySide.call(ritual, self._addressOf(painter))
+
+  def d_func(self) -> Optional[QGraphicsDropShadowEffectPrivate]:
+    """
+    Calls Qt's 'QGraphicsDropShadowEffectPrivate
+    *QGraphicsDropShadowEffect::d_func()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#d_func
+
+    Returns
+    -------
+
+    Optional[QGraphicsDropShadowEffectPrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QGraphicsDropShadowEffectPrivate *QGraphicsDropShadowEffect::d_func()
+    address = self.uglySide.call(
+        'ritual_ZN25QGraphicsDropShadowEffect6d_funcEv',
+    )
+    from . import QGraphicsDropShadowEffectPrivate
+    return QGraphicsDropShadowEffectPrivate._cuteAt(address)

@@ -17,6 +17,8 @@ from ..cute import CuteMixin, CuteNum, MetaCute
 from ..occult import Rituals
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Never
+
   from . import QVersionNumber
 
 
@@ -42,6 +44,12 @@ class QOperatingSystemVersionBase(CuteMixin, metaclass=MetaCute):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'bool
+    QOperatingSystemVersionBase::isAnyOfType(std::initializer_list<OSType>
+    types, OSType type)': takes a type Python has no way to hand over yet.
+  - Qt's 'bool
+    QOperatingSystemVersionBase::isAnyOfType(std::initializer_list<OSType>
+    types) const': takes a type Python has no way to hand over yet.
   - Qt's 'QOperatingSystemVersionBase::~QOperatingSystemVersionBase()': the
     destructor: Python removes its C++ QOperatingSystemVersionBase by it, and
     has no other use for it.
@@ -49,8 +57,8 @@ class QOperatingSystemVersionBase(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  3 of the 21 functions Qt declares: 2 takes or gives a type that cannot be
-  passed yet; 1 declared and nowhere to be found.
+  1 of the 21 functions Qt declares: 1 cannot be called and cannot be called
+  through the meta-object and cannot be copied.
 
   What to expect
   --------------
@@ -64,6 +72,9 @@ class QOperatingSystemVersionBase(CuteMixin, metaclass=MetaCute):
     is as in C++.
   - A function giving a QOperatingSystemVersionBase back gives a copy the
     ritual made for Python, in a new cute QOperatingSystemVersionBase.
+  - Each name of Qt's QOperatingSystemVersionBase that has no cute function
+    yet, 'current_impl', 'isAnyOfType', holds a function that raises
+    'NotImplementedError', and its docstring says why.
   """
 
   #  The enums Qt writes inside QOperatingSystemVersionBase, each a class in
@@ -544,3 +555,45 @@ class QOperatingSystemVersionBase(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def current_impl(*__, **_) -> Never:
+    """
+    Qt's 'QOperatingSystemVersionBase
+    QOperatingSystemVersionBase::current_impl()': cannot be called and cannot
+    be called through the meta-object and cannot be copied: no header file
+    has its code, Qt's source does not mark it or its class for use from
+    outside Qt or writes it 'inline' or nowhere, and it is no signal, slot or
+    invokable function giving back nothing, of a class built on QObject, and
+    Qt's source has no code for it that could be told from the rest.
+    """
+    raise NotImplementedError(
+        "'QOperatingSystemVersionBase.current_impl' has no cute function "
+        "yet. Qt's 'QOperatingSystemVersionBase "
+        "QOperatingSystemVersionBase::current_impl()': cannot be called and "
+        "cannot be called through the meta-object and cannot be copied: no "
+        "header file has its code, Qt's source does not mark it or its "
+        "class for use from outside Qt or writes it 'inline' or nowhere, "
+        "and it is no signal, slot or invokable function giving back "
+        "nothing, of a class built on QObject, and Qt's source has no code "
+        "for it that could be told from the rest.")
+
+  @staticmethod
+  def isAnyOfType(*__, **_) -> Never:
+    """
+    - Qt's 'bool
+      QOperatingSystemVersionBase::isAnyOfType(std::initializer_list<OSType>
+      types, OSType type)': takes a type Python has no way to hand over yet.
+    - Qt's 'bool
+      QOperatingSystemVersionBase::isAnyOfType(std::initializer_list<OSType>
+      types) const': takes a type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QOperatingSystemVersionBase.isAnyOfType' has no cute function "
+        "yet. Qt's 'bool "
+        "QOperatingSystemVersionBase::isAnyOfType(std::initializer_list<OSTy"
+        "pe> types, OSType type)': takes a type Python has no way to hand "
+        "over yet. Qt's 'bool "
+        "QOperatingSystemVersionBase::isAnyOfType(std::initializer_list<OSTy"
+        "pe> types) const': takes a type Python has no way to hand over yet."
+    )

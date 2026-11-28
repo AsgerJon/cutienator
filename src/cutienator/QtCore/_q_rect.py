@@ -639,7 +639,8 @@ class QRect(CuteMixin, metaclass=MetaCute):
     """
     #  QRect QRect::marginsAdded(const QMargins &margins) const
     address = self.uglySide.call(
-        'ritual_ZNK5QRect12marginsAddedERK8QMargins', self._valueOf(margins),
+        'ritual_ZNK5QRect12marginsAddedERK8QMargins',
+        self._valueOf(margins, 'QMargins'),
     )
     return QRect._cuteOwning(address)
 
@@ -666,7 +667,7 @@ class QRect(CuteMixin, metaclass=MetaCute):
     #  QRect QRect::marginsRemoved(const QMargins &margins) const
     address = self.uglySide.call(
         'ritual_ZNK5QRect14marginsRemovedERK8QMargins',
-        self._valueOf(margins),
+        self._valueOf(margins, 'QMargins'),
     )
     return QRect._cuteOwning(address)
 
@@ -1101,7 +1102,7 @@ class QRect(CuteMixin, metaclass=MetaCute):
     """
     #  QRect &QRect::operator+=(const QMargins &margins)
     self.uglySide.call(
-        'ritual_ZN5QRectpLERK8QMargins', self._valueOf(margins),
+        'ritual_ZN5QRectpLERK8QMargins', self._valueOf(margins, 'QMargins'),
     )
     return self
 
@@ -1130,7 +1131,7 @@ class QRect(CuteMixin, metaclass=MetaCute):
     """
     #  QRect &QRect::operator-=(const QMargins &margins)
     self.uglySide.call(
-        'ritual_ZN5QRectmIERK8QMargins', self._valueOf(margins),
+        'ritual_ZN5QRectmIERK8QMargins', self._valueOf(margins, 'QMargins'),
     )
     return self
 

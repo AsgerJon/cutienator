@@ -13,13 +13,14 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
-from . import Qt, QAbstractItemModel, QHash, QList, QMap, QStringList
+from . import Qt, QAbstractItemModel, QHash, QList, QMap, QObject
+from . import QStringList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
-  from . import QByteArray, QItemSelection, QMetaObject, QMimeData
-  from . import QModelIndex, QSize, QVariant
+  from . import QAbstractProxyModelPrivate, QByteArray, QItemSelection
+  from . import QMetaObject, QMimeData, QModelIndex, QSize, QVariant
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -46,28 +47,41 @@ class QAbstractProxyModel(QAbstractItemModel):
   -----------
 
   Every function of Qt's QAbstractProxyModel that has a ritual and that
-  Python can call so far, 32 names in all: 'metaObject', 'tr',
+  Python can call so far, 34 names in all: 'metaObject', 'tr',
   'setSourceModel', 'sourceModel', 'mapToSource', 'mapFromSource',
   'mapSelectionToSource', 'mapSelectionFromSource', 'submit', 'revert',
   'data', 'headerData', 'itemData', 'flags', 'setData', 'setItemData',
   'setHeaderData', 'clearItemData', 'buddy', 'canFetchMore', 'fetchMore',
   'sort', 'span', 'hasChildren', 'sibling', 'mimeData', 'canDropMimeData',
   'dropMimeData', 'mimeTypes', 'supportedDragActions',
-  'supportedDropActions', 'roleNames'. None can be made from Python: one
-  comes out of a function of another class that gives one back.
+  'supportedDropActions', 'roleNames', 'sourceModelChanged', 'd_func'. It can
+  be made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QAbstractProxyModel::qt_metacast(const char *a0)': one of
+    Qt's own inner workings.
+  - Qt's 'int QAbstractProxyModel::qt_metacall(QMetaObject::Call a0, int a1,
+    void **a2)': one of Qt's own inner workings.
   - Qt's 'QAbstractProxyModel::~QAbstractProxyModel()': the destructor:
     Python never removes a C++ QAbstractProxyModel.
+  - Qt's 'QBindable<QAbstractItemModel *>
+    QAbstractProxyModel::bindableSourceModel()': gives a type Python has no
+    way to take yet.
+  - Qt's 'QModelIndex QAbstractProxyModel::createSourceIndex(int row, int
+    col, void *internalPtr) const': names 'void', which has no cute class
+    yet.
+  - Qt's 'QAbstractProxyModel::QAbstractProxyModel(QAbstractProxyModelPrivate
+    &a0, QObject *parent)': takes a type Python has no way to hand over yet.
+  - Qt's 'const QAbstractProxyModelPrivate *QAbstractProxyModel::d_func()
+    const': takes in Python what 'QAbstractProxyModelPrivate
+    *QAbstractProxyModel::d_func()' takes.
 
   What has no ritual
   ------------------
 
-  13 of the 46 functions Qt declares: 6 takes or gives a type that cannot be
-  passed yet; 2 the class is abstract, so C++ cannot make one; 2 forbidden; 1
-  a template; 1 declared and nowhere to be found; 1 a signal.
+  4 of the 46 functions Qt declares: 2 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -83,6 +97,9 @@ class QAbstractProxyModel(QAbstractItemModel):
   - Qt tells when it has removed the C++ QAbstractProxyModel. Every call on
     the cute object, and every use of it as an argument, then raises
     'RuntimeError', and nothing reaches C++.
+  - Each name of Qt's QAbstractProxyModel that has no cute function yet,
+    'bindableSourceModel', 'createSourceIndex', holds a function that raises
+    'NotImplementedError', and its docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -997,6 +1014,31 @@ class QAbstractProxyModel(QAbstractItemModel):
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  @overload()
+  @overload(QObject)
+  @overload(NoneType)
+  def __init__(self, parent: Optional[QObject] = None) -> None:
+    """
+    Notes what was given, for Qt's
+    'QAbstractProxyModel::QAbstractProxyModel(QObject *parent)', which is
+    called at the first use.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractproxymodel.html#QAbstractProxyModel
+
+    Parameters
+    ----------
+
+    parent : Optional[QObject]
+      Passed on as the address of its C++ object. None is passed on as no
+      object. May be left out, as in Qt: it is then None.
+    """
+    #  QAbstractProxyModel::QAbstractProxyModel(QObject *parent)
+    self._noteCreation(QAbstractProxyModel, lambda: Rituals.call(
+        'ritual_ZN19QAbstractProxyModelC1EP7QObject',
+        self._addressOf(parent, 'QObject'),
+    ))
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -1167,3 +1209,61 @@ class QAbstractProxyModel(QAbstractItemModel):
         self._addressOf(data), action.value, row, column,
         self._valueOf(parent),
     )
+
+  def sourceModelChanged(self) -> None:
+    """
+    Calls Qt's 'void QAbstractProxyModel::sourceModelChanged(QPrivateSignal
+    a0)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractproxymodel.html#sourceModelChanged
+    """
+    #  void QAbstractProxyModel::sourceModelChanged(QPrivateSignal a0)
+    self.uglySide.call(
+        'ritual_ZN19QAbstractProxyModel18sourceModelChangedENS_14QPrivateSi'
+        'gnalE',
+    )
+
+  def d_func(self) -> Optional[QAbstractProxyModelPrivate]:
+    """
+    Calls Qt's 'QAbstractProxyModelPrivate *QAbstractProxyModel::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qabstractproxymodel.html#d_func
+
+    Returns
+    -------
+
+    Optional[QAbstractProxyModelPrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QAbstractProxyModelPrivate *QAbstractProxyModel::d_func()
+    address = self.uglySide.call('ritual_ZN19QAbstractProxyModel6d_funcEv')
+    from . import QAbstractProxyModelPrivate
+    return QAbstractProxyModelPrivate._cuteAt(address)
+
+  @staticmethod
+  def bindableSourceModel(*__, **_) -> Never:
+    """
+    Qt's 'QBindable<QAbstractItemModel *>
+    QAbstractProxyModel::bindableSourceModel()': gives a type Python has no
+    way to take yet.
+    """
+    raise NotImplementedError(
+        "'QAbstractProxyModel.bindableSourceModel' has no cute function "
+        "yet. Qt's 'QBindable<QAbstractItemModel *> "
+        "QAbstractProxyModel::bindableSourceModel()': gives a type Python "
+        "has no way to take yet.")
+
+  @staticmethod
+  def createSourceIndex(*__, **_) -> Never:
+    """
+    Qt's 'QModelIndex QAbstractProxyModel::createSourceIndex(int row, int
+    col, void *internalPtr) const': names 'void', which has no cute class
+    yet.
+    """
+    raise NotImplementedError(
+        "'QAbstractProxyModel.createSourceIndex' has no cute function yet. "
+        "Qt's 'QModelIndex QAbstractProxyModel::createSourceIndex(int row, "
+        "int col, void *internalPtr) const': names 'void', which has no "
+        "cute class yet.")

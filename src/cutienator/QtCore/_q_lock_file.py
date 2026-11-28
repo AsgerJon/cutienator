@@ -15,6 +15,11 @@ from worktoy.keenum import Kee
 from ..cute import CuteMixin, CuteNum, MetaCute
 from ..occult import Rituals
 
+if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Never, Optional
+
+  from . import QLockFilePrivate
+
 
 class QLockFile(CuteMixin, metaclass=MetaCute):
   """
@@ -25,23 +30,30 @@ class QLockFile(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QLockFile that has a ritual and that Python can call
-  so far, 9 names in all: 'fileName', 'lock', 'tryLock', 'unlock',
+  so far, 10 names in all: 'fileName', 'lock', 'tryLock', 'unlock',
   'setStaleLockTime', 'staleLockTime', 'isLocked', 'removeStaleLockFile',
-  'error'. It can be made from Python, in 1 way; see '__init__'.
+  'error', 'd_func'. It can be made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
   - Qt's 'QLockFile::~QLockFile()': the destructor: Python never removes a
     C++ QLockFile.
+  - Qt's 'bool QLockFile::tryLock(std::chrono::milliseconds timeout)': takes
+    a type Python has no way to hand over yet.
+  - Qt's 'void QLockFile::setStaleLockTime(std::chrono::milliseconds value)':
+    takes a type Python has no way to hand over yet.
+  - Qt's 'std::chrono::milliseconds QLockFile::staleLockTimeAsDuration()
+    const': gives a type Python has no way to take yet.
   - Qt's 'bool QLockFile::getLockInfo(qint64 *pid, QString *hostname, QString
     *appname) const': takes a number to change where it is.
+  - Qt's 'const QLockFilePrivate *QLockFile::d_func() const': takes in Python
+    what 'QLockFilePrivate *QLockFile::d_func()' takes.
 
   What has no ritual
   ------------------
 
-  7 of the 19 functions Qt declares: 5 takes or gives a type that cannot be
-  passed yet; 2 forbidden.
+  2 of the 19 functions Qt declares: 2 forbidden.
 
   What to expect
   --------------
@@ -53,6 +65,9 @@ class QLockFile(CuteMixin, metaclass=MetaCute):
     has it, and is passed on as nothing. Whether Qt can do with nothing there
     is as in C++.
   - Python never removes the C++ QLockFile.
+  - Each name of Qt's QLockFile that has no cute function yet, 'getLockInfo',
+    'staleLockTimeAsDuration', holds a function that raises
+    'NotImplementedError', and its docstring says why.
   """
 
   #  The enums Qt writes inside QLockFile, each a class in here as in C++,
@@ -256,3 +271,43 @@ class QLockFile(CuteMixin, metaclass=MetaCute):
     """
     #  bool QLockFile::removeStaleLockFile()
     return self.uglySide.call('ritual_ZN9QLockFile19removeStaleLockFileEv')
+
+  def d_func(self) -> Optional[QLockFilePrivate]:
+    """
+    Calls Qt's 'QLockFilePrivate *QLockFile::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlockfile.html#d_func
+
+    Returns
+    -------
+
+    Optional[QLockFilePrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QLockFilePrivate *QLockFile::d_func()
+    address = self.uglySide.call('ritual_ZN9QLockFile6d_funcEv')
+    from . import QLockFilePrivate
+    return QLockFilePrivate._cuteAt(address)
+
+  @staticmethod
+  def getLockInfo(*__, **_) -> Never:
+    """
+    Qt's 'bool QLockFile::getLockInfo(qint64 *pid, QString *hostname, QString
+    *appname) const': takes a number to change where it is.
+    """
+    raise NotImplementedError(
+        "'QLockFile.getLockInfo' has no cute function yet. Qt's 'bool "
+        "QLockFile::getLockInfo(qint64 *pid, QString *hostname, QString "
+        "*appname) const': takes a number to change where it is.")
+
+  @staticmethod
+  def staleLockTimeAsDuration(*__, **_) -> Never:
+    """
+    Qt's 'std::chrono::milliseconds QLockFile::staleLockTimeAsDuration()
+    const': gives a type Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QLockFile.staleLockTimeAsDuration' has no cute function yet. Qt's "
+        "'std::chrono::milliseconds QLockFile::staleLockTimeAsDuration() "
+        "const': gives a type Python has no way to take yet.")

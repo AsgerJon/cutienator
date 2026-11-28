@@ -12,7 +12,7 @@ from typing import TYPE_CHECKING
 from ..cute import CuteMixin, MetaCute
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
 
 class QGenericArgument(CuteMixin, metaclass=MetaCute):
@@ -34,14 +34,12 @@ class QGenericArgument(CuteMixin, metaclass=MetaCute):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'QGenericArgument::QGenericArgument(const char *aName, const void
+    *aData)': names 'void', which has no cute class yet.
+  - Qt's 'void *QGenericArgument::data() const': gives 'void', which has no
+    cute class yet.
   - Qt's 'QGenericArgument::~QGenericArgument()': the destructor: Python
     removes its C++ QGenericArgument by it, and has no other use for it.
-
-  What has no ritual
-  ------------------
-
-  2 of the 4 functions Qt declares: 2 takes or gives a type that cannot be
-  passed yet.
 
   What to expect
   --------------
@@ -55,6 +53,9 @@ class QGenericArgument(CuteMixin, metaclass=MetaCute):
     is as in C++.
   - A function giving a QGenericArgument back gives a copy the ritual made
     for Python, in a new cute QGenericArgument.
+  - Each name of Qt's QGenericArgument that has no cute function yet,
+    '__init__', 'data', holds a function that raises 'NotImplementedError',
+    and its docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -118,6 +119,17 @@ class QGenericArgument(CuteMixin, metaclass=MetaCute):
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  @staticmethod
+  def __init__(*__, **_) -> Never:
+    """
+    Qt's 'QGenericArgument::QGenericArgument(const char *aName, const void
+    *aData)': names 'void', which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QGenericArgument.__init__' has no cute function yet. Qt's "
+        "'QGenericArgument::QGenericArgument(const char *aName, const void "
+        "*aData)': names 'void', which has no cute class yet.")
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -137,3 +149,14 @@ class QGenericArgument(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def data(*__, **_) -> Never:
+    """
+    Qt's 'void *QGenericArgument::data() const': gives 'void', which has no
+    cute class yet.
+    """
+    raise NotImplementedError(
+        "'QGenericArgument.data' has no cute function yet. Qt's 'void "
+        "*QGenericArgument::data() const': gives 'void', which has no cute "
+        "class yet.")

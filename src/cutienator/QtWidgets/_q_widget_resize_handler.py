@@ -20,14 +20,16 @@ from ..cute import WAIT
 from ..QtCore import QObject
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from ..QtCore import QEvent, QMetaObject
+  from ..QtGui import QMouseEvent
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
   QEvent = WAIT['QEvent']
+  QMouseEvent = WAIT['QMouseEvent']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -46,14 +48,18 @@ class QWidgetResizeHandler(QObject):
   -----------
 
   Every function of Qt's QWidgetResizeHandler that has a ritual and that
-  Python can call so far, 8 names in all: 'metaObject', 'setEnabled',
-  'isEnabled', 'isButtonDown', 'setExtraHeight', 'setFrameWidth',
-  'eventFilter', 'isResizing'. None can be made from Python: one comes out of
-  a function of another class that gives one back.
+  Python can call so far, 10 names in all: 'metaObject', 'setEnabled',
+  'isEnabled', 'isButtonDown', 'setExtraHeight', 'setFrameWidth', 'activate',
+  'eventFilter', 'mouseMoveEvent', 'isResizing'. None can be made from
+  Python: one comes out of a function of another class that gives one back.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QWidgetResizeHandler::qt_metacast(const char *a0)': one of
+    Qt's own inner workings.
+  - Qt's 'int QWidgetResizeHandler::qt_metacall(QMetaObject::Call a0, int a1,
+    void **a2)': one of Qt's own inner workings.
   - Qt's 'void QWidgetResizeHandler::setMouseCursor(MousePosition m)': names
     the enum 'QWidgetResizeHandler::MousePosition', whose class cannot be
     named here.
@@ -61,11 +67,9 @@ class QWidgetResizeHandler(QObject):
   What has no ritual
   ------------------
 
-  15 of the 24 functions Qt declares: 4 forbidden; 4 Qt's library has no name
+  10 of the 23 functions Qt declares: 4 forbidden; 3 Qt's library has no name
   for it, and its code in Qt's source does not compile apart from its file; 2
-  takes or gives a type that cannot be passed yet; 2 leans on
-  'QWidgetResizeHandler; 1 a template; 1 declared and nowhere to be found; 1
-  a signal.
+  not a gap; 1 leans on 'QWidgetResizeHandler.
 
   What to expect
   --------------
@@ -81,6 +85,9 @@ class QWidgetResizeHandler(QObject):
   - Qt tells when it has removed the C++ QWidgetResizeHandler. Every call on
     the cute object, and every use of it as an argument, then raises
     'RuntimeError', and nothing reaches C++.
+  - Each name of Qt's QWidgetResizeHandler that has no cute function yet,
+    '__init__', 'doResize', 'keyPressEvent', 'setMouseCursor', holds a
+    function that raises 'NotImplementedError', and its docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -231,6 +238,20 @@ class QWidgetResizeHandler(QObject):
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  @staticmethod
+  def __init__(*__, **_) -> Never:
+    """
+    Qt's 'QWidgetResizeHandler::QWidgetResizeHandler(QWidget *parent, QWidget
+    *cw)': Qt's library has no name for it, and its code in Qt's source does
+    not compile apart from its file: use of undeclared identifier 'RANGE'.
+    """
+    raise NotImplementedError(
+        "'QWidgetResizeHandler.__init__' has no cute function yet. Qt's "
+        "'QWidgetResizeHandler::QWidgetResizeHandler(QWidget *parent, "
+        "QWidget *cw)': Qt's library has no name for it, and its code in "
+        "Qt's source does not compile apart from its file: use of "
+        "undeclared identifier 'RANGE'.")
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -250,6 +271,15 @@ class QWidgetResizeHandler(QObject):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  def activate(self) -> None:
+    """
+    Calls Qt's 'void QWidgetResizeHandler::activate()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qwidgetresizehandler.html#activate
+    """
+    #  void QWidgetResizeHandler::activate()
+    self.uglySide.call('ritual_ZN20QWidgetResizeHandler8activateEv')
 
   @overload(QObject, QEvent)
   @overload(QObject, NoneType)
@@ -279,3 +309,67 @@ class QWidgetResizeHandler(QObject):
         'ritual_ZN20QWidgetResizeHandler11eventFilterEP7QObjectP6QEvent',
         self._addressOf(o, 'QObject'), self._addressOf(e),
     )
+
+  @overload(QMouseEvent)
+  @overload(NoneType)
+  def mouseMoveEvent(self, e: Optional[QMouseEvent]) -> None:
+    """
+    Calls Qt's 'void QWidgetResizeHandler::mouseMoveEvent(QMouseEvent *e)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qwidgetresizehandler.html#mouseMoveEvent
+
+    Parameters
+    ----------
+
+    e : Optional[QMouseEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QWidgetResizeHandler::mouseMoveEvent(QMouseEvent *e)
+    self.uglySide.call(
+        'ritual_ZN20QWidgetResizeHandler14mouseMoveEventEP11QMouseEvent',
+        self._addressOf(e),
+    )
+
+  @staticmethod
+  def doResize(*__, **_) -> Never:
+    """
+    Qt's 'void QWidgetResizeHandler::doResize()': Qt's library has no name
+    for it, and its code in Qt's source does not compile apart from its file:
+    use of undeclared identifier 'resizeHorizontalDirectionFixed'.
+    """
+    raise NotImplementedError(
+        "'QWidgetResizeHandler.doResize' has no cute function yet. Qt's "
+        "'void QWidgetResizeHandler::doResize()': Qt's library has no name "
+        "for it, and its code in Qt's source does not compile apart from "
+        "its file: use of undeclared identifier "
+        "'resizeHorizontalDirectionFixed'.")
+
+  @staticmethod
+  def keyPressEvent(*__, **_) -> Never:
+    """
+    Qt's 'void QWidgetResizeHandler::keyPressEvent(QKeyEvent *e)': Qt's
+    library has no name for it, and its code in Qt's source does not compile
+    apart from its file: use of undeclared identifier
+    'resizeHorizontalDirectionFixed'.
+    """
+    raise NotImplementedError(
+        "'QWidgetResizeHandler.keyPressEvent' has no cute function yet. "
+        "Qt's 'void QWidgetResizeHandler::keyPressEvent(QKeyEvent *e)': "
+        "Qt's library has no name for it, and its code in Qt's source does "
+        "not compile apart from its file: use of undeclared identifier "
+        "'resizeHorizontalDirectionFixed'.")
+
+  @staticmethod
+  def setMouseCursor(*__, **_) -> Never:
+    """
+    Qt's 'void QWidgetResizeHandler::setMouseCursor(MousePosition m)': names
+    the enum 'QWidgetResizeHandler::MousePosition', whose class cannot be
+    named here.
+    """
+    raise NotImplementedError(
+        "'QWidgetResizeHandler.setMouseCursor' has no cute function yet. "
+        "Qt's 'void QWidgetResizeHandler::setMouseCursor(MousePosition m)': "
+        "names the enum 'QWidgetResizeHandler::MousePosition', whose class "
+        "cannot be named here.")

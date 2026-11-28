@@ -19,7 +19,8 @@ from . import QIODeviceBase, QStringConverter
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from . import QByteArray, QChar, QIODevice, QLocale
+  from . import QByteArray, QChar, QIODevice, QLocale, QString
+  from . import QTextStreamPrivate
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -28,6 +29,7 @@ else:
   QChar = WAIT['QChar']
   QIODevice = WAIT['QIODevice']
   QLocale = WAIT['QLocale']
+  QString = WAIT['QString']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -46,39 +48,104 @@ class QTextStream(QIODeviceBase):
   -----------
 
   Every function of Qt's QTextStream that has a ritual and that Python can
-  call so far, 37 names in all: 'setEncoding', 'encoding',
+  call so far, 41 names in all: 'd_func', 'setEncoding', 'encoding',
   'setAutoDetectUnicode', 'autoDetectUnicode', 'setGenerateByteOrderMark',
   'generateByteOrderMark', 'setLocale', 'locale', 'setDevice', 'device',
-  'status', 'setStatus', 'resetStatus', 'atEnd', 'reset', 'flush', 'seek',
-  'pos', 'skipWhiteSpace', 'readLine', 'readAll', 'read',
-  'setFieldAlignment', 'fieldAlignment', 'setPadChar', 'padChar',
-  'setFieldWidth', 'fieldWidth', 'setNumberFlags', 'numberFlags',
-  'setIntegerBase', 'integerBase', 'setRealNumberNotation',
+  'setString', 'string', 'status', 'setStatus', 'resetStatus', 'atEnd',
+  'reset', 'flush', 'seek', 'pos', 'skipWhiteSpace', 'readLine',
+  'readLineInto', 'readAll', 'read', 'setFieldAlignment', 'fieldAlignment',
+  'setPadChar', 'padChar', 'setFieldWidth', 'fieldWidth', 'setNumberFlags',
+  'numberFlags', 'setIntegerBase', 'integerBase', 'setRealNumberNotation',
   'realNumberNotation', 'setRealNumberPrecision', 'realNumberPrecision',
-  '__bool__'. It can be made from Python, in 3 ways; see '__init__'.
+  '__bool__'. It can be made from Python, in 4 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
-  - Qt's 'QTextStream::QTextStream(QString *string, OpenMode openMode)':
-    names 'QString', which has no cute class yet.
+  - Qt's 'const QTextStreamPrivate *QTextStream::d_func() const': takes in
+    Python what 'QTextStreamPrivate *QTextStream::d_func()' takes.
+  - Qt's 'QTextStream::QTextStream(FILE *fileHandle, OpenMode openMode)':
+    names 'FILE', which has no cute class yet.
   - Qt's 'QTextStream::QTextStream(const QByteArray &array, OpenMode
     openMode)': takes in Python what 'QTextStream::QTextStream(QByteArray
     *array, OpenMode openMode)' takes.
   - Qt's 'QTextStream::~QTextStream()': the destructor: Python never removes
     a C++ QTextStream.
-  - Qt's 'void QTextStream::setString(QString *string, OpenMode openMode)':
-    names 'QString', which has no cute class yet.
-  - Qt's 'QString *QTextStream::string() const': gives 'QString', which has
-    no cute class yet.
-  - Qt's 'bool QTextStream::readLineInto(QString *line, qint64 maxlen)':
-    names 'QString', which has no cute class yet.
+  - Qt's 'QTextStream &QTextStream::operator>>(QChar &ch)': takes a type
+    Python has no way to hand over yet.
+  - Qt's 'QTextStream &QTextStream::operator>>(char &ch)': takes a type
+    Python has no way to hand over yet.
+  - Qt's 'QTextStream &QTextStream::operator>>(char16_t &ch)': takes a number
+    to change where it is.
+  - Qt's 'QTextStream &QTextStream::operator>>(short &i)': takes a number to
+    change where it is.
+  - Qt's 'QTextStream &QTextStream::operator>>(unsigned short &i)': takes a
+    number to change where it is.
+  - Qt's 'QTextStream &QTextStream::operator>>(int &i)': takes a number to
+    change where it is.
+  - Qt's 'QTextStream &QTextStream::operator>>(unsigned int &i)': takes a
+    number to change where it is.
+  - Qt's 'QTextStream &QTextStream::operator>>(long &i)': takes a number to
+    change where it is.
+  - Qt's 'QTextStream &QTextStream::operator>>(unsigned long &i)': takes a
+    number to change where it is.
+  - Qt's 'QTextStream &QTextStream::operator>>(qlonglong &i)': takes a number
+    to change where it is.
+  - Qt's 'QTextStream &QTextStream::operator>>(qulonglong &i)': takes a
+    number to change where it is.
+  - Qt's 'QTextStream &QTextStream::operator>>(float &f)': takes a number to
+    change where it is.
+  - Qt's 'QTextStream &QTextStream::operator>>(double &f)': takes a number to
+    change where it is.
+  - Qt's 'QTextStream &QTextStream::operator>>(QString &s)': takes a type
+    Python has no way to hand over yet.
+  - Qt's 'QTextStream &QTextStream::operator>>(QByteArray &array)': takes a
+    type Python has no way to hand over yet.
+  - Qt's 'QTextStream &QTextStream::operator>>(char *c)': names 'char', which
+    has no cute class yet.
+  - Qt's 'QTextStream &QTextStream::operator<<(QChar ch)': gives a type
+    Python has no way to take yet.
+  - Qt's 'QTextStream &QTextStream::operator<<(char ch)': takes a single
+    letter as C has it.
+  - Qt's 'QTextStream &QTextStream::operator<<(char16_t ch)': gives a type
+    Python has no way to take yet.
+  - Qt's 'QTextStream &QTextStream::operator<<(short i)': gives a type Python
+    has no way to take yet.
+  - Qt's 'QTextStream &QTextStream::operator<<(unsigned short i)': gives a
+    type Python has no way to take yet.
+  - Qt's 'QTextStream &QTextStream::operator<<(int i)': gives a type Python
+    has no way to take yet.
+  - Qt's 'QTextStream &QTextStream::operator<<(unsigned int i)': gives a type
+    Python has no way to take yet.
+  - Qt's 'QTextStream &QTextStream::operator<<(long i)': gives a type Python
+    has no way to take yet.
+  - Qt's 'QTextStream &QTextStream::operator<<(unsigned long i)': gives a
+    type Python has no way to take yet.
+  - Qt's 'QTextStream &QTextStream::operator<<(qlonglong i)': gives a type
+    Python has no way to take yet.
+  - Qt's 'QTextStream &QTextStream::operator<<(qulonglong i)': gives a type
+    Python has no way to take yet.
+  - Qt's 'QTextStream &QTextStream::operator<<(float f)': gives a type Python
+    has no way to take yet.
+  - Qt's 'QTextStream &QTextStream::operator<<(double f)': gives a type
+    Python has no way to take yet.
+  - Qt's 'QTextStream &QTextStream::operator<<(const QString &s)': gives a
+    type Python has no way to take yet.
+  - Qt's 'QTextStream &QTextStream::operator<<(QStringView s)': gives a type
+    Python has no way to take yet.
+  - Qt's 'QTextStream &QTextStream::operator<<(QLatin1StringView s)': gives a
+    type Python has no way to take yet.
+  - Qt's 'QTextStream &QTextStream::operator<<(const QByteArray &array)':
+    gives a type Python has no way to take yet.
+  - Qt's 'QTextStream &QTextStream::operator<<(const char *c)': gives a type
+    Python has no way to take yet.
+  - Qt's 'QTextStream &QTextStream::operator<<(const void *ptr)': names
+    'void', which has no cute class yet.
 
   What has no ritual
   ------------------
 
-  40 of the 86 functions Qt declares: 38 takes or gives a type that cannot be
-  passed yet; 2 forbidden.
+  2 of the 86 functions Qt declares: 2 forbidden.
 
   What to expect
   --------------
@@ -239,6 +306,24 @@ class QTextStream(QIODeviceBase):
     address = self.uglySide.call('ritual_ZNK11QTextStream6deviceEv')
     from . import QIODevice
     return QIODevice._cuteAt(address)
+
+  def string(self) -> Optional[QString]:
+    """
+    Calls Qt's 'QString *QTextStream::string() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtextstream.html#string
+
+    Returns
+    -------
+
+    Optional[QString]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QString *QTextStream::string() const
+    address = self.uglySide.call('ritual_ZNK11QTextStream6stringEv')
+    from . import QString
+    return QString._cuteAt(address)
 
   def status(self) -> Status:
     """
@@ -481,6 +566,39 @@ class QTextStream(QIODeviceBase):
         self._addressOf(device),
     )
 
+  @overload(QString)
+  @overload(NoneType)
+  @overload(QString, QIODeviceBase.OpenMode)
+  @overload(NoneType, QIODeviceBase.OpenMode)
+  def setString(
+      self,
+      string: Optional[QString],
+      openMode: QIODeviceBase.OpenMode = QIODeviceBase.OpenMode.ReadWrite,
+  ) -> None:
+    """
+    Calls Qt's 'void QTextStream::setString(QString *string, OpenMode
+    openMode)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtextstream.html#setString
+
+    Parameters
+    ----------
+
+    string : Optional[QString]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    openMode : QIODeviceBase.OpenMode
+      Passed on as its number. May be left out, as in Qt: it is then
+      QIODeviceBase.OpenMode.ReadWrite.
+    """
+    #  void QTextStream::setString(QString *string, OpenMode openMode)
+    self.uglySide.call(
+        'ritual_ZN11QTextStream9setStringEP7QString6QFlagsIN13QIODeviceBase'
+        '12OpenModeFlagEE',
+        self._addressOf(string), openMode.value,
+    )
+
   @overload(Status)
   def setStatus(self, status: Status) -> None:
     """
@@ -684,9 +802,40 @@ class QTextStream(QIODeviceBase):
         'ritual_ZN11QTextStreamC1EP9QIODevice', self._addressOf(device),
     ))
 
+  @overload(QString)
+  @overload(QString, QIODeviceBase.OpenMode)
+  @overload(NoneType, QIODeviceBase.OpenMode)
+  def __init__(
+      self,
+      string: Optional[QString],
+      openMode: QIODeviceBase.OpenMode = QIODeviceBase.OpenMode.ReadWrite,
+  ) -> None:
+    """
+    Notes what was given, for Qt's 'QTextStream::QTextStream(QString *string,
+    OpenMode openMode)', which is called at the first use.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtextstream.html#QTextStream
+
+    Parameters
+    ----------
+
+    string : Optional[QString]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    openMode : QIODeviceBase.OpenMode
+      Passed on as its number. May be left out, as in Qt: it is then
+      QIODeviceBase.OpenMode.ReadWrite.
+    """
+    #  QTextStream::QTextStream(QString *string, OpenMode openMode)
+    self._noteCreation(QTextStream, lambda: Rituals.call(
+        'ritual_ZN11QTextStreamC1EP7QString6QFlagsIN13QIODeviceBase12OpenMo'
+        'deFlagEE',
+        self._addressOf(string), openMode.value,
+    ))
+
   @overload(QByteArray)
   @overload(QByteArray, QIODeviceBase.OpenMode)
-  @overload(NoneType, QIODeviceBase.OpenMode)
   def __init__(
       self,
       array: Optional[QByteArray],
@@ -735,6 +884,24 @@ class QTextStream(QIODeviceBase):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  def d_func(self) -> Optional[QTextStreamPrivate]:
+    """
+    Calls Qt's 'QTextStreamPrivate *QTextStream::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtextstream.html#d_func
+
+    Returns
+    -------
+
+    Optional[QTextStreamPrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QTextStreamPrivate *QTextStream::d_func()
+    address = self.uglySide.call('ritual_ZN11QTextStream6d_funcEv')
+    from . import QTextStreamPrivate
+    return QTextStreamPrivate._cuteAt(address)
 
   def resetStatus(self) -> None:
     """
@@ -810,6 +977,33 @@ class QTextStream(QIODeviceBase):
     """
     #  QString QTextStream::readLine(qint64 maxlen)
     return self.uglySide.call('ritual_ZN11QTextStream8readLineEx', maxlen)
+
+  @overload(QString)
+  @overload(NoneType)
+  @overload(QString, int)
+  @overload(NoneType, int)
+  def readLineInto(self, line: Optional[QString], maxlen: int = 0) -> bool:
+    """
+    Calls Qt's 'bool QTextStream::readLineInto(QString *line, qint64
+    maxlen)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtextstream.html#readLineInto
+
+    Parameters
+    ----------
+
+    line : Optional[QString]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    maxlen : int
+      Passed on as it is. May be left out, as in Qt: it is then 0.
+    """
+    #  bool QTextStream::readLineInto(QString *line, qint64 maxlen)
+    return self.uglySide.call(
+        'ritual_ZN11QTextStream12readLineIntoEP7QStringx',
+        self._addressOf(line), maxlen,
+    )
 
   def readAll(self) -> str:
     """

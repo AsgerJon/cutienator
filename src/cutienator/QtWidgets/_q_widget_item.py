@@ -119,7 +119,7 @@ class QWidgetItem(QLayoutItem):
     ritual = 'ritual_ZNK11QWidgetItem8sizeHintEv'
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZNK11QWidgetItem8sizeHintEv'
-    address = self.uglySide.call(ritual)
+    address = self._callAs('QWidgetItem', ritual)
     from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
@@ -139,7 +139,7 @@ class QWidgetItem(QLayoutItem):
     ritual = 'ritual_ZNK11QWidgetItem11minimumSizeEv'
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZNK11QWidgetItem11minimumSizeEv'
-    address = self.uglySide.call(ritual)
+    address = self._callAs('QWidgetItem', ritual)
     from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
@@ -159,7 +159,7 @@ class QWidgetItem(QLayoutItem):
     ritual = 'ritual_ZNK11QWidgetItem11maximumSizeEv'
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZNK11QWidgetItem11maximumSizeEv'
-    address = self.uglySide.call(ritual)
+    address = self._callAs('QWidgetItem', ritual)
     from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
@@ -180,7 +180,7 @@ class QWidgetItem(QLayoutItem):
     ritual = 'ritual_ZNK11QWidgetItem19expandingDirectionsEv'
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZNK11QWidgetItem19expandingDirectionsEv'
-    return Qt.Orientations(self.uglySide.call(ritual))
+    return Qt.Orientations(self._callAs('QWidgetItem', ritual))
 
   def isEmpty(self) -> bool:
     """
@@ -192,7 +192,7 @@ class QWidgetItem(QLayoutItem):
     ritual = 'ritual_ZNK11QWidgetItem7isEmptyEv'
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZNK11QWidgetItem7isEmptyEv'
-    return self.uglySide.call(ritual)
+    return self._callAs('QWidgetItem', ritual)
 
   def geometry(self) -> QRect:
     """
@@ -210,7 +210,7 @@ class QWidgetItem(QLayoutItem):
     ritual = 'ritual_ZNK11QWidgetItem8geometryEv'
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZNK11QWidgetItem8geometryEv'
-    address = self.uglySide.call(ritual)
+    address = self._callAs('QWidgetItem', ritual)
     from ..QtCore import QRect
     return QRect._cuteOwning(address)
 
@@ -231,7 +231,7 @@ class QWidgetItem(QLayoutItem):
     ritual = 'ritual_ZNK11QWidgetItem6widgetEv'
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZNK11QWidgetItem6widgetEv'
-    address = self.uglySide.call(ritual)
+    address = self._callAs('QWidgetItem', ritual)
     from . import QWidget
     return QWidget._cuteAt(address)
 
@@ -245,7 +245,7 @@ class QWidgetItem(QLayoutItem):
     ritual = 'ritual_ZNK11QWidgetItem17hasHeightForWidthEv'
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZNK11QWidgetItem17hasHeightForWidthEv'
-    return self.uglySide.call(ritual)
+    return self._callAs('QWidgetItem', ritual)
 
   @overload(int)
   def heightForWidth(self, a0: int) -> int:
@@ -264,7 +264,7 @@ class QWidgetItem(QLayoutItem):
     ritual = 'ritual_ZNK11QWidgetItem14heightForWidthEi'
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZNK11QWidgetItem14heightForWidthEi'
-    return self.uglySide.call(ritual, a0)
+    return self._callAs('QWidgetItem', ritual, a0)
 
   @overload(int)
   def minimumHeightForWidth(self, a0: int) -> int:
@@ -284,7 +284,7 @@ class QWidgetItem(QLayoutItem):
     ritual = 'ritual_ZNK11QWidgetItem21minimumHeightForWidthEi'
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZNK11QWidgetItem21minimumHeightForWidthEi'
-    return self.uglySide.call(ritual, a0)
+    return self._callAs('QWidgetItem', ritual, a0)
 
   def controlTypes(self) -> QSizePolicy.ControlTypes:
     """
@@ -302,7 +302,7 @@ class QWidgetItem(QLayoutItem):
     ritual = 'ritual_ZNK11QWidgetItem12controlTypesEv'
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZNK11QWidgetItem12controlTypesEv'
-    return QSizePolicy.ControlTypes(self.uglySide.call(ritual))
+    return QSizePolicy.ControlTypes(self._callAs('QWidgetItem', ritual))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -325,7 +325,7 @@ class QWidgetItem(QLayoutItem):
     ritual = 'ritual_ZN11QWidgetItem11setGeometryERK5QRect'
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZN11QWidgetItem11setGeometryERK5QRect'
-    self.uglySide.call(ritual, self._valueOf(a0))
+    self._callAs('QWidgetItem', ritual, self._valueOf(a0))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NOTIFIERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

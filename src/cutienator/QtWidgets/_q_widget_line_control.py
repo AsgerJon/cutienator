@@ -23,7 +23,7 @@ from ..QtCore import Qt, QObject
 from ..QtGui import QClipboard, QInputControl, QTextLine
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from ..QtCore import QChar, QMetaObject, QPoint, QRect, QTimerEvent
   from ..QtGui import QFont, QInputMethodEvent, QKeyEvent, QPainter, QPalette
@@ -62,7 +62,7 @@ class QWidgetLineControl(QInputControl):
   -----------
 
   Every function of Qt's QWidgetLineControl that has a ritual and that Python
-  can call so far, 124 names in all: 'metaObject', 'tr',
+  can call so far, 135 names in all: 'metaObject', 'tr',
   'setAccessibleObject', 'accessibleObject', 'nextMaskBlank',
   'prevMaskBlank', 'isUndoAvailable', 'isRedoAvailable', 'clearUndo',
   'isModified', 'setModified', 'allSelected', 'hasSelectedText', 'width',
@@ -91,21 +91,28 @@ class QWidgetLineControl(QInputControl):
   'emitCursorPositionChanged', 'finishChange', 'advanceToEnabledItem',
   'separate', 'parseInputMask', 'isValidInput', 'maskString', 'clearString',
   'stripString', 'findInMask', 'cancelPasswordEchoTimer', 'redoTextLayout',
+  'cursorPositionChanged', 'selectionChanged', 'displayTextChanged',
+  'textChanged', 'textEdited', 'resetInputContext', 'updateMicroFocus',
+  'accepted', 'editingFinished', 'updateNeeded', 'inputRejected',
   'timerEvent', '_q_deleteSelected'. It can be made from Python, in 1 way;
   see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QWidgetLineControl::qt_metacast(const char *a0)': one of Qt's
+    own inner workings.
+  - Qt's 'int QWidgetLineControl::qt_metacall(QMetaObject::Call a0, int a1,
+    void **a2)': one of Qt's own inner workings.
   - Qt's 'QWidgetLineControl::~QWidgetLineControl()': the destructor: Python
     never removes a C++ QWidgetLineControl.
+  - Qt's 'void QWidgetLineControl::addCommand(const Command &cmd)': takes a
+    type Python has no way to hand over yet.
 
   What has no ritual
   ------------------
 
-  17 of the 146 functions Qt declares: 11 a signal; 3 takes or gives a type
-  that cannot be passed yet; 2 declared and nowhere to be found; 1 a
-  template.
+  3 of the 146 functions Qt declares: 3 not a gap.
 
   What to expect
   --------------
@@ -121,6 +128,9 @@ class QWidgetLineControl(QInputControl):
   - Qt tells when it has removed the C++ QWidgetLineControl. Every call on
     the cute object, and every use of it as an argument, then raises
     'RuntimeError', and nothing reaches C++.
+  - Each name of Qt's QWidgetLineControl that has no cute function yet,
+    'addCommand', holds a function that raises 'NotImplementedError', and its
+    docstring says why.
   """
 
   #  The enums Qt writes inside QWidgetLineControl, each a class in here as
@@ -2406,6 +2416,165 @@ class QWidgetLineControl(QInputControl):
         'ritual_ZN18QWidgetLineControl23cancelPasswordEchoTimerEv',
     )
 
+  @overload(int, int)
+  def cursorPositionChanged(self, a0: int, a1: int) -> None:
+    """
+    Calls Qt's 'void QWidgetLineControl::cursorPositionChanged(int a0, int
+    a1)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qwidgetlinecontrol.html#cursorPositionChanged
+
+    Parameters
+    ----------
+
+    a0 : int
+      Passed on as it is.
+
+    a1 : int
+      Passed on as it is.
+    """
+    #  void QWidgetLineControl::cursorPositionChanged(int a0, int a1)
+    self.uglySide.call(
+        'ritual_ZN18QWidgetLineControl21cursorPositionChangedEii', a0, a1,
+    )
+
+  def selectionChanged(self) -> None:
+    """
+    Calls Qt's 'void QWidgetLineControl::selectionChanged()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qwidgetlinecontrol.html#selectionChanged
+    """
+    #  void QWidgetLineControl::selectionChanged()
+    self.uglySide.call('ritual_ZN18QWidgetLineControl16selectionChangedEv')
+
+  @overload(str)
+  def displayTextChanged(self, a0: str) -> None:
+    """
+    Calls Qt's 'void QWidgetLineControl::displayTextChanged(const QString
+    &a0)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qwidgetlinecontrol.html#displayTextChanged
+
+    Parameters
+    ----------
+
+    a0 : str
+      Passed on as it is: a QString is made of it for the call.
+    """
+    #  void QWidgetLineControl::displayTextChanged(const QString &a0)
+    self.uglySide.call(
+        'ritual_ZN18QWidgetLineControl18displayTextChangedERK7QString', a0,
+    )
+
+  @overload(str)
+  def textChanged(self, a0: str) -> None:
+    """
+    Calls Qt's 'void QWidgetLineControl::textChanged(const QString &a0)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qwidgetlinecontrol.html#textChanged
+
+    Parameters
+    ----------
+
+    a0 : str
+      Passed on as it is: a QString is made of it for the call.
+    """
+    #  void QWidgetLineControl::textChanged(const QString &a0)
+    self.uglySide.call(
+        'ritual_ZN18QWidgetLineControl11textChangedERK7QString', a0,
+    )
+
+  @overload(str)
+  def textEdited(self, a0: str) -> None:
+    """
+    Calls Qt's 'void QWidgetLineControl::textEdited(const QString &a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qwidgetlinecontrol.html#textEdited
+
+    Parameters
+    ----------
+
+    a0 : str
+      Passed on as it is: a QString is made of it for the call.
+    """
+    #  void QWidgetLineControl::textEdited(const QString &a0)
+    self.uglySide.call(
+        'ritual_ZN18QWidgetLineControl10textEditedERK7QString', a0,
+    )
+
+  def resetInputContext(self) -> None:
+    """
+    Calls Qt's 'void QWidgetLineControl::resetInputContext()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qwidgetlinecontrol.html#resetInputContext
+    """
+    #  void QWidgetLineControl::resetInputContext()
+    self.uglySide.call('ritual_ZN18QWidgetLineControl17resetInputContextEv')
+
+  def updateMicroFocus(self) -> None:
+    """
+    Calls Qt's 'void QWidgetLineControl::updateMicroFocus()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qwidgetlinecontrol.html#updateMicroFocus
+    """
+    #  void QWidgetLineControl::updateMicroFocus()
+    self.uglySide.call('ritual_ZN18QWidgetLineControl16updateMicroFocusEv')
+
+  def accepted(self) -> None:
+    """
+    Calls Qt's 'void QWidgetLineControl::accepted()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qwidgetlinecontrol.html#accepted
+    """
+    #  void QWidgetLineControl::accepted()
+    self.uglySide.call('ritual_ZN18QWidgetLineControl8acceptedEv')
+
+  def editingFinished(self) -> None:
+    """
+    Calls Qt's 'void QWidgetLineControl::editingFinished()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qwidgetlinecontrol.html#editingFinished
+    """
+    #  void QWidgetLineControl::editingFinished()
+    self.uglySide.call('ritual_ZN18QWidgetLineControl15editingFinishedEv')
+
+  @overload(QRect)
+  def updateNeeded(self, a0: QRect) -> None:
+    """
+    Calls Qt's 'void QWidgetLineControl::updateNeeded(const QRect &a0)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qwidgetlinecontrol.html#updateNeeded
+
+    Parameters
+    ----------
+
+    a0 : QRect
+      Passed on as a value: Qt reads the C++ QRect, which stays Python's own.
+    """
+    #  void QWidgetLineControl::updateNeeded(const QRect &a0)
+    self.uglySide.call(
+        'ritual_ZN18QWidgetLineControl12updateNeededERK5QRect',
+        self._valueOf(a0),
+    )
+
+  def inputRejected(self) -> None:
+    """
+    Calls Qt's 'void QWidgetLineControl::inputRejected()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qwidgetlinecontrol.html#inputRejected
+    """
+    #  void QWidgetLineControl::inputRejected()
+    self.uglySide.call('ritual_ZN18QWidgetLineControl13inputRejectedEv')
+
   @overload(QTimerEvent)
   @overload(NoneType)
   def timerEvent(self, event: Optional[QTimerEvent]) -> None:
@@ -2436,3 +2605,14 @@ class QWidgetLineControl(QInputControl):
     """
     #  void QWidgetLineControl::_q_deleteSelected()
     self.uglySide.call('ritual_ZN18QWidgetLineControl17_q_deleteSelectedEv')
+
+  @staticmethod
+  def addCommand(*__, **_) -> Never:
+    """
+    Qt's 'void QWidgetLineControl::addCommand(const Command &cmd)': takes a
+    type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QWidgetLineControl.addCommand' has no cute function yet. Qt's "
+        "'void QWidgetLineControl::addCommand(const Command &cmd)': takes a "
+        "type Python has no way to hand over yet.")

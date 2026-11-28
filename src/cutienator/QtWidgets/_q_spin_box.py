@@ -42,25 +42,36 @@ class QSpinBox(QAbstractSpinBox):
   -----------
 
   Every function of Qt's QSpinBox that has a ritual and that Python can call
-  so far, 23 names in all: 'metaObject', 'tr', 'value', 'prefix',
+  so far, 25 names in all: 'metaObject', 'tr', 'value', 'prefix',
   'setPrefix', 'suffix', 'setSuffix', 'cleanText', 'singleStep',
   'setSingleStep', 'minimum', 'setMinimum', 'maximum', 'setMaximum',
   'setRange', 'stepType', 'setStepType', 'displayIntegerBase',
   'setDisplayIntegerBase', 'event', 'valueFromText', 'textFromValue',
-  'setValue'. It can be made from Python, in 1 way; see '__init__'.
+  'setValue', 'valueChanged', 'textChanged'. It can be made from Python, in 1
+  way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QSpinBox::qt_metacast(const char *a0)': one of Qt's own inner
+    workings.
+  - Qt's 'int QSpinBox::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
   - Qt's 'QSpinBox::~QSpinBox()': the destructor: Python never removes a C++
     QSpinBox.
+  - Qt's 'QValidator::State QSpinBox::validate(QString &input, int &pos)
+    const': takes a type Python has no way to hand over yet.
+  - Qt's 'void QSpinBox::fixup(QString &str) const': takes a type Python has
+    no way to hand over yet.
+  - Qt's 'QSpinBoxPrivate *QSpinBox::d_func()': gives 'QSpinBoxPrivate',
+    which has no cute class yet.
+  - Qt's 'const QSpinBoxPrivate *QSpinBox::d_func() const': gives
+    'QSpinBoxPrivate', which has no cute class yet.
 
   What has no ritual
   ------------------
 
-  12 of the 37 functions Qt declares: 6 takes or gives a type that cannot be
-  passed yet; 2 a signal; 2 forbidden; 1 a template; 1 declared and nowhere
-  to be found.
+  4 of the 37 functions Qt declares: 2 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -569,3 +580,35 @@ class QSpinBox(QAbstractSpinBox):
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZN8QSpinBox5eventEP6QEvent'
     return self.uglySide.call(ritual, self._addressOf(event))
+
+  @overload(int)
+  def valueChanged(self, a0: int) -> None:
+    """
+    Calls Qt's 'void QSpinBox::valueChanged(int a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qspinbox.html#valueChanged
+
+    Parameters
+    ----------
+
+    a0 : int
+      Passed on as it is.
+    """
+    #  void QSpinBox::valueChanged(int a0)
+    self.uglySide.call('ritual_ZN8QSpinBox12valueChangedEi', a0)
+
+  @overload(str)
+  def textChanged(self, a0: str) -> None:
+    """
+    Calls Qt's 'void QSpinBox::textChanged(const QString &a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qspinbox.html#textChanged
+
+    Parameters
+    ----------
+
+    a0 : str
+      Passed on as it is: a QString is made of it for the call.
+    """
+    #  void QSpinBox::textChanged(const QString &a0)
+    self.uglySide.call('ritual_ZN8QSpinBox11textChangedERK7QString', a0)

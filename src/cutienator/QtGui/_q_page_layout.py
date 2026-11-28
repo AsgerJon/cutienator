@@ -17,7 +17,7 @@ from ..cute import CuteMixin, CuteNum, MetaCute, WAIT
 from ..occult import Rituals
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from ..QtCore import QMargins, QMarginsF, QRect, QRectF
   from . import QPageSize
@@ -54,14 +54,14 @@ class QPageLayout(CuteMixin, metaclass=MetaCute):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'QPageLayout &QPageLayout::operator=(QPageLayout &&other)':
+    assignment: Python binds a name and has no operator for it.
+  - Qt's 'QPageLayout &QPageLayout::operator=(const QPageLayout &other)':
+    assignment: Python binds a name and has no operator for it.
   - Qt's 'QPageLayout::~QPageLayout()': the destructor: Python removes its
     C++ QPageLayout by it, and has no other use for it.
-
-  What has no ritual
-  ------------------
-
-  3 of the 40 functions Qt declares: 3 takes or gives a type that cannot be
-  passed yet.
+  - Qt's 'void QPageLayout::swap(QPageLayout &other)': takes a type Python
+    has no way to hand over yet.
 
   What to expect
   --------------
@@ -75,6 +75,9 @@ class QPageLayout(CuteMixin, metaclass=MetaCute):
     is as in C++.
   - A function giving a QPageLayout back gives a copy the ritual made for
     Python, in a new cute QPageLayout.
+  - Each name of Qt's QPageLayout that has no cute function yet, 'swap',
+    holds a function that raises 'NotImplementedError', and its docstring
+    says why.
   """
 
   #  The enums Qt writes inside QPageLayout, each a class in here as in C++,
@@ -1009,3 +1012,14 @@ class QPageLayout(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def swap(*__, **_) -> Never:
+    """
+    Qt's 'void QPageLayout::swap(QPageLayout &other)': takes a type Python
+    has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QPageLayout.swap' has no cute function yet. Qt's 'void "
+        "QPageLayout::swap(QPageLayout &other)': takes a type Python has no "
+        "way to hand over yet.")

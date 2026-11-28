@@ -20,7 +20,7 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
   from ..QtCore import QMetaObject
-  from . import QGraphicsAnchorLayout
+  from . import QGraphicsAnchorLayout, QGraphicsAnchorPrivate
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -44,21 +44,27 @@ class QGraphicsAnchor(QObject):
   -----------
 
   Every function of Qt's QGraphicsAnchor that has a ritual and that Python
-  can call so far, 7 names in all: 'metaObject', 'tr', 'setSpacing',
-  'unsetSpacing', 'spacing', 'setSizePolicy', 'sizePolicy'. It can be made
-  from Python, in 1 way; see '__init__'.
+  can call so far, 8 names in all: 'metaObject', 'tr', 'setSpacing',
+  'unsetSpacing', 'spacing', 'setSizePolicy', 'sizePolicy', 'd_func'. It can
+  be made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QGraphicsAnchor::qt_metacast(const char *a0)': one of Qt's
+    own inner workings.
+  - Qt's 'int QGraphicsAnchor::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
   - Qt's 'QGraphicsAnchor::~QGraphicsAnchor()': the destructor: Python never
     removes a C++ QGraphicsAnchor.
+  - Qt's 'const QGraphicsAnchorPrivate *QGraphicsAnchor::d_func() const':
+    takes in Python what 'QGraphicsAnchorPrivate *QGraphicsAnchor::d_func()'
+    takes.
 
   What has no ritual
   ------------------
 
-  6 of the 15 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet; 1 a template; 1 declared and nowhere to be found.
+  2 of the 15 functions Qt declares: 2 not a gap.
 
   What to expect
   --------------
@@ -298,3 +304,21 @@ class QGraphicsAnchor(QObject):
     """
     #  void QGraphicsAnchor::unsetSpacing()
     self.uglySide.call('ritual_ZN15QGraphicsAnchor12unsetSpacingEv')
+
+  def d_func(self) -> Optional[QGraphicsAnchorPrivate]:
+    """
+    Calls Qt's 'QGraphicsAnchorPrivate *QGraphicsAnchor::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsanchor.html#d_func
+
+    Returns
+    -------
+
+    Optional[QGraphicsAnchorPrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QGraphicsAnchorPrivate *QGraphicsAnchor::d_func()
+    address = self.uglySide.call('ritual_ZN15QGraphicsAnchor6d_funcEv')
+    from . import QGraphicsAnchorPrivate
+    return QGraphicsAnchorPrivate._cuteAt(address)

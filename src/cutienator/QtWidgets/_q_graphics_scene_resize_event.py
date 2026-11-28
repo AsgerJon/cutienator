@@ -43,14 +43,19 @@ class QGraphicsSceneResizeEvent(QGraphicsSceneEvent):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'QGraphicsSceneResizeEventPrivate
+    *QGraphicsSceneResizeEvent::d_func()': gives
+    'QGraphicsSceneResizeEventPrivate', which has no cute class yet.
+  - Qt's 'const QGraphicsSceneResizeEventPrivate
+    *QGraphicsSceneResizeEvent::d_func() const': gives
+    'QGraphicsSceneResizeEventPrivate', which has no cute class yet.
   - Qt's 'QGraphicsSceneResizeEvent::~QGraphicsSceneResizeEvent()': the
     destructor: Python never removes a C++ QGraphicsSceneResizeEvent.
 
   What has no ritual
   ------------------
 
-  4 of the 10 functions Qt declares: 2 takes or gives a type that cannot be
-  passed yet; 2 forbidden.
+  2 of the 10 functions Qt declares: 2 forbidden.
 
   What to expect
   --------------

@@ -54,14 +54,17 @@ class QWheelEvent(QSinglePointEvent):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'QWheelEvent::QWheelEvent(const QWheelEvent &a0)': takes a type
+    Python has no way to hand over yet.
+  - Qt's 'QWheelEvent &QWheelEvent::operator=(const QWheelEvent &other)':
+    assignment: Python binds a name and has no operator for it.
   - Qt's 'QWheelEvent::~QWheelEvent()': the destructor: Python never removes
     a C++ QWheelEvent.
 
   What has no ritual
   ------------------
 
-  7 of the 20 functions Qt declares: 2 declared and nowhere to be found; 2
-  takes or gives a type that cannot be passed yet; 2 forbidden; 1 a template.
+  5 of the 20 functions Qt declares: 3 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -369,7 +372,7 @@ class QWheelEvent(QSinglePointEvent):
         'ritual_ZN11QWheelEventC1ERK7QPointFS2_6QPointS3_6QFlagsIN2Qt11Mous'
         'eButtonEES4_INS5_16KeyboardModifierEENS5_11ScrollPhaseEbNS5_16Mous'
         'eEventSourceEPK15QPointingDevice',
-        self._valueOf(pos), self._valueOf(globalPos),
+        self._valueOf(pos, 'QPointF'), self._valueOf(globalPos, 'QPointF'),
         self._valueOf(pixelDelta), self._valueOf(angleDelta), buttons.value,
         modifiers.value, phase.value, inverted, source.value,
         self._addressOf(device),

@@ -17,9 +17,10 @@ from ..occult import Rituals
 from ..QtCore import QObject, QStringList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from ..QtCore import QMetaObject
+  from . import QSessionManagerPrivate
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -38,9 +39,9 @@ class QSessionManager(QObject):
   -----------
 
   Every function of Qt's QSessionManager that has a ritual and that Python
-  can call so far, 17 names in all: 'metaObject', 'tr', 'sessionId',
-  'sessionKey', 'allowsInteraction', 'allowsErrorInteraction', 'release',
-  'cancel', 'setRestartHint', 'restartHint', 'setRestartCommand',
+  can call so far, 18 names in all: 'metaObject', 'tr', 'd_func',
+  'sessionId', 'sessionKey', 'allowsInteraction', 'allowsErrorInteraction',
+  'release', 'cancel', 'setRestartHint', 'restartHint', 'setRestartCommand',
   'restartCommand', 'setDiscardCommand', 'discardCommand',
   'setManagerProperty', 'isPhase2', 'requestPhase2'. None can be made from
   Python: one comes out of a function of another class that gives one back.
@@ -48,14 +49,22 @@ class QSessionManager(QObject):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QSessionManager::qt_metacast(const char *a0)': one of Qt's
+    own inner workings.
+  - Qt's 'int QSessionManager::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
+  - Qt's 'const QSessionManagerPrivate *QSessionManager::d_func() const':
+    takes in Python what 'QSessionManagerPrivate *QSessionManager::d_func()'
+    takes.
+  - Qt's 'QSessionManager::QSessionManager(QGuiApplication *app, QString &id,
+    QString &key)': takes a type Python has no way to hand over yet.
   - Qt's 'QSessionManager::~QSessionManager()': the destructor: Python never
     removes a C++ QSessionManager.
 
   What has no ritual
   ------------------
 
-  7 of the 26 functions Qt declares: 5 takes or gives a type that cannot be
-  passed yet; 1 a template; 1 declared and nowhere to be found.
+  2 of the 26 functions Qt declares: 2 not a gap.
 
   What to expect
   --------------
@@ -71,6 +80,9 @@ class QSessionManager(QObject):
   - Qt tells when it has removed the C++ QSessionManager. Every call on the
     cute object, and every use of it as an argument, then raises
     'RuntimeError', and nothing reaches C++.
+  - Each name of Qt's QSessionManager that has no cute function yet,
+    '__init__', holds a function that raises 'NotImplementedError', and its
+    docstring says why.
   """
 
   #  The enums Qt writes inside QSessionManager, each a class in here as in
@@ -403,6 +415,18 @@ class QSessionManager(QObject):
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  @staticmethod
+  def __init__(*__, **_) -> Never:
+    """
+    Qt's 'QSessionManager::QSessionManager(QGuiApplication *app, QString &id,
+    QString &key)': takes a type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QSessionManager.__init__' has no cute function yet. Qt's "
+        "'QSessionManager::QSessionManager(QGuiApplication *app, QString "
+        "&id, QString &key)': takes a type Python has no way to hand over "
+        "yet.")
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -422,6 +446,24 @@ class QSessionManager(QObject):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  def d_func(self) -> Optional[QSessionManagerPrivate]:
+    """
+    Calls Qt's 'QSessionManagerPrivate *QSessionManager::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qsessionmanager.html#d_func
+
+    Returns
+    -------
+
+    Optional[QSessionManagerPrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QSessionManagerPrivate *QSessionManager::d_func()
+    address = self.uglySide.call('ritual_ZN15QSessionManager6d_funcEv')
+    from . import QSessionManagerPrivate
+    return QSessionManagerPrivate._cuteAt(address)
 
   def allowsInteraction(self) -> bool:
     """

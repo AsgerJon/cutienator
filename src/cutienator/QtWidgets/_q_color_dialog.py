@@ -45,24 +45,31 @@ class QColorDialog(QDialog):
   -----------
 
   Every function of Qt's QColorDialog that has a ritual and that Python can
-  call so far, 19 names in all: 'metaObject', 'tr', 'setCurrentColor',
+  call so far, 21 names in all: 'metaObject', 'tr', 'setCurrentColor',
   'currentColor', 'selectedColor', 'setOption', 'testOption', 'setOptions',
   'options', 'open', 'setVisible', 'getColor', 'customCount', 'customColor',
-  'setCustomColor', 'standardColor', 'setStandardColor', 'changeEvent',
-  'done'. It can be made from Python, in 2 ways; see '__init__'.
+  'setCustomColor', 'standardColor', 'setStandardColor',
+  'currentColorChanged', 'colorSelected', 'changeEvent', 'done'. It can be
+  made from Python, in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QColorDialog::qt_metacast(const char *a0)': one of Qt's own
+    inner workings.
+  - Qt's 'int QColorDialog::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
+  - Qt's 'QColorDialogPrivate *QColorDialog::d_func()': gives
+    'QColorDialogPrivate', which has no cute class yet.
+  - Qt's 'const QColorDialogPrivate *QColorDialog::d_func() const': gives
+    'QColorDialogPrivate', which has no cute class yet.
   - Qt's 'QColorDialog::~QColorDialog()': the destructor: Python never
     removes a C++ QColorDialog.
 
   What has no ritual
   ------------------
 
-  10 of the 32 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet; 2 a signal; 2 forbidden; 1 a template; 1 declared and nowhere
-  to be found.
+  4 of the 32 functions Qt declares: 2 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -625,6 +632,47 @@ class QColorDialog(QDialog):
     self.uglySide.call(
         'ritual_ZN12QColorDialog4openEP7QObjectPKc',
         self._addressOf(receiver, 'QObject'), self._bytesOf(member),
+    )
+
+  @overload(QColor)
+  def currentColorChanged(self, color: QColor) -> None:
+    """
+    Calls Qt's 'void QColorDialog::currentColorChanged(const QColor &color)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qcolordialog.html#currentColorChanged
+
+    Parameters
+    ----------
+
+    color : QColor
+      Passed on as a value: Qt reads the C++ QColor, which stays Python's
+      own.
+    """
+    #  void QColorDialog::currentColorChanged(const QColor &color)
+    self.uglySide.call(
+        'ritual_ZN12QColorDialog19currentColorChangedERK6QColor',
+        self._valueOf(color),
+    )
+
+  @overload(QColor)
+  def colorSelected(self, color: QColor) -> None:
+    """
+    Calls Qt's 'void QColorDialog::colorSelected(const QColor &color)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcolordialog.html#colorSelected
+
+    Parameters
+    ----------
+
+    color : QColor
+      Passed on as a value: Qt reads the C++ QColor, which stays Python's
+      own.
+    """
+    #  void QColorDialog::colorSelected(const QColor &color)
+    self.uglySide.call(
+        'ritual_ZN12QColorDialog13colorSelectedERK6QColor',
+        self._valueOf(color),
     )
 
   @overload(QEvent)

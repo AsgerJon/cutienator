@@ -52,12 +52,14 @@ class QByteArrayMatcher(CuteMixin, metaclass=MetaCute):
 
   - Qt's 'QByteArrayMatcher::~QByteArrayMatcher()': the destructor: Python
     removes its C++ QByteArrayMatcher by it, and has no other use for it.
+  - Qt's 'QByteArrayMatcher &QByteArrayMatcher::operator=(const
+    QByteArrayMatcher &other)': assignment: Python binds a name and has no
+    operator for it.
 
   What has no ritual
   ------------------
 
-  2 of the 12 functions Qt declares: 1 takes or gives a type that cannot be
-  passed yet; 1 a template.
+  1 of the 12 functions Qt declares: 1 a template.
 
   What to expect
   --------------

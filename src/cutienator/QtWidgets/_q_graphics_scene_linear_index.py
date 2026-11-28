@@ -21,7 +21,7 @@ from ..QtCore import Qt, QList
 from . import QGraphicsSceneIndex
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from ..QtCore import QMetaObject, QRectF
   from . import QGraphicsItem
@@ -54,14 +54,21 @@ class QGraphicsSceneLinearIndex(QGraphicsSceneIndex):
   'estimateItems', 'clear', 'addItem', 'removeItem'. None can be made from
   Python: one comes out of a function of another class that gives one back.
 
+  What has a ritual and is left out, and why
+  ------------------------------------------
+
+  - Qt's 'void *QGraphicsSceneLinearIndex::qt_metacast(const char *a0)': one
+    of Qt's own inner workings.
+  - Qt's 'int QGraphicsSceneLinearIndex::qt_metacall(QMetaObject::Call a0,
+    int a1, void **a2)': one of Qt's own inner workings.
+
   What has no ritual
   ------------------
 
-  6 of the 12 functions Qt declares: 2 takes or gives a type that cannot be
-  passed yet; 1 a template; 1 declared and nowhere to be found; 1 leans on
+  4 of the 12 functions Qt declares: 2 not a gap; 1 leans on
   'QGraphicsSceneLinearIndex; 1 leans on 'vtable for
-  QGraphicsSceneLinearIndex', which Qt's library does not offer and Qt's
-  source has no code for that could be taken.
+  QGraphicsSceneLinearIndex', which Qt's source does not mark for use from
+  outside Qt and has no code for that could be taken.
 
   What to expect
   --------------
@@ -77,6 +84,9 @@ class QGraphicsSceneLinearIndex(QGraphicsSceneIndex):
   - Qt tells when it has removed the C++ QGraphicsSceneLinearIndex. Every
     call on the cute object, and every use of it as an argument, then raises
     'RuntimeError', and nothing reaches C++.
+  - Each name of Qt's QGraphicsSceneLinearIndex that has no cute function
+    yet, '__init__', holds a function that raises 'NotImplementedError', and
+    its docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -215,6 +225,22 @@ class QGraphicsSceneLinearIndex(QGraphicsSceneIndex):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def __init__(*__, **_) -> Never:
+    """
+    Qt's 'QGraphicsSceneLinearIndex::QGraphicsSceneLinearIndex(QGraphicsScene
+    *scene)': leans on 'vtable for QGraphicsSceneLinearIndex', which Qt's
+    source does not mark for use from outside Qt and has no code for that
+    could be taken.
+    """
+    raise NotImplementedError(
+        "'QGraphicsSceneLinearIndex.__init__' has no cute function yet. "
+        "Qt's "
+        "'QGraphicsSceneLinearIndex::QGraphicsSceneLinearIndex(QGraphicsScen"
+        "e *scene)': leans on 'vtable for QGraphicsSceneLinearIndex', which "
+        "Qt's source does not mark for use from outside Qt and has no code "
+        "for that could be taken.")
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #

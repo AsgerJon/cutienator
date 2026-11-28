@@ -18,6 +18,8 @@ from ..occult import Rituals
 from ..QtCore import QList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Never
+
   from ..QtCore import QKeyCombination
 else:
   #  The cute classes this file names and is not built on. Each is brought in
@@ -52,12 +54,23 @@ class QKeySequence(CuteMixin, metaclass=MetaCute):
     C++ QKeySequence by it, and has no other use for it.
   - Qt's 'QVariant QKeySequence::operator QVariant() const': an operator
     Python has no name for.
+  - Qt's 'QKeySequence &QKeySequence::operator=(const QKeySequence &other)':
+    assignment: Python binds a name and has no operator for it.
+  - Qt's 'QKeySequence &QKeySequence::operator=(QKeySequence &&other)':
+    assignment: Python binds a name and has no operator for it.
+  - Qt's 'void QKeySequence::swap(QKeySequence &other)': takes a type Python
+    has no way to hand over yet.
+  - Qt's 'QDataStream &operator<<(QDataStream &in, const QKeySequence &ks)':
+    takes a type Python has no way to hand over yet.
+  - Qt's 'QDataStream &operator>>(QDataStream &in, QKeySequence &ks)': an
+    operator between other classes, written inside this one.
+  - Qt's 'DataPtr &QKeySequence::data_ptr()': gives a type Python has no way
+    to take yet.
 
   What has no ritual
   ------------------
 
-  9 of the 37 functions Qt declares: 6 takes or gives a type that cannot be
-  passed yet; 2 declared and nowhere to be found; 1 a template.
+  3 of the 37 functions Qt declares: 3 not a gap.
 
   What to expect
   --------------
@@ -71,6 +84,9 @@ class QKeySequence(CuteMixin, metaclass=MetaCute):
     is as in C++.
   - A function giving a QKeySequence back gives a copy the ritual made for
     Python, in a new cute QKeySequence.
+  - Each name of Qt's QKeySequence that has no cute function yet, 'data_ptr',
+    'swap', holds a function that raises 'NotImplementedError', and its
+    docstring says why.
   """
 
   #  The enums Qt writes inside QKeySequence, each a class in here as in C++,
@@ -907,6 +923,28 @@ class QKeySequence(CuteMixin, metaclass=MetaCute):
         'ritual_ZN12QKeySequence6assignERK7QStringNS_14SequenceFormatE',
         str, format.value,
     )
+
+  @staticmethod
+  def data_ptr(*__, **_) -> Never:
+    """
+    Qt's 'DataPtr &QKeySequence::data_ptr()': gives a type Python has no way
+    to take yet.
+    """
+    raise NotImplementedError(
+        "'QKeySequence.data_ptr' has no cute function yet. Qt's 'DataPtr "
+        "&QKeySequence::data_ptr()': gives a type Python has no way to take "
+        "yet.")
+
+  @staticmethod
+  def swap(*__, **_) -> Never:
+    """
+    Qt's 'void QKeySequence::swap(QKeySequence &other)': takes a type Python
+    has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QKeySequence.swap' has no cute function yet. Qt's 'void "
+        "QKeySequence::swap(QKeySequence &other)': takes a type Python has "
+        "no way to hand over yet.")
 
 
 #  Qt's 'QList<QKeySequence>': the list of QKeySequence, which

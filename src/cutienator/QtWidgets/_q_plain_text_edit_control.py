@@ -17,20 +17,28 @@ from typing import TYPE_CHECKING
 from worktoy.dispatch import overload
 
 from ..cute import WAIT
+from ..QtCore import Qt
 from . import QWidgetTextControl
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
-  from ..QtCore import QMetaObject, QPointF, QRectF, QUrl, QVariant
+  from ..QtCore import QMetaObject, QMimeData, QPointF, QRectF, QUrl
+  from ..QtCore import QVariant
   from ..QtGui import QTextBlock, QTextCursor
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
+  QMimeData = WAIT['QMimeData']
   QPointF = WAIT['QPointF']
+  QTextBlock = WAIT['QTextBlock']
   QTextCursor = WAIT['QTextCursor']
   QUrl = WAIT['QUrl']
+
+#  The class of None, for a signature that takes None in the place of an
+#  object or of text.
+NoneType = type(None)
 
 
 class QPlainTextEditControl(QWidgetTextControl):
@@ -45,17 +53,26 @@ class QPlainTextEditControl(QWidgetTextControl):
   -----------
 
   Every function of Qt's QPlainTextEditControl that has a ritual and that
-  Python can call so far, 6 names in all: 'metaObject', 'anchorAt',
+  Python can call so far, 11 names in all: 'metaObject',
+  'createMimeDataFromSelection', 'canInsertFromMimeData',
+  'insertFromMimeData', 'hitTest', 'blockBoundingRect', 'anchorAt',
   'cursorRect', 'ensureCursorVisible', 'firstVisibleBlock', 'loadResource'.
   None can be made from Python: one comes out of a function of another class
   that gives one back.
 
+  What has a ritual and is left out, and why
+  ------------------------------------------
+
+  - Qt's 'void *QPlainTextEditControl::qt_metacast(const char *a0)': one of
+    Qt's own inner workings.
+  - Qt's 'int QPlainTextEditControl::qt_metacall(QMetaObject::Call a0, int
+    a1, void **a2)': one of Qt's own inner workings.
+
   What has no ritual
   ------------------
 
-  16 of the 23 functions Qt declares: 7 leans on 'QPlainTextEditControl; 6
-  declared and nowhere to be found; 2 takes or gives a type that cannot be
-  passed yet; 1 a template.
+  4 of the 18 functions Qt declares: 2 not a gap; 2 leans on
+  'QPlainTextEditControl.
 
   What to expect
   --------------
@@ -71,6 +88,9 @@ class QPlainTextEditControl(QWidgetTextControl):
   - Qt tells when it has removed the C++ QPlainTextEditControl. Every call on
     the cute object, and every use of it as an argument, then raises
     'RuntimeError', and nothing reaches C++.
+  - Each name of Qt's QPlainTextEditControl that has no cute function yet,
+    '__init__', holds a function that raises 'NotImplementedError', and its
+    docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -124,6 +144,132 @@ class QPlainTextEditControl(QWidgetTextControl):
     from ..QtCore import QMetaObject
     return QMetaObject._cuteAt(address)
 
+  def createMimeDataFromSelection(self) -> Optional[QMimeData]:
+    """
+    Calls Qt's 'QMimeData
+    *QPlainTextEditControl::createMimeDataFromSelection() const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qplaintexteditcontrol.html
+
+    Returns
+    -------
+
+    Optional[QMimeData]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QMimeData *QPlainTextEditControl::createMimeDataFromSelection() const
+    ritual = (
+        'ritual_ZNK21QPlainTextEditControl27createMimeDataFromSelectionEv')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK21QPlainTextEditControl27createMimeDataFromSelecti'
+          'onEv')
+    address = self.uglySide.call(ritual)
+    from ..QtCore import QMimeData
+    return QMimeData._cuteAt(address)
+
+  @overload(QMimeData)
+  @overload(NoneType)
+  def canInsertFromMimeData(self, source: Optional[QMimeData]) -> bool:
+    """
+    Calls Qt's 'bool QPlainTextEditControl::canInsertFromMimeData(const
+    QMimeData *source) const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qplaintexteditcontrol.html#canInsertFromMimeData
+
+    Parameters
+    ----------
+
+    source : Optional[QMimeData]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  bool QPlainTextEditControl::canInsertFromMimeData(const QMimeData
+    #      *source) const
+    ritual = (
+        'ritual_ZNK21QPlainTextEditControl21canInsertFromMimeDataEPK9QMimeD'
+        'ata')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK21QPlainTextEditControl21canInsertFromMimeDataEPK9'
+          'QMimeData')
+    return self.uglySide.call(ritual, self._addressOf(source))
+
+  @overload(QPointF)
+  @overload(QPointF, Qt.HitTestAccuracy)
+  def hitTest(
+      self,
+      point: QPointF,
+      a1: Qt.HitTestAccuracy = Qt.HitTestAccuracy.FuzzyHit,
+  ) -> int:
+    """
+    Calls Qt's 'int QPlainTextEditControl::hitTest(const QPointF &point,
+    Qt::HitTestAccuracy a1) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qplaintexteditcontrol.html#hitTest
+
+    Parameters
+    ----------
+
+    point : QPointF
+      Passed on as a value: Qt reads the C++ QPointF, which stays Python's
+      own.
+
+    a1 : Qt.HitTestAccuracy
+      Passed on as its number. May be left out, as in Qt: it is then
+      Qt.HitTestAccuracy.FuzzyHit.
+    """
+    #  int QPlainTextEditControl::hitTest(const QPointF &point,
+    #      Qt::HitTestAccuracy a1) const
+    ritual = (
+        'ritual_ZNK21QPlainTextEditControl7hitTestERK7QPointFN2Qt15HitTestA'
+        'ccuracyE')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK21QPlainTextEditControl7hitTestERK7QPointFN2Qt15Hi'
+          'tTestAccuracyE')
+    return self.uglySide.call(
+        ritual, self._valueOf(point, 'QPointF'), a1.value,
+    )
+
+  @overload(QTextBlock)
+  def blockBoundingRect(self, block: QTextBlock) -> QRectF:
+    """
+    Calls Qt's 'QRectF QPlainTextEditControl::blockBoundingRect(const
+    QTextBlock &block) const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qplaintexteditcontrol.html#blockBoundingRect
+
+    Parameters
+    ----------
+
+    block : QTextBlock
+      Passed on as a value: Qt reads the C++ QTextBlock, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    QRectF
+      A new cute QRectF around the copy Qt gave back. Python owns it.
+    """
+    #  QRectF QPlainTextEditControl::blockBoundingRect(const QTextBlock
+    #      &block) const
+    ritual = (
+        'ritual_ZNK21QPlainTextEditControl17blockBoundingRectERK10QTextBloc'
+        'k')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK21QPlainTextEditControl17blockBoundingRectERK10QTe'
+          'xtBlock')
+    address = self.uglySide.call(ritual, self._valueOf(block))
+    from ..QtCore import QRectF
+    return QRectF._cuteOwning(address)
+
   @overload(QPointF)
   def anchorAt(self, pos: QPointF) -> str:
     """
@@ -150,7 +296,7 @@ class QPlainTextEditControl(QWidgetTextControl):
     ritual = 'ritual_ZNK21QPlainTextEditControl8anchorAtERK7QPointF'
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZNK21QPlainTextEditControl8anchorAtERK7QPointF'
-    return self.uglySide.call(ritual, self._valueOf(pos))
+    return self.uglySide.call(ritual, self._valueOf(pos, 'QPointF'))
 
   @overload(QTextCursor)
   def cursorRect(self, cursor: QTextCursor) -> QRectF:
@@ -240,6 +386,23 @@ class QPlainTextEditControl(QWidgetTextControl):
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  @staticmethod
+  def __init__(*__, **_) -> Never:
+    """
+    Qt's 'QPlainTextEditControl::QPlainTextEditControl(QPlainTextEdit
+    *parent)': leans on
+    'QPlainTextEditControl::qt_metacall(QMetaObject::Call, int, void**)',
+    which Qt's source does not mark for use from outside Qt and has no code
+    for that could be taken.
+    """
+    raise NotImplementedError(
+        "'QPlainTextEditControl.__init__' has no cute function yet. Qt's "
+        "'QPlainTextEditControl::QPlainTextEditControl(QPlainTextEdit "
+        "*parent)': leans on "
+        "'QPlainTextEditControl::qt_metacall(QMetaObject::Call, int, "
+        "void**)', which Qt's source does not mark for use from outside Qt "
+        "and has no code for that could be taken.")
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -259,6 +422,33 @@ class QPlainTextEditControl(QWidgetTextControl):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(QMimeData)
+  @overload(NoneType)
+  def insertFromMimeData(self, source: Optional[QMimeData]) -> None:
+    """
+    Calls Qt's 'void QPlainTextEditControl::insertFromMimeData(const
+    QMimeData *source)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qplaintexteditcontrol.html#insertFromMimeData
+
+    Parameters
+    ----------
+
+    source : Optional[QMimeData]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QPlainTextEditControl::insertFromMimeData(const QMimeData
+    #      *source)
+    ritual = (
+        'ritual_ZN21QPlainTextEditControl18insertFromMimeDataEPK9QMimeData')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN21QPlainTextEditControl18insertFromMimeDataEPK9QMim'
+          'eData')
+    self.uglySide.call(ritual, self._addressOf(source))
 
   def ensureCursorVisible(self) -> None:
     """

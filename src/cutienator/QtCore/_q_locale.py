@@ -18,6 +18,8 @@ from ..occult import Rituals
 from . import Qt, QList, QStringList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Never
+
   from . import QCalendar, QDate, QDateTime, QTime
 else:
   #  The cute classes this file names and is not built on. Each is brought in
@@ -63,8 +65,16 @@ class QLocale(CuteMixin, metaclass=MetaCute):
 
   - Qt's 'QLocale::QLocale(QStringView name)': takes in Python what
     'QLocale::QLocale(const QString &name)' takes.
+  - Qt's 'QLocale &QLocale::operator=(QLocale &&other)': assignment: Python
+    binds a name and has no operator for it.
+  - Qt's 'QLocale &QLocale::operator=(const QLocale &other)': assignment:
+    Python binds a name and has no operator for it.
   - Qt's 'QLocale::~QLocale()': the destructor: Python removes its C++
     QLocale by it, and has no other use for it.
+  - Qt's 'void QLocale::swap(QLocale &other)': takes a type Python has no way
+    to hand over yet.
+  - Qt's 'Territory QLocale::territory() const': gives a type Python has no
+    way to take yet.
   - Qt's 'short QLocale::toShort(const QString &s, bool *ok) const': takes a
     number to change where it is.
   - Qt's 'ushort QLocale::toUShort(const QString &s, bool *ok) const': takes
@@ -119,6 +129,34 @@ class QLocale(CuteMixin, metaclass=MetaCute):
     'QString QLocale::toString(qlonglong i) const' takes.
   - Qt's 'QString QLocale::toString(uint i) const': takes in Python what
     'QString QLocale::toString(qlonglong i) const' takes.
+  - Qt's 'QString QLocale::toString(qulonglong number, int fieldWidth,
+    char32_t fillChar) const': takes in Python what 'QString
+    QLocale::toString(qlonglong number, int fieldWidth, char32_t fillChar)
+    const' takes.
+  - Qt's 'QString QLocale::toString(int number, int fieldWidth, char32_t
+    fillChar) const': takes in Python what 'QString
+    QLocale::toString(qlonglong number, int fieldWidth, char32_t fillChar)
+    const' takes.
+  - Qt's 'QString QLocale::toString(uint number, int fieldWidth, char32_t
+    fillChar) const': takes in Python what 'QString
+    QLocale::toString(qlonglong number, int fieldWidth, char32_t fillChar)
+    const' takes.
+  - Qt's 'QString QLocale::toString(long number, int fieldWidth, char32_t
+    fillChar) const': takes in Python what 'QString
+    QLocale::toString(qlonglong number, int fieldWidth, char32_t fillChar)
+    const' takes.
+  - Qt's 'QString QLocale::toString(ulong number, int fieldWidth, char32_t
+    fillChar) const': takes in Python what 'QString
+    QLocale::toString(qlonglong number, int fieldWidth, char32_t fillChar)
+    const' takes.
+  - Qt's 'QString QLocale::toString(short number, int fieldWidth, char32_t
+    fillChar) const': takes in Python what 'QString
+    QLocale::toString(qlonglong number, int fieldWidth, char32_t fillChar)
+    const' takes.
+  - Qt's 'QString QLocale::toString(ushort number, int fieldWidth, char32_t
+    fillChar) const': takes in Python what 'QString
+    QLocale::toString(qlonglong number, int fieldWidth, char32_t fillChar)
+    const' takes.
   - Qt's 'QString QLocale::toString(double f, char format, int precision)
     const': takes a single letter as C has it.
   - Qt's 'QString QLocale::toString(float f, char format, int precision)
@@ -132,6 +170,8 @@ class QLocale(CuteMixin, metaclass=MetaCute):
   - Qt's 'QString QLocale::toString(const QDateTime &dateTime, QStringView
     format) const': takes in Python what 'QString QLocale::toString(const
     QDateTime &dateTime, const QString &format) const' takes.
+  - Qt's 'QList<Qt::DayOfWeek> QLocale::weekdays() const': gives a type
+    Python has no way to take yet.
   - Qt's 'QString QLocale::toCurrencyString(qulonglong a0, const QString
     &symbol) const': takes in Python what 'QString
     QLocale::toCurrencyString(qlonglong a0, const QString &symbol) const'
@@ -152,15 +192,28 @@ class QLocale(CuteMixin, metaclass=MetaCute):
     int precision) const': takes in Python what 'QString
     QLocale::toCurrencyString(double a0, const QString &symbol, int
     precision) const' takes.
+  - Qt's 'Territory QLocale::codeToTerritory(QStringView territoryCode)':
+    gives a type Python has no way to take yet.
+  - Qt's 'QList<Country> QLocale::countriesForLanguage(Language lang)': gives
+    a type Python has no way to take yet.
   - Qt's 'QString QLocale::quoteString(QStringView str, QuotationStyle style)
     const': takes in Python what 'QString QLocale::quoteString(const QString
     &str, QuotationStyle style) const' takes.
+  - Qt's 'QLocale::QLocale(QLocalePrivate &dd)': takes a type Python has no
+    way to hand over yet.
+  - Qt's 'bool operator==(const QLocale &lhs, const Language &rhs)': takes a
+    type Python has no way to hand over yet.
+  - Qt's 'bool operator!=(const QLocale &lhs, const Language &rhs)': takes a
+    type Python has no way to hand over yet.
+  - Qt's 'bool operator==(const Language &lhs, const QLocale &rhs)': takes a
+    type Python has no way to hand over yet.
+  - Qt's 'bool operator!=(const Language &lhs, const QLocale &rhs)': takes a
+    type Python has no way to hand over yet.
 
   What has no ritual
   ------------------
 
-  23 of the 147 functions Qt declares: 20 takes or gives a type that cannot
-  be passed yet; 2 declared and nowhere to be found; 1 a template.
+  3 of the 147 functions Qt declares: 3 not a gap.
 
   What to expect
   --------------
@@ -173,6 +226,11 @@ class QLocale(CuteMixin, metaclass=MetaCute):
     is as in C++.
   - A function giving a QLocale back gives a copy the ritual made for Python,
     in a new cute QLocale.
+  - Each name of Qt's QLocale that has no cute function yet,
+    'codeToTerritory', 'countriesForLanguage', 'swap', 'territory',
+    'toDouble', 'toFloat', 'toInt', 'toLong', 'toLongLong', 'toShort',
+    'toUInt', 'toULong', 'toULongLong', 'toUShort', 'weekdays', holds a
+    function that raises 'NotImplementedError', and its docstring says why.
   """
 
   #  The enums Qt writes inside QLocale, each a class in here as in C++, and
@@ -1703,6 +1761,38 @@ class QLocale(CuteMixin, metaclass=MetaCute):
     """
     #  QString QLocale::toString(qlonglong i) const
     return self.uglySide.call('ritual_ZNK7QLocale8toStringEx', i)
+
+  @overload(int, int, int)
+  def toString(self, number: int, fieldWidth: int, fillChar: int) -> str:
+    """
+    Calls Qt's 'QString QLocale::toString(qlonglong number, int fieldWidth,
+    char32_t fillChar) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlocale.html#toString
+
+    Parameters
+    ----------
+
+    number : int
+      Passed on as it is.
+
+    fieldWidth : int
+      Passed on as it is.
+
+    fillChar : int
+      Passed on as it is.
+
+    Returns
+    -------
+
+    str
+      The text Qt gave back.
+    """
+    #  QString QLocale::toString(qlonglong number, int fieldWidth, char32_t
+    #      fillChar) const
+    return self.uglySide.call(
+        'ritual_ZNK7QLocale8toStringExiDi', number, fieldWidth, fillChar,
+    )
 
   @overload(QDate, str)
   def toString(self, date: QDate, format: str) -> str:
@@ -3432,6 +3522,208 @@ class QLocale(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def codeToTerritory(*__, **_) -> Never:
+    """
+    Qt's 'Territory QLocale::codeToTerritory(QStringView territoryCode)':
+    gives a type Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QLocale.codeToTerritory' has no cute function yet. Qt's "
+        "'Territory QLocale::codeToTerritory(QStringView territoryCode)': "
+        "gives a type Python has no way to take yet.")
+
+  @staticmethod
+  def countriesForLanguage(*__, **_) -> Never:
+    """
+    Qt's 'QList<Country> QLocale::countriesForLanguage(Language lang)': gives
+    a type Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QLocale.countriesForLanguage' has no cute function yet. Qt's "
+        "'QList<Country> QLocale::countriesForLanguage(Language lang)': "
+        "gives a type Python has no way to take yet.")
+
+  @staticmethod
+  def swap(*__, **_) -> Never:
+    """
+    Qt's 'void QLocale::swap(QLocale &other)': takes a type Python has no way
+    to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QLocale.swap' has no cute function yet. Qt's 'void "
+        "QLocale::swap(QLocale &other)': takes a type Python has no way to "
+        "hand over yet.")
+
+  @staticmethod
+  def territory(*__, **_) -> Never:
+    """
+    Qt's 'Territory QLocale::territory() const': gives a type Python has no
+    way to take yet.
+    """
+    raise NotImplementedError(
+        "'QLocale.territory' has no cute function yet. Qt's 'Territory "
+        "QLocale::territory() const': gives a type Python has no way to "
+        "take yet.")
+
+  @staticmethod
+  def toDouble(*__, **_) -> Never:
+    """
+    - Qt's 'double QLocale::toDouble(const QString &s, bool *ok) const':
+      takes a number to change where it is.
+    - Qt's 'double QLocale::toDouble(QStringView s, bool *ok) const': takes a
+      number to change where it is.
+    """
+    raise NotImplementedError(
+        "'QLocale.toDouble' has no cute function yet. Qt's 'double "
+        "QLocale::toDouble(const QString &s, bool *ok) const': takes a "
+        "number to change where it is. Qt's 'double "
+        "QLocale::toDouble(QStringView s, bool *ok) const': takes a number "
+        "to change where it is.")
+
+  @staticmethod
+  def toFloat(*__, **_) -> Never:
+    """
+    - Qt's 'float QLocale::toFloat(const QString &s, bool *ok) const': takes
+      a number to change where it is.
+    - Qt's 'float QLocale::toFloat(QStringView s, bool *ok) const': takes a
+      number to change where it is.
+    """
+    raise NotImplementedError(
+        "'QLocale.toFloat' has no cute function yet. Qt's 'float "
+        "QLocale::toFloat(const QString &s, bool *ok) const': takes a "
+        "number to change where it is. Qt's 'float "
+        "QLocale::toFloat(QStringView s, bool *ok) const': takes a number "
+        "to change where it is.")
+
+  @staticmethod
+  def toInt(*__, **_) -> Never:
+    """
+    - Qt's 'int QLocale::toInt(const QString &s, bool *ok) const': takes a
+      number to change where it is.
+    - Qt's 'int QLocale::toInt(QStringView s, bool *ok) const': takes a
+      number to change where it is.
+    """
+    raise NotImplementedError(
+        "'QLocale.toInt' has no cute function yet. Qt's 'int "
+        "QLocale::toInt(const QString &s, bool *ok) const': takes a number "
+        "to change where it is. Qt's 'int QLocale::toInt(QStringView s, "
+        "bool *ok) const': takes a number to change where it is.")
+
+  @staticmethod
+  def toLong(*__, **_) -> Never:
+    """
+    - Qt's 'long QLocale::toLong(const QString &s, bool *ok) const': takes a
+      number to change where it is.
+    - Qt's 'long QLocale::toLong(QStringView s, bool *ok) const': takes a
+      number to change where it is.
+    """
+    raise NotImplementedError(
+        "'QLocale.toLong' has no cute function yet. Qt's 'long "
+        "QLocale::toLong(const QString &s, bool *ok) const': takes a number "
+        "to change where it is. Qt's 'long QLocale::toLong(QStringView s, "
+        "bool *ok) const': takes a number to change where it is.")
+
+  @staticmethod
+  def toLongLong(*__, **_) -> Never:
+    """
+    - Qt's 'qlonglong QLocale::toLongLong(const QString &s, bool *ok) const':
+      takes a number to change where it is.
+    - Qt's 'qlonglong QLocale::toLongLong(QStringView s, bool *ok) const':
+      takes a number to change where it is.
+    """
+    raise NotImplementedError(
+        "'QLocale.toLongLong' has no cute function yet. Qt's 'qlonglong "
+        "QLocale::toLongLong(const QString &s, bool *ok) const': takes a "
+        "number to change where it is. Qt's 'qlonglong "
+        "QLocale::toLongLong(QStringView s, bool *ok) const': takes a "
+        "number to change where it is.")
+
+  @staticmethod
+  def toShort(*__, **_) -> Never:
+    """
+    - Qt's 'short QLocale::toShort(const QString &s, bool *ok) const': takes
+      a number to change where it is.
+    - Qt's 'short QLocale::toShort(QStringView s, bool *ok) const': takes a
+      number to change where it is.
+    """
+    raise NotImplementedError(
+        "'QLocale.toShort' has no cute function yet. Qt's 'short "
+        "QLocale::toShort(const QString &s, bool *ok) const': takes a "
+        "number to change where it is. Qt's 'short "
+        "QLocale::toShort(QStringView s, bool *ok) const': takes a number "
+        "to change where it is.")
+
+  @staticmethod
+  def toUInt(*__, **_) -> Never:
+    """
+    - Qt's 'uint QLocale::toUInt(const QString &s, bool *ok) const': takes a
+      number to change where it is.
+    - Qt's 'uint QLocale::toUInt(QStringView s, bool *ok) const': takes a
+      number to change where it is.
+    """
+    raise NotImplementedError(
+        "'QLocale.toUInt' has no cute function yet. Qt's 'uint "
+        "QLocale::toUInt(const QString &s, bool *ok) const': takes a number "
+        "to change where it is. Qt's 'uint QLocale::toUInt(QStringView s, "
+        "bool *ok) const': takes a number to change where it is.")
+
+  @staticmethod
+  def toULong(*__, **_) -> Never:
+    """
+    - Qt's 'ulong QLocale::toULong(const QString &s, bool *ok) const': takes
+      a number to change where it is.
+    - Qt's 'ulong QLocale::toULong(QStringView s, bool *ok) const': takes a
+      number to change where it is.
+    """
+    raise NotImplementedError(
+        "'QLocale.toULong' has no cute function yet. Qt's 'ulong "
+        "QLocale::toULong(const QString &s, bool *ok) const': takes a "
+        "number to change where it is. Qt's 'ulong "
+        "QLocale::toULong(QStringView s, bool *ok) const': takes a number "
+        "to change where it is.")
+
+  @staticmethod
+  def toULongLong(*__, **_) -> Never:
+    """
+    - Qt's 'qulonglong QLocale::toULongLong(const QString &s, bool *ok)
+      const': takes a number to change where it is.
+    - Qt's 'qulonglong QLocale::toULongLong(QStringView s, bool *ok) const':
+      takes a number to change where it is.
+    """
+    raise NotImplementedError(
+        "'QLocale.toULongLong' has no cute function yet. Qt's 'qulonglong "
+        "QLocale::toULongLong(const QString &s, bool *ok) const': takes a "
+        "number to change where it is. Qt's 'qulonglong "
+        "QLocale::toULongLong(QStringView s, bool *ok) const': takes a "
+        "number to change where it is.")
+
+  @staticmethod
+  def toUShort(*__, **_) -> Never:
+    """
+    - Qt's 'ushort QLocale::toUShort(const QString &s, bool *ok) const':
+      takes a number to change where it is.
+    - Qt's 'ushort QLocale::toUShort(QStringView s, bool *ok) const': takes a
+      number to change where it is.
+    """
+    raise NotImplementedError(
+        "'QLocale.toUShort' has no cute function yet. Qt's 'ushort "
+        "QLocale::toUShort(const QString &s, bool *ok) const': takes a "
+        "number to change where it is. Qt's 'ushort "
+        "QLocale::toUShort(QStringView s, bool *ok) const': takes a number "
+        "to change where it is.")
+
+  @staticmethod
+  def weekdays(*__, **_) -> Never:
+    """
+    Qt's 'QList<Qt::DayOfWeek> QLocale::weekdays() const': gives a type
+    Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QLocale.weekdays' has no cute function yet. Qt's "
+        "'QList<Qt::DayOfWeek> QLocale::weekdays() const': gives a type "
+        "Python has no way to take yet.")
 
 
 #  Qt's 'QList<QLocale>': the list of QLocale, which 'QList[QLocale]' gives.

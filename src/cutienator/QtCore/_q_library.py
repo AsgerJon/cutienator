@@ -16,7 +16,7 @@ from ..occult import Rituals
 from . import QObject
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from . import QMetaObject
 
@@ -45,14 +45,26 @@ class QLibrary(QObject):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QLibrary::qt_metacast(const char *a0)': one of Qt's own inner
+    workings.
+  - Qt's 'int QLibrary::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
   - Qt's 'QLibrary::~QLibrary()': the destructor: Python never removes a C++
     QLibrary.
+  - Qt's 'QFunctionPointer QLibrary::resolve(const char *symbol)': gives a
+    type Python has no way to take yet.
+  - Qt's 'QFunctionPointer QLibrary::resolve(const QString &fileName, const
+    char *symbol)': gives a type Python has no way to take yet.
+  - Qt's 'QFunctionPointer QLibrary::resolve(const QString &fileName, int
+    verNum, const char *symbol)': gives a type Python has no way to take yet.
+  - Qt's 'QFunctionPointer QLibrary::resolve(const QString &fileName, const
+    QString &version, const char *symbol)': gives a type Python has no way to
+    take yet.
 
   What has no ritual
   ------------------
 
-  10 of the 28 functions Qt declares: 6 takes or gives a type that cannot be
-  passed yet; 2 forbidden; 1 a template; 1 declared and nowhere to be found.
+  4 of the 28 functions Qt declares: 2 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -67,6 +79,9 @@ class QLibrary(QObject):
   - Qt tells when it has removed the C++ QLibrary. Every call on the cute
     object, and every use of it as an argument, then raises 'RuntimeError',
     and nothing reaches C++.
+  - Each name of Qt's QLibrary that has no cute function yet, 'resolve',
+    holds a function that raises 'NotImplementedError', and its docstring
+    says why.
   """
 
   #  The enums Qt writes inside QLibrary, each a class in here as in C++, and
@@ -512,3 +527,29 @@ class QLibrary(QObject):
     """
     #  bool QLibrary::unload()
     return self.uglySide.call('ritual_ZN8QLibrary6unloadEv')
+
+  @staticmethod
+  def resolve(*__, **_) -> Never:
+    """
+    - Qt's 'QFunctionPointer QLibrary::resolve(const char *symbol)': gives a
+      type Python has no way to take yet.
+    - Qt's 'QFunctionPointer QLibrary::resolve(const QString &fileName, const
+      char *symbol)': gives a type Python has no way to take yet.
+    - Qt's 'QFunctionPointer QLibrary::resolve(const QString &fileName, int
+      verNum, const char *symbol)': gives a type Python has no way to take
+      yet.
+    - Qt's 'QFunctionPointer QLibrary::resolve(const QString &fileName, const
+      QString &version, const char *symbol)': gives a type Python has no way
+      to take yet.
+    """
+    raise NotImplementedError(
+        "'QLibrary.resolve' has no cute function yet. Qt's "
+        "'QFunctionPointer QLibrary::resolve(const char *symbol)': gives a "
+        "type Python has no way to take yet. Qt's 'QFunctionPointer "
+        "QLibrary::resolve(const QString &fileName, const char *symbol)': "
+        "gives a type Python has no way to take yet. Qt's 'QFunctionPointer "
+        "QLibrary::resolve(const QString &fileName, int verNum, const char "
+        "*symbol)': gives a type Python has no way to take yet. Qt's "
+        "'QFunctionPointer QLibrary::resolve(const QString &fileName, const "
+        "QString &version, const char *symbol)': gives a type Python has no "
+        "way to take yet.")

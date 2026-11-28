@@ -215,7 +215,7 @@ class QAccessibleValueChangeEvent(QAccessibleEvent):
     self._noteCreation(QAccessibleValueChangeEvent, lambda: Rituals.call(
         'ritual_ZN27QAccessibleValueChangeEventC1EP20QAccessibleInterfaceRK'
         '8QVariant',
-        self._addressOf(iface), self._valueOf(val),
+        self._addressOf(iface, 'QAccessibleInterface'), self._valueOf(val),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

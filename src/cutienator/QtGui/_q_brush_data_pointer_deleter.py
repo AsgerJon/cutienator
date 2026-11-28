@@ -9,7 +9,23 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING
 
-from ..cute import CuteMixin, MetaCute
+from worktoy.dispatch import overload
+
+from ..cute import CuteMixin, MetaCute, WAIT
+
+if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Optional
+
+  from . import QBrushData
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QBrushData = WAIT['QBrushData']
+
+#  The class of None, for a signature that takes None in the place of an
+#  object or of text.
+NoneType = type(None)
 
 
 class QBrushDataPointerDeleter(CuteMixin, metaclass=MetaCute):
@@ -24,7 +40,8 @@ class QBrushDataPointerDeleter(CuteMixin, metaclass=MetaCute):
   What exists
   -----------
 
-  No function of Qt's QBrushDataPointerDeleter yet. None can be made from
+  Every function of Qt's QBrushDataPointerDeleter that has a ritual and that
+  Python can call so far, 1 name in all: '__call__'. None can be made from
   Python: one comes out of a function of another class that gives one back.
 
   What has a ritual and is left out, and why
@@ -33,11 +50,6 @@ class QBrushDataPointerDeleter(CuteMixin, metaclass=MetaCute):
   - Qt's 'QBrushDataPointerDeleter::~QBrushDataPointerDeleter()': the
     destructor: Python removes its C++ QBrushDataPointerDeleter by it, and
     has no other use for it.
-
-  What has no ritual
-  ------------------
-
-  1 of the 2 functions Qt declares: 1 declared and nowhere to be found.
 
   What to expect
   --------------
@@ -93,6 +105,29 @@ class QBrushDataPointerDeleter(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(QBrushData)
+  @overload(NoneType)
+  def __call__(self, d: Optional[QBrushData]) -> None:
+    """
+    Calls Qt's 'void QBrushDataPointerDeleter::operator()(QBrushData *d)
+    const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qbrushdatapointerdeleter.html#operator()
+
+    Parameters
+    ----------
+
+    d : Optional[QBrushData]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QBrushDataPointerDeleter::operator()(QBrushData *d) const
+    self.uglySide.call(
+        'ritual_ZNK24QBrushDataPointerDeleterclEP10QBrushData',
+        self._addressOf(d),
+    )
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

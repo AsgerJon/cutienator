@@ -21,12 +21,13 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Never, Optional
 
   from ..QtCore import QByteArray, QDebug
-  from . import QPaintDevice
+  from . import QFontPrivate, QPaintDevice
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
   QDebug = WAIT['QDebug']
+  QFontPrivate = WAIT['QFontPrivate']
   QPaintDevice = WAIT['QPaintDevice']
 
 #  The class of None, for a signature that takes None in the place of an
@@ -65,7 +66,7 @@ class QFont(CuteMixin, metaclass=MetaCute):
   'removeSubstitutions', 'initialize', 'cleanup', 'cacheStatistics',
   'defaultFamily', 'resolve', 'resolveMask', 'setResolveMask',
   'setLegacyWeight', 'legacyWeight', 'detach', '__rlshift__'. It can be made
-  from Python, in 5 ways; see '__init__'.
+  from Python, in 6 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -86,8 +87,6 @@ class QFont(CuteMixin, metaclass=MetaCute):
     no name for.
   - Qt's 'QFont &QFont::operator=(QFont &&other)': assignment: Python binds a
     name and has no operator for it.
-  - Qt's 'QFont::QFont(QFontPrivate *a0)': names 'QFontPrivate', which has no
-    cute class yet.
   - Qt's 'QDataStream &operator<<(QDataStream &a0, const QFont &a1)': takes a
     type Python has no way to hand over yet.
   - Qt's 'QDataStream &operator>>(QDataStream &a0, QFont &a1)': an operator
@@ -2052,6 +2051,27 @@ class QFont(CuteMixin, metaclass=MetaCute):
     #  QFont::QFont(const QFont &font)
     self._noteCreation(QFont, lambda: Rituals.call(
         'ritual_ZN5QFontC1ERKS_', self._valueOf(font),
+    ))
+
+  @overload(QFontPrivate)
+  @overload(NoneType)
+  def __init__(self, a0: Optional[QFontPrivate]) -> None:
+    """
+    Notes what was given, for Qt's 'QFont::QFont(QFontPrivate *a0)', which is
+    called at the first use.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfont.html#QFont
+
+    Parameters
+    ----------
+
+    a0 : Optional[QFontPrivate]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  QFont::QFont(QFontPrivate *a0)
+    self._noteCreation(QFont, lambda: Rituals.call(
+        'ritual_ZN5QFontC1EP12QFontPrivate', self._addressOf(a0),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

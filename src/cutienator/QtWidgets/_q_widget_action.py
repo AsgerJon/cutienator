@@ -20,7 +20,7 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
   from ..QtCore import QEvent, QMetaObject
-  from . import QWidget
+  from . import QWidget, QWidgetActionPrivate
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -45,22 +45,27 @@ class QWidgetAction(QAction):
   -----------
 
   Every function of Qt's QWidgetAction that has a ritual and that Python can
-  call so far, 11 names in all: 'metaObject', 'tr', 'setDefaultWidget',
-  'defaultWidget', 'requestWidget', 'releaseWidget', 'event', 'eventFilter',
-  'createWidget', 'deleteWidget', 'createdWidgets'. It can be made from
-  Python, in 1 way; see '__init__'.
+  call so far, 12 names in all: 'metaObject', 'tr', 'd_func',
+  'setDefaultWidget', 'defaultWidget', 'requestWidget', 'releaseWidget',
+  'event', 'eventFilter', 'createWidget', 'deleteWidget', 'createdWidgets'.
+  It can be made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QWidgetAction::qt_metacast(const char *a0)': one of Qt's own
+    inner workings.
+  - Qt's 'int QWidgetAction::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
+  - Qt's 'const QWidgetActionPrivate *QWidgetAction::d_func() const': takes
+    in Python what 'QWidgetActionPrivate *QWidgetAction::d_func()' takes.
   - Qt's 'QWidgetAction::~QWidgetAction()': the destructor: Python never
     removes a C++ QWidgetAction.
 
   What has no ritual
   ------------------
 
-  8 of the 21 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet; 2 forbidden; 1 a template; 1 declared and nowhere to be found.
+  4 of the 21 functions Qt declares: 2 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -307,6 +312,24 @@ class QWidgetAction(QAction):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  def d_func(self) -> Optional[QWidgetActionPrivate]:
+    """
+    Calls Qt's 'QWidgetActionPrivate *QWidgetAction::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qwidgetaction.html#d_func
+
+    Returns
+    -------
+
+    Optional[QWidgetActionPrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QWidgetActionPrivate *QWidgetAction::d_func()
+    address = self.uglySide.call('ritual_ZN13QWidgetAction6d_funcEv')
+    from . import QWidgetActionPrivate
+    return QWidgetActionPrivate._cuteAt(address)
 
   @overload(QWidget)
   @overload(NoneType)

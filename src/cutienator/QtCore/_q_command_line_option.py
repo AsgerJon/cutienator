@@ -16,6 +16,9 @@ from ..cute import CuteMixin, CuteFlags, MetaCute
 from ..occult import Rituals
 from . import QList, QStringList
 
+if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Never
+
 
 class QCommandLineOption(CuteMixin, metaclass=MetaCute):
   """
@@ -40,12 +43,14 @@ class QCommandLineOption(CuteMixin, metaclass=MetaCute):
 
   - Qt's 'QCommandLineOption::~QCommandLineOption()': the destructor: Python
     removes its C++ QCommandLineOption by it, and has no other use for it.
-
-  What has no ritual
-  ------------------
-
-  3 of the 19 functions Qt declares: 3 takes or gives a type that cannot be
-  passed yet.
+  - Qt's 'QCommandLineOption &QCommandLineOption::operator=(const
+    QCommandLineOption &other)': assignment: Python binds a name and has no
+    operator for it.
+  - Qt's 'QCommandLineOption
+    &QCommandLineOption::operator=(QCommandLineOption &&other)': assignment:
+    Python binds a name and has no operator for it.
+  - Qt's 'void QCommandLineOption::swap(QCommandLineOption &other)': takes a
+    type Python has no way to hand over yet.
 
   What to expect
   --------------
@@ -59,6 +64,9 @@ class QCommandLineOption(CuteMixin, metaclass=MetaCute):
     is as in C++.
   - A function giving a QCommandLineOption back gives a copy the ritual made
     for Python, in a new cute QCommandLineOption.
+  - Each name of Qt's QCommandLineOption that has no cute function yet,
+    'swap', holds a function that raises 'NotImplementedError', and its
+    docstring says why.
   """
 
   #  The enums Qt writes inside QCommandLineOption, each a class in here as
@@ -488,6 +496,17 @@ class QCommandLineOption(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def swap(*__, **_) -> Never:
+    """
+    Qt's 'void QCommandLineOption::swap(QCommandLineOption &other)': takes a
+    type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QCommandLineOption.swap' has no cute function yet. Qt's 'void "
+        "QCommandLineOption::swap(QCommandLineOption &other)': takes a type "
+        "Python has no way to hand over yet.")
 
 
 #  Qt's 'QList<QCommandLineOption>': the list of QCommandLineOption, which

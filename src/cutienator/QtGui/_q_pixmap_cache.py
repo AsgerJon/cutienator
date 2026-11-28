@@ -16,7 +16,7 @@ from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from . import QPixmap
 else:
@@ -83,20 +83,22 @@ class QPixmapCache(CuteMixin, metaclass=MetaCute):
     -----------
 
     Every function of Qt's QPixmapCache::Key that has a ritual and that
-    Python can call so far, 3 names in all: '__eq__', '__ne__', 'isValid'. It
-    can be made from Python, in 2 ways; see '__init__'.
+    Python can call so far, 4 names in all: '__eq__', '__ne__', 'isValid',
+    'hash'. It can be made from Python, in 2 ways; see '__init__'.
 
     What has a ritual and is left out, and why
     ------------------------------------------
 
+    - Qt's 'QPixmapCache::Key::Key(Key &&other)': takes a type Python has no
+      way to hand over yet.
+    - Qt's 'Key &QPixmapCache::Key::operator=(Key &&other)': assignment:
+      Python binds a name and has no operator for it.
     - Qt's 'QPixmapCache::Key::~Key()': the destructor: Python removes its
       C++ QPixmapCache::Key by it, and has no other use for it.
-
-    What has no ritual
-    ------------------
-
-    5 of the 11 functions Qt declares: 5 takes or gives a type that cannot be
-    passed yet.
+    - Qt's 'Key &QPixmapCache::Key::operator=(const Key &other)': assignment:
+      Python binds a name and has no operator for it.
+    - Qt's 'void QPixmapCache::Key::swap(Key &other)': takes a type Python
+      has no way to hand over yet.
 
     What to expect
     --------------
@@ -110,6 +112,9 @@ class QPixmapCache(CuteMixin, metaclass=MetaCute):
       there is as in C++.
     - A function giving a QPixmapCache::Key back gives a copy the ritual made
       for Python, in a new cute QPixmapCache::Key.
+    - Each name of Qt's QPixmapCache::Key that has no cute function yet,
+      'swap', holds a function that raises 'NotImplementedError', and its
+      docstring says why.
     """
 
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -149,6 +154,22 @@ class QPixmapCache(CuteMixin, metaclass=MetaCute):
       """
       #  bool QPixmapCache::Key::isValid() const
       return self.uglySide.call('ritual_ZNK12QPixmapCache3Key7isValidEv')
+
+    @overload(int)
+    def hash(self, seed: int) -> int:
+      """
+      Calls Qt's 'size_t QPixmapCache::Key::hash(size_t seed) const'.
+
+      Qt's own words: https://doc.qt.io/qt-6/qpixmapcache-key.html#hash
+
+      Parameters
+      ----------
+
+      seed : int
+        Passed on as it is.
+      """
+      #  size_t QPixmapCache::Key::hash(size_t seed) const
+      return self.uglySide.call('ritual_ZNK12QPixmapCache3Key4hashEm', seed)
 
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -253,6 +274,153 @@ class QPixmapCache(CuteMixin, metaclass=MetaCute):
       #  QPixmapCache::Key::Key(const Key &other)
       self._noteCreation(QPixmapCache.Key, lambda: Rituals.call(
           'ritual_ZN12QPixmapCache3KeyC1ERKS0_', self._valueOf(other),
+      ))
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  OPTIONAL METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  REQUIRED METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  PARENT METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    @staticmethod
+    def swap(*__, **_) -> Never:
+      """
+      Qt's 'void QPixmapCache::Key::swap(Key &other)': takes a type Python
+      has no way to hand over yet.
+      """
+      raise NotImplementedError(
+          "'QPixmapCache.Key.swap' has no cute function yet. Qt's 'void "
+          "QPixmapCache::Key::swap(Key &other)': takes a type Python has no "
+          "way to hand over yet.")
+
+  class KeyData(CuteMixin, metaclass=MetaCute):
+    """
+    The cute side of Qt's QPixmapCache::KeyData: a plain Python object
+    standing in front of one C++ QPixmapCache::KeyData.
+
+    C++ hands a QPixmapCache::KeyData around as a copy, so every C++
+    QPixmapCache::KeyData behind a cute one is Python's own: it is removed,
+    by the ritual named in '__delete_ritual__', when the cute object goes.
+
+    What exists
+    -----------
+
+    No function of Qt's QPixmapCache::KeyData yet. It can be made from
+    Python, in 2 ways; see '__init__'.
+
+    What has a ritual and is left out, and why
+    ------------------------------------------
+
+    - Qt's 'QPixmapCache::KeyData::~KeyData()': the destructor: Python
+      removes its C++ QPixmapCache::KeyData by it, and has no other use for
+      it.
+
+    What to expect
+    --------------
+
+    - The C++ QPixmapCache::KeyData is created at the first use, not by
+      'QPixmapCache::KeyData(...)'.
+    - A wrong argument is refused in Python, with 'DispatchException', and
+      never reaches C++.
+    - None is taken wherever Qt takes an object by its address, or text as C
+      has it, and is passed on as nothing. Whether Qt can do with nothing
+      there is as in C++.
+    - A function giving a QPixmapCache::KeyData back gives a copy the ritual
+      made for Python, in a new cute QPixmapCache::KeyData.
+    """
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    #  Class Variables
+    #  The class of Qt this class stands for.
+    __qt_class__ = 'QPixmapCache::KeyData'
+
+    #  Qt's '~QPixmapCache::KeyData()'. Naming it makes this a value class:
+    #  Python owns every C++ QPixmapCache::KeyData behind a cute one, and
+    #  removes it by this ritual.
+    __delete_ritual__ = 'ritual_ZN12QPixmapCache7KeyDataD1Ev'
+
+    #  Fallback Variables
+
+    #  Private Variables
+
+    #  Public Variables
+
+    #  Virtual Variables
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  GETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  NOTIFIERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    @overload()
+    def __init__(self) -> None:
+      """
+      Notes what was given, for Qt's 'QPixmapCache::KeyData::KeyData()',
+      which is called at the first use.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qpixmapcache-keydata.html#KeyData
+      """
+      #  QPixmapCache::KeyData::KeyData()
+      self._noteCreation(QPixmapCache.KeyData, lambda: Rituals.call(
+          'ritual_ZN12QPixmapCache7KeyDataC1Ev',
+      ))
+
+    @overload(THIS)
+    def __init__(self, other: QPixmapCache.KeyData) -> None:
+      """
+      Notes what was given, for Qt's 'QPixmapCache::KeyData::KeyData(const
+      KeyData &other)', which is called at the first use.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qpixmapcache-keydata.html#KeyData
+
+      Parameters
+      ----------
+
+      other : QPixmapCache.KeyData
+        Passed on as a value: Qt reads the C++ QPixmapCache::KeyData, which
+        stays Python's own.
+      """
+      #  QPixmapCache::KeyData::KeyData(const KeyData &other)
+      self._noteCreation(QPixmapCache.KeyData, lambda: Rituals.call(
+          'ritual_ZN12QPixmapCache7KeyDataC1ERKS0_', self._valueOf(other),
       ))
 
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

@@ -15,9 +15,10 @@ from worktoy.keenum import Kee
 
 from ..cute import CuteMixin, CuteFlags, CuteNum, MetaCute, WAIT
 from ..occult import Rituals
+from . import QList, Qt, QtPrivate
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from . import QByteArrayView, QDebug, QMetaObject
 else:
@@ -45,29 +46,84 @@ class QMetaType(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QMetaType that has a ritual and that Python can call
-  so far, 34 names in all: 'type', 'typeName', 'sizeOf', 'typeFlags',
-  'metaObjectForType', 'isRegistered', 'registerType', 'id', 'rawId',
-  'alignOf', 'flags', 'metaObject', 'name', 'isDefaultConstructible',
-  'isCopyConstructible', 'isMoveConstructible', 'isDestructible',
-  'isEqualityComparable', 'isOrdered', 'hasRegisteredDataStreamOperators',
-  'underlyingType', 'fromName', '__eq__', '__ne__', '__rlshift__',
-  'hasRegisteredDebugStreamOperator', 'canConvert', 'canView',
-  'hasRegisteredConverterFunction', 'hasRegisteredMutableViewFunction',
-  'unregisterConverterFunction', 'unregisterMutableViewFunction',
-  'unregisterMetaType', 'registerHelper'. It can be made from Python, in 2
-  ways; see '__init__'.
+  so far, 36 names in all: 'type', 'typeName', 'sizeOf', 'typeFlags',
+  'metaObjectForType', 'isRegistered', 'isValid', 'registerType', 'id',
+  'rawId', 'alignOf', 'flags', 'metaObject', 'name',
+  'isDefaultConstructible', 'isCopyConstructible', 'isMoveConstructible',
+  'isDestructible', 'isEqualityComparable', 'isOrdered',
+  'hasRegisteredDataStreamOperators', 'underlyingType', 'fromName', '__eq__',
+  '__ne__', '__rlshift__', 'hasRegisteredDebugStreamOperator', 'canConvert',
+  'canView', 'hasRegisteredConverterFunction',
+  'hasRegisteredMutableViewFunction', 'unregisterConverterFunction',
+  'unregisterMutableViewFunction', 'unregisterMetaType', 'iface',
+  'registerHelper'. It can be made from Python, in 3 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void QMetaType::registerNormalizedTypedef(const ::QByteArray
+    &normalizedTypeName, QMetaType type)': takes a type Python has no way to
+    hand over yet.
+  - Qt's 'int QMetaType::type(const ::QByteArray &typeName)': takes a type
+    Python has no way to hand over yet.
+  - Qt's 'void *QMetaType::create(int type, const void *copy)': names 'void',
+    which has no cute class yet.
+  - Qt's 'void QMetaType::destroy(int type, void *data)': names 'void', which
+    has no cute class yet.
+  - Qt's 'void *QMetaType::construct(int type, void *where, const void
+    *copy)': names 'void', which has no cute class yet.
+  - Qt's 'void QMetaType::destruct(int type, void *where)': names 'void',
+    which has no cute class yet.
+  - Qt's 'void *QMetaType::create(const void *copy) const': names 'void',
+    which has no cute class yet.
+  - Qt's 'void QMetaType::destroy(void *data) const': names 'void', which has
+    no cute class yet.
+  - Qt's 'void *QMetaType::construct(void *where, const void *copy) const':
+    names 'void', which has no cute class yet.
+  - Qt's 'void QMetaType::destruct(void *data) const': names 'void', which
+    has no cute class yet.
+  - Qt's 'QPartialOrdering QMetaType::compare(const void *lhs, const void
+    *rhs) const': names 'void', which has no cute class yet.
+  - Qt's 'bool QMetaType::equals(const void *lhs, const void *rhs) const':
+    names 'void', which has no cute class yet.
+  - Qt's 'bool QMetaType::save(QDataStream &stream, const void *data) const':
+    takes a type Python has no way to hand over yet.
+  - Qt's 'bool QMetaType::load(QDataStream &stream, void *data) const': takes
+    a type Python has no way to hand over yet.
+  - Qt's 'bool QMetaType::save(QDataStream &stream, int type, const void
+    *data)': takes a type Python has no way to hand over yet.
+  - Qt's 'bool QMetaType::load(QDataStream &stream, int type, void *data)':
+    takes a type Python has no way to hand over yet.
+  - Qt's 'bool QMetaType::debugStream(QDebug &dbg, const void *rhs)': takes a
+    type Python has no way to hand over yet.
+  - Qt's 'bool QMetaType::debugStream(QDebug &dbg, const void *rhs, int
+    typeId)': takes a type Python has no way to hand over yet.
+  - Qt's 'bool QMetaType::convert(QMetaType fromType, const void *from,
+    QMetaType toType, void *to)': names 'void', which has no cute class yet.
+  - Qt's 'bool QMetaType::view(QMetaType fromType, void *from, QMetaType
+    toType, void *to)': names 'void', which has no cute class yet.
+  - Qt's 'bool QMetaType::convert(const void *from, int fromTypeId, void *to,
+    int toTypeId)': names 'void', which has no cute class yet.
+  - Qt's 'bool QMetaType::compare(const void *lhs, const void *rhs, int
+    typeId, int *result)': names 'void', which has no cute class yet.
+  - Qt's 'bool QMetaType::equals(const void *lhs, const void *rhs, int
+    typeId, int *result)': names 'void', which has no cute class yet.
+  - Qt's 'bool QMetaType::registerConverterFunction(const ConverterFunction
+    &f, QMetaType from, QMetaType to)': takes a type Python has no way to
+    hand over yet.
+  - Qt's 'bool QMetaType::registerMutableViewFunction(const
+    MutableViewFunction &f, QMetaType from, QMetaType to)': takes a type
+    Python has no way to hand over yet.
+  - Qt's 'const QtPrivate::QMetaTypeInterface *QMetaType::iface() const':
+    takes in Python what 'const QtPrivate::QMetaTypeInterface
+    *QMetaType::iface()' takes.
   - Qt's 'QMetaType::~QMetaType()': the destructor: Python removes its C++
     QMetaType by it, and has no other use for it.
 
   What has no ritual
   ------------------
 
-  47 of the 86 functions Qt declares: 35 takes or gives a type that cannot be
-  passed yet; 12 a template.
+  12 of the 86 functions Qt declares: 12 a template.
 
   What to expect
   --------------
@@ -80,6 +136,14 @@ class QMetaType(CuteMixin, metaclass=MetaCute):
     is as in C++.
   - A function giving a QMetaType back gives a copy the ritual made for
     Python, in a new cute QMetaType.
+  - Each name of Qt's QMetaType that has no cute function yet, 'compare',
+    'construct', 'convert', 'create', 'debugStream', 'destroy', 'destruct',
+    'equals', 'fromType', 'load', 'registerConverter',
+    'registerConverterFunction', 'registerConverterImpl',
+    'registerMutableView', 'registerMutableViewFunction',
+    'registerMutableViewImpl', 'registerNormalizedTypedef', 'save', 'view',
+    holds a function that raises 'NotImplementedError', and its docstring
+    says why.
   """
 
   #  The enums Qt writes inside QMetaType, each a class in here as in C++,
@@ -350,6 +414,26 @@ class QMetaType(CuteMixin, metaclass=MetaCute):
     #  bool QMetaType::isRegistered(int type)
     return Rituals.call('ritual_ZN9QMetaType12isRegisteredEi', type)
 
+  @overload(WAIT['Qt.Disambiguated_t'])
+  def isRegistered(self, a0: Qt.Disambiguated_t) -> bool:
+    """
+    Calls Qt's 'bool QMetaType::isRegistered(Qt::Disambiguated_t a0) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmetatype.html#isRegistered
+
+    Parameters
+    ----------
+
+    a0 : Qt.Disambiguated_t
+      Passed on as a value: Qt reads the C++ Qt::Disambiguated_t, which stays
+      Python's own.
+    """
+    #  bool QMetaType::isRegistered(Qt::Disambiguated_t a0) const
+    return self.uglySide.call(
+        'ritual_ZNK9QMetaType12isRegisteredEN2Qt15Disambiguated_tE',
+        self._valueOf(a0),
+    )
+
   @staticmethod
   @overload(QByteArrayView)
   def fromName(name: QByteArrayView) -> QMetaType:
@@ -569,6 +653,41 @@ class QMetaType(CuteMixin, metaclass=MetaCute):
         CuteMixin._valueOf(type),
     )
 
+  @staticmethod
+  @overload(WAIT['QtPrivate.QMetaTypeInterface'])
+  @overload(NoneType)
+  def registerHelper(iface: Optional[QtPrivate.QMetaTypeInterface]) -> int:
+    """
+    Calls Qt's 'int QMetaType::registerHelper(const
+    QtPrivate::QMetaTypeInterface *iface)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmetatype.html#registerHelper
+
+    Parameters
+    ----------
+
+    iface : Optional[QtPrivate.QMetaTypeInterface]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  int QMetaType::registerHelper(const QtPrivate::QMetaTypeInterface
+    #      *iface)
+    return Rituals.call(
+        'ritual_ZN9QMetaType14registerHelperEPKN9QtPrivate18QMetaTypeInterf'
+        'aceE',
+        CuteMixin._addressOf(iface),
+    )
+
+  @overload()
+  def registerHelper(self) -> int:
+    """
+    Calls Qt's 'int QMetaType::registerHelper() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmetatype.html#registerHelper
+    """
+    #  int QMetaType::registerHelper() const
+    return self.uglySide.call('ritual_ZNK9QMetaType14registerHelperEv')
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -592,6 +711,26 @@ class QMetaType(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  GETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(WAIT['Qt.Disambiguated_t'])
+  def isValid(self, a0: Qt.Disambiguated_t) -> bool:
+    """
+    Calls Qt's 'bool QMetaType::isValid(Qt::Disambiguated_t a0) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmetatype.html#isValid
+
+    Parameters
+    ----------
+
+    a0 : Qt.Disambiguated_t
+      Passed on as a value: Qt reads the C++ Qt::Disambiguated_t, which stays
+      Python's own.
+    """
+    #  bool QMetaType::isValid(Qt::Disambiguated_t a0) const
+    return self.uglySide.call(
+        'ritual_ZNK9QMetaType7isValidEN2Qt15Disambiguated_tE',
+        self._valueOf(a0),
+    )
 
   @overload()
   @overload(int)
@@ -679,6 +818,7 @@ class QMetaType(CuteMixin, metaclass=MetaCute):
     chars = self.uglySide.call('ritual_ZNK9QMetaType4nameEv')
     return None if chars is None else chars.decode()
 
+  @overload()
   def isDefaultConstructible(self) -> bool:
     """
     Calls Qt's 'bool QMetaType::isDefaultConstructible() const'.
@@ -691,6 +831,35 @@ class QMetaType(CuteMixin, metaclass=MetaCute):
         'ritual_ZNK9QMetaType22isDefaultConstructibleEv',
     )
 
+  @staticmethod
+  @overload(WAIT['QtPrivate.QMetaTypeInterface'])
+  @overload(NoneType)
+  def isDefaultConstructible(
+      a0: Optional[QtPrivate.QMetaTypeInterface],
+  ) -> bool:
+    """
+    Calls Qt's 'bool QMetaType::isDefaultConstructible(const
+    QtPrivate::QMetaTypeInterface *a0)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qmetatype.html#isDefaultConstructible
+
+    Parameters
+    ----------
+
+    a0 : Optional[QtPrivate.QMetaTypeInterface]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  bool QMetaType::isDefaultConstructible(const
+    #      QtPrivate::QMetaTypeInterface *a0)
+    return Rituals.call(
+        'ritual_ZN9QMetaType22isDefaultConstructibleEPKN9QtPrivate18QMetaTy'
+        'peInterfaceE',
+        CuteMixin._addressOf(a0),
+    )
+
+  @overload()
   def isCopyConstructible(self) -> bool:
     """
     Calls Qt's 'bool QMetaType::isCopyConstructible() const'.
@@ -700,6 +869,34 @@ class QMetaType(CuteMixin, metaclass=MetaCute):
     #  bool QMetaType::isCopyConstructible() const
     return self.uglySide.call('ritual_ZNK9QMetaType19isCopyConstructibleEv')
 
+  @staticmethod
+  @overload(WAIT['QtPrivate.QMetaTypeInterface'])
+  @overload(NoneType)
+  def isCopyConstructible(
+      a0: Optional[QtPrivate.QMetaTypeInterface],
+  ) -> bool:
+    """
+    Calls Qt's 'bool QMetaType::isCopyConstructible(const
+    QtPrivate::QMetaTypeInterface *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmetatype.html#isCopyConstructible
+
+    Parameters
+    ----------
+
+    a0 : Optional[QtPrivate.QMetaTypeInterface]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  bool QMetaType::isCopyConstructible(const
+    #      QtPrivate::QMetaTypeInterface *a0)
+    return Rituals.call(
+        'ritual_ZN9QMetaType19isCopyConstructibleEPKN9QtPrivate18QMetaTypeI'
+        'nterfaceE',
+        CuteMixin._addressOf(a0),
+    )
+
+  @overload()
   def isMoveConstructible(self) -> bool:
     """
     Calls Qt's 'bool QMetaType::isMoveConstructible() const'.
@@ -709,6 +906,34 @@ class QMetaType(CuteMixin, metaclass=MetaCute):
     #  bool QMetaType::isMoveConstructible() const
     return self.uglySide.call('ritual_ZNK9QMetaType19isMoveConstructibleEv')
 
+  @staticmethod
+  @overload(WAIT['QtPrivate.QMetaTypeInterface'])
+  @overload(NoneType)
+  def isMoveConstructible(
+      a0: Optional[QtPrivate.QMetaTypeInterface],
+  ) -> bool:
+    """
+    Calls Qt's 'bool QMetaType::isMoveConstructible(const
+    QtPrivate::QMetaTypeInterface *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmetatype.html#isMoveConstructible
+
+    Parameters
+    ----------
+
+    a0 : Optional[QtPrivate.QMetaTypeInterface]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  bool QMetaType::isMoveConstructible(const
+    #      QtPrivate::QMetaTypeInterface *a0)
+    return Rituals.call(
+        'ritual_ZN9QMetaType19isMoveConstructibleEPKN9QtPrivate18QMetaTypeI'
+        'nterfaceE',
+        CuteMixin._addressOf(a0),
+    )
+
+  @overload()
   def isDestructible(self) -> bool:
     """
     Calls Qt's 'bool QMetaType::isDestructible() const'.
@@ -717,6 +942,31 @@ class QMetaType(CuteMixin, metaclass=MetaCute):
     """
     #  bool QMetaType::isDestructible() const
     return self.uglySide.call('ritual_ZNK9QMetaType14isDestructibleEv')
+
+  @staticmethod
+  @overload(WAIT['QtPrivate.QMetaTypeInterface'])
+  @overload(NoneType)
+  def isDestructible(a0: Optional[QtPrivate.QMetaTypeInterface]) -> bool:
+    """
+    Calls Qt's 'bool QMetaType::isDestructible(const
+    QtPrivate::QMetaTypeInterface *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmetatype.html#isDestructible
+
+    Parameters
+    ----------
+
+    a0 : Optional[QtPrivate.QMetaTypeInterface]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  bool QMetaType::isDestructible(const QtPrivate::QMetaTypeInterface
+    #      *a0)
+    return Rituals.call(
+        'ritual_ZN9QMetaType14isDestructibleEPKN9QtPrivate18QMetaTypeInterf'
+        'aceE',
+        CuteMixin._addressOf(a0),
+    )
 
   def isEqualityComparable(self) -> bool:
     """
@@ -798,15 +1048,6 @@ class QMetaType(CuteMixin, metaclass=MetaCute):
     return Rituals.call(
         'ritual_ZN9QMetaType32hasRegisteredDebugStreamOperatorEi', typeId,
     )
-
-  def registerHelper(self) -> int:
-    """
-    Calls Qt's 'int QMetaType::registerHelper() const'.
-
-    Qt's own words: https://doc.qt.io/qt-6/qmetatype.html#registerHelper
-    """
-    #  int QMetaType::registerHelper() const
-    return self.uglySide.call('ritual_ZNK9QMetaType14registerHelperEv')
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -938,6 +1179,28 @@ class QMetaType(CuteMixin, metaclass=MetaCute):
         'ritual_ZN9QMetaTypeC1Ei', type,
     ))
 
+  @overload(WAIT['QtPrivate.QMetaTypeInterface'])
+  @overload(NoneType)
+  def __init__(self, d: Optional[QtPrivate.QMetaTypeInterface]) -> None:
+    """
+    Notes what was given, for Qt's 'QMetaType::QMetaType(const
+    QtPrivate::QMetaTypeInterface *d)', which is called at the first use.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmetatype.html#QMetaType
+
+    Parameters
+    ----------
+
+    d : Optional[QtPrivate.QMetaTypeInterface]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  QMetaType::QMetaType(const QtPrivate::QMetaTypeInterface *d)
+    self._noteCreation(QMetaType, lambda: Rituals.call(
+        'ritual_ZN9QMetaTypeC1EPKN9QtPrivate18QMetaTypeInterfaceE',
+        self._addressOf(d),
+    ))
+
   @overload()
   def __init__(self) -> None:
     """
@@ -979,3 +1242,286 @@ class QMetaType(CuteMixin, metaclass=MetaCute):
     """
     #  void QMetaType::registerType() const
     self.uglySide.call('ritual_ZNK9QMetaType12registerTypeEv')
+
+  def iface(self) -> Optional[QtPrivate.QMetaTypeInterface]:
+    """
+    Calls Qt's 'const QtPrivate::QMetaTypeInterface *QMetaType::iface()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmetatype.html#iface
+
+    Returns
+    -------
+
+    Optional[QtPrivate.QMetaTypeInterface]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  const QtPrivate::QMetaTypeInterface *QMetaType::iface()
+    address = self.uglySide.call('ritual_ZN9QMetaType5ifaceEv')
+    return QtPrivate.QMetaTypeInterface._cuteAt(address)
+
+  @staticmethod
+  def compare(*__, **_) -> Never:
+    """
+    - Qt's 'QPartialOrdering QMetaType::compare(const void *lhs, const void
+      *rhs) const': names 'void', which has no cute class yet.
+    - Qt's 'bool QMetaType::compare(const void *lhs, const void *rhs, int
+      typeId, int *result)': names 'void', which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QMetaType.compare' has no cute function yet. Qt's "
+        "'QPartialOrdering QMetaType::compare(const void *lhs, const void "
+        "*rhs) const': names 'void', which has no cute class yet. Qt's "
+        "'bool QMetaType::compare(const void *lhs, const void *rhs, int "
+        "typeId, int *result)': names 'void', which has no cute class yet.")
+
+  @staticmethod
+  def construct(*__, **_) -> Never:
+    """
+    - Qt's 'void *QMetaType::construct(int type, void *where, const void
+      *copy)': names 'void', which has no cute class yet.
+    - Qt's 'void *QMetaType::construct(void *where, const void *copy) const':
+      names 'void', which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QMetaType.construct' has no cute function yet. Qt's 'void "
+        "*QMetaType::construct(int type, void *where, const void *copy)': "
+        "names 'void', which has no cute class yet. Qt's 'void "
+        "*QMetaType::construct(void *where, const void *copy) const': names "
+        "'void', which has no cute class yet.")
+
+  @staticmethod
+  def convert(*__, **_) -> Never:
+    """
+    - Qt's 'bool QMetaType::convert(QMetaType fromType, const void *from,
+      QMetaType toType, void *to)': names 'void', which has no cute class
+      yet.
+    - Qt's 'bool QMetaType::convert(const void *from, int fromTypeId, void
+      *to, int toTypeId)': names 'void', which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QMetaType.convert' has no cute function yet. Qt's 'bool "
+        "QMetaType::convert(QMetaType fromType, const void *from, QMetaType "
+        "toType, void *to)': names 'void', which has no cute class yet. "
+        "Qt's 'bool QMetaType::convert(const void *from, int fromTypeId, "
+        "void *to, int toTypeId)': names 'void', which has no cute class "
+        "yet.")
+
+  @staticmethod
+  def create(*__, **_) -> Never:
+    """
+    - Qt's 'void *QMetaType::create(int type, const void *copy)': names
+      'void', which has no cute class yet.
+    - Qt's 'void *QMetaType::create(const void *copy) const': names 'void',
+      which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QMetaType.create' has no cute function yet. Qt's 'void "
+        "*QMetaType::create(int type, const void *copy)': names 'void', "
+        "which has no cute class yet. Qt's 'void *QMetaType::create(const "
+        "void *copy) const': names 'void', which has no cute class yet.")
+
+  @staticmethod
+  def debugStream(*__, **_) -> Never:
+    """
+    - Qt's 'bool QMetaType::debugStream(QDebug &dbg, const void *rhs)': takes
+      a type Python has no way to hand over yet.
+    - Qt's 'bool QMetaType::debugStream(QDebug &dbg, const void *rhs, int
+      typeId)': takes a type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QMetaType.debugStream' has no cute function yet. Qt's 'bool "
+        "QMetaType::debugStream(QDebug &dbg, const void *rhs)': takes a "
+        "type Python has no way to hand over yet. Qt's 'bool "
+        "QMetaType::debugStream(QDebug &dbg, const void *rhs, int typeId)': "
+        "takes a type Python has no way to hand over yet.")
+
+  @staticmethod
+  def destroy(*__, **_) -> Never:
+    """
+    - Qt's 'void QMetaType::destroy(int type, void *data)': names 'void',
+      which has no cute class yet.
+    - Qt's 'void QMetaType::destroy(void *data) const': names 'void', which
+      has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QMetaType.destroy' has no cute function yet. Qt's 'void "
+        "QMetaType::destroy(int type, void *data)': names 'void', which has "
+        "no cute class yet. Qt's 'void QMetaType::destroy(void *data) "
+        "const': names 'void', which has no cute class yet.")
+
+  @staticmethod
+  def destruct(*__, **_) -> Never:
+    """
+    - Qt's 'void QMetaType::destruct(int type, void *where)': names 'void',
+      which has no cute class yet.
+    - Qt's 'void QMetaType::destruct(void *data) const': names 'void', which
+      has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QMetaType.destruct' has no cute function yet. Qt's 'void "
+        "QMetaType::destruct(int type, void *where)': names 'void', which "
+        "has no cute class yet. Qt's 'void QMetaType::destruct(void *data) "
+        "const': names 'void', which has no cute class yet.")
+
+  @staticmethod
+  def equals(*__, **_) -> Never:
+    """
+    - Qt's 'bool QMetaType::equals(const void *lhs, const void *rhs) const':
+      names 'void', which has no cute class yet.
+    - Qt's 'bool QMetaType::equals(const void *lhs, const void *rhs, int
+      typeId, int *result)': names 'void', which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QMetaType.equals' has no cute function yet. Qt's 'bool "
+        "QMetaType::equals(const void *lhs, const void *rhs) const': names "
+        "'void', which has no cute class yet. Qt's 'bool "
+        "QMetaType::equals(const void *lhs, const void *rhs, int typeId, "
+        "int *result)': names 'void', which has no cute class yet.")
+
+  @staticmethod
+  def fromType(*__, **_) -> Never:
+    """
+    Qt's 'QMetaType::fromType': a template: a pattern and no single function.
+    """
+    raise NotImplementedError(
+        "'QMetaType.fromType' has no cute function yet. Qt's "
+        "'QMetaType::fromType': a template: a pattern and no single "
+        "function.")
+
+  @staticmethod
+  def load(*__, **_) -> Never:
+    """
+    - Qt's 'bool QMetaType::load(QDataStream &stream, void *data) const':
+      takes a type Python has no way to hand over yet.
+    - Qt's 'bool QMetaType::load(QDataStream &stream, int type, void *data)':
+      takes a type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QMetaType.load' has no cute function yet. Qt's 'bool "
+        "QMetaType::load(QDataStream &stream, void *data) const': takes a "
+        "type Python has no way to hand over yet. Qt's 'bool "
+        "QMetaType::load(QDataStream &stream, int type, void *data)': takes "
+        "a type Python has no way to hand over yet.")
+
+  @staticmethod
+  def registerConverter(*__, **_) -> Never:
+    """
+    Qt's 'QMetaType::registerConverter': a template: a pattern and no single
+    function.
+    """
+    raise NotImplementedError(
+        "'QMetaType.registerConverter' has no cute function yet. Qt's "
+        "'QMetaType::registerConverter': a template: a pattern and no "
+        "single function.")
+
+  @staticmethod
+  def registerConverterFunction(*__, **_) -> Never:
+    """
+    Qt's 'bool QMetaType::registerConverterFunction(const ConverterFunction
+    &f, QMetaType from, QMetaType to)': takes a type Python has no way to
+    hand over yet.
+    """
+    raise NotImplementedError(
+        "'QMetaType.registerConverterFunction' has no cute function yet. "
+        "Qt's 'bool QMetaType::registerConverterFunction(const "
+        "ConverterFunction &f, QMetaType from, QMetaType to)': takes a type "
+        "Python has no way to hand over yet.")
+
+  @staticmethod
+  def registerConverterImpl(*__, **_) -> Never:
+    """
+    Qt's 'QMetaType::registerConverterImpl': a template: a pattern and no
+    single function.
+    """
+    raise NotImplementedError(
+        "'QMetaType.registerConverterImpl' has no cute function yet. Qt's "
+        "'QMetaType::registerConverterImpl': a template: a pattern and no "
+        "single function.")
+
+  @staticmethod
+  def registerMutableView(*__, **_) -> Never:
+    """
+    Qt's 'QMetaType::registerMutableView': a template: a pattern and no
+    single function.
+    """
+    raise NotImplementedError(
+        "'QMetaType.registerMutableView' has no cute function yet. Qt's "
+        "'QMetaType::registerMutableView': a template: a pattern and no "
+        "single function.")
+
+  @staticmethod
+  def registerMutableViewFunction(*__, **_) -> Never:
+    """
+    Qt's 'bool QMetaType::registerMutableViewFunction(const
+    MutableViewFunction &f, QMetaType from, QMetaType to)': takes a type
+    Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QMetaType.registerMutableViewFunction' has no cute function yet. "
+        "Qt's 'bool QMetaType::registerMutableViewFunction(const "
+        "MutableViewFunction &f, QMetaType from, QMetaType to)': takes a "
+        "type Python has no way to hand over yet.")
+
+  @staticmethod
+  def registerMutableViewImpl(*__, **_) -> Never:
+    """
+    Qt's 'QMetaType::registerMutableViewImpl': a template: a pattern and no
+    single function.
+    """
+    raise NotImplementedError(
+        "'QMetaType.registerMutableViewImpl' has no cute function yet. Qt's "
+        "'QMetaType::registerMutableViewImpl': a template: a pattern and no "
+        "single function.")
+
+  @staticmethod
+  def registerNormalizedTypedef(*__, **_) -> Never:
+    """
+    Qt's 'void QMetaType::registerNormalizedTypedef(const ::QByteArray
+    &normalizedTypeName, QMetaType type)': takes a type Python has no way to
+    hand over yet.
+    """
+    raise NotImplementedError(
+        "'QMetaType.registerNormalizedTypedef' has no cute function yet. "
+        "Qt's 'void QMetaType::registerNormalizedTypedef(const ::QByteArray "
+        "&normalizedTypeName, QMetaType type)': takes a type Python has no "
+        "way to hand over yet.")
+
+  @staticmethod
+  def save(*__, **_) -> Never:
+    """
+    - Qt's 'bool QMetaType::save(QDataStream &stream, const void *data)
+      const': takes a type Python has no way to hand over yet.
+    - Qt's 'bool QMetaType::save(QDataStream &stream, int type, const void
+      *data)': takes a type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QMetaType.save' has no cute function yet. Qt's 'bool "
+        "QMetaType::save(QDataStream &stream, const void *data) const': "
+        "takes a type Python has no way to hand over yet. Qt's 'bool "
+        "QMetaType::save(QDataStream &stream, int type, const void *data)': "
+        "takes a type Python has no way to hand over yet.")
+
+  @staticmethod
+  def view(*__, **_) -> Never:
+    """
+    Qt's 'bool QMetaType::view(QMetaType fromType, void *from, QMetaType
+    toType, void *to)': names 'void', which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QMetaType.view' has no cute function yet. Qt's 'bool "
+        "QMetaType::view(QMetaType fromType, void *from, QMetaType toType, "
+        "void *to)': names 'void', which has no cute class yet.")
+
+
+#  Qt's 'QList<QMetaType>': the list of QMetaType, which 'QList[QMetaType]'
+#  gives. It is made here, so that there is one as soon as there can be a
+#  QMetaType.
+QList.createKind(
+    QMetaType, 'value',
+    make='ritual_list_make_QMetaType',
+    add='ritual_list_add_QMetaType',
+    size='ritual_list_size_QMetaType',
+    at='ritual_list_at_QMetaType',
+    drop='ritual_list_drop_QMetaType',
+)

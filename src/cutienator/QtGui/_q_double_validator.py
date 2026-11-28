@@ -39,23 +39,33 @@ class QDoubleValidator(QValidator):
   -----------
 
   Every function of Qt's QDoubleValidator that has a ritual and that Python
-  can call so far, 11 names in all: 'metaObject', 'tr', 'setRange',
+  can call so far, 15 names in all: 'metaObject', 'tr', 'setRange',
   'setBottom', 'setTop', 'setDecimals', 'setNotation', 'bottom', 'top',
-  'decimals', 'notation'. It can be made from Python, in 2 ways; see
-  '__init__'.
+  'decimals', 'notation', 'bottomChanged', 'topChanged', 'decimalsChanged',
+  'notationChanged'. It can be made from Python, in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QDoubleValidator::qt_metacast(const char *a0)': one of Qt's
+    own inner workings.
+  - Qt's 'int QDoubleValidator::qt_metacall(QMetaObject::Call a0, int a1,
+    void **a2)': one of Qt's own inner workings.
   - Qt's 'QDoubleValidator::~QDoubleValidator()': the destructor: Python
     never removes a C++ QDoubleValidator.
+  - Qt's 'QValidator::State QDoubleValidator::validate(QString &a0, int &a1)
+    const': takes a type Python has no way to hand over yet.
+  - Qt's 'void QDoubleValidator::fixup(QString &input) const': takes a type
+    Python has no way to hand over yet.
+  - Qt's 'QDoubleValidatorPrivate *QDoubleValidator::d_func()': gives
+    'QDoubleValidatorPrivate', which has no cute class yet.
+  - Qt's 'const QDoubleValidatorPrivate *QDoubleValidator::d_func() const':
+    gives 'QDoubleValidatorPrivate', which has no cute class yet.
 
   What has no ritual
   ------------------
 
-  14 of the 29 functions Qt declares: 6 takes or gives a type that cannot be
-  passed yet; 4 a signal; 2 forbidden; 1 a template; 1 declared and nowhere
-  to be found.
+  4 of the 29 functions Qt declares: 2 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -436,3 +446,79 @@ class QDoubleValidator(QValidator):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(float)
+  def bottomChanged(self, bottom: float) -> None:
+    """
+    Calls Qt's 'void QDoubleValidator::bottomChanged(double bottom)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qdoublevalidator.html#bottomChanged
+
+    Parameters
+    ----------
+
+    bottom : float
+      Passed on as it is.
+    """
+    #  void QDoubleValidator::bottomChanged(double bottom)
+    self.uglySide.call(
+        'ritual_ZN16QDoubleValidator13bottomChangedEd', bottom,
+    )
+
+  @overload(float)
+  def topChanged(self, top: float) -> None:
+    """
+    Calls Qt's 'void QDoubleValidator::topChanged(double top)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qdoublevalidator.html#topChanged
+
+    Parameters
+    ----------
+
+    top : float
+      Passed on as it is.
+    """
+    #  void QDoubleValidator::topChanged(double top)
+    self.uglySide.call('ritual_ZN16QDoubleValidator10topChangedEd', top)
+
+  @overload(int)
+  def decimalsChanged(self, decimals: int) -> None:
+    """
+    Calls Qt's 'void QDoubleValidator::decimalsChanged(int decimals)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qdoublevalidator.html#decimalsChanged
+
+    Parameters
+    ----------
+
+    decimals : int
+      Passed on as it is.
+    """
+    #  void QDoubleValidator::decimalsChanged(int decimals)
+    self.uglySide.call(
+        'ritual_ZN16QDoubleValidator15decimalsChangedEi', decimals,
+    )
+
+  @overload(Notation)
+  def notationChanged(self, notation: Notation) -> None:
+    """
+    Calls Qt's 'void
+    QDoubleValidator::notationChanged(QDoubleValidator::Notation notation)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qdoublevalidator.html#notationChanged
+
+    Parameters
+    ----------
+
+    notation : Notation
+      Passed on as its number.
+    """
+    #  void QDoubleValidator::notationChanged(QDoubleValidator::Notation
+    #      notation)
+    self.uglySide.call(
+        'ritual_ZN16QDoubleValidator15notationChangedENS_8NotationE',
+        notation.value,
+    )

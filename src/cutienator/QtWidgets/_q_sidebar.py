@@ -21,9 +21,9 @@ from ..QtCore import QList
 from . import QListView
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
-  from ..QtCore import QEvent, QMetaObject, QSize, QUrl
+  from ..QtCore import QEvent, QMetaObject, QPoint, QSize, QUrl
   from ..QtGui import QDragEnterEvent, QFocusEvent
 else:
   #  The cute classes this file names and is not built on. Each is brought in
@@ -32,6 +32,8 @@ else:
   QDragEnterEvent = WAIT['QDragEnterEvent']
   QEvent = WAIT['QEvent']
   QFocusEvent = WAIT['QFocusEvent']
+  QPoint = WAIT['QPoint']
+  QUrl = WAIT['QUrl']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -50,22 +52,26 @@ class QSidebar(QListView):
   -----------
 
   Every function of Qt's QSidebar that has a ritual and that Python can call
-  so far, 7 names in all: 'metaObject', 'sizeHint', 'urls', 'event',
-  'focusInEvent', 'dragEnterEvent', 'removeEntry'. None can be made from
-  Python: one comes out of a function of another class that gives one back.
+  so far, 11 names in all: 'metaObject', 'goToUrl', 'sizeHint', 'setUrls',
+  'addUrls', 'urls', 'event', 'focusInEvent', 'dragEnterEvent',
+  'showContextMenu', 'removeEntry'. None can be made from Python: one comes
+  out of a function of another class that gives one back.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QSidebar::qt_metacast(const char *a0)': one of Qt's own inner
+    workings.
+  - Qt's 'int QSidebar::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
   - Qt's 'QSidebar::~QSidebar()': the destructor: Python never removes a C++
     QSidebar.
 
   What has no ritual
   ------------------
 
-  14 of the 22 functions Qt declares: 6 leans on 'QSidebar; 3 leans on
-  'QUrlModel; 2 takes or gives a type that cannot be passed yet; 1 a
-  template; 1 declared and nowhere to be found; 1 a signal.
+  7 of the 21 functions Qt declares: 4 leans on 'QSidebar; 2 not a gap; 1 the
+  compiler refuses its ritual as it would be written here.
 
   What to expect
   --------------
@@ -80,6 +86,9 @@ class QSidebar(QListView):
   - Qt tells when it has removed the C++ QSidebar. Every call on the cute
     object, and every use of it as an argument, then raises 'RuntimeError',
     and nothing reaches C++.
+  - Each name of Qt's QSidebar that has no cute function yet, '__init__',
+    'selectUrl', 'setModelAndUrls', holds a function that raises
+    'NotImplementedError', and its docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -170,6 +179,26 @@ class QSidebar(QListView):
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  @overload(QList[QUrl])
+  def setUrls(self, list: QList[QUrl]) -> None:
+    """
+    Calls Qt's 'void QSidebar::setUrls(const QList<QUrl> &list)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qsidebar.html#setUrls
+
+    Parameters
+    ----------
+
+    list : QList[QUrl]
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+    """
+    #  void QSidebar::setUrls(const QList<QUrl> &list)
+    self.uglySide.call(
+        'ritual_ZN8QSidebar7setUrlsERK5QListI4QUrlE', self._valueOf(list),
+    )
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NOTIFIERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -181,6 +210,21 @@ class QSidebar(QListView):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def __init__(*__, **_) -> Never:
+    """
+    Qt's 'QSidebar::QSidebar(QWidget *parent)': leans on
+    'QSidebar::qt_metacall(QMetaObject::Call, int, void**)', which Qt's
+    source does not mark for use from outside Qt and has no code for that
+    could be taken.
+    """
+    raise NotImplementedError(
+        "'QSidebar.__init__' has no cute function yet. Qt's "
+        "'QSidebar::QSidebar(QWidget *parent)': leans on "
+        "'QSidebar::qt_metacall(QMetaObject::Call, int, void**)', which "
+        "Qt's source does not mark for use from outside Qt and has no code "
+        "for that could be taken.")
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -201,6 +245,48 @@ class QSidebar(QListView):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(QUrl)
+  def goToUrl(self, url: QUrl) -> None:
+    """
+    Calls Qt's 'void QSidebar::goToUrl(const QUrl &url)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qsidebar.html#goToUrl
+
+    Parameters
+    ----------
+
+    url : QUrl
+      Passed on as a value: Qt reads the C++ QUrl, which stays Python's own.
+    """
+    #  void QSidebar::goToUrl(const QUrl &url)
+    self.uglySide.call(
+        'ritual_ZN8QSidebar7goToUrlERK4QUrl', self._valueOf(url),
+    )
+
+  @overload(QList[QUrl], int)
+  def addUrls(self, list: QList[QUrl], row: int) -> None:
+    """
+    Calls Qt's 'void QSidebar::addUrls(const QList<QUrl> &list, int row)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qsidebar.html#addUrls
+
+    Parameters
+    ----------
+
+    list : QList[QUrl]
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+
+    row : int
+      Passed on as it is.
+    """
+    #  void QSidebar::addUrls(const QList<QUrl> &list, int row)
+    self.uglySide.call(
+        'ritual_ZN8QSidebar7addUrlsERK5QListI4QUrlEi',
+        self._valueOf(list), row,
+    )
 
   @overload(QEvent)
   @overload(NoneType)
@@ -260,9 +346,29 @@ class QSidebar(QListView):
       object.
     """
     #  void QSidebar::dragEnterEvent(QDragEnterEvent *event)
+    ritual = 'ritual_ZN8QSidebar14dragEnterEventEP15QDragEnterEvent'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN8QSidebar14dragEnterEventEP15QDragEnterEvent'
+    self.uglySide.call(ritual, self._addressOf(event))
+
+  @overload(QPoint)
+  def showContextMenu(self, position: QPoint) -> None:
+    """
+    Calls Qt's 'void QSidebar::showContextMenu(const QPoint &position)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qsidebar.html#showContextMenu
+
+    Parameters
+    ----------
+
+    position : QPoint
+      Passed on as a value: Qt reads the C++ QPoint, which stays Python's
+      own.
+    """
+    #  void QSidebar::showContextMenu(const QPoint &position)
     self.uglySide.call(
-        'ritual_ZN8QSidebar14dragEnterEventEP15QDragEnterEvent',
-        self._addressOf(event),
+        'ritual_ZN8QSidebar15showContextMenuERK6QPoint',
+        self._valueOf(position),
     )
 
   def removeEntry(self) -> None:
@@ -273,3 +379,31 @@ class QSidebar(QListView):
     """
     #  void QSidebar::removeEntry()
     self.uglySide.call('ritual_ZN8QSidebar11removeEntryEv')
+
+  @staticmethod
+  def selectUrl(*__, **_) -> Never:
+    """
+    Qt's 'void QSidebar::selectUrl(const QUrl &url)': leans on
+    'QSidebar::staticMetaObject', which Qt's source does not mark for use
+    from outside Qt and has no code for that could be taken.
+    """
+    raise NotImplementedError(
+        "'QSidebar.selectUrl' has no cute function yet. Qt's 'void "
+        "QSidebar::selectUrl(const QUrl &url)': leans on "
+        "'QSidebar::staticMetaObject', which Qt's source does not mark for "
+        "use from outside Qt and has no code for that could be taken.")
+
+  @staticmethod
+  def setModelAndUrls(*__, **_) -> Never:
+    """
+    Qt's 'void QSidebar::setModelAndUrls(QFileSystemModel *model, const
+    QList<QUrl> &newUrls)': leans on 'QSidebar::staticMetaObject', which Qt's
+    source does not mark for use from outside Qt and has no code for that
+    could be taken.
+    """
+    raise NotImplementedError(
+        "'QSidebar.setModelAndUrls' has no cute function yet. Qt's 'void "
+        "QSidebar::setModelAndUrls(QFileSystemModel *model, const "
+        "QList<QUrl> &newUrls)': leans on 'QSidebar::staticMetaObject', "
+        "which Qt's source does not mark for use from outside Qt and has no "
+        "code for that could be taken.")

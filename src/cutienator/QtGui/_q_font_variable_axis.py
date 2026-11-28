@@ -18,6 +18,8 @@ from ..QtCore import QList
 from . import QFont
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Never
+
   from ..QtCore import QByteArray, QDebug
 else:
   #  The cute classes this file names and is not built on. Each is brought in
@@ -39,24 +41,34 @@ class QFontVariableAxis(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QFontVariableAxis that has a ritual and that Python
-  can call so far, 12 names in all: 'tag', 'setTag', 'name', 'setName',
+  can call so far, 13 names in all: 'tag', 'setTag', 'name', 'setName',
   'minimumValue', 'setMinimumValue', 'maximumValue', 'setMaximumValue',
-  'defaultValue', 'setDefaultValue', 'tagString', '__rlshift__'. It can be
-  made from Python, in 2 ways; see '__init__'.
+  'defaultValue', 'setDefaultValue', 'tagString', 'detach', '__rlshift__'. It
+  can be made from Python, in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'QFontVariableAxisPrivate *QFontVariableAxis::d_func()': gives
+    'QFontVariableAxisPrivate', which has no cute class yet.
+  - Qt's 'const QFontVariableAxisPrivate *QFontVariableAxis::d_func() const':
+    gives 'QFontVariableAxisPrivate', which has no cute class yet.
+  - Qt's 'QFontVariableAxis::QFontVariableAxis(QFontVariableAxis &&other)':
+    takes a type Python has no way to hand over yet.
   - Qt's 'QFontVariableAxis::~QFontVariableAxis()': the destructor: Python
     removes its C++ QFontVariableAxis by it, and has no other use for it.
+  - Qt's 'QFontVariableAxis &QFontVariableAxis::operator=(QFontVariableAxis
+    &&other)': assignment: Python binds a name and has no operator for it.
+  - Qt's 'void QFontVariableAxis::swap(QFontVariableAxis &other)': takes a
+    type Python has no way to hand over yet.
+  - Qt's 'QFontVariableAxis &QFontVariableAxis::operator=(const
+    QFontVariableAxis &axis)': assignment: Python binds a name and has no
+    operator for it.
 
   What has no ritual
   ------------------
 
-  10 of the 25 functions Qt declares: 6 takes or gives a type that cannot be
-  passed yet; 2 declared and nowhere to be found; 1 a template; 1 Qt's
-  library has no name for it, and its code in Qt's source does not compile
-  apart from its file.
+  3 of the 25 functions Qt declares: 3 not a gap.
 
   What to expect
   --------------
@@ -70,6 +82,9 @@ class QFontVariableAxis(CuteMixin, metaclass=MetaCute):
     is as in C++.
   - A function giving a QFontVariableAxis back gives a copy the ritual made
     for Python, in a new cute QFontVariableAxis.
+  - Each name of Qt's QFontVariableAxis that has no cute function yet,
+    'd_func', 'swap', holds a function that raises 'NotImplementedError', and
+    its docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -389,6 +404,42 @@ class QFontVariableAxis(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  def detach(self) -> None:
+    """
+    Calls Qt's 'void QFontVariableAxis::detach()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfontvariableaxis.html#detach
+    """
+    #  void QFontVariableAxis::detach()
+    self.uglySide.call('ritual_ZN17QFontVariableAxis6detachEv')
+
+  @staticmethod
+  def d_func(*__, **_) -> Never:
+    """
+    - Qt's 'QFontVariableAxisPrivate *QFontVariableAxis::d_func()': gives
+      'QFontVariableAxisPrivate', which has no cute class yet.
+    - Qt's 'const QFontVariableAxisPrivate *QFontVariableAxis::d_func()
+      const': gives 'QFontVariableAxisPrivate', which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QFontVariableAxis.d_func' has no cute function yet. Qt's "
+        "'QFontVariableAxisPrivate *QFontVariableAxis::d_func()': gives "
+        "'QFontVariableAxisPrivate', which has no cute class yet. Qt's "
+        "'const QFontVariableAxisPrivate *QFontVariableAxis::d_func() "
+        "const': gives 'QFontVariableAxisPrivate', which has no cute class "
+        "yet.")
+
+  @staticmethod
+  def swap(*__, **_) -> Never:
+    """
+    Qt's 'void QFontVariableAxis::swap(QFontVariableAxis &other)': takes a
+    type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QFontVariableAxis.swap' has no cute function yet. Qt's 'void "
+        "QFontVariableAxis::swap(QFontVariableAxis &other)': takes a type "
+        "Python has no way to hand over yet.")
 
 
 #  Qt's 'QList<QFontVariableAxis>': the list of QFontVariableAxis, which

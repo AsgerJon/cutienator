@@ -1,0 +1,258 @@
+"""
+Qt3DRender::Render::Scene binding of the Qt C++
+"""
+#  Apache-2.0 license
+#  Copyright (c) 2026 Asger Jon Vistisen
+#  Written by dev_tooling.ClassGenerator from the records of
+#  Qt3DRender/6.12.0/Qt3DRender/private/scene_p.h, Qt 6.12.0. Changes made
+#  here are lost.
+#
+#  Qt means Qt3DRender::Render::Scene to be private: it declares the class in
+#  a header it calls private. cutienator does not care. Qt hands objects of
+#  the class out all the same, and a class we are handed is a class we have.
+from __future__ import annotations
+
+from typing import TYPE_CHECKING
+
+from worktoy.dispatch import overload
+
+from ..cute import WAIT
+from ..occult import Rituals
+from ..Qt3DCore import Qt3DCore
+from . import Qt3DRender
+
+if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Never, Optional
+
+  from ..QtCore import QUrl
+
+#  The class of None, for a signature that takes None in the place of an
+#  object or of text.
+NoneType = type(None)
+
+
+class Scene(Qt3DRender.Render.BackendNode):
+  """
+  The cute side of Qt's Qt3DRender::Render::Scene: a plain Python object
+  standing in front of one C++ Qt3DRender::Render::Scene.
+
+  It is built on the cute 'Qt3DRender::Render::BackendNode', as Qt's
+  Qt3DRender::Render::Scene is built on Qt's Qt3DRender::Render::BackendNode,
+  and has everything that class has.
+
+  What exists
+  -----------
+
+  Every function of Qt's Qt3DRender::Render::Scene that has a ritual and that
+  Python can call so far, 4 names in all: 'syncFromFrontEnd', 'source',
+  'setSceneManager', 'cleanup'. It can be made from Python, in 1 way; see
+  '__init__'.
+
+  What has no ritual
+  ------------------
+
+  1 of the 6 functions Qt declares: 1 cannot be called and cannot be called
+  through the meta-object and cannot be copied.
+
+  What to expect
+  --------------
+
+  - The C++ Qt3DRender::Render::Scene is created at the first use, not by
+    'Qt3DRender::Render::Scene(...)'.
+  - A wrong argument is refused in Python, with 'DispatchException', and
+    never reaches C++.
+  - None is taken wherever Qt takes an object by its address, or text as C
+    has it, and is passed on as nothing. Whether Qt can do with nothing there
+    is as in C++.
+  - Python never removes the C++ Qt3DRender::Render::Scene.
+  - Each name of Qt's Qt3DRender::Render::Scene that has no cute function
+    yet, 'setStatus', holds a function that raises 'NotImplementedError', and
+    its docstring says why.
+  """
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  #  Class Variables
+  #  The class of Qt this class stands for.
+  __qt_class__ = 'Qt3DRender::Render::Scene'
+
+  #  Fallback Variables
+
+  #  Private Variables
+
+  #  Public Variables
+
+  #  Virtual Variables
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  GETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  def source(self) -> QUrl:
+    """
+    Calls Qt's 'QUrl Qt3DRender::Render::Scene::source() const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qt3drender-render-scene.html#source
+
+    Returns
+    -------
+
+    QUrl
+      A new cute QUrl around the copy Qt gave back. Python owns it.
+    """
+    #  QUrl Qt3DRender::Render::Scene::source() const
+    address = self.uglySide.call(
+        'ritual_ZNK10Qt3DRender6Render5Scene6sourceEv',
+    )
+    from ..QtCore import QUrl
+    return QUrl._cuteOwning(address)
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(WAIT['Qt3DRender.Render.SceneManager'])
+  @overload(NoneType)
+  def setSceneManager(
+      self,
+      manager: Optional[Qt3DRender.Render.SceneManager],
+  ) -> None:
+    """
+    Calls Qt's 'void Qt3DRender::Render::Scene::setSceneManager(SceneManager
+    *manager)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qt3drender-render-scene.html#setSceneManager
+
+    Parameters
+    ----------
+
+    manager : Optional[Qt3DRender.Render.SceneManager]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void Qt3DRender::Render::Scene::setSceneManager(SceneManager *manager)
+    self.uglySide.call(
+        'ritual_ZN10Qt3DRender6Render5Scene15setSceneManagerEPNS0_12SceneMa'
+        'nagerE',
+        self._addressOf(manager),
+    )
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  NOTIFIERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload()
+  def __init__(self) -> None:
+    """
+    Notes what was given, for Qt's 'Qt3DRender::Render::Scene::Scene()',
+    which is called at the first use.
+
+    Qt's own words: https://doc.qt.io/qt-6/qt3drender-render-scene.html#Scene
+    """
+    #  Qt3DRender::Render::Scene::Scene()
+    self._noteCreation(Scene, lambda: Rituals.call(
+        'ritual_ZN10Qt3DRender6Render5SceneC1Ev',
+    ))
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  OPTIONAL METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  REQUIRED METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  PARENT METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(WAIT['Qt3DCore.QNode'], bool)
+  @overload(NoneType, bool)
+  def syncFromFrontEnd(
+      self,
+      frontEnd: Optional[Qt3DCore.QNode],
+      firstTime: bool,
+  ) -> None:
+    """
+    Calls Qt's 'void Qt3DRender::Render::Scene::syncFromFrontEnd(const
+    Qt3DCore::QNode *frontEnd, bool firstTime)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qt3drender-render-scene.html#syncFromFrontEnd
+
+    Parameters
+    ----------
+
+    frontEnd : Optional[Qt3DCore.QNode]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    firstTime : bool
+      Passed on as it is.
+    """
+    #  void Qt3DRender::Render::Scene::syncFromFrontEnd(const Qt3DCore::QNode
+    #      *frontEnd, bool firstTime)
+    ritual = (
+        'ritual_ZN10Qt3DRender6Render5Scene16syncFromFrontEndEPKN8Qt3DCore5'
+        'QNodeEb')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN10Qt3DRender6Render5Scene16syncFromFrontEndEPKN8Qt3'
+          'DCore5QNodeEb')
+    self.uglySide.call(ritual, self._addressOf(frontEnd), firstTime)
+
+  def cleanup(self) -> None:
+    """
+    Calls Qt's 'void Qt3DRender::Render::Scene::cleanup()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qt3drender-render-scene.html#cleanup
+    """
+    #  void Qt3DRender::Render::Scene::cleanup()
+    self.uglySide.call('ritual_ZN10Qt3DRender6Render5Scene7cleanupEv')
+
+  @staticmethod
+  def setStatus(*__, **_) -> Never:
+    """
+    Qt's 'void Qt3DRender::Render::Scene::setStatus(QSceneLoader::Status
+    status)': cannot be called and cannot be called through the meta-object
+    and cannot be copied: no header file has its code, Qt's source does not
+    mark it or its class for use from outside Qt or writes it 'inline' or
+    nowhere, and it is no signal, slot or invokable function giving back
+    nothing, of a class built on QObject, and Qt's source has no code for it
+    that could be told from the rest.
+    """
+    raise NotImplementedError(
+        "'Qt3DRender.Render.Scene.setStatus' has no cute function yet. Qt's "
+        "'void Qt3DRender::Render::Scene::setStatus(QSceneLoader::Status "
+        "status)': cannot be called and cannot be called through the "
+        "meta-object and cannot be copied: no header file has its code, "
+        "Qt's source does not mark it or its class for use from outside Qt "
+        "or writes it 'inline' or nowhere, and it is no signal, slot or "
+        "invokable function giving back nothing, of a class built on "
+        "QObject, and Qt's source has no code for it that could be told "
+        "from the rest.")

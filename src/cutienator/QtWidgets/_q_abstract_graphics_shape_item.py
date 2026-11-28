@@ -12,6 +12,7 @@ from typing import TYPE_CHECKING
 from worktoy.dispatch import overload
 
 from ..cute import WAIT
+from ..occult import Rituals
 from . import QGraphicsItem
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
@@ -43,20 +44,28 @@ class QAbstractGraphicsShapeItem(QGraphicsItem):
 
   Every function of Qt's QAbstractGraphicsShapeItem that has a ritual and
   that Python can call so far, 6 names in all: 'pen', 'setPen', 'brush',
-  'setBrush', 'isObscuredBy', 'opaqueArea'. None can be made from Python: one
-  comes out of a function of another class that gives one back.
+  'setBrush', 'isObscuredBy', 'opaqueArea'. It can be made from Python, in 1
+  way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
   - Qt's 'QAbstractGraphicsShapeItem::~QAbstractGraphicsShapeItem()': the
     destructor: Python never removes a C++ QAbstractGraphicsShapeItem.
+  - Qt's 'QAbstractGraphicsShapeItem::QAbstractGraphicsShapeItem(
+    QAbstractGraphicsShapeItemPrivate &dd, QGraphicsItem *parent)': takes a
+    type Python has no way to hand over yet.
+  - Qt's 'QAbstractGraphicsShapeItemPrivate
+    *QAbstractGraphicsShapeItem::d_func()': gives
+    'QAbstractGraphicsShapeItemPrivate', which has no cute class yet.
+  - Qt's 'const QAbstractGraphicsShapeItemPrivate
+    *QAbstractGraphicsShapeItem::d_func() const': gives
+    'QAbstractGraphicsShapeItemPrivate', which has no cute class yet.
 
   What has no ritual
   ------------------
 
-  6 of the 13 functions Qt declares: 2 the class is abstract, so C++ cannot
-  make one; 2 forbidden; 2 takes or gives a type that cannot be passed yet.
+  2 of the 13 functions Qt declares: 2 forbidden.
 
   What to expect
   --------------
@@ -114,7 +123,8 @@ class QAbstractGraphicsShapeItem(QGraphicsItem):
       A new cute QPen around the copy Qt gave back. Python owns it.
     """
     #  QPen QAbstractGraphicsShapeItem::pen() const
-    address = self.uglySide.call(
+    address = self._callAs(
+        'QAbstractGraphicsShapeItem',
         'ritual_ZNK26QAbstractGraphicsShapeItem3penEv',
     )
     from ..QtGui import QPen
@@ -134,7 +144,8 @@ class QAbstractGraphicsShapeItem(QGraphicsItem):
       A new cute QBrush around the copy Qt gave back. Python owns it.
     """
     #  QBrush QAbstractGraphicsShapeItem::brush() const
-    address = self.uglySide.call(
+    address = self._callAs(
+        'QAbstractGraphicsShapeItem',
         'ritual_ZNK26QAbstractGraphicsShapeItem5brushEv',
     )
     from ..QtGui import QBrush
@@ -166,7 +177,10 @@ class QAbstractGraphicsShapeItem(QGraphicsItem):
       ritual = (
           'ritual_own_ZNK26QAbstractGraphicsShapeItem12isObscuredByEPK13QGr'
           'aphicsItem')
-    return self.uglySide.call(ritual, self._addressOf(item, 'QGraphicsItem'))
+    return self._callAs(
+        'QAbstractGraphicsShapeItem', ritual,
+        self._addressOf(item, 'QGraphicsItem'),
+    )
 
   def opaqueArea(self) -> QPainterPath:
     """
@@ -185,7 +199,7 @@ class QAbstractGraphicsShapeItem(QGraphicsItem):
     ritual = 'ritual_ZNK26QAbstractGraphicsShapeItem10opaqueAreaEv'
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZNK26QAbstractGraphicsShapeItem10opaqueAreaEv'
-    address = self.uglySide.call(ritual)
+    address = self._callAs('QAbstractGraphicsShapeItem', ritual)
     from ..QtGui import QPainterPath
     return QPainterPath._cuteOwning(address)
 
@@ -208,7 +222,8 @@ class QAbstractGraphicsShapeItem(QGraphicsItem):
       Passed on as a value: Qt reads the C++ QPen, which stays Python's own.
     """
     #  void QAbstractGraphicsShapeItem::setPen(const QPen &pen)
-    self.uglySide.call(
+    self._callAs(
+        'QAbstractGraphicsShapeItem',
         'ritual_ZN26QAbstractGraphicsShapeItem6setPenERK4QPen',
         self._valueOf(pen),
     )
@@ -230,7 +245,8 @@ class QAbstractGraphicsShapeItem(QGraphicsItem):
       own.
     """
     #  void QAbstractGraphicsShapeItem::setBrush(const QBrush &brush)
-    self.uglySide.call(
+    self._callAs(
+        'QAbstractGraphicsShapeItem',
         'ritual_ZN26QAbstractGraphicsShapeItem8setBrushERK6QBrush',
         self._valueOf(brush),
     )
@@ -246,6 +262,32 @@ class QAbstractGraphicsShapeItem(QGraphicsItem):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload()
+  @overload(QGraphicsItem)
+  @overload(NoneType)
+  def __init__(self, parent: Optional[QGraphicsItem] = None) -> None:
+    """
+    Notes what was given, for Qt's
+    'QAbstractGraphicsShapeItem::QAbstractGraphicsShapeItem(QGraphicsItem
+    *parent)', which is called at the first use.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractgraphicsshapeitem.html
+
+    Parameters
+    ----------
+
+    parent : Optional[QGraphicsItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object. May be left out, as in Qt: it is then None.
+    """
+    #  QAbstractGraphicsShapeItem::QAbstractGraphicsShapeItem(QGraphicsItem
+    #      *parent)
+    self._noteCreation(QAbstractGraphicsShapeItem, lambda: Rituals.call(
+        'ritual_ZN26QAbstractGraphicsShapeItemC1EP13QGraphicsItem',
+        self._addressOf(parent, 'QGraphicsItem'),
+    ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #

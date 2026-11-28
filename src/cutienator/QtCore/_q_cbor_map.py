@@ -14,11 +14,13 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
-from . import QHash, QList, QMap
+from . import QHash, QList, QMap, Qt
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from . import QCborValue, QCborValueConstRef, QCborValueRef, QJsonObject
-  from . import QLatin1String, QVariant
+  from typing import Never, Optional
+
+  from . import QCborContainerPrivate, QCborValue, QCborValueConstRef
+  from . import QCborValueRef, QJsonObject, QLatin1String, QVariant
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -28,6 +30,10 @@ else:
   QJsonObject = WAIT['QJsonObject']
   QLatin1String = WAIT['QLatin1String']
   QVariant = WAIT['QVariant']
+
+#  The class of None, for a signature that takes None in the place of an
+#  object or of text.
+NoneType = type(None)
 
 
 class QCborMap(CuteMixin, metaclass=MetaCute):
@@ -43,18 +49,29 @@ class QCborMap(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QCborMap that has a ritual and that Python can call
-  so far, 27 names in all: 'toCborValue', 'size', 'isEmpty', 'clear', 'keys',
+  so far, 28 names in all: 'toCborValue', 'size', 'isEmpty', 'clear', 'keys',
   'value', '__getitem__', 'take', 'remove', 'contains', 'compare', 'extract',
   'empty', 'fromVariantMap', 'fromVariantHash', 'fromJsonObject',
   'toVariantMap', 'toVariantHash', 'toJsonObject', 'detach', '__eq__',
-  '__ne__', '__lt__', '__gt__', '__le__', '__ge__', 'comparesEqual_helper'.
-  It can be made from Python, in 2 ways; see '__init__'.
+  '__ne__', '__lt__', '__gt__', '__le__', '__ge__', 'comparesEqual_helper',
+  'compareThreeWay_helper'. It can be made from Python, in 2 ways; see
+  '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'QCborMap::QCborMap(QCborMap &&other)': takes a type Python has no
+    way to hand over yet.
+  - Qt's 'QCborMap &QCborMap::operator=(const QCborMap &other)': assignment:
+    Python binds a name and has no operator for it.
+  - Qt's 'QCborMap &QCborMap::operator=(QCborMap &&other)': assignment:
+    Python binds a name and has no operator for it.
+  - Qt's 'QCborMap::QCborMap(std::initializer_list<value_type> args)': takes
+    a type Python has no way to hand over yet.
   - Qt's 'QCborMap::~QCborMap()': the destructor: Python removes its C++
     QCborMap by it, and has no other use for it.
+  - Qt's 'void QCborMap::swap(QCborMap &other)': takes a type Python has no
+    way to hand over yet.
   - Qt's 'QCborValueRef QCborMap::operator[](qint64 key)': takes in Python
     what 'const QCborValue QCborMap::operator[](qint64 key) const' takes.
   - Qt's 'QCborValueRef QCborMap::operator[](QLatin1StringView key)': takes
@@ -66,6 +83,79 @@ class QCborMap(CuteMixin, metaclass=MetaCute):
   - Qt's 'QCborValueRef QCborMap::operator[](const QCborValue &key)': takes
     in Python what 'const QCborValue QCborMap::operator[](const QCborValue
     &key) const' takes.
+  - Qt's 'iterator QCborMap::begin()': gives a type Python has no way to take
+    yet.
+  - Qt's 'const_iterator QCborMap::constBegin() const': gives a type Python
+    has no way to take yet.
+  - Qt's 'const_iterator QCborMap::begin() const': gives a type Python has no
+    way to take yet.
+  - Qt's 'const_iterator QCborMap::cbegin() const': gives a type Python has
+    no way to take yet.
+  - Qt's 'iterator QCborMap::end()': gives a type Python has no way to take
+    yet.
+  - Qt's 'const_iterator QCborMap::constEnd() const': gives a type Python has
+    no way to take yet.
+  - Qt's 'const_iterator QCborMap::end() const': gives a type Python has no
+    way to take yet.
+  - Qt's 'const_iterator QCborMap::cend() const': gives a type Python has no
+    way to take yet.
+  - Qt's 'iterator QCborMap::erase(iterator it)': gives a type Python has no
+    way to take yet.
+  - Qt's 'iterator QCborMap::erase(const_iterator it)': gives a type Python
+    has no way to take yet.
+  - Qt's 'key_value_iterator QCborMap::keyValueBegin()': gives a type Python
+    has no way to take yet.
+  - Qt's 'key_value_iterator QCborMap::keyValueEnd()': gives a type Python
+    has no way to take yet.
+  - Qt's 'const_key_value_iterator QCborMap::keyValueBegin() const': gives a
+    type Python has no way to take yet.
+  - Qt's 'const_key_value_iterator QCborMap::constKeyValueBegin() const':
+    gives a type Python has no way to take yet.
+  - Qt's 'const_key_value_iterator QCborMap::keyValueEnd() const': gives a
+    type Python has no way to take yet.
+  - Qt's 'const_key_value_iterator QCborMap::constKeyValueEnd() const': gives
+    a type Python has no way to take yet.
+  - Qt's 'QtPrivate::QKeyValueRange<QCborMap &> QCborMap::asKeyValueRange()':
+    gives a type Python has no way to take yet.
+  - Qt's 'QtPrivate::QKeyValueRange<const QCborMap &>
+    QCborMap::asKeyValueRange() const': gives a type Python has no way to
+    take yet.
+  - Qt's 'iterator QCborMap::find(qint64 key)': gives a type Python has no
+    way to take yet.
+  - Qt's 'iterator QCborMap::find(QLatin1StringView key)': gives a type
+    Python has no way to take yet.
+  - Qt's 'iterator QCborMap::find(const QString &key)': gives a type Python
+    has no way to take yet.
+  - Qt's 'iterator QCborMap::find(const QCborValue &key)': gives a type
+    Python has no way to take yet.
+  - Qt's 'const_iterator QCborMap::constFind(qint64 key) const': gives a type
+    Python has no way to take yet.
+  - Qt's 'const_iterator QCborMap::constFind(QLatin1StringView key) const':
+    gives a type Python has no way to take yet.
+  - Qt's 'const_iterator QCborMap::constFind(const QString &key) const':
+    gives a type Python has no way to take yet.
+  - Qt's 'const_iterator QCborMap::constFind(const QCborValue &key) const':
+    gives a type Python has no way to take yet.
+  - Qt's 'const_iterator QCborMap::find(qint64 key) const': gives a type
+    Python has no way to take yet.
+  - Qt's 'const_iterator QCborMap::find(QLatin1StringView key) const': gives
+    a type Python has no way to take yet.
+  - Qt's 'const_iterator QCborMap::find(const QString &key) const': gives a
+    type Python has no way to take yet.
+  - Qt's 'const_iterator QCborMap::find(const QCborValue &key) const': gives
+    a type Python has no way to take yet.
+  - Qt's 'iterator QCborMap::insert(qint64 key, const QCborValue &value_)':
+    gives a type Python has no way to take yet.
+  - Qt's 'iterator QCborMap::insert(QLatin1StringView key, const QCborValue
+    &value_)': gives a type Python has no way to take yet.
+  - Qt's 'iterator QCborMap::insert(const QString &key, const QCborValue
+    &value_)': gives a type Python has no way to take yet.
+  - Qt's 'iterator QCborMap::insert(const QCborValue &key, const QCborValue
+    &value_)': gives a type Python has no way to take yet.
+  - Qt's 'iterator QCborMap::insert(value_type v)': takes a type Python has
+    no way to hand over yet.
+  - Qt's 'QCborMap QCborMap::fromJsonObject(QJsonObject &&o)': takes a type
+    Python has no way to hand over yet.
   - Qt's 'bool operator==(const QCborValue &lhs, const QCborMap &rhs)': takes
     in Python what 'bool operator==(const QCborMap &lhs, const QCborValue
     &rhs)' takes.
@@ -102,13 +192,13 @@ class QCborMap(CuteMixin, metaclass=MetaCute):
   - Qt's 'bool operator>=(const QCborValueConstRef &lhs, const QCborMap
     &rhs)': takes in Python what 'bool operator<=(const QCborMap &lhs, const
     QCborValueConstRef &rhs)' takes.
+  - Qt's 'QCborMap::QCborMap(QCborContainerPrivate &dd)': takes a type Python
+    has no way to hand over yet.
 
   What has no ritual
   ------------------
 
-  48 of the 123 functions Qt declares: 44 takes or gives a type that cannot
-  be passed yet; 2 a template; 2 can only be called on a value about to be
-  thrown away.
+  4 of the 123 functions Qt declares: 2 a template; 2 not a gap.
 
   What to expect
   --------------
@@ -121,6 +211,11 @@ class QCborMap(CuteMixin, metaclass=MetaCute):
     is as in C++.
   - A function giving a QCborMap back gives a copy the ritual made for
     Python, in a new cute QCborMap.
+  - Each name of Qt's QCborMap that has no cute function yet,
+    'asKeyValueRange', 'begin', 'cbegin', 'cend', 'constBegin', 'constEnd',
+    'constFind', 'constKeyValueBegin', 'constKeyValueEnd', 'end', 'erase',
+    'find', 'insert', 'keyValueBegin', 'keyValueEnd', 'swap', holds a
+    function that raises 'NotImplementedError', and its docstring says why.
   """
 
   #  The classes Qt writes inside QCborMap, each a class in here as in C++.
@@ -138,10 +233,11 @@ class QCborMap(CuteMixin, metaclass=MetaCute):
     -----------
 
     Every function of Qt's QCborMap::ConstIterator that has a ritual and that
-    Python can call so far, 14 names in all: 'key', 'keyRef', 'value',
+    Python can call so far, 15 names in all: 'key', 'keyRef', 'value',
     '__iadd__', '__isub__', '__add__', '__sub__', 'comparesEqual_helper',
-    '__eq__', '__ne__', '__lt__', '__gt__', '__le__', '__ge__'. It can be
-    made from Python, in 3 ways; see '__init__'.
+    'compareThreeWay_helper', '__eq__', '__ne__', '__lt__', '__gt__',
+    '__le__', '__ge__'. It can be made from Python, in 4 ways; see
+    '__init__'.
 
     What has a ritual and is left out, and why
     ------------------------------------------
@@ -149,18 +245,23 @@ class QCborMap(CuteMixin, metaclass=MetaCute):
     - Qt's 'QCborMap::ConstIterator::~ConstIterator()': the destructor:
       Python removes its C++ QCborMap::ConstIterator by it, and has no other
       use for it.
+    - Qt's 'ConstIterator &QCborMap::ConstIterator::operator=(const
+      ConstIterator &other)': assignment: Python binds a name and has no
+      operator for it.
+    - Qt's 'value_type QCborMap::ConstIterator::operator*() const': an
+      operator Python has no name for.
+    - Qt's 'value_type QCborMap::ConstIterator::operator[](qsizetype j)
+      const': gives a type Python has no way to take yet.
     - Qt's 'const QCborValueConstRef *QCborMap::ConstIterator::operator->()
       const': an operator Python has no name for.
+    - Qt's 'ConstIterator &QCborMap::ConstIterator::operator++()': an
+      operator Python has no name for.
     - Qt's 'ConstIterator QCborMap::ConstIterator::operator++(int a0)': an
+      operator Python has no name for.
+    - Qt's 'ConstIterator &QCborMap::ConstIterator::operator--()': an
       operator Python has no name for.
     - Qt's 'ConstIterator QCborMap::ConstIterator::operator--(int a0)': an
       operator Python has no name for.
-
-    What has no ritual
-    ------------------
-
-    7 of the 29 functions Qt declares: 7 takes or gives a type that cannot be
-    passed yet.
 
     What to expect
     --------------
@@ -180,6 +281,7 @@ class QCborMap(CuteMixin, metaclass=MetaCute):
     #  until it is made; see 'WAIT'. A type checker reads the imports at the
     #  top of the file instead.
     if not TYPE_CHECKING:
+      QCborContainerPrivate = WAIT['QCborContainerPrivate']
       QCborValueConstRef = WAIT['QCborValueConstRef']
 
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -216,6 +318,48 @@ class QCborMap(CuteMixin, metaclass=MetaCute):
           'ritual_ZN8QCborMap13ConstIterator20comparesEqual_helperERKS0_S2_',
           CuteMixin._valueOf(lhs), CuteMixin._valueOf(rhs),
       )
+
+    @staticmethod
+    @overload(THIS, THIS)
+    def compareThreeWay_helper(
+        lhs: QCborMap.ConstIterator,
+        rhs: QCborMap.ConstIterator,
+    ) -> Qt.strong_ordering:
+      """
+      Calls Qt's 'Qt::strong_ordering
+      QCborMap::ConstIterator::compareThreeWay_helper(const ConstIterator
+      &lhs, const ConstIterator &rhs)'.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qcbormap-constiterator.html
+
+      Parameters
+      ----------
+
+      lhs : QCborMap.ConstIterator
+        Passed on as a value: Qt reads the C++ QCborMap::ConstIterator, which
+        stays Python's own.
+
+      rhs : QCborMap.ConstIterator
+        Passed on as a value: Qt reads the C++ QCborMap::ConstIterator, which
+        stays Python's own.
+
+      Returns
+      -------
+
+      Qt.strong_ordering
+        A new cute Qt::strong_ordering around the copy Qt gave back. Python
+        owns it.
+      """
+      #  Qt::strong_ordering
+      #      QCborMap::ConstIterator::compareThreeWay_helper(const
+      #      ConstIterator &lhs, const ConstIterator &rhs)
+      address = Rituals.call(
+          'ritual_ZN8QCborMap13ConstIterator22compareThreeWay_helperERKS0_S'
+          '2_',
+          CuteMixin._valueOf(lhs), CuteMixin._valueOf(rhs),
+      )
+      return Qt.strong_ordering._cuteOwning(address)
 
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -680,6 +824,34 @@ class QCborMap(CuteMixin, metaclass=MetaCute):
           self._valueOf(it),
       ))
 
+    @overload(QCborContainerPrivate, int)
+    @overload(NoneType, int)
+    def __init__(self, dd: Optional[QCborContainerPrivate], ii: int) -> None:
+      """
+      Notes what was given, for Qt's
+      'QCborMap::ConstIterator::ConstIterator(QCborContainerPrivate *dd,
+      qsizetype ii)', which is called at the first use.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qcbormap-constiterator.html#ConstIterator
+
+      Parameters
+      ----------
+
+      dd : Optional[QCborContainerPrivate]
+        Passed on as the address of its C++ object. None is passed on as no
+        object.
+
+      ii : int
+        Passed on as it is.
+      """
+      #  QCborMap::ConstIterator::ConstIterator(QCborContainerPrivate *dd,
+      #      qsizetype ii)
+      self._noteCreation(QCborMap.ConstIterator, lambda: Rituals.call(
+          'ritual_ZN8QCborMap13ConstIteratorC1EP21QCborContainerPrivatex',
+          self._addressOf(dd), ii,
+      ))
+
     @overload()
     def __init__(self) -> None:
       """
@@ -750,28 +922,43 @@ class QCborMap(CuteMixin, metaclass=MetaCute):
     -----------
 
     Every function of Qt's QCborMap::Iterator that has a ritual and that
-    Python can call so far, 14 names in all: 'key', 'keyRef', 'value',
+    Python can call so far, 15 names in all: 'key', 'keyRef', 'value',
     '__iadd__', '__isub__', '__add__', '__sub__', 'comparesEqual_helper',
-    '__eq__', '__ne__', '__lt__', '__gt__', '__le__', '__ge__'. It can be
-    made from Python, in 2 ways; see '__init__'.
+    'compareThreeWay_helper', '__eq__', '__ne__', '__lt__', '__gt__',
+    '__le__', '__ge__'. It can be made from Python, in 3 ways; see
+    '__init__'.
 
     What has a ritual and is left out, and why
     ------------------------------------------
 
     - Qt's 'QCborMap::Iterator::~Iterator()': the destructor: Python removes
       its C++ QCborMap::Iterator by it, and has no other use for it.
+    - Qt's 'Iterator &QCborMap::Iterator::operator=(const Iterator &other)':
+      assignment: Python binds a name and has no operator for it.
+    - Qt's 'value_type QCborMap::Iterator::operator*() const': an operator
+      Python has no name for.
+    - Qt's 'value_type QCborMap::Iterator::operator[](qsizetype j) const':
+      gives a type Python has no way to take yet.
     - Qt's 'QCborValueRef *QCborMap::Iterator::operator->()': an operator
       Python has no name for.
     - Qt's 'const QCborValueConstRef *QCborMap::Iterator::operator->()
       const': an operator Python has no name for.
+    - Qt's 'Iterator &QCborMap::Iterator::operator++()': an operator Python
+      has no name for.
     - Qt's 'Iterator QCborMap::Iterator::operator++(int a0)': an operator
       Python has no name for.
+    - Qt's 'Iterator &QCborMap::Iterator::operator--()': an operator Python
+      has no name for.
     - Qt's 'Iterator QCborMap::Iterator::operator--(int a0)': an operator
       Python has no name for.
     - Qt's 'bool QCborMap::Iterator::comparesEqual_helper(const Iterator
       &lhs, const ConstIterator &rhs)': names 'QCborMap::ConstIterator',
       which stands beside this class inside 'QCborMap' and cannot be named
       from here.
+    - Qt's 'Qt::strong_ordering
+      QCborMap::Iterator::compareThreeWay_helper(const Iterator &lhs, const
+      ConstIterator &rhs)': names 'QCborMap::ConstIterator', which stands
+      beside this class inside 'QCborMap' and cannot be named from here.
     - Qt's 'bool operator==(const Iterator &lhs, const ConstIterator &rhs)':
       names 'QCborMap::ConstIterator', which stands beside this class inside
       'QCborMap' and cannot be named from here.
@@ -809,12 +996,6 @@ class QCborMap(CuteMixin, metaclass=MetaCute):
       names 'QCborMap::ConstIterator', which stands beside this class inside
       'QCborMap' and cannot be named from here.
 
-    What has no ritual
-    ------------------
-
-    8 of the 43 functions Qt declares: 8 takes or gives a type that cannot be
-    passed yet.
-
     What to expect
     --------------
 
@@ -828,6 +1009,12 @@ class QCborMap(CuteMixin, metaclass=MetaCute):
     - A function giving a QCborMap::Iterator back gives a copy the ritual
       made for Python, in a new cute QCborMap::Iterator.
     """
+
+    #  The cute classes this class names and is not built on. Each waits
+    #  until it is made; see 'WAIT'. A type checker reads the imports at the
+    #  top of the file instead.
+    if not TYPE_CHECKING:
+      QCborContainerPrivate = WAIT['QCborContainerPrivate']
 
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -863,6 +1050,46 @@ class QCborMap(CuteMixin, metaclass=MetaCute):
           'ritual_ZN8QCborMap8Iterator20comparesEqual_helperERKS0_S2_',
           CuteMixin._valueOf(lhs), CuteMixin._valueOf(rhs),
       )
+
+    @staticmethod
+    @overload(THIS, THIS)
+    def compareThreeWay_helper(
+        lhs: QCborMap.Iterator,
+        rhs: QCborMap.Iterator,
+    ) -> Qt.strong_ordering:
+      """
+      Calls Qt's 'Qt::strong_ordering
+      QCborMap::Iterator::compareThreeWay_helper(const Iterator &lhs, const
+      Iterator &rhs)'.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qcbormap-iterator.html#compareThreeWay_helper
+
+      Parameters
+      ----------
+
+      lhs : QCborMap.Iterator
+        Passed on as a value: Qt reads the C++ QCborMap::Iterator, which
+        stays Python's own.
+
+      rhs : QCborMap.Iterator
+        Passed on as a value: Qt reads the C++ QCborMap::Iterator, which
+        stays Python's own.
+
+      Returns
+      -------
+
+      Qt.strong_ordering
+        A new cute Qt::strong_ordering around the copy Qt gave back. Python
+        owns it.
+      """
+      #  Qt::strong_ordering QCborMap::Iterator::compareThreeWay_helper(const
+      #      Iterator &lhs, const Iterator &rhs)
+      address = Rituals.call(
+          'ritual_ZN8QCborMap8Iterator22compareThreeWay_helperERKS0_S2_',
+          CuteMixin._valueOf(lhs), CuteMixin._valueOf(rhs),
+      )
+      return Qt.strong_ordering._cuteOwning(address)
 
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -1275,6 +1502,33 @@ class QCborMap(CuteMixin, metaclass=MetaCute):
     #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+    @overload(QCborContainerPrivate, int)
+    @overload(NoneType, int)
+    def __init__(self, dd: Optional[QCborContainerPrivate], ii: int) -> None:
+      """
+      Notes what was given, for Qt's
+      'QCborMap::Iterator::Iterator(QCborContainerPrivate *dd, qsizetype
+      ii)', which is called at the first use.
+
+      Qt's own words: https://doc.qt.io/qt-6/qcbormap-iterator.html#Iterator
+
+      Parameters
+      ----------
+
+      dd : Optional[QCborContainerPrivate]
+        Passed on as the address of its C++ object. None is passed on as no
+        object.
+
+      ii : int
+        Passed on as it is.
+      """
+      #  QCborMap::Iterator::Iterator(QCborContainerPrivate *dd, qsizetype
+      #      ii)
+      self._noteCreation(QCborMap.Iterator, lambda: Rituals.call(
+          'ritual_ZN8QCborMap8IteratorC1EP21QCborContainerPrivatex',
+          self._addressOf(dd), ii,
+      ))
+
     @overload()
     def __init__(self) -> None:
       """
@@ -1472,6 +1726,85 @@ class QCborMap(CuteMixin, metaclass=MetaCute):
         'ritual_ZN8QCborMap20comparesEqual_helperERKS_18QCborValueConstRef',
         CuteMixin._valueOf(lhs), CuteMixin._valueOf(rhs),
     )
+
+  @staticmethod
+  @overload(THIS, QCborValue)
+  def compareThreeWay_helper(
+      lhs: QCborMap,
+      rhs: QCborValue,
+  ) -> Qt.strong_ordering:
+    """
+    Calls Qt's 'Qt::strong_ordering QCborMap::compareThreeWay_helper(const
+    QCborMap &lhs, const QCborValue &rhs)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qcbormap.html#compareThreeWay_helper
+
+    Parameters
+    ----------
+
+    lhs : QCborMap
+      Passed on as a value: Qt reads the C++ QCborMap, which stays Python's
+      own.
+
+    rhs : QCborValue
+      Passed on as a value: Qt reads the C++ QCborValue, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    Qt.strong_ordering
+      A new cute Qt::strong_ordering around the copy Qt gave back. Python
+      owns it.
+    """
+    #  Qt::strong_ordering QCborMap::compareThreeWay_helper(const QCborMap
+    #      &lhs, const QCborValue &rhs)
+    address = Rituals.call(
+        'ritual_ZN8QCborMap22compareThreeWay_helperERKS_RK10QCborValue',
+        CuteMixin._valueOf(lhs), CuteMixin._valueOf(rhs),
+    )
+    return Qt.strong_ordering._cuteOwning(address)
+
+  @staticmethod
+  @overload(THIS, QCborValueConstRef)
+  def compareThreeWay_helper(
+      lhs: QCborMap,
+      rhs: QCborValueConstRef,
+  ) -> Qt.strong_ordering:
+    """
+    Calls Qt's 'Qt::strong_ordering QCborMap::compareThreeWay_helper(const
+    QCborMap &lhs, QCborValueConstRef rhs)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qcbormap.html#compareThreeWay_helper
+
+    Parameters
+    ----------
+
+    lhs : QCborMap
+      Passed on as a value: Qt reads the C++ QCborMap, which stays Python's
+      own.
+
+    rhs : QCborValueConstRef
+      Passed on as a value: Qt reads the C++ QCborValueConstRef, which stays
+      Python's own.
+
+    Returns
+    -------
+
+    Qt.strong_ordering
+      A new cute Qt::strong_ordering around the copy Qt gave back. Python
+      owns it.
+    """
+    #  Qt::strong_ordering QCborMap::compareThreeWay_helper(const QCborMap
+    #      &lhs, QCborValueConstRef rhs)
+    address = Rituals.call(
+        'ritual_ZN8QCborMap22compareThreeWay_helperERKS_18QCborValueConstRe'
+        'f',
+        CuteMixin._valueOf(lhs), CuteMixin._valueOf(rhs),
+    )
+    return Qt.strong_ordering._cuteOwning(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -2645,3 +2978,269 @@ class QCborMap(CuteMixin, metaclass=MetaCute):
     """
     #  void QCborMap::detach(qsizetype reserve)
     self.uglySide.call('ritual_ZN8QCborMap6detachEx', reserve)
+
+  @staticmethod
+  def asKeyValueRange(*__, **_) -> Never:
+    """
+    - Qt's 'QtPrivate::QKeyValueRange<QCborMap &>
+      QCborMap::asKeyValueRange()': gives a type Python has no way to take
+      yet.
+    - Qt's 'QtPrivate::QKeyValueRange<const QCborMap &>
+      QCborMap::asKeyValueRange() const': gives a type Python has no way to
+      take yet.
+    """
+    raise NotImplementedError(
+        "'QCborMap.asKeyValueRange' has no cute function yet. Qt's "
+        "'QtPrivate::QKeyValueRange<QCborMap &> "
+        "QCborMap::asKeyValueRange()': gives a type Python has no way to "
+        "take yet. Qt's 'QtPrivate::QKeyValueRange<const QCborMap &> "
+        "QCborMap::asKeyValueRange() const': gives a type Python has no way "
+        "to take yet.")
+
+  @staticmethod
+  def begin(*__, **_) -> Never:
+    """
+    - Qt's 'iterator QCborMap::begin()': gives a type Python has no way to
+      take yet.
+    - Qt's 'const_iterator QCborMap::begin() const': gives a type Python has
+      no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QCborMap.begin' has no cute function yet. Qt's 'iterator "
+        "QCborMap::begin()': gives a type Python has no way to take yet. "
+        "Qt's 'const_iterator QCborMap::begin() const': gives a type Python "
+        "has no way to take yet.")
+
+  @staticmethod
+  def cbegin(*__, **_) -> Never:
+    """
+    Qt's 'const_iterator QCborMap::cbegin() const': gives a type Python has
+    no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QCborMap.cbegin' has no cute function yet. Qt's 'const_iterator "
+        "QCborMap::cbegin() const': gives a type Python has no way to take "
+        "yet.")
+
+  @staticmethod
+  def cend(*__, **_) -> Never:
+    """
+    Qt's 'const_iterator QCborMap::cend() const': gives a type Python has no
+    way to take yet.
+    """
+    raise NotImplementedError(
+        "'QCborMap.cend' has no cute function yet. Qt's 'const_iterator "
+        "QCborMap::cend() const': gives a type Python has no way to take "
+        "yet.")
+
+  @staticmethod
+  def constBegin(*__, **_) -> Never:
+    """
+    Qt's 'const_iterator QCborMap::constBegin() const': gives a type Python
+    has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QCborMap.constBegin' has no cute function yet. Qt's "
+        "'const_iterator QCborMap::constBegin() const': gives a type Python "
+        "has no way to take yet.")
+
+  @staticmethod
+  def constEnd(*__, **_) -> Never:
+    """
+    Qt's 'const_iterator QCborMap::constEnd() const': gives a type Python has
+    no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QCborMap.constEnd' has no cute function yet. Qt's 'const_iterator "
+        "QCborMap::constEnd() const': gives a type Python has no way to "
+        "take yet.")
+
+  @staticmethod
+  def constFind(*__, **_) -> Never:
+    """
+    - Qt's 'const_iterator QCborMap::constFind(qint64 key) const': gives a
+      type Python has no way to take yet.
+    - Qt's 'const_iterator QCborMap::constFind(QLatin1StringView key) const':
+      gives a type Python has no way to take yet.
+    - Qt's 'const_iterator QCborMap::constFind(const QString &key) const':
+      gives a type Python has no way to take yet.
+    - Qt's 'const_iterator QCborMap::constFind(const QCborValue &key) const':
+      gives a type Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QCborMap.constFind' has no cute function yet. Qt's "
+        "'const_iterator QCborMap::constFind(qint64 key) const': gives a "
+        "type Python has no way to take yet. Qt's 'const_iterator "
+        "QCborMap::constFind(QLatin1StringView key) const': gives a type "
+        "Python has no way to take yet. Qt's 'const_iterator "
+        "QCborMap::constFind(const QString &key) const': gives a type "
+        "Python has no way to take yet. Qt's 'const_iterator "
+        "QCborMap::constFind(const QCborValue &key) const': gives a type "
+        "Python has no way to take yet.")
+
+  @staticmethod
+  def constKeyValueBegin(*__, **_) -> Never:
+    """
+    Qt's 'const_key_value_iterator QCborMap::constKeyValueBegin() const':
+    gives a type Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QCborMap.constKeyValueBegin' has no cute function yet. Qt's "
+        "'const_key_value_iterator QCborMap::constKeyValueBegin() const': "
+        "gives a type Python has no way to take yet.")
+
+  @staticmethod
+  def constKeyValueEnd(*__, **_) -> Never:
+    """
+    Qt's 'const_key_value_iterator QCborMap::constKeyValueEnd() const': gives
+    a type Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QCborMap.constKeyValueEnd' has no cute function yet. Qt's "
+        "'const_key_value_iterator QCborMap::constKeyValueEnd() const': "
+        "gives a type Python has no way to take yet.")
+
+  @staticmethod
+  def end(*__, **_) -> Never:
+    """
+    - Qt's 'iterator QCborMap::end()': gives a type Python has no way to take
+      yet.
+    - Qt's 'const_iterator QCborMap::end() const': gives a type Python has no
+      way to take yet.
+    """
+    raise NotImplementedError(
+        "'QCborMap.end' has no cute function yet. Qt's 'iterator "
+        "QCborMap::end()': gives a type Python has no way to take yet. Qt's "
+        "'const_iterator QCborMap::end() const': gives a type Python has no "
+        "way to take yet.")
+
+  @staticmethod
+  def erase(*__, **_) -> Never:
+    """
+    - Qt's 'iterator QCborMap::erase(iterator it)': gives a type Python has
+      no way to take yet.
+    - Qt's 'iterator QCborMap::erase(const_iterator it)': gives a type Python
+      has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QCborMap.erase' has no cute function yet. Qt's 'iterator "
+        "QCborMap::erase(iterator it)': gives a type Python has no way to "
+        "take yet. Qt's 'iterator QCborMap::erase(const_iterator it)': "
+        "gives a type Python has no way to take yet.")
+
+  @staticmethod
+  def find(*__, **_) -> Never:
+    """
+    - Qt's 'iterator QCborMap::find(qint64 key)': gives a type Python has no
+      way to take yet.
+    - Qt's 'iterator QCborMap::find(QLatin1StringView key)': gives a type
+      Python has no way to take yet.
+    - Qt's 'iterator QCborMap::find(const QString &key)': gives a type Python
+      has no way to take yet.
+    - Qt's 'iterator QCborMap::find(const QCborValue &key)': gives a type
+      Python has no way to take yet.
+    - Qt's 'const_iterator QCborMap::find(qint64 key) const': gives a type
+      Python has no way to take yet.
+    - Qt's 'const_iterator QCborMap::find(QLatin1StringView key) const':
+      gives a type Python has no way to take yet.
+    - Qt's 'const_iterator QCborMap::find(const QString &key) const': gives a
+      type Python has no way to take yet.
+    - Qt's 'const_iterator QCborMap::find(const QCborValue &key) const':
+      gives a type Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QCborMap.find' has no cute function yet. Qt's 'iterator "
+        "QCborMap::find(qint64 key)': gives a type Python has no way to "
+        "take yet. Qt's 'iterator QCborMap::find(QLatin1StringView key)': "
+        "gives a type Python has no way to take yet. Qt's 'iterator "
+        "QCborMap::find(const QString &key)': gives a type Python has no "
+        "way to take yet. Qt's 'iterator QCborMap::find(const QCborValue "
+        "&key)': gives a type Python has no way to take yet. Qt's "
+        "'const_iterator QCborMap::find(qint64 key) const': gives a type "
+        "Python has no way to take yet. Qt's 'const_iterator "
+        "QCborMap::find(QLatin1StringView key) const': gives a type Python "
+        "has no way to take yet. Qt's 'const_iterator QCborMap::find(const "
+        "QString &key) const': gives a type Python has no way to take yet. "
+        "Qt's 'const_iterator QCborMap::find(const QCborValue &key) const': "
+        "gives a type Python has no way to take yet.")
+
+  @staticmethod
+  def insert(*__, **_) -> Never:
+    """
+    - Qt's 'iterator QCborMap::insert(qint64 key, const QCborValue &value_)':
+      gives a type Python has no way to take yet.
+    - Qt's 'iterator QCborMap::insert(QLatin1StringView key, const QCborValue
+      &value_)': gives a type Python has no way to take yet.
+    - Qt's 'iterator QCborMap::insert(const QString &key, const QCborValue
+      &value_)': gives a type Python has no way to take yet.
+    - Qt's 'iterator QCborMap::insert(const QCborValue &key, const QCborValue
+      &value_)': gives a type Python has no way to take yet.
+    - Qt's 'iterator QCborMap::insert(value_type v)': takes a type Python has
+      no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QCborMap.insert' has no cute function yet. Qt's 'iterator "
+        "QCborMap::insert(qint64 key, const QCborValue &value_)': gives a "
+        "type Python has no way to take yet. Qt's 'iterator "
+        "QCborMap::insert(QLatin1StringView key, const QCborValue "
+        "&value_)': gives a type Python has no way to take yet. Qt's "
+        "'iterator QCborMap::insert(const QString &key, const QCborValue "
+        "&value_)': gives a type Python has no way to take yet. Qt's "
+        "'iterator QCborMap::insert(const QCborValue &key, const QCborValue "
+        "&value_)': gives a type Python has no way to take yet. Qt's "
+        "'iterator QCborMap::insert(value_type v)': takes a type Python has "
+        "no way to hand over yet.")
+
+  @staticmethod
+  def keyValueBegin(*__, **_) -> Never:
+    """
+    - Qt's 'key_value_iterator QCborMap::keyValueBegin()': gives a type
+      Python has no way to take yet.
+    - Qt's 'const_key_value_iterator QCborMap::keyValueBegin() const': gives
+      a type Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QCborMap.keyValueBegin' has no cute function yet. Qt's "
+        "'key_value_iterator QCborMap::keyValueBegin()': gives a type "
+        "Python has no way to take yet. Qt's 'const_key_value_iterator "
+        "QCborMap::keyValueBegin() const': gives a type Python has no way "
+        "to take yet.")
+
+  @staticmethod
+  def keyValueEnd(*__, **_) -> Never:
+    """
+    - Qt's 'key_value_iterator QCborMap::keyValueEnd()': gives a type Python
+      has no way to take yet.
+    - Qt's 'const_key_value_iterator QCborMap::keyValueEnd() const': gives a
+      type Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QCborMap.keyValueEnd' has no cute function yet. Qt's "
+        "'key_value_iterator QCborMap::keyValueEnd()': gives a type Python "
+        "has no way to take yet. Qt's 'const_key_value_iterator "
+        "QCborMap::keyValueEnd() const': gives a type Python has no way to "
+        "take yet.")
+
+  @staticmethod
+  def swap(*__, **_) -> Never:
+    """
+    Qt's 'void QCborMap::swap(QCborMap &other)': takes a type Python has no
+    way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QCborMap.swap' has no cute function yet. Qt's 'void "
+        "QCborMap::swap(QCborMap &other)': takes a type Python has no way "
+        "to hand over yet.")
+
+
+#  Qt's 'QList<QCborMap>': the list of QCborMap, which 'QList[QCborMap]'
+#  gives. It is made here, so that there is one as soon as there can be a
+#  QCborMap.
+QList.createKind(
+    QCborMap, 'value',
+    make='ritual_list_make_QCborMap',
+    add='ritual_list_add_QCborMap',
+    size='ritual_list_size_QCborMap',
+    at='ritual_list_at_QCborMap',
+    drop='ritual_list_drop_QCborMap',
+)

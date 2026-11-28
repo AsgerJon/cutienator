@@ -57,15 +57,11 @@ class QStringMatcher(CuteMixin, metaclass=MetaCute):
     Qt::CaseSensitivity cs)' takes.
   - Qt's 'QStringMatcher::~QStringMatcher()': the destructor: Python removes
     its C++ QStringMatcher by it, and has no other use for it.
+  - Qt's 'QStringMatcher &QStringMatcher::operator=(const QStringMatcher
+    &other)': assignment: Python binds a name and has no operator for it.
   - Qt's 'qsizetype QStringMatcher::indexIn(QStringView str, qsizetype from)
     const': takes in Python what 'qsizetype QStringMatcher::indexIn(const
     QString &str, qsizetype from) const' takes.
-
-  What has no ritual
-  ------------------
-
-  1 of the 16 functions Qt declares: 1 takes or gives a type that cannot be
-  passed yet.
 
   What to expect
   --------------

@@ -56,12 +56,8 @@ class QTextTableCell(CuteMixin, metaclass=MetaCute):
 
   - Qt's 'QTextTableCell::~QTextTableCell()': the destructor: Python removes
     its C++ QTextTableCell by it, and has no other use for it.
-
-  What has no ritual
-  ------------------
-
-  1 of the 21 functions Qt declares: 1 takes or gives a type that cannot be
-  passed yet.
+  - Qt's 'QTextTableCell &QTextTableCell::operator=(const QTextTableCell
+    &o)': assignment: Python binds a name and has no operator for it.
 
   What to expect
   --------------

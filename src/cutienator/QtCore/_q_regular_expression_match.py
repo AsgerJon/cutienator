@@ -16,6 +16,9 @@ from ..cute import CuteMixin, MetaCute
 from ..occult import Rituals
 from . import QRegularExpression, QStringList
 
+if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Never
+
 
 class QRegularExpressionMatch(CuteMixin, metaclass=MetaCute):
   """
@@ -42,12 +45,20 @@ class QRegularExpressionMatch(CuteMixin, metaclass=MetaCute):
   - Qt's 'QRegularExpressionMatch::~QRegularExpressionMatch()': the
     destructor: Python removes its C++ QRegularExpressionMatch by it, and has
     no other use for it.
-
-  What has no ritual
-  ------------------
-
-  5 of the 28 functions Qt declares: 5 takes or gives a type that cannot be
-  passed yet.
+  - Qt's
+    'QRegularExpressionMatch::QRegularExpressionMatch(QRegularExpressionMatch
+    &&match)': takes a type Python has no way to hand over yet.
+  - Qt's 'QRegularExpressionMatch &QRegularExpressionMatch::operator=(const
+    QRegularExpressionMatch &match)': assignment: Python binds a name and has
+    no operator for it.
+  - Qt's 'QRegularExpressionMatch
+    &QRegularExpressionMatch::operator=(QRegularExpressionMatch &&match)':
+    assignment: Python binds a name and has no operator for it.
+  - Qt's 'void QRegularExpressionMatch::swap(QRegularExpressionMatch
+    &other)': takes a type Python has no way to hand over yet.
+  - Qt's 'QRegularExpressionMatch::QRegularExpressionMatch(
+    QRegularExpressionMatchPrivate &dd)': takes a type Python has no way to
+    hand over yet.
 
   What to expect
   --------------
@@ -61,6 +72,9 @@ class QRegularExpressionMatch(CuteMixin, metaclass=MetaCute):
     is as in C++.
   - A function giving a QRegularExpressionMatch back gives a copy the ritual
     made for Python, in a new cute QRegularExpressionMatch.
+  - Each name of Qt's QRegularExpressionMatch that has no cute function yet,
+    'swap', holds a function that raises 'NotImplementedError', and its
+    docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -574,3 +588,14 @@ class QRegularExpressionMatch(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def swap(*__, **_) -> Never:
+    """
+    Qt's 'void QRegularExpressionMatch::swap(QRegularExpressionMatch
+    &other)': takes a type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QRegularExpressionMatch.swap' has no cute function yet. Qt's "
+        "'void QRegularExpressionMatch::swap(QRegularExpressionMatch "
+        "&other)': takes a type Python has no way to hand over yet.")

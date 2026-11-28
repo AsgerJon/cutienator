@@ -23,7 +23,7 @@ from ..QtCore import Qt, QObject
 from . import QScroller
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from ..QtCore import QMetaObject, QPointF
   from . import QWidget
@@ -51,25 +51,31 @@ class QScrollerPrivate(QObject):
   -----------
 
   Every function of Qt's QScrollerPrivate that has a ritual and that Python
-  can call so far, 12 names in all: 'metaObject', 'q_func', 'init', 'dpi',
+  can call so far, 13 names in all: 'metaObject', 'q_func', 'init', 'dpi',
   'setDpi', 'setDpiFromWidget', 'scrollingSegmentsEndPos',
   'scrollingSegmentsValid', 'nextSnapPos', 'frameRateSkip', 'stateName',
-  'inputName'. None can be made from Python: one comes out of a function of
-  another class that gives one back.
+  'inputName', 'targetDestroyed'. None can be made from Python: one comes out
+  of a function of another class that gives one back.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QScrollerPrivate::qt_metacast(const char *a0)': one of Qt's
+    own inner workings.
+  - Qt's 'int QScrollerPrivate::qt_metacall(QMetaObject::Call a0, int a1,
+    void **a2)': one of Qt's own inner workings.
   - Qt's 'const QScroller *QScrollerPrivate::q_func() const': takes in Python
     what 'QScroller *QScrollerPrivate::q_func()' takes.
+  - Qt's 'qreal QScrollerPrivate::nextSegmentPosition(QQueue<ScrollSegment>
+    &segments, qint64 now, qreal oldPos)': takes a type Python has no way to
+    hand over yet.
 
   What has no ritual
   ------------------
 
-  29 of the 42 functions Qt declares: 19 Qt's library has no name for it, and
-  its code in Qt's source does not compile apart from its file; 5 leans on
-  'QScrollerPrivate; 3 takes or gives a type that cannot be passed yet; 1 a
-  template; 1 declared and nowhere to be found.
+  25 of the 42 functions Qt declares: 17 Qt's library has no name for it, and
+  its code in Qt's source does not compile apart from its file; 6 leans on
+  'QScrollerPrivate; 2 not a gap.
 
   What to expect
   --------------
@@ -85,6 +91,16 @@ class QScrollerPrivate(QObject):
   - Qt tells when it has removed the C++ QScrollerPrivate. Every call on the
     cute object, and every use of it as an argument, then raises
     'RuntimeError', and nothing reaches C++.
+  - Each name of Qt's QScrollerPrivate that has no cute function yet,
+    '__init__', 'createScrollToSegments', 'createScrollingSegments',
+    'handleDrag', 'moveWhileDragging', 'moveWhilePressed',
+    'nextSegmentPosition', 'prepareScrolling', 'pressWhileInactive',
+    'pressWhileScrolling', 'pushSegment', 'recalcScrollingSegments',
+    'releaseWhileDragging', 'releaseWhilePressed', 'sendEvent',
+    'setContentPositionHelperDragging', 'setContentPositionHelperScrolling',
+    'setState', 'timerEventWhileDragging', 'timerEventWhileScrolling',
+    'timerTick', 'updateVelocity', holds a function that raises
+    'NotImplementedError', and its docstring says why.
   """
 
   #  The enums Qt writes inside QScrollerPrivate, each a class in here as in
@@ -440,7 +456,8 @@ class QScrollerPrivate(QObject):
     """
     #  void QScrollerPrivate::setDpi(const QPointF &dpi)
     self.uglySide.call(
-        'ritual_ZN16QScrollerPrivate6setDpiERK7QPointF', self._valueOf(dpi),
+        'ritual_ZN16QScrollerPrivate6setDpiERK7QPointF',
+        self._valueOf(dpi, 'QPointF'),
     )
 
   @overload(QWidget)
@@ -476,6 +493,22 @@ class QScrollerPrivate(QObject):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def __init__(*__, **_) -> Never:
+    """
+    Qt's 'QScrollerPrivate::QScrollerPrivate(QScroller *q, QObject *target)':
+    leans on 'QScrollerPrivate::qt_metacall(QMetaObject::Call, int, void**)',
+    which Qt's source does not mark for use from outside Qt and has no code
+    for that could be taken.
+    """
+    raise NotImplementedError(
+        "'QScrollerPrivate.__init__' has no cute function yet. Qt's "
+        "'QScrollerPrivate::QScrollerPrivate(QScroller *q, QObject "
+        "*target)': leans on "
+        "'QScrollerPrivate::qt_metacall(QMetaObject::Call, int, void**)', "
+        "which Qt's source does not mark for use from outside Qt and has no "
+        "code for that could be taken.")
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -522,3 +555,345 @@ class QScrollerPrivate(QObject):
     """
     #  void QScrollerPrivate::init()
     self.uglySide.call('ritual_ZN16QScrollerPrivate4initEv')
+
+  def targetDestroyed(self) -> None:
+    """
+    Calls Qt's 'void QScrollerPrivate::targetDestroyed()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qscrollerprivate.html#targetDestroyed
+    """
+    #  void QScrollerPrivate::targetDestroyed()
+    self.uglySide.call('ritual_ZN16QScrollerPrivate15targetDestroyedEv')
+
+  @staticmethod
+  def createScrollToSegments(*__, **_) -> Never:
+    """
+    Qt's 'void QScrollerPrivate::createScrollToSegments(qreal v, qreal
+    deltaTime, qreal endPos, Qt::Orientation orientation, ScrollType type)':
+    Qt's library has no name for it, and its code in Qt's source does not
+    compile apart from its file: unknown type name 'lcScroller'; did you mean
+    'QScroller'?.
+    """
+    raise NotImplementedError(
+        "'QScrollerPrivate.createScrollToSegments' has no cute function "
+        "yet. Qt's 'void QScrollerPrivate::createScrollToSegments(qreal v, "
+        "qreal deltaTime, qreal endPos, Qt::Orientation orientation, "
+        "ScrollType type)': Qt's library has no name for it, and its code "
+        "in Qt's source does not compile apart from its file: unknown type "
+        "name 'lcScroller'; did you mean 'QScroller'?.")
+
+  @staticmethod
+  def createScrollingSegments(*__, **_) -> Never:
+    """
+    - Qt's 'void QScrollerPrivate::createScrollingSegments(qreal v, qreal
+      startPos, qreal deltaTime, qreal deltaPos, Qt::Orientation
+      orientation)': Qt's library has no name for it, and its code in Qt's
+      source does not compile apart from its file: unknown type name
+      'lcScroller'; did you mean 'QScroller'?.
+    - Qt's 'void QScrollerPrivate::createScrollingSegments(const QPointF &v,
+      const QPointF &startPos, const QPointF &ppm)': Qt's library has no name
+      for it, and its code in Qt's source does not compile apart from its
+      file: use of undeclared identifier 'differentialForProgress'.
+    """
+    raise NotImplementedError(
+        "'QScrollerPrivate.createScrollingSegments' has no cute function "
+        "yet. Qt's 'void QScrollerPrivate::createScrollingSegments(qreal v, "
+        "qreal startPos, qreal deltaTime, qreal deltaPos, Qt::Orientation "
+        "orientation)': Qt's library has no name for it, and its code in "
+        "Qt's source does not compile apart from its file: unknown type "
+        "name 'lcScroller'; did you mean 'QScroller'?. Qt's 'void "
+        "QScrollerPrivate::createScrollingSegments(const QPointF &v, const "
+        "QPointF &startPos, const QPointF &ppm)': Qt's library has no name "
+        "for it, and its code in Qt's source does not compile apart from "
+        "its file: use of undeclared identifier 'differentialForProgress'.")
+
+  @staticmethod
+  def handleDrag(*__, **_) -> Never:
+    """
+    Qt's 'void QScrollerPrivate::handleDrag(const QPointF &position, qint64
+    timestamp)': Qt's library has no name for it, and its code in Qt's source
+    does not compile apart from its file: unknown type name 'lcScroller'; did
+    you mean 'QScroller'?.
+    """
+    raise NotImplementedError(
+        "'QScrollerPrivate.handleDrag' has no cute function yet. Qt's 'void "
+        "QScrollerPrivate::handleDrag(const QPointF &position, qint64 "
+        "timestamp)': Qt's library has no name for it, and its code in Qt's "
+        "source does not compile apart from its file: unknown type name "
+        "'lcScroller'; did you mean 'QScroller'?.")
+
+  @staticmethod
+  def moveWhileDragging(*__, **_) -> Never:
+    """
+    Qt's 'bool QScrollerPrivate::moveWhileDragging(const QPointF &position,
+    qint64 timestamp)': leans on 'QScrollerPrivate::handleDrag(QPointF
+    const&, long long)', which Qt's source does not mark for use from outside
+    Qt and has no code for that could be taken.
+    """
+    raise NotImplementedError(
+        "'QScrollerPrivate.moveWhileDragging' has no cute function yet. "
+        "Qt's 'bool QScrollerPrivate::moveWhileDragging(const QPointF "
+        "&position, qint64 timestamp)': leans on "
+        "'QScrollerPrivate::handleDrag(QPointF const&, long long)', which "
+        "Qt's source does not mark for use from outside Qt and has no code "
+        "for that could be taken.")
+
+  @staticmethod
+  def moveWhilePressed(*__, **_) -> Never:
+    """
+    Qt's 'bool QScrollerPrivate::moveWhilePressed(const QPointF &position,
+    qint64 timestamp)': Qt's library has no name for it, and its code in Qt's
+    source does not compile apart from its file: invalid operands to binary
+    expression ('QPointF' and 'QPointF').
+    """
+    raise NotImplementedError(
+        "'QScrollerPrivate.moveWhilePressed' has no cute function yet. Qt's "
+        "'bool QScrollerPrivate::moveWhilePressed(const QPointF &position, "
+        "qint64 timestamp)': Qt's library has no name for it, and its code "
+        "in Qt's source does not compile apart from its file: invalid "
+        "operands to binary expression ('QPointF' and 'QPointF').")
+
+  @staticmethod
+  def nextSegmentPosition(*__, **_) -> Never:
+    """
+    Qt's 'qreal QScrollerPrivate::nextSegmentPosition(QQueue<ScrollSegment>
+    &segments, qint64 now, qreal oldPos)': takes a type Python has no way to
+    hand over yet.
+    """
+    raise NotImplementedError(
+        "'QScrollerPrivate.nextSegmentPosition' has no cute function yet. "
+        "Qt's 'qreal "
+        "QScrollerPrivate::nextSegmentPosition(QQueue<ScrollSegment> "
+        "&segments, qint64 now, qreal oldPos)': takes a type Python has no "
+        "way to hand over yet.")
+
+  @staticmethod
+  def prepareScrolling(*__, **_) -> Never:
+    """
+    Qt's 'bool QScrollerPrivate::prepareScrolling(const QPointF &position)':
+    Qt's library has no name for it, and its code in Qt's source does not
+    compile apart from its file: unknown type name 'lcScroller'; did you mean
+    'QScroller'?.
+    """
+    raise NotImplementedError(
+        "'QScrollerPrivate.prepareScrolling' has no cute function yet. Qt's "
+        "'bool QScrollerPrivate::prepareScrolling(const QPointF "
+        "&position)': Qt's library has no name for it, and its code in Qt's "
+        "source does not compile apart from its file: unknown type name "
+        "'lcScroller'; did you mean 'QScroller'?.")
+
+  @staticmethod
+  def pressWhileInactive(*__, **_) -> Never:
+    """
+    Qt's 'bool QScrollerPrivate::pressWhileInactive(const QPointF &position,
+    qint64 timestamp)': leans on 'QScrollerPrivate::prepareScrolling(QPointF
+    const&)', which Qt's source does not mark for use from outside Qt and has
+    no code for that could be taken.
+    """
+    raise NotImplementedError(
+        "'QScrollerPrivate.pressWhileInactive' has no cute function yet. "
+        "Qt's 'bool QScrollerPrivate::pressWhileInactive(const QPointF "
+        "&position, qint64 timestamp)': leans on "
+        "'QScrollerPrivate::prepareScrolling(QPointF const&)', which Qt's "
+        "source does not mark for use from outside Qt and has no code for "
+        "that could be taken.")
+
+  @staticmethod
+  def pressWhileScrolling(*__, **_) -> Never:
+    """
+    Qt's 'bool QScrollerPrivate::pressWhileScrolling(const QPointF &position,
+    qint64 timestamp)': Qt's library has no name for it, and its code in Qt's
+    source does not compile apart from its file: invalid operands to binary
+    expression ('QPointF' and 'qreal' (aka 'double')).
+    """
+    raise NotImplementedError(
+        "'QScrollerPrivate.pressWhileScrolling' has no cute function yet. "
+        "Qt's 'bool QScrollerPrivate::pressWhileScrolling(const QPointF "
+        "&position, qint64 timestamp)': Qt's library has no name for it, "
+        "and its code in Qt's source does not compile apart from its file: "
+        "invalid operands to binary expression ('QPointF' and 'qreal' (aka "
+        "'double')).")
+
+  @staticmethod
+  def pushSegment(*__, **_) -> Never:
+    """
+    Qt's 'void QScrollerPrivate::pushSegment(ScrollType type, qreal
+    deltaTime, qreal stopProgress, qreal startPos, qreal deltaPos, qreal
+    stopPos, QEasingCurve::Type curve, Qt::Orientation orientation)': Qt's
+    library has no name for it, and its code in Qt's source does not compile
+    apart from its file: unknown type name 'lcScroller'; did you mean
+    'QScroller'?.
+    """
+    raise NotImplementedError(
+        "'QScrollerPrivate.pushSegment' has no cute function yet. Qt's "
+        "'void QScrollerPrivate::pushSegment(ScrollType type, qreal "
+        "deltaTime, qreal stopProgress, qreal startPos, qreal deltaPos, "
+        "qreal stopPos, QEasingCurve::Type curve, Qt::Orientation "
+        "orientation)': Qt's library has no name for it, and its code in "
+        "Qt's source does not compile apart from its file: unknown type "
+        "name 'lcScroller'; did you mean 'QScroller'?.")
+
+  @staticmethod
+  def recalcScrollingSegments(*__, **_) -> Never:
+    """
+    Qt's 'void QScrollerPrivate::recalcScrollingSegments(bool forceRecalc)':
+    leans on 'QScrollerPrivate::createScrollingSegments(QPointF const&,
+    QPointF const&, QPointF const&)', which Qt's source does not mark for use
+    from outside Qt and has no code for that could be taken.
+    """
+    raise NotImplementedError(
+        "'QScrollerPrivate.recalcScrollingSegments' has no cute function "
+        "yet. Qt's 'void QScrollerPrivate::recalcScrollingSegments(bool "
+        "forceRecalc)': leans on "
+        "'QScrollerPrivate::createScrollingSegments(QPointF const&, QPointF "
+        "const&, QPointF const&)', which Qt's source does not mark for use "
+        "from outside Qt and has no code for that could be taken.")
+
+  @staticmethod
+  def releaseWhileDragging(*__, **_) -> Never:
+    """
+    Qt's 'bool QScrollerPrivate::releaseWhileDragging(const QPointF
+    &position, qint64 timestamp)': Qt's library has no name for it, and its
+    code in Qt's source does not compile apart from its file: invalid
+    operands to binary expression ('QPointF' and 'QPointF').
+    """
+    raise NotImplementedError(
+        "'QScrollerPrivate.releaseWhileDragging' has no cute function yet. "
+        "Qt's 'bool QScrollerPrivate::releaseWhileDragging(const QPointF "
+        "&position, qint64 timestamp)': Qt's library has no name for it, "
+        "and its code in Qt's source does not compile apart from its file: "
+        "invalid operands to binary expression ('QPointF' and 'QPointF').")
+
+  @staticmethod
+  def releaseWhilePressed(*__, **_) -> Never:
+    """
+    Qt's 'bool QScrollerPrivate::releaseWhilePressed(const QPointF &position,
+    qint64 timestamp)': leans on
+    'QScrollerPrivate::setState(QScroller::State)', which Qt's source does
+    not mark for use from outside Qt and has no code for that could be taken.
+    """
+    raise NotImplementedError(
+        "'QScrollerPrivate.releaseWhilePressed' has no cute function yet. "
+        "Qt's 'bool QScrollerPrivate::releaseWhilePressed(const QPointF "
+        "&position, qint64 timestamp)': leans on "
+        "'QScrollerPrivate::setState(QScroller::State)', which Qt's source "
+        "does not mark for use from outside Qt and has no code for that "
+        "could be taken.")
+
+  @staticmethod
+  def sendEvent(*__, **_) -> Never:
+    """
+    Qt's 'void QScrollerPrivate::sendEvent(QObject *o, QEvent *e)': Qt's
+    library has no name for it, and its code in Qt's source does not compile
+    apart from its file: use of undeclared identifier
+    'qt_sendSpontaneousEvent'.
+    """
+    raise NotImplementedError(
+        "'QScrollerPrivate.sendEvent' has no cute function yet. Qt's 'void "
+        "QScrollerPrivate::sendEvent(QObject *o, QEvent *e)': Qt's library "
+        "has no name for it, and its code in Qt's source does not compile "
+        "apart from its file: use of undeclared identifier "
+        "'qt_sendSpontaneousEvent'.")
+
+  @staticmethod
+  def setContentPositionHelperDragging(*__, **_) -> Never:
+    """
+    Qt's 'void QScrollerPrivate::setContentPositionHelperDragging(const
+    QPointF &deltaPos)': Qt's library has no name for it, and its code in
+    Qt's source does not compile apart from its file: unknown type name
+    'lcScroller'; did you mean 'QScroller'?.
+    """
+    raise NotImplementedError(
+        "'QScrollerPrivate.setContentPositionHelperDragging' has no cute "
+        "function yet. Qt's 'void "
+        "QScrollerPrivate::setContentPositionHelperDragging(const QPointF "
+        "&deltaPos)': Qt's library has no name for it, and its code in Qt's "
+        "source does not compile apart from its file: unknown type name "
+        "'lcScroller'; did you mean 'QScroller'?.")
+
+  @staticmethod
+  def setContentPositionHelperScrolling(*__, **_) -> Never:
+    """
+    Qt's 'void QScrollerPrivate::setContentPositionHelperScrolling()': Qt's
+    library has no name for it, and its code in Qt's source does not compile
+    apart from its file: unknown type name 'lcScroller'; did you mean
+    'QScroller'?.
+    """
+    raise NotImplementedError(
+        "'QScrollerPrivate.setContentPositionHelperScrolling' has no cute "
+        "function yet. Qt's 'void "
+        "QScrollerPrivate::setContentPositionHelperScrolling()': Qt's "
+        "library has no name for it, and its code in Qt's source does not "
+        "compile apart from its file: unknown type name 'lcScroller'; did "
+        "you mean 'QScroller'?.")
+
+  @staticmethod
+  def setState(*__, **_) -> Never:
+    """
+    Qt's 'void QScrollerPrivate::setState(QScroller::State s)': Qt's library
+    has no name for it, and its code in Qt's source does not compile apart
+    from its file: unknown type name 'lcScroller'; did you mean 'QScroller'?.
+    """
+    raise NotImplementedError(
+        "'QScrollerPrivate.setState' has no cute function yet. Qt's 'void "
+        "QScrollerPrivate::setState(QScroller::State s)': Qt's library has "
+        "no name for it, and its code in Qt's source does not compile apart "
+        "from its file: unknown type name 'lcScroller'; did you mean "
+        "'QScroller'?.")
+
+  @staticmethod
+  def timerEventWhileDragging(*__, **_) -> Never:
+    """
+    Qt's 'void QScrollerPrivate::timerEventWhileDragging()': Qt's library has
+    no name for it, and its code in Qt's source does not compile apart from
+    its file: unknown type name 'lcScroller'; did you mean 'QScroller'?.
+    """
+    raise NotImplementedError(
+        "'QScrollerPrivate.timerEventWhileDragging' has no cute function "
+        "yet. Qt's 'void QScrollerPrivate::timerEventWhileDragging()': Qt's "
+        "library has no name for it, and its code in Qt's source does not "
+        "compile apart from its file: unknown type name 'lcScroller'; did "
+        "you mean 'QScroller'?.")
+
+  @staticmethod
+  def timerEventWhileScrolling(*__, **_) -> Never:
+    """
+    Qt's 'void QScrollerPrivate::timerEventWhileScrolling()': Qt's library
+    has no name for it, and its code in Qt's source does not compile apart
+    from its file: unknown type name 'lcScroller'; did you mean 'QScroller'?.
+    """
+    raise NotImplementedError(
+        "'QScrollerPrivate.timerEventWhileScrolling' has no cute function "
+        "yet. Qt's 'void QScrollerPrivate::timerEventWhileScrolling()': "
+        "Qt's library has no name for it, and its code in Qt's source does "
+        "not compile apart from its file: unknown type name 'lcScroller'; "
+        "did you mean 'QScroller'?.")
+
+  @staticmethod
+  def timerTick(*__, **_) -> Never:
+    """
+    Qt's 'void QScrollerPrivate::timerTick()': Qt's library has no name for
+    it, and its code in Qt's source does not compile apart from its file:
+    member access into incomplete type 'QScrollTimer'.
+    """
+    raise NotImplementedError(
+        "'QScrollerPrivate.timerTick' has no cute function yet. Qt's 'void "
+        "QScrollerPrivate::timerTick()': Qt's library has no name for it, "
+        "and its code in Qt's source does not compile apart from its file: "
+        "member access into incomplete type 'QScrollTimer'.")
+
+  @staticmethod
+  def updateVelocity(*__, **_) -> Never:
+    """
+    Qt's 'void QScrollerPrivate::updateVelocity(const QPointF &deltaPixelRaw,
+    qint64 deltaTime)': Qt's library has no name for it, and its code in Qt's
+    source does not compile apart from its file: unknown type name
+    'lcScroller'; did you mean 'QScroller'?.
+    """
+    raise NotImplementedError(
+        "'QScrollerPrivate.updateVelocity' has no cute function yet. Qt's "
+        "'void QScrollerPrivate::updateVelocity(const QPointF "
+        "&deltaPixelRaw, qint64 deltaTime)': Qt's library has no name for "
+        "it, and its code in Qt's source does not compile apart from its "
+        "file: unknown type name 'lcScroller'; did you mean 'QScroller'?.")

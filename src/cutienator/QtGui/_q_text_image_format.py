@@ -48,14 +48,12 @@ class QTextImageFormat(QTextCharFormat):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'QDataStream &operator<<(QDataStream &a0, const QTextListFormat
+    &a1)': an operator between other classes, written inside this one.
+  - Qt's 'QDataStream &operator>>(QDataStream &a0, QTextListFormat &a1)': an
+    operator between other classes, written inside this one.
   - Qt's 'QTextImageFormat::~QTextImageFormat()': the destructor: Python
     removes its C++ QTextImageFormat by it, and has no other use for it.
-
-  What has no ritual
-  ------------------
-
-  2 of the 17 functions Qt declares: 2 takes or gives a type that cannot be
-  passed yet.
 
   What to expect
   --------------

@@ -17,7 +17,7 @@ from ..occult import Rituals
 from . import Qt, QList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from . import QAbstractItemModel, QModelRoleDataSpan, QVariant
 else:
@@ -53,14 +53,15 @@ class QModelIndex(CuteMixin, metaclass=MetaCute):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QModelIndex::internalPointer() const': gives 'void', which
+    has no cute class yet.
+  - Qt's 'const void *QModelIndex::constInternalPointer() const': gives
+    'void', which has no cute class yet.
+  - Qt's 'QModelIndex::QModelIndex(int arow, int acolumn, const void *ptr,
+    const QAbstractItemModel *amodel)': names 'void', which has no cute class
+    yet.
   - Qt's 'QModelIndex::~QModelIndex()': the destructor: Python removes its
     C++ QModelIndex by it, and has no other use for it.
-
-  What has no ritual
-  ------------------
-
-  3 of the 24 functions Qt declares: 3 takes or gives a type that cannot be
-  passed yet.
 
   What to expect
   --------------
@@ -74,6 +75,9 @@ class QModelIndex(CuteMixin, metaclass=MetaCute):
     is as in C++.
   - A function giving a QModelIndex back gives a copy the ritual made for
     Python, in a new cute QModelIndex.
+  - Each name of Qt's QModelIndex that has no cute function yet,
+    'constInternalPointer', 'internalPointer', holds a function that raises
+    'NotImplementedError', and its docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -582,6 +586,28 @@ class QModelIndex(CuteMixin, metaclass=MetaCute):
         'ritual_ZNK11QModelIndex9multiDataE18QModelRoleDataSpan',
         self._valueOf(roleDataSpan),
     )
+
+  @staticmethod
+  def constInternalPointer(*__, **_) -> Never:
+    """
+    Qt's 'const void *QModelIndex::constInternalPointer() const': gives
+    'void', which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QModelIndex.constInternalPointer' has no cute function yet. Qt's "
+        "'const void *QModelIndex::constInternalPointer() const': gives "
+        "'void', which has no cute class yet.")
+
+  @staticmethod
+  def internalPointer(*__, **_) -> Never:
+    """
+    Qt's 'void *QModelIndex::internalPointer() const': gives 'void', which
+    has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QModelIndex.internalPointer' has no cute function yet. Qt's 'void "
+        "*QModelIndex::internalPointer() const': gives 'void', which has no "
+        "cute class yet.")
 
 
 #  Qt's 'QList<QModelIndex>': the list of QModelIndex, which

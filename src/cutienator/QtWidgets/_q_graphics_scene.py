@@ -17,7 +17,7 @@ from ..occult import Rituals
 from ..QtCore import Qt, QList, QObject
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from ..QtCore import QEvent, QLineF, QMetaObject, QPointF, QRectF, QVariant
   from ..QtGui import QBrush, QFocusEvent, QFont, QInputMethodEvent
@@ -28,9 +28,9 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   from . import QGraphicsPolygonItem, QGraphicsProxyWidget, QGraphicsRectItem
   from . import QGraphicsSceneContextMenuEvent, QGraphicsSceneDragDropEvent
   from . import QGraphicsSceneHelpEvent, QGraphicsSceneMouseEvent
-  from . import QGraphicsSceneWheelEvent, QGraphicsSimpleTextItem
-  from . import QGraphicsTextItem, QGraphicsView, QGraphicsWidget, QStyle
-  from . import QWidget
+  from . import QGraphicsScenePrivate, QGraphicsSceneWheelEvent
+  from . import QGraphicsSimpleTextItem, QGraphicsTextItem, QGraphicsView
+  from . import QGraphicsWidget, QStyle, QWidget
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -79,7 +79,7 @@ class QGraphicsScene(QObject):
   -----------
 
   Every function of Qt's QGraphicsScene that has a ritual and that Python can
-  call so far, 87 names in all: 'metaObject', 'tr', 'sceneRect', 'width',
+  call so far, 92 names in all: 'metaObject', 'tr', 'sceneRect', 'width',
   'height', 'setSceneRect', 'render', 'itemIndexMethod',
   'setItemIndexMethod', 'bspTreeDepth', 'setBspTreeDepth',
   'itemsBoundingRect', 'items', 'collidingItems', 'itemAt', 'selectedItems',
@@ -99,21 +99,29 @@ class QGraphicsScene(QObject):
   'helpEvent', 'keyPressEvent', 'keyReleaseEvent', 'mousePressEvent',
   'mouseMoveEvent', 'mouseReleaseEvent', 'mouseDoubleClickEvent',
   'wheelEvent', 'inputMethodEvent', 'drawBackground', 'drawForeground',
-  'focusNextPrevChild'. It can be made from Python, in 3 ways; see
+  'focusNextPrevChild', 'changed', 'sceneRectChanged', 'selectionChanged',
+  'focusItemChanged', 'd_func'. It can be made from Python, in 3 ways; see
   '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QGraphicsScene::qt_metacast(const char *a0)': one of Qt's own
+    inner workings.
+  - Qt's 'int QGraphicsScene::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
   - Qt's 'QGraphicsScene::~QGraphicsScene()': the destructor: Python never
     removes a C++ QGraphicsScene.
+  - Qt's 'void QGraphicsScene::drawItems(QPainter *painter, int numItems,
+    QGraphicsItem **items, const QStyleOptionGraphicsItem *options, QWidget
+    *widget)': takes a type Python has no way to hand over yet.
+  - Qt's 'const QGraphicsScenePrivate *QGraphicsScene::d_func() const': takes
+    in Python what 'QGraphicsScenePrivate *QGraphicsScene::d_func()' takes.
 
   What has no ritual
   ------------------
 
-  13 of the 117 functions Qt declares: 5 takes or gives a type that cannot be
-  passed yet; 4 a signal; 2 forbidden; 1 a template; 1 declared and nowhere
-  to be found.
+  4 of the 117 functions Qt declares: 2 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -129,6 +137,9 @@ class QGraphicsScene(QObject):
   - Qt tells when it has removed the C++ QGraphicsScene. Every call on the
     cute object, and every use of it as an argument, then raises
     'RuntimeError', and nothing reaches C++.
+  - Each name of Qt's QGraphicsScene that has no cute function yet,
+    'drawItems', holds a function that raises 'NotImplementedError', and its
+    docstring says why.
   """
 
   #  The enums Qt writes inside QGraphicsScene, each a class in here as in
@@ -588,7 +599,7 @@ class QGraphicsScene(QObject):
     address = self.uglySide.call(
         'ritual_ZNK14QGraphicsScene5itemsERK7QPointFN2Qt17ItemSelectionMode'
         'ENS3_9SortOrderERK10QTransform',
-        self._valueOf(pos), mode.value, order.value,
+        self._valueOf(pos, 'QPointF'), mode.value, order.value,
         self._valueOf(deviceTransform),
     )
     from . import QGraphicsItem
@@ -911,7 +922,7 @@ class QGraphicsScene(QObject):
     #      QTransform &deviceTransform) const
     address = self.uglySide.call(
         'ritual_ZNK14QGraphicsScene6itemAtERK7QPointFRK10QTransform',
-        self._valueOf(pos), self._valueOf(deviceTransform),
+        self._valueOf(pos, 'QPointF'), self._valueOf(deviceTransform),
     )
     from . import QGraphicsItem
     return QGraphicsItem._cuteAt(address)
@@ -3343,3 +3354,127 @@ class QGraphicsScene(QObject):
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZN14QGraphicsScene18focusNextPrevChildEb'
     return self.uglySide.call(ritual, next)
+
+  @overload(QList[QRectF])
+  def changed(self, region: QList[QRectF]) -> None:
+    """
+    Calls Qt's 'void QGraphicsScene::changed(const QList<QRectF> &region)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsscene.html#changed
+
+    Parameters
+    ----------
+
+    region : QList[QRectF]
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+    """
+    #  void QGraphicsScene::changed(const QList<QRectF> &region)
+    self.uglySide.call(
+        'ritual_ZN14QGraphicsScene7changedERK5QListI6QRectFE',
+        self._valueOf(region),
+    )
+
+  @overload(QRectF)
+  def sceneRectChanged(self, rect: QRectF) -> None:
+    """
+    Calls Qt's 'void QGraphicsScene::sceneRectChanged(const QRectF &rect)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicsscene.html#sceneRectChanged
+
+    Parameters
+    ----------
+
+    rect : QRectF
+      Passed on as a value: Qt reads the C++ QRectF, which stays Python's
+      own.
+    """
+    #  void QGraphicsScene::sceneRectChanged(const QRectF &rect)
+    self.uglySide.call(
+        'ritual_ZN14QGraphicsScene16sceneRectChangedERK6QRectF',
+        self._valueOf(rect),
+    )
+
+  def selectionChanged(self) -> None:
+    """
+    Calls Qt's 'void QGraphicsScene::selectionChanged()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicsscene.html#selectionChanged
+    """
+    #  void QGraphicsScene::selectionChanged()
+    self.uglySide.call('ritual_ZN14QGraphicsScene16selectionChangedEv')
+
+  @overload(QGraphicsItem, QGraphicsItem, Qt.FocusReason)
+  @overload(QGraphicsItem, NoneType, Qt.FocusReason)
+  @overload(NoneType, QGraphicsItem, Qt.FocusReason)
+  @overload(NoneType, NoneType, Qt.FocusReason)
+  def focusItemChanged(
+      self,
+      newFocus: Optional[QGraphicsItem],
+      oldFocus: Optional[QGraphicsItem],
+      reason: Qt.FocusReason,
+  ) -> None:
+    """
+    Calls Qt's 'void QGraphicsScene::focusItemChanged(QGraphicsItem
+    *newFocus, QGraphicsItem *oldFocus, Qt::FocusReason reason)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicsscene.html#focusItemChanged
+
+    Parameters
+    ----------
+
+    newFocus : Optional[QGraphicsItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    oldFocus : Optional[QGraphicsItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    reason : Qt.FocusReason
+      Passed on as its number.
+    """
+    #  void QGraphicsScene::focusItemChanged(QGraphicsItem *newFocus,
+    #      QGraphicsItem *oldFocus, Qt::FocusReason reason)
+    self.uglySide.call(
+        'ritual_ZN14QGraphicsScene16focusItemChangedEP13QGraphicsItemS1_N2Q'
+        't11FocusReasonE',
+        self._addressOf(newFocus, 'QGraphicsItem'), self._addressOf(oldFocus,
+        'QGraphicsItem'), reason.value,
+    )
+
+  def d_func(self) -> Optional[QGraphicsScenePrivate]:
+    """
+    Calls Qt's 'QGraphicsScenePrivate *QGraphicsScene::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsscene.html#d_func
+
+    Returns
+    -------
+
+    Optional[QGraphicsScenePrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QGraphicsScenePrivate *QGraphicsScene::d_func()
+    address = self.uglySide.call('ritual_ZN14QGraphicsScene6d_funcEv')
+    from . import QGraphicsScenePrivate
+    return QGraphicsScenePrivate._cuteAt(address)
+
+  @staticmethod
+  def drawItems(*__, **_) -> Never:
+    """
+    Qt's 'void QGraphicsScene::drawItems(QPainter *painter, int numItems,
+    QGraphicsItem **items, const QStyleOptionGraphicsItem *options, QWidget
+    *widget)': takes a type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QGraphicsScene.drawItems' has no cute function yet. Qt's 'void "
+        "QGraphicsScene::drawItems(QPainter *painter, int numItems, "
+        "QGraphicsItem **items, const QStyleOptionGraphicsItem *options, "
+        "QWidget *widget)': takes a type Python has no way to hand over yet."
+    )

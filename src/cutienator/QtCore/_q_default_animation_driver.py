@@ -20,7 +20,7 @@ from ..cute import WAIT
 from . import QAnimationDriver
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from . import QMetaObject, QTimerEvent
 else:
@@ -53,15 +53,18 @@ class QDefaultAnimationDriver(QAnimationDriver):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QDefaultAnimationDriver::qt_metacast(const char *a0)': one of
+    Qt's own inner workings.
+  - Qt's 'int QDefaultAnimationDriver::qt_metacall(QMetaObject::Call a0, int
+    a1, void **a2)': one of Qt's own inner workings.
   - Qt's 'QDefaultAnimationDriver::~QDefaultAnimationDriver()': the
     destructor: Python never removes a C++ QDefaultAnimationDriver.
 
   What has no ritual
   ------------------
 
-  6 of the 11 functions Qt declares: 2 takes or gives a type that cannot be
-  passed yet; 2 leans on 'QDefaultAnimationDriver; 1 a template; 1 declared
-  and nowhere to be found.
+  4 of the 11 functions Qt declares: 2 not a gap; 2 leans on
+  'QDefaultAnimationDriver.
 
   What to expect
   --------------
@@ -77,6 +80,9 @@ class QDefaultAnimationDriver(QAnimationDriver):
   - Qt tells when it has removed the C++ QDefaultAnimationDriver. Every call
     on the cute object, and every use of it as an argument, then raises
     'RuntimeError', and nothing reaches C++.
+  - Each name of Qt's QDefaultAnimationDriver that has no cute function yet,
+    '__init__', holds a function that raises 'NotImplementedError', and its
+    docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -145,6 +151,23 @@ class QDefaultAnimationDriver(QAnimationDriver):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def __init__(*__, **_) -> Never:
+    """
+    Qt's 'QDefaultAnimationDriver::QDefaultAnimationDriver(QUnifiedTimer
+    *timer)': leans on
+    'QDefaultAnimationDriver::qt_metacall(QMetaObject::Call, int, void**)',
+    which Qt's source does not mark for use from outside Qt and has no code
+    for that could be taken.
+    """
+    raise NotImplementedError(
+        "'QDefaultAnimationDriver.__init__' has no cute function yet. Qt's "
+        "'QDefaultAnimationDriver::QDefaultAnimationDriver(QUnifiedTimer "
+        "*timer)': leans on "
+        "'QDefaultAnimationDriver::qt_metacall(QMetaObject::Call, int, "
+        "void**)', which Qt's source does not mark for use from outside Qt "
+        "and has no code for that could be taken.")
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #

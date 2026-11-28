@@ -14,9 +14,11 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, CuteFlags, MetaCute, WAIT
 from ..occult import Rituals
-from ..QtCore import Qt
+from ..QtCore import Qt, QList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Never
+
   from ..QtCore import QDebug, QPoint, QPointF, QRect, QRectF
   from . import QQuaternion, QTransform, QVector3D, QVector4D
 else:
@@ -60,10 +62,20 @@ class QMatrix4x4(CuteMixin, metaclass=MetaCute):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'QMatrix4x4::QMatrix4x4(const float *values)': names 'float', which
+    has no cute class yet.
+  - Qt's 'QMatrix4x4::QMatrix4x4(const float *values, int cols, int rows)':
+    names 'float', which has no cute class yet.
   - Qt's 'QMatrix4x4 QMatrix4x4::inverted(bool *invertible) const': takes a
     number to change where it is.
+  - Qt's 'QMatrix3x3 QMatrix4x4::normalMatrix() const': gives a type Python
+    has no way to take yet.
   - Qt's 'void QMatrix4x4::copyDataTo(float *values) const': takes a number
     to change where it is.
+  - Qt's 'const float *QMatrix4x4::data() const': gives 'float', which has no
+    cute class yet.
+  - Qt's 'const float *QMatrix4x4::constData() const': gives 'float', which
+    has no cute class yet.
   - Qt's 'QVariant QMatrix4x4::operator QVariant() const': an operator Python
     has no name for.
   - Qt's 'void QMatrix4x4::toGenericMatrix_impl(float *dst, int n, int m)
@@ -74,8 +86,8 @@ class QMatrix4x4(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  11 of the 85 functions Qt declares: 7 takes or gives a type that cannot be
-  passed yet; 2 a template; 1 written with the class 'QVector3D', which
+  6 of the 85 functions Qt declares: 2 a template; 2 takes or gives a type
+  that cannot be passed yet; 1 written with the class 'QVector3D', which
   declares it as well and stands first in it; 1 written with the class
   'QVector4D', which declares it as well and stands first in it.
 
@@ -90,6 +102,10 @@ class QMatrix4x4(CuteMixin, metaclass=MetaCute):
     is as in C++.
   - A function giving a QMatrix4x4 back gives a copy the ritual made for
     Python, in a new cute QMatrix4x4.
+  - Each name of Qt's QMatrix4x4 that has no cute function yet, 'constData',
+    'copyDataTo', 'data', 'inverted', 'normalMatrix', 'toGenericMatrix',
+    'toGenericMatrix_impl', holds a function that raises
+    'NotImplementedError', and its docstring says why.
   """
 
   #  The enums Qt writes inside QMatrix4x4, each a class in here as in C++,
@@ -324,7 +340,8 @@ class QMatrix4x4(CuteMixin, metaclass=MetaCute):
     """
     #  QPointF QMatrix4x4::map(const QPointF &point) const
     address = self.uglySide.call(
-        'ritual_ZNK10QMatrix4x43mapERK7QPointF', self._valueOf(point),
+        'ritual_ZNK10QMatrix4x43mapERK7QPointF',
+        self._valueOf(point, 'QPointF'),
     )
     from ..QtCore import QPointF
     return QPointF._cuteOwning(address)
@@ -981,7 +998,7 @@ class QMatrix4x4(CuteMixin, metaclass=MetaCute):
     #  QPointF operator*(const QMatrix4x4 &matrix, const QPointF &point)
     address = Rituals.call(
         'ritual_ZmlRK10QMatrix4x4RK7QPointF',
-        CuteMixin._valueOf(self), CuteMixin._valueOf(point),
+        CuteMixin._valueOf(self), CuteMixin._valueOf(point, 'QPointF'),
     )
     from ..QtCore import QPointF
     return QPointF._cuteOwning(address)
@@ -1074,7 +1091,7 @@ class QMatrix4x4(CuteMixin, metaclass=MetaCute):
     #  QPointF operator*(const QPointF &point, const QMatrix4x4 &matrix)
     address = Rituals.call(
         'ritual_ZmlRK7QPointFRK10QMatrix4x4',
-        CuteMixin._valueOf(point), CuteMixin._valueOf(self),
+        CuteMixin._valueOf(point, 'QPointF'), CuteMixin._valueOf(self),
     )
     from ..QtCore import QPointF
     return QPointF._cuteOwning(address)
@@ -1943,3 +1960,96 @@ class QMatrix4x4(CuteMixin, metaclass=MetaCute):
     self.uglySide.call(
         'ritual_ZN10QMatrix4x415projectedRotateEffff', angle, x, y, z,
     )
+
+  @staticmethod
+  def constData(*__, **_) -> Never:
+    """
+    Qt's 'const float *QMatrix4x4::constData() const': gives 'float', which
+    has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QMatrix4x4.constData' has no cute function yet. Qt's 'const float "
+        "*QMatrix4x4::constData() const': gives 'float', which has no cute "
+        "class yet.")
+
+  @staticmethod
+  def copyDataTo(*__, **_) -> Never:
+    """
+    Qt's 'void QMatrix4x4::copyDataTo(float *values) const': takes a number
+    to change where it is.
+    """
+    raise NotImplementedError(
+        "'QMatrix4x4.copyDataTo' has no cute function yet. Qt's 'void "
+        "QMatrix4x4::copyDataTo(float *values) const': takes a number to "
+        "change where it is.")
+
+  @staticmethod
+  def data(*__, **_) -> Never:
+    """
+    - Qt's 'const float *QMatrix4x4::data() const': gives 'float', which has
+      no cute class yet.
+    - Qt's 'float *QMatrix4x4::data()': takes or gives a type that cannot be
+      passed yet: float *.
+    """
+    raise NotImplementedError(
+        "'QMatrix4x4.data' has no cute function yet. Qt's 'const float "
+        "*QMatrix4x4::data() const': gives 'float', which has no cute class "
+        "yet. Qt's 'float *QMatrix4x4::data()': takes or gives a type that "
+        "cannot be passed yet: float *.")
+
+  @staticmethod
+  def inverted(*__, **_) -> Never:
+    """
+    Qt's 'QMatrix4x4 QMatrix4x4::inverted(bool *invertible) const': takes a
+    number to change where it is.
+    """
+    raise NotImplementedError(
+        "'QMatrix4x4.inverted' has no cute function yet. Qt's 'QMatrix4x4 "
+        "QMatrix4x4::inverted(bool *invertible) const': takes a number to "
+        "change where it is.")
+
+  @staticmethod
+  def normalMatrix(*__, **_) -> Never:
+    """
+    Qt's 'QMatrix3x3 QMatrix4x4::normalMatrix() const': gives a type Python
+    has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QMatrix4x4.normalMatrix' has no cute function yet. Qt's "
+        "'QMatrix3x3 QMatrix4x4::normalMatrix() const': gives a type Python "
+        "has no way to take yet.")
+
+  @staticmethod
+  def toGenericMatrix(*__, **_) -> Never:
+    """
+    Qt's 'QMatrix4x4::toGenericMatrix': a template: a pattern and no single
+    function.
+    """
+    raise NotImplementedError(
+        "'QMatrix4x4.toGenericMatrix' has no cute function yet. Qt's "
+        "'QMatrix4x4::toGenericMatrix': a template: a pattern and no single "
+        "function.")
+
+  @staticmethod
+  def toGenericMatrix_impl(*__, **_) -> Never:
+    """
+    Qt's 'void QMatrix4x4::toGenericMatrix_impl(float *dst, int n, int m)
+    const': takes a number to change where it is.
+    """
+    raise NotImplementedError(
+        "'QMatrix4x4.toGenericMatrix_impl' has no cute function yet. Qt's "
+        "'void QMatrix4x4::toGenericMatrix_impl(float *dst, int n, int m) "
+        "const': takes a number to change where it is.")
+
+
+#  Qt's 'QList<QMatrix4x4>': the list of QMatrix4x4, which
+#  'QList[QMatrix4x4]' gives. It is made here, so that there is one as soon
+#  as there can be a QMatrix4x4.
+QList.createKind(
+    QMatrix4x4, 'value',
+    make='ritual_list_make_QMatrix4x4',
+    add='ritual_list_add_QMatrix4x4',
+    size='ritual_list_size_QMatrix4x4',
+    at='ritual_list_at_QMatrix4x4',
+    drop='ritual_list_drop_QMatrix4x4',
+)

@@ -19,7 +19,7 @@ from ..QtGui import QPainter
 from . import QAbstractScrollArea, QGraphicsScene, QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from ..QtCore import QEvent, QMetaObject, QPoint, QPointF, QRect, QRectF
   from ..QtCore import QSize, QVariant
@@ -28,7 +28,7 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   from ..QtGui import QFocusEvent, QInputMethodEvent, QKeyEvent, QMouseEvent
   from ..QtGui import QPaintEvent, QPainterPath, QPolygon, QPolygonF
   from ..QtGui import QResizeEvent, QShowEvent, QTransform, QWheelEvent
-  from . import QGraphicsItem
+  from . import QGraphicsItem, QGraphicsViewPrivate
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -75,7 +75,7 @@ class QGraphicsView(QAbstractScrollArea):
   -----------
 
   Every function of Qt's QGraphicsView that has a ritual and that Python can
-  call so far, 81 names in all: 'metaObject', 'tr', 'sizeHint',
+  call so far, 83 names in all: 'metaObject', 'tr', 'sizeHint',
   'renderHints', 'setRenderHint', 'setRenderHints', 'alignment',
   'setAlignment', 'transformationAnchor', 'setTransformationAnchor',
   'resizeAnchor', 'setResizeAnchor', 'viewportUpdateMode',
@@ -89,27 +89,37 @@ class QGraphicsView(QAbstractScrollArea):
   'ensureVisible', 'fitInView', 'render', 'items', 'itemAt', 'mapToScene',
   'mapFromScene', 'inputMethodQuery', 'backgroundBrush',
   'setBackgroundBrush', 'foregroundBrush', 'setForegroundBrush',
-  'updateScene', 'invalidateScene', 'updateSceneRect', 'setupViewport',
-  'event', 'viewportEvent', 'contextMenuEvent', 'dragEnterEvent',
-  'dragLeaveEvent', 'dragMoveEvent', 'dropEvent', 'focusInEvent',
-  'focusNextPrevChild', 'focusOutEvent', 'keyPressEvent', 'keyReleaseEvent',
-  'mouseDoubleClickEvent', 'mousePressEvent', 'mouseMoveEvent',
-  'mouseReleaseEvent', 'wheelEvent', 'paintEvent', 'resizeEvent',
-  'scrollContentsBy', 'showEvent', 'inputMethodEvent', 'drawBackground',
-  'drawForeground'. It can be made from Python, in 2 ways; see '__init__'.
+  'updateScene', 'invalidateScene', 'updateSceneRect', 'rubberBandChanged',
+  'setupViewport', 'event', 'viewportEvent', 'contextMenuEvent',
+  'dragEnterEvent', 'dragLeaveEvent', 'dragMoveEvent', 'dropEvent',
+  'focusInEvent', 'focusNextPrevChild', 'focusOutEvent', 'keyPressEvent',
+  'keyReleaseEvent', 'mouseDoubleClickEvent', 'mousePressEvent',
+  'mouseMoveEvent', 'mouseReleaseEvent', 'wheelEvent', 'paintEvent',
+  'resizeEvent', 'scrollContentsBy', 'showEvent', 'inputMethodEvent',
+  'drawBackground', 'drawForeground', 'd_func'. It can be made from Python,
+  in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QGraphicsView::qt_metacast(const char *a0)': one of Qt's own
+    inner workings.
+  - Qt's 'int QGraphicsView::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
   - Qt's 'QGraphicsView::~QGraphicsView()': the destructor: Python never
     removes a C++ QGraphicsView.
+  - Qt's 'QGraphicsView::QGraphicsView(QGraphicsViewPrivate &a0, QWidget
+    *parent)': takes a type Python has no way to hand over yet.
+  - Qt's 'void QGraphicsView::drawItems(QPainter *painter, int numItems,
+    QGraphicsItem **items, const QStyleOptionGraphicsItem *options)': takes a
+    type Python has no way to hand over yet.
+  - Qt's 'const QGraphicsViewPrivate *QGraphicsView::d_func() const': takes
+    in Python what 'QGraphicsViewPrivate *QGraphicsView::d_func()' takes.
 
   What has no ritual
   ------------------
 
-  11 of the 119 functions Qt declares: 6 takes or gives a type that cannot be
-  passed yet; 2 forbidden; 1 a template; 1 declared and nowhere to be found;
-  1 a signal.
+  4 of the 119 functions Qt declares: 2 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -125,6 +135,9 @@ class QGraphicsView(QAbstractScrollArea):
   - Qt tells when it has removed the C++ QGraphicsView. Every call on the
     cute object, and every use of it as an argument, then raises
     'RuntimeError', and nothing reaches C++.
+  - Each name of Qt's QGraphicsView that has no cute function yet,
+    'drawItems', holds a function that raises 'NotImplementedError', and its
+    docstring says why.
   """
 
   #  The enums Qt writes inside QGraphicsView, each a class in here as in
@@ -1110,7 +1123,7 @@ class QGraphicsView(QAbstractScrollArea):
     #  QPoint QGraphicsView::mapFromScene(const QPointF &point) const
     address = self.uglySide.call(
         'ritual_ZNK13QGraphicsView12mapFromSceneERK7QPointF',
-        self._valueOf(point),
+        self._valueOf(point, 'QPointF'),
     )
     from ..QtCore import QPoint
     return QPoint._cuteOwning(address)
@@ -1941,7 +1954,8 @@ class QGraphicsView(QAbstractScrollArea):
     """
     #  void QGraphicsView::centerOn(const QPointF &pos)
     self.uglySide.call(
-        'ritual_ZN13QGraphicsView8centerOnERK7QPointF', self._valueOf(pos),
+        'ritual_ZN13QGraphicsView8centerOnERK7QPointF',
+        self._valueOf(pos, 'QPointF'),
     )
 
   @overload(float, float)
@@ -2345,6 +2359,42 @@ class QGraphicsView(QAbstractScrollArea):
     self.uglySide.call(
         'ritual_ZN13QGraphicsView15updateSceneRectERK6QRectF',
         self._valueOf(rect),
+    )
+
+  @overload(QRect, QPointF, QPointF)
+  def rubberBandChanged(
+      self,
+      viewportRect: QRect,
+      fromScenePoint: QPointF,
+      toScenePoint: QPointF,
+  ) -> None:
+    """
+    Calls Qt's 'void QGraphicsView::rubberBandChanged(QRect viewportRect,
+    QPointF fromScenePoint, QPointF toScenePoint)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicsview.html#rubberBandChanged
+
+    Parameters
+    ----------
+
+    viewportRect : QRect
+      Passed on as a value: Qt reads the C++ QRect, which stays Python's own.
+
+    fromScenePoint : QPointF
+      Passed on as a value: Qt reads the C++ QPointF, which stays Python's
+      own.
+
+    toScenePoint : QPointF
+      Passed on as a value: Qt reads the C++ QPointF, which stays Python's
+      own.
+    """
+    #  void QGraphicsView::rubberBandChanged(QRect viewportRect, QPointF
+    #      fromScenePoint, QPointF toScenePoint)
+    self.uglySide.call(
+        'ritual_ZN13QGraphicsView17rubberBandChangedE5QRect7QPointFS1_',
+        self._valueOf(viewportRect), self._valueOf(fromScenePoint,
+        'QPointF'), self._valueOf(toScenePoint, 'QPointF'),
     )
 
   @overload(QWidget)
@@ -2913,6 +2963,37 @@ class QGraphicsView(QAbstractScrollArea):
       ritual = (
           'ritual_own_ZN13QGraphicsView14drawForegroundEP8QPainterRK6QRectF')
     self.uglySide.call(ritual, self._addressOf(painter), self._valueOf(rect))
+
+  def d_func(self) -> Optional[QGraphicsViewPrivate]:
+    """
+    Calls Qt's 'QGraphicsViewPrivate *QGraphicsView::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsview.html#d_func
+
+    Returns
+    -------
+
+    Optional[QGraphicsViewPrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QGraphicsViewPrivate *QGraphicsView::d_func()
+    address = self.uglySide.call('ritual_ZN13QGraphicsView6d_funcEv')
+    from . import QGraphicsViewPrivate
+    return QGraphicsViewPrivate._cuteAt(address)
+
+  @staticmethod
+  def drawItems(*__, **_) -> Never:
+    """
+    Qt's 'void QGraphicsView::drawItems(QPainter *painter, int numItems,
+    QGraphicsItem **items, const QStyleOptionGraphicsItem *options)': takes a
+    type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QGraphicsView.drawItems' has no cute function yet. Qt's 'void "
+        "QGraphicsView::drawItems(QPainter *painter, int numItems, "
+        "QGraphicsItem **items, const QStyleOptionGraphicsItem *options)': "
+        "takes a type Python has no way to hand over yet.")
 
 
 #  Qt's 'QList<QGraphicsView *>': the list of QGraphicsView, which

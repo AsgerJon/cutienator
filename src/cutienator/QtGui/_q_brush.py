@@ -17,7 +17,7 @@ from ..occult import Rituals
 from ..QtCore import Qt
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from . import QColor, QGradient, QImage, QPixmap, QTransform
 else:
@@ -55,6 +55,18 @@ class QBrush(CuteMixin, metaclass=MetaCute):
 
   - Qt's 'QBrush::~QBrush()': the destructor: Python removes its C++ QBrush
     by it, and has no other use for it.
+  - Qt's 'QBrush &QBrush::operator=(const QBrush &brush)': assignment: Python
+    binds a name and has no operator for it.
+  - Qt's 'QBrush &QBrush::operator=(QBrush &&other)': assignment: Python
+    binds a name and has no operator for it.
+  - Qt's 'void QBrush::swap(QBrush &other)': takes a type Python has no way
+    to hand over yet.
+  - Qt's 'QBrush &QBrush::operator=(Qt::BrushStyle style)': assignment:
+    Python binds a name and has no operator for it.
+  - Qt's 'QBrush &QBrush::operator=(QColor color)': assignment: Python binds
+    a name and has no operator for it.
+  - Qt's 'QBrush &QBrush::operator=(Qt::GlobalColor color)': assignment:
+    Python binds a name and has no operator for it.
   - Qt's 'QVariant QBrush::operator QVariant() const': an operator Python has
     no name for.
   - Qt's 'bool operator==(const QColor &lhs, const QBrush &rhs)': takes in
@@ -63,12 +75,24 @@ class QBrush(CuteMixin, metaclass=MetaCute):
   - Qt's 'bool operator!=(const QColor &lhs, const QBrush &rhs)': takes in
     Python what 'bool operator!=(const QBrush &lhs, const QColor &rhs)'
     takes.
-
-  What has no ritual
-  ------------------
-
-  15 of the 51 functions Qt declares: 15 takes or gives a type that cannot be
-  passed yet.
+  - Qt's 'bool operator==(const QBrush &lhs, const Qt::GlobalColor &rhs)':
+    takes a type Python has no way to hand over yet.
+  - Qt's 'bool operator!=(const QBrush &lhs, const Qt::GlobalColor &rhs)':
+    takes a type Python has no way to hand over yet.
+  - Qt's 'bool operator==(const Qt::GlobalColor &lhs, const QBrush &rhs)':
+    takes a type Python has no way to hand over yet.
+  - Qt's 'bool operator!=(const Qt::GlobalColor &lhs, const QBrush &rhs)':
+    takes a type Python has no way to hand over yet.
+  - Qt's 'bool operator==(const QBrush &lhs, const Qt::BrushStyle &rhs)':
+    takes a type Python has no way to hand over yet.
+  - Qt's 'bool operator!=(const QBrush &lhs, const Qt::BrushStyle &rhs)':
+    takes a type Python has no way to hand over yet.
+  - Qt's 'bool operator==(const Qt::BrushStyle &lhs, const QBrush &rhs)':
+    takes a type Python has no way to hand over yet.
+  - Qt's 'bool operator!=(const Qt::BrushStyle &lhs, const QBrush &rhs)':
+    takes a type Python has no way to hand over yet.
+  - Qt's 'DataPtr &QBrush::data_ptr()': gives a type Python has no way to
+    take yet.
 
   What to expect
   --------------
@@ -81,6 +105,9 @@ class QBrush(CuteMixin, metaclass=MetaCute):
     is as in C++.
   - A function giving a QBrush back gives a copy the ritual made for Python,
     in a new cute QBrush.
+  - Each name of Qt's QBrush that has no cute function yet, 'data_ptr',
+    'swap', holds a function that raises 'NotImplementedError', and its
+    docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -768,3 +795,24 @@ class QBrush(CuteMixin, metaclass=MetaCute):
         'ritual_ZN6QBrush4initERK6QColorN2Qt10BrushStyleE',
         self._valueOf(color), bs.value,
     )
+
+  @staticmethod
+  def data_ptr(*__, **_) -> Never:
+    """
+    Qt's 'DataPtr &QBrush::data_ptr()': gives a type Python has no way to
+    take yet.
+    """
+    raise NotImplementedError(
+        "'QBrush.data_ptr' has no cute function yet. Qt's 'DataPtr "
+        "&QBrush::data_ptr()': gives a type Python has no way to take yet.")
+
+  @staticmethod
+  def swap(*__, **_) -> Never:
+    """
+    Qt's 'void QBrush::swap(QBrush &other)': takes a type Python has no way
+    to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QBrush.swap' has no cute function yet. Qt's 'void "
+        "QBrush::swap(QBrush &other)': takes a type Python has no way to "
+        "hand over yet.")

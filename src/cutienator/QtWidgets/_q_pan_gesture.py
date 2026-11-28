@@ -20,6 +20,7 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
   from ..QtCore import QMetaObject, QPointF
+  from . import QPanGesturePrivate
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -43,21 +44,26 @@ class QPanGesture(QGesture):
   -----------
 
   Every function of Qt's QPanGesture that has a ritual and that Python can
-  call so far, 9 names in all: 'metaObject', 'tr', 'lastOffset', 'offset',
-  'delta', 'acceleration', 'setLastOffset', 'setOffset', 'setAcceleration'.
-  It can be made from Python, in 1 way; see '__init__'.
+  call so far, 10 names in all: 'metaObject', 'tr', 'd_func', 'lastOffset',
+  'offset', 'delta', 'acceleration', 'setLastOffset', 'setOffset',
+  'setAcceleration'. It can be made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QPanGesture::qt_metacast(const char *a0)': one of Qt's own
+    inner workings.
+  - Qt's 'int QPanGesture::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
+  - Qt's 'const QPanGesturePrivate *QPanGesture::d_func() const': takes in
+    Python what 'QPanGesturePrivate *QPanGesture::d_func()' takes.
   - Qt's 'QPanGesture::~QPanGesture()': the destructor: Python never removes
     a C++ QPanGesture.
 
   What has no ritual
   ------------------
 
-  6 of the 17 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet; 1 a template; 1 declared and nowhere to be found.
+  2 of the 17 functions Qt declares: 2 not a gap.
 
   What to expect
   --------------
@@ -246,7 +252,7 @@ class QPanGesture(QGesture):
     #  void QPanGesture::setLastOffset(const QPointF &value)
     self.uglySide.call(
         'ritual_ZN11QPanGesture13setLastOffsetERK7QPointF',
-        self._valueOf(value),
+        self._valueOf(value, 'QPointF'),
     )
 
   @overload(QPointF)
@@ -265,7 +271,8 @@ class QPanGesture(QGesture):
     """
     #  void QPanGesture::setOffset(const QPointF &value)
     self.uglySide.call(
-        'ritual_ZN11QPanGesture9setOffsetERK7QPointF', self._valueOf(value),
+        'ritual_ZN11QPanGesture9setOffsetERK7QPointF',
+        self._valueOf(value, 'QPointF'),
     )
 
   @overload(float)
@@ -338,3 +345,21 @@ class QPanGesture(QGesture):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  def d_func(self) -> Optional[QPanGesturePrivate]:
+    """
+    Calls Qt's 'QPanGesturePrivate *QPanGesture::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpangesture.html#d_func
+
+    Returns
+    -------
+
+    Optional[QPanGesturePrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QPanGesturePrivate *QPanGesture::d_func()
+    address = self.uglySide.call('ritual_ZN11QPanGesture6d_funcEv')
+    from . import QPanGesturePrivate
+    return QPanGesturePrivate._cuteAt(address)

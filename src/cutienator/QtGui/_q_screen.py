@@ -16,16 +16,18 @@ from ..occult import Rituals
 from ..QtCore import Qt, QList, QObject
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from ..QtCore import QMetaObject, QPoint, QRect, QSize, QSizeF
-  from . import QPixmap, QTransform
+  from . import QPixmap, QPlatformScreen, QScreenPrivate, QTransform
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
+  QPlatformScreen = WAIT['QPlatformScreen']
   QPoint = WAIT['QPoint']
   QRect = WAIT['QRect']
+  QSizeF = WAIT['QSizeF']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -44,30 +46,39 @@ class QScreen(QObject):
   -----------
 
   Every function of Qt's QScreen that has a ritual and that Python can call
-  so far, 35 names in all: 'metaObject', 'tr', 'name', 'manufacturer',
-  'model', 'serialNumber', 'depth', 'size', 'geometry', 'physicalSize',
-  'physicalDotsPerInchX', 'physicalDotsPerInchY', 'physicalDotsPerInch',
-  'logicalDotsPerInchX', 'logicalDotsPerInchY', 'logicalDotsPerInch',
-  'devicePixelRatio', 'availableSize', 'availableGeometry',
-  'virtualSiblings', 'virtualSiblingAt', 'virtualSize', 'virtualGeometry',
-  'availableVirtualSize', 'availableVirtualGeometry', 'primaryOrientation',
-  'orientation', 'nativeOrientation', 'angleBetween', 'transformBetween',
-  'mapBetween', 'isPortrait', 'isLandscape', 'grabWindow', 'refreshRate'.
-  None can be made from Python: one comes out of a function of another class
-  that gives one back.
+  so far, 46 names in all: 'metaObject', 'tr', 'd_func', 'handle', 'name',
+  'manufacturer', 'model', 'serialNumber', 'depth', 'size', 'geometry',
+  'physicalSize', 'physicalDotsPerInchX', 'physicalDotsPerInchY',
+  'physicalDotsPerInch', 'logicalDotsPerInchX', 'logicalDotsPerInchY',
+  'logicalDotsPerInch', 'devicePixelRatio', 'availableSize',
+  'availableGeometry', 'virtualSiblings', 'virtualSiblingAt', 'virtualSize',
+  'virtualGeometry', 'availableVirtualSize', 'availableVirtualGeometry',
+  'primaryOrientation', 'orientation', 'nativeOrientation', 'angleBetween',
+  'transformBetween', 'mapBetween', 'isPortrait', 'isLandscape',
+  'grabWindow', 'refreshRate', 'geometryChanged', 'availableGeometryChanged',
+  'physicalSizeChanged', 'physicalDotsPerInchChanged',
+  'logicalDotsPerInchChanged', 'virtualGeometryChanged',
+  'primaryOrientationChanged', 'orientationChanged', 'refreshRateChanged'. It
+  can be made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QScreen::qt_metacast(const char *a0)': one of Qt's own inner
+    workings.
+  - Qt's 'int QScreen::qt_metacall(QMetaObject::Call a0, int a1, void **a2)':
+    one of Qt's own inner workings.
+  - Qt's 'const QScreenPrivate *QScreen::d_func() const': takes in Python
+    what 'QScreenPrivate *QScreen::d_func()' takes.
   - Qt's 'QScreen::~QScreen()': the destructor: Python never removes a C++
     QScreen.
+  - Qt's 'void *QScreen::resolveInterface(const char *name, int revision)
+    const': gives 'void', which has no cute class yet.
 
   What has no ritual
   ------------------
 
-  21 of the 57 functions Qt declares: 9 a signal; 7 takes or gives a type
-  that cannot be passed yet; 2 a template; 2 forbidden; 1 declared and
-  nowhere to be found.
+  5 of the 57 functions Qt declares: 2 not a gap; 2 forbidden; 1 a template.
 
   What to expect
   --------------
@@ -82,6 +93,9 @@ class QScreen(QObject):
   - Qt tells when it has removed the C++ QScreen. Every call on the cute
     object, and every use of it as an argument, then raises 'RuntimeError',
     and nothing reaches C++.
+  - Each name of Qt's QScreen that has no cute function yet,
+    'nativeInterface', 'resolveInterface', holds a function that raises
+    'NotImplementedError', and its docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -172,6 +186,24 @@ class QScreen(QObject):
     address = self.uglySide.call('ritual_ZNK7QScreen10metaObjectEv')
     from ..QtCore import QMetaObject
     return QMetaObject._cuteAt(address)
+
+  def handle(self) -> Optional[QPlatformScreen]:
+    """
+    Calls Qt's 'QPlatformScreen *QScreen::handle() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qscreen.html#handle
+
+    Returns
+    -------
+
+    Optional[QPlatformScreen]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QPlatformScreen *QScreen::handle() const
+    address = self.uglySide.call('ritual_ZNK7QScreen6handleEv')
+    from . import QPlatformScreen
+    return QPlatformScreen._cuteAt(address)
 
   def name(self) -> str:
     """
@@ -710,6 +742,27 @@ class QScreen(QObject):
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  @overload(QPlatformScreen)
+  @overload(NoneType)
+  def __init__(self, screen: Optional[QPlatformScreen]) -> None:
+    """
+    Notes what was given, for Qt's 'QScreen::QScreen(QPlatformScreen
+    *screen)', which is called at the first use.
+
+    Qt's own words: https://doc.qt.io/qt-6/qscreen.html#QScreen
+
+    Parameters
+    ----------
+
+    screen : Optional[QPlatformScreen]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  QScreen::QScreen(QPlatformScreen *screen)
+    self._noteCreation(QScreen, lambda: Rituals.call(
+        'ritual_ZN7QScreenC1EP15QPlatformScreen', self._addressOf(screen),
+    ))
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -729,6 +782,24 @@ class QScreen(QObject):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  def d_func(self) -> Optional[QScreenPrivate]:
+    """
+    Calls Qt's 'QScreenPrivate *QScreen::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qscreen.html#d_func
+
+    Returns
+    -------
+
+    Optional[QScreenPrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QScreenPrivate *QScreen::d_func()
+    address = self.uglySide.call('ritual_ZN7QScreen6d_funcEv')
+    from . import QScreenPrivate
+    return QScreenPrivate._cuteAt(address)
 
   @overload(QPoint)
   def virtualSiblingAt(self, point: QPoint) -> Optional[QScreen]:
@@ -807,6 +878,208 @@ class QScreen(QObject):
     )
     from . import QPixmap
     return QPixmap._cuteOwning(address)
+
+  @overload(QRect)
+  def geometryChanged(self, geometry: QRect) -> None:
+    """
+    Calls Qt's 'void QScreen::geometryChanged(const QRect &geometry)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qscreen.html#geometryChanged
+
+    Parameters
+    ----------
+
+    geometry : QRect
+      Passed on as a value: Qt reads the C++ QRect, which stays Python's own.
+    """
+    #  void QScreen::geometryChanged(const QRect &geometry)
+    self.uglySide.call(
+        'ritual_ZN7QScreen15geometryChangedERK5QRect',
+        self._valueOf(geometry),
+    )
+
+  @overload(QRect)
+  def availableGeometryChanged(self, geometry: QRect) -> None:
+    """
+    Calls Qt's 'void QScreen::availableGeometryChanged(const QRect
+    &geometry)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qscreen.html#availableGeometryChanged
+
+    Parameters
+    ----------
+
+    geometry : QRect
+      Passed on as a value: Qt reads the C++ QRect, which stays Python's own.
+    """
+    #  void QScreen::availableGeometryChanged(const QRect &geometry)
+    self.uglySide.call(
+        'ritual_ZN7QScreen24availableGeometryChangedERK5QRect',
+        self._valueOf(geometry),
+    )
+
+  @overload(QSizeF)
+  def physicalSizeChanged(self, size: QSizeF) -> None:
+    """
+    Calls Qt's 'void QScreen::physicalSizeChanged(const QSizeF &size)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qscreen.html#physicalSizeChanged
+
+    Parameters
+    ----------
+
+    size : QSizeF
+      Passed on as a value: Qt reads the C++ QSizeF, which stays Python's
+      own.
+    """
+    #  void QScreen::physicalSizeChanged(const QSizeF &size)
+    self.uglySide.call(
+        'ritual_ZN7QScreen19physicalSizeChangedERK6QSizeF',
+        self._valueOf(size),
+    )
+
+  @overload(float)
+  def physicalDotsPerInchChanged(self, dpi: float) -> None:
+    """
+    Calls Qt's 'void QScreen::physicalDotsPerInchChanged(qreal dpi)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qscreen.html#physicalDotsPerInchChanged
+
+    Parameters
+    ----------
+
+    dpi : float
+      Passed on as it is.
+    """
+    #  void QScreen::physicalDotsPerInchChanged(qreal dpi)
+    self.uglySide.call(
+        'ritual_ZN7QScreen26physicalDotsPerInchChangedEd', dpi,
+    )
+
+  @overload(float)
+  def logicalDotsPerInchChanged(self, dpi: float) -> None:
+    """
+    Calls Qt's 'void QScreen::logicalDotsPerInchChanged(qreal dpi)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qscreen.html#logicalDotsPerInchChanged
+
+    Parameters
+    ----------
+
+    dpi : float
+      Passed on as it is.
+    """
+    #  void QScreen::logicalDotsPerInchChanged(qreal dpi)
+    self.uglySide.call('ritual_ZN7QScreen25logicalDotsPerInchChangedEd', dpi)
+
+  @overload(QRect)
+  def virtualGeometryChanged(self, rect: QRect) -> None:
+    """
+    Calls Qt's 'void QScreen::virtualGeometryChanged(const QRect &rect)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qscreen.html#virtualGeometryChanged
+
+    Parameters
+    ----------
+
+    rect : QRect
+      Passed on as a value: Qt reads the C++ QRect, which stays Python's own.
+    """
+    #  void QScreen::virtualGeometryChanged(const QRect &rect)
+    self.uglySide.call(
+        'ritual_ZN7QScreen22virtualGeometryChangedERK5QRect',
+        self._valueOf(rect),
+    )
+
+  @overload(Qt.ScreenOrientation)
+  def primaryOrientationChanged(
+      self,
+      orientation: Qt.ScreenOrientation,
+  ) -> None:
+    """
+    Calls Qt's 'void QScreen::primaryOrientationChanged(Qt::ScreenOrientation
+    orientation)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qscreen.html#primaryOrientationChanged
+
+    Parameters
+    ----------
+
+    orientation : Qt.ScreenOrientation
+      Passed on as its number.
+    """
+    #  void QScreen::primaryOrientationChanged(Qt::ScreenOrientation
+    #      orientation)
+    self.uglySide.call(
+        'ritual_ZN7QScreen25primaryOrientationChangedEN2Qt17ScreenOrientati'
+        'onE',
+        orientation.value,
+    )
+
+  @overload(Qt.ScreenOrientation)
+  def orientationChanged(self, orientation: Qt.ScreenOrientation) -> None:
+    """
+    Calls Qt's 'void QScreen::orientationChanged(Qt::ScreenOrientation
+    orientation)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qscreen.html#orientationChanged
+
+    Parameters
+    ----------
+
+    orientation : Qt.ScreenOrientation
+      Passed on as its number.
+    """
+    #  void QScreen::orientationChanged(Qt::ScreenOrientation orientation)
+    self.uglySide.call(
+        'ritual_ZN7QScreen18orientationChangedEN2Qt17ScreenOrientationE',
+        orientation.value,
+    )
+
+  @overload(float)
+  def refreshRateChanged(self, refreshRate: float) -> None:
+    """
+    Calls Qt's 'void QScreen::refreshRateChanged(qreal refreshRate)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qscreen.html#refreshRateChanged
+
+    Parameters
+    ----------
+
+    refreshRate : float
+      Passed on as it is.
+    """
+    #  void QScreen::refreshRateChanged(qreal refreshRate)
+    self.uglySide.call(
+        'ritual_ZN7QScreen18refreshRateChangedEd', refreshRate,
+    )
+
+  @staticmethod
+  def nativeInterface(*__, **_) -> Never:
+    """
+    Qt's 'QScreen::nativeInterface': a template: a pattern and no single
+    function.
+    """
+    raise NotImplementedError(
+        "'QScreen.nativeInterface' has no cute function yet. Qt's "
+        "'QScreen::nativeInterface': a template: a pattern and no single "
+        "function.")
+
+  @staticmethod
+  def resolveInterface(*__, **_) -> Never:
+    """
+    Qt's 'void *QScreen::resolveInterface(const char *name, int revision)
+    const': gives 'void', which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QScreen.resolveInterface' has no cute function yet. Qt's 'void "
+        "*QScreen::resolveInterface(const char *name, int revision) const': "
+        "gives 'void', which has no cute class yet.")
 
 
 #  Qt's 'QList<QScreen *>': the list of QScreen, which 'QList[QScreen]'

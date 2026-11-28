@@ -18,7 +18,7 @@ from . import QObject
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from . import QDeadlineTimer, QEvent, QMetaObject
+  from . import QDeadlineTimer, QEvent, QEventLoopPrivate, QMetaObject
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -43,21 +43,26 @@ class QEventLoop(QObject):
   -----------
 
   Every function of Qt's QEventLoop that has a ritual and that Python can
-  call so far, 9 names in all: 'metaObject', 'tr', 'processEvents', 'exec',
-  'isRunning', 'wakeUp', 'event', 'exit', 'quit'. It can be made from Python,
-  in 1 way; see '__init__'.
+  call so far, 10 names in all: 'metaObject', 'tr', 'd_func',
+  'processEvents', 'exec', 'isRunning', 'wakeUp', 'event', 'exit', 'quit'. It
+  can be made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QEventLoop::qt_metacast(const char *a0)': one of Qt's own
+    inner workings.
+  - Qt's 'int QEventLoop::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
+  - Qt's 'const QEventLoopPrivate *QEventLoop::d_func() const': takes in
+    Python what 'QEventLoopPrivate *QEventLoop::d_func()' takes.
   - Qt's 'QEventLoop::~QEventLoop()': the destructor: Python never removes a
     C++ QEventLoop.
 
   What has no ritual
   ------------------
 
-  6 of the 19 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet; 1 a template; 1 declared and nowhere to be found.
+  2 of the 19 functions Qt declares: 2 not a gap.
 
   What to expect
   --------------
@@ -251,6 +256,24 @@ class QEventLoop(QObject):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  def d_func(self) -> Optional[QEventLoopPrivate]:
+    """
+    Calls Qt's 'QEventLoopPrivate *QEventLoop::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qeventloop.html#d_func
+
+    Returns
+    -------
+
+    Optional[QEventLoopPrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QEventLoopPrivate *QEventLoop::d_func()
+    address = self.uglySide.call('ritual_ZN10QEventLoop6d_funcEv')
+    from . import QEventLoopPrivate
+    return QEventLoopPrivate._cuteAt(address)
 
   @overload()
   @overload(ProcessEventsFlags)

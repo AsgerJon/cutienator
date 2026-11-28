@@ -16,7 +16,7 @@ from ..cute import CuteMixin, CuteNum, MetaCute, WAIT
 from ..occult import Rituals
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from . import QByteArray, QCborError, QIODevice, qfloat16
 else:
@@ -56,24 +56,41 @@ class QCborStreamReader(CuteMixin, metaclass=MetaCute):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'QCborStreamReader::QCborStreamReader(const quint8 *data, qsizetype
+    len)': names 'quint8', which has no cute class yet.
   - Qt's 'QCborStreamReader::~QCborStreamReader()': the destructor: Python
     never removes a C++ QCborStreamReader.
+  - Qt's 'void QCborStreamReader::addData(const quint8 *data, qsizetype
+    len)': names 'quint8', which has no cute class yet.
   - Qt's 'bool QCborStreamReader::isSimpleType(QCborSimpleType st) const':
     names the enum 'QCborSimpleType', whose class cannot be named here.
+  - Qt's 'bool QCborStreamReader::readAndAppendToString(QString &dst)': takes
+    a type Python has no way to hand over yet.
+  - Qt's 'bool QCborStreamReader::readAndAppendToUtf8String(QByteArray
+    &dst)': takes a type Python has no way to hand over yet.
+  - Qt's 'bool QCborStreamReader::readAndAppendToByteArray(QByteArray &dst)':
+    takes a type Python has no way to hand over yet.
   - Qt's 'QCborTag QCborStreamReader::toTag() const': gives the enum
     'QCborTag', whose class cannot be named here.
   - Qt's 'QCborNegativeInteger QCborStreamReader::toNegativeInteger() const':
     gives the enum 'QCborNegativeInteger', whose class cannot be named here.
   - Qt's 'QCborSimpleType QCborStreamReader::toSimpleType() const': gives the
     enum 'QCborSimpleType', whose class cannot be named here.
+  - Qt's 'bool QCborStreamReader::_readAndAppendToString_helper(QString
+    &a0)': takes a type Python has no way to hand over yet.
+  - Qt's 'bool
+    QCborStreamReader::_readAndAppendToUtf8String_helper(QByteArray &a0)':
+    takes a type Python has no way to hand over yet.
+  - Qt's 'bool QCborStreamReader::_readAndAppendToByteArray_helper(QByteArray
+    &a0)': takes a type Python has no way to hand over yet.
 
   What has no ritual
   ------------------
 
-  22 of the 81 functions Qt declares: 15 takes or gives a type that cannot be
-  passed yet; 2 declared and nowhere to be found; 2 a template; 2 forbidden;
-  1 Qt's library has no name for it, and its code in Qt's source does not
-  compile apart from its file.
+  14 of the 81 functions Qt declares: 7 the compiler refuses its ritual as it
+  would be written here; 3 not a gap; 2 forbidden; 1 a template; 1 Qt's
+  library has no name for it, and its code in Qt's source does not compile
+  apart from its file.
 
   What to expect
   --------------
@@ -86,6 +103,15 @@ class QCborStreamReader(CuteMixin, metaclass=MetaCute):
     has it, and is passed on as nothing. Whether Qt can do with nothing there
     is as in C++.
   - Python never removes the C++ QCborStreamReader.
+  - Each name of Qt's QCborStreamReader that has no cute function yet,
+    '_readAndAppendToByteArray_helper', '_readAndAppendToString_helper',
+    '_readAndAppendToUtf8String_helper', '_readByteArray_helper',
+    '_readString_helper', '_readUtf8String_helper', '_toFloatingPoint',
+    'preparse', 'readAndAppendToByteArray', 'readAndAppendToString',
+    'readAndAppendToUtf8String', 'readByteArray', 'readString',
+    'readStringChunk', 'readUtf8String', 'toNegativeInteger', 'toSimpleType',
+    'toTag', holds a function that raises 'NotImplementedError', and its
+    docstring says why.
   """
 
   #  The enums Qt writes inside QCborStreamReader, each a class in here as in
@@ -878,3 +904,229 @@ class QCborStreamReader(CuteMixin, metaclass=MetaCute):
     return self.uglySide.call(
         'ritual_ZN17QCborStreamReader22_enterContainer_helperEv',
     )
+
+  @staticmethod
+  def _readAndAppendToByteArray_helper(*__, **_) -> Never:
+    """
+    Qt's 'bool QCborStreamReader::_readAndAppendToByteArray_helper(QByteArray
+    &a0)': takes a type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QCborStreamReader._readAndAppendToByteArray_helper' has no cute "
+        "function yet. Qt's 'bool "
+        "QCborStreamReader::_readAndAppendToByteArray_helper(QByteArray "
+        "&a0)': takes a type Python has no way to hand over yet.")
+
+  @staticmethod
+  def _readAndAppendToString_helper(*__, **_) -> Never:
+    """
+    Qt's 'bool QCborStreamReader::_readAndAppendToString_helper(QString
+    &a0)': takes a type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QCborStreamReader._readAndAppendToString_helper' has no cute "
+        "function yet. Qt's 'bool "
+        "QCborStreamReader::_readAndAppendToString_helper(QString &a0)': "
+        "takes a type Python has no way to hand over yet.")
+
+  @staticmethod
+  def _readAndAppendToUtf8String_helper(*__, **_) -> Never:
+    """
+    Qt's 'bool
+    QCborStreamReader::_readAndAppendToUtf8String_helper(QByteArray &a0)':
+    takes a type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QCborStreamReader._readAndAppendToUtf8String_helper' has no cute "
+        "function yet. Qt's 'bool "
+        "QCborStreamReader::_readAndAppendToUtf8String_helper(QByteArray "
+        "&a0)': takes a type Python has no way to hand over yet.")
+
+  @staticmethod
+  def _readByteArray_helper(*__, **_) -> Never:
+    """
+    Qt's 'StringResult<QByteArray>
+    QCborStreamReader::_readByteArray_helper()': the compiler refuses its
+    ritual as it would be written here: no template named 'StringResult'.
+    """
+    raise NotImplementedError(
+        "'QCborStreamReader._readByteArray_helper' has no cute function "
+        "yet. Qt's 'StringResult<QByteArray> "
+        "QCborStreamReader::_readByteArray_helper()': the compiler refuses "
+        "its ritual as it would be written here: no template named "
+        "'StringResult'.")
+
+  @staticmethod
+  def _readString_helper(*__, **_) -> Never:
+    """
+    Qt's 'StringResult<QString> QCborStreamReader::_readString_helper()': the
+    compiler refuses its ritual as it would be written here: no template
+    named 'StringResult'.
+    """
+    raise NotImplementedError(
+        "'QCborStreamReader._readString_helper' has no cute function yet. "
+        "Qt's 'StringResult<QString> "
+        "QCborStreamReader::_readString_helper()': the compiler refuses its "
+        "ritual as it would be written here: no template named "
+        "'StringResult'.")
+
+  @staticmethod
+  def _readUtf8String_helper(*__, **_) -> Never:
+    """
+    Qt's 'StringResult<QByteArray>
+    QCborStreamReader::_readUtf8String_helper()': the compiler refuses its
+    ritual as it would be written here: no template named 'StringResult'.
+    """
+    raise NotImplementedError(
+        "'QCborStreamReader._readUtf8String_helper' has no cute function "
+        "yet. Qt's 'StringResult<QByteArray> "
+        "QCborStreamReader::_readUtf8String_helper()': the compiler refuses "
+        "its ritual as it would be written here: no template named "
+        "'StringResult'.")
+
+  @staticmethod
+  def _toFloatingPoint(*__, **_) -> Never:
+    """
+    Qt's 'QCborStreamReader::_toFloatingPoint': a template: a pattern and no
+    single function.
+    """
+    raise NotImplementedError(
+        "'QCborStreamReader._toFloatingPoint' has no cute function yet. "
+        "Qt's 'QCborStreamReader::_toFloatingPoint': a template: a pattern "
+        "and no single function.")
+
+  @staticmethod
+  def preparse(*__, **_) -> Never:
+    """
+    Qt's 'void QCborStreamReader::preparse()': Qt's library has no name for
+    it, and its code in Qt's source does not compile apart from its file: use
+    of undeclared identifier 'CborInvalidType'; did you mean
+    'QOpenGLDebugMessage::InvalidType'?.
+    """
+    raise NotImplementedError(
+        "'QCborStreamReader.preparse' has no cute function yet. Qt's 'void "
+        "QCborStreamReader::preparse()': Qt's library has no name for it, "
+        "and its code in Qt's source does not compile apart from its file: "
+        "use of undeclared identifier 'CborInvalidType'; did you mean "
+        "'QOpenGLDebugMessage::InvalidType'?.")
+
+  @staticmethod
+  def readAndAppendToByteArray(*__, **_) -> Never:
+    """
+    Qt's 'bool QCborStreamReader::readAndAppendToByteArray(QByteArray &dst)':
+    takes a type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QCborStreamReader.readAndAppendToByteArray' has no cute function "
+        "yet. Qt's 'bool "
+        "QCborStreamReader::readAndAppendToByteArray(QByteArray &dst)': "
+        "takes a type Python has no way to hand over yet.")
+
+  @staticmethod
+  def readAndAppendToString(*__, **_) -> Never:
+    """
+    Qt's 'bool QCborStreamReader::readAndAppendToString(QString &dst)': takes
+    a type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QCborStreamReader.readAndAppendToString' has no cute function "
+        "yet. Qt's 'bool QCborStreamReader::readAndAppendToString(QString "
+        "&dst)': takes a type Python has no way to hand over yet.")
+
+  @staticmethod
+  def readAndAppendToUtf8String(*__, **_) -> Never:
+    """
+    Qt's 'bool QCborStreamReader::readAndAppendToUtf8String(QByteArray
+    &dst)': takes a type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QCborStreamReader.readAndAppendToUtf8String' has no cute function "
+        "yet. Qt's 'bool "
+        "QCborStreamReader::readAndAppendToUtf8String(QByteArray &dst)': "
+        "takes a type Python has no way to hand over yet.")
+
+  @staticmethod
+  def readByteArray(*__, **_) -> Never:
+    """
+    Qt's 'StringResult<QByteArray> QCborStreamReader::readByteArray()': the
+    compiler refuses its ritual as it would be written here: no template
+    named 'StringResult'.
+    """
+    raise NotImplementedError(
+        "'QCborStreamReader.readByteArray' has no cute function yet. Qt's "
+        "'StringResult<QByteArray> QCborStreamReader::readByteArray()': the "
+        "compiler refuses its ritual as it would be written here: no "
+        "template named 'StringResult'.")
+
+  @staticmethod
+  def readString(*__, **_) -> Never:
+    """
+    Qt's 'StringResult<QString> QCborStreamReader::readString()': the
+    compiler refuses its ritual as it would be written here: no template
+    named 'StringResult'.
+    """
+    raise NotImplementedError(
+        "'QCborStreamReader.readString' has no cute function yet. Qt's "
+        "'StringResult<QString> QCborStreamReader::readString()': the "
+        "compiler refuses its ritual as it would be written here: no "
+        "template named 'StringResult'.")
+
+  @staticmethod
+  def readStringChunk(*__, **_) -> Never:
+    """
+    Qt's 'StringResult<qsizetype> QCborStreamReader::readStringChunk(char
+    *ptr, qsizetype maxlen)': the compiler refuses its ritual as it would be
+    written here: no template named 'StringResult'.
+    """
+    raise NotImplementedError(
+        "'QCborStreamReader.readStringChunk' has no cute function yet. Qt's "
+        "'StringResult<qsizetype> QCborStreamReader::readStringChunk(char "
+        "*ptr, qsizetype maxlen)': the compiler refuses its ritual as it "
+        "would be written here: no template named 'StringResult'.")
+
+  @staticmethod
+  def readUtf8String(*__, **_) -> Never:
+    """
+    Qt's 'StringResult<QByteArray> QCborStreamReader::readUtf8String()': the
+    compiler refuses its ritual as it would be written here: no template
+    named 'StringResult'.
+    """
+    raise NotImplementedError(
+        "'QCborStreamReader.readUtf8String' has no cute function yet. Qt's "
+        "'StringResult<QByteArray> QCborStreamReader::readUtf8String()': "
+        "the compiler refuses its ritual as it would be written here: no "
+        "template named 'StringResult'.")
+
+  @staticmethod
+  def toNegativeInteger(*__, **_) -> Never:
+    """
+    Qt's 'QCborNegativeInteger QCborStreamReader::toNegativeInteger() const':
+    gives the enum 'QCborNegativeInteger', whose class cannot be named here.
+    """
+    raise NotImplementedError(
+        "'QCborStreamReader.toNegativeInteger' has no cute function yet. "
+        "Qt's 'QCborNegativeInteger QCborStreamReader::toNegativeInteger() "
+        "const': gives the enum 'QCborNegativeInteger', whose class cannot "
+        "be named here.")
+
+  @staticmethod
+  def toSimpleType(*__, **_) -> Never:
+    """
+    Qt's 'QCborSimpleType QCborStreamReader::toSimpleType() const': gives the
+    enum 'QCborSimpleType', whose class cannot be named here.
+    """
+    raise NotImplementedError(
+        "'QCborStreamReader.toSimpleType' has no cute function yet. Qt's "
+        "'QCborSimpleType QCborStreamReader::toSimpleType() const': gives "
+        "the enum 'QCborSimpleType', whose class cannot be named here.")
+
+  @staticmethod
+  def toTag(*__, **_) -> Never:
+    """
+    Qt's 'QCborTag QCborStreamReader::toTag() const': gives the enum
+    'QCborTag', whose class cannot be named here.
+    """
+    raise NotImplementedError(
+        "'QCborStreamReader.toTag' has no cute function yet. Qt's 'QCborTag "
+        "QCborStreamReader::toTag() const': gives the enum 'QCborTag', "
+        "whose class cannot be named here.")

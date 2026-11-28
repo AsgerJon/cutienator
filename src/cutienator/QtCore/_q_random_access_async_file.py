@@ -21,10 +21,10 @@ from ..occult import Rituals
 from . import QIODeviceBase, QObject
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from . import QByteArray, QIOOperation, QIOReadOperation, QIOWriteOperation
-  from . import QMetaObject
+  from . import QMetaObject, QRandomAccessAsyncFilePrivate
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -48,21 +48,41 @@ class QRandomAccessAsyncFile(QObject):
   -----------
 
   Every function of Qt's QRandomAccessAsyncFile that has a ritual and that
-  Python can call so far, 8 names in all: 'metaObject', 'tr', 'close',
-  'size', 'open', 'flush', 'read', 'write'. It can be made from Python, in 1
-  way; see '__init__'.
+  Python can call so far, 9 names in all: 'metaObject', 'tr', 'close',
+  'size', 'open', 'flush', 'read', 'write', 'd_func'. It can be made from
+  Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QRandomAccessAsyncFile::qt_metacast(const char *a0)': one of
+    Qt's own inner workings.
+  - Qt's 'int QRandomAccessAsyncFile::qt_metacall(QMetaObject::Call a0, int
+    a1, void **a2)': one of Qt's own inner workings.
   - Qt's 'QRandomAccessAsyncFile::~QRandomAccessAsyncFile()': the destructor:
     Python never removes a C++ QRandomAccessAsyncFile.
+  - Qt's 'QIOWriteOperation *QRandomAccessAsyncFile::write(qint64 offset,
+    QByteArray &&data)': takes a type Python has no way to hand over yet.
+  - Qt's 'QIOVectoredReadOperation *QRandomAccessAsyncFile::readInto(qint64
+    offset, QSpan<std::byte> buffer)': takes a type Python has no way to hand
+    over yet.
+  - Qt's 'QIOVectoredWriteOperation *QRandomAccessAsyncFile::writeFrom(qint64
+    offset, QSpan<const std::byte> buffer)': takes a type Python has no way
+    to hand over yet.
+  - Qt's 'QIOVectoredReadOperation *QRandomAccessAsyncFile::readInto(qint64
+    offset, QSpan<const QSpan<std::byte>> buffers)': takes a type Python has
+    no way to hand over yet.
+  - Qt's 'QIOVectoredWriteOperation *QRandomAccessAsyncFile::writeFrom(qint64
+    offset, QSpan<const QSpan<const std::byte>> buffers)': takes a type
+    Python has no way to hand over yet.
+  - Qt's 'const QRandomAccessAsyncFilePrivate
+    *QRandomAccessAsyncFile::d_func() const': takes in Python what
+    'QRandomAccessAsyncFilePrivate *QRandomAccessAsyncFile::d_func()' takes.
 
   What has no ritual
   ------------------
 
-  15 of the 25 functions Qt declares: 9 takes or gives a type that cannot be
-  passed yet; 4 forbidden; 1 a template; 1 declared and nowhere to be found.
+  6 of the 25 functions Qt declares: 4 forbidden; 2 not a gap.
 
   What to expect
   --------------
@@ -78,6 +98,9 @@ class QRandomAccessAsyncFile(QObject):
   - Qt tells when it has removed the C++ QRandomAccessAsyncFile. Every call
     on the cute object, and every use of it as an argument, then raises
     'RuntimeError', and nothing reaches C++.
+  - Each name of Qt's QRandomAccessAsyncFile that has no cute function yet,
+    'readInto', 'writeFrom', holds a function that raises
+    'NotImplementedError', and its docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -379,3 +402,64 @@ class QRandomAccessAsyncFile(QObject):
     )
     from . import QIOWriteOperation
     return QIOWriteOperation._cuteAt(address)
+
+  def d_func(self) -> Optional[QRandomAccessAsyncFilePrivate]:
+    """
+    Calls Qt's 'QRandomAccessAsyncFilePrivate
+    *QRandomAccessAsyncFile::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qrandomaccessasyncfile.html#d_func
+
+    Returns
+    -------
+
+    Optional[QRandomAccessAsyncFilePrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QRandomAccessAsyncFilePrivate *QRandomAccessAsyncFile::d_func()
+    address = self.uglySide.call(
+        'ritual_ZN22QRandomAccessAsyncFile6d_funcEv',
+    )
+    from . import QRandomAccessAsyncFilePrivate
+    return QRandomAccessAsyncFilePrivate._cuteAt(address)
+
+  @staticmethod
+  def readInto(*__, **_) -> Never:
+    """
+    - Qt's 'QIOVectoredReadOperation *QRandomAccessAsyncFile::readInto(qint64
+      offset, QSpan<std::byte> buffer)': takes a type Python has no way to
+      hand over yet.
+    - Qt's 'QIOVectoredReadOperation *QRandomAccessAsyncFile::readInto(qint64
+      offset, QSpan<const QSpan<std::byte>> buffers)': takes a type Python
+      has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QRandomAccessAsyncFile.readInto' has no cute function yet. Qt's "
+        "'QIOVectoredReadOperation *QRandomAccessAsyncFile::readInto(qint64 "
+        "offset, QSpan<std::byte> buffer)': takes a type Python has no way "
+        "to hand over yet. Qt's 'QIOVectoredReadOperation "
+        "*QRandomAccessAsyncFile::readInto(qint64 offset, QSpan<const "
+        "QSpan<std::byte>> buffers)': takes a type Python has no way to "
+        "hand over yet.")
+
+  @staticmethod
+  def writeFrom(*__, **_) -> Never:
+    """
+    - Qt's 'QIOVectoredWriteOperation
+      *QRandomAccessAsyncFile::writeFrom(qint64 offset, QSpan<const
+      std::byte> buffer)': takes a type Python has no way to hand over yet.
+    - Qt's 'QIOVectoredWriteOperation
+      *QRandomAccessAsyncFile::writeFrom(qint64 offset, QSpan<const
+      QSpan<const std::byte>> buffers)': takes a type Python has no way to
+      hand over yet.
+    """
+    raise NotImplementedError(
+        "'QRandomAccessAsyncFile.writeFrom' has no cute function yet. Qt's "
+        "'QIOVectoredWriteOperation "
+        "*QRandomAccessAsyncFile::writeFrom(qint64 offset, QSpan<const "
+        "std::byte> buffer)': takes a type Python has no way to hand over "
+        "yet. Qt's 'QIOVectoredWriteOperation "
+        "*QRandomAccessAsyncFile::writeFrom(qint64 offset, QSpan<const "
+        "QSpan<const std::byte>> buffers)': takes a type Python has no way "
+        "to hand over yet.")

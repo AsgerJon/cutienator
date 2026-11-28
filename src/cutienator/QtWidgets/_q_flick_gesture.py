@@ -25,6 +25,7 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
   from ..QtCore import QMetaObject
+  from . import QFlickGesturePrivate
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -43,20 +44,25 @@ class QFlickGesture(QGesture):
   -----------
 
   Every function of Qt's QFlickGesture that has a ritual and that Python can
-  call so far, 2 names in all: 'metaObject', 'tr'. It can be made from
-  Python, in 1 way; see '__init__'.
+  call so far, 3 names in all: 'metaObject', 'tr', 'd_func'. It can be made
+  from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QFlickGesture::qt_metacast(const char *a0)': one of Qt's own
+    inner workings.
+  - Qt's 'int QFlickGesture::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
+  - Qt's 'const QFlickGesturePrivate *QFlickGesture::d_func() const': takes
+    in Python what 'QFlickGesturePrivate *QFlickGesture::d_func()' takes.
   - Qt's 'QFlickGesture::~QFlickGesture()': the destructor: Python never
     removes a C++ QFlickGesture.
 
   What has no ritual
   ------------------
 
-  6 of the 10 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet; 1 a template; 1 declared and nowhere to be found.
+  2 of the 10 functions Qt declares: 2 not a gap.
 
   What to expect
   --------------
@@ -240,3 +246,21 @@ class QFlickGesture(QGesture):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  def d_func(self) -> Optional[QFlickGesturePrivate]:
+    """
+    Calls Qt's 'QFlickGesturePrivate *QFlickGesture::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qflickgesture.html#d_func
+
+    Returns
+    -------
+
+    Optional[QFlickGesturePrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QFlickGesturePrivate *QFlickGesture::d_func()
+    address = self.uglySide.call('ritual_ZN13QFlickGesture6d_funcEv')
+    from . import QFlickGesturePrivate
+    return QFlickGesturePrivate._cuteAt(address)

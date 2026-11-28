@@ -14,20 +14,21 @@ from worktoy.dispatch import overload
 from worktoy.keenum import Kee
 
 from ..cute import CuteMixin, CuteFlags, CuteNum, MetaCute, WAIT
+from ..occult import Rituals
 from ..QtCore import Qt, QList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from ..QtCore import QEvent, QPointF, QRectF, QSize, QVariant
   from ..QtGui import QCursor, QFocusEvent, QInputMethodEvent, QKeyEvent
   from ..QtGui import QPainter, QPainterPath, QPolygonF, QRegion, QTransform
-  from . import QGraphicsEffect, QGraphicsItemGroup, QGraphicsObject
-  from . import QGraphicsScene, QGraphicsSceneContextMenuEvent
-  from . import QGraphicsSceneDragDropEvent, QGraphicsSceneHoverEvent
-  from . import QGraphicsSceneMouseEvent, QGraphicsSceneWheelEvent
-  from . import QGraphicsTransform, QGraphicsWidget, QStyleOptionGraphicsItem
-  from . import QWidget
+  from . import QGraphicsEffect, QGraphicsItemGroup, QGraphicsItemPrivate
+  from . import QGraphicsObject, QGraphicsScene
+  from . import QGraphicsSceneContextMenuEvent, QGraphicsSceneDragDropEvent
+  from . import QGraphicsSceneHoverEvent, QGraphicsSceneMouseEvent
+  from . import QGraphicsSceneWheelEvent, QGraphicsTransform, QGraphicsWidget
+  from . import QStyleOptionGraphicsItem, QWidget
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -70,7 +71,7 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QGraphicsItem that has a ritual and that Python can
-  call so far, 162 names in all: 'scene', 'parentItem', 'topLevelItem',
+  call so far, 163 names in all: 'scene', 'parentItem', 'topLevelItem',
   'parentObject', 'parentWidget', 'topLevelWidget', 'window', 'panel',
   'setParentItem', 'childItems', 'isWidget', 'isWindow', 'isPanel',
   'toGraphicsObject', 'group', 'setGroup', 'flags', 'setFlag', 'setFlags',
@@ -107,9 +108,8 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
   'keyPressEvent', 'keyReleaseEvent', 'mousePressEvent', 'mouseMoveEvent',
   'mouseReleaseEvent', 'mouseDoubleClickEvent', 'wheelEvent',
   'inputMethodEvent', 'inputMethodQuery', 'itemChange', 'extension',
-  'addToIndex', 'removeFromIndex', 'prepareGeometryChange'. None can be made
-  from Python: one comes out of a function of another class that gives one
-  back.
+  'addToIndex', 'removeFromIndex', 'prepareGeometryChange', 'd_func'. It can
+  be made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -119,6 +119,8 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
   - Qt's 'const QGraphicsObject *QGraphicsItem::toGraphicsObject() const':
     takes in Python what 'QGraphicsObject *QGraphicsItem::toGraphicsObject()'
     takes.
+  - Qt's 'bool QGraphicsItem::isBlockedByModalPanel(QGraphicsItem
+    **blockingPanel) const': takes a type Python has no way to hand over yet.
   - Qt's 'QTransform QGraphicsItem::itemTransform(const QGraphicsItem *other,
     bool *ok) const': takes a number to change where it is.
   - Qt's 'bool QGraphicsItem::supportsExtension(Extension extension) const':
@@ -127,12 +129,15 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
   - Qt's 'void QGraphicsItem::setExtension(Extension extension, const
     QVariant &variant)': names the enum 'QGraphicsItem::Extension', whose
     class cannot be named here.
+  - Qt's 'QGraphicsItem::QGraphicsItem(QGraphicsItemPrivate &dd,
+    QGraphicsItem *parent)': takes a type Python has no way to hand over yet.
+  - Qt's 'const QGraphicsItemPrivate *QGraphicsItem::d_func() const': takes
+    in Python what 'QGraphicsItemPrivate *QGraphicsItem::d_func()' takes.
 
   What has no ritual
   ------------------
 
-  7 of the 215 functions Qt declares: 3 takes or gives a type that cannot be
-  passed yet; 2 the class is abstract, so C++ cannot make one; 2 forbidden.
+  2 of the 215 functions Qt declares: 2 forbidden.
 
   What to expect
   --------------
@@ -145,6 +150,10 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
     has it, and is passed on as nothing. Whether Qt can do with nothing there
     is as in C++.
   - Python never removes the C++ QGraphicsItem.
+  - Each name of Qt's QGraphicsItem that has no cute function yet,
+    'isBlockedByModalPanel', 'itemTransform', 'setExtension',
+    'supportsExtension', holds a function that raises 'NotImplementedError',
+    and its docstring says why.
   """
 
   #  The enums Qt writes inside QGraphicsItem, each a class in here as in
@@ -1440,7 +1449,9 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
     ritual = 'ritual_ZNK13QGraphicsItem8containsERK7QPointF'
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZNK13QGraphicsItem8containsERK7QPointF'
-    return self._callAs('QGraphicsItem', ritual, self._valueOf(point))
+    return self._callAs(
+        'QGraphicsItem', ritual, self._valueOf(point, 'QPointF'),
+    )
 
   @overload(THIS)
   @overload(NoneType)
@@ -1732,7 +1743,8 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
     address = self._callAs(
         'QGraphicsItem',
         'ritual_ZNK13QGraphicsItem9mapToItemEPKS_RK7QPointF',
-        self._addressOf(item, 'QGraphicsItem'), self._valueOf(point),
+        self._addressOf(item, 'QGraphicsItem'), self._valueOf(point,
+        'QPointF'),
     )
     from ..QtCore import QPointF
     return QPointF._cuteOwning(address)
@@ -1972,7 +1984,7 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
     #  QPointF QGraphicsItem::mapToParent(const QPointF &point) const
     address = self._callAs(
         'QGraphicsItem', 'ritual_ZNK13QGraphicsItem11mapToParentERK7QPointF',
-        self._valueOf(point),
+        self._valueOf(point, 'QPointF'),
     )
     from ..QtCore import QPointF
     return QPointF._cuteOwning(address)
@@ -2158,7 +2170,7 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
     #  QPointF QGraphicsItem::mapToScene(const QPointF &point) const
     address = self._callAs(
         'QGraphicsItem', 'ritual_ZNK13QGraphicsItem10mapToSceneERK7QPointF',
-        self._valueOf(point),
+        self._valueOf(point, 'QPointF'),
     )
     from ..QtCore import QPointF
     return QPointF._cuteOwning(address)
@@ -2586,7 +2598,8 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
     address = self._callAs(
         'QGraphicsItem',
         'ritual_ZNK13QGraphicsItem11mapFromItemEPKS_RK7QPointF',
-        self._addressOf(item, 'QGraphicsItem'), self._valueOf(point),
+        self._addressOf(item, 'QGraphicsItem'), self._valueOf(point,
+        'QPointF'),
     )
     from ..QtCore import QPointF
     return QPointF._cuteOwning(address)
@@ -2828,7 +2841,7 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
     address = self._callAs(
         'QGraphicsItem',
         'ritual_ZNK13QGraphicsItem13mapFromParentERK7QPointF',
-        self._valueOf(point),
+        self._valueOf(point, 'QPointF'),
     )
     from ..QtCore import QPointF
     return QPointF._cuteOwning(address)
@@ -3023,7 +3036,7 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
     address = self._callAs(
         'QGraphicsItem',
         'ritual_ZNK13QGraphicsItem12mapFromSceneERK7QPointF',
-        self._valueOf(point),
+        self._valueOf(point, 'QPointF'),
     )
     from ..QtCore import QPointF
     return QPointF._cuteOwning(address)
@@ -4140,7 +4153,7 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
     #  void QGraphicsItem::setPos(const QPointF &pos)
     self._callAs(
         'QGraphicsItem', 'ritual_ZN13QGraphicsItem6setPosERK7QPointF',
-        self._valueOf(pos),
+        self._valueOf(pos, 'QPointF'),
     )
 
   @overload(float, float)
@@ -4274,7 +4287,7 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
     self._callAs(
         'QGraphicsItem',
         'ritual_ZN13QGraphicsItem23setTransformOriginPointERK7QPointF',
-        self._valueOf(origin),
+        self._valueOf(origin, 'QPointF'),
     )
 
   @overload(float, float)
@@ -4397,6 +4410,30 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload()
+  @overload(THIS)
+  @overload(NoneType)
+  def __init__(self, parent: Optional[QGraphicsItem] = None) -> None:
+    """
+    Notes what was given, for Qt's
+    'QGraphicsItem::QGraphicsItem(QGraphicsItem *parent)', which is called at
+    the first use.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#QGraphicsItem
+
+    Parameters
+    ----------
+
+    parent : Optional[QGraphicsItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object. May be left out, as in Qt: it is then None.
+    """
+    #  QGraphicsItem::QGraphicsItem(QGraphicsItem *parent)
+    self._noteCreation(QGraphicsItem, lambda: Rituals.call(
+        'ritual_ZN13QGraphicsItemC1EPS_',
+        self._addressOf(parent, 'QGraphicsItem'),
+    ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -5493,6 +5530,75 @@ class QGraphicsItem(CuteMixin, metaclass=MetaCute):
     self._callAs(
         'QGraphicsItem', 'ritual_ZN13QGraphicsItem21prepareGeometryChangeEv',
     )
+
+  def d_func(self) -> Optional[QGraphicsItemPrivate]:
+    """
+    Calls Qt's 'QGraphicsItemPrivate *QGraphicsItem::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsitem.html#d_func
+
+    Returns
+    -------
+
+    Optional[QGraphicsItemPrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QGraphicsItemPrivate *QGraphicsItem::d_func()
+    address = self._callAs(
+        'QGraphicsItem', 'ritual_ZN13QGraphicsItem6d_funcEv',
+    )
+    from . import QGraphicsItemPrivate
+    return QGraphicsItemPrivate._cuteAt(address)
+
+  @staticmethod
+  def isBlockedByModalPanel(*__, **_) -> Never:
+    """
+    Qt's 'bool QGraphicsItem::isBlockedByModalPanel(QGraphicsItem
+    **blockingPanel) const': takes a type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QGraphicsItem.isBlockedByModalPanel' has no cute function yet. "
+        "Qt's 'bool QGraphicsItem::isBlockedByModalPanel(QGraphicsItem "
+        "**blockingPanel) const': takes a type Python has no way to hand "
+        "over yet.")
+
+  @staticmethod
+  def itemTransform(*__, **_) -> Never:
+    """
+    Qt's 'QTransform QGraphicsItem::itemTransform(const QGraphicsItem *other,
+    bool *ok) const': takes a number to change where it is.
+    """
+    raise NotImplementedError(
+        "'QGraphicsItem.itemTransform' has no cute function yet. Qt's "
+        "'QTransform QGraphicsItem::itemTransform(const QGraphicsItem "
+        "*other, bool *ok) const': takes a number to change where it is.")
+
+  @staticmethod
+  def setExtension(*__, **_) -> Never:
+    """
+    Qt's 'void QGraphicsItem::setExtension(Extension extension, const
+    QVariant &variant)': names the enum 'QGraphicsItem::Extension', whose
+    class cannot be named here.
+    """
+    raise NotImplementedError(
+        "'QGraphicsItem.setExtension' has no cute function yet. Qt's 'void "
+        "QGraphicsItem::setExtension(Extension extension, const QVariant "
+        "&variant)': names the enum 'QGraphicsItem::Extension', whose class "
+        "cannot be named here.")
+
+  @staticmethod
+  def supportsExtension(*__, **_) -> Never:
+    """
+    Qt's 'bool QGraphicsItem::supportsExtension(Extension extension) const':
+    names the enum 'QGraphicsItem::Extension', whose class cannot be named
+    here.
+    """
+    raise NotImplementedError(
+        "'QGraphicsItem.supportsExtension' has no cute function yet. Qt's "
+        "'bool QGraphicsItem::supportsExtension(Extension extension) "
+        "const': names the enum 'QGraphicsItem::Extension', whose class "
+        "cannot be named here.")
 
 
 #  Qt's 'QList<QGraphicsItem *>': the list of QGraphicsItem, which

@@ -12,9 +12,19 @@ from typing import TYPE_CHECKING
 from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin, MetaCute
+from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
 from . import QList, QStringList
+
+if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Never
+
+  from . import QMimeTypePrivate
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QMimeTypePrivate = WAIT['QMimeTypePrivate']
 
 
 class QMimeType(CuteMixin, metaclass=MetaCute):
@@ -33,20 +43,25 @@ class QMimeType(CuteMixin, metaclass=MetaCute):
   so far, 16 names in all: 'isValid', 'isDefault', 'name', 'comment',
   'genericIconName', 'iconName', 'globPatterns', 'parentMimeTypes',
   'allAncestors', 'aliases', 'suffixes', 'preferredSuffix', 'inherits',
-  'filterString', '__eq__', '__ne__'. It can be made from Python, in 2 ways;
+  'filterString', '__eq__', '__ne__'. It can be made from Python, in 3 ways;
   see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'QMimeType &QMimeType::operator=(const QMimeType &other)':
+    assignment: Python binds a name and has no operator for it.
+  - Qt's 'QMimeType &QMimeType::operator=(QMimeType &&other)': assignment:
+    Python binds a name and has no operator for it.
+  - Qt's 'void QMimeType::swap(QMimeType &other)': takes a type Python has no
+    way to hand over yet.
   - Qt's 'QMimeType::~QMimeType()': the destructor: Python removes its C++
     QMimeType by it, and has no other use for it.
 
   What has no ritual
   ------------------
 
-  7 of the 26 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet; 2 declared and nowhere to be found; 1 a template.
+  3 of the 26 functions Qt declares: 3 not a gap.
 
   What to expect
   --------------
@@ -59,6 +74,8 @@ class QMimeType(CuteMixin, metaclass=MetaCute):
     is as in C++.
   - A function giving a QMimeType back gives a copy the ritual made for
     Python, in a new cute QMimeType.
+  - Each name of Qt's QMimeType that has no cute function yet, 'swap', holds
+    a function that raises 'NotImplementedError', and its docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -402,6 +419,26 @@ class QMimeType(CuteMixin, metaclass=MetaCute):
         'ritual_ZN9QMimeTypeC1ERKS_', self._valueOf(other),
     ))
 
+  @overload(QMimeTypePrivate)
+  def __init__(self, dd: QMimeTypePrivate) -> None:
+    """
+    Notes what was given, for Qt's 'QMimeType::QMimeType(const
+    QMimeTypePrivate &dd)', which is called at the first use.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmimetype.html#QMimeType
+
+    Parameters
+    ----------
+
+    dd : QMimeTypePrivate
+      Passed on as a value: Qt reads the C++ QMimeTypePrivate, which stays
+      Python's own.
+    """
+    #  QMimeType::QMimeType(const QMimeTypePrivate &dd)
+    self._noteCreation(QMimeType, lambda: Rituals.call(
+        'ritual_ZN9QMimeTypeC1ERK16QMimeTypePrivate', self._valueOf(dd),
+    ))
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -421,6 +458,17 @@ class QMimeType(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def swap(*__, **_) -> Never:
+    """
+    Qt's 'void QMimeType::swap(QMimeType &other)': takes a type Python has no
+    way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QMimeType.swap' has no cute function yet. Qt's 'void "
+        "QMimeType::swap(QMimeType &other)': takes a type Python has no way "
+        "to hand over yet.")
 
 
 #  Qt's 'QList<QMimeType>': the list of QMimeType, which 'QList[QMimeType]'

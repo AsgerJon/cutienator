@@ -15,7 +15,7 @@ from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from . import QChar, QLatin1String
 else:
@@ -72,6 +72,9 @@ class QAbstractConcatenable(CuteMixin, metaclass=MetaCute):
     is as in C++.
   - A function giving a QAbstractConcatenable back gives a copy the ritual
     made for Python, in a new cute QAbstractConcatenable.
+  - Each name of Qt's QAbstractConcatenable that has no cute function yet,
+    'convertFromAscii', 'convertFromUtf8', holds a function that raises
+    'NotImplementedError', and its docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -168,3 +171,27 @@ class QAbstractConcatenable(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def convertFromAscii(*__, **_) -> Never:
+    """
+    Qt's 'void QAbstractConcatenable::convertFromAscii(char a, QChar *&out)':
+    takes or gives a type that cannot be passed yet: QChar *&.
+    """
+    raise NotImplementedError(
+        "'QAbstractConcatenable.convertFromAscii' has no cute function yet. "
+        "Qt's 'void QAbstractConcatenable::convertFromAscii(char a, QChar "
+        "*&out)': takes or gives a type that cannot be passed yet: QChar *&."
+    )
+
+  @staticmethod
+  def convertFromUtf8(*__, **_) -> Never:
+    """
+    Qt's 'void QAbstractConcatenable::convertFromUtf8(QByteArrayView in,
+    QChar *&out)': takes or gives a type that cannot be passed yet: QChar *&.
+    """
+    raise NotImplementedError(
+        "'QAbstractConcatenable.convertFromUtf8' has no cute function yet. "
+        "Qt's 'void QAbstractConcatenable::convertFromUtf8(QByteArrayView "
+        "in, QChar *&out)': takes or gives a type that cannot be passed "
+        "yet: QChar *&.")

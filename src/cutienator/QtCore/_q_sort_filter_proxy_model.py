@@ -17,7 +17,7 @@ from . import Qt, QAbstractItemModel, QAbstractProxyModel, QList, QObject
 from . import QStringList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from . import QItemSelection, QMetaObject, QMimeData, QModelIndex
   from . import QRegularExpression, QSize, QVariant
@@ -49,7 +49,7 @@ class QSortFilterProxyModel(QAbstractProxyModel):
   -----------
 
   Every function of Qt's QSortFilterProxyModel that has a ritual and that
-  Python can call so far, 65 names in all: 'metaObject', 'tr',
+  Python can call so far, 73 names in all: 'metaObject', 'tr',
   'setSourceModel', 'mapToSource', 'mapFromSource', 'mapSelectionToSource',
   'mapSelectionFromSource', 'filterRegularExpression', 'filterKeyColumn',
   'setFilterKeyColumn', 'filterCaseSensitivity', 'setFilterCaseSensitivity',
@@ -66,21 +66,63 @@ class QSortFilterProxyModel(QAbstractProxyModel):
   'columnCount', 'hasChildren', 'data', 'setData', 'headerData',
   'setHeaderData', 'mimeData', 'dropMimeData', 'insertRows', 'insertColumns',
   'removeRows', 'removeColumns', 'fetchMore', 'canFetchMore', 'flags',
-  'buddy', 'match', 'span', 'sort', 'mimeTypes', 'supportedDropActions'. It
-  can be made from Python, in 1 way; see '__init__'.
+  'buddy', 'match', 'span', 'sort', 'mimeTypes', 'supportedDropActions',
+  'dynamicSortFilterChanged', 'filterCaseSensitivityChanged',
+  'sortCaseSensitivityChanged', 'sortLocaleAwareChanged', 'sortRoleChanged',
+  'filterRoleChanged', 'recursiveFilteringEnabledChanged',
+  'autoAcceptChildRowsChanged'. It can be made from Python, in 1 way; see
+  '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QSortFilterProxyModel::qt_metacast(const char *a0)': one of
+    Qt's own inner workings.
+  - Qt's 'int QSortFilterProxyModel::qt_metacall(QMetaObject::Call a0, int
+    a1, void **a2)': one of Qt's own inner workings.
   - Qt's 'QSortFilterProxyModel::~QSortFilterProxyModel()': the destructor:
     Python never removes a C++ QSortFilterProxyModel.
+  - Qt's 'QBindable<QRegularExpression>
+    QSortFilterProxyModel::bindableFilterRegularExpression()': gives a type
+    Python has no way to take yet.
+  - Qt's 'QBindable<int> QSortFilterProxyModel::bindableFilterKeyColumn()':
+    gives a type Python has no way to take yet.
+  - Qt's 'QBindable<Qt::CaseSensitivity>
+    QSortFilterProxyModel::bindableFilterCaseSensitivity()': gives a type
+    Python has no way to take yet.
+  - Qt's 'QBindable<Qt::CaseSensitivity>
+    QSortFilterProxyModel::bindableSortCaseSensitivity()': gives a type
+    Python has no way to take yet.
+  - Qt's 'QBindable<bool>
+    QSortFilterProxyModel::bindableIsSortLocaleAware()': gives a type Python
+    has no way to take yet.
+  - Qt's 'QBindable<bool>
+    QSortFilterProxyModel::bindableDynamicSortFilter()': gives a type Python
+    has no way to take yet.
+  - Qt's 'QBindable<int> QSortFilterProxyModel::bindableSortRole()': gives a
+    type Python has no way to take yet.
+  - Qt's 'QBindable<int> QSortFilterProxyModel::bindableFilterRole()': gives
+    a type Python has no way to take yet.
+  - Qt's 'QBindable<bool>
+    QSortFilterProxyModel::bindableRecursiveFilteringEnabled()': gives a type
+    Python has no way to take yet.
+  - Qt's 'QBindable<bool>
+    QSortFilterProxyModel::bindableAutoAcceptChildRows()': gives a type
+    Python has no way to take yet.
+  - Qt's 'DataChangeRelevanceFlags
+    QSortFilterProxyModel::dataChangeRelevanceFlags(const QModelIndex
+    &sourceTopLeft, const QModelIndex &sourceBottomRight, const QList<int>
+    &roles) const': takes a type Python has no way to hand over yet.
+  - Qt's 'QSortFilterProxyModelPrivate *QSortFilterProxyModel::d_func()':
+    gives 'QSortFilterProxyModelPrivate', which has no cute class yet.
+  - Qt's 'const QSortFilterProxyModelPrivate *QSortFilterProxyModel::d_func()
+    const': gives 'QSortFilterProxyModelPrivate', which has no cute class
+    yet.
 
   What has no ritual
   ------------------
 
-  27 of the 95 functions Qt declares: 15 takes or gives a type that cannot be
-  passed yet; 8 a signal; 2 forbidden; 1 a template; 1 declared and nowhere
-  to be found.
+  4 of the 95 functions Qt declares: 2 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -96,6 +138,14 @@ class QSortFilterProxyModel(QAbstractProxyModel):
   - Qt tells when it has removed the C++ QSortFilterProxyModel. Every call on
     the cute object, and every use of it as an argument, then raises
     'RuntimeError', and nothing reaches C++.
+  - Each name of Qt's QSortFilterProxyModel that has no cute function yet,
+    'bindableAutoAcceptChildRows', 'bindableDynamicSortFilter',
+    'bindableFilterCaseSensitivity', 'bindableFilterKeyColumn',
+    'bindableFilterRegularExpression', 'bindableFilterRole',
+    'bindableIsSortLocaleAware', 'bindableRecursiveFilteringEnabled',
+    'bindableSortCaseSensitivity', 'bindableSortRole',
+    'dataChangeRelevanceFlags', holds a function that raises
+    'NotImplementedError', and its docstring says why.
   """
 
   #  The enums Qt writes inside QSortFilterProxyModel, each a class in here
@@ -2024,3 +2074,331 @@ class QSortFilterProxyModel(QAbstractProxyModel):
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZN21QSortFilterProxyModel4sortEiN2Qt9SortOrderE'
     self.uglySide.call(ritual, column, order.value)
+
+  @overload(bool)
+  def dynamicSortFilterChanged(self, dynamicSortFilter: bool) -> None:
+    """
+    Calls Qt's 'void QSortFilterProxyModel::dynamicSortFilterChanged(bool
+    dynamicSortFilter)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qsortfilterproxymodel.html
+
+    Parameters
+    ----------
+
+    dynamicSortFilter : bool
+      Passed on as it is.
+    """
+    #  void QSortFilterProxyModel::dynamicSortFilterChanged(bool
+    #      dynamicSortFilter)
+    self.uglySide.call(
+        'ritual_ZN21QSortFilterProxyModel24dynamicSortFilterChangedEb',
+        dynamicSortFilter,
+    )
+
+  @overload(Qt.CaseSensitivity)
+  def filterCaseSensitivityChanged(
+      self,
+      filterCaseSensitivity: Qt.CaseSensitivity,
+  ) -> None:
+    """
+    Calls Qt's 'void
+    QSortFilterProxyModel::filterCaseSensitivityChanged(Qt::CaseSensitivity
+    filterCaseSensitivity)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qsortfilterproxymodel.html
+
+    Parameters
+    ----------
+
+    filterCaseSensitivity : Qt.CaseSensitivity
+      Passed on as its number.
+    """
+    #  void QSortFilterProxyModel::filterCaseSensitivityChanged(Qt::
+    #      CaseSensitivity filterCaseSensitivity)
+    self.uglySide.call(
+        'ritual_ZN21QSortFilterProxyModel28filterCaseSensitivityChangedEN2Q'
+        't15CaseSensitivityE',
+        filterCaseSensitivity.value,
+    )
+
+  @overload(Qt.CaseSensitivity)
+  def sortCaseSensitivityChanged(
+      self,
+      sortCaseSensitivity: Qt.CaseSensitivity,
+  ) -> None:
+    """
+    Calls Qt's 'void
+    QSortFilterProxyModel::sortCaseSensitivityChanged(Qt::CaseSensitivity
+    sortCaseSensitivity)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qsortfilterproxymodel.html
+
+    Parameters
+    ----------
+
+    sortCaseSensitivity : Qt.CaseSensitivity
+      Passed on as its number.
+    """
+    #  void QSortFilterProxyModel::sortCaseSensitivityChanged(Qt::
+    #      CaseSensitivity sortCaseSensitivity)
+    self.uglySide.call(
+        'ritual_ZN21QSortFilterProxyModel26sortCaseSensitivityChangedEN2Qt1'
+        '5CaseSensitivityE',
+        sortCaseSensitivity.value,
+    )
+
+  @overload(bool)
+  def sortLocaleAwareChanged(self, sortLocaleAware: bool) -> None:
+    """
+    Calls Qt's 'void QSortFilterProxyModel::sortLocaleAwareChanged(bool
+    sortLocaleAware)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qsortfilterproxymodel.html#sortLocaleAwareChanged
+
+    Parameters
+    ----------
+
+    sortLocaleAware : bool
+      Passed on as it is.
+    """
+    #  void QSortFilterProxyModel::sortLocaleAwareChanged(bool
+    #      sortLocaleAware)
+    self.uglySide.call(
+        'ritual_ZN21QSortFilterProxyModel22sortLocaleAwareChangedEb',
+        sortLocaleAware,
+    )
+
+  @overload(int)
+  def sortRoleChanged(self, sortRole: int) -> None:
+    """
+    Calls Qt's 'void QSortFilterProxyModel::sortRoleChanged(int sortRole)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qsortfilterproxymodel.html#sortRoleChanged
+
+    Parameters
+    ----------
+
+    sortRole : int
+      Passed on as it is.
+    """
+    #  void QSortFilterProxyModel::sortRoleChanged(int sortRole)
+    self.uglySide.call(
+        'ritual_ZN21QSortFilterProxyModel15sortRoleChangedEi', sortRole,
+    )
+
+  @overload(int)
+  def filterRoleChanged(self, filterRole: int) -> None:
+    """
+    Calls Qt's 'void QSortFilterProxyModel::filterRoleChanged(int
+    filterRole)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qsortfilterproxymodel.html#filterRoleChanged
+
+    Parameters
+    ----------
+
+    filterRole : int
+      Passed on as it is.
+    """
+    #  void QSortFilterProxyModel::filterRoleChanged(int filterRole)
+    self.uglySide.call(
+        'ritual_ZN21QSortFilterProxyModel17filterRoleChangedEi', filterRole,
+    )
+
+  @overload(bool)
+  def recursiveFilteringEnabledChanged(
+      self,
+      recursiveFilteringEnabled: bool,
+  ) -> None:
+    """
+    Calls Qt's 'void
+    QSortFilterProxyModel::recursiveFilteringEnabledChanged(bool
+    recursiveFilteringEnabled)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qsortfilterproxymodel.html
+
+    Parameters
+    ----------
+
+    recursiveFilteringEnabled : bool
+      Passed on as it is.
+    """
+    #  void QSortFilterProxyModel::recursiveFilteringEnabledChanged(bool
+    #      recursiveFilteringEnabled)
+    self.uglySide.call(
+        'ritual_ZN21QSortFilterProxyModel32recursiveFilteringEnabledChanged'
+        'Eb',
+        recursiveFilteringEnabled,
+    )
+
+  @overload(bool)
+  def autoAcceptChildRowsChanged(self, autoAcceptChildRows: bool) -> None:
+    """
+    Calls Qt's 'void QSortFilterProxyModel::autoAcceptChildRowsChanged(bool
+    autoAcceptChildRows)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qsortfilterproxymodel.html
+
+    Parameters
+    ----------
+
+    autoAcceptChildRows : bool
+      Passed on as it is.
+    """
+    #  void QSortFilterProxyModel::autoAcceptChildRowsChanged(bool
+    #      autoAcceptChildRows)
+    self.uglySide.call(
+        'ritual_ZN21QSortFilterProxyModel26autoAcceptChildRowsChangedEb',
+        autoAcceptChildRows,
+    )
+
+  @staticmethod
+  def bindableAutoAcceptChildRows(*__, **_) -> Never:
+    """
+    Qt's 'QBindable<bool>
+    QSortFilterProxyModel::bindableAutoAcceptChildRows()': gives a type
+    Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QSortFilterProxyModel.bindableAutoAcceptChildRows' has no cute "
+        "function yet. Qt's 'QBindable<bool> "
+        "QSortFilterProxyModel::bindableAutoAcceptChildRows()': gives a "
+        "type Python has no way to take yet.")
+
+  @staticmethod
+  def bindableDynamicSortFilter(*__, **_) -> Never:
+    """
+    Qt's 'QBindable<bool>
+    QSortFilterProxyModel::bindableDynamicSortFilter()': gives a type Python
+    has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QSortFilterProxyModel.bindableDynamicSortFilter' has no cute "
+        "function yet. Qt's 'QBindable<bool> "
+        "QSortFilterProxyModel::bindableDynamicSortFilter()': gives a type "
+        "Python has no way to take yet.")
+
+  @staticmethod
+  def bindableFilterCaseSensitivity(*__, **_) -> Never:
+    """
+    Qt's 'QBindable<Qt::CaseSensitivity>
+    QSortFilterProxyModel::bindableFilterCaseSensitivity()': gives a type
+    Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QSortFilterProxyModel.bindableFilterCaseSensitivity' has no cute "
+        "function yet. Qt's 'QBindable<Qt::CaseSensitivity> "
+        "QSortFilterProxyModel::bindableFilterCaseSensitivity()': gives a "
+        "type Python has no way to take yet.")
+
+  @staticmethod
+  def bindableFilterKeyColumn(*__, **_) -> Never:
+    """
+    Qt's 'QBindable<int> QSortFilterProxyModel::bindableFilterKeyColumn()':
+    gives a type Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QSortFilterProxyModel.bindableFilterKeyColumn' has no cute "
+        "function yet. Qt's 'QBindable<int> "
+        "QSortFilterProxyModel::bindableFilterKeyColumn()': gives a type "
+        "Python has no way to take yet.")
+
+  @staticmethod
+  def bindableFilterRegularExpression(*__, **_) -> Never:
+    """
+    Qt's 'QBindable<QRegularExpression>
+    QSortFilterProxyModel::bindableFilterRegularExpression()': gives a type
+    Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QSortFilterProxyModel.bindableFilterRegularExpression' has no "
+        "cute function yet. Qt's 'QBindable<QRegularExpression> "
+        "QSortFilterProxyModel::bindableFilterRegularExpression()': gives a "
+        "type Python has no way to take yet.")
+
+  @staticmethod
+  def bindableFilterRole(*__, **_) -> Never:
+    """
+    Qt's 'QBindable<int> QSortFilterProxyModel::bindableFilterRole()': gives
+    a type Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QSortFilterProxyModel.bindableFilterRole' has no cute function "
+        "yet. Qt's 'QBindable<int> "
+        "QSortFilterProxyModel::bindableFilterRole()': gives a type Python "
+        "has no way to take yet.")
+
+  @staticmethod
+  def bindableIsSortLocaleAware(*__, **_) -> Never:
+    """
+    Qt's 'QBindable<bool>
+    QSortFilterProxyModel::bindableIsSortLocaleAware()': gives a type Python
+    has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QSortFilterProxyModel.bindableIsSortLocaleAware' has no cute "
+        "function yet. Qt's 'QBindable<bool> "
+        "QSortFilterProxyModel::bindableIsSortLocaleAware()': gives a type "
+        "Python has no way to take yet.")
+
+  @staticmethod
+  def bindableRecursiveFilteringEnabled(*__, **_) -> Never:
+    """
+    Qt's 'QBindable<bool>
+    QSortFilterProxyModel::bindableRecursiveFilteringEnabled()': gives a type
+    Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QSortFilterProxyModel.bindableRecursiveFilteringEnabled' has no "
+        "cute function yet. Qt's 'QBindable<bool> "
+        "QSortFilterProxyModel::bindableRecursiveFilteringEnabled()': gives "
+        "a type Python has no way to take yet.")
+
+  @staticmethod
+  def bindableSortCaseSensitivity(*__, **_) -> Never:
+    """
+    Qt's 'QBindable<Qt::CaseSensitivity>
+    QSortFilterProxyModel::bindableSortCaseSensitivity()': gives a type
+    Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QSortFilterProxyModel.bindableSortCaseSensitivity' has no cute "
+        "function yet. Qt's 'QBindable<Qt::CaseSensitivity> "
+        "QSortFilterProxyModel::bindableSortCaseSensitivity()': gives a "
+        "type Python has no way to take yet.")
+
+  @staticmethod
+  def bindableSortRole(*__, **_) -> Never:
+    """
+    Qt's 'QBindable<int> QSortFilterProxyModel::bindableSortRole()': gives a
+    type Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QSortFilterProxyModel.bindableSortRole' has no cute function yet. "
+        "Qt's 'QBindable<int> QSortFilterProxyModel::bindableSortRole()': "
+        "gives a type Python has no way to take yet.")
+
+  @staticmethod
+  def dataChangeRelevanceFlags(*__, **_) -> Never:
+    """
+    Qt's 'DataChangeRelevanceFlags
+    QSortFilterProxyModel::dataChangeRelevanceFlags(const QModelIndex
+    &sourceTopLeft, const QModelIndex &sourceBottomRight, const QList<int>
+    &roles) const': takes a type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QSortFilterProxyModel.dataChangeRelevanceFlags' has no cute "
+        "function yet. Qt's 'DataChangeRelevanceFlags "
+        "QSortFilterProxyModel::dataChangeRelevanceFlags(const QModelIndex "
+        "&sourceTopLeft, const QModelIndex &sourceBottomRight, const "
+        "QList<int> &roles) const': takes a type Python has no way to hand "
+        "over yet.")

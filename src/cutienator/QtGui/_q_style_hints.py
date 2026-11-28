@@ -16,10 +16,10 @@ from ..occult import Rituals
 from ..QtCore import Qt, QObject
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from ..QtCore import QChar, QMetaObject
-  from . import QAccessibilityHints
+  from . import QAccessibilityHints, QStyleHintsPrivate
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -38,7 +38,7 @@ class QStyleHints(QObject):
   -----------
 
   Every function of Qt's QStyleHints that has a ritual and that Python can
-  call so far, 45 names in all: 'metaObject', 'tr',
+  call so far, 60 names in all: 'metaObject', 'tr', 'd_func',
   'setMouseDoubleClickInterval', 'mouseDoubleClickInterval',
   'mouseDoubleClickDistance', 'touchDoubleTapDistance',
   'setMousePressAndHoldInterval', 'mousePressAndHoldInterval',
@@ -55,15 +55,37 @@ class QStyleHints(QObject):
   'wheelScrollLines', 'setWheelScrollLines',
   'setMouseQuickSelectionThreshold', 'mouseQuickSelectionThreshold',
   'colorScheme', 'setColorScheme', 'unsetColorScheme', 'accessibility',
-  'toolTipWakeUpDelayAsMSec'. It can be made from Python, in 1 way; see
-  '__init__'.
+  'toolTipWakeUpDelayAsMSec', 'cursorFlashTimeChanged',
+  'keyboardInputIntervalChanged', 'mouseDoubleClickIntervalChanged',
+  'mousePressAndHoldIntervalChanged', 'startDragDistanceChanged',
+  'startDragTimeChanged', 'tabFocusBehaviorChanged',
+  'useHoverEffectsChanged', 'showShortcutsInContextMenusChanged',
+  'contextMenuTriggerChanged', 'wheelScrollLinesChanged',
+  'mouseQuickSelectionThresholdChanged', 'colorSchemeChanged',
+  'toolTipWakeUpDelayAsMSecChanged'. It can be made from Python, in 1 way;
+  see '__init__'.
+
+  What has a ritual and is left out, and why
+  ------------------------------------------
+
+  - Qt's 'void *QStyleHints::qt_metacast(const char *a0)': one of Qt's own
+    inner workings.
+  - Qt's 'int QStyleHints::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
+  - Qt's 'const QStyleHintsPrivate *QStyleHints::d_func() const': takes in
+    Python what 'QStyleHintsPrivate *QStyleHints::d_func()' takes.
+  - Qt's 'std::chrono::milliseconds QStyleHints::toolTipWakeUpDelay() const':
+    gives a type Python has no way to take yet.
+  - Qt's 'void QStyleHints::setToolTipWakeUpDelay(std::chrono::milliseconds
+    toolTipWakeUpDelay)': takes a type Python has no way to hand over yet.
+  - Qt's 'void
+    QStyleHints::toolTipWakeUpDelayChanged(std::chrono::milliseconds
+    toolTipWakeUpDelay)': takes a type Python has no way to hand over yet.
 
   What has no ritual
   ------------------
 
-  23 of the 69 functions Qt declares: 15 a signal; 6 takes or gives a type
-  that cannot be passed yet; 1 a template; 1 declared and nowhere to be
-  found.
+  2 of the 69 functions Qt declares: 2 not a gap.
 
   What to expect
   --------------
@@ -79,6 +101,10 @@ class QStyleHints(QObject):
   - Qt tells when it has removed the C++ QStyleHints. Every call on the cute
     object, and every use of it as an argument, then raises 'RuntimeError',
     and nothing reaches C++.
+  - Each name of Qt's QStyleHints that has no cute function yet,
+    'setToolTipWakeUpDelay', 'toolTipWakeUpDelay',
+    'toolTipWakeUpDelayChanged', holds a function that raises
+    'NotImplementedError', and its docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -855,6 +881,24 @@ class QStyleHints(QObject):
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  def d_func(self) -> Optional[QStyleHintsPrivate]:
+    """
+    Calls Qt's 'QStyleHintsPrivate *QStyleHints::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qstylehints.html#d_func
+
+    Returns
+    -------
+
+    Optional[QStyleHintsPrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QStyleHintsPrivate *QStyleHints::d_func()
+    address = self.uglySide.call('ritual_ZN11QStyleHints6d_funcEv')
+    from . import QStyleHintsPrivate
+    return QStyleHintsPrivate._cuteAt(address)
+
   def unsetColorScheme(self) -> None:
     """
     Calls Qt's 'void QStyleHints::unsetColorScheme()'.
@@ -863,3 +907,349 @@ class QStyleHints(QObject):
     """
     #  void QStyleHints::unsetColorScheme()
     self.uglySide.call('ritual_ZN11QStyleHints16unsetColorSchemeEv')
+
+  @overload(int)
+  def cursorFlashTimeChanged(self, cursorFlashTime: int) -> None:
+    """
+    Calls Qt's 'void QStyleHints::cursorFlashTimeChanged(int
+    cursorFlashTime)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qstylehints.html#cursorFlashTimeChanged
+
+    Parameters
+    ----------
+
+    cursorFlashTime : int
+      Passed on as it is.
+    """
+    #  void QStyleHints::cursorFlashTimeChanged(int cursorFlashTime)
+    self.uglySide.call(
+        'ritual_ZN11QStyleHints22cursorFlashTimeChangedEi', cursorFlashTime,
+    )
+
+  @overload(int)
+  def keyboardInputIntervalChanged(self, keyboardInputInterval: int) -> None:
+    """
+    Calls Qt's 'void QStyleHints::keyboardInputIntervalChanged(int
+    keyboardInputInterval)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qstylehints.html#keyboardInputIntervalChanged
+
+    Parameters
+    ----------
+
+    keyboardInputInterval : int
+      Passed on as it is.
+    """
+    #  void QStyleHints::keyboardInputIntervalChanged(int
+    #      keyboardInputInterval)
+    self.uglySide.call(
+        'ritual_ZN11QStyleHints28keyboardInputIntervalChangedEi',
+        keyboardInputInterval,
+    )
+
+  @overload(int)
+  def mouseDoubleClickIntervalChanged(
+      self,
+      mouseDoubleClickInterval: int,
+  ) -> None:
+    """
+    Calls Qt's 'void QStyleHints::mouseDoubleClickIntervalChanged(int
+    mouseDoubleClickInterval)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qstylehints.html#mouseDoubleClickIntervalChanged
+
+    Parameters
+    ----------
+
+    mouseDoubleClickInterval : int
+      Passed on as it is.
+    """
+    #  void QStyleHints::mouseDoubleClickIntervalChanged(int
+    #      mouseDoubleClickInterval)
+    self.uglySide.call(
+        'ritual_ZN11QStyleHints31mouseDoubleClickIntervalChangedEi',
+        mouseDoubleClickInterval,
+    )
+
+  @overload(int)
+  def mousePressAndHoldIntervalChanged(
+      self,
+      mousePressAndHoldInterval: int,
+  ) -> None:
+    """
+    Calls Qt's 'void QStyleHints::mousePressAndHoldIntervalChanged(int
+    mousePressAndHoldInterval)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qstylehints.html#mousePressAndHoldIntervalChanged
+
+    Parameters
+    ----------
+
+    mousePressAndHoldInterval : int
+      Passed on as it is.
+    """
+    #  void QStyleHints::mousePressAndHoldIntervalChanged(int
+    #      mousePressAndHoldInterval)
+    self.uglySide.call(
+        'ritual_ZN11QStyleHints32mousePressAndHoldIntervalChangedEi',
+        mousePressAndHoldInterval,
+    )
+
+  @overload(int)
+  def startDragDistanceChanged(self, startDragDistance: int) -> None:
+    """
+    Calls Qt's 'void QStyleHints::startDragDistanceChanged(int
+    startDragDistance)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qstylehints.html#startDragDistanceChanged
+
+    Parameters
+    ----------
+
+    startDragDistance : int
+      Passed on as it is.
+    """
+    #  void QStyleHints::startDragDistanceChanged(int startDragDistance)
+    self.uglySide.call(
+        'ritual_ZN11QStyleHints24startDragDistanceChangedEi',
+        startDragDistance,
+    )
+
+  @overload(int)
+  def startDragTimeChanged(self, startDragTime: int) -> None:
+    """
+    Calls Qt's 'void QStyleHints::startDragTimeChanged(int startDragTime)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qstylehints.html#startDragTimeChanged
+
+    Parameters
+    ----------
+
+    startDragTime : int
+      Passed on as it is.
+    """
+    #  void QStyleHints::startDragTimeChanged(int startDragTime)
+    self.uglySide.call(
+        'ritual_ZN11QStyleHints20startDragTimeChangedEi', startDragTime,
+    )
+
+  @overload(Qt.TabFocusBehavior)
+  def tabFocusBehaviorChanged(
+      self,
+      tabFocusBehavior: Qt.TabFocusBehavior,
+  ) -> None:
+    """
+    Calls Qt's 'void
+    QStyleHints::tabFocusBehaviorChanged(Qt::TabFocusBehavior
+    tabFocusBehavior)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qstylehints.html#tabFocusBehaviorChanged
+
+    Parameters
+    ----------
+
+    tabFocusBehavior : Qt.TabFocusBehavior
+      Passed on as its number.
+    """
+    #  void QStyleHints::tabFocusBehaviorChanged(Qt::TabFocusBehavior
+    #      tabFocusBehavior)
+    self.uglySide.call(
+        'ritual_ZN11QStyleHints23tabFocusBehaviorChangedEN2Qt16TabFocusBeha'
+        'viorE',
+        tabFocusBehavior.value,
+    )
+
+  @overload(bool)
+  def useHoverEffectsChanged(self, useHoverEffects: bool) -> None:
+    """
+    Calls Qt's 'void QStyleHints::useHoverEffectsChanged(bool
+    useHoverEffects)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qstylehints.html#useHoverEffectsChanged
+
+    Parameters
+    ----------
+
+    useHoverEffects : bool
+      Passed on as it is.
+    """
+    #  void QStyleHints::useHoverEffectsChanged(bool useHoverEffects)
+    self.uglySide.call(
+        'ritual_ZN11QStyleHints22useHoverEffectsChangedEb', useHoverEffects,
+    )
+
+  @overload(bool)
+  def showShortcutsInContextMenusChanged(self, a0: bool) -> None:
+    """
+    Calls Qt's 'void QStyleHints::showShortcutsInContextMenusChanged(bool
+    a0)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qstylehints.html
+
+    Parameters
+    ----------
+
+    a0 : bool
+      Passed on as it is.
+    """
+    #  void QStyleHints::showShortcutsInContextMenusChanged(bool a0)
+    self.uglySide.call(
+        'ritual_ZN11QStyleHints34showShortcutsInContextMenusChangedEb', a0,
+    )
+
+  @overload(Qt.ContextMenuTrigger)
+  def contextMenuTriggerChanged(
+      self,
+      contextMenuTrigger: Qt.ContextMenuTrigger,
+  ) -> None:
+    """
+    Calls Qt's 'void
+    QStyleHints::contextMenuTriggerChanged(Qt::ContextMenuTrigger
+    contextMenuTrigger)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qstylehints.html#contextMenuTriggerChanged
+
+    Parameters
+    ----------
+
+    contextMenuTrigger : Qt.ContextMenuTrigger
+      Passed on as its number.
+    """
+    #  void QStyleHints::contextMenuTriggerChanged(Qt::ContextMenuTrigger
+    #      contextMenuTrigger)
+    self.uglySide.call(
+        'ritual_ZN11QStyleHints25contextMenuTriggerChangedEN2Qt18ContextMen'
+        'uTriggerE',
+        contextMenuTrigger.value,
+    )
+
+  @overload(int)
+  def wheelScrollLinesChanged(self, scrollLines: int) -> None:
+    """
+    Calls Qt's 'void QStyleHints::wheelScrollLinesChanged(int scrollLines)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qstylehints.html#wheelScrollLinesChanged
+
+    Parameters
+    ----------
+
+    scrollLines : int
+      Passed on as it is.
+    """
+    #  void QStyleHints::wheelScrollLinesChanged(int scrollLines)
+    self.uglySide.call(
+        'ritual_ZN11QStyleHints23wheelScrollLinesChangedEi', scrollLines,
+    )
+
+  @overload(int)
+  def mouseQuickSelectionThresholdChanged(self, threshold: int) -> None:
+    """
+    Calls Qt's 'void QStyleHints::mouseQuickSelectionThresholdChanged(int
+    threshold)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qstylehints.html
+
+    Parameters
+    ----------
+
+    threshold : int
+      Passed on as it is.
+    """
+    #  void QStyleHints::mouseQuickSelectionThresholdChanged(int threshold)
+    self.uglySide.call(
+        'ritual_ZN11QStyleHints35mouseQuickSelectionThresholdChangedEi',
+        threshold,
+    )
+
+  @overload(Qt.ColorScheme)
+  def colorSchemeChanged(self, colorScheme: Qt.ColorScheme) -> None:
+    """
+    Calls Qt's 'void QStyleHints::colorSchemeChanged(Qt::ColorScheme
+    colorScheme)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qstylehints.html#colorSchemeChanged
+
+    Parameters
+    ----------
+
+    colorScheme : Qt.ColorScheme
+      Passed on as its number.
+    """
+    #  void QStyleHints::colorSchemeChanged(Qt::ColorScheme colorScheme)
+    self.uglySide.call(
+        'ritual_ZN11QStyleHints18colorSchemeChangedEN2Qt11ColorSchemeE',
+        colorScheme.value,
+    )
+
+  @overload(int)
+  def toolTipWakeUpDelayAsMSecChanged(self, toolTipWakeUpDelay: int) -> None:
+    """
+    Calls Qt's 'void QStyleHints::toolTipWakeUpDelayAsMSecChanged(int
+    toolTipWakeUpDelay)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qstylehints.html#toolTipWakeUpDelayAsMSecChanged
+
+    Parameters
+    ----------
+
+    toolTipWakeUpDelay : int
+      Passed on as it is.
+    """
+    #  void QStyleHints::toolTipWakeUpDelayAsMSecChanged(int
+    #      toolTipWakeUpDelay)
+    self.uglySide.call(
+        'ritual_ZN11QStyleHints31toolTipWakeUpDelayAsMSecChangedEi',
+        toolTipWakeUpDelay,
+    )
+
+  @staticmethod
+  def setToolTipWakeUpDelay(*__, **_) -> Never:
+    """
+    Qt's 'void QStyleHints::setToolTipWakeUpDelay(std::chrono::milliseconds
+    toolTipWakeUpDelay)': takes a type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QStyleHints.setToolTipWakeUpDelay' has no cute function yet. Qt's "
+        "'void QStyleHints::setToolTipWakeUpDelay(std::chrono::milliseconds "
+        "toolTipWakeUpDelay)': takes a type Python has no way to hand over "
+        "yet.")
+
+  @staticmethod
+  def toolTipWakeUpDelay(*__, **_) -> Never:
+    """
+    Qt's 'std::chrono::milliseconds QStyleHints::toolTipWakeUpDelay() const':
+    gives a type Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QStyleHints.toolTipWakeUpDelay' has no cute function yet. Qt's "
+        "'std::chrono::milliseconds QStyleHints::toolTipWakeUpDelay() "
+        "const': gives a type Python has no way to take yet.")
+
+  @staticmethod
+  def toolTipWakeUpDelayChanged(*__, **_) -> Never:
+    """
+    Qt's 'void
+    QStyleHints::toolTipWakeUpDelayChanged(std::chrono::milliseconds
+    toolTipWakeUpDelay)': takes a type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QStyleHints.toolTipWakeUpDelayChanged' has no cute function yet. "
+        "Qt's 'void "
+        "QStyleHints::toolTipWakeUpDelayChanged(std::chrono::milliseconds "
+        "toolTipWakeUpDelay)': takes a type Python has no way to hand over "
+        "yet.")

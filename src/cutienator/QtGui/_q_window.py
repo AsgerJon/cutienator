@@ -19,15 +19,16 @@ from ..QtCore import Qt, QList, QObject
 from . import QSurface
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from ..QtCore import QEvent, QMargins, QMetaObject, QPoint, QPointF, QRect
   from ..QtCore import QSize
   from . import QAccessibleInterface, QCloseEvent, QCursor, QExposeEvent
   from . import QFocusEvent, QHideEvent, QIcon, QKeyEvent, QMouseEvent
-  from . import QMoveEvent, QPaintEvent, QRegion, QResizeEvent, QScreen
-  from . import QShowEvent, QSurfaceFormat, QTabletEvent, QTouchEvent
-  from . import QWheelEvent
+  from . import QMoveEvent, QPaintEvent, QPlatformSurface, QPlatformWindow
+  from . import QRegion, QResizeEvent, QScreen, QShowEvent, QSurfaceFormat
+  from . import QTabletEvent, QTouchEvent, QVulkanInstance, QWheelEvent
+  from . import QWindowPrivate
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -40,6 +41,7 @@ else:
   QHideEvent = WAIT['QHideEvent']
   QIcon = WAIT['QIcon']
   QKeyEvent = WAIT['QKeyEvent']
+  QMargins = WAIT['QMargins']
   QMouseEvent = WAIT['QMouseEvent']
   QMoveEvent = WAIT['QMoveEvent']
   QPaintEvent = WAIT['QPaintEvent']
@@ -54,6 +56,7 @@ else:
   QSurfaceFormat = WAIT['QSurfaceFormat']
   QTabletEvent = WAIT['QTabletEvent']
   QTouchEvent = WAIT['QTouchEvent']
+  QVulkanInstance = WAIT['QVulkanInstance']
   QWheelEvent = WAIT['QWheelEvent']
 
 #  The class of None, for a signature that takes None in the place of an
@@ -75,7 +78,7 @@ class QWindow(QObject, QSurface):
   -----------
 
   Every function of Qt's QWindow that has a ritual and that Python can call
-  so far, 126 names in all: 'metaObject', 'tr', 'setSurfaceType',
+  so far, 152 names in all: 'metaObject', 'tr', 'd_func', 'setSurfaceType',
   'surfaceType', 'isVisible', 'visibility', 'setVisibility', 'create',
   'winId', 'parent', 'setParent', 'isTopLevel', 'isModal', 'modality',
   'setModality', 'setFormat', 'format', 'requestedFormat', 'setFlags',
@@ -89,33 +92,50 @@ class QWindow(QObject, QSurface):
   'geometry', 'frameMargins', 'frameGeometry', 'framePosition',
   'setFramePosition', 'safeAreaMargins', 'width', 'height', 'x', 'y', 'size',
   'position', 'setPosition', 'resize', 'setFilePath', 'filePath', 'setIcon',
-  'icon', 'destroy', 'setKeyboardGrabEnabled', 'setMouseGrabEnabled',
-  'screen', 'setScreen', 'accessibleRoot', 'focusObject', 'mapToGlobal',
-  'mapFromGlobal', 'cursor', 'setCursor', 'unsetCursor', 'fromWinId',
+  'icon', 'destroy', 'handle', 'setKeyboardGrabEnabled',
+  'setMouseGrabEnabled', 'screen', 'setScreen', 'accessibleRoot',
+  'focusObject', 'mapToGlobal', 'mapFromGlobal', 'cursor', 'setCursor',
+  'unsetCursor', 'fromWinId', 'setVulkanInstance', 'vulkanInstance',
   'requestActivate', 'setVisible', 'show', 'hide', 'showMinimized',
   'showMaximized', 'showFullScreen', 'showNormal', 'close', 'raise_',
   'lower', 'startSystemResize', 'startSystemMove', 'setTitle', 'setX',
   'setY', 'setWidth', 'setHeight', 'setGeometry', 'setMinimumWidth',
   'setMinimumHeight', 'setMaximumWidth', 'setMaximumHeight', 'alert',
-  'requestUpdate', 'exposeEvent', 'resizeEvent', 'paintEvent', 'moveEvent',
-  'focusInEvent', 'focusOutEvent', 'showEvent', 'hideEvent', 'closeEvent',
-  'event', 'keyPressEvent', 'keyReleaseEvent', 'mousePressEvent',
-  'mouseReleaseEvent', 'mouseDoubleClickEvent', 'mouseMoveEvent',
-  'wheelEvent', 'touchEvent', 'tabletEvent'. It can be made from Python, in 2
-  ways; see '__init__'.
+  'requestUpdate', 'screenChanged', 'modalityChanged', 'flagsChanged',
+  'windowStateChanged', 'windowTitleChanged', 'xChanged', 'yChanged',
+  'widthChanged', 'heightChanged', 'minimumWidthChanged',
+  'minimumHeightChanged', 'maximumWidthChanged', 'maximumHeightChanged',
+  'safeAreaMarginsChanged', 'visibleChanged', 'visibilityChanged',
+  'activeChanged', 'contentOrientationChanged', 'focusObjectChanged',
+  'opacityChanged', 'transientParentChanged', 'exposeEvent', 'resizeEvent',
+  'paintEvent', 'moveEvent', 'focusInEvent', 'focusOutEvent', 'showEvent',
+  'hideEvent', 'closeEvent', 'event', 'keyPressEvent', 'keyReleaseEvent',
+  'mousePressEvent', 'mouseReleaseEvent', 'mouseDoubleClickEvent',
+  'mouseMoveEvent', 'wheelEvent', 'touchEvent', 'tabletEvent',
+  'surfaceHandle'. It can be made from Python, in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QWindow::qt_metacast(const char *a0)': one of Qt's own inner
+    workings.
+  - Qt's 'int QWindow::qt_metacall(QMetaObject::Call a0, int a1, void **a2)':
+    one of Qt's own inner workings.
+  - Qt's 'const QWindowPrivate *QWindow::d_func() const': takes in Python
+    what 'QWindowPrivate *QWindow::d_func()' takes.
   - Qt's 'QWindow::~QWindow()': the destructor: Python never removes a C++
     QWindow.
+  - Qt's 'void *QWindow::resolveInterface(const char *name, int revision)
+    const': gives 'void', which has no cute class yet.
+  - Qt's 'bool QWindow::nativeEvent(const QByteArray &eventType, void
+    *message, qintptr *result)': names 'void', which has no cute class yet.
+  - Qt's 'QWindow::QWindow(QWindowPrivate &dd, QWindow *parent)': takes a
+    type Python has no way to hand over yet.
 
   What has no ritual
   ------------------
 
-  37 of the 172 functions Qt declares: 21 a signal; 11 takes or gives a type
-  that cannot be passed yet; 2 a template; 2 forbidden; 1 declared and
-  nowhere to be found.
+  5 of the 172 functions Qt declares: 2 not a gap; 2 forbidden; 1 a template.
 
   What to expect
   --------------
@@ -130,6 +150,9 @@ class QWindow(QObject, QSurface):
   - Qt tells when it has removed the C++ QWindow. Every call on the cute
     object, and every use of it as an argument, then raises 'RuntimeError',
     and nothing reaches C++.
+  - Each name of Qt's QWindow that has no cute function yet, 'nativeEvent',
+    'nativeInterface', 'resolveInterface', holds a function that raises
+    'NotImplementedError', and its docstring says why.
   """
 
   #  The enums Qt writes inside QWindow, each a class in here as in C++, and
@@ -1091,6 +1114,24 @@ class QWindow(QObject, QSurface):
     from . import QIcon
     return QIcon._cuteOwning(address)
 
+  def handle(self) -> Optional[QPlatformWindow]:
+    """
+    Calls Qt's 'QPlatformWindow *QWindow::handle() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qwindow.html#handle
+
+    Returns
+    -------
+
+    Optional[QPlatformWindow]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QPlatformWindow *QWindow::handle() const
+    address = self.uglySide.call('ritual_ZNK7QWindow6handleEv')
+    from . import QPlatformWindow
+    return QPlatformWindow._cuteAt(address)
+
   def screen(self) -> Optional[QScreen]:
     """
     Calls Qt's 'QScreen *QWindow::screen() const'.
@@ -1172,7 +1213,8 @@ class QWindow(QObject, QSurface):
     """
     #  QPointF QWindow::mapToGlobal(const QPointF &pos) const
     address = self.uglySide.call(
-        'ritual_ZNK7QWindow11mapToGlobalERK7QPointF', self._valueOf(pos),
+        'ritual_ZNK7QWindow11mapToGlobalERK7QPointF',
+        self._valueOf(pos, 'QPointF'),
     )
     from ..QtCore import QPointF
     return QPointF._cuteOwning(address)
@@ -1226,7 +1268,8 @@ class QWindow(QObject, QSurface):
     """
     #  QPointF QWindow::mapFromGlobal(const QPointF &pos) const
     address = self.uglySide.call(
-        'ritual_ZNK7QWindow13mapFromGlobalERK7QPointF', self._valueOf(pos),
+        'ritual_ZNK7QWindow13mapFromGlobalERK7QPointF',
+        self._valueOf(pos, 'QPointF'),
     )
     from ..QtCore import QPointF
     return QPointF._cuteOwning(address)
@@ -1274,6 +1317,45 @@ class QWindow(QObject, QSurface):
     address = self.uglySide.call('ritual_ZNK7QWindow6cursorEv')
     from . import QCursor
     return QCursor._cuteOwning(address)
+
+  def vulkanInstance(self) -> Optional[QVulkanInstance]:
+    """
+    Calls Qt's 'QVulkanInstance *QWindow::vulkanInstance() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qwindow.html#vulkanInstance
+
+    Returns
+    -------
+
+    Optional[QVulkanInstance]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QVulkanInstance *QWindow::vulkanInstance() const
+    address = self.uglySide.call('ritual_ZNK7QWindow14vulkanInstanceEv')
+    from . import QVulkanInstance
+    return QVulkanInstance._cuteAt(address)
+
+  def surfaceHandle(self) -> Optional[QPlatformSurface]:
+    """
+    Calls Qt's 'QPlatformSurface *QWindow::surfaceHandle() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qwindow.html#surfaceHandle
+
+    Returns
+    -------
+
+    Optional[QPlatformSurface]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QPlatformSurface *QWindow::surfaceHandle() const
+    ritual = 'ritual_ZNK7QWindow13surfaceHandleEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK7QWindow13surfaceHandleEv'
+    address = self.uglySide.call(ritual)
+    from . import QPlatformSurface
+    return QPlatformSurface._cuteAt(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -1766,6 +1848,27 @@ class QWindow(QObject, QSurface):
         'ritual_ZN7QWindow9setCursorERK7QCursor', self._valueOf(a0),
     )
 
+  @overload(QVulkanInstance)
+  @overload(NoneType)
+  def setVulkanInstance(self, instance: Optional[QVulkanInstance]) -> None:
+    """
+    Calls Qt's 'void QWindow::setVulkanInstance(QVulkanInstance *instance)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qwindow.html#setVulkanInstance
+
+    Parameters
+    ----------
+
+    instance : Optional[QVulkanInstance]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QWindow::setVulkanInstance(QVulkanInstance *instance)
+    self.uglySide.call(
+        'ritual_ZN7QWindow17setVulkanInstanceEP15QVulkanInstance',
+        self._addressOf(instance),
+    )
+
   @overload(bool)
   def setVisible(self, visible: bool) -> None:
     """
@@ -2045,6 +2148,24 @@ class QWindow(QObject, QSurface):
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  def d_func(self) -> Optional[QWindowPrivate]:
+    """
+    Calls Qt's 'QWindowPrivate *QWindow::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qwindow.html#d_func
+
+    Returns
+    -------
+
+    Optional[QWindowPrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QWindowPrivate *QWindow::d_func()
+    address = self.uglySide.call('ritual_ZN7QWindow6d_funcEv')
+    from . import QWindowPrivate
+    return QWindowPrivate._cuteAt(address)
+
   def create(self) -> None:
     """
     Calls Qt's 'void QWindow::create()'.
@@ -2278,6 +2399,386 @@ class QWindow(QObject, QSurface):
     """
     #  void QWindow::requestUpdate()
     self.uglySide.call('ritual_ZN7QWindow13requestUpdateEv')
+
+  @overload(QScreen)
+  @overload(NoneType)
+  def screenChanged(self, screen: Optional[QScreen]) -> None:
+    """
+    Calls Qt's 'void QWindow::screenChanged(QScreen *screen)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qwindow.html#screenChanged
+
+    Parameters
+    ----------
+
+    screen : Optional[QScreen]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QWindow::screenChanged(QScreen *screen)
+    self.uglySide.call(
+        'ritual_ZN7QWindow13screenChangedEP7QScreen',
+        self._addressOf(screen),
+    )
+
+  @overload(Qt.WindowModality)
+  def modalityChanged(self, modality: Qt.WindowModality) -> None:
+    """
+    Calls Qt's 'void QWindow::modalityChanged(Qt::WindowModality modality)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qwindow.html#modalityChanged
+
+    Parameters
+    ----------
+
+    modality : Qt.WindowModality
+      Passed on as its number.
+    """
+    #  void QWindow::modalityChanged(Qt::WindowModality modality)
+    self.uglySide.call(
+        'ritual_ZN7QWindow15modalityChangedEN2Qt14WindowModalityE',
+        modality.value,
+    )
+
+  @overload(Qt.WindowFlags)
+  def flagsChanged(self, flags: Qt.WindowFlags) -> None:
+    """
+    Calls Qt's 'void QWindow::flagsChanged(Qt::WindowFlags flags)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qwindow.html#flagsChanged
+
+    Parameters
+    ----------
+
+    flags : Qt.WindowFlags
+      Passed on as its number.
+    """
+    #  void QWindow::flagsChanged(Qt::WindowFlags flags)
+    self.uglySide.call(
+        'ritual_ZN7QWindow12flagsChangedE6QFlagsIN2Qt10WindowTypeEE',
+        flags.value,
+    )
+
+  @overload(Qt.WindowState)
+  def windowStateChanged(self, windowState: Qt.WindowState) -> None:
+    """
+    Calls Qt's 'void QWindow::windowStateChanged(Qt::WindowState
+    windowState)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qwindow.html#windowStateChanged
+
+    Parameters
+    ----------
+
+    windowState : Qt.WindowState
+      Passed on as its number.
+    """
+    #  void QWindow::windowStateChanged(Qt::WindowState windowState)
+    self.uglySide.call(
+        'ritual_ZN7QWindow18windowStateChangedEN2Qt11WindowStateE',
+        windowState.value,
+    )
+
+  @overload(str)
+  def windowTitleChanged(self, title: str) -> None:
+    """
+    Calls Qt's 'void QWindow::windowTitleChanged(const QString &title)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qwindow.html#windowTitleChanged
+
+    Parameters
+    ----------
+
+    title : str
+      Passed on as it is: a QString is made of it for the call.
+    """
+    #  void QWindow::windowTitleChanged(const QString &title)
+    self.uglySide.call(
+        'ritual_ZN7QWindow18windowTitleChangedERK7QString', title,
+    )
+
+  @overload(int)
+  def xChanged(self, arg: int) -> None:
+    """
+    Calls Qt's 'void QWindow::xChanged(int arg)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qwindow.html#xChanged
+
+    Parameters
+    ----------
+
+    arg : int
+      Passed on as it is.
+    """
+    #  void QWindow::xChanged(int arg)
+    self.uglySide.call('ritual_ZN7QWindow8xChangedEi', arg)
+
+  @overload(int)
+  def yChanged(self, arg: int) -> None:
+    """
+    Calls Qt's 'void QWindow::yChanged(int arg)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qwindow.html#yChanged
+
+    Parameters
+    ----------
+
+    arg : int
+      Passed on as it is.
+    """
+    #  void QWindow::yChanged(int arg)
+    self.uglySide.call('ritual_ZN7QWindow8yChangedEi', arg)
+
+  @overload(int)
+  def widthChanged(self, arg: int) -> None:
+    """
+    Calls Qt's 'void QWindow::widthChanged(int arg)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qwindow.html#widthChanged
+
+    Parameters
+    ----------
+
+    arg : int
+      Passed on as it is.
+    """
+    #  void QWindow::widthChanged(int arg)
+    self.uglySide.call('ritual_ZN7QWindow12widthChangedEi', arg)
+
+  @overload(int)
+  def heightChanged(self, arg: int) -> None:
+    """
+    Calls Qt's 'void QWindow::heightChanged(int arg)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qwindow.html#heightChanged
+
+    Parameters
+    ----------
+
+    arg : int
+      Passed on as it is.
+    """
+    #  void QWindow::heightChanged(int arg)
+    self.uglySide.call('ritual_ZN7QWindow13heightChangedEi', arg)
+
+  @overload(int)
+  def minimumWidthChanged(self, arg: int) -> None:
+    """
+    Calls Qt's 'void QWindow::minimumWidthChanged(int arg)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qwindow.html#minimumWidthChanged
+
+    Parameters
+    ----------
+
+    arg : int
+      Passed on as it is.
+    """
+    #  void QWindow::minimumWidthChanged(int arg)
+    self.uglySide.call('ritual_ZN7QWindow19minimumWidthChangedEi', arg)
+
+  @overload(int)
+  def minimumHeightChanged(self, arg: int) -> None:
+    """
+    Calls Qt's 'void QWindow::minimumHeightChanged(int arg)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qwindow.html#minimumHeightChanged
+
+    Parameters
+    ----------
+
+    arg : int
+      Passed on as it is.
+    """
+    #  void QWindow::minimumHeightChanged(int arg)
+    self.uglySide.call('ritual_ZN7QWindow20minimumHeightChangedEi', arg)
+
+  @overload(int)
+  def maximumWidthChanged(self, arg: int) -> None:
+    """
+    Calls Qt's 'void QWindow::maximumWidthChanged(int arg)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qwindow.html#maximumWidthChanged
+
+    Parameters
+    ----------
+
+    arg : int
+      Passed on as it is.
+    """
+    #  void QWindow::maximumWidthChanged(int arg)
+    self.uglySide.call('ritual_ZN7QWindow19maximumWidthChangedEi', arg)
+
+  @overload(int)
+  def maximumHeightChanged(self, arg: int) -> None:
+    """
+    Calls Qt's 'void QWindow::maximumHeightChanged(int arg)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qwindow.html#maximumHeightChanged
+
+    Parameters
+    ----------
+
+    arg : int
+      Passed on as it is.
+    """
+    #  void QWindow::maximumHeightChanged(int arg)
+    self.uglySide.call('ritual_ZN7QWindow20maximumHeightChangedEi', arg)
+
+  @overload(QMargins)
+  def safeAreaMarginsChanged(self, arg: QMargins) -> None:
+    """
+    Calls Qt's 'void QWindow::safeAreaMarginsChanged(QMargins arg)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qwindow.html#safeAreaMarginsChanged
+
+    Parameters
+    ----------
+
+    arg : QMargins
+      Passed on as a value: Qt reads the C++ QMargins, which stays Python's
+      own.
+    """
+    #  void QWindow::safeAreaMarginsChanged(QMargins arg)
+    self.uglySide.call(
+        'ritual_ZN7QWindow22safeAreaMarginsChangedE8QMargins',
+        self._valueOf(arg, 'QMargins'),
+    )
+
+  @overload(bool)
+  def visibleChanged(self, arg: bool) -> None:
+    """
+    Calls Qt's 'void QWindow::visibleChanged(bool arg)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qwindow.html#visibleChanged
+
+    Parameters
+    ----------
+
+    arg : bool
+      Passed on as it is.
+    """
+    #  void QWindow::visibleChanged(bool arg)
+    self.uglySide.call('ritual_ZN7QWindow14visibleChangedEb', arg)
+
+  @overload(Visibility)
+  def visibilityChanged(self, visibility: Visibility) -> None:
+    """
+    Calls Qt's 'void QWindow::visibilityChanged(QWindow::Visibility
+    visibility)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qwindow.html#visibilityChanged
+
+    Parameters
+    ----------
+
+    visibility : Visibility
+      Passed on as its number.
+    """
+    #  void QWindow::visibilityChanged(QWindow::Visibility visibility)
+    self.uglySide.call(
+        'ritual_ZN7QWindow17visibilityChangedENS_10VisibilityE',
+        visibility.value,
+    )
+
+  def activeChanged(self) -> None:
+    """
+    Calls Qt's 'void QWindow::activeChanged()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qwindow.html#activeChanged
+    """
+    #  void QWindow::activeChanged()
+    self.uglySide.call('ritual_ZN7QWindow13activeChangedEv')
+
+  @overload(Qt.ScreenOrientation)
+  def contentOrientationChanged(
+      self,
+      orientation: Qt.ScreenOrientation,
+  ) -> None:
+    """
+    Calls Qt's 'void QWindow::contentOrientationChanged(Qt::ScreenOrientation
+    orientation)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qwindow.html#contentOrientationChanged
+
+    Parameters
+    ----------
+
+    orientation : Qt.ScreenOrientation
+      Passed on as its number.
+    """
+    #  void QWindow::contentOrientationChanged(Qt::ScreenOrientation
+    #      orientation)
+    self.uglySide.call(
+        'ritual_ZN7QWindow25contentOrientationChangedEN2Qt17ScreenOrientati'
+        'onE',
+        orientation.value,
+    )
+
+  @overload(QObject)
+  @overload(NoneType)
+  def focusObjectChanged(self, object: Optional[QObject]) -> None:
+    """
+    Calls Qt's 'void QWindow::focusObjectChanged(QObject *object)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qwindow.html#focusObjectChanged
+
+    Parameters
+    ----------
+
+    object : Optional[QObject]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QWindow::focusObjectChanged(QObject *object)
+    self.uglySide.call(
+        'ritual_ZN7QWindow18focusObjectChangedEP7QObject',
+        self._addressOf(object, 'QObject'),
+    )
+
+  @overload(float)
+  def opacityChanged(self, opacity: float) -> None:
+    """
+    Calls Qt's 'void QWindow::opacityChanged(qreal opacity)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qwindow.html#opacityChanged
+
+    Parameters
+    ----------
+
+    opacity : float
+      Passed on as it is.
+    """
+    #  void QWindow::opacityChanged(qreal opacity)
+    self.uglySide.call('ritual_ZN7QWindow14opacityChangedEd', opacity)
+
+  @overload(THIS)
+  @overload(NoneType)
+  def transientParentChanged(
+      self,
+      transientParent: Optional[QWindow],
+  ) -> None:
+    """
+    Calls Qt's 'void QWindow::transientParentChanged(QWindow
+    *transientParent)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qwindow.html#transientParentChanged
+
+    Parameters
+    ----------
+
+    transientParent : Optional[QWindow]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QWindow::transientParentChanged(QWindow *transientParent)
+    self.uglySide.call(
+        'ritual_ZN7QWindow22transientParentChangedEPS_',
+        self._addressOf(transientParent),
+    )
 
   @overload(QExposeEvent)
   @overload(NoneType)
@@ -2677,6 +3178,39 @@ class QWindow(QObject, QSurface):
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZN7QWindow11tabletEventEP12QTabletEvent'
     self.uglySide.call(ritual, self._addressOf(a0))
+
+  @staticmethod
+  def nativeEvent(*__, **_) -> Never:
+    """
+    Qt's 'bool QWindow::nativeEvent(const QByteArray &eventType, void
+    *message, qintptr *result)': names 'void', which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QWindow.nativeEvent' has no cute function yet. Qt's 'bool "
+        "QWindow::nativeEvent(const QByteArray &eventType, void *message, "
+        "qintptr *result)': names 'void', which has no cute class yet.")
+
+  @staticmethod
+  def nativeInterface(*__, **_) -> Never:
+    """
+    Qt's 'QWindow::nativeInterface': a template: a pattern and no single
+    function.
+    """
+    raise NotImplementedError(
+        "'QWindow.nativeInterface' has no cute function yet. Qt's "
+        "'QWindow::nativeInterface': a template: a pattern and no single "
+        "function.")
+
+  @staticmethod
+  def resolveInterface(*__, **_) -> Never:
+    """
+    Qt's 'void *QWindow::resolveInterface(const char *name, int revision)
+    const': gives 'void', which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QWindow.resolveInterface' has no cute function yet. Qt's 'void "
+        "*QWindow::resolveInterface(const char *name, int revision) const': "
+        "gives 'void', which has no cute class yet.")
 
 
 #  Qt's 'QList<QWindow *>': the list of QWindow, which 'QList[QWindow]'

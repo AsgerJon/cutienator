@@ -15,7 +15,7 @@ from ..cute import CuteMixin, MetaCute
 from ..occult import Rituals
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
 
 class QRunnable(CuteMixin, metaclass=MetaCute):
@@ -28,8 +28,7 @@ class QRunnable(CuteMixin, metaclass=MetaCute):
 
   Every function of Qt's QRunnable that has a ritual and that Python can call
   so far, 4 names in all: 'run', 'autoDelete', 'setAutoDelete',
-  'warnNullCallable'. None can be made from Python: one comes out of a
-  function of another class that gives one back.
+  'warnNullCallable'. It can be made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -40,8 +39,7 @@ class QRunnable(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  5 of the 10 functions Qt declares: 3 forbidden; 1 the class is abstract, so
-  C++ cannot make one; 1 a template.
+  4 of the 10 functions Qt declares: 3 forbidden; 1 a template.
 
   What to expect
   --------------
@@ -53,6 +51,9 @@ class QRunnable(CuteMixin, metaclass=MetaCute):
     has it, and is passed on as nothing. Whether Qt can do with nothing there
     is as in C++.
   - Python never removes the C++ QRunnable.
+  - Each name of Qt's QRunnable that has no cute function yet, 'create',
+    holds a function that raises 'NotImplementedError', and its docstring
+    says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -121,7 +122,7 @@ class QRunnable(CuteMixin, metaclass=MetaCute):
     Qt's own words: https://doc.qt.io/qt-6/qrunnable.html#autoDelete
     """
     #  bool QRunnable::autoDelete() const
-    return self.uglySide.call('ritual_ZNK9QRunnable10autoDeleteEv')
+    return self._callAs('QRunnable', 'ritual_ZNK9QRunnable10autoDeleteEv')
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -141,7 +142,9 @@ class QRunnable(CuteMixin, metaclass=MetaCute):
       Passed on as it is.
     """
     #  void QRunnable::setAutoDelete(bool autoDelete)
-    self.uglySide.call('ritual_ZN9QRunnable13setAutoDeleteEb', autoDelete)
+    self._callAs(
+        'QRunnable', 'ritual_ZN9QRunnable13setAutoDeleteEb', autoDelete,
+    )
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NOTIFIERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -154,6 +157,19 @@ class QRunnable(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload()
+  def __init__(self) -> None:
+    """
+    Notes what was given, for Qt's 'QRunnable::QRunnable()', which is called
+    at the first use.
+
+    Qt's own words: https://doc.qt.io/qt-6/qrunnable.html#QRunnable
+    """
+    #  QRunnable::QRunnable()
+    self._noteCreation(QRunnable, lambda: Rituals.call(
+        'ritual_ZN9QRunnableC1Ev',
+    ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -182,4 +198,13 @@ class QRunnable(CuteMixin, metaclass=MetaCute):
     Qt's own words: https://doc.qt.io/qt-6/qrunnable.html#run
     """
     #  void QRunnable::run()
-    self.uglySide.call('ritual_ZN9QRunnable3runEv')
+    self._callAs('QRunnable', 'ritual_ZN9QRunnable3runEv')
+
+  @staticmethod
+  def create(*__, **_) -> Never:
+    """
+    Qt's 'QRunnable::create': a template: a pattern and no single function.
+    """
+    raise NotImplementedError(
+        "'QRunnable.create' has no cute function yet. Qt's "
+        "'QRunnable::create': a template: a pattern and no single function.")

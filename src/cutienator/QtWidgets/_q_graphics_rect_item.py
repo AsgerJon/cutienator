@@ -65,12 +65,15 @@ class QGraphicsRectItem(QAbstractGraphicsShapeItem):
   - Qt's 'void QGraphicsRectItem::setExtension(Extension extension, const
     QVariant &variant)': names the enum 'QGraphicsItem::Extension', whose
     class cannot be named here.
+  - Qt's 'QGraphicsRectItemPrivate *QGraphicsRectItem::d_func()': gives
+    'QGraphicsRectItemPrivate', which has no cute class yet.
+  - Qt's 'const QGraphicsRectItemPrivate *QGraphicsRectItem::d_func() const':
+    gives 'QGraphicsRectItemPrivate', which has no cute class yet.
 
   What has no ritual
   ------------------
 
-  4 of the 21 functions Qt declares: 2 forbidden; 2 takes or gives a type
-  that cannot be passed yet.
+  2 of the 21 functions Qt declares: 2 forbidden.
 
   What to expect
   --------------
@@ -127,7 +130,9 @@ class QGraphicsRectItem(QAbstractGraphicsShapeItem):
       A new cute QRectF around the copy Qt gave back. Python owns it.
     """
     #  QRectF QGraphicsRectItem::rect() const
-    address = self.uglySide.call('ritual_ZNK17QGraphicsRectItem4rectEv')
+    address = self._callAs(
+        'QGraphicsRectItem', 'ritual_ZNK17QGraphicsRectItem4rectEv',
+    )
     from ..QtCore import QRectF
     return QRectF._cuteOwning(address)
 
@@ -148,7 +153,7 @@ class QGraphicsRectItem(QAbstractGraphicsShapeItem):
     ritual = 'ritual_ZNK17QGraphicsRectItem12boundingRectEv'
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZNK17QGraphicsRectItem12boundingRectEv'
-    address = self.uglySide.call(ritual)
+    address = self._callAs('QGraphicsRectItem', ritual)
     from ..QtCore import QRectF
     return QRectF._cuteOwning(address)
 
@@ -168,7 +173,7 @@ class QGraphicsRectItem(QAbstractGraphicsShapeItem):
     ritual = 'ritual_ZNK17QGraphicsRectItem5shapeEv'
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZNK17QGraphicsRectItem5shapeEv'
-    address = self.uglySide.call(ritual)
+    address = self._callAs('QGraphicsRectItem', ritual)
     from ..QtGui import QPainterPath
     return QPainterPath._cuteOwning(address)
 
@@ -191,7 +196,9 @@ class QGraphicsRectItem(QAbstractGraphicsShapeItem):
     ritual = 'ritual_ZNK17QGraphicsRectItem8containsERK7QPointF'
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZNK17QGraphicsRectItem8containsERK7QPointF'
-    return self.uglySide.call(ritual, self._valueOf(point))
+    return self._callAs(
+        'QGraphicsRectItem', ritual, self._valueOf(point, 'QPointF'),
+    )
 
   @overload(QGraphicsItem)
   @overload(NoneType)
@@ -216,7 +223,9 @@ class QGraphicsRectItem(QAbstractGraphicsShapeItem):
       ritual = (
           'ritual_own_ZNK17QGraphicsRectItem12isObscuredByEPK13QGraphicsIte'
           'm')
-    return self.uglySide.call(ritual, self._addressOf(item, 'QGraphicsItem'))
+    return self._callAs(
+        'QGraphicsRectItem', ritual, self._addressOf(item, 'QGraphicsItem'),
+    )
 
   def opaqueArea(self) -> QPainterPath:
     """
@@ -234,7 +243,7 @@ class QGraphicsRectItem(QAbstractGraphicsShapeItem):
     ritual = 'ritual_ZNK17QGraphicsRectItem10opaqueAreaEv'
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZNK17QGraphicsRectItem10opaqueAreaEv'
-    address = self.uglySide.call(ritual)
+    address = self._callAs('QGraphicsRectItem', ritual)
     from ..QtGui import QPainterPath
     return QPainterPath._cuteOwning(address)
 
@@ -248,7 +257,7 @@ class QGraphicsRectItem(QAbstractGraphicsShapeItem):
     ritual = 'ritual_ZNK17QGraphicsRectItem4typeEv'
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZNK17QGraphicsRectItem4typeEv'
-    return self.uglySide.call(ritual)
+    return self._callAs('QGraphicsRectItem', ritual)
 
   @overload(QVariant)
   def extension(self, variant: QVariant) -> QVariant:
@@ -275,7 +284,9 @@ class QGraphicsRectItem(QAbstractGraphicsShapeItem):
     ritual = 'ritual_ZNK17QGraphicsRectItem9extensionERK8QVariant'
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZNK17QGraphicsRectItem9extensionERK8QVariant'
-    address = self.uglySide.call(ritual, self._valueOf(variant))
+    address = self._callAs(
+        'QGraphicsRectItem', ritual, self._valueOf(variant),
+    )
     from ..QtCore import QVariant
     return QVariant._cuteOwning(address)
 
@@ -298,7 +309,8 @@ class QGraphicsRectItem(QAbstractGraphicsShapeItem):
       own.
     """
     #  void QGraphicsRectItem::setRect(const QRectF &rect)
-    self.uglySide.call(
+    self._callAs(
+        'QGraphicsRectItem',
         'ritual_ZN17QGraphicsRectItem7setRectERK6QRectF',
         self._valueOf(rect),
     )
@@ -327,8 +339,9 @@ class QGraphicsRectItem(QAbstractGraphicsShapeItem):
       Passed on as it is.
     """
     #  void QGraphicsRectItem::setRect(qreal x, qreal y, qreal w, qreal h)
-    self.uglySide.call(
-        'ritual_ZN17QGraphicsRectItem7setRectEdddd', x, y, w, h,
+    self._callAs(
+        'QGraphicsRectItem', 'ritual_ZN17QGraphicsRectItem7setRectEdddd',
+        x, y, w, h,
     )
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -515,8 +528,8 @@ class QGraphicsRectItem(QAbstractGraphicsShapeItem):
       ritual = (
           'ritual_own_ZN17QGraphicsRectItem5paintEP8QPainterPK24QStyleOptio'
           'nGraphicsItemP7QWidget')
-    self.uglySide.call(
-        ritual,
+    self._callAs(
+        'QGraphicsRectItem', ritual,
         self._addressOf(painter), self._addressOf(option),
         self._addressOf(widget),
     )

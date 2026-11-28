@@ -20,7 +20,7 @@ from worktoy.dispatch import overload
 from . import QNonContiguousByteDevice
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from . import QMetaObject
 
@@ -47,6 +47,11 @@ class QNonContiguousByteDeviceRingBufferImpl(QNonContiguousByteDevice):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QNonContiguousByteDeviceRingBufferImpl::qt_metacast(const
+    char *a0)': one of Qt's own inner workings.
+  - Qt's 'int
+    QNonContiguousByteDeviceRingBufferImpl::qt_metacall(QMetaObject::Call a0,
+    int a1, void **a2)': one of Qt's own inner workings.
   - Qt's 'QNonContiguousByteDeviceRingBufferImpl::
     ~QNonContiguousByteDeviceRingBufferImpl()': the destructor: Python never
     removes a C++ QNonContiguousByteDeviceRingBufferImpl.
@@ -57,8 +62,7 @@ class QNonContiguousByteDeviceRingBufferImpl(QNonContiguousByteDevice):
   What has no ritual
   ------------------
 
-  6 of the 14 functions Qt declares: 3 takes or gives a type that cannot be
-  passed yet; 1 a template; 1 declared and nowhere to be found; 1 leans on
+  4 of the 14 functions Qt declares: 2 not a gap; 2 leans on
   'QNonContiguousByteDeviceRingBufferImpl.
 
   What to expect
@@ -76,6 +80,9 @@ class QNonContiguousByteDeviceRingBufferImpl(QNonContiguousByteDevice):
     QNonContiguousByteDeviceRingBufferImpl. Every call on the cute object,
     and every use of it as an argument, then raises 'RuntimeError', and
     nothing reaches C++.
+  - Each name of Qt's QNonContiguousByteDeviceRingBufferImpl that has no cute
+    function yet, '__init__', holds a function that raises
+    'NotImplementedError', and its docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -186,6 +193,25 @@ class QNonContiguousByteDeviceRingBufferImpl(QNonContiguousByteDevice):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def __init__(*__, **_) -> Never:
+    """
+    Qt's 'QNonContiguousByteDeviceRingBufferImpl::
+    QNonContiguousByteDeviceRingBufferImpl(std::shared_ptr<QRingBuffer> rb)':
+    leans on
+    'QNonContiguousByteDeviceRingBufferImpl::qt_metacall(QMetaObject::Call,
+    int, void**)', which Qt's source does not mark for use from outside Qt
+    and has no code for that could be taken.
+    """
+    raise NotImplementedError(
+        "'QNonContiguousByteDeviceRingBufferImpl.__init__' has no cute "
+        "function yet. Qt's "
+        "'QNonContiguousByteDeviceRingBufferImpl::QNonContiguousByteDeviceRi"
+        "ngBufferImpl(std::shared_ptr<QRingBuffer> rb)': leans on "
+        "'QNonContiguousByteDeviceRingBufferImpl::qt_metacall(QMetaObject::C"
+        "all, int, void**)', which Qt's source does not mark for use from "
+        "outside Qt and has no code for that could be taken.")
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #

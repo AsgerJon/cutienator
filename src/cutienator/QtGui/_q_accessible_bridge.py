@@ -137,7 +137,7 @@ class QAccessibleBridge(CuteMixin, metaclass=MetaCute):
     self.uglySide.call(
         'ritual_ZN17QAccessibleBridge13setRootObjectEP20QAccessibleInterfac'
         'e',
-        self._addressOf(a0),
+        self._addressOf(a0, 'QAccessibleInterface'),
     )
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

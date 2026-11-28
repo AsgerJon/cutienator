@@ -17,9 +17,9 @@ from ..occult import Rituals
 from . import QNativeIpcKey, QObject
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
-  from . import QMetaObject
+  from . import QMetaObject, QSharedMemoryPrivate
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -38,23 +38,34 @@ class QSharedMemory(QObject):
   -----------
 
   Every function of Qt's QSharedMemory that has a ritual and that Python can
-  call so far, 19 names in all: 'metaObject', 'tr', 'setKey', 'key',
-  'setNativeKey', 'nativeKey', 'nativeIpcKey', 'create', 'size', 'attach',
-  'isAttached', 'detach', 'lock', 'unlock', 'error', 'errorString',
+  call so far, 20 names in all: 'metaObject', 'tr', 'd_func', 'setKey',
+  'key', 'setNativeKey', 'nativeKey', 'nativeIpcKey', 'create', 'size',
+  'attach', 'isAttached', 'detach', 'lock', 'unlock', 'error', 'errorString',
   'isKeyTypeSupported', 'platformSafeKey', 'legacyNativeKey'. It can be made
   from Python, in 3 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QSharedMemory::qt_metacast(const char *a0)': one of Qt's own
+    inner workings.
+  - Qt's 'int QSharedMemory::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
+  - Qt's 'const QSharedMemoryPrivate *QSharedMemory::d_func() const': takes
+    in Python what 'QSharedMemoryPrivate *QSharedMemory::d_func()' takes.
   - Qt's 'QSharedMemory::~QSharedMemory()': the destructor: Python never
     removes a C++ QSharedMemory.
+  - Qt's 'void *QSharedMemory::data()': gives 'void', which has no cute class
+    yet.
+  - Qt's 'const void *QSharedMemory::constData() const': gives 'void', which
+    has no cute class yet.
+  - Qt's 'const void *QSharedMemory::data() const': gives 'void', which has
+    no cute class yet.
 
   What has no ritual
   ------------------
 
-  11 of the 35 functions Qt declares: 7 takes or gives a type that cannot be
-  passed yet; 2 forbidden; 1 a template; 1 declared and nowhere to be found.
+  4 of the 35 functions Qt declares: 2 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -70,6 +81,9 @@ class QSharedMemory(QObject):
   - Qt tells when it has removed the C++ QSharedMemory. Every call on the
     cute object, and every use of it as an argument, then raises
     'RuntimeError', and nothing reaches C++.
+  - Each name of Qt's QSharedMemory that has no cute function yet,
+    'constData', 'data', holds a function that raises 'NotImplementedError',
+    and its docstring says why.
   """
 
   #  The enums Qt writes inside QSharedMemory, each a class in here as in
@@ -555,6 +569,24 @@ class QSharedMemory(QObject):
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  def d_func(self) -> Optional[QSharedMemoryPrivate]:
+    """
+    Calls Qt's 'QSharedMemoryPrivate *QSharedMemory::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qsharedmemory.html#d_func
+
+    Returns
+    -------
+
+    Optional[QSharedMemoryPrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QSharedMemoryPrivate *QSharedMemory::d_func()
+    address = self.uglySide.call('ritual_ZN13QSharedMemory6d_funcEv')
+    from . import QSharedMemoryPrivate
+    return QSharedMemoryPrivate._cuteAt(address)
+
   @overload(int)
   @overload(int, AccessMode)
   def create(
@@ -629,3 +661,28 @@ class QSharedMemory(QObject):
     """
     #  bool QSharedMemory::unlock()
     return self.uglySide.call('ritual_ZN13QSharedMemory6unlockEv')
+
+  @staticmethod
+  def constData(*__, **_) -> Never:
+    """
+    Qt's 'const void *QSharedMemory::constData() const': gives 'void', which
+    has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QSharedMemory.constData' has no cute function yet. Qt's 'const "
+        "void *QSharedMemory::constData() const': gives 'void', which has "
+        "no cute class yet.")
+
+  @staticmethod
+  def data(*__, **_) -> Never:
+    """
+    - Qt's 'void *QSharedMemory::data()': gives 'void', which has no cute
+      class yet.
+    - Qt's 'const void *QSharedMemory::data() const': gives 'void', which has
+      no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QSharedMemory.data' has no cute function yet. Qt's 'void "
+        "*QSharedMemory::data()': gives 'void', which has no cute class "
+        "yet. Qt's 'const void *QSharedMemory::data() const': gives 'void', "
+        "which has no cute class yet.")

@@ -15,7 +15,7 @@ from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from . import QByteArray, QMetaObject, QMetaType
 else:
@@ -50,18 +50,23 @@ class QMetaEnum(CuteMixin, metaclass=MetaCute):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'std::optional<quint64> QMetaEnum::value64(int index) const': gives
+    a type Python has no way to take yet.
   - Qt's 'int QMetaEnum::keyToValue(const char *key, bool *ok) const': takes
     a number to change where it is.
   - Qt's 'int QMetaEnum::keysToValue(const char *keys, bool *ok) const':
     takes a number to change where it is.
+  - Qt's 'std::optional<quint64> QMetaEnum::keyToValue64(const char *key)
+    const': gives a type Python has no way to take yet.
+  - Qt's 'std::optional<quint64> QMetaEnum::keysToValue64(const char *keys)
+    const': gives a type Python has no way to take yet.
   - Qt's 'QMetaEnum::~QMetaEnum()': the destructor: Python removes its C++
     QMetaEnum by it, and has no other use for it.
 
   What has no ritual
   ------------------
 
-  5 of the 24 functions Qt declares: 3 takes or gives a type that cannot be
-  passed yet; 2 a template.
+  2 of the 24 functions Qt declares: 2 a template.
 
   What to expect
   --------------
@@ -74,6 +79,10 @@ class QMetaEnum(CuteMixin, metaclass=MetaCute):
     is as in C++.
   - A function giving a QMetaEnum back gives a copy the ritual made for
     Python, in a new cute QMetaEnum.
+  - Each name of Qt's QMetaEnum that has no cute function yet, 'fromType',
+    'keyToValue', 'keyToValue64', 'keysToValue', 'keysToValue64', 'value64',
+    'value_helper', holds a function that raises 'NotImplementedError', and
+    its docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -373,7 +382,7 @@ class QMetaEnum(CuteMixin, metaclass=MetaCute):
     #  QMetaEnum::QMetaEnum(const QMetaObject *mobj, int index)
     self._noteCreation(QMetaEnum, lambda: Rituals.call(
         'ritual_ZN9QMetaEnumC1EPK11QMetaObjecti',
-        self._addressOf(mobj), index,
+        self._addressOf(mobj, 'QMetaObject'), index,
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -395,3 +404,79 @@ class QMetaEnum(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def fromType(*__, **_) -> Never:
+    """
+    Qt's 'QMetaEnum::fromType': a template: a pattern and no single function.
+    """
+    raise NotImplementedError(
+        "'QMetaEnum.fromType' has no cute function yet. Qt's "
+        "'QMetaEnum::fromType': a template: a pattern and no single "
+        "function.")
+
+  @staticmethod
+  def keyToValue(*__, **_) -> Never:
+    """
+    Qt's 'int QMetaEnum::keyToValue(const char *key, bool *ok) const': takes
+    a number to change where it is.
+    """
+    raise NotImplementedError(
+        "'QMetaEnum.keyToValue' has no cute function yet. Qt's 'int "
+        "QMetaEnum::keyToValue(const char *key, bool *ok) const': takes a "
+        "number to change where it is.")
+
+  @staticmethod
+  def keyToValue64(*__, **_) -> Never:
+    """
+    Qt's 'std::optional<quint64> QMetaEnum::keyToValue64(const char *key)
+    const': gives a type Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QMetaEnum.keyToValue64' has no cute function yet. Qt's "
+        "'std::optional<quint64> QMetaEnum::keyToValue64(const char *key) "
+        "const': gives a type Python has no way to take yet.")
+
+  @staticmethod
+  def keysToValue(*__, **_) -> Never:
+    """
+    Qt's 'int QMetaEnum::keysToValue(const char *keys, bool *ok) const':
+    takes a number to change where it is.
+    """
+    raise NotImplementedError(
+        "'QMetaEnum.keysToValue' has no cute function yet. Qt's 'int "
+        "QMetaEnum::keysToValue(const char *keys, bool *ok) const': takes a "
+        "number to change where it is.")
+
+  @staticmethod
+  def keysToValue64(*__, **_) -> Never:
+    """
+    Qt's 'std::optional<quint64> QMetaEnum::keysToValue64(const char *keys)
+    const': gives a type Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QMetaEnum.keysToValue64' has no cute function yet. Qt's "
+        "'std::optional<quint64> QMetaEnum::keysToValue64(const char *keys) "
+        "const': gives a type Python has no way to take yet.")
+
+  @staticmethod
+  def value64(*__, **_) -> Never:
+    """
+    Qt's 'std::optional<quint64> QMetaEnum::value64(int index) const': gives
+    a type Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QMetaEnum.value64' has no cute function yet. Qt's "
+        "'std::optional<quint64> QMetaEnum::value64(int index) const': "
+        "gives a type Python has no way to take yet.")
+
+  @staticmethod
+  def value_helper(*__, **_) -> Never:
+    """
+    Qt's 'QMetaEnum::value_helper': a template: a pattern and no single
+    function.
+    """
+    raise NotImplementedError(
+        "'QMetaEnum.value_helper' has no cute function yet. Qt's "
+        "'QMetaEnum::value_helper': a template: a pattern and no single "
+        "function.")

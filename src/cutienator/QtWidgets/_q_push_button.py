@@ -20,7 +20,7 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
 
   from ..QtCore import QEvent, QMetaObject, QPoint, QSize
   from ..QtGui import QFocusEvent, QIcon, QKeyEvent, QMouseEvent, QPaintEvent
-  from . import QMenu, QStyleOptionButton
+  from . import QMenu, QPushButtonPrivate, QStyleOptionButton
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -52,12 +52,12 @@ class QPushButton(QAbstractButton):
   -----------
 
   Every function of Qt's QPushButton that has a ritual and that Python can
-  call so far, 21 names in all: 'metaObject', 'tr', 'sizeHint',
+  call so far, 22 names in all: 'metaObject', 'tr', 'sizeHint',
   'minimumSizeHint', 'autoDefault', 'setAutoDefault', 'isDefault',
   'setDefault', 'setMenu', 'menu', 'setFlat', 'isFlat', 'showMenu', 'event',
   'paintEvent', 'keyPressEvent', 'focusInEvent', 'focusOutEvent',
-  'mouseMoveEvent', 'initStyleOption', 'hitButton'. It can be made from
-  Python, in 3 ways; see '__init__'.
+  'mouseMoveEvent', 'initStyleOption', 'hitButton', 'd_func'. It can be made
+  from Python, in 3 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -70,10 +70,8 @@ class QPushButton(QAbstractButton):
     a C++ QPushButton.
   - Qt's 'QPushButton::QPushButton(QPushButtonPrivate &dd, QWidget *parent)':
     takes a type Python has no way to hand over yet.
-  - Qt's 'QPushButtonPrivate *QPushButton::d_func()': gives
-    'QPushButtonPrivate', which has no cute class yet.
-  - Qt's 'const QPushButtonPrivate *QPushButton::d_func() const': gives
-    'QPushButtonPrivate', which has no cute class yet.
+  - Qt's 'const QPushButtonPrivate *QPushButton::d_func() const': takes in
+    Python what 'QPushButtonPrivate *QPushButton::d_func()' takes.
 
   What has no ritual
   ------------------
@@ -651,3 +649,21 @@ class QPushButton(QAbstractButton):
           'ritual_own_ZNK11QPushButton15initStyleOptionEP18QStyleOptionButt'
           'on')
     self.uglySide.call(ritual, self._addressOf(option))
+
+  def d_func(self) -> Optional[QPushButtonPrivate]:
+    """
+    Calls Qt's 'QPushButtonPrivate *QPushButton::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpushbutton.html#d_func
+
+    Returns
+    -------
+
+    Optional[QPushButtonPrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QPushButtonPrivate *QPushButton::d_func()
+    address = self.uglySide.call('ritual_ZN11QPushButton6d_funcEv')
+    from . import QPushButtonPrivate
+    return QPushButtonPrivate._cuteAt(address)

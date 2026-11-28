@@ -11,14 +11,20 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin, CuteFlags
+from ..cute import CuteMixin, CuteFlags, WAIT
 from ..occult import Rituals
 from ..QtCore import QObject, QStringList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from ..QtCore import QMetaObject, QRect
+  from . import QInputDevicePrivate
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QRect = WAIT['QRect']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -37,23 +43,34 @@ class QInputDevice(QObject):
   -----------
 
   Every function of Qt's QInputDevice that has a ritual and that Python can
-  call so far, 11 names in all: 'metaObject', 'tr', 'name', 'type',
+  call so far, 14 names in all: 'metaObject', 'tr', 'd_func', 'name', 'type',
   'capabilities', 'hasCapability', 'systemId', 'seatName',
-  'availableVirtualGeometry', 'seatNames', 'primaryKeyboard'. It can be made
+  'availableVirtualGeometry', 'seatNames', 'primaryKeyboard',
+  'availableVirtualGeometryChanged', 'capabilitiesChanged'. It can be made
   from Python, in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QInputDevice::qt_metacast(const char *a0)': one of Qt's own
+    inner workings.
+  - Qt's 'int QInputDevice::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
+  - Qt's 'const QInputDevicePrivate *QInputDevice::d_func() const': takes in
+    Python what 'QInputDevicePrivate *QInputDevice::d_func()' takes.
   - Qt's 'QInputDevice::~QInputDevice()': the destructor: Python never
     removes a C++ QInputDevice.
+  - Qt's 'QList<const QInputDevice *> QInputDevice::devices()': gives a type
+    Python has no way to take yet.
+  - Qt's 'bool QInputDevice::operator==(const QInputDevice &other) const':
+    takes a type Python has no way to hand over yet.
+  - Qt's 'QInputDevice::QInputDevice(QInputDevicePrivate &d, QObject
+    *parent)': takes a type Python has no way to hand over yet.
 
   What has no ritual
   ------------------
 
-  15 of the 29 functions Qt declares: 7 takes or gives a type that cannot be
-  passed yet; 4 forbidden; 2 a signal; 1 a template; 1 declared and nowhere
-  to be found.
+  6 of the 29 functions Qt declares: 4 forbidden; 2 not a gap.
 
   What to expect
   --------------
@@ -69,6 +86,9 @@ class QInputDevice(QObject):
   - Qt tells when it has removed the C++ QInputDevice. Every call on the cute
     object, and every use of it as an argument, then raises 'RuntimeError',
     and nothing reaches C++.
+  - Each name of Qt's QInputDevice that has no cute function yet, 'devices',
+    holds a function that raises 'NotImplementedError', and its docstring
+    says why.
   """
 
   #  The enums Qt writes inside QInputDevice, each a class in here as in C++,
@@ -478,3 +498,75 @@ class QInputDevice(QObject):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  def d_func(self) -> Optional[QInputDevicePrivate]:
+    """
+    Calls Qt's 'QInputDevicePrivate *QInputDevice::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qinputdevice.html#d_func
+
+    Returns
+    -------
+
+    Optional[QInputDevicePrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QInputDevicePrivate *QInputDevice::d_func()
+    address = self.uglySide.call('ritual_ZN12QInputDevice6d_funcEv')
+    from . import QInputDevicePrivate
+    return QInputDevicePrivate._cuteAt(address)
+
+  @overload(QRect)
+  def availableVirtualGeometryChanged(self, area: QRect) -> None:
+    """
+    Calls Qt's 'void QInputDevice::availableVirtualGeometryChanged(QRect
+    area)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qinputdevice.html#availableVirtualGeometryChanged
+
+    Parameters
+    ----------
+
+    area : QRect
+      Passed on as a value: Qt reads the C++ QRect, which stays Python's own.
+    """
+    #  void QInputDevice::availableVirtualGeometryChanged(QRect area)
+    self.uglySide.call(
+        'ritual_ZN12QInputDevice31availableVirtualGeometryChangedE5QRect',
+        self._valueOf(area),
+    )
+
+  @overload(Capabilities)
+  def capabilitiesChanged(self, capabilities: Capabilities) -> None:
+    """
+    Calls Qt's 'void QInputDevice::capabilitiesChanged(Capabilities
+    capabilities)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qinputdevice.html#capabilitiesChanged
+
+    Parameters
+    ----------
+
+    capabilities : Capabilities
+      Passed on as its number.
+    """
+    #  void QInputDevice::capabilitiesChanged(Capabilities capabilities)
+    self.uglySide.call(
+        'ritual_ZN12QInputDevice19capabilitiesChangedE6QFlagsINS_10Capabili'
+        'tyEE',
+        capabilities.value,
+    )
+
+  @staticmethod
+  def devices(*__, **_) -> Never:
+    """
+    Qt's 'QList<const QInputDevice *> QInputDevice::devices()': gives a type
+    Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QInputDevice.devices' has no cute function yet. Qt's 'QList<const "
+        "QInputDevice *> QInputDevice::devices()': gives a type Python has "
+        "no way to take yet.")

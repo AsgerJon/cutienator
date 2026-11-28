@@ -13,19 +13,24 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
+from . import QtPrivate
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
-  from . import QMetaType, QPropertyBindingSourceLocation, QPropertyObserver
-  from . import QUntypedPropertyBinding
+  from . import QMetaProperty, QMetaType, QObject
+  from . import QPropertyBindingSourceLocation, QPropertyObserver
+  from . import QUntypedPropertyBinding, QUntypedPropertyData
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
+  QMetaProperty = WAIT['QMetaProperty']
+  QObject = WAIT['QObject']
   QPropertyBindingSourceLocation = WAIT['QPropertyBindingSourceLocation']
   QPropertyObserver = WAIT['QPropertyObserver']
   QUntypedPropertyBinding = WAIT['QUntypedPropertyBinding']
+  QUntypedPropertyData = WAIT['QUntypedPropertyData']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -47,7 +52,7 @@ class QUntypedBindable(CuteMixin, metaclass=MetaCute):
   Every function of Qt's QUntypedBindable that has a ritual and that Python
   can call so far, 10 names in all: 'isValid', 'isBindable', 'isReadOnly',
   'makeBinding', 'takeBinding', 'observe', 'binding', 'setBinding',
-  'hasBinding', 'metaType'. It can be made from Python, in 1 way; see
+  'hasBinding', 'metaType'. It can be made from Python, in 4 ways; see
   '__init__'.
 
   What has a ritual and is left out, and why
@@ -59,8 +64,7 @@ class QUntypedBindable(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  7 of the 19 functions Qt declares: 4 a template; 3 takes or gives a type
-  that cannot be passed yet.
+  4 of the 19 functions Qt declares: 4 a template.
 
   What to expect
   --------------
@@ -74,6 +78,9 @@ class QUntypedBindable(CuteMixin, metaclass=MetaCute):
     is as in C++.
   - A function giving a QUntypedBindable back gives a copy the ritual made
     for Python, in a new cute QUntypedBindable.
+  - Each name of Qt's QUntypedBindable that has no cute function yet,
+    'addNotifier', 'onValueChanged', 'subscribe', holds a function that
+    raises 'NotImplementedError', and its docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -250,6 +257,131 @@ class QUntypedBindable(CuteMixin, metaclass=MetaCute):
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  @overload(QUntypedPropertyData, WAIT['QtPrivate.QBindableInterface'])
+  @overload(QUntypedPropertyData, NoneType)
+  @overload(NoneType, WAIT['QtPrivate.QBindableInterface'])
+  @overload(NoneType, NoneType)
+  def __init__(
+      self,
+      d: Optional[QUntypedPropertyData],
+      i: Optional[QtPrivate.QBindableInterface],
+  ) -> None:
+    """
+    Notes what was given, for Qt's
+    'QUntypedBindable::QUntypedBindable(QUntypedPropertyData *d, const
+    QtPrivate::QBindableInterface *i)', which is called at the first use.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/quntypedbindable.html#QUntypedBindable
+
+    Parameters
+    ----------
+
+    d : Optional[QUntypedPropertyData]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    i : Optional[QtPrivate.QBindableInterface]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  QUntypedBindable::QUntypedBindable(QUntypedPropertyData *d, const
+    #      QtPrivate::QBindableInterface *i)
+    self._noteCreation(QUntypedBindable, lambda: Rituals.call(
+        'ritual_ZN16QUntypedBindableC1EP20QUntypedPropertyDataPKN9QtPrivate'
+        '18QBindableInterfaceE',
+        self._addressOf(d), self._addressOf(i),
+    ))
+
+  @overload(QObject, QMetaProperty, WAIT['QtPrivate.QBindableInterface'])
+  @overload(QObject, QMetaProperty, NoneType)
+  @overload(NoneType, QMetaProperty, WAIT['QtPrivate.QBindableInterface'])
+  @overload(NoneType, QMetaProperty, NoneType)
+  def __init__(
+      self,
+      obj: Optional[QObject],
+      property: QMetaProperty,
+      i: Optional[QtPrivate.QBindableInterface],
+  ) -> None:
+    """
+    Notes what was given, for Qt's
+    'QUntypedBindable::QUntypedBindable(QObject *obj, const QMetaProperty
+    &property, const QtPrivate::QBindableInterface *i)', which is called at
+    the first use.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/quntypedbindable.html#QUntypedBindable
+
+    Parameters
+    ----------
+
+    obj : Optional[QObject]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    property : QMetaProperty
+      Passed on as a value: Qt reads the C++ QMetaProperty, which stays
+      Python's own.
+
+    i : Optional[QtPrivate.QBindableInterface]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  QUntypedBindable::QUntypedBindable(QObject *obj, const QMetaProperty
+    #      &property, const QtPrivate::QBindableInterface *i)
+    self._noteCreation(QUntypedBindable, lambda: Rituals.call(
+        'ritual_ZN16QUntypedBindableC1EP7QObjectRK13QMetaPropertyPKN9QtPriv'
+        'ate18QBindableInterfaceE',
+        self._addressOf(obj, 'QObject'), self._valueOf(property),
+        self._addressOf(i),
+    ))
+
+  @overload(QObject, str, WAIT['QtPrivate.QBindableInterface'])
+  @overload(QObject, str, NoneType)
+  @overload(QObject, NoneType, WAIT['QtPrivate.QBindableInterface'])
+  @overload(QObject, NoneType, NoneType)
+  @overload(NoneType, str, WAIT['QtPrivate.QBindableInterface'])
+  @overload(NoneType, str, NoneType)
+  @overload(NoneType, NoneType, WAIT['QtPrivate.QBindableInterface'])
+  @overload(NoneType, NoneType, NoneType)
+  def __init__(
+      self,
+      obj: Optional[QObject],
+      property: Optional[str],
+      i: Optional[QtPrivate.QBindableInterface],
+  ) -> None:
+    """
+    Notes what was given, for Qt's
+    'QUntypedBindable::QUntypedBindable(QObject *obj, const char *property,
+    const QtPrivate::QBindableInterface *i)', which is called at the first
+    use.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/quntypedbindable.html#QUntypedBindable
+
+    Parameters
+    ----------
+
+    obj : Optional[QObject]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    property : Optional[str]
+      Passed on as the bytes of the text. None is passed on as no text.
+
+    i : Optional[QtPrivate.QBindableInterface]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  QUntypedBindable::QUntypedBindable(QObject *obj, const char *property,
+    #      const QtPrivate::QBindableInterface *i)
+    self._noteCreation(QUntypedBindable, lambda: Rituals.call(
+        'ritual_ZN16QUntypedBindableC1EP7QObjectPKcPKN9QtPrivate18QBindable'
+        'InterfaceE',
+        self._addressOf(obj, 'QObject'), self._bytesOf(property),
+        self._addressOf(i),
+    ))
+
   @overload()
   def __init__(self) -> None:
     """
@@ -325,3 +457,36 @@ class QUntypedBindable(CuteMixin, metaclass=MetaCute):
         'ritual_ZNK16QUntypedBindable7observeEP17QPropertyObserver',
         self._addressOf(observer),
     )
+
+  @staticmethod
+  def addNotifier(*__, **_) -> Never:
+    """
+    Qt's 'QUntypedBindable::addNotifier': a template: a pattern and no single
+    function.
+    """
+    raise NotImplementedError(
+        "'QUntypedBindable.addNotifier' has no cute function yet. Qt's "
+        "'QUntypedBindable::addNotifier': a template: a pattern and no "
+        "single function.")
+
+  @staticmethod
+  def onValueChanged(*__, **_) -> Never:
+    """
+    Qt's 'QUntypedBindable::onValueChanged': a template: a pattern and no
+    single function.
+    """
+    raise NotImplementedError(
+        "'QUntypedBindable.onValueChanged' has no cute function yet. Qt's "
+        "'QUntypedBindable::onValueChanged': a template: a pattern and no "
+        "single function.")
+
+  @staticmethod
+  def subscribe(*__, **_) -> Never:
+    """
+    Qt's 'QUntypedBindable::subscribe': a template: a pattern and no single
+    function.
+    """
+    raise NotImplementedError(
+        "'QUntypedBindable.subscribe' has no cute function yet. Qt's "
+        "'QUntypedBindable::subscribe': a template: a pattern and no single "
+        "function.")

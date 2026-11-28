@@ -18,9 +18,10 @@ from ..QtCore import Qt, QCoreApplication, QList, QObject
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Never, Optional
 
-  from ..QtCore import QEvent, QMetaObject, QPoint
-  from . import QClipboard, QCursor, QFont, QIcon, QInputMethod, QPalette
-  from . import QScreen, QStyleHints, QWindow
+  from ..QtCore import QEvent, QMetaObject, QPoint, QPostEventList
+  from . import QClipboard, QCursor, QFont, QGuiApplicationPrivate, QIcon
+  from . import QInputMethod, QPalette, QPlatformNativeInterface, QScreen
+  from . import QStyleHints, QWindow
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -31,6 +32,7 @@ else:
   QIcon = WAIT['QIcon']
   QPalette = WAIT['QPalette']
   QPoint = WAIT['QPoint']
+  QPostEventList = WAIT['QPostEventList']
   QScreen = WAIT['QScreen']
   QWindow = WAIT['QWindow']
 
@@ -51,7 +53,7 @@ class QGuiApplication(QCoreApplication):
   -----------
 
   Every function of Qt's QGuiApplication that has a ritual and that Python
-  can call so far, 65 names in all: 'metaObject', 'tr',
+  can call so far, 68 names in all: 'metaObject', 'tr',
   'setApplicationDisplayName', 'applicationDisplayName', 'setBadgeNumber',
   'setDesktopFileName', 'desktopFileName', 'allWindows', 'topLevelWindows',
   'topLevelAt', 'setWindowIcon', 'windowIcon', 'platformName', 'modalWindow',
@@ -62,15 +64,16 @@ class QGuiApplication(QCoreApplication):
   'queryKeyboardModifiers', 'mouseButtons', 'setLayoutDirection',
   'layoutDirection', 'isRightToLeft', 'isLeftToRight', 'styleHints',
   'setDesktopSettingsAware', 'desktopSettingsAware', 'inputMethod',
-  'setQuitOnLastWindowClosed', 'quitOnLastWindowClosed', 'applicationState',
+  'platformNativeInterface', 'setQuitOnLastWindowClosed',
+  'quitOnLastWindowClosed', 'applicationState',
   'setHighDpiScaleFactorRoundingPolicy', 'highDpiScaleFactorRoundingPolicy',
   'exec', 'notify', 'isSessionRestored', 'sessionId', 'sessionKey',
   'isSavingSession', 'sync', 'fontDatabaseChanged', 'screenAdded',
   'screenRemoved', 'primaryScreenChanged', 'lastWindowClosed',
   'focusObjectChanged', 'focusWindowChanged', 'applicationStateChanged',
   'layoutDirectionChanged', 'applicationDisplayNameChanged',
-  'paletteChanged', 'fontChanged', 'event'. It can be made from Python, in 1
-  way; see '__init__'.
+  'paletteChanged', 'fontChanged', 'event', 'compressEvent', 'd_func'. It can
+  be made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -81,9 +84,6 @@ class QGuiApplication(QCoreApplication):
     **a2)': one of Qt's own inner workings.
   - Qt's 'QGuiApplication::~QGuiApplication()': the destructor: Python never
     removes a C++ QGuiApplication.
-  - Qt's 'QPlatformNativeInterface
-    *QGuiApplication::platformNativeInterface()': gives
-    'QPlatformNativeInterface', which has no cute class yet.
   - Qt's 'QFunctionPointer QGuiApplication::platformFunction(const QByteArray
     &function)': gives a type Python has no way to take yet.
   - Qt's 'void *QGuiApplication::resolveInterface(const char *name, int
@@ -92,15 +92,11 @@ class QGuiApplication(QCoreApplication):
     &sessionManager)': takes a type Python has no way to hand over yet.
   - Qt's 'void QGuiApplication::saveStateRequest(QSessionManager
     &sessionManager)': takes a type Python has no way to hand over yet.
-  - Qt's 'bool QGuiApplication::compressEvent(QEvent *a0, QObject *receiver,
-    QPostEventList *a2)': names 'QPostEventList', which has no cute class
-    yet.
   - Qt's 'QGuiApplication::QGuiApplication(QGuiApplicationPrivate &p)': takes
     a type Python has no way to hand over yet.
-  - Qt's 'QGuiApplicationPrivate *QGuiApplication::d_func()': gives
-    'QGuiApplicationPrivate', which has no cute class yet.
   - Qt's 'const QGuiApplicationPrivate *QGuiApplication::d_func() const':
-    gives 'QGuiApplicationPrivate', which has no cute class yet.
+    takes in Python what 'QGuiApplicationPrivate *QGuiApplication::d_func()'
+    takes.
 
   What has no ritual
   ------------------
@@ -122,9 +118,8 @@ class QGuiApplication(QCoreApplication):
     cute object, and every use of it as an argument, then raises
     'RuntimeError', and nothing reaches C++.
   - Each name of Qt's QGuiApplication that has no cute function yet,
-    'commitDataRequest', 'platformFunction', 'platformNativeInterface',
-    'saveStateRequest', holds a function that raises 'NotImplementedError',
-    and its docstring says why.
+    'commitDataRequest', 'platformFunction', 'saveStateRequest', holds a
+    function that raises 'NotImplementedError', and its docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -859,6 +854,29 @@ class QGuiApplication(QCoreApplication):
     return QInputMethod._cuteAt(address)
 
   @staticmethod
+  def platformNativeInterface() -> Optional[QPlatformNativeInterface]:
+    """
+    Calls Qt's 'QPlatformNativeInterface
+    *QGuiApplication::platformNativeInterface()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qguiapplication.html#platformNativeInterface
+
+    Returns
+    -------
+
+    Optional[QPlatformNativeInterface]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QPlatformNativeInterface *QGuiApplication::platformNativeInterface()
+    address = Rituals.call(
+        'ritual_ZN15QGuiApplication23platformNativeInterfaceEv',
+    )
+    from . import QPlatformNativeInterface
+    return QPlatformNativeInterface._cuteAt(address)
+
+  @staticmethod
   @overload(bool)
   def setQuitOnLastWindowClosed(quit: bool) -> None:
     """
@@ -1452,6 +1470,74 @@ class QGuiApplication(QCoreApplication):
       ritual = 'ritual_own_ZN15QGuiApplication5eventEP6QEvent'
     return self.uglySide.call(ritual, self._addressOf(a0))
 
+  @overload(QEvent, QObject, QPostEventList)
+  @overload(QEvent, QObject, NoneType)
+  @overload(QEvent, NoneType, QPostEventList)
+  @overload(QEvent, NoneType, NoneType)
+  @overload(NoneType, QObject, QPostEventList)
+  @overload(NoneType, QObject, NoneType)
+  @overload(NoneType, NoneType, QPostEventList)
+  @overload(NoneType, NoneType, NoneType)
+  def compressEvent(
+      self,
+      a0: Optional[QEvent],
+      receiver: Optional[QObject],
+      a2: Optional[QPostEventList],
+  ) -> bool:
+    """
+    Calls Qt's 'bool QGuiApplication::compressEvent(QEvent *a0, QObject
+    *receiver, QPostEventList *a2)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qguiapplication.html#compressEvent
+
+    Parameters
+    ----------
+
+    a0 : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    receiver : Optional[QObject]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    a2 : Optional[QPostEventList]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  bool QGuiApplication::compressEvent(QEvent *a0, QObject *receiver,
+    #      QPostEventList *a2)
+    ritual = (
+        'ritual_ZN15QGuiApplication13compressEventEP6QEventP7QObjectP14QPos'
+        'tEventList')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN15QGuiApplication13compressEventEP6QEventP7QObjectP'
+          '14QPostEventList')
+    return self.uglySide.call(
+        ritual,
+        self._addressOf(a0), self._addressOf(receiver, 'QObject'),
+        self._addressOf(a2),
+    )
+
+  def d_func(self) -> Optional[QGuiApplicationPrivate]:
+    """
+    Calls Qt's 'QGuiApplicationPrivate *QGuiApplication::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qguiapplication.html#d_func
+
+    Returns
+    -------
+
+    Optional[QGuiApplicationPrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QGuiApplicationPrivate *QGuiApplication::d_func()
+    address = self.uglySide.call('ritual_ZN15QGuiApplication6d_funcEv')
+    from . import QGuiApplicationPrivate
+    return QGuiApplicationPrivate._cuteAt(address)
+
   @staticmethod
   def commitDataRequest(*__, **_) -> Never:
     """
@@ -1475,19 +1561,6 @@ class QGuiApplication(QCoreApplication):
         "'QFunctionPointer QGuiApplication::platformFunction(const "
         "QByteArray &function)': gives a type Python has no way to take yet."
     )
-
-  @staticmethod
-  def platformNativeInterface(*__, **_) -> Never:
-    """
-    Qt's 'QPlatformNativeInterface
-    *QGuiApplication::platformNativeInterface()': gives
-    'QPlatformNativeInterface', which has no cute class yet.
-    """
-    raise NotImplementedError(
-        "'QGuiApplication.platformNativeInterface' has no cute function "
-        "yet. Qt's 'QPlatformNativeInterface "
-        "*QGuiApplication::platformNativeInterface()': gives "
-        "'QPlatformNativeInterface', which has no cute class yet.")
 
   @staticmethod
   def saveStateRequest(*__, **_) -> Never:

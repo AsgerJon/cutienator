@@ -20,7 +20,7 @@ from worktoy.dispatch import overload
 from . import QNonContiguousByteDevice
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from . import QMetaObject
 
@@ -46,6 +46,11 @@ class QNonContiguousByteDeviceIoDeviceImpl(QNonContiguousByteDevice):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QNonContiguousByteDeviceIoDeviceImpl::qt_metacast(const char
+    *a0)': one of Qt's own inner workings.
+  - Qt's 'int
+    QNonContiguousByteDeviceIoDeviceImpl::qt_metacall(QMetaObject::Call a0,
+    int a1, void **a2)': one of Qt's own inner workings.
   - Qt's 'QNonContiguousByteDeviceIoDeviceImpl::
     ~QNonContiguousByteDeviceIoDeviceImpl()': the destructor: Python never
     removes a C++ QNonContiguousByteDeviceIoDeviceImpl.
@@ -56,9 +61,8 @@ class QNonContiguousByteDeviceIoDeviceImpl(QNonContiguousByteDevice):
   What has no ritual
   ------------------
 
-  6 of the 14 functions Qt declares: 2 takes or gives a type that cannot be
-  passed yet; 2 leans on 'QNonContiguousByteDeviceIoDeviceImpl; 1 a template;
-  1 declared and nowhere to be found.
+  4 of the 14 functions Qt declares: 2 not a gap; 2 leans on
+  'QNonContiguousByteDeviceIoDeviceImpl.
 
   What to expect
   --------------
@@ -75,6 +79,9 @@ class QNonContiguousByteDeviceIoDeviceImpl(QNonContiguousByteDevice):
     QNonContiguousByteDeviceIoDeviceImpl. Every call on the cute object, and
     every use of it as an argument, then raises 'RuntimeError', and nothing
     reaches C++.
+  - Each name of Qt's QNonContiguousByteDeviceIoDeviceImpl that has no cute
+    function yet, '__init__', holds a function that raises
+    'NotImplementedError', and its docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -183,6 +190,24 @@ class QNonContiguousByteDeviceIoDeviceImpl(QNonContiguousByteDevice):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def __init__(*__, **_) -> Never:
+    """
+    Qt's 'QNonContiguousByteDeviceIoDeviceImpl::
+    QNonContiguousByteDeviceIoDeviceImpl(QIODevice *d)': leans on
+    'QNonContiguousByteDeviceIoDeviceImpl::qt_metacall(QMetaObject::Call,
+    int, void**)', which Qt's source does not mark for use from outside Qt
+    and has no code for that could be taken.
+    """
+    raise NotImplementedError(
+        "'QNonContiguousByteDeviceIoDeviceImpl.__init__' has no cute "
+        "function yet. Qt's "
+        "'QNonContiguousByteDeviceIoDeviceImpl::QNonContiguousByteDeviceIoDe"
+        "viceImpl(QIODevice *d)': leans on "
+        "'QNonContiguousByteDeviceIoDeviceImpl::qt_metacall(QMetaObject::Cal"
+        "l, int, void**)', which Qt's source does not mark for use from "
+        "outside Qt and has no code for that could be taken.")
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #

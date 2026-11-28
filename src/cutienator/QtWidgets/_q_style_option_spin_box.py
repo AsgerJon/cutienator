@@ -39,15 +39,12 @@ class QStyleOptionSpinBox(QStyleOptionComplex):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'QStyleOptionSpinBox &QStyleOptionSpinBox::operator=(const
+    QStyleOptionSpinBox &a0)': assignment: Python binds a name and has no
+    operator for it.
   - Qt's 'QStyleOptionSpinBox::~QStyleOptionSpinBox()': the destructor:
     Python removes its C++ QStyleOptionSpinBox by it, and has no other use
     for it.
-
-  What has no ritual
-  ------------------
-
-  1 of the 5 functions Qt declares: 1 takes or gives a type that cannot be
-  passed yet.
 
   What to expect
   --------------

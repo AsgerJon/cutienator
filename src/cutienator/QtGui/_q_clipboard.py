@@ -46,25 +46,30 @@ class QClipboard(QObject):
   -----------
 
   Every function of Qt's QClipboard that has a ritual and that Python can
-  call so far, 19 names in all: 'metaObject', 'tr', 'clear',
+  call so far, 23 names in all: 'metaObject', 'tr', 'clear',
   'supportsSelection', 'supportsFindBuffer', 'ownsSelection',
   'ownsClipboard', 'ownsFindBuffer', 'text', 'setText', 'mimeData',
-  'setMimeData', 'image', 'pixmap', 'setImage', 'setPixmap', 'supportsMode',
+  'setMimeData', 'image', 'pixmap', 'setImage', 'setPixmap', 'changed',
+  'selectionChanged', 'findBufferChanged', 'dataChanged', 'supportsMode',
   'ownsMode', 'emitChanged'. It can be made from Python, in 1 way; see
   '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QClipboard::qt_metacast(const char *a0)': one of Qt's own
+    inner workings.
+  - Qt's 'int QClipboard::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
   - Qt's 'QClipboard::~QClipboard()': the destructor: Python never removes a
     C++ QClipboard.
+  - Qt's 'QString QClipboard::text(QString &subtype, Mode mode) const': takes
+    a type Python has no way to hand over yet.
 
   What has no ritual
   ------------------
 
-  11 of the 32 functions Qt declares: 4 a signal; 3 takes or gives a type
-  that cannot be passed yet; 2 forbidden; 1 a template; 1 declared and
-  nowhere to be found.
+  4 of the 32 functions Qt declares: 2 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -547,6 +552,49 @@ class QClipboard(QObject):
     """
     #  void QClipboard::clear(Mode mode)
     self.uglySide.call('ritual_ZN10QClipboard5clearENS_4ModeE', mode.value)
+
+  @overload(Mode)
+  def changed(self, mode: Mode) -> None:
+    """
+    Calls Qt's 'void QClipboard::changed(QClipboard::Mode mode)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qclipboard.html#changed
+
+    Parameters
+    ----------
+
+    mode : Mode
+      Passed on as its number.
+    """
+    #  void QClipboard::changed(QClipboard::Mode mode)
+    self.uglySide.call('ritual_ZN10QClipboard7changedENS_4ModeE', mode.value)
+
+  def selectionChanged(self) -> None:
+    """
+    Calls Qt's 'void QClipboard::selectionChanged()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qclipboard.html#selectionChanged
+    """
+    #  void QClipboard::selectionChanged()
+    self.uglySide.call('ritual_ZN10QClipboard16selectionChangedEv')
+
+  def findBufferChanged(self) -> None:
+    """
+    Calls Qt's 'void QClipboard::findBufferChanged()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qclipboard.html#findBufferChanged
+    """
+    #  void QClipboard::findBufferChanged()
+    self.uglySide.call('ritual_ZN10QClipboard17findBufferChangedEv')
+
+  def dataChanged(self) -> None:
+    """
+    Calls Qt's 'void QClipboard::dataChanged()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qclipboard.html#dataChanged
+    """
+    #  void QClipboard::dataChanged()
+    self.uglySide.call('ritual_ZN10QClipboard11dataChangedEv')
 
   @overload(Mode)
   def emitChanged(self, mode: Mode) -> None:

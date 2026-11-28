@@ -22,9 +22,9 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
 
   from ..QtCore import QLine, QLineF, QPoint, QPointF, QRect, QRectF
   from . import QBrush, QColor, QFont, QFontInfo, QFontMetrics, QGlyphRun
-  from . import QImage, QPaintDevice, QPaintEngine, QPainterPath, QPen
-  from . import QPicture, QPixmap, QPolygon, QPolygonF, QRegion, QStaticText
-  from . import QTextItem, QTextOption, QTransform
+  from . import QImage, QPaintDevice, QPaintEngine, QPainterPath
+  from . import QPainterPrivate, QPen, QPicture, QPixmap, QPolygon, QPolygonF
+  from . import QRegion, QStaticText, QTextItem, QTextOption, QTransform
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -67,7 +67,7 @@ class QPainter(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QPainter that has a ritual and that Python can call
-  so far, 92 names in all: 'device', 'begin', 'end', 'isActive',
+  so far, 93 names in all: 'd_func', 'device', 'begin', 'end', 'isActive',
   'setCompositionMode', 'compositionMode', 'font', 'setFont', 'fontMetrics',
   'fontInfo', 'setPen', 'pen', 'setBrush', 'brush', 'setBackgroundMode',
   'backgroundMode', 'brushOrigin', 'brushOriginF', 'setBrushOrigin',
@@ -92,14 +92,19 @@ class QPainter(CuteMixin, metaclass=MetaCute):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'const QPainterPrivate *QPainter::d_func() const': takes in Python
+    what 'QPainterPrivate *QPainter::d_func()' takes.
   - Qt's 'QPainter::~QPainter()': the destructor: Python never removes a C++
     QPainter.
+  - Qt's 'void QPainter::setPen(QPen &&pen)': takes a type Python has no way
+    to hand over yet.
+  - Qt's 'void QPainter::setBrush(QBrush &&brush)': takes a type Python has
+    no way to hand over yet.
 
   What has no ritual
   ------------------
 
-  9 of the 211 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet; 2 declared and nowhere to be found; 2 forbidden; 1 a template.
+  5 of the 211 functions Qt declares: 3 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -298,8 +303,8 @@ class QPainter(CuteMixin, metaclass=MetaCute):
       address = Rituals.call(
           'ritual_ZN8QPainter14PixmapFragment6createERK7QPointFRK6QRectFddd'
           'd',
-          CuteMixin._valueOf(pos), CuteMixin._valueOf(sourceRect), scaleX,
-          scaleY, rotation, opacity,
+          CuteMixin._valueOf(pos, 'QPointF'), CuteMixin._valueOf(sourceRect),
+          scaleX, scaleY, rotation, opacity,
       )
       return QPainter.PixmapFragment._cuteOwning(address)
 
@@ -1091,7 +1096,8 @@ class QPainter(CuteMixin, metaclass=MetaCute):
     """
     #  void QPainter::setBrushOrigin(const QPointF &a0)
     self.uglySide.call(
-        'ritual_ZN8QPainter14setBrushOriginERK7QPointF', self._valueOf(a0),
+        'ritual_ZN8QPainter14setBrushOriginERK7QPointF',
+        self._valueOf(a0, 'QPointF'),
     )
 
   @overload(QBrush)
@@ -1624,6 +1630,24 @@ class QPainter(CuteMixin, metaclass=MetaCute):
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  def d_func(self) -> Optional[QPainterPrivate]:
+    """
+    Calls Qt's 'QPainterPrivate *QPainter::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpainter.html#d_func
+
+    Returns
+    -------
+
+    Optional[QPainterPrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QPainterPrivate *QPainter::d_func()
+    address = self.uglySide.call('ritual_ZN8QPainter6d_funcEv')
+    from . import QPainterPrivate
+    return QPainterPrivate._cuteAt(address)
+
   @overload(QPaintDevice)
   @overload(NoneType)
   def begin(self, a0: Optional[QPaintDevice]) -> bool:
@@ -1751,7 +1775,8 @@ class QPainter(CuteMixin, metaclass=MetaCute):
     """
     #  void QPainter::translate(const QPointF &offset)
     self.uglySide.call(
-        'ritual_ZN8QPainter9translateERK7QPointF', self._valueOf(offset),
+        'ritual_ZN8QPainter9translateERK7QPointF',
+        self._valueOf(offset, 'QPointF'),
     )
 
   @overload(QPoint)
@@ -1876,7 +1901,8 @@ class QPainter(CuteMixin, metaclass=MetaCute):
     """
     #  void QPainter::drawPoint(const QPointF &pt)
     self.uglySide.call(
-        'ritual_ZN8QPainter9drawPointERK7QPointF', self._valueOf(pt),
+        'ritual_ZN8QPainter9drawPointERK7QPointF',
+        self._valueOf(pt, 'QPointF'),
     )
 
   @overload(QPoint)
@@ -1939,7 +1965,7 @@ class QPainter(CuteMixin, metaclass=MetaCute):
     #  void QPainter::drawPoints(const QPointF *points, int pointCount)
     self.uglySide.call(
         'ritual_ZN8QPainter10drawPointsEPK7QPointFi',
-        self._addressOf(points), pointCount,
+        self._addressOf(points, 'QPointF'), pointCount,
     )
 
   @overload(QPolygonF)
@@ -2112,7 +2138,7 @@ class QPainter(CuteMixin, metaclass=MetaCute):
     #  void QPainter::drawLine(const QPointF &p1, const QPointF &p2)
     self.uglySide.call(
         'ritual_ZN8QPainter8drawLineERK7QPointFS2_',
-        self._valueOf(p1), self._valueOf(p2),
+        self._valueOf(p1, 'QPointF'), self._valueOf(p2, 'QPointF'),
     )
 
   @overload(QLineF, int)
@@ -2182,7 +2208,7 @@ class QPainter(CuteMixin, metaclass=MetaCute):
     #  void QPainter::drawLines(const QPointF *pointPairs, int lineCount)
     self.uglySide.call(
         'ritual_ZN8QPainter9drawLinesEPK7QPointFi',
-        self._addressOf(pointPairs), lineCount,
+        self._addressOf(pointPairs, 'QPointF'), lineCount,
     )
 
   @overload(QList[QPointF])
@@ -2533,7 +2559,7 @@ class QPainter(CuteMixin, metaclass=MetaCute):
     #  void QPainter::drawEllipse(const QPointF &center, qreal rx, qreal ry)
     self.uglySide.call(
         'ritual_ZN8QPainter11drawEllipseERK7QPointFdd',
-        self._valueOf(center), rx, ry,
+        self._valueOf(center, 'QPointF'), rx, ry,
     )
 
   @overload(QPoint, int, int)
@@ -2585,7 +2611,7 @@ class QPainter(CuteMixin, metaclass=MetaCute):
     #  void QPainter::drawPolyline(const QPointF *points, int pointCount)
     self.uglySide.call(
         'ritual_ZN8QPainter12drawPolylineEPK7QPointFi',
-        self._addressOf(points), pointCount,
+        self._addressOf(points, 'QPointF'), pointCount,
     )
 
   @overload(QPolygonF)
@@ -2686,7 +2712,7 @@ class QPainter(CuteMixin, metaclass=MetaCute):
     #      Qt::FillRule fillRule)
     self.uglySide.call(
         'ritual_ZN8QPainter11drawPolygonEPK7QPointFiN2Qt8FillRuleE',
-        self._addressOf(points), pointCount, fillRule.value,
+        self._addressOf(points, 'QPointF'), pointCount, fillRule.value,
     )
 
   @overload(QPolygonF)
@@ -2813,7 +2839,7 @@ class QPainter(CuteMixin, metaclass=MetaCute):
     #      pointCount)
     self.uglySide.call(
         'ritual_ZN8QPainter17drawConvexPolygonEPK7QPointFi',
-        self._addressOf(points), pointCount,
+        self._addressOf(points, 'QPointF'), pointCount,
     )
 
   @overload(QPolygonF)
@@ -3325,7 +3351,8 @@ class QPainter(CuteMixin, metaclass=MetaCute):
       offset = QPointF()
     self.uglySide.call(
         'ritual_ZN8QPainter15drawTiledPixmapERK6QRectFRK7QPixmapRK7QPointF',
-        self._valueOf(rect), self._valueOf(pm), self._valueOf(offset),
+        self._valueOf(rect), self._valueOf(pm), self._valueOf(offset,
+        'QPointF'),
     )
 
   @overload(int, int, int, int, QPixmap)
@@ -3439,7 +3466,7 @@ class QPainter(CuteMixin, metaclass=MetaCute):
     #  void QPainter::drawPicture(const QPointF &p, const QPicture &picture)
     self.uglySide.call(
         'ritual_ZN8QPainter11drawPictureERK7QPointFRK8QPicture',
-        self._valueOf(p), self._valueOf(picture),
+        self._valueOf(p, 'QPointF'), self._valueOf(picture),
     )
 
   @overload(int, int, QPicture)
@@ -3697,7 +3724,7 @@ class QPainter(CuteMixin, metaclass=MetaCute):
     #      QRectF &sr)
     self.uglySide.call(
         'ritual_ZN8QPainter10drawPixmapERK7QPointFRK7QPixmapRK6QRectF',
-        self._valueOf(p), self._valueOf(pm), self._valueOf(sr),
+        self._valueOf(p, 'QPointF'), self._valueOf(pm), self._valueOf(sr),
     )
 
   @overload(QPoint, QPixmap, QRect)
@@ -3751,7 +3778,7 @@ class QPainter(CuteMixin, metaclass=MetaCute):
     #  void QPainter::drawPixmap(const QPointF &p, const QPixmap &pm)
     self.uglySide.call(
         'ritual_ZN8QPainter10drawPixmapERK7QPointFRK7QPixmap',
-        self._valueOf(p), self._valueOf(pm),
+        self._valueOf(p, 'QPointF'), self._valueOf(pm),
     )
 
   @overload(QPoint, QPixmap)
@@ -4033,7 +4060,7 @@ class QPainter(CuteMixin, metaclass=MetaCute):
     self.uglySide.call(
         'ritual_ZN8QPainter9drawImageERK7QPointFRK6QImageRK6QRectF6QFlagsIN'
         '2Qt19ImageConversionFlagEE',
-        self._valueOf(p), self._valueOf(image), self._valueOf(sr),
+        self._valueOf(p, 'QPointF'), self._valueOf(image), self._valueOf(sr),
         flags.value,
     )
 
@@ -4150,7 +4177,7 @@ class QPainter(CuteMixin, metaclass=MetaCute):
     #  void QPainter::drawImage(const QPointF &p, const QImage &image)
     self.uglySide.call(
         'ritual_ZN8QPainter9drawImageERK7QPointFRK6QImage',
-        self._valueOf(p), self._valueOf(image),
+        self._valueOf(p, 'QPointF'), self._valueOf(image),
     )
 
   @overload(QPoint, QImage)
@@ -4261,7 +4288,7 @@ class QPainter(CuteMixin, metaclass=MetaCute):
     #      &glyphRun)
     self.uglySide.call(
         'ritual_ZN8QPainter12drawGlyphRunERK7QPointFRK9QGlyphRun',
-        self._valueOf(position), self._valueOf(glyphRun),
+        self._valueOf(position, 'QPointF'), self._valueOf(glyphRun),
     )
 
   @overload(QPointF, QStaticText)
@@ -4291,7 +4318,7 @@ class QPainter(CuteMixin, metaclass=MetaCute):
     #      QStaticText &staticText)
     self.uglySide.call(
         'ritual_ZN8QPainter14drawStaticTextERK7QPointFRK11QStaticText',
-        self._valueOf(topLeftPosition), self._valueOf(staticText),
+        self._valueOf(topLeftPosition, 'QPointF'), self._valueOf(staticText),
     )
 
   @overload(QPoint, QStaticText)
@@ -4377,7 +4404,7 @@ class QPainter(CuteMixin, metaclass=MetaCute):
     #  void QPainter::drawText(const QPointF &p, const QString &s)
     self.uglySide.call(
         'ritual_ZN8QPainter8drawTextERK7QPointFRK7QString',
-        self._valueOf(p), s,
+        self._valueOf(p, 'QPointF'), s,
     )
 
   @overload(QPoint, str)
@@ -4459,7 +4486,7 @@ class QPainter(CuteMixin, metaclass=MetaCute):
     #      int justificationPadding)
     self.uglySide.call(
         'ritual_ZN8QPainter8drawTextERK7QPointFRK7QStringii',
-        self._valueOf(p), str, tf, justificationPadding,
+        self._valueOf(p, 'QPointF'), str, tf, justificationPadding,
     )
 
   @overload(QRectF, int, str)
@@ -4824,7 +4851,7 @@ class QPainter(CuteMixin, metaclass=MetaCute):
     #  void QPainter::drawTextItem(const QPointF &p, const QTextItem &ti)
     self.uglySide.call(
         'ritual_ZN8QPainter12drawTextItemERK7QPointFRK9QTextItem',
-        self._valueOf(p), self._valueOf(ti),
+        self._valueOf(p, 'QPointF'), self._valueOf(ti),
     )
 
   @overload(int, int, QTextItem)

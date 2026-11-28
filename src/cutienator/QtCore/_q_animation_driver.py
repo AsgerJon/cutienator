@@ -18,7 +18,7 @@ from . import QObject
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from . import QMetaObject
+  from . import QAnimationDriverPrivate, QMetaObject
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -37,21 +37,30 @@ class QAnimationDriver(QObject):
   -----------
 
   Every function of Qt's QAnimationDriver that has a ritual and that Python
-  can call so far, 10 names in all: 'metaObject', 'tr', 'advance', 'install',
-  'uninstall', 'isRunning', 'elapsed', 'advanceAnimation', 'start', 'stop'.
-  It can be made from Python, in 1 way; see '__init__'.
+  can call so far, 13 names in all: 'metaObject', 'tr', 'd_func', 'advance',
+  'install', 'uninstall', 'isRunning', 'elapsed', 'started', 'stopped',
+  'advanceAnimation', 'start', 'stop'. It can be made from Python, in 1 way;
+  see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QAnimationDriver::qt_metacast(const char *a0)': one of Qt's
+    own inner workings.
+  - Qt's 'int QAnimationDriver::qt_metacall(QMetaObject::Call a0, int a1,
+    void **a2)': one of Qt's own inner workings.
+  - Qt's 'const QAnimationDriverPrivate *QAnimationDriver::d_func() const':
+    takes in Python what 'QAnimationDriverPrivate
+    *QAnimationDriver::d_func()' takes.
   - Qt's 'QAnimationDriver::~QAnimationDriver()': the destructor: Python
     never removes a C++ QAnimationDriver.
+  - Qt's 'QAnimationDriver::QAnimationDriver(QAnimationDriverPrivate &dd,
+    QObject *parent)': takes a type Python has no way to hand over yet.
 
   What has no ritual
   ------------------
 
-  9 of the 21 functions Qt declares: 5 takes or gives a type that cannot be
-  passed yet; 2 a signal; 1 a template; 1 declared and nowhere to be found.
+  2 of the 21 functions Qt declares: 2 not a gap.
 
   What to expect
   --------------
@@ -270,6 +279,24 @@ class QAnimationDriver(QObject):
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  def d_func(self) -> Optional[QAnimationDriverPrivate]:
+    """
+    Calls Qt's 'QAnimationDriverPrivate *QAnimationDriver::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qanimationdriver.html#d_func
+
+    Returns
+    -------
+
+    Optional[QAnimationDriverPrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QAnimationDriverPrivate *QAnimationDriver::d_func()
+    address = self.uglySide.call('ritual_ZN16QAnimationDriver6d_funcEv')
+    from . import QAnimationDriverPrivate
+    return QAnimationDriverPrivate._cuteAt(address)
+
   def advance(self) -> None:
     """
     Calls Qt's 'void QAnimationDriver::advance()'.
@@ -299,6 +326,24 @@ class QAnimationDriver(QObject):
     """
     #  void QAnimationDriver::uninstall()
     self.uglySide.call('ritual_ZN16QAnimationDriver9uninstallEv')
+
+  def started(self) -> None:
+    """
+    Calls Qt's 'void QAnimationDriver::started()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qanimationdriver.html#started
+    """
+    #  void QAnimationDriver::started()
+    self.uglySide.call('ritual_ZN16QAnimationDriver7startedEv')
+
+  def stopped(self) -> None:
+    """
+    Calls Qt's 'void QAnimationDriver::stopped()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qanimationdriver.html#stopped
+    """
+    #  void QAnimationDriver::stopped()
+    self.uglySide.call('ritual_ZN16QAnimationDriver7stoppedEv')
 
   def advanceAnimation(self) -> None:
     """

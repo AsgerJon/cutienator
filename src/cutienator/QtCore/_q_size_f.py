@@ -17,6 +17,8 @@ from ..occult import Rituals
 from . import Qt
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Never
+
   from . import QMarginsF, QSize
 else:
   #  The cute classes this file names and is not built on. Each is brought in
@@ -73,6 +75,9 @@ class QSizeF(CuteMixin, metaclass=MetaCute):
     is as in C++.
   - A function giving a QSizeF back gives a copy the ritual made for Python,
     in a new cute QSizeF.
+  - Each name of Qt's QSizeF that has no cute function yet, 'rheight',
+    'rwidth', holds a function that raises 'NotImplementedError', and its
+    docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -903,3 +908,25 @@ class QSizeF(CuteMixin, metaclass=MetaCute):
         'ritual_ZN6QSizeF5scaleERKS_N2Qt15AspectRatioModeE',
         self._valueOf(s), mode.value,
     )
+
+  @staticmethod
+  def rheight(*__, **_) -> Never:
+    """
+    Qt's 'qreal &QSizeF::rheight()': takes or gives a type that cannot be
+    passed yet: qreal &.
+    """
+    raise NotImplementedError(
+        "'QSizeF.rheight' has no cute function yet. Qt's 'qreal "
+        "&QSizeF::rheight()': takes or gives a type that cannot be passed "
+        "yet: qreal &.")
+
+  @staticmethod
+  def rwidth(*__, **_) -> Never:
+    """
+    Qt's 'qreal &QSizeF::rwidth()': takes or gives a type that cannot be
+    passed yet: qreal &.
+    """
+    raise NotImplementedError(
+        "'QSizeF.rwidth' has no cute function yet. Qt's 'qreal "
+        "&QSizeF::rwidth()': takes or gives a type that cannot be passed "
+        "yet: qreal &.")

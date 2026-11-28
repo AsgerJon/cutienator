@@ -15,10 +15,10 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING
 
-from . import QFileSystemWatcherEngine
+from . import QFileSystemWatcherEngine, QStringList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from . import QMetaObject
 
@@ -40,14 +40,27 @@ class QPollingFileSystemWatcherEngine(QFileSystemWatcherEngine):
   made from Python: one comes out of a function of another class that gives
   one back.
 
+  What has a ritual and is left out, and why
+  ------------------------------------------
+
+  - Qt's 'void *QPollingFileSystemWatcherEngine::qt_metacast(const char
+    *a0)': one of Qt's own inner workings.
+  - Qt's 'int QPollingFileSystemWatcherEngine::qt_metacall(QMetaObject::Call
+    a0, int a1, void **a2)': one of Qt's own inner workings.
+  - Qt's 'QStringList QPollingFileSystemWatcherEngine::addPaths(const
+    QStringList &paths, QStringList *files, QStringList *directories)': names
+    'QStringList', which has no cute class yet.
+  - Qt's 'QStringList QPollingFileSystemWatcherEngine::removePaths(const
+    QStringList &paths, QStringList *files, QStringList *directories)': names
+    'QStringList', which has no cute class yet.
+
   What has no ritual
   ------------------
 
-  9 of the 10 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet; 1 a template; 1 declared and nowhere to be found; 1 leans on
+  5 of the 10 functions Qt declares: 2 not a gap; 1 leans on
   'QPollingFileSystemWatcherEngine; 1 leans on 'vtable for
-  QFileSystemWatcherEngine', which Qt's library does not offer and Qt's
-  source has no code for that could be taken; 1 leans on
+  QFileSystemWatcherEngine', which Qt's source does not mark for use from
+  outside Qt and has no code for that could be taken; 1 leans on
   'QFileSystemWatcherEngine.
 
   What to expect
@@ -64,6 +77,9 @@ class QPollingFileSystemWatcherEngine(QFileSystemWatcherEngine):
   - Qt tells when it has removed the C++ QPollingFileSystemWatcherEngine.
     Every call on the cute object, and every use of it as an argument, then
     raises 'RuntimeError', and nothing reaches C++.
+  - Each name of Qt's QPollingFileSystemWatcherEngine that has no cute
+    function yet, '__init__', holds a function that raises
+    'NotImplementedError', and its docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -127,6 +143,23 @@ class QPollingFileSystemWatcherEngine(QFileSystemWatcherEngine):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def __init__(*__, **_) -> Never:
+    """
+    Qt's
+    'QPollingFileSystemWatcherEngine::QPollingFileSystemWatcherEngine(QObject
+    *parent)': leans on 'vtable for QFileSystemWatcherEngine', which Qt's
+    source does not mark for use from outside Qt and has no code for that
+    could be taken.
+    """
+    raise NotImplementedError(
+        "'QPollingFileSystemWatcherEngine.__init__' has no cute function "
+        "yet. Qt's "
+        "'QPollingFileSystemWatcherEngine::QPollingFileSystemWatcherEngine(Q"
+        "Object *parent)': leans on 'vtable for QFileSystemWatcherEngine', "
+        "which Qt's source does not mark for use from outside Qt and has no "
+        "code for that could be taken.")
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #

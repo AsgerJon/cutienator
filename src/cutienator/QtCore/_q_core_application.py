@@ -19,7 +19,8 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Never, Optional
 
   from . import QAbstractEventDispatcher, QAbstractNativeEventFilter
-  from . import QDeadlineTimer, QEvent, QMetaObject, QPermission, QTranslator
+  from . import QCoreApplicationPrivate, QDeadlineTimer, QEvent, QMetaObject
+  from . import QPermission, QPostEventList, QTranslator
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -29,6 +30,7 @@ else:
   QDeadlineTimer = WAIT['QDeadlineTimer']
   QEvent = WAIT['QEvent']
   QPermission = WAIT['QPermission']
+  QPostEventList = WAIT['QPostEventList']
   QTranslator = WAIT['QTranslator']
 
 #  The class of None, for a signature that takes None in the place of an
@@ -48,8 +50,8 @@ class QCoreApplication(QObject):
   -----------
 
   Every function of Qt's QCoreApplication that has a ritual and that Python
-  can call so far, 54 names in all: 'metaObject', 'tr', 'arguments',
-  'setAttribute', 'testAttribute', 'setOrganizationDomain',
+  can call so far, 56 names in all: 'metaObject', 'tr', 'd_func',
+  'arguments', 'setAttribute', 'testAttribute', 'setOrganizationDomain',
   'organizationDomain', 'setOrganizationName', 'organizationName',
   'setApplicationName', 'applicationName', 'setApplicationVersion',
   'applicationVersion', 'setSetuidAllowed', 'isSetuidAllowed', 'instance',
@@ -63,8 +65,8 @@ class QCoreApplication(QObject):
   'setQuitLockEnabled', 'quit', 'exit', 'aboutToQuit',
   'organizationNameChanged', 'organizationDomainChanged',
   'applicationNameChanged', 'applicationVersionChanged', 'event',
-  'sendSpontaneousEvent', 'notifyInternal2', 'forwardEvent'. It can be made
-  from Python, in 1 way; see '__init__'.
+  'compressEvent', 'sendSpontaneousEvent', 'notifyInternal2', 'forwardEvent'.
+  It can be made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -73,17 +75,13 @@ class QCoreApplication(QObject):
     own inner workings.
   - Qt's 'int QCoreApplication::qt_metacall(QMetaObject::Call a0, int a1,
     void **a2)': one of Qt's own inner workings.
-  - Qt's 'QCoreApplicationPrivate *QCoreApplication::d_func()': gives
-    'QCoreApplicationPrivate', which has no cute class yet.
   - Qt's 'const QCoreApplicationPrivate *QCoreApplication::d_func() const':
-    gives 'QCoreApplicationPrivate', which has no cute class yet.
+    takes in Python what 'QCoreApplicationPrivate
+    *QCoreApplication::d_func()' takes.
   - Qt's 'QCoreApplication::~QCoreApplication()': the destructor: Python
     never removes a C++ QCoreApplication.
   - Qt's 'void *QCoreApplication::resolveInterface(const char *name, int
     revision) const': gives 'void', which has no cute class yet.
-  - Qt's 'bool QCoreApplication::compressEvent(QEvent *a0, QObject *receiver,
-    QPostEventList *a2)': names 'QPostEventList', which has no cute class
-    yet.
   - Qt's 'QCoreApplication::QCoreApplication(QCoreApplicationPrivate &p)':
     takes a type Python has no way to hand over yet.
   - Qt's 'void QCoreApplication::requestPermissionImpl(const QPermission
@@ -111,9 +109,9 @@ class QCoreApplication(QObject):
     cute object, and every use of it as an argument, then raises
     'RuntimeError', and nothing reaches C++.
   - Each name of Qt's QCoreApplication that has no cute function yet,
-    'compressEvent', 'nativeInterface', 'requestPermission',
-    'requestPermissionImpl', 'resolveInterface', holds a function that raises
-    'NotImplementedError', and its docstring says why.
+    'nativeInterface', 'requestPermission', 'requestPermissionImpl',
+    'resolveInterface', holds a function that raises 'NotImplementedError',
+    and its docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -1188,17 +1186,6 @@ class QCoreApplication(QObject):
   __take_ritual__ = 'ritual_take_QCoreApplication'
 
   #  The functions Qt calls itself that QCoreApplication is the first to
-  #  declare and that cannot be handed to Python yet, each as Qt declares it.
-  #  A class of a program that writes one of them anew is refused, since Qt
-  #  would never call what it wrote; see 'CuteMixin._refuseLeftOut'.
-  __virtual_left_out__ = {
-      'compressEvent': (
-          'bool QCoreApplication::compressEvent(QEvent *, QObject *, '
-          'QPostEventList *)',
-      ),
-  }
-
-  #  The functions Qt calls itself that QCoreApplication is the first to
   #  declare. A class of a program built on it can write one anew, and Qt
   #  then calls that. For each name: the key C++ knows the function by, what
   #  it gives, and what it takes.
@@ -1209,6 +1196,16 @@ class QCoreApplication(QObject):
            (
                ('address', 'address', 'QtCore:QObject'),
                ('address', 'address', 'QtCore:QEvent'),
+           )),
+      ),
+      'compressEvent': (
+          ('_ZN16QCoreApplication13compressEventEP6QEventP7QObjectP14QPostE'
+           'ventList',
+           ('bool', 'number', ''),
+           (
+               ('address', 'address', 'QtCore:QEvent'),
+               ('address', 'address', 'QtCore:QObject'),
+               ('address', 'address', 'QtCore:QPostEventList'),
            )),
       ),
   }
@@ -1308,6 +1305,24 @@ class QCoreApplication(QObject):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  def d_func(self) -> Optional[QCoreApplicationPrivate]:
+    """
+    Calls Qt's 'QCoreApplicationPrivate *QCoreApplication::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcoreapplication.html#d_func
+
+    Returns
+    -------
+
+    Optional[QCoreApplicationPrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QCoreApplicationPrivate *QCoreApplication::d_func()
+    address = self.uglySide.call('ritual_ZN16QCoreApplication6d_funcEv')
+    from . import QCoreApplicationPrivate
+    return QCoreApplicationPrivate._cuteAt(address)
 
   @overload(QObject, QEvent)
   @overload(QObject, NoneType)
@@ -1507,18 +1522,56 @@ class QCoreApplication(QObject):
       ritual = 'ritual_own_ZN16QCoreApplication5eventEP6QEvent'
     return self.uglySide.call(ritual, self._addressOf(a0))
 
-  @staticmethod
-  def compressEvent(*__, **_) -> Never:
+  @overload(QEvent, QObject, QPostEventList)
+  @overload(QEvent, QObject, NoneType)
+  @overload(QEvent, NoneType, QPostEventList)
+  @overload(QEvent, NoneType, NoneType)
+  @overload(NoneType, QObject, QPostEventList)
+  @overload(NoneType, QObject, NoneType)
+  @overload(NoneType, NoneType, QPostEventList)
+  @overload(NoneType, NoneType, NoneType)
+  def compressEvent(
+      self,
+      a0: Optional[QEvent],
+      receiver: Optional[QObject],
+      a2: Optional[QPostEventList],
+  ) -> bool:
     """
-    Qt's 'bool QCoreApplication::compressEvent(QEvent *a0, QObject *receiver,
-    QPostEventList *a2)': names 'QPostEventList', which has no cute class
-    yet.
+    Calls Qt's 'bool QCoreApplication::compressEvent(QEvent *a0, QObject
+    *receiver, QPostEventList *a2)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qcoreapplication.html#compressEvent
+
+    Parameters
+    ----------
+
+    a0 : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    receiver : Optional[QObject]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    a2 : Optional[QPostEventList]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
     """
-    raise NotImplementedError(
-        "'QCoreApplication.compressEvent' has no cute function yet. Qt's "
-        "'bool QCoreApplication::compressEvent(QEvent *a0, QObject "
-        "*receiver, QPostEventList *a2)': names 'QPostEventList', which has "
-        "no cute class yet.")
+    #  bool QCoreApplication::compressEvent(QEvent *a0, QObject *receiver,
+    #      QPostEventList *a2)
+    ritual = (
+        'ritual_ZN16QCoreApplication13compressEventEP6QEventP7QObjectP14QPo'
+        'stEventList')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN16QCoreApplication13compressEventEP6QEventP7QObject'
+          'P14QPostEventList')
+    return self.uglySide.call(
+        ritual,
+        self._addressOf(a0), self._addressOf(receiver, 'QObject'),
+        self._addressOf(a2),
+    )
 
   @staticmethod
   def nativeInterface(*__, **_) -> Never:

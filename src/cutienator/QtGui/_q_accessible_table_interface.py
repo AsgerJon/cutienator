@@ -15,7 +15,7 @@ from ..cute import CuteMixin, MetaCute, WAIT
 from ..QtCore import QList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from . import QAccessibleInterface, QAccessibleTableModelChangeEvent
 else:
@@ -51,12 +51,17 @@ class QAccessibleTableInterface(CuteMixin, metaclass=MetaCute):
 
   - Qt's 'QAccessibleTableInterface::~QAccessibleTableInterface()': the
     destructor: Python never removes a C++ QAccessibleTableInterface.
+  - Qt's 'QList<int> QAccessibleTableInterface::selectedColumns() const':
+    gives a type Python has no way to take yet.
+  - Qt's 'QList<int> QAccessibleTableInterface::selectedRows() const': gives
+    a type Python has no way to take yet.
 
   What has no ritual
   ------------------
 
-  7 of the 26 functions Qt declares: 4 forbidden; 2 takes or gives a type
-  that cannot be passed yet; 1 the class is abstract, so C++ cannot make one.
+  5 of the 26 functions Qt declares: 4 forbidden; 1 the class is abstract, so
+  C++ cannot make one, and the C++ class of ours does not fill in every
+  function it leaves open.
 
   What to expect
   --------------
@@ -69,6 +74,9 @@ class QAccessibleTableInterface(CuteMixin, metaclass=MetaCute):
     has it, and is passed on as nothing. Whether Qt can do with nothing there
     is as in C++.
   - Python never removes the C++ QAccessibleTableInterface.
+  - Each name of Qt's QAccessibleTableInterface that has no cute function
+    yet, '__init__', 'selectedColumns', 'selectedRows', holds a function that
+    raises 'NotImplementedError', and its docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -500,6 +508,19 @@ class QAccessibleTableInterface(CuteMixin, metaclass=MetaCute):
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  @staticmethod
+  def __init__(*__, **_) -> Never:
+    """
+    Qt's 'QAccessibleTableInterface::QAccessibleTableInterface()': the class
+    is abstract, so C++ cannot make one, and the C++ class of ours does not
+    fill in every function it leaves open.
+    """
+    raise NotImplementedError(
+        "'QAccessibleTableInterface.__init__' has no cute function yet. "
+        "Qt's 'QAccessibleTableInterface::QAccessibleTableInterface()': the "
+        "class is abstract, so C++ cannot make one, and the C++ class of "
+        "ours does not fill in every function it leaves open.")
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -624,3 +645,25 @@ class QAccessibleTableInterface(CuteMixin, metaclass=MetaCute):
         'bleModelChangeEvent',
         self._addressOf(event),
     )
+
+  @staticmethod
+  def selectedColumns(*__, **_) -> Never:
+    """
+    Qt's 'QList<int> QAccessibleTableInterface::selectedColumns() const':
+    gives a type Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QAccessibleTableInterface.selectedColumns' has no cute function "
+        "yet. Qt's 'QList<int> QAccessibleTableInterface::selectedColumns() "
+        "const': gives a type Python has no way to take yet.")
+
+  @staticmethod
+  def selectedRows(*__, **_) -> Never:
+    """
+    Qt's 'QList<int> QAccessibleTableInterface::selectedRows() const': gives
+    a type Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QAccessibleTableInterface.selectedRows' has no cute function yet. "
+        "Qt's 'QList<int> QAccessibleTableInterface::selectedRows() const': "
+        "gives a type Python has no way to take yet.")

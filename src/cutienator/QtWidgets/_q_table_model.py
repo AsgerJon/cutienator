@@ -20,7 +20,7 @@ from ..cute import WAIT
 from ..QtCore import Qt, QAbstractTableModel, QList, QMap, QStringList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from ..QtCore import QMetaObject, QMimeData, QModelIndex, QVariant
   from . import QTableWidget, QTableWidgetItem
@@ -67,15 +67,33 @@ class QTableModel(QAbstractTableModel):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QTableModel::qt_metacast(const char *a0)': one of Qt's own
+    inner workings.
+  - Qt's 'int QTableModel::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
   - Qt's 'QTableModel::~QTableModel()': the destructor: Python never removes
     a C++ QTableModel.
+  - Qt's 'bool QTableModel::itemLessThan(const std::pair<QTableWidgetItem *,
+    int> &left, const std::pair<QTableWidgetItem *, int> &right)': takes a
+    type Python has no way to hand over yet.
+  - Qt's 'bool QTableModel::itemGreaterThan(const std::pair<QTableWidgetItem
+    *, int> &left, const std::pair<QTableWidgetItem *, int> &right)': takes a
+    type Python has no way to hand over yet.
+  - Qt's 'void QTableModel::updateRowIndexes(QModelIndexList &indexes, int
+    movedFromRow, int movedToRow)': takes a type Python has no way to hand
+    over yet.
+  - Qt's 'QList<QTableWidgetItem *>::iterator
+    QTableModel::sortedInsertionIterator(const QList<QTableWidgetItem
+    *>::iterator &begin, const QList<QTableWidgetItem *>::iterator &end,
+    Qt::SortOrder order, QTableWidgetItem *item)': takes a type Python has no
+    way to hand over yet.
+  - Qt's 'void QTableModel::itemChanged(QTableWidgetItem *item, const
+    QList<int> &roles)': takes a type Python has no way to hand over yet.
 
   What has no ritual
   ------------------
 
-  11 of the 60 functions Qt declares: 7 takes or gives a type that cannot be
-  passed yet; 2 declared and nowhere to be found; 1 a template; 1 leans on
-  'QTableModel.
+  4 of the 60 functions Qt declares: 2 not a gap; 2 leans on 'QTableModel.
 
   What to expect
   --------------
@@ -91,6 +109,10 @@ class QTableModel(QAbstractTableModel):
   - Qt tells when it has removed the C++ QTableModel. Every call on the cute
     object, and every use of it as an argument, then raises 'RuntimeError',
     and nothing reaches C++.
+  - Each name of Qt's QTableModel that has no cute function yet, '__init__',
+    'itemChanged', 'itemGreaterThan', 'itemLessThan',
+    'sortedInsertionIterator', 'updateRowIndexes', holds a function that
+    raises 'NotImplementedError', and its docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -957,6 +979,21 @@ class QTableModel(QAbstractTableModel):
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  @staticmethod
+  def __init__(*__, **_) -> Never:
+    """
+    Qt's 'QTableModel::QTableModel(int rows, int columns, QTableWidget
+    *parent)': leans on 'QTableModel::qt_metacall(QMetaObject::Call, int,
+    void**)', which Qt's source does not mark for use from outside Qt and has
+    no code for that could be taken.
+    """
+    raise NotImplementedError(
+        "'QTableModel.__init__' has no cute function yet. Qt's "
+        "'QTableModel::QTableModel(int rows, int columns, QTableWidget "
+        "*parent)': leans on 'QTableModel::qt_metacall(QMetaObject::Call, "
+        "int, void**)', which Qt's source does not mark for use from "
+        "outside Qt and has no code for that could be taken.")
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -1501,3 +1538,70 @@ class QTableModel(QAbstractTableModel):
         self._addressOf(data), action.value, row, column,
         self._valueOf(parent),
     )
+
+  @staticmethod
+  def itemChanged(*__, **_) -> Never:
+    """
+    Qt's 'void QTableModel::itemChanged(QTableWidgetItem *item, const
+    QList<int> &roles)': takes a type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QTableModel.itemChanged' has no cute function yet. Qt's 'void "
+        "QTableModel::itemChanged(QTableWidgetItem *item, const QList<int> "
+        "&roles)': takes a type Python has no way to hand over yet.")
+
+  @staticmethod
+  def itemGreaterThan(*__, **_) -> Never:
+    """
+    Qt's 'bool QTableModel::itemGreaterThan(const std::pair<QTableWidgetItem
+    *, int> &left, const std::pair<QTableWidgetItem *, int> &right)': takes a
+    type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QTableModel.itemGreaterThan' has no cute function yet. Qt's 'bool "
+        "QTableModel::itemGreaterThan(const std::pair<QTableWidgetItem *, "
+        "int> &left, const std::pair<QTableWidgetItem *, int> &right)': "
+        "takes a type Python has no way to hand over yet.")
+
+  @staticmethod
+  def itemLessThan(*__, **_) -> Never:
+    """
+    Qt's 'bool QTableModel::itemLessThan(const std::pair<QTableWidgetItem *,
+    int> &left, const std::pair<QTableWidgetItem *, int> &right)': takes a
+    type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QTableModel.itemLessThan' has no cute function yet. Qt's 'bool "
+        "QTableModel::itemLessThan(const std::pair<QTableWidgetItem *, int> "
+        "&left, const std::pair<QTableWidgetItem *, int> &right)': takes a "
+        "type Python has no way to hand over yet.")
+
+  @staticmethod
+  def sortedInsertionIterator(*__, **_) -> Never:
+    """
+    Qt's 'QList<QTableWidgetItem *>::iterator
+    QTableModel::sortedInsertionIterator(const QList<QTableWidgetItem
+    *>::iterator &begin, const QList<QTableWidgetItem *>::iterator &end,
+    Qt::SortOrder order, QTableWidgetItem *item)': takes a type Python has no
+    way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QTableModel.sortedInsertionIterator' has no cute function yet. "
+        "Qt's 'QList<QTableWidgetItem *>::iterator "
+        "QTableModel::sortedInsertionIterator(const QList<QTableWidgetItem "
+        "*>::iterator &begin, const QList<QTableWidgetItem *>::iterator "
+        "&end, Qt::SortOrder order, QTableWidgetItem *item)': takes a type "
+        "Python has no way to hand over yet.")
+
+  @staticmethod
+  def updateRowIndexes(*__, **_) -> Never:
+    """
+    Qt's 'void QTableModel::updateRowIndexes(QModelIndexList &indexes, int
+    movedFromRow, int movedToRow)': takes a type Python has no way to hand
+    over yet.
+    """
+    raise NotImplementedError(
+        "'QTableModel.updateRowIndexes' has no cute function yet. Qt's "
+        "'void QTableModel::updateRowIndexes(QModelIndexList &indexes, int "
+        "movedFromRow, int movedToRow)': takes a type Python has no way to "
+        "hand over yet.")

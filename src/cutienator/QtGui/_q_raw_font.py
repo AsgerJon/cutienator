@@ -18,7 +18,7 @@ from ..occult import Rituals
 from . import QFont, QFontDatabase
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from ..QtCore import QByteArray, QChar, QRectF
   from . import QImage, QPainterPath, QTransform
@@ -60,17 +60,34 @@ class QRawFont(CuteMixin, metaclass=MetaCute):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'QRawFont &QRawFont::operator=(QRawFont &&other)': assignment:
+    Python binds a name and has no operator for it.
+  - Qt's 'QRawFont &QRawFont::operator=(const QRawFont &other)': assignment:
+    Python binds a name and has no operator for it.
   - Qt's 'QRawFont::~QRawFont()': the destructor: Python removes its C++
     QRawFont by it, and has no other use for it.
+  - Qt's 'void QRawFont::swap(QRawFont &other)': takes a type Python has no
+    way to hand over yet.
+  - Qt's 'QList<quint32> QRawFont::glyphIndexesForString(const QString &text)
+    const': gives a type Python has no way to take yet.
+  - Qt's 'QList<QPointF> QRawFont::advancesForGlyphIndexes(const
+    QList<quint32> &glyphIndexes) const': takes a type Python has no way to
+    hand over yet.
+  - Qt's 'QList<QPointF> QRawFont::advancesForGlyphIndexes(const
+    QList<quint32> &glyphIndexes, LayoutFlags layoutFlags) const': takes a
+    type Python has no way to hand over yet.
   - Qt's 'bool QRawFont::glyphIndexesForChars(const QChar *chars, int
     numChars, quint32 *glyphIndexes, int *numGlyphs) const': takes a number
     to change where it is.
-
-  What has no ritual
-  ------------------
-
-  9 of the 47 functions Qt declares: 9 takes or gives a type that cannot be
-  passed yet.
+  - Qt's 'bool QRawFont::advancesForGlyphIndexes(const quint32 *glyphIndexes,
+    QPointF *advances, int numGlyphs) const': names 'quint32', which has no
+    cute class yet.
+  - Qt's 'bool QRawFont::advancesForGlyphIndexes(const quint32 *glyphIndexes,
+    QPointF *advances, int numGlyphs, LayoutFlags layoutFlags) const': names
+    'quint32', which has no cute class yet.
+  - Qt's 'QList<QFontDatabase::WritingSystem>
+    QRawFont::supportedWritingSystems() const': gives a type Python has no
+    way to take yet.
 
   What to expect
   --------------
@@ -83,6 +100,10 @@ class QRawFont(CuteMixin, metaclass=MetaCute):
     is as in C++.
   - A function giving a QRawFont back gives a copy the ritual made for
     Python, in a new cute QRawFont.
+  - Each name of Qt's QRawFont that has no cute function yet,
+    'advancesForGlyphIndexes', 'glyphIndexesForChars',
+    'glyphIndexesForString', 'supportedWritingSystems', 'swap', holds a
+    function that raises 'NotImplementedError', and its docstring says why.
   """
 
   #  The enums Qt writes inside QRawFont, each a class in here as in C++, and
@@ -864,3 +885,82 @@ class QRawFont(CuteMixin, metaclass=MetaCute):
         'eferenceE',
         self._valueOf(fontData), pixelSize, hintingPreference.value,
     )
+
+  @staticmethod
+  def advancesForGlyphIndexes(*__, **_) -> Never:
+    """
+    - Qt's 'QList<QPointF> QRawFont::advancesForGlyphIndexes(const
+      QList<quint32> &glyphIndexes) const': takes a type Python has no way to
+      hand over yet.
+    - Qt's 'QList<QPointF> QRawFont::advancesForGlyphIndexes(const
+      QList<quint32> &glyphIndexes, LayoutFlags layoutFlags) const': takes a
+      type Python has no way to hand over yet.
+    - Qt's 'bool QRawFont::advancesForGlyphIndexes(const quint32
+      *glyphIndexes, QPointF *advances, int numGlyphs) const': names
+      'quint32', which has no cute class yet.
+    - Qt's 'bool QRawFont::advancesForGlyphIndexes(const quint32
+      *glyphIndexes, QPointF *advances, int numGlyphs, LayoutFlags
+      layoutFlags) const': names 'quint32', which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QRawFont.advancesForGlyphIndexes' has no cute function yet. Qt's "
+        "'QList<QPointF> QRawFont::advancesForGlyphIndexes(const "
+        "QList<quint32> &glyphIndexes) const': takes a type Python has no "
+        "way to hand over yet. Qt's 'QList<QPointF> "
+        "QRawFont::advancesForGlyphIndexes(const QList<quint32> "
+        "&glyphIndexes, LayoutFlags layoutFlags) const': takes a type "
+        "Python has no way to hand over yet. Qt's 'bool "
+        "QRawFont::advancesForGlyphIndexes(const quint32 *glyphIndexes, "
+        "QPointF *advances, int numGlyphs) const': names 'quint32', which "
+        "has no cute class yet. Qt's 'bool "
+        "QRawFont::advancesForGlyphIndexes(const quint32 *glyphIndexes, "
+        "QPointF *advances, int numGlyphs, LayoutFlags layoutFlags) const': "
+        "names 'quint32', which has no cute class yet.")
+
+  @staticmethod
+  def glyphIndexesForChars(*__, **_) -> Never:
+    """
+    Qt's 'bool QRawFont::glyphIndexesForChars(const QChar *chars, int
+    numChars, quint32 *glyphIndexes, int *numGlyphs) const': takes a number
+    to change where it is.
+    """
+    raise NotImplementedError(
+        "'QRawFont.glyphIndexesForChars' has no cute function yet. Qt's "
+        "'bool QRawFont::glyphIndexesForChars(const QChar *chars, int "
+        "numChars, quint32 *glyphIndexes, int *numGlyphs) const': takes a "
+        "number to change where it is.")
+
+  @staticmethod
+  def glyphIndexesForString(*__, **_) -> Never:
+    """
+    Qt's 'QList<quint32> QRawFont::glyphIndexesForString(const QString &text)
+    const': gives a type Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QRawFont.glyphIndexesForString' has no cute function yet. Qt's "
+        "'QList<quint32> QRawFont::glyphIndexesForString(const QString "
+        "&text) const': gives a type Python has no way to take yet.")
+
+  @staticmethod
+  def supportedWritingSystems(*__, **_) -> Never:
+    """
+    Qt's 'QList<QFontDatabase::WritingSystem>
+    QRawFont::supportedWritingSystems() const': gives a type Python has no
+    way to take yet.
+    """
+    raise NotImplementedError(
+        "'QRawFont.supportedWritingSystems' has no cute function yet. Qt's "
+        "'QList<QFontDatabase::WritingSystem> "
+        "QRawFont::supportedWritingSystems() const': gives a type Python "
+        "has no way to take yet.")
+
+  @staticmethod
+  def swap(*__, **_) -> Never:
+    """
+    Qt's 'void QRawFont::swap(QRawFont &other)': takes a type Python has no
+    way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QRawFont.swap' has no cute function yet. Qt's 'void "
+        "QRawFont::swap(QRawFont &other)': takes a type Python has no way "
+        "to hand over yet.")

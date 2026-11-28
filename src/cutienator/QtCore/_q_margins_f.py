@@ -410,7 +410,7 @@ class QMarginsF(CuteMixin, metaclass=MetaCute):
     #  bool operator==(const QMarginsF &lhs, const QMargins &rhs)
     return Rituals.call(
         'ritual_ZeqRK9QMarginsFRK8QMargins',
-        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs, 'QMargins'),
     )
 
   @overload.fallback
@@ -459,7 +459,7 @@ class QMarginsF(CuteMixin, metaclass=MetaCute):
     #  bool operator!=(const QMarginsF &lhs, const QMargins &rhs)
     return Rituals.call(
         'ritual_ZneRK9QMarginsFRK8QMargins',
-        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs, 'QMargins'),
     )
 
   @overload.fallback
@@ -539,7 +539,8 @@ class QMarginsF(CuteMixin, metaclass=MetaCute):
     """
     #  QMarginsF::QMarginsF(const QMargins &margins)
     self._noteCreation(QMarginsF, lambda: Rituals.call(
-        'ritual_ZN9QMarginsFC1ERK8QMargins', self._valueOf(margins),
+        'ritual_ZN9QMarginsFC1ERK8QMargins',
+        self._valueOf(margins, 'QMargins'),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

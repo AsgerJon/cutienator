@@ -16,7 +16,7 @@ from ..cute import CuteMixin, CuteNum, MetaCute, WAIT
 from ..occult import Rituals
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from . import QByteArray, QByteArrayView, QIODevice
 else:
@@ -47,14 +47,38 @@ class QCryptographicHash(CuteMixin, metaclass=MetaCute):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'QCryptographicHash::QCryptographicHash(QCryptographicHash
+    &&other)': takes a type Python has no way to hand over yet.
   - Qt's 'QCryptographicHash::~QCryptographicHash()': the destructor: Python
     never removes a C++ QCryptographicHash.
+  - Qt's 'QCryptographicHash
+    &QCryptographicHash::operator=(QCryptographicHash &&other)': assignment:
+    Python binds a name and has no operator for it.
+  - Qt's 'void QCryptographicHash::swap(QCryptographicHash &other)': takes a
+    type Python has no way to hand over yet.
+  - Qt's 'QByteArrayView QCryptographicHash::hashInto(QSpan<char> buffer,
+    QByteArrayView data, Algorithm method)': takes a type Python has no way
+    to hand over yet.
+  - Qt's 'QByteArrayView QCryptographicHash::hashInto(QSpan<uchar> buffer,
+    QByteArrayView data, Algorithm method)': takes a type Python has no way
+    to hand over yet.
+  - Qt's 'QByteArrayView QCryptographicHash::hashInto(QSpan<std::byte>
+    buffer, QByteArrayView data, Algorithm method)': takes a type Python has
+    no way to hand over yet.
+  - Qt's 'QByteArrayView QCryptographicHash::hashInto(QSpan<char> buffer,
+    QSpan<const QByteArrayView> data, Algorithm method)': takes a type Python
+    has no way to hand over yet.
+  - Qt's 'QByteArrayView QCryptographicHash::hashInto(QSpan<uchar> buffer,
+    QSpan<const QByteArrayView> data, Algorithm method)': takes a type Python
+    has no way to hand over yet.
+  - Qt's 'QByteArrayView QCryptographicHash::hashInto(QSpan<std::byte>
+    buffer, QSpan<const QByteArrayView> data, Algorithm method)': takes a
+    type Python has no way to hand over yet.
 
   What has no ritual
   ------------------
 
-  14 of the 26 functions Qt declares: 9 takes or gives a type that cannot be
-  passed yet; 2 declared and nowhere to be found; 2 forbidden; 1 a template.
+  5 of the 26 functions Qt declares: 3 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -67,6 +91,9 @@ class QCryptographicHash(CuteMixin, metaclass=MetaCute):
     has it, and is passed on as nothing. Whether Qt can do with nothing there
     is as in C++.
   - Python never removes the C++ QCryptographicHash.
+  - Each name of Qt's QCryptographicHash that has no cute function yet,
+    'hashInto', 'swap', holds a function that raises 'NotImplementedError',
+    and its docstring says why.
   """
 
   #  The enums Qt writes inside QCryptographicHash, each a class in here as
@@ -391,3 +418,57 @@ class QCryptographicHash(CuteMixin, metaclass=MetaCute):
         'ritual_ZN18QCryptographicHash7addDataEP9QIODevice',
         self._addressOf(device),
     )
+
+  @staticmethod
+  def hashInto(*__, **_) -> Never:
+    """
+    - Qt's 'QByteArrayView QCryptographicHash::hashInto(QSpan<char> buffer,
+      QByteArrayView data, Algorithm method)': takes a type Python has no way
+      to hand over yet.
+    - Qt's 'QByteArrayView QCryptographicHash::hashInto(QSpan<uchar> buffer,
+      QByteArrayView data, Algorithm method)': takes a type Python has no way
+      to hand over yet.
+    - Qt's 'QByteArrayView QCryptographicHash::hashInto(QSpan<std::byte>
+      buffer, QByteArrayView data, Algorithm method)': takes a type Python
+      has no way to hand over yet.
+    - Qt's 'QByteArrayView QCryptographicHash::hashInto(QSpan<char> buffer,
+      QSpan<const QByteArrayView> data, Algorithm method)': takes a type
+      Python has no way to hand over yet.
+    - Qt's 'QByteArrayView QCryptographicHash::hashInto(QSpan<uchar> buffer,
+      QSpan<const QByteArrayView> data, Algorithm method)': takes a type
+      Python has no way to hand over yet.
+    - Qt's 'QByteArrayView QCryptographicHash::hashInto(QSpan<std::byte>
+      buffer, QSpan<const QByteArrayView> data, Algorithm method)': takes a
+      type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QCryptographicHash.hashInto' has no cute function yet. Qt's "
+        "'QByteArrayView QCryptographicHash::hashInto(QSpan<char> buffer, "
+        "QByteArrayView data, Algorithm method)': takes a type Python has "
+        "no way to hand over yet. Qt's 'QByteArrayView "
+        "QCryptographicHash::hashInto(QSpan<uchar> buffer, QByteArrayView "
+        "data, Algorithm method)': takes a type Python has no way to hand "
+        "over yet. Qt's 'QByteArrayView "
+        "QCryptographicHash::hashInto(QSpan<std::byte> buffer, "
+        "QByteArrayView data, Algorithm method)': takes a type Python has "
+        "no way to hand over yet. Qt's 'QByteArrayView "
+        "QCryptographicHash::hashInto(QSpan<char> buffer, QSpan<const "
+        "QByteArrayView> data, Algorithm method)': takes a type Python has "
+        "no way to hand over yet. Qt's 'QByteArrayView "
+        "QCryptographicHash::hashInto(QSpan<uchar> buffer, QSpan<const "
+        "QByteArrayView> data, Algorithm method)': takes a type Python has "
+        "no way to hand over yet. Qt's 'QByteArrayView "
+        "QCryptographicHash::hashInto(QSpan<std::byte> buffer, QSpan<const "
+        "QByteArrayView> data, Algorithm method)': takes a type Python has "
+        "no way to hand over yet.")
+
+  @staticmethod
+  def swap(*__, **_) -> Never:
+    """
+    Qt's 'void QCryptographicHash::swap(QCryptographicHash &other)': takes a
+    type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QCryptographicHash.swap' has no cute function yet. Qt's 'void "
+        "QCryptographicHash::swap(QCryptographicHash &other)': takes a type "
+        "Python has no way to hand over yet.")

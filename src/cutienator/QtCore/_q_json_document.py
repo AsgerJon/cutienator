@@ -17,15 +17,16 @@ from ..cute import CuteMixin, CuteNum, MetaCute, WAIT
 from ..occult import Rituals
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
-  from . import QByteArray, QDebug, QJsonArray, QJsonObject, QJsonParseError
-  from . import QJsonValue, QLatin1String, QVariant
+  from . import QByteArray, QCborValue, QDebug, QJsonArray, QJsonObject
+  from . import QJsonParseError, QJsonValue, QLatin1String, QVariant
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
   QByteArray = WAIT['QByteArray']
+  QCborValue = WAIT['QCborValue']
   QDebug = WAIT['QDebug']
   QJsonArray = WAIT['QJsonArray']
   QJsonObject = WAIT['QJsonObject']
@@ -54,23 +55,28 @@ class QJsonDocument(CuteMixin, metaclass=MetaCute):
   call so far, 16 names in all: 'fromVariant', 'toVariant', 'fromJson',
   'toJson', 'isEmpty', 'isArray', 'isObject', 'object', 'array', 'setObject',
   'setArray', '__getitem__', 'isNull', '__rlshift__', '__eq__', '__ne__'. It
-  can be made from Python, in 4 ways; see '__init__'.
+  can be made from Python, in 5 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'QJsonDocument::QJsonDocument(QJsonObject &&object)': takes a type
+    Python has no way to hand over yet.
+  - Qt's 'QJsonDocument::QJsonDocument(QJsonArray &&array)': takes a type
+    Python has no way to hand over yet.
   - Qt's 'QJsonDocument::~QJsonDocument()': the destructor: Python removes
     its C++ QJsonDocument by it, and has no other use for it.
+  - Qt's 'QJsonDocument &QJsonDocument::operator=(const QJsonDocument
+    &other)': assignment: Python binds a name and has no operator for it.
+  - Qt's 'QJsonDocument::QJsonDocument(QJsonDocument &&other)': takes a type
+    Python has no way to hand over yet.
+  - Qt's 'QJsonDocument &QJsonDocument::operator=(QJsonDocument &&other)':
+    assignment: Python binds a name and has no operator for it.
+  - Qt's 'void QJsonDocument::swap(QJsonDocument &other)': takes a type
+    Python has no way to hand over yet.
   - Qt's 'const QJsonValue QJsonDocument::operator[](QStringView key) const':
     takes in Python what 'const QJsonValue QJsonDocument::operator[](const
     QString &key) const' takes.
-
-  What has no ritual
-  ------------------
-
-  7 of the 31 functions Qt declares: 6 takes or gives a type that cannot be
-  passed yet; 1 Qt's library has no name for it, and its code in Qt's source
-  does not compile apart from its file.
 
   What to expect
   --------------
@@ -84,6 +90,9 @@ class QJsonDocument(CuteMixin, metaclass=MetaCute):
     is as in C++.
   - A function giving a QJsonDocument back gives a copy the ritual made for
     Python, in a new cute QJsonDocument.
+  - Each name of Qt's QJsonDocument that has no cute function yet, 'swap',
+    holds a function that raises 'NotImplementedError', and its docstring
+    says why.
   """
 
   #  The enums Qt writes inside QJsonDocument, each a class in here as in
@@ -617,6 +626,26 @@ class QJsonDocument(CuteMixin, metaclass=MetaCute):
         'ritual_ZN13QJsonDocumentC1ERKS_', self._valueOf(other),
     ))
 
+  @overload(QCborValue)
+  def __init__(self, data: QCborValue) -> None:
+    """
+    Notes what was given, for Qt's 'QJsonDocument::QJsonDocument(QCborValue
+    data)', which is called at the first use.
+
+    Qt's own words: https://doc.qt.io/qt-6/qjsondocument.html#QJsonDocument
+
+    Parameters
+    ----------
+
+    data : QCborValue
+      Passed on as a value: Qt reads the C++ QCborValue, which stays Python's
+      own.
+    """
+    #  QJsonDocument::QJsonDocument(QCborValue data)
+    self._noteCreation(QJsonDocument, lambda: Rituals.call(
+        'ritual_ZN13QJsonDocumentC1E10QCborValue', self._valueOf(data),
+    ))
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -636,3 +665,14 @@ class QJsonDocument(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def swap(*__, **_) -> Never:
+    """
+    Qt's 'void QJsonDocument::swap(QJsonDocument &other)': takes a type
+    Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QJsonDocument.swap' has no cute function yet. Qt's 'void "
+        "QJsonDocument::swap(QJsonDocument &other)': takes a type Python "
+        "has no way to hand over yet.")

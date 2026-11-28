@@ -38,22 +38,28 @@ class QIntValidator(QValidator):
   -----------
 
   Every function of Qt's QIntValidator that has a ritual and that Python can
-  call so far, 7 names in all: 'metaObject', 'tr', 'setBottom', 'setTop',
-  'setRange', 'bottom', 'top'. It can be made from Python, in 2 ways; see
-  '__init__'.
+  call so far, 9 names in all: 'metaObject', 'tr', 'setBottom', 'setTop',
+  'setRange', 'bottom', 'top', 'bottomChanged', 'topChanged'. It can be made
+  from Python, in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QIntValidator::qt_metacast(const char *a0)': one of Qt's own
+    inner workings.
+  - Qt's 'int QIntValidator::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
   - Qt's 'QIntValidator::~QIntValidator()': the destructor: Python never
     removes a C++ QIntValidator.
+  - Qt's 'QValidator::State QIntValidator::validate(QString &a0, int &a1)
+    const': takes a type Python has no way to hand over yet.
+  - Qt's 'void QIntValidator::fixup(QString &input) const': takes a type
+    Python has no way to hand over yet.
 
   What has no ritual
   ------------------
 
-  10 of the 20 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet; 2 a signal; 2 forbidden; 1 a template; 1 declared and nowhere
-  to be found.
+  4 of the 20 functions Qt declares: 2 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -322,3 +328,35 @@ class QIntValidator(QValidator):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(int)
+  def bottomChanged(self, bottom: int) -> None:
+    """
+    Calls Qt's 'void QIntValidator::bottomChanged(int bottom)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qintvalidator.html#bottomChanged
+
+    Parameters
+    ----------
+
+    bottom : int
+      Passed on as it is.
+    """
+    #  void QIntValidator::bottomChanged(int bottom)
+    self.uglySide.call('ritual_ZN13QIntValidator13bottomChangedEi', bottom)
+
+  @overload(int)
+  def topChanged(self, top: int) -> None:
+    """
+    Calls Qt's 'void QIntValidator::topChanged(int top)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qintvalidator.html#topChanged
+
+    Parameters
+    ----------
+
+    top : int
+      Passed on as it is.
+    """
+    #  void QIntValidator::topChanged(int top)
+    self.uglySide.call('ritual_ZN13QIntValidator10topChangedEi', top)

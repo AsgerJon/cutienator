@@ -9,7 +9,10 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING
 
+from worktoy.dispatch import overload
+
 from ..cute import CuteMixin, MetaCute
+from ..occult import Rituals
 
 
 class QAccessibleHyperlinkInterface(CuteMixin, metaclass=MetaCute):
@@ -22,8 +25,8 @@ class QAccessibleHyperlinkInterface(CuteMixin, metaclass=MetaCute):
 
   Every function of Qt's QAccessibleHyperlinkInterface that has a ritual and
   that Python can call so far, 5 names in all: 'anchor', 'anchorTarget',
-  'startIndex', 'endIndex', 'isValid'. None can be made from Python: one
-  comes out of a function of another class that gives one back.
+  'startIndex', 'endIndex', 'isValid'. It can be made from Python, in 1 way;
+  see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -34,8 +37,7 @@ class QAccessibleHyperlinkInterface(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  5 of the 11 functions Qt declares: 4 forbidden; 1 the class is abstract, so
-  C++ cannot make one.
+  4 of the 11 functions Qt declares: 4 forbidden.
 
   What to expect
   --------------
@@ -198,6 +200,21 @@ class QAccessibleHyperlinkInterface(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload()
+  def __init__(self) -> None:
+    """
+    Notes what was given, for Qt's
+    'QAccessibleHyperlinkInterface::QAccessibleHyperlinkInterface()', which
+    is called at the first use.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qaccessiblehyperlinkinterface.html
+    """
+    #  QAccessibleHyperlinkInterface::QAccessibleHyperlinkInterface()
+    self._noteCreation(QAccessibleHyperlinkInterface, lambda: Rituals.call(
+        'ritual_ZN29QAccessibleHyperlinkInterfaceC1Ev',
+    ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #

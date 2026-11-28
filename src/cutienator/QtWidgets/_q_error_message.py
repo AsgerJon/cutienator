@@ -49,14 +49,21 @@ class QErrorMessage(QDialog):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QErrorMessage::qt_metacast(const char *a0)': one of Qt's own
+    inner workings.
+  - Qt's 'int QErrorMessage::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
+  - Qt's 'QErrorMessagePrivate *QErrorMessage::d_func()': gives
+    'QErrorMessagePrivate', which has no cute class yet.
+  - Qt's 'const QErrorMessagePrivate *QErrorMessage::d_func() const': gives
+    'QErrorMessagePrivate', which has no cute class yet.
   - Qt's 'QErrorMessage::~QErrorMessage()': the destructor: Python never
     removes a C++ QErrorMessage.
 
   What has no ritual
   ------------------
 
-  8 of the 17 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet; 2 forbidden; 1 a template; 1 declared and nowhere to be found.
+  4 of the 17 functions Qt declares: 2 not a gap; 2 forbidden.
 
   What to expect
   --------------

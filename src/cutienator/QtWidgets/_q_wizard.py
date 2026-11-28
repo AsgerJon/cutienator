@@ -18,7 +18,7 @@ from ..QtCore import Qt
 from . import QDialog, QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from ..QtCore import QEvent, QMetaObject, QSize, QVariant
   from ..QtGui import QPaintEvent, QPixmap, QResizeEvent
@@ -52,30 +52,43 @@ class QWizard(QDialog):
   -----------
 
   Every function of Qt's QWizard that has a ritual and that Python can call
-  so far, 46 names in all: 'metaObject', 'tr', 'addPage', 'setPage',
+  so far, 51 names in all: 'metaObject', 'tr', 'addPage', 'setPage',
   'removePage', 'page', 'hasVisitedPage', 'setStartId', 'startId',
   'currentPage', 'currentId', 'validateCurrentPage', 'nextId', 'setField',
   'field', 'setWizardStyle', 'wizardStyle', 'setOption', 'testOption',
   'setOptions', 'options', 'setButtonText', 'buttonText', 'setButton',
   'button', 'setTitleFormat', 'titleFormat', 'setSubTitleFormat',
   'subTitleFormat', 'setPixmap', 'pixmap', 'setSideWidget', 'sideWidget',
-  'setDefaultProperty', 'setVisible', 'sizeHint', 'back', 'next',
-  'setCurrentId', 'restart', 'event', 'resizeEvent', 'paintEvent', 'done',
-  'initializePage', 'cleanupPage'. It can be made from Python, in 1 way; see
-  '__init__'.
+  'setDefaultProperty', 'setVisible', 'sizeHint', 'currentIdChanged',
+  'helpRequested', 'customButtonClicked', 'pageAdded', 'pageRemoved', 'back',
+  'next', 'setCurrentId', 'restart', 'event', 'resizeEvent', 'paintEvent',
+  'done', 'initializePage', 'cleanupPage'. It can be made from Python, in 1
+  way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QWizard::qt_metacast(const char *a0)': one of Qt's own inner
+    workings.
+  - Qt's 'int QWizard::qt_metacall(QMetaObject::Call a0, int a1, void **a2)':
+    one of Qt's own inner workings.
   - Qt's 'QWizard::~QWizard()': the destructor: Python never removes a C++
     QWizard.
+  - Qt's 'QList<int> QWizard::visitedIds() const': gives a type Python has no
+    way to take yet.
+  - Qt's 'QList<int> QWizard::pageIds() const': gives a type Python has no
+    way to take yet.
+  - Qt's 'void QWizard::setButtonLayout(const QList<WizardButton> &layout)':
+    takes a type Python has no way to hand over yet.
+  - Qt's 'QWizardPrivate *QWizard::d_func()': gives 'QWizardPrivate', which
+    has no cute class yet.
+  - Qt's 'const QWizardPrivate *QWizard::d_func() const': gives
+    'QWizardPrivate', which has no cute class yet.
 
   What has no ritual
   ------------------
 
-  16 of the 64 functions Qt declares: 7 takes or gives a type that cannot be
-  passed yet; 5 a signal; 2 forbidden; 1 a template; 1 declared and nowhere
-  to be found.
+  4 of the 64 functions Qt declares: 2 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -90,6 +103,9 @@ class QWizard(QDialog):
   - Qt tells when it has removed the C++ QWizard. Every call on the cute
     object, and every use of it as an argument, then raises 'RuntimeError',
     and nothing reaches C++.
+  - Each name of Qt's QWizard that has no cute function yet, 'pageIds',
+    'setButtonLayout', 'visitedIds', holds a function that raises
+    'NotImplementedError', and its docstring says why.
   """
 
   #  The enums Qt writes inside QWizard, each a class in here as in C++, and
@@ -1051,6 +1067,79 @@ class QWizard(QDialog):
       ritual = 'ritual_own_ZN7QWizard19validateCurrentPageEv'
     return self.uglySide.call(ritual)
 
+  @overload(int)
+  def currentIdChanged(self, id: int) -> None:
+    """
+    Calls Qt's 'void QWizard::currentIdChanged(int id)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qwizard.html#currentIdChanged
+
+    Parameters
+    ----------
+
+    id : int
+      Passed on as it is.
+    """
+    #  void QWizard::currentIdChanged(int id)
+    self.uglySide.call('ritual_ZN7QWizard16currentIdChangedEi', id)
+
+  def helpRequested(self) -> None:
+    """
+    Calls Qt's 'void QWizard::helpRequested()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qwizard.html#helpRequested
+    """
+    #  void QWizard::helpRequested()
+    self.uglySide.call('ritual_ZN7QWizard13helpRequestedEv')
+
+  @overload(int)
+  def customButtonClicked(self, which: int) -> None:
+    """
+    Calls Qt's 'void QWizard::customButtonClicked(int which)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qwizard.html#customButtonClicked
+
+    Parameters
+    ----------
+
+    which : int
+      Passed on as it is.
+    """
+    #  void QWizard::customButtonClicked(int which)
+    self.uglySide.call('ritual_ZN7QWizard19customButtonClickedEi', which)
+
+  @overload(int)
+  def pageAdded(self, id: int) -> None:
+    """
+    Calls Qt's 'void QWizard::pageAdded(int id)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qwizard.html#pageAdded
+
+    Parameters
+    ----------
+
+    id : int
+      Passed on as it is.
+    """
+    #  void QWizard::pageAdded(int id)
+    self.uglySide.call('ritual_ZN7QWizard9pageAddedEi', id)
+
+  @overload(int)
+  def pageRemoved(self, id: int) -> None:
+    """
+    Calls Qt's 'void QWizard::pageRemoved(int id)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qwizard.html#pageRemoved
+
+    Parameters
+    ----------
+
+    id : int
+      Passed on as it is.
+    """
+    #  void QWizard::pageRemoved(int id)
+    self.uglySide.call('ritual_ZN7QWizard11pageRemovedEi', id)
+
   def back(self) -> None:
     """
     Calls Qt's 'void QWizard::back()'.
@@ -1197,3 +1286,36 @@ class QWizard(QDialog):
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZN7QWizard11cleanupPageEi'
     self.uglySide.call(ritual, id)
+
+  @staticmethod
+  def pageIds(*__, **_) -> Never:
+    """
+    Qt's 'QList<int> QWizard::pageIds() const': gives a type Python has no
+    way to take yet.
+    """
+    raise NotImplementedError(
+        "'QWizard.pageIds' has no cute function yet. Qt's 'QList<int> "
+        "QWizard::pageIds() const': gives a type Python has no way to take "
+        "yet.")
+
+  @staticmethod
+  def setButtonLayout(*__, **_) -> Never:
+    """
+    Qt's 'void QWizard::setButtonLayout(const QList<WizardButton> &layout)':
+    takes a type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QWizard.setButtonLayout' has no cute function yet. Qt's 'void "
+        "QWizard::setButtonLayout(const QList<WizardButton> &layout)': "
+        "takes a type Python has no way to hand over yet.")
+
+  @staticmethod
+  def visitedIds(*__, **_) -> Never:
+    """
+    Qt's 'QList<int> QWizard::visitedIds() const': gives a type Python has no
+    way to take yet.
+    """
+    raise NotImplementedError(
+        "'QWizard.visitedIds' has no cute function yet. Qt's 'QList<int> "
+        "QWizard::visitedIds() const': gives a type Python has no way to "
+        "take yet.")

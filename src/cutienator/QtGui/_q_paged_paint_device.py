@@ -13,11 +13,14 @@ from worktoy.dispatch import overload
 from worktoy.keenum import Kee
 
 from ..cute import CuteNum, WAIT
+from ..occult import Rituals
 from . import QPageLayout, QPaintDevice
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Optional
+
   from ..QtCore import QMarginsF
-  from . import QPageRanges, QPageSize
+  from . import QPageRanges, QPageSize, QPagedPaintDevicePrivate
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -25,6 +28,11 @@ else:
   QMarginsF = WAIT['QMarginsF']
   QPageRanges = WAIT['QPageRanges']
   QPageSize = WAIT['QPageSize']
+  QPagedPaintDevicePrivate = WAIT['QPagedPaintDevicePrivate']
+
+#  The class of None, for a signature that takes None in the place of an
+#  object or of text.
+NoneType = type(None)
 
 
 class QPagedPaintDevice(QPaintDevice):
@@ -39,22 +47,15 @@ class QPagedPaintDevice(QPaintDevice):
   -----------
 
   Every function of Qt's QPagedPaintDevice that has a ritual and that Python
-  can call so far, 8 names in all: 'newPage', 'setPageLayout', 'setPageSize',
+  can call so far, 9 names in all: 'newPage', 'setPageLayout', 'setPageSize',
   'setPageOrientation', 'setPageMargins', 'pageLayout', 'setPageRanges',
-  'pageRanges'. None can be made from Python: one comes out of a function of
-  another class that gives one back.
+  'pageRanges', 'dd'. It can be made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
   - Qt's 'QPagedPaintDevice::~QPagedPaintDevice()': the destructor: Python
     never removes a C++ QPagedPaintDevice.
-
-  What has no ritual
-  ------------------
-
-  2 of the 11 functions Qt declares: 1 the class is abstract, so C++ cannot
-  make one; 1 takes or gives a type that cannot be passed yet.
 
   What to expect
   --------------
@@ -349,6 +350,30 @@ class QPagedPaintDevice(QPaintDevice):
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  @overload(QPagedPaintDevicePrivate)
+  @overload(NoneType)
+  def __init__(self, dd: Optional[QPagedPaintDevicePrivate]) -> None:
+    """
+    Notes what was given, for Qt's
+    'QPagedPaintDevice::QPagedPaintDevice(QPagedPaintDevicePrivate *dd)',
+    which is called at the first use.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qpagedpaintdevice.html#QPagedPaintDevice
+
+    Parameters
+    ----------
+
+    dd : Optional[QPagedPaintDevicePrivate]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  QPagedPaintDevice::QPagedPaintDevice(QPagedPaintDevicePrivate *dd)
+    self._noteCreation(QPagedPaintDevice, lambda: Rituals.call(
+        'ritual_ZN17QPagedPaintDeviceC1EP24QPagedPaintDevicePrivate',
+        self._addressOf(dd),
+    ))
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -379,3 +404,23 @@ class QPagedPaintDevice(QPaintDevice):
     return self._callAs(
         'QPagedPaintDevice', 'ritual_ZN17QPagedPaintDevice7newPageEv',
     )
+
+  def dd(self) -> Optional[QPagedPaintDevicePrivate]:
+    """
+    Calls Qt's 'QPagedPaintDevicePrivate *QPagedPaintDevice::dd()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpagedpaintdevice.html#dd
+
+    Returns
+    -------
+
+    Optional[QPagedPaintDevicePrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QPagedPaintDevicePrivate *QPagedPaintDevice::dd()
+    address = self._callAs(
+        'QPagedPaintDevice', 'ritual_ZN17QPagedPaintDevice2ddEv',
+    )
+    from . import QPagedPaintDevicePrivate
+    return QPagedPaintDevicePrivate._cuteAt(address)

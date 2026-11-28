@@ -18,7 +18,7 @@ from ..occult import Rituals
 from . import Qt
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from . import QByteArray, QGenericArgument, QGenericReturnArgument
   from . import QMetaClassInfo, QMetaEnum, QMetaMethod, QMetaProperty
@@ -69,14 +69,43 @@ class QMetaObject(CuteMixin, metaclass=MetaCute):
   - Qt's 'Connection QMetaObject::connect(const QObject *sender, int
     signal_index, const QObject *receiver, int method_index, int type, int
     *types)': takes a number to change where it is.
+  - Qt's 'void QMetaObject::activate(QObject *sender, int signal_index, void
+    **argv)': takes a type Python has no way to hand over yet.
+  - Qt's 'void QMetaObject::activate(QObject *sender, const QMetaObject *a1,
+    int local_signal_index, void **argv)': takes a type Python has no way to
+    hand over yet.
+  - Qt's 'void QMetaObject::activate(QObject *sender, int signal_offset, int
+    local_signal_index, void **argv)': takes a type Python has no way to hand
+    over yet.
+  - Qt's 'int QMetaObject::static_metacall(Call a0, int a1, void **a2)
+    const': takes a type Python has no way to hand over yet.
+  - Qt's 'int QMetaObject::metacall(QObject *a0, Call a1, int a2, void
+    **a3)': takes a type Python has no way to hand over yet.
+  - Qt's 'bool QMetaObject::invokeMethodImpl(QObject *object, const char
+    *member, Qt::ConnectionType type, qsizetype parameterCount, const void
+    *const *parameters, const char *const *names, const
+    QtPrivate::QMetaTypeInterface *const *metaTypes)': names 'void *const',
+    which has no cute class yet.
+  - Qt's 'bool QMetaObject::invokeMethodImpl(QObject *object,
+    QtPrivate::QSlotObjectBase *slotObj, Qt::ConnectionType type, qsizetype
+    parameterCount, const void *const *params, const char *const *names,
+    const QtPrivate::QMetaTypeInterface *const *metaTypes)': names 'void
+    *const', which has no cute class yet.
+  - Qt's 'QObject *QMetaObject::newInstanceImpl(const QMetaObject *mobj,
+    qsizetype parameterCount, const void **parameters, const char
+    **typeNames, const QtPrivate::QMetaTypeInterface **metaTypes)': takes a
+    type Python has no way to hand over yet.
+  - Qt's 'QMetaObject::Connection QMetaObject::connectImpl(const QObject
+    *sender, const QMetaMethod &signal, const QObject *receiver, void
+    **slotPtr, QtPrivate::QSlotObjectBase *slot, Qt::ConnectionType type)':
+    takes a type Python has no way to hand over yet.
   - Qt's 'QMetaObject::~QMetaObject()': the destructor: Python removes its
     C++ QMetaObject by it, and has no other use for it.
 
   What has no ritual
   ------------------
 
-  24 of the 67 functions Qt declares: 15 a template; 9 takes or gives a type
-  that cannot be passed yet.
+  15 of the 67 functions Qt declares: 15 a template.
 
   What to expect
   --------------
@@ -90,6 +119,11 @@ class QMetaObject(CuteMixin, metaclass=MetaCute):
     is as in C++.
   - A function giving a QMetaObject back gives a copy the ritual made for
     Python, in a new cute QMetaObject.
+  - Each name of Qt's QMetaObject that has no cute function yet, 'activate',
+    'connect', 'connectImpl', 'invokeMethodCallableHelper',
+    'invokeMethodImpl', 'metacall', 'newInstanceImpl', 'staticMetaObject',
+    'static_metacall', holds a function that raises 'NotImplementedError',
+    and its docstring says why.
   """
 
   #  The enums Qt writes inside QMetaObject, each a class in here as in C++,
@@ -134,15 +168,22 @@ class QMetaObject(CuteMixin, metaclass=MetaCute):
     What has a ritual and is left out, and why
     ------------------------------------------
 
+    - Qt's 'QMetaObject::Connection::Connection(void *data)': names 'void',
+      which has no cute class yet.
     - Qt's 'QMetaObject::Connection::~Connection()': the destructor: Python
       removes its C++ QMetaObject::Connection by it, and has no other use for
       it.
-
-    What has no ritual
-    ------------------
-
-    6 of the 10 functions Qt declares: 6 takes or gives a type that cannot be
-    passed yet.
+    - Qt's 'Connection &QMetaObject::Connection::operator=(const Connection
+      &other)': assignment: Python binds a name and has no operator for it.
+    - Qt's 'RestrictedBool QMetaObject::Connection::operator void
+      *QMetaObject::Connection::*() const': an operator Python has no name
+      for.
+    - Qt's 'QMetaObject::Connection::Connection(Connection &&other)': takes a
+      type Python has no way to hand over yet.
+    - Qt's 'Connection &QMetaObject::Connection::operator=(Connection
+      &&other)': assignment: Python binds a name and has no operator for it.
+    - Qt's 'void QMetaObject::Connection::swap(Connection &other)': takes a
+      type Python has no way to hand over yet.
 
     What to expect
     --------------
@@ -156,6 +197,9 @@ class QMetaObject(CuteMixin, metaclass=MetaCute):
       there is as in C++.
     - A function giving a QMetaObject::Connection back gives a copy the
       ritual made for Python, in a new cute QMetaObject::Connection.
+    - Each name of Qt's QMetaObject::Connection that has no cute function
+      yet, 'swap', holds a function that raises 'NotImplementedError', and
+      its docstring says why.
     """
 
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -270,6 +314,17 @@ class QMetaObject(CuteMixin, metaclass=MetaCute):
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    @staticmethod
+    def swap(*__, **_) -> Never:
+      """
+      Qt's 'void QMetaObject::Connection::swap(Connection &other)': takes a
+      type Python has no way to hand over yet.
+      """
+      raise NotImplementedError(
+          "'QMetaObject.Connection.swap' has no cute function yet. Qt's "
+          "'void QMetaObject::Connection::swap(Connection &other)': takes a "
+          "type Python has no way to hand over yet.")
 
   class Data(CuteMixin, metaclass=MetaCute):
     """
@@ -389,8 +444,12 @@ class QMetaObject(CuteMixin, metaclass=MetaCute):
     What has a ritual and is left out, and why
     ------------------------------------------
 
+    - Qt's 'QMetaObject::SuperData::SuperData(std::nullptr_t a0)': takes in
+      Python what 'QMetaObject::SuperData::SuperData()' takes.
     - Qt's 'const QMetaObject *QMetaObject::SuperData::operator->() const':
       an operator Python has no name for.
+    - Qt's 'QMetaObject::SuperData::SuperData(Getter g)': takes a type Python
+      has no way to hand over yet.
     - Qt's 'const QMetaObject *QMetaObject::SuperData::operator const
       QMetaObject *() const': an operator Python has no name for.
     - Qt's 'QMetaObject::SuperData::~SuperData()': the destructor: Python
@@ -400,8 +459,7 @@ class QMetaObject(CuteMixin, metaclass=MetaCute):
     What has no ritual
     ------------------
 
-    3 of the 8 functions Qt declares: 2 takes or gives a type that cannot be
-    passed yet; 1 a template.
+    1 of the 8 functions Qt declares: 1 a template.
 
     What to expect
     --------------
@@ -415,6 +473,9 @@ class QMetaObject(CuteMixin, metaclass=MetaCute):
       there is as in C++.
     - A function giving a QMetaObject::SuperData back gives a copy the ritual
       made for Python, in a new cute QMetaObject::SuperData.
+    - Each name of Qt's QMetaObject::SuperData that has no cute function yet,
+      'link', holds a function that raises 'NotImplementedError', and its
+      docstring says why.
     """
 
     #  The cute classes this class names and is not built on. Each waits
@@ -501,7 +562,8 @@ class QMetaObject(CuteMixin, metaclass=MetaCute):
       """
       #  QMetaObject::SuperData::SuperData(const QMetaObject *mo)
       self._noteCreation(QMetaObject.SuperData, lambda: Rituals.call(
-          'ritual_ZN11QMetaObject9SuperDataC1EPKS_', self._addressOf(mo),
+          'ritual_ZN11QMetaObject9SuperDataC1EPKS_',
+          self._addressOf(mo, 'QMetaObject'),
       ))
 
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -523,6 +585,17 @@ class QMetaObject(CuteMixin, metaclass=MetaCute):
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    @staticmethod
+    def link(*__, **_) -> Never:
+      """
+      Qt's 'QMetaObject::SuperData::link': a template: a pattern and no
+      single function.
+      """
+      raise NotImplementedError(
+          "'QMetaObject.SuperData.link' has no cute function yet. Qt's "
+          "'QMetaObject::SuperData::link': a template: a pattern and no "
+          "single function.")
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -1262,7 +1335,9 @@ class QMetaObject(CuteMixin, metaclass=MetaCute):
       The text Qt gave back. None when Qt gave back no text.
     """
     #  const char *QMetaObject::className() const
-    chars = self.uglySide.call('ritual_ZNK11QMetaObject9classNameEv')
+    chars = self._callAs(
+        'QMetaObject', 'ritual_ZNK11QMetaObject9classNameEv',
+    )
     return None if chars is None else chars.decode()
 
   def superClass(self) -> Optional[QMetaObject]:
@@ -1279,7 +1354,9 @@ class QMetaObject(CuteMixin, metaclass=MetaCute):
       no object.
     """
     #  const QMetaObject *QMetaObject::superClass() const
-    address = self.uglySide.call('ritual_ZNK11QMetaObject10superClassEv')
+    address = self._callAs(
+        'QMetaObject', 'ritual_ZNK11QMetaObject10superClassEv',
+    )
     return QMetaObject._cuteAt(address)
 
   @overload(THIS)
@@ -1299,8 +1376,9 @@ class QMetaObject(CuteMixin, metaclass=MetaCute):
       object.
     """
     #  bool QMetaObject::inherits(const QMetaObject *metaObject) const
-    return self.uglySide.call(
-        'ritual_ZNK11QMetaObject8inheritsEPKS_', self._addressOf(metaObject),
+    return self._callAs(
+        'QMetaObject', 'ritual_ZNK11QMetaObject8inheritsEPKS_',
+        self._addressOf(metaObject, 'QMetaObject'),
     )
 
   @overload(QObject)
@@ -1326,8 +1404,8 @@ class QMetaObject(CuteMixin, metaclass=MetaCute):
       no object.
     """
     #  QObject *QMetaObject::cast(QObject *obj) const
-    address = self.uglySide.call(
-        'ritual_ZNK11QMetaObject4castEP7QObject',
+    address = self._callAs(
+        'QMetaObject', 'ritual_ZNK11QMetaObject4castEP7QObject',
         self._addressOf(obj, 'QObject'),
     )
     from . import QObject
@@ -1367,8 +1445,8 @@ class QMetaObject(CuteMixin, metaclass=MetaCute):
       The text Qt gave back.
     """
     #  QString QMetaObject::tr(const char *s, const char *c, int n) const
-    return self.uglySide.call(
-        'ritual_ZNK11QMetaObject2trEPKcS1_i',
+    return self._callAs(
+        'QMetaObject', 'ritual_ZNK11QMetaObject2trEPKcS1_i',
         self._bytesOf(s), self._bytesOf(c), n,
     )
 
@@ -1385,7 +1463,9 @@ class QMetaObject(CuteMixin, metaclass=MetaCute):
       A new cute QMetaType around the copy Qt gave back. Python owns it.
     """
     #  QMetaType QMetaObject::metaType() const
-    address = self.uglySide.call('ritual_ZNK11QMetaObject8metaTypeEv')
+    address = self._callAs(
+        'QMetaObject', 'ritual_ZNK11QMetaObject8metaTypeEv',
+    )
     from . import QMetaType
     return QMetaType._cuteOwning(address)
 
@@ -1396,7 +1476,9 @@ class QMetaObject(CuteMixin, metaclass=MetaCute):
     Qt's own words: https://doc.qt.io/qt-6/qmetaobject.html#methodOffset
     """
     #  int QMetaObject::methodOffset() const
-    return self.uglySide.call('ritual_ZNK11QMetaObject12methodOffsetEv')
+    return self._callAs(
+        'QMetaObject', 'ritual_ZNK11QMetaObject12methodOffsetEv',
+    )
 
   def enumeratorOffset(self) -> int:
     """
@@ -1405,7 +1487,9 @@ class QMetaObject(CuteMixin, metaclass=MetaCute):
     Qt's own words: https://doc.qt.io/qt-6/qmetaobject.html#enumeratorOffset
     """
     #  int QMetaObject::enumeratorOffset() const
-    return self.uglySide.call('ritual_ZNK11QMetaObject16enumeratorOffsetEv')
+    return self._callAs(
+        'QMetaObject', 'ritual_ZNK11QMetaObject16enumeratorOffsetEv',
+    )
 
   def propertyOffset(self) -> int:
     """
@@ -1414,7 +1498,9 @@ class QMetaObject(CuteMixin, metaclass=MetaCute):
     Qt's own words: https://doc.qt.io/qt-6/qmetaobject.html#propertyOffset
     """
     #  int QMetaObject::propertyOffset() const
-    return self.uglySide.call('ritual_ZNK11QMetaObject14propertyOffsetEv')
+    return self._callAs(
+        'QMetaObject', 'ritual_ZNK11QMetaObject14propertyOffsetEv',
+    )
 
   def classInfoOffset(self) -> int:
     """
@@ -1423,7 +1509,9 @@ class QMetaObject(CuteMixin, metaclass=MetaCute):
     Qt's own words: https://doc.qt.io/qt-6/qmetaobject.html#classInfoOffset
     """
     #  int QMetaObject::classInfoOffset() const
-    return self.uglySide.call('ritual_ZNK11QMetaObject15classInfoOffsetEv')
+    return self._callAs(
+        'QMetaObject', 'ritual_ZNK11QMetaObject15classInfoOffsetEv',
+    )
 
   def constructorCount(self) -> int:
     """
@@ -1432,7 +1520,9 @@ class QMetaObject(CuteMixin, metaclass=MetaCute):
     Qt's own words: https://doc.qt.io/qt-6/qmetaobject.html#constructorCount
     """
     #  int QMetaObject::constructorCount() const
-    return self.uglySide.call('ritual_ZNK11QMetaObject16constructorCountEv')
+    return self._callAs(
+        'QMetaObject', 'ritual_ZNK11QMetaObject16constructorCountEv',
+    )
 
   def methodCount(self) -> int:
     """
@@ -1441,7 +1531,9 @@ class QMetaObject(CuteMixin, metaclass=MetaCute):
     Qt's own words: https://doc.qt.io/qt-6/qmetaobject.html#methodCount
     """
     #  int QMetaObject::methodCount() const
-    return self.uglySide.call('ritual_ZNK11QMetaObject11methodCountEv')
+    return self._callAs(
+        'QMetaObject', 'ritual_ZNK11QMetaObject11methodCountEv',
+    )
 
   def enumeratorCount(self) -> int:
     """
@@ -1450,7 +1542,9 @@ class QMetaObject(CuteMixin, metaclass=MetaCute):
     Qt's own words: https://doc.qt.io/qt-6/qmetaobject.html#enumeratorCount
     """
     #  int QMetaObject::enumeratorCount() const
-    return self.uglySide.call('ritual_ZNK11QMetaObject15enumeratorCountEv')
+    return self._callAs(
+        'QMetaObject', 'ritual_ZNK11QMetaObject15enumeratorCountEv',
+    )
 
   def propertyCount(self) -> int:
     """
@@ -1459,7 +1553,9 @@ class QMetaObject(CuteMixin, metaclass=MetaCute):
     Qt's own words: https://doc.qt.io/qt-6/qmetaobject.html#propertyCount
     """
     #  int QMetaObject::propertyCount() const
-    return self.uglySide.call('ritual_ZNK11QMetaObject13propertyCountEv')
+    return self._callAs(
+        'QMetaObject', 'ritual_ZNK11QMetaObject13propertyCountEv',
+    )
 
   def classInfoCount(self) -> int:
     """
@@ -1468,7 +1564,9 @@ class QMetaObject(CuteMixin, metaclass=MetaCute):
     Qt's own words: https://doc.qt.io/qt-6/qmetaobject.html#classInfoCount
     """
     #  int QMetaObject::classInfoCount() const
-    return self.uglySide.call('ritual_ZNK11QMetaObject14classInfoCountEv')
+    return self._callAs(
+        'QMetaObject', 'ritual_ZNK11QMetaObject14classInfoCountEv',
+    )
 
   @overload(str)
   @overload(NoneType)
@@ -1487,8 +1585,8 @@ class QMetaObject(CuteMixin, metaclass=MetaCute):
       Passed on as the bytes of the text. None is passed on as no text.
     """
     #  int QMetaObject::indexOfConstructor(const char *constructor) const
-    return self.uglySide.call(
-        'ritual_ZNK11QMetaObject18indexOfConstructorEPKc',
+    return self._callAs(
+        'QMetaObject', 'ritual_ZNK11QMetaObject18indexOfConstructorEPKc',
         self._bytesOf(constructor),
     )
 
@@ -1507,8 +1605,9 @@ class QMetaObject(CuteMixin, metaclass=MetaCute):
       Passed on as the bytes of the text. None is passed on as no text.
     """
     #  int QMetaObject::indexOfMethod(const char *method) const
-    return self.uglySide.call(
-        'ritual_ZNK11QMetaObject13indexOfMethodEPKc', self._bytesOf(method),
+    return self._callAs(
+        'QMetaObject', 'ritual_ZNK11QMetaObject13indexOfMethodEPKc',
+        self._bytesOf(method),
     )
 
   @overload(str)
@@ -1526,8 +1625,9 @@ class QMetaObject(CuteMixin, metaclass=MetaCute):
       Passed on as the bytes of the text. None is passed on as no text.
     """
     #  int QMetaObject::indexOfSignal(const char *signal) const
-    return self.uglySide.call(
-        'ritual_ZNK11QMetaObject13indexOfSignalEPKc', self._bytesOf(signal),
+    return self._callAs(
+        'QMetaObject', 'ritual_ZNK11QMetaObject13indexOfSignalEPKc',
+        self._bytesOf(signal),
     )
 
   @overload(str)
@@ -1545,8 +1645,9 @@ class QMetaObject(CuteMixin, metaclass=MetaCute):
       Passed on as the bytes of the text. None is passed on as no text.
     """
     #  int QMetaObject::indexOfSlot(const char *slot) const
-    return self.uglySide.call(
-        'ritual_ZNK11QMetaObject11indexOfSlotEPKc', self._bytesOf(slot),
+    return self._callAs(
+        'QMetaObject', 'ritual_ZNK11QMetaObject11indexOfSlotEPKc',
+        self._bytesOf(slot),
     )
 
   @overload(str)
@@ -1564,8 +1665,8 @@ class QMetaObject(CuteMixin, metaclass=MetaCute):
       Passed on as the bytes of the text. None is passed on as no text.
     """
     #  int QMetaObject::indexOfEnumerator(const char *name) const
-    return self.uglySide.call(
-        'ritual_ZNK11QMetaObject17indexOfEnumeratorEPKc',
+    return self._callAs(
+        'QMetaObject', 'ritual_ZNK11QMetaObject17indexOfEnumeratorEPKc',
         self._bytesOf(name),
     )
 
@@ -1584,8 +1685,9 @@ class QMetaObject(CuteMixin, metaclass=MetaCute):
       Passed on as the bytes of the text. None is passed on as no text.
     """
     #  int QMetaObject::indexOfProperty(const char *name) const
-    return self.uglySide.call(
-        'ritual_ZNK11QMetaObject15indexOfPropertyEPKc', self._bytesOf(name),
+    return self._callAs(
+        'QMetaObject', 'ritual_ZNK11QMetaObject15indexOfPropertyEPKc',
+        self._bytesOf(name),
     )
 
   @overload(str)
@@ -1603,8 +1705,9 @@ class QMetaObject(CuteMixin, metaclass=MetaCute):
       Passed on as the bytes of the text. None is passed on as no text.
     """
     #  int QMetaObject::indexOfClassInfo(const char *name) const
-    return self.uglySide.call(
-        'ritual_ZNK11QMetaObject16indexOfClassInfoEPKc', self._bytesOf(name),
+    return self._callAs(
+        'QMetaObject', 'ritual_ZNK11QMetaObject16indexOfClassInfoEPKc',
+        self._bytesOf(name),
     )
 
   @overload(int)
@@ -1627,8 +1730,8 @@ class QMetaObject(CuteMixin, metaclass=MetaCute):
       A new cute QMetaMethod around the copy Qt gave back. Python owns it.
     """
     #  QMetaMethod QMetaObject::constructor(int index) const
-    address = self.uglySide.call(
-        'ritual_ZNK11QMetaObject11constructorEi', index,
+    address = self._callAs(
+        'QMetaObject', 'ritual_ZNK11QMetaObject11constructorEi', index,
     )
     from . import QMetaMethod
     return QMetaMethod._cuteOwning(address)
@@ -1653,7 +1756,9 @@ class QMetaObject(CuteMixin, metaclass=MetaCute):
       A new cute QMetaMethod around the copy Qt gave back. Python owns it.
     """
     #  QMetaMethod QMetaObject::method(int index) const
-    address = self.uglySide.call('ritual_ZNK11QMetaObject6methodEi', index)
+    address = self._callAs(
+        'QMetaObject', 'ritual_ZNK11QMetaObject6methodEi', index,
+    )
     from . import QMetaMethod
     return QMetaMethod._cuteOwning(address)
 
@@ -1677,8 +1782,8 @@ class QMetaObject(CuteMixin, metaclass=MetaCute):
       A new cute QMetaEnum around the copy Qt gave back. Python owns it.
     """
     #  QMetaEnum QMetaObject::enumerator(int index) const
-    address = self.uglySide.call(
-        'ritual_ZNK11QMetaObject10enumeratorEi', index,
+    address = self._callAs(
+        'QMetaObject', 'ritual_ZNK11QMetaObject10enumeratorEi', index,
     )
     from . import QMetaEnum
     return QMetaEnum._cuteOwning(address)
@@ -1703,7 +1808,9 @@ class QMetaObject(CuteMixin, metaclass=MetaCute):
       A new cute QMetaProperty around the copy Qt gave back. Python owns it.
     """
     #  QMetaProperty QMetaObject::property(int index) const
-    address = self.uglySide.call('ritual_ZNK11QMetaObject8propertyEi', index)
+    address = self._callAs(
+        'QMetaObject', 'ritual_ZNK11QMetaObject8propertyEi', index,
+    )
     from . import QMetaProperty
     return QMetaProperty._cuteOwning(address)
 
@@ -1727,8 +1834,8 @@ class QMetaObject(CuteMixin, metaclass=MetaCute):
       A new cute QMetaClassInfo around the copy Qt gave back. Python owns it.
     """
     #  QMetaClassInfo QMetaObject::classInfo(int index) const
-    address = self.uglySide.call(
-        'ritual_ZNK11QMetaObject9classInfoEi', index,
+    address = self._callAs(
+        'QMetaObject', 'ritual_ZNK11QMetaObject9classInfoEi', index,
     )
     from . import QMetaClassInfo
     return QMetaClassInfo._cuteOwning(address)
@@ -1746,7 +1853,9 @@ class QMetaObject(CuteMixin, metaclass=MetaCute):
       A new cute QMetaProperty around the copy Qt gave back. Python owns it.
     """
     #  QMetaProperty QMetaObject::userProperty() const
-    address = self.uglySide.call('ritual_ZNK11QMetaObject12userPropertyEv')
+    address = self._callAs(
+        'QMetaObject', 'ritual_ZNK11QMetaObject12userPropertyEv',
+    )
     from . import QMetaProperty
     return QMetaProperty._cuteOwning(address)
 
@@ -1832,7 +1941,8 @@ class QMetaObject(CuteMixin, metaclass=MetaCute):
     #      val3, QGenericArgument val4, QGenericArgument val5,
     #      QGenericArgument val6, QGenericArgument val7, QGenericArgument
     #      val8, QGenericArgument val9) const
-    address = self.uglySide.call(
+    address = self._callAs(
+        'QMetaObject',
         'ritual_ZNK11QMetaObject11newInstanceE16QGenericArgumentS0_S0_S0_S0'
         '_S0_S0_S0_S0_S0_',
         self._valueOf(val0), self._valueOf(val1), self._valueOf(val2),
@@ -1878,3 +1988,146 @@ class QMetaObject(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def activate(*__, **_) -> Never:
+    """
+    - Qt's 'void QMetaObject::activate(QObject *sender, int signal_index,
+      void **argv)': takes a type Python has no way to hand over yet.
+    - Qt's 'void QMetaObject::activate(QObject *sender, const QMetaObject
+      *a1, int local_signal_index, void **argv)': takes a type Python has no
+      way to hand over yet.
+    - Qt's 'void QMetaObject::activate(QObject *sender, int signal_offset,
+      int local_signal_index, void **argv)': takes a type Python has no way
+      to hand over yet.
+    - Qt's 'QMetaObject::activate': a template: a pattern and no single
+      function.
+    """
+    raise NotImplementedError(
+        "'QMetaObject.activate' has no cute function yet. Qt's 'void "
+        "QMetaObject::activate(QObject *sender, int signal_index, void "
+        "**argv)': takes a type Python has no way to hand over yet. Qt's "
+        "'void QMetaObject::activate(QObject *sender, const QMetaObject "
+        "*a1, int local_signal_index, void **argv)': takes a type Python "
+        "has no way to hand over yet. Qt's 'void "
+        "QMetaObject::activate(QObject *sender, int signal_offset, int "
+        "local_signal_index, void **argv)': takes a type Python has no way "
+        "to hand over yet. Qt's 'QMetaObject::activate': a template: a "
+        "pattern and no single function.")
+
+  @staticmethod
+  def connect(*__, **_) -> Never:
+    """
+    - Qt's 'Connection QMetaObject::connect(const QObject *sender, int
+      signal_index, const QObject *receiver, int method_index, int type, int
+      *types)': takes a number to change where it is.
+    - Qt's 'QMetaObject::connect': a template: a pattern and no single
+      function.
+    """
+    raise NotImplementedError(
+        "'QMetaObject.connect' has no cute function yet. Qt's 'Connection "
+        "QMetaObject::connect(const QObject *sender, int signal_index, "
+        "const QObject *receiver, int method_index, int type, int *types)': "
+        "takes a number to change where it is. Qt's 'QMetaObject::connect': "
+        "a template: a pattern and no single function.")
+
+  @staticmethod
+  def connectImpl(*__, **_) -> Never:
+    """
+    Qt's 'QMetaObject::Connection QMetaObject::connectImpl(const QObject
+    *sender, const QMetaMethod &signal, const QObject *receiver, void
+    **slotPtr, QtPrivate::QSlotObjectBase *slot, Qt::ConnectionType type)':
+    takes a type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QMetaObject.connectImpl' has no cute function yet. Qt's "
+        "'QMetaObject::Connection QMetaObject::connectImpl(const QObject "
+        "*sender, const QMetaMethod &signal, const QObject *receiver, void "
+        "**slotPtr, QtPrivate::QSlotObjectBase *slot, Qt::ConnectionType "
+        "type)': takes a type Python has no way to hand over yet.")
+
+  @staticmethod
+  def invokeMethodCallableHelper(*__, **_) -> Never:
+    """
+    Qt's 'QMetaObject::invokeMethodCallableHelper': a template: a pattern and
+    no single function.
+    """
+    raise NotImplementedError(
+        "'QMetaObject.invokeMethodCallableHelper' has no cute function yet. "
+        "Qt's 'QMetaObject::invokeMethodCallableHelper': a template: a "
+        "pattern and no single function.")
+
+  @staticmethod
+  def invokeMethodImpl(*__, **_) -> Never:
+    """
+    - Qt's 'bool QMetaObject::invokeMethodImpl(QObject *object, const char
+      *member, Qt::ConnectionType type, qsizetype parameterCount, const void
+      *const *parameters, const char *const *names, const
+      QtPrivate::QMetaTypeInterface *const *metaTypes)': names 'void *const',
+      which has no cute class yet.
+    - Qt's 'bool QMetaObject::invokeMethodImpl(QObject *object,
+      QtPrivate::QSlotObjectBase *slotObj, Qt::ConnectionType type, qsizetype
+      parameterCount, const void *const *params, const char *const *names,
+      const QtPrivate::QMetaTypeInterface *const *metaTypes)': names 'void
+      *const', which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QMetaObject.invokeMethodImpl' has no cute function yet. Qt's "
+        "'bool QMetaObject::invokeMethodImpl(QObject *object, const char "
+        "*member, Qt::ConnectionType type, qsizetype parameterCount, const "
+        "void *const *parameters, const char *const *names, const "
+        "QtPrivate::QMetaTypeInterface *const *metaTypes)': names 'void "
+        "*const', which has no cute class yet. Qt's 'bool "
+        "QMetaObject::invokeMethodImpl(QObject *object, "
+        "QtPrivate::QSlotObjectBase *slotObj, Qt::ConnectionType type, "
+        "qsizetype parameterCount, const void *const *params, const char "
+        "*const *names, const QtPrivate::QMetaTypeInterface *const "
+        "*metaTypes)': names 'void *const', which has no cute class yet.")
+
+  @staticmethod
+  def metacall(*__, **_) -> Never:
+    """
+    Qt's 'int QMetaObject::metacall(QObject *a0, Call a1, int a2, void
+    **a3)': takes a type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QMetaObject.metacall' has no cute function yet. Qt's 'int "
+        "QMetaObject::metacall(QObject *a0, Call a1, int a2, void **a3)': "
+        "takes a type Python has no way to hand over yet.")
+
+  @staticmethod
+  def newInstanceImpl(*__, **_) -> Never:
+    """
+    Qt's 'QObject *QMetaObject::newInstanceImpl(const QMetaObject *mobj,
+    qsizetype parameterCount, const void **parameters, const char
+    **typeNames, const QtPrivate::QMetaTypeInterface **metaTypes)': takes a
+    type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QMetaObject.newInstanceImpl' has no cute function yet. Qt's "
+        "'QObject *QMetaObject::newInstanceImpl(const QMetaObject *mobj, "
+        "qsizetype parameterCount, const void **parameters, const char "
+        "**typeNames, const QtPrivate::QMetaTypeInterface **metaTypes)': "
+        "takes a type Python has no way to hand over yet.")
+
+  @staticmethod
+  def staticMetaObject(*__, **_) -> Never:
+    """
+    Qt's 'QMetaObject::staticMetaObject': a template: a pattern and no single
+    function.
+    """
+    raise NotImplementedError(
+        "'QMetaObject.staticMetaObject' has no cute function yet. Qt's "
+        "'QMetaObject::staticMetaObject': a template: a pattern and no "
+        "single function.")
+
+  @staticmethod
+  def static_metacall(*__, **_) -> Never:
+    """
+    Qt's 'int QMetaObject::static_metacall(Call a0, int a1, void **a2)
+    const': takes a type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QMetaObject.static_metacall' has no cute function yet. Qt's 'int "
+        "QMetaObject::static_metacall(Call a0, int a1, void **a2) const': "
+        "takes a type Python has no way to hand over yet.")

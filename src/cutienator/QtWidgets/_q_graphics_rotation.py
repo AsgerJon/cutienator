@@ -45,21 +45,29 @@ class QGraphicsRotation(QGraphicsTransform):
   -----------
 
   Every function of Qt's QGraphicsRotation that has a ritual and that Python
-  can call so far, 9 names in all: 'metaObject', 'tr', 'origin', 'setOrigin',
-  'angle', 'setAngle', 'axis', 'setAxis', 'applyTo'. It can be made from
-  Python, in 1 way; see '__init__'.
+  can call so far, 12 names in all: 'metaObject', 'tr', 'origin',
+  'setOrigin', 'angle', 'setAngle', 'axis', 'setAxis', 'applyTo',
+  'originChanged', 'angleChanged', 'axisChanged'. It can be made from Python,
+  in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QGraphicsRotation::qt_metacast(const char *a0)': one of Qt's
+    own inner workings.
+  - Qt's 'int QGraphicsRotation::qt_metacall(QMetaObject::Call a0, int a1,
+    void **a2)': one of Qt's own inner workings.
   - Qt's 'QGraphicsRotation::~QGraphicsRotation()': the destructor: Python
     never removes a C++ QGraphicsRotation.
+  - Qt's 'QGraphicsRotationPrivate *QGraphicsRotation::d_func()': gives
+    'QGraphicsRotationPrivate', which has no cute class yet.
+  - Qt's 'const QGraphicsRotationPrivate *QGraphicsRotation::d_func() const':
+    gives 'QGraphicsRotationPrivate', which has no cute class yet.
 
   What has no ritual
   ------------------
 
-  9 of the 21 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet; 3 a signal; 1 a template; 1 declared and nowhere to be found.
+  2 of the 21 functions Qt declares: 2 not a gap.
 
   What to expect
   --------------
@@ -367,3 +375,32 @@ class QGraphicsRotation(QGraphicsTransform):
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZNK17QGraphicsRotation7applyToEP10QMatrix4x4'
     self.uglySide.call(ritual, self._addressOf(matrix))
+
+  def originChanged(self) -> None:
+    """
+    Calls Qt's 'void QGraphicsRotation::originChanged()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicsrotation.html#originChanged
+    """
+    #  void QGraphicsRotation::originChanged()
+    self.uglySide.call('ritual_ZN17QGraphicsRotation13originChangedEv')
+
+  def angleChanged(self) -> None:
+    """
+    Calls Qt's 'void QGraphicsRotation::angleChanged()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicsrotation.html#angleChanged
+    """
+    #  void QGraphicsRotation::angleChanged()
+    self.uglySide.call('ritual_ZN17QGraphicsRotation12angleChangedEv')
+
+  def axisChanged(self) -> None:
+    """
+    Calls Qt's 'void QGraphicsRotation::axisChanged()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsrotation.html#axisChanged
+    """
+    #  void QGraphicsRotation::axisChanged()
+    self.uglySide.call('ritual_ZN17QGraphicsRotation11axisChangedEv')

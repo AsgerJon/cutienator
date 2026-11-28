@@ -15,8 +15,11 @@ from worktoy.keenum import Kee
 
 from ..cute import CuteMixin, CuteNum, MetaCute, WAIT
 from ..occult import Rituals
+from ..QtCore import QList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Never
+
   from . import QColor
 else:
   #  The cute classes this file names and is not built on. Each is brought in
@@ -48,12 +51,15 @@ class QGradient(CuteMixin, metaclass=MetaCute):
 
   - Qt's 'QGradient::~QGradient()': the destructor: Python removes its C++
     QGradient by it, and has no other use for it.
+  - Qt's 'void QGradient::setStops(const QGradientStops &stops)': takes a
+    type Python has no way to hand over yet.
+  - Qt's 'QGradientStops QGradient::stops() const': gives a type Python has
+    no way to take yet.
 
   What has no ritual
   ------------------
 
-  5 of the 18 functions Qt declares: 2 declared and nowhere to be found; 2
-  takes or gives a type that cannot be passed yet; 1 a template.
+  3 of the 18 functions Qt declares: 3 not a gap.
 
   What to expect
   --------------
@@ -66,6 +72,9 @@ class QGradient(CuteMixin, metaclass=MetaCute):
     is as in C++.
   - A function giving a QGradient back gives a copy the ritual made for
     Python, in a new cute QGradient.
+  - Each name of Qt's QGradient that has no cute function yet, 'setStops',
+    'stops', holds a function that raises 'NotImplementedError', and its
+    docstring says why.
   """
 
   #  The enums Qt writes inside QGradient, each a class in here as in C++,
@@ -691,3 +700,38 @@ class QGradient(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def setStops(*__, **_) -> Never:
+    """
+    Qt's 'void QGradient::setStops(const QGradientStops &stops)': takes a
+    type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QGradient.setStops' has no cute function yet. Qt's 'void "
+        "QGradient::setStops(const QGradientStops &stops)': takes a type "
+        "Python has no way to hand over yet.")
+
+  @staticmethod
+  def stops(*__, **_) -> Never:
+    """
+    Qt's 'QGradientStops QGradient::stops() const': gives a type Python has
+    no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QGradient.stops' has no cute function yet. Qt's 'QGradientStops "
+        "QGradient::stops() const': gives a type Python has no way to take "
+        "yet.")
+
+
+#  Qt's 'QList<QGradient>': the list of QGradient, which 'QList[QGradient]'
+#  gives. It is made here, so that there is one as soon as there can be a
+#  QGradient.
+QList.createKind(
+    QGradient, 'value',
+    make='ritual_list_make_QGradient',
+    add='ritual_list_add_QGradient',
+    size='ritual_list_size_QGradient',
+    at='ritual_list_at_QGradient',
+    drop='ritual_list_drop_QGradient',
+)

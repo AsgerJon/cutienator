@@ -16,7 +16,7 @@ from ..occult import Rituals
 from ..QtCore import QEvent
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from . import QWidget
 else:
@@ -50,12 +50,17 @@ class QGraphicsSceneEvent(QEvent):
 
   - Qt's 'QGraphicsSceneEvent::~QGraphicsSceneEvent()': the destructor:
     Python never removes a C++ QGraphicsSceneEvent.
+  - Qt's 'QGraphicsSceneEvent::QGraphicsSceneEvent(QGraphicsSceneEventPrivate
+    &dd, Type type)': takes a type Python has no way to hand over yet.
+  - Qt's 'QGraphicsSceneEventPrivate *QGraphicsSceneEvent::d_func()': gives
+    'QGraphicsSceneEventPrivate', which has no cute class yet.
+  - Qt's 'const QGraphicsSceneEventPrivate *QGraphicsSceneEvent::d_func()
+    const': gives 'QGraphicsSceneEventPrivate', which has no cute class yet.
 
   What has no ritual
   ------------------
 
-  5 of the 11 functions Qt declares: 3 takes or gives a type that cannot be
-  passed yet; 2 forbidden.
+  2 of the 11 functions Qt declares: 2 forbidden.
 
   What to expect
   --------------
@@ -68,6 +73,9 @@ class QGraphicsSceneEvent(QEvent):
     has it, and is passed on as nothing. Whether Qt can do with nothing there
     is as in C++.
   - Python never removes the C++ QGraphicsSceneEvent.
+  - Each name of Qt's QGraphicsSceneEvent that has no cute function yet,
+    'd_func', holds a function that raises 'NotImplementedError', and its
+    docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -220,3 +228,20 @@ class QGraphicsSceneEvent(QEvent):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def d_func(*__, **_) -> Never:
+    """
+    - Qt's 'QGraphicsSceneEventPrivate *QGraphicsSceneEvent::d_func()': gives
+      'QGraphicsSceneEventPrivate', which has no cute class yet.
+    - Qt's 'const QGraphicsSceneEventPrivate *QGraphicsSceneEvent::d_func()
+      const': gives 'QGraphicsSceneEventPrivate', which has no cute class
+      yet.
+    """
+    raise NotImplementedError(
+        "'QGraphicsSceneEvent.d_func' has no cute function yet. Qt's "
+        "'QGraphicsSceneEventPrivate *QGraphicsSceneEvent::d_func()': gives "
+        "'QGraphicsSceneEventPrivate', which has no cute class yet. Qt's "
+        "'const QGraphicsSceneEventPrivate *QGraphicsSceneEvent::d_func() "
+        "const': gives 'QGraphicsSceneEventPrivate', which has no cute "
+        "class yet.")

@@ -14,25 +14,31 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
-from . import QCborValue
+from . import QCborValue, Qt
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
-  from . import QByteArray, QCborArray, QCborMap, QDateTime, QJsonValue
-  from . import QLatin1String, QRegularExpression, QUrl, QUuid, QVariant
+  from . import QByteArray, QCborArray, QCborContainerPrivate, QCborMap
+  from . import QDateTime, QJsonValue, QLatin1String, QRegularExpression
+  from . import QUrl, QUuid, QVariant
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
   QByteArray = WAIT['QByteArray']
   QCborArray = WAIT['QCborArray']
+  QCborContainerPrivate = WAIT['QCborContainerPrivate']
   QCborMap = WAIT['QCborMap']
   QDateTime = WAIT['QDateTime']
   QLatin1String = WAIT['QLatin1String']
   QRegularExpression = WAIT['QRegularExpression']
   QUrl = WAIT['QUrl']
   QUuid = WAIT['QUuid']
+
+#  The class of None, for a signature that takes None in the place of an
+#  object or of text.
+NoneType = type(None)
 
 
 class QCborValueConstRef(CuteMixin, metaclass=MetaCute):
@@ -48,7 +54,7 @@ class QCborValueConstRef(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QCborValueConstRef that has a ritual and that Python
-  can call so far, 54 names in all: 'type', 'isInteger', 'isByteArray',
+  can call so far, 55 names in all: 'type', 'isInteger', 'isByteArray',
   'isString', 'isArray', 'isMap', 'isTag', 'isFalse', 'isTrue', 'isBool',
   'isNull', 'isUndefined', 'isDouble', 'isDateTime', 'isUrl',
   'isRegularExpression', 'isUuid', 'isInvalid', 'isContainer',
@@ -56,11 +62,11 @@ class QCborValueConstRef(CuteMixin, metaclass=MetaCute):
   'toByteArray', 'toString', 'toStringView', 'toDateTime', 'toUrl',
   'toRegularExpression', 'toUuid', 'toArray', 'toMap', '__getitem__',
   'compare', 'toVariant', 'toJsonValue', 'toCbor', 'toDiagnosticNotation',
-  'concrete', 'comparesEqual_helper', '__eq__', '__ne__', '__lt__', '__gt__',
-  '__le__', '__ge__', 'concreteType', 'concreteBoolean', 'concreteDouble',
-  'concreteIntegral', 'concreteByteArray', 'concreteString',
-  'concreteStringView'. It can be made from Python, in 2 ways; see
-  '__init__'.
+  'concrete', 'comparesEqual_helper', 'compareThreeWay_helper', '__eq__',
+  '__ne__', '__lt__', '__gt__', '__le__', '__ge__', 'concreteType',
+  'concreteBoolean', 'concreteDouble', 'concreteIntegral',
+  'concreteByteArray', 'concreteString', 'concreteStringView'. It can be made
+  from Python, in 3 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -74,6 +80,9 @@ class QCborValueConstRef(CuteMixin, metaclass=MetaCute):
     cannot be named here.
   - Qt's 'QCborTag QCborValueConstRef::tag(QCborTag defaultValue) const':
     names the enum 'QCborTag', whose class cannot be named here.
+  - Qt's 'void QCborValueConstRef::toCbor(QCborStreamWriter &writer,
+    QCborValue::EncodingOptions opt) const': takes a type Python has no way
+    to hand over yet.
   - Qt's 'bool operator==(const QCborValue &lhs, const QCborValueConstRef
     &rhs)': takes in Python what 'bool operator==(const QCborValueConstRef
     &lhs, const QCborValue &rhs)' takes.
@@ -98,8 +107,7 @@ class QCborValueConstRef(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  5 of the 84 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet; 1 forbidden.
+  1 of the 84 functions Qt declares: 1 forbidden.
 
   What to expect
   --------------
@@ -113,6 +121,9 @@ class QCborValueConstRef(CuteMixin, metaclass=MetaCute):
     is as in C++.
   - A function giving a QCborValueConstRef back gives a copy the ritual made
     for Python, in a new cute QCborValueConstRef.
+  - Each name of Qt's QCborValueConstRef that has no cute function yet,
+    'tag', 'toSimpleType', holds a function that raises
+    'NotImplementedError', and its docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -180,6 +191,89 @@ class QCborValueConstRef(CuteMixin, metaclass=MetaCute):
         'ue',
         CuteMixin._valueOf(lhs), CuteMixin._valueOf(rhs),
     )
+
+  @staticmethod
+  @overload(THIS, THIS)
+  def compareThreeWay_helper(
+      lhs: QCborValueConstRef,
+      rhs: QCborValueConstRef,
+  ) -> Qt.strong_ordering:
+    """
+    Calls Qt's 'Qt::strong_ordering
+    QCborValueConstRef::compareThreeWay_helper(QCborValueConstRef lhs,
+    QCborValueConstRef rhs)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qcborvalueconstref.html#compareThreeWay_helper
+
+    Parameters
+    ----------
+
+    lhs : QCborValueConstRef
+      Passed on as a value: Qt reads the C++ QCborValueConstRef, which stays
+      Python's own.
+
+    rhs : QCborValueConstRef
+      Passed on as a value: Qt reads the C++ QCborValueConstRef, which stays
+      Python's own.
+
+    Returns
+    -------
+
+    Qt.strong_ordering
+      A new cute Qt::strong_ordering around the copy Qt gave back. Python
+      owns it.
+    """
+    #  Qt::strong_ordering
+    #      QCborValueConstRef::compareThreeWay_helper(QCborValueConstRef lhs,
+    #      QCborValueConstRef rhs)
+    address = Rituals.call(
+        'ritual_ZN18QCborValueConstRef22compareThreeWay_helperES_S_',
+        CuteMixin._valueOf(lhs), CuteMixin._valueOf(rhs),
+    )
+    return Qt.strong_ordering._cuteOwning(address)
+
+  @staticmethod
+  @overload(THIS, QCborValue)
+  def compareThreeWay_helper(
+      lhs: QCborValueConstRef,
+      rhs: QCborValue,
+  ) -> Qt.strong_ordering:
+    """
+    Calls Qt's 'Qt::strong_ordering
+    QCborValueConstRef::compareThreeWay_helper(QCborValueConstRef lhs, const
+    QCborValue &rhs)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qcborvalueconstref.html#compareThreeWay_helper
+
+    Parameters
+    ----------
+
+    lhs : QCborValueConstRef
+      Passed on as a value: Qt reads the C++ QCborValueConstRef, which stays
+      Python's own.
+
+    rhs : QCborValue
+      Passed on as a value: Qt reads the C++ QCborValue, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    Qt.strong_ordering
+      A new cute Qt::strong_ordering around the copy Qt gave back. Python
+      owns it.
+    """
+    #  Qt::strong_ordering
+    #      QCborValueConstRef::compareThreeWay_helper(QCborValueConstRef lhs,
+    #      const QCborValue &rhs)
+    address = Rituals.call(
+        'ritual_ZN18QCborValueConstRef22compareThreeWay_helperES_RK10QCborV'
+        'alue',
+        CuteMixin._valueOf(lhs), CuteMixin._valueOf(rhs),
+    )
+    return Qt.strong_ordering._cuteOwning(address)
 
   @staticmethod
   @overload(THIS)
@@ -1684,6 +1778,34 @@ class QCborValueConstRef(CuteMixin, metaclass=MetaCute):
         'ritual_ZN18QCborValueConstRefC1Ev',
     ))
 
+  @overload(QCborContainerPrivate, int)
+  @overload(NoneType, int)
+  def __init__(self, dd: Optional[QCborContainerPrivate], ii: int) -> None:
+    """
+    Notes what was given, for Qt's
+    'QCborValueConstRef::QCborValueConstRef(QCborContainerPrivate *dd,
+    qsizetype ii)', which is called at the first use.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qcborvalueconstref.html#QCborValueConstRef
+
+    Parameters
+    ----------
+
+    dd : Optional[QCborContainerPrivate]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    ii : int
+      Passed on as it is.
+    """
+    #  QCborValueConstRef::QCborValueConstRef(QCborContainerPrivate *dd,
+    #      qsizetype ii)
+    self._noteCreation(QCborValueConstRef, lambda: Rituals.call(
+        'ritual_ZN18QCborValueConstRefC1EP21QCborContainerPrivatex',
+        self._addressOf(dd), ii,
+    ))
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -1703,3 +1825,27 @@ class QCborValueConstRef(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def tag(*__, **_) -> Never:
+    """
+    Qt's 'QCborTag QCborValueConstRef::tag(QCborTag defaultValue) const':
+    names the enum 'QCborTag', whose class cannot be named here.
+    """
+    raise NotImplementedError(
+        "'QCborValueConstRef.tag' has no cute function yet. Qt's 'QCborTag "
+        "QCborValueConstRef::tag(QCborTag defaultValue) const': names the "
+        "enum 'QCborTag', whose class cannot be named here.")
+
+  @staticmethod
+  def toSimpleType(*__, **_) -> Never:
+    """
+    Qt's 'QCborSimpleType QCborValueConstRef::toSimpleType(QCborSimpleType
+    defaultValue) const': names the enum 'QCborSimpleType', whose class
+    cannot be named here.
+    """
+    raise NotImplementedError(
+        "'QCborValueConstRef.toSimpleType' has no cute function yet. Qt's "
+        "'QCborSimpleType QCborValueConstRef::toSimpleType(QCborSimpleType "
+        "defaultValue) const': names the enum 'QCborSimpleType', whose "
+        "class cannot be named here.")

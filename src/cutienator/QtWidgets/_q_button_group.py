@@ -19,7 +19,7 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
   from ..QtCore import QMetaObject
-  from . import QAbstractButton
+  from . import QAbstractButton, QButtonGroupPrivate
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -43,23 +43,29 @@ class QButtonGroup(QObject):
   -----------
 
   Every function of Qt's QButtonGroup that has a ritual and that Python can
-  call so far, 12 names in all: 'metaObject', 'tr', 'setExclusive',
+  call so far, 21 names in all: 'metaObject', 'tr', 'setExclusive',
   'exclusive', 'addButton', 'removeButton', 'buttons', 'checkedButton',
-  'button', 'setId', 'id', 'checkedId'. It can be made from Python, in 1 way;
-  see '__init__'.
+  'button', 'setId', 'id', 'checkedId', 'buttonClicked', 'buttonPressed',
+  'buttonReleased', 'buttonToggled', 'idClicked', 'idPressed', 'idReleased',
+  'idToggled', 'd_func'. It can be made from Python, in 1 way; see
+  '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QButtonGroup::qt_metacast(const char *a0)': one of Qt's own
+    inner workings.
+  - Qt's 'int QButtonGroup::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
   - Qt's 'QButtonGroup::~QButtonGroup()': the destructor: Python never
     removes a C++ QButtonGroup.
+  - Qt's 'const QButtonGroupPrivate *QButtonGroup::d_func() const': takes in
+    Python what 'QButtonGroupPrivate *QButtonGroup::d_func()' takes.
 
   What has no ritual
   ------------------
 
-  16 of the 30 functions Qt declares: 8 a signal; 4 takes or gives a type
-  that cannot be passed yet; 2 forbidden; 1 a template; 1 declared and
-  nowhere to be found.
+  4 of the 30 functions Qt declares: 2 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -411,3 +417,176 @@ class QButtonGroup(QObject):
         'ritual_ZN12QButtonGroup12removeButtonEP15QAbstractButton',
         self._addressOf(a0),
     )
+
+  @overload(QAbstractButton)
+  @overload(NoneType)
+  def buttonClicked(self, a0: Optional[QAbstractButton]) -> None:
+    """
+    Calls Qt's 'void QButtonGroup::buttonClicked(QAbstractButton *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qbuttongroup.html#buttonClicked
+
+    Parameters
+    ----------
+
+    a0 : Optional[QAbstractButton]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QButtonGroup::buttonClicked(QAbstractButton *a0)
+    self.uglySide.call(
+        'ritual_ZN12QButtonGroup13buttonClickedEP15QAbstractButton',
+        self._addressOf(a0),
+    )
+
+  @overload(QAbstractButton)
+  @overload(NoneType)
+  def buttonPressed(self, a0: Optional[QAbstractButton]) -> None:
+    """
+    Calls Qt's 'void QButtonGroup::buttonPressed(QAbstractButton *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qbuttongroup.html#buttonPressed
+
+    Parameters
+    ----------
+
+    a0 : Optional[QAbstractButton]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QButtonGroup::buttonPressed(QAbstractButton *a0)
+    self.uglySide.call(
+        'ritual_ZN12QButtonGroup13buttonPressedEP15QAbstractButton',
+        self._addressOf(a0),
+    )
+
+  @overload(QAbstractButton)
+  @overload(NoneType)
+  def buttonReleased(self, a0: Optional[QAbstractButton]) -> None:
+    """
+    Calls Qt's 'void QButtonGroup::buttonReleased(QAbstractButton *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qbuttongroup.html#buttonReleased
+
+    Parameters
+    ----------
+
+    a0 : Optional[QAbstractButton]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QButtonGroup::buttonReleased(QAbstractButton *a0)
+    self.uglySide.call(
+        'ritual_ZN12QButtonGroup14buttonReleasedEP15QAbstractButton',
+        self._addressOf(a0),
+    )
+
+  @overload(QAbstractButton, bool)
+  @overload(NoneType, bool)
+  def buttonToggled(self, a0: Optional[QAbstractButton], a1: bool) -> None:
+    """
+    Calls Qt's 'void QButtonGroup::buttonToggled(QAbstractButton *a0, bool
+    a1)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qbuttongroup.html#buttonToggled
+
+    Parameters
+    ----------
+
+    a0 : Optional[QAbstractButton]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    a1 : bool
+      Passed on as it is.
+    """
+    #  void QButtonGroup::buttonToggled(QAbstractButton *a0, bool a1)
+    self.uglySide.call(
+        'ritual_ZN12QButtonGroup13buttonToggledEP15QAbstractButtonb',
+        self._addressOf(a0), a1,
+    )
+
+  @overload(int)
+  def idClicked(self, a0: int) -> None:
+    """
+    Calls Qt's 'void QButtonGroup::idClicked(int a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qbuttongroup.html#idClicked
+
+    Parameters
+    ----------
+
+    a0 : int
+      Passed on as it is.
+    """
+    #  void QButtonGroup::idClicked(int a0)
+    self.uglySide.call('ritual_ZN12QButtonGroup9idClickedEi', a0)
+
+  @overload(int)
+  def idPressed(self, a0: int) -> None:
+    """
+    Calls Qt's 'void QButtonGroup::idPressed(int a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qbuttongroup.html#idPressed
+
+    Parameters
+    ----------
+
+    a0 : int
+      Passed on as it is.
+    """
+    #  void QButtonGroup::idPressed(int a0)
+    self.uglySide.call('ritual_ZN12QButtonGroup9idPressedEi', a0)
+
+  @overload(int)
+  def idReleased(self, a0: int) -> None:
+    """
+    Calls Qt's 'void QButtonGroup::idReleased(int a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qbuttongroup.html#idReleased
+
+    Parameters
+    ----------
+
+    a0 : int
+      Passed on as it is.
+    """
+    #  void QButtonGroup::idReleased(int a0)
+    self.uglySide.call('ritual_ZN12QButtonGroup10idReleasedEi', a0)
+
+  @overload(int, bool)
+  def idToggled(self, a0: int, a1: bool) -> None:
+    """
+    Calls Qt's 'void QButtonGroup::idToggled(int a0, bool a1)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qbuttongroup.html#idToggled
+
+    Parameters
+    ----------
+
+    a0 : int
+      Passed on as it is.
+
+    a1 : bool
+      Passed on as it is.
+    """
+    #  void QButtonGroup::idToggled(int a0, bool a1)
+    self.uglySide.call('ritual_ZN12QButtonGroup9idToggledEib', a0, a1)
+
+  def d_func(self) -> Optional[QButtonGroupPrivate]:
+    """
+    Calls Qt's 'QButtonGroupPrivate *QButtonGroup::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qbuttongroup.html#d_func
+
+    Returns
+    -------
+
+    Optional[QButtonGroupPrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QButtonGroupPrivate *QButtonGroup::d_func()
+    address = self.uglySide.call('ritual_ZN12QButtonGroup6d_funcEv')
+    from . import QButtonGroupPrivate
+    return QButtonGroupPrivate._cuteAt(address)

@@ -45,25 +45,31 @@ class QStackedLayout(QLayout):
   -----------
 
   Every function of Qt's QStackedLayout that has a ritual and that Python can
-  call so far, 20 names in all: 'metaObject', 'tr', 'addWidget',
+  call so far, 23 names in all: 'metaObject', 'tr', 'addWidget',
   'insertWidget', 'currentWidget', 'currentIndex', 'widget', 'count',
   'stackingMode', 'setStackingMode', 'addItem', 'sizeHint', 'minimumSize',
   'itemAt', 'takeAt', 'setGeometry', 'hasHeightForWidth', 'heightForWidth',
-  'setCurrentIndex', 'setCurrentWidget'. It can be made from Python, in 3
-  ways; see '__init__'.
+  'widgetRemoved', 'currentChanged', 'widgetAdded', 'setCurrentIndex',
+  'setCurrentWidget'. It can be made from Python, in 3 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QStackedLayout::qt_metacast(const char *a0)': one of Qt's own
+    inner workings.
+  - Qt's 'int QStackedLayout::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
+  - Qt's 'QStackedLayoutPrivate *QStackedLayout::d_func()': gives
+    'QStackedLayoutPrivate', which has no cute class yet.
+  - Qt's 'const QStackedLayoutPrivate *QStackedLayout::d_func() const': gives
+    'QStackedLayoutPrivate', which has no cute class yet.
   - Qt's 'QStackedLayout::~QStackedLayout()': the destructor: Python never
     removes a C++ QStackedLayout.
 
   What has no ritual
   ------------------
 
-  11 of the 35 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet; 3 a signal; 2 forbidden; 1 a template; 1 declared and nowhere
-  to be found.
+  4 of the 35 functions Qt declares: 2 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -628,3 +634,51 @@ class QStackedLayout(QLayout):
       ritual = 'ritual_own_ZN14QStackedLayout6takeAtEi'
     address = self.uglySide.call(ritual, a0)
     return QLayoutItem._cuteAt(address)
+
+  @overload(int)
+  def widgetRemoved(self, index: int) -> None:
+    """
+    Calls Qt's 'void QStackedLayout::widgetRemoved(int index)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qstackedlayout.html#widgetRemoved
+
+    Parameters
+    ----------
+
+    index : int
+      Passed on as it is.
+    """
+    #  void QStackedLayout::widgetRemoved(int index)
+    self.uglySide.call('ritual_ZN14QStackedLayout13widgetRemovedEi', index)
+
+  @overload(int)
+  def currentChanged(self, index: int) -> None:
+    """
+    Calls Qt's 'void QStackedLayout::currentChanged(int index)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qstackedlayout.html#currentChanged
+
+    Parameters
+    ----------
+
+    index : int
+      Passed on as it is.
+    """
+    #  void QStackedLayout::currentChanged(int index)
+    self.uglySide.call('ritual_ZN14QStackedLayout14currentChangedEi', index)
+
+  @overload(int)
+  def widgetAdded(self, index: int) -> None:
+    """
+    Calls Qt's 'void QStackedLayout::widgetAdded(int index)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qstackedlayout.html#widgetAdded
+
+    Parameters
+    ----------
+
+    index : int
+      Passed on as it is.
+    """
+    #  void QStackedLayout::widgetAdded(int index)
+    self.uglySide.call('ritual_ZN14QStackedLayout11widgetAddedEi', index)

@@ -22,6 +22,7 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   from ..QtCore import QEvent, QMetaObject, QSize
   from ..QtGui import QContextMenuEvent, QFocusEvent, QKeyEvent, QMouseEvent
   from ..QtGui import QMovie, QPaintEvent, QPicture, QPixmap
+  from . import QLabelPrivate
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -53,7 +54,7 @@ class QLabel(QFrame):
   -----------
 
   Every function of Qt's QLabel that has a ritual and that Python can call so
-  far, 50 names in all: 'metaObject', 'tr', 'text', 'pixmap', 'picture',
+  far, 51 names in all: 'metaObject', 'tr', 'text', 'pixmap', 'picture',
   'movie', 'textFormat', 'setTextFormat', 'alignment', 'setAlignment',
   'setWordWrap', 'wordWrap', 'indent', 'setIndent', 'margin', 'setMargin',
   'hasScaledContents', 'setScaledContents', 'sizeHint', 'minimumSizeHint',
@@ -63,8 +64,8 @@ class QLabel(QFrame):
   'setText', 'setPixmap', 'setPicture', 'setMovie', 'setNum', 'clear',
   'linkActivated', 'linkHovered', 'event', 'keyPressEvent', 'paintEvent',
   'changeEvent', 'mousePressEvent', 'mouseMoveEvent', 'mouseReleaseEvent',
-  'contextMenuEvent', 'focusInEvent', 'focusOutEvent', 'focusNextPrevChild'.
-  It can be made from Python, in 2 ways; see '__init__'.
+  'contextMenuEvent', 'focusInEvent', 'focusOutEvent', 'focusNextPrevChild',
+  'd_func'. It can be made from Python, in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -80,10 +81,8 @@ class QLabel(QFrame):
   - Qt's 'void QLabel::setResourceProvider(const
     QTextDocument::ResourceProvider &provider)': takes a type Python has no
     way to hand over yet.
-  - Qt's 'QLabelPrivate *QLabel::d_func()': gives 'QLabelPrivate', which has
-    no cute class yet.
-  - Qt's 'const QLabelPrivate *QLabel::d_func() const': gives
-    'QLabelPrivate', which has no cute class yet.
+  - Qt's 'const QLabelPrivate *QLabel::d_func() const': takes in Python what
+    'QLabelPrivate *QLabel::d_func()' takes.
 
   What has no ritual
   ------------------
@@ -1185,6 +1184,24 @@ class QLabel(QFrame):
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZN6QLabel18focusNextPrevChildEb'
     return self.uglySide.call(ritual, next)
+
+  def d_func(self) -> Optional[QLabelPrivate]:
+    """
+    Calls Qt's 'QLabelPrivate *QLabel::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlabel.html#d_func
+
+    Returns
+    -------
+
+    Optional[QLabelPrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QLabelPrivate *QLabel::d_func()
+    address = self.uglySide.call('ritual_ZN6QLabel6d_funcEv')
+    from . import QLabelPrivate
+    return QLabelPrivate._cuteAt(address)
 
   @staticmethod
   def resourceProvider(*__, **_) -> Never:

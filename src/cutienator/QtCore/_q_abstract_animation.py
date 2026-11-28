@@ -14,12 +14,13 @@ from worktoy.keenum import Kee
 
 from ..cute import CuteMixin, CuteNum, WAIT
 from ..occult import Rituals
-from . import QObject
+from . import QList, QObject
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
-  from . import QAnimationGroup, QEvent, QMetaObject
+  from . import QAbstractAnimationPrivate, QAnimationGroup, QEvent
+  from . import QMetaObject
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -43,26 +44,44 @@ class QAbstractAnimation(QObject):
   -----------
 
   Every function of Qt's QAbstractAnimation that has a ritual and that Python
-  can call so far, 23 names in all: 'metaObject', 'tr', 'state', 'group',
+  can call so far, 28 names in all: 'metaObject', 'tr', 'state', 'group',
   'direction', 'setDirection', 'currentTime', 'currentLoopTime', 'loopCount',
-  'setLoopCount', 'currentLoop', 'duration', 'totalDuration', 'start',
-  'pause', 'resume', 'setPaused', 'stop', 'setCurrentTime', 'event',
-  'updateCurrentTime', 'updateState', 'updateDirection'. None can be made
-  from Python: one comes out of a function of another class that gives one
-  back.
+  'setLoopCount', 'currentLoop', 'duration', 'totalDuration', 'finished',
+  'stateChanged', 'currentLoopChanged', 'directionChanged', 'start', 'pause',
+  'resume', 'setPaused', 'stop', 'setCurrentTime', 'event',
+  'updateCurrentTime', 'updateState', 'updateDirection', 'd_func'. It can be
+  made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QAbstractAnimation::qt_metacast(const char *a0)': one of Qt's
+    own inner workings.
+  - Qt's 'int QAbstractAnimation::qt_metacall(QMetaObject::Call a0, int a1,
+    void **a2)': one of Qt's own inner workings.
   - Qt's 'QAbstractAnimation::~QAbstractAnimation()': the destructor: Python
     never removes a C++ QAbstractAnimation.
+  - Qt's 'QBindable<QAbstractAnimation::State>
+    QAbstractAnimation::bindableState() const': gives a type Python has no
+    way to take yet.
+  - Qt's 'QBindable<Direction> QAbstractAnimation::bindableDirection()':
+    gives a type Python has no way to take yet.
+  - Qt's 'QBindable<int> QAbstractAnimation::bindableCurrentTime()': gives a
+    type Python has no way to take yet.
+  - Qt's 'QBindable<int> QAbstractAnimation::bindableLoopCount()': gives a
+    type Python has no way to take yet.
+  - Qt's 'QBindable<int> QAbstractAnimation::bindableCurrentLoop() const':
+    gives a type Python has no way to take yet.
+  - Qt's 'QAbstractAnimation::QAbstractAnimation(QAbstractAnimationPrivate
+    &dd, QObject *parent)': takes a type Python has no way to hand over yet.
+  - Qt's 'const QAbstractAnimationPrivate *QAbstractAnimation::d_func()
+    const': takes in Python what 'QAbstractAnimationPrivate
+    *QAbstractAnimation::d_func()' takes.
 
   What has no ritual
   ------------------
 
-  19 of the 43 functions Qt declares: 9 takes or gives a type that cannot be
-  passed yet; 4 a signal; 2 the class is abstract, so C++ cannot make one; 2
-  forbidden; 1 a template; 1 declared and nowhere to be found.
+  4 of the 43 functions Qt declares: 2 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -78,6 +97,10 @@ class QAbstractAnimation(QObject):
   - Qt tells when it has removed the C++ QAbstractAnimation. Every call on
     the cute object, and every use of it as an argument, then raises
     'RuntimeError', and nothing reaches C++.
+  - Each name of Qt's QAbstractAnimation that has no cute function yet,
+    'bindableCurrentLoop', 'bindableCurrentTime', 'bindableDirection',
+    'bindableLoopCount', 'bindableState', holds a function that raises
+    'NotImplementedError', and its docstring says why.
   """
 
   #  The enums Qt writes inside QAbstractAnimation, each a class in here as
@@ -447,6 +470,31 @@ class QAbstractAnimation(QObject):
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  @overload()
+  @overload(QObject)
+  @overload(NoneType)
+  def __init__(self, parent: Optional[QObject] = None) -> None:
+    """
+    Notes what was given, for Qt's
+    'QAbstractAnimation::QAbstractAnimation(QObject *parent)', which is
+    called at the first use.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractanimation.html#QAbstractAnimation
+
+    Parameters
+    ----------
+
+    parent : Optional[QObject]
+      Passed on as the address of its C++ object. None is passed on as no
+      object. May be left out, as in Qt: it is then None.
+    """
+    #  QAbstractAnimation::QAbstractAnimation(QObject *parent)
+    self._noteCreation(QAbstractAnimation, lambda: Rituals.call(
+        'ritual_ZN18QAbstractAnimationC1EP7QObject',
+        self._addressOf(parent, 'QObject'),
+    ))
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -466,6 +514,84 @@ class QAbstractAnimation(QObject):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  def finished(self) -> None:
+    """
+    Calls Qt's 'void QAbstractAnimation::finished()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qabstractanimation.html#finished
+    """
+    #  void QAbstractAnimation::finished()
+    self.uglySide.call('ritual_ZN18QAbstractAnimation8finishedEv')
+
+  @overload(State, State)
+  def stateChanged(self, newState: State, oldState: State) -> None:
+    """
+    Calls Qt's 'void
+    QAbstractAnimation::stateChanged(QAbstractAnimation::State newState,
+    QAbstractAnimation::State oldState)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractanimation.html#stateChanged
+
+    Parameters
+    ----------
+
+    newState : State
+      Passed on as its number.
+
+    oldState : State
+      Passed on as its number.
+    """
+    #  void QAbstractAnimation::stateChanged(QAbstractAnimation::State
+    #      newState, QAbstractAnimation::State oldState)
+    self.uglySide.call(
+        'ritual_ZN18QAbstractAnimation12stateChangedENS_5StateES0_',
+        newState.value, oldState.value,
+    )
+
+  @overload(int)
+  def currentLoopChanged(self, currentLoop: int) -> None:
+    """
+    Calls Qt's 'void QAbstractAnimation::currentLoopChanged(int
+    currentLoop)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractanimation.html#currentLoopChanged
+
+    Parameters
+    ----------
+
+    currentLoop : int
+      Passed on as it is.
+    """
+    #  void QAbstractAnimation::currentLoopChanged(int currentLoop)
+    self.uglySide.call(
+        'ritual_ZN18QAbstractAnimation18currentLoopChangedEi', currentLoop,
+    )
+
+  @overload(Direction)
+  def directionChanged(self, a0: Direction) -> None:
+    """
+    Calls Qt's 'void
+    QAbstractAnimation::directionChanged(QAbstractAnimation::Direction a0)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractanimation.html#directionChanged
+
+    Parameters
+    ----------
+
+    a0 : Direction
+      Passed on as its number.
+    """
+    #  void
+    #      QAbstractAnimation::directionChanged(QAbstractAnimation::Direction
+    #      a0)
+    self.uglySide.call(
+        'ritual_ZN18QAbstractAnimation16directionChangedENS_9DirectionE',
+        a0.value,
+    )
 
   @overload()
   @overload(DeletionPolicy)
@@ -610,3 +736,92 @@ class QAbstractAnimation(QObject):
           'ritual_own_ZN18QAbstractAnimation15updateDirectionENS_9Direction'
           'E')
     self.uglySide.call(ritual, direction.value)
+
+  def d_func(self) -> Optional[QAbstractAnimationPrivate]:
+    """
+    Calls Qt's 'QAbstractAnimationPrivate *QAbstractAnimation::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qabstractanimation.html#d_func
+
+    Returns
+    -------
+
+    Optional[QAbstractAnimationPrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QAbstractAnimationPrivate *QAbstractAnimation::d_func()
+    address = self.uglySide.call('ritual_ZN18QAbstractAnimation6d_funcEv')
+    from . import QAbstractAnimationPrivate
+    return QAbstractAnimationPrivate._cuteAt(address)
+
+  @staticmethod
+  def bindableCurrentLoop(*__, **_) -> Never:
+    """
+    Qt's 'QBindable<int> QAbstractAnimation::bindableCurrentLoop() const':
+    gives a type Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QAbstractAnimation.bindableCurrentLoop' has no cute function yet. "
+        "Qt's 'QBindable<int> QAbstractAnimation::bindableCurrentLoop() "
+        "const': gives a type Python has no way to take yet.")
+
+  @staticmethod
+  def bindableCurrentTime(*__, **_) -> Never:
+    """
+    Qt's 'QBindable<int> QAbstractAnimation::bindableCurrentTime()': gives a
+    type Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QAbstractAnimation.bindableCurrentTime' has no cute function yet. "
+        "Qt's 'QBindable<int> QAbstractAnimation::bindableCurrentTime()': "
+        "gives a type Python has no way to take yet.")
+
+  @staticmethod
+  def bindableDirection(*__, **_) -> Never:
+    """
+    Qt's 'QBindable<Direction> QAbstractAnimation::bindableDirection()':
+    gives a type Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QAbstractAnimation.bindableDirection' has no cute function yet. "
+        "Qt's 'QBindable<Direction> "
+        "QAbstractAnimation::bindableDirection()': gives a type Python has "
+        "no way to take yet.")
+
+  @staticmethod
+  def bindableLoopCount(*__, **_) -> Never:
+    """
+    Qt's 'QBindable<int> QAbstractAnimation::bindableLoopCount()': gives a
+    type Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QAbstractAnimation.bindableLoopCount' has no cute function yet. "
+        "Qt's 'QBindable<int> QAbstractAnimation::bindableLoopCount()': "
+        "gives a type Python has no way to take yet.")
+
+  @staticmethod
+  def bindableState(*__, **_) -> Never:
+    """
+    Qt's 'QBindable<QAbstractAnimation::State>
+    QAbstractAnimation::bindableState() const': gives a type Python has no
+    way to take yet.
+    """
+    raise NotImplementedError(
+        "'QAbstractAnimation.bindableState' has no cute function yet. Qt's "
+        "'QBindable<QAbstractAnimation::State> "
+        "QAbstractAnimation::bindableState() const': gives a type Python "
+        "has no way to take yet.")
+
+
+#  Qt's 'QList<QAbstractAnimation *>': the list of QAbstractAnimation, which
+#  'QList[QAbstractAnimation]' gives. It is made here, so that there is one
+#  as soon as there can be a QAbstractAnimation.
+QList.createKind(
+    QAbstractAnimation, 'address',
+    make='ritual_list_make_QAbstractAnimation_ptr',
+    add='ritual_list_add_QAbstractAnimation_ptr',
+    size='ritual_list_size_QAbstractAnimation_ptr',
+    at='ritual_list_at_QAbstractAnimation_ptr',
+    drop='ritual_list_drop_QAbstractAnimation_ptr',
+)

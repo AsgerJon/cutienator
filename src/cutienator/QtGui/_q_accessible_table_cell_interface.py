@@ -13,7 +13,7 @@ from ..cute import CuteMixin, MetaCute
 from ..QtCore import QList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from . import QAccessibleInterface
 
@@ -42,7 +42,8 @@ class QAccessibleTableCellInterface(CuteMixin, metaclass=MetaCute):
   ------------------
 
   5 of the 14 functions Qt declares: 4 forbidden; 1 the class is abstract, so
-  C++ cannot make one.
+  C++ cannot make one, and the C++ class of ours does not fill in every
+  function it leaves open.
 
   What to expect
   --------------
@@ -55,6 +56,9 @@ class QAccessibleTableCellInterface(CuteMixin, metaclass=MetaCute):
     has it, and is passed on as nothing. Whether Qt can do with nothing there
     is as in C++.
   - Python never removes the C++ QAccessibleTableCellInterface.
+  - Each name of Qt's QAccessibleTableCellInterface that has no cute function
+    yet, '__init__', holds a function that raises 'NotImplementedError', and
+    its docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -147,7 +151,8 @@ class QAccessibleTableCellInterface(CuteMixin, metaclass=MetaCute):
     https://doc.qt.io/qt-6/qaccessibletablecellinterface.html#isSelected
     """
     #  bool QAccessibleTableCellInterface::isSelected() const
-    return self.uglySide.call(
+    return self._callAs(
+        'QAccessibleTableCellInterface',
         'ritual_ZNK29QAccessibleTableCellInterface10isSelectedEv',
     )
 
@@ -167,7 +172,8 @@ class QAccessibleTableCellInterface(CuteMixin, metaclass=MetaCute):
     """
     #  QList<QAccessibleInterface *>
     #      QAccessibleTableCellInterface::columnHeaderCells() const
-    address = self.uglySide.call(
+    address = self._callAs(
+        'QAccessibleTableCellInterface',
         'ritual_ZNK29QAccessibleTableCellInterface17columnHeaderCellsEv',
     )
     from . import QAccessibleInterface
@@ -189,7 +195,8 @@ class QAccessibleTableCellInterface(CuteMixin, metaclass=MetaCute):
     """
     #  QList<QAccessibleInterface *>
     #      QAccessibleTableCellInterface::rowHeaderCells() const
-    address = self.uglySide.call(
+    address = self._callAs(
+        'QAccessibleTableCellInterface',
         'ritual_ZNK29QAccessibleTableCellInterface14rowHeaderCellsEv',
     )
     from . import QAccessibleInterface
@@ -203,7 +210,8 @@ class QAccessibleTableCellInterface(CuteMixin, metaclass=MetaCute):
     https://doc.qt.io/qt-6/qaccessibletablecellinterface.html#columnIndex
     """
     #  int QAccessibleTableCellInterface::columnIndex() const
-    return self.uglySide.call(
+    return self._callAs(
+        'QAccessibleTableCellInterface',
         'ritual_ZNK29QAccessibleTableCellInterface11columnIndexEv',
     )
 
@@ -215,7 +223,8 @@ class QAccessibleTableCellInterface(CuteMixin, metaclass=MetaCute):
     https://doc.qt.io/qt-6/qaccessibletablecellinterface.html#rowIndex
     """
     #  int QAccessibleTableCellInterface::rowIndex() const
-    return self.uglySide.call(
+    return self._callAs(
+        'QAccessibleTableCellInterface',
         'ritual_ZNK29QAccessibleTableCellInterface8rowIndexEv',
     )
 
@@ -227,7 +236,8 @@ class QAccessibleTableCellInterface(CuteMixin, metaclass=MetaCute):
     https://doc.qt.io/qt-6/qaccessibletablecellinterface.html#columnExtent
     """
     #  int QAccessibleTableCellInterface::columnExtent() const
-    return self.uglySide.call(
+    return self._callAs(
+        'QAccessibleTableCellInterface',
         'ritual_ZNK29QAccessibleTableCellInterface12columnExtentEv',
     )
 
@@ -239,7 +249,8 @@ class QAccessibleTableCellInterface(CuteMixin, metaclass=MetaCute):
     https://doc.qt.io/qt-6/qaccessibletablecellinterface.html#rowExtent
     """
     #  int QAccessibleTableCellInterface::rowExtent() const
-    return self.uglySide.call(
+    return self._callAs(
+        'QAccessibleTableCellInterface',
         'ritual_ZNK29QAccessibleTableCellInterface9rowExtentEv',
     )
 
@@ -259,7 +270,8 @@ class QAccessibleTableCellInterface(CuteMixin, metaclass=MetaCute):
       no object.
     """
     #  QAccessibleInterface *QAccessibleTableCellInterface::table() const
-    address = self.uglySide.call(
+    address = self._callAs(
+        'QAccessibleTableCellInterface',
         'ritual_ZNK29QAccessibleTableCellInterface5tableEv',
     )
     from . import QAccessibleInterface
@@ -280,6 +292,20 @@ class QAccessibleTableCellInterface(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def __init__(*__, **_) -> Never:
+    """
+    Qt's 'QAccessibleTableCellInterface::QAccessibleTableCellInterface()':
+    the class is abstract, so C++ cannot make one, and the C++ class of ours
+    does not fill in every function it leaves open.
+    """
+    raise NotImplementedError(
+        "'QAccessibleTableCellInterface.__init__' has no cute function yet. "
+        "Qt's "
+        "'QAccessibleTableCellInterface::QAccessibleTableCellInterface()': "
+        "the class is abstract, so C++ cannot make one, and the C++ class "
+        "of ours does not fill in every function it leaves open.")
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #

@@ -9,13 +9,17 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING
 
+from worktoy.dispatch import overload
 from worktoy.keenum import Kee
 
 from ..cute import CuteMixin, CuteNum, MetaCute
+from ..occult import Rituals
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Optional
+
   from ..QtCore import QSize
-  from . import QSurfaceFormat
+  from . import QPlatformSurface, QSurfaceFormat
 
 
 class QSurface(CuteMixin, metaclass=MetaCute):
@@ -27,9 +31,9 @@ class QSurface(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QSurface that has a ritual and that Python can call
-  so far, 5 names in all: 'surfaceClass', 'format', 'surfaceType',
-  'supportsOpenGL', 'size'. None can be made from Python: one comes out of a
-  function of another class that gives one back.
+  so far, 6 names in all: 'surfaceClass', 'format', 'surfaceHandle',
+  'surfaceType', 'supportsOpenGL', 'size'. It can be made from Python, in 1
+  way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -40,9 +44,7 @@ class QSurface(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  5 of the 11 functions Qt declares: 2 declared and nowhere to be found; 1 a
-  template; 1 takes or gives a type that cannot be passed yet; 1 the class is
-  abstract, so C++ cannot make one.
+  3 of the 11 functions Qt declares: 3 not a gap.
 
   What to expect
   --------------
@@ -97,16 +99,6 @@ class QSurface(CuteMixin, metaclass=MetaCute):
   #  'CuteMixin._takeOver'.
   __take_ritual__ = 'ritual_take_QSurface'
 
-  #  The functions Qt calls itself that QSurface is the first to declare and
-  #  that cannot be handed to Python yet, each as Qt declares it. A class of
-  #  a program that writes one of them anew is refused, since Qt would never
-  #  call what it wrote; see 'CuteMixin._refuseLeftOut'.
-  __virtual_left_out__ = {
-      'surfaceHandle': (
-          'QPlatformSurface *QSurface::surfaceHandle() const',
-      ),
-  }
-
   #  The functions Qt calls itself that QSurface is the first to declare. A
   #  class of a program built on it can write one anew, and Qt then calls
   #  that. For each name: the key C++ knows the function by, what it gives,
@@ -115,6 +107,11 @@ class QSurface(CuteMixin, metaclass=MetaCute):
       'format': (
           ('_ZNK8QSurface6formatEv',
            ('address', 'value', 'QtGui:QSurfaceFormat'),
+           ()),
+      ),
+      'surfaceHandle': (
+          ('_ZNK8QSurface13surfaceHandleEv',
+           ('address', 'address', 'QtGui:QPlatformSurface'),
            ()),
       ),
       'surfaceType': (
@@ -177,6 +174,26 @@ class QSurface(CuteMixin, metaclass=MetaCute):
     from . import QSurfaceFormat
     return QSurfaceFormat._cuteOwning(address)
 
+  def surfaceHandle(self) -> Optional[QPlatformSurface]:
+    """
+    Calls Qt's 'QPlatformSurface *QSurface::surfaceHandle() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qsurface.html#surfaceHandle
+
+    Returns
+    -------
+
+    Optional[QPlatformSurface]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QPlatformSurface *QSurface::surfaceHandle() const
+    address = self._callAs(
+        'QSurface', 'ritual_ZNK8QSurface13surfaceHandleEv',
+    )
+    from . import QPlatformSurface
+    return QPlatformSurface._cuteAt(address)
+
   def surfaceType(self) -> SurfaceType:
     """
     Calls Qt's 'SurfaceType QSurface::surfaceType() const'.
@@ -237,6 +254,25 @@ class QSurface(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(SurfaceClass)
+  def __init__(self, type: SurfaceClass) -> None:
+    """
+    Notes what was given, for Qt's 'QSurface::QSurface(SurfaceClass type)',
+    which is called at the first use.
+
+    Qt's own words: https://doc.qt.io/qt-6/qsurface.html#QSurface
+
+    Parameters
+    ----------
+
+    type : SurfaceClass
+      Passed on as its number.
+    """
+    #  QSurface::QSurface(SurfaceClass type)
+    self._noteCreation(QSurface, lambda: Rituals.call(
+        'ritual_ZN8QSurfaceC1ENS_12SurfaceClassE', type.value,
+    ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #

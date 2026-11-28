@@ -20,7 +20,7 @@ from ..cute import WAIT
 from . import QWellArray
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from ..QtCore import QMetaObject, QRect
   from ..QtGui import QDragEnterEvent, QDragLeaveEvent, QDragMoveEvent
@@ -59,12 +59,22 @@ class QColorWell(QWellArray):
   'dragLeaveEvent', 'dragMoveEvent', 'dropEvent'. None can be made from
   Python: one comes out of a function of another class that gives one back.
 
+  What has a ritual and is left out, and why
+  ------------------------------------------
+
+  - Qt's 'void *QColorWell::qt_metacast(const char *a0)': one of Qt's own
+    inner workings.
+  - Qt's 'int QColorWell::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
+  - Qt's 'const QRgb *QColorWell::rgbValues()': gives 'unsigned int', which
+    has no cute class yet.
+
   What has no ritual
   ------------------
 
-  8 of the 17 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet; 1 a template; 1 declared and nowhere to be found; 1 leans on
-  'QColorWell; 1 leans on 'QWellArray.
+  4 of the 16 functions Qt declares: 2 not a gap; 1 leans on 'QColorWell; 1
+  leans on 'vtable for QColorWell', which Qt's source does not mark for use
+  from outside Qt and has no code for that could be taken.
 
   What to expect
   --------------
@@ -79,6 +89,9 @@ class QColorWell(QWellArray):
   - Qt tells when it has removed the C++ QColorWell. Every call on the cute
     object, and every use of it as an argument, then raises 'RuntimeError',
     and nothing reaches C++.
+  - Each name of Qt's QColorWell that has no cute function yet, '__init__',
+    'rgbValues', holds a function that raises 'NotImplementedError', and its
+    docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -138,6 +151,20 @@ class QColorWell(QWellArray):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def __init__(*__, **_) -> Never:
+    """
+    Qt's 'QColorWell::QColorWell(QWidget *parent, int r, int c, const QRgb
+    *vals)': leans on 'vtable for QColorWell', which Qt's source does not
+    mark for use from outside Qt and has no code for that could be taken.
+    """
+    raise NotImplementedError(
+        "'QColorWell.__init__' has no cute function yet. Qt's "
+        "'QColorWell::QColorWell(QWidget *parent, int r, int c, const QRgb "
+        "*vals)': leans on 'vtable for QColorWell', which Qt's source does "
+        "not mark for use from outside Qt and has no code for that could be "
+        "taken.")
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -346,3 +373,14 @@ class QColorWell(QWellArray):
     self.uglySide.call(
         'ritual_ZN10QColorWell9dropEventEP10QDropEvent', self._addressOf(e),
     )
+
+  @staticmethod
+  def rgbValues(*__, **_) -> Never:
+    """
+    Qt's 'const QRgb *QColorWell::rgbValues()': gives 'unsigned int', which
+    has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QColorWell.rgbValues' has no cute function yet. Qt's 'const QRgb "
+        "*QColorWell::rgbValues()': gives 'unsigned int', which has no cute "
+        "class yet.")

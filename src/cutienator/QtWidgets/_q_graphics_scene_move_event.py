@@ -43,14 +43,18 @@ class QGraphicsSceneMoveEvent(QGraphicsSceneEvent):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'QGraphicsSceneMoveEventPrivate *QGraphicsSceneMoveEvent::d_func()':
+    gives 'QGraphicsSceneMoveEventPrivate', which has no cute class yet.
+  - Qt's 'const QGraphicsSceneMoveEventPrivate
+    *QGraphicsSceneMoveEvent::d_func() const': gives
+    'QGraphicsSceneMoveEventPrivate', which has no cute class yet.
   - Qt's 'QGraphicsSceneMoveEvent::~QGraphicsSceneMoveEvent()': the
     destructor: Python never removes a C++ QGraphicsSceneMoveEvent.
 
   What has no ritual
   ------------------
 
-  4 of the 10 functions Qt declares: 2 takes or gives a type that cannot be
-  passed yet; 2 forbidden.
+  2 of the 10 functions Qt declares: 2 forbidden.
 
   What to expect
   --------------
@@ -156,7 +160,7 @@ class QGraphicsSceneMoveEvent(QGraphicsSceneEvent):
     #  void QGraphicsSceneMoveEvent::setOldPos(const QPointF &pos)
     self.uglySide.call(
         'ritual_ZN23QGraphicsSceneMoveEvent9setOldPosERK7QPointF',
-        self._valueOf(pos),
+        self._valueOf(pos, 'QPointF'),
     )
 
   @overload(QPointF)
@@ -177,7 +181,7 @@ class QGraphicsSceneMoveEvent(QGraphicsSceneEvent):
     #  void QGraphicsSceneMoveEvent::setNewPos(const QPointF &pos)
     self.uglySide.call(
         'ritual_ZN23QGraphicsSceneMoveEvent9setNewPosERK7QPointF',
-        self._valueOf(pos),
+        self._valueOf(pos, 'QPointF'),
     )
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

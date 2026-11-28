@@ -16,7 +16,21 @@
 # that of Linux, where nothing else of it is left out. A line naming no
 # part: nothing to build on that machine. Made anew after each full
 # run, and when ritual files of a part change.
-linux:
-mac: QtBluetooth QtCore QtGui QtMultimedia QtNetwork QtPrintSupport QtQuick QtQuickNativeStyle QtSerialPort QtSpatialAudio QtWidgets
-intel-mac: QtBluetooth QtCore QtGui QtMultimedia QtNetwork QtPrintSupport QtQuick QtQuickNativeStyle QtSerialPort QtWidgets
-windows: Qt3DExtras QtCore QtGraphs QtGui QtQmlModels QtQuickNativeStyle QtRemoteObjects QtWebSockets QtWidgets
+#
+# Checked on 2026-11-27 against four-horsemen run 7 (on 266353da), the
+# first full run with the five new parts: each machine left out of the
+# same parts as in run 6, and nothing of any other, so the lines below
+# stood as they were.
+#
+# 2026-11-28: QtCore and QtQml on every line. The ritual file of a class
+# Qt declares in an anonymous namespace was named with a '::' before the
+# class, '__decoded_arch_requirements' and '__q_qml_trivially_destruct'
+# 'ible_debugging_enabler'; both are written anew under their right
+# names, their destructor rituals under the compiler's own names. On
+# Linux also QtGui and QtWidgets: 'bin/check_cute.py', which the short
+# run now runs after the build, makes objects of QtCore and QtWidgets,
+# and needs their target files and that of QtGui on every machine.
+linux: QtCore QtGui QtQml QtWidgets
+mac: QtBluetooth QtCore QtGui QtMultimedia QtNetwork QtPrintSupport QtQml QtQuick QtQuickNativeStyle QtSerialPort QtSpatialAudio QtWidgets
+intel-mac: QtBluetooth QtCore QtGui QtMultimedia QtNetwork QtPrintSupport QtQml QtQuick QtQuickNativeStyle QtSerialPort QtWidgets
+windows: Qt3DExtras QtCore QtGraphs QtGui QtQml QtQmlModels QtQuickNativeStyle QtRemoteObjects QtWebSockets QtWidgets

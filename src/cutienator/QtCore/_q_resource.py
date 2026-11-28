@@ -17,7 +17,7 @@ from ..occult import Rituals
 from . import QStringList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from . import QByteArray, QDateTime, QLocale
 else:
@@ -47,12 +47,16 @@ class QResource(CuteMixin, metaclass=MetaCute):
 
   - Qt's 'QResource::~QResource()': the destructor: Python never removes a
     C++ QResource.
-
-  What has no ritual
-  ------------------
-
-  5 of the 23 functions Qt declares: 5 takes or gives a type that cannot be
-  passed yet.
+  - Qt's 'const uchar *QResource::data() const': gives 'unsigned char', which
+    has no cute class yet.
+  - Qt's 'bool QResource::registerResource(const uchar *rccData, const
+    QString &resourceRoot)': names 'uchar', which has no cute class yet.
+  - Qt's 'bool QResource::unregisterResource(const uchar *rccData, const
+    QString &resourceRoot)': names 'uchar', which has no cute class yet.
+  - Qt's 'QResourcePrivate *QResource::d_func()': gives 'QResourcePrivate',
+    which has no cute class yet.
+  - Qt's 'const QResourcePrivate *QResource::d_func() const': gives
+    'QResourcePrivate', which has no cute class yet.
 
   What to expect
   --------------
@@ -64,6 +68,9 @@ class QResource(CuteMixin, metaclass=MetaCute):
     has it, and is passed on as nothing. Whether Qt can do with nothing there
     is as in C++.
   - Python never removes the C++ QResource.
+  - Each name of Qt's QResource that has no cute function yet, 'd_func',
+    'data', holds a function that raises 'NotImplementedError', and its
+    docstring says why.
   """
 
   #  The enums Qt writes inside QResource, each a class in here as in C++,
@@ -422,3 +429,29 @@ class QResource(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def d_func(*__, **_) -> Never:
+    """
+    - Qt's 'QResourcePrivate *QResource::d_func()': gives 'QResourcePrivate',
+      which has no cute class yet.
+    - Qt's 'const QResourcePrivate *QResource::d_func() const': gives
+      'QResourcePrivate', which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QResource.d_func' has no cute function yet. Qt's "
+        "'QResourcePrivate *QResource::d_func()': gives 'QResourcePrivate', "
+        "which has no cute class yet. Qt's 'const QResourcePrivate "
+        "*QResource::d_func() const': gives 'QResourcePrivate', which has "
+        "no cute class yet.")
+
+  @staticmethod
+  def data(*__, **_) -> Never:
+    """
+    Qt's 'const uchar *QResource::data() const': gives 'unsigned char', which
+    has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QResource.data' has no cute function yet. Qt's 'const uchar "
+        "*QResource::data() const': gives 'unsigned char', which has no "
+        "cute class yet.")

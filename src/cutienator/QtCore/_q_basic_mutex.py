@@ -15,7 +15,9 @@ from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from . import QDeadlineTimer
+  from typing import Never, Optional
+
+  from . import QDeadlineTimer, QMutexPrivate
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -32,15 +34,24 @@ class QBasicMutex(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QBasicMutex that has a ritual and that Python can
-  call so far, 7 names in all: 'lock', 'unlock', 'tryLock', 'try_lock',
-  'fastTryLock', 'lockInternal', 'unlockInternal'. It can be made from
-  Python, in 1 way; see '__init__'.
+  call so far, 8 names in all: 'lock', 'unlock', 'tryLock', 'try_lock',
+  'fastTryLock', 'lockInternal', 'unlockInternal', 'dummyLocked'. It can be
+  made from Python, in 1 way; see '__init__'.
+
+  What has a ritual and is left out, and why
+  ------------------------------------------
+
+  - Qt's 'void QBasicMutex::unlockInternalFutex(void *d)': names 'void',
+    which has no cute class yet.
+  - Qt's 'void QBasicMutex::unlockInternal(void *d)': names 'void', which has
+    no cute class yet.
+  - Qt's 'void QBasicMutex::destroyInternal(void *d)': names 'void', which
+    has no cute class yet.
 
   What has no ritual
   ------------------
 
-  8 of the 18 functions Qt declares: 4 forbidden; 4 takes or gives a type
-  that cannot be passed yet.
+  4 of the 18 functions Qt declares: 4 forbidden.
 
   What to expect
   --------------
@@ -53,11 +64,33 @@ class QBasicMutex(CuteMixin, metaclass=MetaCute):
     has it, and is passed on as nothing. Whether Qt can do with nothing there
     is as in C++.
   - Python never removes the C++ QBasicMutex.
+  - Each name of Qt's QBasicMutex that has no cute function yet,
+    'destroyInternal', 'unlockInternalFutex', holds a function that raises
+    'NotImplementedError', and its docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def dummyLocked() -> Optional[QMutexPrivate]:
+    """
+    Calls Qt's 'QMutexPrivate *QBasicMutex::dummyLocked()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qbasicmutex.html#dummyLocked
+
+    Returns
+    -------
+
+    Optional[QMutexPrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QMutexPrivate *QBasicMutex::dummyLocked()
+    address = Rituals.call('ritual_ZN11QBasicMutex11dummyLockedEv')
+    from . import QMutexPrivate
+    return QMutexPrivate._cuteAt(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -229,3 +262,25 @@ class QBasicMutex(CuteMixin, metaclass=MetaCute):
     """
     #  void QBasicMutex::unlockInternal()
     self.uglySide.call('ritual_ZN11QBasicMutex14unlockInternalEv')
+
+  @staticmethod
+  def destroyInternal(*__, **_) -> Never:
+    """
+    Qt's 'void QBasicMutex::destroyInternal(void *d)': names 'void', which
+    has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QBasicMutex.destroyInternal' has no cute function yet. Qt's 'void "
+        "QBasicMutex::destroyInternal(void *d)': names 'void', which has no "
+        "cute class yet.")
+
+  @staticmethod
+  def unlockInternalFutex(*__, **_) -> Never:
+    """
+    Qt's 'void QBasicMutex::unlockInternalFutex(void *d)': names 'void',
+    which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QBasicMutex.unlockInternalFutex' has no cute function yet. Qt's "
+        "'void QBasicMutex::unlockInternalFutex(void *d)': names 'void', "
+        "which has no cute class yet.")

@@ -18,7 +18,7 @@ from ..occult import Rituals
 from . import QList, QStringList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from . import QByteArray, QByteArrayView, QUrlQuery
 else:
@@ -58,14 +58,35 @@ class QUrl(CuteMixin, metaclass=MetaCute):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'QUrl &QUrl::operator=(const QUrl &copy)': assignment: Python binds
+    a name and has no operator for it.
+  - Qt's 'QUrl &QUrl::operator=(const QString &url)': assignment: Python
+    binds a name and has no operator for it.
+  - Qt's 'QUrl::QUrl(QUrl &&other)': takes a type Python has no way to hand
+    over yet.
+  - Qt's 'QUrl &QUrl::operator=(QUrl &&other)': assignment: Python binds a
+    name and has no operator for it.
   - Qt's 'QUrl::~QUrl()': the destructor: Python removes its C++ QUrl by it,
     and has no other use for it.
-
-  What has no ritual
-  ------------------
-
-  13 of the 70 functions Qt declares: 13 takes or gives a type that cannot be
-  passed yet.
+  - Qt's 'void QUrl::swap(QUrl &other)': takes a type Python has no way to
+    hand over yet.
+  - Qt's 'QString QUrl::url(FormattingOptions options) const': takes a type
+    Python has no way to hand over yet.
+  - Qt's 'QString QUrl::toString(FormattingOptions options) const': takes a
+    type Python has no way to hand over yet.
+  - Qt's 'QString QUrl::toDisplayString(FormattingOptions options) const':
+    takes a type Python has no way to hand over yet.
+  - Qt's 'QUrl QUrl::adjusted(FormattingOptions options) const': takes a type
+    Python has no way to hand over yet.
+  - Qt's 'QByteArray QUrl::toEncoded(FormattingOptions options) const': takes
+    a type Python has no way to hand over yet.
+  - Qt's 'bool QUrl::matches(const QUrl &url, FormattingOptions options)
+    const': takes a type Python has no way to hand over yet.
+  - Qt's 'QStringList QUrl::toStringList(const QList<QUrl> &uris,
+    FormattingOptions options)': takes a type Python has no way to hand over
+    yet.
+  - Qt's 'DataPtr &QUrl::data_ptr()': gives a type Python has no way to take
+    yet.
 
   What to expect
   --------------
@@ -78,6 +99,10 @@ class QUrl(CuteMixin, metaclass=MetaCute):
     is as in C++.
   - A function giving a QUrl back gives a copy the ritual made for Python, in
     a new cute QUrl.
+  - Each name of Qt's QUrl that has no cute function yet, 'adjusted',
+    'data_ptr', 'matches', 'swap', 'toDisplayString', 'toEncoded',
+    'toString', 'toStringList', 'url', holds a function that raises
+    'NotImplementedError', and its docstring says why.
   """
 
   #  The enums Qt writes inside QUrl, each a class in here as in C++, and the
@@ -1569,6 +1594,104 @@ class QUrl(CuteMixin, metaclass=MetaCute):
     """
     #  void QUrl::detachToClear()
     self.uglySide.call('ritual_ZN4QUrl13detachToClearEv')
+
+  @staticmethod
+  def adjusted(*__, **_) -> Never:
+    """
+    Qt's 'QUrl QUrl::adjusted(FormattingOptions options) const': takes a type
+    Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QUrl.adjusted' has no cute function yet. Qt's 'QUrl "
+        "QUrl::adjusted(FormattingOptions options) const': takes a type "
+        "Python has no way to hand over yet.")
+
+  @staticmethod
+  def data_ptr(*__, **_) -> Never:
+    """
+    Qt's 'DataPtr &QUrl::data_ptr()': gives a type Python has no way to take
+    yet.
+    """
+    raise NotImplementedError(
+        "'QUrl.data_ptr' has no cute function yet. Qt's 'DataPtr "
+        "&QUrl::data_ptr()': gives a type Python has no way to take yet.")
+
+  @staticmethod
+  def matches(*__, **_) -> Never:
+    """
+    Qt's 'bool QUrl::matches(const QUrl &url, FormattingOptions options)
+    const': takes a type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QUrl.matches' has no cute function yet. Qt's 'bool "
+        "QUrl::matches(const QUrl &url, FormattingOptions options) const': "
+        "takes a type Python has no way to hand over yet.")
+
+  @staticmethod
+  def swap(*__, **_) -> Never:
+    """
+    Qt's 'void QUrl::swap(QUrl &other)': takes a type Python has no way to
+    hand over yet.
+    """
+    raise NotImplementedError(
+        "'QUrl.swap' has no cute function yet. Qt's 'void QUrl::swap(QUrl "
+        "&other)': takes a type Python has no way to hand over yet.")
+
+  @staticmethod
+  def toDisplayString(*__, **_) -> Never:
+    """
+    Qt's 'QString QUrl::toDisplayString(FormattingOptions options) const':
+    takes a type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QUrl.toDisplayString' has no cute function yet. Qt's 'QString "
+        "QUrl::toDisplayString(FormattingOptions options) const': takes a "
+        "type Python has no way to hand over yet.")
+
+  @staticmethod
+  def toEncoded(*__, **_) -> Never:
+    """
+    Qt's 'QByteArray QUrl::toEncoded(FormattingOptions options) const': takes
+    a type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QUrl.toEncoded' has no cute function yet. Qt's 'QByteArray "
+        "QUrl::toEncoded(FormattingOptions options) const': takes a type "
+        "Python has no way to hand over yet.")
+
+  @staticmethod
+  def toString(*__, **_) -> Never:
+    """
+    Qt's 'QString QUrl::toString(FormattingOptions options) const': takes a
+    type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QUrl.toString' has no cute function yet. Qt's 'QString "
+        "QUrl::toString(FormattingOptions options) const': takes a type "
+        "Python has no way to hand over yet.")
+
+  @staticmethod
+  def toStringList(*__, **_) -> Never:
+    """
+    Qt's 'QStringList QUrl::toStringList(const QList<QUrl> &uris,
+    FormattingOptions options)': takes a type Python has no way to hand over
+    yet.
+    """
+    raise NotImplementedError(
+        "'QUrl.toStringList' has no cute function yet. Qt's 'QStringList "
+        "QUrl::toStringList(const QList<QUrl> &uris, FormattingOptions "
+        "options)': takes a type Python has no way to hand over yet.")
+
+  @staticmethod
+  def url(*__, **_) -> Never:
+    """
+    Qt's 'QString QUrl::url(FormattingOptions options) const': takes a type
+    Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QUrl.url' has no cute function yet. Qt's 'QString "
+        "QUrl::url(FormattingOptions options) const': takes a type Python "
+        "has no way to hand over yet.")
 
 
 #  Qt's 'QList<QUrl>': the list of QUrl, which 'QList[QUrl]' gives. It is

@@ -176,7 +176,7 @@ class QRadialGradient(QGradient):
     #  void QRadialGradient::setCenter(const QPointF &center)
     self.uglySide.call(
         'ritual_ZN15QRadialGradient9setCenterERK7QPointF',
-        self._valueOf(center),
+        self._valueOf(center, 'QPointF'),
     )
 
   @overload(float, float)
@@ -216,7 +216,7 @@ class QRadialGradient(QGradient):
     #  void QRadialGradient::setFocalPoint(const QPointF &focalPoint)
     self.uglySide.call(
         'ritual_ZN15QRadialGradient13setFocalPointERK7QPointF',
-        self._valueOf(focalPoint),
+        self._valueOf(focalPoint, 'QPointF'),
     )
 
   @overload(float, float)
@@ -351,7 +351,8 @@ class QRadialGradient(QGradient):
     #      const QPointF &focalPoint)
     self._noteCreation(QRadialGradient, lambda: Rituals.call(
         'ritual_ZN15QRadialGradientC1ERK7QPointFdS2_',
-        self._valueOf(center), radius, self._valueOf(focalPoint),
+        self._valueOf(center, 'QPointF'), radius, self._valueOf(focalPoint,
+        'QPointF'),
     ))
 
   @overload(float, float, float, float, float)
@@ -417,7 +418,7 @@ class QRadialGradient(QGradient):
     #  QRadialGradient::QRadialGradient(const QPointF &center, qreal radius)
     self._noteCreation(QRadialGradient, lambda: Rituals.call(
         'ritual_ZN15QRadialGradientC1ERK7QPointFd',
-        self._valueOf(center), radius,
+        self._valueOf(center, 'QPointF'), radius,
     ))
 
   @overload(float, float, float)
@@ -483,8 +484,8 @@ class QRadialGradient(QGradient):
     #      centerRadius, const QPointF &focalPoint, qreal focalRadius)
     self._noteCreation(QRadialGradient, lambda: Rituals.call(
         'ritual_ZN15QRadialGradientC1ERK7QPointFdS2_d',
-        self._valueOf(center), centerRadius, self._valueOf(focalPoint),
-        focalRadius,
+        self._valueOf(center, 'QPointF'), centerRadius,
+        self._valueOf(focalPoint, 'QPointF'), focalRadius,
     ))
 
   @overload(float, float, float, float, float, float)

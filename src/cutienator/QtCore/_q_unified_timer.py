@@ -21,7 +21,7 @@ from ..occult import Rituals
 from . import QObject
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from . import QAbstractAnimationTimer, QAnimationDriver, QMetaObject
   from . import QTimerEvent
@@ -64,14 +64,19 @@ class QUnifiedTimer(QObject):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QUnifiedTimer::qt_metacast(const char *a0)': one of Qt's own
+    inner workings.
+  - Qt's 'int QUnifiedTimer::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
   - Qt's 'QUnifiedTimer::~QUnifiedTimer()': the destructor: Python never
     removes a C++ QUnifiedTimer.
+  - Qt's 'void QUnifiedTimer::registerProfilerCallback(void (*)(qint64) cb)':
+    takes a type Python has no way to hand over yet.
 
   What has no ritual
   ------------------
 
-  5 of the 34 functions Qt declares: 3 takes or gives a type that cannot be
-  passed yet; 1 a template; 1 declared and nowhere to be found.
+  2 of the 34 functions Qt declares: 2 not a gap.
 
   What to expect
   --------------
@@ -87,6 +92,9 @@ class QUnifiedTimer(QObject):
   - Qt tells when it has removed the C++ QUnifiedTimer. Every call on the
     cute object, and every use of it as an argument, then raises
     'RuntimeError', and nothing reaches C++.
+  - Each name of Qt's QUnifiedTimer that has no cute function yet,
+    'registerProfilerCallback', holds a function that raises
+    'NotImplementedError', and its docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -664,3 +672,14 @@ class QUnifiedTimer(QObject):
         'ritual_ZN13QUnifiedTimer39closestPausedAnimationTimerTimeToFinishE'
         'v',
     )
+
+  @staticmethod
+  def registerProfilerCallback(*__, **_) -> Never:
+    """
+    Qt's 'void QUnifiedTimer::registerProfilerCallback(void (*)(qint64) cb)':
+    takes a type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QUnifiedTimer.registerProfilerCallback' has no cute function yet. "
+        "Qt's 'void QUnifiedTimer::registerProfilerCallback(void "
+        "(*)(qint64) cb)': takes a type Python has no way to hand over yet.")

@@ -11,6 +11,9 @@ from typing import TYPE_CHECKING
 
 from . import QGenericArgument
 
+if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Never
+
 
 class QGenericReturnArgument(QGenericArgument):
   """
@@ -33,15 +36,11 @@ class QGenericReturnArgument(QGenericArgument):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'QGenericReturnArgument::QGenericReturnArgument(const char *aName,
+    void *aData)': names 'void', which has no cute class yet.
   - Qt's 'QGenericReturnArgument::~QGenericReturnArgument()': the destructor:
     Python removes its C++ QGenericReturnArgument by it, and has no other use
     for it.
-
-  What has no ritual
-  ------------------
-
-  1 of the 2 functions Qt declares: 1 takes or gives a type that cannot be
-  passed yet.
 
   What to expect
   --------------
@@ -55,6 +54,9 @@ class QGenericReturnArgument(QGenericArgument):
     is as in C++.
   - A function giving a QGenericReturnArgument back gives a copy the ritual
     made for Python, in a new cute QGenericReturnArgument.
+  - Each name of Qt's QGenericReturnArgument that has no cute function yet,
+    '__init__', holds a function that raises 'NotImplementedError', and its
+    docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -101,6 +103,17 @@ class QGenericReturnArgument(QGenericArgument):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def __init__(*__, **_) -> Never:
+    """
+    Qt's 'QGenericReturnArgument::QGenericReturnArgument(const char *aName,
+    void *aData)': names 'void', which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QGenericReturnArgument.__init__' has no cute function yet. Qt's "
+        "'QGenericReturnArgument::QGenericReturnArgument(const char *aName, "
+        "void *aData)': names 'void', which has no cute class yet.")
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #

@@ -22,7 +22,7 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
 
   from ..QtCore import QEvent, QMetaObject, QRect, QSize
   from ..QtGui import QPaintEvent, QPainter
-  from . import QStyleOptionFrame
+  from . import QFramePrivate, QStyleOptionFrame
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -50,12 +50,12 @@ class QFrame(QWidget):
   -----------
 
   Every function of Qt's QFrame that has a ritual and that Python can call so
-  far, 21 names in all: 'metaObject', 'tr', 'frameStyle', 'setFrameStyle',
+  far, 22 names in all: 'metaObject', 'tr', 'frameStyle', 'setFrameStyle',
   'frameWidth', 'sizeHint', 'frameShape', 'setFrameShape', 'frameShadow',
   'setFrameShadow', 'lineWidth', 'setLineWidth', 'midLineWidth',
   'setMidLineWidth', 'frameRect', 'setFrameRect', 'event', 'paintEvent',
-  'changeEvent', 'drawFrame', 'initStyleOption'. It can be made from Python,
-  in 1 way; see '__init__'.
+  'changeEvent', 'drawFrame', 'initStyleOption', 'd_func'. It can be made
+  from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -68,10 +68,8 @@ class QFrame(QWidget):
     QFrame.
   - Qt's 'QFrame::QFrame(QFramePrivate &dd, QWidget *parent, Qt::WindowFlags
     f)': takes a type Python has no way to hand over yet.
-  - Qt's 'QFramePrivate *QFrame::d_func()': gives 'QFramePrivate', which has
-    no cute class yet.
-  - Qt's 'const QFramePrivate *QFrame::d_func() const': gives
-    'QFramePrivate', which has no cute class yet.
+  - Qt's 'const QFramePrivate *QFrame::d_func() const': takes in Python what
+    'QFramePrivate *QFrame::d_func()' takes.
 
   What has no ritual
   ------------------
@@ -609,3 +607,21 @@ class QFrame(QWidget):
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZNK6QFrame15initStyleOptionEP17QStyleOptionFrame'
     self.uglySide.call(ritual, self._addressOf(option))
+
+  def d_func(self) -> Optional[QFramePrivate]:
+    """
+    Calls Qt's 'QFramePrivate *QFrame::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qframe.html#d_func
+
+    Returns
+    -------
+
+    Optional[QFramePrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QFramePrivate *QFrame::d_func()
+    address = self.uglySide.call('ritual_ZN6QFrame6d_funcEv')
+    from . import QFramePrivate
+    return QFramePrivate._cuteAt(address)

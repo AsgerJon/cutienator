@@ -16,7 +16,9 @@ from ..occult import Rituals
 from ..QtCore import Qt
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from . import QPainterPath, QPen
+  from typing import Never, Optional
+
+  from . import QPainterPath, QPainterPathStrokerPrivate, QPen
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -34,7 +36,7 @@ class QPainterPathStroker(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QPainterPathStroker that has a ritual and that
-  Python can call so far, 14 names in all: 'setWidth', 'width',
+  Python can call so far, 15 names in all: 'd_func', 'setWidth', 'width',
   'setCapStyle', 'capStyle', 'setJoinStyle', 'joinStyle', 'setMiterLimit',
   'miterLimit', 'setCurveThreshold', 'curveThreshold', 'setDashPattern',
   'setDashOffset', 'dashOffset', 'createStroke'. It can be made from Python,
@@ -43,14 +45,20 @@ class QPainterPathStroker(CuteMixin, metaclass=MetaCute):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'const QPainterPathStrokerPrivate *QPainterPathStroker::d_func()
+    const': takes in Python what 'QPainterPathStrokerPrivate
+    *QPainterPathStroker::d_func()' takes.
   - Qt's 'QPainterPathStroker::~QPainterPathStroker()': the destructor:
     Python never removes a C++ QPainterPathStroker.
+  - Qt's 'void QPainterPathStroker::setDashPattern(const QList<qreal>
+    &dashPattern)': takes a type Python has no way to hand over yet.
+  - Qt's 'QList<qreal> QPainterPathStroker::dashPattern() const': gives a
+    type Python has no way to take yet.
 
   What has no ritual
   ------------------
 
-  6 of the 23 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet; 2 forbidden.
+  2 of the 23 functions Qt declares: 2 forbidden.
 
   What to expect
   --------------
@@ -63,6 +71,9 @@ class QPainterPathStroker(CuteMixin, metaclass=MetaCute):
     has it, and is passed on as nothing. Whether Qt can do with nothing there
     is as in C++.
   - Python never removes the C++ QPainterPathStroker.
+  - Each name of Qt's QPainterPathStroker that has no cute function yet,
+    'dashPattern', holds a function that raises 'NotImplementedError', and
+    its docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -410,3 +421,32 @@ class QPainterPathStroker(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  def d_func(self) -> Optional[QPainterPathStrokerPrivate]:
+    """
+    Calls Qt's 'QPainterPathStrokerPrivate *QPainterPathStroker::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpainterpathstroker.html#d_func
+
+    Returns
+    -------
+
+    Optional[QPainterPathStrokerPrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QPainterPathStrokerPrivate *QPainterPathStroker::d_func()
+    address = self.uglySide.call('ritual_ZN19QPainterPathStroker6d_funcEv')
+    from . import QPainterPathStrokerPrivate
+    return QPainterPathStrokerPrivate._cuteAt(address)
+
+  @staticmethod
+  def dashPattern(*__, **_) -> Never:
+    """
+    Qt's 'QList<qreal> QPainterPathStroker::dashPattern() const': gives a
+    type Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QPainterPathStroker.dashPattern' has no cute function yet. Qt's "
+        "'QList<qreal> QPainterPathStroker::dashPattern() const': gives a "
+        "type Python has no way to take yet.")

@@ -20,7 +20,7 @@ from ..cute import WAIT
 from ..QtCore import QObject
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from ..QtCore import QEvent, QMetaObject
 else:
@@ -50,12 +50,21 @@ class QAbstractScrollAreaFilter(QObject):
   can be made from Python: one comes out of a function of another class that
   gives one back.
 
+  What has a ritual and is left out, and why
+  ------------------------------------------
+
+  - Qt's 'void *QAbstractScrollAreaFilter::qt_metacast(const char *a0)': one
+    of Qt's own inner workings.
+  - Qt's 'int QAbstractScrollAreaFilter::qt_metacall(QMetaObject::Call a0,
+    int a1, void **a2)': one of Qt's own inner workings.
+
   What has no ritual
   ------------------
 
-  6 of the 8 functions Qt declares: 3 takes or gives a type that cannot be
-  passed yet; 1 a template; 1 declared and nowhere to be found; 1 leans on
-  'QAbstractScrollAreaFilter.
+  4 of the 8 functions Qt declares: 2 not a gap; 1 leans on
+  'QAbstractScrollAreaFilter; 1 leans on 'vtable for
+  QAbstractScrollAreaFilter', which Qt's source does not mark for use from
+  outside Qt and has no code for that could be taken.
 
   What to expect
   --------------
@@ -71,6 +80,9 @@ class QAbstractScrollAreaFilter(QObject):
   - Qt tells when it has removed the C++ QAbstractScrollAreaFilter. Every
     call on the cute object, and every use of it as an argument, then raises
     'RuntimeError', and nothing reaches C++.
+  - Each name of Qt's QAbstractScrollAreaFilter that has no cute function
+    yet, '__init__', holds a function that raises 'NotImplementedError', and
+    its docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -134,6 +146,22 @@ class QAbstractScrollAreaFilter(QObject):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def __init__(*__, **_) -> Never:
+    """
+    Qt's 'QAbstractScrollAreaFilter::QAbstractScrollAreaFilter(
+    QAbstractScrollAreaPrivate *p)': leans on 'vtable for
+    QAbstractScrollAreaFilter', which Qt's source does not mark for use from
+    outside Qt and has no code for that could be taken.
+    """
+    raise NotImplementedError(
+        "'QAbstractScrollAreaFilter.__init__' has no cute function yet. "
+        "Qt's "
+        "'QAbstractScrollAreaFilter::QAbstractScrollAreaFilter(QAbstractScro"
+        "llAreaPrivate *p)': leans on 'vtable for "
+        "QAbstractScrollAreaFilter', which Qt's source does not mark for "
+        "use from outside Qt and has no code for that could be taken.")
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #

@@ -22,7 +22,7 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   from ..QtCore import QAbstractItemModel, QItemSelection, QMetaObject
   from ..QtCore import QModelIndex, QPoint, QRect, QSize, QTimerEvent
   from ..QtGui import QDropEvent, QPaintEvent, QRegion
-  from . import QHeaderView, QStyleOptionViewItem
+  from . import QHeaderView, QStyleOptionViewItem, QTableViewPrivate
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -55,7 +55,7 @@ class QTableView(QAbstractItemView):
   -----------
 
   Every function of Qt's QTableView that has a ritual and that Python can
-  call so far, 76 names in all: 'metaObject', 'tr', 'setModel',
+  call so far, 77 names in all: 'metaObject', 'tr', 'setModel',
   'setRootIndex', 'setSelectionModel', 'doItemsLayout', 'horizontalHeader',
   'verticalHeader', 'setHorizontalHeader', 'setVerticalHeader',
   'rowViewportPosition', 'rowAt', 'setRowHeight', 'rowHeight',
@@ -75,23 +75,30 @@ class QTableView(QAbstractItemView):
   'selectedIndexes', 'updateGeometries', 'viewportSizeHint',
   'sizeHintForRow', 'sizeHintForColumn', 'verticalScrollbarAction',
   'horizontalScrollbarAction', 'isIndexHidden', 'selectionChanged',
-  'currentChanged', 'visualIndex'. It can be made from Python, in 1 way; see
-  '__init__'.
+  'currentChanged', 'visualIndex', 'd_func'. It can be made from Python, in 1
+  way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QTableView::qt_metacast(const char *a0)': one of Qt's own
+    inner workings.
+  - Qt's 'int QTableView::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
   - Qt's 'QTableView::~QTableView()': the destructor: Python never removes a
     C++ QTableView.
+  - Qt's 'QTableView::QTableView(QTableViewPrivate &a0, QWidget *parent)':
+    takes a type Python has no way to hand over yet.
   - Qt's 'QModelIndex QTableView::moveCursor(CursorAction cursorAction,
     Qt::KeyboardModifiers modifiers)': names the enum
     'QAbstractItemView::CursorAction', whose class cannot be named here.
+  - Qt's 'const QTableViewPrivate *QTableView::d_func() const': takes in
+    Python what 'QTableViewPrivate *QTableView::d_func()' takes.
 
   What has no ritual
   ------------------
 
-  9 of the 88 functions Qt declares: 5 takes or gives a type that cannot be
-  passed yet; 2 forbidden; 1 a template; 1 declared and nowhere to be found.
+  4 of the 88 functions Qt declares: 2 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -1716,3 +1723,21 @@ class QTableView(QAbstractItemView):
     self.uglySide.call(
         ritual, self._valueOf(current), self._valueOf(previous),
     )
+
+  def d_func(self) -> Optional[QTableViewPrivate]:
+    """
+    Calls Qt's 'QTableViewPrivate *QTableView::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtableview.html#d_func
+
+    Returns
+    -------
+
+    Optional[QTableViewPrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QTableViewPrivate *QTableView::d_func()
+    address = self.uglySide.call('ritual_ZN10QTableView6d_funcEv')
+    from . import QTableViewPrivate
+    return QTableViewPrivate._cuteAt(address)

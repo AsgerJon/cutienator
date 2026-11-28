@@ -19,7 +19,7 @@ from ..occult import Rituals
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from . import QTreeWidget, QTreeWidgetItem
+  from . import QTreeWidget, QTreeWidgetItem, QTreeWidgetItemIteratorPrivate
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -45,8 +45,9 @@ class QTreeWidgetItemIterator(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QTreeWidgetItemIterator that has a ritual and that
-  Python can call so far, 3 names in all: '__iadd__', '__isub__',
-  'matchesFlags'. It can be made from Python, in 3 ways; see '__init__'.
+  Python can call so far, 4 names in all: '__iadd__', '__isub__',
+  'matchesFlags', 'd_func'. It can be made from Python, in 3 ways; see
+  '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -54,20 +55,25 @@ class QTreeWidgetItemIterator(CuteMixin, metaclass=MetaCute):
   - Qt's 'QTreeWidgetItemIterator::~QTreeWidgetItemIterator()': the
     destructor: Python removes its C++ QTreeWidgetItemIterator by it, and has
     no other use for it.
+  - Qt's 'QTreeWidgetItemIterator &QTreeWidgetItemIterator::operator=(const
+    QTreeWidgetItemIterator &it)': assignment: Python binds a name and has no
+    operator for it.
+  - Qt's 'QTreeWidgetItemIterator &QTreeWidgetItemIterator::operator++()': an
+    operator Python has no name for.
   - Qt's 'const QTreeWidgetItemIterator
     QTreeWidgetItemIterator::operator++(int a0)': an operator Python has no
     name for.
+  - Qt's 'QTreeWidgetItemIterator &QTreeWidgetItemIterator::operator--()': an
+    operator Python has no name for.
   - Qt's 'const QTreeWidgetItemIterator
     QTreeWidgetItemIterator::operator--(int a0)': an operator Python has no
     name for.
   - Qt's 'QTreeWidgetItem *QTreeWidgetItemIterator::operator*() const': an
     operator Python has no name for.
-
-  What has no ritual
-  ------------------
-
-  5 of the 15 functions Qt declares: 5 takes or gives a type that cannot be
-  passed yet.
+  - Qt's 'const QTreeWidgetItemIteratorPrivate
+    *QTreeWidgetItemIterator::d_func() const': takes in Python what
+    'QTreeWidgetItemIteratorPrivate *QTreeWidgetItemIterator::d_func()'
+    takes.
 
   What to expect
   --------------
@@ -354,3 +360,25 @@ class QTreeWidgetItemIterator(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  def d_func(self) -> Optional[QTreeWidgetItemIteratorPrivate]:
+    """
+    Calls Qt's 'QTreeWidgetItemIteratorPrivate
+    *QTreeWidgetItemIterator::d_func()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qtreewidgetitemiterator.html#d_func
+
+    Returns
+    -------
+
+    Optional[QTreeWidgetItemIteratorPrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QTreeWidgetItemIteratorPrivate *QTreeWidgetItemIterator::d_func()
+    address = self.uglySide.call(
+        'ritual_ZN23QTreeWidgetItemIterator6d_funcEv',
+    )
+    from . import QTreeWidgetItemIteratorPrivate
+    return QTreeWidgetItemIteratorPrivate._cuteAt(address)

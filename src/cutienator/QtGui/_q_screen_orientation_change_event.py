@@ -48,14 +48,20 @@ class QScreenOrientationChangeEvent(QEvent):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'QScreenOrientationChangeEvent::QScreenOrientationChangeEvent(const
+    QScreenOrientationChangeEvent &a0)': takes a type Python has no way to
+    hand over yet.
+  - Qt's 'QScreenOrientationChangeEvent
+    &QScreenOrientationChangeEvent::operator=(const
+    QScreenOrientationChangeEvent &other)': assignment: Python binds a name
+    and has no operator for it.
   - Qt's 'QScreenOrientationChangeEvent::~QScreenOrientationChangeEvent()':
     the destructor: Python never removes a C++ QScreenOrientationChangeEvent.
 
   What has no ritual
   ------------------
 
-  4 of the 9 functions Qt declares: 2 takes or gives a type that cannot be
-  passed yet; 2 forbidden.
+  2 of the 9 functions Qt declares: 2 forbidden.
 
   What to expect
   --------------

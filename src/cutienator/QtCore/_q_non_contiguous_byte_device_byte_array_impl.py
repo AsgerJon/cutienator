@@ -20,7 +20,7 @@ from worktoy.dispatch import overload
 from . import QNonContiguousByteDevice
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from . import QMetaObject
 
@@ -46,6 +46,11 @@ class QNonContiguousByteDeviceByteArrayImpl(QNonContiguousByteDevice):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QNonContiguousByteDeviceByteArrayImpl::qt_metacast(const char
+    *a0)': one of Qt's own inner workings.
+  - Qt's 'int
+    QNonContiguousByteDeviceByteArrayImpl::qt_metacall(QMetaObject::Call a0,
+    int a1, void **a2)': one of Qt's own inner workings.
   - Qt's 'QNonContiguousByteDeviceByteArrayImpl::
     ~QNonContiguousByteDeviceByteArrayImpl()': the destructor: Python never
     removes a C++ QNonContiguousByteDeviceByteArrayImpl.
@@ -56,9 +61,8 @@ class QNonContiguousByteDeviceByteArrayImpl(QNonContiguousByteDevice):
   What has no ritual
   ------------------
 
-  7 of the 15 functions Qt declares: 3 leans on
-  'QNonContiguousByteDeviceByteArrayImpl; 2 takes or gives a type that cannot
-  be passed yet; 1 a template; 1 declared and nowhere to be found.
+  5 of the 15 functions Qt declares: 3 leans on
+  'QNonContiguousByteDeviceByteArrayImpl; 2 not a gap.
 
   What to expect
   --------------
@@ -75,6 +79,9 @@ class QNonContiguousByteDeviceByteArrayImpl(QNonContiguousByteDevice):
     QNonContiguousByteDeviceByteArrayImpl. Every call on the cute object, and
     every use of it as an argument, then raises 'RuntimeError', and nothing
     reaches C++.
+  - Each name of Qt's QNonContiguousByteDeviceByteArrayImpl that has no cute
+    function yet, '__init__', holds a function that raises
+    'NotImplementedError', and its docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -184,6 +191,34 @@ class QNonContiguousByteDeviceByteArrayImpl(QNonContiguousByteDevice):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def __init__(*__, **_) -> Never:
+    """
+    - Qt's 'QNonContiguousByteDeviceByteArrayImpl::
+      QNonContiguousByteDeviceByteArrayImpl(QByteArray ba)': leans on
+      'QNonContiguousByteDeviceByteArrayImpl::qt_metacall(QMetaObject::Call,
+      int, void**)', which Qt's source does not mark for use from outside Qt
+      and has no code for that could be taken.
+    - Qt's 'QNonContiguousByteDeviceByteArrayImpl::
+      QNonContiguousByteDeviceByteArrayImpl(QBuffer *buffer)': leans on
+      'QNonContiguousByteDeviceByteArrayImpl::qt_metacall(QMetaObject::Call,
+      int, void**)', which Qt's source does not mark for use from outside Qt
+      and has no code for that could be taken.
+    """
+    raise NotImplementedError(
+        "'QNonContiguousByteDeviceByteArrayImpl.__init__' has no cute "
+        "function yet. Qt's "
+        "'QNonContiguousByteDeviceByteArrayImpl::QNonContiguousByteDeviceByt"
+        "eArrayImpl(QByteArray ba)': leans on "
+        "'QNonContiguousByteDeviceByteArrayImpl::qt_metacall(QMetaObject::Ca"
+        "ll, int, void**)', which Qt's source does not mark for use from "
+        "outside Qt and has no code for that could be taken. Qt's "
+        "'QNonContiguousByteDeviceByteArrayImpl::QNonContiguousByteDeviceByt"
+        "eArrayImpl(QBuffer *buffer)': leans on "
+        "'QNonContiguousByteDeviceByteArrayImpl::qt_metacall(QMetaObject::Ca"
+        "ll, int, void**)', which Qt's source does not mark for use from "
+        "outside Qt and has no code for that could be taken.")
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #

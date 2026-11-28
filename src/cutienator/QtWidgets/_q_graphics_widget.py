@@ -18,7 +18,7 @@ from ..QtCore import Qt, QList
 from . import QGraphicsItem, QGraphicsLayoutItem, QGraphicsObject
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from ..QtCore import QEvent, QMarginsF, QMetaObject, QPointF, QRectF
   from ..QtCore import QSizeF, QVariant
@@ -26,8 +26,9 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   from ..QtGui import QKeySequence, QPainter, QPainterPath, QPalette
   from ..QtGui import QShowEvent
   from . import QGraphicsLayout, QGraphicsSceneHoverEvent
-  from . import QGraphicsSceneMoveEvent, QGraphicsSceneResizeEvent, QStyle
-  from . import QStyleOption, QStyleOptionGraphicsItem, QWidget
+  from . import QGraphicsSceneMoveEvent, QGraphicsSceneResizeEvent
+  from . import QGraphicsWidgetPrivate, QStyle, QStyleOption
+  from . import QStyleOptionGraphicsItem, QWidget
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -75,7 +76,7 @@ class QGraphicsWidget(QGraphicsObject, QGraphicsLayoutItem):
   -----------
 
   Every function of Qt's QGraphicsWidget that has a ritual and that Python
-  can call so far, 78 names in all: 'metaObject', 'tr', 'layout',
+  can call so far, 81 names in all: 'metaObject', 'tr', 'layout',
   'setLayout', 'adjustSize', 'layoutDirection', 'setLayoutDirection',
   'unsetLayoutDirection', 'style', 'setStyle', 'font', 'setFont', 'palette',
   'setPalette', 'autoFillBackground', 'setAutoFillBackground', 'resize',
@@ -87,18 +88,23 @@ class QGraphicsWidget(QGraphicsObject, QGraphicsLayoutItem):
   'releaseShortcut', 'setShortcutEnabled', 'setShortcutAutoRepeat',
   'addAction', 'addActions', 'insertActions', 'insertAction', 'removeAction',
   'actions', 'setAttribute', 'testAttribute', 'type', 'paint',
-  'paintWindowFrame', 'boundingRect', 'shape', 'close', 'initStyleOption',
-  'sizeHint', 'updateGeometry', 'itemChange', 'propertyChange', 'sceneEvent',
-  'windowFrameEvent', 'windowFrameSectionAt', 'event', 'changeEvent',
-  'closeEvent', 'focusInEvent', 'focusNextPrevChild', 'focusOutEvent',
-  'hideEvent', 'moveEvent', 'polishEvent', 'resizeEvent', 'showEvent',
-  'hoverMoveEvent', 'hoverLeaveEvent', 'grabMouseEvent', 'ungrabMouseEvent',
-  'grabKeyboardEvent', 'ungrabKeyboardEvent'. It can be made from Python, in
-  1 way; see '__init__'.
+  'paintWindowFrame', 'boundingRect', 'shape', 'geometryChanged',
+  'layoutChanged', 'close', 'initStyleOption', 'sizeHint', 'updateGeometry',
+  'itemChange', 'propertyChange', 'sceneEvent', 'windowFrameEvent',
+  'windowFrameSectionAt', 'event', 'changeEvent', 'closeEvent',
+  'focusInEvent', 'focusNextPrevChild', 'focusOutEvent', 'hideEvent',
+  'moveEvent', 'polishEvent', 'resizeEvent', 'showEvent', 'hoverMoveEvent',
+  'hoverLeaveEvent', 'grabMouseEvent', 'ungrabMouseEvent',
+  'grabKeyboardEvent', 'ungrabKeyboardEvent', 'd_func'. It can be made from
+  Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QGraphicsWidget::qt_metacast(const char *a0)': one of Qt's
+    own inner workings.
+  - Qt's 'int QGraphicsWidget::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
   - Qt's 'QGraphicsWidget::~QGraphicsWidget()': the destructor: Python never
     removes a C++ QGraphicsWidget.
   - Qt's 'void QGraphicsWidget::getContentsMargins(qreal *left, qreal *top,
@@ -107,13 +113,17 @@ class QGraphicsWidget(QGraphicsObject, QGraphicsLayoutItem):
   - Qt's 'void QGraphicsWidget::getWindowFrameMargins(qreal *left, qreal
     *top, qreal *right, qreal *bottom) const': takes a number to change where
     it is.
+  - Qt's 'QGraphicsWidget::QGraphicsWidget(QGraphicsWidgetPrivate &a0,
+    QGraphicsItem *parent, Qt::WindowFlags wFlags)': takes a type Python has
+    no way to hand over yet.
+  - Qt's 'const QGraphicsWidgetPrivate *QGraphicsWidget::d_func() const':
+    takes in Python what 'QGraphicsWidgetPrivate *QGraphicsWidget::d_func()'
+    takes.
 
   What has no ritual
   ------------------
 
-  11 of the 97 functions Qt declares: 5 takes or gives a type that cannot be
-  passed yet; 2 a signal; 2 forbidden; 1 a template; 1 declared and nowhere
-  to be found.
+  4 of the 97 functions Qt declares: 2 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -129,6 +139,9 @@ class QGraphicsWidget(QGraphicsObject, QGraphicsLayoutItem):
   - Qt tells when it has removed the C++ QGraphicsWidget. Every call on the
     cute object, and every use of it as an argument, then raises
     'RuntimeError', and nothing reaches C++.
+  - Each name of Qt's QGraphicsWidget that has no cute function yet,
+    'getWindowFrameMargins', holds a function that raises
+    'NotImplementedError', and its docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -834,7 +847,7 @@ class QGraphicsWidget(QGraphicsObject, QGraphicsLayoutItem):
       ritual = (
           'ritual_own_ZNK15QGraphicsWidget20windowFrameSectionAtERK7QPointF')
     return Qt.WindowFrameSection(self.uglySide.call(
-        ritual, self._valueOf(pos),
+        ritual, self._valueOf(pos, 'QPointF'),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -1691,6 +1704,25 @@ class QGraphicsWidget(QGraphicsObject, QGraphicsLayoutItem):
         self._addressOf(widget),
     )
 
+  def geometryChanged(self) -> None:
+    """
+    Calls Qt's 'void QGraphicsWidget::geometryChanged()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicswidget.html#geometryChanged
+    """
+    #  void QGraphicsWidget::geometryChanged()
+    self.uglySide.call('ritual_ZN15QGraphicsWidget15geometryChangedEv')
+
+  def layoutChanged(self) -> None:
+    """
+    Calls Qt's 'void QGraphicsWidget::layoutChanged()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicswidget.html#layoutChanged
+    """
+    #  void QGraphicsWidget::layoutChanged()
+    self.uglySide.call('ritual_ZN15QGraphicsWidget13layoutChangedEv')
+
   def close(self) -> bool:
     """
     Calls Qt's 'bool QGraphicsWidget::close()'.
@@ -2235,3 +2267,34 @@ class QGraphicsWidget(QGraphicsObject, QGraphicsLayoutItem):
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZN15QGraphicsWidget19ungrabKeyboardEventEP6QEvent'
     self.uglySide.call(ritual, self._addressOf(event))
+
+  def d_func(self) -> Optional[QGraphicsWidgetPrivate]:
+    """
+    Calls Qt's 'QGraphicsWidgetPrivate *QGraphicsWidget::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicswidget.html#d_func
+
+    Returns
+    -------
+
+    Optional[QGraphicsWidgetPrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QGraphicsWidgetPrivate *QGraphicsWidget::d_func()
+    address = self.uglySide.call('ritual_ZN15QGraphicsWidget6d_funcEv')
+    from . import QGraphicsWidgetPrivate
+    return QGraphicsWidgetPrivate._cuteAt(address)
+
+  @staticmethod
+  def getWindowFrameMargins(*__, **_) -> Never:
+    """
+    Qt's 'void QGraphicsWidget::getWindowFrameMargins(qreal *left, qreal
+    *top, qreal *right, qreal *bottom) const': takes a number to change where
+    it is.
+    """
+    raise NotImplementedError(
+        "'QGraphicsWidget.getWindowFrameMargins' has no cute function yet. "
+        "Qt's 'void QGraphicsWidget::getWindowFrameMargins(qreal *left, "
+        "qreal *top, qreal *right, qreal *bottom) const': takes a number to "
+        "change where it is.")

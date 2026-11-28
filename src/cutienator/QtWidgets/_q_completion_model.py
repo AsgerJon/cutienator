@@ -20,9 +20,10 @@ from ..cute import WAIT
 from ..QtCore import QAbstractItemModel, QAbstractProxyModel, QStringList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from ..QtCore import QMetaObject, QModelIndex, QVariant
+  from . import QCompletionModelPrivate
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -46,21 +47,30 @@ class QCompletionModel(QAbstractProxyModel):
   -----------
 
   Every function of Qt's QCompletionModel that has a ritual and that Python
-  can call so far, 18 names in all: 'metaObject', 'setFiltered', 'filter',
-  'completionCount', 'currentRow', 'setCurrentRow', 'currentIndex', 'index',
-  'rowCount', 'columnCount', 'hasChildren', 'parent', 'data',
-  'setSourceModel', 'mapToSource', 'mapFromSource', 'invalidate',
-  'modelDestroyed'. None can be made from Python: one comes out of a function
-  of another class that gives one back.
+  can call so far, 22 names in all: 'metaObject', 'createEngine',
+  'setFiltered', 'filter', 'completionCount', 'currentRow', 'setCurrentRow',
+  'currentIndex', 'index', 'rowCount', 'columnCount', 'hasChildren',
+  'parent', 'data', 'setSourceModel', 'mapToSource', 'mapFromSource',
+  'd_func', 'rowsAdded', 'invalidate', 'rowsInserted', 'modelDestroyed'. None
+  can be made from Python: one comes out of a function of another class that
+  gives one back.
+
+  What has a ritual and is left out, and why
+  ------------------------------------------
+
+  - Qt's 'void *QCompletionModel::qt_metacast(const char *a0)': one of Qt's
+    own inner workings.
+  - Qt's 'int QCompletionModel::qt_metacall(QMetaObject::Call a0, int a1,
+    void **a2)': one of Qt's own inner workings.
+  - Qt's 'const QCompletionModelPrivate *QCompletionModel::d_func() const':
+    takes in Python what 'QCompletionModelPrivate
+    *QCompletionModel::d_func()' takes.
 
   What has no ritual
   ------------------
 
-  11 of the 29 functions Qt declares: 5 takes or gives a type that cannot be
-  passed yet; 2 leans on 'QCompletionModel; 1 a template; 1 declared and
-  nowhere to be found; 1 a signal; 1 leans on 'vtable for
-  QSortedModelEngine', which Qt's library does not offer and Qt's source has
-  no code for that could be taken.
+  4 of the 29 functions Qt declares: 2 not a gap; 2 leans on
+  'QCompletionModel.
 
   What to expect
   --------------
@@ -76,6 +86,9 @@ class QCompletionModel(QAbstractProxyModel):
   - Qt tells when it has removed the C++ QCompletionModel. Every call on the
     cute object, and every use of it as an argument, then raises
     'RuntimeError', and nothing reaches C++.
+  - Each name of Qt's QCompletionModel that has no cute function yet,
+    '__init__', holds a function that raises 'NotImplementedError', and its
+    docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -511,6 +524,22 @@ class QCompletionModel(QAbstractProxyModel):
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  @staticmethod
+  def __init__(*__, **_) -> Never:
+    """
+    Qt's 'QCompletionModel::QCompletionModel(QCompleterPrivate *c, QObject
+    *parent)': leans on 'QCompletionModel::qt_metacall(QMetaObject::Call,
+    int, void**)', which Qt's source does not mark for use from outside Qt
+    and has no code for that could be taken.
+    """
+    raise NotImplementedError(
+        "'QCompletionModel.__init__' has no cute function yet. Qt's "
+        "'QCompletionModel::QCompletionModel(QCompleterPrivate *c, QObject "
+        "*parent)': leans on "
+        "'QCompletionModel::qt_metacall(QMetaObject::Call, int, void**)', "
+        "which Qt's source does not mark for use from outside Qt and has no "
+        "code for that could be taken.")
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -530,6 +559,15 @@ class QCompletionModel(QAbstractProxyModel):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  def createEngine(self) -> None:
+    """
+    Calls Qt's 'void QCompletionModel::createEngine()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcompletionmodel.html#createEngine
+    """
+    #  void QCompletionModel::createEngine()
+    self.uglySide.call('ritual_ZN16QCompletionModel12createEngineEv')
 
   @overload(QStringList)
   def filter(self, parts: QStringList) -> None:
@@ -552,6 +590,33 @@ class QCompletionModel(QAbstractProxyModel):
         self._valueOf(parts),
     )
 
+  def d_func(self) -> Optional[QCompletionModelPrivate]:
+    """
+    Calls Qt's 'QCompletionModelPrivate *QCompletionModel::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcompletionmodel.html#d_func
+
+    Returns
+    -------
+
+    Optional[QCompletionModelPrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QCompletionModelPrivate *QCompletionModel::d_func()
+    address = self.uglySide.call('ritual_ZN16QCompletionModel6d_funcEv')
+    from . import QCompletionModelPrivate
+    return QCompletionModelPrivate._cuteAt(address)
+
+  def rowsAdded(self) -> None:
+    """
+    Calls Qt's 'void QCompletionModel::rowsAdded()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcompletionmodel.html#rowsAdded
+    """
+    #  void QCompletionModel::rowsAdded()
+    self.uglySide.call('ritual_ZN16QCompletionModel9rowsAddedEv')
+
   def invalidate(self) -> None:
     """
     Calls Qt's 'void QCompletionModel::invalidate()'.
@@ -560,6 +625,15 @@ class QCompletionModel(QAbstractProxyModel):
     """
     #  void QCompletionModel::invalidate()
     self.uglySide.call('ritual_ZN16QCompletionModel10invalidateEv')
+
+  def rowsInserted(self) -> None:
+    """
+    Calls Qt's 'void QCompletionModel::rowsInserted()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcompletionmodel.html#rowsInserted
+    """
+    #  void QCompletionModel::rowsInserted()
+    self.uglySide.call('ritual_ZN16QCompletionModel12rowsInsertedEv')
 
   def modelDestroyed(self) -> None:
     """

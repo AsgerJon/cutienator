@@ -37,11 +37,18 @@ class QTableWidgetMimeData(QMimeData):
   Python can call so far, 1 name in all: 'metaObject'. None can be made from
   Python: one comes out of a function of another class that gives one back.
 
+  What has a ritual and is left out, and why
+  ------------------------------------------
+
+  - Qt's 'void *QTableWidgetMimeData::qt_metacast(const char *a0)': one of
+    Qt's own inner workings.
+  - Qt's 'int QTableWidgetMimeData::qt_metacall(QMetaObject::Call a0, int a1,
+    void **a2)': one of Qt's own inner workings.
+
   What has no ritual
   ------------------
 
-  5 of the 6 functions Qt declares: 2 takes or gives a type that cannot be
-  passed yet; 1 a template; 1 declared and nowhere to be found; 1 leans on
+  3 of the 6 functions Qt declares: 2 not a gap; 1 leans on
   'QTableWidgetMimeData.
 
   What to expect

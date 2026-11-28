@@ -20,7 +20,7 @@ from ..cute import WAIT
 from . import QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from ..QtCore import QEvent, QMetaObject, QSize, QTimerEvent
   from ..QtGui import QEnterEvent, QHideEvent, QMouseEvent, QPaintEvent
@@ -52,17 +52,27 @@ class QComboBoxPrivateScroller(QWidget):
   -----------
 
   Every function of Qt's QComboBoxPrivateScroller that has a ritual and that
-  Python can call so far, 9 names in all: 'metaObject', 'sizeHint',
+  Python can call so far, 10 names in all: 'metaObject', 'sizeHint',
   'stopTimer', 'enterEvent', 'leaveEvent', 'timerEvent', 'hideEvent',
-  'mouseMoveEvent', 'paintEvent'. None can be made from Python: one comes out
-  of a function of another class that gives one back.
+  'mouseMoveEvent', 'paintEvent', 'doScroll'. None can be made from Python:
+  one comes out of a function of another class that gives one back.
+
+  What has a ritual and is left out, and why
+  ------------------------------------------
+
+  - Qt's 'void *QComboBoxPrivateScroller::qt_metacast(const char *a0)': one
+    of Qt's own inner workings.
+  - Qt's 'int QComboBoxPrivateScroller::qt_metacall(QMetaObject::Call a0, int
+    a1, void **a2)': one of Qt's own inner workings.
+  - Qt's 'QComboBoxPrivateScroller::~QComboBoxPrivateScroller()': the
+    destructor: Python never removes a C++ QComboBoxPrivateScroller.
 
   What has no ritual
   ------------------
 
-  11 of the 20 functions Qt declares: 4 leans on 'QComboBoxPrivateScroller; 3
-  declared and nowhere to be found; 2 takes or gives a type that cannot be
-  passed yet; 1 a template; 1 a signal.
+  5 of the 18 functions Qt declares: 2 not a gap; 2 leans on
+  'QComboBoxPrivateScroller; 1 Qt's library has no name for it, and its code
+  in Qt's source does not compile apart from its file.
 
   What to expect
   --------------
@@ -78,6 +88,9 @@ class QComboBoxPrivateScroller(QWidget):
   - Qt tells when it has removed the C++ QComboBoxPrivateScroller. Every call
     on the cute object, and every use of it as an argument, then raises
     'RuntimeError', and nothing reaches C++.
+  - Each name of Qt's QComboBoxPrivateScroller that has no cute function yet,
+    '__init__', holds a function that raises 'NotImplementedError', and its
+    docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -167,6 +180,24 @@ class QComboBoxPrivateScroller(QWidget):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def __init__(*__, **_) -> Never:
+    """
+    Qt's
+    'QComboBoxPrivateScroller::QComboBoxPrivateScroller(QAbstractSlider::
+    SliderAction action, QWidget *parent)': leans on
+    'QComboBoxPrivateScroller::qt_metacall(QMetaObject::Call, int, void**)',
+    which Qt's source does not mark for use from outside Qt and has no code
+    for that could be taken.
+    """
+    raise NotImplementedError(
+        "'QComboBoxPrivateScroller.__init__' has no cute function yet. Qt's "
+        "'QComboBoxPrivateScroller::QComboBoxPrivateScroller(QAbstractSlider"
+        "::SliderAction action, QWidget *parent)': leans on "
+        "'QComboBoxPrivateScroller::qt_metacall(QMetaObject::Call, int, "
+        "void**)', which Qt's source does not mark for use from outside Qt "
+        "and has no code for that could be taken.")
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -336,3 +367,22 @@ class QComboBoxPrivateScroller(QWidget):
           'ritual_own_ZN24QComboBoxPrivateScroller10paintEventEP11QPaintEve'
           'nt')
     self.uglySide.call(ritual, self._addressOf(a0))
+
+  @overload(int)
+  def doScroll(self, action: int) -> None:
+    """
+    Calls Qt's 'void QComboBoxPrivateScroller::doScroll(int action)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qcomboboxprivatescroller.html#doScroll
+
+    Parameters
+    ----------
+
+    action : int
+      Passed on as it is.
+    """
+    #  void QComboBoxPrivateScroller::doScroll(int action)
+    self.uglySide.call(
+        'ritual_ZN24QComboBoxPrivateScroller8doScrollEi', action,
+    )

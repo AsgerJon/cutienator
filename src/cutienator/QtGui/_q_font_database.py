@@ -17,6 +17,8 @@ from ..occult import Rituals
 from ..QtCore import QChar, QStringList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Never
+
   from ..QtCore import QByteArray
   from . import QFont, QFontInfo
 else:
@@ -56,14 +58,23 @@ class QFontDatabase(CuteMixin, metaclass=MetaCute):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'QList<int> QFontDatabase::standardSizes()': gives a type Python has
+    no way to take yet.
+  - Qt's 'QList<WritingSystem> QFontDatabase::writingSystems()': gives a type
+    Python has no way to take yet.
+  - Qt's 'QList<WritingSystem> QFontDatabase::writingSystems(const QString
+    &family)': gives a type Python has no way to take yet.
+  - Qt's 'QList<int> QFontDatabase::pointSizes(const QString &family, const
+    QString &style)': gives a type Python has no way to take yet.
+  - Qt's 'QList<int> QFontDatabase::smoothSizes(const QString &family, const
+    QString &style)': gives a type Python has no way to take yet.
   - Qt's 'QFontDatabase::~QFontDatabase()': the destructor: Python removes
     its C++ QFontDatabase by it, and has no other use for it.
 
   What has no ritual
   ------------------
 
-  8 of the 40 functions Qt declares: 5 takes or gives a type that cannot be
-  passed yet; 2 declared and nowhere to be found; 1 a template.
+  3 of the 40 functions Qt declares: 3 not a gap.
 
   What to expect
   --------------
@@ -77,6 +88,9 @@ class QFontDatabase(CuteMixin, metaclass=MetaCute):
     is as in C++.
   - A function giving a QFontDatabase back gives a copy the ritual made for
     Python, in a new cute QFontDatabase.
+  - Each name of Qt's QFontDatabase that has no cute function yet,
+    'pointSizes', 'smoothSizes', 'standardSizes', 'writingSystems', holds a
+    function that raises 'NotImplementedError', and its docstring says why.
   """
 
   #  The enums Qt writes inside QFontDatabase, each a class in here as in
@@ -988,3 +1002,52 @@ class QFontDatabase(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def pointSizes(*__, **_) -> Never:
+    """
+    Qt's 'QList<int> QFontDatabase::pointSizes(const QString &family, const
+    QString &style)': gives a type Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QFontDatabase.pointSizes' has no cute function yet. Qt's "
+        "'QList<int> QFontDatabase::pointSizes(const QString &family, const "
+        "QString &style)': gives a type Python has no way to take yet.")
+
+  @staticmethod
+  def smoothSizes(*__, **_) -> Never:
+    """
+    Qt's 'QList<int> QFontDatabase::smoothSizes(const QString &family, const
+    QString &style)': gives a type Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QFontDatabase.smoothSizes' has no cute function yet. Qt's "
+        "'QList<int> QFontDatabase::smoothSizes(const QString &family, "
+        "const QString &style)': gives a type Python has no way to take yet."
+    )
+
+  @staticmethod
+  def standardSizes(*__, **_) -> Never:
+    """
+    Qt's 'QList<int> QFontDatabase::standardSizes()': gives a type Python has
+    no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QFontDatabase.standardSizes' has no cute function yet. Qt's "
+        "'QList<int> QFontDatabase::standardSizes()': gives a type Python "
+        "has no way to take yet.")
+
+  @staticmethod
+  def writingSystems(*__, **_) -> Never:
+    """
+    - Qt's 'QList<WritingSystem> QFontDatabase::writingSystems()': gives a
+      type Python has no way to take yet.
+    - Qt's 'QList<WritingSystem> QFontDatabase::writingSystems(const QString
+      &family)': gives a type Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QFontDatabase.writingSystems' has no cute function yet. Qt's "
+        "'QList<WritingSystem> QFontDatabase::writingSystems()': gives a "
+        "type Python has no way to take yet. Qt's 'QList<WritingSystem> "
+        "QFontDatabase::writingSystems(const QString &family)': gives a "
+        "type Python has no way to take yet.")

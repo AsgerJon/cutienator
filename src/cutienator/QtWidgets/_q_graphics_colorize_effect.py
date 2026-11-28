@@ -21,6 +21,7 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
 
   from ..QtCore import QMetaObject
   from ..QtGui import QColor, QPainter
+  from . import QGraphicsColorizeEffectPrivate
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -45,22 +46,28 @@ class QGraphicsColorizeEffect(QGraphicsEffect):
   -----------
 
   Every function of Qt's QGraphicsColorizeEffect that has a ritual and that
-  Python can call so far, 7 names in all: 'metaObject', 'tr', 'color',
-  'strength', 'setColor', 'setStrength', 'draw'. It can be made from Python,
-  in 1 way; see '__init__'.
+  Python can call so far, 10 names in all: 'metaObject', 'tr', 'color',
+  'strength', 'setColor', 'setStrength', 'colorChanged', 'strengthChanged',
+  'draw', 'd_func'. It can be made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QGraphicsColorizeEffect::qt_metacast(const char *a0)': one of
+    Qt's own inner workings.
+  - Qt's 'int QGraphicsColorizeEffect::qt_metacall(QMetaObject::Call a0, int
+    a1, void **a2)': one of Qt's own inner workings.
   - Qt's 'QGraphicsColorizeEffect::~QGraphicsColorizeEffect()': the
     destructor: Python never removes a C++ QGraphicsColorizeEffect.
+  - Qt's 'const QGraphicsColorizeEffectPrivate
+    *QGraphicsColorizeEffect::d_func() const': takes in Python what
+    'QGraphicsColorizeEffectPrivate *QGraphicsColorizeEffect::d_func()'
+    takes.
 
   What has no ritual
   ------------------
 
-  10 of the 19 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet; 2 a signal; 2 forbidden; 1 a template; 1 declared and nowhere
-  to be found.
+  4 of the 19 functions Qt declares: 2 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -305,6 +312,48 @@ class QGraphicsColorizeEffect(QGraphicsEffect):
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  @overload(QColor)
+  def colorChanged(self, color: QColor) -> None:
+    """
+    Calls Qt's 'void QGraphicsColorizeEffect::colorChanged(const QColor
+    &color)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicscolorizeeffect.html#colorChanged
+
+    Parameters
+    ----------
+
+    color : QColor
+      Passed on as a value: Qt reads the C++ QColor, which stays Python's
+      own.
+    """
+    #  void QGraphicsColorizeEffect::colorChanged(const QColor &color)
+    self.uglySide.call(
+        'ritual_ZN23QGraphicsColorizeEffect12colorChangedERK6QColor',
+        self._valueOf(color),
+    )
+
+  @overload(float)
+  def strengthChanged(self, strength: float) -> None:
+    """
+    Calls Qt's 'void QGraphicsColorizeEffect::strengthChanged(qreal
+    strength)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicscolorizeeffect.html#strengthChanged
+
+    Parameters
+    ----------
+
+    strength : float
+      Passed on as it is.
+    """
+    #  void QGraphicsColorizeEffect::strengthChanged(qreal strength)
+    self.uglySide.call(
+        'ritual_ZN23QGraphicsColorizeEffect15strengthChangedEd', strength,
+    )
+
   @overload(QPainter)
   @overload(NoneType)
   def draw(self, painter: Optional[QPainter]) -> None:
@@ -325,3 +374,25 @@ class QGraphicsColorizeEffect(QGraphicsEffect):
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZN23QGraphicsColorizeEffect4drawEP8QPainter'
     self.uglySide.call(ritual, self._addressOf(painter))
+
+  def d_func(self) -> Optional[QGraphicsColorizeEffectPrivate]:
+    """
+    Calls Qt's 'QGraphicsColorizeEffectPrivate
+    *QGraphicsColorizeEffect::d_func()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicscolorizeeffect.html#d_func
+
+    Returns
+    -------
+
+    Optional[QGraphicsColorizeEffectPrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QGraphicsColorizeEffectPrivate *QGraphicsColorizeEffect::d_func()
+    address = self.uglySide.call(
+        'ritual_ZN23QGraphicsColorizeEffect6d_funcEv',
+    )
+    from . import QGraphicsColorizeEffectPrivate
+    return QGraphicsColorizeEffectPrivate._cuteAt(address)

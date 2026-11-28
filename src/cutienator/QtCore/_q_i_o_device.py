@@ -16,9 +16,9 @@ from ..occult import Rituals
 from . import QIODeviceBase, QObject
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
-  from . import QByteArray, QMetaObject
+  from . import QByteArray, QIODevicePrivate, QMetaObject
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -44,7 +44,7 @@ class QIODevice(QObject, QIODeviceBase):
   -----------
 
   Every function of Qt's QIODevice that has a ritual and that Python can call
-  so far, 43 names in all: 'metaObject', 'tr', 'openMode',
+  so far, 50 names in all: 'metaObject', 'tr', 'openMode',
   'setTextModeEnabled', 'isTextModeEnabled', 'isOpen', 'isReadable',
   'isWritable', 'isSequential', 'readChannelCount', 'writeChannelCount',
   'currentReadChannel', 'setCurrentReadChannel', 'currentWriteChannel',
@@ -52,26 +52,52 @@ class QIODevice(QObject, QIODeviceBase):
   'reset', 'bytesAvailable', 'bytesToWrite', 'read', 'readAll', 'readLine',
   'readLineInto', 'canReadLine', 'startTransaction', 'commitTransaction',
   'rollbackTransaction', 'isTransactionStarted', 'write', 'peek', 'skip',
-  'waitForReadyRead', 'waitForBytesWritten', 'errorString', 'skipData',
-  'writeData', 'setOpenMode', 'setErrorString'. None can be made from Python:
-  one comes out of a function of another class that gives one back.
+  'waitForReadyRead', 'waitForBytesWritten', 'errorString', 'readyRead',
+  'channelReadyRead', 'bytesWritten', 'channelBytesWritten', 'aboutToClose',
+  'readChannelFinished', 'skipData', 'writeData', 'setOpenMode',
+  'setErrorString', 'd_func'. None can be made from Python: one comes out of
+  a function of another class that gives one back.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QIODevice::qt_metacast(const char *a0)': one of Qt's own
+    inner workings.
+  - Qt's 'int QIODevice::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
   - Qt's 'QIODevice::~QIODevice()': the destructor: Python never removes a
     C++ QIODevice.
+  - Qt's 'qint64 QIODevice::read(char *data, qint64 maxlen)': names 'char',
+    which has no cute class yet.
+  - Qt's 'qint64 QIODevice::readLine(char *data, qint64 maxlen)': names
+    'char', which has no cute class yet.
+  - Qt's 'QByteArrayView QIODevice::readLineInto(QSpan<char> buffer)': takes
+    a type Python has no way to hand over yet.
+  - Qt's 'QByteArrayView QIODevice::readLineInto(QSpan<uchar> buffer)': takes
+    a type Python has no way to hand over yet.
+  - Qt's 'QByteArrayView QIODevice::readLineInto(QSpan<std::byte> buffer)':
+    takes a type Python has no way to hand over yet.
+  - Qt's 'qint64 QIODevice::peek(char *data, qint64 maxlen)': names 'char',
+    which has no cute class yet.
   - Qt's 'void QIODevice::ungetChar(char c)': takes a single letter as C has
     it.
   - Qt's 'bool QIODevice::putChar(char c)': takes a single letter as C has
     it.
+  - Qt's 'bool QIODevice::getChar(char *c)': names 'char', which has no cute
+    class yet.
+  - Qt's 'qint64 QIODevice::readData(char *data, qint64 maxlen)': names
+    'char', which has no cute class yet.
+  - Qt's 'qint64 QIODevice::readLineData(char *data, qint64 maxlen)': names
+    'char', which has no cute class yet.
+  - Qt's 'const QIODevicePrivate *QIODevice::d_func() const': takes in Python
+    what 'QIODevicePrivate *QIODevice::d_func()' takes.
 
   What has no ritual
   ------------------
 
-  26 of the 74 functions Qt declares: 13 takes or gives a type that cannot be
-  passed yet; 6 a signal; 3 the class is abstract, so C++ cannot make one; 2
-  forbidden; 1 a template; 1 declared and nowhere to be found.
+  7 of the 74 functions Qt declares: 3 the class is abstract, so C++ cannot
+  make one, and the C++ class of ours does not fill in every function it
+  leaves open; 2 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -86,6 +112,9 @@ class QIODevice(QObject, QIODeviceBase):
   - Qt tells when it has removed the C++ QIODevice. Every call on the cute
     object, and every use of it as an argument, then raises 'RuntimeError',
     and nothing reaches C++.
+  - Each name of Qt's QIODevice that has no cute function yet, '__init__',
+    'getChar', 'putChar', 'readData', 'readLineData', 'ungetChar', holds a
+    function that raises 'NotImplementedError', and its docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -595,6 +624,30 @@ class QIODevice(QObject, QIODeviceBase):
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  @staticmethod
+  def __init__(*__, **_) -> Never:
+    """
+    - Qt's 'QIODevice::QIODevice()': the class is abstract, so C++ cannot
+      make one, and the C++ class of ours does not fill in every function it
+      leaves open.
+    - Qt's 'QIODevice::QIODevice(QObject *parent)': the class is abstract, so
+      C++ cannot make one, and the C++ class of ours does not fill in every
+      function it leaves open.
+    - Qt's 'QIODevice::QIODevice(QIODevicePrivate &dd, QObject *parent)': the
+      class is abstract, so C++ cannot make one, and the C++ class of ours
+      does not fill in every function it leaves open.
+    """
+    raise NotImplementedError(
+        "'QIODevice.__init__' has no cute function yet. Qt's "
+        "'QIODevice::QIODevice()': the class is abstract, so C++ cannot "
+        "make one, and the C++ class of ours does not fill in every "
+        "function it leaves open. Qt's 'QIODevice::QIODevice(QObject "
+        "*parent)': the class is abstract, so C++ cannot make one, and the "
+        "C++ class of ours does not fill in every function it leaves open. "
+        "Qt's 'QIODevice::QIODevice(QIODevicePrivate &dd, QObject "
+        "*parent)': the class is abstract, so C++ cannot make one, and the "
+        "C++ class of ours does not fill in every function it leaves open.")
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -942,6 +995,87 @@ class QIODevice(QObject, QIODeviceBase):
       ritual = 'ritual_own_ZN9QIODevice19waitForBytesWrittenEi'
     return self.uglySide.call(ritual, msecs)
 
+  def readyRead(self) -> None:
+    """
+    Calls Qt's 'void QIODevice::readyRead()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qiodevice.html#readyRead
+    """
+    #  void QIODevice::readyRead()
+    self.uglySide.call('ritual_ZN9QIODevice9readyReadEv')
+
+  @overload(int)
+  def channelReadyRead(self, channel: int) -> None:
+    """
+    Calls Qt's 'void QIODevice::channelReadyRead(int channel)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qiodevice.html#channelReadyRead
+
+    Parameters
+    ----------
+
+    channel : int
+      Passed on as it is.
+    """
+    #  void QIODevice::channelReadyRead(int channel)
+    self.uglySide.call('ritual_ZN9QIODevice16channelReadyReadEi', channel)
+
+  @overload(int)
+  def bytesWritten(self, bytes: int) -> None:
+    """
+    Calls Qt's 'void QIODevice::bytesWritten(qint64 bytes)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qiodevice.html#bytesWritten
+
+    Parameters
+    ----------
+
+    bytes : int
+      Passed on as it is.
+    """
+    #  void QIODevice::bytesWritten(qint64 bytes)
+    self.uglySide.call('ritual_ZN9QIODevice12bytesWrittenEx', bytes)
+
+  @overload(int, int)
+  def channelBytesWritten(self, channel: int, bytes: int) -> None:
+    """
+    Calls Qt's 'void QIODevice::channelBytesWritten(int channel, qint64
+    bytes)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qiodevice.html#channelBytesWritten
+
+    Parameters
+    ----------
+
+    channel : int
+      Passed on as it is.
+
+    bytes : int
+      Passed on as it is.
+    """
+    #  void QIODevice::channelBytesWritten(int channel, qint64 bytes)
+    self.uglySide.call(
+        'ritual_ZN9QIODevice19channelBytesWrittenEix', channel, bytes,
+    )
+
+  def aboutToClose(self) -> None:
+    """
+    Calls Qt's 'void QIODevice::aboutToClose()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qiodevice.html#aboutToClose
+    """
+    #  void QIODevice::aboutToClose()
+    self.uglySide.call('ritual_ZN9QIODevice12aboutToCloseEv')
+
+  def readChannelFinished(self) -> None:
+    """
+    Calls Qt's 'void QIODevice::readChannelFinished()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qiodevice.html#readChannelFinished
+    """
+    #  void QIODevice::readChannelFinished()
+    self.uglySide.call('ritual_ZN9QIODevice19readChannelFinishedEv')
+
   @overload(int)
   def skipData(self, maxSize: int) -> int:
     """
@@ -982,3 +1116,74 @@ class QIODevice(QObject, QIODeviceBase):
     return self.uglySide.call(
         'ritual_ZN9QIODevice9writeDataEPKcx', self._bytesOf(data), len,
     )
+
+  def d_func(self) -> Optional[QIODevicePrivate]:
+    """
+    Calls Qt's 'QIODevicePrivate *QIODevice::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qiodevice.html#d_func
+
+    Returns
+    -------
+
+    Optional[QIODevicePrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QIODevicePrivate *QIODevice::d_func()
+    address = self.uglySide.call('ritual_ZN9QIODevice6d_funcEv')
+    from . import QIODevicePrivate
+    return QIODevicePrivate._cuteAt(address)
+
+  @staticmethod
+  def getChar(*__, **_) -> Never:
+    """
+    Qt's 'bool QIODevice::getChar(char *c)': names 'char', which has no cute
+    class yet.
+    """
+    raise NotImplementedError(
+        "'QIODevice.getChar' has no cute function yet. Qt's 'bool "
+        "QIODevice::getChar(char *c)': names 'char', which has no cute "
+        "class yet.")
+
+  @staticmethod
+  def putChar(*__, **_) -> Never:
+    """
+    Qt's 'bool QIODevice::putChar(char c)': takes a single letter as C has
+    it.
+    """
+    raise NotImplementedError(
+        "'QIODevice.putChar' has no cute function yet. Qt's 'bool "
+        "QIODevice::putChar(char c)': takes a single letter as C has it.")
+
+  @staticmethod
+  def readData(*__, **_) -> Never:
+    """
+    Qt's 'qint64 QIODevice::readData(char *data, qint64 maxlen)': names
+    'char', which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QIODevice.readData' has no cute function yet. Qt's 'qint64 "
+        "QIODevice::readData(char *data, qint64 maxlen)': names 'char', "
+        "which has no cute class yet.")
+
+  @staticmethod
+  def readLineData(*__, **_) -> Never:
+    """
+    Qt's 'qint64 QIODevice::readLineData(char *data, qint64 maxlen)': names
+    'char', which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QIODevice.readLineData' has no cute function yet. Qt's 'qint64 "
+        "QIODevice::readLineData(char *data, qint64 maxlen)': names 'char', "
+        "which has no cute class yet.")
+
+  @staticmethod
+  def ungetChar(*__, **_) -> Never:
+    """
+    Qt's 'void QIODevice::ungetChar(char c)': takes a single letter as C has
+    it.
+    """
+    raise NotImplementedError(
+        "'QIODevice.ungetChar' has no cute function yet. Qt's 'void "
+        "QIODevice::ungetChar(char c)': takes a single letter as C has it.")

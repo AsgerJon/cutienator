@@ -45,22 +45,30 @@ class QGraphicsScale(QGraphicsTransform):
   -----------
 
   Every function of Qt's QGraphicsScale that has a ritual and that Python can
-  call so far, 11 names in all: 'metaObject', 'tr', 'origin', 'setOrigin',
+  call so far, 16 names in all: 'metaObject', 'tr', 'origin', 'setOrigin',
   'xScale', 'setXScale', 'yScale', 'setYScale', 'zScale', 'setZScale',
-  'applyTo'. It can be made from Python, in 1 way; see '__init__'.
+  'applyTo', 'originChanged', 'xScaleChanged', 'yScaleChanged',
+  'zScaleChanged', 'scaleChanged'. It can be made from Python, in 1 way; see
+  '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QGraphicsScale::qt_metacast(const char *a0)': one of Qt's own
+    inner workings.
+  - Qt's 'int QGraphicsScale::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
   - Qt's 'QGraphicsScale::~QGraphicsScale()': the destructor: Python never
     removes a C++ QGraphicsScale.
+  - Qt's 'QGraphicsScalePrivate *QGraphicsScale::d_func()': gives
+    'QGraphicsScalePrivate', which has no cute class yet.
+  - Qt's 'const QGraphicsScalePrivate *QGraphicsScale::d_func() const': gives
+    'QGraphicsScalePrivate', which has no cute class yet.
 
   What has no ritual
   ------------------
 
-  11 of the 24 functions Qt declares: 5 a signal; 4 takes or gives a type
-  that cannot be passed yet; 1 a template; 1 declared and nowhere to be
-  found.
+  2 of the 24 functions Qt declares: 2 not a gap.
 
   What to expect
   --------------
@@ -359,3 +367,48 @@ class QGraphicsScale(QGraphicsTransform):
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZNK14QGraphicsScale7applyToEP10QMatrix4x4'
     self.uglySide.call(ritual, self._addressOf(matrix))
+
+  def originChanged(self) -> None:
+    """
+    Calls Qt's 'void QGraphicsScale::originChanged()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsscale.html#originChanged
+    """
+    #  void QGraphicsScale::originChanged()
+    self.uglySide.call('ritual_ZN14QGraphicsScale13originChangedEv')
+
+  def xScaleChanged(self) -> None:
+    """
+    Calls Qt's 'void QGraphicsScale::xScaleChanged()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsscale.html#xScaleChanged
+    """
+    #  void QGraphicsScale::xScaleChanged()
+    self.uglySide.call('ritual_ZN14QGraphicsScale13xScaleChangedEv')
+
+  def yScaleChanged(self) -> None:
+    """
+    Calls Qt's 'void QGraphicsScale::yScaleChanged()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsscale.html#yScaleChanged
+    """
+    #  void QGraphicsScale::yScaleChanged()
+    self.uglySide.call('ritual_ZN14QGraphicsScale13yScaleChangedEv')
+
+  def zScaleChanged(self) -> None:
+    """
+    Calls Qt's 'void QGraphicsScale::zScaleChanged()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsscale.html#zScaleChanged
+    """
+    #  void QGraphicsScale::zScaleChanged()
+    self.uglySide.call('ritual_ZN14QGraphicsScale13zScaleChangedEv')
+
+  def scaleChanged(self) -> None:
+    """
+    Calls Qt's 'void QGraphicsScale::scaleChanged()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsscale.html#scaleChanged
+    """
+    #  void QGraphicsScale::scaleChanged()
+    self.uglySide.call('ritual_ZN14QGraphicsScale12scaleChangedEv')

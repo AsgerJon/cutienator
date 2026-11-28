@@ -15,7 +15,7 @@ from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from . import QEventLoop, QThread
 else:
@@ -46,14 +46,22 @@ class QEventLoopLocker(CuteMixin, metaclass=MetaCute):
 
   - Qt's 'QEventLoopLocker::~QEventLoopLocker()': the destructor: Python
     never removes a C++ QEventLoopLocker.
+  - Qt's 'QEventLoopLocker::QEventLoopLocker(QEventLoopLocker &&other)':
+    takes a type Python has no way to hand over yet.
+  - Qt's 'QEventLoopLocker &QEventLoopLocker::operator=(QEventLoopLocker
+    &&other)': assignment: Python binds a name and has no operator for it.
+  - Qt's 'void QEventLoopLocker::swap(QEventLoopLocker &other)': takes a type
+    Python has no way to hand over yet.
   - Qt's 'Type QEventLoopLocker::type() const': gives the enum
     'QEventLoopLocker::Type', whose class cannot be named here.
+  - Qt's 'void *QEventLoopLocker::pointer() const': gives 'void', which has
+    no cute class yet.
 
   What has no ritual
   ------------------
 
-  8 of the 13 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet; 2 forbidden; 1 declared and nowhere to be found; 1 a template.
+  4 of the 13 functions Qt declares: 2 forbidden; 1 a template; 1 leans on
+  'void QEventLoopLocker.
 
   What to expect
   --------------
@@ -66,6 +74,9 @@ class QEventLoopLocker(CuteMixin, metaclass=MetaCute):
     has it, and is passed on as nothing. Whether Qt can do with nothing there
     is as in C++.
   - Python never removes the C++ QEventLoopLocker.
+  - Each name of Qt's QEventLoopLocker that has no cute function yet,
+    'pointer', 'swap', 'type', 'visit', holds a function that raises
+    'NotImplementedError', and its docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -186,3 +197,47 @@ class QEventLoopLocker(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def pointer(*__, **_) -> Never:
+    """
+    Qt's 'void *QEventLoopLocker::pointer() const': gives 'void', which has
+    no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QEventLoopLocker.pointer' has no cute function yet. Qt's 'void "
+        "*QEventLoopLocker::pointer() const': gives 'void', which has no "
+        "cute class yet.")
+
+  @staticmethod
+  def swap(*__, **_) -> Never:
+    """
+    Qt's 'void QEventLoopLocker::swap(QEventLoopLocker &other)': takes a type
+    Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QEventLoopLocker.swap' has no cute function yet. Qt's 'void "
+        "QEventLoopLocker::swap(QEventLoopLocker &other)': takes a type "
+        "Python has no way to hand over yet.")
+
+  @staticmethod
+  def type(*__, **_) -> Never:
+    """
+    Qt's 'Type QEventLoopLocker::type() const': gives the enum
+    'QEventLoopLocker::Type', whose class cannot be named here.
+    """
+    raise NotImplementedError(
+        "'QEventLoopLocker.type' has no cute function yet. Qt's 'Type "
+        "QEventLoopLocker::type() const': gives the enum "
+        "'QEventLoopLocker::Type', whose class cannot be named here.")
+
+  @staticmethod
+  def visit(*__, **_) -> Never:
+    """
+    Qt's 'QEventLoopLocker::visit': a template: a pattern and no single
+    function.
+    """
+    raise NotImplementedError(
+        "'QEventLoopLocker.visit' has no cute function yet. Qt's "
+        "'QEventLoopLocker::visit': a template: a pattern and no single "
+        "function.")

@@ -22,7 +22,7 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   from ..QtCore import QAbstractItemModel, QEvent, QMetaObject, QMimeData
   from ..QtCore import QModelIndex, QPoint, QRect
   from ..QtGui import QDropEvent
-  from . import QListWidgetItem
+  from . import QListWidgetItem, QListWidgetPrivate
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -52,7 +52,7 @@ class QListWidget(QListView):
   -----------
 
   Every function of Qt's QListWidget that has a ritual and that Python can
-  call so far, 44 names in all: 'metaObject', 'tr', 'setSelectionModel',
+  call so far, 55 names in all: 'metaObject', 'tr', 'setSelectionModel',
   'item', 'row', 'insertItem', 'insertItems', 'addItem', 'addItems',
   'takeItem', 'count', 'currentItem', 'setCurrentItem', 'currentRow',
   'setCurrentRow', 'itemAt', 'visualItemRect', 'sortItems',
@@ -61,22 +61,29 @@ class QListWidget(QListView):
   'itemWidget', 'setItemWidget', 'removeItemWidget', 'selectedItems',
   'findItems', 'items', 'indexFromItem', 'itemFromIndex',
   'setSupportedDragActions', 'supportedDragActions', 'dropEvent',
-  'scrollToItem', 'clear', 'event', 'mimeTypes', 'mimeData', 'dropMimeData',
-  'supportedDropActions', 'setModel', 'sortOrder'. It can be made from
-  Python, in 1 way; see '__init__'.
+  'scrollToItem', 'clear', 'itemPressed', 'itemClicked', 'itemDoubleClicked',
+  'itemActivated', 'itemEntered', 'itemChanged', 'currentItemChanged',
+  'currentTextChanged', 'currentRowChanged', 'itemSelectionChanged', 'event',
+  'mimeTypes', 'mimeData', 'dropMimeData', 'supportedDropActions',
+  'setModel', 'sortOrder', 'd_func'. It can be made from Python, in 1 way;
+  see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QListWidget::qt_metacast(const char *a0)': one of Qt's own
+    inner workings.
+  - Qt's 'int QListWidget::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
   - Qt's 'QListWidget::~QListWidget()': the destructor: Python never removes
     a C++ QListWidget.
+  - Qt's 'const QListWidgetPrivate *QListWidget::d_func() const': takes in
+    Python what 'QListWidgetPrivate *QListWidget::d_func()' takes.
 
   What has no ritual
   ------------------
 
-  18 of the 69 functions Qt declares: 10 a signal; 4 takes or gives a type
-  that cannot be passed yet; 2 forbidden; 1 a template; 1 declared and
-  nowhere to be found.
+  4 of the 69 functions Qt declares: 2 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -1305,6 +1312,214 @@ class QListWidget(QListView):
     #  void QListWidget::clear()
     self.uglySide.call('ritual_ZN11QListWidget5clearEv')
 
+  @overload(QListWidgetItem)
+  @overload(NoneType)
+  def itemPressed(self, item: Optional[QListWidgetItem]) -> None:
+    """
+    Calls Qt's 'void QListWidget::itemPressed(QListWidgetItem *item)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlistwidget.html#itemPressed
+
+    Parameters
+    ----------
+
+    item : Optional[QListWidgetItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QListWidget::itemPressed(QListWidgetItem *item)
+    self.uglySide.call(
+        'ritual_ZN11QListWidget11itemPressedEP15QListWidgetItem',
+        self._addressOf(item),
+    )
+
+  @overload(QListWidgetItem)
+  @overload(NoneType)
+  def itemClicked(self, item: Optional[QListWidgetItem]) -> None:
+    """
+    Calls Qt's 'void QListWidget::itemClicked(QListWidgetItem *item)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlistwidget.html#itemClicked
+
+    Parameters
+    ----------
+
+    item : Optional[QListWidgetItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QListWidget::itemClicked(QListWidgetItem *item)
+    self.uglySide.call(
+        'ritual_ZN11QListWidget11itemClickedEP15QListWidgetItem',
+        self._addressOf(item),
+    )
+
+  @overload(QListWidgetItem)
+  @overload(NoneType)
+  def itemDoubleClicked(self, item: Optional[QListWidgetItem]) -> None:
+    """
+    Calls Qt's 'void QListWidget::itemDoubleClicked(QListWidgetItem *item)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlistwidget.html#itemDoubleClicked
+
+    Parameters
+    ----------
+
+    item : Optional[QListWidgetItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QListWidget::itemDoubleClicked(QListWidgetItem *item)
+    self.uglySide.call(
+        'ritual_ZN11QListWidget17itemDoubleClickedEP15QListWidgetItem',
+        self._addressOf(item),
+    )
+
+  @overload(QListWidgetItem)
+  @overload(NoneType)
+  def itemActivated(self, item: Optional[QListWidgetItem]) -> None:
+    """
+    Calls Qt's 'void QListWidget::itemActivated(QListWidgetItem *item)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlistwidget.html#itemActivated
+
+    Parameters
+    ----------
+
+    item : Optional[QListWidgetItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QListWidget::itemActivated(QListWidgetItem *item)
+    self.uglySide.call(
+        'ritual_ZN11QListWidget13itemActivatedEP15QListWidgetItem',
+        self._addressOf(item),
+    )
+
+  @overload(QListWidgetItem)
+  @overload(NoneType)
+  def itemEntered(self, item: Optional[QListWidgetItem]) -> None:
+    """
+    Calls Qt's 'void QListWidget::itemEntered(QListWidgetItem *item)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlistwidget.html#itemEntered
+
+    Parameters
+    ----------
+
+    item : Optional[QListWidgetItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QListWidget::itemEntered(QListWidgetItem *item)
+    self.uglySide.call(
+        'ritual_ZN11QListWidget11itemEnteredEP15QListWidgetItem',
+        self._addressOf(item),
+    )
+
+  @overload(QListWidgetItem)
+  @overload(NoneType)
+  def itemChanged(self, item: Optional[QListWidgetItem]) -> None:
+    """
+    Calls Qt's 'void QListWidget::itemChanged(QListWidgetItem *item)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlistwidget.html#itemChanged
+
+    Parameters
+    ----------
+
+    item : Optional[QListWidgetItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QListWidget::itemChanged(QListWidgetItem *item)
+    self.uglySide.call(
+        'ritual_ZN11QListWidget11itemChangedEP15QListWidgetItem',
+        self._addressOf(item),
+    )
+
+  @overload(QListWidgetItem, QListWidgetItem)
+  @overload(QListWidgetItem, NoneType)
+  @overload(NoneType, QListWidgetItem)
+  @overload(NoneType, NoneType)
+  def currentItemChanged(
+      self,
+      current: Optional[QListWidgetItem],
+      previous: Optional[QListWidgetItem],
+  ) -> None:
+    """
+    Calls Qt's 'void QListWidget::currentItemChanged(QListWidgetItem
+    *current, QListWidgetItem *previous)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qlistwidget.html#currentItemChanged
+
+    Parameters
+    ----------
+
+    current : Optional[QListWidgetItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    previous : Optional[QListWidgetItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QListWidget::currentItemChanged(QListWidgetItem *current,
+    #      QListWidgetItem *previous)
+    self.uglySide.call(
+        'ritual_ZN11QListWidget18currentItemChangedEP15QListWidgetItemS1_',
+        self._addressOf(current), self._addressOf(previous),
+    )
+
+  @overload(str)
+  def currentTextChanged(self, currentText: str) -> None:
+    """
+    Calls Qt's 'void QListWidget::currentTextChanged(const QString
+    &currentText)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qlistwidget.html#currentTextChanged
+
+    Parameters
+    ----------
+
+    currentText : str
+      Passed on as it is: a QString is made of it for the call.
+    """
+    #  void QListWidget::currentTextChanged(const QString &currentText)
+    self.uglySide.call(
+        'ritual_ZN11QListWidget18currentTextChangedERK7QString', currentText,
+    )
+
+  @overload(int)
+  def currentRowChanged(self, currentRow: int) -> None:
+    """
+    Calls Qt's 'void QListWidget::currentRowChanged(int currentRow)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlistwidget.html#currentRowChanged
+
+    Parameters
+    ----------
+
+    currentRow : int
+      Passed on as it is.
+    """
+    #  void QListWidget::currentRowChanged(int currentRow)
+    self.uglySide.call(
+        'ritual_ZN11QListWidget17currentRowChangedEi', currentRow,
+    )
+
+  def itemSelectionChanged(self) -> None:
+    """
+    Calls Qt's 'void QListWidget::itemSelectionChanged()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qlistwidget.html#itemSelectionChanged
+    """
+    #  void QListWidget::itemSelectionChanged()
+    self.uglySide.call('ritual_ZN11QListWidget20itemSelectionChangedEv')
+
   @overload(QEvent)
   @overload(NoneType)
   def event(self, e: Optional[QEvent]) -> bool:
@@ -1365,3 +1580,21 @@ class QListWidget(QListView):
     return self.uglySide.call(
         ritual, index, self._addressOf(data), action.value,
     )
+
+  def d_func(self) -> Optional[QListWidgetPrivate]:
+    """
+    Calls Qt's 'QListWidgetPrivate *QListWidget::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlistwidget.html#d_func
+
+    Returns
+    -------
+
+    Optional[QListWidgetPrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QListWidgetPrivate *QListWidget::d_func()
+    address = self.uglySide.call('ritual_ZN11QListWidget6d_funcEv')
+    from . import QListWidgetPrivate
+    return QListWidgetPrivate._cuteAt(address)

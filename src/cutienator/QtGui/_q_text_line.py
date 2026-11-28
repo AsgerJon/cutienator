@@ -21,13 +21,14 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
   from ..QtCore import QPointF, QRectF
-  from . import QGlyphRun, QPainter
+  from . import QGlyphRun, QPainter, QTextEngine
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
   QPainter = WAIT['QPainter']
   QPointF = WAIT['QPointF']
+  QTextEngine = WAIT['QTextEngine']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -52,8 +53,8 @@ class QTextLine(CuteMixin, metaclass=MetaCute):
   'naturalTextWidth', 'horizontalAdvance', 'naturalTextRect', 'cursorToX',
   'xToCursor', 'setLineWidth', 'setNumColumns', 'setPosition', 'position',
   'textStart', 'textLength', 'lineNumber', 'draw', 'glyphRuns',
-  'layout_helper', 'draw_internal'. It can be made from Python, in 1 way; see
-  '__init__'.
+  'layout_helper', 'draw_internal'. It can be made from Python, in 2 ways;
+  see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -62,12 +63,6 @@ class QTextLine(CuteMixin, metaclass=MetaCute):
     a number to change where it is.
   - Qt's 'QTextLine::~QTextLine()': the destructor: Python removes its C++
     QTextLine by it, and has no other use for it.
-
-  What has no ritual
-  ------------------
-
-  1 of the 33 functions Qt declares: 1 takes or gives a type that cannot be
-  passed yet.
 
   What to expect
   --------------
@@ -518,7 +513,8 @@ class QTextLine(CuteMixin, metaclass=MetaCute):
     """
     #  void QTextLine::setPosition(const QPointF &pos)
     self.uglySide.call(
-        'ritual_ZN9QTextLine11setPositionERK7QPointF', self._valueOf(pos),
+        'ritual_ZN9QTextLine11setPositionERK7QPointF',
+        self._valueOf(pos, 'QPointF'),
     )
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -544,6 +540,30 @@ class QTextLine(CuteMixin, metaclass=MetaCute):
     #  QTextLine::QTextLine()
     self._noteCreation(QTextLine, lambda: Rituals.call(
         'ritual_ZN9QTextLineC1Ev',
+    ))
+
+  @overload(int, QTextEngine)
+  @overload(int, NoneType)
+  def __init__(self, line: int, e: Optional[QTextEngine]) -> None:
+    """
+    Notes what was given, for Qt's 'QTextLine::QTextLine(int line,
+    QTextEngine *e)', which is called at the first use.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtextline.html#QTextLine
+
+    Parameters
+    ----------
+
+    line : int
+      Passed on as it is.
+
+    e : Optional[QTextEngine]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  QTextLine::QTextLine(int line, QTextEngine *e)
+    self._noteCreation(QTextLine, lambda: Rituals.call(
+        'ritual_ZN9QTextLineC1EiP11QTextEngine', line, self._addressOf(e),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -589,7 +609,7 @@ class QTextLine(CuteMixin, metaclass=MetaCute):
     #  void QTextLine::draw(QPainter *painter, const QPointF &position) const
     self.uglySide.call(
         'ritual_ZNK9QTextLine4drawEP8QPainterRK7QPointF',
-        self._addressOf(painter), self._valueOf(position),
+        self._addressOf(painter), self._valueOf(position, 'QPointF'),
     )
 
   @overload(int)
@@ -644,5 +664,6 @@ class QTextLine(CuteMixin, metaclass=MetaCute):
     self.uglySide.call(
         'ritual_ZNK9QTextLine13draw_internalEP8QPainterRK7QPointFPKN11QText'
         'Layout11FormatRangeE',
-        self._addressOf(p), self._valueOf(pos), self._addressOf(selection),
+        self._addressOf(p), self._valueOf(pos, 'QPointF'),
+        self._addressOf(selection),
     )

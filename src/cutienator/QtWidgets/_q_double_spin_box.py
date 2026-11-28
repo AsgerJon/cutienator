@@ -37,25 +37,35 @@ class QDoubleSpinBox(QAbstractSpinBox):
   -----------
 
   Every function of Qt's QDoubleSpinBox that has a ritual and that Python can
-  call so far, 22 names in all: 'metaObject', 'tr', 'value', 'prefix',
+  call so far, 24 names in all: 'metaObject', 'tr', 'value', 'prefix',
   'setPrefix', 'suffix', 'setSuffix', 'cleanText', 'singleStep',
   'setSingleStep', 'minimum', 'setMinimum', 'maximum', 'setMaximum',
   'setRange', 'stepType', 'setStepType', 'decimals', 'setDecimals',
-  'valueFromText', 'textFromValue', 'setValue'. It can be made from Python,
-  in 1 way; see '__init__'.
+  'valueFromText', 'textFromValue', 'setValue', 'valueChanged',
+  'textChanged'. It can be made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QDoubleSpinBox::qt_metacast(const char *a0)': one of Qt's own
+    inner workings.
+  - Qt's 'int QDoubleSpinBox::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
   - Qt's 'QDoubleSpinBox::~QDoubleSpinBox()': the destructor: Python never
     removes a C++ QDoubleSpinBox.
+  - Qt's 'QValidator::State QDoubleSpinBox::validate(QString &input, int
+    &pos) const': takes a type Python has no way to hand over yet.
+  - Qt's 'void QDoubleSpinBox::fixup(QString &str) const': takes a type
+    Python has no way to hand over yet.
+  - Qt's 'QDoubleSpinBoxPrivate *QDoubleSpinBox::d_func()': gives
+    'QDoubleSpinBoxPrivate', which has no cute class yet.
+  - Qt's 'const QDoubleSpinBoxPrivate *QDoubleSpinBox::d_func() const': gives
+    'QDoubleSpinBoxPrivate', which has no cute class yet.
 
   What has no ritual
   ------------------
 
-  12 of the 36 functions Qt declares: 6 takes or gives a type that cannot be
-  passed yet; 2 a signal; 2 forbidden; 1 a template; 1 declared and nowhere
-  to be found.
+  4 of the 36 functions Qt declares: 2 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -550,3 +560,37 @@ class QDoubleSpinBox(QAbstractSpinBox):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(float)
+  def valueChanged(self, a0: float) -> None:
+    """
+    Calls Qt's 'void QDoubleSpinBox::valueChanged(double a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qdoublespinbox.html#valueChanged
+
+    Parameters
+    ----------
+
+    a0 : float
+      Passed on as it is.
+    """
+    #  void QDoubleSpinBox::valueChanged(double a0)
+    self.uglySide.call('ritual_ZN14QDoubleSpinBox12valueChangedEd', a0)
+
+  @overload(str)
+  def textChanged(self, a0: str) -> None:
+    """
+    Calls Qt's 'void QDoubleSpinBox::textChanged(const QString &a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qdoublespinbox.html#textChanged
+
+    Parameters
+    ----------
+
+    a0 : str
+      Passed on as it is: a QString is made of it for the call.
+    """
+    #  void QDoubleSpinBox::textChanged(const QString &a0)
+    self.uglySide.call(
+        'ritual_ZN14QDoubleSpinBox11textChangedERK7QString', a0,
+    )

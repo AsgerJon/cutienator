@@ -20,7 +20,7 @@ from ..cute import WAIT
 from . import QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from ..QtCore import QMetaObject, QRect, QSize
   from ..QtGui import QFocusEvent, QKeyEvent, QMouseEvent, QPaintEvent
@@ -53,27 +53,31 @@ class QWellArray(QWidget):
   -----------
 
   Every function of Qt's QWellArray that has a ritual and that Python can
-  call so far, 30 names in all: 'metaObject', 'currentColumn', 'currentRow',
+  call so far, 32 names in all: 'metaObject', 'currentColumn', 'currentRow',
   'selectedColumn', 'selectedRow', 'setCurrent', 'setSelected', 'sizeHint',
   'cellWidth', 'cellHeight', 'rowAt', 'columnAt', 'rowY', 'columnX',
   'numRows', 'numCols', 'index', 'cellRect', 'gridSize', 'cellGeometry',
-  'updateCell', 'paintCell', 'paintCellContents', 'mousePressEvent',
-  'mouseReleaseEvent', 'keyPressEvent', 'focusInEvent', 'focusOutEvent',
-  'paintEvent', 'sendAccessibleChildFocusEvent'. None can be made from
-  Python: one comes out of a function of another class that gives one back.
+  'updateCell', 'selected', 'currentChanged', 'paintCell',
+  'paintCellContents', 'mousePressEvent', 'mouseReleaseEvent',
+  'keyPressEvent', 'focusInEvent', 'focusOutEvent', 'paintEvent',
+  'sendAccessibleChildFocusEvent'. None can be made from Python: one comes
+  out of a function of another class that gives one back.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QWellArray::qt_metacast(const char *a0)': one of Qt's own
+    inner workings.
+  - Qt's 'int QWellArray::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
   - Qt's 'QWellArray::~QWellArray()': the destructor: Python never removes a
     C++ QWellArray.
 
   What has no ritual
   ------------------
 
-  14 of the 45 functions Qt declares: 5 leans on 'QWellArray; 3 a signal; 2
-  takes or gives a type that cannot be passed yet; 2 forbidden; 1 a template;
-  1 declared and nowhere to be found.
+  7 of the 42 functions Qt declares: 2 not a gap; 2 forbidden; 2 leans on
+  'QWellArray; 1 the compiler refuses its ritual as it would be written here.
 
   What to expect
   --------------
@@ -88,6 +92,9 @@ class QWellArray(QWidget):
   - Qt tells when it has removed the C++ QWellArray. Every call on the cute
     object, and every use of it as an argument, then raises 'RuntimeError',
     and nothing reaches C++.
+  - Each name of Qt's QWellArray that has no cute function yet, '__init__',
+    'colorChanged', holds a function that raises 'NotImplementedError', and
+    its docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -424,6 +431,21 @@ class QWellArray(QWidget):
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  @staticmethod
+  def __init__(*__, **_) -> Never:
+    """
+    Qt's 'QWellArray::QWellArray(int rows, int cols, QWidget *parent)': leans
+    on 'QWellArray::qt_metacall(QMetaObject::Call, int, void**)', which Qt's
+    source does not mark for use from outside Qt and has no code for that
+    could be taken.
+    """
+    raise NotImplementedError(
+        "'QWellArray.__init__' has no cute function yet. Qt's "
+        "'QWellArray::QWellArray(int rows, int cols, QWidget *parent)': "
+        "leans on 'QWellArray::qt_metacall(QMetaObject::Call, int, "
+        "void**)', which Qt's source does not mark for use from outside Qt "
+        "and has no code for that could be taken.")
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -510,6 +532,44 @@ class QWellArray(QWidget):
     """
     #  void QWellArray::updateCell(int row, int column)
     self.uglySide.call('ritual_ZN10QWellArray10updateCellEii', row, column)
+
+  @overload(int, int)
+  def selected(self, row: int, col: int) -> None:
+    """
+    Calls Qt's 'void QWellArray::selected(int row, int col)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qwellarray.html#selected
+
+    Parameters
+    ----------
+
+    row : int
+      Passed on as it is.
+
+    col : int
+      Passed on as it is.
+    """
+    #  void QWellArray::selected(int row, int col)
+    self.uglySide.call('ritual_ZN10QWellArray8selectedEii', row, col)
+
+  @overload(int, int)
+  def currentChanged(self, row: int, col: int) -> None:
+    """
+    Calls Qt's 'void QWellArray::currentChanged(int row, int col)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qwellarray.html#currentChanged
+
+    Parameters
+    ----------
+
+    row : int
+      Passed on as it is.
+
+    col : int
+      Passed on as it is.
+    """
+    #  void QWellArray::currentChanged(int row, int col)
+    self.uglySide.call('ritual_ZN10QWellArray14currentChangedEii', row, col)
 
   @overload(QPainter, int, int, QRect)
   @overload(NoneType, int, int, QRect)
@@ -730,3 +790,16 @@ class QWellArray(QWidget):
     self.uglySide.call(
         'ritual_ZN10QWellArray29sendAccessibleChildFocusEventEv',
     )
+
+  @staticmethod
+  def colorChanged(*__, **_) -> Never:
+    """
+    Qt's 'void QWellArray::colorChanged(int index, QRgb color)': the compiler
+    refuses its ritual as it would be written here: redefinition of 'index'
+    with a different type: 'const int' vs 'int'.
+    """
+    raise NotImplementedError(
+        "'QWellArray.colorChanged' has no cute function yet. Qt's 'void "
+        "QWellArray::colorChanged(int index, QRgb color)': the compiler "
+        "refuses its ritual as it would be written here: redefinition of "
+        "'index' with a different type: 'const int' vs 'int'.")

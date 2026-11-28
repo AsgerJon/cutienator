@@ -50,28 +50,36 @@ class QTextBrowser(QTextEdit):
   -----------
 
   Every function of Qt's QTextBrowser that has a ritual and that Python can
-  call so far, 32 names in all: 'metaObject', 'tr', 'source', 'sourceType',
+  call so far, 38 names in all: 'metaObject', 'tr', 'source', 'sourceType',
   'searchPaths', 'setSearchPaths', 'loadResource', 'isBackwardAvailable',
   'isForwardAvailable', 'clearHistory', 'historyTitle', 'historyUrl',
   'backwardHistoryCount', 'forwardHistoryCount', 'openExternalLinks',
   'setOpenExternalLinks', 'openLinks', 'setOpenLinks', 'setSource',
-  'backward', 'forward', 'home', 'reload', 'event', 'keyPressEvent',
-  'mouseMoveEvent', 'mousePressEvent', 'mouseReleaseEvent', 'focusOutEvent',
+  'backward', 'forward', 'home', 'reload', 'backwardAvailable',
+  'forwardAvailable', 'historyChanged', 'sourceChanged', 'highlighted',
+  'anchorClicked', 'event', 'keyPressEvent', 'mouseMoveEvent',
+  'mousePressEvent', 'mouseReleaseEvent', 'focusOutEvent',
   'focusNextPrevChild', 'paintEvent', 'doSetSource'. It can be made from
   Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QTextBrowser::qt_metacast(const char *a0)': one of Qt's own
+    inner workings.
+  - Qt's 'int QTextBrowser::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
   - Qt's 'QTextBrowser::~QTextBrowser()': the destructor: Python never
     removes a C++ QTextBrowser.
+  - Qt's 'QTextBrowserPrivate *QTextBrowser::d_func()': gives
+    'QTextBrowserPrivate', which has no cute class yet.
+  - Qt's 'const QTextBrowserPrivate *QTextBrowser::d_func() const': gives
+    'QTextBrowserPrivate', which has no cute class yet.
 
   What has no ritual
   ------------------
 
-  14 of the 48 functions Qt declares: 6 a signal; 4 takes or gives a type
-  that cannot be passed yet; 2 forbidden; 1 a template; 1 declared and
-  nowhere to be found.
+  4 of the 48 functions Qt declares: 2 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -618,6 +626,102 @@ class QTextBrowser(QTextEdit):
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZN12QTextBrowser6reloadEv'
     self.uglySide.call(ritual)
+
+  @overload(bool)
+  def backwardAvailable(self, a0: bool) -> None:
+    """
+    Calls Qt's 'void QTextBrowser::backwardAvailable(bool a0)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qtextbrowser.html#backwardAvailable
+
+    Parameters
+    ----------
+
+    a0 : bool
+      Passed on as it is.
+    """
+    #  void QTextBrowser::backwardAvailable(bool a0)
+    self.uglySide.call('ritual_ZN12QTextBrowser17backwardAvailableEb', a0)
+
+  @overload(bool)
+  def forwardAvailable(self, a0: bool) -> None:
+    """
+    Calls Qt's 'void QTextBrowser::forwardAvailable(bool a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtextbrowser.html#forwardAvailable
+
+    Parameters
+    ----------
+
+    a0 : bool
+      Passed on as it is.
+    """
+    #  void QTextBrowser::forwardAvailable(bool a0)
+    self.uglySide.call('ritual_ZN12QTextBrowser16forwardAvailableEb', a0)
+
+  def historyChanged(self) -> None:
+    """
+    Calls Qt's 'void QTextBrowser::historyChanged()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtextbrowser.html#historyChanged
+    """
+    #  void QTextBrowser::historyChanged()
+    self.uglySide.call('ritual_ZN12QTextBrowser14historyChangedEv')
+
+  @overload(QUrl)
+  def sourceChanged(self, a0: QUrl) -> None:
+    """
+    Calls Qt's 'void QTextBrowser::sourceChanged(const QUrl &a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtextbrowser.html#sourceChanged
+
+    Parameters
+    ----------
+
+    a0 : QUrl
+      Passed on as a value: Qt reads the C++ QUrl, which stays Python's own.
+    """
+    #  void QTextBrowser::sourceChanged(const QUrl &a0)
+    self.uglySide.call(
+        'ritual_ZN12QTextBrowser13sourceChangedERK4QUrl', self._valueOf(a0),
+    )
+
+  @overload(QUrl)
+  def highlighted(self, a0: QUrl) -> None:
+    """
+    Calls Qt's 'void QTextBrowser::highlighted(const QUrl &a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtextbrowser.html#highlighted
+
+    Parameters
+    ----------
+
+    a0 : QUrl
+      Passed on as a value: Qt reads the C++ QUrl, which stays Python's own.
+    """
+    #  void QTextBrowser::highlighted(const QUrl &a0)
+    self.uglySide.call(
+        'ritual_ZN12QTextBrowser11highlightedERK4QUrl', self._valueOf(a0),
+    )
+
+  @overload(QUrl)
+  def anchorClicked(self, a0: QUrl) -> None:
+    """
+    Calls Qt's 'void QTextBrowser::anchorClicked(const QUrl &a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtextbrowser.html#anchorClicked
+
+    Parameters
+    ----------
+
+    a0 : QUrl
+      Passed on as a value: Qt reads the C++ QUrl, which stays Python's own.
+    """
+    #  void QTextBrowser::anchorClicked(const QUrl &a0)
+    self.uglySide.call(
+        'ritual_ZN12QTextBrowser13anchorClickedERK4QUrl', self._valueOf(a0),
+    )
 
   @overload(QEvent)
   @overload(NoneType)

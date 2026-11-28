@@ -17,7 +17,7 @@ from ..occult import Rituals
 from . import QIODeviceBase
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from . import QByteArray, QIODevice
 else:
@@ -57,12 +57,90 @@ class QDataStream(QIODeviceBase):
 
   - Qt's 'QDataStream::~QDataStream()': the destructor: Python never removes
     a C++ QDataStream.
+  - Qt's 'QDataStream &QDataStream::operator>>(char &i)': takes a type Python
+    has no way to hand over yet.
+  - Qt's 'QDataStream &QDataStream::operator>>(qint8 &i)': takes a number to
+    change where it is.
+  - Qt's 'QDataStream &QDataStream::operator>>(quint8 &i)': takes a number to
+    change where it is.
+  - Qt's 'QDataStream &QDataStream::operator>>(qint16 &i)': takes a number to
+    change where it is.
+  - Qt's 'QDataStream &QDataStream::operator>>(quint16 &i)': takes a number
+    to change where it is.
+  - Qt's 'QDataStream &QDataStream::operator>>(qint32 &i)': takes a number to
+    change where it is.
+  - Qt's 'QDataStream &QDataStream::operator>>(quint32 &i)': takes a number
+    to change where it is.
+  - Qt's 'QDataStream &QDataStream::operator>>(qint64 &i)': takes a number to
+    change where it is.
+  - Qt's 'QDataStream &QDataStream::operator>>(quint64 &i)': takes a number
+    to change where it is.
+  - Qt's 'QDataStream &QDataStream::operator>>(std::nullptr_t &ptr)': takes a
+    type Python has no way to hand over yet.
+  - Qt's 'QDataStream &QDataStream::operator>>(bool &i)': takes a number to
+    change where it is.
+  - Qt's 'QDataStream &QDataStream::operator>>(float &f)': takes a number to
+    change where it is.
+  - Qt's 'QDataStream &QDataStream::operator>>(double &f)': takes a number to
+    change where it is.
+  - Qt's 'QDataStream &QDataStream::operator>>(char16_t &c)': takes a number
+    to change where it is.
+  - Qt's 'QDataStream &QDataStream::operator>>(char32_t &c)': takes a number
+    to change where it is.
+  - Qt's 'QDataStream &QDataStream::operator<<(char i)': takes a single
+    letter as C has it.
+  - Qt's 'QDataStream &QDataStream::operator<<(qint8 i)': gives a type Python
+    has no way to take yet.
+  - Qt's 'QDataStream &QDataStream::operator<<(quint8 i)': gives a type
+    Python has no way to take yet.
+  - Qt's 'QDataStream &QDataStream::operator<<(qint16 i)': gives a type
+    Python has no way to take yet.
+  - Qt's 'QDataStream &QDataStream::operator<<(quint16 i)': gives a type
+    Python has no way to take yet.
+  - Qt's 'QDataStream &QDataStream::operator<<(qint32 i)': gives a type
+    Python has no way to take yet.
+  - Qt's 'QDataStream &QDataStream::operator<<(quint32 i)': gives a type
+    Python has no way to take yet.
+  - Qt's 'QDataStream &QDataStream::operator<<(qint64 i)': gives a type
+    Python has no way to take yet.
+  - Qt's 'QDataStream &QDataStream::operator<<(quint64 i)': gives a type
+    Python has no way to take yet.
+  - Qt's 'QDataStream &QDataStream::operator<<(std::nullptr_t a0)': an
+    operator Python has no name for.
+  - Qt's 'QDataStream &QDataStream::operator<<(float f)': gives a type Python
+    has no way to take yet.
+  - Qt's 'QDataStream &QDataStream::operator<<(double f)': gives a type
+    Python has no way to take yet.
+  - Qt's 'QDataStream &QDataStream::operator<<(const char *str)': gives a
+    type Python has no way to take yet.
+  - Qt's 'QDataStream &QDataStream::operator<<(char16_t c)': gives a type
+    Python has no way to take yet.
+  - Qt's 'QDataStream &QDataStream::operator<<(char32_t c)': gives a type
+    Python has no way to take yet.
+  - Qt's 'qint64 QDataStream::readRawData(char *a0, qint64 len)': names
+    'char', which has no cute class yet.
+  - Qt's 'QDataStream &QDataStream::writeBytes(const char *a0, qint64 len)':
+    gives a type Python has no way to take yet.
+  - Qt's 'qint64 QDataStream::readBlock(char *data, qint64 len)': names
+    'char', which has no cute class yet.
+  - Qt's 'qint64 QDataStream::readQSizeType(QDataStream &s)': takes a type
+    Python has no way to hand over yet.
+  - Qt's 'bool QDataStream::writeQSizeType(QDataStream &s, qint64 value)':
+    takes a type Python has no way to hand over yet.
+  - Qt's 'QDataStream &operator<<(QDataStream &out, const QString &str)': an
+    operator between other classes, written inside this one.
+  - Qt's 'QDataStream &operator>>(QDataStream &in, QString &str)': an
+    operator between other classes, written inside this one.
+  - Qt's 'QDataStream &operator<<(QDataStream &out, const QByteArray &ba)':
+    an operator between other classes, written inside this one.
+  - Qt's 'QDataStream &operator>>(QDataStream &in, QByteArray &ba)': an
+    operator between other classes, written inside this one.
 
   What has no ritual
   ------------------
 
-  48 of the 73 functions Qt declares: 42 takes or gives a type that cannot be
-  passed yet; 2 declared and nowhere to be found; 2 a template; 2 forbidden.
+  9 of the 73 functions Qt declares: 3 not a gap; 3 takes or gives a type
+  that cannot be passed yet; 2 forbidden; 1 a template.
 
   What to expect
   --------------
@@ -75,6 +153,10 @@ class QDataStream(QIODeviceBase):
     has it, and is passed on as nothing. Whether Qt can do with nothing there
     is as in C++.
   - Python never removes the C++ QDataStream.
+  - Each name of Qt's QDataStream that has no cute function yet, 'readBlock',
+    'readBytes', 'readQSizeType', 'readRawData', 'writeBytes',
+    'writeQSizeType', holds a function that raises 'NotImplementedError', and
+    its docstring says why.
   """
 
   #  The enums Qt writes inside QDataStream, each a class in here as in C++,
@@ -601,3 +683,73 @@ class QDataStream(QIODeviceBase):
     """
     #  void QDataStream::abortTransaction()
     self.uglySide.call('ritual_ZN11QDataStream16abortTransactionEv')
+
+  @staticmethod
+  def readBlock(*__, **_) -> Never:
+    """
+    Qt's 'qint64 QDataStream::readBlock(char *data, qint64 len)': names
+    'char', which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QDataStream.readBlock' has no cute function yet. Qt's 'qint64 "
+        "QDataStream::readBlock(char *data, qint64 len)': names 'char', "
+        "which has no cute class yet.")
+
+  @staticmethod
+  def readBytes(*__, **_) -> Never:
+    """
+    - Qt's 'QDataStream &QDataStream::readBytes(char *&a0, uint &len)': takes
+      or gives a type that cannot be passed yet: char *&.
+    - Qt's 'QDataStream &QDataStream::readBytes(char *&a0, qint64 &len)':
+      takes or gives a type that cannot be passed yet: char *&.
+    """
+    raise NotImplementedError(
+        "'QDataStream.readBytes' has no cute function yet. Qt's "
+        "'QDataStream &QDataStream::readBytes(char *&a0, uint &len)': takes "
+        "or gives a type that cannot be passed yet: char *&. Qt's "
+        "'QDataStream &QDataStream::readBytes(char *&a0, qint64 &len)': "
+        "takes or gives a type that cannot be passed yet: char *&.")
+
+  @staticmethod
+  def readQSizeType(*__, **_) -> Never:
+    """
+    Qt's 'qint64 QDataStream::readQSizeType(QDataStream &s)': takes a type
+    Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QDataStream.readQSizeType' has no cute function yet. Qt's 'qint64 "
+        "QDataStream::readQSizeType(QDataStream &s)': takes a type Python "
+        "has no way to hand over yet.")
+
+  @staticmethod
+  def readRawData(*__, **_) -> Never:
+    """
+    Qt's 'qint64 QDataStream::readRawData(char *a0, qint64 len)': names
+    'char', which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QDataStream.readRawData' has no cute function yet. Qt's 'qint64 "
+        "QDataStream::readRawData(char *a0, qint64 len)': names 'char', "
+        "which has no cute class yet.")
+
+  @staticmethod
+  def writeBytes(*__, **_) -> Never:
+    """
+    Qt's 'QDataStream &QDataStream::writeBytes(const char *a0, qint64 len)':
+    gives a type Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QDataStream.writeBytes' has no cute function yet. Qt's "
+        "'QDataStream &QDataStream::writeBytes(const char *a0, qint64 "
+        "len)': gives a type Python has no way to take yet.")
+
+  @staticmethod
+  def writeQSizeType(*__, **_) -> Never:
+    """
+    Qt's 'bool QDataStream::writeQSizeType(QDataStream &s, qint64 value)':
+    takes a type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QDataStream.writeQSizeType' has no cute function yet. Qt's 'bool "
+        "QDataStream::writeQSizeType(QDataStream &s, qint64 value)': takes "
+        "a type Python has no way to hand over yet.")

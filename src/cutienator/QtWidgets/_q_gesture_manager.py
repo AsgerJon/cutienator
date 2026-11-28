@@ -21,7 +21,7 @@ from ..cute import CuteNum, WAIT
 from ..QtCore import Qt, QObject
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from ..QtCore import QMetaObject
   from . import QGesture, QGestureRecognizer
@@ -57,16 +57,23 @@ class QGestureManager(QObject):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QGestureManager::qt_metacast(const char *a0)': one of Qt's
+    own inner workings.
+  - Qt's 'int QGestureManager::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
   - Qt's 'QGestureManager::~QGestureManager()': the destructor: Python never
     removes a C++ QGestureManager.
+  - Qt's 'void QGestureManager::getGestureTargets(const QSet<QGesture *>
+    &gestures, QHash<QWidget *, QList<QGesture *>> *conflicts, QHash<QWidget
+    *, QList<QGesture *>> *normal)': takes a type Python has no way to hand
+    over yet.
 
   What has no ritual
   ------------------
 
-  16 of the 23 functions Qt declares: 5 takes or gives a type that cannot be
-  passed yet; 5 leans on 'QGestureManager; 3 Qt's library has no name for it,
-  and its code in Qt's source does not compile apart from its file; 1 a
-  template; 1 declared and nowhere to be found; 1 leans on 'QWidgetWindow.
+  13 of the 23 functions Qt declares: 5 Qt's library has no name for it, and
+  its code in Qt's source does not compile apart from its file; 5 leans on
+  'QGestureManager; 2 not a gap; 1 leans on 'QWidgetWindow.
 
   What to expect
   --------------
@@ -82,6 +89,11 @@ class QGestureManager(QObject):
   - Qt tells when it has removed the C++ QGestureManager. Every call on the
     cute object, and every use of it as an argument, then raises
     'RuntimeError', and nothing reaches C++.
+  - Each name of Qt's QGestureManager that has no cute function yet,
+    '__init__', 'cancelGesturesForChildren', 'deliverEvents', 'filterEvent',
+    'filterEventThroughContexts', 'gesturePending', 'getGestureTargets',
+    'getState', 'instance', holds a function that raises
+    'NotImplementedError', and its docstring says why.
   """
 
   #  The enums Qt writes inside QGestureManager, each a class in here as in
@@ -159,6 +171,20 @@ class QGestureManager(QObject):
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  @staticmethod
+  def __init__(*__, **_) -> Never:
+    """
+    Qt's 'QGestureManager::QGestureManager(QObject *parent)': Qt's library
+    has no name for it, and its code in Qt's source does not compile apart
+    from its file: use of undeclared identifier 'panTouchPoints'.
+    """
+    raise NotImplementedError(
+        "'QGestureManager.__init__' has no cute function yet. Qt's "
+        "'QGestureManager::QGestureManager(QObject *parent)': Qt's library "
+        "has no name for it, and its code in Qt's source does not compile "
+        "apart from its file: use of undeclared identifier 'panTouchPoints'."
+    )
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -214,7 +240,7 @@ class QGestureManager(QObject):
     return Qt.GestureType(self.uglySide.call(
         'ritual_ZN15QGestureManager25registerGestureRecognizerEP18QGestureR'
         'ecognizer',
-        self._addressOf(recognizer),
+        self._addressOf(recognizer, 'QGestureRecognizer'),
     ))
 
   @overload(Qt.GestureType)
@@ -320,3 +346,149 @@ class QGestureManager(QObject):
         'QGesture',
         self._addressOf(gesture),
     )
+
+  @staticmethod
+  def cancelGesturesForChildren(*__, **_) -> Never:
+    """
+    Qt's 'void QGestureManager::cancelGesturesForChildren(QGesture
+    *originatingGesture)': Qt's library has no name for it, and its code in
+    Qt's source does not compile apart from its file: unknown type name
+    'lcGestureManager'; did you mean 'QGestureManager'?.
+    """
+    raise NotImplementedError(
+        "'QGestureManager.cancelGesturesForChildren' has no cute function "
+        "yet. Qt's 'void "
+        "QGestureManager::cancelGesturesForChildren(QGesture "
+        "*originatingGesture)': Qt's library has no name for it, and its "
+        "code in Qt's source does not compile apart from its file: unknown "
+        "type name 'lcGestureManager'; did you mean 'QGestureManager'?.")
+
+  @staticmethod
+  def deliverEvents(*__, **_) -> Never:
+    """
+    Qt's 'void QGestureManager::deliverEvents(const QSet<QGesture *>
+    &gestures, QSet<QGesture *> *undeliveredGestures)': Qt's library has no
+    name for it, and its code in Qt's source does not compile apart from its
+    file: unknown type name 'lcGestureManager'; did you mean
+    'QGestureManager'?.
+    """
+    raise NotImplementedError(
+        "'QGestureManager.deliverEvents' has no cute function yet. Qt's "
+        "'void QGestureManager::deliverEvents(const QSet<QGesture *> "
+        "&gestures, QSet<QGesture *> *undeliveredGestures)': Qt's library "
+        "has no name for it, and its code in Qt's source does not compile "
+        "apart from its file: unknown type name 'lcGestureManager'; did you "
+        "mean 'QGestureManager'?.")
+
+  @staticmethod
+  def filterEvent(*__, **_) -> Never:
+    """
+    - Qt's 'bool QGestureManager::filterEvent(QObject *receiver, QEvent
+      *event)': leans on 'QWidgetWindow::staticMetaObject', which Qt's source
+      does not mark for use from outside Qt and has no code for that could be
+      taken.
+    - Qt's 'bool QGestureManager::filterEvent(QWidget *receiver, QEvent
+      *event)': leans on
+      'QGestureManager::filterEventThroughContexts(QMultiMap<QObject*,
+      Qt::GestureType> const&, QEvent*)', which Qt's source does not mark for
+      use from outside Qt and has no code for that could be taken.
+    - Qt's 'bool QGestureManager::filterEvent(QGraphicsObject *receiver,
+      QEvent *event)': leans on
+      'QGestureManager::filterEventThroughContexts(QMultiMap<QObject*,
+      Qt::GestureType> const&, QEvent*)', which Qt's source does not mark for
+      use from outside Qt and has no code for that could be taken.
+    """
+    raise NotImplementedError(
+        "'QGestureManager.filterEvent' has no cute function yet. Qt's 'bool "
+        "QGestureManager::filterEvent(QObject *receiver, QEvent *event)': "
+        "leans on 'QWidgetWindow::staticMetaObject', which Qt's source does "
+        "not mark for use from outside Qt and has no code for that could be "
+        "taken. Qt's 'bool QGestureManager::filterEvent(QWidget *receiver, "
+        "QEvent *event)': leans on "
+        "'QGestureManager::filterEventThroughContexts(QMultiMap<QObject*, "
+        "Qt::GestureType> const&, QEvent*)', which Qt's source does not "
+        "mark for use from outside Qt and has no code for that could be "
+        "taken. Qt's 'bool QGestureManager::filterEvent(QGraphicsObject "
+        "*receiver, QEvent *event)': leans on "
+        "'QGestureManager::filterEventThroughContexts(QMultiMap<QObject*, "
+        "Qt::GestureType> const&, QEvent*)', which Qt's source does not "
+        "mark for use from outside Qt and has no code for that could be "
+        "taken.")
+
+  @staticmethod
+  def filterEventThroughContexts(*__, **_) -> Never:
+    """
+    Qt's 'bool QGestureManager::filterEventThroughContexts(const
+    QMultiMap<QObject *, Qt::GestureType> &contexts, QEvent *event)': Qt's
+    library has no name for it, and its code in Qt's source does not compile
+    apart from its file: unknown type name 'lcGestureManager'; did you mean
+    'QGestureManager'?.
+    """
+    raise NotImplementedError(
+        "'QGestureManager.filterEventThroughContexts' has no cute function "
+        "yet. Qt's 'bool QGestureManager::filterEventThroughContexts(const "
+        "QMultiMap<QObject *, Qt::GestureType> &contexts, QEvent *event)': "
+        "Qt's library has no name for it, and its code in Qt's source does "
+        "not compile apart from its file: unknown type name "
+        "'lcGestureManager'; did you mean 'QGestureManager'?.")
+
+  @staticmethod
+  def gesturePending(*__, **_) -> Never:
+    """
+    Qt's 'bool QGestureManager::gesturePending(QObject *o)': leans on
+    'QGestureManager::QGestureManager(QObject*)', which Qt's source does not
+    mark for use from outside Qt and has no code for that could be taken.
+    """
+    raise NotImplementedError(
+        "'QGestureManager.gesturePending' has no cute function yet. Qt's "
+        "'bool QGestureManager::gesturePending(QObject *o)': leans on "
+        "'QGestureManager::QGestureManager(QObject*)', which Qt's source "
+        "does not mark for use from outside Qt and has no code for that "
+        "could be taken.")
+
+  @staticmethod
+  def getGestureTargets(*__, **_) -> Never:
+    """
+    Qt's 'void QGestureManager::getGestureTargets(const QSet<QGesture *>
+    &gestures, QHash<QWidget *, QList<QGesture *>> *conflicts, QHash<QWidget
+    *, QList<QGesture *>> *normal)': takes a type Python has no way to hand
+    over yet.
+    """
+    raise NotImplementedError(
+        "'QGestureManager.getGestureTargets' has no cute function yet. Qt's "
+        "'void QGestureManager::getGestureTargets(const QSet<QGesture *> "
+        "&gestures, QHash<QWidget *, QList<QGesture *>> *conflicts, "
+        "QHash<QWidget *, QList<QGesture *>> *normal)': takes a type Python "
+        "has no way to hand over yet.")
+
+  @staticmethod
+  def getState(*__, **_) -> Never:
+    """
+    Qt's 'QGesture *QGestureManager::getState(QObject *widget,
+    QGestureRecognizer *recognizer, Qt::GestureType gesture)': Qt's library
+    has no name for it, and its code in Qt's source does not compile apart
+    from its file: use of undeclared identifier 'lcGestureManager'; did you
+    mean 'QGestureManager'?.
+    """
+    raise NotImplementedError(
+        "'QGestureManager.getState' has no cute function yet. Qt's "
+        "'QGesture *QGestureManager::getState(QObject *widget, "
+        "QGestureRecognizer *recognizer, Qt::GestureType gesture)': Qt's "
+        "library has no name for it, and its code in Qt's source does not "
+        "compile apart from its file: use of undeclared identifier "
+        "'lcGestureManager'; did you mean 'QGestureManager'?.")
+
+  @staticmethod
+  def instance(*__, **_) -> Never:
+    """
+    Qt's 'QGestureManager *QGestureManager::instance(InstanceCreation ic)':
+    leans on 'QGestureManager::QGestureManager(QObject*)', which Qt's source
+    does not mark for use from outside Qt and has no code for that could be
+    taken.
+    """
+    raise NotImplementedError(
+        "'QGestureManager.instance' has no cute function yet. Qt's "
+        "'QGestureManager *QGestureManager::instance(InstanceCreation ic)': "
+        "leans on 'QGestureManager::QGestureManager(QObject*)', which Qt's "
+        "source does not mark for use from outside Qt and has no code for "
+        "that could be taken.")

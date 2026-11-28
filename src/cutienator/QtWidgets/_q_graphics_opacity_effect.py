@@ -21,6 +21,7 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
 
   from ..QtCore import QMetaObject
   from ..QtGui import QBrush, QPainter
+  from . import QGraphicsOpacityEffectPrivate
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -45,22 +46,28 @@ class QGraphicsOpacityEffect(QGraphicsEffect):
   -----------
 
   Every function of Qt's QGraphicsOpacityEffect that has a ritual and that
-  Python can call so far, 7 names in all: 'metaObject', 'tr', 'opacity',
-  'opacityMask', 'setOpacity', 'setOpacityMask', 'draw'. It can be made from
-  Python, in 1 way; see '__init__'.
+  Python can call so far, 10 names in all: 'metaObject', 'tr', 'opacity',
+  'opacityMask', 'setOpacity', 'setOpacityMask', 'opacityChanged',
+  'opacityMaskChanged', 'draw', 'd_func'. It can be made from Python, in 1
+  way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QGraphicsOpacityEffect::qt_metacast(const char *a0)': one of
+    Qt's own inner workings.
+  - Qt's 'int QGraphicsOpacityEffect::qt_metacall(QMetaObject::Call a0, int
+    a1, void **a2)': one of Qt's own inner workings.
   - Qt's 'QGraphicsOpacityEffect::~QGraphicsOpacityEffect()': the destructor:
     Python never removes a C++ QGraphicsOpacityEffect.
+  - Qt's 'const QGraphicsOpacityEffectPrivate
+    *QGraphicsOpacityEffect::d_func() const': takes in Python what
+    'QGraphicsOpacityEffectPrivate *QGraphicsOpacityEffect::d_func()' takes.
 
   What has no ritual
   ------------------
 
-  10 of the 19 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet; 2 a signal; 2 forbidden; 1 a template; 1 declared and nowhere
-  to be found.
+  4 of the 19 functions Qt declares: 2 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -305,6 +312,47 @@ class QGraphicsOpacityEffect(QGraphicsEffect):
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  @overload(float)
+  def opacityChanged(self, opacity: float) -> None:
+    """
+    Calls Qt's 'void QGraphicsOpacityEffect::opacityChanged(qreal opacity)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicsopacityeffect.html#opacityChanged
+
+    Parameters
+    ----------
+
+    opacity : float
+      Passed on as it is.
+    """
+    #  void QGraphicsOpacityEffect::opacityChanged(qreal opacity)
+    self.uglySide.call(
+        'ritual_ZN22QGraphicsOpacityEffect14opacityChangedEd', opacity,
+    )
+
+  @overload(QBrush)
+  def opacityMaskChanged(self, mask: QBrush) -> None:
+    """
+    Calls Qt's 'void QGraphicsOpacityEffect::opacityMaskChanged(const QBrush
+    &mask)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicsopacityeffect.html#opacityMaskChanged
+
+    Parameters
+    ----------
+
+    mask : QBrush
+      Passed on as a value: Qt reads the C++ QBrush, which stays Python's
+      own.
+    """
+    #  void QGraphicsOpacityEffect::opacityMaskChanged(const QBrush &mask)
+    self.uglySide.call(
+        'ritual_ZN22QGraphicsOpacityEffect18opacityMaskChangedERK6QBrush',
+        self._valueOf(mask),
+    )
+
   @overload(QPainter)
   @overload(NoneType)
   def draw(self, painter: Optional[QPainter]) -> None:
@@ -325,3 +373,24 @@ class QGraphicsOpacityEffect(QGraphicsEffect):
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZN22QGraphicsOpacityEffect4drawEP8QPainter'
     self.uglySide.call(ritual, self._addressOf(painter))
+
+  def d_func(self) -> Optional[QGraphicsOpacityEffectPrivate]:
+    """
+    Calls Qt's 'QGraphicsOpacityEffectPrivate
+    *QGraphicsOpacityEffect::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsopacityeffect.html#d_func
+
+    Returns
+    -------
+
+    Optional[QGraphicsOpacityEffectPrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QGraphicsOpacityEffectPrivate *QGraphicsOpacityEffect::d_func()
+    address = self.uglySide.call(
+        'ritual_ZN22QGraphicsOpacityEffect6d_funcEv',
+    )
+    from . import QGraphicsOpacityEffectPrivate
+    return QGraphicsOpacityEffectPrivate._cuteAt(address)

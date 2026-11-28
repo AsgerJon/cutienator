@@ -18,7 +18,7 @@ from . import QObject, QThread
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from . import QDeadlineTimer, QMetaObject, QRunnable
+  from . import QDeadlineTimer, QMetaObject, QRunnable, QThreadPoolPrivate
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -43,9 +43,9 @@ class QThreadPool(QObject):
   -----------
 
   Every function of Qt's QThreadPool that has a ritual and that Python can
-  call so far, 23 names in all: 'metaObject', 'tr', 'globalInstance',
-  'start', 'tryStart', 'startOnReservedThread', 'expiryTimeout',
-  'setExpiryTimeout', 'maxThreadCount', 'setMaxThreadCount',
+  call so far, 24 names in all: 'metaObject', 'tr', 'd_func',
+  'globalInstance', 'start', 'tryStart', 'startOnReservedThread',
+  'expiryTimeout', 'setExpiryTimeout', 'maxThreadCount', 'setMaxThreadCount',
   'activeThreadCount', 'setStackSize', 'stackSize', 'setThreadPriority',
   'threadPriority', 'reserveThread', 'releaseThread', 'setServiceLevel',
   'serviceLevel', 'waitForDone', 'clear', 'contains', 'tryTake'. It can be
@@ -54,14 +54,19 @@ class QThreadPool(QObject):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QThreadPool::qt_metacast(const char *a0)': one of Qt's own
+    inner workings.
+  - Qt's 'int QThreadPool::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
+  - Qt's 'const QThreadPoolPrivate *QThreadPool::d_func() const': takes in
+    Python what 'QThreadPoolPrivate *QThreadPool::d_func()' takes.
   - Qt's 'QThreadPool::~QThreadPool()': the destructor: Python never removes
     a C++ QThreadPool.
 
   What has no ritual
   ------------------
 
-  9 of the 35 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet; 4 a template; 1 declared and nowhere to be found.
+  5 of the 35 functions Qt declares: 3 a template; 2 not a gap.
 
   What to expect
   --------------
@@ -435,6 +440,24 @@ class QThreadPool(QObject):
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  def d_func(self) -> Optional[QThreadPoolPrivate]:
+    """
+    Calls Qt's 'QThreadPoolPrivate *QThreadPool::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qthreadpool.html#d_func
+
+    Returns
+    -------
+
+    Optional[QThreadPoolPrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QThreadPoolPrivate *QThreadPool::d_func()
+    address = self.uglySide.call('ritual_ZN11QThreadPool6d_funcEv')
+    from . import QThreadPoolPrivate
+    return QThreadPoolPrivate._cuteAt(address)
+
   @overload(QRunnable)
   @overload(NoneType)
   @overload(QRunnable, int)
@@ -458,7 +481,7 @@ class QThreadPool(QObject):
     #  void QThreadPool::start(QRunnable *runnable, int priority)
     self.uglySide.call(
         'ritual_ZN11QThreadPool5startEP9QRunnablei',
-        self._addressOf(runnable), priority,
+        self._addressOf(runnable, 'QRunnable'), priority,
     )
 
   @overload(QRunnable)
@@ -479,7 +502,7 @@ class QThreadPool(QObject):
     #  bool QThreadPool::tryStart(QRunnable *runnable)
     return self.uglySide.call(
         'ritual_ZN11QThreadPool8tryStartEP9QRunnable',
-        self._addressOf(runnable),
+        self._addressOf(runnable, 'QRunnable'),
     )
 
   @overload(QRunnable)
@@ -502,7 +525,7 @@ class QThreadPool(QObject):
     #  void QThreadPool::startOnReservedThread(QRunnable *runnable)
     self.uglySide.call(
         'ritual_ZN11QThreadPool21startOnReservedThreadEP9QRunnable',
-        self._addressOf(runnable),
+        self._addressOf(runnable, 'QRunnable'),
     )
 
   def reserveThread(self) -> None:
@@ -586,5 +609,5 @@ class QThreadPool(QObject):
     #  bool QThreadPool::tryTake(QRunnable *runnable)
     return self.uglySide.call(
         'ritual_ZN11QThreadPool7tryTakeEP9QRunnable',
-        self._addressOf(runnable),
+        self._addressOf(runnable, 'QRunnable'),
     )

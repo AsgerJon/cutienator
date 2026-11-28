@@ -15,7 +15,7 @@ from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from . import QSemaphore
 else:
@@ -44,14 +44,17 @@ class QSemaphoreReleaser(CuteMixin, metaclass=MetaCute):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'QSemaphoreReleaser::QSemaphoreReleaser(QSemaphore &sem, int n)':
+    takes a type Python has no way to hand over yet.
+  - Qt's 'QSemaphoreReleaser::QSemaphoreReleaser(QSemaphoreReleaser
+    &&other)': takes a type Python has no way to hand over yet.
+  - Qt's 'QSemaphoreReleaser
+    &QSemaphoreReleaser::operator=(QSemaphoreReleaser &&other)': assignment:
+    Python binds a name and has no operator for it.
   - Qt's 'QSemaphoreReleaser::~QSemaphoreReleaser()': the destructor: Python
     never removes a C++ QSemaphoreReleaser.
-
-  What has no ritual
-  ------------------
-
-  4 of the 9 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet.
+  - Qt's 'void QSemaphoreReleaser::swap(QSemaphoreReleaser &other)': takes a
+    type Python has no way to hand over yet.
 
   What to expect
   --------------
@@ -64,6 +67,9 @@ class QSemaphoreReleaser(CuteMixin, metaclass=MetaCute):
     has it, and is passed on as nothing. Whether Qt can do with nothing there
     is as in C++.
   - Python never removes the C++ QSemaphoreReleaser.
+  - Each name of Qt's QSemaphoreReleaser that has no cute function yet,
+    'swap', holds a function that raises 'NotImplementedError', and its
+    docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -207,3 +213,14 @@ class QSemaphoreReleaser(CuteMixin, metaclass=MetaCute):
     address = self.uglySide.call('ritual_ZN18QSemaphoreReleaser6cancelEv')
     from . import QSemaphore
     return QSemaphore._cuteAt(address)
+
+  @staticmethod
+  def swap(*__, **_) -> Never:
+    """
+    Qt's 'void QSemaphoreReleaser::swap(QSemaphoreReleaser &other)': takes a
+    type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QSemaphoreReleaser.swap' has no cute function yet. Qt's 'void "
+        "QSemaphoreReleaser::swap(QSemaphoreReleaser &other)': takes a type "
+        "Python has no way to hand over yet.")

@@ -16,6 +16,8 @@ from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Never
+
   from ..QtCore import QUrl
   from . import QColorSpace
 else:
@@ -47,14 +49,17 @@ class QPdfOutputIntent(CuteMixin, metaclass=MetaCute):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'QPdfOutputIntent::QPdfOutputIntent(QPdfOutputIntent &&other)':
+    takes a type Python has no way to hand over yet.
+  - Qt's 'QPdfOutputIntent &QPdfOutputIntent::operator=(const
+    QPdfOutputIntent &other)': assignment: Python binds a name and has no
+    operator for it.
+  - Qt's 'QPdfOutputIntent &QPdfOutputIntent::operator=(QPdfOutputIntent
+    &&other)': assignment: Python binds a name and has no operator for it.
   - Qt's 'QPdfOutputIntent::~QPdfOutputIntent()': the destructor: Python
     removes its C++ QPdfOutputIntent by it, and has no other use for it.
-
-  What has no ritual
-  ------------------
-
-  4 of the 15 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet.
+  - Qt's 'void QPdfOutputIntent::swap(QPdfOutputIntent &other)': takes a type
+    Python has no way to hand over yet.
 
   What to expect
   --------------
@@ -68,6 +73,9 @@ class QPdfOutputIntent(CuteMixin, metaclass=MetaCute):
     is as in C++.
   - A function giving a QPdfOutputIntent back gives a copy the ritual made
     for Python, in a new cute QPdfOutputIntent.
+  - Each name of Qt's QPdfOutputIntent that has no cute function yet, 'swap',
+    holds a function that raises 'NotImplementedError', and its docstring
+    says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -330,3 +338,14 @@ class QPdfOutputIntent(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def swap(*__, **_) -> Never:
+    """
+    Qt's 'void QPdfOutputIntent::swap(QPdfOutputIntent &other)': takes a type
+    Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QPdfOutputIntent.swap' has no cute function yet. Qt's 'void "
+        "QPdfOutputIntent::swap(QPdfOutputIntent &other)': takes a type "
+        "Python has no way to hand over yet.")

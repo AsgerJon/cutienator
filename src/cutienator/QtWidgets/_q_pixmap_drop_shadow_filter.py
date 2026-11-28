@@ -61,14 +61,22 @@ class QPixmapDropShadowFilter(QPixmapFilter):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QPixmapDropShadowFilter::qt_metacast(const char *a0)': one of
+    Qt's own inner workings.
+  - Qt's 'int QPixmapDropShadowFilter::qt_metacall(QMetaObject::Call a0, int
+    a1, void **a2)': one of Qt's own inner workings.
+  - Qt's 'QPixmapDropShadowFilterPrivate *QPixmapDropShadowFilter::d_func()':
+    gives 'QPixmapDropShadowFilterPrivate', which has no cute class yet.
+  - Qt's 'const QPixmapDropShadowFilterPrivate
+    *QPixmapDropShadowFilter::d_func() const': gives
+    'QPixmapDropShadowFilterPrivate', which has no cute class yet.
   - Qt's 'QPixmapDropShadowFilter::~QPixmapDropShadowFilter()': the
     destructor: Python never removes a C++ QPixmapDropShadowFilter.
 
   What has no ritual
   ------------------
 
-  6 of the 19 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet; 1 a template; 1 declared and nowhere to be found.
+  2 of the 19 functions Qt declares: 2 not a gap.
 
   What to expect
   --------------
@@ -328,7 +336,7 @@ class QPixmapDropShadowFilter(QPixmapFilter):
     #  void QPixmapDropShadowFilter::setOffset(const QPointF &offset)
     self.uglySide.call(
         'ritual_ZN23QPixmapDropShadowFilter9setOffsetERK7QPointF',
-        self._valueOf(offset),
+        self._valueOf(offset, 'QPointF'),
     )
 
   @overload(float, float)
@@ -460,6 +468,6 @@ class QPixmapDropShadowFilter(QPixmapFilter):
           'FRK7QPixmapRK6QRectF')
     self.uglySide.call(
         ritual,
-        self._addressOf(p), self._valueOf(pos), self._valueOf(px),
+        self._addressOf(p), self._valueOf(pos, 'QPointF'), self._valueOf(px),
         self._valueOf(src),
     )

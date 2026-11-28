@@ -91,7 +91,9 @@ class QFactoryInterface(CuteMixin, metaclass=MetaCute):
       A new cute list around the copy Qt gave back. Python owns it.
     """
     #  QStringList QFactoryInterface::keys() const
-    address = self.uglySide.call('ritual_ZNK17QFactoryInterface4keysEv')
+    address = self._callAs(
+        'QFactoryInterface', 'ritual_ZNK17QFactoryInterface4keysEv',
+    )
     return QStringList._cuteOwning(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

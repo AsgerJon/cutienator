@@ -15,11 +15,11 @@ from worktoy.keenum import Kee
 
 from ..cute import CuteMixin, CuteNum, WAIT
 from ..occult import Rituals
-from ..QtCore import Qt, QStringList
+from ..QtCore import Qt, QList, QMap, QStringList
 from . import QPaintDevice
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from ..QtCore import QByteArray, QByteArrayView, QIODevice, QPoint, QRect
   from ..QtCore import QSize, QSizeF
@@ -86,17 +86,59 @@ class QImage(QPaintDevice):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'QImage::QImage(uchar *data, int width, int height, Format format,
+    QImageCleanupFunction cleanupFunction, void *cleanupInfo)': takes a
+    number to change where it is.
+  - Qt's 'QImage::QImage(const uchar *data, int width, int height, Format
+    format, QImageCleanupFunction cleanupFunction, void *cleanupInfo)': names
+    'uchar', which has no cute class yet.
+  - Qt's 'QImage::QImage(uchar *data, int width, int height, qsizetype
+    bytesPerLine, Format format, QImageCleanupFunction cleanupFunction, void
+    *cleanupInfo)': takes a number to change where it is.
+  - Qt's 'QImage::QImage(const uchar *data, int width, int height, qsizetype
+    bytesPerLine, Format format, QImageCleanupFunction cleanupFunction, void
+    *cleanupInfo)': names 'uchar', which has no cute class yet.
+  - Qt's 'QImage::QImage(const char *const *xpm)': names 'char *const', which
+    has no cute class yet.
+  - Qt's 'QImage::QImage(QImage &&other)': takes a type Python has no way to
+    hand over yet.
   - Qt's 'QImage::~QImage()': the destructor: Python removes its C++ QImage
     by it, and has no other use for it.
+  - Qt's 'QImage &QImage::operator=(const QImage &a0)': assignment: Python
+    binds a name and has no operator for it.
+  - Qt's 'QImage &QImage::operator=(QImage &&other)': assignment: Python
+    binds a name and has no operator for it.
+  - Qt's 'void QImage::swap(QImage &other)': takes a type Python has no way
+    to hand over yet.
   - Qt's 'QVariant QImage::operator QVariant() const': an operator Python has
     no name for.
+  - Qt's 'QImage QImage::convertToFormat(Format f, const QList<QRgb>
+    &colorTable, Qt::ImageConversionFlags flags) const': takes a type Python
+    has no way to hand over yet.
+  - Qt's 'const uchar *QImage::bits() const': gives 'unsigned char', which
+    has no cute class yet.
+  - Qt's 'const uchar *QImage::constBits() const': gives 'unsigned char',
+    which has no cute class yet.
+  - Qt's 'const uchar *QImage::scanLine(int a0) const': gives 'unsigned
+    char', which has no cute class yet.
+  - Qt's 'const uchar *QImage::constScanLine(int a0) const': gives 'unsigned
+    char', which has no cute class yet.
+  - Qt's 'QList<QRgb> QImage::colorTable() const': gives a type Python has no
+    way to take yet.
+  - Qt's 'void QImage::setColorTable(const QList<QRgb> &colors)': takes a
+    type Python has no way to hand over yet.
+  - Qt's 'bool QImage::loadFromData(const uchar *buf, int len, const char
+    *format)': names 'uchar', which has no cute class yet.
+  - Qt's 'QImage QImage::fromData(const uchar *data, int size, const char
+    *format)': names 'uchar', which has no cute class yet.
+  - Qt's 'DataPtr &QImage::data_ptr()': gives a type Python has no way to
+    take yet.
 
   What has no ritual
   ------------------
 
-  32 of the 143 functions Qt declares: 21 takes or gives a type that cannot
-  be passed yet; 8 can only be called on a value about to be thrown away; 2
-  declared and nowhere to be found; 1 a template.
+  13 of the 143 functions Qt declares: 11 not a gap; 2 takes or gives a type
+  that cannot be passed yet.
 
   What to expect
   --------------
@@ -109,6 +151,10 @@ class QImage(QPaintDevice):
     is as in C++.
   - A function giving a QImage back gives a copy the ritual made for Python,
     in a new cute QImage.
+  - Each name of Qt's QImage that has no cute function yet, 'bits',
+    'colorTable', 'constBits', 'constScanLine', 'data_ptr', 'scanLine',
+    'setColorTable', 'swap', holds a function that raises
+    'NotImplementedError', and its docstring says why.
   """
 
   #  The enums Qt writes inside QImage, each a class in here as in C++, and
@@ -2695,3 +2741,152 @@ class QImage(QPaintDevice):
     """
     #  void QImage::detachMetadata(bool invalidateCache)
     self.uglySide.call('ritual_ZN6QImage14detachMetadataEb', invalidateCache)
+
+  @staticmethod
+  def bits(*__, **_) -> Never:
+    """
+    - Qt's 'const uchar *QImage::bits() const': gives 'unsigned char', which
+      has no cute class yet.
+    - Qt's 'uchar *QImage::bits()': takes or gives a type that cannot be
+      passed yet: uchar *.
+    """
+    raise NotImplementedError(
+        "'QImage.bits' has no cute function yet. Qt's 'const uchar "
+        "*QImage::bits() const': gives 'unsigned char', which has no cute "
+        "class yet. Qt's 'uchar *QImage::bits()': takes or gives a type "
+        "that cannot be passed yet: uchar *.")
+
+  @staticmethod
+  def colorTable(*__, **_) -> Never:
+    """
+    Qt's 'QList<QRgb> QImage::colorTable() const': gives a type Python has no
+    way to take yet.
+    """
+    raise NotImplementedError(
+        "'QImage.colorTable' has no cute function yet. Qt's 'QList<QRgb> "
+        "QImage::colorTable() const': gives a type Python has no way to "
+        "take yet.")
+
+  @staticmethod
+  def constBits(*__, **_) -> Never:
+    """
+    Qt's 'const uchar *QImage::constBits() const': gives 'unsigned char',
+    which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QImage.constBits' has no cute function yet. Qt's 'const uchar "
+        "*QImage::constBits() const': gives 'unsigned char', which has no "
+        "cute class yet.")
+
+  @staticmethod
+  def constScanLine(*__, **_) -> Never:
+    """
+    Qt's 'const uchar *QImage::constScanLine(int a0) const': gives 'unsigned
+    char', which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QImage.constScanLine' has no cute function yet. Qt's 'const uchar "
+        "*QImage::constScanLine(int a0) const': gives 'unsigned char', "
+        "which has no cute class yet.")
+
+  @staticmethod
+  def data_ptr(*__, **_) -> Never:
+    """
+    Qt's 'DataPtr &QImage::data_ptr()': gives a type Python has no way to
+    take yet.
+    """
+    raise NotImplementedError(
+        "'QImage.data_ptr' has no cute function yet. Qt's 'DataPtr "
+        "&QImage::data_ptr()': gives a type Python has no way to take yet.")
+
+  @staticmethod
+  def scanLine(*__, **_) -> Never:
+    """
+    - Qt's 'const uchar *QImage::scanLine(int a0) const': gives 'unsigned
+      char', which has no cute class yet.
+    - Qt's 'uchar *QImage::scanLine(int a0)': takes or gives a type that
+      cannot be passed yet: uchar *.
+    """
+    raise NotImplementedError(
+        "'QImage.scanLine' has no cute function yet. Qt's 'const uchar "
+        "*QImage::scanLine(int a0) const': gives 'unsigned char', which has "
+        "no cute class yet. Qt's 'uchar *QImage::scanLine(int a0)': takes "
+        "or gives a type that cannot be passed yet: uchar *.")
+
+  @staticmethod
+  def setColorTable(*__, **_) -> Never:
+    """
+    Qt's 'void QImage::setColorTable(const QList<QRgb> &colors)': takes a
+    type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QImage.setColorTable' has no cute function yet. Qt's 'void "
+        "QImage::setColorTable(const QList<QRgb> &colors)': takes a type "
+        "Python has no way to hand over yet.")
+
+  @staticmethod
+  def swap(*__, **_) -> Never:
+    """
+    Qt's 'void QImage::swap(QImage &other)': takes a type Python has no way
+    to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QImage.swap' has no cute function yet. Qt's 'void "
+        "QImage::swap(QImage &other)': takes a type Python has no way to "
+        "hand over yet.")
+
+
+#  Qt's 'QList<QImage>': the list of QImage, which 'QList[QImage]' gives. It
+#  is made here, so that there is one as soon as there can be a QImage.
+QList.createKind(
+    QImage, 'value',
+    make='ritual_list_make_QImage',
+    add='ritual_list_add_QImage',
+    size='ritual_list_size_QImage',
+    at='ritual_list_at_QImage',
+    drop='ritual_list_drop_QImage',
+)
+
+
+#  Qt's 'QList<QImage *>': the list of QImage, which 'QList[QImage]' gives.
+#  It is made here, so that there is one as soon as there can be a QImage.
+QList.createKind(
+    QImage, 'address',
+    make='ritual_list_make_QImage_ptr',
+    add='ritual_list_add_QImage_ptr',
+    size='ritual_list_size_QImage_ptr',
+    at='ritual_list_at_QImage_ptr',
+    drop='ritual_list_drop_QImage_ptr',
+)
+
+
+#  Qt's 'QMap<QString, QImage>': the QMap from text to QImage, which
+#  'QMap[str, QImage]' gives. It is completed here, in the file of the class
+#  of its values.
+QMap.createKind(
+    str, QImage, 'value',
+    make='ritual_map_make_QMap_QString_QImage',
+    put='ritual_map_put_QMap_QString_QImage',
+    size='ritual_map_size_QMap_QString_QImage',
+    key='ritual_map_key_QMap_QString_QImage',
+    value='ritual_map_value_QMap_QString_QImage',
+    has='ritual_map_has_QMap_QString_QImage',
+    get='ritual_map_get_QMap_QString_QImage',
+    drop='ritual_map_drop_QMap_QString_QImage',
+)
+
+
+#  Qt's 'QMap<int, QImage>': the QMap from a number to QImage, which
+#  'QMap[int, QImage]' gives. It is completed here, in the file of the class
+#  of its values.
+QMap.createKind(
+    int, QImage, 'value',
+    make='ritual_map_make_QMap_int_QImage',
+    put='ritual_map_put_QMap_int_QImage',
+    size='ritual_map_size_QMap_int_QImage',
+    key='ritual_map_key_QMap_int_QImage',
+    value='ritual_map_value_QMap_int_QImage',
+    has='ritual_map_has_QMap_int_QImage',
+    get='ritual_map_get_QMap_int_QImage',
+    drop='ritual_map_drop_QMap_int_QImage',
+)

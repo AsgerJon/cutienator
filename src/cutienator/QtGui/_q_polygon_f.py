@@ -17,6 +17,8 @@ from ..occult import Rituals
 from ..QtCore import Qt, QList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Never
+
   from ..QtCore import QPointF, QRectF
   from . import QPolygon
 else:
@@ -49,16 +51,14 @@ class QPolygonF(CuteMixin, metaclass=MetaCute):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'QPolygonF::QPolygonF(QList<QPointF> &&v)': takes a type Python has
+    no way to hand over yet.
+  - Qt's 'void QPolygonF::swap(QPolygonF &other)': takes a type Python has no
+    way to hand over yet.
   - Qt's 'QVariant QPolygonF::operator QVariant() const': an operator Python
     has no name for.
   - Qt's 'QPolygonF::~QPolygonF()': the destructor: Python removes its C++
     QPolygonF by it, and has no other use for it.
-
-  What has no ritual
-  ------------------
-
-  2 of the 20 functions Qt declares: 2 takes or gives a type that cannot be
-  passed yet.
 
   What to expect
   --------------
@@ -71,6 +71,8 @@ class QPolygonF(CuteMixin, metaclass=MetaCute):
     is as in C++.
   - A function giving a QPolygonF back gives a copy the ritual made for
     Python, in a new cute QPolygonF.
+  - Each name of Qt's QPolygonF that has no cute function yet, 'swap', holds
+    a function that raises 'NotImplementedError', and its docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -152,7 +154,8 @@ class QPolygonF(CuteMixin, metaclass=MetaCute):
     """
     #  QPolygonF QPolygonF::translated(const QPointF &offset) const
     address = self.uglySide.call(
-        'ritual_ZNK9QPolygonF10translatedERK7QPointF', self._valueOf(offset),
+        'ritual_ZNK9QPolygonF10translatedERK7QPointF',
+        self._valueOf(offset, 'QPointF'),
     )
     return QPolygonF._cuteOwning(address)
 
@@ -221,7 +224,7 @@ class QPolygonF(CuteMixin, metaclass=MetaCute):
     #      fillRule) const
     return self.uglySide.call(
         'ritual_ZNK9QPolygonF13containsPointERK7QPointFN2Qt8FillRuleE',
-        self._valueOf(pt), fillRule.value,
+        self._valueOf(pt, 'QPointF'), fillRule.value,
     )
 
   @overload(THIS)
@@ -466,8 +469,20 @@ class QPolygonF(CuteMixin, metaclass=MetaCute):
     """
     #  void QPolygonF::translate(const QPointF &offset)
     self.uglySide.call(
-        'ritual_ZN9QPolygonF9translateERK7QPointF', self._valueOf(offset),
+        'ritual_ZN9QPolygonF9translateERK7QPointF',
+        self._valueOf(offset, 'QPointF'),
     )
+
+  @staticmethod
+  def swap(*__, **_) -> Never:
+    """
+    Qt's 'void QPolygonF::swap(QPolygonF &other)': takes a type Python has no
+    way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QPolygonF.swap' has no cute function yet. Qt's 'void "
+        "QPolygonF::swap(QPolygonF &other)': takes a type Python has no way "
+        "to hand over yet.")
 
 
 #  Qt's 'QList<QPolygonF>': the list of QPolygonF, which 'QList[QPolygonF]'

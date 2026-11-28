@@ -20,6 +20,7 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
 
   from ..QtCore import QMetaObject
   from ..QtGui import QMatrix4x4
+  from . import QGraphicsTransformPrivate
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -43,22 +44,28 @@ class QGraphicsTransform(QObject):
   -----------
 
   Every function of Qt's QGraphicsTransform that has a ritual and that Python
-  can call so far, 4 names in all: 'metaObject', 'tr', 'applyTo', 'update'.
-  None can be made from Python: one comes out of a function of another class
-  that gives one back.
+  can call so far, 5 names in all: 'metaObject', 'tr', 'applyTo', 'update',
+  'd_func'. It can be made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QGraphicsTransform::qt_metacast(const char *a0)': one of Qt's
+    own inner workings.
+  - Qt's 'int QGraphicsTransform::qt_metacall(QMetaObject::Call a0, int a1,
+    void **a2)': one of Qt's own inner workings.
   - Qt's 'QGraphicsTransform::~QGraphicsTransform()': the destructor: Python
     never removes a C++ QGraphicsTransform.
+  - Qt's 'QGraphicsTransform::QGraphicsTransform(QGraphicsTransformPrivate
+    &p, QObject *parent)': takes a type Python has no way to hand over yet.
+  - Qt's 'const QGraphicsTransformPrivate *QGraphicsTransform::d_func()
+    const': takes in Python what 'QGraphicsTransformPrivate
+    *QGraphicsTransform::d_func()' takes.
 
   What has no ritual
   ------------------
 
-  8 of the 13 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet; 2 the class is abstract, so C++ cannot make one; 1 a template;
-  1 declared and nowhere to be found.
+  2 of the 13 functions Qt declares: 2 not a gap.
 
   What to expect
   --------------
@@ -198,6 +205,31 @@ class QGraphicsTransform(QObject):
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  @overload()
+  @overload(QObject)
+  @overload(NoneType)
+  def __init__(self, parent: Optional[QObject] = None) -> None:
+    """
+    Notes what was given, for Qt's
+    'QGraphicsTransform::QGraphicsTransform(QObject *parent)', which is
+    called at the first use.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicstransform.html#QGraphicsTransform
+
+    Parameters
+    ----------
+
+    parent : Optional[QObject]
+      Passed on as the address of its C++ object. None is passed on as no
+      object. May be left out, as in Qt: it is then None.
+    """
+    #  QGraphicsTransform::QGraphicsTransform(QObject *parent)
+    self._noteCreation(QGraphicsTransform, lambda: Rituals.call(
+        'ritual_ZN18QGraphicsTransformC1EP7QObject',
+        self._addressOf(parent, 'QObject'),
+    ))
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -247,6 +279,24 @@ class QGraphicsTransform(QObject):
     """
     #  void QGraphicsTransform::update()
     self.uglySide.call('ritual_ZN18QGraphicsTransform6updateEv')
+
+  def d_func(self) -> Optional[QGraphicsTransformPrivate]:
+    """
+    Calls Qt's 'QGraphicsTransformPrivate *QGraphicsTransform::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicstransform.html#d_func
+
+    Returns
+    -------
+
+    Optional[QGraphicsTransformPrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QGraphicsTransformPrivate *QGraphicsTransform::d_func()
+    address = self.uglySide.call('ritual_ZN18QGraphicsTransform6d_funcEv')
+    from . import QGraphicsTransformPrivate
+    return QGraphicsTransformPrivate._cuteAt(address)
 
 
 #  Qt's 'QList<QGraphicsTransform *>': the list of QGraphicsTransform, which

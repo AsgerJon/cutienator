@@ -14,6 +14,9 @@ from worktoy.dispatch import overload
 from ..cute import CuteMixin, MetaCute
 from ..occult import Rituals
 
+if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Never
+
 
 class QTemporaryDir(CuteMixin, metaclass=MetaCute):
   """
@@ -31,14 +34,19 @@ class QTemporaryDir(CuteMixin, metaclass=MetaCute):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'QTemporaryDir::QTemporaryDir(QTemporaryDir &&other)': takes a type
+    Python has no way to hand over yet.
+  - Qt's 'QTemporaryDir &QTemporaryDir::operator=(QTemporaryDir &&other)':
+    assignment: Python binds a name and has no operator for it.
   - Qt's 'QTemporaryDir::~QTemporaryDir()': the destructor: Python never
     removes a C++ QTemporaryDir.
+  - Qt's 'void QTemporaryDir::swap(QTemporaryDir &other)': takes a type
+    Python has no way to hand over yet.
 
   What has no ritual
   ------------------
 
-  5 of the 15 functions Qt declares: 3 takes or gives a type that cannot be
-  passed yet; 2 forbidden.
+  2 of the 15 functions Qt declares: 2 forbidden.
 
   What to expect
   --------------
@@ -51,6 +59,9 @@ class QTemporaryDir(CuteMixin, metaclass=MetaCute):
     has it, and is passed on as nothing. Whether Qt can do with nothing there
     is as in C++.
   - Python never removes the C++ QTemporaryDir.
+  - Each name of Qt's QTemporaryDir that has no cute function yet, 'swap',
+    holds a function that raises 'NotImplementedError', and its docstring
+    says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -242,3 +253,14 @@ class QTemporaryDir(CuteMixin, metaclass=MetaCute):
     """
     #  bool QTemporaryDir::remove()
     return self.uglySide.call('ritual_ZN13QTemporaryDir6removeEv')
+
+  @staticmethod
+  def swap(*__, **_) -> Never:
+    """
+    Qt's 'void QTemporaryDir::swap(QTemporaryDir &other)': takes a type
+    Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QTemporaryDir.swap' has no cute function yet. Qt's 'void "
+        "QTemporaryDir::swap(QTemporaryDir &other)': takes a type Python "
+        "has no way to hand over yet.")

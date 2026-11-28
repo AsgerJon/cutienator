@@ -57,14 +57,17 @@ class QAccessibleCache(QObject):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QAccessibleCache::qt_metacast(const char *a0)': one of Qt's
+    own inner workings.
+  - Qt's 'int QAccessibleCache::qt_metacall(QMetaObject::Call a0, int a1,
+    void **a2)': one of Qt's own inner workings.
   - Qt's 'QAccessibleCache::~QAccessibleCache()': the destructor: Python
     never removes a C++ QAccessibleCache.
 
   What has no ritual
   ------------------
 
-  4 of the 17 functions Qt declares: 2 takes or gives a type that cannot be
-  passed yet; 1 a template; 1 declared and nowhere to be found.
+  2 of the 17 functions Qt declares: 2 not a gap.
 
   What to expect
   --------------
@@ -244,7 +247,7 @@ class QAccessibleCache(QObject):
     return self.uglySide.call(
         'ritual_ZNK16QAccessibleCache14idForInterfaceEP20QAccessibleInterfa'
         'ce',
-        self._addressOf(iface),
+        self._addressOf(iface, 'QAccessibleInterface'),
     )
 
   @overload(QObject)
@@ -322,7 +325,8 @@ class QAccessibleCache(QObject):
     return self.uglySide.call(
         'ritual_ZNK16QAccessibleCache6insertEP7QObjectP20QAccessibleInterfa'
         'ce',
-        self._addressOf(object, 'QObject'), self._addressOf(iface),
+        self._addressOf(object, 'QObject'), self._addressOf(iface,
+        'QAccessibleInterface'),
     )
 
   def acquireId(self) -> int:

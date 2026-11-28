@@ -16,6 +16,9 @@ from typing import TYPE_CHECKING
 
 from . import QIOReadWriteOperationBase
 
+if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Never
+
 
 class QIOVectoredWriteOperation(QIOReadWriteOperationBase):
   """
@@ -37,12 +40,17 @@ class QIOVectoredWriteOperation(QIOReadWriteOperationBase):
 
   - Qt's 'QIOVectoredWriteOperation::~QIOVectoredWriteOperation()': the
     destructor: Python never removes a C++ QIOVectoredWriteOperation.
+  - Qt's 'QSpan<const QSpan<const std::byte>>
+    QIOVectoredWriteOperation::data() const': gives a type Python has no way
+    to take yet.
+  - Qt's
+    'QIOVectoredWriteOperation::QIOVectoredWriteOperation(QIOOperationPrivate
+    &dd, QObject *parent)': takes a type Python has no way to hand over yet.
 
   What has no ritual
   ------------------
 
-  7 of the 8 functions Qt declares: 5 forbidden; 2 takes or gives a type that
-  cannot be passed yet.
+  5 of the 8 functions Qt declares: 5 forbidden.
 
   What to expect
   --------------
@@ -58,6 +66,9 @@ class QIOVectoredWriteOperation(QIOReadWriteOperationBase):
   - Qt tells when it has removed the C++ QIOVectoredWriteOperation. Every
     call on the cute object, and every use of it as an argument, then raises
     'RuntimeError', and nothing reaches C++.
+  - Each name of Qt's QIOVectoredWriteOperation that has no cute function
+    yet, '__init__', 'data', holds a function that raises
+    'NotImplementedError', and its docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -105,6 +116,20 @@ class QIOVectoredWriteOperation(QIOReadWriteOperationBase):
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  @staticmethod
+  def __init__(*__, **_) -> Never:
+    """
+    Qt's
+    'QIOVectoredWriteOperation::QIOVectoredWriteOperation(QIOOperationPrivate
+    &dd, QObject *parent)': takes a type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QIOVectoredWriteOperation.__init__' has no cute function yet. "
+        "Qt's "
+        "'QIOVectoredWriteOperation::QIOVectoredWriteOperation(QIOOperationP"
+        "rivate &dd, QObject *parent)': takes a type Python has no way to "
+        "hand over yet.")
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -124,3 +149,16 @@ class QIOVectoredWriteOperation(QIOReadWriteOperationBase):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def data(*__, **_) -> Never:
+    """
+    Qt's 'QSpan<const QSpan<const std::byte>>
+    QIOVectoredWriteOperation::data() const': gives a type Python has no way
+    to take yet.
+    """
+    raise NotImplementedError(
+        "'QIOVectoredWriteOperation.data' has no cute function yet. Qt's "
+        "'QSpan<const QSpan<const std::byte>> "
+        "QIOVectoredWriteOperation::data() const': gives a type Python has "
+        "no way to take yet.")

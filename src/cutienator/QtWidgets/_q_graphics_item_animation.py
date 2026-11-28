@@ -16,7 +16,7 @@ from ..occult import Rituals
 from ..QtCore import QObject
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from ..QtCore import QMetaObject, QPointF, QTimeLine
   from ..QtGui import QTransform
@@ -57,14 +57,31 @@ class QGraphicsItemAnimation(QObject):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QGraphicsItemAnimation::qt_metacast(const char *a0)': one of
+    Qt's own inner workings.
+  - Qt's 'int QGraphicsItemAnimation::qt_metacall(QMetaObject::Call a0, int
+    a1, void **a2)': one of Qt's own inner workings.
   - Qt's 'QGraphicsItemAnimation::~QGraphicsItemAnimation()': the destructor:
     Python never removes a C++ QGraphicsItemAnimation.
+  - Qt's 'QList<std::pair<qreal, QPointF>> QGraphicsItemAnimation::posList()
+    const': gives a type Python has no way to take yet.
+  - Qt's 'QList<std::pair<qreal, qreal>>
+    QGraphicsItemAnimation::rotationList() const': gives a type Python has no
+    way to take yet.
+  - Qt's 'QList<std::pair<qreal, QPointF>>
+    QGraphicsItemAnimation::translationList() const': gives a type Python has
+    no way to take yet.
+  - Qt's 'QList<std::pair<qreal, QPointF>>
+    QGraphicsItemAnimation::scaleList() const': gives a type Python has no
+    way to take yet.
+  - Qt's 'QList<std::pair<qreal, QPointF>>
+    QGraphicsItemAnimation::shearList() const': gives a type Python has no
+    way to take yet.
 
   What has no ritual
   ------------------
 
-  11 of the 37 functions Qt declares: 7 takes or gives a type that cannot be
-  passed yet; 2 forbidden; 1 a template; 1 declared and nowhere to be found.
+  4 of the 37 functions Qt declares: 2 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -80,6 +97,10 @@ class QGraphicsItemAnimation(QObject):
   - Qt tells when it has removed the C++ QGraphicsItemAnimation. Every call
     on the cute object, and every use of it as an argument, then raises
     'RuntimeError', and nothing reaches C++.
+  - Each name of Qt's QGraphicsItemAnimation that has no cute function yet,
+    'posList', 'rotationList', 'scaleList', 'shearList', 'translationList',
+    holds a function that raises 'NotImplementedError', and its docstring
+    says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -501,7 +522,7 @@ class QGraphicsItemAnimation(QObject):
     #  void QGraphicsItemAnimation::setPosAt(qreal step, const QPointF &pos)
     self.uglySide.call(
         'ritual_ZN22QGraphicsItemAnimation8setPosAtEdRK7QPointF',
-        step, self._valueOf(pos),
+        step, self._valueOf(pos, 'QPointF'),
     )
 
   @overload(float, float)
@@ -732,3 +753,67 @@ class QGraphicsItemAnimation(QObject):
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZN22QGraphicsItemAnimation18afterAnimationStepEd'
     self.uglySide.call(ritual, step)
+
+  @staticmethod
+  def posList(*__, **_) -> Never:
+    """
+    Qt's 'QList<std::pair<qreal, QPointF>> QGraphicsItemAnimation::posList()
+    const': gives a type Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QGraphicsItemAnimation.posList' has no cute function yet. Qt's "
+        "'QList<std::pair<qreal, QPointF>> "
+        "QGraphicsItemAnimation::posList() const': gives a type Python has "
+        "no way to take yet.")
+
+  @staticmethod
+  def rotationList(*__, **_) -> Never:
+    """
+    Qt's 'QList<std::pair<qreal, qreal>>
+    QGraphicsItemAnimation::rotationList() const': gives a type Python has no
+    way to take yet.
+    """
+    raise NotImplementedError(
+        "'QGraphicsItemAnimation.rotationList' has no cute function yet. "
+        "Qt's 'QList<std::pair<qreal, qreal>> "
+        "QGraphicsItemAnimation::rotationList() const': gives a type Python "
+        "has no way to take yet.")
+
+  @staticmethod
+  def scaleList(*__, **_) -> Never:
+    """
+    Qt's 'QList<std::pair<qreal, QPointF>>
+    QGraphicsItemAnimation::scaleList() const': gives a type Python has no
+    way to take yet.
+    """
+    raise NotImplementedError(
+        "'QGraphicsItemAnimation.scaleList' has no cute function yet. Qt's "
+        "'QList<std::pair<qreal, QPointF>> "
+        "QGraphicsItemAnimation::scaleList() const': gives a type Python "
+        "has no way to take yet.")
+
+  @staticmethod
+  def shearList(*__, **_) -> Never:
+    """
+    Qt's 'QList<std::pair<qreal, QPointF>>
+    QGraphicsItemAnimation::shearList() const': gives a type Python has no
+    way to take yet.
+    """
+    raise NotImplementedError(
+        "'QGraphicsItemAnimation.shearList' has no cute function yet. Qt's "
+        "'QList<std::pair<qreal, QPointF>> "
+        "QGraphicsItemAnimation::shearList() const': gives a type Python "
+        "has no way to take yet.")
+
+  @staticmethod
+  def translationList(*__, **_) -> Never:
+    """
+    Qt's 'QList<std::pair<qreal, QPointF>>
+    QGraphicsItemAnimation::translationList() const': gives a type Python has
+    no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QGraphicsItemAnimation.translationList' has no cute function yet. "
+        "Qt's 'QList<std::pair<qreal, QPointF>> "
+        "QGraphicsItemAnimation::translationList() const': gives a type "
+        "Python has no way to take yet.")

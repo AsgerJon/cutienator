@@ -13,7 +13,7 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
-from ..QtCore import Qt
+from ..QtCore import Qt, QList
 from . import QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
@@ -21,7 +21,7 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
 
   from ..QtCore import QEvent, QMetaObject, QPoint, QRect, QSize
   from ..QtGui import QAction, QActionEvent, QPaintEvent
-  from . import QStyleOptionToolBar
+  from . import QStyleOptionToolBar, QToolBarPrivate
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -51,27 +51,34 @@ class QToolBar(QWidget):
   -----------
 
   Every function of Qt's QToolBar that has a ritual and that Python can call
-  so far, 30 names in all: 'metaObject', 'tr', 'setMovable', 'isMovable',
+  so far, 39 names in all: 'metaObject', 'tr', 'setMovable', 'isMovable',
   'setAllowedAreas', 'allowedAreas', 'isAreaAllowed', 'setOrientation',
   'orientation', 'clear', 'addSeparator', 'insertSeparator', 'addWidget',
   'insertWidget', 'actionGeometry', 'actionAt', 'toggleViewAction',
   'iconSize', 'toolButtonStyle', 'widgetForAction', 'isFloatable',
   'setFloatable', 'isFloating', 'setIconSize', 'setToolButtonStyle',
-  'actionEvent', 'changeEvent', 'paintEvent', 'event', 'initStyleOption'. It
-  can be made from Python, in 2 ways; see '__init__'.
+  'actionTriggered', 'movableChanged', 'allowedAreasChanged',
+  'orientationChanged', 'iconSizeChanged', 'toolButtonStyleChanged',
+  'topLevelChanged', 'visibilityChanged', 'actionEvent', 'changeEvent',
+  'paintEvent', 'event', 'initStyleOption', 'd_func'. It can be made from
+  Python, in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QToolBar::qt_metacast(const char *a0)': one of Qt's own inner
+    workings.
+  - Qt's 'int QToolBar::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
   - Qt's 'QToolBar::~QToolBar()': the destructor: Python never removes a C++
     QToolBar.
+  - Qt's 'const QToolBarPrivate *QToolBar::d_func() const': takes in Python
+    what 'QToolBarPrivate *QToolBar::d_func()' takes.
 
   What has no ritual
   ------------------
 
-  16 of the 50 functions Qt declares: 8 a signal; 4 takes or gives a type
-  that cannot be passed yet; 2 forbidden; 1 a template; 1 declared and
-  nowhere to be found.
+  4 of the 50 functions Qt declares: 2 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -759,6 +766,160 @@ class QToolBar(QWidget):
     from ..QtGui import QAction
     return QAction._cuteAt(address)
 
+  @overload(QAction)
+  @overload(NoneType)
+  def actionTriggered(self, action: Optional[QAction]) -> None:
+    """
+    Calls Qt's 'void QToolBar::actionTriggered(QAction *action)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtoolbar.html#actionTriggered
+
+    Parameters
+    ----------
+
+    action : Optional[QAction]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QToolBar::actionTriggered(QAction *action)
+    self.uglySide.call(
+        'ritual_ZN8QToolBar15actionTriggeredEP7QAction',
+        self._addressOf(action),
+    )
+
+  @overload(bool)
+  def movableChanged(self, movable: bool) -> None:
+    """
+    Calls Qt's 'void QToolBar::movableChanged(bool movable)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtoolbar.html#movableChanged
+
+    Parameters
+    ----------
+
+    movable : bool
+      Passed on as it is.
+    """
+    #  void QToolBar::movableChanged(bool movable)
+    self.uglySide.call('ritual_ZN8QToolBar14movableChangedEb', movable)
+
+  @overload(Qt.ToolBarAreas)
+  def allowedAreasChanged(self, allowedAreas: Qt.ToolBarAreas) -> None:
+    """
+    Calls Qt's 'void QToolBar::allowedAreasChanged(Qt::ToolBarAreas
+    allowedAreas)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtoolbar.html#allowedAreasChanged
+
+    Parameters
+    ----------
+
+    allowedAreas : Qt.ToolBarAreas
+      Passed on as its number.
+    """
+    #  void QToolBar::allowedAreasChanged(Qt::ToolBarAreas allowedAreas)
+    self.uglySide.call(
+        'ritual_ZN8QToolBar19allowedAreasChangedE6QFlagsIN2Qt11ToolBarAreaE'
+        'E',
+        allowedAreas.value,
+    )
+
+  @overload(Qt.Orientation)
+  def orientationChanged(self, orientation: Qt.Orientation) -> None:
+    """
+    Calls Qt's 'void QToolBar::orientationChanged(Qt::Orientation
+    orientation)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtoolbar.html#orientationChanged
+
+    Parameters
+    ----------
+
+    orientation : Qt.Orientation
+      Passed on as its number.
+    """
+    #  void QToolBar::orientationChanged(Qt::Orientation orientation)
+    self.uglySide.call(
+        'ritual_ZN8QToolBar18orientationChangedEN2Qt11OrientationE',
+        orientation.value,
+    )
+
+  @overload(QSize)
+  def iconSizeChanged(self, iconSize: QSize) -> None:
+    """
+    Calls Qt's 'void QToolBar::iconSizeChanged(const QSize &iconSize)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtoolbar.html#iconSizeChanged
+
+    Parameters
+    ----------
+
+    iconSize : QSize
+      Passed on as a value: Qt reads the C++ QSize, which stays Python's own.
+    """
+    #  void QToolBar::iconSizeChanged(const QSize &iconSize)
+    self.uglySide.call(
+        'ritual_ZN8QToolBar15iconSizeChangedERK5QSize',
+        self._valueOf(iconSize),
+    )
+
+  @overload(Qt.ToolButtonStyle)
+  def toolButtonStyleChanged(
+      self,
+      toolButtonStyle: Qt.ToolButtonStyle,
+  ) -> None:
+    """
+    Calls Qt's 'void QToolBar::toolButtonStyleChanged(Qt::ToolButtonStyle
+    toolButtonStyle)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qtoolbar.html#toolButtonStyleChanged
+
+    Parameters
+    ----------
+
+    toolButtonStyle : Qt.ToolButtonStyle
+      Passed on as its number.
+    """
+    #  void QToolBar::toolButtonStyleChanged(Qt::ToolButtonStyle
+    #      toolButtonStyle)
+    self.uglySide.call(
+        'ritual_ZN8QToolBar22toolButtonStyleChangedEN2Qt15ToolButtonStyleE',
+        toolButtonStyle.value,
+    )
+
+  @overload(bool)
+  def topLevelChanged(self, topLevel: bool) -> None:
+    """
+    Calls Qt's 'void QToolBar::topLevelChanged(bool topLevel)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtoolbar.html#topLevelChanged
+
+    Parameters
+    ----------
+
+    topLevel : bool
+      Passed on as it is.
+    """
+    #  void QToolBar::topLevelChanged(bool topLevel)
+    self.uglySide.call('ritual_ZN8QToolBar15topLevelChangedEb', topLevel)
+
+  @overload(bool)
+  def visibilityChanged(self, visible: bool) -> None:
+    """
+    Calls Qt's 'void QToolBar::visibilityChanged(bool visible)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtoolbar.html#visibilityChanged
+
+    Parameters
+    ----------
+
+    visible : bool
+      Passed on as it is.
+    """
+    #  void QToolBar::visibilityChanged(bool visible)
+    self.uglySide.call('ritual_ZN8QToolBar17visibilityChangedEb', visible)
+
   @overload(QActionEvent)
   @overload(NoneType)
   def actionEvent(self, event: Optional[QActionEvent]) -> None:
@@ -865,3 +1026,34 @@ class QToolBar(QWidget):
       ritual = (
           'ritual_own_ZNK8QToolBar15initStyleOptionEP19QStyleOptionToolBar')
     self.uglySide.call(ritual, self._addressOf(option))
+
+  def d_func(self) -> Optional[QToolBarPrivate]:
+    """
+    Calls Qt's 'QToolBarPrivate *QToolBar::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtoolbar.html#d_func
+
+    Returns
+    -------
+
+    Optional[QToolBarPrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QToolBarPrivate *QToolBar::d_func()
+    address = self.uglySide.call('ritual_ZN8QToolBar6d_funcEv')
+    from . import QToolBarPrivate
+    return QToolBarPrivate._cuteAt(address)
+
+
+#  Qt's 'QList<QToolBar *>': the list of QToolBar, which 'QList[QToolBar]'
+#  gives. It is made here, so that there is one as soon as there can be a
+#  QToolBar.
+QList.createKind(
+    QToolBar, 'address',
+    make='ritual_list_make_QToolBar_ptr',
+    add='ritual_list_add_QToolBar_ptr',
+    size='ritual_list_size_QToolBar_ptr',
+    at='ritual_list_at_QToolBar_ptr',
+    drop='ritual_list_drop_QToolBar_ptr',
+)

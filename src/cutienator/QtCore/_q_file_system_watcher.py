@@ -18,7 +18,7 @@ from . import QObject, QStringList
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from . import QMetaObject
+  from . import QFileSystemWatcherPrivate, QMetaObject
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -37,21 +37,28 @@ class QFileSystemWatcher(QObject):
   -----------
 
   Every function of Qt's QFileSystemWatcher that has a ritual and that Python
-  can call so far, 8 names in all: 'metaObject', 'tr', 'addPath', 'addPaths',
-  'removePath', 'removePaths', 'files', 'directories'. It can be made from
-  Python, in 2 ways; see '__init__'.
+  can call so far, 11 names in all: 'metaObject', 'tr', 'd_func', 'addPath',
+  'addPaths', 'removePath', 'removePaths', 'files', 'directories',
+  'fileChanged', 'directoryChanged'. It can be made from Python, in 2 ways;
+  see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QFileSystemWatcher::qt_metacast(const char *a0)': one of Qt's
+    own inner workings.
+  - Qt's 'int QFileSystemWatcher::qt_metacall(QMetaObject::Call a0, int a1,
+    void **a2)': one of Qt's own inner workings.
+  - Qt's 'const QFileSystemWatcherPrivate *QFileSystemWatcher::d_func()
+    const': takes in Python what 'QFileSystemWatcherPrivate
+    *QFileSystemWatcher::d_func()' takes.
   - Qt's 'QFileSystemWatcher::~QFileSystemWatcher()': the destructor: Python
     never removes a C++ QFileSystemWatcher.
 
   What has no ritual
   ------------------
 
-  8 of the 19 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet; 2 a signal; 1 a template; 1 declared and nowhere to be found.
+  2 of the 19 functions Qt declares: 2 not a gap.
 
   What to expect
   --------------
@@ -292,6 +299,24 @@ class QFileSystemWatcher(QObject):
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  def d_func(self) -> Optional[QFileSystemWatcherPrivate]:
+    """
+    Calls Qt's 'QFileSystemWatcherPrivate *QFileSystemWatcher::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfilesystemwatcher.html#d_func
+
+    Returns
+    -------
+
+    Optional[QFileSystemWatcherPrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QFileSystemWatcherPrivate *QFileSystemWatcher::d_func()
+    address = self.uglySide.call('ritual_ZN18QFileSystemWatcher6d_funcEv')
+    from . import QFileSystemWatcherPrivate
+    return QFileSystemWatcherPrivate._cuteAt(address)
+
   @overload(str)
   def addPath(self, file: str) -> bool:
     """
@@ -386,3 +411,49 @@ class QFileSystemWatcher(QObject):
         self._valueOf(files),
     )
     return QStringList._cuteOwning(address)
+
+  @overload(str)
+  def fileChanged(self, path: str) -> None:
+    """
+    Calls Qt's 'void QFileSystemWatcher::fileChanged(const QString &path,
+    QPrivateSignal a1)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qfilesystemwatcher.html#fileChanged
+
+    Parameters
+    ----------
+
+    path : str
+      Passed on as it is: a QString is made of it for the call.
+    """
+    #  void QFileSystemWatcher::fileChanged(const QString &path,
+    #      QPrivateSignal a1)
+    self.uglySide.call(
+        'ritual_ZN18QFileSystemWatcher11fileChangedERK7QStringNS_14QPrivate'
+        'SignalE',
+        path,
+    )
+
+  @overload(str)
+  def directoryChanged(self, path: str) -> None:
+    """
+    Calls Qt's 'void QFileSystemWatcher::directoryChanged(const QString
+    &path, QPrivateSignal a1)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qfilesystemwatcher.html#directoryChanged
+
+    Parameters
+    ----------
+
+    path : str
+      Passed on as it is: a QString is made of it for the call.
+    """
+    #  void QFileSystemWatcher::directoryChanged(const QString &path,
+    #      QPrivateSignal a1)
+    self.uglySide.call(
+        'ritual_ZN18QFileSystemWatcher16directoryChangedERK7QStringNS_14QPr'
+        'ivateSignalE',
+        path,
+    )

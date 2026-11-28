@@ -17,15 +17,18 @@ from typing import TYPE_CHECKING
 from worktoy.dispatch import overload
 
 from ..cute import WAIT
+from ..occult import Rituals
 from ..QtCore import QMimeData, QStringList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from ..QtCore import QMetaType, QVariant
+  from ..QtGui import QTextDocumentFragment
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
   QMetaType = WAIT['QMetaType']
+  QTextDocumentFragment = WAIT['QTextDocumentFragment']
 
 
 class QTextEditMimeData(QMimeData):
@@ -40,17 +43,8 @@ class QTextEditMimeData(QMimeData):
   -----------
 
   Every function of Qt's QTextEditMimeData that has a ritual and that Python
-  can call so far, 2 names in all: 'formats', 'retrieveData'. None can be
-  made from Python: one comes out of a function of another class that gives
-  one back.
-
-  What has no ritual
-  ------------------
-
-  5 of the 7 functions Qt declares: 2 Qt's library has no name for it, and
-  its code in Qt's source does not compile apart from its file; 2 leans on
-  'QTextEditMimeData; 1 leans on 'vtable for QTextEditMimeData', which Qt's
-  library does not offer and Qt's source has no code for that could be taken.
+  can call so far, 4 names in all: 'formats', 'hasFormat', 'retrieveData',
+  'setup'. It can be made from Python, in 1 way; see '__init__'.
 
   What to expect
   --------------
@@ -108,6 +102,25 @@ class QTextEditMimeData(QMimeData):
     address = self.uglySide.call('ritual_ZNK17QTextEditMimeData7formatsEv')
     return QStringList._cuteOwning(address)
 
+  @overload(str)
+  def hasFormat(self, format: str) -> bool:
+    """
+    Calls Qt's 'bool QTextEditMimeData::hasFormat(const QString &format)
+    const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtexteditmimedata.html#hasFormat
+
+    Parameters
+    ----------
+
+    format : str
+      Passed on as it is: a QString is made of it for the call.
+    """
+    #  bool QTextEditMimeData::hasFormat(const QString &format) const
+    return self.uglySide.call(
+        'ritual_ZNK17QTextEditMimeData9hasFormatERK7QString', format,
+    )
+
   @overload(str, QMetaType)
   def retrieveData(self, mimeType: str, type: QMetaType) -> QVariant:
     """
@@ -135,10 +148,13 @@ class QTextEditMimeData(QMimeData):
     """
     #  QVariant QTextEditMimeData::retrieveData(const QString &mimeType,
     #      QMetaType type) const
-    address = self.uglySide.call(
-        'ritual_ZNK17QTextEditMimeData12retrieveDataERK7QString9QMetaType',
-        mimeType, self._valueOf(type),
-    )
+    ritual = (
+        'ritual_ZNK17QTextEditMimeData12retrieveDataERK7QString9QMetaType')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK17QTextEditMimeData12retrieveDataERK7QString9QMeta'
+          'Type')
+    address = self.uglySide.call(ritual, mimeType, self._valueOf(type))
     from ..QtCore import QVariant
     return QVariant._cuteOwning(address)
 
@@ -157,6 +173,30 @@ class QTextEditMimeData(QMimeData):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(QTextDocumentFragment)
+  def __init__(self, aFragment: QTextDocumentFragment) -> None:
+    """
+    Notes what was given, for Qt's
+    'QTextEditMimeData::QTextEditMimeData(const QTextDocumentFragment
+    &aFragment)', which is called at the first use.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qtexteditmimedata.html#QTextEditMimeData
+
+    Parameters
+    ----------
+
+    aFragment : QTextDocumentFragment
+      Passed on as a value: Qt reads the C++ QTextDocumentFragment, which
+      stays Python's own.
+    """
+    #  QTextEditMimeData::QTextEditMimeData(const QTextDocumentFragment
+    #      &aFragment)
+    self._noteCreation(QTextEditMimeData, lambda: Rituals.call(
+        'ritual_ZN17QTextEditMimeDataC1ERK21QTextDocumentFragment',
+        self._valueOf(aFragment),
+    ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -177,3 +217,12 @@ class QTextEditMimeData(QMimeData):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  def setup(self) -> None:
+    """
+    Calls Qt's 'void QTextEditMimeData::setup() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtexteditmimedata.html#setup
+    """
+    #  void QTextEditMimeData::setup() const
+    self.uglySide.call('ritual_ZNK17QTextEditMimeData5setupEv')

@@ -15,6 +15,9 @@ from worktoy.dispatch import overload
 from ..cute import CuteMixin, MetaCute
 from ..occult import Rituals
 
+if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Never
+
 
 class QPageRanges(CuteMixin, metaclass=MetaCute):
   """
@@ -39,12 +42,16 @@ class QPageRanges(CuteMixin, metaclass=MetaCute):
 
   - Qt's 'QPageRanges::~QPageRanges()': the destructor: Python removes its
     C++ QPageRanges by it, and has no other use for it.
-
-  What has no ritual
-  ------------------
-
-  5 of the 21 functions Qt declares: 5 takes or gives a type that cannot be
-  passed yet.
+  - Qt's 'QPageRanges &QPageRanges::operator=(const QPageRanges &other)':
+    assignment: Python binds a name and has no operator for it.
+  - Qt's 'QPageRanges::QPageRanges(QPageRanges &&other)': takes a type Python
+    has no way to hand over yet.
+  - Qt's 'QPageRanges &QPageRanges::operator=(QPageRanges &&other)':
+    assignment: Python binds a name and has no operator for it.
+  - Qt's 'void QPageRanges::swap(QPageRanges &other)': takes a type Python
+    has no way to hand over yet.
+  - Qt's 'QList<Range> QPageRanges::toRangeList() const': gives a type Python
+    has no way to take yet.
 
   What to expect
   --------------
@@ -58,6 +65,9 @@ class QPageRanges(CuteMixin, metaclass=MetaCute):
     is as in C++.
   - A function giving a QPageRanges back gives a copy the ritual made for
     Python, in a new cute QPageRanges.
+  - Each name of Qt's QPageRanges that has no cute function yet, 'swap',
+    'toRangeList', holds a function that raises 'NotImplementedError', and
+    its docstring says why.
   """
 
   #  The classes Qt writes inside QPageRanges, each a class in here as in
@@ -586,3 +596,25 @@ class QPageRanges(CuteMixin, metaclass=MetaCute):
     """
     #  void QPageRanges::detach()
     self.uglySide.call('ritual_ZN11QPageRanges6detachEv')
+
+  @staticmethod
+  def swap(*__, **_) -> Never:
+    """
+    Qt's 'void QPageRanges::swap(QPageRanges &other)': takes a type Python
+    has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QPageRanges.swap' has no cute function yet. Qt's 'void "
+        "QPageRanges::swap(QPageRanges &other)': takes a type Python has no "
+        "way to hand over yet.")
+
+  @staticmethod
+  def toRangeList(*__, **_) -> Never:
+    """
+    Qt's 'QList<Range> QPageRanges::toRangeList() const': gives a type Python
+    has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QPageRanges.toRangeList' has no cute function yet. Qt's "
+        "'QList<Range> QPageRanges::toRangeList() const': gives a type "
+        "Python has no way to take yet.")

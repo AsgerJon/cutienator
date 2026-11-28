@@ -20,10 +20,11 @@ from ..cute import WAIT
 from . import QToolButton
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from ..QtCore import QMetaObject
   from ..QtGui import QActionEvent, QPaintEvent
+  from . import QLineEditPrivate
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -48,20 +49,26 @@ class QLineEditIconButton(QToolButton):
   -----------
 
   Every function of Qt's QLineEditIconButton that has a ritual and that
-  Python can call so far, 10 names in all: 'metaObject', 'opacity',
+  Python can call so far, 11 names in all: 'metaObject', 'opacity',
   'setOpacity', 'shouldHideWithText', 'setHideWithText', 'needsSpace',
-  'actionEvent', 'paintEvent', 'updateCursor', 'onAnimationFinished'. None
-  can be made from Python: one comes out of a function of another class that
-  gives one back.
+  'actionEvent', 'paintEvent', 'updateCursor', 'onAnimationFinished',
+  'lineEditPrivate'. None can be made from Python: one comes out of a
+  function of another class that gives one back.
+
+  What has a ritual and is left out, and why
+  ------------------------------------------
+
+  - Qt's 'void *QLineEditIconButton::qt_metacast(const char *a0)': one of
+    Qt's own inner workings.
+  - Qt's 'int QLineEditIconButton::qt_metacall(QMetaObject::Call a0, int a1,
+    void **a2)': one of Qt's own inner workings.
 
   What has no ritual
   ------------------
 
-  9 of the 19 functions Qt declares: 3 takes or gives a type that cannot be
-  passed yet; 3 leans on 'QLineEditIconButton; 1 a template; 1 declared and
-  nowhere to be found; 1 leans on 'vtable for QLineEditIconButton', which
-  Qt's library does not offer and Qt's source has no code for that could be
-  taken.
+  6 of the 19 functions Qt declares: 3 leans on 'QLineEditIconButton; 2 not a
+  gap; 1 leans on 'vtable for QLineEditIconButton', which Qt's source does
+  not mark for use from outside Qt and has no code for that could be taken.
 
   What to expect
   --------------
@@ -77,6 +84,9 @@ class QLineEditIconButton(QToolButton):
   - Qt tells when it has removed the C++ QLineEditIconButton. Every call on
     the cute object, and every use of it as an argument, then raises
     'RuntimeError', and nothing reaches C++.
+  - Each name of Qt's QLineEditIconButton that has no cute function yet,
+    '__init__', 'animateShow', 'startOpacityAnimation', holds a function that
+    raises 'NotImplementedError', and its docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -157,6 +167,28 @@ class QLineEditIconButton(QToolButton):
         'ritual_ZNK19QLineEditIconButton10needsSpaceEv',
     )
 
+  def lineEditPrivate(self) -> Optional[QLineEditPrivate]:
+    """
+    Calls Qt's 'QLineEditPrivate *QLineEditIconButton::lineEditPrivate()
+    const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qlineediticonbutton.html#lineEditPrivate
+
+    Returns
+    -------
+
+    Optional[QLineEditPrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QLineEditPrivate *QLineEditIconButton::lineEditPrivate() const
+    address = self.uglySide.call(
+        'ritual_ZNK19QLineEditIconButton15lineEditPrivateEv',
+    )
+    from . import QLineEditPrivate
+    return QLineEditPrivate._cuteAt(address)
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -208,6 +240,20 @@ class QLineEditIconButton(QToolButton):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def __init__(*__, **_) -> Never:
+    """
+    Qt's 'QLineEditIconButton::QLineEditIconButton(QWidget *parent)': leans
+    on 'vtable for QLineEditIconButton', which Qt's source does not mark for
+    use from outside Qt and has no code for that could be taken.
+    """
+    raise NotImplementedError(
+        "'QLineEditIconButton.__init__' has no cute function yet. Qt's "
+        "'QLineEditIconButton::QLineEditIconButton(QWidget *parent)': leans "
+        "on 'vtable for QLineEditIconButton', which Qt's source does not "
+        "mark for use from outside Qt and has no code for that could be "
+        "taken.")
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -296,3 +342,31 @@ class QLineEditIconButton(QToolButton):
     self.uglySide.call(
         'ritual_ZN19QLineEditIconButton19onAnimationFinishedEv',
     )
+
+  @staticmethod
+  def animateShow(*__, **_) -> Never:
+    """
+    Qt's 'void QLineEditIconButton::animateShow(bool visible)': leans on
+    'QLineEditIconButton::staticMetaObject', which Qt's source does not mark
+    for use from outside Qt and has no code for that could be taken.
+    """
+    raise NotImplementedError(
+        "'QLineEditIconButton.animateShow' has no cute function yet. Qt's "
+        "'void QLineEditIconButton::animateShow(bool visible)': leans on "
+        "'QLineEditIconButton::staticMetaObject', which Qt's source does "
+        "not mark for use from outside Qt and has no code for that could be "
+        "taken.")
+
+  @staticmethod
+  def startOpacityAnimation(*__, **_) -> Never:
+    """
+    Qt's 'void QLineEditIconButton::startOpacityAnimation(qreal endValue)':
+    leans on 'QLineEditIconButton::staticMetaObject', which Qt's source does
+    not mark for use from outside Qt and has no code for that could be taken.
+    """
+    raise NotImplementedError(
+        "'QLineEditIconButton.startOpacityAnimation' has no cute function "
+        "yet. Qt's 'void QLineEditIconButton::startOpacityAnimation(qreal "
+        "endValue)': leans on 'QLineEditIconButton::staticMetaObject', "
+        "which Qt's source does not mark for use from outside Qt and has no "
+        "code for that could be taken.")

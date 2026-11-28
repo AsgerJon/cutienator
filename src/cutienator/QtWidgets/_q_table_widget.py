@@ -22,7 +22,8 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   from ..QtCore import QAbstractItemModel, QEvent, QMetaObject, QMimeData
   from ..QtCore import QModelIndex, QPoint, QRect
   from ..QtGui import QDropEvent
-  from . import QTableWidgetItem, QTableWidgetSelectionRange
+  from . import QTableWidgetItem, QTableWidgetPrivate
+  from . import QTableWidgetSelectionRange
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -53,7 +54,7 @@ class QTableWidget(QTableView):
   -----------
 
   Every function of Qt's QTableWidget that has a ritual and that Python can
-  call so far, 63 names in all: 'metaObject', 'tr', 'setRowCount',
+  call so far, 79 names in all: 'metaObject', 'tr', 'setRowCount',
   'rowCount', 'setColumnCount', 'columnCount', 'row', 'column', 'item',
   'setItem', 'takeItem', 'items', 'indexFromItem', 'itemFromIndex',
   'verticalHeaderItem', 'setVerticalHeaderItem', 'takeVerticalHeaderItem',
@@ -68,22 +69,30 @@ class QTableWidget(QTableView):
   'visualItemRect', 'itemPrototype', 'setItemPrototype',
   'supportedDragActions', 'setSupportedDragActions', 'scrollToItem',
   'insertRow', 'insertColumn', 'removeRow', 'removeColumn', 'clear',
-  'clearContents', 'event', 'mimeTypes', 'mimeData', 'dropMimeData',
-  'supportedDropActions', 'dropEvent', 'setModel'. It can be made from
-  Python, in 2 ways; see '__init__'.
+  'clearContents', 'itemPressed', 'itemClicked', 'itemDoubleClicked',
+  'itemActivated', 'itemEntered', 'itemChanged', 'currentItemChanged',
+  'itemSelectionChanged', 'cellPressed', 'cellClicked', 'cellDoubleClicked',
+  'cellActivated', 'cellEntered', 'cellChanged', 'currentCellChanged',
+  'event', 'mimeTypes', 'mimeData', 'dropMimeData', 'supportedDropActions',
+  'dropEvent', 'setModel', 'd_func'. It can be made from Python, in 2 ways;
+  see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QTableWidget::qt_metacast(const char *a0)': one of Qt's own
+    inner workings.
+  - Qt's 'int QTableWidget::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
   - Qt's 'QTableWidget::~QTableWidget()': the destructor: Python never
     removes a C++ QTableWidget.
+  - Qt's 'const QTableWidgetPrivate *QTableWidget::d_func() const': takes in
+    Python what 'QTableWidgetPrivate *QTableWidget::d_func()' takes.
 
   What has no ritual
   ------------------
 
-  23 of the 92 functions Qt declares: 15 a signal; 4 takes or gives a type
-  that cannot be passed yet; 2 forbidden; 1 a template; 1 declared and
-  nowhere to be found.
+  4 of the 92 functions Qt declares: 2 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -1720,6 +1729,342 @@ class QTableWidget(QTableView):
     #  void QTableWidget::clearContents()
     self.uglySide.call('ritual_ZN12QTableWidget13clearContentsEv')
 
+  @overload(QTableWidgetItem)
+  @overload(NoneType)
+  def itemPressed(self, item: Optional[QTableWidgetItem]) -> None:
+    """
+    Calls Qt's 'void QTableWidget::itemPressed(QTableWidgetItem *item)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtablewidget.html#itemPressed
+
+    Parameters
+    ----------
+
+    item : Optional[QTableWidgetItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QTableWidget::itemPressed(QTableWidgetItem *item)
+    self.uglySide.call(
+        'ritual_ZN12QTableWidget11itemPressedEP16QTableWidgetItem',
+        self._addressOf(item),
+    )
+
+  @overload(QTableWidgetItem)
+  @overload(NoneType)
+  def itemClicked(self, item: Optional[QTableWidgetItem]) -> None:
+    """
+    Calls Qt's 'void QTableWidget::itemClicked(QTableWidgetItem *item)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtablewidget.html#itemClicked
+
+    Parameters
+    ----------
+
+    item : Optional[QTableWidgetItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QTableWidget::itemClicked(QTableWidgetItem *item)
+    self.uglySide.call(
+        'ritual_ZN12QTableWidget11itemClickedEP16QTableWidgetItem',
+        self._addressOf(item),
+    )
+
+  @overload(QTableWidgetItem)
+  @overload(NoneType)
+  def itemDoubleClicked(self, item: Optional[QTableWidgetItem]) -> None:
+    """
+    Calls Qt's 'void QTableWidget::itemDoubleClicked(QTableWidgetItem
+    *item)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qtablewidget.html#itemDoubleClicked
+
+    Parameters
+    ----------
+
+    item : Optional[QTableWidgetItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QTableWidget::itemDoubleClicked(QTableWidgetItem *item)
+    self.uglySide.call(
+        'ritual_ZN12QTableWidget17itemDoubleClickedEP16QTableWidgetItem',
+        self._addressOf(item),
+    )
+
+  @overload(QTableWidgetItem)
+  @overload(NoneType)
+  def itemActivated(self, item: Optional[QTableWidgetItem]) -> None:
+    """
+    Calls Qt's 'void QTableWidget::itemActivated(QTableWidgetItem *item)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtablewidget.html#itemActivated
+
+    Parameters
+    ----------
+
+    item : Optional[QTableWidgetItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QTableWidget::itemActivated(QTableWidgetItem *item)
+    self.uglySide.call(
+        'ritual_ZN12QTableWidget13itemActivatedEP16QTableWidgetItem',
+        self._addressOf(item),
+    )
+
+  @overload(QTableWidgetItem)
+  @overload(NoneType)
+  def itemEntered(self, item: Optional[QTableWidgetItem]) -> None:
+    """
+    Calls Qt's 'void QTableWidget::itemEntered(QTableWidgetItem *item)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtablewidget.html#itemEntered
+
+    Parameters
+    ----------
+
+    item : Optional[QTableWidgetItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QTableWidget::itemEntered(QTableWidgetItem *item)
+    self.uglySide.call(
+        'ritual_ZN12QTableWidget11itemEnteredEP16QTableWidgetItem',
+        self._addressOf(item),
+    )
+
+  @overload(QTableWidgetItem)
+  @overload(NoneType)
+  def itemChanged(self, item: Optional[QTableWidgetItem]) -> None:
+    """
+    Calls Qt's 'void QTableWidget::itemChanged(QTableWidgetItem *item)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtablewidget.html#itemChanged
+
+    Parameters
+    ----------
+
+    item : Optional[QTableWidgetItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QTableWidget::itemChanged(QTableWidgetItem *item)
+    self.uglySide.call(
+        'ritual_ZN12QTableWidget11itemChangedEP16QTableWidgetItem',
+        self._addressOf(item),
+    )
+
+  @overload(QTableWidgetItem, QTableWidgetItem)
+  @overload(QTableWidgetItem, NoneType)
+  @overload(NoneType, QTableWidgetItem)
+  @overload(NoneType, NoneType)
+  def currentItemChanged(
+      self,
+      current: Optional[QTableWidgetItem],
+      previous: Optional[QTableWidgetItem],
+  ) -> None:
+    """
+    Calls Qt's 'void QTableWidget::currentItemChanged(QTableWidgetItem
+    *current, QTableWidgetItem *previous)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qtablewidget.html#currentItemChanged
+
+    Parameters
+    ----------
+
+    current : Optional[QTableWidgetItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    previous : Optional[QTableWidgetItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QTableWidget::currentItemChanged(QTableWidgetItem *current,
+    #      QTableWidgetItem *previous)
+    self.uglySide.call(
+        'ritual_ZN12QTableWidget18currentItemChangedEP16QTableWidgetItemS1_',
+        self._addressOf(current), self._addressOf(previous),
+    )
+
+  def itemSelectionChanged(self) -> None:
+    """
+    Calls Qt's 'void QTableWidget::itemSelectionChanged()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qtablewidget.html#itemSelectionChanged
+    """
+    #  void QTableWidget::itemSelectionChanged()
+    self.uglySide.call('ritual_ZN12QTableWidget20itemSelectionChangedEv')
+
+  @overload(int, int)
+  def cellPressed(self, row: int, column: int) -> None:
+    """
+    Calls Qt's 'void QTableWidget::cellPressed(int row, int column)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtablewidget.html#cellPressed
+
+    Parameters
+    ----------
+
+    row : int
+      Passed on as it is.
+
+    column : int
+      Passed on as it is.
+    """
+    #  void QTableWidget::cellPressed(int row, int column)
+    self.uglySide.call(
+        'ritual_ZN12QTableWidget11cellPressedEii', row, column,
+    )
+
+  @overload(int, int)
+  def cellClicked(self, row: int, column: int) -> None:
+    """
+    Calls Qt's 'void QTableWidget::cellClicked(int row, int column)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtablewidget.html#cellClicked
+
+    Parameters
+    ----------
+
+    row : int
+      Passed on as it is.
+
+    column : int
+      Passed on as it is.
+    """
+    #  void QTableWidget::cellClicked(int row, int column)
+    self.uglySide.call(
+        'ritual_ZN12QTableWidget11cellClickedEii', row, column,
+    )
+
+  @overload(int, int)
+  def cellDoubleClicked(self, row: int, column: int) -> None:
+    """
+    Calls Qt's 'void QTableWidget::cellDoubleClicked(int row, int column)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qtablewidget.html#cellDoubleClicked
+
+    Parameters
+    ----------
+
+    row : int
+      Passed on as it is.
+
+    column : int
+      Passed on as it is.
+    """
+    #  void QTableWidget::cellDoubleClicked(int row, int column)
+    self.uglySide.call(
+        'ritual_ZN12QTableWidget17cellDoubleClickedEii', row, column,
+    )
+
+  @overload(int, int)
+  def cellActivated(self, row: int, column: int) -> None:
+    """
+    Calls Qt's 'void QTableWidget::cellActivated(int row, int column)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtablewidget.html#cellActivated
+
+    Parameters
+    ----------
+
+    row : int
+      Passed on as it is.
+
+    column : int
+      Passed on as it is.
+    """
+    #  void QTableWidget::cellActivated(int row, int column)
+    self.uglySide.call(
+        'ritual_ZN12QTableWidget13cellActivatedEii', row, column,
+    )
+
+  @overload(int, int)
+  def cellEntered(self, row: int, column: int) -> None:
+    """
+    Calls Qt's 'void QTableWidget::cellEntered(int row, int column)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtablewidget.html#cellEntered
+
+    Parameters
+    ----------
+
+    row : int
+      Passed on as it is.
+
+    column : int
+      Passed on as it is.
+    """
+    #  void QTableWidget::cellEntered(int row, int column)
+    self.uglySide.call(
+        'ritual_ZN12QTableWidget11cellEnteredEii', row, column,
+    )
+
+  @overload(int, int)
+  def cellChanged(self, row: int, column: int) -> None:
+    """
+    Calls Qt's 'void QTableWidget::cellChanged(int row, int column)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtablewidget.html#cellChanged
+
+    Parameters
+    ----------
+
+    row : int
+      Passed on as it is.
+
+    column : int
+      Passed on as it is.
+    """
+    #  void QTableWidget::cellChanged(int row, int column)
+    self.uglySide.call(
+        'ritual_ZN12QTableWidget11cellChangedEii', row, column,
+    )
+
+  @overload(int, int, int, int)
+  def currentCellChanged(
+      self,
+      currentRow: int,
+      currentColumn: int,
+      previousRow: int,
+      previousColumn: int,
+  ) -> None:
+    """
+    Calls Qt's 'void QTableWidget::currentCellChanged(int currentRow, int
+    currentColumn, int previousRow, int previousColumn)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qtablewidget.html#currentCellChanged
+
+    Parameters
+    ----------
+
+    currentRow : int
+      Passed on as it is.
+
+    currentColumn : int
+      Passed on as it is.
+
+    previousRow : int
+      Passed on as it is.
+
+    previousColumn : int
+      Passed on as it is.
+    """
+    #  void QTableWidget::currentCellChanged(int currentRow, int
+    #      currentColumn, int previousRow, int previousColumn)
+    self.uglySide.call(
+        'ritual_ZN12QTableWidget18currentCellChangedEiiii',
+        currentRow, currentColumn, previousRow, previousColumn,
+    )
+
   @overload(QEvent)
   @overload(NoneType)
   def event(self, e: Optional[QEvent]) -> bool:
@@ -1805,3 +2150,21 @@ class QTableWidget(QTableView):
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZN12QTableWidget9dropEventEP10QDropEvent'
     self.uglySide.call(ritual, self._addressOf(event))
+
+  def d_func(self) -> Optional[QTableWidgetPrivate]:
+    """
+    Calls Qt's 'QTableWidgetPrivate *QTableWidget::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtablewidget.html#d_func
+
+    Returns
+    -------
+
+    Optional[QTableWidgetPrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QTableWidgetPrivate *QTableWidget::d_func()
+    address = self.uglySide.call('ritual_ZN12QTableWidget6d_funcEv')
+    from . import QTableWidgetPrivate
+    return QTableWidgetPrivate._cuteAt(address)

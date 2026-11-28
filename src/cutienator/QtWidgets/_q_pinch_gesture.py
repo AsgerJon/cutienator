@@ -20,6 +20,7 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
   from ..QtCore import QMetaObject, QPointF
+  from . import QPinchGesturePrivate
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -43,27 +44,32 @@ class QPinchGesture(QGesture):
   -----------
 
   Every function of Qt's QPinchGesture that has a ritual and that Python can
-  call so far, 24 names in all: 'metaObject', 'tr', 'totalChangeFlags',
-  'setTotalChangeFlags', 'changeFlags', 'setChangeFlags', 'startCenterPoint',
-  'lastCenterPoint', 'centerPoint', 'setStartCenterPoint',
-  'setLastCenterPoint', 'setCenterPoint', 'totalScaleFactor',
-  'lastScaleFactor', 'scaleFactor', 'setTotalScaleFactor',
-  'setLastScaleFactor', 'setScaleFactor', 'totalRotationAngle',
-  'lastRotationAngle', 'rotationAngle', 'setTotalRotationAngle',
-  'setLastRotationAngle', 'setRotationAngle'. It can be made from Python, in
-  1 way; see '__init__'.
+  call so far, 25 names in all: 'metaObject', 'tr', 'd_func',
+  'totalChangeFlags', 'setTotalChangeFlags', 'changeFlags', 'setChangeFlags',
+  'startCenterPoint', 'lastCenterPoint', 'centerPoint',
+  'setStartCenterPoint', 'setLastCenterPoint', 'setCenterPoint',
+  'totalScaleFactor', 'lastScaleFactor', 'scaleFactor',
+  'setTotalScaleFactor', 'setLastScaleFactor', 'setScaleFactor',
+  'totalRotationAngle', 'lastRotationAngle', 'rotationAngle',
+  'setTotalRotationAngle', 'setLastRotationAngle', 'setRotationAngle'. It can
+  be made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QPinchGesture::qt_metacast(const char *a0)': one of Qt's own
+    inner workings.
+  - Qt's 'int QPinchGesture::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
+  - Qt's 'const QPinchGesturePrivate *QPinchGesture::d_func() const': takes
+    in Python what 'QPinchGesturePrivate *QPinchGesture::d_func()' takes.
   - Qt's 'QPinchGesture::~QPinchGesture()': the destructor: Python never
     removes a C++ QPinchGesture.
 
   What has no ritual
   ------------------
 
-  6 of the 32 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet; 1 a template; 1 declared and nowhere to be found.
+  2 of the 32 functions Qt declares: 2 not a gap.
 
   What to expect
   --------------
@@ -404,7 +410,7 @@ class QPinchGesture(QGesture):
     #  void QPinchGesture::setStartCenterPoint(const QPointF &value)
     self.uglySide.call(
         'ritual_ZN13QPinchGesture19setStartCenterPointERK7QPointF',
-        self._valueOf(value),
+        self._valueOf(value, 'QPointF'),
     )
 
   @overload(QPointF)
@@ -426,7 +432,7 @@ class QPinchGesture(QGesture):
     #  void QPinchGesture::setLastCenterPoint(const QPointF &value)
     self.uglySide.call(
         'ritual_ZN13QPinchGesture18setLastCenterPointERK7QPointF',
-        self._valueOf(value),
+        self._valueOf(value, 'QPointF'),
     )
 
   @overload(QPointF)
@@ -446,7 +452,7 @@ class QPinchGesture(QGesture):
     #  void QPinchGesture::setCenterPoint(const QPointF &value)
     self.uglySide.call(
         'ritual_ZN13QPinchGesture14setCenterPointERK7QPointF',
-        self._valueOf(value),
+        self._valueOf(value, 'QPointF'),
     )
 
   @overload(float)
@@ -612,3 +618,21 @@ class QPinchGesture(QGesture):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  def d_func(self) -> Optional[QPinchGesturePrivate]:
+    """
+    Calls Qt's 'QPinchGesturePrivate *QPinchGesture::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpinchgesture.html#d_func
+
+    Returns
+    -------
+
+    Optional[QPinchGesturePrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QPinchGesturePrivate *QPinchGesture::d_func()
+    address = self.uglySide.call('ritual_ZN13QPinchGesture6d_funcEv')
+    from . import QPinchGesturePrivate
+    return QPinchGesturePrivate._cuteAt(address)

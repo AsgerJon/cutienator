@@ -16,6 +16,9 @@ from worktoy.keenum import Kee
 from ..cute import CuteMixin, CuteNum, MetaCute
 from ..occult import Rituals
 
+if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Never
+
 
 class QElapsedTimer(CuteMixin, metaclass=MetaCute):
   """
@@ -39,14 +42,12 @@ class QElapsedTimer(CuteMixin, metaclass=MetaCute):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'Duration QElapsedTimer::durationElapsed() const': gives a type
+    Python has no way to take yet.
+  - Qt's 'Duration QElapsedTimer::durationTo(const QElapsedTimer &other)
+    const': gives a type Python has no way to take yet.
   - Qt's 'QElapsedTimer::~QElapsedTimer()': the destructor: Python removes
     its C++ QElapsedTimer by it, and has no other use for it.
-
-  What has no ritual
-  ------------------
-
-  2 of the 22 functions Qt declares: 2 takes or gives a type that cannot be
-  passed yet.
 
   What to expect
   --------------
@@ -60,6 +61,9 @@ class QElapsedTimer(CuteMixin, metaclass=MetaCute):
     is as in C++.
   - A function giving a QElapsedTimer back gives a copy the ritual made for
     Python, in a new cute QElapsedTimer.
+  - Each name of Qt's QElapsedTimer that has no cute function yet,
+    'durationElapsed', 'durationTo', holds a function that raises
+    'NotImplementedError', and its docstring says why.
   """
 
   #  The enums Qt writes inside QElapsedTimer, each a class in here as in
@@ -487,3 +491,25 @@ class QElapsedTimer(CuteMixin, metaclass=MetaCute):
     """
     #  void QElapsedTimer::invalidate()
     self.uglySide.call('ritual_ZN13QElapsedTimer10invalidateEv')
+
+  @staticmethod
+  def durationElapsed(*__, **_) -> Never:
+    """
+    Qt's 'Duration QElapsedTimer::durationElapsed() const': gives a type
+    Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QElapsedTimer.durationElapsed' has no cute function yet. Qt's "
+        "'Duration QElapsedTimer::durationElapsed() const': gives a type "
+        "Python has no way to take yet.")
+
+  @staticmethod
+  def durationTo(*__, **_) -> Never:
+    """
+    Qt's 'Duration QElapsedTimer::durationTo(const QElapsedTimer &other)
+    const': gives a type Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QElapsedTimer.durationTo' has no cute function yet. Qt's "
+        "'Duration QElapsedTimer::durationTo(const QElapsedTimer &other) "
+        "const': gives a type Python has no way to take yet.")

@@ -15,6 +15,8 @@ from ..cute import CuteMixin, MetaCute, WAIT
 from . import QAccessible
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Never
+
   from ..QtCore import QPoint, QRect
 else:
   #  The cute classes this file names and is not built on. Each is brought in
@@ -63,7 +65,8 @@ class QAccessibleTextInterface(CuteMixin, metaclass=MetaCute):
   ------------------
 
   5 of the 22 functions Qt declares: 4 forbidden; 1 the class is abstract, so
-  C++ cannot make one.
+  C++ cannot make one, and the C++ class of ours does not fill in every
+  function it leaves open.
 
   What to expect
   --------------
@@ -76,6 +79,10 @@ class QAccessibleTextInterface(CuteMixin, metaclass=MetaCute):
     has it, and is passed on as nothing. Whether Qt can do with nothing there
     is as in C++.
   - Python never removes the C++ QAccessibleTextInterface.
+  - Each name of Qt's QAccessibleTextInterface that has no cute function yet,
+    '__init__', 'attributes', 'selection', 'textAfterOffset', 'textAtOffset',
+    'textBeforeOffset', holds a function that raises 'NotImplementedError',
+    and its docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -225,7 +232,8 @@ class QAccessibleTextInterface(CuteMixin, metaclass=MetaCute):
     https://doc.qt.io/qt-6/qaccessibletextinterface.html#selectionCount
     """
     #  int QAccessibleTextInterface::selectionCount() const
-    return self.uglySide.call(
+    return self._callAs(
+        'QAccessibleTextInterface',
         'ritual_ZNK24QAccessibleTextInterface14selectionCountEv',
     )
 
@@ -237,7 +245,8 @@ class QAccessibleTextInterface(CuteMixin, metaclass=MetaCute):
     https://doc.qt.io/qt-6/qaccessibletextinterface.html#cursorPosition
     """
     #  int QAccessibleTextInterface::cursorPosition() const
-    return self.uglySide.call(
+    return self._callAs(
+        'QAccessibleTextInterface',
         'ritual_ZNK24QAccessibleTextInterface14cursorPositionEv',
     )
 
@@ -266,7 +275,8 @@ class QAccessibleTextInterface(CuteMixin, metaclass=MetaCute):
     """
     #  QString QAccessibleTextInterface::text(int startOffset, int endOffset)
     #      const
-    return self.uglySide.call(
+    return self._callAs(
+        'QAccessibleTextInterface',
         'ritual_ZNK24QAccessibleTextInterface4textEii',
         startOffset, endOffset,
     )
@@ -279,7 +289,8 @@ class QAccessibleTextInterface(CuteMixin, metaclass=MetaCute):
     https://doc.qt.io/qt-6/qaccessibletextinterface.html#characterCount
     """
     #  int QAccessibleTextInterface::characterCount() const
-    return self.uglySide.call(
+    return self._callAs(
+        'QAccessibleTextInterface',
         'ritual_ZNK24QAccessibleTextInterface14characterCountEv',
     )
 
@@ -305,8 +316,10 @@ class QAccessibleTextInterface(CuteMixin, metaclass=MetaCute):
       A new cute QRect around the copy Qt gave back. Python owns it.
     """
     #  QRect QAccessibleTextInterface::characterRect(int offset) const
-    address = self.uglySide.call(
-        'ritual_ZNK24QAccessibleTextInterface13characterRectEi', offset,
+    address = self._callAs(
+        'QAccessibleTextInterface',
+        'ritual_ZNK24QAccessibleTextInterface13characterRectEi',
+        offset,
     )
     from ..QtCore import QRect
     return QRect._cuteOwning(address)
@@ -328,7 +341,8 @@ class QAccessibleTextInterface(CuteMixin, metaclass=MetaCute):
       own.
     """
     #  int QAccessibleTextInterface::offsetAtPoint(const QPoint &point) const
-    return self.uglySide.call(
+    return self._callAs(
+        'QAccessibleTextInterface',
         'ritual_ZNK24QAccessibleTextInterface13offsetAtPointERK6QPoint',
         self._valueOf(point),
     )
@@ -365,7 +379,8 @@ class QAccessibleTextInterface(CuteMixin, metaclass=MetaCute):
     """
     #  void QAccessibleTextInterface::setSelection(int selectionIndex, int
     #      startOffset, int endOffset)
-    self.uglySide.call(
+    self._callAs(
+        'QAccessibleTextInterface',
         'ritual_ZN24QAccessibleTextInterface12setSelectionEiii',
         selectionIndex, startOffset, endOffset,
     )
@@ -386,8 +401,10 @@ class QAccessibleTextInterface(CuteMixin, metaclass=MetaCute):
       Passed on as it is.
     """
     #  void QAccessibleTextInterface::setCursorPosition(int position)
-    self.uglySide.call(
-        'ritual_ZN24QAccessibleTextInterface17setCursorPositionEi', position,
+    self._callAs(
+        'QAccessibleTextInterface',
+        'ritual_ZN24QAccessibleTextInterface17setCursorPositionEi',
+        position,
     )
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -401,6 +418,19 @@ class QAccessibleTextInterface(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def __init__(*__, **_) -> Never:
+    """
+    Qt's 'QAccessibleTextInterface::QAccessibleTextInterface()': the class is
+    abstract, so C++ cannot make one, and the C++ class of ours does not fill
+    in every function it leaves open.
+    """
+    raise NotImplementedError(
+        "'QAccessibleTextInterface.__init__' has no cute function yet. Qt's "
+        "'QAccessibleTextInterface::QAccessibleTextInterface()': the class "
+        "is abstract, so C++ cannot make one, and the C++ class of ours "
+        "does not fill in every function it leaves open.")
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -442,7 +472,8 @@ class QAccessibleTextInterface(CuteMixin, metaclass=MetaCute):
     """
     #  void QAccessibleTextInterface::addSelection(int startOffset, int
     #      endOffset)
-    self.uglySide.call(
+    self._callAs(
+        'QAccessibleTextInterface',
         'ritual_ZN24QAccessibleTextInterface12addSelectionEii',
         startOffset, endOffset,
     )
@@ -463,7 +494,8 @@ class QAccessibleTextInterface(CuteMixin, metaclass=MetaCute):
       Passed on as it is.
     """
     #  void QAccessibleTextInterface::removeSelection(int selectionIndex)
-    self.uglySide.call(
+    self._callAs(
+        'QAccessibleTextInterface',
         'ritual_ZN24QAccessibleTextInterface15removeSelectionEi',
         selectionIndex,
     )
@@ -488,7 +520,75 @@ class QAccessibleTextInterface(CuteMixin, metaclass=MetaCute):
     """
     #  void QAccessibleTextInterface::scrollToSubstring(int startIndex, int
     #      endIndex)
-    self.uglySide.call(
+    self._callAs(
+        'QAccessibleTextInterface',
         'ritual_ZN24QAccessibleTextInterface17scrollToSubstringEii',
         startIndex, endIndex,
     )
+
+  @staticmethod
+  def attributes(*__, **_) -> Never:
+    """
+    Qt's 'QString QAccessibleTextInterface::attributes(int offset, int
+    *startOffset, int *endOffset) const': takes a number to change where it
+    is.
+    """
+    raise NotImplementedError(
+        "'QAccessibleTextInterface.attributes' has no cute function yet. "
+        "Qt's 'QString QAccessibleTextInterface::attributes(int offset, int "
+        "*startOffset, int *endOffset) const': takes a number to change "
+        "where it is.")
+
+  @staticmethod
+  def selection(*__, **_) -> Never:
+    """
+    Qt's 'void QAccessibleTextInterface::selection(int selectionIndex, int
+    *startOffset, int *endOffset) const': takes a number to change where it
+    is.
+    """
+    raise NotImplementedError(
+        "'QAccessibleTextInterface.selection' has no cute function yet. "
+        "Qt's 'void QAccessibleTextInterface::selection(int selectionIndex, "
+        "int *startOffset, int *endOffset) const': takes a number to change "
+        "where it is.")
+
+  @staticmethod
+  def textAfterOffset(*__, **_) -> Never:
+    """
+    Qt's 'QString QAccessibleTextInterface::textAfterOffset(int offset,
+    QAccessible::TextBoundaryType boundaryType, int *startOffset, int
+    *endOffset) const': takes a number to change where it is.
+    """
+    raise NotImplementedError(
+        "'QAccessibleTextInterface.textAfterOffset' has no cute function "
+        "yet. Qt's 'QString QAccessibleTextInterface::textAfterOffset(int "
+        "offset, QAccessible::TextBoundaryType boundaryType, int "
+        "*startOffset, int *endOffset) const': takes a number to change "
+        "where it is.")
+
+  @staticmethod
+  def textAtOffset(*__, **_) -> Never:
+    """
+    Qt's 'QString QAccessibleTextInterface::textAtOffset(int offset,
+    QAccessible::TextBoundaryType boundaryType, int *startOffset, int
+    *endOffset) const': takes a number to change where it is.
+    """
+    raise NotImplementedError(
+        "'QAccessibleTextInterface.textAtOffset' has no cute function yet. "
+        "Qt's 'QString QAccessibleTextInterface::textAtOffset(int offset, "
+        "QAccessible::TextBoundaryType boundaryType, int *startOffset, int "
+        "*endOffset) const': takes a number to change where it is.")
+
+  @staticmethod
+  def textBeforeOffset(*__, **_) -> Never:
+    """
+    Qt's 'QString QAccessibleTextInterface::textBeforeOffset(int offset,
+    QAccessible::TextBoundaryType boundaryType, int *startOffset, int
+    *endOffset) const': takes a number to change where it is.
+    """
+    raise NotImplementedError(
+        "'QAccessibleTextInterface.textBeforeOffset' has no cute function "
+        "yet. Qt's 'QString QAccessibleTextInterface::textBeforeOffset(int "
+        "offset, QAccessible::TextBoundaryType boundaryType, int "
+        "*startOffset, int *endOffset) const': takes a number to change "
+        "where it is.")

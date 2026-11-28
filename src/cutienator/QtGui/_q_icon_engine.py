@@ -13,11 +13,12 @@ from worktoy.dispatch import overload
 from worktoy.keenum import Kee
 
 from ..cute import CuteMixin, CuteNum, MetaCute, WAIT
+from ..occult import Rituals
 from ..QtCore import QList
 from . import QIcon
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from ..QtCore import QRect, QSize
   from . import QPainter, QPixmap
@@ -46,20 +47,26 @@ class QIconEngine(CuteMixin, metaclass=MetaCute):
   Every function of Qt's QIconEngine that has a ritual and that Python can
   call so far, 11 names in all: 'paint', 'actualSize', 'pixmap', 'addPixmap',
   'addFile', 'key', 'clone', 'availableSizes', 'iconName', 'isNull',
-  'scaledPixmap'. None can be made from Python: one comes out of a function
-  of another class that gives one back.
+  'scaledPixmap'. It can be made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
   - Qt's 'QIconEngine::~QIconEngine()': the destructor: Python never removes
     a C++ QIconEngine.
+  - Qt's 'bool QIconEngine::read(QDataStream &in)': takes a type Python has
+    no way to hand over yet.
+  - Qt's 'bool QIconEngine::write(QDataStream &out) const': takes a type
+    Python has no way to hand over yet.
+  - Qt's 'void QIconEngine::virtual_hook(int id, void *data)': names 'void',
+    which has no cute class yet.
+  - Qt's 'QIconEngine::QIconEngine(const QIconEngine &other)': takes a type
+    Python has no way to hand over yet.
 
   What has no ritual
   ------------------
 
-  6 of the 18 functions Qt declares: 3 takes or gives a type that cannot be
-  passed yet; 2 the class is abstract, so C++ cannot make one; 1 forbidden.
+  1 of the 18 functions Qt declares: 1 forbidden.
 
   What to expect
   --------------
@@ -72,6 +79,9 @@ class QIconEngine(CuteMixin, metaclass=MetaCute):
     has it, and is passed on as nothing. Whether Qt can do with nothing there
     is as in C++.
   - Python never removes the C++ QIconEngine.
+  - Each name of Qt's QIconEngine that has no cute function yet, 'read',
+    'virtual_hook', 'write', holds a function that raises
+    'NotImplementedError', and its docstring says why.
   """
 
   #  The enums Qt writes inside QIconEngine, each a class in here as in C++,
@@ -379,6 +389,19 @@ class QIconEngine(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload()
+  def __init__(self) -> None:
+    """
+    Notes what was given, for Qt's 'QIconEngine::QIconEngine()', which is
+    called at the first use.
+
+    Qt's own words: https://doc.qt.io/qt-6/qiconengine.html#QIconEngine
+    """
+    #  QIconEngine::QIconEngine()
+    self._noteCreation(QIconEngine, lambda: Rituals.call(
+        'ritual_ZN11QIconEngineC1Ev',
+    ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -730,3 +753,36 @@ class QIconEngine(CuteMixin, metaclass=MetaCute):
     )
     from . import QPixmap
     return QPixmap._cuteOwning(address)
+
+  @staticmethod
+  def read(*__, **_) -> Never:
+    """
+    Qt's 'bool QIconEngine::read(QDataStream &in)': takes a type Python has
+    no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QIconEngine.read' has no cute function yet. Qt's 'bool "
+        "QIconEngine::read(QDataStream &in)': takes a type Python has no "
+        "way to hand over yet.")
+
+  @staticmethod
+  def virtual_hook(*__, **_) -> Never:
+    """
+    Qt's 'void QIconEngine::virtual_hook(int id, void *data)': names 'void',
+    which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QIconEngine.virtual_hook' has no cute function yet. Qt's 'void "
+        "QIconEngine::virtual_hook(int id, void *data)': names 'void', "
+        "which has no cute class yet.")
+
+  @staticmethod
+  def write(*__, **_) -> Never:
+    """
+    Qt's 'bool QIconEngine::write(QDataStream &out) const': takes a type
+    Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QIconEngine.write' has no cute function yet. Qt's 'bool "
+        "QIconEngine::write(QDataStream &out) const': takes a type Python "
+        "has no way to hand over yet.")

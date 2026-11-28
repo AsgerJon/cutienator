@@ -18,6 +18,8 @@ from ..occult import Rituals
 from . import Qt, QStringList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Never
+
   from . import QRegularExpressionMatch, QRegularExpressionMatchIterator
 
 
@@ -44,8 +46,18 @@ class QRegularExpression(CuteMixin, metaclass=MetaCute):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'QRegularExpression::QRegularExpression(QRegularExpression &&re)':
+    takes a type Python has no way to hand over yet.
   - Qt's 'QRegularExpression::~QRegularExpression()': the destructor: Python
     removes its C++ QRegularExpression by it, and has no other use for it.
+  - Qt's 'QRegularExpression &QRegularExpression::operator=(const
+    QRegularExpression &re)': assignment: Python binds a name and has no
+    operator for it.
+  - Qt's 'QRegularExpression
+    &QRegularExpression::operator=(QRegularExpression &&other)': assignment:
+    Python binds a name and has no operator for it.
+  - Qt's 'void QRegularExpression::swap(QRegularExpression &other)': takes a
+    type Python has no way to hand over yet.
   - Qt's 'QRegularExpressionMatch QRegularExpression::match(QStringView
     subjectView, qsizetype offset, MatchType matchType, MatchOptions
     matchOptions) const': takes in Python what 'QRegularExpressionMatch
@@ -67,12 +79,8 @@ class QRegularExpression(CuteMixin, metaclass=MetaCute):
   - Qt's 'QString QRegularExpression::anchoredPattern(QStringView
     expression)': takes in Python what 'QString
     QRegularExpression::anchoredPattern(const QString &expression)' takes.
-
-  What has no ritual
-  ------------------
-
-  5 of the 34 functions Qt declares: 5 takes or gives a type that cannot be
-  passed yet.
+  - Qt's 'QRegularExpression::QRegularExpression(QRegularExpressionPrivate
+    &dd)': takes a type Python has no way to hand over yet.
 
   What to expect
   --------------
@@ -86,6 +94,9 @@ class QRegularExpression(CuteMixin, metaclass=MetaCute):
     is as in C++.
   - A function giving a QRegularExpression back gives a copy the ritual made
     for Python, in a new cute QRegularExpression.
+  - Each name of Qt's QRegularExpression that has no cute function yet,
+    'swap', holds a function that raises 'NotImplementedError', and its
+    docstring says why.
   """
 
   #  The enums Qt writes inside QRegularExpression, each a class in here as
@@ -851,3 +862,14 @@ class QRegularExpression(CuteMixin, metaclass=MetaCute):
     """
     #  void QRegularExpression::optimize() const
     self.uglySide.call('ritual_ZNK18QRegularExpression8optimizeEv')
+
+  @staticmethod
+  def swap(*__, **_) -> Never:
+    """
+    Qt's 'void QRegularExpression::swap(QRegularExpression &other)': takes a
+    type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QRegularExpression.swap' has no cute function yet. Qt's 'void "
+        "QRegularExpression::swap(QRegularExpression &other)': takes a type "
+        "Python has no way to hand over yet.")

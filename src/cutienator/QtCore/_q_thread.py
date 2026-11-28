@@ -17,9 +17,10 @@ from ..occult import Rituals
 from . import QObject
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from . import QAbstractEventDispatcher, QDeadlineTimer, QEvent, QMetaObject
+  from . import QThreadPrivate
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -45,27 +46,42 @@ class QThread(QObject):
   -----------
 
   Every function of Qt's QThread that has a ritual and that Python can call
-  so far, 32 names in all: 'metaObject', 'tr', 'currentThread',
+  so far, 35 names in all: 'metaObject', 'tr', 'currentThread',
   'isMainThread', 'idealThreadCount', 'yieldCurrentThread', 'setPriority',
   'priority', 'isFinished', 'isRunning', 'requestInterruption',
   'isInterruptionRequested', 'setStackSize', 'stackSize', 'eventDispatcher',
   'setEventDispatcher', 'event', 'loopLevel', 'isCurrentThread',
   'setServiceLevel', 'serviceLevel', 'start', 'terminate', 'exit', 'quit',
-  'wait', 'sleep', 'msleep', 'usleep', 'run', 'exec',
-  'setTerminationEnabled'. It can be made from Python, in 1 way; see
-  '__init__'.
+  'wait', 'sleep', 'msleep', 'usleep', 'started', 'finished', 'run', 'exec',
+  'setTerminationEnabled', 'd_func'. It can be made from Python, in 1 way;
+  see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QThread::qt_metacast(const char *a0)': one of Qt's own inner
+    workings.
+  - Qt's 'int QThread::qt_metacall(QMetaObject::Call a0, int a1, void **a2)':
+    one of Qt's own inner workings.
+  - Qt's 'Qt::HANDLE QThread::currentThreadId()': gives 'void', which has no
+    cute class yet.
   - Qt's 'QThread::~QThread()': the destructor: Python never removes a C++
     QThread.
+  - Qt's 'void QThread::sleep(std::chrono::nanoseconds nsec)': takes a type
+    Python has no way to hand over yet.
+  - Qt's 'QThread::QThread(QThreadPrivate &dd, QObject *parent)': takes a
+    type Python has no way to hand over yet.
+  - Qt's 'const QThreadPrivate *QThread::d_func() const': takes in Python
+    what 'QThreadPrivate *QThread::d_func()' takes.
+  - Qt's 'QThread *QThread::createThreadImpl(std::future<void> &&future)':
+    takes a type Python has no way to hand over yet.
+  - Qt's 'Qt::HANDLE QThread::currentThreadIdImpl()': gives 'void', which has
+    no cute class yet.
 
   What has no ritual
   ------------------
 
-  14 of the 49 functions Qt declares: 9 takes or gives a type that cannot be
-  passed yet; 2 a template; 2 a signal; 1 declared and nowhere to be found.
+  3 of the 49 functions Qt declares: 2 not a gap; 1 a template.
 
   What to expect
   --------------
@@ -80,6 +96,9 @@ class QThread(QObject):
   - Qt tells when it has removed the C++ QThread. Every call on the cute
     object, and every use of it as an argument, then raises 'RuntimeError',
     and nothing reaches C++.
+  - Each name of Qt's QThread that has no cute function yet, 'create',
+    'createThreadImpl', 'currentThreadId', 'currentThreadIdImpl', holds a
+    function that raises 'NotImplementedError', and its docstring says why.
   """
 
   #  The enums Qt writes inside QThread, each a class in here as in C++, and
@@ -696,6 +715,24 @@ class QThread(QObject):
     #  bool QThread::wait(unsigned long time)
     return self.uglySide.call('ritual_ZN7QThread4waitEm', time)
 
+  def started(self) -> None:
+    """
+    Calls Qt's 'void QThread::started(QPrivateSignal a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qthread.html#started
+    """
+    #  void QThread::started(QPrivateSignal a0)
+    self.uglySide.call('ritual_ZN7QThread7startedENS_14QPrivateSignalE')
+
+  def finished(self) -> None:
+    """
+    Calls Qt's 'void QThread::finished(QPrivateSignal a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qthread.html#finished
+    """
+    #  void QThread::finished(QPrivateSignal a0)
+    self.uglySide.call('ritual_ZN7QThread8finishedENS_14QPrivateSignalE')
+
   def run(self) -> None:
     """
     Calls Qt's 'void QThread::run()'.
@@ -716,3 +753,63 @@ class QThread(QObject):
     """
     #  int QThread::exec()
     return self.uglySide.call('ritual_ZN7QThread4execEv')
+
+  def d_func(self) -> Optional[QThreadPrivate]:
+    """
+    Calls Qt's 'QThreadPrivate *QThread::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qthread.html#d_func
+
+    Returns
+    -------
+
+    Optional[QThreadPrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QThreadPrivate *QThread::d_func()
+    address = self.uglySide.call('ritual_ZN7QThread6d_funcEv')
+    from . import QThreadPrivate
+    return QThreadPrivate._cuteAt(address)
+
+  @staticmethod
+  def create(*__, **_) -> Never:
+    """
+    Qt's 'QThread::create': a template: a pattern and no single function.
+    """
+    raise NotImplementedError(
+        "'QThread.create' has no cute function yet. Qt's 'QThread::create': "
+        "a template: a pattern and no single function.")
+
+  @staticmethod
+  def createThreadImpl(*__, **_) -> Never:
+    """
+    Qt's 'QThread *QThread::createThreadImpl(std::future<void> &&future)':
+    takes a type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QThread.createThreadImpl' has no cute function yet. Qt's 'QThread "
+        "*QThread::createThreadImpl(std::future<void> &&future)': takes a "
+        "type Python has no way to hand over yet.")
+
+  @staticmethod
+  def currentThreadId(*__, **_) -> Never:
+    """
+    Qt's 'Qt::HANDLE QThread::currentThreadId()': gives 'void', which has no
+    cute class yet.
+    """
+    raise NotImplementedError(
+        "'QThread.currentThreadId' has no cute function yet. Qt's "
+        "'Qt::HANDLE QThread::currentThreadId()': gives 'void', which has "
+        "no cute class yet.")
+
+  @staticmethod
+  def currentThreadIdImpl(*__, **_) -> Never:
+    """
+    Qt's 'Qt::HANDLE QThread::currentThreadIdImpl()': gives 'void', which has
+    no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QThread.currentThreadIdImpl' has no cute function yet. Qt's "
+        "'Qt::HANDLE QThread::currentThreadIdImpl()': gives 'void', which "
+        "has no cute class yet.")

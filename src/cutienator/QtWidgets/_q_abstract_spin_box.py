@@ -18,13 +18,13 @@ from ..QtCore import Qt
 from . import QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from ..QtCore import QEvent, QMetaObject, QSize, QTimerEvent, QVariant
   from ..QtGui import QCloseEvent, QContextMenuEvent, QFocusEvent, QHideEvent
   from ..QtGui import QKeyEvent, QMouseEvent, QPaintEvent, QResizeEvent
   from ..QtGui import QShowEvent, QWheelEvent
-  from . import QLineEdit, QStyleOptionSpinBox
+  from . import QAbstractSpinBoxPrivate, QLineEdit, QStyleOptionSpinBox
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -61,7 +61,7 @@ class QAbstractSpinBox(QWidget):
   -----------
 
   Every function of Qt's QAbstractSpinBox that has a ritual and that Python
-  can call so far, 54 names in all: 'metaObject', 'tr', 'buttonSymbols',
+  can call so far, 57 names in all: 'metaObject', 'tr', 'buttonSymbols',
   'setButtonSymbols', 'setCorrectionMode', 'correctionMode',
   'hasAcceptableInput', 'text', 'specialValueText', 'setSpecialValueText',
   'wrapping', 'setWrapping', 'setReadOnly', 'isReadOnly',
@@ -74,20 +74,32 @@ class QAbstractSpinBox(QWidget):
   'contextMenuEvent', 'changeEvent', 'closeEvent', 'hideEvent',
   'mousePressEvent', 'mouseReleaseEvent', 'mouseMoveEvent', 'timerEvent',
   'paintEvent', 'showEvent', 'initStyleOption', 'lineEdit', 'setLineEdit',
-  'stepEnabled'. It can be made from Python, in 1 way; see '__init__'.
+  'stepEnabled', 'editingFinished', 'returnPressed', 'd_func'. It can be made
+  from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QAbstractSpinBox::qt_metacast(const char *a0)': one of Qt's
+    own inner workings.
+  - Qt's 'int QAbstractSpinBox::qt_metacall(QMetaObject::Call a0, int a1,
+    void **a2)': one of Qt's own inner workings.
   - Qt's 'QAbstractSpinBox::~QAbstractSpinBox()': the destructor: Python
     never removes a C++ QAbstractSpinBox.
+  - Qt's 'QValidator::State QAbstractSpinBox::validate(QString &input, int
+    &pos) const': takes a type Python has no way to hand over yet.
+  - Qt's 'void QAbstractSpinBox::fixup(QString &input) const': takes a type
+    Python has no way to hand over yet.
+  - Qt's 'QAbstractSpinBox::QAbstractSpinBox(QAbstractSpinBoxPrivate &dd,
+    QWidget *parent)': takes a type Python has no way to hand over yet.
+  - Qt's 'const QAbstractSpinBoxPrivate *QAbstractSpinBox::d_func() const':
+    takes in Python what 'QAbstractSpinBoxPrivate
+    *QAbstractSpinBox::d_func()' takes.
 
   What has no ritual
   ------------------
 
-  13 of the 69 functions Qt declares: 7 takes or gives a type that cannot be
-  passed yet; 2 a signal; 2 forbidden; 1 a template; 1 declared and nowhere
-  to be found.
+  4 of the 69 functions Qt declares: 2 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -103,6 +115,9 @@ class QAbstractSpinBox(QWidget):
   - Qt tells when it has removed the C++ QAbstractSpinBox. Every call on the
     cute object, and every use of it as an argument, then raises
     'RuntimeError', and nothing reaches C++.
+  - Each name of Qt's QAbstractSpinBox that has no cute function yet,
+    'fixup', 'validate', holds a function that raises 'NotImplementedError',
+    and its docstring says why.
   """
 
   #  The enums Qt writes inside QAbstractSpinBox, each a class in here as in
@@ -1296,3 +1311,63 @@ class QAbstractSpinBox(QWidget):
           'ritual_own_ZNK16QAbstractSpinBox15initStyleOptionEP19QStyleOptio'
           'nSpinBox')
     self.uglySide.call(ritual, self._addressOf(option))
+
+  def editingFinished(self) -> None:
+    """
+    Calls Qt's 'void QAbstractSpinBox::editingFinished()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractspinbox.html#editingFinished
+    """
+    #  void QAbstractSpinBox::editingFinished()
+    self.uglySide.call('ritual_ZN16QAbstractSpinBox15editingFinishedEv')
+
+  def returnPressed(self) -> None:
+    """
+    Calls Qt's 'void QAbstractSpinBox::returnPressed()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractspinbox.html#returnPressed
+    """
+    #  void QAbstractSpinBox::returnPressed()
+    self.uglySide.call('ritual_ZN16QAbstractSpinBox13returnPressedEv')
+
+  def d_func(self) -> Optional[QAbstractSpinBoxPrivate]:
+    """
+    Calls Qt's 'QAbstractSpinBoxPrivate *QAbstractSpinBox::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qabstractspinbox.html#d_func
+
+    Returns
+    -------
+
+    Optional[QAbstractSpinBoxPrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QAbstractSpinBoxPrivate *QAbstractSpinBox::d_func()
+    address = self.uglySide.call('ritual_ZN16QAbstractSpinBox6d_funcEv')
+    from . import QAbstractSpinBoxPrivate
+    return QAbstractSpinBoxPrivate._cuteAt(address)
+
+  @staticmethod
+  def fixup(*__, **_) -> Never:
+    """
+    Qt's 'void QAbstractSpinBox::fixup(QString &input) const': takes a type
+    Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QAbstractSpinBox.fixup' has no cute function yet. Qt's 'void "
+        "QAbstractSpinBox::fixup(QString &input) const': takes a type "
+        "Python has no way to hand over yet.")
+
+  @staticmethod
+  def validate(*__, **_) -> Never:
+    """
+    Qt's 'QValidator::State QAbstractSpinBox::validate(QString &input, int
+    &pos) const': takes a type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QAbstractSpinBox.validate' has no cute function yet. Qt's "
+        "'QValidator::State QAbstractSpinBox::validate(QString &input, int "
+        "&pos) const': takes a type Python has no way to hand over yet.")

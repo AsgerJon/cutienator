@@ -15,8 +15,11 @@ from worktoy.keenum import Kee
 
 from ..cute import CuteMixin, CuteNum, MetaCute, WAIT
 from ..occult import Rituals
+from ..QtCore import QList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Never
+
   from ..QtCore import QRect, QRectF, QSize, QSizeF
 else:
   #  The cute classes this file names and is not built on. Each is brought in
@@ -47,14 +50,16 @@ class QPageSize(CuteMixin, metaclass=MetaCute):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'QPageSize &QPageSize::operator=(QPageSize &&other)': assignment:
+    Python binds a name and has no operator for it.
+  - Qt's 'QPageSize &QPageSize::operator=(const QPageSize &other)':
+    assignment: Python binds a name and has no operator for it.
   - Qt's 'QPageSize::~QPageSize()': the destructor: Python removes its C++
     QPageSize by it, and has no other use for it.
-
-  What has no ritual
-  ------------------
-
-  4 of the 40 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet.
+  - Qt's 'void QPageSize::swap(QPageSize &other)': takes a type Python has no
+    way to hand over yet.
+  - Qt's 'QPageSize::QPageSize(QPageSizePrivate &dd)': takes a type Python
+    has no way to hand over yet.
 
   What to expect
   --------------
@@ -67,6 +72,8 @@ class QPageSize(CuteMixin, metaclass=MetaCute):
     is as in C++.
   - A function giving a QPageSize back gives a copy the ritual made for
     Python, in a new cute QPageSize.
+  - Each name of Qt's QPageSize that has no cute function yet, 'swap', holds
+    a function that raises 'NotImplementedError', and its docstring says why.
   """
 
   #  The enums Qt writes inside QPageSize, each a class in here as in C++,
@@ -1141,3 +1148,27 @@ class QPageSize(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def swap(*__, **_) -> Never:
+    """
+    Qt's 'void QPageSize::swap(QPageSize &other)': takes a type Python has no
+    way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QPageSize.swap' has no cute function yet. Qt's 'void "
+        "QPageSize::swap(QPageSize &other)': takes a type Python has no way "
+        "to hand over yet.")
+
+
+#  Qt's 'QList<QPageSize>': the list of QPageSize, which 'QList[QPageSize]'
+#  gives. It is made here, so that there is one as soon as there can be a
+#  QPageSize.
+QList.createKind(
+    QPageSize, 'value',
+    make='ritual_list_make_QPageSize',
+    add='ritual_list_add_QPageSize',
+    size='ritual_list_size_QPageSize',
+    at='ritual_list_at_QPageSize',
+    drop='ritual_list_drop_QPageSize',
+)

@@ -14,17 +14,18 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
-from . import QHash, QMap, QStringList
+from . import QHash, QMap, QStringList, Qt
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
-  from . import QDebug, QJsonValue, QJsonValueConstRef, QJsonValueRef
-  from . import QLatin1String, QVariant
+  from . import QCborContainerPrivate, QDebug, QJsonValue, QJsonValueConstRef
+  from . import QJsonValueRef, QLatin1String, QVariant
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
+  QCborContainerPrivate = WAIT['QCborContainerPrivate']
   QDebug = WAIT['QDebug']
   QJsonValue = WAIT['QJsonValue']
   QJsonValueConstRef = WAIT['QJsonValueConstRef']
@@ -55,13 +56,23 @@ class QJsonObject(CuteMixin, metaclass=MetaCute):
   'cbegin', 'constBegin', 'end', 'cend', 'constEnd', 'erase', 'find',
   'constFind', 'insert', 'empty', '__eq__', '__ne__', '__rlshift__',
   'detach', 'keyAt', 'valueAt', 'setValueAt', 'removeAt'. It can be made from
-  Python, in 2 ways; see '__init__'.
+  Python, in 3 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'QJsonObject::QJsonObject(std::initializer_list<std::pair<QString,
+    QJsonValue>> args)': takes a type Python has no way to hand over yet.
   - Qt's 'QJsonObject::~QJsonObject()': the destructor: Python removes its
     C++ QJsonObject by it, and has no other use for it.
+  - Qt's 'QJsonObject &QJsonObject::operator=(const QJsonObject &other)':
+    assignment: Python binds a name and has no operator for it.
+  - Qt's 'QJsonObject::QJsonObject(QJsonObject &&other)': takes a type Python
+    has no way to hand over yet.
+  - Qt's 'QJsonObject &QJsonObject::operator=(QJsonObject &&other)':
+    assignment: Python binds a name and has no operator for it.
+  - Qt's 'void QJsonObject::swap(QJsonObject &other)': takes a type Python
+    has no way to hand over yet.
   - Qt's 'QJsonValueRef QJsonObject::operator[](const QString &key)': takes
     in Python what 'QJsonValue QJsonObject::operator[](const QString &key)
     const' takes.
@@ -87,6 +98,24 @@ class QJsonObject(CuteMixin, metaclass=MetaCute):
     'iterator QJsonObject::begin()' takes.
   - Qt's 'const_iterator QJsonObject::end() const': takes in Python what
     'iterator QJsonObject::end()' takes.
+  - Qt's 'key_value_iterator QJsonObject::keyValueBegin()': gives a type
+    Python has no way to take yet.
+  - Qt's 'key_value_iterator QJsonObject::keyValueEnd()': gives a type Python
+    has no way to take yet.
+  - Qt's 'const_key_value_iterator QJsonObject::keyValueBegin() const': gives
+    a type Python has no way to take yet.
+  - Qt's 'const_key_value_iterator QJsonObject::constKeyValueBegin() const':
+    gives a type Python has no way to take yet.
+  - Qt's 'const_key_value_iterator QJsonObject::keyValueEnd() const': gives a
+    type Python has no way to take yet.
+  - Qt's 'const_key_value_iterator QJsonObject::constKeyValueEnd() const':
+    gives a type Python has no way to take yet.
+  - Qt's 'QtPrivate::QKeyValueRange<QJsonObject &>
+    QJsonObject::asKeyValueRange()': gives a type Python has no way to take
+    yet.
+  - Qt's 'QtPrivate::QKeyValueRange<const QJsonObject &>
+    QJsonObject::asKeyValueRange() const': gives a type Python has no way to
+    take yet.
   - Qt's 'const_iterator QJsonObject::find(const QString &key) const': takes
     in Python what 'iterator QJsonObject::find(const QString &key)' takes.
   - Qt's 'iterator QJsonObject::find(QStringView key)': takes in Python what
@@ -118,9 +147,7 @@ class QJsonObject(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  25 of the 93 functions Qt declares: 14 takes or gives a type that cannot be
-  passed yet; 9 a template; 2 can only be called on a value about to be
-  thrown away.
+  11 of the 93 functions Qt declares: 9 a template; 2 not a gap.
 
   What to expect
   --------------
@@ -134,6 +161,12 @@ class QJsonObject(CuteMixin, metaclass=MetaCute):
     is as in C++.
   - A function giving a QJsonObject back gives a copy the ritual made for
     Python, in a new cute QJsonObject.
+  - Each name of Qt's QJsonObject that has no cute function yet,
+    'asKeyValueRange', 'atImpl', 'constFindImpl', 'constKeyValueBegin',
+    'constKeyValueEnd', 'containsImpl', 'findImpl', 'insertAt', 'insertImpl',
+    'keyValueBegin', 'keyValueEnd', 'removeImpl', 'swap', 'takeImpl',
+    'valueImpl', holds a function that raises 'NotImplementedError', and its
+    docstring says why.
   """
 
   #  The classes Qt writes inside QJsonObject, each a class in here as in
@@ -153,10 +186,11 @@ class QJsonObject(CuteMixin, metaclass=MetaCute):
     -----------
 
     Every function of Qt's QJsonObject::const_iterator that has a ritual and
-    that Python can call so far, 15 names in all: 'key', 'keyView', 'value',
+    that Python can call so far, 16 names in all: 'key', 'keyView', 'value',
     '__getitem__', '__add__', '__sub__', '__iadd__', '__isub__',
-    'comparesEqual_helper', '__eq__', '__ne__', '__lt__', '__gt__', '__le__',
-    '__ge__'. It can be made from Python, in 3 ways; see '__init__'.
+    'comparesEqual_helper', 'compareThreeWay_helper', '__eq__', '__ne__',
+    '__lt__', '__gt__', '__le__', '__ge__'. It can be made from Python, in 3
+    ways; see '__init__'.
 
     What has a ritual and is left out, and why
     ------------------------------------------
@@ -164,24 +198,25 @@ class QJsonObject(CuteMixin, metaclass=MetaCute):
     - Qt's 'QJsonObject::const_iterator::const_iterator(const iterator
       &other)': names 'QJsonObject::iterator', which stands beside this class
       inside 'QJsonObject' and cannot be named from here.
+    - Qt's 'const_iterator &QJsonObject::const_iterator::operator=(const
+      const_iterator &other)': assignment: Python binds a name and has no
+      operator for it.
     - Qt's 'const QJsonValueConstRef QJsonObject::const_iterator::operator*()
       const': an operator Python has no name for.
     - Qt's 'const QJsonValueConstRef
       *QJsonObject::const_iterator::operator->() const': an operator Python
       has no name for.
+    - Qt's 'const_iterator &QJsonObject::const_iterator::operator++()': an
+      operator Python has no name for.
     - Qt's 'const_iterator QJsonObject::const_iterator::operator++(int a0)':
       an operator Python has no name for.
+    - Qt's 'const_iterator &QJsonObject::const_iterator::operator--()': an
+      operator Python has no name for.
     - Qt's 'const_iterator QJsonObject::const_iterator::operator--(int a0)':
       an operator Python has no name for.
     - Qt's 'QJsonObject::const_iterator::~const_iterator()': the destructor:
       Python removes its C++ QJsonObject::const_iterator by it, and has no
       other use for it.
-
-    What has no ritual
-    ------------------
-
-    4 of the 29 functions Qt declares: 4 takes or gives a type that cannot be
-    passed yet.
 
     What to expect
     --------------
@@ -239,6 +274,48 @@ class QJsonObject(CuteMixin, metaclass=MetaCute):
           '0_S2_',
           CuteMixin._valueOf(lhs), CuteMixin._valueOf(rhs),
       )
+
+    @staticmethod
+    @overload(THIS, THIS)
+    def compareThreeWay_helper(
+        lhs: QJsonObject.const_iterator,
+        rhs: QJsonObject.const_iterator,
+    ) -> Qt.strong_ordering:
+      """
+      Calls Qt's 'Qt::strong_ordering
+      QJsonObject::const_iterator::compareThreeWay_helper(const
+      const_iterator &lhs, const const_iterator &rhs)'.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qjsonobject-const_iterator.html
+
+      Parameters
+      ----------
+
+      lhs : QJsonObject.const_iterator
+        Passed on as a value: Qt reads the C++ QJsonObject::const_iterator,
+        which stays Python's own.
+
+      rhs : QJsonObject.const_iterator
+        Passed on as a value: Qt reads the C++ QJsonObject::const_iterator,
+        which stays Python's own.
+
+      Returns
+      -------
+
+      Qt.strong_ordering
+        A new cute Qt::strong_ordering around the copy Qt gave back. Python
+        owns it.
+      """
+      #  Qt::strong_ordering
+      #      QJsonObject::const_iterator::compareThreeWay_helper(const
+      #      const_iterator &lhs, const const_iterator &rhs)
+      address = Rituals.call(
+          'ritual_ZN11QJsonObject14const_iterator22compareThreeWay_helperER'
+          'KS0_S2_',
+          CuteMixin._valueOf(lhs), CuteMixin._valueOf(rhs),
+      )
+      return Qt.strong_ordering._cuteOwning(address)
 
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -814,21 +891,28 @@ class QJsonObject(CuteMixin, metaclass=MetaCute):
     -----------
 
     Every function of Qt's QJsonObject::iterator that has a ritual and that
-    Python can call so far, 15 names in all: 'key', 'keyView', 'value',
+    Python can call so far, 16 names in all: 'key', 'keyView', 'value',
     '__getitem__', '__add__', '__sub__', '__iadd__', '__isub__',
-    'comparesEqual_helper', '__eq__', '__ne__', '__lt__', '__gt__', '__le__',
-    '__ge__'. It can be made from Python, in 3 ways; see '__init__'.
+    'comparesEqual_helper', 'compareThreeWay_helper', '__eq__', '__ne__',
+    '__lt__', '__gt__', '__le__', '__ge__'. It can be made from Python, in 3
+    ways; see '__init__'.
 
     What has a ritual and is left out, and why
     ------------------------------------------
 
+    - Qt's 'iterator &QJsonObject::iterator::operator=(const iterator
+      &other)': assignment: Python binds a name and has no operator for it.
     - Qt's 'QJsonValueRef QJsonObject::iterator::operator*() const': an
       operator Python has no name for.
     - Qt's 'const QJsonValueConstRef *QJsonObject::iterator::operator->()
       const': an operator Python has no name for.
     - Qt's 'QJsonValueRef *QJsonObject::iterator::operator->()': an operator
       Python has no name for.
+    - Qt's 'iterator &QJsonObject::iterator::operator++()': an operator
+      Python has no name for.
     - Qt's 'iterator QJsonObject::iterator::operator++(int a0)': an operator
+      Python has no name for.
+    - Qt's 'iterator &QJsonObject::iterator::operator--()': an operator
       Python has no name for.
     - Qt's 'iterator QJsonObject::iterator::operator--(int a0)': an operator
       Python has no name for.
@@ -836,6 +920,11 @@ class QJsonObject(CuteMixin, metaclass=MetaCute):
       &lhs, const const_iterator &rhs)': names 'QJsonObject::const_iterator',
       which stands beside this class inside 'QJsonObject' and cannot be named
       from here.
+    - Qt's 'Qt::strong_ordering
+      QJsonObject::iterator::compareThreeWay_helper(const iterator &lhs,
+      const const_iterator &rhs)': names 'QJsonObject::const_iterator', which
+      stands beside this class inside 'QJsonObject' and cannot be named from
+      here.
     - Qt's 'bool operator==(const iterator &lhs, const const_iterator &rhs)':
       names 'QJsonObject::const_iterator', which stands beside this class
       inside 'QJsonObject' and cannot be named from here.
@@ -875,12 +964,6 @@ class QJsonObject(CuteMixin, metaclass=MetaCute):
     - Qt's 'QJsonObject::iterator::~iterator()': the destructor: Python
       removes its C++ QJsonObject::iterator by it, and has no other use for
       it.
-
-    What has no ritual
-    ------------------
-
-    5 of the 43 functions Qt declares: 5 takes or gives a type that cannot be
-    passed yet.
 
     What to expect
     --------------
@@ -936,6 +1019,47 @@ class QJsonObject(CuteMixin, metaclass=MetaCute):
           'ritual_ZN11QJsonObject8iterator20comparesEqual_helperERKS0_S2_',
           CuteMixin._valueOf(lhs), CuteMixin._valueOf(rhs),
       )
+
+    @staticmethod
+    @overload(THIS, THIS)
+    def compareThreeWay_helper(
+        lhs: QJsonObject.iterator,
+        rhs: QJsonObject.iterator,
+    ) -> Qt.strong_ordering:
+      """
+      Calls Qt's 'Qt::strong_ordering
+      QJsonObject::iterator::compareThreeWay_helper(const iterator &lhs,
+      const iterator &rhs)'.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qjsonobject-iterator.html#compareThreeWay_helper
+
+      Parameters
+      ----------
+
+      lhs : QJsonObject.iterator
+        Passed on as a value: Qt reads the C++ QJsonObject::iterator, which
+        stays Python's own.
+
+      rhs : QJsonObject.iterator
+        Passed on as a value: Qt reads the C++ QJsonObject::iterator, which
+        stays Python's own.
+
+      Returns
+      -------
+
+      Qt.strong_ordering
+        A new cute Qt::strong_ordering around the copy Qt gave back. Python
+        owns it.
+      """
+      #  Qt::strong_ordering
+      #      QJsonObject::iterator::compareThreeWay_helper(const iterator
+      #      &lhs, const iterator &rhs)
+      address = Rituals.call(
+          'ritual_ZN11QJsonObject8iterator22compareThreeWay_helperERKS0_S2_',
+          CuteMixin._valueOf(lhs), CuteMixin._valueOf(rhs),
+      )
+      return Qt.strong_ordering._cuteOwning(address)
 
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -2215,6 +2339,29 @@ class QJsonObject(CuteMixin, metaclass=MetaCute):
         'ritual_ZN11QJsonObjectC1ERKS_', self._valueOf(other),
     ))
 
+  @overload(QCborContainerPrivate)
+  @overload(NoneType)
+  def __init__(self, object: Optional[QCborContainerPrivate]) -> None:
+    """
+    Notes what was given, for Qt's
+    'QJsonObject::QJsonObject(QCborContainerPrivate *object)', which is
+    called at the first use.
+
+    Qt's own words: https://doc.qt.io/qt-6/qjsonobject.html#QJsonObject
+
+    Parameters
+    ----------
+
+    object : Optional[QCborContainerPrivate]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  QJsonObject::QJsonObject(QCborContainerPrivate *object)
+    self._noteCreation(QJsonObject, lambda: Rituals.call(
+        'ritual_ZN11QJsonObjectC1EP21QCborContainerPrivate',
+        self._addressOf(object),
+    ))
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -2536,3 +2683,198 @@ class QJsonObject(CuteMixin, metaclass=MetaCute):
     """
     #  void QJsonObject::removeAt(qsizetype i)
     self.uglySide.call('ritual_ZN11QJsonObject8removeAtEx', i)
+
+  @staticmethod
+  def asKeyValueRange(*__, **_) -> Never:
+    """
+    - Qt's 'QtPrivate::QKeyValueRange<QJsonObject &>
+      QJsonObject::asKeyValueRange()': gives a type Python has no way to take
+      yet.
+    - Qt's 'QtPrivate::QKeyValueRange<const QJsonObject &>
+      QJsonObject::asKeyValueRange() const': gives a type Python has no way
+      to take yet.
+    """
+    raise NotImplementedError(
+        "'QJsonObject.asKeyValueRange' has no cute function yet. Qt's "
+        "'QtPrivate::QKeyValueRange<QJsonObject &> "
+        "QJsonObject::asKeyValueRange()': gives a type Python has no way to "
+        "take yet. Qt's 'QtPrivate::QKeyValueRange<const QJsonObject &> "
+        "QJsonObject::asKeyValueRange() const': gives a type Python has no "
+        "way to take yet.")
+
+  @staticmethod
+  def atImpl(*__, **_) -> Never:
+    """
+    Qt's 'QJsonObject::atImpl': a template: a pattern and no single function.
+    """
+    raise NotImplementedError(
+        "'QJsonObject.atImpl' has no cute function yet. Qt's "
+        "'QJsonObject::atImpl': a template: a pattern and no single "
+        "function.")
+
+  @staticmethod
+  def constFindImpl(*__, **_) -> Never:
+    """
+    Qt's 'QJsonObject::constFindImpl': a template: a pattern and no single
+    function.
+    """
+    raise NotImplementedError(
+        "'QJsonObject.constFindImpl' has no cute function yet. Qt's "
+        "'QJsonObject::constFindImpl': a template: a pattern and no single "
+        "function.")
+
+  @staticmethod
+  def constKeyValueBegin(*__, **_) -> Never:
+    """
+    Qt's 'const_key_value_iterator QJsonObject::constKeyValueBegin() const':
+    gives a type Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QJsonObject.constKeyValueBegin' has no cute function yet. Qt's "
+        "'const_key_value_iterator QJsonObject::constKeyValueBegin() "
+        "const': gives a type Python has no way to take yet.")
+
+  @staticmethod
+  def constKeyValueEnd(*__, **_) -> Never:
+    """
+    Qt's 'const_key_value_iterator QJsonObject::constKeyValueEnd() const':
+    gives a type Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QJsonObject.constKeyValueEnd' has no cute function yet. Qt's "
+        "'const_key_value_iterator QJsonObject::constKeyValueEnd() const': "
+        "gives a type Python has no way to take yet.")
+
+  @staticmethod
+  def containsImpl(*__, **_) -> Never:
+    """
+    Qt's 'QJsonObject::containsImpl': a template: a pattern and no single
+    function.
+    """
+    raise NotImplementedError(
+        "'QJsonObject.containsImpl' has no cute function yet. Qt's "
+        "'QJsonObject::containsImpl': a template: a pattern and no single "
+        "function.")
+
+  @staticmethod
+  def findImpl(*__, **_) -> Never:
+    """
+    Qt's 'QJsonObject::findImpl': a template: a pattern and no single
+    function.
+    """
+    raise NotImplementedError(
+        "'QJsonObject.findImpl' has no cute function yet. Qt's "
+        "'QJsonObject::findImpl': a template: a pattern and no single "
+        "function.")
+
+  @staticmethod
+  def insertAt(*__, **_) -> Never:
+    """
+    Qt's 'QJsonObject::insertAt': a template: a pattern and no single
+    function.
+    """
+    raise NotImplementedError(
+        "'QJsonObject.insertAt' has no cute function yet. Qt's "
+        "'QJsonObject::insertAt': a template: a pattern and no single "
+        "function.")
+
+  @staticmethod
+  def insertImpl(*__, **_) -> Never:
+    """
+    Qt's 'QJsonObject::insertImpl': a template: a pattern and no single
+    function.
+    """
+    raise NotImplementedError(
+        "'QJsonObject.insertImpl' has no cute function yet. Qt's "
+        "'QJsonObject::insertImpl': a template: a pattern and no single "
+        "function.")
+
+  @staticmethod
+  def keyValueBegin(*__, **_) -> Never:
+    """
+    - Qt's 'key_value_iterator QJsonObject::keyValueBegin()': gives a type
+      Python has no way to take yet.
+    - Qt's 'const_key_value_iterator QJsonObject::keyValueBegin() const':
+      gives a type Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QJsonObject.keyValueBegin' has no cute function yet. Qt's "
+        "'key_value_iterator QJsonObject::keyValueBegin()': gives a type "
+        "Python has no way to take yet. Qt's 'const_key_value_iterator "
+        "QJsonObject::keyValueBegin() const': gives a type Python has no "
+        "way to take yet.")
+
+  @staticmethod
+  def keyValueEnd(*__, **_) -> Never:
+    """
+    - Qt's 'key_value_iterator QJsonObject::keyValueEnd()': gives a type
+      Python has no way to take yet.
+    - Qt's 'const_key_value_iterator QJsonObject::keyValueEnd() const': gives
+      a type Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QJsonObject.keyValueEnd' has no cute function yet. Qt's "
+        "'key_value_iterator QJsonObject::keyValueEnd()': gives a type "
+        "Python has no way to take yet. Qt's 'const_key_value_iterator "
+        "QJsonObject::keyValueEnd() const': gives a type Python has no way "
+        "to take yet.")
+
+  @staticmethod
+  def removeImpl(*__, **_) -> Never:
+    """
+    Qt's 'QJsonObject::removeImpl': a template: a pattern and no single
+    function.
+    """
+    raise NotImplementedError(
+        "'QJsonObject.removeImpl' has no cute function yet. Qt's "
+        "'QJsonObject::removeImpl': a template: a pattern and no single "
+        "function.")
+
+  @staticmethod
+  def swap(*__, **_) -> Never:
+    """
+    Qt's 'void QJsonObject::swap(QJsonObject &other)': takes a type Python
+    has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QJsonObject.swap' has no cute function yet. Qt's 'void "
+        "QJsonObject::swap(QJsonObject &other)': takes a type Python has no "
+        "way to hand over yet.")
+
+  @staticmethod
+  def takeImpl(*__, **_) -> Never:
+    """
+    Qt's 'QJsonObject::takeImpl': a template: a pattern and no single
+    function.
+    """
+    raise NotImplementedError(
+        "'QJsonObject.takeImpl' has no cute function yet. Qt's "
+        "'QJsonObject::takeImpl': a template: a pattern and no single "
+        "function.")
+
+  @staticmethod
+  def valueImpl(*__, **_) -> Never:
+    """
+    Qt's 'QJsonObject::valueImpl': a template: a pattern and no single
+    function.
+    """
+    raise NotImplementedError(
+        "'QJsonObject.valueImpl' has no cute function yet. Qt's "
+        "'QJsonObject::valueImpl': a template: a pattern and no single "
+        "function.")
+
+
+#  Qt's 'QMap<QString, QJsonObject>': the QMap from text to QJsonObject,
+#  which 'QMap[str, QJsonObject]' gives. It is completed here, in the file of
+#  the class of its values.
+QMap.createKind(
+    str, QJsonObject, 'value',
+    make='ritual_map_make_QMap_QString_QJsonObject',
+    put='ritual_map_put_QMap_QString_QJsonObject',
+    size='ritual_map_size_QMap_QString_QJsonObject',
+    key='ritual_map_key_QMap_QString_QJsonObject',
+    value='ritual_map_value_QMap_QString_QJsonObject',
+    has='ritual_map_has_QMap_QString_QJsonObject',
+    get='ritual_map_get_QMap_QString_QJsonObject',
+    drop='ritual_map_drop_QMap_QString_QJsonObject',
+)

@@ -16,7 +16,7 @@ from ..cute import CuteMixin, CuteNum, MetaCute, WAIT
 from ..occult import Rituals
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from . import QPainter
 else:
@@ -45,14 +45,20 @@ class QPainterStateGuard(CuteMixin, metaclass=MetaCute):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'QPainterStateGuard::QPainterStateGuard(QPainterStateGuard
+    &&other)': takes a type Python has no way to hand over yet.
+  - Qt's 'QPainterStateGuard
+    &QPainterStateGuard::operator=(QPainterStateGuard &&other)': assignment:
+    Python binds a name and has no operator for it.
+  - Qt's 'void QPainterStateGuard::swap(QPainterStateGuard &other)': takes a
+    type Python has no way to hand over yet.
   - Qt's 'QPainterStateGuard::~QPainterStateGuard()': the destructor: Python
     never removes a C++ QPainterStateGuard.
 
   What has no ritual
   ------------------
 
-  5 of the 10 functions Qt declares: 3 takes or gives a type that cannot be
-  passed yet; 2 forbidden.
+  2 of the 10 functions Qt declares: 2 forbidden.
 
   What to expect
   --------------
@@ -65,6 +71,9 @@ class QPainterStateGuard(CuteMixin, metaclass=MetaCute):
     has it, and is passed on as nothing. Whether Qt can do with nothing there
     is as in C++.
   - Python never removes the C++ QPainterStateGuard.
+  - Each name of Qt's QPainterStateGuard that has no cute function yet,
+    'swap', holds a function that raises 'NotImplementedError', and its
+    docstring says why.
   """
 
   #  The enums Qt writes inside QPainterStateGuard, each a class in here as
@@ -202,3 +211,14 @@ class QPainterStateGuard(CuteMixin, metaclass=MetaCute):
     """
     #  void QPainterStateGuard::verifyPainter()
     self.uglySide.call('ritual_ZN18QPainterStateGuard13verifyPainterEv')
+
+  @staticmethod
+  def swap(*__, **_) -> Never:
+    """
+    Qt's 'void QPainterStateGuard::swap(QPainterStateGuard &other)': takes a
+    type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QPainterStateGuard.swap' has no cute function yet. Qt's 'void "
+        "QPainterStateGuard::swap(QPainterStateGuard &other)': takes a type "
+        "Python has no way to hand over yet.")

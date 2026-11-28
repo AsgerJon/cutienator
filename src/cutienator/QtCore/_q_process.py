@@ -13,14 +13,14 @@ from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
 from worktoy.keenum import Kee
 
-from ..cute import CuteMixin, CuteFlags, CuteNum, WAIT
+from ..cute import CuteMixin, CuteFlags, CuteNum, MetaCute, WAIT
 from ..occult import Rituals
 from . import QIODevice, QIODeviceBase, QObject, QStringList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
-  from . import QByteArray, QMetaObject, QProcessEnvironment
+  from . import QByteArray, QMetaObject, QProcessEnvironment, QProcessPrivate
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -44,38 +44,53 @@ class QProcess(QIODevice):
   -----------
 
   Every function of Qt's QProcess that has a ritual and that Python can call
-  so far, 49 names in all: 'metaObject', 'tr', 'start', 'startCommand',
+  so far, 59 names in all: 'metaObject', 'tr', 'start', 'startCommand',
   'open', 'program', 'setProgram', 'arguments', 'setArguments',
   'processChannelMode', 'setProcessChannelMode', 'inputChannelMode',
   'setInputChannelMode', 'readChannel', 'setReadChannel', 'closeReadChannel',
   'closeWriteChannel', 'setStandardInputFile', 'setStandardOutputFile',
-  'setStandardErrorFile', 'setStandardOutputProcess', 'workingDirectory',
-  'setWorkingDirectory', 'setEnvironment', 'environment',
-  'setProcessEnvironment', 'processEnvironment', 'error', 'state',
-  'processId', 'waitForStarted', 'waitForReadyRead', 'waitForBytesWritten',
-  'waitForFinished', 'readAllStandardOutput', 'readAllStandardError',
-  'exitCode', 'exitStatus', 'bytesToWrite', 'isSequential', 'close',
-  'execute', 'systemEnvironment', 'nullDevice', 'splitCommand', 'terminate',
-  'kill', 'setProcessState', 'writeData'. It can be made from Python, in 1
-  way; see '__init__'.
+  'setStandardErrorFile', 'setStandardOutputProcess',
+  'failChildProcessModifier', 'unixProcessParameters',
+  'setUnixProcessParameters', 'workingDirectory', 'setWorkingDirectory',
+  'setEnvironment', 'environment', 'setProcessEnvironment',
+  'processEnvironment', 'error', 'state', 'processId', 'waitForStarted',
+  'waitForReadyRead', 'waitForBytesWritten', 'waitForFinished',
+  'readAllStandardOutput', 'readAllStandardError', 'exitCode', 'exitStatus',
+  'bytesToWrite', 'isSequential', 'close', 'execute', 'systemEnvironment',
+  'nullDevice', 'splitCommand', 'terminate', 'kill', 'started', 'finished',
+  'errorOccurred', 'stateChanged', 'readyReadStandardOutput',
+  'readyReadStandardError', 'setProcessState', 'writeData', 'd_func'. It can
+  be made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QProcess::qt_metacast(const char *a0)': one of Qt's own inner
+    workings.
+  - Qt's 'int QProcess::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
   - Qt's 'QProcess::~QProcess()': the destructor: Python never removes a C++
     QProcess.
   - Qt's 'bool QProcess::startDetached(qint64 *pid)': takes a number to
     change where it is.
+  - Qt's 'std::function<void ()> QProcess::childProcessModifier() const':
+    gives a type Python has no way to take yet.
+  - Qt's 'void QProcess::setChildProcessModifier(const std::function<void ()>
+    &modifier)': takes a type Python has no way to hand over yet.
   - Qt's 'bool QProcess::startDetached(const QString &program, const
     QStringList &arguments, const QString &workingDirectory, qint64 *pid)':
     takes a number to change where it is.
+  - Qt's 'qint64 QProcess::readData(char *data, qint64 maxlen)': names
+    'char', which has no cute class yet.
+  - Qt's 'const QProcessPrivate *QProcess::d_func() const': takes in Python
+    what 'QProcessPrivate *QProcess::d_func()' takes.
+  - Qt's 'Use_setChildProcessModifier_Instead QProcess::setupChildProcess()':
+    gives a type Python has no way to take yet.
 
   What has no ritual
   ------------------
 
-  22 of the 76 functions Qt declares: 6 takes or gives a type that cannot be
-  passed yet; 6 Qt has it on some systems only; 6 a signal; 2 forbidden; 1 a
-  template; 1 declared and nowhere to be found.
+  4 of the 76 functions Qt declares: 2 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -90,6 +105,10 @@ class QProcess(QIODevice):
   - Qt tells when it has removed the C++ QProcess. Every call on the cute
     object, and every use of it as an argument, then raises 'RuntimeError',
     and nothing reaches C++.
+  - Each name of Qt's QProcess that has no cute function yet,
+    'childProcessModifier', 'setChildProcessModifier', 'setupChildProcess',
+    'startDetached', holds a function that raises 'NotImplementedError', and
+    its docstring says why.
   """
 
   #  The enums Qt writes inside QProcess, each a class in here as in C++, and
@@ -172,6 +191,112 @@ class QProcess(QIODevice):
     DisableCoreDumps = 0x200
 
   UnixProcessFlags = UnixProcessFlag
+
+  #  The classes Qt writes inside QProcess, each a class in here as in C++.
+
+  class UnixProcessParameters(CuteMixin, metaclass=MetaCute):
+    """
+    The cute side of Qt's QProcess::UnixProcessParameters: a plain Python
+    object standing in front of one C++ QProcess::UnixProcessParameters.
+
+    C++ hands a QProcess::UnixProcessParameters around as a copy, so every
+    C++ QProcess::UnixProcessParameters behind a cute one is Python's own: it
+    is removed, by the ritual named in '__delete_ritual__', when the cute
+    object goes.
+
+    What exists
+    -----------
+
+    No function of Qt's QProcess::UnixProcessParameters yet. None can be made
+    from Python: one comes out of a function of another class that gives one
+    back.
+
+    What has a ritual and is left out, and why
+    ------------------------------------------
+
+    - Qt's 'QProcess::UnixProcessParameters::~UnixProcessParameters()': the
+      destructor: Python removes its C++ QProcess::UnixProcessParameters by
+      it, and has no other use for it.
+
+    What to expect
+    --------------
+
+    - The C++ QProcess::UnixProcessParameters is created at the first use,
+      not by 'QProcess::UnixProcessParameters(...)'.
+    - A wrong argument is refused in Python, with 'DispatchException', and
+      never reaches C++.
+    - None is taken wherever Qt takes an object by its address, or text as C
+      has it, and is passed on as nothing. Whether Qt can do with nothing
+      there is as in C++.
+    - A function giving a QProcess::UnixProcessParameters back gives a copy
+      the ritual made for Python, in a new cute
+      QProcess::UnixProcessParameters.
+    """
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    #  Class Variables
+    #  The class of Qt this class stands for.
+    __qt_class__ = 'QProcess::UnixProcessParameters'
+
+    #  Qt's '~QProcess::UnixProcessParameters()'. Naming it makes this a
+    #  value class: Python owns every C++ QProcess::UnixProcessParameters
+    #  behind a cute one, and removes it by this ritual.
+    __delete_ritual__ = 'ritual_ZN8QProcess21UnixProcessParametersD1Ev'
+
+    #  Fallback Variables
+
+    #  Private Variables
+
+    #  Public Variables
+
+    #  Virtual Variables
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  GETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  NOTIFIERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  OPTIONAL METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  REQUIRED METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  PARENT METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -446,6 +571,27 @@ class QProcess(QIODevice):
     return QProcess.ProcessChannel(self.uglySide.call(
         'ritual_ZNK8QProcess11readChannelEv',
     ))
+
+  def unixProcessParameters(self) -> UnixProcessParameters:
+    """
+    Calls Qt's 'UnixProcessParameters QProcess::unixProcessParameters()
+    const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qprocess.html#unixProcessParameters
+
+    Returns
+    -------
+
+    UnixProcessParameters
+      A new cute QProcess::UnixProcessParameters around the copy Qt gave
+      back. Python owns it.
+    """
+    #  UnixProcessParameters QProcess::unixProcessParameters() const
+    address = self.uglySide.call(
+        'ritual_ZNK8QProcess21unixProcessParametersEv',
+    )
+    return QProcess.UnixProcessParameters._cuteOwning(address)
 
   def workingDirectory(self) -> str:
     """
@@ -803,6 +949,52 @@ class QProcess(QIODevice):
         self._addressOf(destination),
     )
 
+  @overload(UnixProcessParameters)
+  def setUnixProcessParameters(self, params: UnixProcessParameters) -> None:
+    """
+    Calls Qt's 'void QProcess::setUnixProcessParameters(const
+    UnixProcessParameters &params)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qprocess.html#setUnixProcessParameters
+
+    Parameters
+    ----------
+
+    params : UnixProcessParameters
+      Passed on as a value: Qt reads the C++ QProcess::UnixProcessParameters,
+      which stays Python's own.
+    """
+    #  void QProcess::setUnixProcessParameters(const UnixProcessParameters
+    #      &params)
+    self.uglySide.call(
+        'ritual_ZN8QProcess24setUnixProcessParametersERKNS_21UnixProcessPar'
+        'ametersE',
+        self._valueOf(params),
+    )
+
+  @overload(UnixProcessFlags)
+  def setUnixProcessParameters(self, flagsOnly: UnixProcessFlags) -> None:
+    """
+    Calls Qt's 'void QProcess::setUnixProcessParameters(UnixProcessFlags
+    flagsOnly)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qprocess.html#setUnixProcessParameters
+
+    Parameters
+    ----------
+
+    flagsOnly : UnixProcessFlags
+      Passed on as its number.
+    """
+    #  void QProcess::setUnixProcessParameters(UnixProcessFlags flagsOnly)
+    self.uglySide.call(
+        'ritual_ZN8QProcess24setUnixProcessParametersE6QFlagsINS_15UnixProc'
+        'essFlagEE',
+        flagsOnly.value,
+    )
+
   @overload(str)
   def setWorkingDirectory(self, dir: str) -> None:
     """
@@ -1085,6 +1277,38 @@ class QProcess(QIODevice):
     #  void QProcess::closeWriteChannel()
     self.uglySide.call('ritual_ZN8QProcess17closeWriteChannelEv')
 
+  @overload(str)
+  @overload(NoneType)
+  @overload(str, int)
+  @overload(NoneType, int)
+  def failChildProcessModifier(
+      self,
+      description: Optional[str],
+      error: int = 0,
+  ) -> None:
+    """
+    Calls Qt's 'void QProcess::failChildProcessModifier(const char
+    *description, int error)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qprocess.html#failChildProcessModifier
+
+    Parameters
+    ----------
+
+    description : Optional[str]
+      Passed on as the bytes of the text. None is passed on as no text.
+
+    error : int
+      Passed on as it is. May be left out, as in Qt: it is then 0.
+    """
+    #  void QProcess::failChildProcessModifier(const char *description, int
+    #      error)
+    self.uglySide.call(
+        'ritual_ZN8QProcess24failChildProcessModifierEPKci',
+        self._bytesOf(description), error,
+    )
+
   @overload()
   @overload(int)
   def waitForStarted(self, msecs: int = 30000) -> bool:
@@ -1228,6 +1452,108 @@ class QProcess(QIODevice):
     #  void QProcess::kill()
     self.uglySide.call('ritual_ZN8QProcess4killEv')
 
+  def started(self) -> None:
+    """
+    Calls Qt's 'void QProcess::started(QPrivateSignal a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qprocess.html#started
+    """
+    #  void QProcess::started(QPrivateSignal a0)
+    self.uglySide.call('ritual_ZN8QProcess7startedENS_14QPrivateSignalE')
+
+  @overload(int)
+  @overload(int, ExitStatus)
+  def finished(
+      self,
+      exitCode: int,
+      exitStatus: ExitStatus = ExitStatus.NormalExit,
+  ) -> None:
+    """
+    Calls Qt's 'void QProcess::finished(int exitCode, QProcess::ExitStatus
+    exitStatus)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qprocess.html#finished
+
+    Parameters
+    ----------
+
+    exitCode : int
+      Passed on as it is.
+
+    exitStatus : ExitStatus
+      Passed on as its number. May be left out, as in Qt: it is then
+      ExitStatus.NormalExit.
+    """
+    #  void QProcess::finished(int exitCode, QProcess::ExitStatus exitStatus)
+    self.uglySide.call(
+        'ritual_ZN8QProcess8finishedEiNS_10ExitStatusE',
+        exitCode, exitStatus.value,
+    )
+
+  @overload(ProcessError)
+  def errorOccurred(self, error: ProcessError) -> None:
+    """
+    Calls Qt's 'void QProcess::errorOccurred(QProcess::ProcessError error)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qprocess.html#errorOccurred
+
+    Parameters
+    ----------
+
+    error : ProcessError
+      Passed on as its number.
+    """
+    #  void QProcess::errorOccurred(QProcess::ProcessError error)
+    self.uglySide.call(
+        'ritual_ZN8QProcess13errorOccurredENS_12ProcessErrorE', error.value,
+    )
+
+  @overload(ProcessState)
+  def stateChanged(self, state: ProcessState) -> None:
+    """
+    Calls Qt's 'void QProcess::stateChanged(QProcess::ProcessState state,
+    QPrivateSignal a1)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qprocess.html#stateChanged
+
+    Parameters
+    ----------
+
+    state : ProcessState
+      Passed on as its number.
+    """
+    #  void QProcess::stateChanged(QProcess::ProcessState state,
+    #      QPrivateSignal a1)
+    self.uglySide.call(
+        'ritual_ZN8QProcess12stateChangedENS_12ProcessStateENS_14QPrivateSi'
+        'gnalE',
+        state.value,
+    )
+
+  def readyReadStandardOutput(self) -> None:
+    """
+    Calls Qt's 'void QProcess::readyReadStandardOutput(QPrivateSignal a0)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qprocess.html#readyReadStandardOutput
+    """
+    #  void QProcess::readyReadStandardOutput(QPrivateSignal a0)
+    self.uglySide.call(
+        'ritual_ZN8QProcess23readyReadStandardOutputENS_14QPrivateSignalE',
+    )
+
+  def readyReadStandardError(self) -> None:
+    """
+    Calls Qt's 'void QProcess::readyReadStandardError(QPrivateSignal a0)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qprocess.html#readyReadStandardError
+    """
+    #  void QProcess::readyReadStandardError(QPrivateSignal a0)
+    self.uglySide.call(
+        'ritual_ZN8QProcess22readyReadStandardErrorENS_14QPrivateSignalE',
+    )
+
   @overload(str, int)
   @overload(NoneType, int)
   def writeData(self, data: Optional[str], len: int) -> int:
@@ -1249,3 +1575,72 @@ class QProcess(QIODevice):
     return self.uglySide.call(
         'ritual_ZN8QProcess9writeDataEPKcx', self._bytesOf(data), len,
     )
+
+  def d_func(self) -> Optional[QProcessPrivate]:
+    """
+    Calls Qt's 'QProcessPrivate *QProcess::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qprocess.html#d_func
+
+    Returns
+    -------
+
+    Optional[QProcessPrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QProcessPrivate *QProcess::d_func()
+    address = self.uglySide.call('ritual_ZN8QProcess6d_funcEv')
+    from . import QProcessPrivate
+    return QProcessPrivate._cuteAt(address)
+
+  @staticmethod
+  def childProcessModifier(*__, **_) -> Never:
+    """
+    Qt's 'std::function<void ()> QProcess::childProcessModifier() const':
+    gives a type Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QProcess.childProcessModifier' has no cute function yet. Qt's "
+        "'std::function<void ()> QProcess::childProcessModifier() const': "
+        "gives a type Python has no way to take yet.")
+
+  @staticmethod
+  def setChildProcessModifier(*__, **_) -> Never:
+    """
+    Qt's 'void QProcess::setChildProcessModifier(const std::function<void ()>
+    &modifier)': takes a type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QProcess.setChildProcessModifier' has no cute function yet. Qt's "
+        "'void QProcess::setChildProcessModifier(const std::function<void "
+        "()> &modifier)': takes a type Python has no way to hand over yet.")
+
+  @staticmethod
+  def setupChildProcess(*__, **_) -> Never:
+    """
+    Qt's 'Use_setChildProcessModifier_Instead QProcess::setupChildProcess()':
+    gives a type Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QProcess.setupChildProcess' has no cute function yet. Qt's "
+        "'Use_setChildProcessModifier_Instead "
+        "QProcess::setupChildProcess()': gives a type Python has no way to "
+        "take yet.")
+
+  @staticmethod
+  def startDetached(*__, **_) -> Never:
+    """
+    - Qt's 'bool QProcess::startDetached(qint64 *pid)': takes a number to
+      change where it is.
+    - Qt's 'bool QProcess::startDetached(const QString &program, const
+      QStringList &arguments, const QString &workingDirectory, qint64 *pid)':
+      takes a number to change where it is.
+    """
+    raise NotImplementedError(
+        "'QProcess.startDetached' has no cute function yet. Qt's 'bool "
+        "QProcess::startDetached(qint64 *pid)': takes a number to change "
+        "where it is. Qt's 'bool QProcess::startDetached(const QString "
+        "&program, const QStringList &arguments, const QString "
+        "&workingDirectory, qint64 *pid)': takes a number to change where "
+        "it is.")

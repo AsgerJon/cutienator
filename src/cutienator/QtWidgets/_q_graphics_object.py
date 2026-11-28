@@ -45,22 +45,29 @@ class QGraphicsObject(QObject, QGraphicsItem):
   -----------
 
   Every function of Qt's QGraphicsObject that has a ritual and that Python
-  can call so far, 6 names in all: 'metaObject', 'tr', 'grabGesture',
-  'ungrabGesture', 'updateMicroFocus', 'event'. None can be made from Python:
-  one comes out of a function of another class that gives one back.
+  can call so far, 18 names in all: 'metaObject', 'tr', 'grabGesture',
+  'ungrabGesture', 'updateMicroFocus', 'parentChanged', 'opacityChanged',
+  'visibleChanged', 'enabledChanged', 'xChanged', 'yChanged', 'zChanged',
+  'rotationChanged', 'scaleChanged', 'childrenChanged', 'widthChanged',
+  'heightChanged', 'event'. It can be made from Python, in 1 way; see
+  '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QGraphicsObject::qt_metacast(const char *a0)': one of Qt's
+    own inner workings.
+  - Qt's 'int QGraphicsObject::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
   - Qt's 'QGraphicsObject::~QGraphicsObject()': the destructor: Python never
     removes a C++ QGraphicsObject.
+  - Qt's 'QGraphicsObject::QGraphicsObject(QGraphicsItemPrivate &dd,
+    QGraphicsItem *parent)': takes a type Python has no way to hand over yet.
 
   What has no ritual
   ------------------
 
-  18 of the 25 functions Qt declares: 12 a signal; 2 takes or gives a type
-  that cannot be passed yet; 2 the class is abstract, so C++ cannot make one;
-  1 a template; 1 declared and nowhere to be found.
+  2 of the 25 functions Qt declares: 2 not a gap.
 
   What to expect
   --------------
@@ -192,6 +199,31 @@ class QGraphicsObject(QObject, QGraphicsItem):
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  @overload()
+  @overload(QGraphicsItem)
+  @overload(NoneType)
+  def __init__(self, parent: Optional[QGraphicsItem] = None) -> None:
+    """
+    Notes what was given, for Qt's
+    'QGraphicsObject::QGraphicsObject(QGraphicsItem *parent)', which is
+    called at the first use.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicsobject.html#QGraphicsObject
+
+    Parameters
+    ----------
+
+    parent : Optional[QGraphicsItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object. May be left out, as in Qt: it is then None.
+    """
+    #  QGraphicsObject::QGraphicsObject(QGraphicsItem *parent)
+    self._noteCreation(QGraphicsObject, lambda: Rituals.call(
+        'ritual_ZN15QGraphicsObjectC1EP13QGraphicsItem',
+        self._addressOf(parent, 'QGraphicsItem'),
+    ))
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -271,6 +303,119 @@ class QGraphicsObject(QObject, QGraphicsItem):
     """
     #  void QGraphicsObject::updateMicroFocus()
     self.uglySide.call('ritual_ZN15QGraphicsObject16updateMicroFocusEv')
+
+  def parentChanged(self) -> None:
+    """
+    Calls Qt's 'void QGraphicsObject::parentChanged()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsobject.html#parentChanged
+    """
+    #  void QGraphicsObject::parentChanged()
+    self.uglySide.call('ritual_ZN15QGraphicsObject13parentChangedEv')
+
+  def opacityChanged(self) -> None:
+    """
+    Calls Qt's 'void QGraphicsObject::opacityChanged()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicsobject.html#opacityChanged
+    """
+    #  void QGraphicsObject::opacityChanged()
+    self.uglySide.call('ritual_ZN15QGraphicsObject14opacityChangedEv')
+
+  def visibleChanged(self) -> None:
+    """
+    Calls Qt's 'void QGraphicsObject::visibleChanged()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicsobject.html#visibleChanged
+    """
+    #  void QGraphicsObject::visibleChanged()
+    self.uglySide.call('ritual_ZN15QGraphicsObject14visibleChangedEv')
+
+  def enabledChanged(self) -> None:
+    """
+    Calls Qt's 'void QGraphicsObject::enabledChanged()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicsobject.html#enabledChanged
+    """
+    #  void QGraphicsObject::enabledChanged()
+    self.uglySide.call('ritual_ZN15QGraphicsObject14enabledChangedEv')
+
+  def xChanged(self) -> None:
+    """
+    Calls Qt's 'void QGraphicsObject::xChanged()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsobject.html#xChanged
+    """
+    #  void QGraphicsObject::xChanged()
+    self.uglySide.call('ritual_ZN15QGraphicsObject8xChangedEv')
+
+  def yChanged(self) -> None:
+    """
+    Calls Qt's 'void QGraphicsObject::yChanged()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsobject.html#yChanged
+    """
+    #  void QGraphicsObject::yChanged()
+    self.uglySide.call('ritual_ZN15QGraphicsObject8yChangedEv')
+
+  def zChanged(self) -> None:
+    """
+    Calls Qt's 'void QGraphicsObject::zChanged()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsobject.html#zChanged
+    """
+    #  void QGraphicsObject::zChanged()
+    self.uglySide.call('ritual_ZN15QGraphicsObject8zChangedEv')
+
+  def rotationChanged(self) -> None:
+    """
+    Calls Qt's 'void QGraphicsObject::rotationChanged()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicsobject.html#rotationChanged
+    """
+    #  void QGraphicsObject::rotationChanged()
+    self.uglySide.call('ritual_ZN15QGraphicsObject15rotationChangedEv')
+
+  def scaleChanged(self) -> None:
+    """
+    Calls Qt's 'void QGraphicsObject::scaleChanged()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsobject.html#scaleChanged
+    """
+    #  void QGraphicsObject::scaleChanged()
+    self.uglySide.call('ritual_ZN15QGraphicsObject12scaleChangedEv')
+
+  def childrenChanged(self) -> None:
+    """
+    Calls Qt's 'void QGraphicsObject::childrenChanged()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicsobject.html#childrenChanged
+    """
+    #  void QGraphicsObject::childrenChanged()
+    self.uglySide.call('ritual_ZN15QGraphicsObject15childrenChangedEv')
+
+  def widthChanged(self) -> None:
+    """
+    Calls Qt's 'void QGraphicsObject::widthChanged()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsobject.html#widthChanged
+    """
+    #  void QGraphicsObject::widthChanged()
+    self.uglySide.call('ritual_ZN15QGraphicsObject12widthChangedEv')
+
+  def heightChanged(self) -> None:
+    """
+    Calls Qt's 'void QGraphicsObject::heightChanged()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsobject.html#heightChanged
+    """
+    #  void QGraphicsObject::heightChanged()
+    self.uglySide.call('ritual_ZN15QGraphicsObject13heightChangedEv')
 
   @overload(QEvent)
   @overload(NoneType)

@@ -226,7 +226,7 @@ class QAccessibleTextSelectionEvent(QAccessibleTextCursorEvent):
     self._noteCreation(QAccessibleTextSelectionEvent, lambda: Rituals.call(
         'ritual_ZN29QAccessibleTextSelectionEventC1EP20QAccessibleInterface'
         'ii',
-        self._addressOf(iface), start, end,
+        self._addressOf(iface, 'QAccessibleInterface'), start, end,
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

@@ -18,10 +18,10 @@ from ..QtCore import Qt, QList, QObject
 from . import QKeySequence
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from ..QtCore import QEvent, QMetaObject, QVariant
-  from . import QActionGroup, QFont, QIcon
+  from . import QActionGroup, QActionPrivate, QFont, QIcon
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -49,7 +49,7 @@ class QAction(QObject):
   -----------
 
   Every function of Qt's QAction that has a ritual and that Python can call
-  so far, 57 names in all: 'metaObject', 'tr', 'associatedObjects',
+  so far, 65 names in all: 'metaObject', 'tr', 'd_func', 'associatedObjects',
   'setActionGroup', 'actionGroup', 'setIcon', 'icon', 'setText', 'text',
   'setIconText', 'iconText', 'setToolTip', 'toolTip', 'setStatusTip',
   'statusTip', 'setWhatsThis', 'whatsThis', 'setPriority', 'priority',
@@ -60,21 +60,29 @@ class QAction(QObject):
   'setMenuRole', 'menuRole', 'setIconVisibleInMenu', 'isIconVisibleInMenu',
   'setShortcutVisibleInContextMenu', 'isShortcutVisibleInContextMenu',
   'showStatusText', 'event', 'trigger', 'hover', 'setChecked', 'toggle',
-  'setEnabled', 'resetEnabled', 'setDisabled', 'setVisible', 'menuObject',
-  'setMenuObject'. It can be made from Python, in 3 ways; see '__init__'.
+  'setEnabled', 'resetEnabled', 'setDisabled', 'setVisible', 'changed',
+  'enabledChanged', 'checkableChanged', 'visibleChanged', 'triggered',
+  'hovered', 'toggled', 'menuObject', 'setMenuObject'. It can be made from
+  Python, in 3 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QAction::qt_metacast(const char *a0)': one of Qt's own inner
+    workings.
+  - Qt's 'int QAction::qt_metacall(QMetaObject::Call a0, int a1, void **a2)':
+    one of Qt's own inner workings.
+  - Qt's 'const QActionPrivate *QAction::d_func() const': takes in Python
+    what 'QActionPrivate *QAction::d_func()' takes.
   - Qt's 'QAction::~QAction()': the destructor: Python never removes a C++
     QAction.
+  - Qt's 'QAction::QAction(QActionPrivate &dd, QObject *parent)': takes a
+    type Python has no way to hand over yet.
 
   What has no ritual
   ------------------
 
-  21 of the 83 functions Qt declares: 7 a signal; 6 a template; 5 takes or
-  gives a type that cannot be passed yet; 2 forbidden; 1 declared and nowhere
-  to be found.
+  9 of the 83 functions Qt declares: 5 a template; 2 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -89,6 +97,10 @@ class QAction(QObject):
   - Qt tells when it has removed the C++ QAction. Every call on the cute
     object, and every use of it as an argument, then raises 'RuntimeError',
     and nothing reaches C++.
+  - Each name of Qt's QAction that has no cute function yet,
+    'associatedGraphicsWidgets', 'associatedWidgets', 'menu', 'parentWidget',
+    'setMenu', holds a function that raises 'NotImplementedError', and its
+    docstring says why.
   """
 
   #  The enums Qt writes inside QAction, each a class in here as in C++, and
@@ -1114,6 +1126,24 @@ class QAction(QObject):
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  def d_func(self) -> Optional[QActionPrivate]:
+    """
+    Calls Qt's 'QActionPrivate *QAction::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qaction.html#d_func
+
+    Returns
+    -------
+
+    Optional[QActionPrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QActionPrivate *QAction::d_func()
+    address = self.uglySide.call('ritual_ZN7QAction6d_funcEv')
+    from . import QActionPrivate
+    return QActionPrivate._cuteAt(address)
+
   @overload(ActionEvent)
   def activate(self, event: ActionEvent) -> None:
     """
@@ -1210,6 +1240,149 @@ class QAction(QObject):
     """
     #  void QAction::resetEnabled()
     self.uglySide.call('ritual_ZN7QAction12resetEnabledEv')
+
+  def changed(self) -> None:
+    """
+    Calls Qt's 'void QAction::changed()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qaction.html#changed
+    """
+    #  void QAction::changed()
+    self.uglySide.call('ritual_ZN7QAction7changedEv')
+
+  @overload(bool)
+  def enabledChanged(self, enabled: bool) -> None:
+    """
+    Calls Qt's 'void QAction::enabledChanged(bool enabled)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qaction.html#enabledChanged
+
+    Parameters
+    ----------
+
+    enabled : bool
+      Passed on as it is.
+    """
+    #  void QAction::enabledChanged(bool enabled)
+    self.uglySide.call('ritual_ZN7QAction14enabledChangedEb', enabled)
+
+  @overload(bool)
+  def checkableChanged(self, checkable: bool) -> None:
+    """
+    Calls Qt's 'void QAction::checkableChanged(bool checkable)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qaction.html#checkableChanged
+
+    Parameters
+    ----------
+
+    checkable : bool
+      Passed on as it is.
+    """
+    #  void QAction::checkableChanged(bool checkable)
+    self.uglySide.call('ritual_ZN7QAction16checkableChangedEb', checkable)
+
+  def visibleChanged(self) -> None:
+    """
+    Calls Qt's 'void QAction::visibleChanged()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qaction.html#visibleChanged
+    """
+    #  void QAction::visibleChanged()
+    self.uglySide.call('ritual_ZN7QAction14visibleChangedEv')
+
+  @overload()
+  @overload(bool)
+  def triggered(self, checked: bool = False) -> None:
+    """
+    Calls Qt's 'void QAction::triggered(bool checked)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qaction.html#triggered
+
+    Parameters
+    ----------
+
+    checked : bool
+      Passed on as it is. May be left out, as in Qt: it is then False.
+    """
+    #  void QAction::triggered(bool checked)
+    self.uglySide.call('ritual_ZN7QAction9triggeredEb', checked)
+
+  def hovered(self) -> None:
+    """
+    Calls Qt's 'void QAction::hovered()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qaction.html#hovered
+    """
+    #  void QAction::hovered()
+    self.uglySide.call('ritual_ZN7QAction7hoveredEv')
+
+  @overload(bool)
+  def toggled(self, a0: bool) -> None:
+    """
+    Calls Qt's 'void QAction::toggled(bool a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qaction.html#toggled
+
+    Parameters
+    ----------
+
+    a0 : bool
+      Passed on as it is.
+    """
+    #  void QAction::toggled(bool a0)
+    self.uglySide.call('ritual_ZN7QAction7toggledEb', a0)
+
+  @staticmethod
+  def associatedGraphicsWidgets(*__, **_) -> Never:
+    """
+    Qt's 'QAction::associatedGraphicsWidgets': a template: a pattern and no
+    single function.
+    """
+    raise NotImplementedError(
+        "'QAction.associatedGraphicsWidgets' has no cute function yet. Qt's "
+        "'QAction::associatedGraphicsWidgets': a template: a pattern and no "
+        "single function.")
+
+  @staticmethod
+  def associatedWidgets(*__, **_) -> Never:
+    """
+    Qt's 'QAction::associatedWidgets': a template: a pattern and no single
+    function.
+    """
+    raise NotImplementedError(
+        "'QAction.associatedWidgets' has no cute function yet. Qt's "
+        "'QAction::associatedWidgets': a template: a pattern and no single "
+        "function.")
+
+  @staticmethod
+  def menu(*__, **_) -> Never:
+    """
+    Qt's 'QAction::menu': a template: a pattern and no single function.
+    """
+    raise NotImplementedError(
+        "'QAction.menu' has no cute function yet. Qt's 'QAction::menu': a "
+        "template: a pattern and no single function.")
+
+  @staticmethod
+  def parentWidget(*__, **_) -> Never:
+    """
+    Qt's 'QAction::parentWidget': a template: a pattern and no single
+    function.
+    """
+    raise NotImplementedError(
+        "'QAction.parentWidget' has no cute function yet. Qt's "
+        "'QAction::parentWidget': a template: a pattern and no single "
+        "function.")
+
+  @staticmethod
+  def setMenu(*__, **_) -> Never:
+    """
+    Qt's 'QAction::setMenu': a template: a pattern and no single function.
+    """
+    raise NotImplementedError(
+        "'QAction.setMenu' has no cute function yet. Qt's "
+        "'QAction::setMenu': a template: a pattern and no single function.")
 
 
 #  Qt's 'QList<QAction *>': the list of QAction, which 'QList[QAction]'

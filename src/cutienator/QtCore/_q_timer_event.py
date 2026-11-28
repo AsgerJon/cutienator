@@ -15,7 +15,7 @@ from ..occult import Rituals
 from . import Qt, QEvent
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
 
 class QTimerEvent(QEvent):
@@ -36,14 +36,19 @@ class QTimerEvent(QEvent):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'QTimerEvent::QTimerEvent(const QTimerEvent &a0)': takes a type
+    Python has no way to hand over yet.
+  - Qt's 'QTimerEvent &QTimerEvent::operator=(const QTimerEvent &other)':
+    assignment: Python binds a name and has no operator for it.
   - Qt's 'QTimerEvent::~QTimerEvent()': the destructor: Python never removes
     a C++ QTimerEvent.
+  - Qt's 'bool QTimerEvent::matches(const QBasicTimer &timer) const': takes a
+    type Python has no way to hand over yet.
 
   What has no ritual
   ------------------
 
-  5 of the 11 functions Qt declares: 3 takes or gives a type that cannot be
-  passed yet; 2 forbidden.
+  2 of the 11 functions Qt declares: 2 forbidden.
 
   What to expect
   --------------
@@ -56,6 +61,9 @@ class QTimerEvent(QEvent):
     has it, and is passed on as nothing. Whether Qt can do with nothing there
     is as in C++.
   - Python never removes the C++ QTimerEvent.
+  - Each name of Qt's QTimerEvent that has no cute function yet, 'matches',
+    holds a function that raises 'NotImplementedError', and its docstring
+    says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -206,3 +214,14 @@ class QTimerEvent(QEvent):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def matches(*__, **_) -> Never:
+    """
+    Qt's 'bool QTimerEvent::matches(const QBasicTimer &timer) const': takes a
+    type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QTimerEvent.matches' has no cute function yet. Qt's 'bool "
+        "QTimerEvent::matches(const QBasicTimer &timer) const': takes a "
+        "type Python has no way to hand over yet.")

@@ -18,18 +18,22 @@ from worktoy.dispatch import overload
 from worktoy.keenum import Kee
 
 from ..cute import CuteNum, WAIT
+from ..occult import Rituals
 from ..QtCore import Qt
 from . import QLayout, QLayoutItem, QTabWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
-  from ..QtCore import QMetaObject, QRect, QSize, QTimerEvent
-  from . import QStatusBar, QStyleOptionToolBar, QToolBar, QWidget
+  from ..QtCore import QMetaObject, QPoint, QRect, QSize, QTimerEvent
+  from . import QDockAreaLayout, QDockWidget, QStatusBar, QStyleOptionToolBar
+  from . import QToolBar, QToolBarAreaLayout, QWidget
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
+  QDockWidget = WAIT['QDockWidget']
+  QPoint = WAIT['QPoint']
   QRect = WAIT['QRect']
   QStatusBar = WAIT['QStatusBar']
   QStyleOptionToolBar = WAIT['QStyleOptionToolBar']
@@ -56,31 +60,39 @@ class QMainWindowLayout(QLayout):
   -----------
 
   Every function of Qt's QMainWindowLayout that has a ritual and that Python
-  can call so far, 26 names in all: 'metaObject', 'setStatusBar',
-  'centralWidget', 'setCentralWidget', 'insertToolBarBreak',
+  can call so far, 38 names in all: 'metaObject', 'statusBar',
+  'setStatusBar', 'centralWidget', 'setCentralWidget', 'insertToolBarBreak',
   'removeToolBarBreak', 'toolBarArea', 'toolBarBreak', 'getStyleOptionInfo',
-  'removeToolBar', 'toggleToolBarsVisible', 'setCorner', 'corner',
-  'documentMode', 'setDocumentMode', 'tabShape', 'setGeometry', 'itemAt',
-  'takeAt', 'count', 'sizeHint', 'minimumSize', 'invalidate',
-  'applyRestoredState', 'timerEvent', 'showTabBars'. None can be made from
-  Python: one comes out of a function of another class that gives one back.
+  'removeToolBar', 'toggleToolBarsVisible', 'toolBarAreaLayout', 'setCorner',
+  'corner', 'dockWidgetArea', 'documentMode', 'setDocumentMode',
+  'getSeparatorWidget', 'tabShape', 'dockAreaLayoutInfo', 'addItem',
+  'setGeometry', 'itemAt', 'takeAt', 'count', 'sizeHint', 'minimumSize',
+  'invalidate', 'applyRestoredState', 'needsPlatformDrag',
+  'performPlatformWidgetDrag', 'timerEvent', 'updateGapIndicator',
+  'tabChanged', 'tabMoved', 'tabifyWhileFloating', 'showTabBars'. None can be
+  made from Python: one comes out of a function of another class that gives
+  one back.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QMainWindowLayout::qt_metacast(const char *a0)': one of Qt's
+    own inner workings.
+  - Qt's 'int QMainWindowLayout::qt_metacall(QMetaObject::Call a0, int a1,
+    void **a2)': one of Qt's own inner workings.
   - Qt's 'QMainWindowLayout::~QMainWindowLayout()': the destructor: Python
     never removes a C++ QMainWindowLayout.
 
   What has no ritual
   ------------------
 
-  57 of the 84 functions Qt declares: 20 Qt's library has no name for it, and
-  its code in Qt's source does not compile apart from its file; 10 takes or
-  gives a type that cannot be passed yet; 9 leans on 'QMainWindowLayout; 4
-  declared and nowhere to be found; 4 leans on 'QDockAreaLayout; 2 leans on
-  'QToolBarLayout; 2 leans on 'QDockWidgetGroupWindow; 2 leans on 'QSize
-  QDockAreaLayout; 1 a template; 1 leans on 'QToolBarAreaLayout; 1 leans on
-  'QMainWindowLayoutState; 1 leans on 'QDockAreaLayoutItem.
+  38 of the 79 functions Qt declares: 15 Qt's library has no name for it, and
+  its code in Qt's source does not compile apart from its file; 8 leans on
+  'QMainWindowLayout; 4 leans on 'QDockWidgetGroupWindow; 3 leans on
+  'QDockAreaLayout; 2 not a gap; 2 leans on 'QToolBarLayout; 1 leans on
+  'QToolBarAreaLayout; 1 leans on 'lcQpaDockWidgets()', which Qt's source
+  does not mark for use from outside Qt and has no code for that could be
+  taken; 1 leans on 'QDockAreaLayoutInfo; 1 leans on 'QDockAreaLayoutItem.
 
   What to expect
   --------------
@@ -96,6 +108,17 @@ class QMainWindowLayout(QLayout):
   - Qt tells when it has removed the C++ QMainWindowLayout. Every call on the
     cute object, and every use of it as an argument, then raises
     'RuntimeError', and nothing reaches C++.
+  - Each name of Qt's QMainWindowLayout that has no cute function yet,
+    '__init__', 'addDockWidget', 'addToolBar', 'addToolBarBreak',
+    'animationFinished', 'applyState', 'createTabbedDockWindow', 'dockInfo',
+    'dockWidgetAreaRect', 'findTabBar', 'getTabBar', 'hover',
+    'insertToolBar', 'isDockWidgetTabbed', 'keepSize', 'moveToolBar', 'plug',
+    'raise_', 'restore', 'restoreDockWidget', 'restoreState', 'revert',
+    'saveState', 'setCurrentHoveredFloat', 'setDockOptions',
+    'setTabPosition', 'setTabShape', 'setVerticalTabsEnabled',
+    'splitDockWidget', 'tabPosition', 'tabifiedDockWidgets',
+    'tabifyDockWidget', 'unplug', 'unuseTabBar', 'updateTabBarShapes', holds
+    a function that raises 'NotImplementedError', and its docstring says why.
   """
 
   #  The enums Qt writes inside QMainWindowLayout, each a class in here as in
@@ -121,6 +144,17 @@ class QMainWindowLayout(QLayout):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def needsPlatformDrag() -> bool:
+    """
+    Calls Qt's 'bool QMainWindowLayout::needsPlatformDrag()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qmainwindowlayout.html#needsPlatformDrag
+    """
+    #  bool QMainWindowLayout::needsPlatformDrag()
+    return Rituals.call('ritual_ZN17QMainWindowLayout17needsPlatformDragEv')
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -166,6 +200,24 @@ class QMainWindowLayout(QLayout):
     )
     from ..QtCore import QMetaObject
     return QMetaObject._cuteAt(address)
+
+  def statusBar(self) -> Optional[QStatusBar]:
+    """
+    Calls Qt's 'QStatusBar *QMainWindowLayout::statusBar() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmainwindowlayout.html#statusBar
+
+    Returns
+    -------
+
+    Optional[QStatusBar]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QStatusBar *QMainWindowLayout::statusBar() const
+    address = self.uglySide.call('ritual_ZNK17QMainWindowLayout9statusBarEv')
+    from . import QStatusBar
+    return QStatusBar._cuteAt(address)
 
   def centralWidget(self) -> Optional[QWidget]:
     """
@@ -267,6 +319,38 @@ class QMainWindowLayout(QLayout):
     #  Qt::DockWidgetArea QMainWindowLayout::corner(Qt::Corner corner) const
     return Qt.DockWidgetArea(self.uglySide.call(
         'ritual_ZNK17QMainWindowLayout6cornerEN2Qt6CornerE', corner.value,
+    ))
+
+  @overload(QWidget)
+  @overload(NoneType)
+  def dockWidgetArea(self, widget: Optional[QWidget]) -> Qt.DockWidgetArea:
+    """
+    Calls Qt's 'Qt::DockWidgetArea QMainWindowLayout::dockWidgetArea(const
+    QWidget *widget) const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qmainwindowlayout.html#dockWidgetArea
+
+    Parameters
+    ----------
+
+    widget : Optional[QWidget]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    Returns
+    -------
+
+    Qt.DockWidgetArea
+      The member standing for the number Qt gave back. For a number Qt gives
+      no name it is the member without a name that
+      'Qt.DockWidgetArea(number)' gives.
+    """
+    #  Qt::DockWidgetArea QMainWindowLayout::dockWidgetArea(const QWidget
+    #      *widget) const
+    return Qt.DockWidgetArea(self.uglySide.call(
+        'ritual_ZNK17QMainWindowLayout14dockWidgetAreaEPK7QWidget',
+        self._addressOf(widget),
     ))
 
   def documentMode(self) -> bool:
@@ -498,6 +582,23 @@ class QMainWindowLayout(QLayout):
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  @staticmethod
+  def __init__(*__, **_) -> Never:
+    """
+    Qt's 'QMainWindowLayout::QMainWindowLayout(QMainWindow *mainwindow,
+    QLayout *parentLayout)': leans on
+    'QMainWindowLayout::qt_metacall(QMetaObject::Call, int, void**)', which
+    Qt's source does not mark for use from outside Qt and has no code for
+    that could be taken.
+    """
+    raise NotImplementedError(
+        "'QMainWindowLayout.__init__' has no cute function yet. Qt's "
+        "'QMainWindowLayout::QMainWindowLayout(QMainWindow *mainwindow, "
+        "QLayout *parentLayout)': leans on "
+        "'QMainWindowLayout::qt_metacall(QMetaObject::Call, int, void**)', "
+        "which Qt's source does not mark for use from outside Qt and has no "
+        "code for that could be taken.")
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -634,6 +735,90 @@ class QMainWindowLayout(QLayout):
         'ritual_ZN17QMainWindowLayout21toggleToolBarsVisibleEv',
     )
 
+  def toolBarAreaLayout(self) -> Optional[QToolBarAreaLayout]:
+    """
+    Calls Qt's 'QToolBarAreaLayout *QMainWindowLayout::toolBarAreaLayout()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qmainwindowlayout.html#toolBarAreaLayout
+
+    Returns
+    -------
+
+    Optional[QToolBarAreaLayout]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QToolBarAreaLayout *QMainWindowLayout::toolBarAreaLayout()
+    address = self.uglySide.call(
+        'ritual_ZN17QMainWindowLayout17toolBarAreaLayoutEv',
+    )
+    from . import QToolBarAreaLayout
+    return QToolBarAreaLayout._cuteAt(address)
+
+  def getSeparatorWidget(self) -> Optional[QWidget]:
+    """
+    Calls Qt's 'QWidget *QMainWindowLayout::getSeparatorWidget()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qmainwindowlayout.html#getSeparatorWidget
+
+    Returns
+    -------
+
+    Optional[QWidget]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QWidget *QMainWindowLayout::getSeparatorWidget()
+    address = self.uglySide.call(
+        'ritual_ZN17QMainWindowLayout18getSeparatorWidgetEv',
+    )
+    from . import QWidget
+    return QWidget._cuteAt(address)
+
+  def dockAreaLayoutInfo(self) -> Optional[QDockAreaLayout]:
+    """
+    Calls Qt's 'QDockAreaLayout *QMainWindowLayout::dockAreaLayoutInfo()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qmainwindowlayout.html#dockAreaLayoutInfo
+
+    Returns
+    -------
+
+    Optional[QDockAreaLayout]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QDockAreaLayout *QMainWindowLayout::dockAreaLayoutInfo()
+    address = self.uglySide.call(
+        'ritual_ZN17QMainWindowLayout18dockAreaLayoutInfoEv',
+    )
+    from . import QDockAreaLayout
+    return QDockAreaLayout._cuteAt(address)
+
+  @overload(QLayoutItem)
+  @overload(NoneType)
+  def addItem(self, item: Optional[QLayoutItem]) -> None:
+    """
+    Calls Qt's 'void QMainWindowLayout::addItem(QLayoutItem *item)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmainwindowlayout.html#addItem
+
+    Parameters
+    ----------
+
+    item : Optional[QLayoutItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QMainWindowLayout::addItem(QLayoutItem *item)
+    ritual = 'ritual_ZN17QMainWindowLayout7addItemEP11QLayoutItem'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN17QMainWindowLayout7addItemEP11QLayoutItem'
+    self.uglySide.call(ritual, self._addressOf(item, 'QLayoutItem'))
+
   @overload(int)
   def takeAt(self, index: int) -> Optional[QLayoutItem]:
     """
@@ -682,6 +867,50 @@ class QMainWindowLayout(QLayout):
     #  void QMainWindowLayout::applyRestoredState()
     self.uglySide.call('ritual_ZN17QMainWindowLayout18applyRestoredStateEv')
 
+  @overload(QLayoutItem, QPoint)
+  @overload(NoneType, QPoint)
+  def performPlatformWidgetDrag(
+      self,
+      widgetItem: Optional[QLayoutItem],
+      pressPosition: QPoint,
+  ) -> Qt.DropAction:
+    """
+    Calls Qt's 'Qt::DropAction
+    QMainWindowLayout::performPlatformWidgetDrag(QLayoutItem *widgetItem,
+    const QPoint &pressPosition)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qmainwindowlayout.html#performPlatformWidgetDrag
+
+    Parameters
+    ----------
+
+    widgetItem : Optional[QLayoutItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    pressPosition : QPoint
+      Passed on as a value: Qt reads the C++ QPoint, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    Qt.DropAction
+      The member standing for the number Qt gave back. For a number Qt gives
+      no name it is the member without a name that 'Qt.DropAction(number)'
+      gives.
+    """
+    #  Qt::DropAction
+    #      QMainWindowLayout::performPlatformWidgetDrag(QLayoutItem
+    #      *widgetItem, const QPoint &pressPosition)
+    return Qt.DropAction(self.uglySide.call(
+        'ritual_ZN17QMainWindowLayout25performPlatformWidgetDragEP11QLayout'
+        'ItemRK6QPoint',
+        self._addressOf(widgetItem, 'QLayoutItem'),
+        self._valueOf(pressPosition),
+    ))
+
   @overload(QTimerEvent)
   @overload(NoneType)
   def timerEvent(self, e: Optional[QTimerEvent]) -> None:
@@ -703,6 +932,79 @@ class QMainWindowLayout(QLayout):
       ritual = 'ritual_own_ZN17QMainWindowLayout10timerEventEP11QTimerEvent'
     self.uglySide.call(ritual, self._addressOf(e))
 
+  def updateGapIndicator(self) -> None:
+    """
+    Calls Qt's 'void QMainWindowLayout::updateGapIndicator()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qmainwindowlayout.html#updateGapIndicator
+    """
+    #  void QMainWindowLayout::updateGapIndicator()
+    self.uglySide.call('ritual_ZN17QMainWindowLayout18updateGapIndicatorEv')
+
+  def tabChanged(self) -> None:
+    """
+    Calls Qt's 'void QMainWindowLayout::tabChanged()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmainwindowlayout.html#tabChanged
+    """
+    #  void QMainWindowLayout::tabChanged()
+    self.uglySide.call('ritual_ZN17QMainWindowLayout10tabChangedEv')
+
+  @overload(int, int)
+  def tabMoved(self, from_: int, to: int) -> None:
+    """
+    Calls Qt's 'void QMainWindowLayout::tabMoved(int from, int to)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmainwindowlayout.html#tabMoved
+
+    Parameters
+    ----------
+
+    from_ : int
+      Passed on as it is.
+
+    to : int
+      Passed on as it is.
+    """
+    #  void QMainWindowLayout::tabMoved(int from, int to)
+    self.uglySide.call('ritual_ZN17QMainWindowLayout8tabMovedEii', from_, to)
+
+  @overload(QDockWidget, QDockWidget)
+  @overload(QDockWidget, NoneType)
+  @overload(NoneType, QDockWidget)
+  @overload(NoneType, NoneType)
+  def tabifyWhileFloating(
+      self,
+      first: Optional[QDockWidget],
+      second: Optional[QDockWidget],
+  ) -> None:
+    """
+    Calls Qt's 'void QMainWindowLayout::tabifyWhileFloating(QDockWidget
+    *first, QDockWidget *second)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qmainwindowlayout.html#tabifyWhileFloating
+
+    Parameters
+    ----------
+
+    first : Optional[QDockWidget]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    second : Optional[QDockWidget]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QMainWindowLayout::tabifyWhileFloating(QDockWidget *first,
+    #      QDockWidget *second)
+    self.uglySide.call(
+        'ritual_ZN17QMainWindowLayout19tabifyWhileFloatingEP11QDockWidgetS1'
+        '_',
+        self._addressOf(first), self._addressOf(second),
+    )
+
   def showTabBars(self) -> None:
     """
     Calls Qt's 'void QMainWindowLayout::showTabBars()'.
@@ -711,3 +1013,514 @@ class QMainWindowLayout(QLayout):
     """
     #  void QMainWindowLayout::showTabBars()
     self.uglySide.call('ritual_ZN17QMainWindowLayout11showTabBarsEv')
+
+  @staticmethod
+  def addDockWidget(*__, **_) -> Never:
+    """
+    Qt's 'void QMainWindowLayout::addDockWidget(Qt::DockWidgetArea area,
+    QDockWidget *dockwidget, Qt::Orientation orientation)': Qt's library has
+    no name for it, and its code in Qt's source does not compile apart from
+    its file: use of undeclared identifier 'toDockPos'.
+    """
+    raise NotImplementedError(
+        "'QMainWindowLayout.addDockWidget' has no cute function yet. Qt's "
+        "'void QMainWindowLayout::addDockWidget(Qt::DockWidgetArea area, "
+        "QDockWidget *dockwidget, Qt::Orientation orientation)': Qt's "
+        "library has no name for it, and its code in Qt's source does not "
+        "compile apart from its file: use of undeclared identifier "
+        "'toDockPos'.")
+
+  @staticmethod
+  def addToolBar(*__, **_) -> Never:
+    """
+    Qt's 'void QMainWindowLayout::addToolBar(Qt::ToolBarArea area, QToolBar
+    *toolbar, bool needAddChildWidget)': Qt's library has no name for it, and
+    its code in Qt's source does not compile apart from its file: use of
+    undeclared identifier 'validateToolBarArea'.
+    """
+    raise NotImplementedError(
+        "'QMainWindowLayout.addToolBar' has no cute function yet. Qt's "
+        "'void QMainWindowLayout::addToolBar(Qt::ToolBarArea area, QToolBar "
+        "*toolbar, bool needAddChildWidget)': Qt's library has no name for "
+        "it, and its code in Qt's source does not compile apart from its "
+        "file: use of undeclared identifier 'validateToolBarArea'.")
+
+  @staticmethod
+  def addToolBarBreak(*__, **_) -> Never:
+    """
+    Qt's 'void QMainWindowLayout::addToolBarBreak(Qt::ToolBarArea area)':
+    Qt's library has no name for it, and its code in Qt's source does not
+    compile apart from its file: use of undeclared identifier 'toDockPos'.
+    """
+    raise NotImplementedError(
+        "'QMainWindowLayout.addToolBarBreak' has no cute function yet. Qt's "
+        "'void QMainWindowLayout::addToolBarBreak(Qt::ToolBarArea area)': "
+        "Qt's library has no name for it, and its code in Qt's source does "
+        "not compile apart from its file: use of undeclared identifier "
+        "'toDockPos'.")
+
+  @staticmethod
+  def animationFinished(*__, **_) -> Never:
+    """
+    Qt's 'void QMainWindowLayout::animationFinished(QWidget *widget)': leans
+    on 'QToolBarLayout::staticMetaObject', which Qt's source does not mark
+    for use from outside Qt and has no code for that could be taken.
+    """
+    raise NotImplementedError(
+        "'QMainWindowLayout.animationFinished' has no cute function yet. "
+        "Qt's 'void QMainWindowLayout::animationFinished(QWidget *widget)': "
+        "leans on 'QToolBarLayout::staticMetaObject', which Qt's source "
+        "does not mark for use from outside Qt and has no code for that "
+        "could be taken.")
+
+  @staticmethod
+  def applyState(*__, **_) -> Never:
+    """
+    Qt's 'void QMainWindowLayout::applyState(QMainWindowLayoutState
+    &newState, bool animate)': Qt's library has no name for it, and its code
+    in Qt's source does not compile apart from its file: use of undeclared
+    identifier 'toAnimationRule'.
+    """
+    raise NotImplementedError(
+        "'QMainWindowLayout.applyState' has no cute function yet. Qt's "
+        "'void QMainWindowLayout::applyState(QMainWindowLayoutState "
+        "&newState, bool animate)': Qt's library has no name for it, and "
+        "its code in Qt's source does not compile apart from its file: use "
+        "of undeclared identifier 'toAnimationRule'.")
+
+  @staticmethod
+  def createTabbedDockWindow(*__, **_) -> Never:
+    """
+    Qt's 'QDockWidgetGroupWindow
+    *QMainWindowLayout::createTabbedDockWindow()': leans on
+    'QDockAreaLayoutInfo::remove(QList<int> const&)', which Qt's source does
+    not mark for use from outside Qt and has no code for that could be taken.
+    """
+    raise NotImplementedError(
+        "'QMainWindowLayout.createTabbedDockWindow' has no cute function "
+        "yet. Qt's 'QDockWidgetGroupWindow "
+        "*QMainWindowLayout::createTabbedDockWindow()': leans on "
+        "'QDockAreaLayoutInfo::remove(QList<int> const&)', which Qt's "
+        "source does not mark for use from outside Qt and has no code for "
+        "that could be taken.")
+
+  @staticmethod
+  def dockInfo(*__, **_) -> Never:
+    """
+    Qt's 'QDockAreaLayoutInfo *QMainWindowLayout::dockInfo(QWidget *w)':
+    leans on 'QDockAreaLayout::info(QWidget*)', which Qt's source does not
+    mark for use from outside Qt and has no code for that could be taken.
+    """
+    raise NotImplementedError(
+        "'QMainWindowLayout.dockInfo' has no cute function yet. Qt's "
+        "'QDockAreaLayoutInfo *QMainWindowLayout::dockInfo(QWidget *w)': "
+        "leans on 'QDockAreaLayout::info(QWidget*)', which Qt's source does "
+        "not mark for use from outside Qt and has no code for that could be "
+        "taken.")
+
+  @staticmethod
+  def dockWidgetAreaRect(*__, **_) -> Never:
+    """
+    Qt's 'QRect QMainWindowLayout::dockWidgetAreaRect(Qt::DockWidgetArea
+    area, DockWidgetAreaSize size) const': Qt's library has no name for it,
+    and its code in Qt's source does not compile apart from its file: use of
+    undeclared identifier 'toDockPos'.
+    """
+    raise NotImplementedError(
+        "'QMainWindowLayout.dockWidgetAreaRect' has no cute function yet. "
+        "Qt's 'QRect "
+        "QMainWindowLayout::dockWidgetAreaRect(Qt::DockWidgetArea area, "
+        "DockWidgetAreaSize size) const': Qt's library has no name for it, "
+        "and its code in Qt's source does not compile apart from its file: "
+        "use of undeclared identifier 'toDockPos'.")
+
+  @staticmethod
+  def findTabBar(*__, **_) -> Never:
+    """
+    Qt's 'QMainWindowTabBar *QMainWindowLayout::findTabBar(const QDockWidget
+    *dockWidget) const': Qt's library has no name for it, and its code in
+    Qt's source does not compile apart from its file: static_cast from
+    'QTabBar *' to 'QMainWindowTabBar *', which are not related by
+    inheritance, is not allowed.
+    """
+    raise NotImplementedError(
+        "'QMainWindowLayout.findTabBar' has no cute function yet. Qt's "
+        "'QMainWindowTabBar *QMainWindowLayout::findTabBar(const "
+        "QDockWidget *dockWidget) const': Qt's library has no name for it, "
+        "and its code in Qt's source does not compile apart from its file: "
+        "static_cast from 'QTabBar *' to 'QMainWindowTabBar *', which are "
+        "not related by inheritance, is not allowed.")
+
+  @staticmethod
+  def getTabBar(*__, **_) -> Never:
+    """
+    Qt's 'QTabBar *QMainWindowLayout::getTabBar()': leans on
+    'QMainWindowLayout::staticMetaObject', which Qt's source does not mark
+    for use from outside Qt and has no code for that could be taken.
+    """
+    raise NotImplementedError(
+        "'QMainWindowLayout.getTabBar' has no cute function yet. Qt's "
+        "'QTabBar *QMainWindowLayout::getTabBar()': leans on "
+        "'QMainWindowLayout::staticMetaObject', which Qt's source does not "
+        "mark for use from outside Qt and has no code for that could be "
+        "taken.")
+
+  @staticmethod
+  def hover(*__, **_) -> Never:
+    """
+    Qt's 'void QMainWindowLayout::hover(QLayoutItem *hoverTarget, const
+    QPoint &mousePos)': Qt's library has no name for it, and its code in Qt's
+    source does not compile apart from its file: use of undeclared identifier
+    'toDockPos'.
+    """
+    raise NotImplementedError(
+        "'QMainWindowLayout.hover' has no cute function yet. Qt's 'void "
+        "QMainWindowLayout::hover(QLayoutItem *hoverTarget, const QPoint "
+        "&mousePos)': Qt's library has no name for it, and its code in Qt's "
+        "source does not compile apart from its file: use of undeclared "
+        "identifier 'toDockPos'.")
+
+  @staticmethod
+  def insertToolBar(*__, **_) -> Never:
+    """
+    Qt's 'void QMainWindowLayout::insertToolBar(QToolBar *before, QToolBar
+    *toolbar)': leans on 'QToolBarAreaLayout::insertItem(QToolBar*,
+    QLayoutItem*)', which Qt's source does not mark for use from outside Qt
+    and has no code for that could be taken.
+    """
+    raise NotImplementedError(
+        "'QMainWindowLayout.insertToolBar' has no cute function yet. Qt's "
+        "'void QMainWindowLayout::insertToolBar(QToolBar *before, QToolBar "
+        "*toolbar)': leans on 'QToolBarAreaLayout::insertItem(QToolBar*, "
+        "QLayoutItem*)', which Qt's source does not mark for use from "
+        "outside Qt and has no code for that could be taken.")
+
+  @staticmethod
+  def isDockWidgetTabbed(*__, **_) -> Never:
+    """
+    Qt's 'bool QMainWindowLayout::isDockWidgetTabbed(const QDockWidget
+    *dockWidget) const': Qt's library has no name for it, and its code in
+    Qt's source does not compile apart from its file: member access into
+    incomplete type 'const QMainWindowTabBar'.
+    """
+    raise NotImplementedError(
+        "'QMainWindowLayout.isDockWidgetTabbed' has no cute function yet. "
+        "Qt's 'bool QMainWindowLayout::isDockWidgetTabbed(const QDockWidget "
+        "*dockWidget) const': Qt's library has no name for it, and its code "
+        "in Qt's source does not compile apart from its file: member access "
+        "into incomplete type 'const QMainWindowTabBar'.")
+
+  @staticmethod
+  def keepSize(*__, **_) -> Never:
+    """
+    Qt's 'void QMainWindowLayout::keepSize(QDockWidget *w)': leans on
+    'QDockAreaLayoutItem::QDockAreaLayoutItem(QDockAreaLayoutItem const&)',
+    which Qt's source does not mark for use from outside Qt and has no code
+    for that could be taken.
+    """
+    raise NotImplementedError(
+        "'QMainWindowLayout.keepSize' has no cute function yet. Qt's 'void "
+        "QMainWindowLayout::keepSize(QDockWidget *w)': leans on "
+        "'QDockAreaLayoutItem::QDockAreaLayoutItem(QDockAreaLayoutItem "
+        "const&)', which Qt's source does not mark for use from outside Qt "
+        "and has no code for that could be taken.")
+
+  @staticmethod
+  def moveToolBar(*__, **_) -> Never:
+    """
+    Qt's 'void QMainWindowLayout::moveToolBar(QToolBar *toolbar, int pos)':
+    leans on 'QToolBarLayout::staticMetaObject', which Qt's source does not
+    mark for use from outside Qt and has no code for that could be taken.
+    """
+    raise NotImplementedError(
+        "'QMainWindowLayout.moveToolBar' has no cute function yet. Qt's "
+        "'void QMainWindowLayout::moveToolBar(QToolBar *toolbar, int pos)': "
+        "leans on 'QToolBarLayout::staticMetaObject', which Qt's source "
+        "does not mark for use from outside Qt and has no code for that "
+        "could be taken.")
+
+  @staticmethod
+  def plug(*__, **_) -> Never:
+    """
+    Qt's 'bool QMainWindowLayout::plug(QLayoutItem *widgetItem)': Qt's
+    library has no name for it, and its code in Qt's source does not compile
+    apart from its file: use of undeclared identifier 'toAnimationRule'.
+    """
+    raise NotImplementedError(
+        "'QMainWindowLayout.plug' has no cute function yet. Qt's 'bool "
+        "QMainWindowLayout::plug(QLayoutItem *widgetItem)': Qt's library "
+        "has no name for it, and its code in Qt's source does not compile "
+        "apart from its file: use of undeclared identifier "
+        "'toAnimationRule'.")
+
+  @staticmethod
+  def raise_(*__, **_) -> Never:
+    """
+    Qt's 'void QMainWindowLayout::raise(QDockWidget *widget)': leans on
+    'QDockAreaLayout::info(QWidget*)', which Qt's source does not mark for
+    use from outside Qt and has no code for that could be taken.
+    """
+    raise NotImplementedError(
+        "'QMainWindowLayout.raise_' has no cute function yet. Qt's 'void "
+        "QMainWindowLayout::raise(QDockWidget *widget)': leans on "
+        "'QDockAreaLayout::info(QWidget*)', which Qt's source does not mark "
+        "for use from outside Qt and has no code for that could be taken.")
+
+  @staticmethod
+  def restore(*__, **_) -> Never:
+    """
+    Qt's 'void QMainWindowLayout::restore(QInternal::SaveStateRule rule)':
+    leans on 'QDockWidgetGroupWindow::staticMetaObject', which Qt's source
+    does not mark for use from outside Qt and has no code for that could be
+    taken.
+    """
+    raise NotImplementedError(
+        "'QMainWindowLayout.restore' has no cute function yet. Qt's 'void "
+        "QMainWindowLayout::restore(QInternal::SaveStateRule rule)': leans "
+        "on 'QDockWidgetGroupWindow::staticMetaObject', which Qt's source "
+        "does not mark for use from outside Qt and has no code for that "
+        "could be taken.")
+
+  @staticmethod
+  def restoreDockWidget(*__, **_) -> Never:
+    """
+    Qt's 'bool QMainWindowLayout::restoreDockWidget(QDockWidget
+    *dockwidget)': leans on 'QDockWidgetGroupWindow::staticMetaObject', which
+    Qt's source does not mark for use from outside Qt and has no code for
+    that could be taken.
+    """
+    raise NotImplementedError(
+        "'QMainWindowLayout.restoreDockWidget' has no cute function yet. "
+        "Qt's 'bool QMainWindowLayout::restoreDockWidget(QDockWidget "
+        "*dockwidget)': leans on "
+        "'QDockWidgetGroupWindow::staticMetaObject', which Qt's source does "
+        "not mark for use from outside Qt and has no code for that could be "
+        "taken.")
+
+  @staticmethod
+  def restoreState(*__, **_) -> Never:
+    """
+    Qt's 'bool QMainWindowLayout::restoreState(QDataStream &stream)': leans
+    on 'QDockWidgetGroupWindow::staticMetaObject', which Qt's source does not
+    mark for use from outside Qt and has no code for that could be taken.
+    """
+    raise NotImplementedError(
+        "'QMainWindowLayout.restoreState' has no cute function yet. Qt's "
+        "'bool QMainWindowLayout::restoreState(QDataStream &stream)': leans "
+        "on 'QDockWidgetGroupWindow::staticMetaObject', which Qt's source "
+        "does not mark for use from outside Qt and has no code for that "
+        "could be taken.")
+
+  @staticmethod
+  def revert(*__, **_) -> Never:
+    """
+    Qt's 'void QMainWindowLayout::revert(QLayoutItem *widgetItem)': Qt's
+    library has no name for it, and its code in Qt's source does not compile
+    apart from its file: use of undeclared identifier
+    'fixToolBarOrientation'.
+    """
+    raise NotImplementedError(
+        "'QMainWindowLayout.revert' has no cute function yet. Qt's 'void "
+        "QMainWindowLayout::revert(QLayoutItem *widgetItem)': Qt's library "
+        "has no name for it, and its code in Qt's source does not compile "
+        "apart from its file: use of undeclared identifier "
+        "'fixToolBarOrientation'.")
+
+  @staticmethod
+  def saveState(*__, **_) -> Never:
+    """
+    Qt's 'void QMainWindowLayout::saveState(QDataStream &stream) const':
+    leans on 'QDockWidgetGroupWindow::staticMetaObject', which Qt's source
+    does not mark for use from outside Qt and has no code for that could be
+    taken.
+    """
+    raise NotImplementedError(
+        "'QMainWindowLayout.saveState' has no cute function yet. Qt's 'void "
+        "QMainWindowLayout::saveState(QDataStream &stream) const': leans on "
+        "'QDockWidgetGroupWindow::staticMetaObject', which Qt's source does "
+        "not mark for use from outside Qt and has no code for that could be "
+        "taken.")
+
+  @staticmethod
+  def setCurrentHoveredFloat(*__, **_) -> Never:
+    """
+    Qt's 'void
+    QMainWindowLayout::setCurrentHoveredFloat(QDockWidgetGroupWindow *w)':
+    leans on 'QMainWindowLayout::staticMetaObject', which Qt's source does
+    not mark for use from outside Qt and has no code for that could be taken.
+    """
+    raise NotImplementedError(
+        "'QMainWindowLayout.setCurrentHoveredFloat' has no cute function "
+        "yet. Qt's 'void "
+        "QMainWindowLayout::setCurrentHoveredFloat(QDockWidgetGroupWindow "
+        "*w)': leans on 'QMainWindowLayout::staticMetaObject', which Qt's "
+        "source does not mark for use from outside Qt and has no code for "
+        "that could be taken.")
+
+  @staticmethod
+  def setDockOptions(*__, **_) -> Never:
+    """
+    Qt's 'void QMainWindowLayout::setDockOptions(QMainWindow::DockOptions
+    opts)': leans on 'QMainWindowLayout::updateTabBarShapes()', which Qt's
+    source does not mark for use from outside Qt and has no code for that
+    could be taken.
+    """
+    raise NotImplementedError(
+        "'QMainWindowLayout.setDockOptions' has no cute function yet. Qt's "
+        "'void QMainWindowLayout::setDockOptions(QMainWindow::DockOptions "
+        "opts)': leans on 'QMainWindowLayout::updateTabBarShapes()', which "
+        "Qt's source does not mark for use from outside Qt and has no code "
+        "for that could be taken.")
+
+  @staticmethod
+  def setTabPosition(*__, **_) -> Never:
+    """
+    Qt's 'void QMainWindowLayout::setTabPosition(Qt::DockWidgetAreas areas,
+    QTabWidget::TabPosition tabPosition)': leans on
+    'QMainWindowLayout::updateTabBarShapes()', which Qt's source does not
+    mark for use from outside Qt and has no code for that could be taken.
+    """
+    raise NotImplementedError(
+        "'QMainWindowLayout.setTabPosition' has no cute function yet. Qt's "
+        "'void QMainWindowLayout::setTabPosition(Qt::DockWidgetAreas areas, "
+        "QTabWidget::TabPosition tabPosition)': leans on "
+        "'QMainWindowLayout::updateTabBarShapes()', which Qt's source does "
+        "not mark for use from outside Qt and has no code for that could be "
+        "taken.")
+
+  @staticmethod
+  def setTabShape(*__, **_) -> Never:
+    """
+    Qt's 'void QMainWindowLayout::setTabShape(QTabWidget::TabShape
+    tabShape)': leans on 'QMainWindowLayout::updateTabBarShapes()', which
+    Qt's source does not mark for use from outside Qt and has no code for
+    that could be taken.
+    """
+    raise NotImplementedError(
+        "'QMainWindowLayout.setTabShape' has no cute function yet. Qt's "
+        "'void QMainWindowLayout::setTabShape(QTabWidget::TabShape "
+        "tabShape)': leans on 'QMainWindowLayout::updateTabBarShapes()', "
+        "which Qt's source does not mark for use from outside Qt and has no "
+        "code for that could be taken.")
+
+  @staticmethod
+  def setVerticalTabsEnabled(*__, **_) -> Never:
+    """
+    Qt's 'void QMainWindowLayout::setVerticalTabsEnabled(bool enabled)':
+    leans on 'QMainWindowLayout::updateTabBarShapes()', which Qt's source
+    does not mark for use from outside Qt and has no code for that could be
+    taken.
+    """
+    raise NotImplementedError(
+        "'QMainWindowLayout.setVerticalTabsEnabled' has no cute function "
+        "yet. Qt's 'void QMainWindowLayout::setVerticalTabsEnabled(bool "
+        "enabled)': leans on 'QMainWindowLayout::updateTabBarShapes()', "
+        "which Qt's source does not mark for use from outside Qt and has no "
+        "code for that could be taken.")
+
+  @staticmethod
+  def splitDockWidget(*__, **_) -> Never:
+    """
+    Qt's 'void QMainWindowLayout::splitDockWidget(QDockWidget *after,
+    QDockWidget *dockwidget, Qt::Orientation orientation)': leans on
+    'QDockAreaLayout::info(QList<int> const&)', which Qt's source does not
+    mark for use from outside Qt and has no code for that could be taken.
+    """
+    raise NotImplementedError(
+        "'QMainWindowLayout.splitDockWidget' has no cute function yet. Qt's "
+        "'void QMainWindowLayout::splitDockWidget(QDockWidget *after, "
+        "QDockWidget *dockwidget, Qt::Orientation orientation)': leans on "
+        "'QDockAreaLayout::info(QList<int> const&)', which Qt's source does "
+        "not mark for use from outside Qt and has no code for that could be "
+        "taken.")
+
+  @staticmethod
+  def tabPosition(*__, **_) -> Never:
+    """
+    Qt's 'QTabWidget::TabPosition
+    QMainWindowLayout::tabPosition(Qt::DockWidgetArea area) const': Qt's
+    library has no name for it, and its code in Qt's source does not compile
+    apart from its file: use of undeclared identifier 'toDockPos'.
+    """
+    raise NotImplementedError(
+        "'QMainWindowLayout.tabPosition' has no cute function yet. Qt's "
+        "'QTabWidget::TabPosition "
+        "QMainWindowLayout::tabPosition(Qt::DockWidgetArea area) const': "
+        "Qt's library has no name for it, and its code in Qt's source does "
+        "not compile apart from its file: use of undeclared identifier "
+        "'toDockPos'.")
+
+  @staticmethod
+  def tabifiedDockWidgets(*__, **_) -> Never:
+    """
+    Qt's 'QList<QDockWidget *> QMainWindowLayout::tabifiedDockWidgets(const
+    QDockWidget *dockWidget) const': Qt's library has no name for it, and its
+    code in Qt's source does not compile apart from its file: member access
+    into incomplete type 'const QMainWindowTabBar'.
+    """
+    raise NotImplementedError(
+        "'QMainWindowLayout.tabifiedDockWidgets' has no cute function yet. "
+        "Qt's 'QList<QDockWidget *> "
+        "QMainWindowLayout::tabifiedDockWidgets(const QDockWidget "
+        "*dockWidget) const': Qt's library has no name for it, and its code "
+        "in Qt's source does not compile apart from its file: member access "
+        "into incomplete type 'const QMainWindowTabBar'.")
+
+  @staticmethod
+  def tabifyDockWidget(*__, **_) -> Never:
+    """
+    Qt's 'void QMainWindowLayout::tabifyDockWidget(QDockWidget *first,
+    QDockWidget *second)': leans on 'lcQpaDockWidgets()', which Qt's source
+    does not mark for use from outside Qt and has no code for that could be
+    taken.
+    """
+    raise NotImplementedError(
+        "'QMainWindowLayout.tabifyDockWidget' has no cute function yet. "
+        "Qt's 'void QMainWindowLayout::tabifyDockWidget(QDockWidget *first, "
+        "QDockWidget *second)': leans on 'lcQpaDockWidgets()', which Qt's "
+        "source does not mark for use from outside Qt and has no code for "
+        "that could be taken.")
+
+  @staticmethod
+  def unplug(*__, **_) -> Never:
+    """
+    Qt's 'QLayoutItem *QMainWindowLayout::unplug(QWidget *widget,
+    QDockWidgetPrivate::DragScope scope)': Qt's library has no name for it,
+    and its code in Qt's source does not compile apart from its file: use of
+    undeclared identifier 'unplugGroup'.
+    """
+    raise NotImplementedError(
+        "'QMainWindowLayout.unplug' has no cute function yet. Qt's "
+        "'QLayoutItem *QMainWindowLayout::unplug(QWidget *widget, "
+        "QDockWidgetPrivate::DragScope scope)': Qt's library has no name "
+        "for it, and its code in Qt's source does not compile apart from "
+        "its file: use of undeclared identifier 'unplugGroup'.")
+
+  @staticmethod
+  def unuseTabBar(*__, **_) -> Never:
+    """
+    Qt's 'void QMainWindowLayout::unuseTabBar(QTabBar *bar)': Qt's library
+    has no name for it, and its code in Qt's source does not compile apart
+    from its file: incomplete type 'QMainWindowTabBar' named in nested name
+    specifier.
+    """
+    raise NotImplementedError(
+        "'QMainWindowLayout.unuseTabBar' has no cute function yet. Qt's "
+        "'void QMainWindowLayout::unuseTabBar(QTabBar *bar)': Qt's library "
+        "has no name for it, and its code in Qt's source does not compile "
+        "apart from its file: incomplete type 'QMainWindowTabBar' named in "
+        "nested name specifier.")
+
+  @staticmethod
+  def updateTabBarShapes(*__, **_) -> Never:
+    """
+    Qt's 'void QMainWindowLayout::updateTabBarShapes()': Qt's library has no
+    name for it, and its code in Qt's source does not compile apart from its
+    file: use of undeclared identifier '_q_tb_tabBarShapeFrom'.
+    """
+    raise NotImplementedError(
+        "'QMainWindowLayout.updateTabBarShapes' has no cute function yet. "
+        "Qt's 'void QMainWindowLayout::updateTabBarShapes()': Qt's library "
+        "has no name for it, and its code in Qt's source does not compile "
+        "apart from its file: use of undeclared identifier "
+        "'_q_tb_tabBarShapeFrom'.")

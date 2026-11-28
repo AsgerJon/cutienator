@@ -11,6 +11,9 @@ from typing import TYPE_CHECKING
 
 from ..cute import CuteMixin, MetaCute
 
+if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Never
+
 
 class QBitRef(CuteMixin, metaclass=MetaCute):
   """
@@ -31,16 +34,16 @@ class QBitRef(CuteMixin, metaclass=MetaCute):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'QBitRef::QBitRef(QBitArray &array, qsizetype idx)': takes a type
+    Python has no way to hand over yet.
   - Qt's 'bool QBitRef::operator!() const': an operator Python has no name
     for.
+  - Qt's 'QBitRef &QBitRef::operator=(const QBitRef &val)': assignment:
+    Python binds a name and has no operator for it.
+  - Qt's 'QBitRef &QBitRef::operator=(bool val)': assignment: Python binds a
+    name and has no operator for it.
   - Qt's 'QBitRef::~QBitRef()': the destructor: Python removes its C++
     QBitRef by it, and has no other use for it.
-
-  What has no ritual
-  ------------------
-
-  3 of the 6 functions Qt declares: 3 takes or gives a type that cannot be
-  passed yet.
 
   What to expect
   --------------
@@ -53,6 +56,9 @@ class QBitRef(CuteMixin, metaclass=MetaCute):
     is as in C++.
   - A function giving a QBitRef back gives a copy the ritual made for Python,
     in a new cute QBitRef.
+  - Each name of Qt's QBitRef that has no cute function yet, '__init__',
+    holds a function that raises 'NotImplementedError', and its docstring
+    says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -107,6 +113,17 @@ class QBitRef(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def __init__(*__, **_) -> Never:
+    """
+    Qt's 'QBitRef::QBitRef(QBitArray &array, qsizetype idx)': takes a type
+    Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QBitRef.__init__' has no cute function yet. Qt's "
+        "'QBitRef::QBitRef(QBitArray &array, qsizetype idx)': takes a type "
+        "Python has no way to hand over yet.")
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #

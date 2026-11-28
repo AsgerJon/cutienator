@@ -49,24 +49,30 @@ class QCheckBox(QAbstractButton):
   -----------
 
   Every function of Qt's QCheckBox that has a ritual and that Python can call
-  so far, 15 names in all: 'metaObject', 'tr', 'sizeHint', 'minimumSizeHint',
-  'setTristate', 'isTristate', 'checkState', 'setCheckState', 'event',
-  'hitButton', 'checkStateSet', 'nextCheckState', 'paintEvent',
-  'mouseMoveEvent', 'initStyleOption'. It can be made from Python, in 2 ways;
-  see '__init__'.
+  so far, 17 names in all: 'metaObject', 'tr', 'sizeHint', 'minimumSizeHint',
+  'setTristate', 'isTristate', 'checkState', 'setCheckState', 'stateChanged',
+  'checkStateChanged', 'event', 'hitButton', 'checkStateSet',
+  'nextCheckState', 'paintEvent', 'mouseMoveEvent', 'initStyleOption'. It can
+  be made from Python, in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QCheckBox::qt_metacast(const char *a0)': one of Qt's own
+    inner workings.
+  - Qt's 'int QCheckBox::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
   - Qt's 'QCheckBox::~QCheckBox()': the destructor: Python never removes a
     C++ QCheckBox.
+  - Qt's 'QCheckBoxPrivate *QCheckBox::d_func()': gives 'QCheckBoxPrivate',
+    which has no cute class yet.
+  - Qt's 'const QCheckBoxPrivate *QCheckBox::d_func() const': gives
+    'QCheckBoxPrivate', which has no cute class yet.
 
   What has no ritual
   ------------------
 
-  10 of the 28 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet; 2 a signal; 2 forbidden; 1 a template; 1 declared and nowhere
-  to be found.
+  4 of the 28 functions Qt declares: 2 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -392,6 +398,40 @@ class QCheckBox(QAbstractButton):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(int)
+  def stateChanged(self, a0: int) -> None:
+    """
+    Calls Qt's 'void QCheckBox::stateChanged(int a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcheckbox.html#stateChanged
+
+    Parameters
+    ----------
+
+    a0 : int
+      Passed on as it is.
+    """
+    #  void QCheckBox::stateChanged(int a0)
+    self.uglySide.call('ritual_ZN9QCheckBox12stateChangedEi', a0)
+
+  @overload(Qt.CheckState)
+  def checkStateChanged(self, a0: Qt.CheckState) -> None:
+    """
+    Calls Qt's 'void QCheckBox::checkStateChanged(Qt::CheckState a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcheckbox.html#checkStateChanged
+
+    Parameters
+    ----------
+
+    a0 : Qt.CheckState
+      Passed on as its number.
+    """
+    #  void QCheckBox::checkStateChanged(Qt::CheckState a0)
+    self.uglySide.call(
+        'ritual_ZN9QCheckBox17checkStateChangedEN2Qt10CheckStateE', a0.value,
+    )
 
   @overload(QEvent)
   @overload(NoneType)

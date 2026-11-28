@@ -14,13 +14,13 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
-from . import Qt, QList, QMetaObject
+from . import Qt, QHash, QList, QMetaObject
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Never, Optional
 
   from . import QBindingStorage, QByteArray, QChildEvent, QEvent, QMetaMethod
-  from . import QThread, QTimerEvent, QVariant
+  from . import QObjectPrivate, QThread, QTimerEvent, QVariant
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -28,6 +28,7 @@ else:
   QChildEvent = WAIT['QChildEvent']
   QEvent = WAIT['QEvent']
   QMetaMethod = WAIT['QMetaMethod']
+  QThread = WAIT['QThread']
   QTimerEvent = WAIT['QTimerEvent']
   QVariant = WAIT['QVariant']
 
@@ -45,17 +46,18 @@ class QObject(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QObject that has a ritual and that Python can call
-  so far, 43 names in all: 'metaObject', 'tr', 'event', 'eventFilter',
-  'objectName', 'setObjectName', 'isWidgetType', 'isWindowType',
-  'isQuickItemType', 'isQmlExposed', 'signalsBlocked', 'blockSignals',
-  'thread', 'startTimer', 'killTimer', 'children', 'setParent',
-  'installEventFilter', 'removeEventFilter', 'connect', 'disconnect',
-  'dumpObjectTree', 'dumpObjectInfo', 'setProperty', 'property',
-  'dynamicPropertyNames', 'bindingStorage', 'destroyed', 'objectNameChanged',
-  'parent', 'inherits', 'deleteLater', 'sender', 'senderSignalIndex',
-  'receivers', 'isSignalConnected', 'timerEvent', 'childEvent',
-  'customEvent', 'connectNotify', 'disconnectNotify', 'doSetObjectName',
-  'doSetProperty'. It can be made from Python, in 1 way; see '__init__'.
+  so far, 45 names in all: 'metaObject', 'tr', 'd_func', 'event',
+  'eventFilter', 'objectName', 'setObjectName', 'isWidgetType',
+  'isWindowType', 'isQuickItemType', 'isQmlExposed', 'signalsBlocked',
+  'blockSignals', 'thread', 'moveToThread', 'startTimer', 'killTimer',
+  'children', 'setParent', 'installEventFilter', 'removeEventFilter',
+  'connect', 'disconnect', 'dumpObjectTree', 'dumpObjectInfo', 'setProperty',
+  'property', 'dynamicPropertyNames', 'bindingStorage', 'destroyed',
+  'objectNameChanged', 'parent', 'inherits', 'deleteLater', 'sender',
+  'senderSignalIndex', 'receivers', 'isSignalConnected', 'timerEvent',
+  'childEvent', 'customEvent', 'connectNotify', 'disconnectNotify',
+  'doSetObjectName', 'doSetProperty'. It can be made from Python, in 1 way;
+  see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -64,16 +66,12 @@ class QObject(CuteMixin, metaclass=MetaCute):
     workings.
   - Qt's 'int QObject::qt_metacall(QMetaObject::Call a0, int a1, void **a2)':
     one of Qt's own inner workings.
-  - Qt's 'QObjectPrivate *QObject::d_func()': gives 'QObjectPrivate', which
-    has no cute class yet.
-  - Qt's 'const QObjectPrivate *QObject::d_func() const': gives
-    'QObjectPrivate', which has no cute class yet.
+  - Qt's 'const QObjectPrivate *QObject::d_func() const': takes in Python
+    what 'QObjectPrivate *QObject::d_func()' takes.
   - Qt's 'QObject::~QObject()': the destructor: Python never removes a C++
     QObject.
   - Qt's 'QBindable<QString> QObject::bindableObjectName()': gives a type
     Python has no way to take yet.
-  - Qt's 'bool QObject::moveToThread(QThread *thread, Qt::Disambiguated_t
-    a1)': takes a type Python has no way to hand over yet.
   - Qt's 'int QObject::startTimer(std::chrono::nanoseconds time,
     Qt::TimerType timerType)': takes a type Python has no way to hand over
     yet.
@@ -116,9 +114,9 @@ class QObject(CuteMixin, metaclass=MetaCute):
     object, and every use of it as an argument, then raises 'RuntimeError',
     and nothing reaches C++.
   - Each name of Qt's QObject that has no cute function yet,
-    'bindableObjectName', 'connectImpl', 'd_func', 'disconnectImpl',
-    'findChild', 'findChildren', 'moveToThread', holds a function that raises
-    'NotImplementedError', and its docstring says why.
+    'bindableObjectName', 'connectImpl', 'disconnectImpl', 'findChild',
+    'findChildren', holds a function that raises 'NotImplementedError', and
+    its docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -1055,6 +1053,24 @@ class QObject(CuteMixin, metaclass=MetaCute):
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  def d_func(self) -> Optional[QObjectPrivate]:
+    """
+    Calls Qt's 'QObjectPrivate *QObject::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qobject.html#d_func
+
+    Returns
+    -------
+
+    Optional[QObjectPrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QObjectPrivate *QObject::d_func()
+    address = self._callAs('QObject', 'ritual_ZN7QObject6d_funcEv')
+    from . import QObjectPrivate
+    return QObjectPrivate._cuteAt(address)
+
   @overload(QEvent)
   @overload(NoneType)
   def event(self, event: Optional[QEvent]) -> bool:
@@ -1125,6 +1141,37 @@ class QObject(CuteMixin, metaclass=MetaCute):
     """
     #  bool QObject::blockSignals(bool b)
     return self._callAs('QObject', 'ritual_ZN7QObject12blockSignalsEb', b)
+
+  @overload(QThread, WAIT['Qt.Disambiguated_t'])
+  @overload(NoneType, WAIT['Qt.Disambiguated_t'])
+  def moveToThread(
+      self,
+      thread: Optional[QThread],
+      a1: Qt.Disambiguated_t,
+  ) -> bool:
+    """
+    Calls Qt's 'bool QObject::moveToThread(QThread *thread,
+    Qt::Disambiguated_t a1)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qobject.html#moveToThread
+
+    Parameters
+    ----------
+
+    thread : Optional[QThread]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    a1 : Qt.Disambiguated_t
+      Passed on as a value: Qt reads the C++ Qt::Disambiguated_t, which stays
+      Python's own.
+    """
+    #  bool QObject::moveToThread(QThread *thread, Qt::Disambiguated_t a1)
+    return self._callAs(
+        'QObject',
+        'ritual_ZN7QObject12moveToThreadEP7QThreadN2Qt15Disambiguated_tE',
+        self._addressOf(thread), self._valueOf(a1),
+    )
 
   @overload(int)
   @overload(int, Qt.TimerType)
@@ -1508,20 +1555,6 @@ class QObject(CuteMixin, metaclass=MetaCute):
         "Python has no way to hand over yet.")
 
   @staticmethod
-  def d_func(*__, **_) -> Never:
-    """
-    - Qt's 'QObjectPrivate *QObject::d_func()': gives 'QObjectPrivate', which
-      has no cute class yet.
-    - Qt's 'const QObjectPrivate *QObject::d_func() const': gives
-      'QObjectPrivate', which has no cute class yet.
-    """
-    raise NotImplementedError(
-        "'QObject.d_func' has no cute function yet. Qt's 'QObjectPrivate "
-        "*QObject::d_func()': gives 'QObjectPrivate', which has no cute "
-        "class yet. Qt's 'const QObjectPrivate *QObject::d_func() const': "
-        "gives 'QObjectPrivate', which has no cute class yet.")
-
-  @staticmethod
   def disconnectImpl(*__, **_) -> Never:
     """
     Qt's 'bool QObject::disconnectImpl(const QObject *sender, void **signal,
@@ -1556,17 +1589,6 @@ class QObject(CuteMixin, metaclass=MetaCute):
         "'QObject::findChildren': a template: a pattern and no single "
         "function.")
 
-  @staticmethod
-  def moveToThread(*__, **_) -> Never:
-    """
-    Qt's 'bool QObject::moveToThread(QThread *thread, Qt::Disambiguated_t
-    a1)': takes a type Python has no way to hand over yet.
-    """
-    raise NotImplementedError(
-        "'QObject.moveToThread' has no cute function yet. Qt's 'bool "
-        "QObject::moveToThread(QThread *thread, Qt::Disambiguated_t a1)': "
-        "takes a type Python has no way to hand over yet.")
-
 
 #  Qt's 'QList<QObject *>': the list of QObject, which 'QList[QObject]'
 #  gives. It is made here, so that there is one as soon as there can be a
@@ -1579,4 +1601,36 @@ QObjectList = QList.createKind(
     size='ritual_list_size_QObject_ptr',
     at='ritual_list_at_QObject_ptr',
     drop='ritual_list_drop_QObject_ptr',
+)
+
+
+#  Qt's 'QHash<int, QObject *>': the QHash from a number to QObject, which
+#  'QHash[int, QObject]' gives. It is completed here, in the file of the
+#  class of its values.
+QHash.createKind(
+    int, QObject, 'address',
+    make='ritual_map_make_QHash_int_QObject_ptr',
+    put='ritual_map_put_QHash_int_QObject_ptr',
+    size='ritual_map_size_QHash_int_QObject_ptr',
+    key='ritual_map_key_QHash_int_QObject_ptr',
+    value='ritual_map_value_QHash_int_QObject_ptr',
+    has='ritual_map_has_QHash_int_QObject_ptr',
+    get='ritual_map_get_QHash_int_QObject_ptr',
+    drop='ritual_map_drop_QHash_int_QObject_ptr',
+)
+
+
+#  Qt's 'QHash<QString, QObject *>': the QHash from text to QObject, which
+#  'QHash[str, QObject]' gives. It is completed here, in the file of the
+#  class of its values.
+QHash.createKind(
+    str, QObject, 'address',
+    make='ritual_map_make_QHash_QString_QObject_ptr',
+    put='ritual_map_put_QHash_QString_QObject_ptr',
+    size='ritual_map_size_QHash_QString_QObject_ptr',
+    key='ritual_map_key_QHash_QString_QObject_ptr',
+    value='ritual_map_value_QHash_QString_QObject_ptr',
+    has='ritual_map_has_QHash_QString_QObject_ptr',
+    get='ritual_map_get_QHash_QString_QObject_ptr',
+    drop='ritual_map_drop_QHash_QString_QObject_ptr',
 )

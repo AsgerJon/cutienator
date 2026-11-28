@@ -45,14 +45,17 @@ class QScrollEvent(QEvent):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'QScrollEvent::QScrollEvent(const QScrollEvent &a0)': takes a type
+    Python has no way to hand over yet.
+  - Qt's 'QScrollEvent &QScrollEvent::operator=(const QScrollEvent &other)':
+    assignment: Python binds a name and has no operator for it.
   - Qt's 'QScrollEvent::~QScrollEvent()': the destructor: Python never
     removes a C++ QScrollEvent.
 
   What has no ritual
   ------------------
 
-  4 of the 10 functions Qt declares: 2 takes or gives a type that cannot be
-  passed yet; 2 forbidden.
+  2 of the 10 functions Qt declares: 2 forbidden.
 
   What to expect
   --------------
@@ -233,8 +236,8 @@ class QScrollEvent(QEvent):
     #      &overshoot, ScrollState scrollState)
     self._noteCreation(QScrollEvent, lambda: Rituals.call(
         'ritual_ZN12QScrollEventC1ERK7QPointFS2_NS_11ScrollStateE',
-        self._valueOf(contentPos), self._valueOf(overshoot),
-        scrollState.value,
+        self._valueOf(contentPos, 'QPointF'), self._valueOf(overshoot,
+        'QPointF'), scrollState.value,
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

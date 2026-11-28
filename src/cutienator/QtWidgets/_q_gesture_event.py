@@ -275,7 +275,7 @@ class QGestureEvent(QEvent):
     #      const
     address = self.uglySide.call(
         'ritual_ZNK13QGestureEvent18mapToGraphicsSceneERK7QPointF',
-        self._valueOf(gesturePoint),
+        self._valueOf(gesturePoint, 'QPointF'),
     )
     from ..QtCore import QPointF
     return QPointF._cuteOwning(address)

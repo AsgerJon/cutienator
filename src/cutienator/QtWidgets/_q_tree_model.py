@@ -16,15 +16,16 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import WAIT
+from ..cute import CuteMixin, MetaCute, WAIT
+from ..occult import Rituals
 from ..QtCore import Qt, QAbstractItemModel, QList, QMap, QStringList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from ..QtCore import QMetaObject, QMimeData, QModelIndex, QTimerEvent
   from ..QtCore import QVariant
-  from . import QTreeWidget, QTreeWidgetItem
+  from . import QTreeModelPrivate, QTreeWidget, QTreeWidgetItem
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -52,29 +53,50 @@ class QTreeModel(QAbstractItemModel):
   -----------
 
   Every function of Qt's QTreeModel that has a ritual and that Python can
-  call so far, 35 names in all: 'metaObject', 'view', 'clear',
+  call so far, 38 names in all: 'metaObject', 'view', 'clear',
   'setColumnCount', 'item', 'itemChanged', 'index', 'parent', 'rowCount',
   'columnCount', 'hasChildren', 'data', 'setData', 'clearItemData',
-  'itemData', 'headerData', 'setHeaderData', 'flags', 'sort', 'insertRows',
-  'insertColumns', 'mimeTypes', 'mimeData', 'dropMimeData',
-  'supportedDropActions', 'supportedDragActions', 'internalMimeData',
-  'createIndexFromItem', 'beginInsertItems', 'endInsertItems',
-  'beginRemoveItems', 'endRemoveItems', 'timerEvent', 'executePendingSort',
-  'isChanging'. None can be made from Python: one comes out of a function of
-  another class that gives one back.
+  'itemData', 'headerData', 'setHeaderData', 'flags', 'sort', 'ensureSorted',
+  'insertRows', 'insertColumns', 'removeRows', 'mimeTypes', 'mimeData',
+  'dropMimeData', 'supportedDropActions', 'supportedDragActions',
+  'internalMimeData', 'createIndexFromItem', 'beginInsertItems',
+  'endInsertItems', 'beginRemoveItems', 'endRemoveItems', 'timerEvent',
+  'executePendingSort', 'isChanging', 'd_func'. None can be made from Python:
+  one comes out of a function of another class that gives one back.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QTreeModel::qt_metacast(const char *a0)': one of Qt's own
+    inner workings.
+  - Qt's 'int QTreeModel::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
   - Qt's 'QTreeModel::~QTreeModel()': the destructor: Python never removes a
     C++ QTreeModel.
+  - Qt's 'bool QTreeModel::itemLessThan(const std::pair<QTreeWidgetItem *,
+    int> &left, const std::pair<QTreeWidgetItem *, int> &right)': takes a
+    type Python has no way to hand over yet.
+  - Qt's 'bool QTreeModel::itemGreaterThan(const std::pair<QTreeWidgetItem *,
+    int> &left, const std::pair<QTreeWidgetItem *, int> &right)': takes a
+    type Python has no way to hand over yet.
+  - Qt's 'QList<QTreeWidgetItem *>::iterator
+    QTreeModel::sortedInsertionIterator(const QList<QTreeWidgetItem
+    *>::iterator &begin, const QList<QTreeWidgetItem *>::iterator &end,
+    Qt::SortOrder order, QTreeWidgetItem *item)': takes a type Python has no
+    way to hand over yet.
+  - Qt's 'void QTreeModel::emitDataChanged(QTreeWidgetItem *item, int column,
+    const QList<int> &roles)': takes a type Python has no way to hand over
+    yet.
+  - Qt's 'void QTreeModel::sortItems(QList<QTreeWidgetItem *> *items, int
+    column, Qt::SortOrder order)': names 'QList<QTreeWidgetItem *>', which
+    has no cute class yet.
+  - Qt's 'const QTreeModelPrivate *QTreeModel::d_func() const': takes in
+    Python what 'QTreeModelPrivate *QTreeModel::d_func()' takes.
 
   What has no ritual
   ------------------
 
-  17 of the 54 functions Qt declares: 10 takes or gives a type that cannot be
-  passed yet; 4 leans on 'QTreeModel; 2 declared and nowhere to be found; 1 a
-  template.
+  5 of the 53 functions Qt declares: 3 leans on 'QTreeModel; 2 not a gap.
 
   What to expect
   --------------
@@ -89,7 +111,143 @@ class QTreeModel(QAbstractItemModel):
   - Qt tells when it has removed the C++ QTreeModel. Every call on the cute
     object, and every use of it as an argument, then raises 'RuntimeError',
     and nothing reaches C++.
+  - Each name of Qt's QTreeModel that has no cute function yet, '__init__',
+    'emitDataChanged', 'itemGreaterThan', 'itemLessThan', 'sortItems',
+    'sortedInsertionIterator', holds a function that raises
+    'NotImplementedError', and its docstring says why.
   """
+
+  #  The classes Qt writes inside QTreeModel, each a class in here as in C++.
+
+  class SkipSorting(CuteMixin, metaclass=MetaCute):
+    """
+    The cute side of Qt's QTreeModel::SkipSorting: a plain Python object
+    standing in front of one C++ QTreeModel::SkipSorting.
+
+    C++ hands a QTreeModel::SkipSorting around as a copy, so every C++
+    QTreeModel::SkipSorting behind a cute one is Python's own: it is removed,
+    by the ritual named in '__delete_ritual__', when the cute object goes.
+
+    What exists
+    -----------
+
+    No function of Qt's QTreeModel::SkipSorting yet. It can be made from
+    Python, in 1 way; see '__init__'.
+
+    What has a ritual and is left out, and why
+    ------------------------------------------
+
+    - Qt's 'QTreeModel::SkipSorting::~SkipSorting()': the destructor: Python
+      removes its C++ QTreeModel::SkipSorting by it, and has no other use for
+      it.
+
+    What to expect
+    --------------
+
+    - The C++ QTreeModel::SkipSorting is created at the first use, not by
+      'QTreeModel::SkipSorting(...)'.
+    - A wrong argument is refused in Python, with 'DispatchException', and
+      never reaches C++.
+    - None is taken wherever Qt takes an object by its address, or text as C
+      has it, and is passed on as nothing. Whether Qt can do with nothing
+      there is as in C++.
+    - A function giving a QTreeModel::SkipSorting back gives a copy the
+      ritual made for Python, in a new cute QTreeModel::SkipSorting.
+    """
+
+    #  The cute classes this class names and is not built on. Each waits
+    #  until it is made; see 'WAIT'. A type checker reads the imports at the
+    #  top of the file instead.
+    if not TYPE_CHECKING:
+      QTreeModel = WAIT['QTreeModel']
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    #  Class Variables
+    #  The class of Qt this class stands for.
+    __qt_class__ = 'QTreeModel::SkipSorting'
+
+    #  Qt's '~QTreeModel::SkipSorting()'. Naming it makes this a value class:
+    #  Python owns every C++ QTreeModel::SkipSorting behind a cute one, and
+    #  removes it by this ritual.
+    __delete_ritual__ = 'ritual_ZN10QTreeModel11SkipSortingD1Ev'
+
+    #  Fallback Variables
+
+    #  Private Variables
+
+    #  Public Variables
+
+    #  Virtual Variables
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  GETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  NOTIFIERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    @overload(QTreeModel)
+    @overload(NoneType)
+    def __init__(self, m: Optional[QTreeModel]) -> None:
+      """
+      Notes what was given, for Qt's
+      'QTreeModel::SkipSorting::SkipSorting(const QTreeModel *m)', which is
+      called at the first use.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qtreemodel-skipsorting.html#SkipSorting
+
+      Parameters
+      ----------
+
+      m : Optional[QTreeModel]
+        Passed on as the address of its C++ object. None is passed on as no
+        object.
+      """
+      #  QTreeModel::SkipSorting::SkipSorting(const QTreeModel *m)
+      self._noteCreation(QTreeModel.SkipSorting, lambda: Rituals.call(
+          'ritual_ZN10QTreeModel11SkipSortingC1EPKS_', self._addressOf(m),
+      ))
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  OPTIONAL METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  REQUIRED METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  PARENT METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -758,6 +916,29 @@ class QTreeModel(QAbstractItemModel):
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  @staticmethod
+  def __init__(*__, **_) -> Never:
+    """
+    - Qt's 'QTreeModel::QTreeModel(int columns, QTreeWidget *parent)': leans
+      on 'QTreeModel::qt_metacall(QMetaObject::Call, int, void**)', which
+      Qt's source does not mark for use from outside Qt and has no code for
+      that could be taken.
+    - Qt's 'QTreeModel::QTreeModel(QTreeModelPrivate &a0, QTreeWidget
+      *parent)': leans on 'QTreeModel::qt_metacall(QMetaObject::Call, int,
+      void**)', which Qt's source does not mark for use from outside Qt and
+      has no code for that could be taken.
+    """
+    raise NotImplementedError(
+        "'QTreeModel.__init__' has no cute function yet. Qt's "
+        "'QTreeModel::QTreeModel(int columns, QTreeWidget *parent)': leans "
+        "on 'QTreeModel::qt_metacall(QMetaObject::Call, int, void**)', "
+        "which Qt's source does not mark for use from outside Qt and has no "
+        "code for that could be taken. Qt's "
+        "'QTreeModel::QTreeModel(QTreeModelPrivate &a0, QTreeWidget "
+        "*parent)': leans on 'QTreeModel::qt_metacall(QMetaObject::Call, "
+        "int, void**)', which Qt's source does not mark for use from "
+        "outside Qt and has no code for that could be taken.")
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -850,6 +1031,48 @@ class QTreeModel(QAbstractItemModel):
       ritual = 'ritual_own_ZN10QTreeModel4sortEiN2Qt9SortOrderE'
     self.uglySide.call(ritual, column, order.value)
 
+  @overload(int, Qt.SortOrder, int, int, QModelIndex)
+  def ensureSorted(
+      self,
+      column: int,
+      order: Qt.SortOrder,
+      start: int,
+      end: int,
+      parent: QModelIndex,
+  ) -> None:
+    """
+    Calls Qt's 'void QTreeModel::ensureSorted(int column, Qt::SortOrder
+    order, int start, int end, const QModelIndex &parent)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtreemodel.html#ensureSorted
+
+    Parameters
+    ----------
+
+    column : int
+      Passed on as it is.
+
+    order : Qt.SortOrder
+      Passed on as its number.
+
+    start : int
+      Passed on as it is.
+
+    end : int
+      Passed on as it is.
+
+    parent : QModelIndex
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own.
+    """
+    #  void QTreeModel::ensureSorted(int column, Qt::SortOrder order, int
+    #      start, int end, const QModelIndex &parent)
+    self.uglySide.call(
+        'ritual_ZN10QTreeModel12ensureSortedEiN2Qt9SortOrderEiiRK11QModelIn'
+        'dex',
+        column, order.value, start, end, self._valueOf(parent),
+    )
+
   @overload(int, int, QModelIndex)
   def insertRows(self, row: int, count: int, a2: QModelIndex) -> bool:
     """
@@ -904,6 +1127,44 @@ class QTreeModel(QAbstractItemModel):
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZN10QTreeModel13insertColumnsEiiRK11QModelIndex'
     return self.uglySide.call(ritual, column, count, self._valueOf(a2))
+
+  @overload(int, int)
+  @overload(int, int, QModelIndex)
+  def removeRows(
+      self,
+      row: int,
+      count: int,
+      parent: Optional[QModelIndex] = None,
+  ) -> bool:
+    """
+    Calls Qt's 'bool QTreeModel::removeRows(int row, int count, const
+    QModelIndex &parent)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtreemodel.html#removeRows
+
+    Parameters
+    ----------
+
+    row : int
+      Passed on as it is.
+
+    count : int
+      Passed on as it is.
+
+    parent : Optional[QModelIndex]
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own. May be left out, as in Qt: a new 'QModelIndex()' is then
+      passed on.
+    """
+    #  bool QTreeModel::removeRows(int row, int count, const QModelIndex
+    #      &parent)
+    if parent is None:
+      from ..QtCore import QModelIndex
+      parent = QModelIndex()
+    ritual = 'ritual_ZN10QTreeModel10removeRowsEiiRK11QModelIndex'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN10QTreeModel10removeRowsEiiRK11QModelIndex'
+    return self.uglySide.call(ritual, row, count, self._valueOf(parent))
 
   @overload(QMimeData, Qt.DropAction, int, int, QModelIndex)
   @overload(NoneType, Qt.DropAction, int, int, QModelIndex)
@@ -1062,3 +1323,90 @@ class QTreeModel(QAbstractItemModel):
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZN10QTreeModel10timerEventEP11QTimerEvent'
     self.uglySide.call(ritual, self._addressOf(a0))
+
+  def d_func(self) -> Optional[QTreeModelPrivate]:
+    """
+    Calls Qt's 'QTreeModelPrivate *QTreeModel::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtreemodel.html#d_func
+
+    Returns
+    -------
+
+    Optional[QTreeModelPrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QTreeModelPrivate *QTreeModel::d_func()
+    address = self.uglySide.call('ritual_ZN10QTreeModel6d_funcEv')
+    from . import QTreeModelPrivate
+    return QTreeModelPrivate._cuteAt(address)
+
+  @staticmethod
+  def emitDataChanged(*__, **_) -> Never:
+    """
+    Qt's 'void QTreeModel::emitDataChanged(QTreeWidgetItem *item, int column,
+    const QList<int> &roles)': takes a type Python has no way to hand over
+    yet.
+    """
+    raise NotImplementedError(
+        "'QTreeModel.emitDataChanged' has no cute function yet. Qt's 'void "
+        "QTreeModel::emitDataChanged(QTreeWidgetItem *item, int column, "
+        "const QList<int> &roles)': takes a type Python has no way to hand "
+        "over yet.")
+
+  @staticmethod
+  def itemGreaterThan(*__, **_) -> Never:
+    """
+    Qt's 'bool QTreeModel::itemGreaterThan(const std::pair<QTreeWidgetItem *,
+    int> &left, const std::pair<QTreeWidgetItem *, int> &right)': takes a
+    type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QTreeModel.itemGreaterThan' has no cute function yet. Qt's 'bool "
+        "QTreeModel::itemGreaterThan(const std::pair<QTreeWidgetItem *, "
+        "int> &left, const std::pair<QTreeWidgetItem *, int> &right)': "
+        "takes a type Python has no way to hand over yet.")
+
+  @staticmethod
+  def itemLessThan(*__, **_) -> Never:
+    """
+    Qt's 'bool QTreeModel::itemLessThan(const std::pair<QTreeWidgetItem *,
+    int> &left, const std::pair<QTreeWidgetItem *, int> &right)': takes a
+    type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QTreeModel.itemLessThan' has no cute function yet. Qt's 'bool "
+        "QTreeModel::itemLessThan(const std::pair<QTreeWidgetItem *, int> "
+        "&left, const std::pair<QTreeWidgetItem *, int> &right)': takes a "
+        "type Python has no way to hand over yet.")
+
+  @staticmethod
+  def sortItems(*__, **_) -> Never:
+    """
+    Qt's 'void QTreeModel::sortItems(QList<QTreeWidgetItem *> *items, int
+    column, Qt::SortOrder order)': names 'QList<QTreeWidgetItem *>', which
+    has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QTreeModel.sortItems' has no cute function yet. Qt's 'void "
+        "QTreeModel::sortItems(QList<QTreeWidgetItem *> *items, int column, "
+        "Qt::SortOrder order)': names 'QList<QTreeWidgetItem *>', which has "
+        "no cute class yet.")
+
+  @staticmethod
+  def sortedInsertionIterator(*__, **_) -> Never:
+    """
+    Qt's 'QList<QTreeWidgetItem *>::iterator
+    QTreeModel::sortedInsertionIterator(const QList<QTreeWidgetItem
+    *>::iterator &begin, const QList<QTreeWidgetItem *>::iterator &end,
+    Qt::SortOrder order, QTreeWidgetItem *item)': takes a type Python has no
+    way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QTreeModel.sortedInsertionIterator' has no cute function yet. "
+        "Qt's 'QList<QTreeWidgetItem *>::iterator "
+        "QTreeModel::sortedInsertionIterator(const QList<QTreeWidgetItem "
+        "*>::iterator &begin, const QList<QTreeWidgetItem *>::iterator "
+        "&end, Qt::SortOrder order, QTreeWidgetItem *item)': takes a type "
+        "Python has no way to hand over yet.")

@@ -17,7 +17,7 @@ from ..occult import Rituals
 from ..QtCore import Qt
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from ..QtCore import QPoint
   from . import QBitmap, QPixmap, QScreen
@@ -57,14 +57,16 @@ class QCursor(CuteMixin, metaclass=MetaCute):
 
   - Qt's 'QCursor::~QCursor()': the destructor: Python removes its C++
     QCursor by it, and has no other use for it.
+  - Qt's 'QCursor &QCursor::operator=(const QCursor &cursor)': assignment:
+    Python binds a name and has no operator for it.
+  - Qt's 'QCursor::QCursor(QCursor &&other)': takes a type Python has no way
+    to hand over yet.
+  - Qt's 'QCursor &QCursor::operator=(QCursor &&other)': assignment: Python
+    binds a name and has no operator for it.
+  - Qt's 'void QCursor::swap(QCursor &other)': takes a type Python has no way
+    to hand over yet.
   - Qt's 'QVariant QCursor::operator QVariant() const': an operator Python
     has no name for.
-
-  What has no ritual
-  ------------------
-
-  4 of the 27 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet.
 
   What to expect
   --------------
@@ -77,6 +79,8 @@ class QCursor(CuteMixin, metaclass=MetaCute):
     is as in C++.
   - A function giving a QCursor back gives a copy the ritual made for Python,
     in a new cute QCursor.
+  - Each name of Qt's QCursor that has no cute function yet, 'swap', holds a
+    function that raises 'NotImplementedError', and its docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -624,3 +628,14 @@ class QCursor(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def swap(*__, **_) -> Never:
+    """
+    Qt's 'void QCursor::swap(QCursor &other)': takes a type Python has no way
+    to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QCursor.swap' has no cute function yet. Qt's 'void "
+        "QCursor::swap(QCursor &other)': takes a type Python has no way to "
+        "hand over yet.")

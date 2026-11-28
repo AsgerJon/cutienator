@@ -51,12 +51,17 @@ class QGraphicsSceneContextMenuEvent(QGraphicsSceneEvent):
   - Qt's 'QGraphicsSceneContextMenuEvent::~QGraphicsSceneContextMenuEvent()':
     the destructor: Python never removes a C++
     QGraphicsSceneContextMenuEvent.
+  - Qt's 'QGraphicsSceneContextMenuEventPrivate
+    *QGraphicsSceneContextMenuEvent::d_func()': gives
+    'QGraphicsSceneContextMenuEventPrivate', which has no cute class yet.
+  - Qt's 'const QGraphicsSceneContextMenuEventPrivate
+    *QGraphicsSceneContextMenuEvent::d_func() const': gives
+    'QGraphicsSceneContextMenuEventPrivate', which has no cute class yet.
 
   What has no ritual
   ------------------
 
-  4 of the 16 functions Qt declares: 2 takes or gives a type that cannot be
-  passed yet; 2 forbidden.
+  2 of the 16 functions Qt declares: 2 forbidden.
 
   What to expect
   --------------
@@ -236,7 +241,7 @@ class QGraphicsSceneContextMenuEvent(QGraphicsSceneEvent):
     #  void QGraphicsSceneContextMenuEvent::setPos(const QPointF &pos)
     self.uglySide.call(
         'ritual_ZN30QGraphicsSceneContextMenuEvent6setPosERK7QPointF',
-        self._valueOf(pos),
+        self._valueOf(pos, 'QPointF'),
     )
 
   @overload(QPointF)
@@ -258,7 +263,7 @@ class QGraphicsSceneContextMenuEvent(QGraphicsSceneEvent):
     #  void QGraphicsSceneContextMenuEvent::setScenePos(const QPointF &pos)
     self.uglySide.call(
         'ritual_ZN30QGraphicsSceneContextMenuEvent11setScenePosERK7QPointF',
-        self._valueOf(pos),
+        self._valueOf(pos, 'QPointF'),
     )
 
   @overload(QPoint)

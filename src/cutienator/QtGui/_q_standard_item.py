@@ -18,10 +18,11 @@ from ..occult import Rituals
 from ..QtCore import Qt, QList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from ..QtCore import QModelIndex, QModelRoleDataSpan, QSize, QVariant
   from . import QBrush, QFont, QIcon, QStandardItemModel
+  from . import QStandardItemPrivate
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -47,7 +48,7 @@ class QStandardItem(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QStandardItem that has a ritual and that Python can
-  call so far, 78 names in all: 'data', 'multiData', 'setData', 'clearData',
+  call so far, 79 names in all: 'data', 'multiData', 'setData', 'clearData',
   'text', 'setText', 'icon', 'setIcon', 'toolTip', 'setToolTip', 'statusTip',
   'setStatusTip', 'whatsThis', 'setWhatsThis', 'sizeHint', 'setSizeHint',
   'font', 'setFont', 'textAlignment', 'setTextAlignment', 'background',
@@ -63,19 +64,28 @@ class QStandardItem(CuteMixin, metaclass=MetaCute):
   'insertColumn', 'insertRows', 'insertColumns', 'removeRow', 'removeColumn',
   'removeRows', 'removeColumns', 'appendRow', 'appendRows', 'appendColumn',
   'takeChild', 'takeRow', 'takeColumn', 'sortChildren', 'clone', 'type',
-  'emitDataChanged'. It can be made from Python, in 4 ways; see '__init__'.
+  'emitDataChanged', 'd_func'. It can be made from Python, in 4 ways; see
+  '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
   - Qt's 'QStandardItem::~QStandardItem()': the destructor: Python never
     removes a C++ QStandardItem.
-
-  What has no ritual
-  ------------------
-
-  8 of the 95 functions Qt declares: 8 takes or gives a type that cannot be
-  passed yet.
+  - Qt's 'void QStandardItem::read(QDataStream &in)': takes a type Python has
+    no way to hand over yet.
+  - Qt's 'void QStandardItem::write(QDataStream &out) const': takes a type
+    Python has no way to hand over yet.
+  - Qt's 'bool QStandardItem::operator<(const QStandardItem &other) const':
+    takes a type Python has no way to hand over yet.
+  - Qt's 'QStandardItem::QStandardItem(const QStandardItem &other)': takes a
+    type Python has no way to hand over yet.
+  - Qt's 'QStandardItem::QStandardItem(QStandardItemPrivate &dd)': takes a
+    type Python has no way to hand over yet.
+  - Qt's 'QStandardItem &QStandardItem::operator=(const QStandardItem
+    &other)': assignment: Python binds a name and has no operator for it.
+  - Qt's 'const QStandardItemPrivate *QStandardItem::d_func() const': takes
+    in Python what 'QStandardItemPrivate *QStandardItem::d_func()' takes.
 
   What to expect
   --------------
@@ -88,6 +98,9 @@ class QStandardItem(CuteMixin, metaclass=MetaCute):
     has it, and is passed on as nothing. Whether Qt can do with nothing there
     is as in C++.
   - Python never removes the C++ QStandardItem.
+  - Each name of Qt's QStandardItem that has no cute function yet, 'read',
+    'write', holds a function that raises 'NotImplementedError', and its
+    docstring says why.
   """
 
   #  The enums Qt writes inside QStandardItem, each a class in here as in
@@ -1755,6 +1768,46 @@ class QStandardItem(CuteMixin, metaclass=MetaCute):
     """
     #  void QStandardItem::emitDataChanged()
     self.uglySide.call('ritual_ZN13QStandardItem15emitDataChangedEv')
+
+  def d_func(self) -> Optional[QStandardItemPrivate]:
+    """
+    Calls Qt's 'QStandardItemPrivate *QStandardItem::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qstandarditem.html#d_func
+
+    Returns
+    -------
+
+    Optional[QStandardItemPrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QStandardItemPrivate *QStandardItem::d_func()
+    address = self.uglySide.call('ritual_ZN13QStandardItem6d_funcEv')
+    from . import QStandardItemPrivate
+    return QStandardItemPrivate._cuteAt(address)
+
+  @staticmethod
+  def read(*__, **_) -> Never:
+    """
+    Qt's 'void QStandardItem::read(QDataStream &in)': takes a type Python has
+    no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QStandardItem.read' has no cute function yet. Qt's 'void "
+        "QStandardItem::read(QDataStream &in)': takes a type Python has no "
+        "way to hand over yet.")
+
+  @staticmethod
+  def write(*__, **_) -> Never:
+    """
+    Qt's 'void QStandardItem::write(QDataStream &out) const': takes a type
+    Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QStandardItem.write' has no cute function yet. Qt's 'void "
+        "QStandardItem::write(QDataStream &out) const': takes a type Python "
+        "has no way to hand over yet.")
 
 
 #  Qt's 'QList<QStandardItem *>': the list of QStandardItem, which

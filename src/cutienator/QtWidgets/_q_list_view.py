@@ -25,7 +25,7 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   from ..QtGui import QDragLeaveEvent, QDragMoveEvent, QDropEvent
   from ..QtGui import QMouseEvent, QPaintEvent, QRegion, QResizeEvent
   from ..QtGui import QWheelEvent
-  from . import QStyleOptionViewItem
+  from . import QListViewPrivate, QStyleOptionViewItem
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -63,7 +63,7 @@ class QListView(QAbstractItemView):
   -----------
 
   Every function of Qt's QListView that has a ritual and that Python can call
-  so far, 69 names in all: 'metaObject', 'tr', 'setMovement', 'movement',
+  so far, 71 names in all: 'metaObject', 'tr', 'setMovement', 'movement',
   'setFlow', 'flow', 'setWrapping', 'isWrapping', 'setResizeMode',
   'resizeMode', 'setLayoutMode', 'layoutMode', 'setSpacing', 'spacing',
   'setBatchSize', 'batchSize', 'setGridSize', 'gridSize', 'setViewMode',
@@ -72,31 +72,41 @@ class QListView(QAbstractItemView):
   'setWordWrap', 'wordWrap', 'setSelectionRectVisible',
   'isSelectionRectVisible', 'setItemAlignment', 'itemAlignment',
   'visualRect', 'scrollTo', 'indexAt', 'doItemsLayout', 'reset',
-  'setRootIndex', 'event', 'scrollContentsBy', 'resizeContents',
-  'contentsSize', 'rowsInserted', 'rowsAboutToBeRemoved', 'mouseMoveEvent',
-  'mouseReleaseEvent', 'wheelEvent', 'timerEvent', 'resizeEvent',
-  'dragMoveEvent', 'dragLeaveEvent', 'dropEvent', 'startDrag',
+  'setRootIndex', 'indexesMoved', 'event', 'scrollContentsBy',
+  'resizeContents', 'contentsSize', 'rowsInserted', 'rowsAboutToBeRemoved',
+  'mouseMoveEvent', 'mouseReleaseEvent', 'wheelEvent', 'timerEvent',
+  'resizeEvent', 'dragMoveEvent', 'dragLeaveEvent', 'dropEvent', 'startDrag',
   'initViewItemOption', 'paintEvent', 'horizontalOffset', 'verticalOffset',
   'rectForIndex', 'setPositionForIndex', 'setSelection',
   'visualRegionForSelection', 'selectedIndexes', 'updateGeometries',
   'isIndexHidden', 'selectionChanged', 'currentChanged', 'viewportSizeHint',
-  'visualIndex'. It can be made from Python, in 1 way; see '__init__'.
+  'visualIndex', 'd_func'. It can be made from Python, in 1 way; see
+  '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QListView::qt_metacast(const char *a0)': one of Qt's own
+    inner workings.
+  - Qt's 'int QListView::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
   - Qt's 'QListView::~QListView()': the destructor: Python never removes a
     C++ QListView.
+  - Qt's 'QListView::QListView(QListViewPrivate &a0, QWidget *parent)': takes
+    a type Python has no way to hand over yet.
+  - Qt's 'void QListView::dataChanged(const QModelIndex &topLeft, const
+    QModelIndex &bottomRight, const QList<int> &roles)': takes a type Python
+    has no way to hand over yet.
   - Qt's 'QModelIndex QListView::moveCursor(CursorAction cursorAction,
     Qt::KeyboardModifiers modifiers)': names the enum
     'QAbstractItemView::CursorAction', whose class cannot be named here.
+  - Qt's 'const QListViewPrivate *QListView::d_func() const': takes in Python
+    what 'QListViewPrivate *QListView::d_func()' takes.
 
   What has no ritual
   ------------------
 
-  11 of the 83 functions Qt declares: 6 takes or gives a type that cannot be
-  passed yet; 2 forbidden; 1 a template; 1 declared and nowhere to be found;
-  1 a signal.
+  4 of the 83 functions Qt declares: 2 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -1156,6 +1166,28 @@ class QListView(QAbstractItemView):
       ritual = 'ritual_own_ZN9QListView5resetEv'
     self.uglySide.call(ritual)
 
+  @overload(QList[QModelIndex])
+  def indexesMoved(self, indexes: QList[QModelIndex]) -> None:
+    """
+    Calls Qt's 'void QListView::indexesMoved(const QModelIndexList
+    &indexes)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlistview.html#indexesMoved
+
+    Parameters
+    ----------
+
+    indexes : QList[QModelIndex]
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+    """
+    #  void QListView::indexesMoved(const QModelIndexList &indexes)
+    self.uglySide.call(
+        'ritual_ZN9QListView12indexesMovedERK5QListI11QModelIndexE',
+        self._valueOf(indexes),
+    )
+
   @overload(QEvent)
   @overload(NoneType)
   def event(self, e: Optional[QEvent]) -> bool:
@@ -1595,3 +1627,21 @@ class QListView(QAbstractItemView):
     self.uglySide.call(
         ritual, self._valueOf(current), self._valueOf(previous),
     )
+
+  def d_func(self) -> Optional[QListViewPrivate]:
+    """
+    Calls Qt's 'QListViewPrivate *QListView::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlistview.html#d_func
+
+    Returns
+    -------
+
+    Optional[QListViewPrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QListViewPrivate *QListView::d_func()
+    address = self.uglySide.call('ritual_ZN9QListView6d_funcEv')
+    from . import QListViewPrivate
+    return QListViewPrivate._cuteAt(address)

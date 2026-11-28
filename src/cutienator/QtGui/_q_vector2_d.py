@@ -14,7 +14,7 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
-from ..QtCore import Qt
+from ..QtCore import Qt, QList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from ..QtCore import QPoint, QPointF
@@ -902,7 +902,7 @@ class QVector2D(CuteMixin, metaclass=MetaCute):
     """
     #  QVector2D::QVector2D(QPointF point)
     self._noteCreation(QVector2D, lambda: Rituals.call(
-        'ritual_ZN9QVector2DC1E7QPointF', self._valueOf(point),
+        'ritual_ZN9QVector2DC1E7QPointF', self._valueOf(point, 'QPointF'),
     ))
 
   @overload(QVector3D)
@@ -973,3 +973,16 @@ class QVector2D(CuteMixin, metaclass=MetaCute):
     """
     #  void QVector2D::normalize()
     self.uglySide.call('ritual_ZN9QVector2D9normalizeEv')
+
+
+#  Qt's 'QList<QVector2D>': the list of QVector2D, which 'QList[QVector2D]'
+#  gives. It is made here, so that there is one as soon as there can be a
+#  QVector2D.
+QList.createKind(
+    QVector2D, 'value',
+    make='ritual_list_make_QVector2D',
+    add='ritual_list_add_QVector2D',
+    size='ritual_list_size_QVector2D',
+    at='ritual_list_at_QVector2D',
+    drop='ritual_list_drop_QVector2D',
+)

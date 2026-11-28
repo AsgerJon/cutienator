@@ -51,14 +51,17 @@ class QDragEnterEvent(QDragMoveEvent):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'QDragEnterEvent::QDragEnterEvent(const QDragEnterEvent &a0)': takes
+    a type Python has no way to hand over yet.
+  - Qt's 'QDragEnterEvent &QDragEnterEvent::operator=(const QDragEnterEvent
+    &other)': assignment: Python binds a name and has no operator for it.
   - Qt's 'QDragEnterEvent::~QDragEnterEvent()': the destructor: Python never
     removes a C++ QDragEnterEvent.
 
   What has no ritual
   ------------------
 
-  4 of the 8 functions Qt declares: 2 takes or gives a type that cannot be
-  passed yet; 2 forbidden.
+  2 of the 8 functions Qt declares: 2 forbidden.
 
   What to expect
   --------------
@@ -244,7 +247,7 @@ class QDragEnterEvent(QDragMoveEvent):
     self._noteCreation(QDragEnterEvent, lambda: Rituals.call(
         'ritual_ZN15QDragEnterEventC1E7QPointF6QFlagsIN2Qt10DropActionEEPK9'
         'QMimeDataS1_INS2_11MouseButtonEES1_INS2_16KeyboardModifierEE',
-        self._valueOf(pos), actions.value, self._addressOf(data),
+        self._valueOf(pos, 'QPointF'), actions.value, self._addressOf(data),
         buttons.value, modifiers.value,
     ))
 

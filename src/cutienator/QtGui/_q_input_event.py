@@ -42,14 +42,23 @@ class QInputEvent(QEvent):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'QInputEvent::QInputEvent(const QInputEvent &a0)': takes a type
+    Python has no way to hand over yet.
+  - Qt's 'QInputEvent &QInputEvent::operator=(const QInputEvent &other)':
+    assignment: Python binds a name and has no operator for it.
   - Qt's 'QInputEvent::~QInputEvent()': the destructor: Python never removes
     a C++ QInputEvent.
+  - Qt's 'QInputEvent::QInputEvent(Type type, PointerEventTag a1, const
+    QInputDevice *dev, Qt::KeyboardModifiers modifiers)': takes a type Python
+    has no way to hand over yet.
+  - Qt's 'QInputEvent::QInputEvent(Type type, SinglePointEventTag a1, const
+    QInputDevice *dev, Qt::KeyboardModifiers modifiers)': takes a type Python
+    has no way to hand over yet.
 
   What has no ritual
   ------------------
 
-  6 of the 15 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet; 2 forbidden.
+  2 of the 15 functions Qt declares: 2 forbidden.
 
   What to expect
   --------------

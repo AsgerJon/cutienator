@@ -16,6 +16,9 @@ from worktoy.keenum import Kee
 from ..cute import CuteMixin, CuteNum, MetaCute
 from ..occult import Rituals
 
+if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Never
+
 
 class QContactsPermission(CuteMixin, metaclass=MetaCute):
   """
@@ -36,15 +39,24 @@ class QContactsPermission(CuteMixin, metaclass=MetaCute):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'QContactsPermission::QContactsPermission(QContactsPermission
+    &&other)': takes a type Python has no way to hand over yet.
   - Qt's 'QContactsPermission::~QContactsPermission()': the destructor:
     Python removes its C++ QContactsPermission by it, and has no other use
     for it.
+  - Qt's 'QContactsPermission &QContactsPermission::operator=(const
+    QContactsPermission &other)': assignment: Python binds a name and has no
+    operator for it.
+  - Qt's 'QContactsPermission
+    &QContactsPermission::operator=(QContactsPermission &&other)':
+    assignment: Python binds a name and has no operator for it.
+  - Qt's 'void QContactsPermission::swap(QContactsPermission &other)': takes
+    a type Python has no way to hand over yet.
 
   What has no ritual
   ------------------
 
-  7 of the 12 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet; 2 declared and nowhere to be found; 1 a template.
+  3 of the 12 functions Qt declares: 3 not a gap.
 
   What to expect
   --------------
@@ -58,6 +70,9 @@ class QContactsPermission(CuteMixin, metaclass=MetaCute):
     is as in C++.
   - A function giving a QContactsPermission back gives a copy the ritual made
     for Python, in a new cute QContactsPermission.
+  - Each name of Qt's QContactsPermission that has no cute function yet,
+    'swap', holds a function that raises 'NotImplementedError', and its
+    docstring says why.
   """
 
   #  The enums Qt writes inside QContactsPermission, each a class in here as
@@ -214,3 +229,14 @@ class QContactsPermission(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def swap(*__, **_) -> Never:
+    """
+    Qt's 'void QContactsPermission::swap(QContactsPermission &other)': takes
+    a type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QContactsPermission.swap' has no cute function yet. Qt's 'void "
+        "QContactsPermission::swap(QContactsPermission &other)': takes a "
+        "type Python has no way to hand over yet.")

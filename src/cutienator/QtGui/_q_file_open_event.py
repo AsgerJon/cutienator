@@ -16,7 +16,7 @@ from ..occult import Rituals
 from ..QtCore import QEvent
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from ..QtCore import QUrl
 else:
@@ -44,14 +44,19 @@ class QFileOpenEvent(QEvent):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'QFileOpenEvent::QFileOpenEvent(const QFileOpenEvent &a0)': takes a
+    type Python has no way to hand over yet.
+  - Qt's 'QFileOpenEvent &QFileOpenEvent::operator=(const QFileOpenEvent
+    &other)': assignment: Python binds a name and has no operator for it.
   - Qt's 'QFileOpenEvent::~QFileOpenEvent()': the destructor: Python never
     removes a C++ QFileOpenEvent.
+  - Qt's 'bool QFileOpenEvent::openFile(QFile &file, QIODevice::OpenMode
+    flags) const': takes a type Python has no way to hand over yet.
 
   What has no ritual
   ------------------
 
-  5 of the 11 functions Qt declares: 3 takes or gives a type that cannot be
-  passed yet; 2 forbidden.
+  2 of the 11 functions Qt declares: 2 forbidden.
 
   What to expect
   --------------
@@ -64,6 +69,9 @@ class QFileOpenEvent(QEvent):
     has it, and is passed on as nothing. Whether Qt can do with nothing there
     is as in C++.
   - Python never removes the C++ QFileOpenEvent.
+  - Each name of Qt's QFileOpenEvent that has no cute function yet,
+    'openFile', holds a function that raises 'NotImplementedError', and its
+    docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -220,3 +228,14 @@ class QFileOpenEvent(QEvent):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def openFile(*__, **_) -> Never:
+    """
+    Qt's 'bool QFileOpenEvent::openFile(QFile &file, QIODevice::OpenMode
+    flags) const': takes a type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QFileOpenEvent.openFile' has no cute function yet. Qt's 'bool "
+        "QFileOpenEvent::openFile(QFile &file, QIODevice::OpenMode flags) "
+        "const': takes a type Python has no way to hand over yet.")

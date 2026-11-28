@@ -13,6 +13,8 @@ from ..cute import CuteMixin, MetaCute
 from . import QList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Never
+
   from . import QJsonObject
 
 
@@ -35,14 +37,11 @@ class QStaticPlugin(CuteMixin, metaclass=MetaCute):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'QStaticPlugin::QStaticPlugin(QtPluginInstanceFunction i,
+    QtPluginMetaDataFunction m)': takes a type Python has no way to hand over
+    yet.
   - Qt's 'QStaticPlugin::~QStaticPlugin()': the destructor: Python removes
     its C++ QStaticPlugin by it, and has no other use for it.
-
-  What has no ritual
-  ------------------
-
-  1 of the 3 functions Qt declares: 1 takes or gives a type that cannot be
-  passed yet.
 
   What to expect
   --------------
@@ -56,6 +55,9 @@ class QStaticPlugin(CuteMixin, metaclass=MetaCute):
     is as in C++.
   - A function giving a QStaticPlugin back gives a copy the ritual made for
     Python, in a new cute QStaticPlugin.
+  - Each name of Qt's QStaticPlugin that has no cute function yet,
+    '__init__', holds a function that raises 'NotImplementedError', and its
+    docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -119,6 +121,19 @@ class QStaticPlugin(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def __init__(*__, **_) -> Never:
+    """
+    Qt's 'QStaticPlugin::QStaticPlugin(QtPluginInstanceFunction i,
+    QtPluginMetaDataFunction m)': takes a type Python has no way to hand over
+    yet.
+    """
+    raise NotImplementedError(
+        "'QStaticPlugin.__init__' has no cute function yet. Qt's "
+        "'QStaticPlugin::QStaticPlugin(QtPluginInstanceFunction i, "
+        "QtPluginMetaDataFunction m)': takes a type Python has no way to "
+        "hand over yet.")
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #

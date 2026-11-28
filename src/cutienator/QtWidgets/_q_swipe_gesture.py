@@ -21,6 +21,7 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
   from ..QtCore import QMetaObject
+  from . import QSwipeGesturePrivate
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -39,21 +40,26 @@ class QSwipeGesture(QGesture):
   -----------
 
   Every function of Qt's QSwipeGesture that has a ritual and that Python can
-  call so far, 6 names in all: 'metaObject', 'tr', 'horizontalDirection',
-  'verticalDirection', 'swipeAngle', 'setSwipeAngle'. It can be made from
-  Python, in 1 way; see '__init__'.
+  call so far, 7 names in all: 'metaObject', 'tr', 'd_func',
+  'horizontalDirection', 'verticalDirection', 'swipeAngle', 'setSwipeAngle'.
+  It can be made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QSwipeGesture::qt_metacast(const char *a0)': one of Qt's own
+    inner workings.
+  - Qt's 'int QSwipeGesture::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
+  - Qt's 'const QSwipeGesturePrivate *QSwipeGesture::d_func() const': takes
+    in Python what 'QSwipeGesturePrivate *QSwipeGesture::d_func()' takes.
   - Qt's 'QSwipeGesture::~QSwipeGesture()': the destructor: Python never
     removes a C++ QSwipeGesture.
 
   What has no ritual
   ------------------
 
-  6 of the 14 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet; 1 a template; 1 declared and nowhere to be found.
+  2 of the 14 functions Qt declares: 2 not a gap.
 
   What to expect
   --------------
@@ -299,3 +305,21 @@ class QSwipeGesture(QGesture):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  def d_func(self) -> Optional[QSwipeGesturePrivate]:
+    """
+    Calls Qt's 'QSwipeGesturePrivate *QSwipeGesture::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qswipegesture.html#d_func
+
+    Returns
+    -------
+
+    Optional[QSwipeGesturePrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QSwipeGesturePrivate *QSwipeGesture::d_func()
+    address = self.uglySide.call('ritual_ZN13QSwipeGesture6d_funcEv')
+    from . import QSwipeGesturePrivate
+    return QSwipeGesturePrivate._cuteAt(address)

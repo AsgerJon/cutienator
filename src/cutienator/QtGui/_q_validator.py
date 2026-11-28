@@ -17,7 +17,7 @@ from ..occult import Rituals
 from ..QtCore import QObject
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from ..QtCore import QLocale, QMetaObject
 else:
@@ -43,22 +43,34 @@ class QValidator(QObject):
   -----------
 
   Every function of Qt's QValidator that has a ritual and that Python can
-  call so far, 4 names in all: 'metaObject', 'tr', 'setLocale', 'locale'.
-  None can be made from Python: one comes out of a function of another class
-  that gives one back.
+  call so far, 5 names in all: 'metaObject', 'tr', 'setLocale', 'locale',
+  'changed'. None can be made from Python: one comes out of a function of
+  another class that gives one back.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QValidator::qt_metacast(const char *a0)': one of Qt's own
+    inner workings.
+  - Qt's 'int QValidator::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
   - Qt's 'QValidator::~QValidator()': the destructor: Python never removes a
     C++ QValidator.
+  - Qt's 'State QValidator::validate(QString &a0, int &a1) const': takes a
+    type Python has no way to hand over yet.
+  - Qt's 'void QValidator::fixup(QString &a0) const': takes a type Python has
+    no way to hand over yet.
+  - Qt's 'QValidatorPrivate *QValidator::d_func()': gives
+    'QValidatorPrivate', which has no cute class yet.
+  - Qt's 'const QValidatorPrivate *QValidator::d_func() const': gives
+    'QValidatorPrivate', which has no cute class yet.
 
   What has no ritual
   ------------------
 
-  14 of the 19 functions Qt declares: 6 takes or gives a type that cannot be
-  passed yet; 3 the class is abstract, so C++ cannot make one; 2 forbidden; 1
-  a template; 1 declared and nowhere to be found; 1 a signal.
+  7 of the 19 functions Qt declares: 3 the class is abstract, so C++ cannot
+  make one, and the C++ class of ours does not fill in every function it
+  leaves open; 2 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -73,6 +85,9 @@ class QValidator(QObject):
   - Qt tells when it has removed the C++ QValidator. Every call on the cute
     object, and every use of it as an argument, then raises 'RuntimeError',
     and nothing reaches C++.
+  - Each name of Qt's QValidator that has no cute function yet, '__init__',
+    'fixup', 'validate', holds a function that raises 'NotImplementedError',
+    and its docstring says why.
   """
 
   #  The enums Qt writes inside QValidator, each a class in here as in C++,
@@ -241,6 +256,31 @@ class QValidator(QObject):
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  @staticmethod
+  def __init__(*__, **_) -> Never:
+    """
+    - Qt's 'QValidator::QValidator(QObject *parent)': the class is abstract,
+      so C++ cannot make one, and the C++ class of ours does not fill in
+      every function it leaves open.
+    - Qt's 'QValidator::QValidator(QObjectPrivate &d, QObject *parent)': the
+      class is abstract, so C++ cannot make one, and the C++ class of ours
+      does not fill in every function it leaves open.
+    - Qt's 'QValidator::QValidator(QValidatorPrivate &d, QObject *parent)':
+      the class is abstract, so C++ cannot make one, and the C++ class of
+      ours does not fill in every function it leaves open.
+    """
+    raise NotImplementedError(
+        "'QValidator.__init__' has no cute function yet. Qt's "
+        "'QValidator::QValidator(QObject *parent)': the class is abstract, "
+        "so C++ cannot make one, and the C++ class of ours does not fill in "
+        "every function it leaves open. Qt's "
+        "'QValidator::QValidator(QObjectPrivate &d, QObject *parent)': the "
+        "class is abstract, so C++ cannot make one, and the C++ class of "
+        "ours does not fill in every function it leaves open. Qt's "
+        "'QValidator::QValidator(QValidatorPrivate &d, QObject *parent)': "
+        "the class is abstract, so C++ cannot make one, and the C++ class "
+        "of ours does not fill in every function it leaves open.")
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -260,3 +300,34 @@ class QValidator(QObject):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  def changed(self) -> None:
+    """
+    Calls Qt's 'void QValidator::changed()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qvalidator.html#changed
+    """
+    #  void QValidator::changed()
+    self.uglySide.call('ritual_ZN10QValidator7changedEv')
+
+  @staticmethod
+  def fixup(*__, **_) -> Never:
+    """
+    Qt's 'void QValidator::fixup(QString &a0) const': takes a type Python has
+    no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QValidator.fixup' has no cute function yet. Qt's 'void "
+        "QValidator::fixup(QString &a0) const': takes a type Python has no "
+        "way to hand over yet.")
+
+  @staticmethod
+  def validate(*__, **_) -> Never:
+    """
+    Qt's 'State QValidator::validate(QString &a0, int &a1) const': takes a
+    type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QValidator.validate' has no cute function yet. Qt's 'State "
+        "QValidator::validate(QString &a0, int &a1) const': takes a type "
+        "Python has no way to hand over yet.")

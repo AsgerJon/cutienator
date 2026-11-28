@@ -16,8 +16,10 @@ from ..cute import CuteMixin, CuteFlags, CuteNum, MetaCute, WAIT
 from ..occult import Rituals
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Optional
+
   from ..QtCore import QFileInfo
-  from . import QIcon
+  from . import QAbstractFileIconProviderPrivate, QIcon
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -34,20 +36,26 @@ class QAbstractFileIconProvider(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QAbstractFileIconProvider that has a ritual and that
-  Python can call so far, 4 names in all: 'icon', 'type', 'setOptions',
-  'options'. It can be made from Python, in 1 way; see '__init__'.
+  Python can call so far, 5 names in all: 'icon', 'type', 'setOptions',
+  'options', 'd_func'. It can be made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
   - Qt's 'QAbstractFileIconProvider::~QAbstractFileIconProvider()': the
     destructor: Python never removes a C++ QAbstractFileIconProvider.
+  - Qt's 'QAbstractFileIconProvider::QAbstractFileIconProvider(
+    QAbstractFileIconProviderPrivate &dd)': takes a type Python has no way to
+    hand over yet.
+  - Qt's 'const QAbstractFileIconProviderPrivate
+    *QAbstractFileIconProvider::d_func() const': takes in Python what
+    'QAbstractFileIconProviderPrivate *QAbstractFileIconProvider::d_func()'
+    takes.
 
   What has no ritual
   ------------------
 
-  8 of the 15 functions Qt declares: 3 takes or gives a type that cannot be
-  passed yet; 2 declared and nowhere to be found; 2 forbidden; 1 a template.
+  5 of the 15 functions Qt declares: 3 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -337,3 +345,25 @@ class QAbstractFileIconProvider(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  def d_func(self) -> Optional[QAbstractFileIconProviderPrivate]:
+    """
+    Calls Qt's 'QAbstractFileIconProviderPrivate
+    *QAbstractFileIconProvider::d_func()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractfileiconprovider.html#d_func
+
+    Returns
+    -------
+
+    Optional[QAbstractFileIconProviderPrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QAbstractFileIconProviderPrivate *QAbstractFileIconProvider::d_func()
+    address = self.uglySide.call(
+        'ritual_ZN25QAbstractFileIconProvider6d_funcEv',
+    )
+    from . import QAbstractFileIconProviderPrivate
+    return QAbstractFileIconProviderPrivate._cuteAt(address)

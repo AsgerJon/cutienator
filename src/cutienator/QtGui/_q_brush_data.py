@@ -31,12 +31,14 @@ class QBrushData(CuteMixin, metaclass=MetaCute):
 
   - Qt's 'QBrushData::~QBrushData()': the destructor: Python never removes a
     C++ QBrushData.
-
-  What has no ritual
-  ------------------
-
-  4 of the 6 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet.
+  - Qt's 'QBrushData::QBrushData(const QBrushData &a0)': takes a type Python
+    has no way to hand over yet.
+  - Qt's 'QBrushData::QBrushData(QBrushData &&a0)': takes a type Python has
+    no way to hand over yet.
+  - Qt's 'QBrushData &QBrushData::operator=(const QBrushData &a0)':
+    assignment: Python binds a name and has no operator for it.
+  - Qt's 'QBrushData &QBrushData::operator=(QBrushData &&a0)': assignment:
+    Python binds a name and has no operator for it.
 
   What to expect
   --------------

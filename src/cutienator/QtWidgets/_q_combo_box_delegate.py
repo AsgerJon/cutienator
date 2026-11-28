@@ -16,19 +16,21 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import WAIT
+from ..cute import CuteMixin, WAIT
+from ..occult import Rituals
 from . import QStyledItemDelegate
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
-  from ..QtCore import QMetaObject, QModelIndex, QSize
+  from ..QtCore import QAbstractItemModel, QMetaObject, QModelIndex, QSize
   from ..QtGui import QPainter
   from . import QStyleOptionViewItem
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
+  QAbstractItemModel = WAIT['QAbstractItemModel']
   QModelIndex = WAIT['QModelIndex']
   QPainter = WAIT['QPainter']
   QStyleOptionViewItem = WAIT['QStyleOptionViewItem']
@@ -50,17 +52,25 @@ class QComboBoxDelegate(QStyledItemDelegate):
   -----------
 
   Every function of Qt's QComboBoxDelegate that has a ritual and that Python
-  can call so far, 3 names in all: 'metaObject', 'paint', 'sizeHint'. None
-  can be made from Python: one comes out of a function of another class that
-  gives one back.
+  can call so far, 5 names in all: 'metaObject', 'isSeparator',
+  'setSeparator', 'paint', 'sizeHint'. None can be made from Python: one
+  comes out of a function of another class that gives one back.
+
+  What has a ritual and is left out, and why
+  ------------------------------------------
+
+  - Qt's 'void *QComboBoxDelegate::qt_metacast(const char *a0)': one of Qt's
+    own inner workings.
+  - Qt's 'int QComboBoxDelegate::qt_metacall(QMetaObject::Call a0, int a1,
+    void **a2)': one of Qt's own inner workings.
+  - Qt's 'QComboBoxDelegate::~QComboBoxDelegate()': the destructor: Python
+    never removes a C++ QComboBoxDelegate.
 
   What has no ritual
   ------------------
 
-  11 of the 14 functions Qt declares: 3 declared and nowhere to be found; 3
-  leans on 'QComboBoxDelegate; 2 takes or gives a type that cannot be passed
-  yet; 2 Qt's library has no name for it, and its code in Qt's source does
-  not compile apart from its file; 1 a template.
+  4 of the 12 functions Qt declares: 2 not a gap; 2 leans on
+  'QComboBoxDelegate.
 
   What to expect
   --------------
@@ -76,11 +86,69 @@ class QComboBoxDelegate(QStyledItemDelegate):
   - Qt tells when it has removed the C++ QComboBoxDelegate. Every call on the
     cute object, and every use of it as an argument, then raises
     'RuntimeError', and nothing reaches C++.
+  - Each name of Qt's QComboBoxDelegate that has no cute function yet,
+    '__init__', holds a function that raises 'NotImplementedError', and its
+    docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  @overload(QModelIndex)
+  def isSeparator(index: QModelIndex) -> bool:
+    """
+    Calls Qt's 'bool QComboBoxDelegate::isSeparator(const QModelIndex
+    &index)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcomboboxdelegate.html#isSeparator
+
+    Parameters
+    ----------
+
+    index : QModelIndex
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own.
+    """
+    #  bool QComboBoxDelegate::isSeparator(const QModelIndex &index)
+    return Rituals.call(
+        'ritual_ZN17QComboBoxDelegate11isSeparatorERK11QModelIndex',
+        CuteMixin._valueOf(index),
+    )
+
+  @staticmethod
+  @overload(QAbstractItemModel, QModelIndex)
+  @overload(NoneType, QModelIndex)
+  def setSeparator(
+      model: Optional[QAbstractItemModel],
+      index: QModelIndex,
+  ) -> None:
+    """
+    Calls Qt's 'void QComboBoxDelegate::setSeparator(QAbstractItemModel
+    *model, const QModelIndex &index)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qcomboboxdelegate.html#setSeparator
+
+    Parameters
+    ----------
+
+    model : Optional[QAbstractItemModel]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    index : QModelIndex
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own.
+    """
+    #  void QComboBoxDelegate::setSeparator(QAbstractItemModel *model, const
+    #      QModelIndex &index)
+    Rituals.call(
+        'ritual_ZN17QComboBoxDelegate12setSeparatorEP18QAbstractItemModelRK'
+        '11QModelIndex',
+        CuteMixin._addressOf(model), CuteMixin._valueOf(index),
+    )
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -158,10 +226,15 @@ class QComboBoxDelegate(QStyledItemDelegate):
     """
     #  QSize QComboBoxDelegate::sizeHint(const QStyleOptionViewItem &option,
     #      const QModelIndex &index) const
-    address = self.uglySide.call(
+    ritual = (
         'ritual_ZNK17QComboBoxDelegate8sizeHintERK20QStyleOptionViewItemRK1'
-        '1QModelIndex',
-        self._valueOf(option), self._valueOf(index),
+        '1QModelIndex')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK17QComboBoxDelegate8sizeHintERK20QStyleOptionViewI'
+          'temRK11QModelIndex')
+    address = self.uglySide.call(
+        ritual, self._valueOf(option), self._valueOf(index),
     )
     from ..QtCore import QSize
     return QSize._cuteOwning(address)
@@ -181,6 +254,22 @@ class QComboBoxDelegate(QStyledItemDelegate):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def __init__(*__, **_) -> Never:
+    """
+    Qt's 'QComboBoxDelegate::QComboBoxDelegate(QObject *parent, QComboBox
+    *cmb)': leans on 'QComboBoxDelegate::qt_metacall(QMetaObject::Call, int,
+    void**)', which Qt's source does not mark for use from outside Qt and has
+    no code for that could be taken.
+    """
+    raise NotImplementedError(
+        "'QComboBoxDelegate.__init__' has no cute function yet. Qt's "
+        "'QComboBoxDelegate::QComboBoxDelegate(QObject *parent, QComboBox "
+        "*cmb)': leans on "
+        "'QComboBoxDelegate::qt_metacall(QMetaObject::Call, int, void**)', "
+        "which Qt's source does not mark for use from outside Qt and has no "
+        "code for that could be taken.")
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -233,9 +322,15 @@ class QComboBoxDelegate(QStyledItemDelegate):
     """
     #  void QComboBoxDelegate::paint(QPainter *painter, const
     #      QStyleOptionViewItem &option, const QModelIndex &index) const
-    self.uglySide.call(
+    ritual = (
         'ritual_ZNK17QComboBoxDelegate5paintEP8QPainterRK20QStyleOptionView'
-        'ItemRK11QModelIndex',
+        'ItemRK11QModelIndex')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK17QComboBoxDelegate5paintEP8QPainterRK20QStyleOpti'
+          'onViewItemRK11QModelIndex')
+    self.uglySide.call(
+        ritual,
         self._addressOf(painter), self._valueOf(option),
         self._valueOf(index),
     )

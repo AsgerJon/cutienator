@@ -23,7 +23,7 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   from ..QtCore import QAbstractItemModel, QByteArray, QEvent, QItemSelection
   from ..QtCore import QMetaObject, QModelIndex, QPoint, QRect, QSize
   from ..QtGui import QMouseEvent, QPaintEvent, QPainter, QRegion
-  from . import QStyleOptionFrame, QStyleOptionHeader
+  from . import QHeaderViewPrivate, QStyleOptionFrame, QStyleOptionHeader
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -58,7 +58,7 @@ class QHeaderView(QAbstractItemView):
   -----------
 
   Every function of Qt's QHeaderView that has a ritual and that Python can
-  call so far, 97 names in all: 'metaObject', 'tr', 'setModel',
+  call so far, 109 names in all: 'metaObject', 'tr', 'setModel',
   'orientation', 'offset', 'length', 'sizeHint', 'setVisible',
   'sectionSizeHint', 'visualIndexAt', 'logicalIndexAt', 'sectionSize',
   'sectionPosition', 'sectionViewportPosition', 'moveSection',
@@ -79,32 +79,45 @@ class QHeaderView(QAbstractItemView):
   'defaultAlignment', 'setDefaultAlignment', 'doItemsLayout',
   'sectionsMoved', 'sectionsHidden', 'saveState', 'restoreState', 'reset',
   'setOffset', 'setOffsetToSectionPosition', 'setOffsetToLastSection',
-  'headerDataChanged', 'updateSection', 'sectionsInserted',
-  'sectionsAboutToBeRemoved', 'initialize', 'initializeSections',
-  'currentChanged', 'event', 'paintEvent', 'mousePressEvent',
-  'mouseMoveEvent', 'mouseReleaseEvent', 'mouseDoubleClickEvent',
-  'viewportEvent', 'paintSection', 'sectionSizeFromContents',
-  'horizontalOffset', 'verticalOffset', 'updateGeometries',
-  'scrollContentsBy', 'rowsInserted', 'visualRect', 'scrollTo', 'indexAt',
-  'isIndexHidden', 'setSelection', 'visualRegionForSelection',
-  'initStyleOptionForIndex', 'initStyleOption'. It can be made from Python,
-  in 1 way; see '__init__'.
+  'headerDataChanged', 'sectionMoved', 'sectionResized', 'sectionPressed',
+  'sectionClicked', 'sectionEntered', 'sectionDoubleClicked',
+  'sectionCountChanged', 'sectionHandleDoubleClicked', 'geometriesChanged',
+  'sortIndicatorChanged', 'sortIndicatorClearableChanged', 'updateSection',
+  'sectionsInserted', 'sectionsAboutToBeRemoved', 'initialize',
+  'initializeSections', 'currentChanged', 'event', 'paintEvent',
+  'mousePressEvent', 'mouseMoveEvent', 'mouseReleaseEvent',
+  'mouseDoubleClickEvent', 'viewportEvent', 'paintSection',
+  'sectionSizeFromContents', 'horizontalOffset', 'verticalOffset',
+  'updateGeometries', 'scrollContentsBy', 'rowsInserted', 'visualRect',
+  'scrollTo', 'indexAt', 'isIndexHidden', 'setSelection',
+  'visualRegionForSelection', 'initStyleOptionForIndex', 'initStyleOption',
+  'd_func'. It can be made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QHeaderView::qt_metacast(const char *a0)': one of Qt's own
+    inner workings.
+  - Qt's 'int QHeaderView::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
   - Qt's 'QHeaderView::~QHeaderView()': the destructor: Python never removes
     a C++ QHeaderView.
+  - Qt's 'QHeaderView::QHeaderView(QHeaderViewPrivate &dd, Qt::Orientation
+    orientation, QWidget *parent)': takes a type Python has no way to hand
+    over yet.
+  - Qt's 'void QHeaderView::dataChanged(const QModelIndex &topLeft, const
+    QModelIndex &bottomRight, const QList<int> &roles)': takes a type Python
+    has no way to hand over yet.
   - Qt's 'QModelIndex QHeaderView::moveCursor(CursorAction a0,
     Qt::KeyboardModifiers a1)': names the enum
     'QAbstractItemView::CursorAction', whose class cannot be named here.
+  - Qt's 'const QHeaderViewPrivate *QHeaderView::d_func() const': takes in
+    Python what 'QHeaderViewPrivate *QHeaderView::d_func()' takes.
 
   What has no ritual
   ------------------
 
-  21 of the 127 functions Qt declares: 11 a signal; 6 takes or gives a type
-  that cannot be passed yet; 2 forbidden; 1 a template; 1 declared and
-  nowhere to be found.
+  4 of the 127 functions Qt declares: 2 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -1711,6 +1724,244 @@ class QHeaderView(QAbstractItemView):
         orientation.value, logicalFirst, logicalLast,
     )
 
+  @overload(int, int, int)
+  def sectionMoved(
+      self,
+      logicalIndex: int,
+      oldVisualIndex: int,
+      newVisualIndex: int,
+  ) -> None:
+    """
+    Calls Qt's 'void QHeaderView::sectionMoved(int logicalIndex, int
+    oldVisualIndex, int newVisualIndex)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qheaderview.html#sectionMoved
+
+    Parameters
+    ----------
+
+    logicalIndex : int
+      Passed on as it is.
+
+    oldVisualIndex : int
+      Passed on as it is.
+
+    newVisualIndex : int
+      Passed on as it is.
+    """
+    #  void QHeaderView::sectionMoved(int logicalIndex, int oldVisualIndex,
+    #      int newVisualIndex)
+    self.uglySide.call(
+        'ritual_ZN11QHeaderView12sectionMovedEiii',
+        logicalIndex, oldVisualIndex, newVisualIndex,
+    )
+
+  @overload(int, int, int)
+  def sectionResized(
+      self,
+      logicalIndex: int,
+      oldSize: int,
+      newSize: int,
+  ) -> None:
+    """
+    Calls Qt's 'void QHeaderView::sectionResized(int logicalIndex, int
+    oldSize, int newSize)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qheaderview.html#sectionResized
+
+    Parameters
+    ----------
+
+    logicalIndex : int
+      Passed on as it is.
+
+    oldSize : int
+      Passed on as it is.
+
+    newSize : int
+      Passed on as it is.
+    """
+    #  void QHeaderView::sectionResized(int logicalIndex, int oldSize, int
+    #      newSize)
+    self.uglySide.call(
+        'ritual_ZN11QHeaderView14sectionResizedEiii',
+        logicalIndex, oldSize, newSize,
+    )
+
+  @overload(int)
+  def sectionPressed(self, logicalIndex: int) -> None:
+    """
+    Calls Qt's 'void QHeaderView::sectionPressed(int logicalIndex)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qheaderview.html#sectionPressed
+
+    Parameters
+    ----------
+
+    logicalIndex : int
+      Passed on as it is.
+    """
+    #  void QHeaderView::sectionPressed(int logicalIndex)
+    self.uglySide.call(
+        'ritual_ZN11QHeaderView14sectionPressedEi', logicalIndex,
+    )
+
+  @overload(int)
+  def sectionClicked(self, logicalIndex: int) -> None:
+    """
+    Calls Qt's 'void QHeaderView::sectionClicked(int logicalIndex)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qheaderview.html#sectionClicked
+
+    Parameters
+    ----------
+
+    logicalIndex : int
+      Passed on as it is.
+    """
+    #  void QHeaderView::sectionClicked(int logicalIndex)
+    self.uglySide.call(
+        'ritual_ZN11QHeaderView14sectionClickedEi', logicalIndex,
+    )
+
+  @overload(int)
+  def sectionEntered(self, logicalIndex: int) -> None:
+    """
+    Calls Qt's 'void QHeaderView::sectionEntered(int logicalIndex)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qheaderview.html#sectionEntered
+
+    Parameters
+    ----------
+
+    logicalIndex : int
+      Passed on as it is.
+    """
+    #  void QHeaderView::sectionEntered(int logicalIndex)
+    self.uglySide.call(
+        'ritual_ZN11QHeaderView14sectionEnteredEi', logicalIndex,
+    )
+
+  @overload(int)
+  def sectionDoubleClicked(self, logicalIndex: int) -> None:
+    """
+    Calls Qt's 'void QHeaderView::sectionDoubleClicked(int logicalIndex)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qheaderview.html#sectionDoubleClicked
+
+    Parameters
+    ----------
+
+    logicalIndex : int
+      Passed on as it is.
+    """
+    #  void QHeaderView::sectionDoubleClicked(int logicalIndex)
+    self.uglySide.call(
+        'ritual_ZN11QHeaderView20sectionDoubleClickedEi', logicalIndex,
+    )
+
+  @overload(int, int)
+  def sectionCountChanged(self, oldCount: int, newCount: int) -> None:
+    """
+    Calls Qt's 'void QHeaderView::sectionCountChanged(int oldCount, int
+    newCount)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qheaderview.html#sectionCountChanged
+
+    Parameters
+    ----------
+
+    oldCount : int
+      Passed on as it is.
+
+    newCount : int
+      Passed on as it is.
+    """
+    #  void QHeaderView::sectionCountChanged(int oldCount, int newCount)
+    self.uglySide.call(
+        'ritual_ZN11QHeaderView19sectionCountChangedEii', oldCount, newCount,
+    )
+
+  @overload(int)
+  def sectionHandleDoubleClicked(self, logicalIndex: int) -> None:
+    """
+    Calls Qt's 'void QHeaderView::sectionHandleDoubleClicked(int
+    logicalIndex)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qheaderview.html#sectionHandleDoubleClicked
+
+    Parameters
+    ----------
+
+    logicalIndex : int
+      Passed on as it is.
+    """
+    #  void QHeaderView::sectionHandleDoubleClicked(int logicalIndex)
+    self.uglySide.call(
+        'ritual_ZN11QHeaderView26sectionHandleDoubleClickedEi', logicalIndex,
+    )
+
+  def geometriesChanged(self) -> None:
+    """
+    Calls Qt's 'void QHeaderView::geometriesChanged()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qheaderview.html#geometriesChanged
+    """
+    #  void QHeaderView::geometriesChanged()
+    self.uglySide.call('ritual_ZN11QHeaderView17geometriesChangedEv')
+
+  @overload(int, Qt.SortOrder)
+  def sortIndicatorChanged(
+      self,
+      logicalIndex: int,
+      order: Qt.SortOrder,
+  ) -> None:
+    """
+    Calls Qt's 'void QHeaderView::sortIndicatorChanged(int logicalIndex,
+    Qt::SortOrder order)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qheaderview.html#sortIndicatorChanged
+
+    Parameters
+    ----------
+
+    logicalIndex : int
+      Passed on as it is.
+
+    order : Qt.SortOrder
+      Passed on as its number.
+    """
+    #  void QHeaderView::sortIndicatorChanged(int logicalIndex, Qt::SortOrder
+    #      order)
+    self.uglySide.call(
+        'ritual_ZN11QHeaderView20sortIndicatorChangedEiN2Qt9SortOrderE',
+        logicalIndex, order.value,
+    )
+
+  @overload(bool)
+  def sortIndicatorClearableChanged(self, clearable: bool) -> None:
+    """
+    Calls Qt's 'void QHeaderView::sortIndicatorClearableChanged(bool
+    clearable)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qheaderview.html#sortIndicatorClearableChanged
+
+    Parameters
+    ----------
+
+    clearable : bool
+      Passed on as it is.
+    """
+    #  void QHeaderView::sortIndicatorClearableChanged(bool clearable)
+    self.uglySide.call(
+        'ritual_ZN11QHeaderView29sortIndicatorClearableChangedEb', clearable,
+    )
+
   @overload(int)
   def updateSection(self, logicalIndex: int) -> None:
     """
@@ -2224,3 +2475,21 @@ class QHeaderView(QAbstractItemView):
           'ritual_own_ZNK11QHeaderView15initStyleOptionEP17QStyleOptionFram'
           'e')
     self.uglySide.call(ritual, self._addressOf(option))
+
+  def d_func(self) -> Optional[QHeaderViewPrivate]:
+    """
+    Calls Qt's 'QHeaderViewPrivate *QHeaderView::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qheaderview.html#d_func
+
+    Returns
+    -------
+
+    Optional[QHeaderViewPrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QHeaderViewPrivate *QHeaderView::d_func()
+    address = self.uglySide.call('ritual_ZN11QHeaderView6d_funcEv')
+    from . import QHeaderViewPrivate
+    return QHeaderViewPrivate._cuteAt(address)

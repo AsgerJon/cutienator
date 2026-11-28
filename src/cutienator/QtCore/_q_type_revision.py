@@ -15,6 +15,9 @@ from worktoy.dispatch import overload
 from ..cute import CuteMixin, MetaCute
 from ..occult import Rituals
 
+if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Never
+
 
 class QTypeRevision(CuteMixin, metaclass=MetaCute):
   """
@@ -57,6 +60,10 @@ class QTypeRevision(CuteMixin, metaclass=MetaCute):
     is as in C++.
   - A function giving a QTypeRevision back gives a copy the ritual made for
     Python, in a new cute QTypeRevision.
+  - Each name of Qt's QTypeRevision that has no cute function yet,
+    'fromEncodedVersion', 'fromMajorVersion', 'fromMinorVersion',
+    'fromVersion', 'isValidSegment', 'toEncodedVersion', holds a function
+    that raises 'NotImplementedError', and its docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -400,3 +407,69 @@ class QTypeRevision(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def fromEncodedVersion(*__, **_) -> Never:
+    """
+    Qt's 'QTypeRevision::fromEncodedVersion': a template: a pattern and no
+    single function.
+    """
+    raise NotImplementedError(
+        "'QTypeRevision.fromEncodedVersion' has no cute function yet. Qt's "
+        "'QTypeRevision::fromEncodedVersion': a template: a pattern and no "
+        "single function.")
+
+  @staticmethod
+  def fromMajorVersion(*__, **_) -> Never:
+    """
+    Qt's 'QTypeRevision::fromMajorVersion': a template: a pattern and no
+    single function.
+    """
+    raise NotImplementedError(
+        "'QTypeRevision.fromMajorVersion' has no cute function yet. Qt's "
+        "'QTypeRevision::fromMajorVersion': a template: a pattern and no "
+        "single function.")
+
+  @staticmethod
+  def fromMinorVersion(*__, **_) -> Never:
+    """
+    Qt's 'QTypeRevision::fromMinorVersion': a template: a pattern and no
+    single function.
+    """
+    raise NotImplementedError(
+        "'QTypeRevision.fromMinorVersion' has no cute function yet. Qt's "
+        "'QTypeRevision::fromMinorVersion': a template: a pattern and no "
+        "single function.")
+
+  @staticmethod
+  def fromVersion(*__, **_) -> Never:
+    """
+    Qt's 'QTypeRevision::fromVersion': a template: a pattern and no single
+    function.
+    """
+    raise NotImplementedError(
+        "'QTypeRevision.fromVersion' has no cute function yet. Qt's "
+        "'QTypeRevision::fromVersion': a template: a pattern and no single "
+        "function.")
+
+  @staticmethod
+  def isValidSegment(*__, **_) -> Never:
+    """
+    Qt's 'QTypeRevision::isValidSegment': a template: a pattern and no single
+    function.
+    """
+    raise NotImplementedError(
+        "'QTypeRevision.isValidSegment' has no cute function yet. Qt's "
+        "'QTypeRevision::isValidSegment': a template: a pattern and no "
+        "single function.")
+
+  @staticmethod
+  def toEncodedVersion(*__, **_) -> Never:
+    """
+    Qt's 'QTypeRevision::toEncodedVersion': a template: a pattern and no
+    single function.
+    """
+    raise NotImplementedError(
+        "'QTypeRevision.toEncodedVersion' has no cute function yet. Qt's "
+        "'QTypeRevision::toEncodedVersion': a template: a pattern and no "
+        "single function.")

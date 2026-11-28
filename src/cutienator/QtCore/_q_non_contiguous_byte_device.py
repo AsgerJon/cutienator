@@ -21,7 +21,7 @@ from ..occult import Rituals
 from . import QObject
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from . import QMetaObject
 
@@ -42,14 +42,18 @@ class QNonContiguousByteDevice(QObject):
   -----------
 
   Every function of Qt's QNonContiguousByteDevice that has a ritual and that
-  Python can call so far, 7 names in all: 'metaObject', 'tr',
-  'advanceReadPointer', 'atEnd', 'pos', 'reset', 'size'. None can be made
-  from Python: one comes out of a function of another class that gives one
-  back.
+  Python can call so far, 9 names in all: 'metaObject', 'tr',
+  'advanceReadPointer', 'atEnd', 'pos', 'reset', 'size', 'readyRead',
+  'readProgress'. None can be made from Python: one comes out of a function
+  of another class that gives one back.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QNonContiguousByteDevice::qt_metacast(const char *a0)': one
+    of Qt's own inner workings.
+  - Qt's 'int QNonContiguousByteDevice::qt_metacall(QMetaObject::Call a0, int
+    a1, void **a2)': one of Qt's own inner workings.
   - Qt's 'const char *QNonContiguousByteDevice::readPointer(qint64
     maximumLength, qint64 &len)': takes a number to change where it is.
   - Qt's 'QNonContiguousByteDevice::~QNonContiguousByteDevice()': the
@@ -58,9 +62,9 @@ class QNonContiguousByteDevice(QObject):
   What has no ritual
   ------------------
 
-  7 of the 16 functions Qt declares: 2 takes or gives a type that cannot be
-  passed yet; 2 a signal; 1 a template; 1 declared and nowhere to be found; 1
-  the class is abstract, so C++ cannot make one.
+  3 of the 16 functions Qt declares: 2 not a gap; 1 the class is abstract, so
+  C++ cannot make one, and the C++ class of ours does not fill in every
+  function it leaves open.
 
   What to expect
   --------------
@@ -76,6 +80,9 @@ class QNonContiguousByteDevice(QObject):
   - Qt tells when it has removed the C++ QNonContiguousByteDevice. Every call
     on the cute object, and every use of it as an argument, then raises
     'RuntimeError', and nothing reaches C++.
+  - Each name of Qt's QNonContiguousByteDevice that has no cute function yet,
+    '__init__', 'readPointer', holds a function that raises
+    'NotImplementedError', and its docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -265,6 +272,19 @@ class QNonContiguousByteDevice(QObject):
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  @staticmethod
+  def __init__(*__, **_) -> Never:
+    """
+    Qt's 'QNonContiguousByteDevice::QNonContiguousByteDevice()': the class is
+    abstract, so C++ cannot make one, and the C++ class of ours does not fill
+    in every function it leaves open.
+    """
+    raise NotImplementedError(
+        "'QNonContiguousByteDevice.__init__' has no cute function yet. Qt's "
+        "'QNonContiguousByteDevice::QNonContiguousByteDevice()': the class "
+        "is abstract, so C++ cannot make one, and the C++ class of ours "
+        "does not fill in every function it leaves open.")
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -314,3 +334,50 @@ class QNonContiguousByteDevice(QObject):
     """
     #  bool QNonContiguousByteDevice::reset()
     return self.uglySide.call('ritual_ZN24QNonContiguousByteDevice5resetEv')
+
+  def readyRead(self) -> None:
+    """
+    Calls Qt's 'void QNonContiguousByteDevice::readyRead()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qnoncontiguousbytedevice.html#readyRead
+    """
+    #  void QNonContiguousByteDevice::readyRead()
+    self.uglySide.call('ritual_ZN24QNonContiguousByteDevice9readyReadEv')
+
+  @overload(int, int)
+  def readProgress(self, current: int, total: int) -> None:
+    """
+    Calls Qt's 'void QNonContiguousByteDevice::readProgress(qint64 current,
+    qint64 total)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qnoncontiguousbytedevice.html#readProgress
+
+    Parameters
+    ----------
+
+    current : int
+      Passed on as it is.
+
+    total : int
+      Passed on as it is.
+    """
+    #  void QNonContiguousByteDevice::readProgress(qint64 current, qint64
+    #      total)
+    self.uglySide.call(
+        'ritual_ZN24QNonContiguousByteDevice12readProgressExx',
+        current, total,
+    )
+
+  @staticmethod
+  def readPointer(*__, **_) -> Never:
+    """
+    Qt's 'const char *QNonContiguousByteDevice::readPointer(qint64
+    maximumLength, qint64 &len)': takes a number to change where it is.
+    """
+    raise NotImplementedError(
+        "'QNonContiguousByteDevice.readPointer' has no cute function yet. "
+        "Qt's 'const char *QNonContiguousByteDevice::readPointer(qint64 "
+        "maximumLength, qint64 &len)': takes a number to change where it is."
+    )

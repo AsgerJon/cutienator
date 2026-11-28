@@ -202,7 +202,7 @@ class QAccessibleTextCursorEvent(QAccessibleEvent):
     #      QAccessibleInterface *iface, int cursorPos)
     self._noteCreation(QAccessibleTextCursorEvent, lambda: Rituals.call(
         'ritual_ZN26QAccessibleTextCursorEventC1EP20QAccessibleInterfacei',
-        self._addressOf(iface), cursorPos,
+        self._addressOf(iface, 'QAccessibleInterface'), cursorPos,
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

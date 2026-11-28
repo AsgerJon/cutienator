@@ -18,7 +18,7 @@ from ..occult import Rituals
 from . import Qt, QList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from . import QByteArray, QByteArrayView, QGenericArgument
   from . import QGenericReturnArgument, QMetaObject, QMetaType, QObject
@@ -63,14 +63,33 @@ class QMetaMethod(CuteMixin, metaclass=MetaCute):
 
   - Qt's 'void QMetaMethod::getParameterTypes(int *types) const': takes a
     number to change where it is.
+  - Qt's 'bool QMetaMethod::invokeOnGadget(void *gadget,
+    QGenericReturnArgument returnValue, QGenericArgument val0,
+    QGenericArgument val1, QGenericArgument val2, QGenericArgument val3,
+    QGenericArgument val4, QGenericArgument val5, QGenericArgument val6,
+    QGenericArgument val7, QGenericArgument val8, QGenericArgument val9)
+    const': names 'void', which has no cute class yet.
+  - Qt's 'bool QMetaMethod::invokeOnGadget(void *gadget, QGenericArgument
+    val0, QGenericArgument val1, QGenericArgument val2, QGenericArgument
+    val3, QGenericArgument val4, QGenericArgument val5, QGenericArgument
+    val6, QGenericArgument val7, QGenericArgument val8, QGenericArgument
+    val9) const': names 'void', which has no cute class yet.
+  - Qt's 'bool QMetaMethod::invokeImpl(QMetaMethod self_, void *target,
+    Qt::ConnectionType a2, qsizetype paramCount, const void *const
+    *parameters, const char *const *typeNames, const
+    QtPrivate::QMetaTypeInterface *const *metaTypes)': names 'void', which
+    has no cute class yet.
+  - Qt's 'QMetaMethod QMetaMethod::fromSignalImpl(const QMetaObject *a0, void
+    **a1)': takes a type Python has no way to hand over yet.
+  - Qt's 'QMetaMethod::QMetaMethod(const QMetaObject *metaObject, const Data
+    &data_)': takes a type Python has no way to hand over yet.
   - Qt's 'QMetaMethod::~QMetaMethod()': the destructor: Python removes its
     C++ QMetaMethod by it, and has no other use for it.
 
   What has no ritual
   ------------------
 
-  12 of the 45 functions Qt declares: 7 a template; 5 takes or gives a type
-  that cannot be passed yet.
+  7 of the 45 functions Qt declares: 7 a template.
 
   What to expect
   --------------
@@ -84,6 +103,10 @@ class QMetaMethod(CuteMixin, metaclass=MetaCute):
     is as in C++.
   - A function giving a QMetaMethod back gives a copy the ritual made for
     Python, in a new cute QMetaMethod.
+  - Each name of Qt's QMetaMethod that has no cute function yet,
+    'fromSignal', 'fromSignalImpl', 'getParameterTypes', 'invokeImpl',
+    'invokeOnGadget', holds a function that raises 'NotImplementedError', and
+    its docstring says why.
   """
 
   #  The enums Qt writes inside QMetaMethod, each a class in here as in C++,
@@ -157,7 +180,7 @@ class QMetaMethod(CuteMixin, metaclass=MetaCute):
     #      *mobj, int index)
     address = Rituals.call(
         'ritual_ZN11QMetaMethod23fromRelativeMethodIndexEPK11QMetaObjecti',
-        CuteMixin._addressOf(mobj), index,
+        CuteMixin._addressOf(mobj, 'QMetaObject'), index,
     )
     return QMetaMethod._cuteOwning(address)
 
@@ -196,7 +219,7 @@ class QMetaMethod(CuteMixin, metaclass=MetaCute):
     address = Rituals.call(
         'ritual_ZN11QMetaMethod28fromRelativeConstructorIndexEPK11QMetaObje'
         'cti',
-        CuteMixin._addressOf(mobj), index,
+        CuteMixin._addressOf(mobj, 'QMetaObject'), index,
     )
     return QMetaMethod._cuteOwning(address)
 
@@ -1075,3 +1098,87 @@ class QMetaMethod(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def fromSignal(*__, **_) -> Never:
+    """
+    Qt's 'QMetaMethod::fromSignal': a template: a pattern and no single
+    function.
+    """
+    raise NotImplementedError(
+        "'QMetaMethod.fromSignal' has no cute function yet. Qt's "
+        "'QMetaMethod::fromSignal': a template: a pattern and no single "
+        "function.")
+
+  @staticmethod
+  def fromSignalImpl(*__, **_) -> Never:
+    """
+    Qt's 'QMetaMethod QMetaMethod::fromSignalImpl(const QMetaObject *a0, void
+    **a1)': takes a type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QMetaMethod.fromSignalImpl' has no cute function yet. Qt's "
+        "'QMetaMethod QMetaMethod::fromSignalImpl(const QMetaObject *a0, "
+        "void **a1)': takes a type Python has no way to hand over yet.")
+
+  @staticmethod
+  def getParameterTypes(*__, **_) -> Never:
+    """
+    Qt's 'void QMetaMethod::getParameterTypes(int *types) const': takes a
+    number to change where it is.
+    """
+    raise NotImplementedError(
+        "'QMetaMethod.getParameterTypes' has no cute function yet. Qt's "
+        "'void QMetaMethod::getParameterTypes(int *types) const': takes a "
+        "number to change where it is.")
+
+  @staticmethod
+  def invokeImpl(*__, **_) -> Never:
+    """
+    Qt's 'bool QMetaMethod::invokeImpl(QMetaMethod self_, void *target,
+    Qt::ConnectionType a2, qsizetype paramCount, const void *const
+    *parameters, const char *const *typeNames, const
+    QtPrivate::QMetaTypeInterface *const *metaTypes)': names 'void', which
+    has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QMetaMethod.invokeImpl' has no cute function yet. Qt's 'bool "
+        "QMetaMethod::invokeImpl(QMetaMethod self_, void *target, "
+        "Qt::ConnectionType a2, qsizetype paramCount, const void *const "
+        "*parameters, const char *const *typeNames, const "
+        "QtPrivate::QMetaTypeInterface *const *metaTypes)': names 'void', "
+        "which has no cute class yet.")
+
+  @staticmethod
+  def invokeOnGadget(*__, **_) -> Never:
+    """
+    - Qt's 'bool QMetaMethod::invokeOnGadget(void *gadget,
+      QGenericReturnArgument returnValue, QGenericArgument val0,
+      QGenericArgument val1, QGenericArgument val2, QGenericArgument val3,
+      QGenericArgument val4, QGenericArgument val5, QGenericArgument val6,
+      QGenericArgument val7, QGenericArgument val8, QGenericArgument val9)
+      const': names 'void', which has no cute class yet.
+    - Qt's 'bool QMetaMethod::invokeOnGadget(void *gadget, QGenericArgument
+      val0, QGenericArgument val1, QGenericArgument val2, QGenericArgument
+      val3, QGenericArgument val4, QGenericArgument val5, QGenericArgument
+      val6, QGenericArgument val7, QGenericArgument val8, QGenericArgument
+      val9) const': names 'void', which has no cute class yet.
+    - Qt's 'QMetaMethod::invokeOnGadget': a template: a pattern and no single
+      function.
+    """
+    raise NotImplementedError(
+        "'QMetaMethod.invokeOnGadget' has no cute function yet. Qt's 'bool "
+        "QMetaMethod::invokeOnGadget(void *gadget, QGenericReturnArgument "
+        "returnValue, QGenericArgument val0, QGenericArgument val1, "
+        "QGenericArgument val2, QGenericArgument val3, QGenericArgument "
+        "val4, QGenericArgument val5, QGenericArgument val6, "
+        "QGenericArgument val7, QGenericArgument val8, QGenericArgument "
+        "val9) const': names 'void', which has no cute class yet. Qt's "
+        "'bool QMetaMethod::invokeOnGadget(void *gadget, QGenericArgument "
+        "val0, QGenericArgument val1, QGenericArgument val2, "
+        "QGenericArgument val3, QGenericArgument val4, QGenericArgument "
+        "val5, QGenericArgument val6, QGenericArgument val7, "
+        "QGenericArgument val8, QGenericArgument val9) const': names "
+        "'void', which has no cute class yet. Qt's "
+        "'QMetaMethod::invokeOnGadget': a template: a pattern and no single "
+        "function.")

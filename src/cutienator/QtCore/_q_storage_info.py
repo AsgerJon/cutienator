@@ -17,6 +17,8 @@ from ..occult import Rituals
 from . import QList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Never
+
   from . import QByteArray, QDebug, QDir
 else:
   #  The cute classes this file names and is not built on. Each is brought in
@@ -48,14 +50,18 @@ class QStorageInfo(CuteMixin, metaclass=MetaCute):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'QStorageInfo::QStorageInfo(QStorageInfo &&a0)': takes a type Python
+    has no way to hand over yet.
   - Qt's 'QStorageInfo::~QStorageInfo()': the destructor: Python removes its
     C++ QStorageInfo by it, and has no other use for it.
-
-  What has no ritual
-  ------------------
-
-  5 of the 31 functions Qt declares: 5 takes or gives a type that cannot be
-  passed yet.
+  - Qt's 'QStorageInfo &QStorageInfo::operator=(const QStorageInfo &other)':
+    assignment: Python binds a name and has no operator for it.
+  - Qt's 'QStorageInfo &QStorageInfo::operator=(QStorageInfo &&other)':
+    assignment: Python binds a name and has no operator for it.
+  - Qt's 'void QStorageInfo::swap(QStorageInfo &other)': takes a type Python
+    has no way to hand over yet.
+  - Qt's 'QStorageInfo::QStorageInfo(QStorageInfoPrivate &dd)': takes a type
+    Python has no way to hand over yet.
 
   What to expect
   --------------
@@ -69,6 +75,9 @@ class QStorageInfo(CuteMixin, metaclass=MetaCute):
     is as in C++.
   - A function giving a QStorageInfo back gives a copy the ritual made for
     Python, in a new cute QStorageInfo.
+  - Each name of Qt's QStorageInfo that has no cute function yet, 'swap',
+    holds a function that raises 'NotImplementedError', and its docstring
+    says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -531,6 +540,17 @@ class QStorageInfo(CuteMixin, metaclass=MetaCute):
     """
     #  void QStorageInfo::refresh()
     self.uglySide.call('ritual_ZN12QStorageInfo7refreshEv')
+
+  @staticmethod
+  def swap(*__, **_) -> Never:
+    """
+    Qt's 'void QStorageInfo::swap(QStorageInfo &other)': takes a type Python
+    has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QStorageInfo.swap' has no cute function yet. Qt's 'void "
+        "QStorageInfo::swap(QStorageInfo &other)': takes a type Python has "
+        "no way to hand over yet.")
 
 
 #  Qt's 'QList<QStorageInfo>': the list of QStorageInfo, which

@@ -54,12 +54,13 @@ class QCommandLineParser(CuteMixin, metaclass=MetaCute):
 
   - Qt's 'QCommandLineParser::~QCommandLineParser()': the destructor: Python
     never removes a C++ QCommandLineParser.
+  - Qt's 'void QCommandLineParser::process(const QCoreApplication &app)':
+    takes a type Python has no way to hand over yet.
 
   What has no ritual
   ------------------
 
-  3 of the 32 functions Qt declares: 2 forbidden; 1 takes or gives a type
-  that cannot be passed yet.
+  2 of the 32 functions Qt declares: 2 forbidden.
 
   What to expect
   --------------

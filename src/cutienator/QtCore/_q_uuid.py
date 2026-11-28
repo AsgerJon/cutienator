@@ -18,6 +18,8 @@ from ..occult import Rituals
 from . import Qt, QSysInfo
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Never
+
   from . import QByteArray, QByteArrayView
 else:
   #  The cute classes this file names and is not built on. Each is brought in
@@ -39,23 +41,25 @@ class QUuid(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QUuid that has a ritual and that Python can call so
-  far, 17 names in all: 'fromString', 'toString', 'toByteArray', 'toBytes',
-  'toRfc4122', 'fromRfc4122', '__eq__', '__ne__', '__lt__', '__gt__',
-  '__le__', '__ge__', 'createUuid', 'createUuidV5', 'createUuidV3',
-  'createUuidV7', 'isKnownVersion'. It can be made from Python, in 5 ways;
-  see '__init__'.
+  far, 21 names in all: 'fromString', 'toString', 'toByteArray', 'toBytes',
+  'toRfc4122', 'fromRfc4122', 'isNull', 'compareThreeWay_helper', '__eq__',
+  '__ne__', '__lt__', '__gt__', '__le__', '__ge__', 'createUuid',
+  'createUuidV5', 'createUuidV3', 'createUuidV7', 'isKnownVersion',
+  'variant', 'version'. It can be made from Python, in 5 ways; see
+  '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'QUuid QUuid::fromBytes(const void *bytes, QSysInfo::Endian order)':
+    names 'void', which has no cute class yet.
   - Qt's 'QUuid::~QUuid()': the destructor: Python removes its C++ QUuid by
     it, and has no other use for it.
 
   What has no ritual
   ------------------
 
-  7 of the 30 functions Qt declares: 5 takes or gives a type that cannot be
-  passed yet; 2 a template.
+  2 of the 30 functions Qt declares: 2 a template.
 
   What to expect
   --------------
@@ -68,6 +72,8 @@ class QUuid(CuteMixin, metaclass=MetaCute):
     is as in C++.
   - A function giving a QUuid back gives a copy the ritual made for Python,
     in a new cute QUuid.
+  - Each name of Qt's QUuid that has no cute function yet, 'fromBytes', holds
+    a function that raises 'NotImplementedError', and its docstring says why.
   """
 
   #  The enums Qt writes inside QUuid, each a class in here as in C++, and
@@ -264,6 +270,39 @@ class QUuid(CuteMixin, metaclass=MetaCute):
         CuteMixin._valueOf(a0),
     )
     return QUuid._cuteOwning(address)
+
+  @staticmethod
+  @overload(THIS, THIS)
+  def compareThreeWay_helper(lhs: QUuid, rhs: QUuid) -> Qt.strong_ordering:
+    """
+    Calls Qt's 'Qt::strong_ordering QUuid::compareThreeWay_helper(const QUuid
+    &lhs, const QUuid &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/quuid.html#compareThreeWay_helper
+
+    Parameters
+    ----------
+
+    lhs : QUuid
+      Passed on as a value: Qt reads the C++ QUuid, which stays Python's own.
+
+    rhs : QUuid
+      Passed on as a value: Qt reads the C++ QUuid, which stays Python's own.
+
+    Returns
+    -------
+
+    Qt.strong_ordering
+      A new cute Qt::strong_ordering around the copy Qt gave back. Python
+      owns it.
+    """
+    #  Qt::strong_ordering QUuid::compareThreeWay_helper(const QUuid &lhs,
+    #      const QUuid &rhs)
+    address = Rituals.call(
+        'ritual_ZN5QUuid22compareThreeWay_helperERKS_S1_',
+        CuteMixin._valueOf(lhs), CuteMixin._valueOf(rhs),
+    )
+    return Qt.strong_ordering._cuteOwning(address)
 
   @staticmethod
   def createUuid() -> QUuid:
@@ -510,6 +549,77 @@ class QUuid(CuteMixin, metaclass=MetaCute):
     address = self.uglySide.call('ritual_ZNK5QUuid9toRfc4122Ev')
     from . import QByteArray
     return QByteArray._cuteOwning(address)
+
+  @overload(WAIT['Qt.Disambiguated_t'])
+  def isNull(self, a0: Qt.Disambiguated_t) -> bool:
+    """
+    Calls Qt's 'bool QUuid::isNull(Qt::Disambiguated_t a0) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/quuid.html#isNull
+
+    Parameters
+    ----------
+
+    a0 : Qt.Disambiguated_t
+      Passed on as a value: Qt reads the C++ Qt::Disambiguated_t, which stays
+      Python's own.
+    """
+    #  bool QUuid::isNull(Qt::Disambiguated_t a0) const
+    return self.uglySide.call(
+        'ritual_ZNK5QUuid6isNullEN2Qt15Disambiguated_tE', self._valueOf(a0),
+    )
+
+  @overload(WAIT['Qt.Disambiguated_t'])
+  def variant(self, a0: Qt.Disambiguated_t) -> Variant:
+    """
+    Calls Qt's 'Variant QUuid::variant(Qt::Disambiguated_t a0) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/quuid.html#variant
+
+    Parameters
+    ----------
+
+    a0 : Qt.Disambiguated_t
+      Passed on as a value: Qt reads the C++ Qt::Disambiguated_t, which stays
+      Python's own.
+
+    Returns
+    -------
+
+    Variant
+      The member standing for the number Qt gave back. For a number Qt gives
+      no name it is the member without a name that 'Variant(number)' gives.
+    """
+    #  Variant QUuid::variant(Qt::Disambiguated_t a0) const
+    return QUuid.Variant(self.uglySide.call(
+        'ritual_ZNK5QUuid7variantEN2Qt15Disambiguated_tE', self._valueOf(a0),
+    ))
+
+  @overload(WAIT['Qt.Disambiguated_t'])
+  def version(self, a0: Qt.Disambiguated_t) -> Version:
+    """
+    Calls Qt's 'Version QUuid::version(Qt::Disambiguated_t a0) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/quuid.html#version
+
+    Parameters
+    ----------
+
+    a0 : Qt.Disambiguated_t
+      Passed on as a value: Qt reads the C++ Qt::Disambiguated_t, which stays
+      Python's own.
+
+    Returns
+    -------
+
+    Version
+      The member standing for the number Qt gave back. For a number Qt gives
+      no name it is the member without a name that 'Version(number)' gives.
+    """
+    #  Version QUuid::version(Qt::Disambiguated_t a0) const
+    return QUuid.Version(self.uglySide.call(
+        'ritual_ZNK5QUuid7versionEN2Qt15Disambiguated_tE', self._valueOf(a0),
+    ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -858,3 +968,14 @@ class QUuid(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def fromBytes(*__, **_) -> Never:
+    """
+    Qt's 'QUuid QUuid::fromBytes(const void *bytes, QSysInfo::Endian order)':
+    names 'void', which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QUuid.fromBytes' has no cute function yet. Qt's 'QUuid "
+        "QUuid::fromBytes(const void *bytes, QSysInfo::Endian order)': "
+        "names 'void', which has no cute class yet.")

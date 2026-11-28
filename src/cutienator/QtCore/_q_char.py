@@ -17,7 +17,7 @@ from ..cute import CuteMixin, CuteNum, MetaCute
 from ..occult import Rituals
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -37,16 +37,19 @@ class QChar(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QChar that has a ritual and that Python can call so
-  far, 45 names in all: 'category', 'direction', 'joiningType',
+  far, 55 names in all: 'fromUcs2', 'category', 'direction', 'joiningType',
   'combiningClass', 'mirroredChar', 'hasMirrored', 'decomposition',
   'decompositionTag', 'digitValue', 'toLower', 'toUpper', 'toTitleCase',
-  'toCaseFolded', 'script', 'unicodeVersion', 'isNull', 'isPrint', 'isSpace',
-  'isMark', 'isPunct', 'isSymbol', 'isLetter', 'isNumber',
+  'toCaseFolded', 'script', 'unicodeVersion', 'unicode', 'isNull', 'isPrint',
+  'isSpace', 'isMark', 'isPunct', 'isSymbol', 'isLetter', 'isNumber',
   'isLetterOrNumber', 'isDigit', 'isLower', 'isUpper', 'isTitleCase',
   'isNonCharacter', 'isHighSurrogate', 'isLowSurrogate', 'isSurrogate',
-  'cell', 'row', 'setCell', 'setRow', 'currentUnicodeVersion', '__eq__',
-  '__ne__', '__lt__', '__gt__', '__le__', '__ge__', 'equal_helper',
-  'compare_helper'. It can be made from Python, in 2 ways; see '__init__'.
+  'cell', 'row', 'setCell', 'setRow', 'requiresSurrogates',
+  'surrogateToUcs4', 'highSurrogate', 'lowSurrogate',
+  'currentUnicodeVersion', '__eq__', '__ne__', '__lt__', '__gt__', '__le__',
+  '__ge__', 'isSpace_helper', 'isLetter_helper', 'isNumber_helper',
+  'isLetterOrNumber_helper', 'equal_helper', 'compare_helper'. It can be made
+  from Python, in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -54,14 +57,39 @@ class QChar(CuteMixin, metaclass=MetaCute):
   - Qt's 'char QChar::toLatin1() const': gives a single letter as C has it.
   - Qt's 'QChar QChar::fromLatin1(char c)': takes a single letter as C has
     it.
+  - Qt's 'bool operator==(const QChar &lhs, const std::nullptr_t &rhs)': an
+    operator Python has no name for.
+  - Qt's 'bool operator!=(const QChar &lhs, const std::nullptr_t &rhs)': an
+    operator Python has no name for.
+  - Qt's 'bool operator<(const QChar &lhs, const std::nullptr_t &rhs)': an
+    operator Python has no name for.
+  - Qt's 'bool operator>(const QChar &lhs, const std::nullptr_t &rhs)': an
+    operator Python has no name for.
+  - Qt's 'bool operator<=(const QChar &lhs, const std::nullptr_t &rhs)': an
+    operator Python has no name for.
+  - Qt's 'bool operator>=(const QChar &lhs, const std::nullptr_t &rhs)': an
+    operator Python has no name for.
+  - Qt's 'bool operator==(const std::nullptr_t &lhs, const QChar &rhs)': an
+    operator Python has no name for.
+  - Qt's 'bool operator!=(const std::nullptr_t &lhs, const QChar &rhs)': an
+    operator Python has no name for.
+  - Qt's 'bool operator<(const std::nullptr_t &lhs, const QChar &rhs)': an
+    operator Python has no name for.
+  - Qt's 'bool operator>(const std::nullptr_t &lhs, const QChar &rhs)': an
+    operator Python has no name for.
+  - Qt's 'bool operator<=(const std::nullptr_t &lhs, const QChar &rhs)': an
+    operator Python has no name for.
+  - Qt's 'bool operator>=(const std::nullptr_t &lhs, const QChar &rhs)': an
+    operator Python has no name for.
   - Qt's 'QChar::~QChar()': the destructor: Python removes its C++ QChar by
     it, and has no other use for it.
 
   What has no ritual
   ------------------
 
-  60 of the 110 functions Qt declares: 56 takes or gives a type that cannot
-  be passed yet; 4 a template.
+  6 of the 110 functions Qt declares: 4 a template; 1 takes or gives a type
+  that cannot be passed yet; 1 the compiler refuses its ritual as it would be
+  written here.
 
   What to expect
   --------------
@@ -74,6 +102,9 @@ class QChar(CuteMixin, metaclass=MetaCute):
     is as in C++.
   - A function giving a QChar back gives a copy the ritual made for Python,
     in a new cute QChar.
+  - Each name of Qt's QChar that has no cute function yet, 'fromLatin1',
+    'fromUcs4', 'toLatin1', holds a function that raises
+    'NotImplementedError', and its docstring says why.
   """
 
   #  The enums Qt writes inside QChar, each a class in here as in C++, and
@@ -446,6 +477,125 @@ class QChar(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   @staticmethod
+  @overload(int)
+  def fromUcs2(c: int) -> QChar:
+    """
+    Calls Qt's 'QChar QChar::fromUcs2(char16_t c)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qchar.html#fromUcs2
+
+    Parameters
+    ----------
+
+    c : int
+      Passed on as it is.
+
+    Returns
+    -------
+
+    QChar
+      A new cute QChar around the copy Qt gave back. Python owns it.
+    """
+    #  QChar QChar::fromUcs2(char16_t c)
+    address = Rituals.call('ritual_ZN5QChar8fromUcs2EDs', c)
+    return QChar._cuteOwning(address)
+
+  @staticmethod
+  @overload(int)
+  def requiresSurrogates(ucs4: int) -> bool:
+    """
+    Calls Qt's 'bool QChar::requiresSurrogates(char32_t ucs4)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qchar.html#requiresSurrogates
+
+    Parameters
+    ----------
+
+    ucs4 : int
+      Passed on as it is.
+    """
+    #  bool QChar::requiresSurrogates(char32_t ucs4)
+    return Rituals.call('ritual_ZN5QChar18requiresSurrogatesEDi', ucs4)
+
+  @staticmethod
+  @overload(int, int)
+  def surrogateToUcs4(high: int, low: int) -> int:
+    """
+    Calls Qt's 'char32_t QChar::surrogateToUcs4(char16_t high, char16_t
+    low)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qchar.html#surrogateToUcs4
+
+    Parameters
+    ----------
+
+    high : int
+      Passed on as it is.
+
+    low : int
+      Passed on as it is.
+    """
+    #  char32_t QChar::surrogateToUcs4(char16_t high, char16_t low)
+    return Rituals.call('ritual_ZN5QChar15surrogateToUcs4EDsDs', high, low)
+
+  @staticmethod
+  @overload(THIS, THIS)
+  def surrogateToUcs4(high: QChar, low: QChar) -> int:
+    """
+    Calls Qt's 'char32_t QChar::surrogateToUcs4(QChar high, QChar low)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qchar.html#surrogateToUcs4
+
+    Parameters
+    ----------
+
+    high : QChar
+      Passed on as a value: Qt reads the C++ QChar, which stays Python's own.
+
+    low : QChar
+      Passed on as a value: Qt reads the C++ QChar, which stays Python's own.
+    """
+    #  char32_t QChar::surrogateToUcs4(QChar high, QChar low)
+    return Rituals.call(
+        'ritual_ZN5QChar15surrogateToUcs4ES_S_',
+        CuteMixin._valueOf(high), CuteMixin._valueOf(low),
+    )
+
+  @staticmethod
+  @overload(int)
+  def highSurrogate(ucs4: int) -> int:
+    """
+    Calls Qt's 'char16_t QChar::highSurrogate(char32_t ucs4)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qchar.html#highSurrogate
+
+    Parameters
+    ----------
+
+    ucs4 : int
+      Passed on as it is.
+    """
+    #  char16_t QChar::highSurrogate(char32_t ucs4)
+    return Rituals.call('ritual_ZN5QChar13highSurrogateEDi', ucs4)
+
+  @staticmethod
+  @overload(int)
+  def lowSurrogate(ucs4: int) -> int:
+    """
+    Calls Qt's 'char16_t QChar::lowSurrogate(char32_t ucs4)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qchar.html#lowSurrogate
+
+    Parameters
+    ----------
+
+    ucs4 : int
+      Passed on as it is.
+    """
+    #  char16_t QChar::lowSurrogate(char32_t ucs4)
+    return Rituals.call('ritual_ZN5QChar12lowSurrogateEDi', ucs4)
+
+  @staticmethod
   def currentUnicodeVersion() -> UnicodeVersion:
     """
     Calls Qt's 'UnicodeVersion QChar::currentUnicodeVersion()'.
@@ -464,6 +614,74 @@ class QChar(CuteMixin, metaclass=MetaCute):
     return QChar.UnicodeVersion(Rituals.call(
         'ritual_ZN5QChar21currentUnicodeVersionEv',
     ))
+
+  @staticmethod
+  @overload(int)
+  def isSpace_helper(ucs4: int) -> bool:
+    """
+    Calls Qt's 'bool QChar::isSpace_helper(char32_t ucs4)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qchar.html#isSpace_helper
+
+    Parameters
+    ----------
+
+    ucs4 : int
+      Passed on as it is.
+    """
+    #  bool QChar::isSpace_helper(char32_t ucs4)
+    return Rituals.call('ritual_ZN5QChar14isSpace_helperEDi', ucs4)
+
+  @staticmethod
+  @overload(int)
+  def isLetter_helper(ucs4: int) -> bool:
+    """
+    Calls Qt's 'bool QChar::isLetter_helper(char32_t ucs4)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qchar.html#isLetter_helper
+
+    Parameters
+    ----------
+
+    ucs4 : int
+      Passed on as it is.
+    """
+    #  bool QChar::isLetter_helper(char32_t ucs4)
+    return Rituals.call('ritual_ZN5QChar15isLetter_helperEDi', ucs4)
+
+  @staticmethod
+  @overload(int)
+  def isNumber_helper(ucs4: int) -> bool:
+    """
+    Calls Qt's 'bool QChar::isNumber_helper(char32_t ucs4)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qchar.html#isNumber_helper
+
+    Parameters
+    ----------
+
+    ucs4 : int
+      Passed on as it is.
+    """
+    #  bool QChar::isNumber_helper(char32_t ucs4)
+    return Rituals.call('ritual_ZN5QChar15isNumber_helperEDi', ucs4)
+
+  @staticmethod
+  @overload(int)
+  def isLetterOrNumber_helper(ucs4: int) -> bool:
+    """
+    Calls Qt's 'bool QChar::isLetterOrNumber_helper(char32_t ucs4)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qchar.html#isLetterOrNumber_helper
+
+    Parameters
+    ----------
+
+    ucs4 : int
+      Passed on as it is.
+    """
+    #  bool QChar::isLetterOrNumber_helper(char32_t ucs4)
+    return Rituals.call('ritual_ZN5QChar23isLetterOrNumber_helperEDi', ucs4)
 
   @staticmethod
   @overload(THIS, str)
@@ -537,6 +755,7 @@ class QChar(CuteMixin, metaclass=MetaCute):
   #  GETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  @overload()
   def category(self) -> Category:
     """
     Calls Qt's 'Category QChar::category() const'.
@@ -553,6 +772,31 @@ class QChar(CuteMixin, metaclass=MetaCute):
     #  Category QChar::category() const
     return QChar.Category(self.uglySide.call('ritual_ZNK5QChar8categoryEv'))
 
+  @staticmethod
+  @overload(int)
+  def category(ucs4: int) -> Category:
+    """
+    Calls Qt's 'Category QChar::category(char32_t ucs4)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qchar.html#category
+
+    Parameters
+    ----------
+
+    ucs4 : int
+      Passed on as it is.
+
+    Returns
+    -------
+
+    Category
+      The member standing for the number Qt gave back. For a number Qt gives
+      no name it is the member without a name that 'Category(number)' gives.
+    """
+    #  Category QChar::category(char32_t ucs4)
+    return QChar.Category(Rituals.call('ritual_ZN5QChar8categoryEDi', ucs4))
+
+  @overload()
   def direction(self) -> Direction:
     """
     Calls Qt's 'Direction QChar::direction() const'.
@@ -571,6 +815,33 @@ class QChar(CuteMixin, metaclass=MetaCute):
         'ritual_ZNK5QChar9directionEv',
     ))
 
+  @staticmethod
+  @overload(int)
+  def direction(ucs4: int) -> Direction:
+    """
+    Calls Qt's 'Direction QChar::direction(char32_t ucs4)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qchar.html#direction
+
+    Parameters
+    ----------
+
+    ucs4 : int
+      Passed on as it is.
+
+    Returns
+    -------
+
+    Direction
+      The member standing for the number Qt gave back. For a number Qt gives
+      no name it is the member without a name that 'Direction(number)' gives.
+    """
+    #  Direction QChar::direction(char32_t ucs4)
+    return QChar.Direction(Rituals.call(
+        'ritual_ZN5QChar9directionEDi', ucs4,
+    ))
+
+  @overload()
   def joiningType(self) -> JoiningType:
     """
     Calls Qt's 'JoiningType QChar::joiningType() const'.
@@ -590,6 +861,34 @@ class QChar(CuteMixin, metaclass=MetaCute):
         'ritual_ZNK5QChar11joiningTypeEv',
     ))
 
+  @staticmethod
+  @overload(int)
+  def joiningType(ucs4: int) -> JoiningType:
+    """
+    Calls Qt's 'JoiningType QChar::joiningType(char32_t ucs4)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qchar.html#joiningType
+
+    Parameters
+    ----------
+
+    ucs4 : int
+      Passed on as it is.
+
+    Returns
+    -------
+
+    JoiningType
+      The member standing for the number Qt gave back. For a number Qt gives
+      no name it is the member without a name that 'JoiningType(number)'
+      gives.
+    """
+    #  JoiningType QChar::joiningType(char32_t ucs4)
+    return QChar.JoiningType(Rituals.call(
+        'ritual_ZN5QChar11joiningTypeEDi', ucs4,
+    ))
+
+  @overload()
   def combiningClass(self) -> int:
     """
     Calls Qt's 'unsigned char QChar::combiningClass() const'.
@@ -599,6 +898,24 @@ class QChar(CuteMixin, metaclass=MetaCute):
     #  unsigned char QChar::combiningClass() const
     return self.uglySide.call('ritual_ZNK5QChar14combiningClassEv')
 
+  @staticmethod
+  @overload(int)
+  def combiningClass(ucs4: int) -> int:
+    """
+    Calls Qt's 'unsigned char QChar::combiningClass(char32_t ucs4)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qchar.html#combiningClass
+
+    Parameters
+    ----------
+
+    ucs4 : int
+      Passed on as it is.
+    """
+    #  unsigned char QChar::combiningClass(char32_t ucs4)
+    return Rituals.call('ritual_ZN5QChar14combiningClassEDi', ucs4)
+
+  @overload()
   def mirroredChar(self) -> QChar:
     """
     Calls Qt's 'QChar QChar::mirroredChar() const'.
@@ -615,6 +932,24 @@ class QChar(CuteMixin, metaclass=MetaCute):
     address = self.uglySide.call('ritual_ZNK5QChar12mirroredCharEv')
     return QChar._cuteOwning(address)
 
+  @staticmethod
+  @overload(int)
+  def mirroredChar(ucs4: int) -> int:
+    """
+    Calls Qt's 'char32_t QChar::mirroredChar(char32_t ucs4)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qchar.html#mirroredChar
+
+    Parameters
+    ----------
+
+    ucs4 : int
+      Passed on as it is.
+    """
+    #  char32_t QChar::mirroredChar(char32_t ucs4)
+    return Rituals.call('ritual_ZN5QChar12mirroredCharEDi', ucs4)
+
+  @overload()
   def hasMirrored(self) -> bool:
     """
     Calls Qt's 'bool QChar::hasMirrored() const'.
@@ -624,6 +959,24 @@ class QChar(CuteMixin, metaclass=MetaCute):
     #  bool QChar::hasMirrored() const
     return self.uglySide.call('ritual_ZNK5QChar11hasMirroredEv')
 
+  @staticmethod
+  @overload(int)
+  def hasMirrored(ucs4: int) -> bool:
+    """
+    Calls Qt's 'bool QChar::hasMirrored(char32_t ucs4)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qchar.html#hasMirrored
+
+    Parameters
+    ----------
+
+    ucs4 : int
+      Passed on as it is.
+    """
+    #  bool QChar::hasMirrored(char32_t ucs4)
+    return Rituals.call('ritual_ZN5QChar11hasMirroredEDi', ucs4)
+
+  @overload()
   def decomposition(self) -> str:
     """
     Calls Qt's 'QString QChar::decomposition() const'.
@@ -639,6 +992,30 @@ class QChar(CuteMixin, metaclass=MetaCute):
     #  QString QChar::decomposition() const
     return self.uglySide.call('ritual_ZNK5QChar13decompositionEv')
 
+  @staticmethod
+  @overload(int)
+  def decomposition(ucs4: int) -> str:
+    """
+    Calls Qt's 'QString QChar::decomposition(char32_t ucs4)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qchar.html#decomposition
+
+    Parameters
+    ----------
+
+    ucs4 : int
+      Passed on as it is.
+
+    Returns
+    -------
+
+    str
+      The text Qt gave back.
+    """
+    #  QString QChar::decomposition(char32_t ucs4)
+    return Rituals.call('ritual_ZN5QChar13decompositionEDi', ucs4)
+
+  @overload()
   def decompositionTag(self) -> Decomposition:
     """
     Calls Qt's 'Decomposition QChar::decompositionTag() const'.
@@ -658,6 +1035,34 @@ class QChar(CuteMixin, metaclass=MetaCute):
         'ritual_ZNK5QChar16decompositionTagEv',
     ))
 
+  @staticmethod
+  @overload(int)
+  def decompositionTag(ucs4: int) -> Decomposition:
+    """
+    Calls Qt's 'Decomposition QChar::decompositionTag(char32_t ucs4)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qchar.html#decompositionTag
+
+    Parameters
+    ----------
+
+    ucs4 : int
+      Passed on as it is.
+
+    Returns
+    -------
+
+    Decomposition
+      The member standing for the number Qt gave back. For a number Qt gives
+      no name it is the member without a name that 'Decomposition(number)'
+      gives.
+    """
+    #  Decomposition QChar::decompositionTag(char32_t ucs4)
+    return QChar.Decomposition(Rituals.call(
+        'ritual_ZN5QChar16decompositionTagEDi', ucs4,
+    ))
+
+  @overload()
   def digitValue(self) -> int:
     """
     Calls Qt's 'int QChar::digitValue() const'.
@@ -667,6 +1072,24 @@ class QChar(CuteMixin, metaclass=MetaCute):
     #  int QChar::digitValue() const
     return self.uglySide.call('ritual_ZNK5QChar10digitValueEv')
 
+  @staticmethod
+  @overload(int)
+  def digitValue(ucs4: int) -> int:
+    """
+    Calls Qt's 'int QChar::digitValue(char32_t ucs4)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qchar.html#digitValue
+
+    Parameters
+    ----------
+
+    ucs4 : int
+      Passed on as it is.
+    """
+    #  int QChar::digitValue(char32_t ucs4)
+    return Rituals.call('ritual_ZN5QChar10digitValueEDi', ucs4)
+
+  @overload()
   def toLower(self) -> QChar:
     """
     Calls Qt's 'QChar QChar::toLower() const'.
@@ -683,6 +1106,24 @@ class QChar(CuteMixin, metaclass=MetaCute):
     address = self.uglySide.call('ritual_ZNK5QChar7toLowerEv')
     return QChar._cuteOwning(address)
 
+  @staticmethod
+  @overload(int)
+  def toLower(ucs4: int) -> int:
+    """
+    Calls Qt's 'char32_t QChar::toLower(char32_t ucs4)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qchar.html#toLower
+
+    Parameters
+    ----------
+
+    ucs4 : int
+      Passed on as it is.
+    """
+    #  char32_t QChar::toLower(char32_t ucs4)
+    return Rituals.call('ritual_ZN5QChar7toLowerEDi', ucs4)
+
+  @overload()
   def toUpper(self) -> QChar:
     """
     Calls Qt's 'QChar QChar::toUpper() const'.
@@ -699,6 +1140,24 @@ class QChar(CuteMixin, metaclass=MetaCute):
     address = self.uglySide.call('ritual_ZNK5QChar7toUpperEv')
     return QChar._cuteOwning(address)
 
+  @staticmethod
+  @overload(int)
+  def toUpper(ucs4: int) -> int:
+    """
+    Calls Qt's 'char32_t QChar::toUpper(char32_t ucs4)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qchar.html#toUpper
+
+    Parameters
+    ----------
+
+    ucs4 : int
+      Passed on as it is.
+    """
+    #  char32_t QChar::toUpper(char32_t ucs4)
+    return Rituals.call('ritual_ZN5QChar7toUpperEDi', ucs4)
+
+  @overload()
   def toTitleCase(self) -> QChar:
     """
     Calls Qt's 'QChar QChar::toTitleCase() const'.
@@ -715,6 +1174,24 @@ class QChar(CuteMixin, metaclass=MetaCute):
     address = self.uglySide.call('ritual_ZNK5QChar11toTitleCaseEv')
     return QChar._cuteOwning(address)
 
+  @staticmethod
+  @overload(int)
+  def toTitleCase(ucs4: int) -> int:
+    """
+    Calls Qt's 'char32_t QChar::toTitleCase(char32_t ucs4)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qchar.html#toTitleCase
+
+    Parameters
+    ----------
+
+    ucs4 : int
+      Passed on as it is.
+    """
+    #  char32_t QChar::toTitleCase(char32_t ucs4)
+    return Rituals.call('ritual_ZN5QChar11toTitleCaseEDi', ucs4)
+
+  @overload()
   def toCaseFolded(self) -> QChar:
     """
     Calls Qt's 'QChar QChar::toCaseFolded() const'.
@@ -731,6 +1208,24 @@ class QChar(CuteMixin, metaclass=MetaCute):
     address = self.uglySide.call('ritual_ZNK5QChar12toCaseFoldedEv')
     return QChar._cuteOwning(address)
 
+  @staticmethod
+  @overload(int)
+  def toCaseFolded(ucs4: int) -> int:
+    """
+    Calls Qt's 'char32_t QChar::toCaseFolded(char32_t ucs4)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qchar.html#toCaseFolded
+
+    Parameters
+    ----------
+
+    ucs4 : int
+      Passed on as it is.
+    """
+    #  char32_t QChar::toCaseFolded(char32_t ucs4)
+    return Rituals.call('ritual_ZN5QChar12toCaseFoldedEDi', ucs4)
+
+  @overload()
   def script(self) -> Script:
     """
     Calls Qt's 'Script QChar::script() const'.
@@ -747,6 +1242,31 @@ class QChar(CuteMixin, metaclass=MetaCute):
     #  Script QChar::script() const
     return QChar.Script(self.uglySide.call('ritual_ZNK5QChar6scriptEv'))
 
+  @staticmethod
+  @overload(int)
+  def script(ucs4: int) -> Script:
+    """
+    Calls Qt's 'Script QChar::script(char32_t ucs4)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qchar.html#script
+
+    Parameters
+    ----------
+
+    ucs4 : int
+      Passed on as it is.
+
+    Returns
+    -------
+
+    Script
+      The member standing for the number Qt gave back. For a number Qt gives
+      no name it is the member without a name that 'Script(number)' gives.
+    """
+    #  Script QChar::script(char32_t ucs4)
+    return QChar.Script(Rituals.call('ritual_ZN5QChar6scriptEDi', ucs4))
+
+  @overload()
   def unicodeVersion(self) -> UnicodeVersion:
     """
     Calls Qt's 'UnicodeVersion QChar::unicodeVersion() const'.
@@ -766,6 +1286,42 @@ class QChar(CuteMixin, metaclass=MetaCute):
         'ritual_ZNK5QChar14unicodeVersionEv',
     ))
 
+  @staticmethod
+  @overload(int)
+  def unicodeVersion(ucs4: int) -> UnicodeVersion:
+    """
+    Calls Qt's 'UnicodeVersion QChar::unicodeVersion(char32_t ucs4)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qchar.html#unicodeVersion
+
+    Parameters
+    ----------
+
+    ucs4 : int
+      Passed on as it is.
+
+    Returns
+    -------
+
+    UnicodeVersion
+      The member standing for the number Qt gave back. For a number Qt gives
+      no name it is the member without a name that 'UnicodeVersion(number)'
+      gives.
+    """
+    #  UnicodeVersion QChar::unicodeVersion(char32_t ucs4)
+    return QChar.UnicodeVersion(Rituals.call(
+        'ritual_ZN5QChar14unicodeVersionEDi', ucs4,
+    ))
+
+  def unicode(self) -> int:
+    """
+    Calls Qt's 'char16_t QChar::unicode() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qchar.html#unicode
+    """
+    #  char16_t QChar::unicode() const
+    return self.uglySide.call('ritual_ZNK5QChar7unicodeEv')
+
   def isNull(self) -> bool:
     """
     Calls Qt's 'bool QChar::isNull() const'.
@@ -775,6 +1331,7 @@ class QChar(CuteMixin, metaclass=MetaCute):
     #  bool QChar::isNull() const
     return self.uglySide.call('ritual_ZNK5QChar6isNullEv')
 
+  @overload()
   def isPrint(self) -> bool:
     """
     Calls Qt's 'bool QChar::isPrint() const'.
@@ -784,6 +1341,24 @@ class QChar(CuteMixin, metaclass=MetaCute):
     #  bool QChar::isPrint() const
     return self.uglySide.call('ritual_ZNK5QChar7isPrintEv')
 
+  @staticmethod
+  @overload(int)
+  def isPrint(ucs4: int) -> bool:
+    """
+    Calls Qt's 'bool QChar::isPrint(char32_t ucs4)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qchar.html#isPrint
+
+    Parameters
+    ----------
+
+    ucs4 : int
+      Passed on as it is.
+    """
+    #  bool QChar::isPrint(char32_t ucs4)
+    return Rituals.call('ritual_ZN5QChar7isPrintEDi', ucs4)
+
+  @overload()
   def isSpace(self) -> bool:
     """
     Calls Qt's 'bool QChar::isSpace() const'.
@@ -793,6 +1368,24 @@ class QChar(CuteMixin, metaclass=MetaCute):
     #  bool QChar::isSpace() const
     return self.uglySide.call('ritual_ZNK5QChar7isSpaceEv')
 
+  @staticmethod
+  @overload(int)
+  def isSpace(ucs4: int) -> bool:
+    """
+    Calls Qt's 'bool QChar::isSpace(char32_t ucs4)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qchar.html#isSpace
+
+    Parameters
+    ----------
+
+    ucs4 : int
+      Passed on as it is.
+    """
+    #  bool QChar::isSpace(char32_t ucs4)
+    return Rituals.call('ritual_ZN5QChar7isSpaceEDi', ucs4)
+
+  @overload()
   def isMark(self) -> bool:
     """
     Calls Qt's 'bool QChar::isMark() const'.
@@ -802,6 +1395,24 @@ class QChar(CuteMixin, metaclass=MetaCute):
     #  bool QChar::isMark() const
     return self.uglySide.call('ritual_ZNK5QChar6isMarkEv')
 
+  @staticmethod
+  @overload(int)
+  def isMark(ucs4: int) -> bool:
+    """
+    Calls Qt's 'bool QChar::isMark(char32_t ucs4)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qchar.html#isMark
+
+    Parameters
+    ----------
+
+    ucs4 : int
+      Passed on as it is.
+    """
+    #  bool QChar::isMark(char32_t ucs4)
+    return Rituals.call('ritual_ZN5QChar6isMarkEDi', ucs4)
+
+  @overload()
   def isPunct(self) -> bool:
     """
     Calls Qt's 'bool QChar::isPunct() const'.
@@ -811,6 +1422,24 @@ class QChar(CuteMixin, metaclass=MetaCute):
     #  bool QChar::isPunct() const
     return self.uglySide.call('ritual_ZNK5QChar7isPunctEv')
 
+  @staticmethod
+  @overload(int)
+  def isPunct(ucs4: int) -> bool:
+    """
+    Calls Qt's 'bool QChar::isPunct(char32_t ucs4)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qchar.html#isPunct
+
+    Parameters
+    ----------
+
+    ucs4 : int
+      Passed on as it is.
+    """
+    #  bool QChar::isPunct(char32_t ucs4)
+    return Rituals.call('ritual_ZN5QChar7isPunctEDi', ucs4)
+
+  @overload()
   def isSymbol(self) -> bool:
     """
     Calls Qt's 'bool QChar::isSymbol() const'.
@@ -820,6 +1449,24 @@ class QChar(CuteMixin, metaclass=MetaCute):
     #  bool QChar::isSymbol() const
     return self.uglySide.call('ritual_ZNK5QChar8isSymbolEv')
 
+  @staticmethod
+  @overload(int)
+  def isSymbol(ucs4: int) -> bool:
+    """
+    Calls Qt's 'bool QChar::isSymbol(char32_t ucs4)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qchar.html#isSymbol
+
+    Parameters
+    ----------
+
+    ucs4 : int
+      Passed on as it is.
+    """
+    #  bool QChar::isSymbol(char32_t ucs4)
+    return Rituals.call('ritual_ZN5QChar8isSymbolEDi', ucs4)
+
+  @overload()
   def isLetter(self) -> bool:
     """
     Calls Qt's 'bool QChar::isLetter() const'.
@@ -829,6 +1476,24 @@ class QChar(CuteMixin, metaclass=MetaCute):
     #  bool QChar::isLetter() const
     return self.uglySide.call('ritual_ZNK5QChar8isLetterEv')
 
+  @staticmethod
+  @overload(int)
+  def isLetter(ucs4: int) -> bool:
+    """
+    Calls Qt's 'bool QChar::isLetter(char32_t ucs4)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qchar.html#isLetter
+
+    Parameters
+    ----------
+
+    ucs4 : int
+      Passed on as it is.
+    """
+    #  bool QChar::isLetter(char32_t ucs4)
+    return Rituals.call('ritual_ZN5QChar8isLetterEDi', ucs4)
+
+  @overload()
   def isNumber(self) -> bool:
     """
     Calls Qt's 'bool QChar::isNumber() const'.
@@ -838,6 +1503,24 @@ class QChar(CuteMixin, metaclass=MetaCute):
     #  bool QChar::isNumber() const
     return self.uglySide.call('ritual_ZNK5QChar8isNumberEv')
 
+  @staticmethod
+  @overload(int)
+  def isNumber(ucs4: int) -> bool:
+    """
+    Calls Qt's 'bool QChar::isNumber(char32_t ucs4)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qchar.html#isNumber
+
+    Parameters
+    ----------
+
+    ucs4 : int
+      Passed on as it is.
+    """
+    #  bool QChar::isNumber(char32_t ucs4)
+    return Rituals.call('ritual_ZN5QChar8isNumberEDi', ucs4)
+
+  @overload()
   def isLetterOrNumber(self) -> bool:
     """
     Calls Qt's 'bool QChar::isLetterOrNumber() const'.
@@ -847,6 +1530,24 @@ class QChar(CuteMixin, metaclass=MetaCute):
     #  bool QChar::isLetterOrNumber() const
     return self.uglySide.call('ritual_ZNK5QChar16isLetterOrNumberEv')
 
+  @staticmethod
+  @overload(int)
+  def isLetterOrNumber(ucs4: int) -> bool:
+    """
+    Calls Qt's 'bool QChar::isLetterOrNumber(char32_t ucs4)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qchar.html#isLetterOrNumber
+
+    Parameters
+    ----------
+
+    ucs4 : int
+      Passed on as it is.
+    """
+    #  bool QChar::isLetterOrNumber(char32_t ucs4)
+    return Rituals.call('ritual_ZN5QChar16isLetterOrNumberEDi', ucs4)
+
+  @overload()
   def isDigit(self) -> bool:
     """
     Calls Qt's 'bool QChar::isDigit() const'.
@@ -856,6 +1557,24 @@ class QChar(CuteMixin, metaclass=MetaCute):
     #  bool QChar::isDigit() const
     return self.uglySide.call('ritual_ZNK5QChar7isDigitEv')
 
+  @staticmethod
+  @overload(int)
+  def isDigit(ucs4: int) -> bool:
+    """
+    Calls Qt's 'bool QChar::isDigit(char32_t ucs4)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qchar.html#isDigit
+
+    Parameters
+    ----------
+
+    ucs4 : int
+      Passed on as it is.
+    """
+    #  bool QChar::isDigit(char32_t ucs4)
+    return Rituals.call('ritual_ZN5QChar7isDigitEDi', ucs4)
+
+  @overload()
   def isLower(self) -> bool:
     """
     Calls Qt's 'bool QChar::isLower() const'.
@@ -865,6 +1584,24 @@ class QChar(CuteMixin, metaclass=MetaCute):
     #  bool QChar::isLower() const
     return self.uglySide.call('ritual_ZNK5QChar7isLowerEv')
 
+  @staticmethod
+  @overload(int)
+  def isLower(ucs4: int) -> bool:
+    """
+    Calls Qt's 'bool QChar::isLower(char32_t ucs4)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qchar.html#isLower
+
+    Parameters
+    ----------
+
+    ucs4 : int
+      Passed on as it is.
+    """
+    #  bool QChar::isLower(char32_t ucs4)
+    return Rituals.call('ritual_ZN5QChar7isLowerEDi', ucs4)
+
+  @overload()
   def isUpper(self) -> bool:
     """
     Calls Qt's 'bool QChar::isUpper() const'.
@@ -874,6 +1611,24 @@ class QChar(CuteMixin, metaclass=MetaCute):
     #  bool QChar::isUpper() const
     return self.uglySide.call('ritual_ZNK5QChar7isUpperEv')
 
+  @staticmethod
+  @overload(int)
+  def isUpper(ucs4: int) -> bool:
+    """
+    Calls Qt's 'bool QChar::isUpper(char32_t ucs4)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qchar.html#isUpper
+
+    Parameters
+    ----------
+
+    ucs4 : int
+      Passed on as it is.
+    """
+    #  bool QChar::isUpper(char32_t ucs4)
+    return Rituals.call('ritual_ZN5QChar7isUpperEDi', ucs4)
+
+  @overload()
   def isTitleCase(self) -> bool:
     """
     Calls Qt's 'bool QChar::isTitleCase() const'.
@@ -883,6 +1638,24 @@ class QChar(CuteMixin, metaclass=MetaCute):
     #  bool QChar::isTitleCase() const
     return self.uglySide.call('ritual_ZNK5QChar11isTitleCaseEv')
 
+  @staticmethod
+  @overload(int)
+  def isTitleCase(ucs4: int) -> bool:
+    """
+    Calls Qt's 'bool QChar::isTitleCase(char32_t ucs4)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qchar.html#isTitleCase
+
+    Parameters
+    ----------
+
+    ucs4 : int
+      Passed on as it is.
+    """
+    #  bool QChar::isTitleCase(char32_t ucs4)
+    return Rituals.call('ritual_ZN5QChar11isTitleCaseEDi', ucs4)
+
+  @overload()
   def isNonCharacter(self) -> bool:
     """
     Calls Qt's 'bool QChar::isNonCharacter() const'.
@@ -892,6 +1665,24 @@ class QChar(CuteMixin, metaclass=MetaCute):
     #  bool QChar::isNonCharacter() const
     return self.uglySide.call('ritual_ZNK5QChar14isNonCharacterEv')
 
+  @staticmethod
+  @overload(int)
+  def isNonCharacter(ucs4: int) -> bool:
+    """
+    Calls Qt's 'bool QChar::isNonCharacter(char32_t ucs4)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qchar.html#isNonCharacter
+
+    Parameters
+    ----------
+
+    ucs4 : int
+      Passed on as it is.
+    """
+    #  bool QChar::isNonCharacter(char32_t ucs4)
+    return Rituals.call('ritual_ZN5QChar14isNonCharacterEDi', ucs4)
+
+  @overload()
   def isHighSurrogate(self) -> bool:
     """
     Calls Qt's 'bool QChar::isHighSurrogate() const'.
@@ -901,6 +1692,24 @@ class QChar(CuteMixin, metaclass=MetaCute):
     #  bool QChar::isHighSurrogate() const
     return self.uglySide.call('ritual_ZNK5QChar15isHighSurrogateEv')
 
+  @staticmethod
+  @overload(int)
+  def isHighSurrogate(ucs4: int) -> bool:
+    """
+    Calls Qt's 'bool QChar::isHighSurrogate(char32_t ucs4)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qchar.html#isHighSurrogate
+
+    Parameters
+    ----------
+
+    ucs4 : int
+      Passed on as it is.
+    """
+    #  bool QChar::isHighSurrogate(char32_t ucs4)
+    return Rituals.call('ritual_ZN5QChar15isHighSurrogateEDi', ucs4)
+
+  @overload()
   def isLowSurrogate(self) -> bool:
     """
     Calls Qt's 'bool QChar::isLowSurrogate() const'.
@@ -910,6 +1719,24 @@ class QChar(CuteMixin, metaclass=MetaCute):
     #  bool QChar::isLowSurrogate() const
     return self.uglySide.call('ritual_ZNK5QChar14isLowSurrogateEv')
 
+  @staticmethod
+  @overload(int)
+  def isLowSurrogate(ucs4: int) -> bool:
+    """
+    Calls Qt's 'bool QChar::isLowSurrogate(char32_t ucs4)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qchar.html#isLowSurrogate
+
+    Parameters
+    ----------
+
+    ucs4 : int
+      Passed on as it is.
+    """
+    #  bool QChar::isLowSurrogate(char32_t ucs4)
+    return Rituals.call('ritual_ZN5QChar14isLowSurrogateEDi', ucs4)
+
+  @overload()
   def isSurrogate(self) -> bool:
     """
     Calls Qt's 'bool QChar::isSurrogate() const'.
@@ -918,6 +1745,23 @@ class QChar(CuteMixin, metaclass=MetaCute):
     """
     #  bool QChar::isSurrogate() const
     return self.uglySide.call('ritual_ZNK5QChar11isSurrogateEv')
+
+  @staticmethod
+  @overload(int)
+  def isSurrogate(ucs4: int) -> bool:
+    """
+    Calls Qt's 'bool QChar::isSurrogate(char32_t ucs4)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qchar.html#isSurrogate
+
+    Parameters
+    ----------
+
+    ucs4 : int
+      Passed on as it is.
+    """
+    #  bool QChar::isSurrogate(char32_t ucs4)
+    return Rituals.call('ritual_ZN5QChar11isSurrogateEDi', ucs4)
 
   def cell(self) -> int:
     """
@@ -1205,3 +2049,33 @@ class QChar(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def fromLatin1(*__, **_) -> Never:
+    """
+    Qt's 'QChar QChar::fromLatin1(char c)': takes a single letter as C has
+    it.
+    """
+    raise NotImplementedError(
+        "'QChar.fromLatin1' has no cute function yet. Qt's 'QChar "
+        "QChar::fromLatin1(char c)': takes a single letter as C has it.")
+
+  @staticmethod
+  def fromUcs4(*__, **_) -> Never:
+    """
+    Qt's 'R QChar::fromUcs4(char32_t c)': the compiler refuses its ritual as
+    it would be written here: unknown type name 'R'.
+    """
+    raise NotImplementedError(
+        "'QChar.fromUcs4' has no cute function yet. Qt's 'R "
+        "QChar::fromUcs4(char32_t c)': the compiler refuses its ritual as "
+        "it would be written here: unknown type name 'R'.")
+
+  @staticmethod
+  def toLatin1(*__, **_) -> Never:
+    """
+    Qt's 'char QChar::toLatin1() const': gives a single letter as C has it.
+    """
+    raise NotImplementedError(
+        "'QChar.toLatin1' has no cute function yet. Qt's 'char "
+        "QChar::toLatin1() const': gives a single letter as C has it.")

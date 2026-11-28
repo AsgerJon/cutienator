@@ -117,7 +117,7 @@ class QWidgetItemV2(QWidgetItem):
     ritual = 'ritual_ZNK13QWidgetItemV28sizeHintEv'
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZNK13QWidgetItemV28sizeHintEv'
-    address = self.uglySide.call(ritual)
+    address = self._callAs('QWidgetItemV2', ritual)
     from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
@@ -137,7 +137,7 @@ class QWidgetItemV2(QWidgetItem):
     ritual = 'ritual_ZNK13QWidgetItemV211minimumSizeEv'
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZNK13QWidgetItemV211minimumSizeEv'
-    address = self.uglySide.call(ritual)
+    address = self._callAs('QWidgetItemV2', ritual)
     from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
@@ -157,7 +157,7 @@ class QWidgetItemV2(QWidgetItem):
     ritual = 'ritual_ZNK13QWidgetItemV211maximumSizeEv'
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZNK13QWidgetItemV211maximumSizeEv'
-    address = self.uglySide.call(ritual)
+    address = self._callAs('QWidgetItemV2', ritual)
     from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
@@ -178,7 +178,7 @@ class QWidgetItemV2(QWidgetItem):
     ritual = 'ritual_ZNK13QWidgetItemV214heightForWidthEi'
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZNK13QWidgetItemV214heightForWidthEi'
-    return self.uglySide.call(ritual, width)
+    return self._callAs('QWidgetItemV2', ritual, width)
 
   def useSizeCache(self) -> bool:
     """
@@ -187,7 +187,9 @@ class QWidgetItemV2(QWidgetItem):
     Qt's own words: https://doc.qt.io/qt-6/qwidgetitemv2.html#useSizeCache
     """
     #  bool QWidgetItemV2::useSizeCache() const
-    return self.uglySide.call('ritual_ZNK13QWidgetItemV212useSizeCacheEv')
+    return self._callAs(
+        'QWidgetItemV2', 'ritual_ZNK13QWidgetItemV212useSizeCacheEv',
+    )
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -254,7 +256,10 @@ class QWidgetItemV2(QWidgetItem):
     https://doc.qt.io/qt-6/qwidgetitemv2.html#updateCacheIfNecessary
     """
     #  void QWidgetItemV2::updateCacheIfNecessary() const
-    self.uglySide.call('ritual_ZNK13QWidgetItemV222updateCacheIfNecessaryEv')
+    self._callAs(
+        'QWidgetItemV2',
+        'ritual_ZNK13QWidgetItemV222updateCacheIfNecessaryEv',
+    )
 
   def invalidateSizeCache(self) -> None:
     """
@@ -264,4 +269,6 @@ class QWidgetItemV2(QWidgetItem):
     https://doc.qt.io/qt-6/qwidgetitemv2.html#invalidateSizeCache
     """
     #  void QWidgetItemV2::invalidateSizeCache()
-    self.uglySide.call('ritual_ZN13QWidgetItemV219invalidateSizeCacheEv')
+    self._callAs(
+        'QWidgetItemV2', 'ritual_ZN13QWidgetItemV219invalidateSizeCacheEv',
+    )

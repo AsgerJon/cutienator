@@ -15,7 +15,7 @@ from ..cute import CuteMixin, MetaCute
 from ..occult import Rituals
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -33,11 +33,17 @@ class QMessageLogContext(CuteMixin, metaclass=MetaCute):
   No function of Qt's QMessageLogContext yet. It can be made from Python, in
   2 ways; see '__init__'.
 
+  What has a ritual and is left out, and why
+  ------------------------------------------
+
+  - Qt's 'QMessageLogContext &QMessageLogContext::copyContextFrom(const
+    QMessageLogContext &logContext)': takes a type Python has no way to hand
+    over yet.
+
   What has no ritual
   ------------------
 
-  3 of the 5 functions Qt declares: 2 forbidden; 1 takes or gives a type that
-  cannot be passed yet.
+  2 of the 5 functions Qt declares: 2 forbidden.
 
   What to expect
   --------------
@@ -50,6 +56,9 @@ class QMessageLogContext(CuteMixin, metaclass=MetaCute):
     has it, and is passed on as nothing. Whether Qt can do with nothing there
     is as in C++.
   - Python never removes the C++ QMessageLogContext.
+  - Each name of Qt's QMessageLogContext that has no cute function yet,
+    'copyContextFrom', holds a function that raises 'NotImplementedError',
+    and its docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -173,3 +182,16 @@ class QMessageLogContext(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def copyContextFrom(*__, **_) -> Never:
+    """
+    Qt's 'QMessageLogContext &QMessageLogContext::copyContextFrom(const
+    QMessageLogContext &logContext)': takes a type Python has no way to hand
+    over yet.
+    """
+    raise NotImplementedError(
+        "'QMessageLogContext.copyContextFrom' has no cute function yet. "
+        "Qt's 'QMessageLogContext "
+        "&QMessageLogContext::copyContextFrom(const QMessageLogContext "
+        "&logContext)': takes a type Python has no way to hand over yet.")

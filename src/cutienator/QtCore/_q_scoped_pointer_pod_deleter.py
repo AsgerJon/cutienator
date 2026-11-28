@@ -11,6 +11,9 @@ from typing import TYPE_CHECKING
 
 from ..cute import CuteMixin, MetaCute
 
+if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Never
+
 
 class QScopedPointerPodDeleter(CuteMixin, metaclass=MetaCute):
   """
@@ -30,15 +33,13 @@ class QScopedPointerPodDeleter(CuteMixin, metaclass=MetaCute):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void QScopedPointerPodDeleter::cleanup(void *pointer)': names
+    'void', which has no cute class yet.
+  - Qt's 'void QScopedPointerPodDeleter::operator()(void *pointer) const':
+    names 'void', which has no cute class yet.
   - Qt's 'QScopedPointerPodDeleter::~QScopedPointerPodDeleter()': the
     destructor: Python removes its C++ QScopedPointerPodDeleter by it, and
     has no other use for it.
-
-  What has no ritual
-  ------------------
-
-  2 of the 3 functions Qt declares: 2 takes or gives a type that cannot be
-  passed yet.
 
   What to expect
   --------------
@@ -52,6 +53,9 @@ class QScopedPointerPodDeleter(CuteMixin, metaclass=MetaCute):
     is as in C++.
   - A function giving a QScopedPointerPodDeleter back gives a copy the ritual
     made for Python, in a new cute QScopedPointerPodDeleter.
+  - Each name of Qt's QScopedPointerPodDeleter that has no cute function yet,
+    'cleanup', holds a function that raises 'NotImplementedError', and its
+    docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -118,3 +122,14 @@ class QScopedPointerPodDeleter(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def cleanup(*__, **_) -> Never:
+    """
+    Qt's 'void QScopedPointerPodDeleter::cleanup(void *pointer)': names
+    'void', which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QScopedPointerPodDeleter.cleanup' has no cute function yet. Qt's "
+        "'void QScopedPointerPodDeleter::cleanup(void *pointer)': names "
+        "'void', which has no cute class yet.")

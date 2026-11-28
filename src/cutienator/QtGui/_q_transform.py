@@ -18,6 +18,8 @@ from ..occult import Rituals
 from ..QtCore import Qt
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Never
+
   from ..QtCore import QLine, QLineF, QPoint, QPointF, QRect, QRectF
   from . import QPainterPath, QPolygon, QPolygonF, QRegion
 else:
@@ -60,24 +62,51 @@ class QTransform(CuteMixin, metaclass=MetaCute):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'QTransform &QTransform::operator=(QTransform &&other)': assignment:
+    Python binds a name and has no operator for it.
+  - Qt's 'QTransform &QTransform::operator=(const QTransform &a0)':
+    assignment: Python binds a name and has no operator for it.
+  - Qt's 'QTransform::QTransform(QTransform &&other)': takes a type Python
+    has no way to hand over yet.
   - Qt's 'QTransform QTransform::inverted(bool *invertible) const': takes a
     number to change where it is.
+  - Qt's 'QTransform &QTransform::translate(qreal dx, qreal dy)': gives a
+    type Python has no way to take yet.
+  - Qt's 'QTransform &QTransform::scale(qreal sx, qreal sy)': gives a type
+    Python has no way to take yet.
+  - Qt's 'QTransform &QTransform::shear(qreal sh, qreal sv)': gives a type
+    Python has no way to take yet.
+  - Qt's 'QTransform &QTransform::rotate(qreal a, Qt::Axis axis, qreal
+    distanceToPlane)': gives a type Python has no way to take yet.
+  - Qt's 'QTransform &QTransform::rotate(qreal a, Qt::Axis axis)': gives a
+    type Python has no way to take yet.
+  - Qt's 'QTransform &QTransform::rotateRadians(qreal a, Qt::Axis axis, qreal
+    distanceToPlane)': gives a type Python has no way to take yet.
+  - Qt's 'QTransform &QTransform::rotateRadians(qreal a, Qt::Axis axis)':
+    gives a type Python has no way to take yet.
+  - Qt's 'bool QTransform::squareToQuad(const QPolygonF &square, QTransform
+    &result)': takes a type Python has no way to hand over yet.
+  - Qt's 'bool QTransform::quadToSquare(const QPolygonF &quad, QTransform
+    &result)': takes a type Python has no way to hand over yet.
+  - Qt's 'bool QTransform::quadToQuad(const QPolygonF &one, const QPolygonF
+    &two, QTransform &result)': takes a type Python has no way to hand over
+    yet.
   - Qt's 'QVariant QTransform::operator QVariant() const': an operator Python
     has no name for.
   - Qt's 'void QTransform::map(int x, int y, int *tx, int *ty) const': takes
     a number to change where it is.
   - Qt's 'void QTransform::map(qreal x, qreal y, qreal *tx, qreal *ty)
     const': takes a number to change where it is.
+  - Qt's 'Affine QTransform::asAffineMatrix()': gives a type Python has no
+    way to take yet.
+  - Qt's 'QDataStream &operator>>(QDataStream &s, Affine &m)': an operator
+    between other classes, written inside this one.
+  - Qt's 'QDataStream &operator<<(QDataStream &s, const Affine &m)': an
+    operator between other classes, written inside this one.
   - Qt's 'void QTransform::do_map(qreal x, qreal y, qreal &nx, qreal &ny)
     const': takes a number to change where it is.
   - Qt's 'QTransform::~QTransform()': the destructor: Python removes its C++
     QTransform by it, and has no other use for it.
-
-  What has no ritual
-  ------------------
-
-  16 of the 72 functions Qt declares: 16 takes or gives a type that cannot be
-  passed yet.
 
   What to expect
   --------------
@@ -90,6 +119,11 @@ class QTransform(CuteMixin, metaclass=MetaCute):
     is as in C++.
   - A function giving a QTransform back gives a copy the ritual made for
     Python, in a new cute QTransform.
+  - Each name of Qt's QTransform that has no cute function yet,
+    'asAffineMatrix', 'do_map', 'inverted', 'quadToQuad', 'quadToSquare',
+    'rotate', 'rotateRadians', 'scale', 'shear', 'squareToQuad', 'translate',
+    holds a function that raises 'NotImplementedError', and its docstring
+    says why.
   """
 
   #  The enums Qt writes inside QTransform, each a class in here as in C++,
@@ -452,7 +486,7 @@ class QTransform(CuteMixin, metaclass=MetaCute):
     """
     #  QPointF QTransform::map(const QPointF &p) const
     address = self.uglySide.call(
-        'ritual_ZNK10QTransform3mapERK7QPointF', self._valueOf(p),
+        'ritual_ZNK10QTransform3mapERK7QPointF', self._valueOf(p, 'QPointF'),
     )
     from ..QtCore import QPointF
     return QPointF._cuteOwning(address)
@@ -1182,3 +1216,134 @@ class QTransform(CuteMixin, metaclass=MetaCute):
     """
     #  void QTransform::reset()
     self.uglySide.call('ritual_ZN10QTransform5resetEv')
+
+  @staticmethod
+  def asAffineMatrix(*__, **_) -> Never:
+    """
+    Qt's 'Affine QTransform::asAffineMatrix()': gives a type Python has no
+    way to take yet.
+    """
+    raise NotImplementedError(
+        "'QTransform.asAffineMatrix' has no cute function yet. Qt's 'Affine "
+        "QTransform::asAffineMatrix()': gives a type Python has no way to "
+        "take yet.")
+
+  @staticmethod
+  def do_map(*__, **_) -> Never:
+    """
+    Qt's 'void QTransform::do_map(qreal x, qreal y, qreal &nx, qreal &ny)
+    const': takes a number to change where it is.
+    """
+    raise NotImplementedError(
+        "'QTransform.do_map' has no cute function yet. Qt's 'void "
+        "QTransform::do_map(qreal x, qreal y, qreal &nx, qreal &ny) const': "
+        "takes a number to change where it is.")
+
+  @staticmethod
+  def inverted(*__, **_) -> Never:
+    """
+    Qt's 'QTransform QTransform::inverted(bool *invertible) const': takes a
+    number to change where it is.
+    """
+    raise NotImplementedError(
+        "'QTransform.inverted' has no cute function yet. Qt's 'QTransform "
+        "QTransform::inverted(bool *invertible) const': takes a number to "
+        "change where it is.")
+
+  @staticmethod
+  def quadToQuad(*__, **_) -> Never:
+    """
+    Qt's 'bool QTransform::quadToQuad(const QPolygonF &one, const QPolygonF
+    &two, QTransform &result)': takes a type Python has no way to hand over
+    yet.
+    """
+    raise NotImplementedError(
+        "'QTransform.quadToQuad' has no cute function yet. Qt's 'bool "
+        "QTransform::quadToQuad(const QPolygonF &one, const QPolygonF &two, "
+        "QTransform &result)': takes a type Python has no way to hand over "
+        "yet.")
+
+  @staticmethod
+  def quadToSquare(*__, **_) -> Never:
+    """
+    Qt's 'bool QTransform::quadToSquare(const QPolygonF &quad, QTransform
+    &result)': takes a type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QTransform.quadToSquare' has no cute function yet. Qt's 'bool "
+        "QTransform::quadToSquare(const QPolygonF &quad, QTransform "
+        "&result)': takes a type Python has no way to hand over yet.")
+
+  @staticmethod
+  def rotate(*__, **_) -> Never:
+    """
+    - Qt's 'QTransform &QTransform::rotate(qreal a, Qt::Axis axis, qreal
+      distanceToPlane)': gives a type Python has no way to take yet.
+    - Qt's 'QTransform &QTransform::rotate(qreal a, Qt::Axis axis)': gives a
+      type Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QTransform.rotate' has no cute function yet. Qt's 'QTransform "
+        "&QTransform::rotate(qreal a, Qt::Axis axis, qreal "
+        "distanceToPlane)': gives a type Python has no way to take yet. "
+        "Qt's 'QTransform &QTransform::rotate(qreal a, Qt::Axis axis)': "
+        "gives a type Python has no way to take yet.")
+
+  @staticmethod
+  def rotateRadians(*__, **_) -> Never:
+    """
+    - Qt's 'QTransform &QTransform::rotateRadians(qreal a, Qt::Axis axis,
+      qreal distanceToPlane)': gives a type Python has no way to take yet.
+    - Qt's 'QTransform &QTransform::rotateRadians(qreal a, Qt::Axis axis)':
+      gives a type Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QTransform.rotateRadians' has no cute function yet. Qt's "
+        "'QTransform &QTransform::rotateRadians(qreal a, Qt::Axis axis, "
+        "qreal distanceToPlane)': gives a type Python has no way to take "
+        "yet. Qt's 'QTransform &QTransform::rotateRadians(qreal a, Qt::Axis "
+        "axis)': gives a type Python has no way to take yet.")
+
+  @staticmethod
+  def scale(*__, **_) -> Never:
+    """
+    Qt's 'QTransform &QTransform::scale(qreal sx, qreal sy)': gives a type
+    Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QTransform.scale' has no cute function yet. Qt's 'QTransform "
+        "&QTransform::scale(qreal sx, qreal sy)': gives a type Python has "
+        "no way to take yet.")
+
+  @staticmethod
+  def shear(*__, **_) -> Never:
+    """
+    Qt's 'QTransform &QTransform::shear(qreal sh, qreal sv)': gives a type
+    Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QTransform.shear' has no cute function yet. Qt's 'QTransform "
+        "&QTransform::shear(qreal sh, qreal sv)': gives a type Python has "
+        "no way to take yet.")
+
+  @staticmethod
+  def squareToQuad(*__, **_) -> Never:
+    """
+    Qt's 'bool QTransform::squareToQuad(const QPolygonF &square, QTransform
+    &result)': takes a type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QTransform.squareToQuad' has no cute function yet. Qt's 'bool "
+        "QTransform::squareToQuad(const QPolygonF &square, QTransform "
+        "&result)': takes a type Python has no way to hand over yet.")
+
+  @staticmethod
+  def translate(*__, **_) -> Never:
+    """
+    Qt's 'QTransform &QTransform::translate(qreal dx, qreal dy)': gives a
+    type Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QTransform.translate' has no cute function yet. Qt's 'QTransform "
+        "&QTransform::translate(qreal dx, qreal dy)': gives a type Python "
+        "has no way to take yet.")

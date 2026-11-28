@@ -20,15 +20,16 @@ from ..cute import WAIT
 from . import QRasterWindow
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from ..QtCore import QMetaObject, QPoint
-  from . import QPaintEvent
+  from . import QPaintEvent, QPixmap
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
   QPaintEvent = WAIT['QPaintEvent']
+  QPixmap = WAIT['QPixmap']
   QPoint = WAIT['QPoint']
 
 #  The class of None, for a signature that takes None in the place of an
@@ -48,23 +49,26 @@ class QShapedPixmapWindow(QRasterWindow):
   -----------
 
   Every function of Qt's QShapedPixmapWindow that has a ritual and that
-  Python can call so far, 5 names in all: 'metaObject', 'setUseCompositing',
-  'setHotspot', 'updateGeometry', 'paintEvent'. None can be made from Python:
-  one comes out of a function of another class that gives one back.
+  Python can call so far, 6 names in all: 'metaObject', 'setUseCompositing',
+  'setPixmap', 'setHotspot', 'updateGeometry', 'paintEvent'. None can be made
+  from Python: one comes out of a function of another class that gives one
+  back.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QShapedPixmapWindow::qt_metacast(const char *a0)': one of
+    Qt's own inner workings.
+  - Qt's 'int QShapedPixmapWindow::qt_metacall(QMetaObject::Call a0, int a1,
+    void **a2)': one of Qt's own inner workings.
   - Qt's 'QShapedPixmapWindow::~QShapedPixmapWindow()': the destructor:
     Python never removes a C++ QShapedPixmapWindow.
 
   What has no ritual
   ------------------
 
-  7 of the 13 functions Qt declares: 2 takes or gives a type that cannot be
-  passed yet; 2 leans on 'QShapedPixmapWindow; 1 a template; 1 declared and
-  nowhere to be found; 1 Qt's library has no name for it, and its code in
-  Qt's source does not compile apart from its file.
+  4 of the 13 functions Qt declares: 2 not a gap; 2 leans on
+  'QShapedPixmapWindow.
 
   What to expect
   --------------
@@ -80,6 +84,9 @@ class QShapedPixmapWindow(QRasterWindow):
   - Qt tells when it has removed the C++ QShapedPixmapWindow. Every call on
     the cute object, and every use of it as an argument, then raises
     'RuntimeError', and nothing reaches C++.
+  - Each name of Qt's QShapedPixmapWindow that has no cute function yet,
+    '__init__', holds a function that raises 'NotImplementedError', and its
+    docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -155,6 +162,26 @@ class QShapedPixmapWindow(QRasterWindow):
         'ritual_ZN19QShapedPixmapWindow17setUseCompositingEb', on,
     )
 
+  @overload(QPixmap)
+  def setPixmap(self, pixmap: QPixmap) -> None:
+    """
+    Calls Qt's 'void QShapedPixmapWindow::setPixmap(const QPixmap &pixmap)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qshapedpixmapwindow.html#setPixmap
+
+    Parameters
+    ----------
+
+    pixmap : QPixmap
+      Passed on as a value: Qt reads the C++ QPixmap, which stays Python's
+      own.
+    """
+    #  void QShapedPixmapWindow::setPixmap(const QPixmap &pixmap)
+    self.uglySide.call(
+        'ritual_ZN19QShapedPixmapWindow9setPixmapERK7QPixmap',
+        self._valueOf(pixmap),
+    )
+
   @overload(QPoint)
   def setHotspot(self, hotspot: QPoint) -> None:
     """
@@ -187,6 +214,21 @@ class QShapedPixmapWindow(QRasterWindow):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def __init__(*__, **_) -> Never:
+    """
+    Qt's 'QShapedPixmapWindow::QShapedPixmapWindow(QScreen *screen)': leans
+    on 'QShapedPixmapWindow::qt_metacall(QMetaObject::Call, int, void**)',
+    which Qt's source does not mark for use from outside Qt and has no code
+    for that could be taken.
+    """
+    raise NotImplementedError(
+        "'QShapedPixmapWindow.__init__' has no cute function yet. Qt's "
+        "'QShapedPixmapWindow::QShapedPixmapWindow(QScreen *screen)': leans "
+        "on 'QShapedPixmapWindow::qt_metacall(QMetaObject::Call, int, "
+        "void**)', which Qt's source does not mark for use from outside Qt "
+        "and has no code for that could be taken.")
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #

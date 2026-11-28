@@ -13,11 +13,12 @@ from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, MetaCute
+from ..occult import Rituals
 from ..QtCore import QList
 from . import QAccessible
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from ..QtCore import QObject, QRect
   from . import QAccessibleActionInterface, QAccessibleAttributesInterface
@@ -48,20 +49,27 @@ class QAccessibleInterface(CuteMixin, metaclass=MetaCute):
   'backgroundColor', 'textInterface', 'editableTextInterface',
   'valueInterface', 'actionInterface', 'imageInterface', 'tableInterface',
   'tableCellInterface', 'hyperlinkInterface', 'selectionInterface',
-  'attributesInterface', 'viewportInterface'. None can be made from Python:
-  one comes out of a function of another class that gives one back.
+  'attributesInterface', 'viewportInterface'. It can be made from Python, in
+  1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
   - Qt's 'QAccessibleInterface::~QAccessibleInterface()': the destructor:
     Python never removes a C++ QAccessibleInterface.
+  - Qt's 'QList<std::pair<QAccessibleInterface *, QAccessible::Relation>>
+    QAccessibleInterface::relations(QAccessible::Relation match) const':
+    gives a type Python has no way to take yet.
+  - Qt's 'void QAccessibleInterface::virtual_hook(int id, void *data)': names
+    'void', which has no cute class yet.
+  - Qt's 'void
+    *QAccessibleInterface::interface_cast(QAccessible::InterfaceType a0)':
+    gives 'void', which has no cute class yet.
 
   What has no ritual
   ------------------
 
-  8 of the 36 functions Qt declares: 4 forbidden; 3 takes or gives a type
-  that cannot be passed yet; 1 the class is abstract, so C++ cannot make one.
+  4 of the 36 functions Qt declares: 4 forbidden.
 
   What to expect
   --------------
@@ -74,6 +82,9 @@ class QAccessibleInterface(CuteMixin, metaclass=MetaCute):
     has it, and is passed on as nothing. Whether Qt can do with nothing there
     is as in C++.
   - Python never removes the C++ QAccessibleInterface.
+  - Each name of Qt's QAccessibleInterface that has no cute function yet,
+    'interface_cast', 'relations', 'virtual_hook', holds a function that
+    raises 'NotImplementedError', and its docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -231,7 +242,9 @@ class QAccessibleInterface(CuteMixin, metaclass=MetaCute):
     Qt's own words: https://doc.qt.io/qt-6/qaccessibleinterface.html#isValid
     """
     #  bool QAccessibleInterface::isValid() const
-    return self.uglySide.call('ritual_ZNK20QAccessibleInterface7isValidEv')
+    return self._callAs(
+        'QAccessibleInterface', 'ritual_ZNK20QAccessibleInterface7isValidEv',
+    )
 
   def object(self) -> Optional[QObject]:
     """
@@ -247,7 +260,9 @@ class QAccessibleInterface(CuteMixin, metaclass=MetaCute):
       no object.
     """
     #  QObject *QAccessibleInterface::object() const
-    address = self.uglySide.call('ritual_ZNK20QAccessibleInterface6objectEv')
+    address = self._callAs(
+        'QAccessibleInterface', 'ritual_ZNK20QAccessibleInterface6objectEv',
+    )
     from ..QtCore import QObject
     return QObject._cuteAt(address)
 
@@ -268,7 +283,7 @@ class QAccessibleInterface(CuteMixin, metaclass=MetaCute):
     ritual = 'ritual_ZNK20QAccessibleInterface6windowEv'
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZNK20QAccessibleInterface6windowEv'
-    address = self.uglySide.call(ritual)
+    address = self._callAs('QAccessibleInterface', ritual)
     from . import QWindow
     return QWindow._cuteAt(address)
 
@@ -291,7 +306,7 @@ class QAccessibleInterface(CuteMixin, metaclass=MetaCute):
     ritual = 'ritual_ZNK20QAccessibleInterface10focusChildEv'
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZNK20QAccessibleInterface10focusChildEv'
-    address = self.uglySide.call(ritual)
+    address = self._callAs('QAccessibleInterface', ritual)
     return QAccessibleInterface._cuteAt(address)
 
   @overload(int, int)
@@ -320,8 +335,10 @@ class QAccessibleInterface(CuteMixin, metaclass=MetaCute):
     """
     #  QAccessibleInterface *QAccessibleInterface::childAt(int x, int y)
     #      const
-    address = self.uglySide.call(
-        'ritual_ZNK20QAccessibleInterface7childAtEii', x, y,
+    address = self._callAs(
+        'QAccessibleInterface',
+        'ritual_ZNK20QAccessibleInterface7childAtEii',
+        x, y,
     )
     return QAccessibleInterface._cuteAt(address)
 
@@ -339,7 +356,9 @@ class QAccessibleInterface(CuteMixin, metaclass=MetaCute):
       no object.
     """
     #  QAccessibleInterface *QAccessibleInterface::parent() const
-    address = self.uglySide.call('ritual_ZNK20QAccessibleInterface6parentEv')
+    address = self._callAs(
+        'QAccessibleInterface', 'ritual_ZNK20QAccessibleInterface6parentEv',
+    )
     return QAccessibleInterface._cuteAt(address)
 
   @overload(int)
@@ -364,8 +383,9 @@ class QAccessibleInterface(CuteMixin, metaclass=MetaCute):
       no object.
     """
     #  QAccessibleInterface *QAccessibleInterface::child(int index) const
-    address = self.uglySide.call(
-        'ritual_ZNK20QAccessibleInterface5childEi', index,
+    address = self._callAs(
+        'QAccessibleInterface', 'ritual_ZNK20QAccessibleInterface5childEi',
+        index,
     )
     return QAccessibleInterface._cuteAt(address)
 
@@ -377,7 +397,8 @@ class QAccessibleInterface(CuteMixin, metaclass=MetaCute):
     https://doc.qt.io/qt-6/qaccessibleinterface.html#childCount
     """
     #  int QAccessibleInterface::childCount() const
-    return self.uglySide.call(
+    return self._callAs(
+        'QAccessibleInterface',
         'ritual_ZNK20QAccessibleInterface10childCountEv',
     )
 
@@ -400,9 +421,10 @@ class QAccessibleInterface(CuteMixin, metaclass=MetaCute):
     """
     #  int QAccessibleInterface::indexOfChild(const QAccessibleInterface *a0)
     #      const
-    return self.uglySide.call(
+    return self._callAs(
+        'QAccessibleInterface',
         'ritual_ZNK20QAccessibleInterface12indexOfChildEPKS_',
-        self._addressOf(a0),
+        self._addressOf(a0, 'QAccessibleInterface'),
     )
 
   @overload(QAccessible.Text)
@@ -426,7 +448,8 @@ class QAccessibleInterface(CuteMixin, metaclass=MetaCute):
       The text Qt gave back.
     """
     #  QString QAccessibleInterface::text(QAccessible::Text t) const
-    return self.uglySide.call(
+    return self._callAs(
+        'QAccessibleInterface',
         'ritual_ZNK20QAccessibleInterface4textEN11QAccessible4TextE',
         t.value,
     )
@@ -444,7 +467,9 @@ class QAccessibleInterface(CuteMixin, metaclass=MetaCute):
       A new cute QRect around the copy Qt gave back. Python owns it.
     """
     #  QRect QAccessibleInterface::rect() const
-    address = self.uglySide.call('ritual_ZNK20QAccessibleInterface4rectEv')
+    address = self._callAs(
+        'QAccessibleInterface', 'ritual_ZNK20QAccessibleInterface4rectEv',
+    )
     from ..QtCore import QRect
     return QRect._cuteOwning(address)
 
@@ -463,8 +488,8 @@ class QAccessibleInterface(CuteMixin, metaclass=MetaCute):
       gives.
     """
     #  QAccessible::Role QAccessibleInterface::role() const
-    return QAccessible.Role(self.uglySide.call(
-        'ritual_ZNK20QAccessibleInterface4roleEv',
+    return QAccessible.Role(self._callAs(
+        'QAccessibleInterface', 'ritual_ZNK20QAccessibleInterface4roleEv',
     ))
 
   def state(self) -> QAccessible.State:
@@ -481,7 +506,9 @@ class QAccessibleInterface(CuteMixin, metaclass=MetaCute):
       it.
     """
     #  QAccessible::State QAccessibleInterface::state() const
-    address = self.uglySide.call('ritual_ZNK20QAccessibleInterface5stateEv')
+    address = self._callAs(
+        'QAccessibleInterface', 'ritual_ZNK20QAccessibleInterface5stateEv',
+    )
     return QAccessible.State._cuteOwning(address)
 
   def foregroundColor(self) -> QColor:
@@ -501,7 +528,7 @@ class QAccessibleInterface(CuteMixin, metaclass=MetaCute):
     ritual = 'ritual_ZNK20QAccessibleInterface15foregroundColorEv'
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZNK20QAccessibleInterface15foregroundColorEv'
-    address = self.uglySide.call(ritual)
+    address = self._callAs('QAccessibleInterface', ritual)
     from . import QColor
     return QColor._cuteOwning(address)
 
@@ -522,7 +549,7 @@ class QAccessibleInterface(CuteMixin, metaclass=MetaCute):
     ritual = 'ritual_ZNK20QAccessibleInterface15backgroundColorEv'
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZNK20QAccessibleInterface15backgroundColorEv'
-    address = self.uglySide.call(ritual)
+    address = self._callAs('QAccessibleInterface', ritual)
     from . import QColor
     return QColor._cuteOwning(address)
 
@@ -549,7 +576,8 @@ class QAccessibleInterface(CuteMixin, metaclass=MetaCute):
     """
     #  void QAccessibleInterface::setText(QAccessible::Text t, const QString
     #      &text)
-    self.uglySide.call(
+    self._callAs(
+        'QAccessibleInterface',
         'ritual_ZN20QAccessibleInterface7setTextEN11QAccessible4TextERK7QSt'
         'ring',
         t.value, text,
@@ -566,6 +594,21 @@ class QAccessibleInterface(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload()
+  def __init__(self) -> None:
+    """
+    Notes what was given, for Qt's
+    'QAccessibleInterface::QAccessibleInterface()', which is called at the
+    first use.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qaccessibleinterface.html#QAccessibleInterface
+    """
+    #  QAccessibleInterface::QAccessibleInterface()
+    self._noteCreation(QAccessibleInterface, lambda: Rituals.call(
+        'ritual_ZN20QAccessibleInterfaceC1Ev',
+    ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -603,7 +646,8 @@ class QAccessibleInterface(CuteMixin, metaclass=MetaCute):
       no object.
     """
     #  QAccessibleTextInterface *QAccessibleInterface::textInterface()
-    address = self.uglySide.call(
+    address = self._callAs(
+        'QAccessibleInterface',
         'ritual_ZN20QAccessibleInterface13textInterfaceEv',
     )
     from . import QAccessibleTextInterface
@@ -628,7 +672,8 @@ class QAccessibleInterface(CuteMixin, metaclass=MetaCute):
     """
     #  QAccessibleEditableTextInterface
     #      *QAccessibleInterface::editableTextInterface()
-    address = self.uglySide.call(
+    address = self._callAs(
+        'QAccessibleInterface',
         'ritual_ZN20QAccessibleInterface21editableTextInterfaceEv',
     )
     from . import QAccessibleEditableTextInterface
@@ -650,7 +695,8 @@ class QAccessibleInterface(CuteMixin, metaclass=MetaCute):
       no object.
     """
     #  QAccessibleValueInterface *QAccessibleInterface::valueInterface()
-    address = self.uglySide.call(
+    address = self._callAs(
+        'QAccessibleInterface',
         'ritual_ZN20QAccessibleInterface14valueInterfaceEv',
     )
     from . import QAccessibleValueInterface
@@ -672,7 +718,8 @@ class QAccessibleInterface(CuteMixin, metaclass=MetaCute):
       no object.
     """
     #  QAccessibleActionInterface *QAccessibleInterface::actionInterface()
-    address = self.uglySide.call(
+    address = self._callAs(
+        'QAccessibleInterface',
         'ritual_ZN20QAccessibleInterface15actionInterfaceEv',
     )
     from . import QAccessibleActionInterface
@@ -694,7 +741,8 @@ class QAccessibleInterface(CuteMixin, metaclass=MetaCute):
       no object.
     """
     #  QAccessibleImageInterface *QAccessibleInterface::imageInterface()
-    address = self.uglySide.call(
+    address = self._callAs(
+        'QAccessibleInterface',
         'ritual_ZN20QAccessibleInterface14imageInterfaceEv',
     )
     from . import QAccessibleImageInterface
@@ -716,7 +764,8 @@ class QAccessibleInterface(CuteMixin, metaclass=MetaCute):
       no object.
     """
     #  QAccessibleTableInterface *QAccessibleInterface::tableInterface()
-    address = self.uglySide.call(
+    address = self._callAs(
+        'QAccessibleInterface',
         'ritual_ZN20QAccessibleInterface14tableInterfaceEv',
     )
     from . import QAccessibleTableInterface
@@ -739,7 +788,8 @@ class QAccessibleInterface(CuteMixin, metaclass=MetaCute):
     """
     #  QAccessibleTableCellInterface
     #      *QAccessibleInterface::tableCellInterface()
-    address = self.uglySide.call(
+    address = self._callAs(
+        'QAccessibleInterface',
         'ritual_ZN20QAccessibleInterface18tableCellInterfaceEv',
     )
     from . import QAccessibleTableCellInterface
@@ -762,7 +812,8 @@ class QAccessibleInterface(CuteMixin, metaclass=MetaCute):
     """
     #  QAccessibleHyperlinkInterface
     #      *QAccessibleInterface::hyperlinkInterface()
-    address = self.uglySide.call(
+    address = self._callAs(
+        'QAccessibleInterface',
         'ritual_ZN20QAccessibleInterface18hyperlinkInterfaceEv',
     )
     from . import QAccessibleHyperlinkInterface
@@ -785,7 +836,8 @@ class QAccessibleInterface(CuteMixin, metaclass=MetaCute):
     """
     #  QAccessibleSelectionInterface
     #      *QAccessibleInterface::selectionInterface()
-    address = self.uglySide.call(
+    address = self._callAs(
+        'QAccessibleInterface',
         'ritual_ZN20QAccessibleInterface18selectionInterfaceEv',
     )
     from . import QAccessibleSelectionInterface
@@ -808,7 +860,8 @@ class QAccessibleInterface(CuteMixin, metaclass=MetaCute):
     """
     #  QAccessibleAttributesInterface
     #      *QAccessibleInterface::attributesInterface()
-    address = self.uglySide.call(
+    address = self._callAs(
+        'QAccessibleInterface',
         'ritual_ZN20QAccessibleInterface19attributesInterfaceEv',
     )
     from . import QAccessibleAttributesInterface
@@ -831,11 +884,49 @@ class QAccessibleInterface(CuteMixin, metaclass=MetaCute):
     """
     #  QAccessibleViewportInterface
     #      *QAccessibleInterface::viewportInterface()
-    address = self.uglySide.call(
+    address = self._callAs(
+        'QAccessibleInterface',
         'ritual_ZN20QAccessibleInterface17viewportInterfaceEv',
     )
     from . import QAccessibleViewportInterface
     return QAccessibleViewportInterface._cuteAt(address)
+
+  @staticmethod
+  def interface_cast(*__, **_) -> Never:
+    """
+    Qt's 'void
+    *QAccessibleInterface::interface_cast(QAccessible::InterfaceType a0)':
+    gives 'void', which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QAccessibleInterface.interface_cast' has no cute function yet. "
+        "Qt's 'void "
+        "*QAccessibleInterface::interface_cast(QAccessible::InterfaceType "
+        "a0)': gives 'void', which has no cute class yet.")
+
+  @staticmethod
+  def relations(*__, **_) -> Never:
+    """
+    Qt's 'QList<std::pair<QAccessibleInterface *, QAccessible::Relation>>
+    QAccessibleInterface::relations(QAccessible::Relation match) const':
+    gives a type Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QAccessibleInterface.relations' has no cute function yet. Qt's "
+        "'QList<std::pair<QAccessibleInterface *, QAccessible::Relation>> "
+        "QAccessibleInterface::relations(QAccessible::Relation match) "
+        "const': gives a type Python has no way to take yet.")
+
+  @staticmethod
+  def virtual_hook(*__, **_) -> Never:
+    """
+    Qt's 'void QAccessibleInterface::virtual_hook(int id, void *data)': names
+    'void', which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QAccessibleInterface.virtual_hook' has no cute function yet. Qt's "
+        "'void QAccessibleInterface::virtual_hook(int id, void *data)': "
+        "names 'void', which has no cute class yet.")
 
 
 #  Qt's 'QList<QAccessibleInterface *>': the list of QAccessibleInterface,

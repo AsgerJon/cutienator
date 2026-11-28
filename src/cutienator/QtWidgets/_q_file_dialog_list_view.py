@@ -25,10 +25,12 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
 
   from ..QtCore import QSize
   from ..QtGui import QKeyEvent
+  from . import QFileDialogPrivate
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
+  QFileDialogPrivate = WAIT['QFileDialogPrivate']
   QKeyEvent = WAIT['QKeyEvent']
 
 #  The class of None, for a signature that takes None in the place of an
@@ -48,14 +50,8 @@ class QFileDialogListView(QListView):
   -----------
 
   Every function of Qt's QFileDialogListView that has a ritual and that
-  Python can call so far, 2 names in all: 'sizeHint', 'keyPressEvent'. It can
-  be made from Python, in 1 way; see '__init__'.
-
-  What has no ritual
-  ------------------
-
-  1 of the 4 functions Qt declares: 1 takes or gives a type that cannot be
-  passed yet.
+  Python can call so far, 3 names in all: 'setFileDialogPrivate', 'sizeHint',
+  'keyPressEvent'. It can be made from Python, in 1 way; see '__init__'.
 
   What to expect
   --------------
@@ -120,6 +116,35 @@ class QFileDialogListView(QListView):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(QFileDialogPrivate)
+  @overload(NoneType)
+  def setFileDialogPrivate(
+      self,
+      d_pointer: Optional[QFileDialogPrivate],
+  ) -> None:
+    """
+    Calls Qt's 'void
+    QFileDialogListView::setFileDialogPrivate(QFileDialogPrivate
+    *d_pointer)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qfiledialoglistview.html#setFileDialogPrivate
+
+    Parameters
+    ----------
+
+    d_pointer : Optional[QFileDialogPrivate]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QFileDialogListView::setFileDialogPrivate(QFileDialogPrivate
+    #      *d_pointer)
+    self.uglySide.call(
+        'ritual_ZN19QFileDialogListView20setFileDialogPrivateEP18QFileDialo'
+        'gPrivate',
+        self._addressOf(d_pointer),
+    )
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NOTIFIERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

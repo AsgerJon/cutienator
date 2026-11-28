@@ -17,11 +17,12 @@ from typing import TYPE_CHECKING
 from worktoy.dispatch import overload
 
 from ..cute import WAIT
+from ..occult import Rituals
 from ..QtCore import QStringList
-from . import QComboBox
+from . import QComboBox, QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from ..QtGui import QPaintEvent
 else:
@@ -47,18 +48,14 @@ class QFileDialogComboBox(QComboBox):
   -----------
 
   Every function of Qt's QFileDialogComboBox that has a ritual and that
-  Python can call so far, 2 names in all: 'history', 'paintEvent'. None can
-  be made from Python: one comes out of a function of another class that
-  gives one back.
+  Python can call so far, 4 names in all: 'showPopup', 'setHistory',
+  'history', 'paintEvent'. It can be made from Python, in 1 way; see
+  '__init__'.
 
   What has no ritual
   ------------------
 
-  5 of the 7 functions Qt declares: 2 Qt's library has no name for it, and
-  its code in Qt's source does not compile apart from its file; 1 declared
-  and nowhere to be found; 1 leans on 'vtable for QFileDialogComboBox', which
-  Qt's library does not offer and Qt's source has no code for that could be
-  taken; 1 leans on 'QFileDialogComboBox.
+  1 of the 6 functions Qt declares: 1 leans on 'QUrlModel.
 
   What to expect
   --------------
@@ -74,6 +71,9 @@ class QFileDialogComboBox(QComboBox):
   - Qt tells when it has removed the C++ QFileDialogComboBox. Every call on
     the cute object, and every use of it as an argument, then raises
     'RuntimeError', and nothing reaches C++.
+  - Each name of Qt's QFileDialogComboBox that has no cute function yet,
+    'setFileDialogPrivate', holds a function that raises
+    'NotImplementedError', and its docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -120,6 +120,29 @@ class QFileDialogComboBox(QComboBox):
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  @overload(QStringList)
+  def setHistory(self, paths: QStringList) -> None:
+    """
+    Calls Qt's 'void QFileDialogComboBox::setHistory(const QStringList
+    &paths)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qfiledialogcombobox.html#setHistory
+
+    Parameters
+    ----------
+
+    paths : QStringList
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+    """
+    #  void QFileDialogComboBox::setHistory(const QStringList &paths)
+    self.uglySide.call(
+        'ritual_ZN19QFileDialogComboBox10setHistoryERK5QListI7QStringE',
+        self._valueOf(paths),
+    )
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NOTIFIERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -131,6 +154,31 @@ class QFileDialogComboBox(QComboBox):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload()
+  @overload(QWidget)
+  @overload(NoneType)
+  def __init__(self, parent: Optional[QWidget] = None) -> None:
+    """
+    Notes what was given, for Qt's
+    'QFileDialogComboBox::QFileDialogComboBox(QWidget *parent)', which is
+    called at the first use.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qfiledialogcombobox.html#QFileDialogComboBox
+
+    Parameters
+    ----------
+
+    parent : Optional[QWidget]
+      Passed on as the address of its C++ object. None is passed on as no
+      object. May be left out, as in Qt: it is then None.
+    """
+    #  QFileDialogComboBox::QFileDialogComboBox(QWidget *parent)
+    self._noteCreation(QFileDialogComboBox, lambda: Rituals.call(
+        'ritual_ZN19QFileDialogComboBoxC1EP7QWidget',
+        self._addressOf(parent),
+    ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -151,6 +199,18 @@ class QFileDialogComboBox(QComboBox):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  def showPopup(self) -> None:
+    """
+    Calls Qt's 'void QFileDialogComboBox::showPopup()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfiledialogcombobox.html#showPopup
+    """
+    #  void QFileDialogComboBox::showPopup()
+    ritual = 'ritual_ZN19QFileDialogComboBox9showPopupEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN19QFileDialogComboBox9showPopupEv'
+    self.uglySide.call(ritual)
 
   @overload(QPaintEvent)
   @overload(NoneType)
@@ -174,3 +234,19 @@ class QFileDialogComboBox(QComboBox):
       ritual = (
           'ritual_own_ZN19QFileDialogComboBox10paintEventEP11QPaintEvent')
     self.uglySide.call(ritual, self._addressOf(a0))
+
+  @staticmethod
+  def setFileDialogPrivate(*__, **_) -> Never:
+    """
+    Qt's 'void QFileDialogComboBox::setFileDialogPrivate(QFileDialogPrivate
+    *d_pointer)': leans on 'QUrlModel::staticMetaObject', which Qt's source
+    does not mark for use from outside Qt and has no code for that could be
+    taken.
+    """
+    raise NotImplementedError(
+        "'QFileDialogComboBox.setFileDialogPrivate' has no cute function "
+        "yet. Qt's 'void "
+        "QFileDialogComboBox::setFileDialogPrivate(QFileDialogPrivate "
+        "*d_pointer)': leans on 'QUrlModel::staticMetaObject', which Qt's "
+        "source does not mark for use from outside Qt and has no code for "
+        "that could be taken.")

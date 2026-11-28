@@ -39,14 +39,12 @@ class QTextLength(CuteMixin, metaclass=MetaCute):
 
   - Qt's 'QVariant QTextLength::operator QVariant() const': an operator
     Python has no name for.
+  - Qt's 'QDataStream &operator<<(QDataStream &a0, const QTextLength &a1)':
+    takes a type Python has no way to hand over yet.
+  - Qt's 'QDataStream &operator>>(QDataStream &a0, QTextLength &a1)': an
+    operator between other classes, written inside this one.
   - Qt's 'QTextLength::~QTextLength()': the destructor: Python removes its
     C++ QTextLength by it, and has no other use for it.
-
-  What has no ritual
-  ------------------
-
-  2 of the 11 functions Qt declares: 2 takes or gives a type that cannot be
-  passed yet.
 
   What to expect
   --------------

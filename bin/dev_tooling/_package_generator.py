@@ -321,14 +321,19 @@ class PackageGenerator:
     ------
 
     ValueError
-      The part has no name to list.
+      The part has no name to list: no cute class and no namespace.
+      A part whose every class Qt writes in a namespace, as Qt3DCore,
+      lists its namespaces alone.
     """
     files, partName = self.getEntries(), self.getPartName()
-    if not files:
-      infoSpec = """The part '%s' has no cute class to list."""
-      raise ValueError(infoSpec % partName)
-    lines = ['', 'import importlib', 'from typing import TYPE_CHECKING', '']
     spaces = [n for n in self.getSpaceNames() if '::' not in n]
+    if not files and not spaces:
+      infoSpec = """The part '%s' has no cute class and no namespace to
+      list."""
+      raise ValueError(' '.join((infoSpec % partName).split()))
+    #  The name the docstring of '__getattr__' shows, as one it brings in.
+    shownName = files[-1][0] if files else spaces[-1]
+    lines = ['', 'import importlib', 'from typing import TYPE_CHECKING', '']
     lines.append('__all__ = (')
     lines.extend("    '%s'," % name for name, _ in files)
     lines.extend("    '%s'," % name for name in spaces)
@@ -358,7 +363,7 @@ class PackageGenerator:
         '    """',
         '    Brings in a class of this part the first time it is asked for,',
         "    as by 'from cutienator.%s import %s'. Python calls" % (
-            partName, files[-1][0]),
+            partName, shownName),
         '    this for a name the package does not hold yet. The file of the',
         '    class is brought in, which brings in the files that class'
         ' needs',

@@ -18,7 +18,7 @@ from ..QtCore import Qt, QItemSelectionModel, QList, QObject
 from . import QAbstractItemDelegate, QAbstractScrollArea, QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from ..QtCore import QAbstractItemModel, QEvent, QItemSelection
   from ..QtCore import QMetaObject, QModelIndex, QPoint, QRect, QSize
@@ -26,7 +26,7 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   from ..QtGui import QDragEnterEvent, QDragLeaveEvent, QDragMoveEvent
   from ..QtGui import QDropEvent, QFocusEvent, QInputMethodEvent, QKeyEvent
   from ..QtGui import QMouseEvent, QRegion, QResizeEvent
-  from . import QStyleOptionViewItem
+  from . import QAbstractItemViewPrivate, QStyleOptionViewItem
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -68,7 +68,7 @@ class QAbstractItemView(QAbstractScrollArea):
   -----------
 
   Every function of Qt's QAbstractItemView that has a ritual and that Python
-  can call so far, 126 names in all: 'metaObject', 'tr', 'setModel', 'model',
+  can call so far, 134 names in all: 'metaObject', 'tr', 'setModel', 'model',
   'setSelectionModel', 'selectionModel', 'setItemDelegate', 'itemDelegate',
   'setSelectionMode', 'selectionMode', 'setSelectionBehavior',
   'selectionBehavior', 'currentIndex', 'rootIndex', 'setEditTriggers',
@@ -95,25 +95,34 @@ class QAbstractItemView(QAbstractScrollArea):
   'updateEditorData', 'updateEditorGeometries', 'updateGeometries',
   'verticalScrollbarAction', 'horizontalScrollbarAction',
   'verticalScrollbarValueChanged', 'horizontalScrollbarValueChanged',
-  'closeEditor', 'commitData', 'editorDestroyed', 'horizontalOffset',
-  'verticalOffset', 'isIndexHidden', 'setSelection',
-  'visualRegionForSelection', 'selectedIndexes', 'selectionCommand',
-  'startDrag', 'initViewItemOption', 'scheduleDelayedItemsLayout',
-  'executeDelayedItemsLayout', 'setDirtyRegion', 'scrollDirtyRegion',
-  'dirtyRegionOffset', 'startAutoScroll', 'stopAutoScroll', 'doAutoScroll',
-  'focusNextPrevChild', 'event', 'viewportEvent', 'mousePressEvent',
-  'mouseMoveEvent', 'mouseReleaseEvent', 'mouseDoubleClickEvent',
-  'dragEnterEvent', 'dragMoveEvent', 'dragLeaveEvent', 'dropEvent',
-  'focusInEvent', 'focusOutEvent', 'keyPressEvent', 'resizeEvent',
-  'timerEvent', 'inputMethodEvent', 'eventFilter', 'viewportSizeHint'. None
-  can be made from Python: one comes out of a function of another class that
+  'closeEditor', 'commitData', 'editorDestroyed', 'pressed', 'clicked',
+  'doubleClicked', 'activated', 'entered', 'viewportEntered',
+  'iconSizeChanged', 'horizontalOffset', 'verticalOffset', 'isIndexHidden',
+  'setSelection', 'visualRegionForSelection', 'selectedIndexes',
+  'selectionCommand', 'startDrag', 'initViewItemOption',
+  'scheduleDelayedItemsLayout', 'executeDelayedItemsLayout',
+  'setDirtyRegion', 'scrollDirtyRegion', 'dirtyRegionOffset',
+  'startAutoScroll', 'stopAutoScroll', 'doAutoScroll', 'focusNextPrevChild',
+  'event', 'viewportEvent', 'mousePressEvent', 'mouseMoveEvent',
+  'mouseReleaseEvent', 'mouseDoubleClickEvent', 'dragEnterEvent',
+  'dragMoveEvent', 'dragLeaveEvent', 'dropEvent', 'focusInEvent',
+  'focusOutEvent', 'keyPressEvent', 'resizeEvent', 'timerEvent',
+  'inputMethodEvent', 'eventFilter', 'viewportSizeHint', 'd_func'. None can
+  be made from Python: one comes out of a function of another class that
   gives one back.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QAbstractItemView::qt_metacast(const char *a0)': one of Qt's
+    own inner workings.
+  - Qt's 'int QAbstractItemView::qt_metacall(QMetaObject::Call a0, int a1,
+    void **a2)': one of Qt's own inner workings.
   - Qt's 'QAbstractItemView::~QAbstractItemView()': the destructor: Python
     never removes a C++ QAbstractItemView.
+  - Qt's 'void QAbstractItemView::dataChanged(const QModelIndex &topLeft,
+    const QModelIndex &bottomRight, const QList<int> &roles)': takes a type
+    Python has no way to hand over yet.
   - Qt's 'QModelIndex QAbstractItemView::moveCursor(CursorAction
     cursorAction, Qt::KeyboardModifiers modifiers)': names the enum
     'QAbstractItemView::CursorAction', whose class cannot be named here.
@@ -124,13 +133,16 @@ class QAbstractItemView(QAbstractScrollArea):
   - Qt's 'DropIndicatorPosition QAbstractItemView::dropIndicatorPosition()
     const': gives the enum 'QAbstractItemView::DropIndicatorPosition', whose
     class cannot be named here.
+  - Qt's 'const QAbstractItemViewPrivate *QAbstractItemView::d_func() const':
+    takes in Python what 'QAbstractItemViewPrivate
+    *QAbstractItemView::d_func()' takes.
 
   What has no ritual
   ------------------
 
-  18 of the 151 functions Qt declares: 7 a signal; 5 takes or gives a type
-  that cannot be passed yet; 2 the class is abstract, so C++ cannot make one;
-  2 forbidden; 1 a template; 1 declared and nowhere to be found.
+  6 of the 151 functions Qt declares: 2 not a gap; 2 the class is abstract,
+  so C++ cannot make one, and the C++ class of ours does not fill in every
+  function it leaves open; 2 forbidden.
 
   What to expect
   --------------
@@ -146,6 +158,10 @@ class QAbstractItemView(QAbstractScrollArea):
   - Qt tells when it has removed the C++ QAbstractItemView. Every call on the
     cute object, and every use of it as an argument, then raises
     'RuntimeError', and nothing reaches C++.
+  - Each name of Qt's QAbstractItemView that has no cute function yet,
+    '__init__', 'dataChanged', 'dropIndicatorPosition', 'moveCursor',
+    'setState', 'state', holds a function that raises 'NotImplementedError',
+    and its docstring says why.
   """
 
   #  The enums Qt writes inside QAbstractItemView, each a class in here as in
@@ -2188,6 +2204,27 @@ class QAbstractItemView(QAbstractScrollArea):
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  @staticmethod
+  def __init__(*__, **_) -> Never:
+    """
+    - Qt's 'QAbstractItemView::QAbstractItemView(QWidget *parent)': the class
+      is abstract, so C++ cannot make one, and the C++ class of ours does not
+      fill in every function it leaves open.
+    - Qt's 'QAbstractItemView::QAbstractItemView(QAbstractItemViewPrivate
+      &a0, QWidget *parent)': the class is abstract, so C++ cannot make one,
+      and the C++ class of ours does not fill in every function it leaves
+      open.
+    """
+    raise NotImplementedError(
+        "'QAbstractItemView.__init__' has no cute function yet. Qt's "
+        "'QAbstractItemView::QAbstractItemView(QWidget *parent)': the class "
+        "is abstract, so C++ cannot make one, and the C++ class of ours "
+        "does not fill in every function it leaves open. Qt's "
+        "'QAbstractItemView::QAbstractItemView(QAbstractItemViewPrivate "
+        "&a0, QWidget *parent)': the class is abstract, so C++ cannot make "
+        "one, and the C++ class of ours does not fill in every function it "
+        "leaves open.")
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -2824,6 +2861,138 @@ class QAbstractItemView(QAbstractScrollArea):
       ritual = 'ritual_own_ZN17QAbstractItemView15editorDestroyedEP7QObject'
     self.uglySide.call(ritual, self._addressOf(editor, 'QObject'))
 
+  @overload(QModelIndex)
+  def pressed(self, index: QModelIndex) -> None:
+    """
+    Calls Qt's 'void QAbstractItemView::pressed(const QModelIndex &index)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qabstractitemview.html#pressed
+
+    Parameters
+    ----------
+
+    index : QModelIndex
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own.
+    """
+    #  void QAbstractItemView::pressed(const QModelIndex &index)
+    self.uglySide.call(
+        'ritual_ZN17QAbstractItemView7pressedERK11QModelIndex',
+        self._valueOf(index),
+    )
+
+  @overload(QModelIndex)
+  def clicked(self, index: QModelIndex) -> None:
+    """
+    Calls Qt's 'void QAbstractItemView::clicked(const QModelIndex &index)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qabstractitemview.html#clicked
+
+    Parameters
+    ----------
+
+    index : QModelIndex
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own.
+    """
+    #  void QAbstractItemView::clicked(const QModelIndex &index)
+    self.uglySide.call(
+        'ritual_ZN17QAbstractItemView7clickedERK11QModelIndex',
+        self._valueOf(index),
+    )
+
+  @overload(QModelIndex)
+  def doubleClicked(self, index: QModelIndex) -> None:
+    """
+    Calls Qt's 'void QAbstractItemView::doubleClicked(const QModelIndex
+    &index)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractitemview.html#doubleClicked
+
+    Parameters
+    ----------
+
+    index : QModelIndex
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own.
+    """
+    #  void QAbstractItemView::doubleClicked(const QModelIndex &index)
+    self.uglySide.call(
+        'ritual_ZN17QAbstractItemView13doubleClickedERK11QModelIndex',
+        self._valueOf(index),
+    )
+
+  @overload(QModelIndex)
+  def activated(self, index: QModelIndex) -> None:
+    """
+    Calls Qt's 'void QAbstractItemView::activated(const QModelIndex &index)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qabstractitemview.html#activated
+
+    Parameters
+    ----------
+
+    index : QModelIndex
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own.
+    """
+    #  void QAbstractItemView::activated(const QModelIndex &index)
+    self.uglySide.call(
+        'ritual_ZN17QAbstractItemView9activatedERK11QModelIndex',
+        self._valueOf(index),
+    )
+
+  @overload(QModelIndex)
+  def entered(self, index: QModelIndex) -> None:
+    """
+    Calls Qt's 'void QAbstractItemView::entered(const QModelIndex &index)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qabstractitemview.html#entered
+
+    Parameters
+    ----------
+
+    index : QModelIndex
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own.
+    """
+    #  void QAbstractItemView::entered(const QModelIndex &index)
+    self.uglySide.call(
+        'ritual_ZN17QAbstractItemView7enteredERK11QModelIndex',
+        self._valueOf(index),
+    )
+
+  def viewportEntered(self) -> None:
+    """
+    Calls Qt's 'void QAbstractItemView::viewportEntered()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractitemview.html#viewportEntered
+    """
+    #  void QAbstractItemView::viewportEntered()
+    self.uglySide.call('ritual_ZN17QAbstractItemView15viewportEnteredEv')
+
+  @overload(QSize)
+  def iconSizeChanged(self, size: QSize) -> None:
+    """
+    Calls Qt's 'void QAbstractItemView::iconSizeChanged(const QSize &size)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractitemview.html#iconSizeChanged
+
+    Parameters
+    ----------
+
+    size : QSize
+      Passed on as a value: Qt reads the C++ QSize, which stays Python's own.
+    """
+    #  void QAbstractItemView::iconSizeChanged(const QSize &size)
+    self.uglySide.call(
+        'ritual_ZN17QAbstractItemView15iconSizeChangedERK5QSize',
+        self._valueOf(size),
+    )
+
   @overload(Qt.DropActions)
   def startDrag(self, supportedActions: Qt.DropActions) -> None:
     """
@@ -3385,3 +3554,84 @@ class QAbstractItemView(QAbstractScrollArea):
     return self.uglySide.call(
         ritual, self._addressOf(object, 'QObject'), self._addressOf(event),
     )
+
+  def d_func(self) -> Optional[QAbstractItemViewPrivate]:
+    """
+    Calls Qt's 'QAbstractItemViewPrivate *QAbstractItemView::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qabstractitemview.html#d_func
+
+    Returns
+    -------
+
+    Optional[QAbstractItemViewPrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QAbstractItemViewPrivate *QAbstractItemView::d_func()
+    address = self.uglySide.call('ritual_ZN17QAbstractItemView6d_funcEv')
+    from . import QAbstractItemViewPrivate
+    return QAbstractItemViewPrivate._cuteAt(address)
+
+  @staticmethod
+  def dataChanged(*__, **_) -> Never:
+    """
+    Qt's 'void QAbstractItemView::dataChanged(const QModelIndex &topLeft,
+    const QModelIndex &bottomRight, const QList<int> &roles)': takes a type
+    Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QAbstractItemView.dataChanged' has no cute function yet. Qt's "
+        "'void QAbstractItemView::dataChanged(const QModelIndex &topLeft, "
+        "const QModelIndex &bottomRight, const QList<int> &roles)': takes a "
+        "type Python has no way to hand over yet.")
+
+  @staticmethod
+  def dropIndicatorPosition(*__, **_) -> Never:
+    """
+    Qt's 'DropIndicatorPosition QAbstractItemView::dropIndicatorPosition()
+    const': gives the enum 'QAbstractItemView::DropIndicatorPosition', whose
+    class cannot be named here.
+    """
+    raise NotImplementedError(
+        "'QAbstractItemView.dropIndicatorPosition' has no cute function "
+        "yet. Qt's 'DropIndicatorPosition "
+        "QAbstractItemView::dropIndicatorPosition() const': gives the enum "
+        "'QAbstractItemView::DropIndicatorPosition', whose class cannot be "
+        "named here.")
+
+  @staticmethod
+  def moveCursor(*__, **_) -> Never:
+    """
+    Qt's 'QModelIndex QAbstractItemView::moveCursor(CursorAction
+    cursorAction, Qt::KeyboardModifiers modifiers)': names the enum
+    'QAbstractItemView::CursorAction', whose class cannot be named here.
+    """
+    raise NotImplementedError(
+        "'QAbstractItemView.moveCursor' has no cute function yet. Qt's "
+        "'QModelIndex QAbstractItemView::moveCursor(CursorAction "
+        "cursorAction, Qt::KeyboardModifiers modifiers)': names the enum "
+        "'QAbstractItemView::CursorAction', whose class cannot be named "
+        "here.")
+
+  @staticmethod
+  def setState(*__, **_) -> Never:
+    """
+    Qt's 'void QAbstractItemView::setState(State state)': names the enum
+    'QAbstractItemView::State', whose class cannot be named here.
+    """
+    raise NotImplementedError(
+        "'QAbstractItemView.setState' has no cute function yet. Qt's 'void "
+        "QAbstractItemView::setState(State state)': names the enum "
+        "'QAbstractItemView::State', whose class cannot be named here.")
+
+  @staticmethod
+  def state(*__, **_) -> Never:
+    """
+    Qt's 'State QAbstractItemView::state() const': gives the enum
+    'QAbstractItemView::State', whose class cannot be named here.
+    """
+    raise NotImplementedError(
+        "'QAbstractItemView.state' has no cute function yet. Qt's 'State "
+        "QAbstractItemView::state() const': gives the enum "
+        "'QAbstractItemView::State', whose class cannot be named here.")

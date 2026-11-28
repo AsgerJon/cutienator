@@ -35,14 +35,10 @@ class QHashSeed(CuteMixin, metaclass=MetaCute):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'size_t QHashSeed::operator unsigned long() const': an operator
+    Python has no name for.
   - Qt's 'QHashSeed::~QHashSeed()': the destructor: Python removes its C++
     QHashSeed by it, and has no other use for it.
-
-  What has no ritual
-  ------------------
-
-  1 of the 6 functions Qt declares: 1 takes or gives a type that cannot be
-  passed yet.
 
   What to expect
   --------------

@@ -16,6 +16,9 @@ from worktoy.keenum import Kee
 from ..cute import CuteMixin, CuteNum, MetaCute
 from ..occult import Rituals
 
+if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Never
+
 
 class QCalendarPermission(CuteMixin, metaclass=MetaCute):
   """
@@ -36,15 +39,24 @@ class QCalendarPermission(CuteMixin, metaclass=MetaCute):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'QCalendarPermission::QCalendarPermission(QCalendarPermission
+    &&other)': takes a type Python has no way to hand over yet.
   - Qt's 'QCalendarPermission::~QCalendarPermission()': the destructor:
     Python removes its C++ QCalendarPermission by it, and has no other use
     for it.
+  - Qt's 'QCalendarPermission &QCalendarPermission::operator=(const
+    QCalendarPermission &other)': assignment: Python binds a name and has no
+    operator for it.
+  - Qt's 'QCalendarPermission
+    &QCalendarPermission::operator=(QCalendarPermission &&other)':
+    assignment: Python binds a name and has no operator for it.
+  - Qt's 'void QCalendarPermission::swap(QCalendarPermission &other)': takes
+    a type Python has no way to hand over yet.
 
   What has no ritual
   ------------------
 
-  7 of the 12 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet; 2 declared and nowhere to be found; 1 a template.
+  3 of the 12 functions Qt declares: 3 not a gap.
 
   What to expect
   --------------
@@ -58,6 +70,9 @@ class QCalendarPermission(CuteMixin, metaclass=MetaCute):
     is as in C++.
   - A function giving a QCalendarPermission back gives a copy the ritual made
     for Python, in a new cute QCalendarPermission.
+  - Each name of Qt's QCalendarPermission that has no cute function yet,
+    'swap', holds a function that raises 'NotImplementedError', and its
+    docstring says why.
   """
 
   #  The enums Qt writes inside QCalendarPermission, each a class in here as
@@ -215,3 +230,14 @@ class QCalendarPermission(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def swap(*__, **_) -> Never:
+    """
+    Qt's 'void QCalendarPermission::swap(QCalendarPermission &other)': takes
+    a type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QCalendarPermission.swap' has no cute function yet. Qt's 'void "
+        "QCalendarPermission::swap(QCalendarPermission &other)': takes a "
+        "type Python has no way to hand over yet.")

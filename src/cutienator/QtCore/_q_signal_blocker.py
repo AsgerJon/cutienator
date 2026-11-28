@@ -44,14 +44,19 @@ class QSignalBlocker(CuteMixin, metaclass=MetaCute):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'QSignalBlocker::QSignalBlocker(QObject &o)': takes a type Python
+    has no way to hand over yet.
   - Qt's 'QSignalBlocker::~QSignalBlocker()': the destructor: Python never
     removes a C++ QSignalBlocker.
+  - Qt's 'QSignalBlocker::QSignalBlocker(QSignalBlocker &&other)': takes a
+    type Python has no way to hand over yet.
+  - Qt's 'QSignalBlocker &QSignalBlocker::operator=(QSignalBlocker &&other)':
+    assignment: Python binds a name and has no operator for it.
 
   What has no ritual
   ------------------
 
-  5 of the 10 functions Qt declares: 3 takes or gives a type that cannot be
-  passed yet; 2 forbidden.
+  2 of the 10 functions Qt declares: 2 forbidden.
 
   What to expect
   --------------

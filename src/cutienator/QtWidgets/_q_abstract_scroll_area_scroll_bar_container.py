@@ -24,7 +24,7 @@ from ..QtCore import Qt, QList
 from . import QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -51,7 +51,8 @@ class QAbstractScrollAreaScrollBarContainer(QWidget):
   What has no ritual
   ------------------
 
-  1 of the 5 functions Qt declares: 1 declared and nowhere to be found.
+  1 of the 5 functions Qt declares: 1 cannot be called and cannot be called
+  through the meta-object and cannot be copied.
 
   What to expect
   --------------
@@ -68,6 +69,9 @@ class QAbstractScrollAreaScrollBarContainer(QWidget):
     QAbstractScrollAreaScrollBarContainer. Every call on the cute object, and
     every use of it as an argument, then raises 'RuntimeError', and nothing
     reaches C++.
+  - Each name of Qt's QAbstractScrollAreaScrollBarContainer that has no cute
+    function yet, 'removeWidget', holds a function that raises
+    'NotImplementedError', and its docstring says why.
   """
 
   #  The enums Qt writes inside QAbstractScrollAreaScrollBarContainer, each a
@@ -256,3 +260,26 @@ class QAbstractScrollAreaScrollBarContainer(QWidget):
         position.value,
     )
     return QList[QWidget]._cuteOwning(address)
+
+  @staticmethod
+  def removeWidget(*__, **_) -> Never:
+    """
+    Qt's 'void QAbstractScrollAreaScrollBarContainer::removeWidget(QWidget
+    *widget)': cannot be called and cannot be called through the meta-object
+    and cannot be copied: no header file has its code, Qt's source does not
+    mark it or its class for use from outside Qt or writes it 'inline' or
+    nowhere, and it is no signal, slot or invokable function giving back
+    nothing, of a class built on QObject, and Qt's source has no code for it
+    that could be told from the rest.
+    """
+    raise NotImplementedError(
+        "'QAbstractScrollAreaScrollBarContainer.removeWidget' has no cute "
+        "function yet. Qt's 'void "
+        "QAbstractScrollAreaScrollBarContainer::removeWidget(QWidget "
+        "*widget)': cannot be called and cannot be called through the "
+        "meta-object and cannot be copied: no header file has its code, "
+        "Qt's source does not mark it or its class for use from outside Qt "
+        "or writes it 'inline' or nowhere, and it is no signal, slot or "
+        "invokable function giving back nothing, of a class built on "
+        "QObject, and Qt's source has no code for it that could be told "
+        "from the rest.")

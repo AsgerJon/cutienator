@@ -44,21 +44,22 @@ class QAbstractAnimationTimer(QObject):
   Every function of Qt's QAbstractAnimationTimer that has a ritual and that
   Python can call so far, 5 names in all: 'metaObject', 'tr',
   'updateAnimationsTime', 'restartAnimationTimer', 'runningAnimationCount'.
-  None can be made from Python: one comes out of a function of another class
-  that gives one back.
+  It can be made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QAbstractAnimationTimer::qt_metacast(const char *a0)': one of
+    Qt's own inner workings.
+  - Qt's 'int QAbstractAnimationTimer::qt_metacall(QMetaObject::Call a0, int
+    a1, void **a2)': one of Qt's own inner workings.
   - Qt's 'QAbstractAnimationTimer::~QAbstractAnimationTimer()': the
     destructor: Python never removes a C++ QAbstractAnimationTimer.
 
   What has no ritual
   ------------------
 
-  5 of the 11 functions Qt declares: 2 takes or gives a type that cannot be
-  passed yet; 1 a template; 1 declared and nowhere to be found; 1 the class
-  is abstract, so C++ cannot make one.
+  2 of the 11 functions Qt declares: 2 not a gap.
 
   What to expect
   --------------
@@ -223,6 +224,21 @@ class QAbstractAnimationTimer(QObject):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload()
+  def __init__(self) -> None:
+    """
+    Notes what was given, for Qt's
+    'QAbstractAnimationTimer::QAbstractAnimationTimer()', which is called at
+    the first use.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractanimationtimer.html
+    """
+    #  QAbstractAnimationTimer::QAbstractAnimationTimer()
+    self._noteCreation(QAbstractAnimationTimer, lambda: Rituals.call(
+        'ritual_ZN23QAbstractAnimationTimerC1Ev',
+    ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #

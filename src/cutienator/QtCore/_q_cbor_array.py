@@ -14,11 +14,13 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
-from . import QList, QStringList
+from . import QList, QStringList, Qt
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from . import QCborValue, QCborValueConstRef, QCborValueRef, QJsonArray
-  from . import QVariant
+  from typing import Never, Optional
+
+  from . import QCborContainerPrivate, QCborValue, QCborValueConstRef
+  from . import QCborValueRef, QJsonArray, QVariant
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -27,6 +29,10 @@ else:
   QCborValueConstRef = WAIT['QCborValueConstRef']
   QJsonArray = WAIT['QJsonArray']
   QVariant = WAIT['QVariant']
+
+#  The class of None, for a signature that takes None in the place of an
+#  object or of text.
+NoneType = type(None)
 
 
 class QCborArray(CuteMixin, metaclass=MetaCute):
@@ -42,27 +48,71 @@ class QCborArray(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QCborArray that has a ritual and that Python can
-  call so far, 40 names in all: 'toCborValue', 'size', 'isEmpty', 'clear',
+  call so far, 41 names in all: 'toCborValue', 'size', 'isEmpty', 'clear',
   'at', 'first', 'last', '__getitem__', 'insert', 'prepend', 'append',
   'extract', 'removeAt', 'takeAt', 'removeFirst', 'removeLast', 'takeFirst',
   'takeLast', 'contains', 'compare', 'push_back', 'push_front', 'pop_front',
   'pop_back', 'empty', '__add__', '__iadd__', 'fromStringList',
   'fromVariantList', 'fromJsonArray', 'toVariantList', 'toJsonArray',
   '__eq__', '__ne__', '__lt__', '__gt__', '__le__', '__ge__',
-  'comparesEqual_helper', 'detach'. It can be made from Python, in 2 ways;
-  see '__init__'.
+  'comparesEqual_helper', 'compareThreeWay_helper', 'detach'. It can be made
+  from Python, in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'QCborArray::QCborArray(QCborArray &&other)': takes a type Python
+    has no way to hand over yet.
+  - Qt's 'QCborArray &QCborArray::operator=(const QCborArray &other)':
+    assignment: Python binds a name and has no operator for it.
+  - Qt's 'QCborArray &QCborArray::operator=(QCborArray &&other)': assignment:
+    Python binds a name and has no operator for it.
+  - Qt's 'QCborArray::QCborArray(std::initializer_list<QCborValue> args)':
+    takes a type Python has no way to hand over yet.
   - Qt's 'QCborArray::~QCborArray()': the destructor: Python removes its C++
     QCborArray by it, and has no other use for it.
+  - Qt's 'void QCborArray::swap(QCborArray &other)': takes a type Python has
+    no way to hand over yet.
   - Qt's 'QCborValueRef QCborArray::first()': takes in Python what
     'QCborValue QCborArray::first() const' takes.
   - Qt's 'QCborValueRef QCborArray::last()': takes in Python what 'QCborValue
     QCborArray::last() const' takes.
   - Qt's 'QCborValueRef QCborArray::operator[](qsizetype i)': takes in Python
     what 'const QCborValue QCborArray::operator[](qsizetype i) const' takes.
+  - Qt's 'void QCborArray::insert(qsizetype i, QCborValue &&value)': takes a
+    type Python has no way to hand over yet.
+  - Qt's 'void QCborArray::prepend(QCborValue &&value)': takes a type Python
+    has no way to hand over yet.
+  - Qt's 'void QCborArray::append(QCborValue &&value)': takes a type Python
+    has no way to hand over yet.
+  - Qt's 'iterator QCborArray::begin()': gives a type Python has no way to
+    take yet.
+  - Qt's 'const_iterator QCborArray::constBegin() const': gives a type Python
+    has no way to take yet.
+  - Qt's 'const_iterator QCborArray::begin() const': gives a type Python has
+    no way to take yet.
+  - Qt's 'const_iterator QCborArray::cbegin() const': gives a type Python has
+    no way to take yet.
+  - Qt's 'iterator QCborArray::end()': gives a type Python has no way to take
+    yet.
+  - Qt's 'const_iterator QCborArray::constEnd() const': gives a type Python
+    has no way to take yet.
+  - Qt's 'const_iterator QCborArray::end() const': gives a type Python has no
+    way to take yet.
+  - Qt's 'const_iterator QCborArray::cend() const': gives a type Python has
+    no way to take yet.
+  - Qt's 'iterator QCborArray::insert(iterator before, const QCborValue
+    &value)': gives a type Python has no way to take yet.
+  - Qt's 'iterator QCborArray::insert(const_iterator before, const QCborValue
+    &value)': gives a type Python has no way to take yet.
+  - Qt's 'iterator QCborArray::erase(iterator it)': gives a type Python has
+    no way to take yet.
+  - Qt's 'iterator QCborArray::erase(const_iterator it)': gives a type Python
+    has no way to take yet.
+  - Qt's 'QCborArray &QCborArray::operator<<(const QCborValue &v)': gives a
+    type Python has no way to take yet.
+  - Qt's 'QCborArray QCborArray::fromJsonArray(QJsonArray &&array)': takes a
+    type Python has no way to hand over yet.
   - Qt's 'bool operator==(const QCborValue &lhs, const QCborArray &rhs)':
     takes in Python what 'bool operator==(const QCborArray &lhs, const
     QCborValue &rhs)' takes.
@@ -99,12 +149,8 @@ class QCborArray(CuteMixin, metaclass=MetaCute):
   - Qt's 'bool operator>=(const QCborValueConstRef &lhs, const QCborArray
     &rhs)': takes in Python what 'bool operator<=(const QCborArray &lhs,
     const QCborValueConstRef &rhs)' takes.
-
-  What has no ritual
-  ------------------
-
-  25 of the 97 functions Qt declares: 25 takes or gives a type that cannot be
-  passed yet.
+  - Qt's 'QCborArray::QCborArray(QCborContainerPrivate &dd)': takes a type
+    Python has no way to hand over yet.
 
   What to expect
   --------------
@@ -117,6 +163,9 @@ class QCborArray(CuteMixin, metaclass=MetaCute):
     is as in C++.
   - A function giving a QCborArray back gives a copy the ritual made for
     Python, in a new cute QCborArray.
+  - Each name of Qt's QCborArray that has no cute function yet, 'begin',
+    'cbegin', 'cend', 'constBegin', 'constEnd', 'end', 'erase', 'swap', holds
+    a function that raises 'NotImplementedError', and its docstring says why.
   """
 
   #  The classes Qt writes inside QCborArray, each a class in here as in C++.
@@ -135,31 +184,33 @@ class QCborArray(CuteMixin, metaclass=MetaCute):
     -----------
 
     Every function of Qt's QCborArray::ConstIterator that has a ritual and
-    that Python can call so far, 12 names in all: '__getitem__', '__iadd__',
-    '__isub__', '__add__', '__sub__', 'comparesEqual_helper', '__eq__',
-    '__ne__', '__lt__', '__gt__', '__le__', '__ge__'. It can be made from
-    Python, in 2 ways; see '__init__'.
+    that Python can call so far, 13 names in all: '__getitem__', '__iadd__',
+    '__isub__', '__add__', '__sub__', 'comparesEqual_helper',
+    'compareThreeWay_helper', '__eq__', '__ne__', '__lt__', '__gt__',
+    '__le__', '__ge__'. It can be made from Python, in 3 ways; see
+    '__init__'.
 
     What has a ritual and is left out, and why
     ------------------------------------------
 
+    - Qt's 'ConstIterator &QCborArray::ConstIterator::operator=(const
+      ConstIterator &other)': assignment: Python binds a name and has no
+      operator for it.
     - Qt's 'QCborValueConstRef QCborArray::ConstIterator::operator*() const':
       an operator Python has no name for.
     - Qt's 'const QCborValueConstRef *QCborArray::ConstIterator::operator->()
       const': an operator Python has no name for.
+    - Qt's 'ConstIterator &QCborArray::ConstIterator::operator++()': an
+      operator Python has no name for.
     - Qt's 'ConstIterator QCborArray::ConstIterator::operator++(int a0)': an
+      operator Python has no name for.
+    - Qt's 'ConstIterator &QCborArray::ConstIterator::operator--()': an
       operator Python has no name for.
     - Qt's 'ConstIterator QCborArray::ConstIterator::operator--(int a0)': an
       operator Python has no name for.
     - Qt's 'QCborArray::ConstIterator::~ConstIterator()': the destructor:
       Python removes its C++ QCborArray::ConstIterator by it, and has no
       other use for it.
-
-    What has no ritual
-    ------------------
-
-    5 of the 25 functions Qt declares: 5 takes or gives a type that cannot be
-    passed yet.
 
     What to expect
     --------------
@@ -174,6 +225,12 @@ class QCborArray(CuteMixin, metaclass=MetaCute):
     - A function giving a QCborArray::ConstIterator back gives a copy the
       ritual made for Python, in a new cute QCborArray::ConstIterator.
     """
+
+    #  The cute classes this class names and is not built on. Each waits
+    #  until it is made; see 'WAIT'. A type checker reads the imports at the
+    #  top of the file instead.
+    if not TYPE_CHECKING:
+      QCborContainerPrivate = WAIT['QCborContainerPrivate']
 
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -210,6 +267,48 @@ class QCborArray(CuteMixin, metaclass=MetaCute):
           'S2_',
           CuteMixin._valueOf(lhs), CuteMixin._valueOf(rhs),
       )
+
+    @staticmethod
+    @overload(THIS, THIS)
+    def compareThreeWay_helper(
+        lhs: QCborArray.ConstIterator,
+        rhs: QCborArray.ConstIterator,
+    ) -> Qt.strong_ordering:
+      """
+      Calls Qt's 'Qt::strong_ordering
+      QCborArray::ConstIterator::compareThreeWay_helper(const ConstIterator
+      &lhs, const ConstIterator &rhs)'.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qcborarray-constiterator.html
+
+      Parameters
+      ----------
+
+      lhs : QCborArray.ConstIterator
+        Passed on as a value: Qt reads the C++ QCborArray::ConstIterator,
+        which stays Python's own.
+
+      rhs : QCborArray.ConstIterator
+        Passed on as a value: Qt reads the C++ QCborArray::ConstIterator,
+        which stays Python's own.
+
+      Returns
+      -------
+
+      Qt.strong_ordering
+        A new cute Qt::strong_ordering around the copy Qt gave back. Python
+        owns it.
+      """
+      #  Qt::strong_ordering
+      #      QCborArray::ConstIterator::compareThreeWay_helper(const
+      #      ConstIterator &lhs, const ConstIterator &rhs)
+      address = Rituals.call(
+          'ritual_ZN10QCborArray13ConstIterator22compareThreeWay_helperERKS'
+          '0_S2_',
+          CuteMixin._valueOf(lhs), CuteMixin._valueOf(rhs),
+      )
+      return Qt.strong_ordering._cuteOwning(address)
 
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -622,6 +721,34 @@ class QCborArray(CuteMixin, metaclass=MetaCute):
     #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+    @overload(QCborContainerPrivate, int)
+    @overload(NoneType, int)
+    def __init__(self, dd: Optional[QCborContainerPrivate], ii: int) -> None:
+      """
+      Notes what was given, for Qt's
+      'QCborArray::ConstIterator::ConstIterator(QCborContainerPrivate *dd,
+      qsizetype ii)', which is called at the first use.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qcborarray-constiterator.html#ConstIterator
+
+      Parameters
+      ----------
+
+      dd : Optional[QCborContainerPrivate]
+        Passed on as the address of its C++ object. None is passed on as no
+        object.
+
+      ii : int
+        Passed on as it is.
+      """
+      #  QCborArray::ConstIterator::ConstIterator(QCborContainerPrivate *dd,
+      #      qsizetype ii)
+      self._noteCreation(QCborArray.ConstIterator, lambda: Rituals.call(
+          'ritual_ZN10QCborArray13ConstIteratorC1EP21QCborContainerPrivatex',
+          self._addressOf(dd), ii,
+      ))
+
     @overload()
     def __init__(self) -> None:
       """
@@ -692,28 +819,39 @@ class QCborArray(CuteMixin, metaclass=MetaCute):
     -----------
 
     Every function of Qt's QCborArray::Iterator that has a ritual and that
-    Python can call so far, 12 names in all: '__getitem__', '__iadd__',
-    '__isub__', '__add__', '__sub__', 'comparesEqual_helper', '__eq__',
-    '__ne__', '__lt__', '__gt__', '__le__', '__ge__'. It can be made from
-    Python, in 2 ways; see '__init__'.
+    Python can call so far, 13 names in all: '__getitem__', '__iadd__',
+    '__isub__', '__add__', '__sub__', 'comparesEqual_helper',
+    'compareThreeWay_helper', '__eq__', '__ne__', '__lt__', '__gt__',
+    '__le__', '__ge__'. It can be made from Python, in 3 ways; see
+    '__init__'.
 
     What has a ritual and is left out, and why
     ------------------------------------------
 
+    - Qt's 'Iterator &QCborArray::Iterator::operator=(const Iterator
+      &other)': assignment: Python binds a name and has no operator for it.
     - Qt's 'QCborValueRef QCborArray::Iterator::operator*() const': an
       operator Python has no name for.
     - Qt's 'QCborValueRef *QCborArray::Iterator::operator->()': an operator
       Python has no name for.
     - Qt's 'const QCborValueConstRef *QCborArray::Iterator::operator->()
       const': an operator Python has no name for.
+    - Qt's 'Iterator &QCborArray::Iterator::operator++()': an operator Python
+      has no name for.
     - Qt's 'Iterator QCborArray::Iterator::operator++(int a0)': an operator
       Python has no name for.
+    - Qt's 'Iterator &QCborArray::Iterator::operator--()': an operator Python
+      has no name for.
     - Qt's 'Iterator QCborArray::Iterator::operator--(int a0)': an operator
       Python has no name for.
     - Qt's 'bool QCborArray::Iterator::comparesEqual_helper(const Iterator
       &lhs, const ConstIterator &rhs)': names 'QCborArray::ConstIterator',
       which stands beside this class inside 'QCborArray' and cannot be named
       from here.
+    - Qt's 'Qt::strong_ordering
+      QCborArray::Iterator::compareThreeWay_helper(const Iterator &lhs, const
+      ConstIterator &rhs)': names 'QCborArray::ConstIterator', which stands
+      beside this class inside 'QCborArray' and cannot be named from here.
     - Qt's 'bool operator==(const Iterator &lhs, const ConstIterator &rhs)':
       names 'QCborArray::ConstIterator', which stands beside this class
       inside 'QCborArray' and cannot be named from here.
@@ -754,12 +892,6 @@ class QCborArray(CuteMixin, metaclass=MetaCute):
       removes its C++ QCborArray::Iterator by it, and has no other use for
       it.
 
-    What has no ritual
-    ------------------
-
-    6 of the 40 functions Qt declares: 6 takes or gives a type that cannot be
-    passed yet.
-
     What to expect
     --------------
 
@@ -773,6 +905,12 @@ class QCborArray(CuteMixin, metaclass=MetaCute):
     - A function giving a QCborArray::Iterator back gives a copy the ritual
       made for Python, in a new cute QCborArray::Iterator.
     """
+
+    #  The cute classes this class names and is not built on. Each waits
+    #  until it is made; see 'WAIT'. A type checker reads the imports at the
+    #  top of the file instead.
+    if not TYPE_CHECKING:
+      QCborContainerPrivate = WAIT['QCborContainerPrivate']
 
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -808,6 +946,47 @@ class QCborArray(CuteMixin, metaclass=MetaCute):
           'ritual_ZN10QCborArray8Iterator20comparesEqual_helperERKS0_S2_',
           CuteMixin._valueOf(lhs), CuteMixin._valueOf(rhs),
       )
+
+    @staticmethod
+    @overload(THIS, THIS)
+    def compareThreeWay_helper(
+        lhs: QCborArray.Iterator,
+        rhs: QCborArray.Iterator,
+    ) -> Qt.strong_ordering:
+      """
+      Calls Qt's 'Qt::strong_ordering
+      QCborArray::Iterator::compareThreeWay_helper(const Iterator &lhs, const
+      Iterator &rhs)'.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qcborarray-iterator.html#compareThreeWay_helper
+
+      Parameters
+      ----------
+
+      lhs : QCborArray.Iterator
+        Passed on as a value: Qt reads the C++ QCborArray::Iterator, which
+        stays Python's own.
+
+      rhs : QCborArray.Iterator
+        Passed on as a value: Qt reads the C++ QCborArray::Iterator, which
+        stays Python's own.
+
+      Returns
+      -------
+
+      Qt.strong_ordering
+        A new cute Qt::strong_ordering around the copy Qt gave back. Python
+        owns it.
+      """
+      #  Qt::strong_ordering
+      #      QCborArray::Iterator::compareThreeWay_helper(const Iterator
+      #      &lhs, const Iterator &rhs)
+      address = Rituals.call(
+          'ritual_ZN10QCborArray8Iterator22compareThreeWay_helperERKS0_S2_',
+          CuteMixin._valueOf(lhs), CuteMixin._valueOf(rhs),
+      )
+      return Qt.strong_ordering._cuteOwning(address)
 
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -1202,6 +1381,34 @@ class QCborArray(CuteMixin, metaclass=MetaCute):
     #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+    @overload(QCborContainerPrivate, int)
+    @overload(NoneType, int)
+    def __init__(self, dd: Optional[QCborContainerPrivate], ii: int) -> None:
+      """
+      Notes what was given, for Qt's
+      'QCborArray::Iterator::Iterator(QCborContainerPrivate *dd, qsizetype
+      ii)', which is called at the first use.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qcborarray-iterator.html#Iterator
+
+      Parameters
+      ----------
+
+      dd : Optional[QCborContainerPrivate]
+        Passed on as the address of its C++ object. None is passed on as no
+        object.
+
+      ii : int
+        Passed on as it is.
+      """
+      #  QCborArray::Iterator::Iterator(QCborContainerPrivate *dd, qsizetype
+      #      ii)
+      self._noteCreation(QCborArray.Iterator, lambda: Rituals.call(
+          'ritual_ZN10QCborArray8IteratorC1EP21QCborContainerPrivatex',
+          self._addressOf(dd), ii,
+      ))
+
     @overload()
     def __init__(self) -> None:
       """
@@ -1406,6 +1613,85 @@ class QCborArray(CuteMixin, metaclass=MetaCute):
         'ef',
         CuteMixin._valueOf(lhs), CuteMixin._valueOf(rhs),
     )
+
+  @staticmethod
+  @overload(THIS, QCborValue)
+  def compareThreeWay_helper(
+      lhs: QCborArray,
+      rhs: QCborValue,
+  ) -> Qt.strong_ordering:
+    """
+    Calls Qt's 'Qt::strong_ordering QCborArray::compareThreeWay_helper(const
+    QCborArray &lhs, const QCborValue &rhs)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qcborarray.html#compareThreeWay_helper
+
+    Parameters
+    ----------
+
+    lhs : QCborArray
+      Passed on as a value: Qt reads the C++ QCborArray, which stays Python's
+      own.
+
+    rhs : QCborValue
+      Passed on as a value: Qt reads the C++ QCborValue, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    Qt.strong_ordering
+      A new cute Qt::strong_ordering around the copy Qt gave back. Python
+      owns it.
+    """
+    #  Qt::strong_ordering QCborArray::compareThreeWay_helper(const
+    #      QCborArray &lhs, const QCborValue &rhs)
+    address = Rituals.call(
+        'ritual_ZN10QCborArray22compareThreeWay_helperERKS_RK10QCborValue',
+        CuteMixin._valueOf(lhs), CuteMixin._valueOf(rhs),
+    )
+    return Qt.strong_ordering._cuteOwning(address)
+
+  @staticmethod
+  @overload(THIS, QCborValueConstRef)
+  def compareThreeWay_helper(
+      lhs: QCborArray,
+      rhs: QCborValueConstRef,
+  ) -> Qt.strong_ordering:
+    """
+    Calls Qt's 'Qt::strong_ordering QCborArray::compareThreeWay_helper(const
+    QCborArray &lhs, QCborValueConstRef rhs)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qcborarray.html#compareThreeWay_helper
+
+    Parameters
+    ----------
+
+    lhs : QCborArray
+      Passed on as a value: Qt reads the C++ QCborArray, which stays Python's
+      own.
+
+    rhs : QCborValueConstRef
+      Passed on as a value: Qt reads the C++ QCborValueConstRef, which stays
+      Python's own.
+
+    Returns
+    -------
+
+    Qt.strong_ordering
+      A new cute Qt::strong_ordering around the copy Qt gave back. Python
+      owns it.
+    """
+    #  Qt::strong_ordering QCborArray::compareThreeWay_helper(const
+    #      QCborArray &lhs, QCborValueConstRef rhs)
+    address = Rituals.call(
+        'ritual_ZN10QCborArray22compareThreeWay_helperERKS_18QCborValueCons'
+        'tRef',
+        CuteMixin._valueOf(lhs), CuteMixin._valueOf(rhs),
+    )
+    return Qt.strong_ordering._cuteOwning(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -2485,3 +2771,113 @@ class QCborArray(CuteMixin, metaclass=MetaCute):
     """
     #  void QCborArray::detach(qsizetype reserve)
     self.uglySide.call('ritual_ZN10QCborArray6detachEx', reserve)
+
+  @staticmethod
+  def begin(*__, **_) -> Never:
+    """
+    - Qt's 'iterator QCborArray::begin()': gives a type Python has no way to
+      take yet.
+    - Qt's 'const_iterator QCborArray::begin() const': gives a type Python
+      has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QCborArray.begin' has no cute function yet. Qt's 'iterator "
+        "QCborArray::begin()': gives a type Python has no way to take yet. "
+        "Qt's 'const_iterator QCborArray::begin() const': gives a type "
+        "Python has no way to take yet.")
+
+  @staticmethod
+  def cbegin(*__, **_) -> Never:
+    """
+    Qt's 'const_iterator QCborArray::cbegin() const': gives a type Python has
+    no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QCborArray.cbegin' has no cute function yet. Qt's 'const_iterator "
+        "QCborArray::cbegin() const': gives a type Python has no way to "
+        "take yet.")
+
+  @staticmethod
+  def cend(*__, **_) -> Never:
+    """
+    Qt's 'const_iterator QCborArray::cend() const': gives a type Python has
+    no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QCborArray.cend' has no cute function yet. Qt's 'const_iterator "
+        "QCborArray::cend() const': gives a type Python has no way to take "
+        "yet.")
+
+  @staticmethod
+  def constBegin(*__, **_) -> Never:
+    """
+    Qt's 'const_iterator QCborArray::constBegin() const': gives a type Python
+    has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QCborArray.constBegin' has no cute function yet. Qt's "
+        "'const_iterator QCborArray::constBegin() const': gives a type "
+        "Python has no way to take yet.")
+
+  @staticmethod
+  def constEnd(*__, **_) -> Never:
+    """
+    Qt's 'const_iterator QCborArray::constEnd() const': gives a type Python
+    has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QCborArray.constEnd' has no cute function yet. Qt's "
+        "'const_iterator QCborArray::constEnd() const': gives a type Python "
+        "has no way to take yet.")
+
+  @staticmethod
+  def end(*__, **_) -> Never:
+    """
+    - Qt's 'iterator QCborArray::end()': gives a type Python has no way to
+      take yet.
+    - Qt's 'const_iterator QCborArray::end() const': gives a type Python has
+      no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QCborArray.end' has no cute function yet. Qt's 'iterator "
+        "QCborArray::end()': gives a type Python has no way to take yet. "
+        "Qt's 'const_iterator QCborArray::end() const': gives a type Python "
+        "has no way to take yet.")
+
+  @staticmethod
+  def erase(*__, **_) -> Never:
+    """
+    - Qt's 'iterator QCborArray::erase(iterator it)': gives a type Python has
+      no way to take yet.
+    - Qt's 'iterator QCborArray::erase(const_iterator it)': gives a type
+      Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QCborArray.erase' has no cute function yet. Qt's 'iterator "
+        "QCborArray::erase(iterator it)': gives a type Python has no way to "
+        "take yet. Qt's 'iterator QCborArray::erase(const_iterator it)': "
+        "gives a type Python has no way to take yet.")
+
+  @staticmethod
+  def swap(*__, **_) -> Never:
+    """
+    Qt's 'void QCborArray::swap(QCborArray &other)': takes a type Python has
+    no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QCborArray.swap' has no cute function yet. Qt's 'void "
+        "QCborArray::swap(QCborArray &other)': takes a type Python has no "
+        "way to hand over yet.")
+
+
+#  Qt's 'QList<QCborArray>': the list of QCborArray, which
+#  'QList[QCborArray]' gives. It is made here, so that there is one as soon
+#  as there can be a QCborArray.
+QList.createKind(
+    QCborArray, 'value',
+    make='ritual_list_make_QCborArray',
+    add='ritual_list_add_QCborArray',
+    size='ritual_list_size_QCborArray',
+    at='ritual_list_at_QCborArray',
+    drop='ritual_list_drop_QCborArray',
+)

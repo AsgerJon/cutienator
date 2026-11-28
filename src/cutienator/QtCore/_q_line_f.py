@@ -346,7 +346,7 @@ class QLineF(CuteMixin, metaclass=MetaCute):
     #      *intersectionPoint) const
     return QLineF.IntersectionType(self.uglySide.call(
         'ritual_ZNK6QLineF10intersectsERKS_P7QPointF',
-        self._valueOf(l), self._addressOf(intersectionPoint),
+        self._valueOf(l), self._addressOf(intersectionPoint, 'QPointF'),
     ))
 
   @overload(float)
@@ -395,7 +395,8 @@ class QLineF(CuteMixin, metaclass=MetaCute):
     """
     #  QLineF QLineF::translated(const QPointF &p) const
     address = self.uglySide.call(
-        'ritual_ZNK6QLineF10translatedERK7QPointF', self._valueOf(p),
+        'ritual_ZNK6QLineF10translatedERK7QPointF',
+        self._valueOf(p, 'QPointF'),
     )
     return QLineF._cuteOwning(address)
 
@@ -511,7 +512,7 @@ class QLineF(CuteMixin, metaclass=MetaCute):
     """
     #  void QLineF::setP1(const QPointF &p1)
     self.uglySide.call(
-        'ritual_ZN6QLineF5setP1ERK7QPointF', self._valueOf(p1),
+        'ritual_ZN6QLineF5setP1ERK7QPointF', self._valueOf(p1, 'QPointF'),
     )
 
   @overload(QPointF)
@@ -530,7 +531,7 @@ class QLineF(CuteMixin, metaclass=MetaCute):
     """
     #  void QLineF::setP2(const QPointF &p2)
     self.uglySide.call(
-        'ritual_ZN6QLineF5setP2ERK7QPointF', self._valueOf(p2),
+        'ritual_ZN6QLineF5setP2ERK7QPointF', self._valueOf(p2, 'QPointF'),
     )
 
   @overload(QPointF, QPointF)
@@ -555,7 +556,7 @@ class QLineF(CuteMixin, metaclass=MetaCute):
     #  void QLineF::setPoints(const QPointF &p1, const QPointF &p2)
     self.uglySide.call(
         'ritual_ZN6QLineF9setPointsERK7QPointFS2_',
-        self._valueOf(p1), self._valueOf(p2),
+        self._valueOf(p1, 'QPointF'), self._valueOf(p2, 'QPointF'),
     )
 
   @overload(float, float, float, float)
@@ -725,7 +726,7 @@ class QLineF(CuteMixin, metaclass=MetaCute):
     #  QLineF::QLineF(const QPointF &pt1, const QPointF &pt2)
     self._noteCreation(QLineF, lambda: Rituals.call(
         'ritual_ZN6QLineFC1ERK7QPointFS2_',
-        self._valueOf(pt1), self._valueOf(pt2),
+        self._valueOf(pt1, 'QPointF'), self._valueOf(pt2, 'QPointF'),
     ))
 
   @overload(float, float, float, float)
@@ -811,7 +812,7 @@ class QLineF(CuteMixin, metaclass=MetaCute):
     """
     #  void QLineF::translate(const QPointF &p)
     self.uglySide.call(
-        'ritual_ZN6QLineF9translateERK7QPointF', self._valueOf(p),
+        'ritual_ZN6QLineF9translateERK7QPointF', self._valueOf(p, 'QPointF'),
     )
 
   @overload(float, float)

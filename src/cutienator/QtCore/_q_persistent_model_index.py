@@ -17,7 +17,7 @@ from ..occult import Rituals
 from . import Qt, QList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from . import QAbstractItemModel, QDebug, QModelIndex, QModelRoleDataSpan
   from . import QVariant
@@ -54,8 +54,25 @@ class QPersistentModelIndex(CuteMixin, metaclass=MetaCute):
   - Qt's 'QPersistentModelIndex::~QPersistentModelIndex()': the destructor:
     Python removes its C++ QPersistentModelIndex by it, and has no other use
     for it.
+  - Qt's 'QPersistentModelIndex &QPersistentModelIndex::operator=(const
+    QPersistentModelIndex &other)': assignment: Python binds a name and has
+    no operator for it.
+  - Qt's 'QPersistentModelIndex::QPersistentModelIndex(QPersistentModelIndex
+    &&other)': takes a type Python has no way to hand over yet.
+  - Qt's 'QPersistentModelIndex
+    &QPersistentModelIndex::operator=(QPersistentModelIndex &&other)':
+    assignment: Python binds a name and has no operator for it.
+  - Qt's 'void QPersistentModelIndex::swap(QPersistentModelIndex &other)':
+    takes a type Python has no way to hand over yet.
+  - Qt's 'QPersistentModelIndex &QPersistentModelIndex::operator=(const
+    QModelIndex &other)': assignment: Python binds a name and has no operator
+    for it.
   - Qt's 'QModelIndex QPersistentModelIndex::operator QModelIndex() const':
     an operator Python has no name for.
+  - Qt's 'void *QPersistentModelIndex::internalPointer() const': gives
+    'void', which has no cute class yet.
+  - Qt's 'const void *QPersistentModelIndex::constInternalPointer() const':
+    gives 'void', which has no cute class yet.
   - Qt's 'bool operator==(const QModelIndex &lhs, const QPersistentModelIndex
     &rhs)': takes in Python what 'bool operator==(const QPersistentModelIndex
     &lhs, const QModelIndex &rhs)' takes.
@@ -75,12 +92,6 @@ class QPersistentModelIndex(CuteMixin, metaclass=MetaCute):
     &rhs)': takes in Python what 'bool operator<=(const QPersistentModelIndex
     &lhs, const QModelIndex &rhs)' takes.
 
-  What has no ritual
-  ------------------
-
-  7 of the 41 functions Qt declares: 7 takes or gives a type that cannot be
-  passed yet.
-
   What to expect
   --------------
 
@@ -93,6 +104,9 @@ class QPersistentModelIndex(CuteMixin, metaclass=MetaCute):
     is as in C++.
   - A function giving a QPersistentModelIndex back gives a copy the ritual
     made for Python, in a new cute QPersistentModelIndex.
+  - Each name of Qt's QPersistentModelIndex that has no cute function yet,
+    'constInternalPointer', 'internalPointer', 'swap', holds a function that
+    raises 'NotImplementedError', and its docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -763,6 +777,40 @@ class QPersistentModelIndex(CuteMixin, metaclass=MetaCute):
         'ritual_ZNK21QPersistentModelIndex9multiDataE18QModelRoleDataSpan',
         self._valueOf(roleDataSpan),
     )
+
+  @staticmethod
+  def constInternalPointer(*__, **_) -> Never:
+    """
+    Qt's 'const void *QPersistentModelIndex::constInternalPointer() const':
+    gives 'void', which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QPersistentModelIndex.constInternalPointer' has no cute function "
+        "yet. Qt's 'const void "
+        "*QPersistentModelIndex::constInternalPointer() const': gives "
+        "'void', which has no cute class yet.")
+
+  @staticmethod
+  def internalPointer(*__, **_) -> Never:
+    """
+    Qt's 'void *QPersistentModelIndex::internalPointer() const': gives
+    'void', which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QPersistentModelIndex.internalPointer' has no cute function yet. "
+        "Qt's 'void *QPersistentModelIndex::internalPointer() const': gives "
+        "'void', which has no cute class yet.")
+
+  @staticmethod
+  def swap(*__, **_) -> Never:
+    """
+    Qt's 'void QPersistentModelIndex::swap(QPersistentModelIndex &other)':
+    takes a type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QPersistentModelIndex.swap' has no cute function yet. Qt's 'void "
+        "QPersistentModelIndex::swap(QPersistentModelIndex &other)': takes "
+        "a type Python has no way to hand over yet.")
 
 
 #  Qt's 'QList<QPersistentModelIndex>': the list of QPersistentModelIndex,

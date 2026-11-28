@@ -15,7 +15,7 @@ from ..cute import CuteMixin, MetaCute
 from ..occult import Rituals
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
 
 class QLoggingCategory(CuteMixin, metaclass=MetaCute):
@@ -44,12 +44,19 @@ class QLoggingCategory(CuteMixin, metaclass=MetaCute):
     enum 'QtMsgType', whose class cannot be named here.
   - Qt's 'void QLoggingCategory::setEnabled(QtMsgType type, bool enable)':
     names the enum 'QtMsgType', whose class cannot be named here.
+  - Qt's 'QLoggingCategory &QLoggingCategory::operator()()': gives a type
+    Python has no way to take yet.
+  - Qt's 'const QLoggingCategory &QLoggingCategory::operator()() const':
+    gives a type Python has no way to take yet.
+  - Qt's 'CategoryFilter QLoggingCategory::installFilter(CategoryFilter a0)':
+    takes a type Python has no way to hand over yet.
+  - Qt's 'QLoggingCategory::QLoggingCategory(UnregisteredInitialization a0,
+    const char *category)': takes a type Python has no way to hand over yet.
 
   What has no ritual
   ------------------
 
-  6 of the 17 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet; 2 forbidden.
+  2 of the 17 functions Qt declares: 2 forbidden.
 
   What to expect
   --------------
@@ -62,6 +69,9 @@ class QLoggingCategory(CuteMixin, metaclass=MetaCute):
     has it, and is passed on as nothing. Whether Qt can do with nothing there
     is as in C++.
   - Python never removes the C++ QLoggingCategory.
+  - Each name of Qt's QLoggingCategory that has no cute function yet,
+    '__init__', 'installFilter', 'isEnabled', 'setEnabled', holds a function
+    that raises 'NotImplementedError', and its docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -209,6 +219,25 @@ class QLoggingCategory(CuteMixin, metaclass=MetaCute):
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  @staticmethod
+  def __init__(*__, **_) -> Never:
+    """
+    - Qt's 'QLoggingCategory::QLoggingCategory(const char *category,
+      QtMsgType severityLevel)': names the enum 'QtMsgType', whose class
+      cannot be named here.
+    - Qt's 'QLoggingCategory::QLoggingCategory(UnregisteredInitialization a0,
+      const char *category)': takes a type Python has no way to hand over
+      yet.
+    """
+    raise NotImplementedError(
+        "'QLoggingCategory.__init__' has no cute function yet. Qt's "
+        "'QLoggingCategory::QLoggingCategory(const char *category, "
+        "QtMsgType severityLevel)': names the enum 'QtMsgType', whose class "
+        "cannot be named here. Qt's "
+        "'QLoggingCategory::QLoggingCategory(UnregisteredInitialization a0, "
+        "const char *category)': takes a type Python has no way to hand "
+        "over yet.")
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -228,3 +257,36 @@ class QLoggingCategory(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def installFilter(*__, **_) -> Never:
+    """
+    Qt's 'CategoryFilter QLoggingCategory::installFilter(CategoryFilter a0)':
+    takes a type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QLoggingCategory.installFilter' has no cute function yet. Qt's "
+        "'CategoryFilter QLoggingCategory::installFilter(CategoryFilter "
+        "a0)': takes a type Python has no way to hand over yet.")
+
+  @staticmethod
+  def isEnabled(*__, **_) -> Never:
+    """
+    Qt's 'bool QLoggingCategory::isEnabled(QtMsgType type) const': names the
+    enum 'QtMsgType', whose class cannot be named here.
+    """
+    raise NotImplementedError(
+        "'QLoggingCategory.isEnabled' has no cute function yet. Qt's 'bool "
+        "QLoggingCategory::isEnabled(QtMsgType type) const': names the enum "
+        "'QtMsgType', whose class cannot be named here.")
+
+  @staticmethod
+  def setEnabled(*__, **_) -> Never:
+    """
+    Qt's 'void QLoggingCategory::setEnabled(QtMsgType type, bool enable)':
+    names the enum 'QtMsgType', whose class cannot be named here.
+    """
+    raise NotImplementedError(
+        "'QLoggingCategory.setEnabled' has no cute function yet. Qt's 'void "
+        "QLoggingCategory::setEnabled(QtMsgType type, bool enable)': names "
+        "the enum 'QtMsgType', whose class cannot be named here.")

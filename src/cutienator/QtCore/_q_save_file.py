@@ -16,9 +16,9 @@ from ..occult import Rituals
 from . import QFileDevice, QIODeviceBase, QObject
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
-  from . import QMetaObject
+  from . import QMetaObject, QSaveFilePrivate
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -37,22 +37,29 @@ class QSaveFile(QFileDevice):
   -----------
 
   Every function of Qt's QSaveFile that has a ritual and that Python can call
-  so far, 11 names in all: 'metaObject', 'tr', 'fileName', 'setFileName',
-  'open', 'commit', 'cancelWriting', 'setDirectWriteFallback',
+  so far, 12 names in all: 'metaObject', 'tr', 'd_func', 'fileName',
+  'setFileName', 'open', 'commit', 'cancelWriting', 'setDirectWriteFallback',
   'directWriteFallback', 'writeData', 'close'. It can be made from Python, in
   2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QSaveFile::qt_metacast(const char *a0)': one of Qt's own
+    inner workings.
+  - Qt's 'int QSaveFile::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
+  - Qt's 'const QSaveFilePrivate *QSaveFile::d_func() const': takes in Python
+    what 'QSaveFilePrivate *QSaveFile::d_func()' takes.
   - Qt's 'QSaveFile::~QSaveFile()': the destructor: Python never removes a
     C++ QSaveFile.
+  - Qt's 'std::filesystem::path QSaveFile::filesystemFileName() const': gives
+    a type Python has no way to take yet.
 
   What has no ritual
   ------------------
 
-  11 of the 25 functions Qt declares: 5 takes or gives a type that cannot be
-  passed yet; 3 a template; 2 forbidden; 1 declared and nowhere to be found.
+  6 of the 25 functions Qt declares: 2 not a gap; 2 a template; 2 forbidden.
 
   What to expect
   --------------
@@ -67,6 +74,9 @@ class QSaveFile(QFileDevice):
   - Qt tells when it has removed the C++ QSaveFile. Every call on the cute
     object, and every use of it as an argument, then raises 'RuntimeError',
     and nothing reaches C++.
+  - Each name of Qt's QSaveFile that has no cute function yet,
+    'filesystemFileName', holds a function that raises 'NotImplementedError',
+    and its docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -305,6 +315,24 @@ class QSaveFile(QFileDevice):
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  def d_func(self) -> Optional[QSaveFilePrivate]:
+    """
+    Calls Qt's 'QSaveFilePrivate *QSaveFile::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qsavefile.html#d_func
+
+    Returns
+    -------
+
+    Optional[QSaveFilePrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QSaveFilePrivate *QSaveFile::d_func()
+    address = self.uglySide.call('ritual_ZN9QSaveFile6d_funcEv')
+    from . import QSaveFilePrivate
+    return QSaveFilePrivate._cuteAt(address)
+
   @overload(QIODeviceBase.OpenMode)
   def open(self, flags: QIODeviceBase.OpenMode) -> bool:
     """
@@ -378,3 +406,14 @@ class QSaveFile(QFileDevice):
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZN9QSaveFile5closeEv'
     self.uglySide.call(ritual)
+
+  @staticmethod
+  def filesystemFileName(*__, **_) -> Never:
+    """
+    Qt's 'std::filesystem::path QSaveFile::filesystemFileName() const': gives
+    a type Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QSaveFile.filesystemFileName' has no cute function yet. Qt's "
+        "'std::filesystem::path QSaveFile::filesystemFileName() const': "
+        "gives a type Python has no way to take yet.")

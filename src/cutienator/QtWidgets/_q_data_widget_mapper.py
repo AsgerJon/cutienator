@@ -49,27 +49,33 @@ class QDataWidgetMapper(QObject):
   -----------
 
   Every function of Qt's QDataWidgetMapper that has a ritual and that Python
-  can call so far, 27 names in all: 'metaObject', 'tr', 'setModel', 'model',
+  can call so far, 28 names in all: 'metaObject', 'tr', 'setModel', 'model',
   'setItemDelegate', 'itemDelegate', 'setRootIndex', 'rootIndex',
   'setOrientation', 'orientation', 'setSubmitPolicy', 'submitPolicy',
   'addMapping', 'removeMapping', 'mappedSection', 'mappedPropertyName',
   'mappedWidgetAt', 'clearMapping', 'currentIndex', 'revert', 'submit',
   'toFirst', 'toLast', 'toNext', 'toPrevious', 'setCurrentIndex',
-  'setCurrentModelIndex'. It can be made from Python, in 1 way; see
-  '__init__'.
+  'setCurrentModelIndex', 'currentIndexChanged'. It can be made from Python,
+  in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QDataWidgetMapper::qt_metacast(const char *a0)': one of Qt's
+    own inner workings.
+  - Qt's 'int QDataWidgetMapper::qt_metacall(QMetaObject::Call a0, int a1,
+    void **a2)': one of Qt's own inner workings.
   - Qt's 'QDataWidgetMapper::~QDataWidgetMapper()': the destructor: Python
     never removes a C++ QDataWidgetMapper.
+  - Qt's 'QDataWidgetMapperPrivate *QDataWidgetMapper::d_func()': gives
+    'QDataWidgetMapperPrivate', which has no cute class yet.
+  - Qt's 'const QDataWidgetMapperPrivate *QDataWidgetMapper::d_func() const':
+    gives 'QDataWidgetMapperPrivate', which has no cute class yet.
 
   What has no ritual
   ------------------
 
-  9 of the 39 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet; 2 forbidden; 1 a template; 1 declared and nowhere to be found;
-  1 a signal.
+  4 of the 39 functions Qt declares: 2 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -757,3 +763,22 @@ class QDataWidgetMapper(QObject):
     """
     #  void QDataWidgetMapper::toPrevious()
     self.uglySide.call('ritual_ZN17QDataWidgetMapper10toPreviousEv')
+
+  @overload(int)
+  def currentIndexChanged(self, index: int) -> None:
+    """
+    Calls Qt's 'void QDataWidgetMapper::currentIndexChanged(int index)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qdatawidgetmapper.html#currentIndexChanged
+
+    Parameters
+    ----------
+
+    index : int
+      Passed on as it is.
+    """
+    #  void QDataWidgetMapper::currentIndexChanged(int index)
+    self.uglySide.call(
+        'ritual_ZN17QDataWidgetMapper19currentIndexChangedEi', index,
+    )

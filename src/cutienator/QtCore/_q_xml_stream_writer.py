@@ -16,9 +16,9 @@ from ..cute import CuteMixin, CuteNum, MetaCute, WAIT
 from ..occult import Rituals
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
-  from . import QByteArray, QIODevice, QXmlStreamAttribute
+  from . import QByteArray, QIODevice, QString, QXmlStreamAttribute
   from . import QXmlStreamAttributes
 else:
   #  The cute classes this file names and is not built on. Each is brought in
@@ -26,6 +26,7 @@ else:
   #  see 'WAIT'.
   QByteArray = WAIT['QByteArray']
   QIODevice = WAIT['QIODevice']
+  QString = WAIT['QString']
   QXmlStreamAttribute = WAIT['QXmlStreamAttribute']
   QXmlStreamAttributes = WAIT['QXmlStreamAttributes']
 
@@ -51,21 +52,24 @@ class QXmlStreamWriter(CuteMixin, metaclass=MetaCute):
   'writeEndDocument', 'writeEndElement', 'writeEntityReference',
   'writeNamespace', 'writeDefaultNamespace', 'writeProcessingInstruction',
   'writeStartDocument', 'writeStartElement', 'raiseError', 'errorString',
-  'error', 'hasError'. It can be made from Python, in 3 ways; see '__init__'.
+  'error', 'hasError'. It can be made from Python, in 4 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
-  - Qt's 'QXmlStreamWriter::QXmlStreamWriter(QString *string)': names
-    'QString', which has no cute class yet.
   - Qt's 'QXmlStreamWriter::~QXmlStreamWriter()': the destructor: Python
     never removes a C++ QXmlStreamWriter.
+  - Qt's 'void QXmlStreamWriter::writeCurrentToken(const QXmlStreamReader
+    &reader)': takes a type Python has no way to hand over yet.
+  - Qt's 'QXmlStreamWriterPrivate *QXmlStreamWriter::d_func()': gives
+    'QXmlStreamWriterPrivate', which has no cute class yet.
+  - Qt's 'const QXmlStreamWriterPrivate *QXmlStreamWriter::d_func() const':
+    gives 'QXmlStreamWriterPrivate', which has no cute class yet.
 
   What has no ritual
   ------------------
 
-  5 of the 45 functions Qt declares: 3 takes or gives a type that cannot be
-  passed yet; 2 forbidden.
+  2 of the 45 functions Qt declares: 2 forbidden.
 
   What to expect
   --------------
@@ -78,6 +82,9 @@ class QXmlStreamWriter(CuteMixin, metaclass=MetaCute):
     has it, and is passed on as nothing. Whether Qt can do with nothing there
     is as in C++.
   - Python never removes the C++ QXmlStreamWriter.
+  - Each name of Qt's QXmlStreamWriter that has no cute function yet,
+    'd_func', 'writeCurrentToken', holds a function that raises
+    'NotImplementedError', and its docstring says why.
   """
 
   #  The enums Qt writes inside QXmlStreamWriter, each a class in here as in
@@ -370,6 +377,28 @@ class QXmlStreamWriter(CuteMixin, metaclass=MetaCute):
     self._noteCreation(QXmlStreamWriter, lambda: Rituals.call(
         'ritual_ZN16QXmlStreamWriterC1EP10QByteArray',
         self._addressOf(array),
+    ))
+
+  @overload(QString)
+  def __init__(self, string: Optional[QString]) -> None:
+    """
+    Notes what was given, for Qt's
+    'QXmlStreamWriter::QXmlStreamWriter(QString *string)', which is called at
+    the first use.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qxmlstreamwriter.html#QXmlStreamWriter
+
+    Parameters
+    ----------
+
+    string : Optional[QString]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  QXmlStreamWriter::QXmlStreamWriter(QString *string)
+    self._noteCreation(QXmlStreamWriter, lambda: Rituals.call(
+        'ritual_ZN16QXmlStreamWriterC1EP7QString', self._addressOf(string),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -912,3 +941,30 @@ class QXmlStreamWriter(CuteMixin, metaclass=MetaCute):
     self.uglySide.call(
         'ritual_ZN16QXmlStreamWriter10raiseErrorE14QAnyStringView', message,
     )
+
+  @staticmethod
+  def d_func(*__, **_) -> Never:
+    """
+    - Qt's 'QXmlStreamWriterPrivate *QXmlStreamWriter::d_func()': gives
+      'QXmlStreamWriterPrivate', which has no cute class yet.
+    - Qt's 'const QXmlStreamWriterPrivate *QXmlStreamWriter::d_func() const':
+      gives 'QXmlStreamWriterPrivate', which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QXmlStreamWriter.d_func' has no cute function yet. Qt's "
+        "'QXmlStreamWriterPrivate *QXmlStreamWriter::d_func()': gives "
+        "'QXmlStreamWriterPrivate', which has no cute class yet. Qt's "
+        "'const QXmlStreamWriterPrivate *QXmlStreamWriter::d_func() const': "
+        "gives 'QXmlStreamWriterPrivate', which has no cute class yet.")
+
+  @staticmethod
+  def writeCurrentToken(*__, **_) -> Never:
+    """
+    Qt's 'void QXmlStreamWriter::writeCurrentToken(const QXmlStreamReader
+    &reader)': takes a type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QXmlStreamWriter.writeCurrentToken' has no cute function yet. "
+        "Qt's 'void QXmlStreamWriter::writeCurrentToken(const "
+        "QXmlStreamReader &reader)': takes a type Python has no way to hand "
+        "over yet.")

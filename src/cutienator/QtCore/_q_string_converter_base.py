@@ -14,6 +14,9 @@ from worktoy.dispatch import overload
 from ..cute import CuteMixin, CuteFlags, MetaCute
 from ..occult import Rituals
 
+if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Never
+
 
 class QStringConverterBase(CuteMixin, metaclass=MetaCute):
   """
@@ -31,12 +34,11 @@ class QStringConverterBase(CuteMixin, metaclass=MetaCute):
 
   - Qt's 'QStringConverterBase::~QStringConverterBase()': the destructor:
     Python never removes a C++ QStringConverterBase.
-
-  What has no ritual
-  ------------------
-
-  2 of the 4 functions Qt declares: 2 takes or gives a type that cannot be
-  passed yet.
+  - Qt's 'QStringConverterBase::QStringConverterBase(QStringConverterBase
+    &&a0)': takes a type Python has no way to hand over yet.
+  - Qt's 'QStringConverterBase
+    &QStringConverterBase::operator=(QStringConverterBase &&a0)': assignment:
+    Python binds a name and has no operator for it.
 
   What to expect
   --------------
@@ -94,12 +96,15 @@ class QStringConverterBase(CuteMixin, metaclass=MetaCute):
       'QStringConverterBase::Flag', whose class cannot be named here.
     - Qt's 'QStringConverterBase::State::~State()': the destructor: Python
       never removes a C++ QStringConverterBase::State.
+    - Qt's 'QStringConverterBase::State::State(State &&other)': takes a type
+      Python has no way to hand over yet.
+    - Qt's 'State &QStringConverterBase::State::operator=(State &&other)':
+      assignment: Python binds a name and has no operator for it.
 
     What has no ritual
     ------------------
 
-    4 of the 8 functions Qt declares: 2 takes or gives a type that cannot be
-    passed yet; 2 forbidden.
+    2 of the 8 functions Qt declares: 2 forbidden.
 
     What to expect
     --------------
@@ -112,6 +117,9 @@ class QStringConverterBase(CuteMixin, metaclass=MetaCute):
       has it, and is passed on as nothing. Whether Qt can do with nothing
       there is as in C++.
     - Python never removes the C++ QStringConverterBase::State.
+    - Each name of Qt's QStringConverterBase::State that has no cute function
+      yet, '__init__', holds a function that raises 'NotImplementedError',
+      and its docstring says why.
     """
 
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -153,6 +161,21 @@ class QStringConverterBase(CuteMixin, metaclass=MetaCute):
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    @staticmethod
+    def __init__(*__, **_) -> Never:
+      """
+      - Qt's 'QStringConverterBase::State::State(Flags f)': names the enum
+        'QStringConverterBase::Flag', whose class cannot be named here.
+      - Qt's 'QStringConverterBase::State::State(State &&other)': takes a
+        type Python has no way to hand over yet.
+      """
+      raise NotImplementedError(
+          "'QStringConverterBase.State.__init__' has no cute function yet. "
+          "Qt's 'QStringConverterBase::State::State(Flags f)': names the "
+          "enum 'QStringConverterBase::Flag', whose class cannot be named "
+          "here. Qt's 'QStringConverterBase::State::State(State &&other)': "
+          "takes a type Python has no way to hand over yet.")
 
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # #

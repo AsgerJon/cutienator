@@ -12,9 +12,23 @@ from typing import TYPE_CHECKING
 from worktoy.dispatch import overload
 from worktoy.keenum import Kee
 
-from ..cute import CuteNum
+from ..cute import CuteMixin, CuteNum, WAIT
 from ..occult import Rituals
 from . import QBasicReadWriteLock
+
+if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Never, Optional
+
+  from . import QReadWriteLockPrivate
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QReadWriteLockPrivate = WAIT['QReadWriteLockPrivate']
+
+#  The class of None, for a signature that takes None in the place of an
+#  object or of text.
+NoneType = type(None)
 
 
 class QReadWriteLock(QBasicReadWriteLock):
@@ -29,20 +43,19 @@ class QReadWriteLock(QBasicReadWriteLock):
   -----------
 
   Every function of Qt's QReadWriteLock that has a ritual and that Python can
-  call so far, 2 names in all: 'tryLockForRead', 'tryLockForWrite'. It can be
-  made from Python, in 1 way; see '__init__'.
+  call so far, 4 names in all: 'tryLockForRead', 'tryLockForWrite',
+  'initRecursiveInline', 'destroyRecursiveInline'. It can be made from
+  Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
   - Qt's 'QReadWriteLock::~QReadWriteLock()': the destructor: Python never
     removes a C++ QReadWriteLock.
-
-  What has no ritual
-  ------------------
-
-  4 of the 8 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet.
+  - Qt's 'void *QReadWriteLock::initRecursiveHelper()': gives 'void', which
+    has no cute class yet.
+  - Qt's 'void QReadWriteLock::destroyRecursiveHelper(void *a0)': names
+    'void', which has no cute class yet.
 
   What to expect
   --------------
@@ -55,6 +68,9 @@ class QReadWriteLock(QBasicReadWriteLock):
     has it, and is passed on as nothing. Whether Qt can do with nothing there
     is as in C++.
   - Python never removes the C++ QReadWriteLock.
+  - Each name of Qt's QReadWriteLock that has no cute function yet,
+    'destroyRecursiveHelper', 'initRecursiveHelper', holds a function that
+    raises 'NotImplementedError', and its docstring says why.
   """
 
   #  The enums Qt writes inside QReadWriteLock, each a class in here as in
@@ -72,6 +88,54 @@ class QReadWriteLock(QBasicReadWriteLock):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def initRecursiveInline() -> Optional[QReadWriteLockPrivate]:
+    """
+    Calls Qt's 'QReadWriteLockPrivate
+    *QReadWriteLock::initRecursiveInline()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qreadwritelock.html#initRecursiveInline
+
+    Returns
+    -------
+
+    Optional[QReadWriteLockPrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QReadWriteLockPrivate *QReadWriteLock::initRecursiveInline()
+    address = Rituals.call(
+        'ritual_ZN14QReadWriteLock19initRecursiveInlineEv',
+    )
+    from . import QReadWriteLockPrivate
+    return QReadWriteLockPrivate._cuteAt(address)
+
+  @staticmethod
+  @overload(QReadWriteLockPrivate)
+  @overload(NoneType)
+  def destroyRecursiveInline(d: Optional[QReadWriteLockPrivate]) -> None:
+    """
+    Calls Qt's 'void
+    QReadWriteLock::destroyRecursiveInline(QReadWriteLockPrivate *d)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qreadwritelock.html#destroyRecursiveInline
+
+    Parameters
+    ----------
+
+    d : Optional[QReadWriteLockPrivate]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QReadWriteLock::destroyRecursiveInline(QReadWriteLockPrivate *d)
+    Rituals.call(
+        'ritual_ZN14QReadWriteLock22destroyRecursiveInlineEP21QReadWriteLoc'
+        'kPrivate',
+        CuteMixin._addressOf(d),
+    )
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -191,3 +255,25 @@ class QReadWriteLock(QBasicReadWriteLock):
     return self.uglySide.call(
         'ritual_ZN14QReadWriteLock15tryLockForWriteEi', timeout,
     )
+
+  @staticmethod
+  def destroyRecursiveHelper(*__, **_) -> Never:
+    """
+    Qt's 'void QReadWriteLock::destroyRecursiveHelper(void *a0)': names
+    'void', which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QReadWriteLock.destroyRecursiveHelper' has no cute function yet. "
+        "Qt's 'void QReadWriteLock::destroyRecursiveHelper(void *a0)': "
+        "names 'void', which has no cute class yet.")
+
+  @staticmethod
+  def initRecursiveHelper(*__, **_) -> Never:
+    """
+    Qt's 'void *QReadWriteLock::initRecursiveHelper()': gives 'void', which
+    has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QReadWriteLock.initRecursiveHelper' has no cute function yet. "
+        "Qt's 'void *QReadWriteLock::initRecursiveHelper()': gives 'void', "
+        "which has no cute class yet.")

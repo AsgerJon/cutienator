@@ -23,14 +23,14 @@ from ..QtGui import QAbstractTextDocumentLayout, QClipboard, QInputControl
 from ..QtGui import QTextCursor, QTextDocument
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from ..QtCore import QEvent, QMetaObject, QMimeData, QPointF, QRectF
   from ..QtCore import QRegularExpression, QSizeF, QTimerEvent, QUrl
   from ..QtCore import QVariant
   from ..QtGui import QPagedPaintDevice, QPainter, QPalette, QTextBlock
   from ..QtGui import QTextCharFormat, QTransform
-  from . import QMenu, QWidget
+  from . import QMenu, QWidget, QWidgetTextControlPrivate
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -43,6 +43,7 @@ else:
   QPointF = WAIT['QPointF']
   QRectF = WAIT['QRectF']
   QRegularExpression = WAIT['QRegularExpression']
+  QSizeF = WAIT['QSizeF']
   QTextBlock = WAIT['QTextBlock']
   QTextCharFormat = WAIT['QTextCharFormat']
   QTimerEvent = WAIT['QTimerEvent']
@@ -68,25 +69,30 @@ class QWidgetTextControl(QInputControl):
   -----------
 
   Every function of Qt's QWidgetTextControl that has a ritual and that Python
-  can call so far, 80 names in all: 'metaObject', 'tr', 'setDocument',
-  'document', 'setTextCursor', 'textCursor', 'setTextInteractionFlags',
-  'textInteractionFlags', 'mergeCurrentCharFormat', 'setCurrentCharFormat',
-  'currentCharFormat', 'find', 'toPlainText', 'toHtml', 'toMarkdown',
-  'ensureCursorVisible', 'loadResource', 'createStandardContextMenu',
-  'cursorForPosition', 'cursorRect', 'selectionRect', 'anchorAt',
-  'anchorPosition', 'anchorAtCursor', 'blockWithMarkerAt', 'overwriteMode',
-  'setOverwriteMode', 'cursorWidth', 'setCursorWidth', 'acceptRichText',
-  'setAcceptRichText', 'setTextWidth', 'textWidth', 'size',
-  'setOpenExternalLinks', 'openExternalLinks',
-  'setIgnoreUnusedNavigationEvents', 'ignoreUnusedNavigationEvents',
-  'moveCursor', 'canPaste', 'setCursorIsFocusIndicator',
-  'cursorIsFocusIndicator', 'setDragEnabled', 'isDragEnabled',
-  'isWordSelectionEnabled', 'setWordSelectionEnabled', 'isPreediting',
-  'print', 'hitTest', 'blockBoundingRect', 'getPaintContext', 'setPlainText',
-  'setMarkdown', 'setHtml', 'cut', 'copy', 'paste', 'undo', 'redo', 'clear',
-  'selectAll', 'insertPlainText', 'insertHtml', 'append', 'appendHtml',
-  'appendPlainText', 'adjustSize', 'palette', 'setPalette', 'processEvent',
-  'drawContents', 'setFocus', 'inputMethodQuery',
+  can call so far, 97 names in all: 'metaObject', 'tr', 'd_func',
+  'setDocument', 'document', 'setTextCursor', 'textCursor',
+  'setTextInteractionFlags', 'textInteractionFlags',
+  'mergeCurrentCharFormat', 'setCurrentCharFormat', 'currentCharFormat',
+  'find', 'toPlainText', 'toHtml', 'toMarkdown', 'ensureCursorVisible',
+  'loadResource', 'createStandardContextMenu', 'cursorForPosition',
+  'cursorRect', 'selectionRect', 'anchorAt', 'anchorPosition',
+  'anchorAtCursor', 'blockWithMarkerAt', 'overwriteMode', 'setOverwriteMode',
+  'cursorWidth', 'setCursorWidth', 'acceptRichText', 'setAcceptRichText',
+  'setTextWidth', 'textWidth', 'size', 'setOpenExternalLinks',
+  'openExternalLinks', 'setIgnoreUnusedNavigationEvents',
+  'ignoreUnusedNavigationEvents', 'moveCursor', 'canPaste',
+  'setCursorIsFocusIndicator', 'cursorIsFocusIndicator', 'setDragEnabled',
+  'isDragEnabled', 'isWordSelectionEnabled', 'setWordSelectionEnabled',
+  'isPreediting', 'print', 'hitTest', 'blockBoundingRect', 'getPaintContext',
+  'setPlainText', 'setMarkdown', 'setHtml', 'cut', 'copy', 'paste', 'undo',
+  'redo', 'clear', 'selectAll', 'insertPlainText', 'insertHtml', 'append',
+  'appendHtml', 'appendPlainText', 'adjustSize', 'textChanged',
+  'undoAvailable', 'redoAvailable', 'currentCharFormatChanged',
+  'copyAvailable', 'selectionChanged', 'cursorPositionChanged',
+  'updateRequest', 'documentSizeChanged', 'blockCountChanged',
+  'visibilityRequest', 'microFocusChanged', 'linkActivated', 'linkHovered',
+  'blockMarkerHovered', 'modificationChanged', 'palette', 'setPalette',
+  'processEvent', 'drawContents', 'setFocus', 'inputMethodQuery',
   'createMimeDataFromSelection', 'canInsertFromMimeData',
   'insertFromMimeData', 'setFocusToAnchor', 'setFocusToNextOrPreviousAnchor',
   'timerEvent', 'event'. It can be made from Python, in 3 ways; see
@@ -95,15 +101,29 @@ class QWidgetTextControl(QInputControl):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QWidgetTextControl::qt_metacast(const char *a0)': one of Qt's
+    own inner workings.
+  - Qt's 'int QWidgetTextControl::qt_metacall(QMetaObject::Call a0, int a1,
+    void **a2)': one of Qt's own inner workings.
+  - Qt's 'const QWidgetTextControlPrivate *QWidgetTextControl::d_func()
+    const': takes in Python what 'QWidgetTextControlPrivate
+    *QWidgetTextControl::d_func()' takes.
   - Qt's 'QWidgetTextControl::~QWidgetTextControl()': the destructor: Python
     never removes a C++ QWidgetTextControl.
+  - Qt's 'void QWidgetTextControl::setExtraSelections(const
+    QList<QTextEdit::ExtraSelection> &selections)': takes a type Python has
+    no way to hand over yet.
+  - Qt's 'QList<QTextEdit::ExtraSelection>
+    QWidgetTextControl::extraSelections() const': gives a type Python has no
+    way to take yet.
+  - Qt's 'bool QWidgetTextControl::findNextPrevAnchor(const QTextCursor
+    &from, bool next, QTextCursor &newAnchor)': takes a type Python has no
+    way to hand over yet.
 
   What has no ritual
   ------------------
 
-  29 of the 117 functions Qt declares: 16 a signal; 7 takes or gives a type
-  that cannot be passed yet; 4 forbidden; 1 a template; 1 declared and
-  nowhere to be found.
+  6 of the 117 functions Qt declares: 4 forbidden; 2 not a gap.
 
   What to expect
   --------------
@@ -119,6 +139,9 @@ class QWidgetTextControl(QInputControl):
   - Qt tells when it has removed the C++ QWidgetTextControl. Every call on
     the cute object, and every use of it as an argument, then raises
     'RuntimeError', and nothing reaches C++.
+  - Each name of Qt's QWidgetTextControl that has no cute function yet,
+    'extraSelections', 'findNextPrevAnchor', 'setExtraSelections', holds a
+    function that raises 'NotImplementedError', and its docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -465,7 +488,7 @@ class QWidgetTextControl(QInputControl):
     #      const
     address = self.uglySide.call(
         'ritual_ZNK18QWidgetTextControl17cursorForPositionERK7QPointF',
-        self._valueOf(pos),
+        self._valueOf(pos, 'QPointF'),
     )
     return QTextCursor._cuteOwning(address)
 
@@ -595,7 +618,7 @@ class QWidgetTextControl(QInputControl):
     ritual = 'ritual_ZNK18QWidgetTextControl8anchorAtERK7QPointF'
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZNK18QWidgetTextControl8anchorAtERK7QPointF'
-    return self.uglySide.call(ritual, self._valueOf(pos))
+    return self.uglySide.call(ritual, self._valueOf(pos, 'QPointF'))
 
   @overload(str)
   def anchorPosition(self, name: str) -> QPointF:
@@ -669,7 +692,7 @@ class QWidgetTextControl(QInputControl):
     #      const
     address = self.uglySide.call(
         'ritual_ZNK18QWidgetTextControl17blockWithMarkerAtERK7QPointF',
-        self._valueOf(pos),
+        self._valueOf(pos, 'QPointF'),
     )
     from ..QtGui import QTextBlock
     return QTextBlock._cuteOwning(address)
@@ -833,7 +856,9 @@ class QWidgetTextControl(QInputControl):
       ritual = (
           'ritual_own_ZNK18QWidgetTextControl7hitTestERK7QPointFN2Qt15HitTe'
           'stAccuracyE')
-    return self.uglySide.call(ritual, self._valueOf(point), accuracy.value)
+    return self.uglySide.call(
+        ritual, self._valueOf(point, 'QPointF'), accuracy.value,
+    )
 
   @overload(QTextBlock)
   def blockBoundingRect(self, block: QTextBlock) -> QRectF:
@@ -1569,6 +1594,24 @@ class QWidgetTextControl(QInputControl):
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  def d_func(self) -> Optional[QWidgetTextControlPrivate]:
+    """
+    Calls Qt's 'QWidgetTextControlPrivate *QWidgetTextControl::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qwidgettextcontrol.html#d_func
+
+    Returns
+    -------
+
+    Optional[QWidgetTextControlPrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QWidgetTextControlPrivate *QWidgetTextControl::d_func()
+    address = self.uglySide.call('ritual_ZN18QWidgetTextControl6d_funcEv')
+    from . import QWidgetTextControlPrivate
+    return QWidgetTextControlPrivate._cuteAt(address)
+
   @overload(QTextCharFormat)
   def mergeCurrentCharFormat(self, modifier: QTextCharFormat) -> None:
     """
@@ -1738,7 +1781,7 @@ class QWidgetTextControl(QInputControl):
     address = self.uglySide.call(
         'ritual_ZN18QWidgetTextControl25createStandardContextMenuERK7QPoint'
         'FP7QWidget',
-        self._valueOf(pos), self._addressOf(parent),
+        self._valueOf(pos, 'QPointF'), self._addressOf(parent),
     )
     from . import QMenu
     return QMenu._cuteAt(address)
@@ -1987,6 +2030,291 @@ class QWidgetTextControl(QInputControl):
     #  void QWidgetTextControl::adjustSize()
     self.uglySide.call('ritual_ZN18QWidgetTextControl10adjustSizeEv')
 
+  def textChanged(self) -> None:
+    """
+    Calls Qt's 'void QWidgetTextControl::textChanged()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qwidgettextcontrol.html#textChanged
+    """
+    #  void QWidgetTextControl::textChanged()
+    self.uglySide.call('ritual_ZN18QWidgetTextControl11textChangedEv')
+
+  @overload(bool)
+  def undoAvailable(self, b: bool) -> None:
+    """
+    Calls Qt's 'void QWidgetTextControl::undoAvailable(bool b)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qwidgettextcontrol.html#undoAvailable
+
+    Parameters
+    ----------
+
+    b : bool
+      Passed on as it is.
+    """
+    #  void QWidgetTextControl::undoAvailable(bool b)
+    self.uglySide.call('ritual_ZN18QWidgetTextControl13undoAvailableEb', b)
+
+  @overload(bool)
+  def redoAvailable(self, b: bool) -> None:
+    """
+    Calls Qt's 'void QWidgetTextControl::redoAvailable(bool b)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qwidgettextcontrol.html#redoAvailable
+
+    Parameters
+    ----------
+
+    b : bool
+      Passed on as it is.
+    """
+    #  void QWidgetTextControl::redoAvailable(bool b)
+    self.uglySide.call('ritual_ZN18QWidgetTextControl13redoAvailableEb', b)
+
+  @overload(QTextCharFormat)
+  def currentCharFormatChanged(self, format: QTextCharFormat) -> None:
+    """
+    Calls Qt's 'void QWidgetTextControl::currentCharFormatChanged(const
+    QTextCharFormat &format)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qwidgettextcontrol.html#currentCharFormatChanged
+
+    Parameters
+    ----------
+
+    format : QTextCharFormat
+      Passed on as a value: Qt reads the C++ QTextCharFormat, which stays
+      Python's own.
+    """
+    #  void QWidgetTextControl::currentCharFormatChanged(const
+    #      QTextCharFormat &format)
+    self.uglySide.call(
+        'ritual_ZN18QWidgetTextControl24currentCharFormatChangedERK15QTextC'
+        'harFormat',
+        self._valueOf(format),
+    )
+
+  @overload(bool)
+  def copyAvailable(self, b: bool) -> None:
+    """
+    Calls Qt's 'void QWidgetTextControl::copyAvailable(bool b)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qwidgettextcontrol.html#copyAvailable
+
+    Parameters
+    ----------
+
+    b : bool
+      Passed on as it is.
+    """
+    #  void QWidgetTextControl::copyAvailable(bool b)
+    self.uglySide.call('ritual_ZN18QWidgetTextControl13copyAvailableEb', b)
+
+  def selectionChanged(self) -> None:
+    """
+    Calls Qt's 'void QWidgetTextControl::selectionChanged()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qwidgettextcontrol.html#selectionChanged
+    """
+    #  void QWidgetTextControl::selectionChanged()
+    self.uglySide.call('ritual_ZN18QWidgetTextControl16selectionChangedEv')
+
+  def cursorPositionChanged(self) -> None:
+    """
+    Calls Qt's 'void QWidgetTextControl::cursorPositionChanged()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qwidgettextcontrol.html#cursorPositionChanged
+    """
+    #  void QWidgetTextControl::cursorPositionChanged()
+    self.uglySide.call(
+        'ritual_ZN18QWidgetTextControl21cursorPositionChangedEv',
+    )
+
+  @overload()
+  @overload(QRectF)
+  def updateRequest(self, rect: Optional[QRectF] = None) -> None:
+    """
+    Calls Qt's 'void QWidgetTextControl::updateRequest(const QRectF &rect)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qwidgettextcontrol.html#updateRequest
+
+    Parameters
+    ----------
+
+    rect : Optional[QRectF]
+      Passed on as a value: Qt reads the C++ QRectF, which stays Python's
+      own. May be left out, as in Qt: a new 'QRectF()' is then passed on.
+    """
+    #  void QWidgetTextControl::updateRequest(const QRectF &rect)
+    if rect is None:
+      from ..QtCore import QRectF
+      rect = QRectF()
+    self.uglySide.call(
+        'ritual_ZN18QWidgetTextControl13updateRequestERK6QRectF',
+        self._valueOf(rect),
+    )
+
+  @overload(QSizeF)
+  def documentSizeChanged(self, a0: QSizeF) -> None:
+    """
+    Calls Qt's 'void QWidgetTextControl::documentSizeChanged(const QSizeF
+    &a0)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qwidgettextcontrol.html#documentSizeChanged
+
+    Parameters
+    ----------
+
+    a0 : QSizeF
+      Passed on as a value: Qt reads the C++ QSizeF, which stays Python's
+      own.
+    """
+    #  void QWidgetTextControl::documentSizeChanged(const QSizeF &a0)
+    self.uglySide.call(
+        'ritual_ZN18QWidgetTextControl19documentSizeChangedERK6QSizeF',
+        self._valueOf(a0),
+    )
+
+  @overload(int)
+  def blockCountChanged(self, newBlockCount: int) -> None:
+    """
+    Calls Qt's 'void QWidgetTextControl::blockCountChanged(int
+    newBlockCount)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qwidgettextcontrol.html#blockCountChanged
+
+    Parameters
+    ----------
+
+    newBlockCount : int
+      Passed on as it is.
+    """
+    #  void QWidgetTextControl::blockCountChanged(int newBlockCount)
+    self.uglySide.call(
+        'ritual_ZN18QWidgetTextControl17blockCountChangedEi', newBlockCount,
+    )
+
+  @overload(QRectF)
+  def visibilityRequest(self, rect: QRectF) -> None:
+    """
+    Calls Qt's 'void QWidgetTextControl::visibilityRequest(const QRectF
+    &rect)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qwidgettextcontrol.html#visibilityRequest
+
+    Parameters
+    ----------
+
+    rect : QRectF
+      Passed on as a value: Qt reads the C++ QRectF, which stays Python's
+      own.
+    """
+    #  void QWidgetTextControl::visibilityRequest(const QRectF &rect)
+    self.uglySide.call(
+        'ritual_ZN18QWidgetTextControl17visibilityRequestERK6QRectF',
+        self._valueOf(rect),
+    )
+
+  def microFocusChanged(self) -> None:
+    """
+    Calls Qt's 'void QWidgetTextControl::microFocusChanged()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qwidgettextcontrol.html#microFocusChanged
+    """
+    #  void QWidgetTextControl::microFocusChanged()
+    self.uglySide.call('ritual_ZN18QWidgetTextControl17microFocusChangedEv')
+
+  @overload(str)
+  def linkActivated(self, link: str) -> None:
+    """
+    Calls Qt's 'void QWidgetTextControl::linkActivated(const QString &link)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qwidgettextcontrol.html#linkActivated
+
+    Parameters
+    ----------
+
+    link : str
+      Passed on as it is: a QString is made of it for the call.
+    """
+    #  void QWidgetTextControl::linkActivated(const QString &link)
+    self.uglySide.call(
+        'ritual_ZN18QWidgetTextControl13linkActivatedERK7QString', link,
+    )
+
+  @overload(str)
+  def linkHovered(self, a0: str) -> None:
+    """
+    Calls Qt's 'void QWidgetTextControl::linkHovered(const QString &a0)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qwidgettextcontrol.html#linkHovered
+
+    Parameters
+    ----------
+
+    a0 : str
+      Passed on as it is: a QString is made of it for the call.
+    """
+    #  void QWidgetTextControl::linkHovered(const QString &a0)
+    self.uglySide.call(
+        'ritual_ZN18QWidgetTextControl11linkHoveredERK7QString', a0,
+    )
+
+  @overload(QTextBlock)
+  def blockMarkerHovered(self, block: QTextBlock) -> None:
+    """
+    Calls Qt's 'void QWidgetTextControl::blockMarkerHovered(const QTextBlock
+    &block)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qwidgettextcontrol.html#blockMarkerHovered
+
+    Parameters
+    ----------
+
+    block : QTextBlock
+      Passed on as a value: Qt reads the C++ QTextBlock, which stays Python's
+      own.
+    """
+    #  void QWidgetTextControl::blockMarkerHovered(const QTextBlock &block)
+    self.uglySide.call(
+        'ritual_ZN18QWidgetTextControl18blockMarkerHoveredERK10QTextBlock',
+        self._valueOf(block),
+    )
+
+  @overload(bool)
+  def modificationChanged(self, m: bool) -> None:
+    """
+    Calls Qt's 'void QWidgetTextControl::modificationChanged(bool m)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qwidgettextcontrol.html#modificationChanged
+
+    Parameters
+    ----------
+
+    m : bool
+      Passed on as it is.
+    """
+    #  void QWidgetTextControl::modificationChanged(bool m)
+    self.uglySide.call(
+        'ritual_ZN18QWidgetTextControl19modificationChangedEb', m,
+    )
+
   @overload(QEvent, QTransform)
   @overload(NoneType, QTransform)
   @overload(QEvent, QTransform, QWidget)
@@ -2080,7 +2408,7 @@ class QWidgetTextControl(QInputControl):
     self.uglySide.call(
         'ritual_ZN18QWidgetTextControl12processEventEP6QEventRK7QPointFP7QW'
         'idget',
-        self._addressOf(e), self._valueOf(coordinateOffset),
+        self._addressOf(e), self._valueOf(coordinateOffset, 'QPointF'),
         self._addressOf(contextWidget),
     )
 
@@ -2198,3 +2526,42 @@ class QWidgetTextControl(QInputControl):
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZN18QWidgetTextControl5eventEP6QEvent'
     return self.uglySide.call(ritual, self._addressOf(e))
+
+  @staticmethod
+  def extraSelections(*__, **_) -> Never:
+    """
+    Qt's 'QList<QTextEdit::ExtraSelection>
+    QWidgetTextControl::extraSelections() const': gives a type Python has no
+    way to take yet.
+    """
+    raise NotImplementedError(
+        "'QWidgetTextControl.extraSelections' has no cute function yet. "
+        "Qt's 'QList<QTextEdit::ExtraSelection> "
+        "QWidgetTextControl::extraSelections() const': gives a type Python "
+        "has no way to take yet.")
+
+  @staticmethod
+  def findNextPrevAnchor(*__, **_) -> Never:
+    """
+    Qt's 'bool QWidgetTextControl::findNextPrevAnchor(const QTextCursor
+    &from, bool next, QTextCursor &newAnchor)': takes a type Python has no
+    way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QWidgetTextControl.findNextPrevAnchor' has no cute function yet. "
+        "Qt's 'bool QWidgetTextControl::findNextPrevAnchor(const "
+        "QTextCursor &from, bool next, QTextCursor &newAnchor)': takes a "
+        "type Python has no way to hand over yet.")
+
+  @staticmethod
+  def setExtraSelections(*__, **_) -> Never:
+    """
+    Qt's 'void QWidgetTextControl::setExtraSelections(const
+    QList<QTextEdit::ExtraSelection> &selections)': takes a type Python has
+    no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QWidgetTextControl.setExtraSelections' has no cute function yet. "
+        "Qt's 'void QWidgetTextControl::setExtraSelections(const "
+        "QList<QTextEdit::ExtraSelection> &selections)': takes a type "
+        "Python has no way to hand over yet.")

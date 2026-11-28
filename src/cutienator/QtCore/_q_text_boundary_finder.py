@@ -16,6 +16,9 @@ from worktoy.keenum import Kee
 from ..cute import CuteMixin, CuteFlags, CuteNum, MetaCute
 from ..occult import Rituals
 
+if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Never
+
 
 class QTextBoundaryFinder(CuteMixin, metaclass=MetaCute):
   """
@@ -38,21 +41,25 @@ class QTextBoundaryFinder(CuteMixin, metaclass=MetaCute):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'QTextBoundaryFinder::QTextBoundaryFinder(QTextBoundaryFinder
+    &&other)': takes a type Python has no way to hand over yet.
+  - Qt's 'QTextBoundaryFinder &QTextBoundaryFinder::operator=(const
+    QTextBoundaryFinder &other)': assignment: Python binds a name and has no
+    operator for it.
+  - Qt's 'QTextBoundaryFinder
+    &QTextBoundaryFinder::operator=(QTextBoundaryFinder &&other)':
+    assignment: Python binds a name and has no operator for it.
   - Qt's 'QTextBoundaryFinder::~QTextBoundaryFinder()': the destructor:
     Python removes its C++ QTextBoundaryFinder by it, and has no other use
     for it.
+  - Qt's 'void QTextBoundaryFinder::swap(QTextBoundaryFinder &other)': takes
+    a type Python has no way to hand over yet.
   - Qt's 'QTextBoundaryFinder::QTextBoundaryFinder(BoundaryType type, const
     QChar *chars, qsizetype length, unsigned char *buffer, qsizetype
     bufferSize)': takes a number to change where it is.
   - Qt's 'QTextBoundaryFinder::QTextBoundaryFinder(BoundaryType type,
     QStringView str, unsigned char *buffer, qsizetype bufferSize)': takes a
     number to change where it is.
-
-  What has no ritual
-  ------------------
-
-  4 of the 21 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet.
 
   What to expect
   --------------
@@ -66,6 +73,9 @@ class QTextBoundaryFinder(CuteMixin, metaclass=MetaCute):
     is as in C++.
   - A function giving a QTextBoundaryFinder back gives a copy the ritual made
     for Python, in a new cute QTextBoundaryFinder.
+  - Each name of Qt's QTextBoundaryFinder that has no cute function yet,
+    'swap', holds a function that raises 'NotImplementedError', and its
+    docstring says why.
   """
 
   #  The enums Qt writes inside QTextBoundaryFinder, each a class in here as
@@ -370,3 +380,14 @@ class QTextBoundaryFinder(CuteMixin, metaclass=MetaCute):
     return self.uglySide.call(
         'ritual_ZN19QTextBoundaryFinder18toPreviousBoundaryEv',
     )
+
+  @staticmethod
+  def swap(*__, **_) -> Never:
+    """
+    Qt's 'void QTextBoundaryFinder::swap(QTextBoundaryFinder &other)': takes
+    a type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QTextBoundaryFinder.swap' has no cute function yet. Qt's 'void "
+        "QTextBoundaryFinder::swap(QTextBoundaryFinder &other)': takes a "
+        "type Python has no way to hand over yet.")

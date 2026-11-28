@@ -16,9 +16,10 @@ from ..occult import Rituals
 from . import QObject
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
-  from . import QEvent, QFutureInterfaceBase, QMetaMethod, QMetaObject
+  from . import QEvent, QFutureInterfaceBase, QFutureWatcherBasePrivate
+  from . import QMetaMethod, QMetaObject
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -43,22 +44,38 @@ class QFutureWatcherBase(QObject):
   -----------
 
   Every function of Qt's QFutureWatcherBase that has a ritual and that Python
-  can call so far, 29 names in all: 'metaObject', 'tr', 'progressValue',
-  'progressMinimum', 'progressMaximum', 'progressText', 'isStarted',
-  'isFinished', 'isRunning', 'isCanceled', 'isPaused', 'isSuspending',
-  'isSuspended', 'waitForFinished', 'setPendingResultsLimit', 'event',
+  can call so far, 42 names in all: 'metaObject', 'tr', 'd_func',
+  'progressValue', 'progressMinimum', 'progressMaximum', 'progressText',
+  'isStarted', 'isFinished', 'isRunning', 'isCanceled', 'isPaused',
+  'isSuspending', 'isSuspended', 'waitForFinished', 'setPendingResultsLimit',
+  'event', 'started', 'finished', 'canceled', 'paused', 'suspending',
+  'suspended', 'resumed', 'resultReadyAt', 'resultsReadyAt',
+  'progressRangeChanged', 'progressValueChanged', 'progressTextChanged',
   'cancel', 'setSuspended', 'suspend', 'resume', 'toggleSuspended',
   'setPaused', 'pause', 'togglePaused', 'connectNotify', 'disconnectNotify',
   'connectOutputInterface', 'disconnectOutputInterface', 'futureInterface'.
   None can be made from Python: one comes out of a function of another class
   that gives one back.
 
+  What has a ritual and is left out, and why
+  ------------------------------------------
+
+  - Qt's 'void *QFutureWatcherBase::qt_metacast(const char *a0)': one of Qt's
+    own inner workings.
+  - Qt's 'int QFutureWatcherBase::qt_metacall(QMetaObject::Call a0, int a1,
+    void **a2)': one of Qt's own inner workings.
+  - Qt's 'const QFutureWatcherBasePrivate *QFutureWatcherBase::d_func()
+    const': takes in Python what 'QFutureWatcherBasePrivate
+    *QFutureWatcherBase::d_func()' takes.
+  - Qt's 'QFutureInterfaceBase &QFutureWatcherBase::futureInterface()': gives
+    a type Python has no way to take yet.
+
   What has no ritual
   ------------------
 
-  20 of the 49 functions Qt declares: 12 a signal; 5 takes or gives a type
-  that cannot be passed yet; 1 a template; 1 declared and nowhere to be
-  found; 1 the class is abstract, so C++ cannot make one.
+  3 of the 49 functions Qt declares: 2 not a gap; 1 the class is abstract, so
+  C++ cannot make one, and the C++ class of ours does not fill in every
+  function it leaves open.
 
   What to expect
   --------------
@@ -74,6 +91,9 @@ class QFutureWatcherBase(QObject):
   - Qt tells when it has removed the C++ QFutureWatcherBase. Every call on
     the cute object, and every use of it as an argument, then raises
     'RuntimeError', and nothing reaches C++.
+  - Each name of Qt's QFutureWatcherBase that has no cute function yet,
+    '__init__', holds a function that raises 'NotImplementedError', and its
+    docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -391,6 +411,19 @@ class QFutureWatcherBase(QObject):
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  @staticmethod
+  def __init__(*__, **_) -> Never:
+    """
+    Qt's 'QFutureWatcherBase::QFutureWatcherBase(QObject *parent)': the class
+    is abstract, so C++ cannot make one, and the C++ class of ours does not
+    fill in every function it leaves open.
+    """
+    raise NotImplementedError(
+        "'QFutureWatcherBase.__init__' has no cute function yet. Qt's "
+        "'QFutureWatcherBase::QFutureWatcherBase(QObject *parent)': the "
+        "class is abstract, so C++ cannot make one, and the C++ class of "
+        "ours does not fill in every function it leaves open.")
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -410,6 +443,24 @@ class QFutureWatcherBase(QObject):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  def d_func(self) -> Optional[QFutureWatcherBasePrivate]:
+    """
+    Calls Qt's 'QFutureWatcherBasePrivate *QFutureWatcherBase::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfuturewatcherbase.html#d_func
+
+    Returns
+    -------
+
+    Optional[QFutureWatcherBasePrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QFutureWatcherBasePrivate *QFutureWatcherBase::d_func()
+    address = self.uglySide.call('ritual_ZN18QFutureWatcherBase6d_funcEv')
+    from . import QFutureWatcherBasePrivate
+    return QFutureWatcherBasePrivate._cuteAt(address)
 
   def waitForFinished(self) -> None:
     """
@@ -441,6 +492,180 @@ class QFutureWatcherBase(QObject):
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZN18QFutureWatcherBase5eventEP6QEvent'
     return self.uglySide.call(ritual, self._addressOf(event))
+
+  def started(self) -> None:
+    """
+    Calls Qt's 'void QFutureWatcherBase::started()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfuturewatcherbase.html#started
+    """
+    #  void QFutureWatcherBase::started()
+    self.uglySide.call('ritual_ZN18QFutureWatcherBase7startedEv')
+
+  def finished(self) -> None:
+    """
+    Calls Qt's 'void QFutureWatcherBase::finished()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfuturewatcherbase.html#finished
+    """
+    #  void QFutureWatcherBase::finished()
+    self.uglySide.call('ritual_ZN18QFutureWatcherBase8finishedEv')
+
+  def canceled(self) -> None:
+    """
+    Calls Qt's 'void QFutureWatcherBase::canceled()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfuturewatcherbase.html#canceled
+    """
+    #  void QFutureWatcherBase::canceled()
+    self.uglySide.call('ritual_ZN18QFutureWatcherBase8canceledEv')
+
+  def paused(self) -> None:
+    """
+    Calls Qt's 'void QFutureWatcherBase::paused()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfuturewatcherbase.html#paused
+    """
+    #  void QFutureWatcherBase::paused()
+    self.uglySide.call('ritual_ZN18QFutureWatcherBase6pausedEv')
+
+  def suspending(self) -> None:
+    """
+    Calls Qt's 'void QFutureWatcherBase::suspending()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfuturewatcherbase.html#suspending
+    """
+    #  void QFutureWatcherBase::suspending()
+    self.uglySide.call('ritual_ZN18QFutureWatcherBase10suspendingEv')
+
+  def suspended(self) -> None:
+    """
+    Calls Qt's 'void QFutureWatcherBase::suspended()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfuturewatcherbase.html#suspended
+    """
+    #  void QFutureWatcherBase::suspended()
+    self.uglySide.call('ritual_ZN18QFutureWatcherBase9suspendedEv')
+
+  def resumed(self) -> None:
+    """
+    Calls Qt's 'void QFutureWatcherBase::resumed()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfuturewatcherbase.html#resumed
+    """
+    #  void QFutureWatcherBase::resumed()
+    self.uglySide.call('ritual_ZN18QFutureWatcherBase7resumedEv')
+
+  @overload(int)
+  def resultReadyAt(self, resultIndex: int) -> None:
+    """
+    Calls Qt's 'void QFutureWatcherBase::resultReadyAt(int resultIndex)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qfuturewatcherbase.html#resultReadyAt
+
+    Parameters
+    ----------
+
+    resultIndex : int
+      Passed on as it is.
+    """
+    #  void QFutureWatcherBase::resultReadyAt(int resultIndex)
+    self.uglySide.call(
+        'ritual_ZN18QFutureWatcherBase13resultReadyAtEi', resultIndex,
+    )
+
+  @overload(int, int)
+  def resultsReadyAt(self, beginIndex: int, endIndex: int) -> None:
+    """
+    Calls Qt's 'void QFutureWatcherBase::resultsReadyAt(int beginIndex, int
+    endIndex)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qfuturewatcherbase.html#resultsReadyAt
+
+    Parameters
+    ----------
+
+    beginIndex : int
+      Passed on as it is.
+
+    endIndex : int
+      Passed on as it is.
+    """
+    #  void QFutureWatcherBase::resultsReadyAt(int beginIndex, int endIndex)
+    self.uglySide.call(
+        'ritual_ZN18QFutureWatcherBase14resultsReadyAtEii',
+        beginIndex, endIndex,
+    )
+
+  @overload(int, int)
+  def progressRangeChanged(self, minimum: int, maximum: int) -> None:
+    """
+    Calls Qt's 'void QFutureWatcherBase::progressRangeChanged(int minimum,
+    int maximum)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qfuturewatcherbase.html#progressRangeChanged
+
+    Parameters
+    ----------
+
+    minimum : int
+      Passed on as it is.
+
+    maximum : int
+      Passed on as it is.
+    """
+    #  void QFutureWatcherBase::progressRangeChanged(int minimum, int
+    #      maximum)
+    self.uglySide.call(
+        'ritual_ZN18QFutureWatcherBase20progressRangeChangedEii',
+        minimum, maximum,
+    )
+
+  @overload(int)
+  def progressValueChanged(self, progressValue: int) -> None:
+    """
+    Calls Qt's 'void QFutureWatcherBase::progressValueChanged(int
+    progressValue)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qfuturewatcherbase.html#progressValueChanged
+
+    Parameters
+    ----------
+
+    progressValue : int
+      Passed on as it is.
+    """
+    #  void QFutureWatcherBase::progressValueChanged(int progressValue)
+    self.uglySide.call(
+        'ritual_ZN18QFutureWatcherBase20progressValueChangedEi',
+        progressValue,
+    )
+
+  @overload(str)
+  def progressTextChanged(self, progressText: str) -> None:
+    """
+    Calls Qt's 'void QFutureWatcherBase::progressTextChanged(const QString
+    &progressText)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qfuturewatcherbase.html#progressTextChanged
+
+    Parameters
+    ----------
+
+    progressText : str
+      Passed on as it is: a QString is made of it for the call.
+    """
+    #  void QFutureWatcherBase::progressTextChanged(const QString
+    #      &progressText)
+    self.uglySide.call(
+        'ritual_ZN18QFutureWatcherBase19progressTextChangedERK7QString',
+        progressText,
+    )
 
   def cancel(self) -> None:
     """

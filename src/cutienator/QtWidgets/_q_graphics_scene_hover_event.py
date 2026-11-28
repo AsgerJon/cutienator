@@ -50,12 +50,17 @@ class QGraphicsSceneHoverEvent(QGraphicsSceneEvent):
 
   - Qt's 'QGraphicsSceneHoverEvent::~QGraphicsSceneHoverEvent()': the
     destructor: Python never removes a C++ QGraphicsSceneHoverEvent.
+  - Qt's 'QGraphicsSceneHoverEventPrivate
+    *QGraphicsSceneHoverEvent::d_func()': gives
+    'QGraphicsSceneHoverEventPrivate', which has no cute class yet.
+  - Qt's 'const QGraphicsSceneHoverEventPrivate
+    *QGraphicsSceneHoverEvent::d_func() const': gives
+    'QGraphicsSceneHoverEventPrivate', which has no cute class yet.
 
   What has no ritual
   ------------------
 
-  4 of the 20 functions Qt declares: 2 takes or gives a type that cannot be
-  passed yet; 2 forbidden.
+  2 of the 20 functions Qt declares: 2 forbidden.
 
   What to expect
   --------------
@@ -259,7 +264,7 @@ class QGraphicsSceneHoverEvent(QGraphicsSceneEvent):
     #  void QGraphicsSceneHoverEvent::setPos(const QPointF &pos)
     self.uglySide.call(
         'ritual_ZN24QGraphicsSceneHoverEvent6setPosERK7QPointF',
-        self._valueOf(pos),
+        self._valueOf(pos, 'QPointF'),
     )
 
   @overload(QPointF)
@@ -281,7 +286,7 @@ class QGraphicsSceneHoverEvent(QGraphicsSceneEvent):
     #  void QGraphicsSceneHoverEvent::setScenePos(const QPointF &pos)
     self.uglySide.call(
         'ritual_ZN24QGraphicsSceneHoverEvent11setScenePosERK7QPointF',
-        self._valueOf(pos),
+        self._valueOf(pos, 'QPointF'),
     )
 
   @overload(QPoint)
@@ -325,7 +330,7 @@ class QGraphicsSceneHoverEvent(QGraphicsSceneEvent):
     #  void QGraphicsSceneHoverEvent::setLastPos(const QPointF &pos)
     self.uglySide.call(
         'ritual_ZN24QGraphicsSceneHoverEvent10setLastPosERK7QPointF',
-        self._valueOf(pos),
+        self._valueOf(pos, 'QPointF'),
     )
 
   @overload(QPointF)
@@ -347,7 +352,7 @@ class QGraphicsSceneHoverEvent(QGraphicsSceneEvent):
     #  void QGraphicsSceneHoverEvent::setLastScenePos(const QPointF &pos)
     self.uglySide.call(
         'ritual_ZN24QGraphicsSceneHoverEvent15setLastScenePosERK7QPointF',
-        self._valueOf(pos),
+        self._valueOf(pos, 'QPointF'),
     )
 
   @overload(QPoint)

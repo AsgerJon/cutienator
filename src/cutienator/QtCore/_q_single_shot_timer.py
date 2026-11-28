@@ -20,7 +20,7 @@ from ..cute import WAIT
 from . import QObject
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from . import QMetaObject, QTimerEvent
 else:
@@ -46,16 +46,28 @@ class QSingleShotTimer(QObject):
   -----------
 
   Every function of Qt's QSingleShotTimer that has a ritual and that Python
-  can call so far, 2 names in all: 'metaObject', 'timerEvent'. None can be
-  made from Python: one comes out of a function of another class that gives
-  one back.
+  can call so far, 3 names in all: 'metaObject', 'timeout', 'timerEvent'.
+  None can be made from Python: one comes out of a function of another class
+  that gives one back.
+
+  What has a ritual and is left out, and why
+  ------------------------------------------
+
+  - Qt's 'void *QSingleShotTimer::qt_metacast(const char *a0)': one of Qt's
+    own inner workings.
+  - Qt's 'int QSingleShotTimer::qt_metacall(QMetaObject::Call a0, int a1,
+    void **a2)': one of Qt's own inner workings.
+  - Qt's 'QSingleShotTimer::~QSingleShotTimer()': the destructor: Python
+    never removes a C++ QSingleShotTimer.
+  - Qt's 'void QSingleShotTimer::startTimerForReceiver(Duration interval,
+    Qt::TimerType timerType, const QObject *receiver)': takes a type Python
+    has no way to hand over yet.
 
   What has no ritual
   ------------------
 
-  12 of the 14 functions Qt declares: 5 takes or gives a type that cannot be
-  passed yet; 3 leans on 'QSingleShotTimer; 2 declared and nowhere to be
-  found; 1 a template; 1 a signal.
+  6 of the 13 functions Qt declares: 4 leans on 'QSingleShotTimer; 2 not a
+  gap.
 
   What to expect
   --------------
@@ -71,6 +83,9 @@ class QSingleShotTimer(QObject):
   - Qt tells when it has removed the C++ QSingleShotTimer. Every call on the
     cute object, and every use of it as an argument, then raises
     'RuntimeError', and nothing reaches C++.
+  - Each name of Qt's QSingleShotTimer that has no cute function yet,
+    '__init__', 'startTimerForReceiver', 'timerFinished', holds a function
+    that raises 'NotImplementedError', and its docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -138,6 +153,34 @@ class QSingleShotTimer(QObject):
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  @staticmethod
+  def __init__(*__, **_) -> Never:
+    """
+    - Qt's 'QSingleShotTimer::QSingleShotTimer(Duration interval,
+      Qt::TimerType timerType, const QObject *r, const char *member)': leans
+      on 'QSingleShotTimer::qt_metacall(QMetaObject::Call, int, void**)',
+      which Qt's source does not mark for use from outside Qt and has no code
+      for that could be taken.
+    - Qt's 'QSingleShotTimer::QSingleShotTimer(Duration interval,
+      Qt::TimerType timerType, const QObject *r, QtPrivate::QSlotObjectBase
+      *slotObj)': leans on 'QSingleShotTimer::qt_metacall(QMetaObject::Call,
+      int, void**)', which Qt's source does not mark for use from outside Qt
+      and has no code for that could be taken.
+    """
+    raise NotImplementedError(
+        "'QSingleShotTimer.__init__' has no cute function yet. Qt's "
+        "'QSingleShotTimer::QSingleShotTimer(Duration interval, "
+        "Qt::TimerType timerType, const QObject *r, const char *member)': "
+        "leans on 'QSingleShotTimer::qt_metacall(QMetaObject::Call, int, "
+        "void**)', which Qt's source does not mark for use from outside Qt "
+        "and has no code for that could be taken. Qt's "
+        "'QSingleShotTimer::QSingleShotTimer(Duration interval, "
+        "Qt::TimerType timerType, const QObject *r, "
+        "QtPrivate::QSlotObjectBase *slotObj)': leans on "
+        "'QSingleShotTimer::qt_metacall(QMetaObject::Call, int, void**)', "
+        "which Qt's source does not mark for use from outside Qt and has no "
+        "code for that could be taken.")
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -157,6 +200,15 @@ class QSingleShotTimer(QObject):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  def timeout(self) -> None:
+    """
+    Calls Qt's 'void QSingleShotTimer::timeout()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qsingleshottimer.html#timeout
+    """
+    #  void QSingleShotTimer::timeout()
+    self.uglySide.call('ritual_ZN16QSingleShotTimer7timeoutEv')
 
   @overload(QTimerEvent)
   @overload(NoneType)
@@ -178,3 +230,29 @@ class QSingleShotTimer(QObject):
         'ritual_ZN16QSingleShotTimer10timerEventEP11QTimerEvent',
         self._addressOf(a0),
     )
+
+  @staticmethod
+  def startTimerForReceiver(*__, **_) -> Never:
+    """
+    Qt's 'void QSingleShotTimer::startTimerForReceiver(Duration interval,
+    Qt::TimerType timerType, const QObject *receiver)': takes a type Python
+    has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QSingleShotTimer.startTimerForReceiver' has no cute function yet. "
+        "Qt's 'void QSingleShotTimer::startTimerForReceiver(Duration "
+        "interval, Qt::TimerType timerType, const QObject *receiver)': "
+        "takes a type Python has no way to hand over yet.")
+
+  @staticmethod
+  def timerFinished(*__, **_) -> Never:
+    """
+    Qt's 'void QSingleShotTimer::timerFinished()': leans on
+    'QSingleShotTimer::timeout()', which Qt's source does not mark for use
+    from outside Qt and has no code for that could be taken.
+    """
+    raise NotImplementedError(
+        "'QSingleShotTimer.timerFinished' has no cute function yet. Qt's "
+        "'void QSingleShotTimer::timerFinished()': leans on "
+        "'QSingleShotTimer::timeout()', which Qt's source does not mark for "
+        "use from outside Qt and has no code for that could be taken.")

@@ -48,14 +48,17 @@ class QChildEvent(QEvent):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'QChildEvent::QChildEvent(const QChildEvent &a0)': takes a type
+    Python has no way to hand over yet.
+  - Qt's 'QChildEvent &QChildEvent::operator=(const QChildEvent &other)':
+    assignment: Python binds a name and has no operator for it.
   - Qt's 'QChildEvent::~QChildEvent()': the destructor: Python never removes
     a C++ QChildEvent.
 
   What has no ritual
   ------------------
 
-  4 of the 11 functions Qt declares: 2 takes or gives a type that cannot be
-  passed yet; 2 forbidden.
+  2 of the 11 functions Qt declares: 2 forbidden.
 
   What to expect
   --------------

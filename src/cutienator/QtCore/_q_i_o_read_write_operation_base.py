@@ -16,6 +16,9 @@ from typing import TYPE_CHECKING
 
 from . import QIOOperation
 
+if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Never
+
 
 class QIOReadWriteOperationBase(QIOOperation):
   """
@@ -38,12 +41,14 @@ class QIOReadWriteOperationBase(QIOOperation):
 
   - Qt's 'QIOReadWriteOperationBase::~QIOReadWriteOperationBase()': the
     destructor: Python never removes a C++ QIOReadWriteOperationBase.
+  - Qt's
+    'QIOReadWriteOperationBase::QIOReadWriteOperationBase(QIOOperationPrivate
+    &dd, QObject *parent)': takes a type Python has no way to hand over yet.
 
   What has no ritual
   ------------------
 
-  6 of the 9 functions Qt declares: 5 forbidden; 1 takes or gives a type that
-  cannot be passed yet.
+  5 of the 9 functions Qt declares: 5 forbidden.
 
   What to expect
   --------------
@@ -59,6 +64,9 @@ class QIOReadWriteOperationBase(QIOOperation):
   - Qt tells when it has removed the C++ QIOReadWriteOperationBase. Every
     call on the cute object, and every use of it as an argument, then raises
     'RuntimeError', and nothing reaches C++.
+  - Each name of Qt's QIOReadWriteOperationBase that has no cute function
+    yet, '__init__', holds a function that raises 'NotImplementedError', and
+    its docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -129,6 +137,20 @@ class QIOReadWriteOperationBase(QIOOperation):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def __init__(*__, **_) -> Never:
+    """
+    Qt's
+    'QIOReadWriteOperationBase::QIOReadWriteOperationBase(QIOOperationPrivate
+    &dd, QObject *parent)': takes a type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QIOReadWriteOperationBase.__init__' has no cute function yet. "
+        "Qt's "
+        "'QIOReadWriteOperationBase::QIOReadWriteOperationBase(QIOOperationP"
+        "rivate &dd, QObject *parent)': takes a type Python has no way to "
+        "hand over yet.")
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #

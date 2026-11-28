@@ -48,14 +48,18 @@ class QScrollPrepareEvent(QEvent):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'QScrollPrepareEvent::QScrollPrepareEvent(const QScrollPrepareEvent
+    &a0)': takes a type Python has no way to hand over yet.
+  - Qt's 'QScrollPrepareEvent &QScrollPrepareEvent::operator=(const
+    QScrollPrepareEvent &other)': assignment: Python binds a name and has no
+    operator for it.
   - Qt's 'QScrollPrepareEvent::~QScrollPrepareEvent()': the destructor:
     Python never removes a C++ QScrollPrepareEvent.
 
   What has no ritual
   ------------------
 
-  4 of the 14 functions Qt declares: 2 takes or gives a type that cannot be
-  passed yet; 2 forbidden.
+  2 of the 14 functions Qt declares: 2 forbidden.
 
   What to expect
   --------------
@@ -264,7 +268,7 @@ class QScrollPrepareEvent(QEvent):
     #  void QScrollPrepareEvent::setContentPos(const QPointF &pos)
     self.uglySide.call(
         'ritual_ZN19QScrollPrepareEvent13setContentPosERK7QPointF',
-        self._valueOf(pos),
+        self._valueOf(pos, 'QPointF'),
     )
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -299,7 +303,7 @@ class QScrollPrepareEvent(QEvent):
     #  QScrollPrepareEvent::QScrollPrepareEvent(const QPointF &startPos)
     self._noteCreation(QScrollPrepareEvent, lambda: Rituals.call(
         'ritual_ZN19QScrollPrepareEventC1ERK7QPointF',
-        self._valueOf(startPos),
+        self._valueOf(startPos, 'QPointF'),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

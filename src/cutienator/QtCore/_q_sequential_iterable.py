@@ -16,6 +16,8 @@ from ..cute import CuteMixin, CuteNum, MetaCute, WAIT
 from ..occult import Rituals
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Never
+
   from . import QMetaType, QVariant
 else:
   #  The cute classes this file names and is not built on. Each is brought in
@@ -29,10 +31,6 @@ class QSequentialIterable(CuteMixin, metaclass=MetaCute):
   The cute side of Qt's QSequentialIterable: a plain Python object standing
   in front of one C++ QSequentialIterable.
 
-  C++ hands a QSequentialIterable around as a copy, so every C++
-  QSequentialIterable behind a cute one is Python's own: it is removed, by
-  the ritual named in '__delete_ritual__', when the cute object goes.
-
   What exists
   -----------
 
@@ -44,15 +42,34 @@ class QSequentialIterable(CuteMixin, metaclass=MetaCute):
   What has a ritual and is left out, and why
   ------------------------------------------
 
-  - Qt's 'QSequentialIterable::~QSequentialIterable()': the destructor:
-    Python removes its C++ QSequentialIterable by it, and has no other use
-    for it.
+  - Qt's 'QSequentialIterable::QSequentialIterable(const QMetaSequence
+    &metaSequence, const QMetaType &metaType, void *iterable)': names 'void',
+    which has no cute class yet.
+  - Qt's 'QSequentialIterable::QSequentialIterable(const QMetaSequence
+    &metaSequence, const QMetaType &metaType, const void *iterable)': names
+    'void', which has no cute class yet.
+  - Qt's 'QSequentialIterable::QSequentialIterable(QIterable<QMetaSequence>
+    &&other)': takes a type Python has no way to hand over yet.
+  - Qt's 'QSequentialIterable
+    &QSequentialIterable::operator=(QIterable<QMetaSequence> &&other)':
+    assignment: Python binds a name and has no operator for it.
+  - Qt's 'const_iterator QSequentialIterable::begin() const': gives a type
+    Python has no way to take yet.
+  - Qt's 'const_iterator QSequentialIterable::end() const': gives a type
+    Python has no way to take yet.
+  - Qt's 'const_iterator QSequentialIterable::constBegin() const': gives a
+    type Python has no way to take yet.
+  - Qt's 'const_iterator QSequentialIterable::constEnd() const': gives a type
+    Python has no way to take yet.
+  - Qt's 'iterator QSequentialIterable::mutableBegin()': gives a type Python
+    has no way to take yet.
+  - Qt's 'iterator QSequentialIterable::mutableEnd()': gives a type Python
+    has no way to take yet.
 
   What has no ritual
   ------------------
 
-  13 of the 21 functions Qt declares: 10 takes or gives a type that cannot be
-  passed yet; 3 a template.
+  3 of the 20 functions Qt declares: 3 a template.
 
   What to expect
   --------------
@@ -64,8 +81,11 @@ class QSequentialIterable(CuteMixin, metaclass=MetaCute):
   - None is taken wherever Qt takes an object by its address, or text as C
     has it, and is passed on as nothing. Whether Qt can do with nothing there
     is as in C++.
-  - A function giving a QSequentialIterable back gives a copy the ritual made
-    for Python, in a new cute QSequentialIterable.
+  - Python never removes the C++ QSequentialIterable.
+  - Each name of Qt's QSequentialIterable that has no cute function yet,
+    'begin', 'constBegin', 'constEnd', 'end', 'mutableBegin', 'mutableEnd',
+    holds a function that raises 'NotImplementedError', and its docstring
+    says why.
   """
 
   #  The enums Qt writes inside QSequentialIterable, each a class in here as
@@ -92,11 +112,6 @@ class QSequentialIterable(CuteMixin, metaclass=MetaCute):
   #  Class Variables
   #  The class of Qt this class stands for.
   __qt_class__ = 'QSequentialIterable'
-
-  #  Qt's '~QSequentialIterable()'. Naming it makes this a value class:
-  #  Python owns every C++ QSequentialIterable behind a cute one, and removes
-  #  it by this ritual.
-  __delete_ritual__ = 'ritual_ZN19QSequentialIterableD1Ev'
 
   #  Fallback Variables
 
@@ -293,3 +308,69 @@ class QSequentialIterable(CuteMixin, metaclass=MetaCute):
         'ritual_ZN19QSequentialIterable11removeValueENS_8PositionE',
         position.value,
     )
+
+  @staticmethod
+  def begin(*__, **_) -> Never:
+    """
+    Qt's 'const_iterator QSequentialIterable::begin() const': gives a type
+    Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QSequentialIterable.begin' has no cute function yet. Qt's "
+        "'const_iterator QSequentialIterable::begin() const': gives a type "
+        "Python has no way to take yet.")
+
+  @staticmethod
+  def constBegin(*__, **_) -> Never:
+    """
+    Qt's 'const_iterator QSequentialIterable::constBegin() const': gives a
+    type Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QSequentialIterable.constBegin' has no cute function yet. Qt's "
+        "'const_iterator QSequentialIterable::constBegin() const': gives a "
+        "type Python has no way to take yet.")
+
+  @staticmethod
+  def constEnd(*__, **_) -> Never:
+    """
+    Qt's 'const_iterator QSequentialIterable::constEnd() const': gives a type
+    Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QSequentialIterable.constEnd' has no cute function yet. Qt's "
+        "'const_iterator QSequentialIterable::constEnd() const': gives a "
+        "type Python has no way to take yet.")
+
+  @staticmethod
+  def end(*__, **_) -> Never:
+    """
+    Qt's 'const_iterator QSequentialIterable::end() const': gives a type
+    Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QSequentialIterable.end' has no cute function yet. Qt's "
+        "'const_iterator QSequentialIterable::end() const': gives a type "
+        "Python has no way to take yet.")
+
+  @staticmethod
+  def mutableBegin(*__, **_) -> Never:
+    """
+    Qt's 'iterator QSequentialIterable::mutableBegin()': gives a type Python
+    has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QSequentialIterable.mutableBegin' has no cute function yet. Qt's "
+        "'iterator QSequentialIterable::mutableBegin()': gives a type "
+        "Python has no way to take yet.")
+
+  @staticmethod
+  def mutableEnd(*__, **_) -> Never:
+    """
+    Qt's 'iterator QSequentialIterable::mutableEnd()': gives a type Python
+    has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QSequentialIterable.mutableEnd' has no cute function yet. Qt's "
+        "'iterator QSequentialIterable::mutableEnd()': gives a type Python "
+        "has no way to take yet.")

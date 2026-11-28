@@ -15,6 +15,8 @@ from ..occult import Rituals
 from . import QStringConverter, QStringConverterBase
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Never
+
   from . import QByteArray
 
 
@@ -34,11 +36,23 @@ class QStringEncoder(QStringConverter):
   'encodeAsByteArrayImpl', 'encodeAsByteArray'. It can be made from Python,
   in 3 ways; see '__init__'.
 
+  What has a ritual and is left out, and why
+  ------------------------------------------
+
+  - Qt's 'QStringEncoder::QStringEncoder(const Interface *i)': names
+    'QStringConverter::Interface', which has no cute class yet.
+  - Qt's 'char *QStringEncoder::appendToBuffer(char *out, QStringView in)':
+    names 'char', which has no cute class yet.
+  - Qt's 'FinalizeResult QStringEncoder::finalize(char *out, qsizetype
+    maxlen)': names 'char', which has no cute class yet.
+  - Qt's 'FinalizeResult QStringEncoder::finalize()': gives a type Python has
+    no way to take yet.
+
   What has no ritual
   ------------------
 
-  8 of the 15 functions Qt declares: 6 takes or gives a type that cannot be
-  passed yet; 2 a template.
+  4 of the 15 functions Qt declares: 2 a template; 2 the compiler refuses its
+  ritual as it would be written here.
 
   What to expect
   --------------
@@ -51,6 +65,9 @@ class QStringEncoder(QStringConverter):
     has it, and is passed on as nothing. Whether Qt can do with nothing there
     is as in C++.
   - Python never removes the C++ QStringEncoder.
+  - Each name of Qt's QStringEncoder that has no cute function yet,
+    'appendToBuffer', 'encode', 'finalize', holds a function that raises
+    'NotImplementedError', and its docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -282,3 +299,47 @@ class QStringEncoder(QStringConverter):
     )
     from . import QByteArray
     return QByteArray._cuteOwning(address)
+
+  @staticmethod
+  def appendToBuffer(*__, **_) -> Never:
+    """
+    Qt's 'char *QStringEncoder::appendToBuffer(char *out, QStringView in)':
+    names 'char', which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QStringEncoder.appendToBuffer' has no cute function yet. Qt's "
+        "'char *QStringEncoder::appendToBuffer(char *out, QStringView in)': "
+        "names 'char', which has no cute class yet.")
+
+  @staticmethod
+  def encode(*__, **_) -> Never:
+    """
+    - Qt's 'QStringEncoder::encode': a template: a pattern and no single
+      function.
+    - Qt's 'DecodedData<QStringView> QStringEncoder::encode(QStringView in)':
+      the compiler refuses its ritual as it would be written here: no
+      template named 'DecodedData'; did you mean
+      'QStringEncoder::DecodedData'?.
+    """
+    raise NotImplementedError(
+        "'QStringEncoder.encode' has no cute function yet. Qt's "
+        "'QStringEncoder::encode': a template: a pattern and no single "
+        "function. Qt's 'DecodedData<QStringView> "
+        "QStringEncoder::encode(QStringView in)': the compiler refuses its "
+        "ritual as it would be written here: no template named "
+        "'DecodedData'; did you mean 'QStringEncoder::DecodedData'?.")
+
+  @staticmethod
+  def finalize(*__, **_) -> Never:
+    """
+    - Qt's 'FinalizeResult QStringEncoder::finalize(char *out, qsizetype
+      maxlen)': names 'char', which has no cute class yet.
+    - Qt's 'FinalizeResult QStringEncoder::finalize()': gives a type Python
+      has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QStringEncoder.finalize' has no cute function yet. Qt's "
+        "'FinalizeResult QStringEncoder::finalize(char *out, qsizetype "
+        "maxlen)': names 'char', which has no cute class yet. Qt's "
+        "'FinalizeResult QStringEncoder::finalize()': gives a type Python "
+        "has no way to take yet.")

@@ -17,6 +17,8 @@ from ..occult import Rituals
 from . import QStringList, QUrl
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Never
+
   from . import QChar
 else:
   #  The cute classes this file names and is not built on. Each is brought in
@@ -38,23 +40,35 @@ class QUrlQuery(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QUrlQuery that has a ritual and that Python can call
-  so far, 17 names in all: 'isEmpty', 'isDetached', 'clear', 'query',
+  so far, 19 names in all: 'isEmpty', 'isDetached', 'clear', 'query',
   'setQuery', 'toString', 'setQueryDelimiters', 'queryValueDelimiter',
   'queryPairDelimiter', 'hasQueryItem', 'addQueryItem', 'removeQueryItem',
-  'queryItemValue', 'allQueryItemValues', 'removeAllQueryItems', '__eq__',
+  'queryItemValue', 'allQueryItemValues', 'removeAllQueryItems',
+  'defaultQueryValueDelimiter', 'defaultQueryPairDelimiter', '__eq__',
   '__ne__'. It can be made from Python, in 4 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'QUrlQuery::QUrlQuery(std::initializer_list<std::pair<QString,
+    QString>> list)': takes a type Python has no way to hand over yet.
+  - Qt's 'QUrlQuery::QUrlQuery(QUrlQuery &&other)': takes a type Python has
+    no way to hand over yet.
+  - Qt's 'QUrlQuery &QUrlQuery::operator=(const QUrlQuery &other)':
+    assignment: Python binds a name and has no operator for it.
+  - Qt's 'QUrlQuery &QUrlQuery::operator=(QUrlQuery &&other)': assignment:
+    Python binds a name and has no operator for it.
   - Qt's 'QUrlQuery::~QUrlQuery()': the destructor: Python removes its C++
     QUrlQuery by it, and has no other use for it.
-
-  What has no ritual
-  ------------------
-
-  10 of the 32 functions Qt declares: 10 takes or gives a type that cannot be
-  passed yet.
+  - Qt's 'void QUrlQuery::swap(QUrlQuery &other)': takes a type Python has no
+    way to hand over yet.
+  - Qt's 'void QUrlQuery::setQueryItems(const QList<std::pair<QString,
+    QString>> &query)': takes a type Python has no way to hand over yet.
+  - Qt's 'QList<std::pair<QString, QString>>
+    QUrlQuery::queryItems(QUrl::ComponentFormattingOptions encoding) const':
+    gives a type Python has no way to take yet.
+  - Qt's 'DataPtr &QUrlQuery::data_ptr()': gives a type Python has no way to
+    take yet.
 
   What to expect
   --------------
@@ -67,11 +81,36 @@ class QUrlQuery(CuteMixin, metaclass=MetaCute):
     is as in C++.
   - A function giving a QUrlQuery back gives a copy the ritual made for
     Python, in a new cute QUrlQuery.
+  - Each name of Qt's QUrlQuery that has no cute function yet, 'data_ptr',
+    'queryItems', 'setQueryItems', 'swap', holds a function that raises
+    'NotImplementedError', and its docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def defaultQueryValueDelimiter() -> int:
+    """
+    Calls Qt's 'char16_t QUrlQuery::defaultQueryValueDelimiter()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qurlquery.html#defaultQueryValueDelimiter
+    """
+    #  char16_t QUrlQuery::defaultQueryValueDelimiter()
+    return Rituals.call('ritual_ZN9QUrlQuery26defaultQueryValueDelimiterEv')
+
+  @staticmethod
+  def defaultQueryPairDelimiter() -> int:
+    """
+    Calls Qt's 'char16_t QUrlQuery::defaultQueryPairDelimiter()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qurlquery.html#defaultQueryPairDelimiter
+    """
+    #  char16_t QUrlQuery::defaultQueryPairDelimiter()
+    return Rituals.call('ritual_ZN9QUrlQuery25defaultQueryPairDelimiterEv')
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -593,3 +632,49 @@ class QUrlQuery(CuteMixin, metaclass=MetaCute):
     self.uglySide.call(
         'ritual_ZN9QUrlQuery19removeAllQueryItemsERK7QString', key,
     )
+
+  @staticmethod
+  def data_ptr(*__, **_) -> Never:
+    """
+    Qt's 'DataPtr &QUrlQuery::data_ptr()': gives a type Python has no way to
+    take yet.
+    """
+    raise NotImplementedError(
+        "'QUrlQuery.data_ptr' has no cute function yet. Qt's 'DataPtr "
+        "&QUrlQuery::data_ptr()': gives a type Python has no way to take "
+        "yet.")
+
+  @staticmethod
+  def queryItems(*__, **_) -> Never:
+    """
+    Qt's 'QList<std::pair<QString, QString>>
+    QUrlQuery::queryItems(QUrl::ComponentFormattingOptions encoding) const':
+    gives a type Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QUrlQuery.queryItems' has no cute function yet. Qt's "
+        "'QList<std::pair<QString, QString>> "
+        "QUrlQuery::queryItems(QUrl::ComponentFormattingOptions encoding) "
+        "const': gives a type Python has no way to take yet.")
+
+  @staticmethod
+  def setQueryItems(*__, **_) -> Never:
+    """
+    Qt's 'void QUrlQuery::setQueryItems(const QList<std::pair<QString,
+    QString>> &query)': takes a type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QUrlQuery.setQueryItems' has no cute function yet. Qt's 'void "
+        "QUrlQuery::setQueryItems(const QList<std::pair<QString, QString>> "
+        "&query)': takes a type Python has no way to hand over yet.")
+
+  @staticmethod
+  def swap(*__, **_) -> Never:
+    """
+    Qt's 'void QUrlQuery::swap(QUrlQuery &other)': takes a type Python has no
+    way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QUrlQuery.swap' has no cute function yet. Qt's 'void "
+        "QUrlQuery::swap(QUrlQuery &other)': takes a type Python has no way "
+        "to hand over yet.")

@@ -20,7 +20,7 @@ from ..cute import WAIT
 from ..QtCore import Qt, QAbstractListModel, QList, QMap, QStringList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from ..QtCore import QMetaObject, QMimeData, QModelIndex, QVariant
   from . import QListWidget, QListWidgetItem
@@ -61,15 +61,30 @@ class QListModel(QAbstractListModel):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QListModel::qt_metacast(const char *a0)': one of Qt's own
+    inner workings.
+  - Qt's 'int QListModel::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
   - Qt's 'QListModel::~QListModel()': the destructor: Python never removes a
     C++ QListModel.
+  - Qt's 'bool QListModel::itemLessThan(const std::pair<QListWidgetItem *,
+    int> &left, const std::pair<QListWidgetItem *, int> &right)': takes a
+    type Python has no way to hand over yet.
+  - Qt's 'bool QListModel::itemGreaterThan(const std::pair<QListWidgetItem *,
+    int> &left, const std::pair<QListWidgetItem *, int> &right)': takes a
+    type Python has no way to hand over yet.
+  - Qt's 'QList<QListWidgetItem *>::iterator
+    QListModel::sortedInsertionIterator(const QList<QListWidgetItem
+    *>::iterator &begin, const QList<QListWidgetItem *>::iterator &end,
+    Qt::SortOrder order, QListWidgetItem *item)': takes a type Python has no
+    way to hand over yet.
+  - Qt's 'void QListModel::itemChanged(QListWidgetItem *item, const
+    QList<int> &roles)': takes a type Python has no way to hand over yet.
 
   What has no ritual
   ------------------
 
-  10 of the 39 functions Qt declares: 6 takes or gives a type that cannot be
-  passed yet; 2 leans on 'QListModel; 1 a template; 1 declared and nowhere to
-  be found.
+  4 of the 39 functions Qt declares: 2 not a gap; 2 leans on 'QListModel.
 
   What to expect
   --------------
@@ -84,6 +99,10 @@ class QListModel(QAbstractListModel):
   - Qt tells when it has removed the C++ QListModel. Every call on the cute
     object, and every use of it as an argument, then raises 'RuntimeError',
     and nothing reaches C++.
+  - Each name of Qt's QListModel that has no cute function yet, '__init__',
+    'itemChanged', 'itemGreaterThan', 'itemLessThan',
+    'sortedInsertionIterator', holds a function that raises
+    'NotImplementedError', and its docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -521,6 +540,21 @@ class QListModel(QAbstractListModel):
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  @staticmethod
+  def __init__(*__, **_) -> Never:
+    """
+    Qt's 'QListModel::QListModel(QListWidget *parent)': leans on
+    'QListModel::qt_metacall(QMetaObject::Call, int, void**)', which Qt's
+    source does not mark for use from outside Qt and has no code for that
+    could be taken.
+    """
+    raise NotImplementedError(
+        "'QListModel.__init__' has no cute function yet. Qt's "
+        "'QListModel::QListModel(QListWidget *parent)': leans on "
+        "'QListModel::qt_metacall(QMetaObject::Call, int, void**)', which "
+        "Qt's source does not mark for use from outside Qt and has no code "
+        "for that could be taken.")
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -917,3 +951,57 @@ class QListModel(QAbstractListModel):
         self._addressOf(data), action.value, row, column,
         self._valueOf(parent),
     )
+
+  @staticmethod
+  def itemChanged(*__, **_) -> Never:
+    """
+    Qt's 'void QListModel::itemChanged(QListWidgetItem *item, const
+    QList<int> &roles)': takes a type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QListModel.itemChanged' has no cute function yet. Qt's 'void "
+        "QListModel::itemChanged(QListWidgetItem *item, const QList<int> "
+        "&roles)': takes a type Python has no way to hand over yet.")
+
+  @staticmethod
+  def itemGreaterThan(*__, **_) -> Never:
+    """
+    Qt's 'bool QListModel::itemGreaterThan(const std::pair<QListWidgetItem *,
+    int> &left, const std::pair<QListWidgetItem *, int> &right)': takes a
+    type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QListModel.itemGreaterThan' has no cute function yet. Qt's 'bool "
+        "QListModel::itemGreaterThan(const std::pair<QListWidgetItem *, "
+        "int> &left, const std::pair<QListWidgetItem *, int> &right)': "
+        "takes a type Python has no way to hand over yet.")
+
+  @staticmethod
+  def itemLessThan(*__, **_) -> Never:
+    """
+    Qt's 'bool QListModel::itemLessThan(const std::pair<QListWidgetItem *,
+    int> &left, const std::pair<QListWidgetItem *, int> &right)': takes a
+    type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QListModel.itemLessThan' has no cute function yet. Qt's 'bool "
+        "QListModel::itemLessThan(const std::pair<QListWidgetItem *, int> "
+        "&left, const std::pair<QListWidgetItem *, int> &right)': takes a "
+        "type Python has no way to hand over yet.")
+
+  @staticmethod
+  def sortedInsertionIterator(*__, **_) -> Never:
+    """
+    Qt's 'QList<QListWidgetItem *>::iterator
+    QListModel::sortedInsertionIterator(const QList<QListWidgetItem
+    *>::iterator &begin, const QList<QListWidgetItem *>::iterator &end,
+    Qt::SortOrder order, QListWidgetItem *item)': takes a type Python has no
+    way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QListModel.sortedInsertionIterator' has no cute function yet. "
+        "Qt's 'QList<QListWidgetItem *>::iterator "
+        "QListModel::sortedInsertionIterator(const QList<QListWidgetItem "
+        "*>::iterator &begin, const QList<QListWidgetItem *>::iterator "
+        "&end, Qt::SortOrder order, QListWidgetItem *item)': takes a type "
+        "Python has no way to hand over yet.")

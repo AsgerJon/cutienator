@@ -28,10 +28,6 @@ class QVariantConstPointer(CuteMixin, metaclass=MetaCute):
   The cute side of Qt's QVariantConstPointer: a plain Python object standing
   in front of one C++ QVariantConstPointer.
 
-  C++ hands a QVariantConstPointer around as a copy, so every C++
-  QVariantConstPointer behind a cute one is Python's own: it is removed, by
-  the ritual named in '__delete_ritual__', when the cute object goes.
-
   What exists
   -----------
 
@@ -45,9 +41,6 @@ class QVariantConstPointer(CuteMixin, metaclass=MetaCute):
     Python has no name for.
   - Qt's 'const QVariant *QVariantConstPointer::operator->() const': an
     operator Python has no name for.
-  - Qt's 'QVariantConstPointer::~QVariantConstPointer()': the destructor:
-    Python removes its C++ QVariantConstPointer by it, and has no other use
-    for it.
 
   What to expect
   --------------
@@ -59,8 +52,7 @@ class QVariantConstPointer(CuteMixin, metaclass=MetaCute):
   - None is taken wherever Qt takes an object by its address, or text as C
     has it, and is passed on as nothing. Whether Qt can do with nothing there
     is as in C++.
-  - A function giving a QVariantConstPointer back gives a copy the ritual
-    made for Python, in a new cute QVariantConstPointer.
+  - Python never removes the C++ QVariantConstPointer.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -74,11 +66,6 @@ class QVariantConstPointer(CuteMixin, metaclass=MetaCute):
   #  Class Variables
   #  The class of Qt this class stands for.
   __qt_class__ = 'QVariantConstPointer'
-
-  #  Qt's '~QVariantConstPointer()'. Naming it makes this a value class:
-  #  Python owns every C++ QVariantConstPointer behind a cute one, and
-  #  removes it by this ritual.
-  __delete_ritual__ = 'ritual_ZN20QVariantConstPointerD1Ev'
 
   #  Fallback Variables
 

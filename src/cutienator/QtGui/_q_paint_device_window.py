@@ -16,10 +16,11 @@ from ..occult import Rituals
 from . import QPaintDevice, QWindow
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from ..QtCore import QEvent, QMetaObject, QRect
-  from . import QExposeEvent, QPaintEngine, QPaintEvent, QRegion
+  from . import QExposeEvent, QPaintDeviceWindowPrivate, QPaintEngine
+  from . import QPaintEvent, QRegion
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -49,16 +50,28 @@ class QPaintDeviceWindow(QWindow, QPaintDevice):
   -----------
 
   Every function of Qt's QPaintDeviceWindow that has a ritual and that Python
-  can call so far, 8 names in all: 'metaObject', 'tr', 'update',
+  can call so far, 9 names in all: 'metaObject', 'tr', 'd_func', 'update',
   'exposeEvent', 'paintEvent', 'metric', 'event', 'paintEngine'. None can be
   made from Python: one comes out of a function of another class that gives
   one back.
 
+  What has a ritual and is left out, and why
+  ------------------------------------------
+
+  - Qt's 'void *QPaintDeviceWindow::qt_metacast(const char *a0)': one of Qt's
+    own inner workings.
+  - Qt's 'int QPaintDeviceWindow::qt_metacall(QMetaObject::Call a0, int a1,
+    void **a2)': one of Qt's own inner workings.
+  - Qt's 'const QPaintDeviceWindowPrivate *QPaintDeviceWindow::d_func()
+    const': takes in Python what 'QPaintDeviceWindowPrivate
+    *QPaintDeviceWindow::d_func()' takes.
+  - Qt's 'QPaintDeviceWindow::QPaintDeviceWindow(QPaintDeviceWindowPrivate
+    &dd, QWindow *parent)': takes a type Python has no way to hand over yet.
+
   What has no ritual
   ------------------
 
-  9 of the 19 functions Qt declares: 5 takes or gives a type that cannot be
-  passed yet; 2 forbidden; 1 a template; 1 declared and nowhere to be found.
+  4 of the 19 functions Qt declares: 2 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -74,6 +87,9 @@ class QPaintDeviceWindow(QWindow, QPaintDevice):
   - Qt tells when it has removed the C++ QPaintDeviceWindow. Every call on
     the cute object, and every use of it as an argument, then raises
     'RuntimeError', and nothing reaches C++.
+  - Each name of Qt's QPaintDeviceWindow that has no cute function yet,
+    '__init__', holds a function that raises 'NotImplementedError', and its
+    docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -233,6 +249,18 @@ class QPaintDeviceWindow(QWindow, QPaintDevice):
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  @staticmethod
+  def __init__(*__, **_) -> Never:
+    """
+    Qt's 'QPaintDeviceWindow::QPaintDeviceWindow(QPaintDeviceWindowPrivate
+    &dd, QWindow *parent)': takes a type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QPaintDeviceWindow.__init__' has no cute function yet. Qt's "
+        "'QPaintDeviceWindow::QPaintDeviceWindow(QPaintDeviceWindowPrivate "
+        "&dd, QWindow *parent)': takes a type Python has no way to hand "
+        "over yet.")
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -252,6 +280,24 @@ class QPaintDeviceWindow(QWindow, QPaintDevice):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  def d_func(self) -> Optional[QPaintDeviceWindowPrivate]:
+    """
+    Calls Qt's 'QPaintDeviceWindowPrivate *QPaintDeviceWindow::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpaintdevicewindow.html#d_func
+
+    Returns
+    -------
+
+    Optional[QPaintDeviceWindowPrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QPaintDeviceWindowPrivate *QPaintDeviceWindow::d_func()
+    address = self.uglySide.call('ritual_ZN18QPaintDeviceWindow6d_funcEv')
+    from . import QPaintDeviceWindowPrivate
+    return QPaintDeviceWindowPrivate._cuteAt(address)
 
   @overload(QRect)
   def update(self, rect: QRect) -> None:

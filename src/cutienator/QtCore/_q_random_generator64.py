@@ -41,14 +41,20 @@ class QRandomGenerator64(QRandomGenerator):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'QRandomGenerator64::QRandomGenerator64(const quint32 *seedBuffer,
+    qsizetype len)': names 'quint32', which has no cute class yet.
+  - Qt's 'QRandomGenerator64::QRandomGenerator64(std::seed_seq &sseq)': takes
+    a type Python has no way to hand over yet.
+  - Qt's 'QRandomGenerator64::QRandomGenerator64(const quint32 *begin, const
+    quint32 *end)': names 'quint32', which has no cute class yet.
   - Qt's 'QRandomGenerator64::~QRandomGenerator64()': the destructor: Python
     removes its C++ QRandomGenerator64 by it, and has no other use for it.
 
   What has no ritual
   ------------------
 
-  5 of the 16 functions Qt declares: 3 takes or gives a type that cannot be
-  passed yet; 1 a template; 1 leans on 'QRandomGenerator.
+  2 of the 16 functions Qt declares: 1 a template; 1 leans on
+  'QRandomGenerator.
 
   What to expect
   --------------

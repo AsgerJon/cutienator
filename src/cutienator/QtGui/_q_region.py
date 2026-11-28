@@ -18,7 +18,7 @@ from ..occult import Rituals
 from ..QtCore import Qt, QDataStream
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from ..QtCore import QByteArray, QPoint, QRect
   from . import QBitmap, QPolygon
@@ -61,16 +61,36 @@ class QRegion(CuteMixin, metaclass=MetaCute):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'QRegion::QRegion(QRegion &&other)': takes a type Python has no way
+    to hand over yet.
   - Qt's 'QRegion::~QRegion()': the destructor: Python removes its C++
     QRegion by it, and has no other use for it.
+  - Qt's 'QRegion &QRegion::operator=(const QRegion &a0)': assignment: Python
+    binds a name and has no operator for it.
+  - Qt's 'QRegion &QRegion::operator=(QRegion &&other)': assignment: Python
+    binds a name and has no operator for it.
+  - Qt's 'void QRegion::swap(QRegion &other)': takes a type Python has no way
+    to hand over yet.
+  - Qt's 'const_reverse_iterator QRegion::rbegin() const': gives a type
+    Python has no way to take yet.
+  - Qt's 'const_reverse_iterator QRegion::crbegin() const': gives a type
+    Python has no way to take yet.
+  - Qt's 'const_reverse_iterator QRegion::rend() const': gives a type Python
+    has no way to take yet.
+  - Qt's 'const_reverse_iterator QRegion::crend() const': gives a type Python
+    has no way to take yet.
+  - Qt's 'void QRegion::setRects(QSpan<const QRect> r)': takes a type Python
+    has no way to hand over yet.
+  - Qt's 'QSpan<const QRect> QRegion::rects() const': gives a type Python has
+    no way to take yet.
   - Qt's 'QVariant QRegion::operator QVariant() const': an operator Python
     has no name for.
-
-  What has no ritual
-  ------------------
-
-  13 of the 63 functions Qt declares: 13 takes or gives a type that cannot be
-  passed yet.
+  - Qt's 'QDataStream &operator<<(QDataStream &a0, const QRegion &a1)': takes
+    a type Python has no way to hand over yet.
+  - Qt's 'QDataStream &operator>>(QDataStream &a0, QRegion &a1)': an operator
+    between other classes, written inside this one.
+  - Qt's 'void QRegion::cleanUp(QRegionData *x)': names
+    'QRegion::QRegionData', which has no cute class yet.
 
   What to expect
   --------------
@@ -83,6 +103,9 @@ class QRegion(CuteMixin, metaclass=MetaCute):
     is as in C++.
   - A function giving a QRegion back gives a copy the ritual made for Python,
     in a new cute QRegion.
+  - Each name of Qt's QRegion that has no cute function yet, 'cleanUp',
+    'crbegin', 'crend', 'rbegin', 'rects', 'rend', 'swap', holds a function
+    that raises 'NotImplementedError', and its docstring says why.
   """
 
   #  The enums Qt writes inside QRegion, each a class in here as in C++, and
@@ -1271,3 +1294,80 @@ class QRegion(CuteMixin, metaclass=MetaCute):
         'ritual_ZN7QRegion4execERK10QByteArrayiN11QDataStream9ByteOrderE',
         self._valueOf(ba), ver, byteOrder.value,
     )
+
+  @staticmethod
+  def cleanUp(*__, **_) -> Never:
+    """
+    Qt's 'void QRegion::cleanUp(QRegionData *x)': names
+    'QRegion::QRegionData', which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QRegion.cleanUp' has no cute function yet. Qt's 'void "
+        "QRegion::cleanUp(QRegionData *x)': names 'QRegion::QRegionData', "
+        "which has no cute class yet.")
+
+  @staticmethod
+  def crbegin(*__, **_) -> Never:
+    """
+    Qt's 'const_reverse_iterator QRegion::crbegin() const': gives a type
+    Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QRegion.crbegin' has no cute function yet. Qt's "
+        "'const_reverse_iterator QRegion::crbegin() const': gives a type "
+        "Python has no way to take yet.")
+
+  @staticmethod
+  def crend(*__, **_) -> Never:
+    """
+    Qt's 'const_reverse_iterator QRegion::crend() const': gives a type Python
+    has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QRegion.crend' has no cute function yet. Qt's "
+        "'const_reverse_iterator QRegion::crend() const': gives a type "
+        "Python has no way to take yet.")
+
+  @staticmethod
+  def rbegin(*__, **_) -> Never:
+    """
+    Qt's 'const_reverse_iterator QRegion::rbegin() const': gives a type
+    Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QRegion.rbegin' has no cute function yet. Qt's "
+        "'const_reverse_iterator QRegion::rbegin() const': gives a type "
+        "Python has no way to take yet.")
+
+  @staticmethod
+  def rects(*__, **_) -> Never:
+    """
+    Qt's 'QSpan<const QRect> QRegion::rects() const': gives a type Python has
+    no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QRegion.rects' has no cute function yet. Qt's 'QSpan<const QRect> "
+        "QRegion::rects() const': gives a type Python has no way to take "
+        "yet.")
+
+  @staticmethod
+  def rend(*__, **_) -> Never:
+    """
+    Qt's 'const_reverse_iterator QRegion::rend() const': gives a type Python
+    has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QRegion.rend' has no cute function yet. Qt's "
+        "'const_reverse_iterator QRegion::rend() const': gives a type "
+        "Python has no way to take yet.")
+
+  @staticmethod
+  def swap(*__, **_) -> Never:
+    """
+    Qt's 'void QRegion::swap(QRegion &other)': takes a type Python has no way
+    to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QRegion.swap' has no cute function yet. Qt's 'void "
+        "QRegion::swap(QRegion &other)': takes a type Python has no way to "
+        "hand over yet.")

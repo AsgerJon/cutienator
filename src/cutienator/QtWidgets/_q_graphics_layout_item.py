@@ -13,14 +13,15 @@ from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, MetaCute, WAIT
+from ..occult import Rituals
 from ..QtCore import Qt
 from . import QSizePolicy
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from ..QtCore import QRectF, QSizeF
-  from . import QGraphicsItem
+  from . import QGraphicsItem, QGraphicsLayoutItemPrivate
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -43,7 +44,7 @@ class QGraphicsLayoutItem(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QGraphicsLayoutItem that has a ritual and that
-  Python can call so far, 34 names in all: 'setSizePolicy', 'sizePolicy',
+  Python can call so far, 35 names in all: 'setSizePolicy', 'sizePolicy',
   'setMinimumSize', 'minimumSize', 'setMinimumWidth', 'minimumWidth',
   'setMinimumHeight', 'minimumHeight', 'setPreferredSize', 'preferredSize',
   'setPreferredWidth', 'preferredWidth', 'setPreferredHeight',
@@ -52,8 +53,7 @@ class QGraphicsLayoutItem(CuteMixin, metaclass=MetaCute):
   'geometry', 'contentsRect', 'effectiveSizeHint', 'updateGeometry',
   'isEmpty', 'parentLayoutItem', 'setParentLayoutItem', 'isLayout',
   'graphicsItem', 'ownedByLayout', 'setGraphicsItem', 'setOwnedByLayout',
-  'sizeHint'. None can be made from Python: one comes out of a function of
-  another class that gives one back.
+  'sizeHint', 'd_func'. It can be made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -63,13 +63,16 @@ class QGraphicsLayoutItem(CuteMixin, metaclass=MetaCute):
   - Qt's 'void QGraphicsLayoutItem::getContentsMargins(qreal *left, qreal
     *top, qreal *right, qreal *bottom) const': takes a number to change where
     it is.
+  - Qt's 'QGraphicsLayoutItem::QGraphicsLayoutItem(QGraphicsLayoutItemPrivate
+    &dd)': takes a type Python has no way to hand over yet.
+  - Qt's 'const QGraphicsLayoutItemPrivate *QGraphicsLayoutItem::d_func()
+    const': takes in Python what 'QGraphicsLayoutItemPrivate
+    *QGraphicsLayoutItem::d_func()' takes.
 
   What has no ritual
   ------------------
 
-  5 of the 45 functions Qt declares: 2 the class is abstract, so C++ cannot
-  make one; 2 takes or gives a type that cannot be passed yet; 1 declared and
-  nowhere to be found.
+  1 of the 45 functions Qt declares: 1 not a gap.
 
   What to expect
   --------------
@@ -82,6 +85,9 @@ class QGraphicsLayoutItem(CuteMixin, metaclass=MetaCute):
     has it, and is passed on as nothing. Whether Qt can do with nothing there
     is as in C++.
   - Python never removes the C++ QGraphicsLayoutItem.
+  - Each name of Qt's QGraphicsLayoutItem that has no cute function yet,
+    'getContentsMargins', holds a function that raises 'NotImplementedError',
+    and its docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -964,6 +970,41 @@ class QGraphicsLayoutItem(CuteMixin, metaclass=MetaCute):
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  @overload()
+  @overload(THIS)
+  @overload(NoneType)
+  @overload(THIS, bool)
+  @overload(NoneType, bool)
+  def __init__(
+      self,
+      parent: Optional[QGraphicsLayoutItem] = None,
+      isLayout: bool = False,
+  ) -> None:
+    """
+    Notes what was given, for Qt's
+    'QGraphicsLayoutItem::QGraphicsLayoutItem(QGraphicsLayoutItem *parent,
+    bool isLayout)', which is called at the first use.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicslayoutitem.html#QGraphicsLayoutItem
+
+    Parameters
+    ----------
+
+    parent : Optional[QGraphicsLayoutItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object. May be left out, as in Qt: it is then None.
+
+    isLayout : bool
+      Passed on as it is. May be left out, as in Qt: it is then False.
+    """
+    #  QGraphicsLayoutItem::QGraphicsLayoutItem(QGraphicsLayoutItem *parent,
+    #      bool isLayout)
+    self._noteCreation(QGraphicsLayoutItem, lambda: Rituals.call(
+        'ritual_ZN19QGraphicsLayoutItemC1EPS_b',
+        self._addressOf(parent, 'QGraphicsLayoutItem'), isLayout,
+    ))
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -996,3 +1037,36 @@ class QGraphicsLayoutItem(CuteMixin, metaclass=MetaCute):
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZN19QGraphicsLayoutItem14updateGeometryEv'
     self._callAs('QGraphicsLayoutItem', ritual)
+
+  def d_func(self) -> Optional[QGraphicsLayoutItemPrivate]:
+    """
+    Calls Qt's 'QGraphicsLayoutItemPrivate *QGraphicsLayoutItem::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicslayoutitem.html#d_func
+
+    Returns
+    -------
+
+    Optional[QGraphicsLayoutItemPrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QGraphicsLayoutItemPrivate *QGraphicsLayoutItem::d_func()
+    address = self._callAs(
+        'QGraphicsLayoutItem', 'ritual_ZN19QGraphicsLayoutItem6d_funcEv',
+    )
+    from . import QGraphicsLayoutItemPrivate
+    return QGraphicsLayoutItemPrivate._cuteAt(address)
+
+  @staticmethod
+  def getContentsMargins(*__, **_) -> Never:
+    """
+    Qt's 'void QGraphicsLayoutItem::getContentsMargins(qreal *left, qreal
+    *top, qreal *right, qreal *bottom) const': takes a number to change where
+    it is.
+    """
+    raise NotImplementedError(
+        "'QGraphicsLayoutItem.getContentsMargins' has no cute function yet. "
+        "Qt's 'void QGraphicsLayoutItem::getContentsMargins(qreal *left, "
+        "qreal *top, qreal *right, qreal *bottom) const': takes a number to "
+        "change where it is.")

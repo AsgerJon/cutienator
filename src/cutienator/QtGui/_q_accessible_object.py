@@ -11,12 +11,23 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
+from ..cute import WAIT
+from ..occult import Rituals
 from . import QAccessible, QAccessibleInterface
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
   from ..QtCore import QObject, QRect
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QObject = WAIT['QObject']
+
+#  The class of None, for a signature that takes None in the place of an
+#  object or of text.
+NoneType = type(None)
 
 
 class QAccessibleObject(QAccessibleInterface):
@@ -32,8 +43,7 @@ class QAccessibleObject(QAccessibleInterface):
 
   Every function of Qt's QAccessibleObject that has a ritual and that Python
   can call so far, 5 names in all: 'isValid', 'object', 'rect', 'setText',
-  'childAt'. None can be made from Python: one comes out of a function of
-  another class that gives one back.
+  'childAt'. It can be made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -44,8 +54,7 @@ class QAccessibleObject(QAccessibleInterface):
   What has no ritual
   ------------------
 
-  3 of the 9 functions Qt declares: 2 forbidden; 1 the class is abstract, so
-  C++ cannot make one.
+  2 of the 9 functions Qt declares: 2 forbidden.
 
   What to expect
   --------------
@@ -99,7 +108,7 @@ class QAccessibleObject(QAccessibleInterface):
     ritual = 'ritual_ZNK17QAccessibleObject7isValidEv'
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZNK17QAccessibleObject7isValidEv'
-    return self.uglySide.call(ritual)
+    return self._callAs('QAccessibleObject', ritual)
 
   def object(self) -> Optional[QObject]:
     """
@@ -118,7 +127,7 @@ class QAccessibleObject(QAccessibleInterface):
     ritual = 'ritual_ZNK17QAccessibleObject6objectEv'
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZNK17QAccessibleObject6objectEv'
-    address = self.uglySide.call(ritual)
+    address = self._callAs('QAccessibleObject', ritual)
     from ..QtCore import QObject
     return QObject._cuteAt(address)
 
@@ -138,7 +147,7 @@ class QAccessibleObject(QAccessibleInterface):
     ritual = 'ritual_ZNK17QAccessibleObject4rectEv'
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZNK17QAccessibleObject4rectEv'
-    address = self.uglySide.call(ritual)
+    address = self._callAs('QAccessibleObject', ritual)
     from ..QtCore import QRect
     return QRect._cuteOwning(address)
 
@@ -170,7 +179,7 @@ class QAccessibleObject(QAccessibleInterface):
     ritual = 'ritual_ZNK17QAccessibleObject7childAtEii'
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZNK17QAccessibleObject7childAtEii'
-    address = self.uglySide.call(ritual, x, y)
+    address = self._callAs('QAccessibleObject', ritual, x, y)
     return QAccessibleInterface._cuteAt(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -203,7 +212,7 @@ class QAccessibleObject(QAccessibleInterface):
       ritual = (
           'ritual_own_ZN17QAccessibleObject7setTextEN11QAccessible4TextERK7'
           'QString')
-    self.uglySide.call(ritual, t.value, text)
+    self._callAs('QAccessibleObject', ritual, t.value, text)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NOTIFIERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -216,6 +225,30 @@ class QAccessibleObject(QAccessibleInterface):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(QObject)
+  @overload(NoneType)
+  def __init__(self, object: Optional[QObject]) -> None:
+    """
+    Notes what was given, for Qt's
+    'QAccessibleObject::QAccessibleObject(QObject *object)', which is called
+    at the first use.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qaccessibleobject.html#QAccessibleObject
+
+    Parameters
+    ----------
+
+    object : Optional[QObject]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  QAccessibleObject::QAccessibleObject(QObject *object)
+    self._noteCreation(QAccessibleObject, lambda: Rituals.call(
+        'ritual_ZN17QAccessibleObjectC1EP7QObject',
+        self._addressOf(object, 'QObject'),
+    ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #

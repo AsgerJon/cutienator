@@ -17,12 +17,13 @@ from ..occult import Rituals
 from ..QtCore import QObject
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from ..QtCore import QAbstractItemModel, QEvent, QMetaObject, QModelIndex
   from ..QtCore import QSize
   from ..QtGui import QHelpEvent, QPainter
-  from . import QAbstractItemView, QStyleOptionViewItem, QWidget
+  from . import QAbstractItemDelegatePrivate, QAbstractItemView
+  from . import QStyleOptionViewItem, QWidget
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -53,24 +54,33 @@ class QAbstractItemDelegate(QObject):
   -----------
 
   Every function of Qt's QAbstractItemDelegate that has a ritual and that
-  Python can call so far, 12 names in all: 'metaObject', 'tr', 'paint',
+  Python can call so far, 16 names in all: 'metaObject', 'tr', 'paint',
   'sizeHint', 'createEditor', 'destroyEditor', 'setEditorData',
   'setModelData', 'updateEditorGeometry', 'editorEvent', 'handleEditorEvent',
-  'helpEvent'. None can be made from Python: one comes out of a function of
-  another class that gives one back.
+  'helpEvent', 'commitData', 'closeEditor', 'sizeHintChanged', 'd_func'. It
+  can be made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QAbstractItemDelegate::qt_metacast(const char *a0)': one of
+    Qt's own inner workings.
+  - Qt's 'int QAbstractItemDelegate::qt_metacall(QMetaObject::Call a0, int
+    a1, void **a2)': one of Qt's own inner workings.
   - Qt's 'QAbstractItemDelegate::~QAbstractItemDelegate()': the destructor:
     Python never removes a C++ QAbstractItemDelegate.
+  - Qt's 'QList<int> QAbstractItemDelegate::paintingRoles() const': gives a
+    type Python has no way to take yet.
+  - Qt's 'QAbstractItemDelegate::QAbstractItemDelegate(QObjectPrivate &a0,
+    QObject *parent)': takes a type Python has no way to hand over yet.
+  - Qt's 'const QAbstractItemDelegatePrivate *QAbstractItemDelegate::d_func()
+    const': takes in Python what 'QAbstractItemDelegatePrivate
+    *QAbstractItemDelegate::d_func()' takes.
 
   What has no ritual
   ------------------
 
-  14 of the 27 functions Qt declares: 5 takes or gives a type that cannot be
-  passed yet; 3 a signal; 2 the class is abstract, so C++ cannot make one; 2
-  forbidden; 1 a template; 1 declared and nowhere to be found.
+  4 of the 27 functions Qt declares: 2 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -86,6 +96,9 @@ class QAbstractItemDelegate(QObject):
   - Qt tells when it has removed the C++ QAbstractItemDelegate. Every call on
     the cute object, and every use of it as an argument, then raises
     'RuntimeError', and nothing reaches C++.
+  - Each name of Qt's QAbstractItemDelegate that has no cute function yet,
+    'paintingRoles', holds a function that raises 'NotImplementedError', and
+    its docstring says why.
   """
 
   #  The enums Qt writes inside QAbstractItemDelegate, each a class in here
@@ -495,6 +508,31 @@ class QAbstractItemDelegate(QObject):
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  @overload()
+  @overload(QObject)
+  @overload(NoneType)
+  def __init__(self, parent: Optional[QObject] = None) -> None:
+    """
+    Notes what was given, for Qt's
+    'QAbstractItemDelegate::QAbstractItemDelegate(QObject *parent)', which is
+    called at the first use.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractitemdelegate.html#QAbstractItemDelegate
+
+    Parameters
+    ----------
+
+    parent : Optional[QObject]
+      Passed on as the address of its C++ object. None is passed on as no
+      object. May be left out, as in Qt: it is then None.
+    """
+    #  QAbstractItemDelegate::QAbstractItemDelegate(QObject *parent)
+    self._noteCreation(QAbstractItemDelegate, lambda: Rituals.call(
+        'ritual_ZN21QAbstractItemDelegateC1EP7QObject',
+        self._addressOf(parent, 'QObject'),
+    ))
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -777,3 +815,112 @@ class QAbstractItemDelegate(QObject):
         self._addressOf(event), self._addressOf(view), self._valueOf(option),
         self._valueOf(index),
     )
+
+  @overload(QWidget)
+  @overload(NoneType)
+  def commitData(self, editor: Optional[QWidget]) -> None:
+    """
+    Calls Qt's 'void QAbstractItemDelegate::commitData(QWidget *editor)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractitemdelegate.html#commitData
+
+    Parameters
+    ----------
+
+    editor : Optional[QWidget]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QAbstractItemDelegate::commitData(QWidget *editor)
+    self.uglySide.call(
+        'ritual_ZN21QAbstractItemDelegate10commitDataEP7QWidget',
+        self._addressOf(editor),
+    )
+
+  @overload(QWidget)
+  @overload(NoneType)
+  @overload(QWidget, EndEditHint)
+  @overload(NoneType, EndEditHint)
+  def closeEditor(
+      self,
+      editor: Optional[QWidget],
+      hint: EndEditHint = EndEditHint.NoHint,
+  ) -> None:
+    """
+    Calls Qt's 'void QAbstractItemDelegate::closeEditor(QWidget *editor,
+    QAbstractItemDelegate::EndEditHint hint)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractitemdelegate.html#closeEditor
+
+    Parameters
+    ----------
+
+    editor : Optional[QWidget]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    hint : EndEditHint
+      Passed on as its number. May be left out, as in Qt: it is then
+      EndEditHint.NoHint.
+    """
+    #  void QAbstractItemDelegate::closeEditor(QWidget *editor,
+    #      QAbstractItemDelegate::EndEditHint hint)
+    self.uglySide.call(
+        'ritual_ZN21QAbstractItemDelegate11closeEditorEP7QWidgetNS_11EndEdi'
+        'tHintE',
+        self._addressOf(editor), hint.value,
+    )
+
+  @overload(QModelIndex)
+  def sizeHintChanged(self, a0: QModelIndex) -> None:
+    """
+    Calls Qt's 'void QAbstractItemDelegate::sizeHintChanged(const QModelIndex
+    &a0)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractitemdelegate.html#sizeHintChanged
+
+    Parameters
+    ----------
+
+    a0 : QModelIndex
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own.
+    """
+    #  void QAbstractItemDelegate::sizeHintChanged(const QModelIndex &a0)
+    self.uglySide.call(
+        'ritual_ZN21QAbstractItemDelegate15sizeHintChangedERK11QModelIndex',
+        self._valueOf(a0),
+    )
+
+  def d_func(self) -> Optional[QAbstractItemDelegatePrivate]:
+    """
+    Calls Qt's 'QAbstractItemDelegatePrivate
+    *QAbstractItemDelegate::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qabstractitemdelegate.html#d_func
+
+    Returns
+    -------
+
+    Optional[QAbstractItemDelegatePrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QAbstractItemDelegatePrivate *QAbstractItemDelegate::d_func()
+    address = self.uglySide.call('ritual_ZN21QAbstractItemDelegate6d_funcEv')
+    from . import QAbstractItemDelegatePrivate
+    return QAbstractItemDelegatePrivate._cuteAt(address)
+
+  @staticmethod
+  def paintingRoles(*__, **_) -> Never:
+    """
+    Qt's 'QList<int> QAbstractItemDelegate::paintingRoles() const': gives a
+    type Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QAbstractItemDelegate.paintingRoles' has no cute function yet. "
+        "Qt's 'QList<int> QAbstractItemDelegate::paintingRoles() const': "
+        "gives a type Python has no way to take yet.")

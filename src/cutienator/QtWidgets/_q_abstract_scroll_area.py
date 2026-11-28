@@ -24,7 +24,7 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   from ..QtGui import QContextMenuEvent, QDragEnterEvent, QDragLeaveEvent
   from ..QtGui import QDragMoveEvent, QDropEvent, QKeyEvent, QMouseEvent
   from ..QtGui import QPaintEvent, QResizeEvent, QWheelEvent
-  from . import QScrollBar
+  from . import QAbstractScrollAreaPrivate, QScrollBar
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -60,7 +60,7 @@ class QAbstractScrollArea(QFrame):
   -----------
 
   Every function of Qt's QAbstractScrollArea that has a ritual and that
-  Python can call so far, 42 names in all: 'metaObject', 'tr',
+  Python can call so far, 43 names in all: 'metaObject', 'tr',
   'verticalScrollBarPolicy', 'setVerticalScrollBarPolicy',
   'verticalScrollBar', 'setVerticalScrollBar', 'horizontalScrollBarPolicy',
   'setHorizontalScrollBarPolicy', 'horizontalScrollBar',
@@ -72,20 +72,28 @@ class QAbstractScrollArea(QFrame):
   'paintEvent', 'mousePressEvent', 'mouseReleaseEvent',
   'mouseDoubleClickEvent', 'mouseMoveEvent', 'wheelEvent',
   'contextMenuEvent', 'dragEnterEvent', 'dragMoveEvent', 'dragLeaveEvent',
-  'dropEvent', 'keyPressEvent', 'scrollContentsBy', 'viewportSizeHint'. It
-  can be made from Python, in 1 way; see '__init__'.
+  'dropEvent', 'keyPressEvent', 'scrollContentsBy', 'viewportSizeHint',
+  'd_func'. It can be made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QAbstractScrollArea::qt_metacast(const char *a0)': one of
+    Qt's own inner workings.
+  - Qt's 'int QAbstractScrollArea::qt_metacall(QMetaObject::Call a0, int a1,
+    void **a2)': one of Qt's own inner workings.
   - Qt's 'QAbstractScrollArea::~QAbstractScrollArea()': the destructor:
     Python never removes a C++ QAbstractScrollArea.
+  - Qt's 'QAbstractScrollArea::QAbstractScrollArea(QAbstractScrollAreaPrivate
+    &dd, QWidget *parent)': takes a type Python has no way to hand over yet.
+  - Qt's 'const QAbstractScrollAreaPrivate *QAbstractScrollArea::d_func()
+    const': takes in Python what 'QAbstractScrollAreaPrivate
+    *QAbstractScrollArea::d_func()' takes.
 
   What has no ritual
   ------------------
 
-  9 of the 54 functions Qt declares: 5 takes or gives a type that cannot be
-  passed yet; 2 forbidden; 1 a template; 1 declared and nowhere to be found.
+  4 of the 54 functions Qt declares: 2 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -713,7 +721,7 @@ class QAbstractScrollArea(QFrame):
     #  void QAbstractScrollArea::setViewportMargins(const QMargins &margins)
     self.uglySide.call(
         'ritual_ZN19QAbstractScrollArea18setViewportMarginsERK8QMargins',
-        self._valueOf(margins),
+        self._valueOf(margins, 'QMargins'),
     )
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -1273,3 +1281,21 @@ class QAbstractScrollArea(QFrame):
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZN19QAbstractScrollArea16scrollContentsByEii'
     self.uglySide.call(ritual, dx, dy)
+
+  def d_func(self) -> Optional[QAbstractScrollAreaPrivate]:
+    """
+    Calls Qt's 'QAbstractScrollAreaPrivate *QAbstractScrollArea::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qabstractscrollarea.html#d_func
+
+    Returns
+    -------
+
+    Optional[QAbstractScrollAreaPrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QAbstractScrollAreaPrivate *QAbstractScrollArea::d_func()
+    address = self.uglySide.call('ritual_ZN19QAbstractScrollArea6d_funcEv')
+    from . import QAbstractScrollAreaPrivate
+    return QAbstractScrollAreaPrivate._cuteAt(address)

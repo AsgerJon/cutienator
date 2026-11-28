@@ -18,7 +18,8 @@ from . import Qt, QAbstractItemModel, QAbstractProxyModel, QMap, QObject
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from . import QMetaObject, QModelIndex, QSize, QVariant
+  from . import QMetaObject, QModelIndex, QSize, QTransposeProxyModelPrivate
+  from . import QVariant
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -43,7 +44,7 @@ class QTransposeProxyModel(QAbstractProxyModel):
   -----------
 
   Every function of Qt's QTransposeProxyModel that has a ritual and that
-  Python can call so far, 21 names in all: 'metaObject', 'tr',
+  Python can call so far, 22 names in all: 'metaObject', 'tr', 'd_func',
   'setSourceModel', 'rowCount', 'columnCount', 'headerData', 'setHeaderData',
   'setItemData', 'span', 'itemData', 'mapFromSource', 'mapToSource',
   'parent', 'index', 'insertRows', 'removeRows', 'moveRows', 'insertColumns',
@@ -53,14 +54,23 @@ class QTransposeProxyModel(QAbstractProxyModel):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QTransposeProxyModel::qt_metacast(const char *a0)': one of
+    Qt's own inner workings.
+  - Qt's 'int QTransposeProxyModel::qt_metacall(QMetaObject::Call a0, int a1,
+    void **a2)': one of Qt's own inner workings.
+  - Qt's 'const QTransposeProxyModelPrivate *QTransposeProxyModel::d_func()
+    const': takes in Python what 'QTransposeProxyModelPrivate
+    *QTransposeProxyModel::d_func()' takes.
   - Qt's 'QTransposeProxyModel::~QTransposeProxyModel()': the destructor:
     Python never removes a C++ QTransposeProxyModel.
+  - Qt's
+    'QTransposeProxyModel::QTransposeProxyModel(QTransposeProxyModelPrivate
+    &a0, QObject *parent)': takes a type Python has no way to hand over yet.
 
   What has no ritual
   ------------------
 
-  9 of the 32 functions Qt declares: 5 takes or gives a type that cannot be
-  passed yet; 2 forbidden; 1 a template; 1 declared and nowhere to be found.
+  4 of the 32 functions Qt declares: 2 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -643,6 +653,24 @@ class QTransposeProxyModel(QAbstractProxyModel):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  def d_func(self) -> Optional[QTransposeProxyModelPrivate]:
+    """
+    Calls Qt's 'QTransposeProxyModelPrivate *QTransposeProxyModel::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtransposeproxymodel.html#d_func
+
+    Returns
+    -------
+
+    Optional[QTransposeProxyModelPrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QTransposeProxyModelPrivate *QTransposeProxyModel::d_func()
+    address = self.uglySide.call('ritual_ZN20QTransposeProxyModel6d_funcEv')
+    from . import QTransposeProxyModelPrivate
+    return QTransposeProxyModelPrivate._cuteAt(address)
 
   @overload(int, int)
   @overload(int, int, QModelIndex)

@@ -14,10 +14,10 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
-from . import Qt
+from . import Qt, QList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from . import QByteArray, QChar
 else:
@@ -55,10 +55,23 @@ class QByteArrayView(CuteMixin, metaclass=MetaCute):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'const storage_type *QByteArrayView::castHelper(const storage_type
+    *data)': names 'QByteArrayView::storage_type', which has no cute class
+    yet.
+  - Qt's 'QByteArrayView::QByteArrayView(std::nullptr_t a0)': takes in Python
+    what 'QByteArrayView::QByteArrayView()' takes.
+  - Qt's 'const_pointer QByteArrayView::data() const': gives 'value_type',
+    which has no cute class yet.
+  - Qt's 'const_pointer QByteArrayView::constData() const': gives
+    'value_type', which has no cute class yet.
   - Qt's 'char QByteArrayView::operator[](qsizetype n) const': gives a single
     letter as C has it.
   - Qt's 'char QByteArrayView::at(qsizetype n) const': gives a single letter
     as C has it.
+  - Qt's 'QByteArrayView &QByteArrayView::slice(qsizetype pos)': gives a type
+    Python has no way to take yet.
+  - Qt's 'QByteArrayView &QByteArrayView::slice(qsizetype pos, qsizetype n)':
+    gives a type Python has no way to take yet.
   - Qt's 'short QByteArrayView::toShort(bool *ok, int base) const': takes a
     number to change where it is.
   - Qt's 'ushort QByteArrayView::toUShort(bool *ok, int base) const': takes a
@@ -91,10 +104,28 @@ class QByteArrayView(CuteMixin, metaclass=MetaCute):
     const': takes a single letter as C has it.
   - Qt's 'qsizetype QByteArrayView::count(char ch) const': takes a single
     letter as C has it.
+  - Qt's 'const_iterator QByteArrayView::begin() const': gives 'value_type',
+    which has no cute class yet.
+  - Qt's 'const_iterator QByteArrayView::end() const': gives 'value_type',
+    which has no cute class yet.
+  - Qt's 'const_iterator QByteArrayView::cbegin() const': gives 'value_type',
+    which has no cute class yet.
+  - Qt's 'const_iterator QByteArrayView::cend() const': gives 'value_type',
+    which has no cute class yet.
+  - Qt's 'const_reverse_iterator QByteArrayView::rbegin() const': gives a
+    type Python has no way to take yet.
+  - Qt's 'const_reverse_iterator QByteArrayView::rend() const': gives a type
+    Python has no way to take yet.
+  - Qt's 'const_reverse_iterator QByteArrayView::crbegin() const': gives a
+    type Python has no way to take yet.
+  - Qt's 'const_reverse_iterator QByteArrayView::crend() const': gives a type
+    Python has no way to take yet.
   - Qt's 'char QByteArrayView::front() const': gives a single letter as C has
     it.
   - Qt's 'char QByteArrayView::back() const': gives a single letter as C has
     it.
+  - Qt's 'std::string_view QByteArrayView::operator basic_string_view()
+    const': an operator Python has no name for.
   - Qt's 'char QByteArrayView::first() const': gives a single letter as C has
     it.
   - Qt's 'char QByteArrayView::last() const': gives a single letter as C has
@@ -141,14 +172,31 @@ class QByteArrayView(CuteMixin, metaclass=MetaCute):
   - Qt's 'bool operator>=(const QChar &lhs, const QByteArrayView &rhs)':
     takes in Python what 'bool operator<=(const QByteArrayView &lhs, const
     QChar &rhs)' takes.
+  - Qt's 'bool operator==(const char16_t &lhs, const QByteArrayView &rhs)':
+    takes in Python what 'bool operator==(const QByteArrayView &lhs, const
+    char16_t &rhs)' takes.
+  - Qt's 'bool operator!=(const char16_t &lhs, const QByteArrayView &rhs)':
+    takes in Python what 'bool operator!=(const QByteArrayView &lhs, const
+    char16_t &rhs)' takes.
+  - Qt's 'bool operator<(const char16_t &lhs, const QByteArrayView &rhs)':
+    takes in Python what 'bool operator>(const QByteArrayView &lhs, const
+    char16_t &rhs)' takes.
+  - Qt's 'bool operator>(const char16_t &lhs, const QByteArrayView &rhs)':
+    takes in Python what 'bool operator<(const QByteArrayView &lhs, const
+    char16_t &rhs)' takes.
+  - Qt's 'bool operator<=(const char16_t &lhs, const QByteArrayView &rhs)':
+    takes in Python what 'bool operator>=(const QByteArrayView &lhs, const
+    char16_t &rhs)' takes.
+  - Qt's 'bool operator>=(const char16_t &lhs, const QByteArrayView &rhs)':
+    takes in Python what 'bool operator<=(const QByteArrayView &lhs, const
+    char16_t &rhs)' takes.
   - Qt's 'QByteArrayView::~QByteArrayView()': the destructor: Python removes
     its C++ QByteArrayView by it, and has no other use for it.
 
   What has no ritual
   ------------------
 
-  37 of the 122 functions Qt declares: 27 takes or gives a type that cannot
-  be passed yet; 10 a template.
+  10 of the 122 functions Qt declares: 10 a template.
 
   What to expect
   --------------
@@ -162,6 +210,13 @@ class QByteArrayView(CuteMixin, metaclass=MetaCute):
     is as in C++.
   - A function giving a QByteArrayView back gives a copy the ritual made for
     Python, in a new cute QByteArrayView.
+  - Each name of Qt's QByteArrayView that has no cute function yet, 'at',
+    'back', 'begin', 'castHelper', 'cbegin', 'cend', 'constData', 'crbegin',
+    'crend', 'data', 'end', 'fromArray', 'front', 'lengthHelperContainer',
+    'rbegin', 'rend', 'slice', 'toDouble', 'toFloat', 'toInt', 'toLong',
+    'toLongLong', 'toShort', 'toUInt', 'toULong', 'toULongLong', 'toUShort',
+    holds a function that raises 'NotImplementedError', and its docstring
+    says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -765,6 +820,25 @@ class QByteArrayView(CuteMixin, metaclass=MetaCute):
         CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
     )
 
+  @overload(int)
+  def __eq__(self, rhs: int) -> bool:
+    """
+    Calls Qt's 'bool operator==(const QByteArrayView &lhs, const char16_t
+    &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qbytearrayview.html#operator==
+
+    Parameters
+    ----------
+
+    rhs : int
+      Passed on as it is.
+    """
+    #  bool operator==(const QByteArrayView &lhs, const char16_t &rhs)
+    return Rituals.call(
+        'ritual_ZeqRK14QByteArrayViewRKDs', CuteMixin._valueOf(self), rhs,
+    )
+
   @overload.fallback
   def __eq__(self, *args: object) -> object:
     """
@@ -813,6 +887,25 @@ class QByteArrayView(CuteMixin, metaclass=MetaCute):
     return Rituals.call(
         'ritual_ZneRK14QByteArrayViewRK5QChar',
         CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload(int)
+  def __ne__(self, rhs: int) -> bool:
+    """
+    Calls Qt's 'bool operator!=(const QByteArrayView &lhs, const char16_t
+    &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qbytearrayview.html#operator!=
+
+    Parameters
+    ----------
+
+    rhs : int
+      Passed on as it is.
+    """
+    #  bool operator!=(const QByteArrayView &lhs, const char16_t &rhs)
+    return Rituals.call(
+        'ritual_ZneRK14QByteArrayViewRKDs', CuteMixin._valueOf(self), rhs,
     )
 
   @overload.fallback
@@ -864,6 +957,25 @@ class QByteArrayView(CuteMixin, metaclass=MetaCute):
         CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
     )
 
+  @overload(int)
+  def __lt__(self, rhs: int) -> bool:
+    """
+    Calls Qt's 'bool operator<(const QByteArrayView &lhs, const char16_t
+    &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qbytearrayview.html#operator<
+
+    Parameters
+    ----------
+
+    rhs : int
+      Passed on as it is.
+    """
+    #  bool operator<(const QByteArrayView &lhs, const char16_t &rhs)
+    return Rituals.call(
+        'ritual_ZltRK14QByteArrayViewRKDs', CuteMixin._valueOf(self), rhs,
+    )
+
   @overload.fallback
   def __lt__(self, *args: object) -> object:
     """
@@ -911,6 +1023,25 @@ class QByteArrayView(CuteMixin, metaclass=MetaCute):
     return Rituals.call(
         'ritual_ZgtRK14QByteArrayViewRK5QChar',
         CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload(int)
+  def __gt__(self, rhs: int) -> bool:
+    """
+    Calls Qt's 'bool operator>(const QByteArrayView &lhs, const char16_t
+    &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qbytearrayview.html#operator>
+
+    Parameters
+    ----------
+
+    rhs : int
+      Passed on as it is.
+    """
+    #  bool operator>(const QByteArrayView &lhs, const char16_t &rhs)
+    return Rituals.call(
+        'ritual_ZgtRK14QByteArrayViewRKDs', CuteMixin._valueOf(self), rhs,
     )
 
   @overload.fallback
@@ -963,6 +1094,25 @@ class QByteArrayView(CuteMixin, metaclass=MetaCute):
         CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
     )
 
+  @overload(int)
+  def __le__(self, rhs: int) -> bool:
+    """
+    Calls Qt's 'bool operator<=(const QByteArrayView &lhs, const char16_t
+    &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qbytearrayview.html#operator<=
+
+    Parameters
+    ----------
+
+    rhs : int
+      Passed on as it is.
+    """
+    #  bool operator<=(const QByteArrayView &lhs, const char16_t &rhs)
+    return Rituals.call(
+        'ritual_ZleRK14QByteArrayViewRKDs', CuteMixin._valueOf(self), rhs,
+    )
+
   @overload.fallback
   def __le__(self, *args: object) -> object:
     """
@@ -1011,6 +1161,25 @@ class QByteArrayView(CuteMixin, metaclass=MetaCute):
     return Rituals.call(
         'ritual_ZgeRK14QByteArrayViewRK5QChar',
         CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload(int)
+  def __ge__(self, rhs: int) -> bool:
+    """
+    Calls Qt's 'bool operator>=(const QByteArrayView &lhs, const char16_t
+    &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qbytearrayview.html#operator>=
+
+    Parameters
+    ----------
+
+    rhs : int
+      Passed on as it is.
+    """
+    #  bool operator>=(const QByteArrayView &lhs, const char16_t &rhs)
+    return Rituals.call(
+        'ritual_ZgeRK14QByteArrayViewRKDs', CuteMixin._valueOf(self), rhs,
     )
 
   @overload.fallback
@@ -1112,3 +1281,321 @@ class QByteArrayView(CuteMixin, metaclass=MetaCute):
     """
     #  void QByteArrayView::verify(qsizetype pos, qsizetype n) const
     self.uglySide.call('ritual_ZNK14QByteArrayView6verifyExx', pos, n)
+
+  @staticmethod
+  def at(*__, **_) -> Never:
+    """
+    Qt's 'char QByteArrayView::at(qsizetype n) const': gives a single letter
+    as C has it.
+    """
+    raise NotImplementedError(
+        "'QByteArrayView.at' has no cute function yet. Qt's 'char "
+        "QByteArrayView::at(qsizetype n) const': gives a single letter as C "
+        "has it.")
+
+  @staticmethod
+  def back(*__, **_) -> Never:
+    """
+    Qt's 'char QByteArrayView::back() const': gives a single letter as C has
+    it.
+    """
+    raise NotImplementedError(
+        "'QByteArrayView.back' has no cute function yet. Qt's 'char "
+        "QByteArrayView::back() const': gives a single letter as C has it.")
+
+  @staticmethod
+  def begin(*__, **_) -> Never:
+    """
+    Qt's 'const_iterator QByteArrayView::begin() const': gives 'value_type',
+    which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QByteArrayView.begin' has no cute function yet. Qt's "
+        "'const_iterator QByteArrayView::begin() const': gives "
+        "'value_type', which has no cute class yet.")
+
+  @staticmethod
+  def castHelper(*__, **_) -> Never:
+    """
+    - Qt's 'const storage_type *QByteArrayView::castHelper(const storage_type
+      *data)': names 'QByteArrayView::storage_type', which has no cute class
+      yet.
+    - Qt's 'QByteArrayView::castHelper': a template: a pattern and no single
+      function.
+    """
+    raise NotImplementedError(
+        "'QByteArrayView.castHelper' has no cute function yet. Qt's 'const "
+        "storage_type *QByteArrayView::castHelper(const storage_type "
+        "*data)': names 'QByteArrayView::storage_type', which has no cute "
+        "class yet. Qt's 'QByteArrayView::castHelper': a template: a "
+        "pattern and no single function.")
+
+  @staticmethod
+  def cbegin(*__, **_) -> Never:
+    """
+    Qt's 'const_iterator QByteArrayView::cbegin() const': gives 'value_type',
+    which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QByteArrayView.cbegin' has no cute function yet. Qt's "
+        "'const_iterator QByteArrayView::cbegin() const': gives "
+        "'value_type', which has no cute class yet.")
+
+  @staticmethod
+  def cend(*__, **_) -> Never:
+    """
+    Qt's 'const_iterator QByteArrayView::cend() const': gives 'value_type',
+    which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QByteArrayView.cend' has no cute function yet. Qt's "
+        "'const_iterator QByteArrayView::cend() const': gives 'value_type', "
+        "which has no cute class yet.")
+
+  @staticmethod
+  def constData(*__, **_) -> Never:
+    """
+    Qt's 'const_pointer QByteArrayView::constData() const': gives
+    'value_type', which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QByteArrayView.constData' has no cute function yet. Qt's "
+        "'const_pointer QByteArrayView::constData() const': gives "
+        "'value_type', which has no cute class yet.")
+
+  @staticmethod
+  def crbegin(*__, **_) -> Never:
+    """
+    Qt's 'const_reverse_iterator QByteArrayView::crbegin() const': gives a
+    type Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QByteArrayView.crbegin' has no cute function yet. Qt's "
+        "'const_reverse_iterator QByteArrayView::crbegin() const': gives a "
+        "type Python has no way to take yet.")
+
+  @staticmethod
+  def crend(*__, **_) -> Never:
+    """
+    Qt's 'const_reverse_iterator QByteArrayView::crend() const': gives a type
+    Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QByteArrayView.crend' has no cute function yet. Qt's "
+        "'const_reverse_iterator QByteArrayView::crend() const': gives a "
+        "type Python has no way to take yet.")
+
+  @staticmethod
+  def data(*__, **_) -> Never:
+    """
+    Qt's 'const_pointer QByteArrayView::data() const': gives 'value_type',
+    which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QByteArrayView.data' has no cute function yet. Qt's "
+        "'const_pointer QByteArrayView::data() const': gives 'value_type', "
+        "which has no cute class yet.")
+
+  @staticmethod
+  def end(*__, **_) -> Never:
+    """
+    Qt's 'const_iterator QByteArrayView::end() const': gives 'value_type',
+    which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QByteArrayView.end' has no cute function yet. Qt's "
+        "'const_iterator QByteArrayView::end() const': gives 'value_type', "
+        "which has no cute class yet.")
+
+  @staticmethod
+  def fromArray(*__, **_) -> Never:
+    """
+    Qt's 'QByteArrayView::fromArray': a template: a pattern and no single
+    function.
+    """
+    raise NotImplementedError(
+        "'QByteArrayView.fromArray' has no cute function yet. Qt's "
+        "'QByteArrayView::fromArray': a template: a pattern and no single "
+        "function.")
+
+  @staticmethod
+  def front(*__, **_) -> Never:
+    """
+    Qt's 'char QByteArrayView::front() const': gives a single letter as C has
+    it.
+    """
+    raise NotImplementedError(
+        "'QByteArrayView.front' has no cute function yet. Qt's 'char "
+        "QByteArrayView::front() const': gives a single letter as C has it.")
+
+  @staticmethod
+  def lengthHelperContainer(*__, **_) -> Never:
+    """
+    Qt's 'QByteArrayView::lengthHelperContainer': a template: a pattern and
+    no single function.
+    """
+    raise NotImplementedError(
+        "'QByteArrayView.lengthHelperContainer' has no cute function yet. "
+        "Qt's 'QByteArrayView::lengthHelperContainer': a template: a "
+        "pattern and no single function.")
+
+  @staticmethod
+  def rbegin(*__, **_) -> Never:
+    """
+    Qt's 'const_reverse_iterator QByteArrayView::rbegin() const': gives a
+    type Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QByteArrayView.rbegin' has no cute function yet. Qt's "
+        "'const_reverse_iterator QByteArrayView::rbegin() const': gives a "
+        "type Python has no way to take yet.")
+
+  @staticmethod
+  def rend(*__, **_) -> Never:
+    """
+    Qt's 'const_reverse_iterator QByteArrayView::rend() const': gives a type
+    Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QByteArrayView.rend' has no cute function yet. Qt's "
+        "'const_reverse_iterator QByteArrayView::rend() const': gives a "
+        "type Python has no way to take yet.")
+
+  @staticmethod
+  def slice(*__, **_) -> Never:
+    """
+    - Qt's 'QByteArrayView &QByteArrayView::slice(qsizetype pos)': gives a
+      type Python has no way to take yet.
+    - Qt's 'QByteArrayView &QByteArrayView::slice(qsizetype pos, qsizetype
+      n)': gives a type Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QByteArrayView.slice' has no cute function yet. Qt's "
+        "'QByteArrayView &QByteArrayView::slice(qsizetype pos)': gives a "
+        "type Python has no way to take yet. Qt's 'QByteArrayView "
+        "&QByteArrayView::slice(qsizetype pos, qsizetype n)': gives a type "
+        "Python has no way to take yet.")
+
+  @staticmethod
+  def toDouble(*__, **_) -> Never:
+    """
+    Qt's 'double QByteArrayView::toDouble(bool *ok) const': takes a number to
+    change where it is.
+    """
+    raise NotImplementedError(
+        "'QByteArrayView.toDouble' has no cute function yet. Qt's 'double "
+        "QByteArrayView::toDouble(bool *ok) const': takes a number to "
+        "change where it is.")
+
+  @staticmethod
+  def toFloat(*__, **_) -> Never:
+    """
+    Qt's 'float QByteArrayView::toFloat(bool *ok) const': takes a number to
+    change where it is.
+    """
+    raise NotImplementedError(
+        "'QByteArrayView.toFloat' has no cute function yet. Qt's 'float "
+        "QByteArrayView::toFloat(bool *ok) const': takes a number to change "
+        "where it is.")
+
+  @staticmethod
+  def toInt(*__, **_) -> Never:
+    """
+    Qt's 'int QByteArrayView::toInt(bool *ok, int base) const': takes a
+    number to change where it is.
+    """
+    raise NotImplementedError(
+        "'QByteArrayView.toInt' has no cute function yet. Qt's 'int "
+        "QByteArrayView::toInt(bool *ok, int base) const': takes a number "
+        "to change where it is.")
+
+  @staticmethod
+  def toLong(*__, **_) -> Never:
+    """
+    Qt's 'long QByteArrayView::toLong(bool *ok, int base) const': takes a
+    number to change where it is.
+    """
+    raise NotImplementedError(
+        "'QByteArrayView.toLong' has no cute function yet. Qt's 'long "
+        "QByteArrayView::toLong(bool *ok, int base) const': takes a number "
+        "to change where it is.")
+
+  @staticmethod
+  def toLongLong(*__, **_) -> Never:
+    """
+    Qt's 'qlonglong QByteArrayView::toLongLong(bool *ok, int base) const':
+    takes a number to change where it is.
+    """
+    raise NotImplementedError(
+        "'QByteArrayView.toLongLong' has no cute function yet. Qt's "
+        "'qlonglong QByteArrayView::toLongLong(bool *ok, int base) const': "
+        "takes a number to change where it is.")
+
+  @staticmethod
+  def toShort(*__, **_) -> Never:
+    """
+    Qt's 'short QByteArrayView::toShort(bool *ok, int base) const': takes a
+    number to change where it is.
+    """
+    raise NotImplementedError(
+        "'QByteArrayView.toShort' has no cute function yet. Qt's 'short "
+        "QByteArrayView::toShort(bool *ok, int base) const': takes a number "
+        "to change where it is.")
+
+  @staticmethod
+  def toUInt(*__, **_) -> Never:
+    """
+    Qt's 'uint QByteArrayView::toUInt(bool *ok, int base) const': takes a
+    number to change where it is.
+    """
+    raise NotImplementedError(
+        "'QByteArrayView.toUInt' has no cute function yet. Qt's 'uint "
+        "QByteArrayView::toUInt(bool *ok, int base) const': takes a number "
+        "to change where it is.")
+
+  @staticmethod
+  def toULong(*__, **_) -> Never:
+    """
+    Qt's 'ulong QByteArrayView::toULong(bool *ok, int base) const': takes a
+    number to change where it is.
+    """
+    raise NotImplementedError(
+        "'QByteArrayView.toULong' has no cute function yet. Qt's 'ulong "
+        "QByteArrayView::toULong(bool *ok, int base) const': takes a number "
+        "to change where it is.")
+
+  @staticmethod
+  def toULongLong(*__, **_) -> Never:
+    """
+    Qt's 'qulonglong QByteArrayView::toULongLong(bool *ok, int base) const':
+    takes a number to change where it is.
+    """
+    raise NotImplementedError(
+        "'QByteArrayView.toULongLong' has no cute function yet. Qt's "
+        "'qulonglong QByteArrayView::toULongLong(bool *ok, int base) "
+        "const': takes a number to change where it is.")
+
+  @staticmethod
+  def toUShort(*__, **_) -> Never:
+    """
+    Qt's 'ushort QByteArrayView::toUShort(bool *ok, int base) const': takes a
+    number to change where it is.
+    """
+    raise NotImplementedError(
+        "'QByteArrayView.toUShort' has no cute function yet. Qt's 'ushort "
+        "QByteArrayView::toUShort(bool *ok, int base) const': takes a "
+        "number to change where it is.")
+
+
+#  Qt's 'QList<QByteArrayView>': the list of QByteArrayView, which
+#  'QList[QByteArrayView]' gives. It is made here, so that there is one as
+#  soon as there can be a QByteArrayView. Qt has a name of its own for it.
+QSSGUserShaderFragmentOutputs = QList.createKind(
+    QByteArrayView, 'value',
+    name='QSSGUserShaderFragmentOutputs',
+    make='ritual_list_make_QByteArrayView',
+    add='ritual_list_add_QByteArrayView',
+    size='ritual_list_size_QByteArrayView',
+    at='ritual_list_at_QByteArrayView',
+    drop='ritual_list_drop_QByteArrayView',
+)

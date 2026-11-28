@@ -1,0 +1,374 @@
+"""
+QQuickShapeLinearGradient binding of the Qt C++
+"""
+#  Apache-2.0 license
+#  Copyright (c) 2026 Asger Jon Vistisen
+#  Written by dev_tooling.ClassGenerator from the records of
+#  QtQuickShapes/6.12.0/QtQuickShapes/private/qquickshape_p.h, Qt 6.12.0.
+#  Changes made here are lost.
+#
+#  Qt means QQuickShapeLinearGradient to be private: it declares the class in
+#  a header it calls private. cutienator does not care. Qt hands objects of
+#  the class out all the same, and a class we are handed is a class we have.
+from __future__ import annotations
+
+from typing import TYPE_CHECKING
+
+from worktoy.dispatch import overload
+
+from ..cute import CuteMixin
+from ..occult import Rituals
+from ..QtCore import QObject
+from . import QQuickShapeGradient
+
+if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Optional
+
+  from ..QtCore import QMetaObject
+
+#  The class of None, for a signature that takes None in the place of an
+#  object or of text.
+NoneType = type(None)
+
+
+class QQuickShapeLinearGradient(QQuickShapeGradient):
+  """
+  The cute side of Qt's QQuickShapeLinearGradient: a plain Python object
+  standing in front of one C++ QQuickShapeLinearGradient.
+
+  It is built on the cute 'QQuickShapeGradient', as Qt's
+  QQuickShapeLinearGradient is built on Qt's QQuickShapeGradient, and has
+  everything that class has.
+
+  What exists
+  -----------
+
+  Every function of Qt's QQuickShapeLinearGradient that has a ritual and that
+  Python can call so far, 14 names in all: 'metaObject', 'tr', 'x1', 'setX1',
+  'y1', 'setY1', 'x2', 'setX2', 'y2', 'setY2', 'x1Changed', 'y1Changed',
+  'x2Changed', 'y2Changed'. It can be made from Python, in 1 way; see
+  '__init__'.
+
+  What has a ritual and is left out, and why
+  ------------------------------------------
+
+  - Qt's 'void *QQuickShapeLinearGradient::qt_metacast(const char *a0)': one
+    of Qt's own inner workings.
+  - Qt's 'int QQuickShapeLinearGradient::qt_metacall(QMetaObject::Call a0,
+    int a1, void **a2)': one of Qt's own inner workings.
+
+  What has no ritual
+  ------------------
+
+  2 of the 19 functions Qt declares: 2 not a gap.
+
+  What to expect
+  --------------
+
+  - The C++ QQuickShapeLinearGradient is created at the first use, not by
+    'QQuickShapeLinearGradient(...)'.
+  - A wrong argument is refused in Python, with 'DispatchException', and
+    never reaches C++.
+  - None is taken wherever Qt takes an object by its address, or text as C
+    has it, and is passed on as nothing. Whether Qt can do with nothing there
+    is as in C++.
+  - Python never removes the C++ QQuickShapeLinearGradient.
+  - Qt tells when it has removed the C++ QQuickShapeLinearGradient. Every
+    call on the cute object, and every use of it as an argument, then raises
+    'RuntimeError', and nothing reaches C++.
+  """
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  @overload(str)
+  @overload(NoneType)
+  @overload(str, str)
+  @overload(str, NoneType)
+  @overload(NoneType, str)
+  @overload(NoneType, NoneType)
+  @overload(str, str, int)
+  @overload(str, NoneType, int)
+  @overload(NoneType, str, int)
+  @overload(NoneType, NoneType, int)
+  def tr(s: Optional[str], c: Optional[str] = None, n: int = -1) -> str:
+    """
+    Calls Qt's 'QString QQuickShapeLinearGradient::tr(const char *s, const
+    char *c, int n)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qquickshapelineargradient.html#tr
+
+    Parameters
+    ----------
+
+    s : Optional[str]
+      Passed on as the bytes of the text. None is passed on as no text.
+
+    c : Optional[str]
+      Passed on as the bytes of the text. None is passed on as no text. May
+      be left out, as in Qt: it is then None.
+
+    n : int
+      Passed on as it is. May be left out, as in Qt: it is then -1.
+
+    Returns
+    -------
+
+    str
+      The text Qt gave back.
+    """
+    #  QString QQuickShapeLinearGradient::tr(const char *s, const char *c,
+    #      int n)
+    return Rituals.call(
+        'ritual_ZN25QQuickShapeLinearGradient2trEPKcS1_i',
+        CuteMixin._bytesOf(s), CuteMixin._bytesOf(c), n,
+    )
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  #  Class Variables
+  #  The class of Qt this class stands for.
+  __qt_class__ = 'QQuickShapeLinearGradient'
+
+  #  Fallback Variables
+
+  #  Private Variables
+
+  #  Public Variables
+
+  #  Virtual Variables
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  GETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  def metaObject(self) -> Optional[QMetaObject]:
+    """
+    Calls Qt's 'const QMetaObject *QQuickShapeLinearGradient::metaObject()
+    const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qquickshapelineargradient.html#metaObject
+
+    Returns
+    -------
+
+    Optional[QMetaObject]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  const QMetaObject *QQuickShapeLinearGradient::metaObject() const
+    address = self.uglySide.call(
+        'ritual_ZNK25QQuickShapeLinearGradient10metaObjectEv',
+    )
+    from ..QtCore import QMetaObject
+    return QMetaObject._cuteAt(address)
+
+  def x1(self) -> float:
+    """
+    Calls Qt's 'qreal QQuickShapeLinearGradient::x1() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qquickshapelineargradient.html#x1
+    """
+    #  qreal QQuickShapeLinearGradient::x1() const
+    return self.uglySide.call('ritual_ZNK25QQuickShapeLinearGradient2x1Ev')
+
+  def y1(self) -> float:
+    """
+    Calls Qt's 'qreal QQuickShapeLinearGradient::y1() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qquickshapelineargradient.html#y1
+    """
+    #  qreal QQuickShapeLinearGradient::y1() const
+    return self.uglySide.call('ritual_ZNK25QQuickShapeLinearGradient2y1Ev')
+
+  def x2(self) -> float:
+    """
+    Calls Qt's 'qreal QQuickShapeLinearGradient::x2() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qquickshapelineargradient.html#x2
+    """
+    #  qreal QQuickShapeLinearGradient::x2() const
+    return self.uglySide.call('ritual_ZNK25QQuickShapeLinearGradient2x2Ev')
+
+  def y2(self) -> float:
+    """
+    Calls Qt's 'qreal QQuickShapeLinearGradient::y2() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qquickshapelineargradient.html#y2
+    """
+    #  qreal QQuickShapeLinearGradient::y2() const
+    return self.uglySide.call('ritual_ZNK25QQuickShapeLinearGradient2y2Ev')
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(float)
+  def setX1(self, v: float) -> None:
+    """
+    Calls Qt's 'void QQuickShapeLinearGradient::setX1(qreal v)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qquickshapelineargradient.html#setX1
+
+    Parameters
+    ----------
+
+    v : float
+      Passed on as it is.
+    """
+    #  void QQuickShapeLinearGradient::setX1(qreal v)
+    self.uglySide.call('ritual_ZN25QQuickShapeLinearGradient5setX1Ed', v)
+
+  @overload(float)
+  def setY1(self, v: float) -> None:
+    """
+    Calls Qt's 'void QQuickShapeLinearGradient::setY1(qreal v)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qquickshapelineargradient.html#setY1
+
+    Parameters
+    ----------
+
+    v : float
+      Passed on as it is.
+    """
+    #  void QQuickShapeLinearGradient::setY1(qreal v)
+    self.uglySide.call('ritual_ZN25QQuickShapeLinearGradient5setY1Ed', v)
+
+  @overload(float)
+  def setX2(self, v: float) -> None:
+    """
+    Calls Qt's 'void QQuickShapeLinearGradient::setX2(qreal v)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qquickshapelineargradient.html#setX2
+
+    Parameters
+    ----------
+
+    v : float
+      Passed on as it is.
+    """
+    #  void QQuickShapeLinearGradient::setX2(qreal v)
+    self.uglySide.call('ritual_ZN25QQuickShapeLinearGradient5setX2Ed', v)
+
+  @overload(float)
+  def setY2(self, v: float) -> None:
+    """
+    Calls Qt's 'void QQuickShapeLinearGradient::setY2(qreal v)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qquickshapelineargradient.html#setY2
+
+    Parameters
+    ----------
+
+    v : float
+      Passed on as it is.
+    """
+    #  void QQuickShapeLinearGradient::setY2(qreal v)
+    self.uglySide.call('ritual_ZN25QQuickShapeLinearGradient5setY2Ed', v)
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  NOTIFIERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  Python API   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload()
+  @overload(QObject)
+  @overload(NoneType)
+  def __init__(self, parent: Optional[QObject] = None) -> None:
+    """
+    Notes what was given, for Qt's
+    'QQuickShapeLinearGradient::QQuickShapeLinearGradient(QObject *parent)',
+    which is called at the first use.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qquickshapelineargradient.html
+
+    Parameters
+    ----------
+
+    parent : Optional[QObject]
+      Passed on as the address of its C++ object. None is passed on as no
+      object. May be left out, as in Qt: it is then None.
+    """
+    #  QQuickShapeLinearGradient::QQuickShapeLinearGradient(QObject *parent)
+    self._noteCreation(QQuickShapeLinearGradient, lambda: Rituals.call(
+        'ritual_ZN25QQuickShapeLinearGradientC1EP7QObject',
+        self._addressOf(parent, 'QObject'),
+    ))
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  OPTIONAL METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  REQUIRED METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  PARENT METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  def x1Changed(self) -> None:
+    """
+    Calls Qt's 'void QQuickShapeLinearGradient::x1Changed()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qquickshapelineargradient.html#x1Changed
+    """
+    #  void QQuickShapeLinearGradient::x1Changed()
+    self.uglySide.call('ritual_ZN25QQuickShapeLinearGradient9x1ChangedEv')
+
+  def y1Changed(self) -> None:
+    """
+    Calls Qt's 'void QQuickShapeLinearGradient::y1Changed()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qquickshapelineargradient.html#y1Changed
+    """
+    #  void QQuickShapeLinearGradient::y1Changed()
+    self.uglySide.call('ritual_ZN25QQuickShapeLinearGradient9y1ChangedEv')
+
+  def x2Changed(self) -> None:
+    """
+    Calls Qt's 'void QQuickShapeLinearGradient::x2Changed()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qquickshapelineargradient.html#x2Changed
+    """
+    #  void QQuickShapeLinearGradient::x2Changed()
+    self.uglySide.call('ritual_ZN25QQuickShapeLinearGradient9x2ChangedEv')
+
+  def y2Changed(self) -> None:
+    """
+    Calls Qt's 'void QQuickShapeLinearGradient::y2Changed()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qquickshapelineargradient.html#y2Changed
+    """
+    #  void QQuickShapeLinearGradient::y2Changed()
+    self.uglySide.call('ritual_ZN25QQuickShapeLinearGradient9y2ChangedEv')

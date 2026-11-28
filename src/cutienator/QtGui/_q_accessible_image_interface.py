@@ -9,7 +9,10 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING
 
+from worktoy.dispatch import overload
+
 from ..cute import CuteMixin, MetaCute
+from ..occult import Rituals
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from ..QtCore import QPoint, QSize
@@ -25,8 +28,7 @@ class QAccessibleImageInterface(CuteMixin, metaclass=MetaCute):
 
   Every function of Qt's QAccessibleImageInterface that has a ritual and that
   Python can call so far, 3 names in all: 'imageDescription', 'imageSize',
-  'imagePosition'. None can be made from Python: one comes out of a function
-  of another class that gives one back.
+  'imagePosition'. It can be made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -37,8 +39,7 @@ class QAccessibleImageInterface(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  5 of the 9 functions Qt declares: 4 forbidden; 1 the class is abstract, so
-  C++ cannot make one.
+  4 of the 9 functions Qt declares: 4 forbidden.
 
   What to expect
   --------------
@@ -118,7 +119,8 @@ class QAccessibleImageInterface(CuteMixin, metaclass=MetaCute):
       The text Qt gave back.
     """
     #  QString QAccessibleImageInterface::imageDescription() const
-    return self.uglySide.call(
+    return self._callAs(
+        'QAccessibleImageInterface',
         'ritual_ZNK25QAccessibleImageInterface16imageDescriptionEv',
     )
 
@@ -136,7 +138,8 @@ class QAccessibleImageInterface(CuteMixin, metaclass=MetaCute):
       A new cute QSize around the copy Qt gave back. Python owns it.
     """
     #  QSize QAccessibleImageInterface::imageSize() const
-    address = self.uglySide.call(
+    address = self._callAs(
+        'QAccessibleImageInterface',
         'ritual_ZNK25QAccessibleImageInterface9imageSizeEv',
     )
     from ..QtCore import QSize
@@ -156,7 +159,8 @@ class QAccessibleImageInterface(CuteMixin, metaclass=MetaCute):
       A new cute QPoint around the copy Qt gave back. Python owns it.
     """
     #  QPoint QAccessibleImageInterface::imagePosition() const
-    address = self.uglySide.call(
+    address = self._callAs(
+        'QAccessibleImageInterface',
         'ritual_ZNK25QAccessibleImageInterface13imagePositionEv',
     )
     from ..QtCore import QPoint
@@ -177,6 +181,21 @@ class QAccessibleImageInterface(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload()
+  def __init__(self) -> None:
+    """
+    Notes what was given, for Qt's
+    'QAccessibleImageInterface::QAccessibleImageInterface()', which is called
+    at the first use.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qaccessibleimageinterface.html
+    """
+    #  QAccessibleImageInterface::QAccessibleImageInterface()
+    self._noteCreation(QAccessibleImageInterface, lambda: Rituals.call(
+        'ritual_ZN25QAccessibleImageInterfaceC1Ev',
+    ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #

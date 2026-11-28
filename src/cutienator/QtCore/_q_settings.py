@@ -17,9 +17,9 @@ from ..occult import Rituals
 from . import QObject, QStringList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
-  from . import QEvent, QMetaObject, QVariant
+  from . import QEvent, QMetaObject, QSettingsPrivate, QVariant
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -44,26 +44,34 @@ class QSettings(QObject):
   -----------
 
   Every function of Qt's QSettings that has a ritual and that Python can call
-  so far, 33 names in all: 'metaObject', 'tr', 'clear', 'sync', 'status',
-  'isAtomicSyncRequired', 'setAtomicSyncRequired', 'beginGroup', 'endGroup',
-  'group', 'beginReadArray', 'beginWriteArray', 'endArray', 'setArrayIndex',
-  'allKeys', 'childKeys', 'childGroups', 'isWritable', 'setValue', 'value',
-  'remove', 'contains', 'setFallbacksEnabled', 'fallbacksEnabled',
-  'fileName', 'format', 'scope', 'organizationName', 'applicationName',
-  'setDefaultFormat', 'defaultFormat', 'setPath', 'event'. It can be made
-  from Python, in 6 ways; see '__init__'.
+  so far, 34 names in all: 'metaObject', 'tr', 'd_func', 'clear', 'sync',
+  'status', 'isAtomicSyncRequired', 'setAtomicSyncRequired', 'beginGroup',
+  'endGroup', 'group', 'beginReadArray', 'beginWriteArray', 'endArray',
+  'setArrayIndex', 'allKeys', 'childKeys', 'childGroups', 'isWritable',
+  'setValue', 'value', 'remove', 'contains', 'setFallbacksEnabled',
+  'fallbacksEnabled', 'fileName', 'format', 'scope', 'organizationName',
+  'applicationName', 'setDefaultFormat', 'defaultFormat', 'setPath', 'event'.
+  It can be made from Python, in 6 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QSettings::qt_metacast(const char *a0)': one of Qt's own
+    inner workings.
+  - Qt's 'int QSettings::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
+  - Qt's 'const QSettingsPrivate *QSettings::d_func() const': takes in Python
+    what 'QSettingsPrivate *QSettings::d_func()' takes.
   - Qt's 'QSettings::~QSettings()': the destructor: Python never removes a
     C++ QSettings.
+  - Qt's 'Format QSettings::registerFormat(const QString &extension, ReadFunc
+    readFunc, WriteFunc writeFunc, Qt::CaseSensitivity caseSensitivity)':
+    takes a type Python has no way to hand over yet.
 
   What has no ritual
   ------------------
 
-  9 of the 50 functions Qt declares: 5 takes or gives a type that cannot be
-  passed yet; 2 forbidden; 1 a template; 1 declared and nowhere to be found.
+  4 of the 50 functions Qt declares: 2 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -78,6 +86,9 @@ class QSettings(QObject):
   - Qt tells when it has removed the C++ QSettings. Every call on the cute
     object, and every use of it as an argument, then raises 'RuntimeError',
     and nothing reaches C++.
+  - Each name of Qt's QSettings that has no cute function yet,
+    'registerFormat', holds a function that raises 'NotImplementedError', and
+    its docstring says why.
   """
 
   #  The enums Qt writes inside QSettings, each a class in here as in C++,
@@ -869,6 +880,24 @@ class QSettings(QObject):
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  def d_func(self) -> Optional[QSettingsPrivate]:
+    """
+    Calls Qt's 'QSettingsPrivate *QSettings::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qsettings.html#d_func
+
+    Returns
+    -------
+
+    Optional[QSettingsPrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QSettingsPrivate *QSettings::d_func()
+    address = self.uglySide.call('ritual_ZN9QSettings6d_funcEv')
+    from . import QSettingsPrivate
+    return QSettingsPrivate._cuteAt(address)
+
   def clear(self) -> None:
     """
     Calls Qt's 'void QSettings::clear()'.
@@ -1001,3 +1030,17 @@ class QSettings(QObject):
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZN9QSettings5eventEP6QEvent'
     return self.uglySide.call(ritual, self._addressOf(event))
+
+  @staticmethod
+  def registerFormat(*__, **_) -> Never:
+    """
+    Qt's 'Format QSettings::registerFormat(const QString &extension, ReadFunc
+    readFunc, WriteFunc writeFunc, Qt::CaseSensitivity caseSensitivity)':
+    takes a type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QSettings.registerFormat' has no cute function yet. Qt's 'Format "
+        "QSettings::registerFormat(const QString &extension, ReadFunc "
+        "readFunc, WriteFunc writeFunc, Qt::CaseSensitivity "
+        "caseSensitivity)': takes a type Python has no way to hand over yet."
+    )

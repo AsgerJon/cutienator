@@ -44,20 +44,14 @@ class QGestureRecognizer(CuteMixin, metaclass=MetaCute):
 
   Every function of Qt's QGestureRecognizer that has a ritual and that Python
   can call so far, 5 names in all: 'create', 'recognize', 'reset',
-  'registerRecognizer', 'unregisterRecognizer'. None can be made from Python:
-  one comes out of a function of another class that gives one back.
+  'registerRecognizer', 'unregisterRecognizer'. It can be made from Python,
+  in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
   - Qt's 'QGestureRecognizer::~QGestureRecognizer()': the destructor: Python
     never removes a C++ QGestureRecognizer.
-
-  What has no ritual
-  ------------------
-
-  1 of the 7 functions Qt declares: 1 the class is abstract, so C++ cannot
-  make one.
 
   What to expect
   --------------
@@ -130,7 +124,7 @@ class QGestureRecognizer(CuteMixin, metaclass=MetaCute):
     #      *recognizer)
     return Qt.GestureType(Rituals.call(
         'ritual_ZN18QGestureRecognizer18registerRecognizerEPS_',
-        CuteMixin._addressOf(recognizer),
+        CuteMixin._addressOf(recognizer, 'QGestureRecognizer'),
     ))
 
   @staticmethod
@@ -227,6 +221,21 @@ class QGestureRecognizer(CuteMixin, metaclass=MetaCute):
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  @overload()
+  def __init__(self) -> None:
+    """
+    Notes what was given, for Qt's
+    'QGestureRecognizer::QGestureRecognizer()', which is called at the first
+    use.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgesturerecognizer.html#QGestureRecognizer
+    """
+    #  QGestureRecognizer::QGestureRecognizer()
+    self._noteCreation(QGestureRecognizer, lambda: Rituals.call(
+        'ritual_ZN18QGestureRecognizerC1Ev',
+    ))
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -273,7 +282,9 @@ class QGestureRecognizer(CuteMixin, metaclass=MetaCute):
     ritual = 'ritual_ZN18QGestureRecognizer6createEP7QObject'
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZN18QGestureRecognizer6createEP7QObject'
-    address = self.uglySide.call(ritual, self._addressOf(target, 'QObject'))
+    address = self._callAs(
+        'QGestureRecognizer', ritual, self._addressOf(target, 'QObject'),
+    )
     from . import QGesture
     return QGesture._cuteAt(address)
 
@@ -320,7 +331,8 @@ class QGestureRecognizer(CuteMixin, metaclass=MetaCute):
     """
     #  Result QGestureRecognizer::recognize(QGesture *state, QObject
     #      *watched, QEvent *event)
-    return QGestureRecognizer.Result(self.uglySide.call(
+    return QGestureRecognizer.Result(self._callAs(
+        'QGestureRecognizer',
         'ritual_ZN18QGestureRecognizer9recognizeEP8QGestureP7QObjectP6QEven'
         't',
         self._addressOf(state), self._addressOf(watched, 'QObject'),
@@ -346,4 +358,4 @@ class QGestureRecognizer(CuteMixin, metaclass=MetaCute):
     ritual = 'ritual_ZN18QGestureRecognizer5resetEP8QGesture'
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZN18QGestureRecognizer5resetEP8QGesture'
-    self.uglySide.call(ritual, self._addressOf(state))
+    self._callAs('QGestureRecognizer', ritual, self._addressOf(state))

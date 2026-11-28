@@ -14,7 +14,26 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING
 
+from worktoy.dispatch import overload
+
+from ..cute import WAIT
+from ..occult import Rituals
 from ..QtGui import QValidator
+
+if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Optional
+
+  from . import QAbstractSpinBox, QAbstractSpinBoxPrivate
+else:
+  #  The cute classes this file names and is not built on. Each is brought in
+  #  by the program that uses it, and a signature naming it waits until then;
+  #  see 'WAIT'.
+  QAbstractSpinBox = WAIT['QAbstractSpinBox']
+  QAbstractSpinBoxPrivate = WAIT['QAbstractSpinBoxPrivate']
+
+#  The class of None, for a signature that takes None in the place of an
+#  object or of text.
+NoneType = type(None)
 
 
 class QSpinBoxValidator(QValidator):
@@ -28,14 +47,16 @@ class QSpinBoxValidator(QValidator):
   What exists
   -----------
 
-  No function of Qt's QSpinBoxValidator yet. None can be made from Python:
-  one comes out of a function of another class that gives one back.
+  No function of Qt's QSpinBoxValidator yet. It can be made from Python, in 1
+  way; see '__init__'.
 
-  What has no ritual
-  ------------------
+  What has a ritual and is left out, and why
+  ------------------------------------------
 
-  3 of the 3 functions Qt declares: 3 takes or gives a type that cannot be
-  passed yet.
+  - Qt's 'QValidator::State QSpinBoxValidator::validate(QString &input, int
+    &a1) const': takes a type Python has no way to hand over yet.
+  - Qt's 'void QSpinBoxValidator::fixup(QString &a0) const': takes a type
+    Python has no way to hand over yet.
 
   What to expect
   --------------
@@ -92,6 +113,42 @@ class QSpinBoxValidator(QValidator):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(QAbstractSpinBox, QAbstractSpinBoxPrivate)
+  @overload(QAbstractSpinBox, NoneType)
+  @overload(NoneType, QAbstractSpinBoxPrivate)
+  @overload(NoneType, NoneType)
+  def __init__(
+      self,
+      qptr: Optional[QAbstractSpinBox],
+      dptr: Optional[QAbstractSpinBoxPrivate],
+  ) -> None:
+    """
+    Notes what was given, for Qt's
+    'QSpinBoxValidator::QSpinBoxValidator(QAbstractSpinBox *qptr,
+    QAbstractSpinBoxPrivate *dptr)', which is called at the first use.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qspinboxvalidator.html#QSpinBoxValidator
+
+    Parameters
+    ----------
+
+    qptr : Optional[QAbstractSpinBox]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    dptr : Optional[QAbstractSpinBoxPrivate]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  QSpinBoxValidator::QSpinBoxValidator(QAbstractSpinBox *qptr,
+    #      QAbstractSpinBoxPrivate *dptr)
+    self._noteCreation(QSpinBoxValidator, lambda: Rituals.call(
+        'ritual_ZN17QSpinBoxValidatorC1EP16QAbstractSpinBoxP23QAbstractSpin'
+        'BoxPrivate',
+        self._addressOf(qptr), self._addressOf(dptr),
+    ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #

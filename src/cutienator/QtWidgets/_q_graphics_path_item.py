@@ -65,12 +65,15 @@ class QGraphicsPathItem(QAbstractGraphicsShapeItem):
   - Qt's 'void QGraphicsPathItem::setExtension(Extension extension, const
     QVariant &variant)': names the enum 'QGraphicsItem::Extension', whose
     class cannot be named here.
+  - Qt's 'QGraphicsPathItemPrivate *QGraphicsPathItem::d_func()': gives
+    'QGraphicsPathItemPrivate', which has no cute class yet.
+  - Qt's 'const QGraphicsPathItemPrivate *QGraphicsPathItem::d_func() const':
+    gives 'QGraphicsPathItemPrivate', which has no cute class yet.
 
   What has no ritual
   ------------------
 
-  4 of the 19 functions Qt declares: 2 forbidden; 2 takes or gives a type
-  that cannot be passed yet.
+  2 of the 19 functions Qt declares: 2 forbidden.
 
   What to expect
   --------------
@@ -191,7 +194,7 @@ class QGraphicsPathItem(QAbstractGraphicsShapeItem):
     ritual = 'ritual_ZNK17QGraphicsPathItem8containsERK7QPointF'
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZNK17QGraphicsPathItem8containsERK7QPointF'
-    return self.uglySide.call(ritual, self._valueOf(point))
+    return self.uglySide.call(ritual, self._valueOf(point, 'QPointF'))
 
   @overload(QGraphicsItem)
   @overload(NoneType)

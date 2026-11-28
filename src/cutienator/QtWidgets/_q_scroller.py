@@ -46,19 +46,27 @@ class QScroller(QObject):
   -----------
 
   Every function of Qt's QScroller that has a ritual and that Python can call
-  so far, 23 names in all: 'metaObject', 'tr', 'hasScroller', 'scroller',
+  so far, 25 names in all: 'metaObject', 'tr', 'hasScroller', 'scroller',
   'grabGesture', 'grabbedGesture', 'ungrabGesture', 'activeScrollers',
   'target', 'state', 'handleInput', 'stop', 'velocity', 'finalPosition',
   'pixelPerMeter', 'scrollerProperties', 'setSnapPositionsX',
   'setSnapPositionsY', 'setScrollerProperties', 'scrollTo', 'ensureVisible',
-  'resendPrepareEvent', 'd_func'. It can be made from Python, in 1 way; see
-  '__init__'.
+  'resendPrepareEvent', 'stateChanged', 'scrollerPropertiesChanged',
+  'd_func'. It can be made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QScroller::qt_metacast(const char *a0)': one of Qt's own
+    inner workings.
+  - Qt's 'int QScroller::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
   - Qt's 'const QScroller *QScroller::scroller(const QObject *target)': takes
     in Python what 'QScroller *QScroller::scroller(QObject *target)' takes.
+  - Qt's 'void QScroller::setSnapPositionsX(const QList<qreal> &positions)':
+    takes a type Python has no way to hand over yet.
+  - Qt's 'void QScroller::setSnapPositionsY(const QList<qreal> &positions)':
+    takes a type Python has no way to hand over yet.
   - Qt's 'QScroller::~QScroller()': the destructor: Python never removes a
     C++ QScroller.
   - Qt's 'const QScrollerPrivate *QScroller::d_func() const': takes in Python
@@ -67,9 +75,7 @@ class QScroller(QObject):
   What has no ritual
   ------------------
 
-  10 of the 39 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet; 2 a signal; 2 forbidden; 1 a template; 1 declared and nowhere
-  to be found.
+  4 of the 39 functions Qt declares: 2 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -623,7 +629,7 @@ class QScroller(QObject):
     #      qint64 timestamp)
     return self.uglySide.call(
         'ritual_ZN9QScroller11handleInputENS_5InputERK7QPointFx',
-        input.value, self._valueOf(position), timestamp,
+        input.value, self._valueOf(position, 'QPointF'), timestamp,
     )
 
   def stop(self) -> None:
@@ -651,7 +657,8 @@ class QScroller(QObject):
     """
     #  void QScroller::scrollTo(const QPointF &pos)
     self.uglySide.call(
-        'ritual_ZN9QScroller8scrollToERK7QPointF', self._valueOf(pos),
+        'ritual_ZN9QScroller8scrollToERK7QPointF',
+        self._valueOf(pos, 'QPointF'),
     )
 
   @overload(QPointF, int)
@@ -675,7 +682,7 @@ class QScroller(QObject):
     #  void QScroller::scrollTo(const QPointF &pos, int scrollTime)
     self.uglySide.call(
         'ritual_ZN9QScroller8scrollToERK7QPointFi',
-        self._valueOf(pos), scrollTime,
+        self._valueOf(pos, 'QPointF'), scrollTime,
     )
 
   @overload(QRectF, float, float)
@@ -756,6 +763,48 @@ class QScroller(QObject):
     """
     #  void QScroller::resendPrepareEvent()
     self.uglySide.call('ritual_ZN9QScroller18resendPrepareEventEv')
+
+  @overload(State)
+  def stateChanged(self, newstate: State) -> None:
+    """
+    Calls Qt's 'void QScroller::stateChanged(QScroller::State newstate)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qscroller.html#stateChanged
+
+    Parameters
+    ----------
+
+    newstate : State
+      Passed on as its number.
+    """
+    #  void QScroller::stateChanged(QScroller::State newstate)
+    self.uglySide.call(
+        'ritual_ZN9QScroller12stateChangedENS_5StateE', newstate.value,
+    )
+
+  @overload(QScrollerProperties)
+  def scrollerPropertiesChanged(self, a0: QScrollerProperties) -> None:
+    """
+    Calls Qt's 'void QScroller::scrollerPropertiesChanged(const
+    QScrollerProperties &a0)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qscroller.html#scrollerPropertiesChanged
+
+    Parameters
+    ----------
+
+    a0 : QScrollerProperties
+      Passed on as a value: Qt reads the C++ QScrollerProperties, which stays
+      Python's own.
+    """
+    #  void QScroller::scrollerPropertiesChanged(const QScrollerProperties
+    #      &a0)
+    self.uglySide.call(
+        'ritual_ZN9QScroller25scrollerPropertiesChangedERK19QScrollerProper'
+        'ties',
+        self._valueOf(a0),
+    )
 
   def d_func(self) -> Optional[QScrollerPrivate]:
     """

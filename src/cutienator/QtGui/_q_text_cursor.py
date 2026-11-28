@@ -18,11 +18,12 @@ from ..occult import Rituals
 from . import QTextDocument, QTextFrameFormat, QTextListFormat
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from . import QImage, QTextBlock, QTextBlockFormat, QTextCharFormat
-  from . import QTextDocumentFragment, QTextFrame, QTextImageFormat
-  from . import QTextList, QTextTable, QTextTableFormat
+  from . import QTextCursorPrivate, QTextDocumentFragment
+  from . import QTextDocumentPrivate, QTextFrame, QTextImageFormat, QTextList
+  from . import QTextTable, QTextTableFormat
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -31,7 +32,9 @@ else:
   QTextBlock = WAIT['QTextBlock']
   QTextBlockFormat = WAIT['QTextBlockFormat']
   QTextCharFormat = WAIT['QTextCharFormat']
+  QTextCursorPrivate = WAIT['QTextCursorPrivate']
   QTextDocumentFragment = WAIT['QTextDocumentFragment']
+  QTextDocumentPrivate = WAIT['QTextDocumentPrivate']
   QTextFrame = WAIT['QTextFrame']
   QTextImageFormat = WAIT['QTextImageFormat']
   QTextTableFormat = WAIT['QTextTableFormat']
@@ -69,23 +72,23 @@ class QTextCursor(CuteMixin, metaclass=MetaCute):
   'currentFrame', 'insertFragment', 'insertHtml', 'insertMarkdown',
   'insertImage', 'beginEditBlock', 'joinPreviousEditBlock', 'endEditBlock',
   '__ne__', '__lt__', '__le__', '__eq__', '__ge__', '__gt__', 'isCopyOf',
-  'blockNumber', 'columnNumber', 'document'. It can be made from Python, in 5
+  'blockNumber', 'columnNumber', 'document'. It can be made from Python, in 7
   ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'QTextCursor &QTextCursor::operator=(QTextCursor &&other)':
+    assignment: Python binds a name and has no operator for it.
+  - Qt's 'QTextCursor &QTextCursor::operator=(const QTextCursor &other)':
+    assignment: Python binds a name and has no operator for it.
   - Qt's 'QTextCursor::~QTextCursor()': the destructor: Python removes its
     C++ QTextCursor by it, and has no other use for it.
+  - Qt's 'void QTextCursor::swap(QTextCursor &other)': takes a type Python
+    has no way to hand over yet.
   - Qt's 'void QTextCursor::selectedTableCells(int *firstRow, int *numRows,
     int *firstColumn, int *numColumns) const': takes a number to change where
     it is.
-
-  What has no ritual
-  ------------------
-
-  5 of the 84 functions Qt declares: 5 takes or gives a type that cannot be
-  passed yet.
 
   What to expect
   --------------
@@ -99,6 +102,9 @@ class QTextCursor(CuteMixin, metaclass=MetaCute):
     is as in C++.
   - A function giving a QTextCursor back gives a copy the ritual made for
     Python, in a new cute QTextCursor.
+  - Each name of Qt's QTextCursor that has no cute function yet,
+    'selectedTableCells', 'swap', holds a function that raises
+    'NotImplementedError', and its docstring says why.
   """
 
   #  The enums Qt writes inside QTextCursor, each a class in here as in C++,
@@ -902,6 +908,53 @@ class QTextCursor(CuteMixin, metaclass=MetaCute):
         self._addressOf(document),
     ))
 
+  @overload(QTextDocumentPrivate, int)
+  @overload(NoneType, int)
+  def __init__(self, p: Optional[QTextDocumentPrivate], pos: int) -> None:
+    """
+    Notes what was given, for Qt's
+    'QTextCursor::QTextCursor(QTextDocumentPrivate *p, int pos)', which is
+    called at the first use.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtextcursor.html#QTextCursor
+
+    Parameters
+    ----------
+
+    p : Optional[QTextDocumentPrivate]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    pos : int
+      Passed on as it is.
+    """
+    #  QTextCursor::QTextCursor(QTextDocumentPrivate *p, int pos)
+    self._noteCreation(QTextCursor, lambda: Rituals.call(
+        'ritual_ZN11QTextCursorC1EP20QTextDocumentPrivatei',
+        self._addressOf(p), pos,
+    ))
+
+  @overload(QTextCursorPrivate)
+  def __init__(self, d: Optional[QTextCursorPrivate]) -> None:
+    """
+    Notes what was given, for Qt's
+    'QTextCursor::QTextCursor(QTextCursorPrivate *d)', which is called at the
+    first use.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtextcursor.html#QTextCursor
+
+    Parameters
+    ----------
+
+    d : Optional[QTextCursorPrivate]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  QTextCursor::QTextCursor(QTextCursorPrivate *d)
+    self._noteCreation(QTextCursor, lambda: Rituals.call(
+        'ritual_ZN11QTextCursorC1EP18QTextCursorPrivate', self._addressOf(d),
+    ))
+
   @overload(QTextFrame)
   def __init__(self, frame: Optional[QTextFrame]) -> None:
     """
@@ -1654,3 +1707,27 @@ class QTextCursor(CuteMixin, metaclass=MetaCute):
     """
     #  void QTextCursor::endEditBlock()
     self.uglySide.call('ritual_ZN11QTextCursor12endEditBlockEv')
+
+  @staticmethod
+  def selectedTableCells(*__, **_) -> Never:
+    """
+    Qt's 'void QTextCursor::selectedTableCells(int *firstRow, int *numRows,
+    int *firstColumn, int *numColumns) const': takes a number to change where
+    it is.
+    """
+    raise NotImplementedError(
+        "'QTextCursor.selectedTableCells' has no cute function yet. Qt's "
+        "'void QTextCursor::selectedTableCells(int *firstRow, int *numRows, "
+        "int *firstColumn, int *numColumns) const': takes a number to "
+        "change where it is.")
+
+  @staticmethod
+  def swap(*__, **_) -> Never:
+    """
+    Qt's 'void QTextCursor::swap(QTextCursor &other)': takes a type Python
+    has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QTextCursor.swap' has no cute function yet. Qt's 'void "
+        "QTextCursor::swap(QTextCursor &other)': takes a type Python has no "
+        "way to hand over yet.")

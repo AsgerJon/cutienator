@@ -48,12 +48,8 @@ class QColormap(CuteMixin, metaclass=MetaCute):
 
   - Qt's 'QColormap::~QColormap()': the destructor: Python removes its C++
     QColormap by it, and has no other use for it.
-
-  What has no ritual
-  ------------------
-
-  1 of the 13 functions Qt declares: 1 takes or gives a type that cannot be
-  passed yet.
+  - Qt's 'QColormap &QColormap::operator=(const QColormap &colormap)':
+    assignment: Python binds a name and has no operator for it.
 
   What to expect
   --------------

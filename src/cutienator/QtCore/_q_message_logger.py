@@ -15,7 +15,7 @@ from ..cute import CuteMixin, MetaCute
 from ..occult import Rituals
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from . import QDebug
 
@@ -36,11 +36,35 @@ class QMessageLogger(CuteMixin, metaclass=MetaCute):
   call so far, 5 names in all: 'debug', 'info', 'warning', 'critical',
   'fatal'. It can be made from Python, in 3 ways; see '__init__'.
 
+  What has a ritual and is left out, and why
+  ------------------------------------------
+
+  - Qt's 'QDebug QMessageLogger::debug(const QLoggingCategory &cat) const':
+    takes a type Python has no way to hand over yet.
+  - Qt's 'QDebug QMessageLogger::debug(CategoryFunction catFunc) const':
+    takes a type Python has no way to hand over yet.
+  - Qt's 'QDebug QMessageLogger::info(const QLoggingCategory &cat) const':
+    takes a type Python has no way to hand over yet.
+  - Qt's 'QDebug QMessageLogger::info(CategoryFunction catFunc) const': takes
+    a type Python has no way to hand over yet.
+  - Qt's 'QDebug QMessageLogger::warning(const QLoggingCategory &cat) const':
+    takes a type Python has no way to hand over yet.
+  - Qt's 'QDebug QMessageLogger::warning(CategoryFunction catFunc) const':
+    takes a type Python has no way to hand over yet.
+  - Qt's 'QDebug QMessageLogger::critical(const QLoggingCategory &cat)
+    const': takes a type Python has no way to hand over yet.
+  - Qt's 'QDebug QMessageLogger::critical(CategoryFunction catFunc) const':
+    takes a type Python has no way to hand over yet.
+  - Qt's 'QDebug QMessageLogger::fatal(const QLoggingCategory &cat) const':
+    takes a type Python has no way to hand over yet.
+  - Qt's 'QDebug QMessageLogger::fatal(CategoryFunction catFunc) const':
+    takes a type Python has no way to hand over yet.
+
   What has no ritual
   ------------------
 
-  29 of the 37 functions Qt declares: 17 takes any number of arguments; 10
-  takes or gives a type that cannot be passed yet; 2 forbidden.
+  19 of the 37 functions Qt declares: 17 takes any number of arguments; 2
+  forbidden.
 
   What to expect
   --------------
@@ -53,6 +77,9 @@ class QMessageLogger(CuteMixin, metaclass=MetaCute):
     has it, and is passed on as nothing. Whether Qt can do with nothing there
     is as in C++.
   - Python never removes the C++ QMessageLogger.
+  - Each name of Qt's QMessageLogger that has no cute function yet,
+    'noDebug', holds a function that raises 'NotImplementedError', and its
+    docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -293,3 +320,17 @@ class QMessageLogger(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def noDebug(*__, **_) -> Never:
+    """
+    - Qt's 'void QMessageLogger::noDebug(const char *a0) const': takes any
+      number of arguments.
+    - Qt's 'QNoDebug QMessageLogger::noDebug() const': takes any number of
+      arguments.
+    """
+    raise NotImplementedError(
+        "'QMessageLogger.noDebug' has no cute function yet. Qt's 'void "
+        "QMessageLogger::noDebug(const char *a0) const': takes any number "
+        "of arguments. Qt's 'QNoDebug QMessageLogger::noDebug() const': "
+        "takes any number of arguments.")

@@ -18,7 +18,7 @@ from ..QtCore import QList, QObject
 from . import QImageReader
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from ..QtCore import QByteArray, QIODevice, QMetaObject, QRect, QSize
   from . import QColor, QImage, QPixmap
@@ -29,6 +29,7 @@ else:
   QByteArray = WAIT['QByteArray']
   QColor = WAIT['QColor']
   QIODevice = WAIT['QIODevice']
+  QRect = WAIT['QRect']
   QSize = WAIT['QSize']
 
 #  The class of None, for a signature that takes None in the place of an
@@ -48,27 +49,38 @@ class QMovie(QObject):
   -----------
 
   Every function of Qt's QMovie that has a ritual and that Python can call so
-  far, 33 names in all: 'metaObject', 'tr', 'supportedFormats', 'setDevice',
+  far, 40 names in all: 'metaObject', 'tr', 'supportedFormats', 'setDevice',
   'device', 'setFileName', 'fileName', 'setFormat', 'format',
   'setBackgroundColor', 'backgroundColor', 'state', 'frameRect',
   'currentImage', 'currentPixmap', 'isValid', 'lastError', 'lastErrorString',
   'jumpToFrame', 'loopCount', 'frameCount', 'nextFrameDelay',
   'currentFrameNumber', 'speed', 'scaledSize', 'setScaledSize', 'cacheMode',
-  'setCacheMode', 'start', 'jumpToNextFrame', 'setPaused', 'stop',
-  'setSpeed'. It can be made from Python, in 3 ways; see '__init__'.
+  'setCacheMode', 'started', 'resized', 'updated', 'stateChanged', 'error',
+  'finished', 'frameChanged', 'start', 'jumpToNextFrame', 'setPaused',
+  'stop', 'setSpeed'. It can be made from Python, in 3 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QMovie::qt_metacast(const char *a0)': one of Qt's own inner
+    workings.
+  - Qt's 'int QMovie::qt_metacall(QMetaObject::Call a0, int a1, void **a2)':
+    one of Qt's own inner workings.
+  - Qt's 'QMoviePrivate *QMovie::d_func()': gives 'QMoviePrivate', which has
+    no cute class yet.
+  - Qt's 'const QMoviePrivate *QMovie::d_func() const': gives
+    'QMoviePrivate', which has no cute class yet.
   - Qt's 'QMovie::~QMovie()': the destructor: Python never removes a C++
     QMovie.
+  - Qt's 'QBindable<int> QMovie::bindableSpeed()': gives a type Python has no
+    way to take yet.
+  - Qt's 'QBindable<CacheMode> QMovie::bindableCacheMode()': gives a type
+    Python has no way to take yet.
 
   What has no ritual
   ------------------
 
-  17 of the 54 functions Qt declares: 7 a signal; 6 takes or gives a type
-  that cannot be passed yet; 2 forbidden; 1 a template; 1 declared and
-  nowhere to be found.
+  4 of the 54 functions Qt declares: 2 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -83,6 +95,9 @@ class QMovie(QObject):
   - Qt tells when it has removed the C++ QMovie. Every call on the cute
     object, and every use of it as an argument, then raises 'RuntimeError',
     and nothing reaches C++.
+  - Each name of Qt's QMovie that has no cute function yet,
+    'bindableCacheMode', 'bindableSpeed', holds a function that raises
+    'NotImplementedError', and its docstring says why.
   """
 
   #  The enums Qt writes inside QMovie, each a class in here as in C++, and
@@ -773,6 +788,113 @@ class QMovie(QObject):
     from ..QtCore import QSize
     return QSize._cuteOwning(address)
 
+  def started(self) -> None:
+    """
+    Calls Qt's 'void QMovie::started()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmovie.html#started
+    """
+    #  void QMovie::started()
+    self.uglySide.call('ritual_ZN6QMovie7startedEv')
+
+  @overload(QSize)
+  def resized(self, size: QSize) -> None:
+    """
+    Calls Qt's 'void QMovie::resized(const QSize &size)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmovie.html#resized
+
+    Parameters
+    ----------
+
+    size : QSize
+      Passed on as a value: Qt reads the C++ QSize, which stays Python's own.
+    """
+    #  void QMovie::resized(const QSize &size)
+    self.uglySide.call(
+        'ritual_ZN6QMovie7resizedERK5QSize', self._valueOf(size),
+    )
+
+  @overload(QRect)
+  def updated(self, rect: QRect) -> None:
+    """
+    Calls Qt's 'void QMovie::updated(const QRect &rect)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmovie.html#updated
+
+    Parameters
+    ----------
+
+    rect : QRect
+      Passed on as a value: Qt reads the C++ QRect, which stays Python's own.
+    """
+    #  void QMovie::updated(const QRect &rect)
+    self.uglySide.call(
+        'ritual_ZN6QMovie7updatedERK5QRect', self._valueOf(rect),
+    )
+
+  @overload(MovieState)
+  def stateChanged(self, state: MovieState) -> None:
+    """
+    Calls Qt's 'void QMovie::stateChanged(QMovie::MovieState state)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmovie.html#stateChanged
+
+    Parameters
+    ----------
+
+    state : MovieState
+      Passed on as its number.
+    """
+    #  void QMovie::stateChanged(QMovie::MovieState state)
+    self.uglySide.call(
+        'ritual_ZN6QMovie12stateChangedENS_10MovieStateE', state.value,
+    )
+
+  @overload(QImageReader.ImageReaderError)
+  def error(self, error: QImageReader.ImageReaderError) -> None:
+    """
+    Calls Qt's 'void QMovie::error(QImageReader::ImageReaderError error)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmovie.html#error
+
+    Parameters
+    ----------
+
+    error : QImageReader.ImageReaderError
+      Passed on as its number.
+    """
+    #  void QMovie::error(QImageReader::ImageReaderError error)
+    self.uglySide.call(
+        'ritual_ZN6QMovie5errorEN12QImageReader16ImageReaderErrorE',
+        error.value,
+    )
+
+  def finished(self) -> None:
+    """
+    Calls Qt's 'void QMovie::finished()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmovie.html#finished
+    """
+    #  void QMovie::finished()
+    self.uglySide.call('ritual_ZN6QMovie8finishedEv')
+
+  @overload(int)
+  def frameChanged(self, frameNumber: int) -> None:
+    """
+    Calls Qt's 'void QMovie::frameChanged(int frameNumber)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmovie.html#frameChanged
+
+    Parameters
+    ----------
+
+    frameNumber : int
+      Passed on as it is.
+    """
+    #  void QMovie::frameChanged(int frameNumber)
+    self.uglySide.call('ritual_ZN6QMovie12frameChangedEi', frameNumber)
+
   def start(self) -> None:
     """
     Calls Qt's 'void QMovie::start()'.
@@ -799,3 +921,25 @@ class QMovie(QObject):
     """
     #  void QMovie::stop()
     self.uglySide.call('ritual_ZN6QMovie4stopEv')
+
+  @staticmethod
+  def bindableCacheMode(*__, **_) -> Never:
+    """
+    Qt's 'QBindable<CacheMode> QMovie::bindableCacheMode()': gives a type
+    Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QMovie.bindableCacheMode' has no cute function yet. Qt's "
+        "'QBindable<CacheMode> QMovie::bindableCacheMode()': gives a type "
+        "Python has no way to take yet.")
+
+  @staticmethod
+  def bindableSpeed(*__, **_) -> Never:
+    """
+    Qt's 'QBindable<int> QMovie::bindableSpeed()': gives a type Python has no
+    way to take yet.
+    """
+    raise NotImplementedError(
+        "'QMovie.bindableSpeed' has no cute function yet. Qt's "
+        "'QBindable<int> QMovie::bindableSpeed()': gives a type Python has "
+        "no way to take yet.")

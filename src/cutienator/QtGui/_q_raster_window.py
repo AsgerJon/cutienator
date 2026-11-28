@@ -50,14 +50,21 @@ class QRasterWindow(QPaintDeviceWindow):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QRasterWindow::qt_metacast(const char *a0)': one of Qt's own
+    inner workings.
+  - Qt's 'int QRasterWindow::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
+  - Qt's 'QRasterWindowPrivate *QRasterWindow::d_func()': gives
+    'QRasterWindowPrivate', which has no cute class yet.
+  - Qt's 'const QRasterWindowPrivate *QRasterWindow::d_func() const': gives
+    'QRasterWindowPrivate', which has no cute class yet.
   - Qt's 'QRasterWindow::~QRasterWindow()': the destructor: Python never
     removes a C++ QRasterWindow.
 
   What has no ritual
   ------------------
 
-  8 of the 15 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet; 2 forbidden; 1 a template; 1 declared and nowhere to be found.
+  4 of the 15 functions Qt declares: 2 not a gap; 2 forbidden.
 
   What to expect
   --------------

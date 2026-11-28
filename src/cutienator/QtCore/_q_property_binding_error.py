@@ -36,15 +36,17 @@ class QPropertyBindingError(CuteMixin, metaclass=MetaCute):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'QPropertyBindingError &QPropertyBindingError::operator=(const
+    QPropertyBindingError &other)': assignment: Python binds a name and has
+    no operator for it.
+  - Qt's 'QPropertyBindingError::QPropertyBindingError(QPropertyBindingError
+    &&other)': takes a type Python has no way to hand over yet.
+  - Qt's 'QPropertyBindingError
+    &QPropertyBindingError::operator=(QPropertyBindingError &&other)':
+    assignment: Python binds a name and has no operator for it.
   - Qt's 'QPropertyBindingError::~QPropertyBindingError()': the destructor:
     Python removes its C++ QPropertyBindingError by it, and has no other use
     for it.
-
-  What has no ritual
-  ------------------
-
-  3 of the 10 functions Qt declares: 3 takes or gives a type that cannot be
-  passed yet.
 
   What to expect
   --------------

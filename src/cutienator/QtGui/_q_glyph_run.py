@@ -17,6 +17,8 @@ from ..occult import Rituals
 from ..QtCore import QList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Never
+
   from ..QtCore import QPointF, QRectF
   from . import QRawFont
 else:
@@ -51,14 +53,30 @@ class QGlyphRun(CuteMixin, metaclass=MetaCute):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'QGlyphRun &QGlyphRun::operator=(QGlyphRun &&other)': assignment:
+    Python binds a name and has no operator for it.
+  - Qt's 'QGlyphRun &QGlyphRun::operator=(const QGlyphRun &other)':
+    assignment: Python binds a name and has no operator for it.
   - Qt's 'QGlyphRun::~QGlyphRun()': the destructor: Python removes its C++
     QGlyphRun by it, and has no other use for it.
+  - Qt's 'void QGlyphRun::swap(QGlyphRun &other)': takes a type Python has no
+    way to hand over yet.
+  - Qt's 'void QGlyphRun::setRawData(const quint32 *glyphIndexArray, const
+    QPointF *glyphPositionArray, int size)': names 'quint32', which has no
+    cute class yet.
+  - Qt's 'QList<quint32> QGlyphRun::glyphIndexes() const': gives a type
+    Python has no way to take yet.
+  - Qt's 'void QGlyphRun::setGlyphIndexes(const QList<quint32>
+    &glyphIndexes)': takes a type Python has no way to hand over yet.
+  - Qt's 'QList<qsizetype> QGlyphRun::stringIndexes() const': gives a type
+    Python has no way to take yet.
+  - Qt's 'void QGlyphRun::setStringIndexes(const QList<qsizetype>
+    &stringIndexes)': takes a type Python has no way to hand over yet.
 
   What has no ritual
   ------------------
 
-  10 of the 37 functions Qt declares: 8 takes or gives a type that cannot be
-  passed yet; 2 declared and nowhere to be found.
+  2 of the 37 functions Qt declares: 2 not a gap.
 
   What to expect
   --------------
@@ -71,6 +89,10 @@ class QGlyphRun(CuteMixin, metaclass=MetaCute):
     is as in C++.
   - A function giving a QGlyphRun back gives a copy the ritual made for
     Python, in a new cute QGlyphRun.
+  - Each name of Qt's QGlyphRun that has no cute function yet,
+    'glyphIndexes', 'setGlyphIndexes', 'setRawData', 'setStringIndexes',
+    'stringIndexes', 'swap', holds a function that raises
+    'NotImplementedError', and its docstring says why.
   """
 
   #  The enums Qt writes inside QGlyphRun, each a class in here as in C++,
@@ -575,6 +597,74 @@ class QGlyphRun(CuteMixin, metaclass=MetaCute):
     """
     #  void QGlyphRun::detach()
     self.uglySide.call('ritual_ZN9QGlyphRun6detachEv')
+
+  @staticmethod
+  def glyphIndexes(*__, **_) -> Never:
+    """
+    Qt's 'QList<quint32> QGlyphRun::glyphIndexes() const': gives a type
+    Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QGlyphRun.glyphIndexes' has no cute function yet. Qt's "
+        "'QList<quint32> QGlyphRun::glyphIndexes() const': gives a type "
+        "Python has no way to take yet.")
+
+  @staticmethod
+  def setGlyphIndexes(*__, **_) -> Never:
+    """
+    Qt's 'void QGlyphRun::setGlyphIndexes(const QList<quint32>
+    &glyphIndexes)': takes a type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QGlyphRun.setGlyphIndexes' has no cute function yet. Qt's 'void "
+        "QGlyphRun::setGlyphIndexes(const QList<quint32> &glyphIndexes)': "
+        "takes a type Python has no way to hand over yet.")
+
+  @staticmethod
+  def setRawData(*__, **_) -> Never:
+    """
+    Qt's 'void QGlyphRun::setRawData(const quint32 *glyphIndexArray, const
+    QPointF *glyphPositionArray, int size)': names 'quint32', which has no
+    cute class yet.
+    """
+    raise NotImplementedError(
+        "'QGlyphRun.setRawData' has no cute function yet. Qt's 'void "
+        "QGlyphRun::setRawData(const quint32 *glyphIndexArray, const "
+        "QPointF *glyphPositionArray, int size)': names 'quint32', which "
+        "has no cute class yet.")
+
+  @staticmethod
+  def setStringIndexes(*__, **_) -> Never:
+    """
+    Qt's 'void QGlyphRun::setStringIndexes(const QList<qsizetype>
+    &stringIndexes)': takes a type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QGlyphRun.setStringIndexes' has no cute function yet. Qt's 'void "
+        "QGlyphRun::setStringIndexes(const QList<qsizetype> "
+        "&stringIndexes)': takes a type Python has no way to hand over yet.")
+
+  @staticmethod
+  def stringIndexes(*__, **_) -> Never:
+    """
+    Qt's 'QList<qsizetype> QGlyphRun::stringIndexes() const': gives a type
+    Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QGlyphRun.stringIndexes' has no cute function yet. Qt's "
+        "'QList<qsizetype> QGlyphRun::stringIndexes() const': gives a type "
+        "Python has no way to take yet.")
+
+  @staticmethod
+  def swap(*__, **_) -> Never:
+    """
+    Qt's 'void QGlyphRun::swap(QGlyphRun &other)': takes a type Python has no
+    way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QGlyphRun.swap' has no cute function yet. Qt's 'void "
+        "QGlyphRun::swap(QGlyphRun &other)': takes a type Python has no way "
+        "to hand over yet.")
 
 
 #  Qt's 'QList<QGlyphRun>': the list of QGlyphRun, which 'QList[QGlyphRun]'

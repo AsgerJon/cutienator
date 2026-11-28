@@ -55,14 +55,18 @@ class QSinglePointEvent(QPointerEvent):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'QSinglePointEvent::QSinglePointEvent(const QSinglePointEvent &a0)':
+    takes a type Python has no way to hand over yet.
+  - Qt's 'QSinglePointEvent &QSinglePointEvent::operator=(const
+    QSinglePointEvent &other)': assignment: Python binds a name and has no
+    operator for it.
   - Qt's 'QSinglePointEvent::~QSinglePointEvent()': the destructor: Python
     never removes a C++ QSinglePointEvent.
 
   What has no ritual
   ------------------
 
-  7 of the 21 functions Qt declares: 2 declared and nowhere to be found; 2
-  takes or gives a type that cannot be passed yet; 2 forbidden; 1 a template.
+  5 of the 21 functions Qt declares: 3 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -471,9 +475,10 @@ class QSinglePointEvent(QPointerEvent):
         'ritual_ZN17QSinglePointEventC1EN6QEvent4TypeEPK15QPointingDeviceRK'
         '7QPointFS7_S7_N2Qt11MouseButtonE6QFlagsIS9_ESA_INS8_16KeyboardModi'
         'fierEENS8_16MouseEventSourceE',
-        type.value, self._addressOf(dev), self._valueOf(localPos),
-        self._valueOf(scenePos), self._valueOf(globalPos), button.value,
-        buttons.value, modifiers.value, source.value,
+        type.value, self._addressOf(dev), self._valueOf(localPos, 'QPointF'),
+        self._valueOf(scenePos, 'QPointF'), self._valueOf(globalPos,
+        'QPointF'), button.value, buttons.value, modifiers.value,
+        source.value,
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

@@ -71,11 +71,22 @@ class QTextDocumentLayout(QAbstractTextDocumentLayout):
   'timerEvent', 'doLayout', 'layoutFinished'. It can be made from Python, in
   1 way; see '__init__'.
 
+  What has a ritual and is left out, and why
+  ------------------------------------------
+
+  - Qt's 'QTextDocumentLayoutPrivate *QTextDocumentLayout::d_func()': gives
+    'QTextDocumentLayoutPrivate', which has no cute class yet.
+  - Qt's 'const QTextDocumentLayoutPrivate *QTextDocumentLayout::d_func()
+    const': gives 'QTextDocumentLayoutPrivate', which has no cute class yet.
+  - Qt's 'void *QTextDocumentLayout::qt_metacast(const char *a0)': one of
+    Qt's own inner workings.
+  - Qt's 'int QTextDocumentLayout::qt_metacall(QMetaObject::Call a0, int a1,
+    void **a2)': one of Qt's own inner workings.
+
   What has no ritual
   ------------------
 
-  6 of the 34 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet; 1 a template; 1 declared and nowhere to be found.
+  2 of the 34 functions Qt declares: 2 not a gap.
 
   What to expect
   --------------
@@ -208,7 +219,9 @@ class QTextDocumentLayout(QAbstractTextDocumentLayout):
       ritual = (
           'ritual_own_ZNK19QTextDocumentLayout7hitTestERK7QPointFN2Qt15HitT'
           'estAccuracyE')
-    return self.uglySide.call(ritual, self._valueOf(point), accuracy.value)
+    return self.uglySide.call(
+        ritual, self._valueOf(point, 'QPointF'), accuracy.value,
+    )
 
   def pageCount(self) -> int:
     """

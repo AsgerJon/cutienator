@@ -15,6 +15,9 @@ from worktoy.dispatch import overload
 from ..cute import CuteMixin, MetaCute
 from ..occult import Rituals
 
+if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Never
+
 
 class QMicrophonePermission(CuteMixin, metaclass=MetaCute):
   """
@@ -34,15 +37,19 @@ class QMicrophonePermission(CuteMixin, metaclass=MetaCute):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'QMicrophonePermission::QMicrophonePermission(QMicrophonePermission
+    &&other)': takes a type Python has no way to hand over yet.
   - Qt's 'QMicrophonePermission::~QMicrophonePermission()': the destructor:
     Python removes its C++ QMicrophonePermission by it, and has no other use
     for it.
-
-  What has no ritual
-  ------------------
-
-  4 of the 7 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet.
+  - Qt's 'QMicrophonePermission &QMicrophonePermission::operator=(const
+    QMicrophonePermission &other)': assignment: Python binds a name and has
+    no operator for it.
+  - Qt's 'QMicrophonePermission
+    &QMicrophonePermission::operator=(QMicrophonePermission &&other)':
+    assignment: Python binds a name and has no operator for it.
+  - Qt's 'void QMicrophonePermission::swap(QMicrophonePermission &other)':
+    takes a type Python has no way to hand over yet.
 
   What to expect
   --------------
@@ -56,6 +63,9 @@ class QMicrophonePermission(CuteMixin, metaclass=MetaCute):
     is as in C++.
   - A function giving a QMicrophonePermission back gives a copy the ritual
     made for Python, in a new cute QMicrophonePermission.
+  - Each name of Qt's QMicrophonePermission that has no cute function yet,
+    'swap', holds a function that raises 'NotImplementedError', and its
+    docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -160,3 +170,14 @@ class QMicrophonePermission(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def swap(*__, **_) -> Never:
+    """
+    Qt's 'void QMicrophonePermission::swap(QMicrophonePermission &other)':
+    takes a type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QMicrophonePermission.swap' has no cute function yet. Qt's 'void "
+        "QMicrophonePermission::swap(QMicrophonePermission &other)': takes "
+        "a type Python has no way to hand over yet.")

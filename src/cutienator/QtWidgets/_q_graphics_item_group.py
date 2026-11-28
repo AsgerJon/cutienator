@@ -55,12 +55,15 @@ class QGraphicsItemGroup(QGraphicsItem):
 
   - Qt's 'QGraphicsItemGroup::~QGraphicsItemGroup()': the destructor: Python
     never removes a C++ QGraphicsItemGroup.
+  - Qt's 'QGraphicsItemGroupPrivate *QGraphicsItemGroup::d_func()': gives
+    'QGraphicsItemGroupPrivate', which has no cute class yet.
+  - Qt's 'const QGraphicsItemGroupPrivate *QGraphicsItemGroup::d_func()
+    const': gives 'QGraphicsItemGroupPrivate', which has no cute class yet.
 
   What has no ritual
   ------------------
 
-  4 of the 13 functions Qt declares: 2 forbidden; 2 takes or gives a type
-  that cannot be passed yet.
+  2 of the 13 functions Qt declares: 2 forbidden.
 
   What to expect
   --------------

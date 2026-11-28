@@ -63,12 +63,15 @@ class QGraphicsGridLayout(QGraphicsLayout):
 
   - Qt's 'QGraphicsGridLayout::~QGraphicsGridLayout()': the destructor:
     Python never removes a C++ QGraphicsGridLayout.
+  - Qt's 'QGraphicsGridLayoutPrivate *QGraphicsGridLayout::d_func()': gives
+    'QGraphicsGridLayoutPrivate', which has no cute class yet.
+  - Qt's 'const QGraphicsGridLayoutPrivate *QGraphicsGridLayout::d_func()
+    const': gives 'QGraphicsGridLayoutPrivate', which has no cute class yet.
 
   What has no ritual
   ------------------
 
-  4 of the 51 functions Qt declares: 2 forbidden; 2 takes or gives a type
-  that cannot be passed yet.
+  2 of the 51 functions Qt declares: 2 forbidden.
 
   What to expect
   --------------

@@ -18,20 +18,27 @@ from worktoy.dispatch import overload
 from worktoy.keenum import Kee
 
 from ..cute import CuteNum, WAIT
-from ..QtCore import Qt, QList
+from ..QtCore import Qt, QList, QStringList
 from ..QtGui import QStandardItemModel
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from ..QtCore import QMetaObject, QMimeData, QModelIndex, QUrl, QVariant
+  from ..QtGui import QDragEnterEvent
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
+  QDragEnterEvent = WAIT['QDragEnterEvent']
+  QMimeData = WAIT['QMimeData']
   QModelIndex = WAIT['QModelIndex']
   QUrl = WAIT['QUrl']
   QVariant = WAIT['QVariant']
+
+#  The class of None, for a signature that takes None in the place of an
+#  object or of text.
+NoneType = type(None)
 
 
 class QUrlModel(QStandardItemModel):
@@ -46,24 +53,25 @@ class QUrlModel(QStandardItemModel):
   -----------
 
   Every function of Qt's QUrlModel that has a ritual and that Python can call
-  so far, 9 names in all: 'metaObject', 'mimeData', 'flags', 'setData',
-  'urls', 'dataChanged', 'layoutChanged', 'setUrl', 'changed'. None can be
-  made from Python: one comes out of a function of another class that gives
-  one back.
+  so far, 14 names in all: 'metaObject', 'mimeTypes', 'mimeData', 'canDrop',
+  'dropMimeData', 'flags', 'setData', 'setUrls', 'addUrls', 'urls',
+  'dataChanged', 'layoutChanged', 'setUrl', 'changed'. None can be made from
+  Python: one comes out of a function of another class that gives one back.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QUrlModel::qt_metacast(const char *a0)': one of Qt's own
+    inner workings.
+  - Qt's 'int QUrlModel::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
   - Qt's 'QUrlModel::~QUrlModel()': the destructor: Python never removes a
     C++ QUrlModel.
 
   What has no ritual
   ------------------
 
-  14 of the 24 functions Qt declares: 5 leans on 'QUrlModel; 4 Qt's library
-  has no name for it, and its code in Qt's source does not compile apart from
-  its file; 2 takes or gives a type that cannot be passed yet; 2 declared and
-  nowhere to be found; 1 a template.
+  6 of the 23 functions Qt declares: 3 not a gap; 3 leans on 'QUrlModel.
 
   What to expect
   --------------
@@ -78,6 +86,9 @@ class QUrlModel(QStandardItemModel):
   - Qt tells when it has removed the C++ QUrlModel. Every call on the cute
     object, and every use of it as an argument, then raises 'RuntimeError',
     and nothing reaches C++.
+  - Each name of Qt's QUrlModel that has no cute function yet, '__init__',
+    'setFileSystemModel', holds a function that raises 'NotImplementedError',
+    and its docstring says why.
   """
 
   #  The enums Qt writes inside QUrlModel, each a class in here as in C++,
@@ -135,6 +146,22 @@ class QUrlModel(QStandardItemModel):
     address = self.uglySide.call('ritual_ZNK9QUrlModel10metaObjectEv')
     from ..QtCore import QMetaObject
     return QMetaObject._cuteAt(address)
+
+  def mimeTypes(self) -> QStringList:
+    """
+    Calls Qt's 'QStringList QUrlModel::mimeTypes() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qurlmodel.html#mimeTypes
+
+    Returns
+    -------
+
+    QStringList
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QStringList QUrlModel::mimeTypes() const
+    address = self.uglySide.call('ritual_ZNK9QUrlModel9mimeTypesEv')
+    return QStringList._cuteOwning(address)
 
   @overload(QList[QModelIndex])
   def mimeData(self, indexes: QList[QModelIndex]) -> Optional[QMimeData]:
@@ -252,6 +279,26 @@ class QUrlModel(QStandardItemModel):
         ritual, self._valueOf(index), self._valueOf(value), role,
     )
 
+  @overload(QList[QUrl])
+  def setUrls(self, list: QList[QUrl]) -> None:
+    """
+    Calls Qt's 'void QUrlModel::setUrls(const QList<QUrl> &list)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qurlmodel.html#setUrls
+
+    Parameters
+    ----------
+
+    list : QList[QUrl]
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+    """
+    #  void QUrlModel::setUrls(const QList<QUrl> &list)
+    self.uglySide.call(
+        'ritual_ZN9QUrlModel7setUrlsERK5QListI4QUrlE', self._valueOf(list),
+    )
+
   @overload(QModelIndex, QUrl, QModelIndex)
   def setUrl(
       self,
@@ -298,6 +345,21 @@ class QUrlModel(QStandardItemModel):
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  @staticmethod
+  def __init__(*__, **_) -> Never:
+    """
+    Qt's 'QUrlModel::QUrlModel(QObject *parent)': leans on
+    'QUrlModel::qt_metacall(QMetaObject::Call, int, void**)', which Qt's
+    source does not mark for use from outside Qt and has no code for that
+    could be taken.
+    """
+    raise NotImplementedError(
+        "'QUrlModel.__init__' has no cute function yet. Qt's "
+        "'QUrlModel::QUrlModel(QObject *parent)': leans on "
+        "'QUrlModel::qt_metacall(QMetaObject::Call, int, void**)', which "
+        "Qt's source does not mark for use from outside Qt and has no code "
+        "for that could be taken.")
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -317,6 +379,113 @@ class QUrlModel(QStandardItemModel):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(QDragEnterEvent)
+  @overload(NoneType)
+  def canDrop(self, event: Optional[QDragEnterEvent]) -> bool:
+    """
+    Calls Qt's 'bool QUrlModel::canDrop(QDragEnterEvent *event)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qurlmodel.html#canDrop
+
+    Parameters
+    ----------
+
+    event : Optional[QDragEnterEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  bool QUrlModel::canDrop(QDragEnterEvent *event)
+    return self.uglySide.call(
+        'ritual_ZN9QUrlModel7canDropEP15QDragEnterEvent',
+        self._addressOf(event),
+    )
+
+  @overload(QMimeData, Qt.DropAction, int, int, QModelIndex)
+  @overload(NoneType, Qt.DropAction, int, int, QModelIndex)
+  def dropMimeData(
+      self,
+      data: Optional[QMimeData],
+      action: Qt.DropAction,
+      row: int,
+      column: int,
+      parent: QModelIndex,
+  ) -> bool:
+    """
+    Calls Qt's 'bool QUrlModel::dropMimeData(const QMimeData *data,
+    Qt::DropAction action, int row, int column, const QModelIndex &parent)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qurlmodel.html#dropMimeData
+
+    Parameters
+    ----------
+
+    data : Optional[QMimeData]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    action : Qt.DropAction
+      Passed on as its number.
+
+    row : int
+      Passed on as it is.
+
+    column : int
+      Passed on as it is.
+
+    parent : QModelIndex
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own.
+    """
+    #  bool QUrlModel::dropMimeData(const QMimeData *data, Qt::DropAction
+    #      action, int row, int column, const QModelIndex &parent)
+    ritual = (
+        'ritual_ZN9QUrlModel12dropMimeDataEPK9QMimeDataN2Qt10DropActionEiiR'
+        'K11QModelIndex')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN9QUrlModel12dropMimeDataEPK9QMimeDataN2Qt10DropActi'
+          'onEiiRK11QModelIndex')
+    return self.uglySide.call(
+        ritual,
+        self._addressOf(data), action.value, row, column,
+        self._valueOf(parent),
+    )
+
+  @overload(QList[QUrl])
+  @overload(QList[QUrl], int)
+  @overload(QList[QUrl], int, bool)
+  def addUrls(
+      self,
+      urls: QList[QUrl],
+      row: int = -1,
+      move: bool = True,
+  ) -> None:
+    """
+    Calls Qt's 'void QUrlModel::addUrls(const QList<QUrl> &urls, int row,
+    bool move)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qurlmodel.html#addUrls
+
+    Parameters
+    ----------
+
+    urls : QList[QUrl]
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+
+    row : int
+      Passed on as it is. May be left out, as in Qt: it is then -1.
+
+    move : bool
+      Passed on as it is. May be left out, as in Qt: it is then True.
+    """
+    #  void QUrlModel::addUrls(const QList<QUrl> &urls, int row, bool move)
+    self.uglySide.call(
+        'ritual_ZN9QUrlModel7addUrlsERK5QListI4QUrlEib',
+        self._valueOf(urls), row, move,
+    )
 
   @overload(QModelIndex, QModelIndex)
   def dataChanged(
@@ -372,3 +541,17 @@ class QUrlModel(QStandardItemModel):
     """
     #  void QUrlModel::changed(const QString &path)
     self.uglySide.call('ritual_ZN9QUrlModel7changedERK7QString', path)
+
+  @staticmethod
+  def setFileSystemModel(*__, **_) -> Never:
+    """
+    Qt's 'void QUrlModel::setFileSystemModel(QFileSystemModel *model)': leans
+    on 'QUrlModel::staticMetaObject', which Qt's source does not mark for use
+    from outside Qt and has no code for that could be taken.
+    """
+    raise NotImplementedError(
+        "'QUrlModel.setFileSystemModel' has no cute function yet. Qt's "
+        "'void QUrlModel::setFileSystemModel(QFileSystemModel *model)': "
+        "leans on 'QUrlModel::staticMetaObject', which Qt's source does not "
+        "mark for use from outside Qt and has no code for that could be "
+        "taken.")

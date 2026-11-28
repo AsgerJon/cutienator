@@ -16,7 +16,7 @@ from ..occult import Rituals
 from . import QAbstractAnimation, QAnimationGroup, QObject
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from . import QEvent, QMetaObject, QPauseAnimation
 else:
@@ -43,23 +43,37 @@ class QSequentialAnimationGroup(QAnimationGroup):
   -----------
 
   Every function of Qt's QSequentialAnimationGroup that has a ritual and that
-  Python can call so far, 10 names in all: 'metaObject', 'tr', 'addPause',
-  'insertPause', 'currentAnimation', 'duration', 'event',
-  'updateCurrentTime', 'updateState', 'updateDirection'. It can be made from
-  Python, in 1 way; see '__init__'.
+  Python can call so far, 11 names in all: 'metaObject', 'tr', 'addPause',
+  'insertPause', 'currentAnimation', 'duration', 'currentAnimationChanged',
+  'event', 'updateCurrentTime', 'updateState', 'updateDirection'. It can be
+  made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QSequentialAnimationGroup::qt_metacast(const char *a0)': one
+    of Qt's own inner workings.
+  - Qt's 'int QSequentialAnimationGroup::qt_metacall(QMetaObject::Call a0,
+    int a1, void **a2)': one of Qt's own inner workings.
   - Qt's 'QSequentialAnimationGroup::~QSequentialAnimationGroup()': the
     destructor: Python never removes a C++ QSequentialAnimationGroup.
+  - Qt's 'QBindable<QAbstractAnimation *>
+    QSequentialAnimationGroup::bindableCurrentAnimation() const': gives a
+    type Python has no way to take yet.
+  - Qt's 'QSequentialAnimationGroup::QSequentialAnimationGroup(
+    QSequentialAnimationGroupPrivate &dd, QObject *parent)': takes a type
+    Python has no way to hand over yet.
+  - Qt's 'QSequentialAnimationGroupPrivate
+    *QSequentialAnimationGroup::d_func()': gives
+    'QSequentialAnimationGroupPrivate', which has no cute class yet.
+  - Qt's 'const QSequentialAnimationGroupPrivate
+    *QSequentialAnimationGroup::d_func() const': gives
+    'QSequentialAnimationGroupPrivate', which has no cute class yet.
 
   What has no ritual
   ------------------
 
-  11 of the 23 functions Qt declares: 6 takes or gives a type that cannot be
-  passed yet; 2 forbidden; 1 a template; 1 declared and nowhere to be found;
-  1 a signal.
+  4 of the 23 functions Qt declares: 2 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -75,6 +89,9 @@ class QSequentialAnimationGroup(QAnimationGroup):
   - Qt tells when it has removed the C++ QSequentialAnimationGroup. Every
     call on the cute object, and every use of it as an argument, then raises
     'RuntimeError', and nothing reaches C++.
+  - Each name of Qt's QSequentialAnimationGroup that has no cute function
+    yet, 'bindableCurrentAnimation', holds a function that raises
+    'NotImplementedError', and its docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -330,6 +347,35 @@ class QSequentialAnimationGroup(QAnimationGroup):
     from . import QPauseAnimation
     return QPauseAnimation._cuteAt(address)
 
+  @overload(QAbstractAnimation)
+  @overload(NoneType)
+  def currentAnimationChanged(
+      self,
+      current: Optional[QAbstractAnimation],
+  ) -> None:
+    """
+    Calls Qt's 'void
+    QSequentialAnimationGroup::currentAnimationChanged(QAbstractAnimation
+    *current)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qsequentialanimationgroup.html
+
+    Parameters
+    ----------
+
+    current : Optional[QAbstractAnimation]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QSequentialAnimationGroup::currentAnimationChanged(
+    #      QAbstractAnimation *current)
+    self.uglySide.call(
+        'ritual_ZN25QSequentialAnimationGroup23currentAnimationChangedEP18Q'
+        'AbstractAnimation',
+        self._addressOf(current),
+    )
+
   @overload(QEvent)
   @overload(NoneType)
   def event(self, event: Optional[QEvent]) -> bool:
@@ -433,3 +479,16 @@ class QSequentialAnimationGroup(QAnimationGroup):
           'ritual_own_ZN25QSequentialAnimationGroup15updateDirectionEN18QAb'
           'stractAnimation9DirectionE')
     self.uglySide.call(ritual, direction.value)
+
+  @staticmethod
+  def bindableCurrentAnimation(*__, **_) -> Never:
+    """
+    Qt's 'QBindable<QAbstractAnimation *>
+    QSequentialAnimationGroup::bindableCurrentAnimation() const': gives a
+    type Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QSequentialAnimationGroup.bindableCurrentAnimation' has no cute "
+        "function yet. Qt's 'QBindable<QAbstractAnimation *> "
+        "QSequentialAnimationGroup::bindableCurrentAnimation() const': "
+        "gives a type Python has no way to take yet.")

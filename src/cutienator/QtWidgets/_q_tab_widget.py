@@ -54,7 +54,7 @@ class QTabWidget(QWidget):
   -----------
 
   Every function of Qt's QTabWidget that has a ritual and that Python can
-  call so far, 61 names in all: 'metaObject', 'tr', 'addTab', 'insertTab',
+  call so far, 65 names in all: 'metaObject', 'tr', 'addTab', 'insertTab',
   'removeTab', 'isTabEnabled', 'setTabEnabled', 'isTabVisible',
   'setTabVisible', 'tabText', 'setTabText', 'tabIcon', 'setTabIcon',
   'setTabToolTip', 'tabToolTip', 'setTabWhatsThis', 'tabWhatsThis',
@@ -65,7 +65,8 @@ class QTabWidget(QWidget):
   'setCornerWidget', 'cornerWidget', 'elideMode', 'setElideMode', 'iconSize',
   'setIconSize', 'usesScrollButtons', 'setUsesScrollButtons', 'documentMode',
   'setDocumentMode', 'tabBarAutoHide', 'setTabBarAutoHide', 'clear',
-  'tabBar', 'setCurrentIndex', 'setCurrentWidget', 'tabInserted',
+  'tabBar', 'setCurrentIndex', 'setCurrentWidget', 'currentChanged',
+  'tabCloseRequested', 'tabBarClicked', 'tabBarDoubleClicked', 'tabInserted',
   'tabRemoved', 'showEvent', 'resizeEvent', 'keyPressEvent', 'paintEvent',
   'setTabBar', 'changeEvent', 'event', 'initStyleOption', 'setUpLayout'. It
   can be made from Python, in 1 way; see '__init__'.
@@ -73,15 +74,21 @@ class QTabWidget(QWidget):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QTabWidget::qt_metacast(const char *a0)': one of Qt's own
+    inner workings.
+  - Qt's 'int QTabWidget::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
   - Qt's 'QTabWidget::~QTabWidget()': the destructor: Python never removes a
     C++ QTabWidget.
+  - Qt's 'QTabWidgetPrivate *QTabWidget::d_func()': gives
+    'QTabWidgetPrivate', which has no cute class yet.
+  - Qt's 'const QTabWidgetPrivate *QTabWidget::d_func() const': gives
+    'QTabWidgetPrivate', which has no cute class yet.
 
   What has no ritual
   ------------------
 
-  12 of the 77 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet; 4 a signal; 2 forbidden; 1 a template; 1 declared and nowhere
-  to be found.
+  4 of the 77 functions Qt declares: 2 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -1282,6 +1289,71 @@ class QTabWidget(QWidget):
     """
     #  void QTabWidget::clear()
     self.uglySide.call('ritual_ZN10QTabWidget5clearEv')
+
+  @overload(int)
+  def currentChanged(self, index: int) -> None:
+    """
+    Calls Qt's 'void QTabWidget::currentChanged(int index)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtabwidget.html#currentChanged
+
+    Parameters
+    ----------
+
+    index : int
+      Passed on as it is.
+    """
+    #  void QTabWidget::currentChanged(int index)
+    self.uglySide.call('ritual_ZN10QTabWidget14currentChangedEi', index)
+
+  @overload(int)
+  def tabCloseRequested(self, index: int) -> None:
+    """
+    Calls Qt's 'void QTabWidget::tabCloseRequested(int index)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtabwidget.html#tabCloseRequested
+
+    Parameters
+    ----------
+
+    index : int
+      Passed on as it is.
+    """
+    #  void QTabWidget::tabCloseRequested(int index)
+    self.uglySide.call('ritual_ZN10QTabWidget17tabCloseRequestedEi', index)
+
+  @overload(int)
+  def tabBarClicked(self, index: int) -> None:
+    """
+    Calls Qt's 'void QTabWidget::tabBarClicked(int index)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtabwidget.html#tabBarClicked
+
+    Parameters
+    ----------
+
+    index : int
+      Passed on as it is.
+    """
+    #  void QTabWidget::tabBarClicked(int index)
+    self.uglySide.call('ritual_ZN10QTabWidget13tabBarClickedEi', index)
+
+  @overload(int)
+  def tabBarDoubleClicked(self, index: int) -> None:
+    """
+    Calls Qt's 'void QTabWidget::tabBarDoubleClicked(int index)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qtabwidget.html#tabBarDoubleClicked
+
+    Parameters
+    ----------
+
+    index : int
+      Passed on as it is.
+    """
+    #  void QTabWidget::tabBarDoubleClicked(int index)
+    self.uglySide.call('ritual_ZN10QTabWidget19tabBarDoubleClickedEi', index)
 
   @overload(int)
   def tabInserted(self, index: int) -> None:

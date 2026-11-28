@@ -15,7 +15,7 @@ from ..cute import CuteMixin, CuteFlags, MetaCute, WAIT
 from ..occult import Rituals
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from . import QOpenGLContext, QOpenGLFunctionsPrivate
 else:
@@ -43,21 +43,25 @@ class QOpenGLFunctions(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QOpenGLFunctions that has a ritual and that Python
-  can call so far, 74 names in all: 'openGLFeatures', 'hasOpenGLFeature',
+  can call so far, 87 names in all: 'openGLFeatures', 'hasOpenGLFeature',
   'initializeOpenGLFunctions', 'glBindTexture', 'glBlendFunc', 'glClear',
   'glClearColor', 'glClearStencil', 'glColorMask', 'glCopyTexImage2D',
   'glCopyTexSubImage2D', 'glCullFace', 'glDepthFunc', 'glDepthMask',
   'glDisable', 'glDrawArrays', 'glEnable', 'glFinish', 'glFlush',
-  'glFrontFace', 'glHint', 'glLineWidth', 'glPixelStorei', 'glPolygonOffset',
-  'glScissor', 'glStencilFunc', 'glStencilMask', 'glStencilOp',
-  'glTexParameterf', 'glTexParameteri', 'glViewport', 'glActiveTexture',
-  'glAttachShader', 'glBindAttribLocation', 'glBindBuffer',
-  'glBindFramebuffer', 'glBindRenderbuffer', 'glBlendColor',
-  'glBlendEquation', 'glBlendEquationSeparate', 'glBlendFuncSeparate',
-  'glClearDepthf', 'glCompileShader', 'glDeleteProgram', 'glDeleteShader',
+  'glFrontFace', 'glGetError', 'glHint', 'glIsEnabled', 'glIsTexture',
+  'glLineWidth', 'glPixelStorei', 'glPolygonOffset', 'glScissor',
+  'glStencilFunc', 'glStencilMask', 'glStencilOp', 'glTexParameterf',
+  'glTexParameteri', 'glViewport', 'glActiveTexture', 'glAttachShader',
+  'glBindAttribLocation', 'glBindBuffer', 'glBindFramebuffer',
+  'glBindRenderbuffer', 'glBlendColor', 'glBlendEquation',
+  'glBlendEquationSeparate', 'glBlendFuncSeparate',
+  'glCheckFramebufferStatus', 'glClearDepthf', 'glCompileShader',
+  'glCreateProgram', 'glCreateShader', 'glDeleteProgram', 'glDeleteShader',
   'glDepthRangef', 'glDetachShader', 'glDisableVertexAttribArray',
   'glEnableVertexAttribArray', 'glFramebufferRenderbuffer',
-  'glFramebufferTexture2D', 'glGenerateMipmap', 'glLinkProgram',
+  'glFramebufferTexture2D', 'glGenerateMipmap', 'glGetAttribLocation',
+  'glGetUniformLocation', 'glIsBuffer', 'glIsFramebuffer', 'glIsProgram',
+  'glIsRenderbuffer', 'glIsShader', 'glLinkProgram',
   'glReleaseShaderCompiler', 'glRenderbufferStorage', 'glSampleCoverage',
   'glStencilFuncSeparate', 'glStencilMaskSeparate', 'glStencilOpSeparate',
   'glUniform1f', 'glUniform1i', 'glUniform2f', 'glUniform2i', 'glUniform3f',
@@ -71,12 +75,152 @@ class QOpenGLFunctions(CuteMixin, metaclass=MetaCute):
 
   - Qt's 'QOpenGLFunctions::~QOpenGLFunctions()': the destructor: Python
     removes its C++ QOpenGLFunctions by it, and has no other use for it.
-
-  What has no ritual
-  ------------------
-
-  72 of the 149 functions Qt declares: 72 takes or gives a type that cannot
-  be passed yet.
+  - Qt's 'void QOpenGLFunctions::glDeleteTextures(GLsizei n, const GLuint
+    *textures)': names 'GLuint', which has no cute class yet.
+  - Qt's 'void QOpenGLFunctions::glDrawElements(GLenum mode, GLsizei count,
+    GLenum type, const GLvoid *indices)': names 'GLvoid', which has no cute
+    class yet.
+  - Qt's 'void QOpenGLFunctions::glGenTextures(GLsizei n, GLuint *textures)':
+    takes a number to change where it is.
+  - Qt's 'void QOpenGLFunctions::glGetBooleanv(GLenum pname, GLboolean
+    *params)': takes a number to change where it is.
+  - Qt's 'void QOpenGLFunctions::glGetFloatv(GLenum pname, GLfloat *params)':
+    takes a number to change where it is.
+  - Qt's 'void QOpenGLFunctions::glGetIntegerv(GLenum pname, GLint *params)':
+    takes a number to change where it is.
+  - Qt's 'const GLubyte *QOpenGLFunctions::glGetString(GLenum name)': gives
+    'unsigned char', which has no cute class yet.
+  - Qt's 'void QOpenGLFunctions::glGetTexParameterfv(GLenum target, GLenum
+    pname, GLfloat *params)': takes a number to change where it is.
+  - Qt's 'void QOpenGLFunctions::glGetTexParameteriv(GLenum target, GLenum
+    pname, GLint *params)': takes a number to change where it is.
+  - Qt's 'void QOpenGLFunctions::glReadPixels(GLint x, GLint y, GLsizei
+    width, GLsizei height, GLenum format, GLenum type, GLvoid *pixels)':
+    names 'GLvoid', which has no cute class yet.
+  - Qt's 'void QOpenGLFunctions::glTexImage2D(GLenum target, GLint level,
+    GLint internalformat, GLsizei width, GLsizei height, GLint border, GLenum
+    format, GLenum type, const GLvoid *pixels)': names 'GLvoid', which has no
+    cute class yet.
+  - Qt's 'void QOpenGLFunctions::glTexParameterfv(GLenum target, GLenum
+    pname, const GLfloat *params)': names 'GLfloat', which has no cute class
+    yet.
+  - Qt's 'void QOpenGLFunctions::glTexParameteriv(GLenum target, GLenum
+    pname, const GLint *params)': names 'GLint', which has no cute class yet.
+  - Qt's 'void QOpenGLFunctions::glTexSubImage2D(GLenum target, GLint level,
+    GLint xoffset, GLint yoffset, GLsizei width, GLsizei height, GLenum
+    format, GLenum type, const GLvoid *pixels)': names 'GLvoid', which has no
+    cute class yet.
+  - Qt's 'void QOpenGLFunctions::glBufferData(GLenum target,
+    qopengl_GLsizeiptr size, const void *data, GLenum usage)': names 'void',
+    which has no cute class yet.
+  - Qt's 'void QOpenGLFunctions::glBufferSubData(GLenum target,
+    qopengl_GLintptr offset, qopengl_GLsizeiptr size, const void *data)':
+    names 'void', which has no cute class yet.
+  - Qt's 'void QOpenGLFunctions::glCompressedTexImage2D(GLenum target, GLint
+    level, GLenum internalformat, GLsizei width, GLsizei height, GLint
+    border, GLsizei imageSize, const void *data)': names 'void', which has no
+    cute class yet.
+  - Qt's 'void QOpenGLFunctions::glCompressedTexSubImage2D(GLenum target,
+    GLint level, GLint xoffset, GLint yoffset, GLsizei width, GLsizei height,
+    GLenum format, GLsizei imageSize, const void *data)': names 'void', which
+    has no cute class yet.
+  - Qt's 'void QOpenGLFunctions::glDeleteBuffers(GLsizei n, const GLuint
+    *buffers)': names 'GLuint', which has no cute class yet.
+  - Qt's 'void QOpenGLFunctions::glDeleteFramebuffers(GLsizei n, const GLuint
+    *framebuffers)': names 'GLuint', which has no cute class yet.
+  - Qt's 'void QOpenGLFunctions::glDeleteRenderbuffers(GLsizei n, const
+    GLuint *renderbuffers)': names 'GLuint', which has no cute class yet.
+  - Qt's 'void QOpenGLFunctions::glGenBuffers(GLsizei n, GLuint *buffers)':
+    takes a number to change where it is.
+  - Qt's 'void QOpenGLFunctions::glGenFramebuffers(GLsizei n, GLuint
+    *framebuffers)': takes a number to change where it is.
+  - Qt's 'void QOpenGLFunctions::glGenRenderbuffers(GLsizei n, GLuint
+    *renderbuffers)': takes a number to change where it is.
+  - Qt's 'void QOpenGLFunctions::glGetActiveAttrib(GLuint program, GLuint
+    index, GLsizei bufsize, GLsizei *length, GLint *size, GLenum *type, char
+    *name)': takes a number to change where it is.
+  - Qt's 'void QOpenGLFunctions::glGetActiveUniform(GLuint program, GLuint
+    index, GLsizei bufsize, GLsizei *length, GLint *size, GLenum *type, char
+    *name)': takes a number to change where it is.
+  - Qt's 'void QOpenGLFunctions::glGetAttachedShaders(GLuint program, GLsizei
+    maxcount, GLsizei *count, GLuint *shaders)': takes a number to change
+    where it is.
+  - Qt's 'void QOpenGLFunctions::glGetBufferParameteriv(GLenum target, GLenum
+    pname, GLint *params)': takes a number to change where it is.
+  - Qt's 'void QOpenGLFunctions::glGetFramebufferAttachmentParameteriv(GLenum
+    target, GLenum attachment, GLenum pname, GLint *params)': takes a number
+    to change where it is.
+  - Qt's 'void QOpenGLFunctions::glGetProgramiv(GLuint program, GLenum pname,
+    GLint *params)': takes a number to change where it is.
+  - Qt's 'void QOpenGLFunctions::glGetProgramInfoLog(GLuint program, GLsizei
+    bufsize, GLsizei *length, char *infolog)': takes a number to change where
+    it is.
+  - Qt's 'void QOpenGLFunctions::glGetRenderbufferParameteriv(GLenum target,
+    GLenum pname, GLint *params)': takes a number to change where it is.
+  - Qt's 'void QOpenGLFunctions::glGetShaderiv(GLuint shader, GLenum pname,
+    GLint *params)': takes a number to change where it is.
+  - Qt's 'void QOpenGLFunctions::glGetShaderInfoLog(GLuint shader, GLsizei
+    bufsize, GLsizei *length, char *infolog)': takes a number to change where
+    it is.
+  - Qt's 'void QOpenGLFunctions::glGetShaderPrecisionFormat(GLenum
+    shadertype, GLenum precisiontype, GLint *range, GLint *precision)': takes
+    a number to change where it is.
+  - Qt's 'void QOpenGLFunctions::glGetShaderSource(GLuint shader, GLsizei
+    bufsize, GLsizei *length, char *source)': takes a number to change where
+    it is.
+  - Qt's 'void QOpenGLFunctions::glGetUniformfv(GLuint program, GLint
+    location, GLfloat *params)': takes a number to change where it is.
+  - Qt's 'void QOpenGLFunctions::glGetUniformiv(GLuint program, GLint
+    location, GLint *params)': takes a number to change where it is.
+  - Qt's 'void QOpenGLFunctions::glGetVertexAttribfv(GLuint index, GLenum
+    pname, GLfloat *params)': takes a number to change where it is.
+  - Qt's 'void QOpenGLFunctions::glGetVertexAttribiv(GLuint index, GLenum
+    pname, GLint *params)': takes a number to change where it is.
+  - Qt's 'void QOpenGLFunctions::glGetVertexAttribPointerv(GLuint index,
+    GLenum pname, void **pointer)': takes a type Python has no way to hand
+    over yet.
+  - Qt's 'void QOpenGLFunctions::glShaderBinary(GLint n, const GLuint
+    *shaders, GLenum binaryformat, const void *binary, GLint length)': names
+    'GLuint', which has no cute class yet.
+  - Qt's 'void QOpenGLFunctions::glShaderSource(GLuint shader, GLsizei count,
+    const char **string, const GLint *length)': takes a type Python has no
+    way to hand over yet.
+  - Qt's 'void QOpenGLFunctions::glUniform1fv(GLint location, GLsizei count,
+    const GLfloat *v)': names 'GLfloat', which has no cute class yet.
+  - Qt's 'void QOpenGLFunctions::glUniform1iv(GLint location, GLsizei count,
+    const GLint *v)': names 'GLint', which has no cute class yet.
+  - Qt's 'void QOpenGLFunctions::glUniform2fv(GLint location, GLsizei count,
+    const GLfloat *v)': names 'GLfloat', which has no cute class yet.
+  - Qt's 'void QOpenGLFunctions::glUniform2iv(GLint location, GLsizei count,
+    const GLint *v)': names 'GLint', which has no cute class yet.
+  - Qt's 'void QOpenGLFunctions::glUniform3fv(GLint location, GLsizei count,
+    const GLfloat *v)': names 'GLfloat', which has no cute class yet.
+  - Qt's 'void QOpenGLFunctions::glUniform3iv(GLint location, GLsizei count,
+    const GLint *v)': names 'GLint', which has no cute class yet.
+  - Qt's 'void QOpenGLFunctions::glUniform4fv(GLint location, GLsizei count,
+    const GLfloat *v)': names 'GLfloat', which has no cute class yet.
+  - Qt's 'void QOpenGLFunctions::glUniform4iv(GLint location, GLsizei count,
+    const GLint *v)': names 'GLint', which has no cute class yet.
+  - Qt's 'void QOpenGLFunctions::glUniformMatrix2fv(GLint location, GLsizei
+    count, GLboolean transpose, const GLfloat *value)': names 'GLfloat',
+    which has no cute class yet.
+  - Qt's 'void QOpenGLFunctions::glUniformMatrix3fv(GLint location, GLsizei
+    count, GLboolean transpose, const GLfloat *value)': names 'GLfloat',
+    which has no cute class yet.
+  - Qt's 'void QOpenGLFunctions::glUniformMatrix4fv(GLint location, GLsizei
+    count, GLboolean transpose, const GLfloat *value)': names 'GLfloat',
+    which has no cute class yet.
+  - Qt's 'void QOpenGLFunctions::glVertexAttrib1fv(GLuint indx, const GLfloat
+    *values)': names 'GLfloat', which has no cute class yet.
+  - Qt's 'void QOpenGLFunctions::glVertexAttrib2fv(GLuint indx, const GLfloat
+    *values)': names 'GLfloat', which has no cute class yet.
+  - Qt's 'void QOpenGLFunctions::glVertexAttrib3fv(GLuint indx, const GLfloat
+    *values)': names 'GLfloat', which has no cute class yet.
+  - Qt's 'void QOpenGLFunctions::glVertexAttrib4fv(GLuint indx, const GLfloat
+    *values)': names 'GLfloat', which has no cute class yet.
+  - Qt's 'void QOpenGLFunctions::glVertexAttribPointer(GLuint indx, GLint
+    size, GLenum type, GLboolean normalized, GLsizei stride, const void
+    *ptr)': names 'void', which has no cute class yet.
 
   What to expect
   --------------
@@ -90,6 +234,27 @@ class QOpenGLFunctions(CuteMixin, metaclass=MetaCute):
     is as in C++.
   - A function giving a QOpenGLFunctions back gives a copy the ritual made
     for Python, in a new cute QOpenGLFunctions.
+  - Each name of Qt's QOpenGLFunctions that has no cute function yet,
+    'glBufferData', 'glBufferSubData', 'glCompressedTexImage2D',
+    'glCompressedTexSubImage2D', 'glDeleteBuffers', 'glDeleteFramebuffers',
+    'glDeleteRenderbuffers', 'glDeleteTextures', 'glDrawElements',
+    'glGenBuffers', 'glGenFramebuffers', 'glGenRenderbuffers',
+    'glGenTextures', 'glGetActiveAttrib', 'glGetActiveUniform',
+    'glGetAttachedShaders', 'glGetBooleanv', 'glGetBufferParameteriv',
+    'glGetFloatv', 'glGetFramebufferAttachmentParameteriv', 'glGetIntegerv',
+    'glGetProgramInfoLog', 'glGetProgramiv', 'glGetRenderbufferParameteriv',
+    'glGetShaderInfoLog', 'glGetShaderPrecisionFormat', 'glGetShaderSource',
+    'glGetShaderiv', 'glGetString', 'glGetTexParameterfv',
+    'glGetTexParameteriv', 'glGetUniformfv', 'glGetUniformiv',
+    'glGetVertexAttribPointerv', 'glGetVertexAttribfv',
+    'glGetVertexAttribiv', 'glReadPixels', 'glShaderBinary',
+    'glShaderSource', 'glTexImage2D', 'glTexParameterfv', 'glTexParameteriv',
+    'glTexSubImage2D', 'glUniform1fv', 'glUniform1iv', 'glUniform2fv',
+    'glUniform2iv', 'glUniform3fv', 'glUniform3iv', 'glUniform4fv',
+    'glUniform4iv', 'glUniformMatrix2fv', 'glUniformMatrix3fv',
+    'glUniformMatrix4fv', 'glVertexAttrib1fv', 'glVertexAttrib2fv',
+    'glVertexAttrib3fv', 'glVertexAttrib4fv', 'glVertexAttribPointer', holds
+    a function that raises 'NotImplementedError', and its docstring says why.
   """
 
   #  The enums Qt writes inside QOpenGLFunctions, each a class in here as in
@@ -193,8 +358,8 @@ class QOpenGLFunctions(CuteMixin, metaclass=MetaCute):
     """
     #  QOpenGLFunctions::OpenGLFeatures QOpenGLFunctions::openGLFeatures()
     #      const
-    return QOpenGLFunctions.OpenGLFeatures(self.uglySide.call(
-        'ritual_ZNK16QOpenGLFunctions14openGLFeaturesEv',
+    return QOpenGLFunctions.OpenGLFeatures(self._callAs(
+        'QOpenGLFunctions', 'ritual_ZNK16QOpenGLFunctions14openGLFeaturesEv',
     ))
 
   @overload(OpenGLFeature)
@@ -216,7 +381,8 @@ class QOpenGLFunctions(CuteMixin, metaclass=MetaCute):
     #  bool
     #      QOpenGLFunctions::hasOpenGLFeature(QOpenGLFunctions::OpenGLFeature
     #      feature) const
-    return self.uglySide.call(
+    return self._callAs(
+        'QOpenGLFunctions',
         'ritual_ZNK16QOpenGLFunctions16hasOpenGLFeatureENS_13OpenGLFeatureE',
         feature.value,
     )
@@ -303,7 +469,8 @@ class QOpenGLFunctions(CuteMixin, metaclass=MetaCute):
     https://doc.qt.io/qt-6/qopenglfunctions.html#initializeOpenGLFunctions
     """
     #  void QOpenGLFunctions::initializeOpenGLFunctions()
-    self.uglySide.call(
+    self._callAs(
+        'QOpenGLFunctions',
         'ritual_ZN16QOpenGLFunctions25initializeOpenGLFunctionsEv',
     )
 
@@ -326,8 +493,9 @@ class QOpenGLFunctions(CuteMixin, metaclass=MetaCute):
       Passed on as it is.
     """
     #  void QOpenGLFunctions::glBindTexture(GLenum target, GLuint texture)
-    self.uglySide.call(
-        'ritual_ZN16QOpenGLFunctions13glBindTextureEjj', target, texture,
+    self._callAs(
+        'QOpenGLFunctions', 'ritual_ZN16QOpenGLFunctions13glBindTextureEjj',
+        target, texture,
     )
 
   @overload(int, int)
@@ -348,8 +516,9 @@ class QOpenGLFunctions(CuteMixin, metaclass=MetaCute):
       Passed on as it is.
     """
     #  void QOpenGLFunctions::glBlendFunc(GLenum sfactor, GLenum dfactor)
-    self.uglySide.call(
-        'ritual_ZN16QOpenGLFunctions11glBlendFuncEjj', sfactor, dfactor,
+    self._callAs(
+        'QOpenGLFunctions', 'ritual_ZN16QOpenGLFunctions11glBlendFuncEjj',
+        sfactor, dfactor,
     )
 
   @overload(int)
@@ -366,7 +535,9 @@ class QOpenGLFunctions(CuteMixin, metaclass=MetaCute):
       Passed on as it is.
     """
     #  void QOpenGLFunctions::glClear(GLbitfield mask)
-    self.uglySide.call('ritual_ZN16QOpenGLFunctions7glClearEj', mask)
+    self._callAs(
+        'QOpenGLFunctions', 'ritual_ZN16QOpenGLFunctions7glClearEj', mask,
+    )
 
   @overload(float, float, float, float)
   def glClearColor(
@@ -399,8 +570,8 @@ class QOpenGLFunctions(CuteMixin, metaclass=MetaCute):
     """
     #  void QOpenGLFunctions::glClearColor(GLclampf red, GLclampf green,
     #      GLclampf blue, GLclampf alpha)
-    self.uglySide.call(
-        'ritual_ZN16QOpenGLFunctions12glClearColorEffff',
+    self._callAs(
+        'QOpenGLFunctions', 'ritual_ZN16QOpenGLFunctions12glClearColorEffff',
         red, green, blue, alpha,
     )
 
@@ -419,7 +590,10 @@ class QOpenGLFunctions(CuteMixin, metaclass=MetaCute):
       Passed on as it is.
     """
     #  void QOpenGLFunctions::glClearStencil(GLint s)
-    self.uglySide.call('ritual_ZN16QOpenGLFunctions14glClearStencilEi', s)
+    self._callAs(
+        'QOpenGLFunctions', 'ritual_ZN16QOpenGLFunctions14glClearStencilEi',
+        s,
+    )
 
   @overload(int, int, int, int)
   def glColorMask(self, red: int, green: int, blue: int, alpha: int) -> None:
@@ -446,8 +620,8 @@ class QOpenGLFunctions(CuteMixin, metaclass=MetaCute):
     """
     #  void QOpenGLFunctions::glColorMask(GLboolean red, GLboolean green,
     #      GLboolean blue, GLboolean alpha)
-    self.uglySide.call(
-        'ritual_ZN16QOpenGLFunctions11glColorMaskEhhhh',
+    self._callAs(
+        'QOpenGLFunctions', 'ritual_ZN16QOpenGLFunctions11glColorMaskEhhhh',
         red, green, blue, alpha,
     )
 
@@ -501,7 +675,8 @@ class QOpenGLFunctions(CuteMixin, metaclass=MetaCute):
     #  void QOpenGLFunctions::glCopyTexImage2D(GLenum target, GLint level,
     #      GLenum internalformat, GLint x, GLint y, GLsizei width, GLsizei
     #      height, GLint border)
-    self.uglySide.call(
+    self._callAs(
+        'QOpenGLFunctions',
         'ritual_ZN16QOpenGLFunctions16glCopyTexImage2DEjijiiiii',
         target, level, internalformat, x, y, width, height, border,
     )
@@ -556,7 +731,8 @@ class QOpenGLFunctions(CuteMixin, metaclass=MetaCute):
     #  void QOpenGLFunctions::glCopyTexSubImage2D(GLenum target, GLint level,
     #      GLint xoffset, GLint yoffset, GLint x, GLint y, GLsizei width,
     #      GLsizei height)
-    self.uglySide.call(
+    self._callAs(
+        'QOpenGLFunctions',
         'ritual_ZN16QOpenGLFunctions19glCopyTexSubImage2DEjiiiiiii',
         target, level, xoffset, yoffset, x, y, width, height,
     )
@@ -575,7 +751,10 @@ class QOpenGLFunctions(CuteMixin, metaclass=MetaCute):
       Passed on as it is.
     """
     #  void QOpenGLFunctions::glCullFace(GLenum mode)
-    self.uglySide.call('ritual_ZN16QOpenGLFunctions10glCullFaceEj', mode)
+    self._callAs(
+        'QOpenGLFunctions', 'ritual_ZN16QOpenGLFunctions10glCullFaceEj',
+        mode,
+    )
 
   @overload(int)
   def glDepthFunc(self, func: int) -> None:
@@ -591,7 +770,10 @@ class QOpenGLFunctions(CuteMixin, metaclass=MetaCute):
       Passed on as it is.
     """
     #  void QOpenGLFunctions::glDepthFunc(GLenum func)
-    self.uglySide.call('ritual_ZN16QOpenGLFunctions11glDepthFuncEj', func)
+    self._callAs(
+        'QOpenGLFunctions', 'ritual_ZN16QOpenGLFunctions11glDepthFuncEj',
+        func,
+    )
 
   @overload(int)
   def glDepthMask(self, flag: int) -> None:
@@ -607,7 +789,10 @@ class QOpenGLFunctions(CuteMixin, metaclass=MetaCute):
       Passed on as it is.
     """
     #  void QOpenGLFunctions::glDepthMask(GLboolean flag)
-    self.uglySide.call('ritual_ZN16QOpenGLFunctions11glDepthMaskEh', flag)
+    self._callAs(
+        'QOpenGLFunctions', 'ritual_ZN16QOpenGLFunctions11glDepthMaskEh',
+        flag,
+    )
 
   @overload(int)
   def glDisable(self, cap: int) -> None:
@@ -623,7 +808,9 @@ class QOpenGLFunctions(CuteMixin, metaclass=MetaCute):
       Passed on as it is.
     """
     #  void QOpenGLFunctions::glDisable(GLenum cap)
-    self.uglySide.call('ritual_ZN16QOpenGLFunctions9glDisableEj', cap)
+    self._callAs(
+        'QOpenGLFunctions', 'ritual_ZN16QOpenGLFunctions9glDisableEj', cap,
+    )
 
   @overload(int, int, int)
   def glDrawArrays(self, mode: int, first: int, count: int) -> None:
@@ -647,8 +834,9 @@ class QOpenGLFunctions(CuteMixin, metaclass=MetaCute):
     """
     #  void QOpenGLFunctions::glDrawArrays(GLenum mode, GLint first, GLsizei
     #      count)
-    self.uglySide.call(
-        'ritual_ZN16QOpenGLFunctions12glDrawArraysEjii', mode, first, count,
+    self._callAs(
+        'QOpenGLFunctions', 'ritual_ZN16QOpenGLFunctions12glDrawArraysEjii',
+        mode, first, count,
     )
 
   @overload(int)
@@ -665,7 +853,9 @@ class QOpenGLFunctions(CuteMixin, metaclass=MetaCute):
       Passed on as it is.
     """
     #  void QOpenGLFunctions::glEnable(GLenum cap)
-    self.uglySide.call('ritual_ZN16QOpenGLFunctions8glEnableEj', cap)
+    self._callAs(
+        'QOpenGLFunctions', 'ritual_ZN16QOpenGLFunctions8glEnableEj', cap,
+    )
 
   def glFinish(self) -> None:
     """
@@ -674,7 +864,9 @@ class QOpenGLFunctions(CuteMixin, metaclass=MetaCute):
     Qt's own words: https://doc.qt.io/qt-6/qopenglfunctions.html#glFinish
     """
     #  void QOpenGLFunctions::glFinish()
-    self.uglySide.call('ritual_ZN16QOpenGLFunctions8glFinishEv')
+    self._callAs(
+        'QOpenGLFunctions', 'ritual_ZN16QOpenGLFunctions8glFinishEv',
+    )
 
   def glFlush(self) -> None:
     """
@@ -683,7 +875,7 @@ class QOpenGLFunctions(CuteMixin, metaclass=MetaCute):
     Qt's own words: https://doc.qt.io/qt-6/qopenglfunctions.html#glFlush
     """
     #  void QOpenGLFunctions::glFlush()
-    self.uglySide.call('ritual_ZN16QOpenGLFunctions7glFlushEv')
+    self._callAs('QOpenGLFunctions', 'ritual_ZN16QOpenGLFunctions7glFlushEv')
 
   @overload(int)
   def glFrontFace(self, mode: int) -> None:
@@ -699,7 +891,21 @@ class QOpenGLFunctions(CuteMixin, metaclass=MetaCute):
       Passed on as it is.
     """
     #  void QOpenGLFunctions::glFrontFace(GLenum mode)
-    self.uglySide.call('ritual_ZN16QOpenGLFunctions11glFrontFaceEj', mode)
+    self._callAs(
+        'QOpenGLFunctions', 'ritual_ZN16QOpenGLFunctions11glFrontFaceEj',
+        mode,
+    )
+
+  def glGetError(self) -> int:
+    """
+    Calls Qt's 'GLenum QOpenGLFunctions::glGetError()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qopenglfunctions.html#glGetError
+    """
+    #  GLenum QOpenGLFunctions::glGetError()
+    return self._callAs(
+        'QOpenGLFunctions', 'ritual_ZN16QOpenGLFunctions10glGetErrorEv',
+    )
 
   @overload(int, int)
   def glHint(self, target: int, mode: int) -> None:
@@ -718,7 +924,48 @@ class QOpenGLFunctions(CuteMixin, metaclass=MetaCute):
       Passed on as it is.
     """
     #  void QOpenGLFunctions::glHint(GLenum target, GLenum mode)
-    self.uglySide.call('ritual_ZN16QOpenGLFunctions6glHintEjj', target, mode)
+    self._callAs(
+        'QOpenGLFunctions', 'ritual_ZN16QOpenGLFunctions6glHintEjj',
+        target, mode,
+    )
+
+  @overload(int)
+  def glIsEnabled(self, cap: int) -> int:
+    """
+    Calls Qt's 'GLboolean QOpenGLFunctions::glIsEnabled(GLenum cap)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qopenglfunctions.html#glIsEnabled
+
+    Parameters
+    ----------
+
+    cap : int
+      Passed on as it is.
+    """
+    #  GLboolean QOpenGLFunctions::glIsEnabled(GLenum cap)
+    return self._callAs(
+        'QOpenGLFunctions', 'ritual_ZN16QOpenGLFunctions11glIsEnabledEj',
+        cap,
+    )
+
+  @overload(int)
+  def glIsTexture(self, texture: int) -> int:
+    """
+    Calls Qt's 'GLboolean QOpenGLFunctions::glIsTexture(GLuint texture)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qopenglfunctions.html#glIsTexture
+
+    Parameters
+    ----------
+
+    texture : int
+      Passed on as it is.
+    """
+    #  GLboolean QOpenGLFunctions::glIsTexture(GLuint texture)
+    return self._callAs(
+        'QOpenGLFunctions', 'ritual_ZN16QOpenGLFunctions11glIsTextureEj',
+        texture,
+    )
 
   @overload(float)
   def glLineWidth(self, width: float) -> None:
@@ -734,7 +981,10 @@ class QOpenGLFunctions(CuteMixin, metaclass=MetaCute):
       Passed on as it is.
     """
     #  void QOpenGLFunctions::glLineWidth(GLfloat width)
-    self.uglySide.call('ritual_ZN16QOpenGLFunctions11glLineWidthEf', width)
+    self._callAs(
+        'QOpenGLFunctions', 'ritual_ZN16QOpenGLFunctions11glLineWidthEf',
+        width,
+    )
 
   @overload(int, int)
   def glPixelStorei(self, pname: int, param: int) -> None:
@@ -755,8 +1005,9 @@ class QOpenGLFunctions(CuteMixin, metaclass=MetaCute):
       Passed on as it is.
     """
     #  void QOpenGLFunctions::glPixelStorei(GLenum pname, GLint param)
-    self.uglySide.call(
-        'ritual_ZN16QOpenGLFunctions13glPixelStoreiEji', pname, param,
+    self._callAs(
+        'QOpenGLFunctions', 'ritual_ZN16QOpenGLFunctions13glPixelStoreiEji',
+        pname, param,
     )
 
   @overload(float, float)
@@ -778,8 +1029,10 @@ class QOpenGLFunctions(CuteMixin, metaclass=MetaCute):
       Passed on as it is.
     """
     #  void QOpenGLFunctions::glPolygonOffset(GLfloat factor, GLfloat units)
-    self.uglySide.call(
-        'ritual_ZN16QOpenGLFunctions15glPolygonOffsetEff', factor, units,
+    self._callAs(
+        'QOpenGLFunctions',
+        'ritual_ZN16QOpenGLFunctions15glPolygonOffsetEff',
+        factor, units,
     )
 
   @overload(int, int, int, int)
@@ -807,8 +1060,9 @@ class QOpenGLFunctions(CuteMixin, metaclass=MetaCute):
     """
     #  void QOpenGLFunctions::glScissor(GLint x, GLint y, GLsizei width,
     #      GLsizei height)
-    self.uglySide.call(
-        'ritual_ZN16QOpenGLFunctions9glScissorEiiii', x, y, width, height,
+    self._callAs(
+        'QOpenGLFunctions', 'ritual_ZN16QOpenGLFunctions9glScissorEiiii',
+        x, y, width, height,
     )
 
   @overload(int, int, int)
@@ -834,8 +1088,9 @@ class QOpenGLFunctions(CuteMixin, metaclass=MetaCute):
     """
     #  void QOpenGLFunctions::glStencilFunc(GLenum func, GLint ref, GLuint
     #      mask)
-    self.uglySide.call(
-        'ritual_ZN16QOpenGLFunctions13glStencilFuncEjij', func, ref, mask,
+    self._callAs(
+        'QOpenGLFunctions', 'ritual_ZN16QOpenGLFunctions13glStencilFuncEjij',
+        func, ref, mask,
     )
 
   @overload(int)
@@ -853,7 +1108,10 @@ class QOpenGLFunctions(CuteMixin, metaclass=MetaCute):
       Passed on as it is.
     """
     #  void QOpenGLFunctions::glStencilMask(GLuint mask)
-    self.uglySide.call('ritual_ZN16QOpenGLFunctions13glStencilMaskEj', mask)
+    self._callAs(
+        'QOpenGLFunctions', 'ritual_ZN16QOpenGLFunctions13glStencilMaskEj',
+        mask,
+    )
 
   @overload(int, int, int)
   def glStencilOp(self, fail: int, zfail: int, zpass: int) -> None:
@@ -877,8 +1135,9 @@ class QOpenGLFunctions(CuteMixin, metaclass=MetaCute):
     """
     #  void QOpenGLFunctions::glStencilOp(GLenum fail, GLenum zfail, GLenum
     #      zpass)
-    self.uglySide.call(
-        'ritual_ZN16QOpenGLFunctions11glStencilOpEjjj', fail, zfail, zpass,
+    self._callAs(
+        'QOpenGLFunctions', 'ritual_ZN16QOpenGLFunctions11glStencilOpEjjj',
+        fail, zfail, zpass,
     )
 
   @overload(int, int, float)
@@ -904,7 +1163,8 @@ class QOpenGLFunctions(CuteMixin, metaclass=MetaCute):
     """
     #  void QOpenGLFunctions::glTexParameterf(GLenum target, GLenum pname,
     #      GLfloat param)
-    self.uglySide.call(
+    self._callAs(
+        'QOpenGLFunctions',
         'ritual_ZN16QOpenGLFunctions15glTexParameterfEjjf',
         target, pname, param,
     )
@@ -932,7 +1192,8 @@ class QOpenGLFunctions(CuteMixin, metaclass=MetaCute):
     """
     #  void QOpenGLFunctions::glTexParameteri(GLenum target, GLenum pname,
     #      GLint param)
-    self.uglySide.call(
+    self._callAs(
+        'QOpenGLFunctions',
         'ritual_ZN16QOpenGLFunctions15glTexParameteriEjji',
         target, pname, param,
     )
@@ -962,8 +1223,9 @@ class QOpenGLFunctions(CuteMixin, metaclass=MetaCute):
     """
     #  void QOpenGLFunctions::glViewport(GLint x, GLint y, GLsizei width,
     #      GLsizei height)
-    self.uglySide.call(
-        'ritual_ZN16QOpenGLFunctions10glViewportEiiii', x, y, width, height,
+    self._callAs(
+        'QOpenGLFunctions', 'ritual_ZN16QOpenGLFunctions10glViewportEiiii',
+        x, y, width, height,
     )
 
   @overload(int)
@@ -981,8 +1243,9 @@ class QOpenGLFunctions(CuteMixin, metaclass=MetaCute):
       Passed on as it is.
     """
     #  void QOpenGLFunctions::glActiveTexture(GLenum texture)
-    self.uglySide.call(
-        'ritual_ZN16QOpenGLFunctions15glActiveTextureEj', texture,
+    self._callAs(
+        'QOpenGLFunctions', 'ritual_ZN16QOpenGLFunctions15glActiveTextureEj',
+        texture,
     )
 
   @overload(int, int)
@@ -1004,8 +1267,9 @@ class QOpenGLFunctions(CuteMixin, metaclass=MetaCute):
       Passed on as it is.
     """
     #  void QOpenGLFunctions::glAttachShader(GLuint program, GLuint shader)
-    self.uglySide.call(
-        'ritual_ZN16QOpenGLFunctions14glAttachShaderEjj', program, shader,
+    self._callAs(
+        'QOpenGLFunctions', 'ritual_ZN16QOpenGLFunctions14glAttachShaderEjj',
+        program, shader,
     )
 
   @overload(int, int, str)
@@ -1037,7 +1301,8 @@ class QOpenGLFunctions(CuteMixin, metaclass=MetaCute):
     """
     #  void QOpenGLFunctions::glBindAttribLocation(GLuint program, GLuint
     #      index, const char *name)
-    self.uglySide.call(
+    self._callAs(
+        'QOpenGLFunctions',
         'ritual_ZN16QOpenGLFunctions20glBindAttribLocationEjjPKc',
         program, index, self._bytesOf(name),
     )
@@ -1060,8 +1325,9 @@ class QOpenGLFunctions(CuteMixin, metaclass=MetaCute):
       Passed on as it is.
     """
     #  void QOpenGLFunctions::glBindBuffer(GLenum target, GLuint buffer)
-    self.uglySide.call(
-        'ritual_ZN16QOpenGLFunctions12glBindBufferEjj', target, buffer,
+    self._callAs(
+        'QOpenGLFunctions', 'ritual_ZN16QOpenGLFunctions12glBindBufferEjj',
+        target, buffer,
     )
 
   @overload(int, int)
@@ -1084,7 +1350,8 @@ class QOpenGLFunctions(CuteMixin, metaclass=MetaCute):
     """
     #  void QOpenGLFunctions::glBindFramebuffer(GLenum target, GLuint
     #      framebuffer)
-    self.uglySide.call(
+    self._callAs(
+        'QOpenGLFunctions',
         'ritual_ZN16QOpenGLFunctions17glBindFramebufferEjj',
         target, framebuffer,
     )
@@ -1109,7 +1376,8 @@ class QOpenGLFunctions(CuteMixin, metaclass=MetaCute):
     """
     #  void QOpenGLFunctions::glBindRenderbuffer(GLenum target, GLuint
     #      renderbuffer)
-    self.uglySide.call(
+    self._callAs(
+        'QOpenGLFunctions',
         'ritual_ZN16QOpenGLFunctions18glBindRenderbufferEjj',
         target, renderbuffer,
     )
@@ -1145,8 +1413,8 @@ class QOpenGLFunctions(CuteMixin, metaclass=MetaCute):
     """
     #  void QOpenGLFunctions::glBlendColor(GLclampf red, GLclampf green,
     #      GLclampf blue, GLclampf alpha)
-    self.uglySide.call(
-        'ritual_ZN16QOpenGLFunctions12glBlendColorEffff',
+    self._callAs(
+        'QOpenGLFunctions', 'ritual_ZN16QOpenGLFunctions12glBlendColorEffff',
         red, green, blue, alpha,
     )
 
@@ -1165,8 +1433,9 @@ class QOpenGLFunctions(CuteMixin, metaclass=MetaCute):
       Passed on as it is.
     """
     #  void QOpenGLFunctions::glBlendEquation(GLenum mode)
-    self.uglySide.call(
-        'ritual_ZN16QOpenGLFunctions15glBlendEquationEj', mode,
+    self._callAs(
+        'QOpenGLFunctions', 'ritual_ZN16QOpenGLFunctions15glBlendEquationEj',
+        mode,
     )
 
   @overload(int, int)
@@ -1189,7 +1458,8 @@ class QOpenGLFunctions(CuteMixin, metaclass=MetaCute):
     """
     #  void QOpenGLFunctions::glBlendEquationSeparate(GLenum modeRGB, GLenum
     #      modeAlpha)
-    self.uglySide.call(
+    self._callAs(
+        'QOpenGLFunctions',
         'ritual_ZN16QOpenGLFunctions23glBlendEquationSeparateEjj',
         modeRGB, modeAlpha,
     )
@@ -1226,9 +1496,32 @@ class QOpenGLFunctions(CuteMixin, metaclass=MetaCute):
     """
     #  void QOpenGLFunctions::glBlendFuncSeparate(GLenum srcRGB, GLenum
     #      dstRGB, GLenum srcAlpha, GLenum dstAlpha)
-    self.uglySide.call(
+    self._callAs(
+        'QOpenGLFunctions',
         'ritual_ZN16QOpenGLFunctions19glBlendFuncSeparateEjjjj',
         srcRGB, dstRGB, srcAlpha, dstAlpha,
+    )
+
+  @overload(int)
+  def glCheckFramebufferStatus(self, target: int) -> int:
+    """
+    Calls Qt's 'GLenum QOpenGLFunctions::glCheckFramebufferStatus(GLenum
+    target)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qopenglfunctions.html#glCheckFramebufferStatus
+
+    Parameters
+    ----------
+
+    target : int
+      Passed on as it is.
+    """
+    #  GLenum QOpenGLFunctions::glCheckFramebufferStatus(GLenum target)
+    return self._callAs(
+        'QOpenGLFunctions',
+        'ritual_ZN16QOpenGLFunctions24glCheckFramebufferStatusEj',
+        target,
     )
 
   @overload(float)
@@ -1246,7 +1539,10 @@ class QOpenGLFunctions(CuteMixin, metaclass=MetaCute):
       Passed on as it is.
     """
     #  void QOpenGLFunctions::glClearDepthf(GLclampf depth)
-    self.uglySide.call('ritual_ZN16QOpenGLFunctions13glClearDepthfEf', depth)
+    self._callAs(
+        'QOpenGLFunctions', 'ritual_ZN16QOpenGLFunctions13glClearDepthfEf',
+        depth,
+    )
 
   @overload(int)
   def glCompileShader(self, shader: int) -> None:
@@ -1263,8 +1559,41 @@ class QOpenGLFunctions(CuteMixin, metaclass=MetaCute):
       Passed on as it is.
     """
     #  void QOpenGLFunctions::glCompileShader(GLuint shader)
-    self.uglySide.call(
-        'ritual_ZN16QOpenGLFunctions15glCompileShaderEj', shader,
+    self._callAs(
+        'QOpenGLFunctions', 'ritual_ZN16QOpenGLFunctions15glCompileShaderEj',
+        shader,
+    )
+
+  def glCreateProgram(self) -> int:
+    """
+    Calls Qt's 'GLuint QOpenGLFunctions::glCreateProgram()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qopenglfunctions.html#glCreateProgram
+    """
+    #  GLuint QOpenGLFunctions::glCreateProgram()
+    return self._callAs(
+        'QOpenGLFunctions', 'ritual_ZN16QOpenGLFunctions15glCreateProgramEv',
+    )
+
+  @overload(int)
+  def glCreateShader(self, type: int) -> int:
+    """
+    Calls Qt's 'GLuint QOpenGLFunctions::glCreateShader(GLenum type)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qopenglfunctions.html#glCreateShader
+
+    Parameters
+    ----------
+
+    type : int
+      Passed on as it is.
+    """
+    #  GLuint QOpenGLFunctions::glCreateShader(GLenum type)
+    return self._callAs(
+        'QOpenGLFunctions', 'ritual_ZN16QOpenGLFunctions14glCreateShaderEj',
+        type,
     )
 
   @overload(int)
@@ -1282,8 +1611,9 @@ class QOpenGLFunctions(CuteMixin, metaclass=MetaCute):
       Passed on as it is.
     """
     #  void QOpenGLFunctions::glDeleteProgram(GLuint program)
-    self.uglySide.call(
-        'ritual_ZN16QOpenGLFunctions15glDeleteProgramEj', program,
+    self._callAs(
+        'QOpenGLFunctions', 'ritual_ZN16QOpenGLFunctions15glDeleteProgramEj',
+        program,
     )
 
   @overload(int)
@@ -1301,8 +1631,9 @@ class QOpenGLFunctions(CuteMixin, metaclass=MetaCute):
       Passed on as it is.
     """
     #  void QOpenGLFunctions::glDeleteShader(GLuint shader)
-    self.uglySide.call(
-        'ritual_ZN16QOpenGLFunctions14glDeleteShaderEj', shader,
+    self._callAs(
+        'QOpenGLFunctions', 'ritual_ZN16QOpenGLFunctions14glDeleteShaderEj',
+        shader,
     )
 
   @overload(float, float)
@@ -1324,8 +1655,9 @@ class QOpenGLFunctions(CuteMixin, metaclass=MetaCute):
       Passed on as it is.
     """
     #  void QOpenGLFunctions::glDepthRangef(GLclampf zNear, GLclampf zFar)
-    self.uglySide.call(
-        'ritual_ZN16QOpenGLFunctions13glDepthRangefEff', zNear, zFar,
+    self._callAs(
+        'QOpenGLFunctions', 'ritual_ZN16QOpenGLFunctions13glDepthRangefEff',
+        zNear, zFar,
     )
 
   @overload(int, int)
@@ -1347,8 +1679,9 @@ class QOpenGLFunctions(CuteMixin, metaclass=MetaCute):
       Passed on as it is.
     """
     #  void QOpenGLFunctions::glDetachShader(GLuint program, GLuint shader)
-    self.uglySide.call(
-        'ritual_ZN16QOpenGLFunctions14glDetachShaderEjj', program, shader,
+    self._callAs(
+        'QOpenGLFunctions', 'ritual_ZN16QOpenGLFunctions14glDetachShaderEjj',
+        program, shader,
     )
 
   @overload(int)
@@ -1367,8 +1700,10 @@ class QOpenGLFunctions(CuteMixin, metaclass=MetaCute):
       Passed on as it is.
     """
     #  void QOpenGLFunctions::glDisableVertexAttribArray(GLuint index)
-    self.uglySide.call(
-        'ritual_ZN16QOpenGLFunctions26glDisableVertexAttribArrayEj', index,
+    self._callAs(
+        'QOpenGLFunctions',
+        'ritual_ZN16QOpenGLFunctions26glDisableVertexAttribArrayEj',
+        index,
     )
 
   @overload(int)
@@ -1387,8 +1722,10 @@ class QOpenGLFunctions(CuteMixin, metaclass=MetaCute):
       Passed on as it is.
     """
     #  void QOpenGLFunctions::glEnableVertexAttribArray(GLuint index)
-    self.uglySide.call(
-        'ritual_ZN16QOpenGLFunctions25glEnableVertexAttribArrayEj', index,
+    self._callAs(
+        'QOpenGLFunctions',
+        'ritual_ZN16QOpenGLFunctions25glEnableVertexAttribArrayEj',
+        index,
     )
 
   @overload(int, int, int, int)
@@ -1424,7 +1761,8 @@ class QOpenGLFunctions(CuteMixin, metaclass=MetaCute):
     """
     #  void QOpenGLFunctions::glFramebufferRenderbuffer(GLenum target, GLenum
     #      attachment, GLenum renderbuffertarget, GLuint renderbuffer)
-    self.uglySide.call(
+    self._callAs(
+        'QOpenGLFunctions',
         'ritual_ZN16QOpenGLFunctions25glFramebufferRenderbufferEjjjj',
         target, attachment, renderbuffertarget, renderbuffer,
     )
@@ -1465,7 +1803,8 @@ class QOpenGLFunctions(CuteMixin, metaclass=MetaCute):
     """
     #  void QOpenGLFunctions::glFramebufferTexture2D(GLenum target, GLenum
     #      attachment, GLenum textarget, GLuint texture, GLint level)
-    self.uglySide.call(
+    self._callAs(
+        'QOpenGLFunctions',
         'ritual_ZN16QOpenGLFunctions22glFramebufferTexture2DEjjjji',
         target, attachment, textarget, texture, level,
     )
@@ -1485,8 +1824,164 @@ class QOpenGLFunctions(CuteMixin, metaclass=MetaCute):
       Passed on as it is.
     """
     #  void QOpenGLFunctions::glGenerateMipmap(GLenum target)
-    self.uglySide.call(
-        'ritual_ZN16QOpenGLFunctions16glGenerateMipmapEj', target,
+    self._callAs(
+        'QOpenGLFunctions',
+        'ritual_ZN16QOpenGLFunctions16glGenerateMipmapEj',
+        target,
+    )
+
+  @overload(int, str)
+  @overload(int, NoneType)
+  def glGetAttribLocation(self, program: int, name: Optional[str]) -> int:
+    """
+    Calls Qt's 'GLint QOpenGLFunctions::glGetAttribLocation(GLuint program,
+    const char *name)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qopenglfunctions.html#glGetAttribLocation
+
+    Parameters
+    ----------
+
+    program : int
+      Passed on as it is.
+
+    name : Optional[str]
+      Passed on as the bytes of the text. None is passed on as no text.
+    """
+    #  GLint QOpenGLFunctions::glGetAttribLocation(GLuint program, const char
+    #      *name)
+    return self._callAs(
+        'QOpenGLFunctions',
+        'ritual_ZN16QOpenGLFunctions19glGetAttribLocationEjPKc',
+        program, self._bytesOf(name),
+    )
+
+  @overload(int, str)
+  @overload(int, NoneType)
+  def glGetUniformLocation(self, program: int, name: Optional[str]) -> int:
+    """
+    Calls Qt's 'GLint QOpenGLFunctions::glGetUniformLocation(GLuint program,
+    const char *name)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qopenglfunctions.html#glGetUniformLocation
+
+    Parameters
+    ----------
+
+    program : int
+      Passed on as it is.
+
+    name : Optional[str]
+      Passed on as the bytes of the text. None is passed on as no text.
+    """
+    #  GLint QOpenGLFunctions::glGetUniformLocation(GLuint program, const
+    #      char *name)
+    return self._callAs(
+        'QOpenGLFunctions',
+        'ritual_ZN16QOpenGLFunctions20glGetUniformLocationEjPKc',
+        program, self._bytesOf(name),
+    )
+
+  @overload(int)
+  def glIsBuffer(self, buffer: int) -> int:
+    """
+    Calls Qt's 'GLboolean QOpenGLFunctions::glIsBuffer(GLuint buffer)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qopenglfunctions.html#glIsBuffer
+
+    Parameters
+    ----------
+
+    buffer : int
+      Passed on as it is.
+    """
+    #  GLboolean QOpenGLFunctions::glIsBuffer(GLuint buffer)
+    return self._callAs(
+        'QOpenGLFunctions', 'ritual_ZN16QOpenGLFunctions10glIsBufferEj',
+        buffer,
+    )
+
+  @overload(int)
+  def glIsFramebuffer(self, framebuffer: int) -> int:
+    """
+    Calls Qt's 'GLboolean QOpenGLFunctions::glIsFramebuffer(GLuint
+    framebuffer)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qopenglfunctions.html#glIsFramebuffer
+
+    Parameters
+    ----------
+
+    framebuffer : int
+      Passed on as it is.
+    """
+    #  GLboolean QOpenGLFunctions::glIsFramebuffer(GLuint framebuffer)
+    return self._callAs(
+        'QOpenGLFunctions', 'ritual_ZN16QOpenGLFunctions15glIsFramebufferEj',
+        framebuffer,
+    )
+
+  @overload(int)
+  def glIsProgram(self, program: int) -> int:
+    """
+    Calls Qt's 'GLboolean QOpenGLFunctions::glIsProgram(GLuint program)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qopenglfunctions.html#glIsProgram
+
+    Parameters
+    ----------
+
+    program : int
+      Passed on as it is.
+    """
+    #  GLboolean QOpenGLFunctions::glIsProgram(GLuint program)
+    return self._callAs(
+        'QOpenGLFunctions', 'ritual_ZN16QOpenGLFunctions11glIsProgramEj',
+        program,
+    )
+
+  @overload(int)
+  def glIsRenderbuffer(self, renderbuffer: int) -> int:
+    """
+    Calls Qt's 'GLboolean QOpenGLFunctions::glIsRenderbuffer(GLuint
+    renderbuffer)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qopenglfunctions.html#glIsRenderbuffer
+
+    Parameters
+    ----------
+
+    renderbuffer : int
+      Passed on as it is.
+    """
+    #  GLboolean QOpenGLFunctions::glIsRenderbuffer(GLuint renderbuffer)
+    return self._callAs(
+        'QOpenGLFunctions',
+        'ritual_ZN16QOpenGLFunctions16glIsRenderbufferEj',
+        renderbuffer,
+    )
+
+  @overload(int)
+  def glIsShader(self, shader: int) -> int:
+    """
+    Calls Qt's 'GLboolean QOpenGLFunctions::glIsShader(GLuint shader)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qopenglfunctions.html#glIsShader
+
+    Parameters
+    ----------
+
+    shader : int
+      Passed on as it is.
+    """
+    #  GLboolean QOpenGLFunctions::glIsShader(GLuint shader)
+    return self._callAs(
+        'QOpenGLFunctions', 'ritual_ZN16QOpenGLFunctions10glIsShaderEj',
+        shader,
     )
 
   @overload(int)
@@ -1504,8 +1999,9 @@ class QOpenGLFunctions(CuteMixin, metaclass=MetaCute):
       Passed on as it is.
     """
     #  void QOpenGLFunctions::glLinkProgram(GLuint program)
-    self.uglySide.call(
-        'ritual_ZN16QOpenGLFunctions13glLinkProgramEj', program,
+    self._callAs(
+        'QOpenGLFunctions', 'ritual_ZN16QOpenGLFunctions13glLinkProgramEj',
+        program,
     )
 
   def glReleaseShaderCompiler(self) -> None:
@@ -1516,7 +2012,8 @@ class QOpenGLFunctions(CuteMixin, metaclass=MetaCute):
     https://doc.qt.io/qt-6/qopenglfunctions.html#glReleaseShaderCompiler
     """
     #  void QOpenGLFunctions::glReleaseShaderCompiler()
-    self.uglySide.call(
+    self._callAs(
+        'QOpenGLFunctions',
         'ritual_ZN16QOpenGLFunctions23glReleaseShaderCompilerEv',
     )
 
@@ -1552,7 +2049,8 @@ class QOpenGLFunctions(CuteMixin, metaclass=MetaCute):
     """
     #  void QOpenGLFunctions::glRenderbufferStorage(GLenum target, GLenum
     #      internalformat, GLsizei width, GLsizei height)
-    self.uglySide.call(
+    self._callAs(
+        'QOpenGLFunctions',
         'ritual_ZN16QOpenGLFunctions21glRenderbufferStorageEjjii',
         target, internalformat, width, height,
     )
@@ -1577,8 +2075,10 @@ class QOpenGLFunctions(CuteMixin, metaclass=MetaCute):
     """
     #  void QOpenGLFunctions::glSampleCoverage(GLclampf value, GLboolean
     #      invert)
-    self.uglySide.call(
-        'ritual_ZN16QOpenGLFunctions16glSampleCoverageEfh', value, invert,
+    self._callAs(
+        'QOpenGLFunctions',
+        'ritual_ZN16QOpenGLFunctions16glSampleCoverageEfh',
+        value, invert,
     )
 
   @overload(int, int, int, int)
@@ -1613,7 +2113,8 @@ class QOpenGLFunctions(CuteMixin, metaclass=MetaCute):
     """
     #  void QOpenGLFunctions::glStencilFuncSeparate(GLenum face, GLenum func,
     #      GLint ref, GLuint mask)
-    self.uglySide.call(
+    self._callAs(
+        'QOpenGLFunctions',
         'ritual_ZN16QOpenGLFunctions21glStencilFuncSeparateEjjij',
         face, func, ref, mask,
     )
@@ -1637,8 +2138,10 @@ class QOpenGLFunctions(CuteMixin, metaclass=MetaCute):
       Passed on as it is.
     """
     #  void QOpenGLFunctions::glStencilMaskSeparate(GLenum face, GLuint mask)
-    self.uglySide.call(
-        'ritual_ZN16QOpenGLFunctions21glStencilMaskSeparateEjj', face, mask,
+    self._callAs(
+        'QOpenGLFunctions',
+        'ritual_ZN16QOpenGLFunctions21glStencilMaskSeparateEjj',
+        face, mask,
     )
 
   @overload(int, int, int, int)
@@ -1673,7 +2176,8 @@ class QOpenGLFunctions(CuteMixin, metaclass=MetaCute):
     """
     #  void QOpenGLFunctions::glStencilOpSeparate(GLenum face, GLenum fail,
     #      GLenum zfail, GLenum zpass)
-    self.uglySide.call(
+    self._callAs(
+        'QOpenGLFunctions',
         'ritual_ZN16QOpenGLFunctions19glStencilOpSeparateEjjjj',
         face, fail, zfail, zpass,
     )
@@ -1696,8 +2200,9 @@ class QOpenGLFunctions(CuteMixin, metaclass=MetaCute):
       Passed on as it is.
     """
     #  void QOpenGLFunctions::glUniform1f(GLint location, GLfloat x)
-    self.uglySide.call(
-        'ritual_ZN16QOpenGLFunctions11glUniform1fEif', location, x,
+    self._callAs(
+        'QOpenGLFunctions', 'ritual_ZN16QOpenGLFunctions11glUniform1fEif',
+        location, x,
     )
 
   @overload(int, int)
@@ -1717,8 +2222,9 @@ class QOpenGLFunctions(CuteMixin, metaclass=MetaCute):
       Passed on as it is.
     """
     #  void QOpenGLFunctions::glUniform1i(GLint location, GLint x)
-    self.uglySide.call(
-        'ritual_ZN16QOpenGLFunctions11glUniform1iEii', location, x,
+    self._callAs(
+        'QOpenGLFunctions', 'ritual_ZN16QOpenGLFunctions11glUniform1iEii',
+        location, x,
     )
 
   @overload(int, float, float)
@@ -1743,8 +2249,9 @@ class QOpenGLFunctions(CuteMixin, metaclass=MetaCute):
     """
     #  void QOpenGLFunctions::glUniform2f(GLint location, GLfloat x, GLfloat
     #      y)
-    self.uglySide.call(
-        'ritual_ZN16QOpenGLFunctions11glUniform2fEiff', location, x, y,
+    self._callAs(
+        'QOpenGLFunctions', 'ritual_ZN16QOpenGLFunctions11glUniform2fEiff',
+        location, x, y,
     )
 
   @overload(int, int, int)
@@ -1768,8 +2275,9 @@ class QOpenGLFunctions(CuteMixin, metaclass=MetaCute):
       Passed on as it is.
     """
     #  void QOpenGLFunctions::glUniform2i(GLint location, GLint x, GLint y)
-    self.uglySide.call(
-        'ritual_ZN16QOpenGLFunctions11glUniform2iEiii', location, x, y,
+    self._callAs(
+        'QOpenGLFunctions', 'ritual_ZN16QOpenGLFunctions11glUniform2iEiii',
+        location, x, y,
     )
 
   @overload(int, float, float, float)
@@ -1797,8 +2305,9 @@ class QOpenGLFunctions(CuteMixin, metaclass=MetaCute):
     """
     #  void QOpenGLFunctions::glUniform3f(GLint location, GLfloat x, GLfloat
     #      y, GLfloat z)
-    self.uglySide.call(
-        'ritual_ZN16QOpenGLFunctions11glUniform3fEifff', location, x, y, z,
+    self._callAs(
+        'QOpenGLFunctions', 'ritual_ZN16QOpenGLFunctions11glUniform3fEifff',
+        location, x, y, z,
     )
 
   @overload(int, int, int, int)
@@ -1826,8 +2335,9 @@ class QOpenGLFunctions(CuteMixin, metaclass=MetaCute):
     """
     #  void QOpenGLFunctions::glUniform3i(GLint location, GLint x, GLint y,
     #      GLint z)
-    self.uglySide.call(
-        'ritual_ZN16QOpenGLFunctions11glUniform3iEiiii', location, x, y, z,
+    self._callAs(
+        'QOpenGLFunctions', 'ritual_ZN16QOpenGLFunctions11glUniform3iEiiii',
+        location, x, y, z,
     )
 
   @overload(int, float, float, float, float)
@@ -1865,8 +2375,8 @@ class QOpenGLFunctions(CuteMixin, metaclass=MetaCute):
     """
     #  void QOpenGLFunctions::glUniform4f(GLint location, GLfloat x, GLfloat
     #      y, GLfloat z, GLfloat w)
-    self.uglySide.call(
-        'ritual_ZN16QOpenGLFunctions11glUniform4fEiffff',
+    self._callAs(
+        'QOpenGLFunctions', 'ritual_ZN16QOpenGLFunctions11glUniform4fEiffff',
         location, x, y, z, w,
     )
 
@@ -1905,8 +2415,8 @@ class QOpenGLFunctions(CuteMixin, metaclass=MetaCute):
     """
     #  void QOpenGLFunctions::glUniform4i(GLint location, GLint x, GLint y,
     #      GLint z, GLint w)
-    self.uglySide.call(
-        'ritual_ZN16QOpenGLFunctions11glUniform4iEiiiii',
+    self._callAs(
+        'QOpenGLFunctions', 'ritual_ZN16QOpenGLFunctions11glUniform4iEiiiii',
         location, x, y, z, w,
     )
 
@@ -1924,8 +2434,9 @@ class QOpenGLFunctions(CuteMixin, metaclass=MetaCute):
       Passed on as it is.
     """
     #  void QOpenGLFunctions::glUseProgram(GLuint program)
-    self.uglySide.call(
-        'ritual_ZN16QOpenGLFunctions12glUseProgramEj', program,
+    self._callAs(
+        'QOpenGLFunctions', 'ritual_ZN16QOpenGLFunctions12glUseProgramEj',
+        program,
     )
 
   @overload(int)
@@ -1943,8 +2454,10 @@ class QOpenGLFunctions(CuteMixin, metaclass=MetaCute):
       Passed on as it is.
     """
     #  void QOpenGLFunctions::glValidateProgram(GLuint program)
-    self.uglySide.call(
-        'ritual_ZN16QOpenGLFunctions17glValidateProgramEj', program,
+    self._callAs(
+        'QOpenGLFunctions',
+        'ritual_ZN16QOpenGLFunctions17glValidateProgramEj',
+        program,
     )
 
   @overload(int, float)
@@ -1966,8 +2479,10 @@ class QOpenGLFunctions(CuteMixin, metaclass=MetaCute):
       Passed on as it is.
     """
     #  void QOpenGLFunctions::glVertexAttrib1f(GLuint indx, GLfloat x)
-    self.uglySide.call(
-        'ritual_ZN16QOpenGLFunctions16glVertexAttrib1fEjf', indx, x,
+    self._callAs(
+        'QOpenGLFunctions',
+        'ritual_ZN16QOpenGLFunctions16glVertexAttrib1fEjf',
+        indx, x,
     )
 
   @overload(int, float, float)
@@ -1993,8 +2508,10 @@ class QOpenGLFunctions(CuteMixin, metaclass=MetaCute):
     """
     #  void QOpenGLFunctions::glVertexAttrib2f(GLuint indx, GLfloat x,
     #      GLfloat y)
-    self.uglySide.call(
-        'ritual_ZN16QOpenGLFunctions16glVertexAttrib2fEjff', indx, x, y,
+    self._callAs(
+        'QOpenGLFunctions',
+        'ritual_ZN16QOpenGLFunctions16glVertexAttrib2fEjff',
+        indx, x, y,
     )
 
   @overload(int, float, float, float)
@@ -2029,8 +2546,10 @@ class QOpenGLFunctions(CuteMixin, metaclass=MetaCute):
     """
     #  void QOpenGLFunctions::glVertexAttrib3f(GLuint indx, GLfloat x,
     #      GLfloat y, GLfloat z)
-    self.uglySide.call(
-        'ritual_ZN16QOpenGLFunctions16glVertexAttrib3fEjfff', indx, x, y, z,
+    self._callAs(
+        'QOpenGLFunctions',
+        'ritual_ZN16QOpenGLFunctions16glVertexAttrib3fEjfff',
+        indx, x, y, z,
     )
 
   @overload(int, float, float, float, float)
@@ -2069,7 +2588,733 @@ class QOpenGLFunctions(CuteMixin, metaclass=MetaCute):
     """
     #  void QOpenGLFunctions::glVertexAttrib4f(GLuint indx, GLfloat x,
     #      GLfloat y, GLfloat z, GLfloat w)
-    self.uglySide.call(
+    self._callAs(
+        'QOpenGLFunctions',
         'ritual_ZN16QOpenGLFunctions16glVertexAttrib4fEjffff',
         indx, x, y, z, w,
     )
+
+  @staticmethod
+  def glBufferData(*__, **_) -> Never:
+    """
+    Qt's 'void QOpenGLFunctions::glBufferData(GLenum target,
+    qopengl_GLsizeiptr size, const void *data, GLenum usage)': names 'void',
+    which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QOpenGLFunctions.glBufferData' has no cute function yet. Qt's "
+        "'void QOpenGLFunctions::glBufferData(GLenum target, "
+        "qopengl_GLsizeiptr size, const void *data, GLenum usage)': names "
+        "'void', which has no cute class yet.")
+
+  @staticmethod
+  def glBufferSubData(*__, **_) -> Never:
+    """
+    Qt's 'void QOpenGLFunctions::glBufferSubData(GLenum target,
+    qopengl_GLintptr offset, qopengl_GLsizeiptr size, const void *data)':
+    names 'void', which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QOpenGLFunctions.glBufferSubData' has no cute function yet. Qt's "
+        "'void QOpenGLFunctions::glBufferSubData(GLenum target, "
+        "qopengl_GLintptr offset, qopengl_GLsizeiptr size, const void "
+        "*data)': names 'void', which has no cute class yet.")
+
+  @staticmethod
+  def glCompressedTexImage2D(*__, **_) -> Never:
+    """
+    Qt's 'void QOpenGLFunctions::glCompressedTexImage2D(GLenum target, GLint
+    level, GLenum internalformat, GLsizei width, GLsizei height, GLint
+    border, GLsizei imageSize, const void *data)': names 'void', which has no
+    cute class yet.
+    """
+    raise NotImplementedError(
+        "'QOpenGLFunctions.glCompressedTexImage2D' has no cute function "
+        "yet. Qt's 'void QOpenGLFunctions::glCompressedTexImage2D(GLenum "
+        "target, GLint level, GLenum internalformat, GLsizei width, GLsizei "
+        "height, GLint border, GLsizei imageSize, const void *data)': names "
+        "'void', which has no cute class yet.")
+
+  @staticmethod
+  def glCompressedTexSubImage2D(*__, **_) -> Never:
+    """
+    Qt's 'void QOpenGLFunctions::glCompressedTexSubImage2D(GLenum target,
+    GLint level, GLint xoffset, GLint yoffset, GLsizei width, GLsizei height,
+    GLenum format, GLsizei imageSize, const void *data)': names 'void', which
+    has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QOpenGLFunctions.glCompressedTexSubImage2D' has no cute function "
+        "yet. Qt's 'void QOpenGLFunctions::glCompressedTexSubImage2D(GLenum "
+        "target, GLint level, GLint xoffset, GLint yoffset, GLsizei width, "
+        "GLsizei height, GLenum format, GLsizei imageSize, const void "
+        "*data)': names 'void', which has no cute class yet.")
+
+  @staticmethod
+  def glDeleteBuffers(*__, **_) -> Never:
+    """
+    Qt's 'void QOpenGLFunctions::glDeleteBuffers(GLsizei n, const GLuint
+    *buffers)': names 'GLuint', which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QOpenGLFunctions.glDeleteBuffers' has no cute function yet. Qt's "
+        "'void QOpenGLFunctions::glDeleteBuffers(GLsizei n, const GLuint "
+        "*buffers)': names 'GLuint', which has no cute class yet.")
+
+  @staticmethod
+  def glDeleteFramebuffers(*__, **_) -> Never:
+    """
+    Qt's 'void QOpenGLFunctions::glDeleteFramebuffers(GLsizei n, const GLuint
+    *framebuffers)': names 'GLuint', which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QOpenGLFunctions.glDeleteFramebuffers' has no cute function yet. "
+        "Qt's 'void QOpenGLFunctions::glDeleteFramebuffers(GLsizei n, const "
+        "GLuint *framebuffers)': names 'GLuint', which has no cute class "
+        "yet.")
+
+  @staticmethod
+  def glDeleteRenderbuffers(*__, **_) -> Never:
+    """
+    Qt's 'void QOpenGLFunctions::glDeleteRenderbuffers(GLsizei n, const
+    GLuint *renderbuffers)': names 'GLuint', which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QOpenGLFunctions.glDeleteRenderbuffers' has no cute function yet. "
+        "Qt's 'void QOpenGLFunctions::glDeleteRenderbuffers(GLsizei n, "
+        "const GLuint *renderbuffers)': names 'GLuint', which has no cute "
+        "class yet.")
+
+  @staticmethod
+  def glDeleteTextures(*__, **_) -> Never:
+    """
+    Qt's 'void QOpenGLFunctions::glDeleteTextures(GLsizei n, const GLuint
+    *textures)': names 'GLuint', which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QOpenGLFunctions.glDeleteTextures' has no cute function yet. Qt's "
+        "'void QOpenGLFunctions::glDeleteTextures(GLsizei n, const GLuint "
+        "*textures)': names 'GLuint', which has no cute class yet.")
+
+  @staticmethod
+  def glDrawElements(*__, **_) -> Never:
+    """
+    Qt's 'void QOpenGLFunctions::glDrawElements(GLenum mode, GLsizei count,
+    GLenum type, const GLvoid *indices)': names 'GLvoid', which has no cute
+    class yet.
+    """
+    raise NotImplementedError(
+        "'QOpenGLFunctions.glDrawElements' has no cute function yet. Qt's "
+        "'void QOpenGLFunctions::glDrawElements(GLenum mode, GLsizei count, "
+        "GLenum type, const GLvoid *indices)': names 'GLvoid', which has no "
+        "cute class yet.")
+
+  @staticmethod
+  def glGenBuffers(*__, **_) -> Never:
+    """
+    Qt's 'void QOpenGLFunctions::glGenBuffers(GLsizei n, GLuint *buffers)':
+    takes a number to change where it is.
+    """
+    raise NotImplementedError(
+        "'QOpenGLFunctions.glGenBuffers' has no cute function yet. Qt's "
+        "'void QOpenGLFunctions::glGenBuffers(GLsizei n, GLuint *buffers)': "
+        "takes a number to change where it is.")
+
+  @staticmethod
+  def glGenFramebuffers(*__, **_) -> Never:
+    """
+    Qt's 'void QOpenGLFunctions::glGenFramebuffers(GLsizei n, GLuint
+    *framebuffers)': takes a number to change where it is.
+    """
+    raise NotImplementedError(
+        "'QOpenGLFunctions.glGenFramebuffers' has no cute function yet. "
+        "Qt's 'void QOpenGLFunctions::glGenFramebuffers(GLsizei n, GLuint "
+        "*framebuffers)': takes a number to change where it is.")
+
+  @staticmethod
+  def glGenRenderbuffers(*__, **_) -> Never:
+    """
+    Qt's 'void QOpenGLFunctions::glGenRenderbuffers(GLsizei n, GLuint
+    *renderbuffers)': takes a number to change where it is.
+    """
+    raise NotImplementedError(
+        "'QOpenGLFunctions.glGenRenderbuffers' has no cute function yet. "
+        "Qt's 'void QOpenGLFunctions::glGenRenderbuffers(GLsizei n, GLuint "
+        "*renderbuffers)': takes a number to change where it is.")
+
+  @staticmethod
+  def glGenTextures(*__, **_) -> Never:
+    """
+    Qt's 'void QOpenGLFunctions::glGenTextures(GLsizei n, GLuint *textures)':
+    takes a number to change where it is.
+    """
+    raise NotImplementedError(
+        "'QOpenGLFunctions.glGenTextures' has no cute function yet. Qt's "
+        "'void QOpenGLFunctions::glGenTextures(GLsizei n, GLuint "
+        "*textures)': takes a number to change where it is.")
+
+  @staticmethod
+  def glGetActiveAttrib(*__, **_) -> Never:
+    """
+    Qt's 'void QOpenGLFunctions::glGetActiveAttrib(GLuint program, GLuint
+    index, GLsizei bufsize, GLsizei *length, GLint *size, GLenum *type, char
+    *name)': takes a number to change where it is.
+    """
+    raise NotImplementedError(
+        "'QOpenGLFunctions.glGetActiveAttrib' has no cute function yet. "
+        "Qt's 'void QOpenGLFunctions::glGetActiveAttrib(GLuint program, "
+        "GLuint index, GLsizei bufsize, GLsizei *length, GLint *size, "
+        "GLenum *type, char *name)': takes a number to change where it is.")
+
+  @staticmethod
+  def glGetActiveUniform(*__, **_) -> Never:
+    """
+    Qt's 'void QOpenGLFunctions::glGetActiveUniform(GLuint program, GLuint
+    index, GLsizei bufsize, GLsizei *length, GLint *size, GLenum *type, char
+    *name)': takes a number to change where it is.
+    """
+    raise NotImplementedError(
+        "'QOpenGLFunctions.glGetActiveUniform' has no cute function yet. "
+        "Qt's 'void QOpenGLFunctions::glGetActiveUniform(GLuint program, "
+        "GLuint index, GLsizei bufsize, GLsizei *length, GLint *size, "
+        "GLenum *type, char *name)': takes a number to change where it is.")
+
+  @staticmethod
+  def glGetAttachedShaders(*__, **_) -> Never:
+    """
+    Qt's 'void QOpenGLFunctions::glGetAttachedShaders(GLuint program, GLsizei
+    maxcount, GLsizei *count, GLuint *shaders)': takes a number to change
+    where it is.
+    """
+    raise NotImplementedError(
+        "'QOpenGLFunctions.glGetAttachedShaders' has no cute function yet. "
+        "Qt's 'void QOpenGLFunctions::glGetAttachedShaders(GLuint program, "
+        "GLsizei maxcount, GLsizei *count, GLuint *shaders)': takes a "
+        "number to change where it is.")
+
+  @staticmethod
+  def glGetBooleanv(*__, **_) -> Never:
+    """
+    Qt's 'void QOpenGLFunctions::glGetBooleanv(GLenum pname, GLboolean
+    *params)': takes a number to change where it is.
+    """
+    raise NotImplementedError(
+        "'QOpenGLFunctions.glGetBooleanv' has no cute function yet. Qt's "
+        "'void QOpenGLFunctions::glGetBooleanv(GLenum pname, GLboolean "
+        "*params)': takes a number to change where it is.")
+
+  @staticmethod
+  def glGetBufferParameteriv(*__, **_) -> Never:
+    """
+    Qt's 'void QOpenGLFunctions::glGetBufferParameteriv(GLenum target, GLenum
+    pname, GLint *params)': takes a number to change where it is.
+    """
+    raise NotImplementedError(
+        "'QOpenGLFunctions.glGetBufferParameteriv' has no cute function "
+        "yet. Qt's 'void QOpenGLFunctions::glGetBufferParameteriv(GLenum "
+        "target, GLenum pname, GLint *params)': takes a number to change "
+        "where it is.")
+
+  @staticmethod
+  def glGetFloatv(*__, **_) -> Never:
+    """
+    Qt's 'void QOpenGLFunctions::glGetFloatv(GLenum pname, GLfloat *params)':
+    takes a number to change where it is.
+    """
+    raise NotImplementedError(
+        "'QOpenGLFunctions.glGetFloatv' has no cute function yet. Qt's "
+        "'void QOpenGLFunctions::glGetFloatv(GLenum pname, GLfloat "
+        "*params)': takes a number to change where it is.")
+
+  @staticmethod
+  def glGetFramebufferAttachmentParameteriv(*__, **_) -> Never:
+    """
+    Qt's 'void QOpenGLFunctions::glGetFramebufferAttachmentParameteriv(GLenum
+    target, GLenum attachment, GLenum pname, GLint *params)': takes a number
+    to change where it is.
+    """
+    raise NotImplementedError(
+        "'QOpenGLFunctions.glGetFramebufferAttachmentParameteriv' has no "
+        "cute function yet. Qt's 'void "
+        "QOpenGLFunctions::glGetFramebufferAttachmentParameteriv(GLenum "
+        "target, GLenum attachment, GLenum pname, GLint *params)': takes a "
+        "number to change where it is.")
+
+  @staticmethod
+  def glGetIntegerv(*__, **_) -> Never:
+    """
+    Qt's 'void QOpenGLFunctions::glGetIntegerv(GLenum pname, GLint *params)':
+    takes a number to change where it is.
+    """
+    raise NotImplementedError(
+        "'QOpenGLFunctions.glGetIntegerv' has no cute function yet. Qt's "
+        "'void QOpenGLFunctions::glGetIntegerv(GLenum pname, GLint "
+        "*params)': takes a number to change where it is.")
+
+  @staticmethod
+  def glGetProgramInfoLog(*__, **_) -> Never:
+    """
+    Qt's 'void QOpenGLFunctions::glGetProgramInfoLog(GLuint program, GLsizei
+    bufsize, GLsizei *length, char *infolog)': takes a number to change where
+    it is.
+    """
+    raise NotImplementedError(
+        "'QOpenGLFunctions.glGetProgramInfoLog' has no cute function yet. "
+        "Qt's 'void QOpenGLFunctions::glGetProgramInfoLog(GLuint program, "
+        "GLsizei bufsize, GLsizei *length, char *infolog)': takes a number "
+        "to change where it is.")
+
+  @staticmethod
+  def glGetProgramiv(*__, **_) -> Never:
+    """
+    Qt's 'void QOpenGLFunctions::glGetProgramiv(GLuint program, GLenum pname,
+    GLint *params)': takes a number to change where it is.
+    """
+    raise NotImplementedError(
+        "'QOpenGLFunctions.glGetProgramiv' has no cute function yet. Qt's "
+        "'void QOpenGLFunctions::glGetProgramiv(GLuint program, GLenum "
+        "pname, GLint *params)': takes a number to change where it is.")
+
+  @staticmethod
+  def glGetRenderbufferParameteriv(*__, **_) -> Never:
+    """
+    Qt's 'void QOpenGLFunctions::glGetRenderbufferParameteriv(GLenum target,
+    GLenum pname, GLint *params)': takes a number to change where it is.
+    """
+    raise NotImplementedError(
+        "'QOpenGLFunctions.glGetRenderbufferParameteriv' has no cute "
+        "function yet. Qt's 'void "
+        "QOpenGLFunctions::glGetRenderbufferParameteriv(GLenum target, "
+        "GLenum pname, GLint *params)': takes a number to change where it "
+        "is.")
+
+  @staticmethod
+  def glGetShaderInfoLog(*__, **_) -> Never:
+    """
+    Qt's 'void QOpenGLFunctions::glGetShaderInfoLog(GLuint shader, GLsizei
+    bufsize, GLsizei *length, char *infolog)': takes a number to change where
+    it is.
+    """
+    raise NotImplementedError(
+        "'QOpenGLFunctions.glGetShaderInfoLog' has no cute function yet. "
+        "Qt's 'void QOpenGLFunctions::glGetShaderInfoLog(GLuint shader, "
+        "GLsizei bufsize, GLsizei *length, char *infolog)': takes a number "
+        "to change where it is.")
+
+  @staticmethod
+  def glGetShaderPrecisionFormat(*__, **_) -> Never:
+    """
+    Qt's 'void QOpenGLFunctions::glGetShaderPrecisionFormat(GLenum
+    shadertype, GLenum precisiontype, GLint *range, GLint *precision)': takes
+    a number to change where it is.
+    """
+    raise NotImplementedError(
+        "'QOpenGLFunctions.glGetShaderPrecisionFormat' has no cute function "
+        "yet. Qt's 'void "
+        "QOpenGLFunctions::glGetShaderPrecisionFormat(GLenum shadertype, "
+        "GLenum precisiontype, GLint *range, GLint *precision)': takes a "
+        "number to change where it is.")
+
+  @staticmethod
+  def glGetShaderSource(*__, **_) -> Never:
+    """
+    Qt's 'void QOpenGLFunctions::glGetShaderSource(GLuint shader, GLsizei
+    bufsize, GLsizei *length, char *source)': takes a number to change where
+    it is.
+    """
+    raise NotImplementedError(
+        "'QOpenGLFunctions.glGetShaderSource' has no cute function yet. "
+        "Qt's 'void QOpenGLFunctions::glGetShaderSource(GLuint shader, "
+        "GLsizei bufsize, GLsizei *length, char *source)': takes a number "
+        "to change where it is.")
+
+  @staticmethod
+  def glGetShaderiv(*__, **_) -> Never:
+    """
+    Qt's 'void QOpenGLFunctions::glGetShaderiv(GLuint shader, GLenum pname,
+    GLint *params)': takes a number to change where it is.
+    """
+    raise NotImplementedError(
+        "'QOpenGLFunctions.glGetShaderiv' has no cute function yet. Qt's "
+        "'void QOpenGLFunctions::glGetShaderiv(GLuint shader, GLenum pname, "
+        "GLint *params)': takes a number to change where it is.")
+
+  @staticmethod
+  def glGetString(*__, **_) -> Never:
+    """
+    Qt's 'const GLubyte *QOpenGLFunctions::glGetString(GLenum name)': gives
+    'unsigned char', which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QOpenGLFunctions.glGetString' has no cute function yet. Qt's "
+        "'const GLubyte *QOpenGLFunctions::glGetString(GLenum name)': gives "
+        "'unsigned char', which has no cute class yet.")
+
+  @staticmethod
+  def glGetTexParameterfv(*__, **_) -> Never:
+    """
+    Qt's 'void QOpenGLFunctions::glGetTexParameterfv(GLenum target, GLenum
+    pname, GLfloat *params)': takes a number to change where it is.
+    """
+    raise NotImplementedError(
+        "'QOpenGLFunctions.glGetTexParameterfv' has no cute function yet. "
+        "Qt's 'void QOpenGLFunctions::glGetTexParameterfv(GLenum target, "
+        "GLenum pname, GLfloat *params)': takes a number to change where it "
+        "is.")
+
+  @staticmethod
+  def glGetTexParameteriv(*__, **_) -> Never:
+    """
+    Qt's 'void QOpenGLFunctions::glGetTexParameteriv(GLenum target, GLenum
+    pname, GLint *params)': takes a number to change where it is.
+    """
+    raise NotImplementedError(
+        "'QOpenGLFunctions.glGetTexParameteriv' has no cute function yet. "
+        "Qt's 'void QOpenGLFunctions::glGetTexParameteriv(GLenum target, "
+        "GLenum pname, GLint *params)': takes a number to change where it "
+        "is.")
+
+  @staticmethod
+  def glGetUniformfv(*__, **_) -> Never:
+    """
+    Qt's 'void QOpenGLFunctions::glGetUniformfv(GLuint program, GLint
+    location, GLfloat *params)': takes a number to change where it is.
+    """
+    raise NotImplementedError(
+        "'QOpenGLFunctions.glGetUniformfv' has no cute function yet. Qt's "
+        "'void QOpenGLFunctions::glGetUniformfv(GLuint program, GLint "
+        "location, GLfloat *params)': takes a number to change where it is.")
+
+  @staticmethod
+  def glGetUniformiv(*__, **_) -> Never:
+    """
+    Qt's 'void QOpenGLFunctions::glGetUniformiv(GLuint program, GLint
+    location, GLint *params)': takes a number to change where it is.
+    """
+    raise NotImplementedError(
+        "'QOpenGLFunctions.glGetUniformiv' has no cute function yet. Qt's "
+        "'void QOpenGLFunctions::glGetUniformiv(GLuint program, GLint "
+        "location, GLint *params)': takes a number to change where it is.")
+
+  @staticmethod
+  def glGetVertexAttribPointerv(*__, **_) -> Never:
+    """
+    Qt's 'void QOpenGLFunctions::glGetVertexAttribPointerv(GLuint index,
+    GLenum pname, void **pointer)': takes a type Python has no way to hand
+    over yet.
+    """
+    raise NotImplementedError(
+        "'QOpenGLFunctions.glGetVertexAttribPointerv' has no cute function "
+        "yet. Qt's 'void QOpenGLFunctions::glGetVertexAttribPointerv(GLuint "
+        "index, GLenum pname, void **pointer)': takes a type Python has no "
+        "way to hand over yet.")
+
+  @staticmethod
+  def glGetVertexAttribfv(*__, **_) -> Never:
+    """
+    Qt's 'void QOpenGLFunctions::glGetVertexAttribfv(GLuint index, GLenum
+    pname, GLfloat *params)': takes a number to change where it is.
+    """
+    raise NotImplementedError(
+        "'QOpenGLFunctions.glGetVertexAttribfv' has no cute function yet. "
+        "Qt's 'void QOpenGLFunctions::glGetVertexAttribfv(GLuint index, "
+        "GLenum pname, GLfloat *params)': takes a number to change where it "
+        "is.")
+
+  @staticmethod
+  def glGetVertexAttribiv(*__, **_) -> Never:
+    """
+    Qt's 'void QOpenGLFunctions::glGetVertexAttribiv(GLuint index, GLenum
+    pname, GLint *params)': takes a number to change where it is.
+    """
+    raise NotImplementedError(
+        "'QOpenGLFunctions.glGetVertexAttribiv' has no cute function yet. "
+        "Qt's 'void QOpenGLFunctions::glGetVertexAttribiv(GLuint index, "
+        "GLenum pname, GLint *params)': takes a number to change where it "
+        "is.")
+
+  @staticmethod
+  def glReadPixels(*__, **_) -> Never:
+    """
+    Qt's 'void QOpenGLFunctions::glReadPixels(GLint x, GLint y, GLsizei
+    width, GLsizei height, GLenum format, GLenum type, GLvoid *pixels)':
+    names 'GLvoid', which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QOpenGLFunctions.glReadPixels' has no cute function yet. Qt's "
+        "'void QOpenGLFunctions::glReadPixels(GLint x, GLint y, GLsizei "
+        "width, GLsizei height, GLenum format, GLenum type, GLvoid "
+        "*pixels)': names 'GLvoid', which has no cute class yet.")
+
+  @staticmethod
+  def glShaderBinary(*__, **_) -> Never:
+    """
+    Qt's 'void QOpenGLFunctions::glShaderBinary(GLint n, const GLuint
+    *shaders, GLenum binaryformat, const void *binary, GLint length)': names
+    'GLuint', which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QOpenGLFunctions.glShaderBinary' has no cute function yet. Qt's "
+        "'void QOpenGLFunctions::glShaderBinary(GLint n, const GLuint "
+        "*shaders, GLenum binaryformat, const void *binary, GLint length)': "
+        "names 'GLuint', which has no cute class yet.")
+
+  @staticmethod
+  def glShaderSource(*__, **_) -> Never:
+    """
+    Qt's 'void QOpenGLFunctions::glShaderSource(GLuint shader, GLsizei count,
+    const char **string, const GLint *length)': takes a type Python has no
+    way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QOpenGLFunctions.glShaderSource' has no cute function yet. Qt's "
+        "'void QOpenGLFunctions::glShaderSource(GLuint shader, GLsizei "
+        "count, const char **string, const GLint *length)': takes a type "
+        "Python has no way to hand over yet.")
+
+  @staticmethod
+  def glTexImage2D(*__, **_) -> Never:
+    """
+    Qt's 'void QOpenGLFunctions::glTexImage2D(GLenum target, GLint level,
+    GLint internalformat, GLsizei width, GLsizei height, GLint border, GLenum
+    format, GLenum type, const GLvoid *pixels)': names 'GLvoid', which has no
+    cute class yet.
+    """
+    raise NotImplementedError(
+        "'QOpenGLFunctions.glTexImage2D' has no cute function yet. Qt's "
+        "'void QOpenGLFunctions::glTexImage2D(GLenum target, GLint level, "
+        "GLint internalformat, GLsizei width, GLsizei height, GLint border, "
+        "GLenum format, GLenum type, const GLvoid *pixels)': names "
+        "'GLvoid', which has no cute class yet.")
+
+  @staticmethod
+  def glTexParameterfv(*__, **_) -> Never:
+    """
+    Qt's 'void QOpenGLFunctions::glTexParameterfv(GLenum target, GLenum
+    pname, const GLfloat *params)': names 'GLfloat', which has no cute class
+    yet.
+    """
+    raise NotImplementedError(
+        "'QOpenGLFunctions.glTexParameterfv' has no cute function yet. Qt's "
+        "'void QOpenGLFunctions::glTexParameterfv(GLenum target, GLenum "
+        "pname, const GLfloat *params)': names 'GLfloat', which has no cute "
+        "class yet.")
+
+  @staticmethod
+  def glTexParameteriv(*__, **_) -> Never:
+    """
+    Qt's 'void QOpenGLFunctions::glTexParameteriv(GLenum target, GLenum
+    pname, const GLint *params)': names 'GLint', which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QOpenGLFunctions.glTexParameteriv' has no cute function yet. Qt's "
+        "'void QOpenGLFunctions::glTexParameteriv(GLenum target, GLenum "
+        "pname, const GLint *params)': names 'GLint', which has no cute "
+        "class yet.")
+
+  @staticmethod
+  def glTexSubImage2D(*__, **_) -> Never:
+    """
+    Qt's 'void QOpenGLFunctions::glTexSubImage2D(GLenum target, GLint level,
+    GLint xoffset, GLint yoffset, GLsizei width, GLsizei height, GLenum
+    format, GLenum type, const GLvoid *pixels)': names 'GLvoid', which has no
+    cute class yet.
+    """
+    raise NotImplementedError(
+        "'QOpenGLFunctions.glTexSubImage2D' has no cute function yet. Qt's "
+        "'void QOpenGLFunctions::glTexSubImage2D(GLenum target, GLint "
+        "level, GLint xoffset, GLint yoffset, GLsizei width, GLsizei "
+        "height, GLenum format, GLenum type, const GLvoid *pixels)': names "
+        "'GLvoid', which has no cute class yet.")
+
+  @staticmethod
+  def glUniform1fv(*__, **_) -> Never:
+    """
+    Qt's 'void QOpenGLFunctions::glUniform1fv(GLint location, GLsizei count,
+    const GLfloat *v)': names 'GLfloat', which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QOpenGLFunctions.glUniform1fv' has no cute function yet. Qt's "
+        "'void QOpenGLFunctions::glUniform1fv(GLint location, GLsizei "
+        "count, const GLfloat *v)': names 'GLfloat', which has no cute "
+        "class yet.")
+
+  @staticmethod
+  def glUniform1iv(*__, **_) -> Never:
+    """
+    Qt's 'void QOpenGLFunctions::glUniform1iv(GLint location, GLsizei count,
+    const GLint *v)': names 'GLint', which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QOpenGLFunctions.glUniform1iv' has no cute function yet. Qt's "
+        "'void QOpenGLFunctions::glUniform1iv(GLint location, GLsizei "
+        "count, const GLint *v)': names 'GLint', which has no cute class "
+        "yet.")
+
+  @staticmethod
+  def glUniform2fv(*__, **_) -> Never:
+    """
+    Qt's 'void QOpenGLFunctions::glUniform2fv(GLint location, GLsizei count,
+    const GLfloat *v)': names 'GLfloat', which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QOpenGLFunctions.glUniform2fv' has no cute function yet. Qt's "
+        "'void QOpenGLFunctions::glUniform2fv(GLint location, GLsizei "
+        "count, const GLfloat *v)': names 'GLfloat', which has no cute "
+        "class yet.")
+
+  @staticmethod
+  def glUniform2iv(*__, **_) -> Never:
+    """
+    Qt's 'void QOpenGLFunctions::glUniform2iv(GLint location, GLsizei count,
+    const GLint *v)': names 'GLint', which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QOpenGLFunctions.glUniform2iv' has no cute function yet. Qt's "
+        "'void QOpenGLFunctions::glUniform2iv(GLint location, GLsizei "
+        "count, const GLint *v)': names 'GLint', which has no cute class "
+        "yet.")
+
+  @staticmethod
+  def glUniform3fv(*__, **_) -> Never:
+    """
+    Qt's 'void QOpenGLFunctions::glUniform3fv(GLint location, GLsizei count,
+    const GLfloat *v)': names 'GLfloat', which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QOpenGLFunctions.glUniform3fv' has no cute function yet. Qt's "
+        "'void QOpenGLFunctions::glUniform3fv(GLint location, GLsizei "
+        "count, const GLfloat *v)': names 'GLfloat', which has no cute "
+        "class yet.")
+
+  @staticmethod
+  def glUniform3iv(*__, **_) -> Never:
+    """
+    Qt's 'void QOpenGLFunctions::glUniform3iv(GLint location, GLsizei count,
+    const GLint *v)': names 'GLint', which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QOpenGLFunctions.glUniform3iv' has no cute function yet. Qt's "
+        "'void QOpenGLFunctions::glUniform3iv(GLint location, GLsizei "
+        "count, const GLint *v)': names 'GLint', which has no cute class "
+        "yet.")
+
+  @staticmethod
+  def glUniform4fv(*__, **_) -> Never:
+    """
+    Qt's 'void QOpenGLFunctions::glUniform4fv(GLint location, GLsizei count,
+    const GLfloat *v)': names 'GLfloat', which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QOpenGLFunctions.glUniform4fv' has no cute function yet. Qt's "
+        "'void QOpenGLFunctions::glUniform4fv(GLint location, GLsizei "
+        "count, const GLfloat *v)': names 'GLfloat', which has no cute "
+        "class yet.")
+
+  @staticmethod
+  def glUniform4iv(*__, **_) -> Never:
+    """
+    Qt's 'void QOpenGLFunctions::glUniform4iv(GLint location, GLsizei count,
+    const GLint *v)': names 'GLint', which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QOpenGLFunctions.glUniform4iv' has no cute function yet. Qt's "
+        "'void QOpenGLFunctions::glUniform4iv(GLint location, GLsizei "
+        "count, const GLint *v)': names 'GLint', which has no cute class "
+        "yet.")
+
+  @staticmethod
+  def glUniformMatrix2fv(*__, **_) -> Never:
+    """
+    Qt's 'void QOpenGLFunctions::glUniformMatrix2fv(GLint location, GLsizei
+    count, GLboolean transpose, const GLfloat *value)': names 'GLfloat',
+    which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QOpenGLFunctions.glUniformMatrix2fv' has no cute function yet. "
+        "Qt's 'void QOpenGLFunctions::glUniformMatrix2fv(GLint location, "
+        "GLsizei count, GLboolean transpose, const GLfloat *value)': names "
+        "'GLfloat', which has no cute class yet.")
+
+  @staticmethod
+  def glUniformMatrix3fv(*__, **_) -> Never:
+    """
+    Qt's 'void QOpenGLFunctions::glUniformMatrix3fv(GLint location, GLsizei
+    count, GLboolean transpose, const GLfloat *value)': names 'GLfloat',
+    which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QOpenGLFunctions.glUniformMatrix3fv' has no cute function yet. "
+        "Qt's 'void QOpenGLFunctions::glUniformMatrix3fv(GLint location, "
+        "GLsizei count, GLboolean transpose, const GLfloat *value)': names "
+        "'GLfloat', which has no cute class yet.")
+
+  @staticmethod
+  def glUniformMatrix4fv(*__, **_) -> Never:
+    """
+    Qt's 'void QOpenGLFunctions::glUniformMatrix4fv(GLint location, GLsizei
+    count, GLboolean transpose, const GLfloat *value)': names 'GLfloat',
+    which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QOpenGLFunctions.glUniformMatrix4fv' has no cute function yet. "
+        "Qt's 'void QOpenGLFunctions::glUniformMatrix4fv(GLint location, "
+        "GLsizei count, GLboolean transpose, const GLfloat *value)': names "
+        "'GLfloat', which has no cute class yet.")
+
+  @staticmethod
+  def glVertexAttrib1fv(*__, **_) -> Never:
+    """
+    Qt's 'void QOpenGLFunctions::glVertexAttrib1fv(GLuint indx, const GLfloat
+    *values)': names 'GLfloat', which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QOpenGLFunctions.glVertexAttrib1fv' has no cute function yet. "
+        "Qt's 'void QOpenGLFunctions::glVertexAttrib1fv(GLuint indx, const "
+        "GLfloat *values)': names 'GLfloat', which has no cute class yet.")
+
+  @staticmethod
+  def glVertexAttrib2fv(*__, **_) -> Never:
+    """
+    Qt's 'void QOpenGLFunctions::glVertexAttrib2fv(GLuint indx, const GLfloat
+    *values)': names 'GLfloat', which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QOpenGLFunctions.glVertexAttrib2fv' has no cute function yet. "
+        "Qt's 'void QOpenGLFunctions::glVertexAttrib2fv(GLuint indx, const "
+        "GLfloat *values)': names 'GLfloat', which has no cute class yet.")
+
+  @staticmethod
+  def glVertexAttrib3fv(*__, **_) -> Never:
+    """
+    Qt's 'void QOpenGLFunctions::glVertexAttrib3fv(GLuint indx, const GLfloat
+    *values)': names 'GLfloat', which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QOpenGLFunctions.glVertexAttrib3fv' has no cute function yet. "
+        "Qt's 'void QOpenGLFunctions::glVertexAttrib3fv(GLuint indx, const "
+        "GLfloat *values)': names 'GLfloat', which has no cute class yet.")
+
+  @staticmethod
+  def glVertexAttrib4fv(*__, **_) -> Never:
+    """
+    Qt's 'void QOpenGLFunctions::glVertexAttrib4fv(GLuint indx, const GLfloat
+    *values)': names 'GLfloat', which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QOpenGLFunctions.glVertexAttrib4fv' has no cute function yet. "
+        "Qt's 'void QOpenGLFunctions::glVertexAttrib4fv(GLuint indx, const "
+        "GLfloat *values)': names 'GLfloat', which has no cute class yet.")
+
+  @staticmethod
+  def glVertexAttribPointer(*__, **_) -> Never:
+    """
+    Qt's 'void QOpenGLFunctions::glVertexAttribPointer(GLuint indx, GLint
+    size, GLenum type, GLboolean normalized, GLsizei stride, const void
+    *ptr)': names 'void', which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QOpenGLFunctions.glVertexAttribPointer' has no cute function yet. "
+        "Qt's 'void QOpenGLFunctions::glVertexAttribPointer(GLuint indx, "
+        "GLint size, GLenum type, GLboolean normalized, GLsizei stride, "
+        "const void *ptr)': names 'void', which has no cute class yet.")

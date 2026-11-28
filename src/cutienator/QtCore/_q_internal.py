@@ -13,6 +13,9 @@ from worktoy.keenum import Kee
 
 from ..cute import CuteMixin, CuteNum, MetaCute
 
+if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Never
+
 
 class QInternal(CuteMixin, metaclass=MetaCute):
   """
@@ -32,14 +35,14 @@ class QInternal(CuteMixin, metaclass=MetaCute):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'bool QInternal::registerCallback(Callback a0, qInternalCallback
+    a1)': takes a type Python has no way to hand over yet.
+  - Qt's 'bool QInternal::unregisterCallback(Callback a0, qInternalCallback
+    a1)': takes a type Python has no way to hand over yet.
+  - Qt's 'bool QInternal::activateCallbacks(Callback a0, void **a1)': takes a
+    type Python has no way to hand over yet.
   - Qt's 'QInternal::~QInternal()': the destructor: Python removes its C++
     QInternal by it, and has no other use for it.
-
-  What has no ritual
-  ------------------
-
-  3 of the 4 functions Qt declares: 3 takes or gives a type that cannot be
-  passed yet.
 
   What to expect
   --------------
@@ -52,6 +55,9 @@ class QInternal(CuteMixin, metaclass=MetaCute):
     is as in C++.
   - A function giving a QInternal back gives a copy the ritual made for
     Python, in a new cute QInternal.
+  - Each name of Qt's QInternal that has no cute function yet,
+    'activateCallbacks', 'registerCallback', 'unregisterCallback', holds a
+    function that raises 'NotImplementedError', and its docstring says why.
   """
 
   #  The enums Qt writes inside QInternal, each a class in here as in C++,
@@ -185,3 +191,36 @@ class QInternal(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def activateCallbacks(*__, **_) -> Never:
+    """
+    Qt's 'bool QInternal::activateCallbacks(Callback a0, void **a1)': takes a
+    type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QInternal.activateCallbacks' has no cute function yet. Qt's 'bool "
+        "QInternal::activateCallbacks(Callback a0, void **a1)': takes a "
+        "type Python has no way to hand over yet.")
+
+  @staticmethod
+  def registerCallback(*__, **_) -> Never:
+    """
+    Qt's 'bool QInternal::registerCallback(Callback a0, qInternalCallback
+    a1)': takes a type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QInternal.registerCallback' has no cute function yet. Qt's 'bool "
+        "QInternal::registerCallback(Callback a0, qInternalCallback a1)': "
+        "takes a type Python has no way to hand over yet.")
+
+  @staticmethod
+  def unregisterCallback(*__, **_) -> Never:
+    """
+    Qt's 'bool QInternal::unregisterCallback(Callback a0, qInternalCallback
+    a1)': takes a type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QInternal.unregisterCallback' has no cute function yet. Qt's "
+        "'bool QInternal::unregisterCallback(Callback a0, qInternalCallback "
+        "a1)': takes a type Python has no way to hand over yet.")

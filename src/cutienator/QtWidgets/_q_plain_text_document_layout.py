@@ -17,7 +17,7 @@ from ..QtCore import Qt
 from ..QtGui import QAbstractTextDocumentLayout
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from ..QtCore import QMetaObject, QPointF, QRectF, QSizeF
   from ..QtGui import QPainter, QTextBlock, QTextDocument, QTextFrame
@@ -59,14 +59,26 @@ class QPlainTextDocumentLayout(QAbstractTextDocumentLayout):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QPlainTextDocumentLayout::qt_metacast(const char *a0)': one
+    of Qt's own inner workings.
+  - Qt's 'int QPlainTextDocumentLayout::qt_metacall(QMetaObject::Call a0, int
+    a1, void **a2)': one of Qt's own inner workings.
+  - Qt's 'QPlainTextDocumentLayoutPrivate
+    *QPlainTextDocumentLayout::d_func()': gives
+    'QPlainTextDocumentLayoutPrivate', which has no cute class yet.
+  - Qt's 'const QPlainTextDocumentLayoutPrivate
+    *QPlainTextDocumentLayout::d_func() const': gives
+    'QPlainTextDocumentLayoutPrivate', which has no cute class yet.
   - Qt's 'QPlainTextDocumentLayout::~QPlainTextDocumentLayout()': the
     destructor: Python never removes a C++ QPlainTextDocumentLayout.
+  - Qt's 'QPlainTextDocumentLayoutPrivate *QPlainTextDocumentLayout::priv()
+    const': gives 'QPlainTextDocumentLayoutPrivate', which has no cute class
+    yet.
 
   What has no ritual
   ------------------
 
-  7 of the 26 functions Qt declares: 5 takes or gives a type that cannot be
-  passed yet; 1 a template; 1 declared and nowhere to be found.
+  2 of the 26 functions Qt declares: 2 not a gap.
 
   What to expect
   --------------
@@ -82,6 +94,9 @@ class QPlainTextDocumentLayout(QAbstractTextDocumentLayout):
   - Qt tells when it has removed the C++ QPlainTextDocumentLayout. Every call
     on the cute object, and every use of it as an argument, then raises
     'RuntimeError', and nothing reaches C++.
+  - Each name of Qt's QPlainTextDocumentLayout that has no cute function yet,
+    'priv', holds a function that raises 'NotImplementedError', and its
+    docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -207,7 +222,7 @@ class QPlainTextDocumentLayout(QAbstractTextDocumentLayout):
       ritual = (
           'ritual_own_ZNK24QPlainTextDocumentLayout7hitTestERK7QPointFN2Qt1'
           '5HitTestAccuracyE')
-    return self.uglySide.call(ritual, self._valueOf(a0), a1.value)
+    return self.uglySide.call(ritual, self._valueOf(a0, 'QPointF'), a1.value)
 
   def pageCount(self) -> int:
     """
@@ -579,3 +594,16 @@ class QPlainTextDocumentLayout(QAbstractTextDocumentLayout):
         'ritual_ZN24QPlainTextDocumentLayout10blockWidthERK10QTextBlock',
         self._valueOf(block),
     )
+
+  @staticmethod
+  def priv(*__, **_) -> Never:
+    """
+    Qt's 'QPlainTextDocumentLayoutPrivate *QPlainTextDocumentLayout::priv()
+    const': gives 'QPlainTextDocumentLayoutPrivate', which has no cute class
+    yet.
+    """
+    raise NotImplementedError(
+        "'QPlainTextDocumentLayout.priv' has no cute function yet. Qt's "
+        "'QPlainTextDocumentLayoutPrivate *QPlainTextDocumentLayout::priv() "
+        "const': gives 'QPlainTextDocumentLayoutPrivate', which has no cute "
+        "class yet.")

@@ -20,6 +20,7 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
   from ..QtCore import QMetaObject, QPointF
+  from . import QGesturePrivate
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -43,22 +44,29 @@ class QGesture(QObject):
   -----------
 
   Every function of Qt's QGesture that has a ritual and that Python can call
-  so far, 10 names in all: 'metaObject', 'tr', 'gestureType', 'state',
-  'hotSpot', 'setHotSpot', 'hasHotSpot', 'unsetHotSpot',
+  so far, 11 names in all: 'metaObject', 'tr', 'd_func', 'gestureType',
+  'state', 'hotSpot', 'setHotSpot', 'hasHotSpot', 'unsetHotSpot',
   'setGestureCancelPolicy', 'gestureCancelPolicy'. It can be made from
   Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QGesture::qt_metacast(const char *a0)': one of Qt's own inner
+    workings.
+  - Qt's 'int QGesture::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
+  - Qt's 'const QGesturePrivate *QGesture::d_func() const': takes in Python
+    what 'QGesturePrivate *QGesture::d_func()' takes.
   - Qt's 'QGesture::~QGesture()': the destructor: Python never removes a C++
     QGesture.
+  - Qt's 'QGesture::QGesture(QGesturePrivate &dd, QObject *parent)': takes a
+    type Python has no way to hand over yet.
 
   What has no ritual
   ------------------
 
-  7 of the 19 functions Qt declares: 5 takes or gives a type that cannot be
-  passed yet; 1 a template; 1 declared and nowhere to be found.
+  2 of the 19 functions Qt declares: 2 not a gap.
 
   What to expect
   --------------
@@ -277,7 +285,8 @@ class QGesture(QObject):
     """
     #  void QGesture::setHotSpot(const QPointF &value)
     self.uglySide.call(
-        'ritual_ZN8QGesture10setHotSpotERK7QPointF', self._valueOf(value),
+        'ritual_ZN8QGesture10setHotSpotERK7QPointF',
+        self._valueOf(value, 'QPointF'),
     )
 
   @overload(GestureCancelPolicy)
@@ -355,6 +364,24 @@ class QGesture(QObject):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  def d_func(self) -> Optional[QGesturePrivate]:
+    """
+    Calls Qt's 'QGesturePrivate *QGesture::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgesture.html#d_func
+
+    Returns
+    -------
+
+    Optional[QGesturePrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QGesturePrivate *QGesture::d_func()
+    address = self.uglySide.call('ritual_ZN8QGesture6d_funcEv')
+    from . import QGesturePrivate
+    return QGesturePrivate._cuteAt(address)
 
   def unsetHotSpot(self) -> None:
     """

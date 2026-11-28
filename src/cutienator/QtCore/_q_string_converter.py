@@ -17,7 +17,7 @@ from ..occult import Rituals
 from . import QStringConverterBase, QStringList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
 
 class QStringConverter(QStringConverterBase):
@@ -39,14 +39,23 @@ class QStringConverter(QStringConverterBase):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'QStringConverter::QStringConverter(const Interface *i)': names
+    'QStringConverter::Interface', which has no cute class yet.
   - Qt's 'QStringConverter::~QStringConverter()': the destructor: Python
     never removes a C++ QStringConverter.
-
-  What has no ritual
-  ------------------
-
-  6 of the 16 functions Qt declares: 6 takes or gives a type that cannot be
-  passed yet.
+  - Qt's 'QStringConverter::QStringConverter(QStringConverter &&a0)': takes a
+    type Python has no way to hand over yet.
+  - Qt's 'QStringConverter &QStringConverter::operator=(QStringConverter
+    &&a0)': assignment: Python binds a name and has no operator for it.
+  - Qt's 'std::optional<Encoding>
+    QStringConverter::encodingForName(QAnyStringView name)': gives a type
+    Python has no way to take yet.
+  - Qt's 'std::optional<Encoding>
+    QStringConverter::encodingForData(QByteArrayView data, char16_t
+    expectedFirstCharacter)': gives a type Python has no way to take yet.
+  - Qt's 'std::optional<Encoding>
+    QStringConverter::encodingForHtml(QByteArrayView data)': gives a type
+    Python has no way to take yet.
 
   What to expect
   --------------
@@ -59,6 +68,9 @@ class QStringConverter(QStringConverterBase):
     has it, and is passed on as nothing. Whether Qt can do with nothing there
     is as in C++.
   - Python never removes the C++ QStringConverter.
+  - Each name of Qt's QStringConverter that has no cute function yet,
+    'encodingForData', 'encodingForHtml', 'encodingForName', holds a function
+    that raises 'NotImplementedError', and its docstring says why.
   """
 
   #  The enums Qt writes inside QStringConverter, each a class in here as in
@@ -310,3 +322,43 @@ class QStringConverter(QStringConverterBase):
     """
     #  void QStringConverter::resetState()
     self.uglySide.call('ritual_ZN16QStringConverter10resetStateEv')
+
+  @staticmethod
+  def encodingForData(*__, **_) -> Never:
+    """
+    Qt's 'std::optional<Encoding>
+    QStringConverter::encodingForData(QByteArrayView data, char16_t
+    expectedFirstCharacter)': gives a type Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QStringConverter.encodingForData' has no cute function yet. Qt's "
+        "'std::optional<Encoding> "
+        "QStringConverter::encodingForData(QByteArrayView data, char16_t "
+        "expectedFirstCharacter)': gives a type Python has no way to take "
+        "yet.")
+
+  @staticmethod
+  def encodingForHtml(*__, **_) -> Never:
+    """
+    Qt's 'std::optional<Encoding>
+    QStringConverter::encodingForHtml(QByteArrayView data)': gives a type
+    Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QStringConverter.encodingForHtml' has no cute function yet. Qt's "
+        "'std::optional<Encoding> "
+        "QStringConverter::encodingForHtml(QByteArrayView data)': gives a "
+        "type Python has no way to take yet.")
+
+  @staticmethod
+  def encodingForName(*__, **_) -> Never:
+    """
+    Qt's 'std::optional<Encoding>
+    QStringConverter::encodingForName(QAnyStringView name)': gives a type
+    Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QStringConverter.encodingForName' has no cute function yet. Qt's "
+        "'std::optional<Encoding> "
+        "QStringConverter::encodingForName(QAnyStringView name)': gives a "
+        "type Python has no way to take yet.")

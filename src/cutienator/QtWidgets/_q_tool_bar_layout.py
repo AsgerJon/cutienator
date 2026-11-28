@@ -21,7 +21,7 @@ from ..QtCore import Qt
 from . import QLayout, QLayoutItem
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from ..QtCore import QMetaObject, QRect, QSize
   from ..QtGui import QAction
@@ -50,27 +50,30 @@ class QToolBarLayout(QLayout):
   -----------
 
   Every function of Qt's QToolBarLayout that has a ritual and that Python can
-  call so far, 20 names in all: 'metaObject', 'addItem', 'itemAt', 'takeAt',
+  call so far, 22 names in all: 'metaObject', 'addItem', 'itemAt', 'takeAt',
   'count', 'isEmpty', 'invalidate', 'expandingDirections', 'setGeometry',
-  'minimumSize', 'sizeHint', 'indexOf', 'expandedSize', 'setUsePopupMenu',
-  'checkUsePopupMenu', 'movable', 'updateMarginAndSpacing', 'hasExpandFlag',
-  'updateMacBorderMetrics', 'updateGeomArray'. None can be made from Python:
-  one comes out of a function of another class that gives one back.
+  'minimumSize', 'sizeHint', 'indexOf', 'layoutActions', 'expandedSize',
+  'setUsePopupMenu', 'checkUsePopupMenu', 'movable',
+  'updateMarginAndSpacing', 'hasExpandFlag', 'updateMacBorderMetrics',
+  'setExpanded', 'updateGeomArray'. None can be made from Python: one comes
+  out of a function of another class that gives one back.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QToolBarLayout::qt_metacast(const char *a0)': one of Qt's own
+    inner workings.
+  - Qt's 'int QToolBarLayout::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
   - Qt's 'QToolBarLayout::~QToolBarLayout()': the destructor: Python never
     removes a C++ QToolBarLayout.
 
   What has no ritual
   ------------------
 
-  11 of the 32 functions Qt declares: 3 takes or gives a type that cannot be
-  passed yet; 3 leans on 'QToolBarLayout; 2 Qt's library has no name for it,
-  and its code in Qt's source does not compile apart from its file; 1 a
-  template; 1 declared and nowhere to be found; 1 leans on
-  'QToolBarSeparator.
+  6 of the 31 functions Qt declares: 2 not a gap; 2 leans on 'QToolBarLayout;
+  2 leans on 'vtable for QToolBarSeparator', which Qt's source does not mark
+  for use from outside Qt and has no code for that could be taken.
 
   What to expect
   --------------
@@ -86,6 +89,9 @@ class QToolBarLayout(QLayout):
   - Qt tells when it has removed the C++ QToolBarLayout. Every call on the
     cute object, and every use of it as an argument, then raises
     'RuntimeError', and nothing reaches C++.
+  - Each name of Qt's QToolBarLayout that has no cute function yet,
+    '__init__', 'createItem', 'insertAction', holds a function that raises
+    'NotImplementedError', and its docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -330,9 +336,10 @@ class QToolBarLayout(QLayout):
       Passed on as a value: Qt reads the C++ QRect, which stays Python's own.
     """
     #  void QToolBarLayout::setGeometry(const QRect &r)
-    self.uglySide.call(
-        'ritual_ZN14QToolBarLayout11setGeometryERK5QRect', self._valueOf(r),
-    )
+    ritual = 'ritual_ZN14QToolBarLayout11setGeometryERK5QRect'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN14QToolBarLayout11setGeometryERK5QRect'
+    self.uglySide.call(ritual, self._valueOf(r))
 
   @overload(bool)
   def setUsePopupMenu(self, set: bool) -> None:
@@ -351,6 +358,22 @@ class QToolBarLayout(QLayout):
     #  void QToolBarLayout::setUsePopupMenu(bool set)
     self.uglySide.call('ritual_ZN14QToolBarLayout15setUsePopupMenuEb', set)
 
+  @overload(bool)
+  def setExpanded(self, b: bool) -> None:
+    """
+    Calls Qt's 'void QToolBarLayout::setExpanded(bool b)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtoolbarlayout.html#setExpanded
+
+    Parameters
+    ----------
+
+    b : bool
+      Passed on as it is.
+    """
+    #  void QToolBarLayout::setExpanded(bool b)
+    self.uglySide.call('ritual_ZN14QToolBarLayout11setExpandedEb', b)
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NOTIFIERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -362,6 +385,21 @@ class QToolBarLayout(QLayout):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def __init__(*__, **_) -> Never:
+    """
+    Qt's 'QToolBarLayout::QToolBarLayout(QWidget *parent)': leans on
+    'QToolBarLayout::qt_metacall(QMetaObject::Call, int, void**)', which Qt's
+    source does not mark for use from outside Qt and has no code for that
+    could be taken.
+    """
+    raise NotImplementedError(
+        "'QToolBarLayout.__init__' has no cute function yet. Qt's "
+        "'QToolBarLayout::QToolBarLayout(QWidget *parent)': leans on "
+        "'QToolBarLayout::qt_metacall(QMetaObject::Call, int, void**)', "
+        "which Qt's source does not mark for use from outside Qt and has no "
+        "code for that could be taken.")
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -443,6 +481,25 @@ class QToolBarLayout(QLayout):
       ritual = 'ritual_own_ZN14QToolBarLayout10invalidateEv'
     self.uglySide.call(ritual)
 
+  @overload(QSize)
+  def layoutActions(self, size: QSize) -> bool:
+    """
+    Calls Qt's 'bool QToolBarLayout::layoutActions(const QSize &size)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtoolbarlayout.html#layoutActions
+
+    Parameters
+    ----------
+
+    size : QSize
+      Passed on as a value: Qt reads the C++ QSize, which stays Python's own.
+    """
+    #  bool QToolBarLayout::layoutActions(const QSize &size)
+    return self.uglySide.call(
+        'ritual_ZN14QToolBarLayout13layoutActionsERK5QSize',
+        self._valueOf(size),
+    )
+
   def checkUsePopupMenu(self) -> None:
     """
     Calls Qt's 'void QToolBarLayout::checkUsePopupMenu()'.
@@ -482,3 +539,29 @@ class QToolBarLayout(QLayout):
     """
     #  void QToolBarLayout::updateGeomArray() const
     self.uglySide.call('ritual_ZNK14QToolBarLayout15updateGeomArrayEv')
+
+  @staticmethod
+  def createItem(*__, **_) -> Never:
+    """
+    Qt's 'QToolBarItem *QToolBarLayout::createItem(QAction *action)': leans
+    on 'vtable for QToolBarSeparator', which Qt's source does not mark for
+    use from outside Qt and has no code for that could be taken.
+    """
+    raise NotImplementedError(
+        "'QToolBarLayout.createItem' has no cute function yet. Qt's "
+        "'QToolBarItem *QToolBarLayout::createItem(QAction *action)': leans "
+        "on 'vtable for QToolBarSeparator', which Qt's source does not mark "
+        "for use from outside Qt and has no code for that could be taken.")
+
+  @staticmethod
+  def insertAction(*__, **_) -> Never:
+    """
+    Qt's 'void QToolBarLayout::insertAction(int index, QAction *action)':
+    leans on 'vtable for QToolBarSeparator', which Qt's source does not mark
+    for use from outside Qt and has no code for that could be taken.
+    """
+    raise NotImplementedError(
+        "'QToolBarLayout.insertAction' has no cute function yet. Qt's 'void "
+        "QToolBarLayout::insertAction(int index, QAction *action)': leans "
+        "on 'vtable for QToolBarSeparator', which Qt's source does not mark "
+        "for use from outside Qt and has no code for that could be taken.")

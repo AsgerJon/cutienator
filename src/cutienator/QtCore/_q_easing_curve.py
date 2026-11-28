@@ -18,6 +18,8 @@ from ..occult import Rituals
 from . import QList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Never
+
   from . import QDebug, QPointF
 else:
   #  The cute classes this file names and is not built on. Each is brought in
@@ -51,12 +53,27 @@ class QEasingCurve(CuteMixin, metaclass=MetaCute):
 
   - Qt's 'QEasingCurve::~QEasingCurve()': the destructor: Python removes its
     C++ QEasingCurve by it, and has no other use for it.
+  - Qt's 'QEasingCurve &QEasingCurve::operator=(const QEasingCurve &other)':
+    assignment: Python binds a name and has no operator for it.
+  - Qt's 'QEasingCurve::QEasingCurve(QEasingCurve &&other)': takes a type
+    Python has no way to hand over yet.
+  - Qt's 'QEasingCurve &QEasingCurve::operator=(QEasingCurve &&other)':
+    assignment: Python binds a name and has no operator for it.
+  - Qt's 'void QEasingCurve::swap(QEasingCurve &other)': takes a type Python
+    has no way to hand over yet.
+  - Qt's 'void QEasingCurve::setCustomType(EasingFunction func)': takes a
+    type Python has no way to hand over yet.
+  - Qt's 'EasingFunction QEasingCurve::customType() const': gives a type
+    Python has no way to take yet.
+  - Qt's 'QDataStream &operator<<(QDataStream &a0, const QEasingCurve &a1)':
+    takes a type Python has no way to hand over yet.
+  - Qt's 'QDataStream &operator>>(QDataStream &a0, QEasingCurve &a1)': an
+    operator between other classes, written inside this one.
 
   What has no ritual
   ------------------
 
-  11 of the 30 functions Qt declares: 8 takes or gives a type that cannot be
-  passed yet; 2 declared and nowhere to be found; 1 a template.
+  3 of the 30 functions Qt declares: 3 not a gap.
 
   What to expect
   --------------
@@ -70,6 +87,9 @@ class QEasingCurve(CuteMixin, metaclass=MetaCute):
     is as in C++.
   - A function giving a QEasingCurve back gives a copy the ritual made for
     Python, in a new cute QEasingCurve.
+  - Each name of Qt's QEasingCurve that has no cute function yet,
+    'customType', 'setCustomType', 'swap', holds a function that raises
+    'NotImplementedError', and its docstring says why.
   """
 
   #  The enums Qt writes inside QEasingCurve, each a class in here as in C++,
@@ -163,7 +183,7 @@ class QEasingCurve(CuteMixin, metaclass=MetaCute):
     #  QEasingCurve QEasingCurve::fromCubicBezier(QPointF c1, QPointF c2)
     address = Rituals.call(
         'ritual_ZN12QEasingCurve15fromCubicBezierE7QPointFS0_',
-        CuteMixin._valueOf(c1), CuteMixin._valueOf(c2),
+        CuteMixin._valueOf(c1, 'QPointF'), CuteMixin._valueOf(c2, 'QPointF'),
     )
     return QEasingCurve._cuteOwning(address)
 
@@ -544,7 +564,8 @@ class QEasingCurve(CuteMixin, metaclass=MetaCute):
     #      QPointF &c2, const QPointF &endPoint)
     self.uglySide.call(
         'ritual_ZN12QEasingCurve21addCubicBezierSegmentERK7QPointFS2_S2_',
-        self._valueOf(c1), self._valueOf(c2), self._valueOf(endPoint),
+        self._valueOf(c1, 'QPointF'), self._valueOf(c2, 'QPointF'),
+        self._valueOf(endPoint, 'QPointF'),
     )
 
   @overload(QPointF, float, float, float)
@@ -581,5 +602,38 @@ class QEasingCurve(CuteMixin, metaclass=MetaCute):
     #      qreal c, qreal b)
     self.uglySide.call(
         'ritual_ZN12QEasingCurve13addTCBSegmentERK7QPointFddd',
-        self._valueOf(nextPoint), t, c, b,
+        self._valueOf(nextPoint, 'QPointF'), t, c, b,
     )
+
+  @staticmethod
+  def customType(*__, **_) -> Never:
+    """
+    Qt's 'EasingFunction QEasingCurve::customType() const': gives a type
+    Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QEasingCurve.customType' has no cute function yet. Qt's "
+        "'EasingFunction QEasingCurve::customType() const': gives a type "
+        "Python has no way to take yet.")
+
+  @staticmethod
+  def setCustomType(*__, **_) -> Never:
+    """
+    Qt's 'void QEasingCurve::setCustomType(EasingFunction func)': takes a
+    type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QEasingCurve.setCustomType' has no cute function yet. Qt's 'void "
+        "QEasingCurve::setCustomType(EasingFunction func)': takes a type "
+        "Python has no way to hand over yet.")
+
+  @staticmethod
+  def swap(*__, **_) -> Never:
+    """
+    Qt's 'void QEasingCurve::swap(QEasingCurve &other)': takes a type Python
+    has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QEasingCurve.swap' has no cute function yet. Qt's 'void "
+        "QEasingCurve::swap(QEasingCurve &other)': takes a type Python has "
+        "no way to hand over yet.")

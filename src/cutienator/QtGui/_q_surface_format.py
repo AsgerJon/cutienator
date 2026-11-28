@@ -17,6 +17,8 @@ from ..cute import CuteMixin, CuteFlags, CuteNum, MetaCute, WAIT
 from ..occult import Rituals
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Never
+
   from ..QtCore import QDebug
   from . import QColorSpace
 else:
@@ -56,14 +58,17 @@ class QSurfaceFormat(CuteMixin, metaclass=MetaCute):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'QSurfaceFormat &QSurfaceFormat::operator=(const QSurfaceFormat
+    &other)': assignment: Python binds a name and has no operator for it.
   - Qt's 'QSurfaceFormat::~QSurfaceFormat()': the destructor: Python removes
     its C++ QSurfaceFormat by it, and has no other use for it.
+  - Qt's 'std::pair<int, int> QSurfaceFormat::version() const': gives a type
+    Python has no way to take yet.
 
   What has no ritual
   ------------------
 
-  5 of the 53 functions Qt declares: 2 declared and nowhere to be found; 2
-  takes or gives a type that cannot be passed yet; 1 a template.
+  3 of the 53 functions Qt declares: 3 not a gap.
 
   What to expect
   --------------
@@ -77,6 +82,9 @@ class QSurfaceFormat(CuteMixin, metaclass=MetaCute):
     is as in C++.
   - A function giving a QSurfaceFormat back gives a copy the ritual made for
     Python, in a new cute QSurfaceFormat.
+  - Each name of Qt's QSurfaceFormat that has no cute function yet,
+    'version', holds a function that raises 'NotImplementedError', and its
+    docstring says why.
   """
 
   #  The enums Qt writes inside QSurfaceFormat, each a class in here as in
@@ -1019,3 +1027,14 @@ class QSurfaceFormat(CuteMixin, metaclass=MetaCute):
     """
     #  void QSurfaceFormat::detach()
     self.uglySide.call('ritual_ZN14QSurfaceFormat6detachEv')
+
+  @staticmethod
+  def version(*__, **_) -> Never:
+    """
+    Qt's 'std::pair<int, int> QSurfaceFormat::version() const': gives a type
+    Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QSurfaceFormat.version' has no cute function yet. Qt's "
+        "'std::pair<int, int> QSurfaceFormat::version() const': gives a "
+        "type Python has no way to take yet.")

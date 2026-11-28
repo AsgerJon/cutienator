@@ -12,6 +12,9 @@ from typing import TYPE_CHECKING
 from ..cute import CuteMixin, MetaCute
 from . import QOpenGLFunctionsPrivate
 
+if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Never
+
 
 class QOpenGLExtraFunctionsPrivate(QOpenGLFunctionsPrivate):
   """
@@ -43,8 +46,9 @@ class QOpenGLExtraFunctionsPrivate(QOpenGLFunctionsPrivate):
   What has no ritual
   ------------------
 
-  2 of the 3 functions Qt declares: 1 declared and nowhere to be found; 1
-  leans on 'QOpenGLExtraFunctionsPrivate.
+  2 of the 3 functions Qt declares: 1 Qt's library has no name for it, and
+  its code in Qt's source does not compile apart from its file; 1 leans on
+  'QOpenGLFunctionsPrivate.
 
   What to expect
   --------------
@@ -58,6 +62,9 @@ class QOpenGLExtraFunctionsPrivate(QOpenGLFunctionsPrivate):
     is as in C++.
   - A function giving a QOpenGLExtraFunctionsPrivate back gives a copy the
     ritual made for Python, in a new cute QOpenGLExtraFunctionsPrivate.
+  - Each name of Qt's QOpenGLExtraFunctionsPrivate that has no cute function
+    yet, '__init__', holds a function that raises 'NotImplementedError', and
+    its docstring says why.
   """
 
   #  The classes Qt writes inside QOpenGLExtraFunctionsPrivate, each a class
@@ -215,6 +222,24 @@ class QOpenGLExtraFunctionsPrivate(QOpenGLFunctionsPrivate):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def __init__(*__, **_) -> Never:
+    """
+    Qt's 'QOpenGLExtraFunctionsPrivate::QOpenGLExtraFunctionsPrivate(
+    QOpenGLContext *ctx)': leans on
+    'QOpenGLFunctionsPrivate::QOpenGLFunctionsPrivate(QOpenGLContext*)',
+    which Qt's source does not mark for use from outside Qt and has no code
+    for that could be taken.
+    """
+    raise NotImplementedError(
+        "'QOpenGLExtraFunctionsPrivate.__init__' has no cute function yet. "
+        "Qt's "
+        "'QOpenGLExtraFunctionsPrivate::QOpenGLExtraFunctionsPrivate(QOpenGL"
+        "Context *ctx)': leans on "
+        "'QOpenGLFunctionsPrivate::QOpenGLFunctionsPrivate(QOpenGLContext*)'"
+        ", which Qt's source does not mark for use from outside Qt and has "
+        "no code for that could be taken.")
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #

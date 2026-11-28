@@ -20,9 +20,9 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
   from ..QtCore import QMetaObject, QPointF, QRectF, QSizeF
-  from . import QPaintDevice, QPainter, QTextBlock, QTextCharFormat
-  from . import QTextDocument, QTextFormat, QTextFrame, QTextInlineObject
-  from . import QTextObjectInterface
+  from . import QAbstractTextDocumentLayoutPrivate, QPaintDevice, QPainter
+  from . import QTextBlock, QTextCharFormat, QTextDocument, QTextFormat
+  from . import QTextFrame, QTextInlineObject, QTextObjectInterface
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -31,7 +31,9 @@ else:
   QPainter = WAIT['QPainter']
   QPointF = WAIT['QPointF']
   QRectF = WAIT['QRectF']
+  QSizeF = WAIT['QSizeF']
   QTextBlock = WAIT['QTextBlock']
+  QTextDocument = WAIT['QTextDocument']
   QTextFormat = WAIT['QTextFormat']
   QTextFrame = WAIT['QTextFrame']
   QTextInlineObject = WAIT['QTextInlineObject']
@@ -53,27 +55,37 @@ class QAbstractTextDocumentLayout(QObject):
   -----------
 
   Every function of Qt's QAbstractTextDocumentLayout that has a ritual and
-  that Python can call so far, 24 names in all: 'metaObject', 'tr', 'draw',
-  'hitTest', 'anchorAt', 'imageAt', 'formatAt', 'blockWithMarkerAt',
+  that Python can call so far, 29 names in all: 'metaObject', 'tr', 'd_func',
+  'draw', 'hitTest', 'anchorAt', 'imageAt', 'formatAt', 'blockWithMarkerAt',
   'pageCount', 'documentSize', 'frameBoundingRect', 'blockBoundingRect',
   'setPaintDevice', 'paintDevice', 'document', 'registerHandler',
-  'unregisterHandler', 'handlerForObject', 'documentChanged',
+  'unregisterHandler', 'handlerForObject', 'update', 'updateBlock',
+  'documentSizeChanged', 'pageCountChanged', 'documentChanged',
   'resizeInlineObject', 'positionInlineObject', 'drawInlineObject',
-  'formatIndex', 'format'. None can be made from Python: one comes out of a
-  function of another class that gives one back.
+  'formatIndex', 'format'. It can be made from Python, in 1 way; see
+  '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QAbstractTextDocumentLayout::qt_metacast(const char *a0)':
+    one of Qt's own inner workings.
+  - Qt's 'int QAbstractTextDocumentLayout::qt_metacall(QMetaObject::Call a0,
+    int a1, void **a2)': one of Qt's own inner workings.
+  - Qt's 'const QAbstractTextDocumentLayoutPrivate
+    *QAbstractTextDocumentLayout::d_func() const': takes in Python what
+    'QAbstractTextDocumentLayoutPrivate
+    *QAbstractTextDocumentLayout::d_func()' takes.
   - Qt's 'QAbstractTextDocumentLayout::~QAbstractTextDocumentLayout()': the
     destructor: Python never removes a C++ QAbstractTextDocumentLayout.
+  - Qt's 'QAbstractTextDocumentLayout::QAbstractTextDocumentLayout(
+    QAbstractTextDocumentLayoutPrivate &a0, QTextDocument *a1)': takes a type
+    Python has no way to hand over yet.
 
   What has no ritual
   ------------------
 
-  12 of the 37 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet; 4 a signal; 2 the class is abstract, so C++ cannot make one; 1
-  a template; 1 declared and nowhere to be found.
+  2 of the 37 functions Qt declares: 2 not a gap.
 
   What to expect
   --------------
@@ -538,7 +550,7 @@ class QAbstractTextDocumentLayout(QObject):
     return self.uglySide.call(
         'ritual_ZNK27QAbstractTextDocumentLayout7hitTestERK7QPointFN2Qt15Hi'
         'tTestAccuracyE',
-        self._valueOf(point), accuracy.value,
+        self._valueOf(point, 'QPointF'), accuracy.value,
     )
 
   @overload(QPointF)
@@ -567,7 +579,7 @@ class QAbstractTextDocumentLayout(QObject):
     #      const
     return self.uglySide.call(
         'ritual_ZNK27QAbstractTextDocumentLayout8anchorAtERK7QPointF',
-        self._valueOf(pos),
+        self._valueOf(pos, 'QPointF'),
     )
 
   @overload(QPointF)
@@ -595,7 +607,7 @@ class QAbstractTextDocumentLayout(QObject):
     #  QString QAbstractTextDocumentLayout::imageAt(const QPointF &pos) const
     return self.uglySide.call(
         'ritual_ZNK27QAbstractTextDocumentLayout7imageAtERK7QPointF',
-        self._valueOf(pos),
+        self._valueOf(pos, 'QPointF'),
     )
 
   @overload(QPointF)
@@ -624,7 +636,7 @@ class QAbstractTextDocumentLayout(QObject):
     #      const
     address = self.uglySide.call(
         'ritual_ZNK27QAbstractTextDocumentLayout8formatAtERK7QPointF',
-        self._valueOf(pos),
+        self._valueOf(pos, 'QPointF'),
     )
     from . import QTextFormat
     return QTextFormat._cuteOwning(address)
@@ -657,7 +669,7 @@ class QAbstractTextDocumentLayout(QObject):
     address = self.uglySide.call(
         'ritual_ZNK27QAbstractTextDocumentLayout17blockWithMarkerAtERK7QPoi'
         'ntF',
-        self._valueOf(pos),
+        self._valueOf(pos, 'QPointF'),
     )
     from . import QTextBlock
     return QTextBlock._cuteOwning(address)
@@ -878,6 +890,31 @@ class QAbstractTextDocumentLayout(QObject):
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  @overload(QTextDocument)
+  @overload(NoneType)
+  def __init__(self, doc: Optional[QTextDocument]) -> None:
+    """
+    Notes what was given, for Qt's
+    'QAbstractTextDocumentLayout::QAbstractTextDocumentLayout(QTextDocument
+    *doc)', which is called at the first use.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html
+
+    Parameters
+    ----------
+
+    doc : Optional[QTextDocument]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  QAbstractTextDocumentLayout::QAbstractTextDocumentLayout(QTextDocument
+    #      *doc)
+    self._noteCreation(QAbstractTextDocumentLayout, lambda: Rituals.call(
+        'ritual_ZN27QAbstractTextDocumentLayoutC1EP13QTextDocument',
+        self._addressOf(doc),
+    ))
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -897,6 +934,29 @@ class QAbstractTextDocumentLayout(QObject):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  def d_func(self) -> Optional[QAbstractTextDocumentLayoutPrivate]:
+    """
+    Calls Qt's 'QAbstractTextDocumentLayoutPrivate
+    *QAbstractTextDocumentLayout::d_func()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#d_func
+
+    Returns
+    -------
+
+    Optional[QAbstractTextDocumentLayoutPrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QAbstractTextDocumentLayoutPrivate
+    #      *QAbstractTextDocumentLayout::d_func()
+    address = self.uglySide.call(
+        'ritual_ZN27QAbstractTextDocumentLayout6d_funcEv',
+    )
+    from . import QAbstractTextDocumentLayoutPrivate
+    return QAbstractTextDocumentLayoutPrivate._cuteAt(address)
 
   @overload(QPainter, PaintContext)
   @overload(NoneType, PaintContext)
@@ -989,6 +1049,99 @@ class QAbstractTextDocumentLayout(QObject):
         'ritual_ZN27QAbstractTextDocumentLayout17unregisterHandlerEiP7QObje'
         'ct',
         objectType, self._addressOf(component, 'QObject'),
+    )
+
+  @overload()
+  @overload(QRectF)
+  def update(self, a0: Optional[QRectF] = None) -> None:
+    """
+    Calls Qt's 'void QAbstractTextDocumentLayout::update(const QRectF &a0)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#update
+
+    Parameters
+    ----------
+
+    a0 : Optional[QRectF]
+      Passed on as a value: Qt reads the C++ QRectF, which stays Python's
+      own. May be left out, as in Qt: a new 'QRectF(0.0, 0.0, 1000000000.0,
+      1000000000.0)' is then passed on.
+    """
+    #  void QAbstractTextDocumentLayout::update(const QRectF &a0)
+    if a0 is None:
+      from ..QtCore import QRectF
+      a0 = QRectF(0.0, 0.0, 1000000000.0, 1000000000.0)
+    self.uglySide.call(
+        'ritual_ZN27QAbstractTextDocumentLayout6updateERK6QRectF',
+        self._valueOf(a0),
+    )
+
+  @overload(QTextBlock)
+  def updateBlock(self, block: QTextBlock) -> None:
+    """
+    Calls Qt's 'void QAbstractTextDocumentLayout::updateBlock(const
+    QTextBlock &block)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#updateBlock
+
+    Parameters
+    ----------
+
+    block : QTextBlock
+      Passed on as a value: Qt reads the C++ QTextBlock, which stays Python's
+      own.
+    """
+    #  void QAbstractTextDocumentLayout::updateBlock(const QTextBlock &block)
+    self.uglySide.call(
+        'ritual_ZN27QAbstractTextDocumentLayout11updateBlockERK10QTextBlock',
+        self._valueOf(block),
+    )
+
+  @overload(QSizeF)
+  def documentSizeChanged(self, newSize: QSizeF) -> None:
+    """
+    Calls Qt's 'void QAbstractTextDocumentLayout::documentSizeChanged(const
+    QSizeF &newSize)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html
+
+    Parameters
+    ----------
+
+    newSize : QSizeF
+      Passed on as a value: Qt reads the C++ QSizeF, which stays Python's
+      own.
+    """
+    #  void QAbstractTextDocumentLayout::documentSizeChanged(const QSizeF
+    #      &newSize)
+    self.uglySide.call(
+        'ritual_ZN27QAbstractTextDocumentLayout19documentSizeChangedERK6QSi'
+        'zeF',
+        self._valueOf(newSize),
+    )
+
+  @overload(int)
+  def pageCountChanged(self, newPages: int) -> None:
+    """
+    Calls Qt's 'void QAbstractTextDocumentLayout::pageCountChanged(int
+    newPages)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#pageCountChanged
+
+    Parameters
+    ----------
+
+    newPages : int
+      Passed on as it is.
+    """
+    #  void QAbstractTextDocumentLayout::pageCountChanged(int newPages)
+    self.uglySide.call(
+        'ritual_ZN27QAbstractTextDocumentLayout16pageCountChangedEi',
+        newPages,
     )
 
   @overload(int, int, int)

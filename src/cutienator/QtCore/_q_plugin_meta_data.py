@@ -14,6 +14,9 @@ from worktoy.dispatch import overload
 from ..cute import CuteMixin, MetaCute
 from ..occult import Rituals
 
+if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Never
+
 
 class QPluginMetaData(CuteMixin, metaclass=MetaCute):
   """
@@ -54,6 +57,9 @@ class QPluginMetaData(CuteMixin, metaclass=MetaCute):
     is as in C++.
   - A function giving a QPluginMetaData back gives a copy the ritual made for
     Python, in a new cute QPluginMetaData.
+  - Each name of Qt's QPluginMetaData that has no cute function yet, 'copy',
+    holds a function that raises 'NotImplementedError', and its docstring
+    says why.
   """
 
   #  The classes Qt writes inside QPluginMetaData, each a class in here as in
@@ -476,3 +482,14 @@ class QPluginMetaData(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def copy(*__, **_) -> Never:
+    """
+    Qt's 'QPluginMetaData::copy': a template: a pattern and no single
+    function.
+    """
+    raise NotImplementedError(
+        "'QPluginMetaData.copy' has no cute function yet. Qt's "
+        "'QPluginMetaData::copy': a template: a pattern and no single "
+        "function.")

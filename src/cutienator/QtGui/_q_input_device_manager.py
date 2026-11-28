@@ -25,6 +25,7 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
   from ..QtCore import QMetaObject, QPoint
+  from . import QInputDeviceManagerPrivate
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -48,21 +49,28 @@ class QInputDeviceManager(QObject):
   -----------
 
   Every function of Qt's QInputDeviceManager that has a ritual and that
-  Python can call so far, 6 names in all: 'metaObject', 'tr', 'deviceCount',
-  'setCursorPos', 'keyboardModifiers', 'setKeyboardModifiers'. It can be made
-  from Python, in 1 way; see '__init__'.
+  Python can call so far, 9 names in all: 'metaObject', 'tr', 'd_func',
+  'deviceCount', 'setCursorPos', 'keyboardModifiers', 'setKeyboardModifiers',
+  'deviceListChanged', 'cursorPositionChangeRequested'. It can be made from
+  Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QInputDeviceManager::qt_metacast(const char *a0)': one of
+    Qt's own inner workings.
+  - Qt's 'int QInputDeviceManager::qt_metacall(QMetaObject::Call a0, int a1,
+    void **a2)': one of Qt's own inner workings.
+  - Qt's 'const QInputDeviceManagerPrivate *QInputDeviceManager::d_func()
+    const': takes in Python what 'QInputDeviceManagerPrivate
+    *QInputDeviceManager::d_func()' takes.
   - Qt's 'QInputDeviceManager::~QInputDeviceManager()': the destructor:
     Python never removes a C++ QInputDeviceManager.
 
   What has no ritual
   ------------------
 
-  8 of the 16 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet; 2 a signal; 1 a template; 1 declared and nowhere to be found.
+  2 of the 16 functions Qt declares: 2 not a gap.
 
   What to expect
   --------------
@@ -332,3 +340,68 @@ class QInputDeviceManager(QObject):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  def d_func(self) -> Optional[QInputDeviceManagerPrivate]:
+    """
+    Calls Qt's 'QInputDeviceManagerPrivate *QInputDeviceManager::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qinputdevicemanager.html#d_func
+
+    Returns
+    -------
+
+    Optional[QInputDeviceManagerPrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QInputDeviceManagerPrivate *QInputDeviceManager::d_func()
+    address = self.uglySide.call('ritual_ZN19QInputDeviceManager6d_funcEv')
+    from . import QInputDeviceManagerPrivate
+    return QInputDeviceManagerPrivate._cuteAt(address)
+
+  @overload(DeviceType)
+  def deviceListChanged(self, type: DeviceType) -> None:
+    """
+    Calls Qt's 'void
+    QInputDeviceManager::deviceListChanged(QInputDeviceManager::DeviceType
+    type)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qinputdevicemanager.html#deviceListChanged
+
+    Parameters
+    ----------
+
+    type : DeviceType
+      Passed on as its number.
+    """
+    #  void QInputDeviceManager::deviceListChanged(QInputDeviceManager::
+    #      DeviceType type)
+    self.uglySide.call(
+        'ritual_ZN19QInputDeviceManager17deviceListChangedENS_10DeviceTypeE',
+        type.value,
+    )
+
+  @overload(QPoint)
+  def cursorPositionChangeRequested(self, pos: QPoint) -> None:
+    """
+    Calls Qt's 'void QInputDeviceManager::cursorPositionChangeRequested(const
+    QPoint &pos)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qinputdevicemanager.html
+
+    Parameters
+    ----------
+
+    pos : QPoint
+      Passed on as a value: Qt reads the C++ QPoint, which stays Python's
+      own.
+    """
+    #  void QInputDeviceManager::cursorPositionChangeRequested(const QPoint
+    #      &pos)
+    self.uglySide.call(
+        'ritual_ZN19QInputDeviceManager29cursorPositionChangeRequestedERK6Q'
+        'Point',
+        self._valueOf(pos),
+    )

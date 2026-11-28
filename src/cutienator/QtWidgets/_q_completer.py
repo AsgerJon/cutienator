@@ -21,7 +21,7 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
 
   from ..QtCore import QAbstractItemModel, QEvent, QMetaObject, QModelIndex
   from ..QtCore import QRect
-  from . import QAbstractItemView, QWidget
+  from . import QAbstractItemView, QCompleterPrivate, QWidget
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -50,7 +50,7 @@ class QCompleter(QObject):
   -----------
 
   Every function of Qt's QCompleter that has a ritual and that Python can
-  call so far, 37 names in all: 'metaObject', 'tr', 'setWidget', 'widget',
+  call so far, 40 names in all: 'metaObject', 'tr', 'setWidget', 'widget',
   'setModel', 'model', 'setCompletionMode', 'completionMode',
   'setFilterMode', 'filterMode', 'popup', 'setPopup', 'setCaseSensitivity',
   'caseSensitivity', 'setModelSorting', 'modelSorting',
@@ -59,21 +59,25 @@ class QCompleter(QObject):
   'completionCount', 'setCurrentRow', 'currentRow', 'currentIndex',
   'currentCompletion', 'completionModel', 'completionPrefix',
   'setCompletionPrefix', 'complete', 'setWrapAround', 'pathFromIndex',
-  'splitPath', 'eventFilter', 'event'. It can be made from Python, in 3 ways;
-  see '__init__'.
+  'splitPath', 'eventFilter', 'event', 'activated', 'highlighted', 'd_func'.
+  It can be made from Python, in 3 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QCompleter::qt_metacast(const char *a0)': one of Qt's own
+    inner workings.
+  - Qt's 'int QCompleter::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
   - Qt's 'QCompleter::~QCompleter()': the destructor: Python never removes a
     C++ QCompleter.
+  - Qt's 'const QCompleterPrivate *QCompleter::d_func() const': takes in
+    Python what 'QCompleterPrivate *QCompleter::d_func()' takes.
 
   What has no ritual
   ------------------
 
-  12 of the 53 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet; 4 a signal; 2 forbidden; 1 a template; 1 declared and nowhere
-  to be found.
+  4 of the 53 functions Qt declares: 2 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -967,3 +971,93 @@ class QCompleter(QObject):
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZN10QCompleter5eventEP6QEvent'
     return self.uglySide.call(ritual, self._addressOf(a0))
+
+  @overload(str)
+  def activated(self, text: str) -> None:
+    """
+    Calls Qt's 'void QCompleter::activated(const QString &text)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcompleter.html#activated
+
+    Parameters
+    ----------
+
+    text : str
+      Passed on as it is: a QString is made of it for the call.
+    """
+    #  void QCompleter::activated(const QString &text)
+    self.uglySide.call('ritual_ZN10QCompleter9activatedERK7QString', text)
+
+  @overload(QModelIndex)
+  def activated(self, index: QModelIndex) -> None:
+    """
+    Calls Qt's 'void QCompleter::activated(const QModelIndex &index)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcompleter.html#activated
+
+    Parameters
+    ----------
+
+    index : QModelIndex
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own.
+    """
+    #  void QCompleter::activated(const QModelIndex &index)
+    self.uglySide.call(
+        'ritual_ZN10QCompleter9activatedERK11QModelIndex',
+        self._valueOf(index),
+    )
+
+  @overload(str)
+  def highlighted(self, text: str) -> None:
+    """
+    Calls Qt's 'void QCompleter::highlighted(const QString &text)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcompleter.html#highlighted
+
+    Parameters
+    ----------
+
+    text : str
+      Passed on as it is: a QString is made of it for the call.
+    """
+    #  void QCompleter::highlighted(const QString &text)
+    self.uglySide.call('ritual_ZN10QCompleter11highlightedERK7QString', text)
+
+  @overload(QModelIndex)
+  def highlighted(self, index: QModelIndex) -> None:
+    """
+    Calls Qt's 'void QCompleter::highlighted(const QModelIndex &index)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcompleter.html#highlighted
+
+    Parameters
+    ----------
+
+    index : QModelIndex
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own.
+    """
+    #  void QCompleter::highlighted(const QModelIndex &index)
+    self.uglySide.call(
+        'ritual_ZN10QCompleter11highlightedERK11QModelIndex',
+        self._valueOf(index),
+    )
+
+  def d_func(self) -> Optional[QCompleterPrivate]:
+    """
+    Calls Qt's 'QCompleterPrivate *QCompleter::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcompleter.html#d_func
+
+    Returns
+    -------
+
+    Optional[QCompleterPrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QCompleterPrivate *QCompleter::d_func()
+    address = self.uglySide.call('ritual_ZN10QCompleter6d_funcEv')
+    from . import QCompleterPrivate
+    return QCompleterPrivate._cuteAt(address)

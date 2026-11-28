@@ -68,14 +68,21 @@ class QItemDelegate(QAbstractItemDelegate):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QItemDelegate::qt_metacast(const char *a0)': one of Qt's own
+    inner workings.
+  - Qt's 'int QItemDelegate::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
   - Qt's 'QItemDelegate::~QItemDelegate()': the destructor: Python never
     removes a C++ QItemDelegate.
+  - Qt's 'QItemDelegatePrivate *QItemDelegate::d_func()': gives
+    'QItemDelegatePrivate', which has no cute class yet.
+  - Qt's 'const QItemDelegatePrivate *QItemDelegate::d_func() const': gives
+    'QItemDelegatePrivate', which has no cute class yet.
 
   What has no ritual
   ------------------
 
-  8 of the 36 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet; 2 forbidden; 1 a template; 1 declared and nowhere to be found.
+  4 of the 36 functions Qt declares: 2 not a gap; 2 forbidden.
 
   What to expect
   --------------

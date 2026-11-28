@@ -13,12 +13,12 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
-from . import QAbstractAnimation
+from . import QAbstractAnimation, QObject
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from . import QEvent, QMetaObject
+  from . import QAnimationGroupPrivate, QEvent, QMetaObject
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -42,23 +42,30 @@ class QAnimationGroup(QAbstractAnimation):
   -----------
 
   Every function of Qt's QAnimationGroup that has a ritual and that Python
-  can call so far, 11 names in all: 'metaObject', 'tr', 'animationAt',
+  can call so far, 12 names in all: 'metaObject', 'tr', 'animationAt',
   'animationCount', 'indexOfAnimation', 'addAnimation', 'insertAnimation',
-  'removeAnimation', 'takeAnimation', 'clear', 'event'. None can be made from
-  Python: one comes out of a function of another class that gives one back.
+  'removeAnimation', 'takeAnimation', 'clear', 'event', 'd_func'. It can be
+  made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QAnimationGroup::qt_metacast(const char *a0)': one of Qt's
+    own inner workings.
+  - Qt's 'int QAnimationGroup::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
   - Qt's 'QAnimationGroup::~QAnimationGroup()': the destructor: Python never
     removes a C++ QAnimationGroup.
+  - Qt's 'QAnimationGroup::QAnimationGroup(QAnimationGroupPrivate &dd,
+    QObject *parent)': takes a type Python has no way to hand over yet.
+  - Qt's 'const QAnimationGroupPrivate *QAnimationGroup::d_func() const':
+    takes in Python what 'QAnimationGroupPrivate *QAnimationGroup::d_func()'
+    takes.
 
   What has no ritual
   ------------------
 
-  10 of the 22 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet; 2 the class is abstract, so C++ cannot make one; 2 forbidden; 1
-  a template; 1 declared and nowhere to be found.
+  4 of the 22 functions Qt declares: 2 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -246,6 +253,30 @@ class QAnimationGroup(QAbstractAnimation):
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  @overload()
+  @overload(QObject)
+  @overload(NoneType)
+  def __init__(self, parent: Optional[QObject] = None) -> None:
+    """
+    Notes what was given, for Qt's 'QAnimationGroup::QAnimationGroup(QObject
+    *parent)', which is called at the first use.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qanimationgroup.html#QAnimationGroup
+
+    Parameters
+    ----------
+
+    parent : Optional[QObject]
+      Passed on as the address of its C++ object. None is passed on as no
+      object. May be left out, as in Qt: it is then None.
+    """
+    #  QAnimationGroup::QAnimationGroup(QObject *parent)
+    self._noteCreation(QAnimationGroup, lambda: Rituals.call(
+        'ritual_ZN15QAnimationGroupC1EP7QObject',
+        self._addressOf(parent, 'QObject'),
+    ))
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -398,3 +429,21 @@ class QAnimationGroup(QAbstractAnimation):
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZN15QAnimationGroup5eventEP6QEvent'
     return self.uglySide.call(ritual, self._addressOf(event))
+
+  def d_func(self) -> Optional[QAnimationGroupPrivate]:
+    """
+    Calls Qt's 'QAnimationGroupPrivate *QAnimationGroup::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qanimationgroup.html#d_func
+
+    Returns
+    -------
+
+    Optional[QAnimationGroupPrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QAnimationGroupPrivate *QAnimationGroup::d_func()
+    address = self.uglySide.call('ritual_ZN15QAnimationGroup6d_funcEv')
+    from . import QAnimationGroupPrivate
+    return QAnimationGroupPrivate._cuteAt(address)

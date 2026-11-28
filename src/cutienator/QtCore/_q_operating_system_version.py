@@ -40,15 +40,12 @@ class QOperatingSystemVersion(QOperatingSystemVersionUnexported):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'bool
+    QOperatingSystemVersion::isAnyOfType(std::initializer_list<OSType> types)
+    const': takes a type Python has no way to hand over yet.
   - Qt's 'QOperatingSystemVersion::~QOperatingSystemVersion()': the
     destructor: Python removes its C++ QOperatingSystemVersion by it, and has
     no other use for it.
-
-  What has no ritual
-  ------------------
-
-  1 of the 8 functions Qt declares: 1 takes or gives a type that cannot be
-  passed yet.
 
   What to expect
   --------------

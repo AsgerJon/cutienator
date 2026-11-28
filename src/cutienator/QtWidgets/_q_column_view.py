@@ -17,11 +17,12 @@ from ..QtCore import QItemSelectionModel
 from . import QAbstractItemView, QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from ..QtCore import QAbstractItemModel, QItemSelection, QMetaObject
   from ..QtCore import QModelIndex, QPoint, QRect, QSize
   from ..QtGui import QRegion, QResizeEvent
+  from . import QColumnViewPrivate
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -50,30 +51,41 @@ class QColumnView(QAbstractItemView):
   -----------
 
   Every function of Qt's QColumnView that has a ritual and that Python can
-  call so far, 27 names in all: 'metaObject', 'tr', 'indexAt', 'scrollTo',
-  'sizeHint', 'visualRect', 'setModel', 'setSelectionModel', 'setRootIndex',
-  'selectAll', 'setResizeGripsVisible', 'resizeGripsVisible',
-  'setPreviewColumnVisible', 'isPreviewColumnVisible', 'previewWidget',
-  'setPreviewWidget', 'isIndexHidden', 'resizeEvent', 'setSelection',
-  'visualRegionForSelection', 'horizontalOffset', 'verticalOffset',
-  'rowsInserted', 'currentChanged', 'scrollContentsBy', 'createColumn',
-  'initializeColumn'. It can be made from Python, in 1 way; see '__init__'.
+  call so far, 29 names in all: 'metaObject', 'tr', 'updatePreviewWidget',
+  'indexAt', 'scrollTo', 'sizeHint', 'visualRect', 'setModel',
+  'setSelectionModel', 'setRootIndex', 'selectAll', 'setResizeGripsVisible',
+  'resizeGripsVisible', 'setPreviewColumnVisible', 'isPreviewColumnVisible',
+  'previewWidget', 'setPreviewWidget', 'isIndexHidden', 'resizeEvent',
+  'setSelection', 'visualRegionForSelection', 'horizontalOffset',
+  'verticalOffset', 'rowsInserted', 'currentChanged', 'scrollContentsBy',
+  'createColumn', 'initializeColumn', 'd_func'. It can be made from Python,
+  in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QColumnView::qt_metacast(const char *a0)': one of Qt's own
+    inner workings.
+  - Qt's 'int QColumnView::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
   - Qt's 'QColumnView::~QColumnView()': the destructor: Python never removes
     a C++ QColumnView.
+  - Qt's 'void QColumnView::setColumnWidths(const QList<int> &list)': takes a
+    type Python has no way to hand over yet.
+  - Qt's 'QList<int> QColumnView::columnWidths() const': gives a type Python
+    has no way to take yet.
+  - Qt's 'QColumnView::QColumnView(QColumnViewPrivate &dd, QWidget *parent)':
+    takes a type Python has no way to hand over yet.
   - Qt's 'QModelIndex QColumnView::moveCursor(CursorAction cursorAction,
     Qt::KeyboardModifiers modifiers)': names the enum
     'QAbstractItemView::CursorAction', whose class cannot be named here.
+  - Qt's 'const QColumnViewPrivate *QColumnView::d_func() const': takes in
+    Python what 'QColumnViewPrivate *QColumnView::d_func()' takes.
 
   What has no ritual
   ------------------
 
-  12 of the 42 functions Qt declares: 7 takes or gives a type that cannot be
-  passed yet; 2 forbidden; 1 a template; 1 declared and nowhere to be found;
-  1 a signal.
+  4 of the 42 functions Qt declares: 2 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -89,6 +101,9 @@ class QColumnView(QAbstractItemView):
   - Qt tells when it has removed the C++ QColumnView. Every call on the cute
     object, and every use of it as an argument, then raises 'RuntimeError',
     and nothing reaches C++.
+  - Each name of Qt's QColumnView that has no cute function yet,
+    'columnWidths', 'setColumnWidths', holds a function that raises
+    'NotImplementedError', and its docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -613,6 +628,28 @@ class QColumnView(QAbstractItemView):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   @overload(QModelIndex)
+  def updatePreviewWidget(self, index: QModelIndex) -> None:
+    """
+    Calls Qt's 'void QColumnView::updatePreviewWidget(const QModelIndex
+    &index)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qcolumnview.html#updatePreviewWidget
+
+    Parameters
+    ----------
+
+    index : QModelIndex
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own.
+    """
+    #  void QColumnView::updatePreviewWidget(const QModelIndex &index)
+    self.uglySide.call(
+        'ritual_ZN11QColumnView19updatePreviewWidgetERK11QModelIndex',
+        self._valueOf(index),
+    )
+
+  @overload(QModelIndex)
   @overload(QModelIndex, QAbstractItemView.ScrollHint)
   def scrollTo(
       self,
@@ -817,3 +854,43 @@ class QColumnView(QAbstractItemView):
         'ritual_ZNK11QColumnView16initializeColumnEP17QAbstractItemView',
         self._addressOf(column),
     )
+
+  def d_func(self) -> Optional[QColumnViewPrivate]:
+    """
+    Calls Qt's 'QColumnViewPrivate *QColumnView::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcolumnview.html#d_func
+
+    Returns
+    -------
+
+    Optional[QColumnViewPrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QColumnViewPrivate *QColumnView::d_func()
+    address = self.uglySide.call('ritual_ZN11QColumnView6d_funcEv')
+    from . import QColumnViewPrivate
+    return QColumnViewPrivate._cuteAt(address)
+
+  @staticmethod
+  def columnWidths(*__, **_) -> Never:
+    """
+    Qt's 'QList<int> QColumnView::columnWidths() const': gives a type Python
+    has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QColumnView.columnWidths' has no cute function yet. Qt's "
+        "'QList<int> QColumnView::columnWidths() const': gives a type "
+        "Python has no way to take yet.")
+
+  @staticmethod
+  def setColumnWidths(*__, **_) -> Never:
+    """
+    Qt's 'void QColumnView::setColumnWidths(const QList<int> &list)': takes a
+    type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QColumnView.setColumnWidths' has no cute function yet. Qt's 'void "
+        "QColumnView::setColumnWidths(const QList<int> &list)': takes a "
+        "type Python has no way to hand over yet.")

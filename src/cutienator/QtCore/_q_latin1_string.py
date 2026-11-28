@@ -14,10 +14,10 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
-from . import Qt
+from . import Qt, QList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from . import QByteArray, QByteArrayView, QChar, QLatin1Char
 else:
@@ -58,6 +58,9 @@ class QLatin1String(CuteMixin, metaclass=MetaCute):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'int QLatin1String::compare(QUtf8StringView other,
+    Qt::CaseSensitivity cs) const': takes a type Python has no way to hand
+    over yet.
   - Qt's 'short QLatin1String::toShort(bool *ok, int base) const': takes a
     number to change where it is.
   - Qt's 'ushort QLatin1String::toUShort(bool *ok, int base) const': takes a
@@ -78,6 +81,26 @@ class QLatin1String(CuteMixin, metaclass=MetaCute):
     change where it is.
   - Qt's 'double QLatin1String::toDouble(bool *ok) const': takes a number to
     change where it is.
+  - Qt's 'const_iterator QLatin1String::begin() const': gives 'value_type',
+    which has no cute class yet.
+  - Qt's 'const_iterator QLatin1String::cbegin() const': gives 'value_type',
+    which has no cute class yet.
+  - Qt's 'const_iterator QLatin1String::end() const': gives 'value_type',
+    which has no cute class yet.
+  - Qt's 'const_iterator QLatin1String::cend() const': gives 'value_type',
+    which has no cute class yet.
+  - Qt's 'const_reverse_iterator QLatin1String::rbegin() const': gives a type
+    Python has no way to take yet.
+  - Qt's 'const_reverse_iterator QLatin1String::crbegin() const': gives a
+    type Python has no way to take yet.
+  - Qt's 'const_reverse_iterator QLatin1String::rend() const': gives a type
+    Python has no way to take yet.
+  - Qt's 'const_reverse_iterator QLatin1String::crend() const': gives a type
+    Python has no way to take yet.
+  - Qt's 'QLatin1StringView &QLatin1String::slice(qsizetype pos)': gives a
+    type Python has no way to take yet.
+  - Qt's 'QLatin1StringView &QLatin1String::slice(qsizetype pos, qsizetype
+    n)': gives a type Python has no way to take yet.
   - Qt's 'bool operator==(const QChar &lhs, const QLatin1StringView &rhs)':
     takes in Python what 'bool operator==(const QLatin1StringView &lhs, const
     QChar &rhs)' takes.
@@ -150,14 +173,37 @@ class QLatin1String(CuteMixin, metaclass=MetaCute):
   - Qt's 'bool operator>=(const QByteArray &lhs, const QLatin1StringView
     &rhs)': takes in Python what 'bool operator<=(const QLatin1StringView
     &lhs, const QByteArray &rhs)' takes.
+  - Qt's 'bool operator==(const QLatin1StringView &lhs, const char *const
+    &rhs)': takes a type Python has no way to hand over yet.
+  - Qt's 'bool operator!=(const QLatin1StringView &lhs, const char *const
+    &rhs)': takes a type Python has no way to hand over yet.
+  - Qt's 'bool operator<(const QLatin1StringView &lhs, const char *const
+    &rhs)': takes a type Python has no way to hand over yet.
+  - Qt's 'bool operator>(const QLatin1StringView &lhs, const char *const
+    &rhs)': takes a type Python has no way to hand over yet.
+  - Qt's 'bool operator<=(const QLatin1StringView &lhs, const char *const
+    &rhs)': takes a type Python has no way to hand over yet.
+  - Qt's 'bool operator>=(const QLatin1StringView &lhs, const char *const
+    &rhs)': takes a type Python has no way to hand over yet.
+  - Qt's 'bool operator==(const char *const &lhs, const QLatin1StringView
+    &rhs)': takes a type Python has no way to hand over yet.
+  - Qt's 'bool operator!=(const char *const &lhs, const QLatin1StringView
+    &rhs)': takes a type Python has no way to hand over yet.
+  - Qt's 'bool operator<(const char *const &lhs, const QLatin1StringView
+    &rhs)': takes a type Python has no way to hand over yet.
+  - Qt's 'bool operator>(const char *const &lhs, const QLatin1StringView
+    &rhs)': takes a type Python has no way to hand over yet.
+  - Qt's 'bool operator<=(const char *const &lhs, const QLatin1StringView
+    &rhs)': takes a type Python has no way to hand over yet.
+  - Qt's 'bool operator>=(const char *const &lhs, const QLatin1StringView
+    &rhs)': takes a type Python has no way to hand over yet.
   - Qt's 'QLatin1String::~QLatin1String()': the destructor: Python removes
     its C++ QLatin1String by it, and has no other use for it.
 
   What has no ritual
   ------------------
 
-  26 of the 163 functions Qt declares: 23 takes or gives a type that cannot
-  be passed yet; 3 a template.
+  3 of the 163 functions Qt declares: 3 a template.
 
   What to expect
   --------------
@@ -171,6 +217,12 @@ class QLatin1String(CuteMixin, metaclass=MetaCute):
     is as in C++.
   - A function giving a QLatin1String back gives a copy the ritual made for
     Python, in a new cute QLatin1String.
+  - Each name of Qt's QLatin1String that has no cute function yet, 'arg',
+    'begin', 'cbegin', 'cend', 'crbegin', 'crend', 'end', 'rbegin', 'rend',
+    'slice', 'toDouble', 'toFloat', 'toInt', 'toLong', 'toLongLong',
+    'toShort', 'toUInt', 'toULong', 'toULongLong', 'toUShort', 'tokenize',
+    holds a function that raises 'NotImplementedError', and its docstring
+    says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -2574,3 +2626,250 @@ class QLatin1String(CuteMixin, metaclass=MetaCute):
     """
     #  void QLatin1String::verify(qsizetype pos, qsizetype n) const
     self.uglySide.call('ritual_ZNK13QLatin1String6verifyExx', pos, n)
+
+  @staticmethod
+  def arg(*__, **_) -> Never:
+    """
+    Qt's 'QLatin1String::arg': a template: a pattern and no single function.
+    """
+    raise NotImplementedError(
+        "'QLatin1String.arg' has no cute function yet. Qt's "
+        "'QLatin1String::arg': a template: a pattern and no single function."
+    )
+
+  @staticmethod
+  def begin(*__, **_) -> Never:
+    """
+    Qt's 'const_iterator QLatin1String::begin() const': gives 'value_type',
+    which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QLatin1String.begin' has no cute function yet. Qt's "
+        "'const_iterator QLatin1String::begin() const': gives 'value_type', "
+        "which has no cute class yet.")
+
+  @staticmethod
+  def cbegin(*__, **_) -> Never:
+    """
+    Qt's 'const_iterator QLatin1String::cbegin() const': gives 'value_type',
+    which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QLatin1String.cbegin' has no cute function yet. Qt's "
+        "'const_iterator QLatin1String::cbegin() const': gives "
+        "'value_type', which has no cute class yet.")
+
+  @staticmethod
+  def cend(*__, **_) -> Never:
+    """
+    Qt's 'const_iterator QLatin1String::cend() const': gives 'value_type',
+    which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QLatin1String.cend' has no cute function yet. Qt's "
+        "'const_iterator QLatin1String::cend() const': gives 'value_type', "
+        "which has no cute class yet.")
+
+  @staticmethod
+  def crbegin(*__, **_) -> Never:
+    """
+    Qt's 'const_reverse_iterator QLatin1String::crbegin() const': gives a
+    type Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QLatin1String.crbegin' has no cute function yet. Qt's "
+        "'const_reverse_iterator QLatin1String::crbegin() const': gives a "
+        "type Python has no way to take yet.")
+
+  @staticmethod
+  def crend(*__, **_) -> Never:
+    """
+    Qt's 'const_reverse_iterator QLatin1String::crend() const': gives a type
+    Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QLatin1String.crend' has no cute function yet. Qt's "
+        "'const_reverse_iterator QLatin1String::crend() const': gives a "
+        "type Python has no way to take yet.")
+
+  @staticmethod
+  def end(*__, **_) -> Never:
+    """
+    Qt's 'const_iterator QLatin1String::end() const': gives 'value_type',
+    which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QLatin1String.end' has no cute function yet. Qt's 'const_iterator "
+        "QLatin1String::end() const': gives 'value_type', which has no cute "
+        "class yet.")
+
+  @staticmethod
+  def rbegin(*__, **_) -> Never:
+    """
+    Qt's 'const_reverse_iterator QLatin1String::rbegin() const': gives a type
+    Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QLatin1String.rbegin' has no cute function yet. Qt's "
+        "'const_reverse_iterator QLatin1String::rbegin() const': gives a "
+        "type Python has no way to take yet.")
+
+  @staticmethod
+  def rend(*__, **_) -> Never:
+    """
+    Qt's 'const_reverse_iterator QLatin1String::rend() const': gives a type
+    Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QLatin1String.rend' has no cute function yet. Qt's "
+        "'const_reverse_iterator QLatin1String::rend() const': gives a type "
+        "Python has no way to take yet.")
+
+  @staticmethod
+  def slice(*__, **_) -> Never:
+    """
+    - Qt's 'QLatin1StringView &QLatin1String::slice(qsizetype pos)': gives a
+      type Python has no way to take yet.
+    - Qt's 'QLatin1StringView &QLatin1String::slice(qsizetype pos, qsizetype
+      n)': gives a type Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QLatin1String.slice' has no cute function yet. Qt's "
+        "'QLatin1StringView &QLatin1String::slice(qsizetype pos)': gives a "
+        "type Python has no way to take yet. Qt's 'QLatin1StringView "
+        "&QLatin1String::slice(qsizetype pos, qsizetype n)': gives a type "
+        "Python has no way to take yet.")
+
+  @staticmethod
+  def toDouble(*__, **_) -> Never:
+    """
+    Qt's 'double QLatin1String::toDouble(bool *ok) const': takes a number to
+    change where it is.
+    """
+    raise NotImplementedError(
+        "'QLatin1String.toDouble' has no cute function yet. Qt's 'double "
+        "QLatin1String::toDouble(bool *ok) const': takes a number to change "
+        "where it is.")
+
+  @staticmethod
+  def toFloat(*__, **_) -> Never:
+    """
+    Qt's 'float QLatin1String::toFloat(bool *ok) const': takes a number to
+    change where it is.
+    """
+    raise NotImplementedError(
+        "'QLatin1String.toFloat' has no cute function yet. Qt's 'float "
+        "QLatin1String::toFloat(bool *ok) const': takes a number to change "
+        "where it is.")
+
+  @staticmethod
+  def toInt(*__, **_) -> Never:
+    """
+    Qt's 'int QLatin1String::toInt(bool *ok, int base) const': takes a number
+    to change where it is.
+    """
+    raise NotImplementedError(
+        "'QLatin1String.toInt' has no cute function yet. Qt's 'int "
+        "QLatin1String::toInt(bool *ok, int base) const': takes a number to "
+        "change where it is.")
+
+  @staticmethod
+  def toLong(*__, **_) -> Never:
+    """
+    Qt's 'long QLatin1String::toLong(bool *ok, int base) const': takes a
+    number to change where it is.
+    """
+    raise NotImplementedError(
+        "'QLatin1String.toLong' has no cute function yet. Qt's 'long "
+        "QLatin1String::toLong(bool *ok, int base) const': takes a number "
+        "to change where it is.")
+
+  @staticmethod
+  def toLongLong(*__, **_) -> Never:
+    """
+    Qt's 'qlonglong QLatin1String::toLongLong(bool *ok, int base) const':
+    takes a number to change where it is.
+    """
+    raise NotImplementedError(
+        "'QLatin1String.toLongLong' has no cute function yet. Qt's "
+        "'qlonglong QLatin1String::toLongLong(bool *ok, int base) const': "
+        "takes a number to change where it is.")
+
+  @staticmethod
+  def toShort(*__, **_) -> Never:
+    """
+    Qt's 'short QLatin1String::toShort(bool *ok, int base) const': takes a
+    number to change where it is.
+    """
+    raise NotImplementedError(
+        "'QLatin1String.toShort' has no cute function yet. Qt's 'short "
+        "QLatin1String::toShort(bool *ok, int base) const': takes a number "
+        "to change where it is.")
+
+  @staticmethod
+  def toUInt(*__, **_) -> Never:
+    """
+    Qt's 'uint QLatin1String::toUInt(bool *ok, int base) const': takes a
+    number to change where it is.
+    """
+    raise NotImplementedError(
+        "'QLatin1String.toUInt' has no cute function yet. Qt's 'uint "
+        "QLatin1String::toUInt(bool *ok, int base) const': takes a number "
+        "to change where it is.")
+
+  @staticmethod
+  def toULong(*__, **_) -> Never:
+    """
+    Qt's 'ulong QLatin1String::toULong(bool *ok, int base) const': takes a
+    number to change where it is.
+    """
+    raise NotImplementedError(
+        "'QLatin1String.toULong' has no cute function yet. Qt's 'ulong "
+        "QLatin1String::toULong(bool *ok, int base) const': takes a number "
+        "to change where it is.")
+
+  @staticmethod
+  def toULongLong(*__, **_) -> Never:
+    """
+    Qt's 'qulonglong QLatin1String::toULongLong(bool *ok, int base) const':
+    takes a number to change where it is.
+    """
+    raise NotImplementedError(
+        "'QLatin1String.toULongLong' has no cute function yet. Qt's "
+        "'qulonglong QLatin1String::toULongLong(bool *ok, int base) const': "
+        "takes a number to change where it is.")
+
+  @staticmethod
+  def toUShort(*__, **_) -> Never:
+    """
+    Qt's 'ushort QLatin1String::toUShort(bool *ok, int base) const': takes a
+    number to change where it is.
+    """
+    raise NotImplementedError(
+        "'QLatin1String.toUShort' has no cute function yet. Qt's 'ushort "
+        "QLatin1String::toUShort(bool *ok, int base) const': takes a number "
+        "to change where it is.")
+
+  @staticmethod
+  def tokenize(*__, **_) -> Never:
+    """
+    Qt's 'QLatin1String::tokenize': a template: a pattern and no single
+    function.
+    """
+    raise NotImplementedError(
+        "'QLatin1String.tokenize' has no cute function yet. Qt's "
+        "'QLatin1String::tokenize': a template: a pattern and no single "
+        "function.")
+
+
+#  Qt's 'QList<QLatin1String>': the list of QLatin1String, which
+#  'QList[QLatin1String]' gives. It is made here, so that there is one as
+#  soon as there can be a QLatin1String.
+QList.createKind(
+    QLatin1String, 'value',
+    make='ritual_list_make_QLatin1String',
+    add='ritual_list_add_QLatin1String',
+    size='ritual_list_size_QLatin1String',
+    at='ritual_list_at_QLatin1String',
+    drop='ritual_list_drop_QLatin1String',
+)

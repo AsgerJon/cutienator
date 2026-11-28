@@ -24,7 +24,7 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   from ..QtCore import QVariant
   from ..QtGui import QColor, QHideEvent, QIcon, QKeyEvent, QMouseEvent
   from ..QtGui import QPaintEvent, QResizeEvent, QShowEvent, QWheelEvent
-  from . import QStyleOptionTab
+  from . import QStyleOptionTab, QTabBarPrivate
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -62,7 +62,7 @@ class QTabBar(QWidget):
   -----------
 
   Every function of Qt's QTabBar that has a ritual and that Python can call
-  so far, 76 names in all: 'metaObject', 'tr', 'shape', 'setShape', 'addTab',
+  so far, 82 names in all: 'metaObject', 'tr', 'shape', 'setShape', 'addTab',
   'insertTab', 'removeTab', 'moveTab', 'isTabEnabled', 'setTabEnabled',
   'isTabVisible', 'setTabVisible', 'tabText', 'setTabText', 'tabTextColor',
   'setTabTextColor', 'tabIcon', 'setTabIcon', 'elideMode', 'setElideMode',
@@ -75,25 +75,31 @@ class QTabBar(QWidget):
   'setExpanding', 'isMovable', 'setMovable', 'documentMode',
   'setDocumentMode', 'autoHide', 'setAutoHide', 'changeCurrentOnDrag',
   'setChangeCurrentOnDrag', 'accessibleTabName', 'setAccessibleTabName',
-  'setCurrentIndex', 'tabSizeHint', 'minimumTabSizeHint', 'tabInserted',
-  'tabRemoved', 'tabLayoutChange', 'event', 'resizeEvent', 'showEvent',
-  'hideEvent', 'paintEvent', 'mousePressEvent', 'mouseMoveEvent',
-  'mouseReleaseEvent', 'mouseDoubleClickEvent', 'wheelEvent',
-  'keyPressEvent', 'changeEvent', 'timerEvent', 'initStyleOption'. It can be
-  made from Python, in 1 way; see '__init__'.
+  'setCurrentIndex', 'currentChanged', 'tabCloseRequested', 'tabMoved',
+  'tabBarClicked', 'tabBarDoubleClicked', 'tabSizeHint',
+  'minimumTabSizeHint', 'tabInserted', 'tabRemoved', 'tabLayoutChange',
+  'event', 'resizeEvent', 'showEvent', 'hideEvent', 'paintEvent',
+  'mousePressEvent', 'mouseMoveEvent', 'mouseReleaseEvent',
+  'mouseDoubleClickEvent', 'wheelEvent', 'keyPressEvent', 'changeEvent',
+  'timerEvent', 'initStyleOption', 'd_func'. It can be made from Python, in 1
+  way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QTabBar::qt_metacast(const char *a0)': one of Qt's own inner
+    workings.
+  - Qt's 'int QTabBar::qt_metacall(QMetaObject::Call a0, int a1, void **a2)':
+    one of Qt's own inner workings.
   - Qt's 'QTabBar::~QTabBar()': the destructor: Python never removes a C++
     QTabBar.
+  - Qt's 'const QTabBarPrivate *QTabBar::d_func() const': takes in Python
+    what 'QTabBarPrivate *QTabBar::d_func()' takes.
 
   What has no ritual
   ------------------
 
-  13 of the 93 functions Qt declares: 5 a signal; 4 takes or gives a type
-  that cannot be passed yet; 2 forbidden; 1 a template; 1 declared and
-  nowhere to be found.
+  4 of the 93 functions Qt declares: 2 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -1441,6 +1447,89 @@ class QTabBar(QWidget):
     self.uglySide.call('ritual_ZN7QTabBar7moveTabEii', from_, to)
 
   @overload(int)
+  def currentChanged(self, index: int) -> None:
+    """
+    Calls Qt's 'void QTabBar::currentChanged(int index)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtabbar.html#currentChanged
+
+    Parameters
+    ----------
+
+    index : int
+      Passed on as it is.
+    """
+    #  void QTabBar::currentChanged(int index)
+    self.uglySide.call('ritual_ZN7QTabBar14currentChangedEi', index)
+
+  @overload(int)
+  def tabCloseRequested(self, index: int) -> None:
+    """
+    Calls Qt's 'void QTabBar::tabCloseRequested(int index)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtabbar.html#tabCloseRequested
+
+    Parameters
+    ----------
+
+    index : int
+      Passed on as it is.
+    """
+    #  void QTabBar::tabCloseRequested(int index)
+    self.uglySide.call('ritual_ZN7QTabBar17tabCloseRequestedEi', index)
+
+  @overload(int, int)
+  def tabMoved(self, from_: int, to: int) -> None:
+    """
+    Calls Qt's 'void QTabBar::tabMoved(int from, int to)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtabbar.html#tabMoved
+
+    Parameters
+    ----------
+
+    from_ : int
+      Passed on as it is.
+
+    to : int
+      Passed on as it is.
+    """
+    #  void QTabBar::tabMoved(int from, int to)
+    self.uglySide.call('ritual_ZN7QTabBar8tabMovedEii', from_, to)
+
+  @overload(int)
+  def tabBarClicked(self, index: int) -> None:
+    """
+    Calls Qt's 'void QTabBar::tabBarClicked(int index)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtabbar.html#tabBarClicked
+
+    Parameters
+    ----------
+
+    index : int
+      Passed on as it is.
+    """
+    #  void QTabBar::tabBarClicked(int index)
+    self.uglySide.call('ritual_ZN7QTabBar13tabBarClickedEi', index)
+
+  @overload(int)
+  def tabBarDoubleClicked(self, index: int) -> None:
+    """
+    Calls Qt's 'void QTabBar::tabBarDoubleClicked(int index)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtabbar.html#tabBarDoubleClicked
+
+    Parameters
+    ----------
+
+    index : int
+      Passed on as it is.
+    """
+    #  void QTabBar::tabBarDoubleClicked(int index)
+    self.uglySide.call('ritual_ZN7QTabBar19tabBarDoubleClickedEi', index)
+
+  @overload(int)
   def tabInserted(self, index: int) -> None:
     """
     Calls Qt's 'void QTabBar::tabInserted(int index)'.
@@ -1792,3 +1881,21 @@ class QTabBar(QWidget):
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZNK7QTabBar15initStyleOptionEP15QStyleOptionTabi'
     self.uglySide.call(ritual, self._addressOf(option), tabIndex)
+
+  def d_func(self) -> Optional[QTabBarPrivate]:
+    """
+    Calls Qt's 'QTabBarPrivate *QTabBar::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtabbar.html#d_func
+
+    Returns
+    -------
+
+    Optional[QTabBarPrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QTabBarPrivate *QTabBar::d_func()
+    address = self.uglySide.call('ritual_ZN7QTabBar6d_funcEv')
+    from . import QTabBarPrivate
+    return QTabBarPrivate._cuteAt(address)

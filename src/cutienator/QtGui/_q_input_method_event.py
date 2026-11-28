@@ -17,7 +17,7 @@ from ..occult import Rituals
 from ..QtCore import QEvent
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
 
 class QInputMethodEvent(QEvent):
@@ -39,8 +39,18 @@ class QInputMethodEvent(QEvent):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'QInputMethodEvent::QInputMethodEvent(const QInputMethodEvent &a0)':
+    takes a type Python has no way to hand over yet.
+  - Qt's 'QInputMethodEvent &QInputMethodEvent::operator=(const
+    QInputMethodEvent &other)': assignment: Python binds a name and has no
+    operator for it.
   - Qt's 'QInputMethodEvent::~QInputMethodEvent()': the destructor: Python
     never removes a C++ QInputMethodEvent.
+  - Qt's 'QInputMethodEvent::QInputMethodEvent(const QString &preeditText,
+    const QList<Attribute> &attributes)': takes a type Python has no way to
+    hand over yet.
+  - Qt's 'const QList<Attribute> &QInputMethodEvent::attributes() const':
+    gives a type Python has no way to take yet.
   - Qt's 'bool operator==(const QInputMethodEvent::Attribute &lhs, const
     QInputMethodEvent::Attribute &rhs)': an operator between other classes,
     written inside this one.
@@ -51,8 +61,7 @@ class QInputMethodEvent(QEvent):
   What has no ritual
   ------------------
 
-  6 of the 16 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet; 2 forbidden.
+  2 of the 16 functions Qt declares: 2 forbidden.
 
   What to expect
   --------------
@@ -65,6 +74,9 @@ class QInputMethodEvent(QEvent):
     has it, and is passed on as nothing. Whether Qt can do with nothing there
     is as in C++.
   - Python never removes the C++ QInputMethodEvent.
+  - Each name of Qt's QInputMethodEvent that has no cute function yet,
+    'attributes', holds a function that raises 'NotImplementedError', and its
+    docstring says why.
   """
 
   #  The enums Qt writes inside QInputMethodEvent, each a class in here as in
@@ -128,6 +140,9 @@ class QInputMethodEvent(QEvent):
       there is as in C++.
     - A function giving a QInputMethodEvent::Attribute back gives a copy the
       ritual made for Python, in a new cute QInputMethodEvent::Attribute.
+    - Each name of Qt's QInputMethodEvent::Attribute that has no cute
+      function yet, '__init__', holds a function that raises
+      'NotImplementedError', and its docstring says why.
     """
 
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -174,6 +189,26 @@ class QInputMethodEvent(QEvent):
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    @staticmethod
+    def __init__(*__, **_) -> Never:
+      """
+      - Qt's 'QInputMethodEvent::Attribute::Attribute(AttributeType typ, int
+        s, int l, QVariant val)': names the enum
+        'QInputMethodEvent::AttributeType', whose class cannot be named here.
+      - Qt's 'QInputMethodEvent::Attribute::Attribute(AttributeType typ, int
+        s, int l)': names the enum 'QInputMethodEvent::AttributeType', whose
+        class cannot be named here.
+      """
+      raise NotImplementedError(
+          "'QInputMethodEvent.Attribute.__init__' has no cute function yet. "
+          "Qt's 'QInputMethodEvent::Attribute::Attribute(AttributeType typ, "
+          "int s, int l, QVariant val)': names the enum "
+          "'QInputMethodEvent::AttributeType', whose class cannot be named "
+          "here. Qt's "
+          "'QInputMethodEvent::Attribute::Attribute(AttributeType typ, int "
+          "s, int l)': names the enum 'QInputMethodEvent::AttributeType', "
+          "whose class cannot be named here.")
 
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -388,3 +423,14 @@ class QInputMethodEvent(QEvent):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def attributes(*__, **_) -> Never:
+    """
+    Qt's 'const QList<Attribute> &QInputMethodEvent::attributes() const':
+    gives a type Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QInputMethodEvent.attributes' has no cute function yet. Qt's "
+        "'const QList<Attribute> &QInputMethodEvent::attributes() const': "
+        "gives a type Python has no way to take yet.")

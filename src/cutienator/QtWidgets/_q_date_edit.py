@@ -42,20 +42,23 @@ class QDateEdit(QDateTimeEdit):
   -----------
 
   Every function of Qt's QDateEdit that has a ritual and that Python can call
-  so far, 2 names in all: 'metaObject', 'tr'. It can be made from Python, in
-  2 ways; see '__init__'.
+  so far, 3 names in all: 'metaObject', 'tr', 'userDateChanged'. It can be
+  made from Python, in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QDateEdit::qt_metacast(const char *a0)': one of Qt's own
+    inner workings.
+  - Qt's 'int QDateEdit::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
   - Qt's 'QDateEdit::~QDateEdit()': the destructor: Python never removes a
     C++ QDateEdit.
 
   What has no ritual
   ------------------
 
-  5 of the 10 functions Qt declares: 2 takes or gives a type that cannot be
-  passed yet; 1 a template; 1 declared and nowhere to be found; 1 a signal.
+  2 of the 10 functions Qt declares: 2 not a gap.
 
   What to expect
   --------------
@@ -244,3 +247,21 @@ class QDateEdit(QDateTimeEdit):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(QDate)
+  def userDateChanged(self, date: QDate) -> None:
+    """
+    Calls Qt's 'void QDateEdit::userDateChanged(QDate date)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qdateedit.html#userDateChanged
+
+    Parameters
+    ----------
+
+    date : QDate
+      Passed on as a value: Qt reads the C++ QDate, which stays Python's own.
+    """
+    #  void QDateEdit::userDateChanged(QDate date)
+    self.uglySide.call(
+        'ritual_ZN9QDateEdit15userDateChangedE5QDate', self._valueOf(date),
+    )

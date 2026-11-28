@@ -17,7 +17,7 @@ from ..cute import CuteMixin, CuteFlags, CuteNum, MetaCute, WAIT
 from ..occult import Rituals
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from ..QtCore import QObject
   from . import QAccessibleEvent, QAccessibleInterface
@@ -57,14 +57,26 @@ class QAccessible(CuteMixin, metaclass=MetaCute):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void QAccessible::installFactory(InterfaceFactory a0)': takes a
+    type Python has no way to hand over yet.
+  - Qt's 'void QAccessible::removeFactory(InterfaceFactory a0)': takes a type
+    Python has no way to hand over yet.
+  - Qt's 'UpdateHandler QAccessible::installUpdateHandler(UpdateHandler a0)':
+    takes a type Python has no way to hand over yet.
+  - Qt's 'RootObjectHandler
+    QAccessible::installRootObjectHandler(RootObjectHandler a0)': takes a
+    type Python has no way to hand over yet.
+  - Qt's 'std::pair<int, int>
+    QAccessible::qAccessibleTextBoundaryHelper(const QTextCursor &cursor,
+    TextBoundaryType boundaryType)': gives a type Python has no way to take
+    yet.
   - Qt's 'QAccessible::~QAccessible()': the destructor: Python removes its
     C++ QAccessible by it, and has no other use for it.
 
   What has no ritual
   ------------------
 
-  8 of the 22 functions Qt declares: 5 takes or gives a type that cannot be
-  passed yet; 2 declared and nowhere to be found; 1 a template.
+  3 of the 22 functions Qt declares: 3 not a gap.
 
   What to expect
   --------------
@@ -78,6 +90,10 @@ class QAccessible(CuteMixin, metaclass=MetaCute):
     is as in C++.
   - A function giving a QAccessible back gives a copy the ritual made for
     Python, in a new cute QAccessible.
+  - Each name of Qt's QAccessible that has no cute function yet,
+    'installFactory', 'installRootObjectHandler', 'installUpdateHandler',
+    'qAccessibleTextBoundaryHelper', 'removeFactory', holds a function that
+    raises 'NotImplementedError', and its docstring says why.
   """
 
   #  The enums Qt writes inside QAccessible, each a class in here as in C++,
@@ -467,7 +483,8 @@ class QAccessible(CuteMixin, metaclass=MetaCute):
       #  void
       #      QAccessible::ActivationObserver::accessibilityActiveChanged(bool
       #      active)
-      self.uglySide.call(
+      self._callAs(
+          'QAccessible::ActivationObserver',
           'ritual_ZN11QAccessible18ActivationObserver26accessibilityActiveC'
           'hangedEb',
           active,
@@ -645,7 +662,7 @@ class QAccessible(CuteMixin, metaclass=MetaCute):
     Rituals.call(
         'ritual_ZN11QAccessible25installActivationObserverEPNS_18Activation'
         'ObserverE',
-        CuteMixin._addressOf(a0),
+        CuteMixin._addressOf(a0, 'QAccessible::ActivationObserver'),
     )
 
   @staticmethod
@@ -670,7 +687,7 @@ class QAccessible(CuteMixin, metaclass=MetaCute):
     Rituals.call(
         'ritual_ZN11QAccessible24removeActivationObserverEPNS_18ActivationO'
         'bserverE',
-        CuteMixin._addressOf(a0),
+        CuteMixin._addressOf(a0, 'QAccessible::ActivationObserver'),
     )
 
   @staticmethod
@@ -728,7 +745,7 @@ class QAccessible(CuteMixin, metaclass=MetaCute):
     #  Id QAccessible::uniqueId(QAccessibleInterface *iface)
     return Rituals.call(
         'ritual_ZN11QAccessible8uniqueIdEP20QAccessibleInterface',
-        CuteMixin._addressOf(iface),
+        CuteMixin._addressOf(iface, 'QAccessibleInterface'),
     )
 
   @staticmethod
@@ -786,7 +803,7 @@ class QAccessible(CuteMixin, metaclass=MetaCute):
     return Rituals.call(
         'ritual_ZN11QAccessible27registerAccessibleInterfaceEP20QAccessible'
         'Interface',
-        CuteMixin._addressOf(iface),
+        CuteMixin._addressOf(iface, 'QAccessibleInterface'),
     )
 
   @staticmethod
@@ -964,3 +981,64 @@ class QAccessible(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def installFactory(*__, **_) -> Never:
+    """
+    Qt's 'void QAccessible::installFactory(InterfaceFactory a0)': takes a
+    type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QAccessible.installFactory' has no cute function yet. Qt's 'void "
+        "QAccessible::installFactory(InterfaceFactory a0)': takes a type "
+        "Python has no way to hand over yet.")
+
+  @staticmethod
+  def installRootObjectHandler(*__, **_) -> Never:
+    """
+    Qt's 'RootObjectHandler
+    QAccessible::installRootObjectHandler(RootObjectHandler a0)': takes a
+    type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QAccessible.installRootObjectHandler' has no cute function yet. "
+        "Qt's 'RootObjectHandler "
+        "QAccessible::installRootObjectHandler(RootObjectHandler a0)': "
+        "takes a type Python has no way to hand over yet.")
+
+  @staticmethod
+  def installUpdateHandler(*__, **_) -> Never:
+    """
+    Qt's 'UpdateHandler QAccessible::installUpdateHandler(UpdateHandler a0)':
+    takes a type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QAccessible.installUpdateHandler' has no cute function yet. Qt's "
+        "'UpdateHandler QAccessible::installUpdateHandler(UpdateHandler "
+        "a0)': takes a type Python has no way to hand over yet.")
+
+  @staticmethod
+  def qAccessibleTextBoundaryHelper(*__, **_) -> Never:
+    """
+    Qt's 'std::pair<int, int>
+    QAccessible::qAccessibleTextBoundaryHelper(const QTextCursor &cursor,
+    TextBoundaryType boundaryType)': gives a type Python has no way to take
+    yet.
+    """
+    raise NotImplementedError(
+        "'QAccessible.qAccessibleTextBoundaryHelper' has no cute function "
+        "yet. Qt's 'std::pair<int, int> "
+        "QAccessible::qAccessibleTextBoundaryHelper(const QTextCursor "
+        "&cursor, TextBoundaryType boundaryType)': gives a type Python has "
+        "no way to take yet.")
+
+  @staticmethod
+  def removeFactory(*__, **_) -> Never:
+    """
+    Qt's 'void QAccessible::removeFactory(InterfaceFactory a0)': takes a type
+    Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QAccessible.removeFactory' has no cute function yet. Qt's 'void "
+        "QAccessible::removeFactory(InterfaceFactory a0)': takes a type "
+        "Python has no way to hand over yet.")

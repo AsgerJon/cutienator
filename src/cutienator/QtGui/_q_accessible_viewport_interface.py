@@ -12,6 +12,7 @@ from typing import TYPE_CHECKING
 from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, MetaCute, WAIT
+from ..occult import Rituals
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from ..QtCore import QPointF, QSizeF
@@ -32,8 +33,8 @@ class QAccessibleViewportInterface(CuteMixin, metaclass=MetaCute):
 
   Every function of Qt's QAccessibleViewportInterface that has a ritual and
   that Python can call so far, 5 names in all: 'contentSize', 'position',
-  'viewportSize', 'isIndexed', 'setPosition'. None can be made from Python:
-  one comes out of a function of another class that gives one back.
+  'viewportSize', 'isIndexed', 'setPosition'. It can be made from Python, in
+  1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -44,8 +45,7 @@ class QAccessibleViewportInterface(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  5 of the 11 functions Qt declares: 4 forbidden; 1 the class is abstract, so
-  C++ cannot make one.
+  4 of the 11 functions Qt declares: 4 forbidden.
 
   What to expect
   --------------
@@ -137,7 +137,8 @@ class QAccessibleViewportInterface(CuteMixin, metaclass=MetaCute):
       A new cute QSizeF around the copy Qt gave back. Python owns it.
     """
     #  QSizeF QAccessibleViewportInterface::contentSize() const
-    address = self.uglySide.call(
+    address = self._callAs(
+        'QAccessibleViewportInterface',
         'ritual_ZNK28QAccessibleViewportInterface11contentSizeEv',
     )
     from ..QtCore import QSizeF
@@ -157,7 +158,8 @@ class QAccessibleViewportInterface(CuteMixin, metaclass=MetaCute):
       A new cute QPointF around the copy Qt gave back. Python owns it.
     """
     #  QPointF QAccessibleViewportInterface::position() const
-    address = self.uglySide.call(
+    address = self._callAs(
+        'QAccessibleViewportInterface',
         'ritual_ZNK28QAccessibleViewportInterface8positionEv',
     )
     from ..QtCore import QPointF
@@ -177,7 +179,8 @@ class QAccessibleViewportInterface(CuteMixin, metaclass=MetaCute):
       A new cute QSizeF around the copy Qt gave back. Python owns it.
     """
     #  QSizeF QAccessibleViewportInterface::viewportSize() const
-    address = self.uglySide.call(
+    address = self._callAs(
+        'QAccessibleViewportInterface',
         'ritual_ZNK28QAccessibleViewportInterface12viewportSizeEv',
     )
     from ..QtCore import QSizeF
@@ -191,7 +194,8 @@ class QAccessibleViewportInterface(CuteMixin, metaclass=MetaCute):
     https://doc.qt.io/qt-6/qaccessibleviewportinterface.html#isIndexed
     """
     #  bool QAccessibleViewportInterface::isIndexed() const
-    return self.uglySide.call(
+    return self._callAs(
+        'QAccessibleViewportInterface',
         'ritual_ZNK28QAccessibleViewportInterface9isIndexedEv',
     )
 
@@ -216,9 +220,10 @@ class QAccessibleViewportInterface(CuteMixin, metaclass=MetaCute):
       own.
     """
     #  void QAccessibleViewportInterface::setPosition(QPointF position)
-    self.uglySide.call(
+    self._callAs(
+        'QAccessibleViewportInterface',
         'ritual_ZN28QAccessibleViewportInterface11setPositionE7QPointF',
-        self._valueOf(position),
+        self._valueOf(position, 'QPointF'),
     )
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -232,6 +237,21 @@ class QAccessibleViewportInterface(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload()
+  def __init__(self) -> None:
+    """
+    Notes what was given, for Qt's
+    'QAccessibleViewportInterface::QAccessibleViewportInterface()', which is
+    called at the first use.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qaccessibleviewportinterface.html
+    """
+    #  QAccessibleViewportInterface::QAccessibleViewportInterface()
+    self._noteCreation(QAccessibleViewportInterface, lambda: Rituals.call(
+        'ritual_ZN28QAccessibleViewportInterfaceC1Ev',
+    ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #

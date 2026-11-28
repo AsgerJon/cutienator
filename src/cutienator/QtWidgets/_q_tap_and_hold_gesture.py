@@ -20,6 +20,7 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
   from ..QtCore import QMetaObject, QPointF
+  from . import QTapAndHoldGesturePrivate
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -43,21 +44,27 @@ class QTapAndHoldGesture(QGesture):
   -----------
 
   Every function of Qt's QTapAndHoldGesture that has a ritual and that Python
-  can call so far, 6 names in all: 'metaObject', 'tr', 'position',
+  can call so far, 7 names in all: 'metaObject', 'tr', 'd_func', 'position',
   'setPosition', 'setTimeout', 'timeout'. It can be made from Python, in 1
   way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QTapAndHoldGesture::qt_metacast(const char *a0)': one of Qt's
+    own inner workings.
+  - Qt's 'int QTapAndHoldGesture::qt_metacall(QMetaObject::Call a0, int a1,
+    void **a2)': one of Qt's own inner workings.
+  - Qt's 'const QTapAndHoldGesturePrivate *QTapAndHoldGesture::d_func()
+    const': takes in Python what 'QTapAndHoldGesturePrivate
+    *QTapAndHoldGesture::d_func()' takes.
   - Qt's 'QTapAndHoldGesture::~QTapAndHoldGesture()': the destructor: Python
     never removes a C++ QTapAndHoldGesture.
 
   What has no ritual
   ------------------
 
-  6 of the 14 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet; 1 a template; 1 declared and nowhere to be found.
+  2 of the 14 functions Qt declares: 2 not a gap.
 
   What to expect
   --------------
@@ -233,7 +240,7 @@ class QTapAndHoldGesture(QGesture):
     #  void QTapAndHoldGesture::setPosition(const QPointF &pos)
     self.uglySide.call(
         'ritual_ZN18QTapAndHoldGesture11setPositionERK7QPointF',
-        self._valueOf(pos),
+        self._valueOf(pos, 'QPointF'),
     )
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -292,3 +299,21 @@ class QTapAndHoldGesture(QGesture):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  def d_func(self) -> Optional[QTapAndHoldGesturePrivate]:
+    """
+    Calls Qt's 'QTapAndHoldGesturePrivate *QTapAndHoldGesture::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtapandholdgesture.html#d_func
+
+    Returns
+    -------
+
+    Optional[QTapAndHoldGesturePrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QTapAndHoldGesturePrivate *QTapAndHoldGesture::d_func()
+    address = self.uglySide.call('ritual_ZN18QTapAndHoldGesture6d_funcEv')
+    from . import QTapAndHoldGesturePrivate
+    return QTapAndHoldGesturePrivate._cuteAt(address)

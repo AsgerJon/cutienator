@@ -13,14 +13,15 @@ from worktoy.dispatch import overload
 from worktoy.keenum import Kee
 
 from ..cute import CuteMixin, CuteFlags, CuteNum, MetaCute, WAIT
+from ..occult import Rituals
 from ..QtCore import Qt
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from ..QtCore import QLine, QLineF, QPoint, QPointF, QRect, QRectF, QSize
-  from . import QImage, QPaintDevice, QPaintEngineState, QPainter
-  from . import QPainterPath, QPixmap, QRegion, QTextItem
+  from . import QImage, QPaintDevice, QPaintEnginePrivate, QPaintEngineState
+  from . import QPainter, QPainterPath, QPixmap, QRegion, QTextItem
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -54,30 +55,33 @@ class QPaintEngine(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QPaintEngine that has a ritual and that Python can
-  call so far, 34 names in all: 'isActive', 'setActive', 'begin', 'end',
-  'updateState', 'drawRects', 'drawLines', 'drawEllipse', 'drawPath',
+  call so far, 35 names in all: 'd_func', 'isActive', 'setActive', 'begin',
+  'end', 'updateState', 'drawRects', 'drawLines', 'drawEllipse', 'drawPath',
   'drawPoints', 'drawPolygon', 'drawPixmap', 'drawTextItem',
   'drawTiledPixmap', 'drawImage', 'setPaintDevice', 'paintDevice',
   'setSystemClip', 'systemClip', 'setSystemRect', 'systemRect',
   'coordinateOffset', 'type', 'testDirty', 'setDirty', 'clearDirty',
   'hasFeature', 'painter', 'syncState', 'isExtended', 'createPixmap',
-  'createPixmapFromImage', 'setAutoDestruct', 'autoDestruct'. None can be
-  made from Python: one comes out of a function of another class that gives
-  one back.
+  'createPixmapFromImage', 'setAutoDestruct', 'autoDestruct'. It can be made
+  from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'const QPaintEnginePrivate *QPaintEngine::d_func() const': takes in
+    Python what 'QPaintEnginePrivate *QPaintEngine::d_func()' takes.
   - Qt's 'QPaintEngine::~QPaintEngine()': the destructor: Python never
     removes a C++ QPaintEngine.
   - Qt's 'void QPaintEngine::fix_neg_rect(int *x, int *y, int *w, int *h)':
     takes a number to change where it is.
+  - Qt's 'QPaintEngine::QPaintEngine(QPaintEnginePrivate &data,
+    PaintEngineFeatures devcaps)': takes a type Python has no way to hand
+    over yet.
 
   What has no ritual
   ------------------
 
-  6 of the 47 functions Qt declares: 2 takes or gives a type that cannot be
-  passed yet; 2 the class is abstract, so C++ cannot make one; 2 forbidden.
+  2 of the 47 functions Qt declares: 2 forbidden.
 
   What to expect
   --------------
@@ -90,6 +94,9 @@ class QPaintEngine(CuteMixin, metaclass=MetaCute):
     has it, and is passed on as nothing. Whether Qt can do with nothing there
     is as in C++.
   - Python never removes the C++ QPaintEngine.
+  - Each name of Qt's QPaintEngine that has no cute function yet,
+    'fix_neg_rect', holds a function that raises 'NotImplementedError', and
+    its docstring says why.
   """
 
   #  The enums Qt writes inside QPaintEngine, each a class in here as in C++,
@@ -665,6 +672,32 @@ class QPaintEngine(CuteMixin, metaclass=MetaCute):
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  @overload()
+  @overload(PaintEngineFeatures)
+  def __init__(
+      self,
+      features: PaintEngineFeatures = PaintEngineFeatures(),
+  ) -> None:
+    """
+    Notes what was given, for Qt's
+    'QPaintEngine::QPaintEngine(PaintEngineFeatures features)', which is
+    called at the first use.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpaintengine.html#QPaintEngine
+
+    Parameters
+    ----------
+
+    features : PaintEngineFeatures
+      Passed on as its number. May be left out, as in Qt: it is then
+      PaintEngineFeatures().
+    """
+    #  QPaintEngine::QPaintEngine(PaintEngineFeatures features)
+    self._noteCreation(QPaintEngine, lambda: Rituals.call(
+        'ritual_ZN12QPaintEngineC1E6QFlagsINS_18PaintEngineFeatureEE',
+        features.value,
+    ))
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -684,6 +717,24 @@ class QPaintEngine(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  def d_func(self) -> Optional[QPaintEnginePrivate]:
+    """
+    Calls Qt's 'QPaintEnginePrivate *QPaintEngine::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpaintengine.html#d_func
+
+    Returns
+    -------
+
+    Optional[QPaintEnginePrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QPaintEnginePrivate *QPaintEngine::d_func()
+    address = self.uglySide.call('ritual_ZN12QPaintEngine6d_funcEv')
+    from . import QPaintEnginePrivate
+    return QPaintEnginePrivate._cuteAt(address)
 
   @overload(QPaintDevice)
   @overload(NoneType)
@@ -916,7 +967,9 @@ class QPaintEngine(CuteMixin, metaclass=MetaCute):
     ritual = 'ritual_ZN12QPaintEngine10drawPointsEPK7QPointFi'
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZN12QPaintEngine10drawPointsEPK7QPointFi'
-    self.uglySide.call(ritual, self._addressOf(points), pointCount)
+    self.uglySide.call(
+        ritual, self._addressOf(points, 'QPointF'), pointCount,
+    )
 
   @overload(QPoint, int)
   def drawPoints(self, points: Optional[QPoint], pointCount: int) -> None:
@@ -979,7 +1032,7 @@ class QPaintEngine(CuteMixin, metaclass=MetaCute):
           'ritual_own_ZN12QPaintEngine11drawPolygonEPK7QPointFiNS_15Polygon'
           'DrawModeE')
     self.uglySide.call(
-        ritual, self._addressOf(points), pointCount, mode.value,
+        ritual, self._addressOf(points, 'QPointF'), pointCount, mode.value,
     )
 
   @overload(QPoint, int, PolygonDrawMode)
@@ -1076,7 +1129,9 @@ class QPaintEngine(CuteMixin, metaclass=MetaCute):
     if self.uglySide.isOurs():
       ritual = (
           'ritual_own_ZN12QPaintEngine12drawTextItemERK7QPointFRK9QTextItem')
-    self.uglySide.call(ritual, self._valueOf(p), self._valueOf(textItem))
+    self.uglySide.call(
+        ritual, self._valueOf(p, 'QPointF'), self._valueOf(textItem),
+    )
 
   @overload(QRectF, QPixmap, QPointF)
   def drawTiledPixmap(self, r: QRectF, pixmap: QPixmap, s: QPointF) -> None:
@@ -1111,7 +1166,8 @@ class QPaintEngine(CuteMixin, metaclass=MetaCute):
           'ritual_own_ZN12QPaintEngine15drawTiledPixmapERK6QRectFRK7QPixmap'
           'RK7QPointF')
     self.uglySide.call(
-        ritual, self._valueOf(r), self._valueOf(pixmap), self._valueOf(s),
+        ritual,
+        self._valueOf(r), self._valueOf(pixmap), self._valueOf(s, 'QPointF'),
     )
 
   @overload(QRectF, QImage, QRectF)
@@ -1279,3 +1335,14 @@ class QPaintEngine(CuteMixin, metaclass=MetaCute):
     address = self.uglySide.call(ritual, self._valueOf(image), flags.value)
     from . import QPixmap
     return QPixmap._cuteOwning(address)
+
+  @staticmethod
+  def fix_neg_rect(*__, **_) -> Never:
+    """
+    Qt's 'void QPaintEngine::fix_neg_rect(int *x, int *y, int *w, int *h)':
+    takes a number to change where it is.
+    """
+    raise NotImplementedError(
+        "'QPaintEngine.fix_neg_rect' has no cute function yet. Qt's 'void "
+        "QPaintEngine::fix_neg_rect(int *x, int *y, int *w, int *h)': takes "
+        "a number to change where it is.")

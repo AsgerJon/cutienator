@@ -14,10 +14,10 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
-from ..QtCore import Qt
+from ..QtCore import Qt, QList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from . import QVector3D, QVector4D
 else:
@@ -66,14 +66,18 @@ class QQuaternion(CuteMixin, metaclass=MetaCute):
     float *angle) const': takes a number to change where it is.
   - Qt's 'void QQuaternion::getEulerAngles(float *pitch, float *yaw, float
     *roll) const': takes a number to change where it is.
+  - Qt's 'QMatrix3x3 QQuaternion::toRotationMatrix() const': gives a type
+    Python has no way to take yet.
+  - Qt's 'QQuaternion QQuaternion::fromRotationMatrix(const QMatrix3x3
+    &rot3x3)': takes a type Python has no way to hand over yet.
   - Qt's 'QQuaternion::~QQuaternion()': the destructor: Python removes its
     C++ QQuaternion by it, and has no other use for it.
 
   What has no ritual
   ------------------
 
-  5 of the 63 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet; 1 a template.
+  3 of the 63 functions Qt declares: 2 the compiler refuses its ritual as it
+  would be written here; 1 a template.
 
   What to expect
   --------------
@@ -87,6 +91,10 @@ class QQuaternion(CuteMixin, metaclass=MetaCute):
     is as in C++.
   - A function giving a QQuaternion back gives a copy the ritual made for
     Python, in a new cute QQuaternion.
+  - Each name of Qt's QQuaternion that has no cute function yet,
+    'eulerAngles', 'fromRotationMatrix', 'getAxisAndAngle', 'getEulerAngles',
+    'toRotationMatrix', holds a function that raises 'NotImplementedError',
+    and its docstring says why.
   """
 
   #  The classes Qt writes inside QQuaternion, each a class in here as in
@@ -1671,3 +1679,77 @@ class QQuaternion(CuteMixin, metaclass=MetaCute):
         self._addressOf(xAxis), self._addressOf(yAxis),
         self._addressOf(zAxis),
     )
+
+  @staticmethod
+  def eulerAngles(*__, **_) -> Never:
+    """
+    Qt's 'EulerAngles<float> QQuaternion::eulerAngles() const': the compiler
+    refuses its ritual as it would be written here: no template named
+    'EulerAngles'.
+    """
+    raise NotImplementedError(
+        "'QQuaternion.eulerAngles' has no cute function yet. Qt's "
+        "'EulerAngles<float> QQuaternion::eulerAngles() const': the "
+        "compiler refuses its ritual as it would be written here: no "
+        "template named 'EulerAngles'.")
+
+  @staticmethod
+  def fromRotationMatrix(*__, **_) -> Never:
+    """
+    Qt's 'QQuaternion QQuaternion::fromRotationMatrix(const QMatrix3x3
+    &rot3x3)': takes a type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QQuaternion.fromRotationMatrix' has no cute function yet. Qt's "
+        "'QQuaternion QQuaternion::fromRotationMatrix(const QMatrix3x3 "
+        "&rot3x3)': takes a type Python has no way to hand over yet.")
+
+  @staticmethod
+  def getAxisAndAngle(*__, **_) -> Never:
+    """
+    - Qt's 'void QQuaternion::getAxisAndAngle(QVector3D *axis, float *angle)
+      const': takes a number to change where it is.
+    - Qt's 'void QQuaternion::getAxisAndAngle(float *x, float *y, float *z,
+      float *angle) const': takes a number to change where it is.
+    """
+    raise NotImplementedError(
+        "'QQuaternion.getAxisAndAngle' has no cute function yet. Qt's 'void "
+        "QQuaternion::getAxisAndAngle(QVector3D *axis, float *angle) "
+        "const': takes a number to change where it is. Qt's 'void "
+        "QQuaternion::getAxisAndAngle(float *x, float *y, float *z, float "
+        "*angle) const': takes a number to change where it is.")
+
+  @staticmethod
+  def getEulerAngles(*__, **_) -> Never:
+    """
+    Qt's 'void QQuaternion::getEulerAngles(float *pitch, float *yaw, float
+    *roll) const': takes a number to change where it is.
+    """
+    raise NotImplementedError(
+        "'QQuaternion.getEulerAngles' has no cute function yet. Qt's 'void "
+        "QQuaternion::getEulerAngles(float *pitch, float *yaw, float *roll) "
+        "const': takes a number to change where it is.")
+
+  @staticmethod
+  def toRotationMatrix(*__, **_) -> Never:
+    """
+    Qt's 'QMatrix3x3 QQuaternion::toRotationMatrix() const': gives a type
+    Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QQuaternion.toRotationMatrix' has no cute function yet. Qt's "
+        "'QMatrix3x3 QQuaternion::toRotationMatrix() const': gives a type "
+        "Python has no way to take yet.")
+
+
+#  Qt's 'QList<QQuaternion>': the list of QQuaternion, which
+#  'QList[QQuaternion]' gives. It is made here, so that there is one as soon
+#  as there can be a QQuaternion.
+QList.createKind(
+    QQuaternion, 'value',
+    make='ritual_list_make_QQuaternion',
+    add='ritual_list_add_QQuaternion',
+    size='ritual_list_size_QQuaternion',
+    at='ritual_list_at_QQuaternion',
+    drop='ritual_list_drop_QQuaternion',
+)

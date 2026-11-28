@@ -18,7 +18,7 @@ from typing import TYPE_CHECKING
 from . import QMenu
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from ..QtCore import QMetaObject
 
@@ -35,17 +35,24 @@ class QUnicodeControlCharacterMenu(QMenu):
   -----------
 
   Every function of Qt's QUnicodeControlCharacterMenu that has a ritual and
-  that Python can call so far, 1 name in all: 'metaObject'. None can be made
-  from Python: one comes out of a function of another class that gives one
-  back.
+  that Python can call so far, 2 names in all: 'metaObject',
+  'menuActionTriggered'. None can be made from Python: one comes out of a
+  function of another class that gives one back.
+
+  What has a ritual and is left out, and why
+  ------------------------------------------
+
+  - Qt's 'void *QUnicodeControlCharacterMenu::qt_metacast(const char *a0)':
+    one of Qt's own inner workings.
+  - Qt's 'int QUnicodeControlCharacterMenu::qt_metacall(QMetaObject::Call a0,
+    int a1, void **a2)': one of Qt's own inner workings.
 
   What has no ritual
   ------------------
 
-  7 of the 8 functions Qt declares: 2 takes or gives a type that cannot be
-  passed yet; 2 Qt's library has no name for it, and its code in Qt's source
-  does not compile apart from its file; 1 a template; 1 declared and nowhere
-  to be found; 1 leans on 'QUnicodeControlCharacterMenu.
+  4 of the 8 functions Qt declares: 2 not a gap; 1 Qt's library has no name
+  for it, and its code in Qt's source does not compile apart from its file; 1
+  leans on 'QUnicodeControlCharacterMenu.
 
   What to expect
   --------------
@@ -61,6 +68,9 @@ class QUnicodeControlCharacterMenu(QMenu):
   - Qt tells when it has removed the C++ QUnicodeControlCharacterMenu. Every
     call on the cute object, and every use of it as an argument, then raises
     'RuntimeError', and nothing reaches C++.
+  - Each name of Qt's QUnicodeControlCharacterMenu that has no cute function
+    yet, '__init__', holds a function that raises 'NotImplementedError', and
+    its docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -125,6 +135,22 @@ class QUnicodeControlCharacterMenu(QMenu):
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  @staticmethod
+  def __init__(*__, **_) -> Never:
+    """
+    Qt's 'QUnicodeControlCharacterMenu::QUnicodeControlCharacterMenu(QObject
+    *editWidget, QWidget *parent)': Qt's library has no name for it, and its
+    code in Qt's source does not compile apart from its file: use of
+    undeclared identifier 'qt_controlCharacters'.
+    """
+    raise NotImplementedError(
+        "'QUnicodeControlCharacterMenu.__init__' has no cute function yet. "
+        "Qt's "
+        "'QUnicodeControlCharacterMenu::QUnicodeControlCharacterMenu(QObject"
+        " *editWidget, QWidget *parent)': Qt's library has no name for it, "
+        "and its code in Qt's source does not compile apart from its file: "
+        "use of undeclared identifier 'qt_controlCharacters'.")
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -144,3 +170,15 @@ class QUnicodeControlCharacterMenu(QMenu):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  def menuActionTriggered(self) -> None:
+    """
+    Calls Qt's 'void QUnicodeControlCharacterMenu::menuActionTriggered()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qunicodecontrolcharactermenu.html
+    """
+    #  void QUnicodeControlCharacterMenu::menuActionTriggered()
+    self.uglySide.call(
+        'ritual_ZN28QUnicodeControlCharacterMenu19menuActionTriggeredEv',
+    )

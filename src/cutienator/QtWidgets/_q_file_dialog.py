@@ -18,12 +18,12 @@ from ..QtCore import Qt, QDir, QList, QObject, QStringList
 from . import QDialog, QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from ..QtCore import QAbstractProxyModel, QByteArray, QEvent, QMetaObject
-  from ..QtCore import QUrl
+  from ..QtCore import QString, QUrl
   from ..QtGui import QAbstractFileIconProvider
-  from . import QAbstractItemDelegate
+  from . import QAbstractItemDelegate, QFileDialogArgs, QFileDialogPrivate
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -33,6 +33,8 @@ else:
   QAbstractProxyModel = WAIT['QAbstractProxyModel']
   QByteArray = WAIT['QByteArray']
   QEvent = WAIT['QEvent']
+  QFileDialogArgs = WAIT['QFileDialogArgs']
+  QString = WAIT['QString']
   QUrl = WAIT['QUrl']
 
 #  The class of None, for a signature that takes None in the place of an
@@ -52,7 +54,7 @@ class QFileDialog(QDialog):
   -----------
 
   Every function of Qt's QFileDialog that has a ritual and that Python can
-  call so far, 57 names in all: 'metaObject', 'tr', 'setDirectory',
+  call so far, 73 names in all: 'metaObject', 'tr', 'setDirectory',
   'directory', 'setDirectoryUrl', 'directoryUrl', 'selectFile',
   'selectedFiles', 'selectUrl', 'selectedUrls', 'setNameFilter',
   'setNameFilters', 'nameFilters', 'selectNameFilter',
@@ -64,46 +66,34 @@ class QFileDialog(QDialog):
   'setItemDelegate', 'itemDelegate', 'setIconProvider', 'iconProvider',
   'setLabelText', 'labelText', 'setSupportedSchemes', 'supportedSchemes',
   'setProxyModel', 'proxyModel', 'setOption', 'testOption', 'setOptions',
-  'options', 'open', 'setVisible', 'getExistingDirectory',
-  'getExistingDirectoryUrl', 'saveFileContent', 'done', 'accept',
-  'changeEvent'. It can be made from Python, in 2 ways; see '__init__'.
+  'options', 'open', 'setVisible', 'fileSelected', 'filesSelected',
+  'currentChanged', 'directoryEntered', 'urlSelected', 'urlsSelected',
+  'currentUrlChanged', 'directoryUrlEntered', 'filterSelected',
+  'getOpenFileName', 'getOpenFileUrl', 'getSaveFileName', 'getSaveFileUrl',
+  'getExistingDirectory', 'getExistingDirectoryUrl', 'getOpenFileNames',
+  'getOpenFileUrls', 'saveFileContent', 'done', 'accept', 'changeEvent',
+  'd_func'. It can be made from Python, in 3 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QFileDialog::qt_metacast(const char *a0)': one of Qt's own
+    inner workings.
+  - Qt's 'int QFileDialog::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
   - Qt's 'QFileDialog::~QFileDialog()': the destructor: Python never removes
     a C++ QFileDialog.
-  - Qt's 'QString QFileDialog::getOpenFileName(QWidget *parent, const QString
-    &caption, const QString &dir, const QString &filter, QString
-    *selectedFilter, Options options)': names 'QString', which has no cute
-    class yet.
-  - Qt's 'QUrl QFileDialog::getOpenFileUrl(QWidget *parent, const QString
-    &caption, const QUrl &dir, const QString &filter, QString
-    *selectedFilter, Options options, const QStringList &supportedSchemes)':
-    names 'QString', which has no cute class yet.
-  - Qt's 'QString QFileDialog::getSaveFileName(QWidget *parent, const QString
-    &caption, const QString &dir, const QString &filter, QString
-    *selectedFilter, Options options)': names 'QString', which has no cute
-    class yet.
-  - Qt's 'QUrl QFileDialog::getSaveFileUrl(QWidget *parent, const QString
-    &caption, const QUrl &dir, const QString &filter, QString
-    *selectedFilter, Options options, const QStringList &supportedSchemes)':
-    names 'QString', which has no cute class yet.
-  - Qt's 'QStringList QFileDialog::getOpenFileNames(QWidget *parent, const
-    QString &caption, const QString &dir, const QString &filter, QString
-    *selectedFilter, Options options)': names 'QString', which has no cute
-    class yet.
-  - Qt's 'QList<QUrl> QFileDialog::getOpenFileUrls(QWidget *parent, const
-    QString &caption, const QUrl &dir, const QString &filter, QString
-    *selectedFilter, Options options, const QStringList &supportedSchemes)':
-    names 'QString', which has no cute class yet.
+  - Qt's 'void QFileDialog::getOpenFileContent(const QString &nameFilter,
+    const std::function<void (const QString &, const QByteArray &)>
+    &fileContentsReady, QWidget *parent)': takes a type Python has no way to
+    hand over yet.
+  - Qt's 'const QFileDialogPrivate *QFileDialog::d_func() const': takes in
+    Python what 'QFileDialogPrivate *QFileDialog::d_func()' takes.
 
   What has no ritual
   ------------------
 
-  19 of the 86 functions Qt declares: 9 a signal; 6 takes or gives a type
-  that cannot be passed yet; 2 forbidden; 1 a template; 1 declared and
-  nowhere to be found.
+  4 of the 86 functions Qt declares: 2 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -119,6 +109,9 @@ class QFileDialog(QDialog):
   - Qt tells when it has removed the C++ QFileDialog. Every call on the cute
     object, and every use of it as an argument, then raises 'RuntimeError',
     and nothing reaches C++.
+  - Each name of Qt's QFileDialog that has no cute function yet,
+    'getOpenFileContent', holds a function that raises 'NotImplementedError',
+    and its docstring says why.
   """
 
   #  The enums Qt writes inside QFileDialog, each a class in here as in C++,
@@ -234,6 +227,296 @@ class QFileDialog(QDialog):
   @overload(NoneType, str)
   @overload(QWidget, str, str)
   @overload(NoneType, str, str)
+  @overload(QWidget, str, str, str)
+  @overload(NoneType, str, str, str)
+  @overload(QWidget, str, str, str, QString)
+  @overload(QWidget, str, str, str, NoneType)
+  @overload(NoneType, str, str, str, QString)
+  @overload(NoneType, str, str, str, NoneType)
+  @overload(QWidget, str, str, str, QString, Options)
+  @overload(QWidget, str, str, str, NoneType, Options)
+  @overload(NoneType, str, str, str, QString, Options)
+  @overload(NoneType, str, str, str, NoneType, Options)
+  def getOpenFileName(
+      parent: Optional[QWidget] = None,
+      caption: str = '',
+      dir: str = '',
+      filter: str = '',
+      selectedFilter: Optional[QString] = None,
+      options: Options = Options(),
+  ) -> str:
+    """
+    Calls Qt's 'QString QFileDialog::getOpenFileName(QWidget *parent, const
+    QString &caption, const QString &dir, const QString &filter, QString
+    *selectedFilter, Options options)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfiledialog.html#getOpenFileName
+
+    Parameters
+    ----------
+
+    parent : Optional[QWidget]
+      Passed on as the address of its C++ object. None is passed on as no
+      object. May be left out, as in Qt: it is then None.
+
+    caption : str
+      Passed on as it is: a QString is made of it for the call. May be left
+      out, as in Qt: it is then ''.
+
+    dir : str
+      Passed on as it is: a QString is made of it for the call. May be left
+      out, as in Qt: it is then ''.
+
+    filter : str
+      Passed on as it is: a QString is made of it for the call. May be left
+      out, as in Qt: it is then ''.
+
+    selectedFilter : Optional[QString]
+      Passed on as the address of its C++ object. None is passed on as no
+      object. May be left out, as in Qt: it is then None.
+
+    options : Options
+      Passed on as its number. May be left out, as in Qt: it is then
+      Options().
+
+    Returns
+    -------
+
+    str
+      The text Qt gave back.
+    """
+    #  QString QFileDialog::getOpenFileName(QWidget *parent, const QString
+    #      &caption, const QString &dir, const QString &filter, QString
+    #      *selectedFilter, Options options)
+    return Rituals.call(
+        'ritual_ZN11QFileDialog15getOpenFileNameEP7QWidgetRK7QStringS4_S4_P'
+        'S2_6QFlagsINS_6OptionEE',
+        CuteMixin._addressOf(parent), caption, dir, filter,
+        CuteMixin._addressOf(selectedFilter), options.value,
+    )
+
+  @staticmethod
+  @overload(QWidget, str, QUrl, str, QString, Options, QStringList)
+  @overload(QWidget, str, QUrl, str, NoneType, Options, QStringList)
+  @overload(NoneType, str, QUrl, str, QString, Options, QStringList)
+  @overload(NoneType, str, QUrl, str, NoneType, Options, QStringList)
+  def getOpenFileUrl(
+      parent: Optional[QWidget],
+      caption: str,
+      dir: QUrl,
+      filter: str,
+      selectedFilter: Optional[QString],
+      options: Options,
+      supportedSchemes: QStringList,
+  ) -> QUrl:
+    """
+    Calls Qt's 'QUrl QFileDialog::getOpenFileUrl(QWidget *parent, const
+    QString &caption, const QUrl &dir, const QString &filter, QString
+    *selectedFilter, Options options, const QStringList &supportedSchemes)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfiledialog.html#getOpenFileUrl
+
+    Parameters
+    ----------
+
+    parent : Optional[QWidget]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    caption : str
+      Passed on as it is: a QString is made of it for the call.
+
+    dir : QUrl
+      Passed on as a value: Qt reads the C++ QUrl, which stays Python's own.
+
+    filter : str
+      Passed on as it is: a QString is made of it for the call.
+
+    selectedFilter : Optional[QString]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    options : Options
+      Passed on as its number.
+
+    supportedSchemes : QStringList
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+
+    Returns
+    -------
+
+    QUrl
+      A new cute QUrl around the copy Qt gave back. Python owns it.
+    """
+    #  QUrl QFileDialog::getOpenFileUrl(QWidget *parent, const QString
+    #      &caption, const QUrl &dir, const QString &filter, QString
+    #      *selectedFilter, Options options, const QStringList
+    #      &supportedSchemes)
+    address = Rituals.call(
+        'ritual_ZN11QFileDialog14getOpenFileUrlEP7QWidgetRK7QStringRK4QUrlS'
+        '4_PS2_6QFlagsINS_6OptionEERK5QListIS2_E',
+        CuteMixin._addressOf(parent), caption, CuteMixin._valueOf(dir),
+        filter, CuteMixin._addressOf(selectedFilter), options.value,
+        CuteMixin._valueOf(supportedSchemes),
+    )
+    from ..QtCore import QUrl
+    return QUrl._cuteOwning(address)
+
+  @staticmethod
+  @overload()
+  @overload(QWidget)
+  @overload(NoneType)
+  @overload(QWidget, str)
+  @overload(NoneType, str)
+  @overload(QWidget, str, str)
+  @overload(NoneType, str, str)
+  @overload(QWidget, str, str, str)
+  @overload(NoneType, str, str, str)
+  @overload(QWidget, str, str, str, QString)
+  @overload(QWidget, str, str, str, NoneType)
+  @overload(NoneType, str, str, str, QString)
+  @overload(NoneType, str, str, str, NoneType)
+  @overload(QWidget, str, str, str, QString, Options)
+  @overload(QWidget, str, str, str, NoneType, Options)
+  @overload(NoneType, str, str, str, QString, Options)
+  @overload(NoneType, str, str, str, NoneType, Options)
+  def getSaveFileName(
+      parent: Optional[QWidget] = None,
+      caption: str = '',
+      dir: str = '',
+      filter: str = '',
+      selectedFilter: Optional[QString] = None,
+      options: Options = Options(),
+  ) -> str:
+    """
+    Calls Qt's 'QString QFileDialog::getSaveFileName(QWidget *parent, const
+    QString &caption, const QString &dir, const QString &filter, QString
+    *selectedFilter, Options options)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfiledialog.html#getSaveFileName
+
+    Parameters
+    ----------
+
+    parent : Optional[QWidget]
+      Passed on as the address of its C++ object. None is passed on as no
+      object. May be left out, as in Qt: it is then None.
+
+    caption : str
+      Passed on as it is: a QString is made of it for the call. May be left
+      out, as in Qt: it is then ''.
+
+    dir : str
+      Passed on as it is: a QString is made of it for the call. May be left
+      out, as in Qt: it is then ''.
+
+    filter : str
+      Passed on as it is: a QString is made of it for the call. May be left
+      out, as in Qt: it is then ''.
+
+    selectedFilter : Optional[QString]
+      Passed on as the address of its C++ object. None is passed on as no
+      object. May be left out, as in Qt: it is then None.
+
+    options : Options
+      Passed on as its number. May be left out, as in Qt: it is then
+      Options().
+
+    Returns
+    -------
+
+    str
+      The text Qt gave back.
+    """
+    #  QString QFileDialog::getSaveFileName(QWidget *parent, const QString
+    #      &caption, const QString &dir, const QString &filter, QString
+    #      *selectedFilter, Options options)
+    return Rituals.call(
+        'ritual_ZN11QFileDialog15getSaveFileNameEP7QWidgetRK7QStringS4_S4_P'
+        'S2_6QFlagsINS_6OptionEE',
+        CuteMixin._addressOf(parent), caption, dir, filter,
+        CuteMixin._addressOf(selectedFilter), options.value,
+    )
+
+  @staticmethod
+  @overload(QWidget, str, QUrl, str, QString, Options, QStringList)
+  @overload(QWidget, str, QUrl, str, NoneType, Options, QStringList)
+  @overload(NoneType, str, QUrl, str, QString, Options, QStringList)
+  @overload(NoneType, str, QUrl, str, NoneType, Options, QStringList)
+  def getSaveFileUrl(
+      parent: Optional[QWidget],
+      caption: str,
+      dir: QUrl,
+      filter: str,
+      selectedFilter: Optional[QString],
+      options: Options,
+      supportedSchemes: QStringList,
+  ) -> QUrl:
+    """
+    Calls Qt's 'QUrl QFileDialog::getSaveFileUrl(QWidget *parent, const
+    QString &caption, const QUrl &dir, const QString &filter, QString
+    *selectedFilter, Options options, const QStringList &supportedSchemes)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfiledialog.html#getSaveFileUrl
+
+    Parameters
+    ----------
+
+    parent : Optional[QWidget]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    caption : str
+      Passed on as it is: a QString is made of it for the call.
+
+    dir : QUrl
+      Passed on as a value: Qt reads the C++ QUrl, which stays Python's own.
+
+    filter : str
+      Passed on as it is: a QString is made of it for the call.
+
+    selectedFilter : Optional[QString]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    options : Options
+      Passed on as its number.
+
+    supportedSchemes : QStringList
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+
+    Returns
+    -------
+
+    QUrl
+      A new cute QUrl around the copy Qt gave back. Python owns it.
+    """
+    #  QUrl QFileDialog::getSaveFileUrl(QWidget *parent, const QString
+    #      &caption, const QUrl &dir, const QString &filter, QString
+    #      *selectedFilter, Options options, const QStringList
+    #      &supportedSchemes)
+    address = Rituals.call(
+        'ritual_ZN11QFileDialog14getSaveFileUrlEP7QWidgetRK7QStringRK4QUrlS'
+        '4_PS2_6QFlagsINS_6OptionEERK5QListIS2_E',
+        CuteMixin._addressOf(parent), caption, CuteMixin._valueOf(dir),
+        filter, CuteMixin._addressOf(selectedFilter), options.value,
+        CuteMixin._valueOf(supportedSchemes),
+    )
+    from ..QtCore import QUrl
+    return QUrl._cuteOwning(address)
+
+  @staticmethod
+  @overload()
+  @overload(QWidget)
+  @overload(NoneType)
+  @overload(QWidget, str)
+  @overload(NoneType, str)
+  @overload(QWidget, str, str)
+  @overload(NoneType, str, str)
   @overload(QWidget, str, str, Options)
   @overload(NoneType, str, str, Options)
   def getExistingDirectory(
@@ -338,6 +621,152 @@ class QFileDialog(QDialog):
     )
     from ..QtCore import QUrl
     return QUrl._cuteOwning(address)
+
+  @staticmethod
+  @overload()
+  @overload(QWidget)
+  @overload(NoneType)
+  @overload(QWidget, str)
+  @overload(NoneType, str)
+  @overload(QWidget, str, str)
+  @overload(NoneType, str, str)
+  @overload(QWidget, str, str, str)
+  @overload(NoneType, str, str, str)
+  @overload(QWidget, str, str, str, QString)
+  @overload(QWidget, str, str, str, NoneType)
+  @overload(NoneType, str, str, str, QString)
+  @overload(NoneType, str, str, str, NoneType)
+  @overload(QWidget, str, str, str, QString, Options)
+  @overload(QWidget, str, str, str, NoneType, Options)
+  @overload(NoneType, str, str, str, QString, Options)
+  @overload(NoneType, str, str, str, NoneType, Options)
+  def getOpenFileNames(
+      parent: Optional[QWidget] = None,
+      caption: str = '',
+      dir: str = '',
+      filter: str = '',
+      selectedFilter: Optional[QString] = None,
+      options: Options = Options(),
+  ) -> QStringList:
+    """
+    Calls Qt's 'QStringList QFileDialog::getOpenFileNames(QWidget *parent,
+    const QString &caption, const QString &dir, const QString &filter,
+    QString *selectedFilter, Options options)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfiledialog.html#getOpenFileNames
+
+    Parameters
+    ----------
+
+    parent : Optional[QWidget]
+      Passed on as the address of its C++ object. None is passed on as no
+      object. May be left out, as in Qt: it is then None.
+
+    caption : str
+      Passed on as it is: a QString is made of it for the call. May be left
+      out, as in Qt: it is then ''.
+
+    dir : str
+      Passed on as it is: a QString is made of it for the call. May be left
+      out, as in Qt: it is then ''.
+
+    filter : str
+      Passed on as it is: a QString is made of it for the call. May be left
+      out, as in Qt: it is then ''.
+
+    selectedFilter : Optional[QString]
+      Passed on as the address of its C++ object. None is passed on as no
+      object. May be left out, as in Qt: it is then None.
+
+    options : Options
+      Passed on as its number. May be left out, as in Qt: it is then
+      Options().
+
+    Returns
+    -------
+
+    QStringList
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QStringList QFileDialog::getOpenFileNames(QWidget *parent, const
+    #      QString &caption, const QString &dir, const QString &filter,
+    #      QString *selectedFilter, Options options)
+    address = Rituals.call(
+        'ritual_ZN11QFileDialog16getOpenFileNamesEP7QWidgetRK7QStringS4_S4_'
+        'PS2_6QFlagsINS_6OptionEE',
+        CuteMixin._addressOf(parent), caption, dir, filter,
+        CuteMixin._addressOf(selectedFilter), options.value,
+    )
+    return QStringList._cuteOwning(address)
+
+  @staticmethod
+  @overload(QWidget, str, QUrl, str, QString, Options, QStringList)
+  @overload(QWidget, str, QUrl, str, NoneType, Options, QStringList)
+  @overload(NoneType, str, QUrl, str, QString, Options, QStringList)
+  @overload(NoneType, str, QUrl, str, NoneType, Options, QStringList)
+  def getOpenFileUrls(
+      parent: Optional[QWidget],
+      caption: str,
+      dir: QUrl,
+      filter: str,
+      selectedFilter: Optional[QString],
+      options: Options,
+      supportedSchemes: QStringList,
+  ) -> QList[QUrl]:
+    """
+    Calls Qt's 'QList<QUrl> QFileDialog::getOpenFileUrls(QWidget *parent,
+    const QString &caption, const QUrl &dir, const QString &filter, QString
+    *selectedFilter, Options options, const QStringList &supportedSchemes)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfiledialog.html#getOpenFileUrls
+
+    Parameters
+    ----------
+
+    parent : Optional[QWidget]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    caption : str
+      Passed on as it is: a QString is made of it for the call.
+
+    dir : QUrl
+      Passed on as a value: Qt reads the C++ QUrl, which stays Python's own.
+
+    filter : str
+      Passed on as it is: a QString is made of it for the call.
+
+    selectedFilter : Optional[QString]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    options : Options
+      Passed on as its number.
+
+    supportedSchemes : QStringList
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+
+    Returns
+    -------
+
+    QList[QUrl]
+      A new cute list around the copy Qt gave back. Python owns it.
+    """
+    #  QList<QUrl> QFileDialog::getOpenFileUrls(QWidget *parent, const
+    #      QString &caption, const QUrl &dir, const QString &filter, QString
+    #      *selectedFilter, Options options, const QStringList
+    #      &supportedSchemes)
+    address = Rituals.call(
+        'ritual_ZN11QFileDialog15getOpenFileUrlsEP7QWidgetRK7QStringRK4QUrl'
+        'S4_PS2_6QFlagsINS_6OptionEERK5QListIS2_E',
+        CuteMixin._addressOf(parent), caption, CuteMixin._valueOf(dir),
+        filter, CuteMixin._addressOf(selectedFilter), options.value,
+        CuteMixin._valueOf(supportedSchemes),
+    )
+    from ..QtCore import QUrl
+    return QList[QUrl]._cuteOwning(address)
 
   @staticmethod
   @overload(QByteArray, str)
@@ -1345,6 +1774,26 @@ class QFileDialog(QDialog):
         self._addressOf(parent), caption, directory, filter,
     ))
 
+  @overload(QFileDialogArgs)
+  def __init__(self, args: QFileDialogArgs) -> None:
+    """
+    Notes what was given, for Qt's 'QFileDialog::QFileDialog(const
+    QFileDialogArgs &args)', which is called at the first use.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfiledialog.html#QFileDialog
+
+    Parameters
+    ----------
+
+    args : QFileDialogArgs
+      Passed on as a value: Qt reads the C++ QFileDialogArgs, which stays
+      Python's own.
+    """
+    #  QFileDialog::QFileDialog(const QFileDialogArgs &args)
+    self._noteCreation(QFileDialog, lambda: Rituals.call(
+        'ritual_ZN11QFileDialogC1ERK15QFileDialogArgs', self._valueOf(args),
+    ))
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -1486,6 +1935,179 @@ class QFileDialog(QDialog):
         self._addressOf(receiver, 'QObject'), self._bytesOf(member),
     )
 
+  @overload(str)
+  def fileSelected(self, file: str) -> None:
+    """
+    Calls Qt's 'void QFileDialog::fileSelected(const QString &file)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfiledialog.html#fileSelected
+
+    Parameters
+    ----------
+
+    file : str
+      Passed on as it is: a QString is made of it for the call.
+    """
+    #  void QFileDialog::fileSelected(const QString &file)
+    self.uglySide.call(
+        'ritual_ZN11QFileDialog12fileSelectedERK7QString', file,
+    )
+
+  @overload(QStringList)
+  def filesSelected(self, files: QStringList) -> None:
+    """
+    Calls Qt's 'void QFileDialog::filesSelected(const QStringList &files)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfiledialog.html#filesSelected
+
+    Parameters
+    ----------
+
+    files : QStringList
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+    """
+    #  void QFileDialog::filesSelected(const QStringList &files)
+    self.uglySide.call(
+        'ritual_ZN11QFileDialog13filesSelectedERK5QListI7QStringE',
+        self._valueOf(files),
+    )
+
+  @overload(str)
+  def currentChanged(self, path: str) -> None:
+    """
+    Calls Qt's 'void QFileDialog::currentChanged(const QString &path)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfiledialog.html#currentChanged
+
+    Parameters
+    ----------
+
+    path : str
+      Passed on as it is: a QString is made of it for the call.
+    """
+    #  void QFileDialog::currentChanged(const QString &path)
+    self.uglySide.call(
+        'ritual_ZN11QFileDialog14currentChangedERK7QString', path,
+    )
+
+  @overload(str)
+  def directoryEntered(self, directory: str) -> None:
+    """
+    Calls Qt's 'void QFileDialog::directoryEntered(const QString
+    &directory)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfiledialog.html#directoryEntered
+
+    Parameters
+    ----------
+
+    directory : str
+      Passed on as it is: a QString is made of it for the call.
+    """
+    #  void QFileDialog::directoryEntered(const QString &directory)
+    self.uglySide.call(
+        'ritual_ZN11QFileDialog16directoryEnteredERK7QString', directory,
+    )
+
+  @overload(QUrl)
+  def urlSelected(self, url: QUrl) -> None:
+    """
+    Calls Qt's 'void QFileDialog::urlSelected(const QUrl &url)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfiledialog.html#urlSelected
+
+    Parameters
+    ----------
+
+    url : QUrl
+      Passed on as a value: Qt reads the C++ QUrl, which stays Python's own.
+    """
+    #  void QFileDialog::urlSelected(const QUrl &url)
+    self.uglySide.call(
+        'ritual_ZN11QFileDialog11urlSelectedERK4QUrl', self._valueOf(url),
+    )
+
+  @overload(QList[QUrl])
+  def urlsSelected(self, urls: QList[QUrl]) -> None:
+    """
+    Calls Qt's 'void QFileDialog::urlsSelected(const QList<QUrl> &urls)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfiledialog.html#urlsSelected
+
+    Parameters
+    ----------
+
+    urls : QList[QUrl]
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+    """
+    #  void QFileDialog::urlsSelected(const QList<QUrl> &urls)
+    self.uglySide.call(
+        'ritual_ZN11QFileDialog12urlsSelectedERK5QListI4QUrlE',
+        self._valueOf(urls),
+    )
+
+  @overload(QUrl)
+  def currentUrlChanged(self, url: QUrl) -> None:
+    """
+    Calls Qt's 'void QFileDialog::currentUrlChanged(const QUrl &url)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfiledialog.html#currentUrlChanged
+
+    Parameters
+    ----------
+
+    url : QUrl
+      Passed on as a value: Qt reads the C++ QUrl, which stays Python's own.
+    """
+    #  void QFileDialog::currentUrlChanged(const QUrl &url)
+    self.uglySide.call(
+        'ritual_ZN11QFileDialog17currentUrlChangedERK4QUrl',
+        self._valueOf(url),
+    )
+
+  @overload(QUrl)
+  def directoryUrlEntered(self, directory: QUrl) -> None:
+    """
+    Calls Qt's 'void QFileDialog::directoryUrlEntered(const QUrl
+    &directory)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qfiledialog.html#directoryUrlEntered
+
+    Parameters
+    ----------
+
+    directory : QUrl
+      Passed on as a value: Qt reads the C++ QUrl, which stays Python's own.
+    """
+    #  void QFileDialog::directoryUrlEntered(const QUrl &directory)
+    self.uglySide.call(
+        'ritual_ZN11QFileDialog19directoryUrlEnteredERK4QUrl',
+        self._valueOf(directory),
+    )
+
+  @overload(str)
+  def filterSelected(self, filter: str) -> None:
+    """
+    Calls Qt's 'void QFileDialog::filterSelected(const QString &filter)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfiledialog.html#filterSelected
+
+    Parameters
+    ----------
+
+    filter : str
+      Passed on as it is: a QString is made of it for the call.
+    """
+    #  void QFileDialog::filterSelected(const QString &filter)
+    self.uglySide.call(
+        'ritual_ZN11QFileDialog14filterSelectedERK7QString', filter,
+    )
+
   @overload(int)
   def done(self, result: int) -> None:
     """
@@ -1537,3 +2159,36 @@ class QFileDialog(QDialog):
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZN11QFileDialog11changeEventEP6QEvent'
     self.uglySide.call(ritual, self._addressOf(e))
+
+  def d_func(self) -> Optional[QFileDialogPrivate]:
+    """
+    Calls Qt's 'QFileDialogPrivate *QFileDialog::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfiledialog.html#d_func
+
+    Returns
+    -------
+
+    Optional[QFileDialogPrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QFileDialogPrivate *QFileDialog::d_func()
+    address = self.uglySide.call('ritual_ZN11QFileDialog6d_funcEv')
+    from . import QFileDialogPrivate
+    return QFileDialogPrivate._cuteAt(address)
+
+  @staticmethod
+  def getOpenFileContent(*__, **_) -> Never:
+    """
+    Qt's 'void QFileDialog::getOpenFileContent(const QString &nameFilter,
+    const std::function<void (const QString &, const QByteArray &)>
+    &fileContentsReady, QWidget *parent)': takes a type Python has no way to
+    hand over yet.
+    """
+    raise NotImplementedError(
+        "'QFileDialog.getOpenFileContent' has no cute function yet. Qt's "
+        "'void QFileDialog::getOpenFileContent(const QString &nameFilter, "
+        "const std::function<void (const QString &, const QByteArray &)> "
+        "&fileContentsReady, QWidget *parent)': takes a type Python has no "
+        "way to hand over yet.")

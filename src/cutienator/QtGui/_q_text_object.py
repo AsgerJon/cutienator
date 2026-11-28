@@ -19,7 +19,7 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
   from ..QtCore import QMetaObject
-  from . import QTextDocument, QTextFormat
+  from . import QTextDocument, QTextFormat, QTextObjectPrivate
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -44,21 +44,28 @@ class QTextObject(QObject):
   -----------
 
   Every function of Qt's QTextObject that has a ritual and that Python can
-  call so far, 7 names in all: 'metaObject', 'tr', 'setFormat', 'format',
-  'formatIndex', 'document', 'objectIndex'. It can be made from Python, in 1
-  way; see '__init__'.
+  call so far, 8 names in all: 'metaObject', 'tr', 'setFormat', 'format',
+  'formatIndex', 'document', 'objectIndex', 'd_func'. It can be made from
+  Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QTextObject::qt_metacast(const char *a0)': one of Qt's own
+    inner workings.
+  - Qt's 'int QTextObject::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
   - Qt's 'QTextObject::~QTextObject()': the destructor: Python never removes
     a C++ QTextObject.
+  - Qt's 'QTextObject::QTextObject(QTextObjectPrivate &p, QTextDocument
+    *doc)': takes a type Python has no way to hand over yet.
+  - Qt's 'const QTextObjectPrivate *QTextObject::d_func() const': takes in
+    Python what 'QTextObjectPrivate *QTextObject::d_func()' takes.
 
   What has no ritual
   ------------------
 
-  9 of the 18 functions Qt declares: 5 takes or gives a type that cannot be
-  passed yet; 2 forbidden; 1 a template; 1 declared and nowhere to be found.
+  4 of the 18 functions Qt declares: 2 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -295,3 +302,21 @@ class QTextObject(QObject):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  def d_func(self) -> Optional[QTextObjectPrivate]:
+    """
+    Calls Qt's 'QTextObjectPrivate *QTextObject::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtextobject.html#d_func
+
+    Returns
+    -------
+
+    Optional[QTextObjectPrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QTextObjectPrivate *QTextObject::d_func()
+    address = self.uglySide.call('ritual_ZN11QTextObject6d_funcEv')
+    from . import QTextObjectPrivate
+    return QTextObjectPrivate._cuteAt(address)

@@ -51,14 +51,17 @@ class QDropEvent(QEvent):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'QDropEvent::QDropEvent(const QDropEvent &a0)': takes a type Python
+    has no way to hand over yet.
+  - Qt's 'QDropEvent &QDropEvent::operator=(const QDropEvent &other)':
+    assignment: Python binds a name and has no operator for it.
   - Qt's 'QDropEvent::~QDropEvent()': the destructor: Python never removes a
     C++ QDropEvent.
 
   What has no ritual
   ------------------
 
-  4 of the 21 functions Qt declares: 2 takes or gives a type that cannot be
-  passed yet; 2 forbidden.
+  2 of the 21 functions Qt declares: 2 forbidden.
 
   What to expect
   --------------
@@ -430,7 +433,7 @@ class QDropEvent(QEvent):
         'ritual_ZN10QDropEventC1ERK7QPointF6QFlagsIN2Qt10DropActionEEPK9QMi'
         'meDataS3_INS4_11MouseButtonEES3_INS4_16KeyboardModifierEEN6QEvent4'
         'TypeE',
-        self._valueOf(pos), actions.value, self._addressOf(data),
+        self._valueOf(pos, 'QPointF'), actions.value, self._addressOf(data),
         buttons.value, modifiers.value, type.value,
     ))
 

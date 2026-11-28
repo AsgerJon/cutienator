@@ -18,7 +18,7 @@ from ..occult import Rituals
 from ..QtCore import Qt, QList, QStringList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from ..QtCore import QLatin1String
   from . import QRgba64
@@ -68,6 +68,8 @@ class QColor(CuteMixin, metaclass=MetaCute):
 
   - Qt's 'QColor::QColor(QStringView name)': takes in Python what
     'QColor::QColor(const QString &name)' takes.
+  - Qt's 'QColor &QColor::operator=(Qt::GlobalColor color)': assignment:
+    Python binds a name and has no operator for it.
   - Qt's 'void QColor::setNamedColor(QStringView name)': takes in Python what
     'void QColor::setNamedColor(const QString &name)' takes.
   - Qt's 'void QColor::getRgb(int *r, int *g, int *b, int *a) const': takes a
@@ -90,14 +92,12 @@ class QColor(CuteMixin, metaclass=MetaCute):
     no name for.
   - Qt's 'bool QColor::isValidColor(QStringView a0)': takes in Python what
     'bool QColor::isValidColor(const QString &name)' takes.
+  - Qt's 'QDataStream &operator<<(QDataStream &a0, const QColor &a1)': takes
+    a type Python has no way to hand over yet.
+  - Qt's 'QDataStream &operator>>(QDataStream &a0, QColor &a1)': an operator
+    between other classes, written inside this one.
   - Qt's 'QColor::~QColor()': the destructor: Python removes its C++ QColor
     by it, and has no other use for it.
-
-  What has no ritual
-  ------------------
-
-  3 of the 114 functions Qt declares: 3 takes or gives a type that cannot be
-  passed yet.
 
   What to expect
   --------------
@@ -110,6 +110,10 @@ class QColor(CuteMixin, metaclass=MetaCute):
     is as in C++.
   - A function giving a QColor back gives a copy the ritual made for Python,
     in a new cute QColor.
+  - Each name of Qt's QColor that has no cute function yet, 'getCmyk',
+    'getCmykF', 'getHsl', 'getHslF', 'getHsv', 'getHsvF', 'getRgb',
+    'getRgbF', holds a function that raises 'NotImplementedError', and its
+    docstring says why.
   """
 
   #  The enums Qt writes inside QColor, each a class in here as in C++, and
@@ -1963,6 +1967,94 @@ class QColor(CuteMixin, metaclass=MetaCute):
     """
     #  void QColor::invalidate()
     self.uglySide.call('ritual_ZN6QColor10invalidateEv')
+
+  @staticmethod
+  def getCmyk(*__, **_) -> Never:
+    """
+    Qt's 'void QColor::getCmyk(int *c, int *m, int *y, int *k, int *a)
+    const': takes a number to change where it is.
+    """
+    raise NotImplementedError(
+        "'QColor.getCmyk' has no cute function yet. Qt's 'void "
+        "QColor::getCmyk(int *c, int *m, int *y, int *k, int *a) const': "
+        "takes a number to change where it is.")
+
+  @staticmethod
+  def getCmykF(*__, **_) -> Never:
+    """
+    Qt's 'void QColor::getCmykF(float *c, float *m, float *y, float *k, float
+    *a) const': takes a number to change where it is.
+    """
+    raise NotImplementedError(
+        "'QColor.getCmykF' has no cute function yet. Qt's 'void "
+        "QColor::getCmykF(float *c, float *m, float *y, float *k, float *a) "
+        "const': takes a number to change where it is.")
+
+  @staticmethod
+  def getHsl(*__, **_) -> Never:
+    """
+    Qt's 'void QColor::getHsl(int *h, int *s, int *l, int *a) const': takes a
+    number to change where it is.
+    """
+    raise NotImplementedError(
+        "'QColor.getHsl' has no cute function yet. Qt's 'void "
+        "QColor::getHsl(int *h, int *s, int *l, int *a) const': takes a "
+        "number to change where it is.")
+
+  @staticmethod
+  def getHslF(*__, **_) -> Never:
+    """
+    Qt's 'void QColor::getHslF(float *h, float *s, float *l, float *a)
+    const': takes a number to change where it is.
+    """
+    raise NotImplementedError(
+        "'QColor.getHslF' has no cute function yet. Qt's 'void "
+        "QColor::getHslF(float *h, float *s, float *l, float *a) const': "
+        "takes a number to change where it is.")
+
+  @staticmethod
+  def getHsv(*__, **_) -> Never:
+    """
+    Qt's 'void QColor::getHsv(int *h, int *s, int *v, int *a) const': takes a
+    number to change where it is.
+    """
+    raise NotImplementedError(
+        "'QColor.getHsv' has no cute function yet. Qt's 'void "
+        "QColor::getHsv(int *h, int *s, int *v, int *a) const': takes a "
+        "number to change where it is.")
+
+  @staticmethod
+  def getHsvF(*__, **_) -> Never:
+    """
+    Qt's 'void QColor::getHsvF(float *h, float *s, float *v, float *a)
+    const': takes a number to change where it is.
+    """
+    raise NotImplementedError(
+        "'QColor.getHsvF' has no cute function yet. Qt's 'void "
+        "QColor::getHsvF(float *h, float *s, float *v, float *a) const': "
+        "takes a number to change where it is.")
+
+  @staticmethod
+  def getRgb(*__, **_) -> Never:
+    """
+    Qt's 'void QColor::getRgb(int *r, int *g, int *b, int *a) const': takes a
+    number to change where it is.
+    """
+    raise NotImplementedError(
+        "'QColor.getRgb' has no cute function yet. Qt's 'void "
+        "QColor::getRgb(int *r, int *g, int *b, int *a) const': takes a "
+        "number to change where it is.")
+
+  @staticmethod
+  def getRgbF(*__, **_) -> Never:
+    """
+    Qt's 'void QColor::getRgbF(float *r, float *g, float *b, float *a)
+    const': takes a number to change where it is.
+    """
+    raise NotImplementedError(
+        "'QColor.getRgbF' has no cute function yet. Qt's 'void "
+        "QColor::getRgbF(float *r, float *g, float *b, float *a) const': "
+        "takes a number to change where it is.")
 
 
 #  Qt's 'QList<QColor>': the list of QColor, which 'QList[QColor]' gives. It

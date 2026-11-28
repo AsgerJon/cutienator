@@ -42,23 +42,30 @@ class QStackedWidget(QFrame):
   -----------
 
   Every function of Qt's QStackedWidget that has a ritual and that Python can
-  call so far, 13 names in all: 'metaObject', 'tr', 'addWidget',
+  call so far, 16 names in all: 'metaObject', 'tr', 'addWidget',
   'insertWidget', 'removeWidget', 'currentWidget', 'currentIndex', 'indexOf',
-  'widget', 'count', 'setCurrentIndex', 'setCurrentWidget', 'event'. It can
-  be made from Python, in 1 way; see '__init__'.
+  'widget', 'count', 'setCurrentIndex', 'setCurrentWidget', 'currentChanged',
+  'widgetRemoved', 'widgetAdded', 'event'. It can be made from Python, in 1
+  way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QStackedWidget::qt_metacast(const char *a0)': one of Qt's own
+    inner workings.
+  - Qt's 'int QStackedWidget::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
   - Qt's 'QStackedWidget::~QStackedWidget()': the destructor: Python never
     removes a C++ QStackedWidget.
+  - Qt's 'QStackedWidgetPrivate *QStackedWidget::d_func()': gives
+    'QStackedWidgetPrivate', which has no cute class yet.
+  - Qt's 'const QStackedWidgetPrivate *QStackedWidget::d_func() const': gives
+    'QStackedWidgetPrivate', which has no cute class yet.
 
   What has no ritual
   ------------------
 
-  11 of the 26 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet; 3 a signal; 2 forbidden; 1 a template; 1 declared and nowhere
-  to be found.
+  4 of the 26 functions Qt declares: 2 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -408,6 +415,54 @@ class QStackedWidget(QFrame):
         'ritual_ZN14QStackedWidget12removeWidgetEP7QWidget',
         self._addressOf(w),
     )
+
+  @overload(int)
+  def currentChanged(self, a0: int) -> None:
+    """
+    Calls Qt's 'void QStackedWidget::currentChanged(int a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qstackedwidget.html#currentChanged
+
+    Parameters
+    ----------
+
+    a0 : int
+      Passed on as it is.
+    """
+    #  void QStackedWidget::currentChanged(int a0)
+    self.uglySide.call('ritual_ZN14QStackedWidget14currentChangedEi', a0)
+
+  @overload(int)
+  def widgetRemoved(self, index: int) -> None:
+    """
+    Calls Qt's 'void QStackedWidget::widgetRemoved(int index)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qstackedwidget.html#widgetRemoved
+
+    Parameters
+    ----------
+
+    index : int
+      Passed on as it is.
+    """
+    #  void QStackedWidget::widgetRemoved(int index)
+    self.uglySide.call('ritual_ZN14QStackedWidget13widgetRemovedEi', index)
+
+  @overload(int)
+  def widgetAdded(self, index: int) -> None:
+    """
+    Calls Qt's 'void QStackedWidget::widgetAdded(int index)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qstackedwidget.html#widgetAdded
+
+    Parameters
+    ----------
+
+    index : int
+      Passed on as it is.
+    """
+    #  void QStackedWidget::widgetAdded(int index)
+    self.uglySide.call('ritual_ZN14QStackedWidget11widgetAddedEi', index)
 
   @overload(QEvent)
   @overload(NoneType)

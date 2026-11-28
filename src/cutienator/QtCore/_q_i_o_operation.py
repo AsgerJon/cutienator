@@ -22,9 +22,9 @@ from ..occult import Rituals
 from . import QObject
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
-  from . import QMetaObject
+  from . import QIOOperationPrivate, QMetaObject
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -43,22 +43,29 @@ class QIOOperation(QObject):
   -----------
 
   Every function of Qt's QIOOperation that has a ritual and that Python can
-  call so far, 6 names in all: 'metaObject', 'tr', 'type', 'error',
-  'isFinished', 'ensureCompleteOrCanceled'. None can be made from Python: one
-  comes out of a function of another class that gives one back.
+  call so far, 9 names in all: 'metaObject', 'tr', 'type', 'error',
+  'isFinished', 'finished', 'errorOccurred', 'ensureCompleteOrCanceled',
+  'd_func'. None can be made from Python: one comes out of a function of
+  another class that gives one back.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QIOOperation::qt_metacast(const char *a0)': one of Qt's own
+    inner workings.
+  - Qt's 'int QIOOperation::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
   - Qt's 'QIOOperation::~QIOOperation()': the destructor: Python never
     removes a C++ QIOOperation.
+  - Qt's 'QIOOperation::QIOOperation(QIOOperationPrivate &dd, QObject
+    *parent)': takes a type Python has no way to hand over yet.
+  - Qt's 'const QIOOperationPrivate *QIOOperation::d_func() const': takes in
+    Python what 'QIOOperationPrivate *QIOOperation::d_func()' takes.
 
   What has no ritual
   ------------------
 
-  14 of the 21 functions Qt declares: 5 takes or gives a type that cannot be
-  passed yet; 5 forbidden; 2 a signal; 1 a template; 1 declared and nowhere
-  to be found.
+  7 of the 21 functions Qt declares: 5 forbidden; 2 not a gap.
 
   What to expect
   --------------
@@ -74,6 +81,9 @@ class QIOOperation(QObject):
   - Qt tells when it has removed the C++ QIOOperation. Every call on the cute
     object, and every use of it as an argument, then raises 'RuntimeError',
     and nothing reaches C++.
+  - Each name of Qt's QIOOperation that has no cute function yet, '__init__',
+    holds a function that raises 'NotImplementedError', and its docstring
+    says why.
   """
 
   #  The enums Qt writes inside QIOOperation, each a class in here as in C++,
@@ -259,6 +269,17 @@ class QIOOperation(QObject):
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  @staticmethod
+  def __init__(*__, **_) -> Never:
+    """
+    Qt's 'QIOOperation::QIOOperation(QIOOperationPrivate &dd, QObject
+    *parent)': takes a type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QIOOperation.__init__' has no cute function yet. Qt's "
+        "'QIOOperation::QIOOperation(QIOOperationPrivate &dd, QObject "
+        "*parent)': takes a type Python has no way to hand over yet.")
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -279,6 +300,33 @@ class QIOOperation(QObject):
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  def finished(self) -> None:
+    """
+    Calls Qt's 'void QIOOperation::finished()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qiooperation.html#finished
+    """
+    #  void QIOOperation::finished()
+    self.uglySide.call('ritual_ZN12QIOOperation8finishedEv')
+
+  @overload(Error)
+  def errorOccurred(self, err: Error) -> None:
+    """
+    Calls Qt's 'void QIOOperation::errorOccurred(Error err)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qiooperation.html#errorOccurred
+
+    Parameters
+    ----------
+
+    err : Error
+      Passed on as its number.
+    """
+    #  void QIOOperation::errorOccurred(Error err)
+    self.uglySide.call(
+        'ritual_ZN12QIOOperation13errorOccurredENS_5ErrorE', err.value,
+    )
+
   def ensureCompleteOrCanceled(self) -> None:
     """
     Calls Qt's 'void QIOOperation::ensureCompleteOrCanceled()'.
@@ -288,3 +336,21 @@ class QIOOperation(QObject):
     """
     #  void QIOOperation::ensureCompleteOrCanceled()
     self.uglySide.call('ritual_ZN12QIOOperation24ensureCompleteOrCanceledEv')
+
+  def d_func(self) -> Optional[QIOOperationPrivate]:
+    """
+    Calls Qt's 'QIOOperationPrivate *QIOOperation::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qiooperation.html#d_func
+
+    Returns
+    -------
+
+    Optional[QIOOperationPrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QIOOperationPrivate *QIOOperation::d_func()
+    address = self.uglySide.call('ritual_ZN12QIOOperation6d_funcEv')
+    from . import QIOOperationPrivate
+    return QIOOperationPrivate._cuteAt(address)

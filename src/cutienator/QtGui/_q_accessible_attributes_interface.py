@@ -15,6 +15,8 @@ from ..cute import CuteMixin, MetaCute
 from . import QAccessible
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Never
+
   from ..QtCore import QVariant
 
 
@@ -37,12 +39,16 @@ class QAccessibleAttributesInterface(CuteMixin, metaclass=MetaCute):
   - Qt's 'QAccessibleAttributesInterface::~QAccessibleAttributesInterface()':
     the destructor: Python never removes a C++
     QAccessibleAttributesInterface.
+  - Qt's 'QList<QAccessible::Attribute>
+    QAccessibleAttributesInterface::attributeKeys() const': gives a type
+    Python has no way to take yet.
 
   What has no ritual
   ------------------
 
-  6 of the 8 functions Qt declares: 4 forbidden; 1 the class is abstract, so
-  C++ cannot make one; 1 takes or gives a type that cannot be passed yet.
+  5 of the 8 functions Qt declares: 4 forbidden; 1 the class is abstract, so
+  C++ cannot make one, and the C++ class of ours does not fill in every
+  function it leaves open.
 
   What to expect
   --------------
@@ -55,6 +61,9 @@ class QAccessibleAttributesInterface(CuteMixin, metaclass=MetaCute):
     has it, and is passed on as nothing. Whether Qt can do with nothing there
     is as in C++.
   - Python never removes the C++ QAccessibleAttributesInterface.
+  - Each name of Qt's QAccessibleAttributesInterface that has no cute
+    function yet, '__init__', 'attributeKeys', holds a function that raises
+    'NotImplementedError', and its docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -162,6 +171,20 @@ class QAccessibleAttributesInterface(CuteMixin, metaclass=MetaCute):
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  @staticmethod
+  def __init__(*__, **_) -> Never:
+    """
+    Qt's 'QAccessibleAttributesInterface::QAccessibleAttributesInterface()':
+    the class is abstract, so C++ cannot make one, and the C++ class of ours
+    does not fill in every function it leaves open.
+    """
+    raise NotImplementedError(
+        "'QAccessibleAttributesInterface.__init__' has no cute function "
+        "yet. Qt's "
+        "'QAccessibleAttributesInterface::QAccessibleAttributesInterface()':"
+        " the class is abstract, so C++ cannot make one, and the C++ class "
+        "of ours does not fill in every function it leaves open.")
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -181,3 +204,16 @@ class QAccessibleAttributesInterface(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def attributeKeys(*__, **_) -> Never:
+    """
+    Qt's 'QList<QAccessible::Attribute>
+    QAccessibleAttributesInterface::attributeKeys() const': gives a type
+    Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QAccessibleAttributesInterface.attributeKeys' has no cute "
+        "function yet. Qt's 'QList<QAccessible::Attribute> "
+        "QAccessibleAttributesInterface::attributeKeys() const': gives a "
+        "type Python has no way to take yet.")

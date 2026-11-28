@@ -19,9 +19,9 @@ from ..QtGui import QGuiApplication
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from ..QtCore import QEvent, QMetaObject, QPoint
+  from ..QtCore import QEvent, QMetaObject, QPoint, QPostEventList
   from ..QtGui import QFont, QFontMetrics, QPalette
-  from . import QStyle, QWidget
+  from . import QApplicationPrivate, QStyle, QWidget
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -30,6 +30,7 @@ else:
   QFont = WAIT['QFont']
   QPalette = WAIT['QPalette']
   QPoint = WAIT['QPoint']
+  QPostEventList = WAIT['QPostEventList']
   QStyle = WAIT['QStyle']
   QWidget = WAIT['QWidget']
 
@@ -50,7 +51,7 @@ class QApplication(QGuiApplication):
   -----------
 
   Every function of Qt's QApplication that has a ritual and that Python can
-  call so far, 44 names in all: 'metaObject', 'tr', 'style', 'setStyle',
+  call so far, 46 names in all: 'metaObject', 'tr', 'style', 'setStyle',
   'palette', 'setPalette', 'font', 'setFont', 'fontMetrics', 'allWidgets',
   'topLevelWidgets', 'activePopupWidget', 'activeModalWidget', 'focusWidget',
   'activeWindow', 'setActiveWindow', 'widgetAt', 'topLevelAt', 'beep',
@@ -60,8 +61,8 @@ class QApplication(QGuiApplication):
   'startDragTime', 'setStartDragDistance', 'startDragDistance',
   'isEffectEnabled', 'setEffectEnabled', 'exec', 'notify', 'focusChanged',
   'styleSheet', 'autoSipEnabled', 'setStyleSheet', 'setAutoSipEnabled',
-  'closeAllWindows', 'aboutQt', 'event'. It can be made from Python, in 1
-  way; see '__init__'.
+  'closeAllWindows', 'aboutQt', 'event', 'compressEvent', 'd_func'. It can be
+  made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -74,13 +75,8 @@ class QApplication(QGuiApplication):
     removes a C++ QApplication.
   - Qt's 'void *QApplication::resolveInterface(const char *name, int
     revision) const': gives 'void', which has no cute class yet.
-  - Qt's 'bool QApplication::compressEvent(QEvent *a0, QObject *receiver,
-    QPostEventList *a2)': names 'QPostEventList', which has no cute class
-    yet.
-  - Qt's 'QApplicationPrivate *QApplication::d_func()': gives
-    'QApplicationPrivate', which has no cute class yet.
-  - Qt's 'const QApplicationPrivate *QApplication::d_func() const': gives
-    'QApplicationPrivate', which has no cute class yet.
+  - Qt's 'const QApplicationPrivate *QApplication::d_func() const': takes in
+    Python what 'QApplicationPrivate *QApplication::d_func()' takes.
 
   What has no ritual
   ------------------
@@ -1203,3 +1199,71 @@ class QApplication(QGuiApplication):
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZN12QApplication5eventEP6QEvent'
     return self.uglySide.call(ritual, self._addressOf(a0))
+
+  @overload(QEvent, QObject, QPostEventList)
+  @overload(QEvent, QObject, NoneType)
+  @overload(QEvent, NoneType, QPostEventList)
+  @overload(QEvent, NoneType, NoneType)
+  @overload(NoneType, QObject, QPostEventList)
+  @overload(NoneType, QObject, NoneType)
+  @overload(NoneType, NoneType, QPostEventList)
+  @overload(NoneType, NoneType, NoneType)
+  def compressEvent(
+      self,
+      a0: Optional[QEvent],
+      receiver: Optional[QObject],
+      a2: Optional[QPostEventList],
+  ) -> bool:
+    """
+    Calls Qt's 'bool QApplication::compressEvent(QEvent *a0, QObject
+    *receiver, QPostEventList *a2)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qapplication.html#compressEvent
+
+    Parameters
+    ----------
+
+    a0 : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    receiver : Optional[QObject]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    a2 : Optional[QPostEventList]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  bool QApplication::compressEvent(QEvent *a0, QObject *receiver,
+    #      QPostEventList *a2)
+    ritual = (
+        'ritual_ZN12QApplication13compressEventEP6QEventP7QObjectP14QPostEv'
+        'entList')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZN12QApplication13compressEventEP6QEventP7QObjectP14Q'
+          'PostEventList')
+    return self.uglySide.call(
+        ritual,
+        self._addressOf(a0), self._addressOf(receiver, 'QObject'),
+        self._addressOf(a2),
+    )
+
+  def d_func(self) -> Optional[QApplicationPrivate]:
+    """
+    Calls Qt's 'QApplicationPrivate *QApplication::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qapplication.html#d_func
+
+    Returns
+    -------
+
+    Optional[QApplicationPrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QApplicationPrivate *QApplication::d_func()
+    address = self.uglySide.call('ritual_ZN12QApplication6d_funcEv')
+    from . import QApplicationPrivate
+    return QApplicationPrivate._cuteAt(address)

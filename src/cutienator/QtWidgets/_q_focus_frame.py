@@ -54,14 +54,21 @@ class QFocusFrame(QWidget):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QFocusFrame::qt_metacast(const char *a0)': one of Qt's own
+    inner workings.
+  - Qt's 'int QFocusFrame::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
   - Qt's 'QFocusFrame::~QFocusFrame()': the destructor: Python never removes
     a C++ QFocusFrame.
+  - Qt's 'QFocusFramePrivate *QFocusFrame::d_func()': gives
+    'QFocusFramePrivate', which has no cute class yet.
+  - Qt's 'const QFocusFramePrivate *QFocusFrame::d_func() const': gives
+    'QFocusFramePrivate', which has no cute class yet.
 
   What has no ritual
   ------------------
 
-  8 of the 18 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet; 2 forbidden; 1 a template; 1 declared and nowhere to be found.
+  4 of the 18 functions Qt declares: 2 not a gap; 2 forbidden.
 
   What to expect
   --------------

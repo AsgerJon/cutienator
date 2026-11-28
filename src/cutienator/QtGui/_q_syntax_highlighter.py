@@ -53,21 +53,26 @@ class QSyntaxHighlighter(QObject):
   'document', 'rehighlight', 'rehighlightBlock', 'highlightBlock',
   'setFormat', 'format', 'previousBlockState', 'currentBlockState',
   'setCurrentBlockState', 'setCurrentBlockUserData', 'currentBlockUserData',
-  'currentBlock'. None can be made from Python: one comes out of a function
-  of another class that gives one back.
+  'currentBlock'. It can be made from Python, in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QSyntaxHighlighter::qt_metacast(const char *a0)': one of Qt's
+    own inner workings.
+  - Qt's 'int QSyntaxHighlighter::qt_metacall(QMetaObject::Call a0, int a1,
+    void **a2)': one of Qt's own inner workings.
+  - Qt's 'QSyntaxHighlighterPrivate *QSyntaxHighlighter::d_func()': gives
+    'QSyntaxHighlighterPrivate', which has no cute class yet.
+  - Qt's 'const QSyntaxHighlighterPrivate *QSyntaxHighlighter::d_func()
+    const': gives 'QSyntaxHighlighterPrivate', which has no cute class yet.
   - Qt's 'QSyntaxHighlighter::~QSyntaxHighlighter()': the destructor: Python
     never removes a C++ QSyntaxHighlighter.
 
   What has no ritual
   ------------------
 
-  10 of the 28 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet; 2 the class is abstract, so C++ cannot make one; 2 forbidden; 1
-  a template; 1 declared and nowhere to be found.
+  4 of the 28 functions Qt declares: 2 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -474,6 +479,53 @@ class QSyntaxHighlighter(QObject):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(QTextDocument)
+  def __init__(self, parent: Optional[QTextDocument]) -> None:
+    """
+    Notes what was given, for Qt's
+    'QSyntaxHighlighter::QSyntaxHighlighter(QTextDocument *parent)', which is
+    called at the first use.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qsyntaxhighlighter.html#QSyntaxHighlighter
+
+    Parameters
+    ----------
+
+    parent : Optional[QTextDocument]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  QSyntaxHighlighter::QSyntaxHighlighter(QTextDocument *parent)
+    self._noteCreation(QSyntaxHighlighter, lambda: Rituals.call(
+        'ritual_ZN18QSyntaxHighlighterC1EP13QTextDocument',
+        self._addressOf(parent),
+    ))
+
+  @overload(QObject)
+  @overload(NoneType)
+  def __init__(self, parent: Optional[QObject]) -> None:
+    """
+    Notes what was given, for Qt's
+    'QSyntaxHighlighter::QSyntaxHighlighter(QObject *parent)', which is
+    called at the first use.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qsyntaxhighlighter.html#QSyntaxHighlighter
+
+    Parameters
+    ----------
+
+    parent : Optional[QObject]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  QSyntaxHighlighter::QSyntaxHighlighter(QObject *parent)
+    self._noteCreation(QSyntaxHighlighter, lambda: Rituals.call(
+        'ritual_ZN18QSyntaxHighlighterC1EP7QObject',
+        self._addressOf(parent, 'QObject'),
+    ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #

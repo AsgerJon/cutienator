@@ -22,11 +22,12 @@ from ..QtCore import Qt, QObject
 from . import QGraphicsEffect
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from ..QtCore import QMetaObject, QPoint, QRectF
   from ..QtGui import QPainter, QPixmap
-  from . import QGraphicsItem, QStyleOption, QWidget
+  from . import QGraphicsEffectSourcePrivate, QGraphicsItem, QStyleOption
+  from . import QWidget
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -51,22 +52,32 @@ class QGraphicsEffectSource(QObject):
   -----------
 
   Every function of Qt's QGraphicsEffectSource that has a ritual and that
-  Python can call so far, 10 names in all: 'metaObject', 'tr',
+  Python can call so far, 11 names in all: 'metaObject', 'tr',
   'graphicsItem', 'widget', 'styleOption', 'isPixmap', 'draw', 'update',
-  'boundingRect', 'pixmap'. None can be made from Python: one comes out of a
-  function of another class that gives one back.
+  'boundingRect', 'pixmap', 'd_func'. None can be made from Python: one comes
+  out of a function of another class that gives one back.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QGraphicsEffectSource::qt_metacast(const char *a0)': one of
+    Qt's own inner workings.
+  - Qt's 'int QGraphicsEffectSource::qt_metacall(QMetaObject::Call a0, int
+    a1, void **a2)': one of Qt's own inner workings.
   - Qt's 'QGraphicsEffectSource::~QGraphicsEffectSource()': the destructor:
     Python never removes a C++ QGraphicsEffectSource.
+  - Qt's 'QGraphicsEffectSource::QGraphicsEffectSource(
+    QGraphicsEffectSourcePrivate &dd, QObject *parent)': takes a type Python
+    has no way to hand over yet.
+  - Qt's 'const QGraphicsEffectSourcePrivate *QGraphicsEffectSource::d_func()
+    const': takes in Python what 'QGraphicsEffectSourcePrivate
+    *QGraphicsEffectSource::d_func()' takes.
 
   What has no ritual
   ------------------
 
-  12 of the 23 functions Qt declares: 5 takes or gives a type that cannot be
-  passed yet; 4 forbidden; 2 declared and nowhere to be found; 1 a template.
+  7 of the 23 functions Qt declares: 4 forbidden; 2 not a gap; 1 cannot be
+  called and cannot be called through the meta-object and cannot be copied.
 
   What to expect
   --------------
@@ -82,6 +93,9 @@ class QGraphicsEffectSource(QObject):
   - Qt tells when it has removed the C++ QGraphicsEffectSource. Every call on
     the cute object, and every use of it as an argument, then raises
     'RuntimeError', and nothing reaches C++.
+  - Each name of Qt's QGraphicsEffectSource that has no cute function yet,
+    '__init__', 'deviceRect', holds a function that raises
+    'NotImplementedError', and its docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -356,6 +370,19 @@ class QGraphicsEffectSource(QObject):
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  @staticmethod
+  def __init__(*__, **_) -> Never:
+    """
+    Qt's 'QGraphicsEffectSource::QGraphicsEffectSource(
+    QGraphicsEffectSourcePrivate &dd, QObject *parent)': takes a type Python
+    has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QGraphicsEffectSource.__init__' has no cute function yet. Qt's "
+        "'QGraphicsEffectSource::QGraphicsEffectSource(QGraphicsEffectSource"
+        "Private &dd, QObject *parent)': takes a type Python has no way to "
+        "hand over yet.")
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -405,3 +432,43 @@ class QGraphicsEffectSource(QObject):
     """
     #  void QGraphicsEffectSource::update()
     self.uglySide.call('ritual_ZN21QGraphicsEffectSource6updateEv')
+
+  def d_func(self) -> Optional[QGraphicsEffectSourcePrivate]:
+    """
+    Calls Qt's 'QGraphicsEffectSourcePrivate
+    *QGraphicsEffectSource::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicseffectsource.html#d_func
+
+    Returns
+    -------
+
+    Optional[QGraphicsEffectSourcePrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QGraphicsEffectSourcePrivate *QGraphicsEffectSource::d_func()
+    address = self.uglySide.call('ritual_ZN21QGraphicsEffectSource6d_funcEv')
+    from . import QGraphicsEffectSourcePrivate
+    return QGraphicsEffectSourcePrivate._cuteAt(address)
+
+  @staticmethod
+  def deviceRect(*__, **_) -> Never:
+    """
+    Qt's 'QRect QGraphicsEffectSource::deviceRect() const': cannot be called
+    and cannot be called through the meta-object and cannot be copied: no
+    header file has its code, Qt's source does not mark it or its class for
+    use from outside Qt or writes it 'inline' or nowhere, and it is no
+    signal, slot or invokable function giving back nothing, of a class built
+    on QObject, and Qt's source has no code for it that could be told from
+    the rest.
+    """
+    raise NotImplementedError(
+        "'QGraphicsEffectSource.deviceRect' has no cute function yet. Qt's "
+        "'QRect QGraphicsEffectSource::deviceRect() const': cannot be "
+        "called and cannot be called through the meta-object and cannot be "
+        "copied: no header file has its code, Qt's source does not mark it "
+        "or its class for use from outside Qt or writes it 'inline' or "
+        "nowhere, and it is no signal, slot or invokable function giving "
+        "back nothing, of a class built on QObject, and Qt's source has no "
+        "code for it that could be told from the rest.")

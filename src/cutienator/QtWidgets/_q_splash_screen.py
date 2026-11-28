@@ -49,23 +49,29 @@ class QSplashScreen(QWidget):
   -----------
 
   Every function of Qt's QSplashScreen that has a ritual and that Python can
-  call so far, 12 names in all: 'metaObject', 'tr', 'setPixmap', 'pixmap',
-  'finish', 'repaint', 'message', 'showMessage', 'clearMessage', 'event',
-  'drawContents', 'mousePressEvent'. It can be made from Python, in 2 ways;
-  see '__init__'.
+  call so far, 13 names in all: 'metaObject', 'tr', 'setPixmap', 'pixmap',
+  'finish', 'repaint', 'message', 'showMessage', 'clearMessage',
+  'messageChanged', 'event', 'drawContents', 'mousePressEvent'. It can be
+  made from Python, in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QSplashScreen::qt_metacast(const char *a0)': one of Qt's own
+    inner workings.
+  - Qt's 'int QSplashScreen::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
   - Qt's 'QSplashScreen::~QSplashScreen()': the destructor: Python never
     removes a C++ QSplashScreen.
+  - Qt's 'QSplashScreenPrivate *QSplashScreen::d_func()': gives
+    'QSplashScreenPrivate', which has no cute class yet.
+  - Qt's 'const QSplashScreenPrivate *QSplashScreen::d_func() const': gives
+    'QSplashScreenPrivate', which has no cute class yet.
 
   What has no ritual
   ------------------
 
-  9 of the 24 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet; 2 forbidden; 1 a template; 1 declared and nowhere to be found;
-  1 a signal.
+  4 of the 24 functions Qt declares: 2 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -430,6 +436,24 @@ class QSplashScreen(QWidget):
     """
     #  void QSplashScreen::clearMessage()
     self.uglySide.call('ritual_ZN13QSplashScreen12clearMessageEv')
+
+  @overload(str)
+  def messageChanged(self, message: str) -> None:
+    """
+    Calls Qt's 'void QSplashScreen::messageChanged(const QString &message)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qsplashscreen.html#messageChanged
+
+    Parameters
+    ----------
+
+    message : str
+      Passed on as it is: a QString is made of it for the call.
+    """
+    #  void QSplashScreen::messageChanged(const QString &message)
+    self.uglySide.call(
+        'ritual_ZN13QSplashScreen14messageChangedERK7QString', message,
+    )
 
   @overload(QEvent)
   @overload(NoneType)

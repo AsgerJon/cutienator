@@ -16,7 +16,7 @@ from ..occult import Rituals
 from . import QAbstractAnimation, QObject
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from . import QEasingCurve, QEvent, QMetaObject, QVariant
 else:
@@ -44,24 +44,43 @@ class QVariantAnimation(QAbstractAnimation):
   -----------
 
   Every function of Qt's QVariantAnimation that has a ritual and that Python
-  can call so far, 18 names in all: 'metaObject', 'tr', 'startValue',
+  can call so far, 19 names in all: 'metaObject', 'tr', 'startValue',
   'setStartValue', 'endValue', 'setEndValue', 'keyValueAt', 'setKeyValueAt',
   'currentValue', 'duration', 'setDuration', 'easingCurve', 'setEasingCurve',
-  'event', 'updateCurrentTime', 'updateState', 'updateCurrentValue',
-  'interpolated'. It can be made from Python, in 1 way; see '__init__'.
+  'valueChanged', 'event', 'updateCurrentTime', 'updateState',
+  'updateCurrentValue', 'interpolated'. It can be made from Python, in 1 way;
+  see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QVariantAnimation::qt_metacast(const char *a0)': one of Qt's
+    own inner workings.
+  - Qt's 'int QVariantAnimation::qt_metacall(QMetaObject::Call a0, int a1,
+    void **a2)': one of Qt's own inner workings.
   - Qt's 'QVariantAnimation::~QVariantAnimation()': the destructor: Python
     never removes a C++ QVariantAnimation.
+  - Qt's 'KeyValues QVariantAnimation::keyValues() const': gives a type
+    Python has no way to take yet.
+  - Qt's 'void QVariantAnimation::setKeyValues(const KeyValues &values)':
+    takes a type Python has no way to hand over yet.
+  - Qt's 'QBindable<int> QVariantAnimation::bindableDuration()': gives a type
+    Python has no way to take yet.
+  - Qt's 'QBindable<QEasingCurve> QVariantAnimation::bindableEasingCurve()':
+    gives a type Python has no way to take yet.
+  - Qt's 'QVariantAnimation::QVariantAnimation(QVariantAnimationPrivate &dd,
+    QObject *parent)': takes a type Python has no way to hand over yet.
+  - Qt's 'void QVariantAnimation::registerInterpolator(Interpolator func, int
+    interpolationType)': takes a type Python has no way to hand over yet.
+  - Qt's 'QVariantAnimationPrivate *QVariantAnimation::d_func()': gives
+    'QVariantAnimationPrivate', which has no cute class yet.
+  - Qt's 'const QVariantAnimationPrivate *QVariantAnimation::d_func() const':
+    gives 'QVariantAnimationPrivate', which has no cute class yet.
 
   What has no ritual
   ------------------
 
-  15 of the 35 functions Qt declares: 10 takes or gives a type that cannot be
-  passed yet; 2 forbidden; 1 a template; 1 declared and nowhere to be found;
-  1 a signal.
+  4 of the 35 functions Qt declares: 2 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -77,6 +96,10 @@ class QVariantAnimation(QAbstractAnimation):
   - Qt tells when it has removed the C++ QVariantAnimation. Every call on the
     cute object, and every use of it as an argument, then raises
     'RuntimeError', and nothing reaches C++.
+  - Each name of Qt's QVariantAnimation that has no cute function yet,
+    'bindableDuration', 'bindableEasingCurve', 'keyValues',
+    'registerInterpolator', 'setKeyValues', holds a function that raises
+    'NotImplementedError', and its docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -520,6 +543,27 @@ class QVariantAnimation(QAbstractAnimation):
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  @overload(QVariant)
+  def valueChanged(self, value: QVariant) -> None:
+    """
+    Calls Qt's 'void QVariantAnimation::valueChanged(const QVariant &value)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qvariantanimation.html#valueChanged
+
+    Parameters
+    ----------
+
+    value : QVariant
+      Passed on as a value: Qt reads the C++ QVariant, which stays Python's
+      own.
+    """
+    #  void QVariantAnimation::valueChanged(const QVariant &value)
+    self.uglySide.call(
+        'ritual_ZN17QVariantAnimation12valueChangedERK8QVariant',
+        self._valueOf(value),
+    )
+
   @overload(QEvent)
   @overload(NoneType)
   def event(self, event: Optional[QEvent]) -> bool:
@@ -615,3 +659,60 @@ class QVariantAnimation(QAbstractAnimation):
       ritual = (
           'ritual_own_ZN17QVariantAnimation18updateCurrentValueERK8QVariant')
     self.uglySide.call(ritual, self._valueOf(value))
+
+  @staticmethod
+  def bindableDuration(*__, **_) -> Never:
+    """
+    Qt's 'QBindable<int> QVariantAnimation::bindableDuration()': gives a type
+    Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QVariantAnimation.bindableDuration' has no cute function yet. "
+        "Qt's 'QBindable<int> QVariantAnimation::bindableDuration()': gives "
+        "a type Python has no way to take yet.")
+
+  @staticmethod
+  def bindableEasingCurve(*__, **_) -> Never:
+    """
+    Qt's 'QBindable<QEasingCurve> QVariantAnimation::bindableEasingCurve()':
+    gives a type Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QVariantAnimation.bindableEasingCurve' has no cute function yet. "
+        "Qt's 'QBindable<QEasingCurve> "
+        "QVariantAnimation::bindableEasingCurve()': gives a type Python has "
+        "no way to take yet.")
+
+  @staticmethod
+  def keyValues(*__, **_) -> Never:
+    """
+    Qt's 'KeyValues QVariantAnimation::keyValues() const': gives a type
+    Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QVariantAnimation.keyValues' has no cute function yet. Qt's "
+        "'KeyValues QVariantAnimation::keyValues() const': gives a type "
+        "Python has no way to take yet.")
+
+  @staticmethod
+  def registerInterpolator(*__, **_) -> Never:
+    """
+    Qt's 'void QVariantAnimation::registerInterpolator(Interpolator func, int
+    interpolationType)': takes a type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QVariantAnimation.registerInterpolator' has no cute function yet. "
+        "Qt's 'void QVariantAnimation::registerInterpolator(Interpolator "
+        "func, int interpolationType)': takes a type Python has no way to "
+        "hand over yet.")
+
+  @staticmethod
+  def setKeyValues(*__, **_) -> Never:
+    """
+    Qt's 'void QVariantAnimation::setKeyValues(const KeyValues &values)':
+    takes a type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QVariantAnimation.setKeyValues' has no cute function yet. Qt's "
+        "'void QVariantAnimation::setKeyValues(const KeyValues &values)': "
+        "takes a type Python has no way to hand over yet.")

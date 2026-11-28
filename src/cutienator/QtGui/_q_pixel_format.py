@@ -17,6 +17,8 @@ from ..cute import CuteMixin, CuteNum, MetaCute, WAIT
 from ..occult import Rituals
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Never
+
   from ..QtCore import QDebug
 else:
   #  The cute classes this file names and is not built on. Each is brought in
@@ -60,8 +62,7 @@ class QPixelFormat(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  3 of the 35 functions Qt declares: 2 declared and nowhere to be found; 1 a
-  template.
+  3 of the 35 functions Qt declares: 3 not a gap.
 
   What to expect
   --------------
@@ -75,6 +76,9 @@ class QPixelFormat(CuteMixin, metaclass=MetaCute):
     is as in C++.
   - A function giving a QPixelFormat back gives a copy the ritual made for
     Python, in a new cute QPixelFormat.
+  - Each name of Qt's QPixelFormat that has no cute function yet, 'get',
+    'set', holds a function that raises 'NotImplementedError', and its
+    docstring says why.
   """
 
   #  The enums Qt writes inside QPixelFormat, each a class in here as in C++,
@@ -761,3 +765,27 @@ class QPixelFormat(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def get(*__, **_) -> Never:
+    """
+    Qt's 'uchar QPixelFormat::get(Field offset, FieldWidth width) const':
+    names the enum 'QPixelFormat::Field', whose class cannot be named here.
+    """
+    raise NotImplementedError(
+        "'QPixelFormat.get' has no cute function yet. Qt's 'uchar "
+        "QPixelFormat::get(Field offset, FieldWidth width) const': names "
+        "the enum 'QPixelFormat::Field', whose class cannot be named here.")
+
+  @staticmethod
+  def set(*__, **_) -> Never:
+    """
+    Qt's 'quint64 QPixelFormat::set(Field offset, FieldWidth width, uchar
+    value)': names the enum 'QPixelFormat::Field', whose class cannot be
+    named here.
+    """
+    raise NotImplementedError(
+        "'QPixelFormat.set' has no cute function yet. Qt's 'quint64 "
+        "QPixelFormat::set(Field offset, FieldWidth width, uchar value)': "
+        "names the enum 'QPixelFormat::Field', whose class cannot be named "
+        "here.")

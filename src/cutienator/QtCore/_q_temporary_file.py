@@ -18,7 +18,7 @@ from . import QFile, QIODeviceBase, QObject
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from . import QMetaObject
+  from . import QMetaObject, QTemporaryFilePrivate
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -37,7 +37,7 @@ class QTemporaryFile(QFile):
   -----------
 
   Every function of Qt's QTemporaryFile that has a ritual and that Python can
-  call so far, 11 names in all: 'metaObject', 'tr', 'autoRemove',
+  call so far, 12 names in all: 'metaObject', 'tr', 'd_func', 'autoRemove',
   'setAutoRemove', 'open', 'fileName', 'fileTemplate', 'setFileTemplate',
   'rename', 'renameOverwrite', 'createNativeFile'. It can be made from
   Python, in 4 ways; see '__init__'.
@@ -45,14 +45,21 @@ class QTemporaryFile(QFile):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QTemporaryFile::qt_metacast(const char *a0)': one of Qt's own
+    inner workings.
+  - Qt's 'int QTemporaryFile::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
+  - Qt's 'const QTemporaryFilePrivate *QTemporaryFile::d_func() const': takes
+    in Python what 'QTemporaryFilePrivate *QTemporaryFile::d_func()' takes.
   - Qt's 'QTemporaryFile::~QTemporaryFile()': the destructor: Python never
     removes a C++ QTemporaryFile.
+  - Qt's 'QTemporaryFile *QTemporaryFile::createNativeFile(QFile &file)':
+    takes a type Python has no way to hand over yet.
 
   What has no ritual
   ------------------
 
-  14 of the 31 functions Qt declares: 6 a template; 5 takes or gives a type
-  that cannot be passed yet; 2 forbidden; 1 declared and nowhere to be found.
+  9 of the 31 functions Qt declares: 5 a template; 2 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -383,6 +390,24 @@ class QTemporaryFile(QFile):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  def d_func(self) -> Optional[QTemporaryFilePrivate]:
+    """
+    Calls Qt's 'QTemporaryFilePrivate *QTemporaryFile::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtemporaryfile.html#d_func
+
+    Returns
+    -------
+
+    Optional[QTemporaryFilePrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QTemporaryFilePrivate *QTemporaryFile::d_func()
+    address = self.uglySide.call('ritual_ZN14QTemporaryFile6d_funcEv')
+    from . import QTemporaryFilePrivate
+    return QTemporaryFilePrivate._cuteAt(address)
 
   @overload()
   def open(self) -> bool:

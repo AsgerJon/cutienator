@@ -20,6 +20,7 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
 
   from ..QtCore import QMetaObject
   from . import QTextCursor, QTextDocument, QTextTableCell, QTextTableFormat
+  from . import QTextTablePrivate
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -45,23 +46,28 @@ class QTextTable(QTextFrame):
   -----------
 
   Every function of Qt's QTextTable that has a ritual and that Python can
-  call so far, 18 names in all: 'metaObject', 'tr', 'resize', 'insertRows',
+  call so far, 19 names in all: 'metaObject', 'tr', 'resize', 'insertRows',
   'insertColumns', 'appendRows', 'appendColumns', 'removeRows',
   'removeColumns', 'mergeCells', 'splitCell', 'rows', 'columns', 'cellAt',
-  'rowStart', 'rowEnd', 'setFormat', 'format'. It can be made from Python, in
-  1 way; see '__init__'.
+  'rowStart', 'rowEnd', 'setFormat', 'format', 'd_func'. It can be made from
+  Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QTextTable::qt_metacast(const char *a0)': one of Qt's own
+    inner workings.
+  - Qt's 'int QTextTable::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
   - Qt's 'QTextTable::~QTextTable()': the destructor: Python never removes a
     C++ QTextTable.
+  - Qt's 'const QTextTablePrivate *QTextTable::d_func() const': takes in
+    Python what 'QTextTablePrivate *QTextTable::d_func()' takes.
 
   What has no ritual
   ------------------
 
-  8 of the 31 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet; 2 forbidden; 1 a template; 1 declared and nowhere to be found.
+  4 of the 31 functions Qt declares: 2 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -631,3 +637,21 @@ class QTextTable(QTextFrame):
     self.uglySide.call(
         'ritual_ZN10QTextTable9splitCellEiiii', row, col, numRows, numCols,
     )
+
+  def d_func(self) -> Optional[QTextTablePrivate]:
+    """
+    Calls Qt's 'QTextTablePrivate *QTextTable::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtexttable.html#d_func
+
+    Returns
+    -------
+
+    Optional[QTextTablePrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QTextTablePrivate *QTextTable::d_func()
+    address = self.uglySide.call('ritual_ZN10QTextTable6d_funcEv')
+    from . import QTextTablePrivate
+    return QTextTablePrivate._cuteAt(address)

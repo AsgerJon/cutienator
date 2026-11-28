@@ -15,6 +15,9 @@ from worktoy.dispatch import overload
 from ..cute import CuteMixin, MetaCute
 from ..occult import Rituals
 
+if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Never
+
 
 class QLatin1Char(CuteMixin, metaclass=MetaCute):
   """
@@ -29,9 +32,9 @@ class QLatin1Char(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QLatin1Char that has a ritual and that Python can
-  call so far, 6 names in all: '__eq__', '__ne__', '__lt__', '__gt__',
-  '__le__', '__ge__'. None can be made from Python: one comes out of a
-  function of another class that gives one back.
+  call so far, 7 names in all: 'unicode', '__eq__', '__ne__', '__lt__',
+  '__gt__', '__le__', '__ge__'. None can be made from Python: one comes out
+  of a function of another class that gives one back.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -64,14 +67,10 @@ class QLatin1Char(CuteMixin, metaclass=MetaCute):
     single letter as C has it.
   - Qt's 'bool operator>=(const char &lhs, const QLatin1Char &rhs)': takes a
     single letter as C has it.
+  - Qt's 'char16_t QLatin1Char::operator char16_t() const': an operator
+    Python has no name for.
   - Qt's 'QLatin1Char::~QLatin1Char()': the destructor: Python removes its
     C++ QLatin1Char by it, and has no other use for it.
-
-  What has no ritual
-  ------------------
-
-  2 of the 23 functions Qt declares: 2 takes or gives a type that cannot be
-  passed yet.
 
   What to expect
   --------------
@@ -85,6 +84,9 @@ class QLatin1Char(CuteMixin, metaclass=MetaCute):
     is as in C++.
   - A function giving a QLatin1Char back gives a copy the ritual made for
     Python, in a new cute QLatin1Char.
+  - Each name of Qt's QLatin1Char that has no cute function yet, '__init__',
+    'toLatin1', holds a function that raises 'NotImplementedError', and its
+    docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -114,6 +116,15 @@ class QLatin1Char(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  GETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  def unicode(self) -> int:
+    """
+    Calls Qt's 'char16_t QLatin1Char::unicode() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlatin1char.html#unicode
+    """
+    #  char16_t QLatin1Char::unicode() const
+    return self.uglySide.call('ritual_ZNK11QLatin1Char7unicodeEv')
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -311,6 +322,17 @@ class QLatin1Char(CuteMixin, metaclass=MetaCute):
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  @staticmethod
+  def __init__(*__, **_) -> Never:
+    """
+    Qt's 'QLatin1Char::QLatin1Char(char c)': takes a single letter as C has
+    it.
+    """
+    raise NotImplementedError(
+        "'QLatin1Char.__init__' has no cute function yet. Qt's "
+        "'QLatin1Char::QLatin1Char(char c)': takes a single letter as C has "
+        "it.")
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -330,3 +352,13 @@ class QLatin1Char(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def toLatin1(*__, **_) -> Never:
+    """
+    Qt's 'char QLatin1Char::toLatin1() const': gives a single letter as C has
+    it.
+    """
+    raise NotImplementedError(
+        "'QLatin1Char.toLatin1' has no cute function yet. Qt's 'char "
+        "QLatin1Char::toLatin1() const': gives a single letter as C has it.")

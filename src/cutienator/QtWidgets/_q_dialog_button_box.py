@@ -22,7 +22,7 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
 
   from ..QtCore import QEvent, QMetaObject
   from ..QtGui import QKeySequence
-  from . import QAbstractButton, QPushButton
+  from . import QAbstractButton, QDialogButtonBoxPrivate, QPushButton
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -47,25 +47,31 @@ class QDialogButtonBox(QWidget):
   -----------
 
   Every function of Qt's QDialogButtonBox that has a ritual and that Python
-  can call so far, 19 names in all: 'metaObject', 'tr', 'setOrientation',
+  can call so far, 24 names in all: 'metaObject', 'tr', 'setOrientation',
   'orientation', 'addButton', 'removeButton', 'clear', 'buttons',
   'buttonRole', 'setStandardButtons', 'standardButtons', 'standardButton',
   'button', 'setCenterButtons', 'centerButtons', 'standardButtonText',
-  'standardButtonShortcut', 'changeEvent', 'event'. It can be made from
-  Python, in 4 ways; see '__init__'.
+  'standardButtonShortcut', 'clicked', 'accepted', 'helpRequested',
+  'rejected', 'changeEvent', 'event', 'd_func'. It can be made from Python,
+  in 4 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QDialogButtonBox::qt_metacast(const char *a0)': one of Qt's
+    own inner workings.
+  - Qt's 'int QDialogButtonBox::qt_metacall(QMetaObject::Call a0, int a1,
+    void **a2)': one of Qt's own inner workings.
   - Qt's 'QDialogButtonBox::~QDialogButtonBox()': the destructor: Python
     never removes a C++ QDialogButtonBox.
+  - Qt's 'const QDialogButtonBoxPrivate *QDialogButtonBox::d_func() const':
+    takes in Python what 'QDialogButtonBoxPrivate
+    *QDialogButtonBox::d_func()' takes.
 
   What has no ritual
   ------------------
 
-  12 of the 38 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet; 4 a signal; 2 forbidden; 1 a template; 1 declared and nowhere
-  to be found.
+  4 of the 38 functions Qt declares: 2 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -812,6 +818,55 @@ class QDialogButtonBox(QWidget):
     #  void QDialogButtonBox::clear()
     self.uglySide.call('ritual_ZN16QDialogButtonBox5clearEv')
 
+  @overload(QAbstractButton)
+  @overload(NoneType)
+  def clicked(self, button: Optional[QAbstractButton]) -> None:
+    """
+    Calls Qt's 'void QDialogButtonBox::clicked(QAbstractButton *button)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qdialogbuttonbox.html#clicked
+
+    Parameters
+    ----------
+
+    button : Optional[QAbstractButton]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QDialogButtonBox::clicked(QAbstractButton *button)
+    self.uglySide.call(
+        'ritual_ZN16QDialogButtonBox7clickedEP15QAbstractButton',
+        self._addressOf(button),
+    )
+
+  def accepted(self) -> None:
+    """
+    Calls Qt's 'void QDialogButtonBox::accepted()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qdialogbuttonbox.html#accepted
+    """
+    #  void QDialogButtonBox::accepted()
+    self.uglySide.call('ritual_ZN16QDialogButtonBox8acceptedEv')
+
+  def helpRequested(self) -> None:
+    """
+    Calls Qt's 'void QDialogButtonBox::helpRequested()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qdialogbuttonbox.html#helpRequested
+    """
+    #  void QDialogButtonBox::helpRequested()
+    self.uglySide.call('ritual_ZN16QDialogButtonBox13helpRequestedEv')
+
+  def rejected(self) -> None:
+    """
+    Calls Qt's 'void QDialogButtonBox::rejected()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qdialogbuttonbox.html#rejected
+    """
+    #  void QDialogButtonBox::rejected()
+    self.uglySide.call('ritual_ZN16QDialogButtonBox8rejectedEv')
+
   @overload(QEvent)
   @overload(NoneType)
   def changeEvent(self, event: Optional[QEvent]) -> None:
@@ -853,3 +908,21 @@ class QDialogButtonBox(QWidget):
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZN16QDialogButtonBox5eventEP6QEvent'
     return self.uglySide.call(ritual, self._addressOf(event))
+
+  def d_func(self) -> Optional[QDialogButtonBoxPrivate]:
+    """
+    Calls Qt's 'QDialogButtonBoxPrivate *QDialogButtonBox::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qdialogbuttonbox.html#d_func
+
+    Returns
+    -------
+
+    Optional[QDialogButtonBoxPrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QDialogButtonBoxPrivate *QDialogButtonBox::d_func()
+    address = self.uglySide.call('ritual_ZN16QDialogButtonBox6d_funcEv')
+    from . import QDialogButtonBoxPrivate
+    return QDialogButtonBoxPrivate._cuteAt(address)

@@ -16,6 +16,8 @@ from ..occult import Rituals
 from . import QBasicMutex
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Never
+
   from . import QDeadlineTimer
 else:
   #  The cute classes this file names and is not built on. Each is brought in
@@ -60,6 +62,9 @@ class QMutex(QBasicMutex):
     has it, and is passed on as nothing. Whether Qt can do with nothing there
     is as in C++.
   - Python never removes the C++ QMutex.
+  - Each name of Qt's QMutex that has no cute function yet, 'try_lock_for',
+    'try_lock_until', holds a function that raises 'NotImplementedError', and
+    its docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -176,3 +181,25 @@ class QMutex(QBasicMutex):
     return self.uglySide.call(
         'ritual_ZN6QMutex7tryLockE14QDeadlineTimer', self._valueOf(timeout),
     )
+
+  @staticmethod
+  def try_lock_for(*__, **_) -> Never:
+    """
+    Qt's 'QMutex::try_lock_for': a template: a pattern and no single
+    function.
+    """
+    raise NotImplementedError(
+        "'QMutex.try_lock_for' has no cute function yet. Qt's "
+        "'QMutex::try_lock_for': a template: a pattern and no single "
+        "function.")
+
+  @staticmethod
+  def try_lock_until(*__, **_) -> Never:
+    """
+    Qt's 'QMutex::try_lock_until': a template: a pattern and no single
+    function.
+    """
+    raise NotImplementedError(
+        "'QMutex.try_lock_until' has no cute function yet. Qt's "
+        "'QMutex::try_lock_until': a template: a pattern and no single "
+        "function.")

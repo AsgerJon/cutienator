@@ -18,7 +18,7 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
   from ..QtCore import QPoint, QSize
-  from . import QPaintDevice, QRegion, QWindow
+  from . import QPaintDevice, QPlatformBackingStore, QRegion, QWindow
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -42,22 +42,16 @@ class QBackingStore(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QBackingStore that has a ritual and that Python can
-  call so far, 11 names in all: 'window', 'paintDevice', 'flush', 'resize',
+  call so far, 12 names in all: 'window', 'paintDevice', 'flush', 'resize',
   'size', 'scroll', 'beginPaint', 'endPaint', 'setStaticContents',
-  'staticContents', 'hasStaticContents'. It can be made from Python, in 1
-  way; see '__init__'.
+  'staticContents', 'hasStaticContents', 'handle'. It can be made from
+  Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
   - Qt's 'QBackingStore::~QBackingStore()': the destructor: Python never
     removes a C++ QBackingStore.
-
-  What has no ritual
-  ------------------
-
-  1 of the 14 functions Qt declares: 1 takes or gives a type that cannot be
-  passed yet.
 
   What to expect
   --------------
@@ -161,6 +155,24 @@ class QBackingStore(CuteMixin, metaclass=MetaCute):
     return self.uglySide.call(
         'ritual_ZNK13QBackingStore17hasStaticContentsEv',
     )
+
+  def handle(self) -> Optional[QPlatformBackingStore]:
+    """
+    Calls Qt's 'QPlatformBackingStore *QBackingStore::handle() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qbackingstore.html#handle
+
+    Returns
+    -------
+
+    Optional[QPlatformBackingStore]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QPlatformBackingStore *QBackingStore::handle() const
+    address = self.uglySide.call('ritual_ZNK13QBackingStore6handleEv')
+    from . import QPlatformBackingStore
+    return QPlatformBackingStore._cuteAt(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

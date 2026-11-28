@@ -54,7 +54,7 @@ class QCalendarWidget(QWidget):
   -----------
 
   Every function of Qt's QCalendarWidget that has a ritual and that Python
-  can call so far, 54 names in all: 'metaObject', 'tr', 'sizeHint',
+  can call so far, 58 names in all: 'metaObject', 'tr', 'sizeHint',
   'minimumSizeHint', 'selectedDate', 'yearShown', 'monthShown',
   'minimumDate', 'setMinimumDate', 'clearMinimumDate', 'maximumDate',
   'setMaximumDate', 'clearMaximumDate', 'firstDayOfWeek',
@@ -69,21 +69,30 @@ class QCalendarWidget(QWidget):
   'paintCell', 'updateCell', 'updateCells', 'setSelectedDate',
   'setDateRange', 'setCurrentPage', 'setGridVisible',
   'setNavigationBarVisible', 'showNextMonth', 'showPreviousMonth',
-  'showNextYear', 'showPreviousYear', 'showSelectedDate', 'showToday'. It can
-  be made from Python, in 1 way; see '__init__'.
+  'showNextYear', 'showPreviousYear', 'showSelectedDate', 'showToday',
+  'selectionChanged', 'clicked', 'activated', 'currentPageChanged'. It can be
+  made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QCalendarWidget::qt_metacast(const char *a0)': one of Qt's
+    own inner workings.
+  - Qt's 'int QCalendarWidget::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
   - Qt's 'QCalendarWidget::~QCalendarWidget()': the destructor: Python never
     removes a C++ QCalendarWidget.
+  - Qt's 'QMap<QDate, QTextCharFormat> QCalendarWidget::dateTextFormat()
+    const': gives a type Python has no way to take yet.
+  - Qt's 'QCalendarWidgetPrivate *QCalendarWidget::d_func()': gives
+    'QCalendarWidgetPrivate', which has no cute class yet.
+  - Qt's 'const QCalendarWidgetPrivate *QCalendarWidget::d_func() const':
+    gives 'QCalendarWidgetPrivate', which has no cute class yet.
 
   What has no ritual
   ------------------
 
-  13 of the 69 functions Qt declares: 5 takes or gives a type that cannot be
-  passed yet; 4 a signal; 2 forbidden; 1 a template; 1 declared and nowhere
-  to be found.
+  4 of the 69 functions Qt declares: 2 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -1273,3 +1282,72 @@ class QCalendarWidget(QWidget):
     """
     #  void QCalendarWidget::showToday()
     self.uglySide.call('ritual_ZN15QCalendarWidget9showTodayEv')
+
+  def selectionChanged(self) -> None:
+    """
+    Calls Qt's 'void QCalendarWidget::selectionChanged()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qcalendarwidget.html#selectionChanged
+    """
+    #  void QCalendarWidget::selectionChanged()
+    self.uglySide.call('ritual_ZN15QCalendarWidget16selectionChangedEv')
+
+  @overload(QDate)
+  def clicked(self, date: QDate) -> None:
+    """
+    Calls Qt's 'void QCalendarWidget::clicked(QDate date)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcalendarwidget.html#clicked
+
+    Parameters
+    ----------
+
+    date : QDate
+      Passed on as a value: Qt reads the C++ QDate, which stays Python's own.
+    """
+    #  void QCalendarWidget::clicked(QDate date)
+    self.uglySide.call(
+        'ritual_ZN15QCalendarWidget7clickedE5QDate', self._valueOf(date),
+    )
+
+  @overload(QDate)
+  def activated(self, date: QDate) -> None:
+    """
+    Calls Qt's 'void QCalendarWidget::activated(QDate date)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcalendarwidget.html#activated
+
+    Parameters
+    ----------
+
+    date : QDate
+      Passed on as a value: Qt reads the C++ QDate, which stays Python's own.
+    """
+    #  void QCalendarWidget::activated(QDate date)
+    self.uglySide.call(
+        'ritual_ZN15QCalendarWidget9activatedE5QDate', self._valueOf(date),
+    )
+
+  @overload(int, int)
+  def currentPageChanged(self, year: int, month: int) -> None:
+    """
+    Calls Qt's 'void QCalendarWidget::currentPageChanged(int year, int
+    month)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qcalendarwidget.html#currentPageChanged
+
+    Parameters
+    ----------
+
+    year : int
+      Passed on as it is.
+
+    month : int
+      Passed on as it is.
+    """
+    #  void QCalendarWidget::currentPageChanged(int year, int month)
+    self.uglySide.call(
+        'ritual_ZN15QCalendarWidget18currentPageChangedEii', year, month,
+    )

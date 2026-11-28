@@ -53,21 +53,28 @@ class QPixmapFilter(QObject):
 
   Every function of Qt's QPixmapFilter that has a ritual and that Python can
   call so far, 5 names in all: 'metaObject', 'tr', 'type', 'boundingRectFor',
-  'draw'. None can be made from Python: one comes out of a function of
-  another class that gives one back.
+  'draw'. It can be made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QPixmapFilter::qt_metacast(const char *a0)': one of Qt's own
+    inner workings.
+  - Qt's 'int QPixmapFilter::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
+  - Qt's 'QPixmapFilterPrivate *QPixmapFilter::d_func()': gives
+    'QPixmapFilterPrivate', which has no cute class yet.
+  - Qt's 'const QPixmapFilterPrivate *QPixmapFilter::d_func() const': gives
+    'QPixmapFilterPrivate', which has no cute class yet.
   - Qt's 'QPixmapFilter::~QPixmapFilter()': the destructor: Python never
     removes a C++ QPixmapFilter.
+  - Qt's 'QPixmapFilter::QPixmapFilter(QPixmapFilterPrivate &d, FilterType
+    type, QObject *parent)': takes a type Python has no way to hand over yet.
 
   What has no ritual
   ------------------
 
-  8 of the 14 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet; 2 the class is abstract, so C++ cannot make one; 1 a template;
-  1 declared and nowhere to be found.
+  2 of the 14 functions Qt declares: 2 not a gap.
 
   What to expect
   --------------
@@ -279,6 +286,31 @@ class QPixmapFilter(QObject):
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  @overload(FilterType, QObject)
+  @overload(FilterType, NoneType)
+  def __init__(self, type: FilterType, parent: Optional[QObject]) -> None:
+    """
+    Notes what was given, for Qt's 'QPixmapFilter::QPixmapFilter(FilterType
+    type, QObject *parent)', which is called at the first use.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpixmapfilter.html#QPixmapFilter
+
+    Parameters
+    ----------
+
+    type : FilterType
+      Passed on as its number.
+
+    parent : Optional[QObject]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  QPixmapFilter::QPixmapFilter(FilterType type, QObject *parent)
+    self._noteCreation(QPixmapFilter, lambda: Rituals.call(
+        'ritual_ZN13QPixmapFilterC1ENS_10FilterTypeEP7QObject',
+        type.value, self._addressOf(parent, 'QObject'),
+    ))
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -343,6 +375,6 @@ class QPixmapFilter(QObject):
     self.uglySide.call(
         'ritual_ZNK13QPixmapFilter4drawEP8QPainterRK7QPointFRK7QPixmapRK6QR'
         'ectF',
-        self._addressOf(painter), self._valueOf(p), self._valueOf(src),
-        self._valueOf(srcRect),
+        self._addressOf(painter), self._valueOf(p, 'QPointF'),
+        self._valueOf(src), self._valueOf(srcRect),
     )

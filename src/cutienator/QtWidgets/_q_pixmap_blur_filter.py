@@ -59,14 +59,21 @@ class QPixmapBlurFilter(QPixmapFilter):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QPixmapBlurFilter::qt_metacast(const char *a0)': one of Qt's
+    own inner workings.
+  - Qt's 'int QPixmapBlurFilter::qt_metacall(QMetaObject::Call a0, int a1,
+    void **a2)': one of Qt's own inner workings.
+  - Qt's 'QPixmapBlurFilterPrivate *QPixmapBlurFilter::d_func()': gives
+    'QPixmapBlurFilterPrivate', which has no cute class yet.
+  - Qt's 'const QPixmapBlurFilterPrivate *QPixmapBlurFilter::d_func() const':
+    gives 'QPixmapBlurFilterPrivate', which has no cute class yet.
   - Qt's 'QPixmapBlurFilter::~QPixmapBlurFilter()': the destructor: Python
     never removes a C++ QPixmapBlurFilter.
 
   What has no ritual
   ------------------
 
-  6 of the 16 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet; 1 a template; 1 declared and nowhere to be found.
+  2 of the 16 functions Qt declares: 2 not a gap.
 
   What to expect
   --------------
@@ -383,6 +390,6 @@ class QPixmapBlurFilter(QPixmapFilter):
           'ixmapRK6QRectF')
     self.uglySide.call(
         ritual,
-        self._addressOf(painter), self._valueOf(dest), self._valueOf(src),
-        self._valueOf(srcRect),
+        self._addressOf(painter), self._valueOf(dest, 'QPointF'),
+        self._valueOf(src), self._valueOf(srcRect),
     )

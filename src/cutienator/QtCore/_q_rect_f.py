@@ -17,6 +17,8 @@ from ..occult import Rituals
 from . import QList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Never
+
   from . import QMarginsF, QPointF, QRect, QSizeF
 else:
   #  The cute classes this file names and is not built on. Each is brought in
@@ -79,6 +81,9 @@ class QRectF(CuteMixin, metaclass=MetaCute):
     is as in C++.
   - A function giving a QRectF back gives a copy the ritual made for Python,
     in a new cute QRectF.
+  - Each name of Qt's QRectF that has no cute function yet, 'getCoords',
+    'getRect', holds a function that raises 'NotImplementedError', and its
+    docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -339,7 +344,8 @@ class QRectF(CuteMixin, metaclass=MetaCute):
     """
     #  QRectF QRectF::translated(const QPointF &p) const
     address = self.uglySide.call(
-        'ritual_ZNK6QRectF10translatedERK7QPointF', self._valueOf(p),
+        'ritual_ZNK6QRectF10translatedERK7QPointF',
+        self._valueOf(p, 'QPointF'),
     )
     return QRectF._cuteOwning(address)
 
@@ -464,7 +470,7 @@ class QRectF(CuteMixin, metaclass=MetaCute):
     """
     #  bool QRectF::contains(const QPointF &p) const
     return self.uglySide.call(
-        'ritual_ZNK6QRectF8containsERK7QPointF', self._valueOf(p),
+        'ritual_ZNK6QRectF8containsERK7QPointF', self._valueOf(p, 'QPointF'),
     )
 
   @overload(float, float)
@@ -762,7 +768,8 @@ class QRectF(CuteMixin, metaclass=MetaCute):
     """
     #  void QRectF::setTopLeft(const QPointF &p)
     self.uglySide.call(
-        'ritual_ZN6QRectF10setTopLeftERK7QPointF', self._valueOf(p),
+        'ritual_ZN6QRectF10setTopLeftERK7QPointF',
+        self._valueOf(p, 'QPointF'),
     )
 
   @overload(QPointF)
@@ -781,7 +788,8 @@ class QRectF(CuteMixin, metaclass=MetaCute):
     """
     #  void QRectF::setBottomRight(const QPointF &p)
     self.uglySide.call(
-        'ritual_ZN6QRectF14setBottomRightERK7QPointF', self._valueOf(p),
+        'ritual_ZN6QRectF14setBottomRightERK7QPointF',
+        self._valueOf(p, 'QPointF'),
     )
 
   @overload(QPointF)
@@ -800,7 +808,8 @@ class QRectF(CuteMixin, metaclass=MetaCute):
     """
     #  void QRectF::setTopRight(const QPointF &p)
     self.uglySide.call(
-        'ritual_ZN6QRectF11setTopRightERK7QPointF', self._valueOf(p),
+        'ritual_ZN6QRectF11setTopRightERK7QPointF',
+        self._valueOf(p, 'QPointF'),
     )
 
   @overload(QPointF)
@@ -819,7 +828,8 @@ class QRectF(CuteMixin, metaclass=MetaCute):
     """
     #  void QRectF::setBottomLeft(const QPointF &p)
     self.uglySide.call(
-        'ritual_ZN6QRectF13setBottomLeftERK7QPointF', self._valueOf(p),
+        'ritual_ZN6QRectF13setBottomLeftERK7QPointF',
+        self._valueOf(p, 'QPointF'),
     )
 
   @overload(float, float, float, float)
@@ -1247,7 +1257,7 @@ class QRectF(CuteMixin, metaclass=MetaCute):
     #  QRectF::QRectF(const QPointF &topleft, const QSizeF &size)
     self._noteCreation(QRectF, lambda: Rituals.call(
         'ritual_ZN6QRectFC1ERK7QPointFRK6QSizeF',
-        self._valueOf(topleft), self._valueOf(size),
+        self._valueOf(topleft, 'QPointF'), self._valueOf(size),
     ))
 
   @overload(QPointF, QPointF)
@@ -1272,7 +1282,8 @@ class QRectF(CuteMixin, metaclass=MetaCute):
     #  QRectF::QRectF(const QPointF &topleft, const QPointF &bottomRight)
     self._noteCreation(QRectF, lambda: Rituals.call(
         'ritual_ZN6QRectFC1ERK7QPointFS2_',
-        self._valueOf(topleft), self._valueOf(bottomRight),
+        self._valueOf(topleft, 'QPointF'), self._valueOf(bottomRight,
+        'QPointF'),
     ))
 
   @overload(float, float, float, float)
@@ -1428,7 +1439,8 @@ class QRectF(CuteMixin, metaclass=MetaCute):
     """
     #  void QRectF::moveTopLeft(const QPointF &p)
     self.uglySide.call(
-        'ritual_ZN6QRectF11moveTopLeftERK7QPointF', self._valueOf(p),
+        'ritual_ZN6QRectF11moveTopLeftERK7QPointF',
+        self._valueOf(p, 'QPointF'),
     )
 
   @overload(QPointF)
@@ -1447,7 +1459,8 @@ class QRectF(CuteMixin, metaclass=MetaCute):
     """
     #  void QRectF::moveBottomRight(const QPointF &p)
     self.uglySide.call(
-        'ritual_ZN6QRectF15moveBottomRightERK7QPointF', self._valueOf(p),
+        'ritual_ZN6QRectF15moveBottomRightERK7QPointF',
+        self._valueOf(p, 'QPointF'),
     )
 
   @overload(QPointF)
@@ -1466,7 +1479,8 @@ class QRectF(CuteMixin, metaclass=MetaCute):
     """
     #  void QRectF::moveTopRight(const QPointF &p)
     self.uglySide.call(
-        'ritual_ZN6QRectF12moveTopRightERK7QPointF', self._valueOf(p),
+        'ritual_ZN6QRectF12moveTopRightERK7QPointF',
+        self._valueOf(p, 'QPointF'),
     )
 
   @overload(QPointF)
@@ -1485,7 +1499,8 @@ class QRectF(CuteMixin, metaclass=MetaCute):
     """
     #  void QRectF::moveBottomLeft(const QPointF &p)
     self.uglySide.call(
-        'ritual_ZN6QRectF14moveBottomLeftERK7QPointF', self._valueOf(p),
+        'ritual_ZN6QRectF14moveBottomLeftERK7QPointF',
+        self._valueOf(p, 'QPointF'),
     )
 
   @overload(QPointF)
@@ -1504,7 +1519,8 @@ class QRectF(CuteMixin, metaclass=MetaCute):
     """
     #  void QRectF::moveCenter(const QPointF &p)
     self.uglySide.call(
-        'ritual_ZN6QRectF10moveCenterERK7QPointF', self._valueOf(p),
+        'ritual_ZN6QRectF10moveCenterERK7QPointF',
+        self._valueOf(p, 'QPointF'),
     )
 
   @overload(float, float)
@@ -1542,7 +1558,7 @@ class QRectF(CuteMixin, metaclass=MetaCute):
     """
     #  void QRectF::translate(const QPointF &p)
     self.uglySide.call(
-        'ritual_ZN6QRectF9translateERK7QPointF', self._valueOf(p),
+        'ritual_ZN6QRectF9translateERK7QPointF', self._valueOf(p, 'QPointF'),
     )
 
   @overload(float, float)
@@ -1580,7 +1596,7 @@ class QRectF(CuteMixin, metaclass=MetaCute):
     """
     #  void QRectF::moveTo(const QPointF &p)
     self.uglySide.call(
-        'ritual_ZN6QRectF6moveToERK7QPointF', self._valueOf(p),
+        'ritual_ZN6QRectF6moveToERK7QPointF', self._valueOf(p, 'QPointF'),
     )
 
   @overload(float, float, float, float)
@@ -1607,6 +1623,28 @@ class QRectF(CuteMixin, metaclass=MetaCute):
     """
     #  void QRectF::adjust(qreal x1, qreal y1, qreal x2, qreal y2)
     self.uglySide.call('ritual_ZN6QRectF6adjustEdddd', x1, y1, x2, y2)
+
+  @staticmethod
+  def getCoords(*__, **_) -> Never:
+    """
+    Qt's 'void QRectF::getCoords(qreal *x1, qreal *y1, qreal *x2, qreal *y2)
+    const': takes a number to change where it is.
+    """
+    raise NotImplementedError(
+        "'QRectF.getCoords' has no cute function yet. Qt's 'void "
+        "QRectF::getCoords(qreal *x1, qreal *y1, qreal *x2, qreal *y2) "
+        "const': takes a number to change where it is.")
+
+  @staticmethod
+  def getRect(*__, **_) -> Never:
+    """
+    Qt's 'void QRectF::getRect(qreal *x, qreal *y, qreal *w, qreal *h)
+    const': takes a number to change where it is.
+    """
+    raise NotImplementedError(
+        "'QRectF.getRect' has no cute function yet. Qt's 'void "
+        "QRectF::getRect(qreal *x, qreal *y, qreal *w, qreal *h) const': "
+        "takes a number to change where it is.")
 
 
 #  Qt's 'QList<QRectF>': the list of QRectF, which 'QList[QRectF]' gives. It

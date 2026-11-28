@@ -19,7 +19,7 @@ from ..QtGui import QTextCursor, QTextDocument, QTextOption
 from . import QAbstractScrollArea, QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from ..QtCore import QEvent, QMetaObject, QMimeData, QPoint, QRect
   from ..QtCore import QRegularExpression, QTimerEvent, QUrl, QVariant
@@ -28,7 +28,7 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   from ..QtGui import QFocusEvent, QFont, QInputMethodEvent, QKeyEvent
   from ..QtGui import QMouseEvent, QPagedPaintDevice, QPaintEvent
   from ..QtGui import QResizeEvent, QShowEvent, QTextCharFormat, QWheelEvent
-  from . import QMenu
+  from . import QMenu, QTextEditPrivate
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -75,9 +75,9 @@ class QTextEdit(QAbstractScrollArea):
   -----------
 
   Every function of Qt's QTextEdit that has a ritual and that Python can call
-  so far, 114 names in all: 'metaObject', 'tr', 'setDocument', 'document',
-  'setPlaceholderText', 'placeholderText', 'setTextCursor', 'textCursor',
-  'isReadOnly', 'setReadOnly', 'setTextInteractionFlags',
+  so far, 122 names in all: 'metaObject', 'tr', 'd_func', 'setDocument',
+  'document', 'setPlaceholderText', 'placeholderText', 'setTextCursor',
+  'textCursor', 'isReadOnly', 'setReadOnly', 'setTextInteractionFlags',
   'textInteractionFlags', 'fontPointSize', 'fontFamily', 'fontWeight',
   'fontUnderline', 'fontItalic', 'textColor', 'textBackgroundColor',
   'currentFont', 'alignment', 'mergeCurrentCharFormat',
@@ -96,12 +96,15 @@ class QTextEdit(QAbstractScrollArea):
   'setTextColor', 'setTextBackgroundColor', 'setCurrentFont', 'setAlignment',
   'setPlainText', 'setHtml', 'setMarkdown', 'setText', 'cut', 'copy',
   'paste', 'undo', 'redo', 'clear', 'selectAll', 'insertPlainText',
-  'insertHtml', 'append', 'scrollToAnchor', 'zoomIn', 'zoomOut', 'event',
-  'timerEvent', 'keyPressEvent', 'keyReleaseEvent', 'resizeEvent',
-  'paintEvent', 'mousePressEvent', 'mouseMoveEvent', 'mouseReleaseEvent',
-  'mouseDoubleClickEvent', 'focusNextPrevChild', 'contextMenuEvent',
-  'dragEnterEvent', 'dragLeaveEvent', 'dragMoveEvent', 'dropEvent',
-  'focusInEvent', 'focusOutEvent', 'showEvent', 'changeEvent', 'wheelEvent',
+  'insertHtml', 'append', 'scrollToAnchor', 'zoomIn', 'zoomOut',
+  'textChanged', 'undoAvailable', 'redoAvailable',
+  'currentCharFormatChanged', 'copyAvailable', 'selectionChanged',
+  'cursorPositionChanged', 'event', 'timerEvent', 'keyPressEvent',
+  'keyReleaseEvent', 'resizeEvent', 'paintEvent', 'mousePressEvent',
+  'mouseMoveEvent', 'mouseReleaseEvent', 'mouseDoubleClickEvent',
+  'focusNextPrevChild', 'contextMenuEvent', 'dragEnterEvent',
+  'dragLeaveEvent', 'dragMoveEvent', 'dropEvent', 'focusInEvent',
+  'focusOutEvent', 'showEvent', 'changeEvent', 'wheelEvent',
   'createMimeDataFromSelection', 'canInsertFromMimeData',
   'insertFromMimeData', 'inputMethodEvent', 'scrollContentsBy',
   'doSetTextCursor', 'zoomInF'. It can be made from Python, in 2 ways; see
@@ -110,15 +113,25 @@ class QTextEdit(QAbstractScrollArea):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QTextEdit::qt_metacast(const char *a0)': one of Qt's own
+    inner workings.
+  - Qt's 'int QTextEdit::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
+  - Qt's 'const QTextEditPrivate *QTextEdit::d_func() const': takes in Python
+    what 'QTextEditPrivate *QTextEdit::d_func()' takes.
   - Qt's 'QTextEdit::~QTextEdit()': the destructor: Python never removes a
     C++ QTextEdit.
+  - Qt's 'void QTextEdit::setExtraSelections(const QList<ExtraSelection>
+    &selections)': takes a type Python has no way to hand over yet.
+  - Qt's 'QList<ExtraSelection> QTextEdit::extraSelections() const': gives a
+    type Python has no way to take yet.
+  - Qt's 'QTextEdit::QTextEdit(QTextEditPrivate &dd, QWidget *parent)': takes
+    a type Python has no way to hand over yet.
 
   What has no ritual
   ------------------
 
-  18 of the 139 functions Qt declares: 7 takes or gives a type that cannot be
-  passed yet; 7 a signal; 2 forbidden; 1 a template; 1 declared and nowhere
-  to be found.
+  4 of the 139 functions Qt declares: 2 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -133,6 +146,9 @@ class QTextEdit(QAbstractScrollArea):
   - Qt tells when it has removed the C++ QTextEdit. Every call on the cute
     object, and every use of it as an argument, then raises 'RuntimeError',
     and nothing reaches C++.
+  - Each name of Qt's QTextEdit that has no cute function yet,
+    'extraSelections', 'setExtraSelections', holds a function that raises
+    'NotImplementedError', and its docstring says why.
   """
 
   #  The enums Qt writes inside QTextEdit, each a class in here as in C++,
@@ -1655,6 +1671,24 @@ class QTextEdit(QAbstractScrollArea):
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  def d_func(self) -> Optional[QTextEditPrivate]:
+    """
+    Calls Qt's 'QTextEditPrivate *QTextEdit::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtextedit.html#d_func
+
+    Returns
+    -------
+
+    Optional[QTextEditPrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QTextEditPrivate *QTextEdit::d_func()
+    address = self.uglySide.call('ritual_ZN9QTextEdit6d_funcEv')
+    from . import QTextEditPrivate
+    return QTextEditPrivate._cuteAt(address)
+
   @overload(QTextCharFormat)
   def mergeCurrentCharFormat(self, modifier: QTextCharFormat) -> None:
     """
@@ -2050,6 +2084,105 @@ class QTextEdit(QAbstractScrollArea):
     """
     #  void QTextEdit::zoomOut(int range)
     self.uglySide.call('ritual_ZN9QTextEdit7zoomOutEi', range)
+
+  def textChanged(self) -> None:
+    """
+    Calls Qt's 'void QTextEdit::textChanged()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtextedit.html#textChanged
+    """
+    #  void QTextEdit::textChanged()
+    self.uglySide.call('ritual_ZN9QTextEdit11textChangedEv')
+
+  @overload(bool)
+  def undoAvailable(self, b: bool) -> None:
+    """
+    Calls Qt's 'void QTextEdit::undoAvailable(bool b)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtextedit.html#undoAvailable
+
+    Parameters
+    ----------
+
+    b : bool
+      Passed on as it is.
+    """
+    #  void QTextEdit::undoAvailable(bool b)
+    self.uglySide.call('ritual_ZN9QTextEdit13undoAvailableEb', b)
+
+  @overload(bool)
+  def redoAvailable(self, b: bool) -> None:
+    """
+    Calls Qt's 'void QTextEdit::redoAvailable(bool b)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtextedit.html#redoAvailable
+
+    Parameters
+    ----------
+
+    b : bool
+      Passed on as it is.
+    """
+    #  void QTextEdit::redoAvailable(bool b)
+    self.uglySide.call('ritual_ZN9QTextEdit13redoAvailableEb', b)
+
+  @overload(QTextCharFormat)
+  def currentCharFormatChanged(self, format: QTextCharFormat) -> None:
+    """
+    Calls Qt's 'void QTextEdit::currentCharFormatChanged(const
+    QTextCharFormat &format)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qtextedit.html#currentCharFormatChanged
+
+    Parameters
+    ----------
+
+    format : QTextCharFormat
+      Passed on as a value: Qt reads the C++ QTextCharFormat, which stays
+      Python's own.
+    """
+    #  void QTextEdit::currentCharFormatChanged(const QTextCharFormat
+    #      &format)
+    self.uglySide.call(
+        'ritual_ZN9QTextEdit24currentCharFormatChangedERK15QTextCharFormat',
+        self._valueOf(format),
+    )
+
+  @overload(bool)
+  def copyAvailable(self, b: bool) -> None:
+    """
+    Calls Qt's 'void QTextEdit::copyAvailable(bool b)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtextedit.html#copyAvailable
+
+    Parameters
+    ----------
+
+    b : bool
+      Passed on as it is.
+    """
+    #  void QTextEdit::copyAvailable(bool b)
+    self.uglySide.call('ritual_ZN9QTextEdit13copyAvailableEb', b)
+
+  def selectionChanged(self) -> None:
+    """
+    Calls Qt's 'void QTextEdit::selectionChanged()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtextedit.html#selectionChanged
+    """
+    #  void QTextEdit::selectionChanged()
+    self.uglySide.call('ritual_ZN9QTextEdit16selectionChangedEv')
+
+  def cursorPositionChanged(self) -> None:
+    """
+    Calls Qt's 'void QTextEdit::cursorPositionChanged()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qtextedit.html#cursorPositionChanged
+    """
+    #  void QTextEdit::cursorPositionChanged()
+    self.uglySide.call('ritual_ZN9QTextEdit21cursorPositionChangedEv')
 
   @overload(QEvent)
   @overload(NoneType)
@@ -2593,3 +2726,25 @@ class QTextEdit(QAbstractScrollArea):
     """
     #  void QTextEdit::zoomInF(float range)
     self.uglySide.call('ritual_ZN9QTextEdit7zoomInFEf', range)
+
+  @staticmethod
+  def extraSelections(*__, **_) -> Never:
+    """
+    Qt's 'QList<ExtraSelection> QTextEdit::extraSelections() const': gives a
+    type Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QTextEdit.extraSelections' has no cute function yet. Qt's "
+        "'QList<ExtraSelection> QTextEdit::extraSelections() const': gives "
+        "a type Python has no way to take yet.")
+
+  @staticmethod
+  def setExtraSelections(*__, **_) -> Never:
+    """
+    Qt's 'void QTextEdit::setExtraSelections(const QList<ExtraSelection>
+    &selections)': takes a type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QTextEdit.setExtraSelections' has no cute function yet. Qt's "
+        "'void QTextEdit::setExtraSelections(const QList<ExtraSelection> "
+        "&selections)': takes a type Python has no way to hand over yet.")

@@ -16,7 +16,7 @@ from ..occult import Rituals
 from ..QtCore import QStringList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -51,7 +51,8 @@ class QAccessibleActionInterface(CuteMixin, metaclass=MetaCute):
   ------------------
 
   5 of the 25 functions Qt declares: 4 forbidden; 1 the class is abstract, so
-  C++ cannot make one.
+  C++ cannot make one, and the C++ class of ours does not fill in every
+  function it leaves open.
 
   What to expect
   --------------
@@ -64,6 +65,9 @@ class QAccessibleActionInterface(CuteMixin, metaclass=MetaCute):
     has it, and is passed on as nothing. Whether Qt can do with nothing there
     is as in C++.
   - Python never removes the C++ QAccessibleActionInterface.
+  - Each name of Qt's QAccessibleActionInterface that has no cute function
+    yet, '__init__', holds a function that raises 'NotImplementedError', and
+    its docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -570,6 +574,19 @@ class QAccessibleActionInterface(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def __init__(*__, **_) -> Never:
+    """
+    Qt's 'QAccessibleActionInterface::QAccessibleActionInterface()': the
+    class is abstract, so C++ cannot make one, and the C++ class of ours does
+    not fill in every function it leaves open.
+    """
+    raise NotImplementedError(
+        "'QAccessibleActionInterface.__init__' has no cute function yet. "
+        "Qt's 'QAccessibleActionInterface::QAccessibleActionInterface()': "
+        "the class is abstract, so C++ cannot make one, and the C++ class "
+        "of ours does not fill in every function it leaves open.")
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #

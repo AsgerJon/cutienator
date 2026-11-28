@@ -17,15 +17,17 @@ from ..occult import Rituals
 from ..QtCore import Qt, QList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from . import QTextBlockFormat, QTextBlockUserData, QTextCharFormat
-  from . import QTextDocument, QTextFragment, QTextLayout, QTextList
+  from . import QTextDocument, QTextDocumentPrivate, QTextFragment
+  from . import QTextLayout, QTextList
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
   QTextBlockUserData = WAIT['QTextBlockUserData']
+  QTextDocumentPrivate = WAIT['QTextDocumentPrivate']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -52,19 +54,17 @@ class QTextBlock(CuteMixin, metaclass=MetaCute):
   'setUserState', 'revision', 'setRevision', 'isVisible', 'setVisible',
   'blockNumber', 'firstLineNumber', 'setLineCount', 'lineCount', 'begin',
   'end', 'next', 'previous', 'fragmentIndex'. It can be made from Python, in
-  2 ways; see '__init__'.
+  3 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'QTextBlock &QTextBlock::operator=(const QTextBlock &o)':
+    assignment: Python binds a name and has no operator for it.
+  - Qt's 'QList<QTextLayout::FormatRange> QTextBlock::textFormats() const':
+    gives a type Python has no way to take yet.
   - Qt's 'QTextBlock::~QTextBlock()': the destructor: Python removes its C++
     QTextBlock by it, and has no other use for it.
-
-  What has no ritual
-  ------------------
-
-  3 of the 40 functions Qt declares: 3 takes or gives a type that cannot be
-  passed yet.
 
   What to expect
   --------------
@@ -77,6 +77,9 @@ class QTextBlock(CuteMixin, metaclass=MetaCute):
     is as in C++.
   - A function giving a QTextBlock back gives a copy the ritual made for
     Python, in a new cute QTextBlock.
+  - Each name of Qt's QTextBlock that has no cute function yet,
+    'textFormats', holds a function that raises 'NotImplementedError', and
+    its docstring says why.
   """
 
   #  The classes Qt writes inside QTextBlock, each a class in here as in C++.
@@ -95,24 +98,22 @@ class QTextBlock(CuteMixin, metaclass=MetaCute):
 
     Every function of Qt's QTextBlock::iterator that has a ritual and that
     Python can call so far, 4 names in all: 'fragment', 'atEnd', '__eq__',
-    '__ne__'. It can be made from Python, in 1 way; see '__init__'.
+    '__ne__'. It can be made from Python, in 2 ways; see '__init__'.
 
     What has a ritual and is left out, and why
     ------------------------------------------
 
+    - Qt's 'iterator &QTextBlock::iterator::operator++()': an operator Python
+      has no name for.
     - Qt's 'iterator QTextBlock::iterator::operator++(int a0)': an operator
       Python has no name for.
+    - Qt's 'iterator &QTextBlock::iterator::operator--()': an operator Python
+      has no name for.
     - Qt's 'iterator QTextBlock::iterator::operator--(int a0)': an operator
       Python has no name for.
     - Qt's 'QTextBlock::iterator::~iterator()': the destructor: Python
       removes its C++ QTextBlock::iterator by it, and has no other use for
       it.
-
-    What has no ritual
-    ------------------
-
-    3 of the 11 functions Qt declares: 3 takes or gives a type that cannot be
-    passed yet.
 
     What to expect
     --------------
@@ -127,6 +128,12 @@ class QTextBlock(CuteMixin, metaclass=MetaCute):
     - A function giving a QTextBlock::iterator back gives a copy the ritual
       made for Python, in a new cute QTextBlock::iterator.
     """
+
+    #  The cute classes this class names and is not built on. Each waits
+    #  until it is made; see 'WAIT'. A type checker reads the imports at the
+    #  top of the file instead.
+    if not TYPE_CHECKING:
+      QTextDocumentPrivate = WAIT['QTextDocumentPrivate']
 
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -262,6 +269,46 @@ class QTextBlock(CuteMixin, metaclass=MetaCute):
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    @overload(QTextDocumentPrivate, int, int, int)
+    @overload(NoneType, int, int, int)
+    def __init__(
+        self,
+        priv: Optional[QTextDocumentPrivate],
+        begin: int,
+        end: int,
+        f: int,
+    ) -> None:
+      """
+      Notes what was given, for Qt's 'QTextBlock::iterator::iterator(const
+      QTextDocumentPrivate *priv, int begin, int end, int f)', which is
+      called at the first use.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qtextblock-iterator.html#iterator
+
+      Parameters
+      ----------
+
+      priv : Optional[QTextDocumentPrivate]
+        Passed on as the address of its C++ object. None is passed on as no
+        object.
+
+      begin : int
+        Passed on as it is.
+
+      end : int
+        Passed on as it is.
+
+      f : int
+        Passed on as it is.
+      """
+      #  QTextBlock::iterator::iterator(const QTextDocumentPrivate *priv, int
+      #      begin, int end, int f)
+      self._noteCreation(QTextBlock.iterator, lambda: Rituals.call(
+          'ritual_ZN10QTextBlock8iteratorC1EPK20QTextDocumentPrivateiii',
+          self._addressOf(priv), begin, end, f,
+      ))
 
     @overload()
     def __init__(self) -> None:
@@ -842,6 +889,32 @@ class QTextBlock(CuteMixin, metaclass=MetaCute):
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  @overload(QTextDocumentPrivate, int)
+  @overload(NoneType, int)
+  def __init__(self, priv: Optional[QTextDocumentPrivate], b: int) -> None:
+    """
+    Notes what was given, for Qt's
+    'QTextBlock::QTextBlock(QTextDocumentPrivate *priv, int b)', which is
+    called at the first use.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtextblock.html#QTextBlock
+
+    Parameters
+    ----------
+
+    priv : Optional[QTextDocumentPrivate]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    b : int
+      Passed on as it is.
+    """
+    #  QTextBlock::QTextBlock(QTextDocumentPrivate *priv, int b)
+    self._noteCreation(QTextBlock, lambda: Rituals.call(
+        'ritual_ZN10QTextBlockC1EP20QTextDocumentPrivatei',
+        self._addressOf(priv), b,
+    ))
+
   @overload()
   def __init__(self) -> None:
     """
@@ -903,6 +976,17 @@ class QTextBlock(CuteMixin, metaclass=MetaCute):
     """
     #  void QTextBlock::clearLayout()
     self.uglySide.call('ritual_ZN10QTextBlock11clearLayoutEv')
+
+  @staticmethod
+  def textFormats(*__, **_) -> Never:
+    """
+    Qt's 'QList<QTextLayout::FormatRange> QTextBlock::textFormats() const':
+    gives a type Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QTextBlock.textFormats' has no cute function yet. Qt's "
+        "'QList<QTextLayout::FormatRange> QTextBlock::textFormats() const': "
+        "gives a type Python has no way to take yet.")
 
 
 #  Qt's 'QList<QTextBlock>': the list of QTextBlock, which

@@ -61,14 +61,21 @@ class QRubberBand(QWidget):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QRubberBand::qt_metacast(const char *a0)': one of Qt's own
+    inner workings.
+  - Qt's 'int QRubberBand::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
   - Qt's 'QRubberBand::~QRubberBand()': the destructor: Python never removes
     a C++ QRubberBand.
+  - Qt's 'QRubberBandPrivate *QRubberBand::d_func()': gives
+    'QRubberBandPrivate', which has no cute class yet.
+  - Qt's 'const QRubberBandPrivate *QRubberBand::d_func() const': gives
+    'QRubberBandPrivate', which has no cute class yet.
 
   What has no ritual
   ------------------
 
-  6 of the 24 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet; 1 a template; 1 declared and nowhere to be found.
+  2 of the 24 functions Qt declares: 2 not a gap.
 
   What to expect
   --------------

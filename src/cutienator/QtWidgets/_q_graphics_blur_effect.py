@@ -21,6 +21,7 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
 
   from ..QtCore import QMetaObject, QRectF
   from ..QtGui import QPainter
+  from . import QGraphicsBlurEffectPrivate
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -45,23 +46,28 @@ class QGraphicsBlurEffect(QGraphicsEffect):
   -----------
 
   Every function of Qt's QGraphicsBlurEffect that has a ritual and that
-  Python can call so far, 8 names in all: 'metaObject', 'tr',
+  Python can call so far, 11 names in all: 'metaObject', 'tr',
   'boundingRectFor', 'blurRadius', 'blurHints', 'setBlurRadius',
-  'setBlurHints', 'draw'. It can be made from Python, in 1 way; see
-  '__init__'.
+  'setBlurHints', 'blurRadiusChanged', 'blurHintsChanged', 'draw', 'd_func'.
+  It can be made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QGraphicsBlurEffect::qt_metacast(const char *a0)': one of
+    Qt's own inner workings.
+  - Qt's 'int QGraphicsBlurEffect::qt_metacall(QMetaObject::Call a0, int a1,
+    void **a2)': one of Qt's own inner workings.
   - Qt's 'QGraphicsBlurEffect::~QGraphicsBlurEffect()': the destructor:
     Python never removes a C++ QGraphicsBlurEffect.
+  - Qt's 'const QGraphicsBlurEffectPrivate *QGraphicsBlurEffect::d_func()
+    const': takes in Python what 'QGraphicsBlurEffectPrivate
+    *QGraphicsBlurEffect::d_func()' takes.
 
   What has no ritual
   ------------------
 
-  10 of the 20 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet; 2 a signal; 2 forbidden; 1 a template; 1 declared and nowhere
-  to be found.
+  4 of the 20 functions Qt declares: 2 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -349,6 +355,47 @@ class QGraphicsBlurEffect(QGraphicsEffect):
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  @overload(float)
+  def blurRadiusChanged(self, blurRadius: float) -> None:
+    """
+    Calls Qt's 'void QGraphicsBlurEffect::blurRadiusChanged(qreal
+    blurRadius)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicsblureffect.html#blurRadiusChanged
+
+    Parameters
+    ----------
+
+    blurRadius : float
+      Passed on as it is.
+    """
+    #  void QGraphicsBlurEffect::blurRadiusChanged(qreal blurRadius)
+    self.uglySide.call(
+        'ritual_ZN19QGraphicsBlurEffect17blurRadiusChangedEd', blurRadius,
+    )
+
+  @overload(BlurHints)
+  def blurHintsChanged(self, hints: BlurHints) -> None:
+    """
+    Calls Qt's 'void QGraphicsBlurEffect::blurHintsChanged(BlurHints hints)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicsblureffect.html#blurHintsChanged
+
+    Parameters
+    ----------
+
+    hints : BlurHints
+      Passed on as its number.
+    """
+    #  void QGraphicsBlurEffect::blurHintsChanged(BlurHints hints)
+    self.uglySide.call(
+        'ritual_ZN19QGraphicsBlurEffect16blurHintsChangedE6QFlagsINS_8BlurH'
+        'intEE',
+        hints.value,
+    )
+
   @overload(QPainter)
   @overload(NoneType)
   def draw(self, painter: Optional[QPainter]) -> None:
@@ -369,3 +416,21 @@ class QGraphicsBlurEffect(QGraphicsEffect):
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZN19QGraphicsBlurEffect4drawEP8QPainter'
     self.uglySide.call(ritual, self._addressOf(painter))
+
+  def d_func(self) -> Optional[QGraphicsBlurEffectPrivate]:
+    """
+    Calls Qt's 'QGraphicsBlurEffectPrivate *QGraphicsBlurEffect::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsblureffect.html#d_func
+
+    Returns
+    -------
+
+    Optional[QGraphicsBlurEffectPrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QGraphicsBlurEffectPrivate *QGraphicsBlurEffect::d_func()
+    address = self.uglySide.call('ritual_ZN19QGraphicsBlurEffect6d_funcEv')
+    from . import QGraphicsBlurEffectPrivate
+    return QGraphicsBlurEffectPrivate._cuteAt(address)

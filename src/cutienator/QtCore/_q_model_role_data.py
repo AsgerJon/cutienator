@@ -15,6 +15,8 @@ from ..cute import CuteMixin, MetaCute
 from ..occult import Rituals
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Never
+
   from . import QVariant
 
 
@@ -37,14 +39,15 @@ class QModelRoleData(CuteMixin, metaclass=MetaCute):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'QVariant &QModelRoleData::data()': gives a type Python has no way
+    to take yet.
   - Qt's 'QModelRoleData::~QModelRoleData()': the destructor: Python removes
     its C++ QModelRoleData by it, and has no other use for it.
 
   What has no ritual
   ------------------
 
-  2 of the 7 functions Qt declares: 1 takes or gives a type that cannot be
-  passed yet; 1 a template.
+  1 of the 7 functions Qt declares: 1 a template.
 
   What to expect
   --------------
@@ -58,6 +61,9 @@ class QModelRoleData(CuteMixin, metaclass=MetaCute):
     is as in C++.
   - A function giving a QModelRoleData back gives a copy the ritual made for
     Python, in a new cute QModelRoleData.
+  - Each name of Qt's QModelRoleData that has no cute function yet,
+    'setData', holds a function that raises 'NotImplementedError', and its
+    docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -178,3 +184,14 @@ class QModelRoleData(CuteMixin, metaclass=MetaCute):
     """
     #  void QModelRoleData::clearData()
     self.uglySide.call('ritual_ZN14QModelRoleData9clearDataEv')
+
+  @staticmethod
+  def setData(*__, **_) -> Never:
+    """
+    Qt's 'QModelRoleData::setData': a template: a pattern and no single
+    function.
+    """
+    raise NotImplementedError(
+        "'QModelRoleData.setData' has no cute function yet. Qt's "
+        "'QModelRoleData::setData': a template: a pattern and no single "
+        "function.")

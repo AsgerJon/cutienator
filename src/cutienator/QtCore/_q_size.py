@@ -300,7 +300,7 @@ class QSize(CuteMixin, metaclass=MetaCute):
     """
     #  QSize QSize::grownBy(QMargins m) const
     address = self.uglySide.call(
-        'ritual_ZNK5QSize7grownByE8QMargins', self._valueOf(m),
+        'ritual_ZNK5QSize7grownByE8QMargins', self._valueOf(m, 'QMargins'),
     )
     return QSize._cuteOwning(address)
 
@@ -326,7 +326,7 @@ class QSize(CuteMixin, metaclass=MetaCute):
     """
     #  QSize QSize::shrunkBy(QMargins m) const
     address = self.uglySide.call(
-        'ritual_ZNK5QSize8shrunkByE8QMargins', self._valueOf(m),
+        'ritual_ZNK5QSize8shrunkByE8QMargins', self._valueOf(m, 'QMargins'),
     )
     return QSize._cuteOwning(address)
 

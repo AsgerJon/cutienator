@@ -16,6 +16,9 @@ from typing import TYPE_CHECKING
 
 from . import QIOReadWriteOperationBase
 
+if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Never
+
 
 class QIOVectoredReadOperation(QIOReadWriteOperationBase):
   """
@@ -37,12 +40,16 @@ class QIOVectoredReadOperation(QIOReadWriteOperationBase):
 
   - Qt's 'QIOVectoredReadOperation::~QIOVectoredReadOperation()': the
     destructor: Python never removes a C++ QIOVectoredReadOperation.
+  - Qt's 'QSpan<const QSpan<std::byte>> QIOVectoredReadOperation::data()
+    const': gives a type Python has no way to take yet.
+  - Qt's
+    'QIOVectoredReadOperation::QIOVectoredReadOperation(QIOOperationPrivate
+    &dd, QObject *parent)': takes a type Python has no way to hand over yet.
 
   What has no ritual
   ------------------
 
-  7 of the 8 functions Qt declares: 5 forbidden; 2 takes or gives a type that
-  cannot be passed yet.
+  5 of the 8 functions Qt declares: 5 forbidden.
 
   What to expect
   --------------
@@ -58,6 +65,9 @@ class QIOVectoredReadOperation(QIOReadWriteOperationBase):
   - Qt tells when it has removed the C++ QIOVectoredReadOperation. Every call
     on the cute object, and every use of it as an argument, then raises
     'RuntimeError', and nothing reaches C++.
+  - Each name of Qt's QIOVectoredReadOperation that has no cute function yet,
+    '__init__', 'data', holds a function that raises 'NotImplementedError',
+    and its docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -105,6 +115,19 @@ class QIOVectoredReadOperation(QIOReadWriteOperationBase):
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  @staticmethod
+  def __init__(*__, **_) -> Never:
+    """
+    Qt's
+    'QIOVectoredReadOperation::QIOVectoredReadOperation(QIOOperationPrivate
+    &dd, QObject *parent)': takes a type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QIOVectoredReadOperation.__init__' has no cute function yet. Qt's "
+        "'QIOVectoredReadOperation::QIOVectoredReadOperation(QIOOperationPri"
+        "vate &dd, QObject *parent)': takes a type Python has no way to "
+        "hand over yet.")
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -124,3 +147,14 @@ class QIOVectoredReadOperation(QIOReadWriteOperationBase):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def data(*__, **_) -> Never:
+    """
+    Qt's 'QSpan<const QSpan<std::byte>> QIOVectoredReadOperation::data()
+    const': gives a type Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QIOVectoredReadOperation.data' has no cute function yet. Qt's "
+        "'QSpan<const QSpan<std::byte>> QIOVectoredReadOperation::data() "
+        "const': gives a type Python has no way to take yet.")

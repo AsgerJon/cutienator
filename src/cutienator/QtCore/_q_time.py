@@ -50,14 +50,12 @@ class QTime(CuteMixin, metaclass=MetaCute):
   - Qt's 'QTime QTime::fromString(const QString &string, const QString
     &format)': takes in Python what 'QTime QTime::fromString(QStringView
     string, QStringView format)' takes.
+  - Qt's 'QDataStream &operator<<(QDataStream &a0, QTime a1)': takes a type
+    Python has no way to hand over yet.
+  - Qt's 'QDataStream &operator>>(QDataStream &a0, QTime &a1)': an operator
+    between other classes, written inside this one.
   - Qt's 'QTime::~QTime()': the destructor: Python removes its C++ QTime by
     it, and has no other use for it.
-
-  What has no ritual
-  ------------------
-
-  2 of the 36 functions Qt declares: 2 takes or gives a type that cannot be
-  passed yet.
 
   What to expect
   --------------

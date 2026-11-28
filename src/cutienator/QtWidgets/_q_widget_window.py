@@ -22,20 +22,23 @@ from ..QtCore import QObject
 from ..QtGui import QWindow
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
-  from ..QtCore import QMetaObject
-  from ..QtGui import QAccessibleInterface, QDragLeaveEvent, QDropEvent
-  from ..QtGui import QExposeEvent, QMouseEvent, QMoveEvent
-  from ..QtGui import QNativeGestureEvent, QResizeEvent, QTabletEvent
-  from ..QtGui import QTouchEvent, QWindowStateChangeEvent
+  from ..QtCore import QEvent, QMetaObject
+  from ..QtGui import QAccessibleInterface, QCloseEvent, QDragLeaveEvent
+  from ..QtGui import QDragMoveEvent, QDropEvent, QExposeEvent, QMouseEvent
+  from ..QtGui import QMoveEvent, QNativeGestureEvent, QResizeEvent
+  from ..QtGui import QTabletEvent, QTouchEvent, QWindowStateChangeEvent
   from . import QWidget
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
+  QCloseEvent = WAIT['QCloseEvent']
   QDragLeaveEvent = WAIT['QDragLeaveEvent']
+  QDragMoveEvent = WAIT['QDragMoveEvent']
   QDropEvent = WAIT['QDropEvent']
+  QEvent = WAIT['QEvent']
   QExposeEvent = WAIT['QExposeEvent']
   QMouseEvent = WAIT['QMouseEvent']
   QMoveEvent = WAIT['QMoveEvent']
@@ -63,11 +66,12 @@ class QWidgetWindow(QWindow):
   -----------
 
   Every function of Qt's QWidgetWindow that has a ritual and that Python can
-  call so far, 18 names in all: 'metaObject', 'widget', 'accessibleRoot',
-  'focusObject', 'focusNextPrevChild', 'handleNonClientAreaMouseEvent',
-  'handleTouchEvent', 'handleMoveEvent', 'handleResizeEvent',
-  'handleDragLeaveEvent', 'handleDropEvent', 'handleExposeEvent',
-  'handleWindowStateChangedEvent', 'handleTabletEvent', 'handleGestureEvent',
+  call so far, 22 names in all: 'metaObject', 'widget', 'accessibleRoot',
+  'focusObject', 'focusNextPrevChild', 'event', 'closeEvent',
+  'handleNonClientAreaMouseEvent', 'handleTouchEvent', 'handleMoveEvent',
+  'handleResizeEvent', 'handleDragEnterEvent', 'handleDragLeaveEvent',
+  'handleDropEvent', 'handleExposeEvent', 'handleWindowStateChangedEvent',
+  'handleTabletEvent', 'handleGestureEvent', 'updateObjectName',
   'updateSize', 'updateMargins', 'updateNormalGeometry'. None can be made
   from Python: one comes out of a function of another class that gives one
   back.
@@ -75,17 +79,25 @@ class QWidgetWindow(QWindow):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QWidgetWindow::qt_metacast(const char *a0)': one of Qt's own
+    inner workings.
+  - Qt's 'int QWidgetWindow::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
+  - Qt's 'QWidgetWindowPrivate *QWidgetWindow::d_func()': gives
+    'QWidgetWindowPrivate', which has no cute class yet.
+  - Qt's 'const QWidgetWindowPrivate *QWidgetWindow::d_func() const': gives
+    'QWidgetWindowPrivate', which has no cute class yet.
   - Qt's 'QWidgetWindow::~QWidgetWindow()': the destructor: Python never
     removes a C++ QWidgetWindow.
+  - Qt's 'bool QWidgetWindow::nativeEvent(const QByteArray &eventType, void
+    *message, qintptr *result)': names 'void', which has no cute class yet.
 
   What has no ritual
   ------------------
 
-  27 of the 46 functions Qt declares: 15 Qt's library has no name for it, and
-  its code in Qt's source does not compile apart from its file; 5 takes or
-  gives a type that cannot be passed yet; 4 leans on 'QWidgetWindow; 1 a
-  template; 1 declared and nowhere to be found; 1 leans on 'void
-  QWidgetRepaintManager.
+  16 of the 44 functions Qt declares: 10 Qt's library has no name for it, and
+  its code in Qt's source does not compile apart from its file; 2 not a gap;
+  2 leans on 'QWidgetWindow; 2 leans on 'void QWidgetRepaintManager.
 
   What to expect
   --------------
@@ -101,6 +113,13 @@ class QWidgetWindow(QWindow):
   - Qt tells when it has removed the C++ QWidgetWindow. Every call on the
     cute object, and every use of it as an argument, then raises
     'RuntimeError', and nothing reaches C++.
+  - Each name of Qt's QWidgetWindow that has no cute function yet,
+    '__init__', 'getFocusWidget', 'handleContextMenuEvent',
+    'handleDevicePixelRatioChange', 'handleDragMoveEvent',
+    'handleEnterLeaveEvent', 'handleFocusInEvent', 'handleKeyEvent',
+    'handleMouseEvent', 'handleScreenChange', 'handleWheelEvent',
+    'scheduleRepaint', 'setNativeWindowVisibility', holds a function that
+    raises 'NotImplementedError', and its docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -252,6 +271,19 @@ class QWidgetWindow(QWindow):
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  @staticmethod
+  def __init__(*__, **_) -> Never:
+    """
+    Qt's 'QWidgetWindow::QWidgetWindow(QWidget *widget)': Qt's library has no
+    name for it, and its code in Qt's source does not compile apart from its
+    file: use of undeclared identifier 'q_evaluateRhiConfig'.
+    """
+    raise NotImplementedError(
+        "'QWidgetWindow.__init__' has no cute function yet. Qt's "
+        "'QWidgetWindow::QWidgetWindow(QWidget *widget)': Qt's library has "
+        "no name for it, and its code in Qt's source does not compile apart "
+        "from its file: use of undeclared identifier 'q_evaluateRhiConfig'.")
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -271,6 +303,47 @@ class QWidgetWindow(QWindow):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(QEvent)
+  @overload(NoneType)
+  def event(self, a0: Optional[QEvent]) -> bool:
+    """
+    Calls Qt's 'bool QWidgetWindow::event(QEvent *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qwidgetwindow.html#event
+
+    Parameters
+    ----------
+
+    a0 : Optional[QEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  bool QWidgetWindow::event(QEvent *a0)
+    return self.uglySide.call(
+        'ritual_ZN13QWidgetWindow5eventEP6QEvent', self._addressOf(a0),
+    )
+
+  @overload(QCloseEvent)
+  @overload(NoneType)
+  def closeEvent(self, a0: Optional[QCloseEvent]) -> None:
+    """
+    Calls Qt's 'void QWidgetWindow::closeEvent(QCloseEvent *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qwidgetwindow.html#closeEvent
+
+    Parameters
+    ----------
+
+    a0 : Optional[QCloseEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QWidgetWindow::closeEvent(QCloseEvent *a0)
+    self.uglySide.call(
+        'ritual_ZN13QWidgetWindow10closeEventEP11QCloseEvent',
+        self._addressOf(a0),
+    )
 
   @overload(QMouseEvent)
   @overload(NoneType)
@@ -359,6 +432,43 @@ class QWidgetWindow(QWindow):
     self.uglySide.call(
         'ritual_ZN13QWidgetWindow17handleResizeEventEP12QResizeEvent',
         self._addressOf(a0),
+    )
+
+  @overload(QDragMoveEvent)
+  @overload(NoneType)
+  @overload(QDragMoveEvent, QWidget)
+  @overload(QDragMoveEvent, NoneType)
+  @overload(NoneType, QWidget)
+  @overload(NoneType, NoneType)
+  def handleDragEnterEvent(
+      self,
+      a0: Optional[QDragMoveEvent],
+      widget: Optional[QWidget] = None,
+  ) -> None:
+    """
+    Calls Qt's 'void QWidgetWindow::handleDragEnterEvent(QDragMoveEvent *a0,
+    QWidget *widget)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qwidgetwindow.html#handleDragEnterEvent
+
+    Parameters
+    ----------
+
+    a0 : Optional[QDragMoveEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    widget : Optional[QWidget]
+      Passed on as the address of its C++ object. None is passed on as no
+      object. May be left out, as in Qt: it is then None.
+    """
+    #  void QWidgetWindow::handleDragEnterEvent(QDragMoveEvent *a0, QWidget
+    #      *widget)
+    self.uglySide.call(
+        'ritual_ZN13QWidgetWindow20handleDragEnterEventEP14QDragMoveEventP7'
+        'QWidget',
+        self._addressOf(a0), self._addressOf(widget),
     )
 
   @overload(QDragLeaveEvent)
@@ -502,6 +612,16 @@ class QWidgetWindow(QWindow):
         self._addressOf(a0),
     )
 
+  def updateObjectName(self) -> None:
+    """
+    Calls Qt's 'void QWidgetWindow::updateObjectName()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qwidgetwindow.html#updateObjectName
+    """
+    #  void QWidgetWindow::updateObjectName()
+    self.uglySide.call('ritual_ZN13QWidgetWindow16updateObjectNameEv')
+
   def updateSize(self) -> bool:
     """
     Calls Qt's 'bool QWidgetWindow::updateSize()'.
@@ -529,3 +649,182 @@ class QWidgetWindow(QWindow):
     """
     #  void QWidgetWindow::updateNormalGeometry()
     self.uglySide.call('ritual_ZN13QWidgetWindow20updateNormalGeometryEv')
+
+  @staticmethod
+  def getFocusWidget(*__, **_) -> Never:
+    """
+    Qt's 'QWidget *QWidgetWindow::getFocusWidget(FocusWidgets fw)': Qt's
+    library has no name for it, and its code in Qt's source does not compile
+    apart from its file: use of undeclared identifier 'qt_tab_all_widgets'.
+    """
+    raise NotImplementedError(
+        "'QWidgetWindow.getFocusWidget' has no cute function yet. Qt's "
+        "'QWidget *QWidgetWindow::getFocusWidget(FocusWidgets fw)': Qt's "
+        "library has no name for it, and its code in Qt's source does not "
+        "compile apart from its file: use of undeclared identifier "
+        "'qt_tab_all_widgets'.")
+
+  @staticmethod
+  def handleContextMenuEvent(*__, **_) -> Never:
+    """
+    Qt's 'void QWidgetWindow::handleContextMenuEvent(QContextMenuEvent *a0)':
+    Qt's library has no name for it, and its code in Qt's source does not
+    compile apart from its file: use of undeclared identifier
+    'qt_last_mouse_receiver'.
+    """
+    raise NotImplementedError(
+        "'QWidgetWindow.handleContextMenuEvent' has no cute function yet. "
+        "Qt's 'void QWidgetWindow::handleContextMenuEvent(QContextMenuEvent "
+        "*a0)': Qt's library has no name for it, and its code in Qt's "
+        "source does not compile apart from its file: use of undeclared "
+        "identifier 'qt_last_mouse_receiver'.")
+
+  @staticmethod
+  def handleDevicePixelRatioChange(*__, **_) -> Never:
+    """
+    Qt's 'void QWidgetWindow::handleDevicePixelRatioChange()': Qt's library
+    has no name for it, and its code in Qt's source does not compile apart
+    from its file: use of undeclared identifier 'sendChangeRecursively'.
+    """
+    raise NotImplementedError(
+        "'QWidgetWindow.handleDevicePixelRatioChange' has no cute function "
+        "yet. Qt's 'void QWidgetWindow::handleDevicePixelRatioChange()': "
+        "Qt's library has no name for it, and its code in Qt's source does "
+        "not compile apart from its file: use of undeclared identifier "
+        "'sendChangeRecursively'.")
+
+  @staticmethod
+  def handleDragMoveEvent(*__, **_) -> Never:
+    """
+    Qt's 'void QWidgetWindow::handleDragMoveEvent(QDragMoveEvent *a0)': Qt's
+    library has no name for it, and its code in Qt's source does not compile
+    apart from its file: use of undeclared identifier 'findDnDTarget'.
+    """
+    raise NotImplementedError(
+        "'QWidgetWindow.handleDragMoveEvent' has no cute function yet. Qt's "
+        "'void QWidgetWindow::handleDragMoveEvent(QDragMoveEvent *a0)': "
+        "Qt's library has no name for it, and its code in Qt's source does "
+        "not compile apart from its file: use of undeclared identifier "
+        "'findDnDTarget'.")
+
+  @staticmethod
+  def handleEnterLeaveEvent(*__, **_) -> Never:
+    """
+    Qt's 'void QWidgetWindow::handleEnterLeaveEvent(QEvent *a0)': Qt's
+    library has no name for it, and its code in Qt's source does not compile
+    apart from its file: use of undeclared identifier
+    'qt_last_mouse_receiver'.
+    """
+    raise NotImplementedError(
+        "'QWidgetWindow.handleEnterLeaveEvent' has no cute function yet. "
+        "Qt's 'void QWidgetWindow::handleEnterLeaveEvent(QEvent *a0)': Qt's "
+        "library has no name for it, and its code in Qt's source does not "
+        "compile apart from its file: use of undeclared identifier "
+        "'qt_last_mouse_receiver'.")
+
+  @staticmethod
+  def handleFocusInEvent(*__, **_) -> Never:
+    """
+    Qt's 'void QWidgetWindow::handleFocusInEvent(QFocusEvent *a0)': leans on
+    'QWidgetWindow::getFocusWidget(QWidgetWindow::FocusWidgets)', which Qt's
+    source does not mark for use from outside Qt and has no code for that
+    could be taken.
+    """
+    raise NotImplementedError(
+        "'QWidgetWindow.handleFocusInEvent' has no cute function yet. Qt's "
+        "'void QWidgetWindow::handleFocusInEvent(QFocusEvent *a0)': leans "
+        "on 'QWidgetWindow::getFocusWidget(QWidgetWindow::FocusWidgets)', "
+        "which Qt's source does not mark for use from outside Qt and has no "
+        "code for that could be taken.")
+
+  @staticmethod
+  def handleKeyEvent(*__, **_) -> Never:
+    """
+    Qt's 'void QWidgetWindow::handleKeyEvent(QKeyEvent *a0)': Qt's library
+    has no name for it, and its code in Qt's source does not compile apart
+    from its file: use of undeclared identifier 'qt_try_modal'.
+    """
+    raise NotImplementedError(
+        "'QWidgetWindow.handleKeyEvent' has no cute function yet. Qt's "
+        "'void QWidgetWindow::handleKeyEvent(QKeyEvent *a0)': Qt's library "
+        "has no name for it, and its code in Qt's source does not compile "
+        "apart from its file: use of undeclared identifier 'qt_try_modal'.")
+
+  @staticmethod
+  def handleMouseEvent(*__, **_) -> Never:
+    """
+    Qt's 'void QWidgetWindow::handleMouseEvent(QMouseEvent *a0)': Qt's
+    library has no name for it, and its code in Qt's source does not compile
+    apart from its file: use of undeclared identifier 'qt_popup_down'.
+    """
+    raise NotImplementedError(
+        "'QWidgetWindow.handleMouseEvent' has no cute function yet. Qt's "
+        "'void QWidgetWindow::handleMouseEvent(QMouseEvent *a0)': Qt's "
+        "library has no name for it, and its code in Qt's source does not "
+        "compile apart from its file: use of undeclared identifier "
+        "'qt_popup_down'.")
+
+  @staticmethod
+  def handleScreenChange(*__, **_) -> Never:
+    """
+    Qt's 'void QWidgetWindow::handleScreenChange()': leans on 'void
+    QWidgetRepaintManager::markDirty<QRect>(QRect const&, QWidget*,
+    QWidgetRepaintManager::UpdateTime, QWidgetRepaintManager::BufferState)',
+    which Qt's source does not mark for use from outside Qt and has no code
+    for that could be taken.
+    """
+    raise NotImplementedError(
+        "'QWidgetWindow.handleScreenChange' has no cute function yet. Qt's "
+        "'void QWidgetWindow::handleScreenChange()': leans on 'void "
+        "QWidgetRepaintManager::markDirty<QRect>(QRect const&, QWidget*, "
+        "QWidgetRepaintManager::UpdateTime, "
+        "QWidgetRepaintManager::BufferState)', which Qt's source does not "
+        "mark for use from outside Qt and has no code for that could be "
+        "taken.")
+
+  @staticmethod
+  def handleWheelEvent(*__, **_) -> Never:
+    """
+    Qt's 'void QWidgetWindow::handleWheelEvent(QWheelEvent *a0)': Qt's
+    library has no name for it, and its code in Qt's source does not compile
+    apart from its file: use of undeclared identifier 'qt_try_modal'.
+    """
+    raise NotImplementedError(
+        "'QWidgetWindow.handleWheelEvent' has no cute function yet. Qt's "
+        "'void QWidgetWindow::handleWheelEvent(QWheelEvent *a0)': Qt's "
+        "library has no name for it, and its code in Qt's source does not "
+        "compile apart from its file: use of undeclared identifier "
+        "'qt_try_modal'.")
+
+  @staticmethod
+  def scheduleRepaint(*__, **_) -> Never:
+    """
+    Qt's 'void QWidgetWindow::scheduleRepaint()': leans on 'void
+    QWidgetRepaintManager::markDirty<QRect>(QRect const&, QWidget*,
+    QWidgetRepaintManager::UpdateTime, QWidgetRepaintManager::BufferState)',
+    which Qt's source does not mark for use from outside Qt and has no code
+    for that could be taken.
+    """
+    raise NotImplementedError(
+        "'QWidgetWindow.scheduleRepaint' has no cute function yet. Qt's "
+        "'void QWidgetWindow::scheduleRepaint()': leans on 'void "
+        "QWidgetRepaintManager::markDirty<QRect>(QRect const&, QWidget*, "
+        "QWidgetRepaintManager::UpdateTime, "
+        "QWidgetRepaintManager::BufferState)', which Qt's source does not "
+        "mark for use from outside Qt and has no code for that could be "
+        "taken.")
+
+  @staticmethod
+  def setNativeWindowVisibility(*__, **_) -> Never:
+    """
+    Qt's 'void QWidgetWindow::setNativeWindowVisibility(bool visible)': Qt's
+    library has no name for it, and its code in Qt's source does not compile
+    apart from its file: member access into incomplete type
+    'QWidgetWindowPrivate'.
+    """
+    raise NotImplementedError(
+        "'QWidgetWindow.setNativeWindowVisibility' has no cute function "
+        "yet. Qt's 'void QWidgetWindow::setNativeWindowVisibility(bool "
+        "visible)': Qt's library has no name for it, and its code in Qt's "
+        "source does not compile apart from its file: member access into "
+        "incomplete type 'QWidgetWindowPrivate'.")

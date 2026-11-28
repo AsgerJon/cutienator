@@ -12,12 +12,14 @@ from typing import TYPE_CHECKING
 from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin, CuteFlags, MetaCute
+from ..cute import CuteMixin, CuteFlags, MetaCute, WAIT
 from ..occult import Rituals
-from . import QList, QStringList
+from . import QList, QStringList, Qt
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from . import QChar, QFileInfo
+  from typing import Never, Optional
+
+  from . import QChar, QDirPrivate, QFileInfo
 
 
 class QDir(CuteMixin, metaclass=MetaCute):
@@ -33,30 +35,51 @@ class QDir(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QDir that has a ritual and that Python can call so
-  far, 56 names in all: 'setPath', 'path', 'absolutePath', 'canonicalPath',
+  far, 58 names in all: 'setPath', 'path', 'absolutePath', 'canonicalPath',
   'setSearchPaths', 'addSearchPath', 'searchPaths', 'dirName', 'filePath',
   'absoluteFilePath', 'relativeFilePath', 'toNativeSeparators',
   'fromNativeSeparators', 'cd', 'cdUp', 'nameFilters', 'setNameFilters',
-  'filter', 'setFilter', 'sorting', 'setSorting', 'isEmpty', '__getitem__',
-  'nameFiltersFromString', 'entryList', 'entryInfoList', 'rmdir', 'rmpath',
-  'removeRecursively', 'isReadable', 'exists', 'isRoot', 'isRelativePath',
-  'isAbsolutePath', 'isRelative', 'isAbsolute', 'makeAbsolute', 'remove',
-  'rename', 'drives', 'listSeparator', 'separator', 'setCurrent', 'current',
-  'currentPath', 'home', 'homePath', 'root', 'rootPath', 'temp', 'tempPath',
-  'match', 'cleanPath', 'refresh', '__eq__', '__ne__'. It can be made from
-  Python, in 3 ways; see '__init__'.
+  'filter', 'setFilter', 'sorting', 'setSorting', 'count', 'isEmpty',
+  '__getitem__', 'nameFiltersFromString', 'entryList', 'entryInfoList',
+  'rmdir', 'rmpath', 'removeRecursively', 'isReadable', 'exists', 'isRoot',
+  'isRelativePath', 'isAbsolutePath', 'isRelative', 'isAbsolute',
+  'makeAbsolute', 'remove', 'rename', 'drives', 'listSeparator', 'separator',
+  'setCurrent', 'current', 'currentPath', 'home', 'homePath', 'root',
+  'rootPath', 'temp', 'tempPath', 'match', 'cleanPath', 'refresh', '__eq__',
+  '__ne__', 'd_func'. It can be made from Python, in 3 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
   - Qt's 'QDir::~QDir()': the destructor: Python removes its C++ QDir by it,
     and has no other use for it.
+  - Qt's 'QDir &QDir::operator=(const QDir &a0)': assignment: Python binds a
+    name and has no operator for it.
+  - Qt's 'QDir &QDir::operator=(QDir &&other)': assignment: Python binds a
+    name and has no operator for it.
+  - Qt's 'void QDir::swap(QDir &other)': takes a type Python has no way to
+    hand over yet.
+  - Qt's 'std::filesystem::path QDir::filesystemPath() const': gives a type
+    Python has no way to take yet.
+  - Qt's 'std::filesystem::path QDir::filesystemAbsolutePath() const': gives
+    a type Python has no way to take yet.
+  - Qt's 'std::filesystem::path QDir::filesystemCanonicalPath() const': gives
+    a type Python has no way to take yet.
+  - Qt's 'bool QDir::mkdir(const QString &dirName,
+    std::optional<QFile::Permissions> p) const': takes a type Python has no
+    way to hand over yet.
+  - Qt's 'bool QDir::mkpath(const QString &dirPath,
+    std::optional<QFile::Permissions> p) const': takes a type Python has no
+    way to hand over yet.
+  - Qt's 'QDir::QDir(QDirPrivate &d)': takes a type Python has no way to hand
+    over yet.
+  - Qt's 'const QDirPrivate *QDir::d_func() const': takes in Python what
+    'QDirPrivate *QDir::d_func()' takes.
 
   What has no ritual
   ------------------
 
-  16 of the 80 functions Qt declares: 12 takes or gives a type that cannot be
-  passed yet; 4 a template.
+  4 of the 80 functions Qt declares: 4 a template.
 
   What to expect
   --------------
@@ -69,6 +92,10 @@ class QDir(CuteMixin, metaclass=MetaCute):
     is as in C++.
   - A function giving a QDir back gives a copy the ritual made for Python, in
     a new cute QDir.
+  - Each name of Qt's QDir that has no cute function yet,
+    'filesystemAbsolutePath', 'filesystemCanonicalPath', 'filesystemPath',
+    'mkdir', 'mkpath', 'swap', holds a function that raises
+    'NotImplementedError', and its docstring says why.
   """
 
   #  The enums Qt writes inside QDir, each a class in here as in C++, and the
@@ -790,6 +817,25 @@ class QDir(CuteMixin, metaclass=MetaCute):
     #  SortFlags QDir::sorting() const
     return QDir.SortFlags(self.uglySide.call('ritual_ZNK4QDir7sortingEv'))
 
+  @overload(WAIT['Qt.Disambiguated_t'])
+  def count(self, a0: Qt.Disambiguated_t) -> int:
+    """
+    Calls Qt's 'qsizetype QDir::count(Qt::Disambiguated_t a0) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qdir.html#count
+
+    Parameters
+    ----------
+
+    a0 : Qt.Disambiguated_t
+      Passed on as a value: Qt reads the C++ Qt::Disambiguated_t, which stays
+      Python's own.
+    """
+    #  qsizetype QDir::count(Qt::Disambiguated_t a0) const
+    return self.uglySide.call(
+        'ritual_ZNK4QDir5countEN2Qt15Disambiguated_tE', self._valueOf(a0),
+    )
+
   @overload()
   @overload(Filters)
   def isEmpty(
@@ -1437,3 +1483,90 @@ class QDir(CuteMixin, metaclass=MetaCute):
     """
     #  void QDir::refresh() const
     self.uglySide.call('ritual_ZNK4QDir7refreshEv')
+
+  def d_func(self) -> Optional[QDirPrivate]:
+    """
+    Calls Qt's 'QDirPrivate *QDir::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qdir.html#d_func
+
+    Returns
+    -------
+
+    Optional[QDirPrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QDirPrivate *QDir::d_func()
+    address = self.uglySide.call('ritual_ZN4QDir6d_funcEv')
+    from . import QDirPrivate
+    return QDirPrivate._cuteAt(address)
+
+  @staticmethod
+  def filesystemAbsolutePath(*__, **_) -> Never:
+    """
+    Qt's 'std::filesystem::path QDir::filesystemAbsolutePath() const': gives
+    a type Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QDir.filesystemAbsolutePath' has no cute function yet. Qt's "
+        "'std::filesystem::path QDir::filesystemAbsolutePath() const': "
+        "gives a type Python has no way to take yet.")
+
+  @staticmethod
+  def filesystemCanonicalPath(*__, **_) -> Never:
+    """
+    Qt's 'std::filesystem::path QDir::filesystemCanonicalPath() const': gives
+    a type Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QDir.filesystemCanonicalPath' has no cute function yet. Qt's "
+        "'std::filesystem::path QDir::filesystemCanonicalPath() const': "
+        "gives a type Python has no way to take yet.")
+
+  @staticmethod
+  def filesystemPath(*__, **_) -> Never:
+    """
+    Qt's 'std::filesystem::path QDir::filesystemPath() const': gives a type
+    Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QDir.filesystemPath' has no cute function yet. Qt's "
+        "'std::filesystem::path QDir::filesystemPath() const': gives a type "
+        "Python has no way to take yet.")
+
+  @staticmethod
+  def mkdir(*__, **_) -> Never:
+    """
+    Qt's 'bool QDir::mkdir(const QString &dirName,
+    std::optional<QFile::Permissions> p) const': takes a type Python has no
+    way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QDir.mkdir' has no cute function yet. Qt's 'bool "
+        "QDir::mkdir(const QString &dirName, "
+        "std::optional<QFile::Permissions> p) const': takes a type Python "
+        "has no way to hand over yet.")
+
+  @staticmethod
+  def mkpath(*__, **_) -> Never:
+    """
+    Qt's 'bool QDir::mkpath(const QString &dirPath,
+    std::optional<QFile::Permissions> p) const': takes a type Python has no
+    way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QDir.mkpath' has no cute function yet. Qt's 'bool "
+        "QDir::mkpath(const QString &dirPath, "
+        "std::optional<QFile::Permissions> p) const': takes a type Python "
+        "has no way to hand over yet.")
+
+  @staticmethod
+  def swap(*__, **_) -> Never:
+    """
+    Qt's 'void QDir::swap(QDir &other)': takes a type Python has no way to
+    hand over yet.
+    """
+    raise NotImplementedError(
+        "'QDir.swap' has no cute function yet. Qt's 'void QDir::swap(QDir "
+        "&other)': takes a type Python has no way to hand over yet.")

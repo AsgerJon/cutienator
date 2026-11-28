@@ -53,14 +53,18 @@ class QNativeGestureEvent(QSinglePointEvent):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'QNativeGestureEvent::QNativeGestureEvent(const QNativeGestureEvent
+    &a0)': takes a type Python has no way to hand over yet.
+  - Qt's 'QNativeGestureEvent &QNativeGestureEvent::operator=(const
+    QNativeGestureEvent &other)': assignment: Python binds a name and has no
+    operator for it.
   - Qt's 'QNativeGestureEvent::~QNativeGestureEvent()': the destructor:
     Python never removes a C++ QNativeGestureEvent.
 
   What has no ritual
   ------------------
 
-  4 of the 17 functions Qt declares: 2 takes or gives a type that cannot be
-  passed yet; 2 forbidden.
+  2 of the 17 functions Qt declares: 2 forbidden.
 
   What to expect
   --------------
@@ -359,9 +363,9 @@ class QNativeGestureEvent(QSinglePointEvent):
     self._noteCreation(QNativeGestureEvent, lambda: Rituals.call(
         'ritual_ZN19QNativeGestureEventC1EN2Qt17NativeGestureTypeEPK15QPoin'
         'tingDeviceRK7QPointFS7_S7_dyy',
-        type.value, self._addressOf(dev), self._valueOf(localPos),
-        self._valueOf(scenePos), self._valueOf(globalPos), value, sequenceId,
-        intArgument,
+        type.value, self._addressOf(dev), self._valueOf(localPos, 'QPointF'),
+        self._valueOf(scenePos, 'QPointF'), self._valueOf(globalPos,
+        'QPointF'), value, sequenceId, intArgument,
     ))
 
   @overload(
@@ -446,8 +450,9 @@ class QNativeGestureEvent(QSinglePointEvent):
         'ritual_ZN19QNativeGestureEventC1EN2Qt17NativeGestureTypeEPK15QPoin'
         'tingDeviceiRK7QPointFS7_S7_dS7_y',
         type.value, self._addressOf(dev), fingerCount,
-        self._valueOf(localPos), self._valueOf(scenePos),
-        self._valueOf(globalPos), value, self._valueOf(delta), sequenceId,
+        self._valueOf(localPos, 'QPointF'), self._valueOf(scenePos,
+        'QPointF'), self._valueOf(globalPos, 'QPointF'), value,
+        self._valueOf(delta, 'QPointF'), sequenceId,
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

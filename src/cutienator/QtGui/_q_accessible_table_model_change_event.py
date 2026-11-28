@@ -376,7 +376,7 @@ class QAccessibleTableModelChangeEvent(QAccessibleEvent):
         QAccessibleTableModelChangeEvent, lambda: Rituals.call(
             'ritual_ZN32QAccessibleTableModelChangeEventC1EP20QAccessibleIn'
             'terfaceNS_15ModelChangeTypeE',
-            self._addressOf(iface), changeType.value,
+            self._addressOf(iface, 'QAccessibleInterface'), changeType.value,
         ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

@@ -21,7 +21,7 @@ from ..occult import Rituals
 from ..QtCore import Qt, QObject
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from ..QtCore import QMetaObject
   from . import QDrag
@@ -55,15 +55,19 @@ class QDragManager(QObject):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QDragManager::qt_metacast(const char *a0)': one of Qt's own
+    inner workings.
+  - Qt's 'int QDragManager::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
   - Qt's 'QDragManager::~QDragManager()': the destructor: Python never
     removes a C++ QDragManager.
+  - Qt's 'QPointer<QDrag> QDragManager::object() const': gives a type Python
+    has no way to take yet.
 
   What has no ritual
   ------------------
 
-  9 of the 18 functions Qt declares: 4 forbidden; 3 takes or gives a type
-  that cannot be passed yet; 1 a template; 1 declared and nowhere to be
-  found.
+  6 of the 18 functions Qt declares: 4 forbidden; 2 not a gap.
 
   What to expect
   --------------
@@ -79,6 +83,9 @@ class QDragManager(QObject):
   - Qt tells when it has removed the C++ QDragManager. Every call on the cute
     object, and every use of it as an argument, then raises 'RuntimeError',
     and nothing reaches C++.
+  - Each name of Qt's QDragManager that has no cute function yet, 'object',
+    holds a function that raises 'NotImplementedError', and its docstring
+    says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -330,3 +337,14 @@ class QDragManager(QObject):
     return Qt.DropAction(self.uglySide.call(
         'ritual_ZN12QDragManager4dragEP5QDrag', self._addressOf(a0),
     ))
+
+  @staticmethod
+  def object(*__, **_) -> Never:
+    """
+    Qt's 'QPointer<QDrag> QDragManager::object() const': gives a type Python
+    has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QDragManager.object' has no cute function yet. Qt's "
+        "'QPointer<QDrag> QDragManager::object() const': gives a type "
+        "Python has no way to take yet.")

@@ -17,10 +17,11 @@ from ..QtCore import QObject
 from . import QSurface
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from ..QtCore import QMetaObject, QSize
-  from . import QScreen, QSurfaceFormat
+  from . import QOffscreenSurfacePrivate, QPlatformOffscreenSurface
+  from . import QPlatformSurface, QScreen, QSurfaceFormat
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -47,23 +48,31 @@ class QOffscreenSurface(QObject, QSurface):
   -----------
 
   Every function of Qt's QOffscreenSurface that has a ritual and that Python
-  can call so far, 13 names in all: 'metaObject', 'tr', 'surfaceType',
-  'create', 'destroy', 'isValid', 'setFormat', 'format', 'requestedFormat',
-  'size', 'screen', 'setScreen', 'screenDestroyed'. It can be made from
+  can call so far, 17 names in all: 'metaObject', 'tr', 'd_func',
+  'surfaceType', 'create', 'destroy', 'isValid', 'setFormat', 'format',
+  'requestedFormat', 'size', 'screen', 'setScreen', 'handle',
+  'screenChanged', 'screenDestroyed', 'surfaceHandle'. It can be made from
   Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QOffscreenSurface::qt_metacast(const char *a0)': one of Qt's
+    own inner workings.
+  - Qt's 'int QOffscreenSurface::qt_metacall(QMetaObject::Call a0, int a1,
+    void **a2)': one of Qt's own inner workings.
+  - Qt's 'const QOffscreenSurfacePrivate *QOffscreenSurface::d_func() const':
+    takes in Python what 'QOffscreenSurfacePrivate
+    *QOffscreenSurface::d_func()' takes.
   - Qt's 'QOffscreenSurface::~QOffscreenSurface()': the destructor: Python
     never removes a C++ QOffscreenSurface.
+  - Qt's 'void *QOffscreenSurface::resolveInterface(const char *name, int
+    revision) const': gives 'void', which has no cute class yet.
 
   What has no ritual
   ------------------
 
-  13 of the 28 functions Qt declares: 7 takes or gives a type that cannot be
-  passed yet; 2 a template; 2 forbidden; 1 declared and nowhere to be found;
-  1 a signal.
+  5 of the 28 functions Qt declares: 2 not a gap; 2 forbidden; 1 a template.
 
   What to expect
   --------------
@@ -79,6 +88,9 @@ class QOffscreenSurface(QObject, QSurface):
   - Qt tells when it has removed the C++ QOffscreenSurface. Every call on the
     cute object, and every use of it as an argument, then raises
     'RuntimeError', and nothing reaches C++.
+  - Each name of Qt's QOffscreenSurface that has no cute function yet,
+    'nativeInterface', 'resolveInterface', holds a function that raises
+    'NotImplementedError', and its docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -288,6 +300,47 @@ class QOffscreenSurface(QObject, QSurface):
     from . import QScreen
     return QScreen._cuteAt(address)
 
+  def handle(self) -> Optional[QPlatformOffscreenSurface]:
+    """
+    Calls Qt's 'QPlatformOffscreenSurface *QOffscreenSurface::handle()
+    const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qoffscreensurface.html#handle
+
+    Returns
+    -------
+
+    Optional[QPlatformOffscreenSurface]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QPlatformOffscreenSurface *QOffscreenSurface::handle() const
+    address = self.uglySide.call('ritual_ZNK17QOffscreenSurface6handleEv')
+    from . import QPlatformOffscreenSurface
+    return QPlatformOffscreenSurface._cuteAt(address)
+
+  def surfaceHandle(self) -> Optional[QPlatformSurface]:
+    """
+    Calls Qt's 'QPlatformSurface *QOffscreenSurface::surfaceHandle() const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qoffscreensurface.html#surfaceHandle
+
+    Returns
+    -------
+
+    Optional[QPlatformSurface]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QPlatformSurface *QOffscreenSurface::surfaceHandle() const
+    ritual = 'ritual_ZNK17QOffscreenSurface13surfaceHandleEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZNK17QOffscreenSurface13surfaceHandleEv'
+    address = self.uglySide.call(ritual)
+    from . import QPlatformSurface
+    return QPlatformSurface._cuteAt(address)
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -403,6 +456,24 @@ class QOffscreenSurface(QObject, QSurface):
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  def d_func(self) -> Optional[QOffscreenSurfacePrivate]:
+    """
+    Calls Qt's 'QOffscreenSurfacePrivate *QOffscreenSurface::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qoffscreensurface.html#d_func
+
+    Returns
+    -------
+
+    Optional[QOffscreenSurfacePrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QOffscreenSurfacePrivate *QOffscreenSurface::d_func()
+    address = self.uglySide.call('ritual_ZN17QOffscreenSurface6d_funcEv')
+    from . import QOffscreenSurfacePrivate
+    return QOffscreenSurfacePrivate._cuteAt(address)
+
   def create(self) -> None:
     """
     Calls Qt's 'void QOffscreenSurface::create()'.
@@ -420,6 +491,28 @@ class QOffscreenSurface(QObject, QSurface):
     """
     #  void QOffscreenSurface::destroy()
     self.uglySide.call('ritual_ZN17QOffscreenSurface7destroyEv')
+
+  @overload(QScreen)
+  @overload(NoneType)
+  def screenChanged(self, screen: Optional[QScreen]) -> None:
+    """
+    Calls Qt's 'void QOffscreenSurface::screenChanged(QScreen *screen)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qoffscreensurface.html#screenChanged
+
+    Parameters
+    ----------
+
+    screen : Optional[QScreen]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QOffscreenSurface::screenChanged(QScreen *screen)
+    self.uglySide.call(
+        'ritual_ZN17QOffscreenSurface13screenChangedEP7QScreen',
+        self._addressOf(screen),
+    )
 
   @overload(QObject)
   @overload(NoneType)
@@ -442,3 +535,25 @@ class QOffscreenSurface(QObject, QSurface):
         'ritual_ZN17QOffscreenSurface15screenDestroyedEP7QObject',
         self._addressOf(screen, 'QObject'),
     )
+
+  @staticmethod
+  def nativeInterface(*__, **_) -> Never:
+    """
+    Qt's 'QOffscreenSurface::nativeInterface': a template: a pattern and no
+    single function.
+    """
+    raise NotImplementedError(
+        "'QOffscreenSurface.nativeInterface' has no cute function yet. Qt's "
+        "'QOffscreenSurface::nativeInterface': a template: a pattern and no "
+        "single function.")
+
+  @staticmethod
+  def resolveInterface(*__, **_) -> Never:
+    """
+    Qt's 'void *QOffscreenSurface::resolveInterface(const char *name, int
+    revision) const': gives 'void', which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QOffscreenSurface.resolveInterface' has no cute function yet. "
+        "Qt's 'void *QOffscreenSurface::resolveInterface(const char *name, "
+        "int revision) const': gives 'void', which has no cute class yet.")

@@ -34,15 +34,13 @@ class QPropertyBindingSourceLocation(CuteMixin, metaclass=MetaCute):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's
+    'QPropertyBindingSourceLocation::QPropertyBindingSourceLocation(const
+    std::experimental::source_location &cppLocation)': takes a type Python
+    has no way to hand over yet.
   - Qt's 'QPropertyBindingSourceLocation::~QPropertyBindingSourceLocation()':
     the destructor: Python removes its C++ QPropertyBindingSourceLocation by
     it, and has no other use for it.
-
-  What has no ritual
-  ------------------
-
-  1 of the 3 functions Qt declares: 1 takes or gives a type that cannot be
-  passed yet.
 
   What to expect
   --------------

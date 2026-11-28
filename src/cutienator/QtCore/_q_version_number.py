@@ -14,6 +14,10 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, MetaCute
 from ..occult import Rituals
+from . import QList, QMap
+
+if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Never
 
 
 class QVersionNumber(CuteMixin, metaclass=MetaCute):
@@ -38,16 +42,43 @@ class QVersionNumber(CuteMixin, metaclass=MetaCute):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'QVersionNumber::QVersionNumber(std::initializer_list<int> args)':
+    takes a type Python has no way to hand over yet.
+  - Qt's 'QVersionNumber::QVersionNumber(QSpan<const int> args)': takes a
+    type Python has no way to hand over yet.
+  - Qt's 'QList<int> QVersionNumber::segments() const': gives a type Python
+    has no way to take yet.
+  - Qt's 'const_iterator QVersionNumber::begin() const': gives a type Python
+    has no way to take yet.
+  - Qt's 'const_iterator QVersionNumber::end() const': gives a type Python
+    has no way to take yet.
+  - Qt's 'const_iterator QVersionNumber::cbegin() const': gives a type Python
+    has no way to take yet.
+  - Qt's 'const_iterator QVersionNumber::cend() const': gives a type Python
+    has no way to take yet.
+  - Qt's 'const_reverse_iterator QVersionNumber::rbegin() const': gives a
+    type Python has no way to take yet.
+  - Qt's 'const_reverse_iterator QVersionNumber::rend() const': gives a type
+    Python has no way to take yet.
+  - Qt's 'const_reverse_iterator QVersionNumber::crbegin() const': gives a
+    type Python has no way to take yet.
+  - Qt's 'const_reverse_iterator QVersionNumber::crend() const': gives a type
+    Python has no way to take yet.
+  - Qt's 'const_iterator QVersionNumber::constBegin() const': gives a type
+    Python has no way to take yet.
+  - Qt's 'const_iterator QVersionNumber::constEnd() const': gives a type
+    Python has no way to take yet.
   - Qt's 'QVersionNumber QVersionNumber::fromString(QAnyStringView string,
     qsizetype *suffixIndex)': takes a number to change where it is.
+  - Qt's 'QDataStream &operator>>(QDataStream &in, QVersionNumber &version)':
+    an operator between other classes, written inside this one.
   - Qt's 'QVersionNumber::~QVersionNumber()': the destructor: Python removes
     its C++ QVersionNumber by it, and has no other use for it.
 
   What has no ritual
   ------------------
 
-  17 of the 41 functions Qt declares: 14 takes or gives a type that cannot be
-  passed yet; 3 a template.
+  3 of the 41 functions Qt declares: 3 a template.
 
   What to expect
   --------------
@@ -61,6 +92,10 @@ class QVersionNumber(CuteMixin, metaclass=MetaCute):
     is as in C++.
   - A function giving a QVersionNumber back gives a copy the ritual made for
     Python, in a new cute QVersionNumber.
+  - Each name of Qt's QVersionNumber that has no cute function yet, 'begin',
+    'cbegin', 'cend', 'constBegin', 'constEnd', 'crbegin', 'crend', 'end',
+    'fromString', 'rbegin', 'rend', 'segments', holds a function that raises
+    'NotImplementedError', and its docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -570,3 +605,168 @@ class QVersionNumber(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def begin(*__, **_) -> Never:
+    """
+    Qt's 'const_iterator QVersionNumber::begin() const': gives a type Python
+    has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QVersionNumber.begin' has no cute function yet. Qt's "
+        "'const_iterator QVersionNumber::begin() const': gives a type "
+        "Python has no way to take yet.")
+
+  @staticmethod
+  def cbegin(*__, **_) -> Never:
+    """
+    Qt's 'const_iterator QVersionNumber::cbegin() const': gives a type Python
+    has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QVersionNumber.cbegin' has no cute function yet. Qt's "
+        "'const_iterator QVersionNumber::cbegin() const': gives a type "
+        "Python has no way to take yet.")
+
+  @staticmethod
+  def cend(*__, **_) -> Never:
+    """
+    Qt's 'const_iterator QVersionNumber::cend() const': gives a type Python
+    has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QVersionNumber.cend' has no cute function yet. Qt's "
+        "'const_iterator QVersionNumber::cend() const': gives a type Python "
+        "has no way to take yet.")
+
+  @staticmethod
+  def constBegin(*__, **_) -> Never:
+    """
+    Qt's 'const_iterator QVersionNumber::constBegin() const': gives a type
+    Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QVersionNumber.constBegin' has no cute function yet. Qt's "
+        "'const_iterator QVersionNumber::constBegin() const': gives a type "
+        "Python has no way to take yet.")
+
+  @staticmethod
+  def constEnd(*__, **_) -> Never:
+    """
+    Qt's 'const_iterator QVersionNumber::constEnd() const': gives a type
+    Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QVersionNumber.constEnd' has no cute function yet. Qt's "
+        "'const_iterator QVersionNumber::constEnd() const': gives a type "
+        "Python has no way to take yet.")
+
+  @staticmethod
+  def crbegin(*__, **_) -> Never:
+    """
+    Qt's 'const_reverse_iterator QVersionNumber::crbegin() const': gives a
+    type Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QVersionNumber.crbegin' has no cute function yet. Qt's "
+        "'const_reverse_iterator QVersionNumber::crbegin() const': gives a "
+        "type Python has no way to take yet.")
+
+  @staticmethod
+  def crend(*__, **_) -> Never:
+    """
+    Qt's 'const_reverse_iterator QVersionNumber::crend() const': gives a type
+    Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QVersionNumber.crend' has no cute function yet. Qt's "
+        "'const_reverse_iterator QVersionNumber::crend() const': gives a "
+        "type Python has no way to take yet.")
+
+  @staticmethod
+  def end(*__, **_) -> Never:
+    """
+    Qt's 'const_iterator QVersionNumber::end() const': gives a type Python
+    has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QVersionNumber.end' has no cute function yet. Qt's "
+        "'const_iterator QVersionNumber::end() const': gives a type Python "
+        "has no way to take yet.")
+
+  @staticmethod
+  def fromString(*__, **_) -> Never:
+    """
+    - Qt's 'QVersionNumber QVersionNumber::fromString(QAnyStringView string,
+      qsizetype *suffixIndex)': takes a number to change where it is.
+    - Qt's 'QVersionNumber::fromString': a template: a pattern and no single
+      function.
+    """
+    raise NotImplementedError(
+        "'QVersionNumber.fromString' has no cute function yet. Qt's "
+        "'QVersionNumber QVersionNumber::fromString(QAnyStringView string, "
+        "qsizetype *suffixIndex)': takes a number to change where it is. "
+        "Qt's 'QVersionNumber::fromString': a template: a pattern and no "
+        "single function.")
+
+  @staticmethod
+  def rbegin(*__, **_) -> Never:
+    """
+    Qt's 'const_reverse_iterator QVersionNumber::rbegin() const': gives a
+    type Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QVersionNumber.rbegin' has no cute function yet. Qt's "
+        "'const_reverse_iterator QVersionNumber::rbegin() const': gives a "
+        "type Python has no way to take yet.")
+
+  @staticmethod
+  def rend(*__, **_) -> Never:
+    """
+    Qt's 'const_reverse_iterator QVersionNumber::rend() const': gives a type
+    Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QVersionNumber.rend' has no cute function yet. Qt's "
+        "'const_reverse_iterator QVersionNumber::rend() const': gives a "
+        "type Python has no way to take yet.")
+
+  @staticmethod
+  def segments(*__, **_) -> Never:
+    """
+    Qt's 'QList<int> QVersionNumber::segments() const': gives a type Python
+    has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QVersionNumber.segments' has no cute function yet. Qt's "
+        "'QList<int> QVersionNumber::segments() const': gives a type Python "
+        "has no way to take yet.")
+
+
+#  Qt's 'QList<QVersionNumber>': the list of QVersionNumber, which
+#  'QList[QVersionNumber]' gives. It is made here, so that there is one as
+#  soon as there can be a QVersionNumber.
+QList.createKind(
+    QVersionNumber, 'value',
+    make='ritual_list_make_QVersionNumber',
+    add='ritual_list_add_QVersionNumber',
+    size='ritual_list_size_QVersionNumber',
+    at='ritual_list_at_QVersionNumber',
+    drop='ritual_list_drop_QVersionNumber',
+)
+
+
+#  Qt's 'QMap<QString, QVersionNumber>': the QMap from text to
+#  QVersionNumber, which 'QMap[str, QVersionNumber]' gives. It is completed
+#  here, in the file of the class of its values.
+QMap.createKind(
+    str, QVersionNumber, 'value',
+    make='ritual_map_make_QMap_QString_QVersionNumber',
+    put='ritual_map_put_QMap_QString_QVersionNumber',
+    size='ritual_map_size_QMap_QString_QVersionNumber',
+    key='ritual_map_key_QMap_QString_QVersionNumber',
+    value='ritual_map_value_QMap_QString_QVersionNumber',
+    has='ritual_map_has_QMap_QString_QVersionNumber',
+    get='ritual_map_get_QMap_QString_QVersionNumber',
+    drop='ritual_map_drop_QMap_QString_QVersionNumber',
+)

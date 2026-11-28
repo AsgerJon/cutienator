@@ -22,10 +22,10 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   from ..QtCore import QEvent, QMetaObject, QRectF, QSizeF, QVariant
   from ..QtGui import QFocusEvent, QHideEvent, QInputMethodEvent, QKeyEvent
   from ..QtGui import QPainter, QShowEvent
-  from . import QGraphicsSceneContextMenuEvent, QGraphicsSceneDragDropEvent
-  from . import QGraphicsSceneHoverEvent, QGraphicsSceneMouseEvent
-  from . import QGraphicsSceneResizeEvent, QGraphicsSceneWheelEvent
-  from . import QStyleOptionGraphicsItem, QWidget
+  from . import QGraphicsProxyWidgetPrivate, QGraphicsSceneContextMenuEvent
+  from . import QGraphicsSceneDragDropEvent, QGraphicsSceneHoverEvent
+  from . import QGraphicsSceneMouseEvent, QGraphicsSceneResizeEvent
+  from . import QGraphicsSceneWheelEvent, QStyleOptionGraphicsItem, QWidget
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -66,7 +66,7 @@ class QGraphicsProxyWidget(QGraphicsWidget):
   -----------
 
   Every function of Qt's QGraphicsProxyWidget that has a ritual and that
-  Python can call so far, 39 names in all: 'metaObject', 'tr', 'setWidget',
+  Python can call so far, 40 names in all: 'metaObject', 'tr', 'setWidget',
   'widget', 'subWidgetRect', 'setGeometry', 'paint', 'type',
   'createProxyForChildWidget', 'itemChange', 'event', 'eventFilter',
   'showEvent', 'hideEvent', 'contextMenuEvent', 'dragEnterEvent',
@@ -75,20 +75,26 @@ class QGraphicsProxyWidget(QGraphicsWidget):
   'mouseMoveEvent', 'mousePressEvent', 'mouseReleaseEvent',
   'mouseDoubleClickEvent', 'wheelEvent', 'keyPressEvent', 'keyReleaseEvent',
   'focusInEvent', 'focusOutEvent', 'focusNextPrevChild', 'inputMethodQuery',
-  'inputMethodEvent', 'sizeHint', 'resizeEvent', 'newProxyWidget'. It can be
-  made from Python, in 1 way; see '__init__'.
+  'inputMethodEvent', 'sizeHint', 'resizeEvent', 'newProxyWidget', 'd_func'.
+  It can be made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QGraphicsProxyWidget::qt_metacast(const char *a0)': one of
+    Qt's own inner workings.
+  - Qt's 'int QGraphicsProxyWidget::qt_metacall(QMetaObject::Call a0, int a1,
+    void **a2)': one of Qt's own inner workings.
   - Qt's 'QGraphicsProxyWidget::~QGraphicsProxyWidget()': the destructor:
     Python never removes a C++ QGraphicsProxyWidget.
+  - Qt's 'const QGraphicsProxyWidgetPrivate *QGraphicsProxyWidget::d_func()
+    const': takes in Python what 'QGraphicsProxyWidgetPrivate
+    *QGraphicsProxyWidget::d_func()' takes.
 
   What has no ritual
   ------------------
 
-  8 of the 49 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet; 2 forbidden; 1 a template; 1 declared and nowhere to be found.
+  4 of the 49 functions Qt declares: 2 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -1338,3 +1344,21 @@ class QGraphicsProxyWidget(QGraphicsWidget):
         self._addressOf(a0),
     )
     return QGraphicsProxyWidget._cuteAt(address)
+
+  def d_func(self) -> Optional[QGraphicsProxyWidgetPrivate]:
+    """
+    Calls Qt's 'QGraphicsProxyWidgetPrivate *QGraphicsProxyWidget::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicsproxywidget.html#d_func
+
+    Returns
+    -------
+
+    Optional[QGraphicsProxyWidgetPrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QGraphicsProxyWidgetPrivate *QGraphicsProxyWidget::d_func()
+    address = self.uglySide.call('ritual_ZN20QGraphicsProxyWidget6d_funcEv')
+    from . import QGraphicsProxyWidgetPrivate
+    return QGraphicsProxyWidgetPrivate._cuteAt(address)

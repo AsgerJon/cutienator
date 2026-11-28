@@ -16,6 +16,8 @@ from ..occult import Rituals
 from . import Qt
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Never
+
   from . import QLatin1String
 else:
   #  The cute classes this file names and is not built on. Each is brought in
@@ -65,6 +67,9 @@ class QLatin1StringMatcher(CuteMixin, metaclass=MetaCute):
     is as in C++.
   - A function giving a QLatin1StringMatcher back gives a copy the ritual
     made for Python, in a new cute QLatin1StringMatcher.
+  - Each name of Qt's QLatin1StringMatcher that has no cute function yet,
+    'indexIn_helper', holds a function that raises 'NotImplementedError', and
+    its docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -335,3 +340,14 @@ class QLatin1StringMatcher(CuteMixin, metaclass=MetaCute):
     """
     #  void QLatin1StringMatcher::freeSearcher()
     self.uglySide.call('ritual_ZN20QLatin1StringMatcher12freeSearcherEv')
+
+  @staticmethod
+  def indexIn_helper(*__, **_) -> Never:
+    """
+    Qt's 'QLatin1StringMatcher::indexIn_helper': a template: a pattern and no
+    single function.
+    """
+    raise NotImplementedError(
+        "'QLatin1StringMatcher.indexIn_helper' has no cute function yet. "
+        "Qt's 'QLatin1StringMatcher::indexIn_helper': a template: a pattern "
+        "and no single function.")

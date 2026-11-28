@@ -46,15 +46,14 @@ class QScrollerProperties(CuteMixin, metaclass=MetaCute):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'QScrollerProperties &QScrollerProperties::operator=(const
+    QScrollerProperties &sp)': assignment: Python binds a name and has no
+    operator for it.
   - Qt's 'QScrollerProperties::~QScrollerProperties()': the destructor:
     Python removes its C++ QScrollerProperties by it, and has no other use
     for it.
-
-  What has no ritual
-  ------------------
-
-  2 of the 11 functions Qt declares: 2 takes or gives a type that cannot be
-  passed yet.
+  - Qt's 'QScrollerProperties::QScrollerProperties(QScrollerPropertiesPrivate
+    &dd)': takes a type Python has no way to hand over yet.
 
   What to expect
   --------------

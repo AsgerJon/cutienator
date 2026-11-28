@@ -51,25 +51,32 @@ class QGroupBox(QWidget):
   -----------
 
   Every function of Qt's QGroupBox that has a ritual and that Python can call
-  so far, 23 names in all: 'metaObject', 'tr', 'title', 'setTitle',
+  so far, 25 names in all: 'metaObject', 'tr', 'title', 'setTitle',
   'alignment', 'setAlignment', 'minimumSizeHint', 'isFlat', 'setFlat',
-  'isCheckable', 'setCheckable', 'isChecked', 'setChecked', 'event',
-  'childEvent', 'resizeEvent', 'paintEvent', 'focusInEvent', 'changeEvent',
-  'mousePressEvent', 'mouseMoveEvent', 'mouseReleaseEvent',
-  'initStyleOption'. It can be made from Python, in 2 ways; see '__init__'.
+  'isCheckable', 'setCheckable', 'isChecked', 'setChecked', 'clicked',
+  'toggled', 'event', 'childEvent', 'resizeEvent', 'paintEvent',
+  'focusInEvent', 'changeEvent', 'mousePressEvent', 'mouseMoveEvent',
+  'mouseReleaseEvent', 'initStyleOption'. It can be made from Python, in 2
+  ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QGroupBox::qt_metacast(const char *a0)': one of Qt's own
+    inner workings.
+  - Qt's 'int QGroupBox::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
   - Qt's 'QGroupBox::~QGroupBox()': the destructor: Python never removes a
     C++ QGroupBox.
+  - Qt's 'QGroupBoxPrivate *QGroupBox::d_func()': gives 'QGroupBoxPrivate',
+    which has no cute class yet.
+  - Qt's 'const QGroupBoxPrivate *QGroupBox::d_func() const': gives
+    'QGroupBoxPrivate', which has no cute class yet.
 
   What has no ritual
   ------------------
 
-  10 of the 36 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet; 2 a signal; 2 forbidden; 1 a template; 1 declared and nowhere
-  to be found.
+  4 of the 36 functions Qt declares: 2 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -431,6 +438,39 @@ class QGroupBox(QWidget):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload()
+  @overload(bool)
+  def clicked(self, checked: bool = False) -> None:
+    """
+    Calls Qt's 'void QGroupBox::clicked(bool checked)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgroupbox.html#clicked
+
+    Parameters
+    ----------
+
+    checked : bool
+      Passed on as it is. May be left out, as in Qt: it is then False.
+    """
+    #  void QGroupBox::clicked(bool checked)
+    self.uglySide.call('ritual_ZN9QGroupBox7clickedEb', checked)
+
+  @overload(bool)
+  def toggled(self, a0: bool) -> None:
+    """
+    Calls Qt's 'void QGroupBox::toggled(bool a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgroupbox.html#toggled
+
+    Parameters
+    ----------
+
+    a0 : bool
+      Passed on as it is.
+    """
+    #  void QGroupBox::toggled(bool a0)
+    self.uglySide.call('ritual_ZN9QGroupBox7toggledEb', a0)
 
   @overload(QEvent)
   @overload(NoneType)

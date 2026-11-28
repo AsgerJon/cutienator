@@ -21,7 +21,7 @@ from ..occult import Rituals
 from ..QtCore import QList, QObject
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from ..QtCore import QKeyCombination, QMetaObject
   from . import QKeyEvent
@@ -54,15 +54,19 @@ class QKeyMapper(QObject):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QKeyMapper::qt_metacast(const char *a0)': one of Qt's own
+    inner workings.
+  - Qt's 'int QKeyMapper::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
   - Qt's 'QKeyMapper::~QKeyMapper()': the destructor: Python never removes a
     C++ QKeyMapper.
+  - Qt's 'void *QKeyMapper::resolveInterface(const char *name, int revision)
+    const': gives 'void', which has no cute class yet.
 
   What has no ritual
   ------------------
 
-  10 of the 16 functions Qt declares: 4 forbidden; 3 takes or gives a type
-  that cannot be passed yet; 2 a template; 1 declared and nowhere to be
-  found.
+  7 of the 16 functions Qt declares: 4 forbidden; 2 not a gap; 1 a template.
 
   What to expect
   --------------
@@ -77,6 +81,9 @@ class QKeyMapper(QObject):
   - Qt tells when it has removed the C++ QKeyMapper. Every call on the cute
     object, and every use of it as an argument, then raises 'RuntimeError',
     and nothing reaches C++.
+  - Each name of Qt's QKeyMapper that has no cute function yet,
+    'nativeInterface', 'resolveInterface', holds a function that raises
+    'NotImplementedError', and its docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -265,3 +272,25 @@ class QKeyMapper(QObject):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def nativeInterface(*__, **_) -> Never:
+    """
+    Qt's 'QKeyMapper::nativeInterface': a template: a pattern and no single
+    function.
+    """
+    raise NotImplementedError(
+        "'QKeyMapper.nativeInterface' has no cute function yet. Qt's "
+        "'QKeyMapper::nativeInterface': a template: a pattern and no single "
+        "function.")
+
+  @staticmethod
+  def resolveInterface(*__, **_) -> Never:
+    """
+    Qt's 'void *QKeyMapper::resolveInterface(const char *name, int revision)
+    const': gives 'void', which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QKeyMapper.resolveInterface' has no cute function yet. Qt's 'void "
+        "*QKeyMapper::resolveInterface(const char *name, int revision) "
+        "const': gives 'void', which has no cute class yet.")

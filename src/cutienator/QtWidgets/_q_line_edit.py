@@ -26,7 +26,7 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   from ..QtGui import QDragLeaveEvent, QDragMoveEvent, QDropEvent
   from ..QtGui import QFocusEvent, QIcon, QInputMethodEvent, QKeyEvent
   from ..QtGui import QMouseEvent, QPaintEvent, QValidator
-  from . import QCompleter, QMenu, QStyleOptionFrame
+  from . import QCompleter, QLineEditPrivate, QMenu, QStyleOptionFrame
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -69,7 +69,7 @@ class QLineEdit(QWidget):
   -----------
 
   Every function of Qt's QLineEdit that has a ritual and that Python can call
-  so far, 94 names in all: 'metaObject', 'tr', 'text', 'displayText',
+  so far, 95 names in all: 'metaObject', 'tr', 'text', 'displayText',
   'placeholderText', 'setPlaceholderText', 'maxLength', 'setMaxLength',
   'setFrame', 'hasFrame', 'setClearButtonEnabled', 'isClearButtonEnabled',
   'echoMode', 'setEchoMode', 'isReadOnly', 'setReadOnly', 'setValidator',
@@ -90,8 +90,8 @@ class QLineEdit(QWidget):
   'keyReleaseEvent', 'focusInEvent', 'focusOutEvent', 'paintEvent',
   'dragEnterEvent', 'dragMoveEvent', 'dragLeaveEvent', 'dropEvent',
   'changeEvent', 'contextMenuEvent', 'inputMethodEvent', 'initStyleOption',
-  'inputMethodQuery', 'timerEvent', 'event', 'cursorRect'. It can be made
-  from Python, in 2 ways; see '__init__'.
+  'inputMethodQuery', 'timerEvent', 'event', 'cursorRect', 'd_func'. It can
+  be made from Python, in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -102,10 +102,8 @@ class QLineEdit(QWidget):
     **a2)': one of Qt's own inner workings.
   - Qt's 'QLineEdit::~QLineEdit()': the destructor: Python never removes a
     C++ QLineEdit.
-  - Qt's 'QLineEditPrivate *QLineEdit::d_func()': gives 'QLineEditPrivate',
-    which has no cute class yet.
-  - Qt's 'const QLineEditPrivate *QLineEdit::d_func() const': gives
-    'QLineEditPrivate', which has no cute class yet.
+  - Qt's 'const QLineEditPrivate *QLineEdit::d_func() const': takes in Python
+    what 'QLineEditPrivate *QLineEdit::d_func()' takes.
 
   What has no ritual
   ------------------
@@ -1011,7 +1009,7 @@ class QLineEdit(QWidget):
     #  void QLineEdit::setTextMargins(const QMargins &margins)
     self.uglySide.call(
         'ritual_ZN9QLineEdit14setTextMarginsERK8QMargins',
-        self._valueOf(margins),
+        self._valueOf(margins, 'QMargins'),
     )
 
   @overload(str)
@@ -1921,3 +1919,21 @@ class QLineEdit(QWidget):
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZN9QLineEdit5eventEP6QEvent'
     return self.uglySide.call(ritual, self._addressOf(a0))
+
+  def d_func(self) -> Optional[QLineEditPrivate]:
+    """
+    Calls Qt's 'QLineEditPrivate *QLineEdit::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlineedit.html#d_func
+
+    Returns
+    -------
+
+    Optional[QLineEditPrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QLineEditPrivate *QLineEdit::d_func()
+    address = self.uglySide.call('ritual_ZN9QLineEdit6d_funcEv')
+    from . import QLineEditPrivate
+    return QLineEditPrivate._cuteAt(address)

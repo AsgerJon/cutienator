@@ -18,11 +18,11 @@ from ..occult import Rituals
 from ..QtCore import Qt, QList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from ..QtCore import QPointF, QRectF
   from . import QFont, QGlyphRun, QPaintDevice, QPainter, QRawFont
-  from . import QTextBlock, QTextLine, QTextOption
+  from . import QTextBlock, QTextEngine, QTextLine, QTextOption
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -33,6 +33,7 @@ else:
   QPointF = WAIT['QPointF']
   QRawFont = WAIT['QRawFont']
   QTextBlock = WAIT['QTextBlock']
+  QTextEngine = WAIT['QTextEngine']
   QTextOption = WAIT['QTextOption']
 
 #  The class of None, for a signature that takes None in the place of an
@@ -49,7 +50,7 @@ class QTextLayout(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QTextLayout that has a ritual and that Python can
-  call so far, 35 names in all: 'setFont', 'font', 'setRawFont', 'setText',
+  call so far, 36 names in all: 'setFont', 'font', 'setRawFont', 'setText',
   'text', 'setTextOption', 'textOption', 'setPreeditArea',
   'preeditAreaPosition', 'preeditAreaText', 'clearFormats',
   'setCacheEnabled', 'cacheEnabled', 'setCursorMoveStyle', 'cursorMoveStyle',
@@ -57,20 +58,26 @@ class QTextLayout(CuteMixin, metaclass=MetaCute):
   'lineAt', 'lineForTextPosition', 'isValidCursorPosition',
   'nextCursorPosition', 'previousCursorPosition', 'leftCursorPosition',
   'rightCursorPosition', 'drawCursor', 'position', 'setPosition',
-  'boundingRect', 'minimumWidth', 'maximumWidth', 'glyphRuns', 'setFlags'. It
-  can be made from Python, in 4 ways; see '__init__'.
+  'boundingRect', 'minimumWidth', 'maximumWidth', 'glyphRuns', 'engine',
+  'setFlags'. It can be made from Python, in 5 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
   - Qt's 'QTextLayout::~QTextLayout()': the destructor: Python never removes
     a C++ QTextLayout.
+  - Qt's 'void QTextLayout::setFormats(const QList<FormatRange> &overrides)':
+    takes a type Python has no way to hand over yet.
+  - Qt's 'QList<FormatRange> QTextLayout::formats() const': gives a type
+    Python has no way to take yet.
+  - Qt's 'void QTextLayout::draw(QPainter *p, const QPointF &pos, const
+    QList<FormatRange> &selections, const QRectF &clip) const': takes a type
+    Python has no way to hand over yet.
 
   What has no ritual
   ------------------
 
-  7 of the 49 functions Qt declares: 5 takes or gives a type that cannot be
-  passed yet; 2 forbidden.
+  2 of the 49 functions Qt declares: 2 forbidden.
 
   What to expect
   --------------
@@ -83,6 +90,9 @@ class QTextLayout(CuteMixin, metaclass=MetaCute):
     has it, and is passed on as nothing. Whether Qt can do with nothing there
     is as in C++.
   - Python never removes the C++ QTextLayout.
+  - Each name of Qt's QTextLayout that has no cute function yet, 'draw',
+    'formats', 'setFormats', holds a function that raises
+    'NotImplementedError', and its docstring says why.
   """
 
   #  The enums Qt writes inside QTextLayout, each a class in here as in C++,
@@ -713,6 +723,24 @@ class QTextLayout(CuteMixin, metaclass=MetaCute):
     from . import QGlyphRun
     return QList[QGlyphRun]._cuteOwning(address)
 
+  def engine(self) -> Optional[QTextEngine]:
+    """
+    Calls Qt's 'QTextEngine *QTextLayout::engine() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtextlayout.html#engine
+
+    Returns
+    -------
+
+    Optional[QTextEngine]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QTextEngine *QTextLayout::engine() const
+    address = self.uglySide.call('ritual_ZNK11QTextLayout6engineEv')
+    from . import QTextEngine
+    return QTextEngine._cuteAt(address)
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -866,7 +894,8 @@ class QTextLayout(CuteMixin, metaclass=MetaCute):
     """
     #  void QTextLayout::setPosition(const QPointF &p)
     self.uglySide.call(
-        'ritual_ZN11QTextLayout11setPositionERK7QPointF', self._valueOf(p),
+        'ritual_ZN11QTextLayout11setPositionERK7QPointF',
+        self._valueOf(p, 'QPointF'),
     )
 
   @overload(int)
@@ -986,6 +1015,27 @@ class QTextLayout(CuteMixin, metaclass=MetaCute):
         'ritual_ZN11QTextLayoutC1ERK10QTextBlock', self._valueOf(b),
     ))
 
+  @overload(QTextEngine)
+  @overload(NoneType)
+  def __init__(self, e: Optional[QTextEngine]) -> None:
+    """
+    Notes what was given, for Qt's 'QTextLayout::QTextLayout(QTextEngine
+    *e)', which is called at the first use.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtextlayout.html#QTextLayout
+
+    Parameters
+    ----------
+
+    e : Optional[QTextEngine]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  QTextLayout::QTextLayout(QTextEngine *e)
+    self._noteCreation(QTextLayout, lambda: Rituals.call(
+        'ritual_ZN11QTextLayoutC1EP11QTextEngine', self._addressOf(e),
+    ))
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -1091,7 +1141,7 @@ class QTextLayout(CuteMixin, metaclass=MetaCute):
     #      cursorPosition) const
     self.uglySide.call(
         'ritual_ZNK11QTextLayout10drawCursorEP8QPainterRK7QPointFi',
-        self._addressOf(p), self._valueOf(pos), cursorPosition,
+        self._addressOf(p), self._valueOf(pos, 'QPointF'), cursorPosition,
     )
 
   @overload(QPainter, QPointF, int, int)
@@ -1130,5 +1180,41 @@ class QTextLayout(CuteMixin, metaclass=MetaCute):
     #      cursorPosition, int width) const
     self.uglySide.call(
         'ritual_ZNK11QTextLayout10drawCursorEP8QPainterRK7QPointFii',
-        self._addressOf(p), self._valueOf(pos), cursorPosition, width,
+        self._addressOf(p), self._valueOf(pos, 'QPointF'), cursorPosition,
+        width,
     )
+
+  @staticmethod
+  def draw(*__, **_) -> Never:
+    """
+    Qt's 'void QTextLayout::draw(QPainter *p, const QPointF &pos, const
+    QList<FormatRange> &selections, const QRectF &clip) const': takes a type
+    Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QTextLayout.draw' has no cute function yet. Qt's 'void "
+        "QTextLayout::draw(QPainter *p, const QPointF &pos, const "
+        "QList<FormatRange> &selections, const QRectF &clip) const': takes "
+        "a type Python has no way to hand over yet.")
+
+  @staticmethod
+  def formats(*__, **_) -> Never:
+    """
+    Qt's 'QList<FormatRange> QTextLayout::formats() const': gives a type
+    Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QTextLayout.formats' has no cute function yet. Qt's "
+        "'QList<FormatRange> QTextLayout::formats() const': gives a type "
+        "Python has no way to take yet.")
+
+  @staticmethod
+  def setFormats(*__, **_) -> Never:
+    """
+    Qt's 'void QTextLayout::setFormats(const QList<FormatRange> &overrides)':
+    takes a type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QTextLayout.setFormats' has no cute function yet. Qt's 'void "
+        "QTextLayout::setFormats(const QList<FormatRange> &overrides)': "
+        "takes a type Python has no way to hand over yet.")

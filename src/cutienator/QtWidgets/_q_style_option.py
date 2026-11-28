@@ -52,12 +52,8 @@ class QStyleOption(CuteMixin, metaclass=MetaCute):
 
   - Qt's 'QStyleOption::~QStyleOption()': the destructor: Python removes its
     C++ QStyleOption by it, and has no other use for it.
-
-  What has no ritual
-  ------------------
-
-  1 of the 5 functions Qt declares: 1 takes or gives a type that cannot be
-  passed yet.
+  - Qt's 'QStyleOption &QStyleOption::operator=(const QStyleOption &other)':
+    assignment: Python binds a name and has no operator for it.
 
   What to expect
   --------------

@@ -17,7 +17,7 @@ from ..occult import Rituals
 from ..QtCore import QList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from ..QtCore import QPointF, QSizeF
   from . import QPointingDevice, QPointingDeviceUniqueId, QVector2D
@@ -61,14 +61,21 @@ class QEventPoint(CuteMixin, metaclass=MetaCute):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'QEventPoint &QEventPoint::operator=(const QEventPoint &other)':
+    assignment: Python binds a name and has no operator for it.
+  - Qt's 'QEventPoint::QEventPoint(QEventPoint &&other)': takes a type Python
+    has no way to hand over yet.
+  - Qt's 'QEventPoint &QEventPoint::operator=(QEventPoint &&other)':
+    assignment: Python binds a name and has no operator for it.
   - Qt's 'QEventPoint::~QEventPoint()': the destructor: Python removes its
     C++ QEventPoint by it, and has no other use for it.
+  - Qt's 'void QEventPoint::swap(QEventPoint &other)': takes a type Python
+    has no way to hand over yet.
 
   What has no ritual
   ------------------
 
-  7 of the 52 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet; 2 declared and nowhere to be found; 1 a template.
+  3 of the 52 functions Qt declares: 3 not a gap.
 
   What to expect
   --------------
@@ -82,6 +89,9 @@ class QEventPoint(CuteMixin, metaclass=MetaCute):
     is as in C++.
   - A function giving a QEventPoint back gives a copy the ritual made for
     Python, in a new cute QEventPoint.
+  - Each name of Qt's QEventPoint that has no cute function yet, 'swap',
+    holds a function that raises 'NotImplementedError', and its docstring
+    says why.
   """
 
   #  The enums Qt writes inside QEventPoint, each a class in here as in C++,
@@ -898,8 +908,8 @@ class QEventPoint(CuteMixin, metaclass=MetaCute):
     #      &scenePosition, const QPointF &globalPosition)
     self._noteCreation(QEventPoint, lambda: Rituals.call(
         'ritual_ZN11QEventPointC1EiNS_5StateERK7QPointFS3_',
-        pointId, state.value, self._valueOf(scenePosition),
-        self._valueOf(globalPosition),
+        pointId, state.value, self._valueOf(scenePosition, 'QPointF'),
+        self._valueOf(globalPosition, 'QPointF'),
     ))
 
   @overload(THIS)
@@ -941,6 +951,17 @@ class QEventPoint(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def swap(*__, **_) -> Never:
+    """
+    Qt's 'void QEventPoint::swap(QEventPoint &other)': takes a type Python
+    has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QEventPoint.swap' has no cute function yet. Qt's 'void "
+        "QEventPoint::swap(QEventPoint &other)': takes a type Python has no "
+        "way to hand over yet.")
 
 
 #  Qt's 'QList<QEventPoint>': the list of QEventPoint, which

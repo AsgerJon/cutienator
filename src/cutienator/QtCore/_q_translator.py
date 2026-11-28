@@ -49,14 +49,23 @@ class QTranslator(QObject):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QTranslator::qt_metacast(const char *a0)': one of Qt's own
+    inner workings.
+  - Qt's 'int QTranslator::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
   - Qt's 'QTranslator::~QTranslator()': the destructor: Python never removes
     a C++ QTranslator.
+  - Qt's 'bool QTranslator::load(const uchar *data, int len, const QString
+    &directory)': names 'uchar', which has no cute class yet.
+  - Qt's 'QTranslatorPrivate *QTranslator::d_func()': gives
+    'QTranslatorPrivate', which has no cute class yet.
+  - Qt's 'const QTranslatorPrivate *QTranslator::d_func() const': gives
+    'QTranslatorPrivate', which has no cute class yet.
 
   What has no ritual
   ------------------
 
-  9 of the 19 functions Qt declares: 5 takes or gives a type that cannot be
-  passed yet; 2 forbidden; 1 a template; 1 declared and nowhere to be found.
+  4 of the 19 functions Qt declares: 2 not a gap; 2 forbidden.
 
   What to expect
   --------------

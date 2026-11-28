@@ -40,17 +40,23 @@ class QStyleSheetStyleCaches(QObject):
   -----------
 
   Every function of Qt's QStyleSheetStyleCaches that has a ritual and that
-  Python can call so far, 2 names in all: 'metaObject', 'styleDestroyed'.
-  None can be made from Python: one comes out of a function of another class
-  that gives one back.
+  Python can call so far, 3 names in all: 'metaObject', 'objectDestroyed',
+  'styleDestroyed'. None can be made from Python: one comes out of a function
+  of another class that gives one back.
+
+  What has a ritual and is left out, and why
+  ------------------------------------------
+
+  - Qt's 'void *QStyleSheetStyleCaches::qt_metacast(const char *a0)': one of
+    Qt's own inner workings.
+  - Qt's 'int QStyleSheetStyleCaches::qt_metacall(QMetaObject::Call a0, int
+    a1, void **a2)': one of Qt's own inner workings.
 
   What has no ritual
   ------------------
 
-  6 of the 8 functions Qt declares: 2 takes or gives a type that cannot be
-  passed yet; 1 a template; 1 declared and nowhere to be found; 1 Qt's
-  library has no name for it, and its code in Qt's source does not compile
-  apart from its file; 1 leans on 'QStyleSheetStyleCaches.
+  3 of the 8 functions Qt declares: 2 not a gap; 1 leans on
+  'QStyleSheetStyleCaches.
 
   What to expect
   --------------
@@ -154,6 +160,28 @@ class QStyleSheetStyleCaches(QObject):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(QObject)
+  @overload(NoneType)
+  def objectDestroyed(self, a0: Optional[QObject]) -> None:
+    """
+    Calls Qt's 'void QStyleSheetStyleCaches::objectDestroyed(QObject *a0)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qstylesheetstylecaches.html#objectDestroyed
+
+    Parameters
+    ----------
+
+    a0 : Optional[QObject]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QStyleSheetStyleCaches::objectDestroyed(QObject *a0)
+    self.uglySide.call(
+        'ritual_ZN22QStyleSheetStyleCaches15objectDestroyedEP7QObject',
+        self._addressOf(a0, 'QObject'),
+    )
 
   @overload(QObject)
   @overload(NoneType)

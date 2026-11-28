@@ -14,20 +14,23 @@ from worktoy.keenum import Kee
 
 from ..cute import CuteMixin, CuteNum, MetaCute, WAIT
 from ..occult import Rituals
-from . import Qt, QHash, QList
+from . import Qt, QHash, QList, QRangeModelDetails
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from . import QByteArray, QCollator, QMetaObject, QMetaProperty, QMimeData
-  from . import QModelIndex, QRangeModel, QVariant
+  from . import QModelIndex, QObject, QRangeModel, QVariant
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
+  QCollator = WAIT['QCollator']
   QMetaObject = WAIT['QMetaObject']
+  QMetaProperty = WAIT['QMetaProperty']
   QMimeData = WAIT['QMimeData']
   QModelIndex = WAIT['QModelIndex']
+  QObject = WAIT['QObject']
   QRangeModel = WAIT['QRangeModel']
   QVariant = WAIT['QVariant']
 
@@ -45,16 +48,17 @@ class QRangeModelImplBase(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QRangeModelImplBase that has a ritual and that
-  Python can call so far, 28 names in all: 'roleNames', 'getImplementation',
+  Python can call so far, 33 names in all: 'roleNames', 'getImplementation',
   'persistentIndexList', 'changePersistentIndex', 'beginResetModel',
   'endResetModel', 'beginInsertColumns', 'endInsertColumns',
   'beginRemoveColumns', 'endRemoveColumns', 'beginMoveColumns',
   'endMoveColumns', 'beginInsertRows', 'endInsertRows', 'beginRemoveRows',
   'endRemoveRows', 'beginMoveRows', 'endMoveRows', 'beginLayoutChange',
-  'endLayoutChange', 'autoConnectPolicy', 'roleNamesForSimpleType',
-  'columnProperties', 'sortRole', 'sortCollator', 'convertMatchValue',
-  'matchValue', 'dropDataOnItem'. It can be made from Python, in 1 way; see
-  '__init__'.
+  'endLayoutChange', 'autoConnectPolicy', 'compareData',
+  'roleNamesForSimpleType', 'columnProperties', 'connectProperty',
+  'connectPropertyConst', 'connectProperties', 'connectPropertiesConst',
+  'sortRole', 'sortCollator', 'convertMatchValue', 'matchValue',
+  'dropDataOnItem'. It can be made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -63,12 +67,31 @@ class QRangeModelImplBase(CuteMixin, metaclass=MetaCute):
     *QRangeModelImplBase::getImplementation(const QRangeModel *model)': takes
     in Python what 'QRangeModelImplBase
     *QRangeModelImplBase::getImplementation(QRangeModel *model)' takes.
+  - Qt's 'QModelIndex QRangeModelImplBase::createIndex(int row, int column,
+    const void *ptr) const': names 'void', which has no cute class yet.
+  - Qt's 'void QRangeModelImplBase::dataChanged(const QModelIndex &from,
+    const QModelIndex &to, const QList<int> &roles)': takes a type Python has
+    no way to hand over yet.
+  - Qt's 'QAbstractItemModel &QRangeModelImplBase::itemModel()': gives a type
+    Python has no way to take yet.
+  - Qt's 'const QAbstractItemModel &QRangeModelImplBase::itemModel() const':
+    gives a type Python has no way to take yet.
+  - Qt's 'QHash<int, QByteArray>
+    QRangeModelImplBase::roleNamesForMetaObject(const QAbstractItemModel
+    &model, const QMetaObject &metaObject)': takes a type Python has no way
+    to hand over yet.
+  - Qt's 'QScopedValueRollback<bool>
+    QRangeModelImplBase::blockDataChangedDispatch()': gives a type Python has
+    no way to take yet.
+  - Qt's 'QHash<int, QMetaProperty> QRangeModelImplBase::roleProperties(const
+    QAbstractItemModel &model, const QMetaObject &metaObject)': takes a type
+    Python has no way to hand over yet.
 
   What has no ritual
   ------------------
 
-  43 of the 74 functions Qt declares: 31 declared and nowhere to be found; 12
-  takes or gives a type that cannot be passed yet.
+  31 of the 74 functions Qt declares: 31 cannot be called and cannot be
+  called through the meta-object and cannot be copied.
 
   What to expect
   --------------
@@ -81,6 +104,17 @@ class QRangeModelImplBase(CuteMixin, metaclass=MetaCute):
     has it, and is passed on as nothing. Whether Qt can do with nothing there
     is as in C++.
   - Python never removes the C++ QRangeModelImplBase.
+  - Each name of Qt's QRangeModelImplBase that has no cute function yet,
+    'adjustSupportedDragActions', 'adjustSupportedDropActions',
+    'blockDataChangedDispatch', 'canDropMimeData', 'clearItemData',
+    'columnCount', 'createIndex', 'data', 'dataChanged', 'dropMimeData',
+    'flags', 'headerData', 'index', 'insertColumns', 'insertRows',
+    'interfaceVersion', 'invalidateCaches', 'itemData', 'itemModel', 'match',
+    'mimeData', 'mimeTypes', 'moveColumns', 'moveRows', 'multiData',
+    'parent', 'removeColumns', 'removeRows', 'roleNamesForMetaObject',
+    'roleProperties', 'rowCount', 'setAutoConnectPolicy', 'setData',
+    'setHeaderData', 'setItemData', 'sibling', 'sort', holds a function that
+    raises 'NotImplementedError', and its docstring says why.
   """
 
   #  The enums Qt writes inside QRangeModelImplBase, each a class in here as
@@ -151,6 +185,53 @@ class QRangeModelImplBase(CuteMixin, metaclass=MetaCute):
     return QRangeModelImplBase._cuteAt(address)
 
   @staticmethod
+  @overload(QVariant, QVariant, QCollator)
+  @overload(QVariant, QVariant, NoneType)
+  def compareData(
+      lhs: QVariant,
+      rhs: QVariant,
+      collator: Optional[QCollator],
+  ) -> Qt.weak_ordering:
+    """
+    Calls Qt's 'Qt::weak_ordering QRangeModelImplBase::compareData(const
+    QVariant &lhs, const QVariant &rhs, const QCollator *collator)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qrangemodelimplbase.html#compareData
+
+    Parameters
+    ----------
+
+    lhs : QVariant
+      Passed on as a value: Qt reads the C++ QVariant, which stays Python's
+      own.
+
+    rhs : QVariant
+      Passed on as a value: Qt reads the C++ QVariant, which stays Python's
+      own.
+
+    collator : Optional[QCollator]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    Returns
+    -------
+
+    Qt.weak_ordering
+      A new cute Qt::weak_ordering around the copy Qt gave back. Python owns
+      it.
+    """
+    #  Qt::weak_ordering QRangeModelImplBase::compareData(const QVariant
+    #      &lhs, const QVariant &rhs, const QCollator *collator)
+    address = Rituals.call(
+        'ritual_ZN19QRangeModelImplBase11compareDataERK8QVariantS2_PK9QColl'
+        'ator',
+        CuteMixin._valueOf(lhs), CuteMixin._valueOf(rhs),
+        CuteMixin._addressOf(collator),
+    )
+    return Qt.weak_ordering._cuteOwning(address)
+
+  @staticmethod
   def roleNamesForSimpleType() -> QHash[int, QByteArray]:
     """
     Calls Qt's 'QHash<int, QByteArray>
@@ -199,10 +280,244 @@ class QRangeModelImplBase(CuteMixin, metaclass=MetaCute):
     #      QMetaObject &metaObject)
     address = Rituals.call(
         'ritual_ZN19QRangeModelImplBase16columnPropertiesERK11QMetaObject',
-        CuteMixin._valueOf(metaObject),
+        CuteMixin._valueOf(metaObject, 'QMetaObject'),
     )
     from . import QMetaProperty
     return QHash[int, QMetaProperty]._cuteOwning(address)
+
+  @staticmethod
+  @overload(
+      QModelIndex, QObject, WAIT['QRangeModelDetails.AutoConnectContext'],
+      int, QMetaProperty,
+  )
+  @overload(QModelIndex, QObject, NoneType, int, QMetaProperty)
+  @overload(
+      QModelIndex, NoneType, WAIT['QRangeModelDetails.AutoConnectContext'],
+      int, QMetaProperty,
+  )
+  @overload(QModelIndex, NoneType, NoneType, int, QMetaProperty)
+  def connectProperty(
+      index: QModelIndex,
+      item: Optional[QObject],
+      context: Optional[QRangeModelDetails.AutoConnectContext],
+      role: int,
+      property: QMetaProperty,
+  ) -> bool:
+    """
+    Calls Qt's 'bool QRangeModelImplBase::connectProperty(const QModelIndex
+    &index, const QObject *item, QRangeModelDetails::AutoConnectContext
+    *context, int role, const QMetaProperty &property)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qrangemodelimplbase.html#connectProperty
+
+    Parameters
+    ----------
+
+    index : QModelIndex
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own.
+
+    item : Optional[QObject]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    context : Optional[QRangeModelDetails.AutoConnectContext]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    role : int
+      Passed on as it is.
+
+    property : QMetaProperty
+      Passed on as a value: Qt reads the C++ QMetaProperty, which stays
+      Python's own.
+    """
+    #  bool QRangeModelImplBase::connectProperty(const QModelIndex &index,
+    #      const QObject *item, QRangeModelDetails::AutoConnectContext
+    #      *context, int role, const QMetaProperty &property)
+    return Rituals.call(
+        'ritual_ZN19QRangeModelImplBase15connectPropertyERK11QModelIndexPK7'
+        'QObjectPN18QRangeModelDetails18AutoConnectContextEiRK13QMetaProper'
+        'ty',
+        CuteMixin._valueOf(index), CuteMixin._addressOf(item, 'QObject'),
+        CuteMixin._addressOf(context), role, CuteMixin._valueOf(property),
+    )
+
+  @staticmethod
+  @overload(
+      QModelIndex, QObject, WAIT['QRangeModelDetails.AutoConnectContext'],
+      int, QMetaProperty,
+  )
+  @overload(QModelIndex, QObject, NoneType, int, QMetaProperty)
+  @overload(
+      QModelIndex, NoneType, WAIT['QRangeModelDetails.AutoConnectContext'],
+      int, QMetaProperty,
+  )
+  @overload(QModelIndex, NoneType, NoneType, int, QMetaProperty)
+  def connectPropertyConst(
+      index: QModelIndex,
+      item: Optional[QObject],
+      context: Optional[QRangeModelDetails.AutoConnectContext],
+      role: int,
+      property: QMetaProperty,
+  ) -> bool:
+    """
+    Calls Qt's 'bool QRangeModelImplBase::connectPropertyConst(const
+    QModelIndex &index, const QObject *item,
+    QRangeModelDetails::AutoConnectContext *context, int role, const
+    QMetaProperty &property)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qrangemodelimplbase.html#connectPropertyConst
+
+    Parameters
+    ----------
+
+    index : QModelIndex
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own.
+
+    item : Optional[QObject]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    context : Optional[QRangeModelDetails.AutoConnectContext]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    role : int
+      Passed on as it is.
+
+    property : QMetaProperty
+      Passed on as a value: Qt reads the C++ QMetaProperty, which stays
+      Python's own.
+    """
+    #  bool QRangeModelImplBase::connectPropertyConst(const QModelIndex
+    #      &index, const QObject *item,
+    #      QRangeModelDetails::AutoConnectContext *context, int role, const
+    #      QMetaProperty &property)
+    return Rituals.call(
+        'ritual_ZN19QRangeModelImplBase20connectPropertyConstERK11QModelInd'
+        'exPK7QObjectPN18QRangeModelDetails18AutoConnectContextEiRK13QMetaP'
+        'roperty',
+        CuteMixin._valueOf(index), CuteMixin._addressOf(item, 'QObject'),
+        CuteMixin._addressOf(context), role, CuteMixin._valueOf(property),
+    )
+
+  @staticmethod
+  @overload(
+      QModelIndex, QObject, WAIT['QRangeModelDetails.AutoConnectContext'],
+      QHash[int, QMetaProperty],
+  )
+  @overload(QModelIndex, QObject, NoneType, QHash[int, QMetaProperty])
+  @overload(
+      QModelIndex, NoneType, WAIT['QRangeModelDetails.AutoConnectContext'],
+      QHash[int, QMetaProperty],
+  )
+  @overload(QModelIndex, NoneType, NoneType, QHash[int, QMetaProperty])
+  def connectProperties(
+      index: QModelIndex,
+      item: Optional[QObject],
+      context: Optional[QRangeModelDetails.AutoConnectContext],
+      properties: QHash[int, QMetaProperty],
+  ) -> bool:
+    """
+    Calls Qt's 'bool QRangeModelImplBase::connectProperties(const QModelIndex
+    &index, const QObject *item, QRangeModelDetails::AutoConnectContext
+    *context, const QHash<int, QMetaProperty> &properties)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qrangemodelimplbase.html#connectProperties
+
+    Parameters
+    ----------
+
+    index : QModelIndex
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own.
+
+    item : Optional[QObject]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    context : Optional[QRangeModelDetails.AutoConnectContext]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    properties : QHash[int, QMetaProperty]
+      Passed on as a map of Qt: Qt reads the C++ map, which stays Python's
+      own. A dict of Python is made into one first, and refused when a key or
+      a value does not fit.
+    """
+    #  bool QRangeModelImplBase::connectProperties(const QModelIndex &index,
+    #      const QObject *item, QRangeModelDetails::AutoConnectContext
+    #      *context, const QHash<int, QMetaProperty> &properties)
+    return Rituals.call(
+        'ritual_ZN19QRangeModelImplBase17connectPropertiesERK11QModelIndexP'
+        'K7QObjectPN18QRangeModelDetails18AutoConnectContextERK5QHashIi13QM'
+        'etaPropertyE',
+        CuteMixin._valueOf(index), CuteMixin._addressOf(item, 'QObject'),
+        CuteMixin._addressOf(context), CuteMixin._valueOf(properties),
+    )
+
+  @staticmethod
+  @overload(
+      QModelIndex, QObject, WAIT['QRangeModelDetails.AutoConnectContext'],
+      QHash[int, QMetaProperty],
+  )
+  @overload(QModelIndex, QObject, NoneType, QHash[int, QMetaProperty])
+  @overload(
+      QModelIndex, NoneType, WAIT['QRangeModelDetails.AutoConnectContext'],
+      QHash[int, QMetaProperty],
+  )
+  @overload(QModelIndex, NoneType, NoneType, QHash[int, QMetaProperty])
+  def connectPropertiesConst(
+      index: QModelIndex,
+      item: Optional[QObject],
+      context: Optional[QRangeModelDetails.AutoConnectContext],
+      properties: QHash[int, QMetaProperty],
+  ) -> bool:
+    """
+    Calls Qt's 'bool QRangeModelImplBase::connectPropertiesConst(const
+    QModelIndex &index, const QObject *item,
+    QRangeModelDetails::AutoConnectContext *context, const QHash<int,
+    QMetaProperty> &properties)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qrangemodelimplbase.html#connectPropertiesConst
+
+    Parameters
+    ----------
+
+    index : QModelIndex
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own.
+
+    item : Optional[QObject]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    context : Optional[QRangeModelDetails.AutoConnectContext]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    properties : QHash[int, QMetaProperty]
+      Passed on as a map of Qt: Qt reads the C++ map, which stays Python's
+      own. A dict of Python is made into one first, and refused when a key or
+      a value does not fit.
+    """
+    #  bool QRangeModelImplBase::connectPropertiesConst(const QModelIndex
+    #      &index, const QObject *item,
+    #      QRangeModelDetails::AutoConnectContext *context, const QHash<int,
+    #      QMetaProperty> &properties)
+    return Rituals.call(
+        'ritual_ZN19QRangeModelImplBase22connectPropertiesConstERK11QModelI'
+        'ndexPK7QObjectPN18QRangeModelDetails18AutoConnectContextERK5QHashI'
+        'i13QMetaPropertyE',
+        CuteMixin._valueOf(index), CuteMixin._addressOf(item, 'QObject'),
+        CuteMixin._addressOf(context), CuteMixin._valueOf(properties),
+    )
 
   @staticmethod
   @overload(QVariant, Qt.MatchFlags)
@@ -879,3 +1194,776 @@ class QRangeModelImplBase(CuteMixin, metaclass=MetaCute):
         'delIndex',
         self._addressOf(data), self._valueOf(index),
     )
+
+  @staticmethod
+  def adjustSupportedDragActions(*__, **_) -> Never:
+    """
+    Qt's 'Qt::DropActions
+    QRangeModelImplBase::adjustSupportedDragActions(Qt::DropActions
+    dragActions)': cannot be called and cannot be called through the
+    meta-object and cannot be copied: no header file has its code, Qt's
+    source does not mark it or its class for use from outside Qt or writes it
+    'inline' or nowhere, and it is no signal, slot or invokable function
+    giving back nothing, of a class built on QObject, and Qt's source has no
+    code for it that could be told from the rest.
+    """
+    raise NotImplementedError(
+        "'QRangeModelImplBase.adjustSupportedDragActions' has no cute "
+        "function yet. Qt's 'Qt::DropActions "
+        "QRangeModelImplBase::adjustSupportedDragActions(Qt::DropActions "
+        "dragActions)': cannot be called and cannot be called through the "
+        "meta-object and cannot be copied: no header file has its code, "
+        "Qt's source does not mark it or its class for use from outside Qt "
+        "or writes it 'inline' or nowhere, and it is no signal, slot or "
+        "invokable function giving back nothing, of a class built on "
+        "QObject, and Qt's source has no code for it that could be told "
+        "from the rest.")
+
+  @staticmethod
+  def adjustSupportedDropActions(*__, **_) -> Never:
+    """
+    Qt's 'Qt::DropActions
+    QRangeModelImplBase::adjustSupportedDropActions(Qt::DropActions
+    dropActions)': cannot be called and cannot be called through the
+    meta-object and cannot be copied: no header file has its code, Qt's
+    source does not mark it or its class for use from outside Qt or writes it
+    'inline' or nowhere, and it is no signal, slot or invokable function
+    giving back nothing, of a class built on QObject, and Qt's source has no
+    code for it that could be told from the rest.
+    """
+    raise NotImplementedError(
+        "'QRangeModelImplBase.adjustSupportedDropActions' has no cute "
+        "function yet. Qt's 'Qt::DropActions "
+        "QRangeModelImplBase::adjustSupportedDropActions(Qt::DropActions "
+        "dropActions)': cannot be called and cannot be called through the "
+        "meta-object and cannot be copied: no header file has its code, "
+        "Qt's source does not mark it or its class for use from outside Qt "
+        "or writes it 'inline' or nowhere, and it is no signal, slot or "
+        "invokable function giving back nothing, of a class built on "
+        "QObject, and Qt's source has no code for it that could be told "
+        "from the rest.")
+
+  @staticmethod
+  def blockDataChangedDispatch(*__, **_) -> Never:
+    """
+    Qt's 'QScopedValueRollback<bool>
+    QRangeModelImplBase::blockDataChangedDispatch()': gives a type Python has
+    no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QRangeModelImplBase.blockDataChangedDispatch' has no cute "
+        "function yet. Qt's 'QScopedValueRollback<bool> "
+        "QRangeModelImplBase::blockDataChangedDispatch()': gives a type "
+        "Python has no way to take yet.")
+
+  @staticmethod
+  def canDropMimeData(*__, **_) -> Never:
+    """
+    Qt's 'bool QRangeModelImplBase::canDropMimeData(const QMimeData *data,
+    Qt::DropAction action, int row, int column, const QModelIndex &parent)
+    const': cannot be called and cannot be called through the meta-object and
+    cannot be copied: no header file has its code, Qt's source does not mark
+    it or its class for use from outside Qt or writes it 'inline' or nowhere,
+    and it is no signal, slot or invokable function giving back nothing, of a
+    class built on QObject, and Qt's source has no code for it that could be
+    told from the rest.
+    """
+    raise NotImplementedError(
+        "'QRangeModelImplBase.canDropMimeData' has no cute function yet. "
+        "Qt's 'bool QRangeModelImplBase::canDropMimeData(const QMimeData "
+        "*data, Qt::DropAction action, int row, int column, const "
+        "QModelIndex &parent) const': cannot be called and cannot be called "
+        "through the meta-object and cannot be copied: no header file has "
+        "its code, Qt's source does not mark it or its class for use from "
+        "outside Qt or writes it 'inline' or nowhere, and it is no signal, "
+        "slot or invokable function giving back nothing, of a class built "
+        "on QObject, and Qt's source has no code for it that could be told "
+        "from the rest.")
+
+  @staticmethod
+  def clearItemData(*__, **_) -> Never:
+    """
+    Qt's 'bool QRangeModelImplBase::clearItemData(const QModelIndex &index)':
+    cannot be called and cannot be called through the meta-object and cannot
+    be copied: no header file has its code, Qt's source does not mark it or
+    its class for use from outside Qt or writes it 'inline' or nowhere, and
+    it is no signal, slot or invokable function giving back nothing, of a
+    class built on QObject, and Qt's source has no code for it that could be
+    told from the rest.
+    """
+    raise NotImplementedError(
+        "'QRangeModelImplBase.clearItemData' has no cute function yet. Qt's "
+        "'bool QRangeModelImplBase::clearItemData(const QModelIndex "
+        "&index)': cannot be called and cannot be called through the "
+        "meta-object and cannot be copied: no header file has its code, "
+        "Qt's source does not mark it or its class for use from outside Qt "
+        "or writes it 'inline' or nowhere, and it is no signal, slot or "
+        "invokable function giving back nothing, of a class built on "
+        "QObject, and Qt's source has no code for it that could be told "
+        "from the rest.")
+
+  @staticmethod
+  def columnCount(*__, **_) -> Never:
+    """
+    Qt's 'int QRangeModelImplBase::columnCount(const QModelIndex &parent)
+    const': cannot be called and cannot be called through the meta-object and
+    cannot be copied: no header file has its code, Qt's source does not mark
+    it or its class for use from outside Qt or writes it 'inline' or nowhere,
+    and it is no signal, slot or invokable function giving back nothing, of a
+    class built on QObject, and Qt's source has no code for it that could be
+    told from the rest.
+    """
+    raise NotImplementedError(
+        "'QRangeModelImplBase.columnCount' has no cute function yet. Qt's "
+        "'int QRangeModelImplBase::columnCount(const QModelIndex &parent) "
+        "const': cannot be called and cannot be called through the "
+        "meta-object and cannot be copied: no header file has its code, "
+        "Qt's source does not mark it or its class for use from outside Qt "
+        "or writes it 'inline' or nowhere, and it is no signal, slot or "
+        "invokable function giving back nothing, of a class built on "
+        "QObject, and Qt's source has no code for it that could be told "
+        "from the rest.")
+
+  @staticmethod
+  def createIndex(*__, **_) -> Never:
+    """
+    Qt's 'QModelIndex QRangeModelImplBase::createIndex(int row, int column,
+    const void *ptr) const': names 'void', which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QRangeModelImplBase.createIndex' has no cute function yet. Qt's "
+        "'QModelIndex QRangeModelImplBase::createIndex(int row, int column, "
+        "const void *ptr) const': names 'void', which has no cute class yet."
+    )
+
+  @staticmethod
+  def data(*__, **_) -> Never:
+    """
+    Qt's 'QVariant QRangeModelImplBase::data(const QModelIndex &index, int
+    role) const': cannot be called and cannot be called through the
+    meta-object and cannot be copied: no header file has its code, Qt's
+    source does not mark it or its class for use from outside Qt or writes it
+    'inline' or nowhere, and it is no signal, slot or invokable function
+    giving back nothing, of a class built on QObject, and Qt's source has no
+    code for it that could be told from the rest.
+    """
+    raise NotImplementedError(
+        "'QRangeModelImplBase.data' has no cute function yet. Qt's "
+        "'QVariant QRangeModelImplBase::data(const QModelIndex &index, int "
+        "role) const': cannot be called and cannot be called through the "
+        "meta-object and cannot be copied: no header file has its code, "
+        "Qt's source does not mark it or its class for use from outside Qt "
+        "or writes it 'inline' or nowhere, and it is no signal, slot or "
+        "invokable function giving back nothing, of a class built on "
+        "QObject, and Qt's source has no code for it that could be told "
+        "from the rest.")
+
+  @staticmethod
+  def dataChanged(*__, **_) -> Never:
+    """
+    Qt's 'void QRangeModelImplBase::dataChanged(const QModelIndex &from,
+    const QModelIndex &to, const QList<int> &roles)': takes a type Python has
+    no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QRangeModelImplBase.dataChanged' has no cute function yet. Qt's "
+        "'void QRangeModelImplBase::dataChanged(const QModelIndex &from, "
+        "const QModelIndex &to, const QList<int> &roles)': takes a type "
+        "Python has no way to hand over yet.")
+
+  @staticmethod
+  def dropMimeData(*__, **_) -> Never:
+    """
+    Qt's 'bool QRangeModelImplBase::dropMimeData(const QMimeData *data,
+    Qt::DropAction action, int row, int column, const QModelIndex &parent)':
+    cannot be called and cannot be called through the meta-object and cannot
+    be copied: no header file has its code, Qt's source does not mark it or
+    its class for use from outside Qt or writes it 'inline' or nowhere, and
+    it is no signal, slot or invokable function giving back nothing, of a
+    class built on QObject, and Qt's source has no code for it that could be
+    told from the rest.
+    """
+    raise NotImplementedError(
+        "'QRangeModelImplBase.dropMimeData' has no cute function yet. Qt's "
+        "'bool QRangeModelImplBase::dropMimeData(const QMimeData *data, "
+        "Qt::DropAction action, int row, int column, const QModelIndex "
+        "&parent)': cannot be called and cannot be called through the "
+        "meta-object and cannot be copied: no header file has its code, "
+        "Qt's source does not mark it or its class for use from outside Qt "
+        "or writes it 'inline' or nowhere, and it is no signal, slot or "
+        "invokable function giving back nothing, of a class built on "
+        "QObject, and Qt's source has no code for it that could be told "
+        "from the rest.")
+
+  @staticmethod
+  def flags(*__, **_) -> Never:
+    """
+    Qt's 'Qt::ItemFlags QRangeModelImplBase::flags(const QModelIndex &index)
+    const': cannot be called and cannot be called through the meta-object and
+    cannot be copied: no header file has its code, Qt's source does not mark
+    it or its class for use from outside Qt or writes it 'inline' or nowhere,
+    and it is no signal, slot or invokable function giving back nothing, of a
+    class built on QObject, and Qt's source has no code for it that could be
+    told from the rest.
+    """
+    raise NotImplementedError(
+        "'QRangeModelImplBase.flags' has no cute function yet. Qt's "
+        "'Qt::ItemFlags QRangeModelImplBase::flags(const QModelIndex "
+        "&index) const': cannot be called and cannot be called through the "
+        "meta-object and cannot be copied: no header file has its code, "
+        "Qt's source does not mark it or its class for use from outside Qt "
+        "or writes it 'inline' or nowhere, and it is no signal, slot or "
+        "invokable function giving back nothing, of a class built on "
+        "QObject, and Qt's source has no code for it that could be told "
+        "from the rest.")
+
+  @staticmethod
+  def headerData(*__, **_) -> Never:
+    """
+    Qt's 'QVariant QRangeModelImplBase::headerData(int section,
+    Qt::Orientation orientation, int role) const': cannot be called and
+    cannot be called through the meta-object and cannot be copied: no header
+    file has its code, Qt's source does not mark it or its class for use from
+    outside Qt or writes it 'inline' or nowhere, and it is no signal, slot or
+    invokable function giving back nothing, of a class built on QObject, and
+    Qt's source has no code for it that could be told from the rest.
+    """
+    raise NotImplementedError(
+        "'QRangeModelImplBase.headerData' has no cute function yet. Qt's "
+        "'QVariant QRangeModelImplBase::headerData(int section, "
+        "Qt::Orientation orientation, int role) const': cannot be called "
+        "and cannot be called through the meta-object and cannot be copied: "
+        "no header file has its code, Qt's source does not mark it or its "
+        "class for use from outside Qt or writes it 'inline' or nowhere, "
+        "and it is no signal, slot or invokable function giving back "
+        "nothing, of a class built on QObject, and Qt's source has no code "
+        "for it that could be told from the rest.")
+
+  @staticmethod
+  def index(*__, **_) -> Never:
+    """
+    Qt's 'QModelIndex QRangeModelImplBase::index(int row, int column, const
+    QModelIndex &parent) const': cannot be called and cannot be called
+    through the meta-object and cannot be copied: no header file has its
+    code, Qt's source does not mark it or its class for use from outside Qt
+    or writes it 'inline' or nowhere, and it is no signal, slot or invokable
+    function giving back nothing, of a class built on QObject, and Qt's
+    source has no code for it that could be told from the rest.
+    """
+    raise NotImplementedError(
+        "'QRangeModelImplBase.index' has no cute function yet. Qt's "
+        "'QModelIndex QRangeModelImplBase::index(int row, int column, const "
+        "QModelIndex &parent) const': cannot be called and cannot be called "
+        "through the meta-object and cannot be copied: no header file has "
+        "its code, Qt's source does not mark it or its class for use from "
+        "outside Qt or writes it 'inline' or nowhere, and it is no signal, "
+        "slot or invokable function giving back nothing, of a class built "
+        "on QObject, and Qt's source has no code for it that could be told "
+        "from the rest.")
+
+  @staticmethod
+  def insertColumns(*__, **_) -> Never:
+    """
+    Qt's 'bool QRangeModelImplBase::insertColumns(int column, int count,
+    const QModelIndex &parent)': cannot be called and cannot be called
+    through the meta-object and cannot be copied: no header file has its
+    code, Qt's source does not mark it or its class for use from outside Qt
+    or writes it 'inline' or nowhere, and it is no signal, slot or invokable
+    function giving back nothing, of a class built on QObject, and Qt's
+    source has no code for it that could be told from the rest.
+    """
+    raise NotImplementedError(
+        "'QRangeModelImplBase.insertColumns' has no cute function yet. Qt's "
+        "'bool QRangeModelImplBase::insertColumns(int column, int count, "
+        "const QModelIndex &parent)': cannot be called and cannot be called "
+        "through the meta-object and cannot be copied: no header file has "
+        "its code, Qt's source does not mark it or its class for use from "
+        "outside Qt or writes it 'inline' or nowhere, and it is no signal, "
+        "slot or invokable function giving back nothing, of a class built "
+        "on QObject, and Qt's source has no code for it that could be told "
+        "from the rest.")
+
+  @staticmethod
+  def insertRows(*__, **_) -> Never:
+    """
+    Qt's 'bool QRangeModelImplBase::insertRows(int row, int count, const
+    QModelIndex &parent)': cannot be called and cannot be called through the
+    meta-object and cannot be copied: no header file has its code, Qt's
+    source does not mark it or its class for use from outside Qt or writes it
+    'inline' or nowhere, and it is no signal, slot or invokable function
+    giving back nothing, of a class built on QObject, and Qt's source has no
+    code for it that could be told from the rest.
+    """
+    raise NotImplementedError(
+        "'QRangeModelImplBase.insertRows' has no cute function yet. Qt's "
+        "'bool QRangeModelImplBase::insertRows(int row, int count, const "
+        "QModelIndex &parent)': cannot be called and cannot be called "
+        "through the meta-object and cannot be copied: no header file has "
+        "its code, Qt's source does not mark it or its class for use from "
+        "outside Qt or writes it 'inline' or nowhere, and it is no signal, "
+        "slot or invokable function giving back nothing, of a class built "
+        "on QObject, and Qt's source has no code for it that could be told "
+        "from the rest.")
+
+  @staticmethod
+  def interfaceVersion(*__, **_) -> Never:
+    """
+    Qt's 'void QRangeModelImplBase::interfaceVersion(int &version) const':
+    cannot be called and cannot be called through the meta-object and cannot
+    be copied: no header file has its code, Qt's source does not mark it or
+    its class for use from outside Qt or writes it 'inline' or nowhere, and
+    it is no signal, slot or invokable function giving back nothing, of a
+    class built on QObject, and Qt's source has no code for it that could be
+    told from the rest.
+    """
+    raise NotImplementedError(
+        "'QRangeModelImplBase.interfaceVersion' has no cute function yet. "
+        "Qt's 'void QRangeModelImplBase::interfaceVersion(int &version) "
+        "const': cannot be called and cannot be called through the "
+        "meta-object and cannot be copied: no header file has its code, "
+        "Qt's source does not mark it or its class for use from outside Qt "
+        "or writes it 'inline' or nowhere, and it is no signal, slot or "
+        "invokable function giving back nothing, of a class built on "
+        "QObject, and Qt's source has no code for it that could be told "
+        "from the rest.")
+
+  @staticmethod
+  def invalidateCaches(*__, **_) -> Never:
+    """
+    Qt's 'void QRangeModelImplBase::invalidateCaches()': cannot be called and
+    cannot be called through the meta-object and cannot be copied: no header
+    file has its code, Qt's source does not mark it or its class for use from
+    outside Qt or writes it 'inline' or nowhere, and it is no signal, slot or
+    invokable function giving back nothing, of a class built on QObject, and
+    Qt's source has no code for it that could be told from the rest.
+    """
+    raise NotImplementedError(
+        "'QRangeModelImplBase.invalidateCaches' has no cute function yet. "
+        "Qt's 'void QRangeModelImplBase::invalidateCaches()': cannot be "
+        "called and cannot be called through the meta-object and cannot be "
+        "copied: no header file has its code, Qt's source does not mark it "
+        "or its class for use from outside Qt or writes it 'inline' or "
+        "nowhere, and it is no signal, slot or invokable function giving "
+        "back nothing, of a class built on QObject, and Qt's source has no "
+        "code for it that could be told from the rest.")
+
+  @staticmethod
+  def itemData(*__, **_) -> Never:
+    """
+    Qt's 'QMap<int, QVariant> QRangeModelImplBase::itemData(const QModelIndex
+    &index) const': cannot be called and cannot be called through the
+    meta-object and cannot be copied: no header file has its code, Qt's
+    source does not mark it or its class for use from outside Qt or writes it
+    'inline' or nowhere, and it is no signal, slot or invokable function
+    giving back nothing, of a class built on QObject, and Qt's source has no
+    code for it that could be told from the rest.
+    """
+    raise NotImplementedError(
+        "'QRangeModelImplBase.itemData' has no cute function yet. Qt's "
+        "'QMap<int, QVariant> QRangeModelImplBase::itemData(const "
+        "QModelIndex &index) const': cannot be called and cannot be called "
+        "through the meta-object and cannot be copied: no header file has "
+        "its code, Qt's source does not mark it or its class for use from "
+        "outside Qt or writes it 'inline' or nowhere, and it is no signal, "
+        "slot or invokable function giving back nothing, of a class built "
+        "on QObject, and Qt's source has no code for it that could be told "
+        "from the rest.")
+
+  @staticmethod
+  def itemModel(*__, **_) -> Never:
+    """
+    - Qt's 'QAbstractItemModel &QRangeModelImplBase::itemModel()': gives a
+      type Python has no way to take yet.
+    - Qt's 'const QAbstractItemModel &QRangeModelImplBase::itemModel()
+      const': gives a type Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QRangeModelImplBase.itemModel' has no cute function yet. Qt's "
+        "'QAbstractItemModel &QRangeModelImplBase::itemModel()': gives a "
+        "type Python has no way to take yet. Qt's 'const QAbstractItemModel "
+        "&QRangeModelImplBase::itemModel() const': gives a type Python has "
+        "no way to take yet.")
+
+  @staticmethod
+  def match(*__, **_) -> Never:
+    """
+    Qt's 'QModelIndexList QRangeModelImplBase::match(const QModelIndex
+    &start, int role, const QVariant &value, int hits, Qt::MatchFlags flags)
+    const': cannot be called and cannot be called through the meta-object and
+    cannot be copied: no header file has its code, Qt's source does not mark
+    it or its class for use from outside Qt or writes it 'inline' or nowhere,
+    and it is no signal, slot or invokable function giving back nothing, of a
+    class built on QObject, and Qt's source has no code for it that could be
+    told from the rest.
+    """
+    raise NotImplementedError(
+        "'QRangeModelImplBase.match' has no cute function yet. Qt's "
+        "'QModelIndexList QRangeModelImplBase::match(const QModelIndex "
+        "&start, int role, const QVariant &value, int hits, Qt::MatchFlags "
+        "flags) const': cannot be called and cannot be called through the "
+        "meta-object and cannot be copied: no header file has its code, "
+        "Qt's source does not mark it or its class for use from outside Qt "
+        "or writes it 'inline' or nowhere, and it is no signal, slot or "
+        "invokable function giving back nothing, of a class built on "
+        "QObject, and Qt's source has no code for it that could be told "
+        "from the rest.")
+
+  @staticmethod
+  def mimeData(*__, **_) -> Never:
+    """
+    Qt's 'QMimeData *QRangeModelImplBase::mimeData(const QModelIndexList
+    &indexes) const': cannot be called and cannot be called through the
+    meta-object and cannot be copied: no header file has its code, Qt's
+    source does not mark it or its class for use from outside Qt or writes it
+    'inline' or nowhere, and it is no signal, slot or invokable function
+    giving back nothing, of a class built on QObject, and Qt's source has no
+    code for it that could be told from the rest.
+    """
+    raise NotImplementedError(
+        "'QRangeModelImplBase.mimeData' has no cute function yet. Qt's "
+        "'QMimeData *QRangeModelImplBase::mimeData(const QModelIndexList "
+        "&indexes) const': cannot be called and cannot be called through "
+        "the meta-object and cannot be copied: no header file has its code, "
+        "Qt's source does not mark it or its class for use from outside Qt "
+        "or writes it 'inline' or nowhere, and it is no signal, slot or "
+        "invokable function giving back nothing, of a class built on "
+        "QObject, and Qt's source has no code for it that could be told "
+        "from the rest.")
+
+  @staticmethod
+  def mimeTypes(*__, **_) -> Never:
+    """
+    Qt's 'QStringList QRangeModelImplBase::mimeTypes() const': cannot be
+    called and cannot be called through the meta-object and cannot be copied:
+    no header file has its code, Qt's source does not mark it or its class
+    for use from outside Qt or writes it 'inline' or nowhere, and it is no
+    signal, slot or invokable function giving back nothing, of a class built
+    on QObject, and Qt's source has no code for it that could be told from
+    the rest.
+    """
+    raise NotImplementedError(
+        "'QRangeModelImplBase.mimeTypes' has no cute function yet. Qt's "
+        "'QStringList QRangeModelImplBase::mimeTypes() const': cannot be "
+        "called and cannot be called through the meta-object and cannot be "
+        "copied: no header file has its code, Qt's source does not mark it "
+        "or its class for use from outside Qt or writes it 'inline' or "
+        "nowhere, and it is no signal, slot or invokable function giving "
+        "back nothing, of a class built on QObject, and Qt's source has no "
+        "code for it that could be told from the rest.")
+
+  @staticmethod
+  def moveColumns(*__, **_) -> Never:
+    """
+    Qt's 'bool QRangeModelImplBase::moveColumns(const QModelIndex
+    &sourceParent, int sourceColumn, int count, const QModelIndex
+    &destParent, int destColumn)': cannot be called and cannot be called
+    through the meta-object and cannot be copied: no header file has its
+    code, Qt's source does not mark it or its class for use from outside Qt
+    or writes it 'inline' or nowhere, and it is no signal, slot or invokable
+    function giving back nothing, of a class built on QObject, and Qt's
+    source has no code for it that could be told from the rest.
+    """
+    raise NotImplementedError(
+        "'QRangeModelImplBase.moveColumns' has no cute function yet. Qt's "
+        "'bool QRangeModelImplBase::moveColumns(const QModelIndex "
+        "&sourceParent, int sourceColumn, int count, const QModelIndex "
+        "&destParent, int destColumn)': cannot be called and cannot be "
+        "called through the meta-object and cannot be copied: no header "
+        "file has its code, Qt's source does not mark it or its class for "
+        "use from outside Qt or writes it 'inline' or nowhere, and it is no "
+        "signal, slot or invokable function giving back nothing, of a class "
+        "built on QObject, and Qt's source has no code for it that could be "
+        "told from the rest.")
+
+  @staticmethod
+  def moveRows(*__, **_) -> Never:
+    """
+    Qt's 'bool QRangeModelImplBase::moveRows(const QModelIndex &sourceParent,
+    int sourceRow, int count, const QModelIndex &destParent, int destRow)':
+    cannot be called and cannot be called through the meta-object and cannot
+    be copied: no header file has its code, Qt's source does not mark it or
+    its class for use from outside Qt or writes it 'inline' or nowhere, and
+    it is no signal, slot or invokable function giving back nothing, of a
+    class built on QObject, and Qt's source has no code for it that could be
+    told from the rest.
+    """
+    raise NotImplementedError(
+        "'QRangeModelImplBase.moveRows' has no cute function yet. Qt's "
+        "'bool QRangeModelImplBase::moveRows(const QModelIndex "
+        "&sourceParent, int sourceRow, int count, const QModelIndex "
+        "&destParent, int destRow)': cannot be called and cannot be called "
+        "through the meta-object and cannot be copied: no header file has "
+        "its code, Qt's source does not mark it or its class for use from "
+        "outside Qt or writes it 'inline' or nowhere, and it is no signal, "
+        "slot or invokable function giving back nothing, of a class built "
+        "on QObject, and Qt's source has no code for it that could be told "
+        "from the rest.")
+
+  @staticmethod
+  def multiData(*__, **_) -> Never:
+    """
+    Qt's 'void QRangeModelImplBase::multiData(const QModelIndex &index,
+    QModelRoleDataSpan roleDataSpan) const': cannot be called and cannot be
+    called through the meta-object and cannot be copied: no header file has
+    its code, Qt's source does not mark it or its class for use from outside
+    Qt or writes it 'inline' or nowhere, and it is no signal, slot or
+    invokable function giving back nothing, of a class built on QObject, and
+    Qt's source has no code for it that could be told from the rest.
+    """
+    raise NotImplementedError(
+        "'QRangeModelImplBase.multiData' has no cute function yet. Qt's "
+        "'void QRangeModelImplBase::multiData(const QModelIndex &index, "
+        "QModelRoleDataSpan roleDataSpan) const': cannot be called and "
+        "cannot be called through the meta-object and cannot be copied: no "
+        "header file has its code, Qt's source does not mark it or its "
+        "class for use from outside Qt or writes it 'inline' or nowhere, "
+        "and it is no signal, slot or invokable function giving back "
+        "nothing, of a class built on QObject, and Qt's source has no code "
+        "for it that could be told from the rest.")
+
+  @staticmethod
+  def parent(*__, **_) -> Never:
+    """
+    Qt's 'QModelIndex QRangeModelImplBase::parent(const QModelIndex &child)
+    const': cannot be called and cannot be called through the meta-object and
+    cannot be copied: no header file has its code, Qt's source does not mark
+    it or its class for use from outside Qt or writes it 'inline' or nowhere,
+    and it is no signal, slot or invokable function giving back nothing, of a
+    class built on QObject, and Qt's source has no code for it that could be
+    told from the rest.
+    """
+    raise NotImplementedError(
+        "'QRangeModelImplBase.parent' has no cute function yet. Qt's "
+        "'QModelIndex QRangeModelImplBase::parent(const QModelIndex &child) "
+        "const': cannot be called and cannot be called through the "
+        "meta-object and cannot be copied: no header file has its code, "
+        "Qt's source does not mark it or its class for use from outside Qt "
+        "or writes it 'inline' or nowhere, and it is no signal, slot or "
+        "invokable function giving back nothing, of a class built on "
+        "QObject, and Qt's source has no code for it that could be told "
+        "from the rest.")
+
+  @staticmethod
+  def removeColumns(*__, **_) -> Never:
+    """
+    Qt's 'bool QRangeModelImplBase::removeColumns(int column, int count,
+    const QModelIndex &parent)': cannot be called and cannot be called
+    through the meta-object and cannot be copied: no header file has its
+    code, Qt's source does not mark it or its class for use from outside Qt
+    or writes it 'inline' or nowhere, and it is no signal, slot or invokable
+    function giving back nothing, of a class built on QObject, and Qt's
+    source has no code for it that could be told from the rest.
+    """
+    raise NotImplementedError(
+        "'QRangeModelImplBase.removeColumns' has no cute function yet. Qt's "
+        "'bool QRangeModelImplBase::removeColumns(int column, int count, "
+        "const QModelIndex &parent)': cannot be called and cannot be called "
+        "through the meta-object and cannot be copied: no header file has "
+        "its code, Qt's source does not mark it or its class for use from "
+        "outside Qt or writes it 'inline' or nowhere, and it is no signal, "
+        "slot or invokable function giving back nothing, of a class built "
+        "on QObject, and Qt's source has no code for it that could be told "
+        "from the rest.")
+
+  @staticmethod
+  def removeRows(*__, **_) -> Never:
+    """
+    Qt's 'bool QRangeModelImplBase::removeRows(int row, int count, const
+    QModelIndex &parent)': cannot be called and cannot be called through the
+    meta-object and cannot be copied: no header file has its code, Qt's
+    source does not mark it or its class for use from outside Qt or writes it
+    'inline' or nowhere, and it is no signal, slot or invokable function
+    giving back nothing, of a class built on QObject, and Qt's source has no
+    code for it that could be told from the rest.
+    """
+    raise NotImplementedError(
+        "'QRangeModelImplBase.removeRows' has no cute function yet. Qt's "
+        "'bool QRangeModelImplBase::removeRows(int row, int count, const "
+        "QModelIndex &parent)': cannot be called and cannot be called "
+        "through the meta-object and cannot be copied: no header file has "
+        "its code, Qt's source does not mark it or its class for use from "
+        "outside Qt or writes it 'inline' or nowhere, and it is no signal, "
+        "slot or invokable function giving back nothing, of a class built "
+        "on QObject, and Qt's source has no code for it that could be told "
+        "from the rest.")
+
+  @staticmethod
+  def roleNamesForMetaObject(*__, **_) -> Never:
+    """
+    Qt's 'QHash<int, QByteArray>
+    QRangeModelImplBase::roleNamesForMetaObject(const QAbstractItemModel
+    &model, const QMetaObject &metaObject)': takes a type Python has no way
+    to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QRangeModelImplBase.roleNamesForMetaObject' has no cute function "
+        "yet. Qt's 'QHash<int, QByteArray> "
+        "QRangeModelImplBase::roleNamesForMetaObject(const "
+        "QAbstractItemModel &model, const QMetaObject &metaObject)': takes "
+        "a type Python has no way to hand over yet.")
+
+  @staticmethod
+  def roleProperties(*__, **_) -> Never:
+    """
+    Qt's 'QHash<int, QMetaProperty> QRangeModelImplBase::roleProperties(const
+    QAbstractItemModel &model, const QMetaObject &metaObject)': takes a type
+    Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QRangeModelImplBase.roleProperties' has no cute function yet. "
+        "Qt's 'QHash<int, QMetaProperty> "
+        "QRangeModelImplBase::roleProperties(const QAbstractItemModel "
+        "&model, const QMetaObject &metaObject)': takes a type Python has "
+        "no way to hand over yet.")
+
+  @staticmethod
+  def rowCount(*__, **_) -> Never:
+    """
+    Qt's 'int QRangeModelImplBase::rowCount(const QModelIndex &parent)
+    const': cannot be called and cannot be called through the meta-object and
+    cannot be copied: no header file has its code, Qt's source does not mark
+    it or its class for use from outside Qt or writes it 'inline' or nowhere,
+    and it is no signal, slot or invokable function giving back nothing, of a
+    class built on QObject, and Qt's source has no code for it that could be
+    told from the rest.
+    """
+    raise NotImplementedError(
+        "'QRangeModelImplBase.rowCount' has no cute function yet. Qt's 'int "
+        "QRangeModelImplBase::rowCount(const QModelIndex &parent) const': "
+        "cannot be called and cannot be called through the meta-object and "
+        "cannot be copied: no header file has its code, Qt's source does "
+        "not mark it or its class for use from outside Qt or writes it "
+        "'inline' or nowhere, and it is no signal, slot or invokable "
+        "function giving back nothing, of a class built on QObject, and "
+        "Qt's source has no code for it that could be told from the rest.")
+
+  @staticmethod
+  def setAutoConnectPolicy(*__, **_) -> Never:
+    """
+    Qt's 'void QRangeModelImplBase::setAutoConnectPolicy()': cannot be called
+    and cannot be called through the meta-object and cannot be copied: no
+    header file has its code, Qt's source does not mark it or its class for
+    use from outside Qt or writes it 'inline' or nowhere, and it is no
+    signal, slot or invokable function giving back nothing, of a class built
+    on QObject, and Qt's source has no code for it that could be told from
+    the rest.
+    """
+    raise NotImplementedError(
+        "'QRangeModelImplBase.setAutoConnectPolicy' has no cute function "
+        "yet. Qt's 'void QRangeModelImplBase::setAutoConnectPolicy()': "
+        "cannot be called and cannot be called through the meta-object and "
+        "cannot be copied: no header file has its code, Qt's source does "
+        "not mark it or its class for use from outside Qt or writes it "
+        "'inline' or nowhere, and it is no signal, slot or invokable "
+        "function giving back nothing, of a class built on QObject, and "
+        "Qt's source has no code for it that could be told from the rest.")
+
+  @staticmethod
+  def setData(*__, **_) -> Never:
+    """
+    Qt's 'bool QRangeModelImplBase::setData(const QModelIndex &index, const
+    QVariant &data, int role)': cannot be called and cannot be called through
+    the meta-object and cannot be copied: no header file has its code, Qt's
+    source does not mark it or its class for use from outside Qt or writes it
+    'inline' or nowhere, and it is no signal, slot or invokable function
+    giving back nothing, of a class built on QObject, and Qt's source has no
+    code for it that could be told from the rest.
+    """
+    raise NotImplementedError(
+        "'QRangeModelImplBase.setData' has no cute function yet. Qt's 'bool "
+        "QRangeModelImplBase::setData(const QModelIndex &index, const "
+        "QVariant &data, int role)': cannot be called and cannot be called "
+        "through the meta-object and cannot be copied: no header file has "
+        "its code, Qt's source does not mark it or its class for use from "
+        "outside Qt or writes it 'inline' or nowhere, and it is no signal, "
+        "slot or invokable function giving back nothing, of a class built "
+        "on QObject, and Qt's source has no code for it that could be told "
+        "from the rest.")
+
+  @staticmethod
+  def setHeaderData(*__, **_) -> Never:
+    """
+    Qt's 'bool QRangeModelImplBase::setHeaderData(int section,
+    Qt::Orientation orientation, const QVariant &data, int role)': cannot be
+    called and cannot be called through the meta-object and cannot be copied:
+    no header file has its code, Qt's source does not mark it or its class
+    for use from outside Qt or writes it 'inline' or nowhere, and it is no
+    signal, slot or invokable function giving back nothing, of a class built
+    on QObject, and Qt's source has no code for it that could be told from
+    the rest.
+    """
+    raise NotImplementedError(
+        "'QRangeModelImplBase.setHeaderData' has no cute function yet. Qt's "
+        "'bool QRangeModelImplBase::setHeaderData(int section, "
+        "Qt::Orientation orientation, const QVariant &data, int role)': "
+        "cannot be called and cannot be called through the meta-object and "
+        "cannot be copied: no header file has its code, Qt's source does "
+        "not mark it or its class for use from outside Qt or writes it "
+        "'inline' or nowhere, and it is no signal, slot or invokable "
+        "function giving back nothing, of a class built on QObject, and "
+        "Qt's source has no code for it that could be told from the rest.")
+
+  @staticmethod
+  def setItemData(*__, **_) -> Never:
+    """
+    Qt's 'bool QRangeModelImplBase::setItemData(const QModelIndex &index,
+    const QMap<int, QVariant> &data)': cannot be called and cannot be called
+    through the meta-object and cannot be copied: no header file has its
+    code, Qt's source does not mark it or its class for use from outside Qt
+    or writes it 'inline' or nowhere, and it is no signal, slot or invokable
+    function giving back nothing, of a class built on QObject, and Qt's
+    source has no code for it that could be told from the rest.
+    """
+    raise NotImplementedError(
+        "'QRangeModelImplBase.setItemData' has no cute function yet. Qt's "
+        "'bool QRangeModelImplBase::setItemData(const QModelIndex &index, "
+        "const QMap<int, QVariant> &data)': cannot be called and cannot be "
+        "called through the meta-object and cannot be copied: no header "
+        "file has its code, Qt's source does not mark it or its class for "
+        "use from outside Qt or writes it 'inline' or nowhere, and it is no "
+        "signal, slot or invokable function giving back nothing, of a class "
+        "built on QObject, and Qt's source has no code for it that could be "
+        "told from the rest.")
+
+  @staticmethod
+  def sibling(*__, **_) -> Never:
+    """
+    Qt's 'QModelIndex QRangeModelImplBase::sibling(int row, int column, const
+    QModelIndex &index) const': cannot be called and cannot be called through
+    the meta-object and cannot be copied: no header file has its code, Qt's
+    source does not mark it or its class for use from outside Qt or writes it
+    'inline' or nowhere, and it is no signal, slot or invokable function
+    giving back nothing, of a class built on QObject, and Qt's source has no
+    code for it that could be told from the rest.
+    """
+    raise NotImplementedError(
+        "'QRangeModelImplBase.sibling' has no cute function yet. Qt's "
+        "'QModelIndex QRangeModelImplBase::sibling(int row, int column, "
+        "const QModelIndex &index) const': cannot be called and cannot be "
+        "called through the meta-object and cannot be copied: no header "
+        "file has its code, Qt's source does not mark it or its class for "
+        "use from outside Qt or writes it 'inline' or nowhere, and it is no "
+        "signal, slot or invokable function giving back nothing, of a class "
+        "built on QObject, and Qt's source has no code for it that could be "
+        "told from the rest.")
+
+  @staticmethod
+  def sort(*__, **_) -> Never:
+    """
+    Qt's 'void QRangeModelImplBase::sort(int column, Qt::SortOrder order)':
+    cannot be called and cannot be called through the meta-object and cannot
+    be copied: no header file has its code, Qt's source does not mark it or
+    its class for use from outside Qt or writes it 'inline' or nowhere, and
+    it is no signal, slot or invokable function giving back nothing, of a
+    class built on QObject, and Qt's source has no code for it that could be
+    told from the rest.
+    """
+    raise NotImplementedError(
+        "'QRangeModelImplBase.sort' has no cute function yet. Qt's 'void "
+        "QRangeModelImplBase::sort(int column, Qt::SortOrder order)': "
+        "cannot be called and cannot be called through the meta-object and "
+        "cannot be copied: no header file has its code, Qt's source does "
+        "not mark it or its class for use from outside Qt or writes it "
+        "'inline' or nowhere, and it is no signal, slot or invokable "
+        "function giving back nothing, of a class built on QObject, and "
+        "Qt's source has no code for it that could be told from the rest.")

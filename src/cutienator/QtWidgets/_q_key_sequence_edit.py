@@ -21,6 +21,7 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
 
   from ..QtCore import QEvent, QKeyCombination, QMetaObject, QTimerEvent
   from ..QtGui import QFocusEvent, QKeyEvent, QKeySequence
+  from . import QKeySequenceEditPrivate
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -49,25 +50,34 @@ class QKeySequenceEdit(QWidget):
   -----------
 
   Every function of Qt's QKeySequenceEdit that has a ritual and that Python
-  can call so far, 16 names in all: 'metaObject', 'tr', 'keySequence',
+  can call so far, 19 names in all: 'metaObject', 'tr', 'keySequence',
   'maximumSequenceLength', 'setClearButtonEnabled', 'isClearButtonEnabled',
   'setFinishingKeyCombinations', 'finishingKeyCombinations',
-  'setKeySequence', 'clear', 'setMaximumSequenceLength', 'event',
-  'keyPressEvent', 'keyReleaseEvent', 'timerEvent', 'focusOutEvent'. It can
-  be made from Python, in 2 ways; see '__init__'.
+  'setKeySequence', 'clear', 'setMaximumSequenceLength', 'editingFinished',
+  'keySequenceChanged', 'event', 'keyPressEvent', 'keyReleaseEvent',
+  'timerEvent', 'focusOutEvent', 'd_func'. It can be made from Python, in 2
+  ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QKeySequenceEdit::qt_metacast(const char *a0)': one of Qt's
+    own inner workings.
+  - Qt's 'int QKeySequenceEdit::qt_metacall(QMetaObject::Call a0, int a1,
+    void **a2)': one of Qt's own inner workings.
   - Qt's 'QKeySequenceEdit::~QKeySequenceEdit()': the destructor: Python
     never removes a C++ QKeySequenceEdit.
+  - Qt's 'QKeySequenceEdit::QKeySequenceEdit(QKeySequenceEditPrivate &d,
+    QWidget *parent, Qt::WindowFlags f)': takes a type Python has no way to
+    hand over yet.
+  - Qt's 'const QKeySequenceEditPrivate *QKeySequenceEdit::d_func() const':
+    takes in Python what 'QKeySequenceEditPrivate
+    *QKeySequenceEdit::d_func()' takes.
 
   What has no ritual
   ------------------
 
-  11 of the 30 functions Qt declares: 5 takes or gives a type that cannot be
-  passed yet; 2 a signal; 2 forbidden; 1 a template; 1 declared and nowhere
-  to be found.
+  4 of the 30 functions Qt declares: 2 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -434,6 +444,39 @@ class QKeySequenceEdit(QWidget):
     #  void QKeySequenceEdit::clear()
     self.uglySide.call('ritual_ZN16QKeySequenceEdit5clearEv')
 
+  def editingFinished(self) -> None:
+    """
+    Calls Qt's 'void QKeySequenceEdit::editingFinished()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qkeysequenceedit.html#editingFinished
+    """
+    #  void QKeySequenceEdit::editingFinished()
+    self.uglySide.call('ritual_ZN16QKeySequenceEdit15editingFinishedEv')
+
+  @overload(QKeySequence)
+  def keySequenceChanged(self, keySequence: QKeySequence) -> None:
+    """
+    Calls Qt's 'void QKeySequenceEdit::keySequenceChanged(const QKeySequence
+    &keySequence)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qkeysequenceedit.html#keySequenceChanged
+
+    Parameters
+    ----------
+
+    keySequence : QKeySequence
+      Passed on as a value: Qt reads the C++ QKeySequence, which stays
+      Python's own.
+    """
+    #  void QKeySequenceEdit::keySequenceChanged(const QKeySequence
+    #      &keySequence)
+    self.uglySide.call(
+        'ritual_ZN16QKeySequenceEdit18keySequenceChangedERK12QKeySequence',
+        self._valueOf(keySequence),
+    )
+
   @overload(QEvent)
   @overload(NoneType)
   def event(self, a0: Optional[QEvent]) -> bool:
@@ -542,3 +585,21 @@ class QKeySequenceEdit(QWidget):
       ritual = (
           'ritual_own_ZN16QKeySequenceEdit13focusOutEventEP11QFocusEvent')
     self.uglySide.call(ritual, self._addressOf(a0))
+
+  def d_func(self) -> Optional[QKeySequenceEditPrivate]:
+    """
+    Calls Qt's 'QKeySequenceEditPrivate *QKeySequenceEdit::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qkeysequenceedit.html#d_func
+
+    Returns
+    -------
+
+    Optional[QKeySequenceEditPrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QKeySequenceEditPrivate *QKeySequenceEdit::d_func()
+    address = self.uglySide.call('ritual_ZN16QKeySequenceEdit6d_funcEv')
+    from . import QKeySequenceEditPrivate
+    return QKeySequenceEditPrivate._cuteAt(address)

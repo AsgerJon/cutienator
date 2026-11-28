@@ -20,7 +20,7 @@ from ..cute import WAIT
 from . import QAbstractAnimationTimer
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from . import QAbstractAnimation, QMetaObject
 else:
@@ -47,21 +47,29 @@ class QAnimationTimer(QAbstractAnimationTimer):
   -----------
 
   Every function of Qt's QAnimationTimer that has a ritual and that Python
-  can call so far, 8 names in all: 'metaObject', 'restartAnimationTimer',
+  can call so far, 9 names in all: 'metaObject', 'restartAnimationTimer',
   'updateAnimationsTime', 'runningAnimationCount', 'startAnimations',
-  'stopTimer', 'registerRunningAnimation', 'unregisterRunningAnimation'. None
-  can be made from Python: one comes out of a function of another class that
-  gives one back.
+  'stopTimer', 'registerRunningAnimation', 'unregisterRunningAnimation',
+  'closestPauseAnimationTimeToFinish'. None can be made from Python: one
+  comes out of a function of another class that gives one back.
+
+  What has a ritual and is left out, and why
+  ------------------------------------------
+
+  - Qt's 'void *QAnimationTimer::qt_metacast(const char *a0)': one of Qt's
+    own inner workings.
+  - Qt's 'int QAnimationTimer::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
+  - Qt's 'QAnimationTimer::~QAnimationTimer()': the destructor: Python never
+    removes a C++ QAnimationTimer.
 
   What has no ritual
   ------------------
 
-  15 of the 23 functions Qt declares: 6 leans on 'vtable for
-  QAnimationTimer', which Qt's library does not offer and Qt's source has no
-  code for that could be taken; 3 leans on 'QAnimationTimer; 2 takes or gives
-  a type that cannot be passed yet; 2 declared and nowhere to be found; 1 a
-  template; 1 Qt's library has no name for it, and its code in Qt's source
-  does not compile apart from its file.
+  10 of the 22 functions Qt declares: 6 leans on 'vtable for
+  QAnimationTimer', which Qt's source does not mark for use from outside Qt
+  and has no code for that could be taken; 2 not a gap; 2 leans on
+  'QAnimationTimer.
 
   What to expect
   --------------
@@ -77,6 +85,10 @@ class QAnimationTimer(QAbstractAnimationTimer):
   - Qt tells when it has removed the C++ QAnimationTimer. Every call on the
     cute object, and every use of it as an argument, then raises
     'RuntimeError', and nothing reaches C++.
+  - Each name of Qt's QAnimationTimer that has no cute function yet,
+    '__init__', 'ensureTimerUpdate', 'instance', 'registerAnimation',
+    'unregisterAnimation', 'updateAnimationTimer', holds a function that
+    raises 'NotImplementedError', and its docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -155,6 +167,21 @@ class QAnimationTimer(QAbstractAnimationTimer):
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  @staticmethod
+  def __init__(*__, **_) -> Never:
+    """
+    Qt's 'QAnimationTimer::QAnimationTimer()': leans on
+    'QAnimationTimer::qt_metacall(QMetaObject::Call, int, void**)', which
+    Qt's source does not mark for use from outside Qt and has no code for
+    that could be taken.
+    """
+    raise NotImplementedError(
+        "'QAnimationTimer.__init__' has no cute function yet. Qt's "
+        "'QAnimationTimer::QAnimationTimer()': leans on "
+        "'QAnimationTimer::qt_metacall(QMetaObject::Call, int, void**)', "
+        "which Qt's source does not mark for use from outside Qt and has no "
+        "code for that could be taken.")
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -183,7 +210,10 @@ class QAnimationTimer(QAbstractAnimationTimer):
     https://doc.qt.io/qt-6/qanimationtimer.html#restartAnimationTimer
     """
     #  void QAnimationTimer::restartAnimationTimer()
-    self.uglySide.call('ritual_ZN15QAnimationTimer21restartAnimationTimerEv')
+    ritual = 'ritual_ZN15QAnimationTimer21restartAnimationTimerEv'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN15QAnimationTimer21restartAnimationTimerEv'
+    self.uglySide.call(ritual)
 
   @overload(int)
   def updateAnimationsTime(self, delta: int) -> None:
@@ -281,3 +311,90 @@ class QAnimationTimer(QAbstractAnimationTimer):
         'tAnimation',
         self._addressOf(animation),
     )
+
+  def closestPauseAnimationTimeToFinish(self) -> int:
+    """
+    Calls Qt's 'int QAnimationTimer::closestPauseAnimationTimeToFinish()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qanimationtimer.html
+    """
+    #  int QAnimationTimer::closestPauseAnimationTimeToFinish()
+    return self.uglySide.call(
+        'ritual_ZN15QAnimationTimer33closestPauseAnimationTimeToFinishEv',
+    )
+
+  @staticmethod
+  def ensureTimerUpdate(*__, **_) -> Never:
+    """
+    Qt's 'void QAnimationTimer::ensureTimerUpdate()': leans on 'vtable for
+    QAnimationTimer', which Qt's source does not mark for use from outside Qt
+    and has no code for that could be taken.
+    """
+    raise NotImplementedError(
+        "'QAnimationTimer.ensureTimerUpdate' has no cute function yet. Qt's "
+        "'void QAnimationTimer::ensureTimerUpdate()': leans on 'vtable for "
+        "QAnimationTimer', which Qt's source does not mark for use from "
+        "outside Qt and has no code for that could be taken.")
+
+  @staticmethod
+  def instance(*__, **_) -> Never:
+    """
+    - Qt's 'QAnimationTimer *QAnimationTimer::instance()': leans on 'vtable
+      for QAnimationTimer', which Qt's source does not mark for use from
+      outside Qt and has no code for that could be taken.
+    - Qt's 'QAnimationTimer *QAnimationTimer::instance(bool create)': leans
+      on 'vtable for QAnimationTimer', which Qt's source does not mark for
+      use from outside Qt and has no code for that could be taken.
+    """
+    raise NotImplementedError(
+        "'QAnimationTimer.instance' has no cute function yet. Qt's "
+        "'QAnimationTimer *QAnimationTimer::instance()': leans on 'vtable "
+        "for QAnimationTimer', which Qt's source does not mark for use from "
+        "outside Qt and has no code for that could be taken. Qt's "
+        "'QAnimationTimer *QAnimationTimer::instance(bool create)': leans "
+        "on 'vtable for QAnimationTimer', which Qt's source does not mark "
+        "for use from outside Qt and has no code for that could be taken.")
+
+  @staticmethod
+  def registerAnimation(*__, **_) -> Never:
+    """
+    Qt's 'void QAnimationTimer::registerAnimation(QAbstractAnimation
+    *animation, bool isTopLevel)': leans on 'vtable for QAnimationTimer',
+    which Qt's source does not mark for use from outside Qt and has no code
+    for that could be taken.
+    """
+    raise NotImplementedError(
+        "'QAnimationTimer.registerAnimation' has no cute function yet. Qt's "
+        "'void QAnimationTimer::registerAnimation(QAbstractAnimation "
+        "*animation, bool isTopLevel)': leans on 'vtable for "
+        "QAnimationTimer', which Qt's source does not mark for use from "
+        "outside Qt and has no code for that could be taken.")
+
+  @staticmethod
+  def unregisterAnimation(*__, **_) -> Never:
+    """
+    Qt's 'void QAnimationTimer::unregisterAnimation(QAbstractAnimation
+    *animation)': leans on 'vtable for QAnimationTimer', which Qt's source
+    does not mark for use from outside Qt and has no code for that could be
+    taken.
+    """
+    raise NotImplementedError(
+        "'QAnimationTimer.unregisterAnimation' has no cute function yet. "
+        "Qt's 'void QAnimationTimer::unregisterAnimation(QAbstractAnimation "
+        "*animation)': leans on 'vtable for QAnimationTimer', which Qt's "
+        "source does not mark for use from outside Qt and has no code for "
+        "that could be taken.")
+
+  @staticmethod
+  def updateAnimationTimer(*__, **_) -> Never:
+    """
+    Qt's 'void QAnimationTimer::updateAnimationTimer()': leans on 'vtable for
+    QAnimationTimer', which Qt's source does not mark for use from outside Qt
+    and has no code for that could be taken.
+    """
+    raise NotImplementedError(
+        "'QAnimationTimer.updateAnimationTimer' has no cute function yet. "
+        "Qt's 'void QAnimationTimer::updateAnimationTimer()': leans on "
+        "'vtable for QAnimationTimer', which Qt's source does not mark for "
+        "use from outside Qt and has no code for that could be taken.")

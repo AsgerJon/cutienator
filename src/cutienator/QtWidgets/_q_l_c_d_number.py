@@ -45,25 +45,31 @@ class QLCDNumber(QFrame):
   -----------
 
   Every function of Qt's QLCDNumber that has a ritual and that Python can
-  call so far, 21 names in all: 'metaObject', 'tr', 'smallDecimalPoint',
+  call so far, 22 names in all: 'metaObject', 'tr', 'smallDecimalPoint',
   'digitCount', 'setDigitCount', 'checkOverflow', 'mode', 'setMode',
   'segmentStyle', 'setSegmentStyle', 'value', 'intValue', 'sizeHint',
   'display', 'setHexMode', 'setDecMode', 'setOctMode', 'setBinMode',
-  'setSmallDecimalPoint', 'event', 'paintEvent'. It can be made from Python,
-  in 2 ways; see '__init__'.
+  'setSmallDecimalPoint', 'overflow', 'event', 'paintEvent'. It can be made
+  from Python, in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QLCDNumber::qt_metacast(const char *a0)': one of Qt's own
+    inner workings.
+  - Qt's 'int QLCDNumber::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
   - Qt's 'QLCDNumber::~QLCDNumber()': the destructor: Python never removes a
     C++ QLCDNumber.
+  - Qt's 'QLCDNumberPrivate *QLCDNumber::d_func()': gives
+    'QLCDNumberPrivate', which has no cute class yet.
+  - Qt's 'const QLCDNumberPrivate *QLCDNumber::d_func() const': gives
+    'QLCDNumberPrivate', which has no cute class yet.
 
   What has no ritual
   ------------------
 
-  9 of the 36 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet; 2 forbidden; 1 a template; 1 declared and nowhere to be found;
-  1 a signal.
+  4 of the 36 functions Qt declares: 2 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -554,6 +560,15 @@ class QLCDNumber(QFrame):
     """
     #  void QLCDNumber::display(double num)
     self.uglySide.call('ritual_ZN10QLCDNumber7displayEd', num)
+
+  def overflow(self) -> None:
+    """
+    Calls Qt's 'void QLCDNumber::overflow()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlcdnumber.html#overflow
+    """
+    #  void QLCDNumber::overflow()
+    self.uglySide.call('ritual_ZN10QLCDNumber8overflowEv')
 
   @overload(QEvent)
   @overload(NoneType)

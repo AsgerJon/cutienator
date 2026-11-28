@@ -18,7 +18,7 @@ from . import Qt, QObject
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Never, Optional
 
-  from . import QMetaObject, QTimerEvent
+  from . import QMetaObject, QTimerEvent, QTimerPrivate
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -42,11 +42,11 @@ class QTimer(QObject):
   -----------
 
   Every function of Qt's QTimer that has a ritual and that Python can call so
-  far, 20 names in all: 'metaObject', 'tr', 'isActive', 'timerId', 'id',
+  far, 21 names in all: 'metaObject', 'tr', 'isActive', 'timerId', 'id',
   'setInterval', 'interval', 'remainingTime', 'setTimerType', 'timerType',
   'setSingleShot', 'isSingleShot', 'singleShot', 'start', 'stop', 'timeout',
-  'timerEvent', 'startTimer', 'killTimer', 'defaultTypeFor'. It can be made
-  from Python, in 1 way; see '__init__'.
+  'timerEvent', 'd_func', 'startTimer', 'killTimer', 'defaultTypeFor'. It can
+  be made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -79,10 +79,8 @@ class QTimer(QObject):
     takes a type Python has no way to hand over yet.
   - Qt's 'void QTimer::start(std::chrono::milliseconds value)': takes a type
     Python has no way to hand over yet.
-  - Qt's 'QTimerPrivate *QTimer::d_func()': gives 'QTimerPrivate', which has
-    no cute class yet.
-  - Qt's 'const QTimerPrivate *QTimer::d_func() const': gives
-    'QTimerPrivate', which has no cute class yet.
+  - Qt's 'const QTimerPrivate *QTimer::d_func() const': takes in Python what
+    'QTimerPrivate *QTimer::d_func()' takes.
   - Qt's 'std::chrono::nanoseconds
     QTimer::from_msecs(std::chrono::milliseconds a0)': takes a type Python
     has no way to hand over yet.
@@ -568,6 +566,24 @@ class QTimer(QObject):
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZN6QTimer10timerEventEP11QTimerEvent'
     self.uglySide.call(ritual, self._addressOf(a0))
+
+  def d_func(self) -> Optional[QTimerPrivate]:
+    """
+    Calls Qt's 'QTimerPrivate *QTimer::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtimer.html#d_func
+
+    Returns
+    -------
+
+    Optional[QTimerPrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QTimerPrivate *QTimer::d_func()
+    address = self.uglySide.call('ritual_ZN6QTimer6d_funcEv')
+    from . import QTimerPrivate
+    return QTimerPrivate._cuteAt(address)
 
   @overload(int)
   def startTimer(self, a0: int) -> int:

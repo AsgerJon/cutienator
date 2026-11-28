@@ -18,11 +18,13 @@ from ..occult import Rituals
 from ..QtCore import QList, QObject
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from ..QtCore import QByteArray, QMetaObject
-  from . import QOpenGLContextGroup, QOpenGLExtraFunctions, QOpenGLFunctions
-  from . import QScreen, QSurface, QSurfaceFormat
+  from . import QOpenGLContextGroup, QOpenGLContextPrivate
+  from . import QOpenGLExtraFunctions, QOpenGLFunctions
+  from . import QPlatformOpenGLContext, QScreen, QSurface, QSurfaceFormat
+  from ..QtOpenGL import QOpenGLTextureHelper
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -49,25 +51,42 @@ class QOpenGLContext(QObject):
   -----------
 
   Every function of Qt's QOpenGLContext that has a ritual and that Python can
-  call so far, 25 names in all: 'metaObject', 'tr', 'setFormat',
+  call so far, 31 names in all: 'metaObject', 'tr', 'd_func', 'setFormat',
   'setShareContext', 'setScreen', 'create', 'isValid', 'format',
-  'shareContext', 'shareGroup', 'screen', 'makeCurrent', 'doneCurrent',
-  'swapBuffers', 'surface', 'currentContext', 'areSharing', 'functions',
-  'extraFunctions', 'hasExtension', 'openGLModuleType', 'isOpenGLES',
-  'supportsThreadedOpenGL', 'globalShareContext', 'destroy'. It can be made
-  from Python, in 1 way; see '__init__'.
+  'shareContext', 'shareGroup', 'screen', 'defaultFramebufferObject',
+  'makeCurrent', 'doneCurrent', 'swapBuffers', 'surface', 'currentContext',
+  'areSharing', 'handle', 'shareHandle', 'functions', 'extraFunctions',
+  'hasExtension', 'openGLModuleType', 'isOpenGLES', 'supportsThreadedOpenGL',
+  'globalShareContext', 'aboutToBeDestroyed', 'textureFunctions', 'destroy'.
+  It can be made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QOpenGLContext::qt_metacast(const char *a0)': one of Qt's own
+    inner workings.
+  - Qt's 'int QOpenGLContext::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
+  - Qt's 'const QOpenGLContextPrivate *QOpenGLContext::d_func() const': takes
+    in Python what 'QOpenGLContextPrivate *QOpenGLContext::d_func()' takes.
   - Qt's 'QOpenGLContext::~QOpenGLContext()': the destructor: Python never
     removes a C++ QOpenGLContext.
+  - Qt's 'QFunctionPointer QOpenGLContext::getProcAddress(const QByteArray
+    &procName) const': gives a type Python has no way to take yet.
+  - Qt's 'QFunctionPointer QOpenGLContext::getProcAddress(const char
+    *procName) const': gives a type Python has no way to take yet.
+  - Qt's 'QSet<QByteArray> QOpenGLContext::extensions() const': gives a type
+    Python has no way to take yet.
+  - Qt's 'void *QOpenGLContext::resolveInterface(const char *name, int
+    revision) const': gives 'void', which has no cute class yet.
+  - Qt's 'void QOpenGLContext::setTextureFunctions(QOpenGLTextureHelper
+    *textureFuncs, std::function<void ()> destroyCallback)': takes a type
+    Python has no way to hand over yet.
 
   What has no ritual
   ------------------
 
-  17 of the 44 functions Qt declares: 13 takes or gives a type that cannot be
-  passed yet; 2 a template; 1 declared and nowhere to be found; 1 a signal.
+  3 of the 44 functions Qt declares: 2 not a gap; 1 a template.
 
   What to expect
   --------------
@@ -83,6 +102,10 @@ class QOpenGLContext(QObject):
   - Qt tells when it has removed the C++ QOpenGLContext. Every call on the
     cute object, and every use of it as an argument, then raises
     'RuntimeError', and nothing reaches C++.
+  - Each name of Qt's QOpenGLContext that has no cute function yet,
+    'extensions', 'getProcAddress', 'nativeInterface', 'resolveInterface',
+    'setTextureFunctions', holds a function that raises
+    'NotImplementedError', and its docstring says why.
   """
 
   #  The enums Qt writes inside QOpenGLContext, each a class in here as in
@@ -372,6 +395,18 @@ class QOpenGLContext(QObject):
     from . import QScreen
     return QScreen._cuteAt(address)
 
+  def defaultFramebufferObject(self) -> int:
+    """
+    Calls Qt's 'GLuint QOpenGLContext::defaultFramebufferObject() const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qopenglcontext.html#defaultFramebufferObject
+    """
+    #  GLuint QOpenGLContext::defaultFramebufferObject() const
+    return self.uglySide.call(
+        'ritual_ZNK14QOpenGLContext24defaultFramebufferObjectEv',
+    )
+
   def surface(self) -> Optional[QSurface]:
     """
     Calls Qt's 'QSurface *QOpenGLContext::surface() const'.
@@ -389,6 +424,42 @@ class QOpenGLContext(QObject):
     address = self.uglySide.call('ritual_ZNK14QOpenGLContext7surfaceEv')
     from . import QSurface
     return QSurface._cuteAt(address)
+
+  def handle(self) -> Optional[QPlatformOpenGLContext]:
+    """
+    Calls Qt's 'QPlatformOpenGLContext *QOpenGLContext::handle() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qopenglcontext.html#handle
+
+    Returns
+    -------
+
+    Optional[QPlatformOpenGLContext]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QPlatformOpenGLContext *QOpenGLContext::handle() const
+    address = self.uglySide.call('ritual_ZNK14QOpenGLContext6handleEv')
+    from . import QPlatformOpenGLContext
+    return QPlatformOpenGLContext._cuteAt(address)
+
+  def shareHandle(self) -> Optional[QPlatformOpenGLContext]:
+    """
+    Calls Qt's 'QPlatformOpenGLContext *QOpenGLContext::shareHandle() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qopenglcontext.html#shareHandle
+
+    Returns
+    -------
+
+    Optional[QPlatformOpenGLContext]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QPlatformOpenGLContext *QOpenGLContext::shareHandle() const
+    address = self.uglySide.call('ritual_ZNK14QOpenGLContext11shareHandleEv')
+    from . import QPlatformOpenGLContext
+    return QPlatformOpenGLContext._cuteAt(address)
 
   def functions(self) -> Optional[QOpenGLFunctions]:
     """
@@ -458,6 +529,28 @@ class QOpenGLContext(QObject):
     """
     #  bool QOpenGLContext::isOpenGLES() const
     return self.uglySide.call('ritual_ZNK14QOpenGLContext10isOpenGLESEv')
+
+  def textureFunctions(self) -> Optional[QOpenGLTextureHelper]:
+    """
+    Calls Qt's 'QOpenGLTextureHelper *QOpenGLContext::textureFunctions()
+    const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qopenglcontext.html#textureFunctions
+
+    Returns
+    -------
+
+    Optional[QOpenGLTextureHelper]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QOpenGLTextureHelper *QOpenGLContext::textureFunctions() const
+    address = self.uglySide.call(
+        'ritual_ZNK14QOpenGLContext16textureFunctionsEv',
+    )
+    from ..QtOpenGL import QOpenGLTextureHelper
+    return QOpenGLTextureHelper._cuteAt(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -583,6 +676,24 @@ class QOpenGLContext(QObject):
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  def d_func(self) -> Optional[QOpenGLContextPrivate]:
+    """
+    Calls Qt's 'QOpenGLContextPrivate *QOpenGLContext::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qopenglcontext.html#d_func
+
+    Returns
+    -------
+
+    Optional[QOpenGLContextPrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QOpenGLContextPrivate *QOpenGLContext::d_func()
+    address = self.uglySide.call('ritual_ZN14QOpenGLContext6d_funcEv')
+    from . import QOpenGLContextPrivate
+    return QOpenGLContextPrivate._cuteAt(address)
+
   def create(self) -> bool:
     """
     Calls Qt's 'bool QOpenGLContext::create()'.
@@ -643,6 +754,16 @@ class QOpenGLContext(QObject):
         self._addressOf(surface, 'QSurface'),
     )
 
+  def aboutToBeDestroyed(self) -> None:
+    """
+    Calls Qt's 'void QOpenGLContext::aboutToBeDestroyed()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qopenglcontext.html#aboutToBeDestroyed
+    """
+    #  void QOpenGLContext::aboutToBeDestroyed()
+    self.uglySide.call('ritual_ZN14QOpenGLContext18aboutToBeDestroyedEv')
+
   def destroy(self) -> None:
     """
     Calls Qt's 'void QOpenGLContext::destroy()'.
@@ -651,6 +772,68 @@ class QOpenGLContext(QObject):
     """
     #  void QOpenGLContext::destroy()
     self.uglySide.call('ritual_ZN14QOpenGLContext7destroyEv')
+
+  @staticmethod
+  def extensions(*__, **_) -> Never:
+    """
+    Qt's 'QSet<QByteArray> QOpenGLContext::extensions() const': gives a type
+    Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QOpenGLContext.extensions' has no cute function yet. Qt's "
+        "'QSet<QByteArray> QOpenGLContext::extensions() const': gives a "
+        "type Python has no way to take yet.")
+
+  @staticmethod
+  def getProcAddress(*__, **_) -> Never:
+    """
+    - Qt's 'QFunctionPointer QOpenGLContext::getProcAddress(const QByteArray
+      &procName) const': gives a type Python has no way to take yet.
+    - Qt's 'QFunctionPointer QOpenGLContext::getProcAddress(const char
+      *procName) const': gives a type Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QOpenGLContext.getProcAddress' has no cute function yet. Qt's "
+        "'QFunctionPointer QOpenGLContext::getProcAddress(const QByteArray "
+        "&procName) const': gives a type Python has no way to take yet. "
+        "Qt's 'QFunctionPointer QOpenGLContext::getProcAddress(const char "
+        "*procName) const': gives a type Python has no way to take yet.")
+
+  @staticmethod
+  def nativeInterface(*__, **_) -> Never:
+    """
+    Qt's 'QOpenGLContext::nativeInterface': a template: a pattern and no
+    single function.
+    """
+    raise NotImplementedError(
+        "'QOpenGLContext.nativeInterface' has no cute function yet. Qt's "
+        "'QOpenGLContext::nativeInterface': a template: a pattern and no "
+        "single function.")
+
+  @staticmethod
+  def resolveInterface(*__, **_) -> Never:
+    """
+    Qt's 'void *QOpenGLContext::resolveInterface(const char *name, int
+    revision) const': gives 'void', which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QOpenGLContext.resolveInterface' has no cute function yet. Qt's "
+        "'void *QOpenGLContext::resolveInterface(const char *name, int "
+        "revision) const': gives 'void', which has no cute class yet.")
+
+  @staticmethod
+  def setTextureFunctions(*__, **_) -> Never:
+    """
+    Qt's 'void QOpenGLContext::setTextureFunctions(QOpenGLTextureHelper
+    *textureFuncs, std::function<void ()> destroyCallback)': takes a type
+    Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QOpenGLContext.setTextureFunctions' has no cute function yet. "
+        "Qt's 'void "
+        "QOpenGLContext::setTextureFunctions(QOpenGLTextureHelper "
+        "*textureFuncs, std::function<void ()> destroyCallback)': takes a "
+        "type Python has no way to hand over yet.")
 
 
 #  Qt's 'QList<QOpenGLContext *>': the list of QOpenGLContext, which

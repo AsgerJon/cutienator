@@ -43,22 +43,33 @@ class QRegularExpressionValidator(QValidator):
   -----------
 
   Every function of Qt's QRegularExpressionValidator that has a ritual and
-  that Python can call so far, 4 names in all: 'metaObject', 'tr',
-  'regularExpression', 'setRegularExpression'. It can be made from Python, in
-  2 ways; see '__init__'.
+  that Python can call so far, 5 names in all: 'metaObject', 'tr',
+  'regularExpression', 'setRegularExpression', 'regularExpressionChanged'. It
+  can be made from Python, in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QRegularExpressionValidator::qt_metacast(const char *a0)':
+    one of Qt's own inner workings.
+  - Qt's 'int QRegularExpressionValidator::qt_metacall(QMetaObject::Call a0,
+    int a1, void **a2)': one of Qt's own inner workings.
   - Qt's 'QRegularExpressionValidator::~QRegularExpressionValidator()': the
     destructor: Python never removes a C++ QRegularExpressionValidator.
+  - Qt's 'QValidator::State QRegularExpressionValidator::validate(QString
+    &input, int &pos) const': takes a type Python has no way to hand over
+    yet.
+  - Qt's 'QRegularExpressionValidatorPrivate
+    *QRegularExpressionValidator::d_func()': gives
+    'QRegularExpressionValidatorPrivate', which has no cute class yet.
+  - Qt's 'const QRegularExpressionValidatorPrivate
+    *QRegularExpressionValidator::d_func() const': gives
+    'QRegularExpressionValidatorPrivate', which has no cute class yet.
 
   What has no ritual
   ------------------
 
-  10 of the 17 functions Qt declares: 5 takes or gives a type that cannot be
-  passed yet; 2 forbidden; 1 a template; 1 declared and nowhere to be found;
-  1 a signal.
+  4 of the 17 functions Qt declares: 2 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -316,3 +327,28 @@ class QRegularExpressionValidator(QValidator):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(QRegularExpression)
+  def regularExpressionChanged(self, re: QRegularExpression) -> None:
+    """
+    Calls Qt's 'void
+    QRegularExpressionValidator::regularExpressionChanged(const
+    QRegularExpression &re)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qregularexpressionvalidator.html
+
+    Parameters
+    ----------
+
+    re : QRegularExpression
+      Passed on as a value: Qt reads the C++ QRegularExpression, which stays
+      Python's own.
+    """
+    #  void QRegularExpressionValidator::regularExpressionChanged(const
+    #      QRegularExpression &re)
+    self.uglySide.call(
+        'ritual_ZN27QRegularExpressionValidator24regularExpressionChangedER'
+        'K18QRegularExpression',
+        self._valueOf(re),
+    )

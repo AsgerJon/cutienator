@@ -38,15 +38,30 @@ class QUntypedPropertyBinding(CuteMixin, metaclass=MetaCute):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'QUntypedPropertyBinding::QUntypedPropertyBinding(QMetaType
+    metaType, const BindingFunctionVTable *vtable, void *function, const
+    QPropertyBindingSourceLocation &location)': names
+    'QUntypedPropertyBinding::BindingFunctionVTable', which has no cute class
+    yet.
+  - Qt's
+    'QUntypedPropertyBinding::QUntypedPropertyBinding(QUntypedPropertyBinding
+    &&other)': takes a type Python has no way to hand over yet.
+  - Qt's 'QUntypedPropertyBinding &QUntypedPropertyBinding::operator=(const
+    QUntypedPropertyBinding &other)': assignment: Python binds a name and has
+    no operator for it.
+  - Qt's 'QUntypedPropertyBinding
+    &QUntypedPropertyBinding::operator=(QUntypedPropertyBinding &&other)':
+    assignment: Python binds a name and has no operator for it.
   - Qt's 'QUntypedPropertyBinding::~QUntypedPropertyBinding()': the
     destructor: Python removes its C++ QUntypedPropertyBinding by it, and has
     no other use for it.
+  - Qt's 'QUntypedPropertyBinding::QUntypedPropertyBinding(void *priv)':
+    names 'void', which has no cute class yet.
 
   What has no ritual
   ------------------
 
-  6 of the 12 functions Qt declares: 5 takes or gives a type that cannot be
-  passed yet; 1 a template.
+  1 of the 12 functions Qt declares: 1 a template.
 
   What to expect
   --------------

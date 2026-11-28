@@ -277,7 +277,7 @@ class QAccessibleEvent(CuteMixin, metaclass=MetaCute):
     self._noteCreation(QAccessibleEvent, lambda: Rituals.call(
         'ritual_ZN16QAccessibleEventC1EP20QAccessibleInterfaceN11QAccessibl'
         'e5EventE',
-        self._addressOf(iface), typ.value,
+        self._addressOf(iface, 'QAccessibleInterface'), typ.value,
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

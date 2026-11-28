@@ -16,7 +16,7 @@ from ..occult import Rituals
 from . import QException
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
 
 class QUnhandledException(QException):
@@ -41,15 +41,23 @@ class QUnhandledException(QException):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'QUnhandledException::QUnhandledException(std::exception_ptr
+    exception)': takes a type Python has no way to hand over yet.
   - Qt's 'QUnhandledException::~QUnhandledException()': the destructor:
     Python removes its C++ QUnhandledException by it, and has no other use
     for it.
-
-  What has no ritual
-  ------------------
-
-  6 of the 10 functions Qt declares: 6 takes or gives a type that cannot be
-  passed yet.
+  - Qt's 'QUnhandledException::QUnhandledException(QUnhandledException
+    &&other)': takes a type Python has no way to hand over yet.
+  - Qt's 'void QUnhandledException::swap(QUnhandledException &other)': takes
+    a type Python has no way to hand over yet.
+  - Qt's 'QUnhandledException
+    &QUnhandledException::operator=(QUnhandledException &&other)':
+    assignment: Python binds a name and has no operator for it.
+  - Qt's 'QUnhandledException &QUnhandledException::operator=(const
+    QUnhandledException &other)': assignment: Python binds a name and has no
+    operator for it.
+  - Qt's 'std::exception_ptr QUnhandledException::exception() const': gives a
+    type Python has no way to take yet.
 
   What to expect
   --------------
@@ -63,6 +71,9 @@ class QUnhandledException(QException):
     is as in C++.
   - A function giving a QUnhandledException back gives a copy the ritual made
     for Python, in a new cute QUnhandledException.
+  - Each name of Qt's QUnhandledException that has no cute function yet,
+    'exception', 'swap', holds a function that raises 'NotImplementedError',
+    and its docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -178,3 +189,25 @@ class QUnhandledException(QException):
     """
     #  void QUnhandledException::raise() const
     self.uglySide.call('ritual_ZNK19QUnhandledException5raiseEv')
+
+  @staticmethod
+  def exception(*__, **_) -> Never:
+    """
+    Qt's 'std::exception_ptr QUnhandledException::exception() const': gives a
+    type Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QUnhandledException.exception' has no cute function yet. Qt's "
+        "'std::exception_ptr QUnhandledException::exception() const': gives "
+        "a type Python has no way to take yet.")
+
+  @staticmethod
+  def swap(*__, **_) -> Never:
+    """
+    Qt's 'void QUnhandledException::swap(QUnhandledException &other)': takes
+    a type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QUnhandledException.swap' has no cute function yet. Qt's 'void "
+        "QUnhandledException::swap(QUnhandledException &other)': takes a "
+        "type Python has no way to hand over yet.")

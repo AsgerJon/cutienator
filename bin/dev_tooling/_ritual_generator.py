@@ -1476,11 +1476,19 @@ class RitualGenerator:
     such a class that nothing else knows of, and removes each by this
     ritual. The compiler's own name for a destructor is made of the
     words of the class name, each with its length in front, between
-    '_ZN' and 'D1Ev': '_ZN5QSizeD1Ev' for 'QSize'.
+    '_ZN' and 'D1Ev': '_ZN5QSizeD1Ev' for 'QSize'. A class in an
+    anonymous namespace has that namespace among the words, as the
+    compiler names it, '_GLOBAL__N_1': '_ZN12_GLOBAL__N_123Decoded'
+    'ArchRequirementsD1Ev'; see 'DependencyTree.getAnonymousPlace'.
     """
     className = self.getClassName()
     words = className.split('::')
-    lengths = ''.join('%d%s' % (len(word), word) for word in words)
+    pieces = ['%d%s' % (len(word), word) for word in words]
+    place = self.getDependencyTree().getAnonymousPlace(
+        className, self.getPartName())
+    if place is not None:
+      pieces.insert(place, '12_GLOBAL__N_1')
+    lengths = ''.join(pieces)
     plan = dict(
         ritualName='ritual_ZN%sD1Ev' % lengths,
         function='%s::~%s()' % (className, words[-1]),

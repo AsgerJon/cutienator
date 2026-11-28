@@ -18,6 +18,8 @@ from ..occult import Rituals
 from . import Qt
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Never
+
   from . import QCalendar, QDate, QDebug, QTime, QTimeZone
 else:
   #  The cute classes this file names and is not built on. Each is brought in
@@ -59,14 +61,24 @@ class QDateTime(CuteMixin, metaclass=MetaCute):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'QDateTime::QDateTime(QDateTime &&other)': takes a type Python has
+    no way to hand over yet.
   - Qt's 'QDateTime::~QDateTime()': the destructor: Python removes its C++
     QDateTime by it, and has no other use for it.
+  - Qt's 'QDateTime &QDateTime::operator=(QDateTime &&other)': assignment:
+    Python binds a name and has no operator for it.
+  - Qt's 'QDateTime &QDateTime::operator=(const QDateTime &other)':
+    assignment: Python binds a name and has no operator for it.
+  - Qt's 'void QDateTime::swap(QDateTime &other)': takes a type Python has no
+    way to hand over yet.
   - Qt's 'QString QDateTime::toString(QStringView format) const': takes in
     Python what 'QString QDateTime::toString(const QString &format) const'
     takes.
   - Qt's 'QString QDateTime::toString(QStringView format, QCalendar cal)
     const': takes in Python what 'QString QDateTime::toString(const QString
     &format, QCalendar cal) const' takes.
+  - Qt's 'QDateTime QDateTime::addDuration(std::chrono::milliseconds msecs)
+    const': takes a type Python has no way to hand over yet.
   - Qt's 'QDateTime QDateTime::fromString(const QString &string,
     Qt::DateFormat format)': takes in Python what 'QDateTime
     QDateTime::fromString(QStringView string, Qt::DateFormat format)' takes.
@@ -94,12 +106,28 @@ class QDateTime(CuteMixin, metaclass=MetaCute):
     QString &format, int baseYear, QCalendar cal)': takes in Python what
     'QDateTime QDateTime::fromString(QStringView string, QStringView format,
     int baseYear, QCalendar cal)' takes.
-
-  What has no ritual
-  ------------------
-
-  14 of the 87 functions Qt declares: 14 takes or gives a type that cannot be
-  passed yet.
+  - Qt's 'QDateTime
+    QDateTime::fromStdTimePoint(std::chrono::time_point<std::chrono::
+    system_clock, std::chrono::milliseconds> time)': takes a type Python has
+    no way to hand over yet.
+  - Qt's 'std::chrono::milliseconds operator-(const QDateTime &lhs, const
+    QDateTime &rhs)': gives a type Python has no way to take yet.
+  - Qt's 'QDateTime operator+(const QDateTime &dateTime,
+    std::chrono::milliseconds duration)': takes a type Python has no way to
+    hand over yet.
+  - Qt's 'QDateTime operator+(std::chrono::milliseconds duration, const
+    QDateTime &dateTime)': takes a type Python has no way to hand over yet.
+  - Qt's 'QDateTime &QDateTime::operator+=(std::chrono::milliseconds
+    duration)': takes a type Python has no way to hand over yet.
+  - Qt's 'QDateTime operator-(const QDateTime &dateTime,
+    std::chrono::milliseconds duration)': takes a type Python has no way to
+    hand over yet.
+  - Qt's 'QDateTime &QDateTime::operator-=(std::chrono::milliseconds
+    duration)': takes a type Python has no way to hand over yet.
+  - Qt's 'QDataStream &operator<<(QDataStream &a0, const QDateTime &a1)':
+    takes a type Python has no way to hand over yet.
+  - Qt's 'QDataStream &operator>>(QDataStream &a0, QDateTime &a1)': an
+    operator between other classes, written inside this one.
 
   What to expect
   --------------
@@ -112,6 +140,9 @@ class QDateTime(CuteMixin, metaclass=MetaCute):
     is as in C++.
   - A function giving a QDateTime back gives a copy the ritual made for
     Python, in a new cute QDateTime.
+  - Each name of Qt's QDateTime that has no cute function yet, 'addDuration',
+    'fromStdTimePoint', 'swap', holds a function that raises
+    'NotImplementedError', and its docstring says why.
   """
 
   #  The enums Qt writes inside QDateTime, each a class in here as in C++,
@@ -1700,3 +1731,40 @@ class QDateTime(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def addDuration(*__, **_) -> Never:
+    """
+    Qt's 'QDateTime QDateTime::addDuration(std::chrono::milliseconds msecs)
+    const': takes a type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QDateTime.addDuration' has no cute function yet. Qt's 'QDateTime "
+        "QDateTime::addDuration(std::chrono::milliseconds msecs) const': "
+        "takes a type Python has no way to hand over yet.")
+
+  @staticmethod
+  def fromStdTimePoint(*__, **_) -> Never:
+    """
+    Qt's 'QDateTime
+    QDateTime::fromStdTimePoint(std::chrono::time_point<std::chrono::
+    system_clock, std::chrono::milliseconds> time)': takes a type Python has
+    no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QDateTime.fromStdTimePoint' has no cute function yet. Qt's "
+        "'QDateTime "
+        "QDateTime::fromStdTimePoint(std::chrono::time_point<std::chrono::sy"
+        "stem_clock, std::chrono::milliseconds> time)': takes a type Python "
+        "has no way to hand over yet.")
+
+  @staticmethod
+  def swap(*__, **_) -> Never:
+    """
+    Qt's 'void QDateTime::swap(QDateTime &other)': takes a type Python has no
+    way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QDateTime.swap' has no cute function yet. Qt's 'void "
+        "QDateTime::swap(QDateTime &other)': takes a type Python has no way "
+        "to hand over yet.")

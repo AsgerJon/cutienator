@@ -51,27 +51,33 @@ class QProgressDialog(QDialog):
   -----------
 
   Every function of Qt's QProgressDialog that has a ritual and that Python
-  can call so far, 31 names in all: 'metaObject', 'tr', 'setLabel',
+  can call so far, 32 names in all: 'metaObject', 'tr', 'setLabel',
   'setCancelButton', 'setBar', 'wasCanceled', 'minimum', 'maximum', 'value',
   'sizeHint', 'labelText', 'minimumDuration', 'setAutoReset', 'autoReset',
   'setAutoClose', 'autoClose', 'open', 'cancel', 'reset', 'setMaximum',
   'setMinimum', 'setRange', 'setValue', 'setLabelText',
-  'setCancelButtonText', 'setMinimumDuration', 'resizeEvent', 'closeEvent',
-  'changeEvent', 'showEvent', 'forceShow'. It can be made from Python, in 2
-  ways; see '__init__'.
+  'setCancelButtonText', 'setMinimumDuration', 'canceled', 'resizeEvent',
+  'closeEvent', 'changeEvent', 'showEvent', 'forceShow'. It can be made from
+  Python, in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QProgressDialog::qt_metacast(const char *a0)': one of Qt's
+    own inner workings.
+  - Qt's 'int QProgressDialog::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
+  - Qt's 'QProgressDialogPrivate *QProgressDialog::d_func()': gives
+    'QProgressDialogPrivate', which has no cute class yet.
+  - Qt's 'const QProgressDialogPrivate *QProgressDialog::d_func() const':
+    gives 'QProgressDialogPrivate', which has no cute class yet.
   - Qt's 'QProgressDialog::~QProgressDialog()': the destructor: Python never
     removes a C++ QProgressDialog.
 
   What has no ritual
   ------------------
 
-  9 of the 43 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet; 2 forbidden; 1 a template; 1 declared and nowhere to be found;
-  1 a signal.
+  4 of the 43 functions Qt declares: 2 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -673,6 +679,15 @@ class QProgressDialog(QDialog):
     """
     #  void QProgressDialog::reset()
     self.uglySide.call('ritual_ZN15QProgressDialog5resetEv')
+
+  def canceled(self) -> None:
+    """
+    Calls Qt's 'void QProgressDialog::canceled()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qprogressdialog.html#canceled
+    """
+    #  void QProgressDialog::canceled()
+    self.uglySide.call('ritual_ZN15QProgressDialog8canceledEv')
 
   @overload(QResizeEvent)
   @overload(NoneType)

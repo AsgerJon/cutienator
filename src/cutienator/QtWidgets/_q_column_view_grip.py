@@ -20,10 +20,11 @@ from ..cute import WAIT
 from . import QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from ..QtCore import QMetaObject
   from ..QtGui import QMouseEvent, QPaintEvent
+  from . import QColumnViewGripPrivate
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -48,23 +49,29 @@ class QColumnViewGrip(QWidget):
   -----------
 
   Every function of Qt's QColumnViewGrip that has a ritual and that Python
-  can call so far, 6 names in all: 'metaObject', 'paintEvent',
+  can call so far, 8 names in all: 'metaObject', 'gripMoved', 'paintEvent',
   'mouseDoubleClickEvent', 'mouseMoveEvent', 'mouseReleaseEvent',
-  'mousePressEvent'. None can be made from Python: one comes out of a
-  function of another class that gives one back.
+  'mousePressEvent', 'd_func'. None can be made from Python: one comes out of
+  a function of another class that gives one back.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QColumnViewGrip::qt_metacast(const char *a0)': one of Qt's
+    own inner workings.
+  - Qt's 'int QColumnViewGrip::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
   - Qt's 'QColumnViewGrip::~QColumnViewGrip()': the destructor: Python never
     removes a C++ QColumnViewGrip.
+  - Qt's 'const QColumnViewGripPrivate *QColumnViewGrip::d_func() const':
+    takes in Python what 'QColumnViewGripPrivate *QColumnViewGrip::d_func()'
+    takes.
 
   What has no ritual
   ------------------
 
-  17 of the 24 functions Qt declares: 5 takes or gives a type that cannot be
-  passed yet; 5 leans on 'QColumnViewGrip; 4 forbidden; 1 a template; 1
-  declared and nowhere to be found; 1 a signal.
+  10 of the 22 functions Qt declares: 4 forbidden; 4 leans on
+  'QColumnViewGrip; 2 not a gap.
 
   What to expect
   --------------
@@ -80,6 +87,9 @@ class QColumnViewGrip(QWidget):
   - Qt tells when it has removed the C++ QColumnViewGrip. Every call on the
     cute object, and every use of it as an argument, then raises
     'RuntimeError', and nothing reaches C++.
+  - Each name of Qt's QColumnViewGrip that has no cute function yet,
+    '__init__', 'moveGrip', holds a function that raises
+    'NotImplementedError', and its docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -145,6 +155,31 @@ class QColumnViewGrip(QWidget):
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  @staticmethod
+  def __init__(*__, **_) -> Never:
+    """
+    - Qt's 'QColumnViewGrip::QColumnViewGrip(QWidget *parent)': leans on
+      'QColumnViewGrip::qt_metacall(QMetaObject::Call, int, void**)', which
+      Qt's source does not mark for use from outside Qt and has no code for
+      that could be taken.
+    - Qt's 'QColumnViewGrip::QColumnViewGrip(QColumnViewGripPrivate &a0,
+      QWidget *parent, Qt::WindowFlags f)': leans on
+      'QColumnViewGrip::qt_metacall(QMetaObject::Call, int, void**)', which
+      Qt's source does not mark for use from outside Qt and has no code for
+      that could be taken.
+    """
+    raise NotImplementedError(
+        "'QColumnViewGrip.__init__' has no cute function yet. Qt's "
+        "'QColumnViewGrip::QColumnViewGrip(QWidget *parent)': leans on "
+        "'QColumnViewGrip::qt_metacall(QMetaObject::Call, int, void**)', "
+        "which Qt's source does not mark for use from outside Qt and has no "
+        "code for that could be taken. Qt's "
+        "'QColumnViewGrip::QColumnViewGrip(QColumnViewGripPrivate &a0, "
+        "QWidget *parent, Qt::WindowFlags f)': leans on "
+        "'QColumnViewGrip::qt_metacall(QMetaObject::Call, int, void**)', "
+        "which Qt's source does not mark for use from outside Qt and has no "
+        "code for that could be taken.")
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -164,6 +199,22 @@ class QColumnViewGrip(QWidget):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(int)
+  def gripMoved(self, offset: int) -> None:
+    """
+    Calls Qt's 'void QColumnViewGrip::gripMoved(int offset)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcolumnviewgrip.html#gripMoved
+
+    Parameters
+    ----------
+
+    offset : int
+      Passed on as it is.
+    """
+    #  void QColumnViewGrip::gripMoved(int offset)
+    self.uglySide.call('ritual_ZN15QColumnViewGrip9gripMovedEi', offset)
 
   @overload(QPaintEvent)
   @overload(NoneType)
@@ -276,3 +327,34 @@ class QColumnViewGrip(QWidget):
       ritual = (
           'ritual_own_ZN15QColumnViewGrip15mousePressEventEP11QMouseEvent')
     self.uglySide.call(ritual, self._addressOf(event))
+
+  def d_func(self) -> Optional[QColumnViewGripPrivate]:
+    """
+    Calls Qt's 'QColumnViewGripPrivate *QColumnViewGrip::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcolumnviewgrip.html#d_func
+
+    Returns
+    -------
+
+    Optional[QColumnViewGripPrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QColumnViewGripPrivate *QColumnViewGrip::d_func()
+    address = self.uglySide.call('ritual_ZN15QColumnViewGrip6d_funcEv')
+    from . import QColumnViewGripPrivate
+    return QColumnViewGripPrivate._cuteAt(address)
+
+  @staticmethod
+  def moveGrip(*__, **_) -> Never:
+    """
+    Qt's 'int QColumnViewGrip::moveGrip(int offset)': leans on
+    'QColumnViewGrip::gripMoved(int)', which Qt's source does not mark for
+    use from outside Qt and has no code for that could be taken.
+    """
+    raise NotImplementedError(
+        "'QColumnViewGrip.moveGrip' has no cute function yet. Qt's 'int "
+        "QColumnViewGrip::moveGrip(int offset)': leans on "
+        "'QColumnViewGrip::gripMoved(int)', which Qt's source does not mark "
+        "for use from outside Qt and has no code for that could be taken.")

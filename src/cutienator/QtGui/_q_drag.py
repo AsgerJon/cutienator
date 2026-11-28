@@ -19,7 +19,7 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
   from ..QtCore import QMetaObject, QMimeData, QPoint
-  from . import QPixmap
+  from . import QDragPrivate, QPixmap
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -45,22 +45,27 @@ class QDrag(QObject):
   -----------
 
   Every function of Qt's QDrag that has a ritual and that Python can call so
-  far, 16 names in all: 'metaObject', 'tr', 'setMimeData', 'mimeData',
-  'setPixmap', 'pixmap', 'setHotSpot', 'hotSpot', 'source', 'target', 'exec',
-  'setDragCursor', 'dragCursor', 'supportedActions', 'defaultAction',
-  'cancel'. It can be made from Python, in 1 way; see '__init__'.
+  far, 19 names in all: 'metaObject', 'tr', 'd_func', 'setMimeData',
+  'mimeData', 'setPixmap', 'pixmap', 'setHotSpot', 'hotSpot', 'source',
+  'target', 'exec', 'setDragCursor', 'dragCursor', 'supportedActions',
+  'defaultAction', 'cancel', 'actionChanged', 'targetChanged'. It can be made
+  from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QDrag::qt_metacast(const char *a0)': one of Qt's own inner
+    workings.
+  - Qt's 'int QDrag::qt_metacall(QMetaObject::Call a0, int a1, void **a2)':
+    one of Qt's own inner workings.
+  - Qt's 'const QDragPrivate *QDrag::d_func() const': takes in Python what
+    'QDragPrivate *QDrag::d_func()' takes.
   - Qt's 'QDrag::~QDrag()': the destructor: Python never removes a C++ QDrag.
 
   What has no ritual
   ------------------
 
-  10 of the 29 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet; 2 a signal; 2 forbidden; 1 a template; 1 declared and nowhere
-  to be found.
+  4 of the 29 functions Qt declares: 2 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -465,6 +470,24 @@ class QDrag(QObject):
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  def d_func(self) -> Optional[QDragPrivate]:
+    """
+    Calls Qt's 'QDragPrivate *QDrag::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qdrag.html#d_func
+
+    Returns
+    -------
+
+    Optional[QDragPrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QDragPrivate *QDrag::d_func()
+    address = self.uglySide.call('ritual_ZN5QDrag6d_funcEv')
+    from . import QDragPrivate
+    return QDragPrivate._cuteAt(address)
+
   @overload()
   @overload(Qt.DropActions)
   def exec(
@@ -533,3 +556,42 @@ class QDrag(QObject):
         'ritual_ZN5QDrag4execE6QFlagsIN2Qt10DropActionEES2_',
         supportedActions.value, defaultAction.value,
     ))
+
+  @overload(Qt.DropAction)
+  def actionChanged(self, action: Qt.DropAction) -> None:
+    """
+    Calls Qt's 'void QDrag::actionChanged(Qt::DropAction action)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qdrag.html#actionChanged
+
+    Parameters
+    ----------
+
+    action : Qt.DropAction
+      Passed on as its number.
+    """
+    #  void QDrag::actionChanged(Qt::DropAction action)
+    self.uglySide.call(
+        'ritual_ZN5QDrag13actionChangedEN2Qt10DropActionE', action.value,
+    )
+
+  @overload(QObject)
+  @overload(NoneType)
+  def targetChanged(self, newTarget: Optional[QObject]) -> None:
+    """
+    Calls Qt's 'void QDrag::targetChanged(QObject *newTarget)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qdrag.html#targetChanged
+
+    Parameters
+    ----------
+
+    newTarget : Optional[QObject]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QDrag::targetChanged(QObject *newTarget)
+    self.uglySide.call(
+        'ritual_ZN5QDrag13targetChangedEP7QObject',
+        self._addressOf(newTarget, 'QObject'),
+    )

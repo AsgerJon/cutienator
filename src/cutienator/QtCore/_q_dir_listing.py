@@ -17,6 +17,8 @@ from ..occult import Rituals
 from . import QFileDevice, QStringList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Never
+
   from . import QDateTime, QFileInfo, QTimeZone
 
 
@@ -36,14 +38,25 @@ class QDirListing(CuteMixin, metaclass=MetaCute):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'QDirListing::QDirListing(QDirListing &&other)': takes a type Python
+    has no way to hand over yet.
+  - Qt's 'QDirListing &QDirListing::operator=(QDirListing &&other)':
+    assignment: Python binds a name and has no operator for it.
+  - Qt's 'void QDirListing::swap(QDirListing &other)': takes a type Python
+    has no way to hand over yet.
   - Qt's 'QDirListing::~QDirListing()': the destructor: Python never removes
     a C++ QDirListing.
+  - Qt's 'const_iterator QDirListing::begin() const': gives a type Python has
+    no way to take yet.
+  - Qt's 'const_iterator QDirListing::cbegin() const': gives a type Python
+    has no way to take yet.
+  - Qt's 'const_iterator QDirListing::constBegin() const': gives a type
+    Python has no way to take yet.
 
   What has no ritual
   ------------------
 
-  11 of the 21 functions Qt declares: 6 takes or gives a type that cannot be
-  passed yet; 2 declared and nowhere to be found; 2 forbidden; 1 a template.
+  5 of the 21 functions Qt declares: 3 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -56,6 +69,9 @@ class QDirListing(CuteMixin, metaclass=MetaCute):
     has it, and is passed on as nothing. Whether Qt can do with nothing there
     is as in C++.
   - Python never removes the C++ QDirListing.
+  - Each name of Qt's QDirListing that has no cute function yet, 'begin',
+    'cbegin', 'constBegin', 'swap', holds a function that raises
+    'NotImplementedError', and its docstring says why.
   """
 
   #  The enums Qt writes inside QDirListing, each a class in here as in C++,
@@ -676,14 +692,33 @@ class QDirListing(CuteMixin, metaclass=MetaCute):
     What has a ritual and is left out, and why
     ------------------------------------------
 
+    - Qt's 'QDirListing::const_iterator::const_iterator(QDirListingPrivate
+      *dp)': names 'QDirListingPrivate', which has no cute class yet.
+    - Qt's 'QDirListing::const_iterator::const_iterator(const_iterator
+      &&a0)': takes a type Python has no way to hand over yet.
+    - Qt's 'const_iterator
+      &QDirListing::const_iterator::operator=(const_iterator &&a0)':
+      assignment: Python binds a name and has no operator for it.
+    - Qt's 'pointer QDirListing::const_iterator::operator->() const': an
+      operator Python has no name for.
+    - Qt's 'const_iterator &QDirListing::const_iterator::operator++()': an
+      operator Python has no name for.
     - Qt's 'void QDirListing::const_iterator::operator++(int a0)': an
       operator Python has no name for.
+    - Qt's 'bool operator==(const const_iterator &lhs, sentinel a1)': an
+      operator between other classes, written inside this one.
+    - Qt's 'bool operator!=(const const_iterator &lhs, sentinel a1)': an
+      operator between other classes, written inside this one.
+    - Qt's 'bool operator==(sentinel a0, const const_iterator &rhs)': an
+      operator between other classes, written inside this one.
+    - Qt's 'bool operator!=(sentinel a0, const const_iterator &rhs)': an
+      operator between other classes, written inside this one.
 
     What has no ritual
     ------------------
 
-    12 of the 15 functions Qt declares: 10 takes or gives a type that cannot
-    be passed yet; 2 forbidden.
+    3 of the 15 functions Qt declares: 2 forbidden; 1 the compiler refuses
+    its ritual as it would be written here.
 
     What to expect
     --------------
@@ -1201,3 +1236,47 @@ class QDirListing(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def begin(*__, **_) -> Never:
+    """
+    Qt's 'const_iterator QDirListing::begin() const': gives a type Python has
+    no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QDirListing.begin' has no cute function yet. Qt's 'const_iterator "
+        "QDirListing::begin() const': gives a type Python has no way to "
+        "take yet.")
+
+  @staticmethod
+  def cbegin(*__, **_) -> Never:
+    """
+    Qt's 'const_iterator QDirListing::cbegin() const': gives a type Python
+    has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QDirListing.cbegin' has no cute function yet. Qt's "
+        "'const_iterator QDirListing::cbegin() const': gives a type Python "
+        "has no way to take yet.")
+
+  @staticmethod
+  def constBegin(*__, **_) -> Never:
+    """
+    Qt's 'const_iterator QDirListing::constBegin() const': gives a type
+    Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QDirListing.constBegin' has no cute function yet. Qt's "
+        "'const_iterator QDirListing::constBegin() const': gives a type "
+        "Python has no way to take yet.")
+
+  @staticmethod
+  def swap(*__, **_) -> Never:
+    """
+    Qt's 'void QDirListing::swap(QDirListing &other)': takes a type Python
+    has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QDirListing.swap' has no cute function yet. Qt's 'void "
+        "QDirListing::swap(QDirListing &other)': takes a type Python has no "
+        "way to hand over yet.")

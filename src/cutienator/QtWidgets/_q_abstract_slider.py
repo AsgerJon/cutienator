@@ -18,10 +18,11 @@ from ..QtCore import Qt
 from . import QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from ..QtCore import QEvent, QMetaObject, QTimerEvent
   from ..QtGui import QKeyEvent, QWheelEvent
+  from . import QAbstractSliderPrivate
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -48,30 +49,39 @@ class QAbstractSlider(QWidget):
   -----------
 
   Every function of Qt's QAbstractSlider that has a ritual and that Python
-  can call so far, 33 names in all: 'metaObject', 'tr', 'orientation',
+  can call so far, 40 names in all: 'metaObject', 'tr', 'orientation',
   'setMinimum', 'minimum', 'setMaximum', 'maximum', 'setSingleStep',
   'singleStep', 'setPageStep', 'pageStep', 'setTracking', 'hasTracking',
   'setSliderDown', 'isSliderDown', 'setSliderPosition', 'sliderPosition',
   'setInvertedAppearance', 'invertedAppearance', 'setInvertedControls',
   'invertedControls', 'value', 'triggerAction', 'setValue', 'setOrientation',
-  'setRange', 'event', 'setRepeatAction', 'repeatAction', 'keyPressEvent',
-  'timerEvent', 'wheelEvent', 'changeEvent'. It can be made from Python, in 1
+  'setRange', 'valueChanged', 'sliderPressed', 'sliderMoved',
+  'sliderReleased', 'rangeChanged', 'actionTriggered', 'event',
+  'setRepeatAction', 'repeatAction', 'keyPressEvent', 'timerEvent',
+  'wheelEvent', 'changeEvent', 'd_func'. It can be made from Python, in 1
   way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QAbstractSlider::qt_metacast(const char *a0)': one of Qt's
+    own inner workings.
+  - Qt's 'int QAbstractSlider::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
   - Qt's 'QAbstractSlider::~QAbstractSlider()': the destructor: Python never
     removes a C++ QAbstractSlider.
   - Qt's 'void QAbstractSlider::sliderChange(SliderChange change)': names the
     enum 'QAbstractSlider::SliderChange', whose class cannot be named here.
+  - Qt's 'QAbstractSlider::QAbstractSlider(QAbstractSliderPrivate &dd,
+    QWidget *parent)': takes a type Python has no way to hand over yet.
+  - Qt's 'const QAbstractSliderPrivate *QAbstractSlider::d_func() const':
+    takes in Python what 'QAbstractSliderPrivate *QAbstractSlider::d_func()'
+    takes.
 
   What has no ritual
   ------------------
 
-  15 of the 51 functions Qt declares: 6 a signal; 5 takes or gives a type
-  that cannot be passed yet; 2 forbidden; 1 a template; 1 declared and
-  nowhere to be found.
+  4 of the 51 functions Qt declares: 2 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -87,6 +97,9 @@ class QAbstractSlider(QWidget):
   - Qt tells when it has removed the C++ QAbstractSlider. Every call on the
     cute object, and every use of it as an argument, then raises
     'RuntimeError', and nothing reaches C++.
+  - Each name of Qt's QAbstractSlider that has no cute function yet,
+    'sliderChange', holds a function that raises 'NotImplementedError', and
+    its docstring says why.
   """
 
   #  The enums Qt writes inside QAbstractSlider, each a class in here as in
@@ -663,6 +676,97 @@ class QAbstractSlider(QWidget):
         action.value,
     )
 
+  @overload(int)
+  def valueChanged(self, value: int) -> None:
+    """
+    Calls Qt's 'void QAbstractSlider::valueChanged(int value)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qabstractslider.html#valueChanged
+
+    Parameters
+    ----------
+
+    value : int
+      Passed on as it is.
+    """
+    #  void QAbstractSlider::valueChanged(int value)
+    self.uglySide.call('ritual_ZN15QAbstractSlider12valueChangedEi', value)
+
+  def sliderPressed(self) -> None:
+    """
+    Calls Qt's 'void QAbstractSlider::sliderPressed()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qabstractslider.html#sliderPressed
+    """
+    #  void QAbstractSlider::sliderPressed()
+    self.uglySide.call('ritual_ZN15QAbstractSlider13sliderPressedEv')
+
+  @overload(int)
+  def sliderMoved(self, position: int) -> None:
+    """
+    Calls Qt's 'void QAbstractSlider::sliderMoved(int position)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qabstractslider.html#sliderMoved
+
+    Parameters
+    ----------
+
+    position : int
+      Passed on as it is.
+    """
+    #  void QAbstractSlider::sliderMoved(int position)
+    self.uglySide.call('ritual_ZN15QAbstractSlider11sliderMovedEi', position)
+
+  def sliderReleased(self) -> None:
+    """
+    Calls Qt's 'void QAbstractSlider::sliderReleased()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractslider.html#sliderReleased
+    """
+    #  void QAbstractSlider::sliderReleased()
+    self.uglySide.call('ritual_ZN15QAbstractSlider14sliderReleasedEv')
+
+  @overload(int, int)
+  def rangeChanged(self, min: int, max: int) -> None:
+    """
+    Calls Qt's 'void QAbstractSlider::rangeChanged(int min, int max)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qabstractslider.html#rangeChanged
+
+    Parameters
+    ----------
+
+    min : int
+      Passed on as it is.
+
+    max : int
+      Passed on as it is.
+    """
+    #  void QAbstractSlider::rangeChanged(int min, int max)
+    self.uglySide.call(
+        'ritual_ZN15QAbstractSlider12rangeChangedEii', min, max,
+    )
+
+  @overload(int)
+  def actionTriggered(self, action: int) -> None:
+    """
+    Calls Qt's 'void QAbstractSlider::actionTriggered(int action)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractslider.html#actionTriggered
+
+    Parameters
+    ----------
+
+    action : int
+      Passed on as it is.
+    """
+    #  void QAbstractSlider::actionTriggered(int action)
+    self.uglySide.call(
+        'ritual_ZN15QAbstractSlider15actionTriggeredEi', action,
+    )
+
   @overload(QEvent)
   @overload(NoneType)
   def event(self, e: Optional[QEvent]) -> bool:
@@ -767,3 +871,33 @@ class QAbstractSlider(QWidget):
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZN15QAbstractSlider11changeEventEP6QEvent'
     self.uglySide.call(ritual, self._addressOf(e))
+
+  def d_func(self) -> Optional[QAbstractSliderPrivate]:
+    """
+    Calls Qt's 'QAbstractSliderPrivate *QAbstractSlider::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qabstractslider.html#d_func
+
+    Returns
+    -------
+
+    Optional[QAbstractSliderPrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QAbstractSliderPrivate *QAbstractSlider::d_func()
+    address = self.uglySide.call('ritual_ZN15QAbstractSlider6d_funcEv')
+    from . import QAbstractSliderPrivate
+    return QAbstractSliderPrivate._cuteAt(address)
+
+  @staticmethod
+  def sliderChange(*__, **_) -> Never:
+    """
+    Qt's 'void QAbstractSlider::sliderChange(SliderChange change)': names the
+    enum 'QAbstractSlider::SliderChange', whose class cannot be named here.
+    """
+    raise NotImplementedError(
+        "'QAbstractSlider.sliderChange' has no cute function yet. Qt's "
+        "'void QAbstractSlider::sliderChange(SliderChange change)': names "
+        "the enum 'QAbstractSlider::SliderChange', whose class cannot be "
+        "named here.")

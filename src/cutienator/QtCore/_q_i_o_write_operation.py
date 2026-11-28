@@ -17,6 +17,8 @@ from typing import TYPE_CHECKING
 from . import QIOReadWriteOperationBase
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Never
+
   from . import QByteArray
 
 
@@ -41,12 +43,13 @@ class QIOWriteOperation(QIOReadWriteOperationBase):
 
   - Qt's 'QIOWriteOperation::~QIOWriteOperation()': the destructor: Python
     never removes a C++ QIOWriteOperation.
+  - Qt's 'QIOWriteOperation::QIOWriteOperation(QIOOperationPrivate &dd,
+    QObject *parent)': takes a type Python has no way to hand over yet.
 
   What has no ritual
   ------------------
 
-  6 of the 8 functions Qt declares: 5 forbidden; 1 takes or gives a type that
-  cannot be passed yet.
+  5 of the 8 functions Qt declares: 5 forbidden.
 
   What to expect
   --------------
@@ -62,6 +65,9 @@ class QIOWriteOperation(QIOReadWriteOperationBase):
   - Qt tells when it has removed the C++ QIOWriteOperation. Every call on the
     cute object, and every use of it as an argument, then raises
     'RuntimeError', and nothing reaches C++.
+  - Each name of Qt's QIOWriteOperation that has no cute function yet,
+    '__init__', holds a function that raises 'NotImplementedError', and its
+    docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -125,6 +131,18 @@ class QIOWriteOperation(QIOReadWriteOperationBase):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def __init__(*__, **_) -> Never:
+    """
+    Qt's 'QIOWriteOperation::QIOWriteOperation(QIOOperationPrivate &dd,
+    QObject *parent)': takes a type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QIOWriteOperation.__init__' has no cute function yet. Qt's "
+        "'QIOWriteOperation::QIOWriteOperation(QIOOperationPrivate &dd, "
+        "QObject *parent)': takes a type Python has no way to hand over yet."
+    )
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #

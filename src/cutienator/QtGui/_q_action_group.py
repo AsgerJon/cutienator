@@ -20,7 +20,7 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
   from ..QtCore import QMetaObject
-  from . import QAction, QIcon
+  from . import QAction, QActionGroupPrivate, QIcon
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -45,25 +45,31 @@ class QActionGroup(QObject):
   -----------
 
   Every function of Qt's QActionGroup that has a ritual and that Python can
-  call so far, 18 names in all: 'metaObject', 'tr', 'addAction',
+  call so far, 21 names in all: 'metaObject', 'tr', 'd_func', 'addAction',
   'removeAction', 'actions', 'checkedAction', 'isExclusive', 'isEnabled',
   'isVisible', 'exclusionPolicy', 'setEnabled', 'setDisabled', 'setVisible',
-  'setExclusive', 'setExclusionPolicy', '_q_actionTriggered',
-  '_q_actionHovered', '_q_actionChanged'. It can be made from Python, in 1
-  way; see '__init__'.
+  'setExclusive', 'setExclusionPolicy', 'triggered', 'hovered',
+  '_q_actionTriggered', '_q_actionHovered', '_q_actionChanged'. It can be
+  made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QActionGroup::qt_metacast(const char *a0)': one of Qt's own
+    inner workings.
+  - Qt's 'int QActionGroup::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
+  - Qt's 'const QActionGroupPrivate *QActionGroup::d_func() const': takes in
+    Python what 'QActionGroupPrivate *QActionGroup::d_func()' takes.
   - Qt's 'QActionGroup::~QActionGroup()': the destructor: Python never
     removes a C++ QActionGroup.
+  - Qt's 'QActionGroup::QActionGroup(QActionGroupPrivate &dd, QObject
+    *parent)': takes a type Python has no way to hand over yet.
 
   What has no ritual
   ------------------
 
-  11 of the 33 functions Qt declares: 5 takes or gives a type that cannot be
-  passed yet; 2 a signal; 2 forbidden; 1 a template; 1 declared and nowhere
-  to be found.
+  4 of the 33 functions Qt declares: 2 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -409,6 +415,24 @@ class QActionGroup(QObject):
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  def d_func(self) -> Optional[QActionGroupPrivate]:
+    """
+    Calls Qt's 'QActionGroupPrivate *QActionGroup::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qactiongroup.html#d_func
+
+    Returns
+    -------
+
+    Optional[QActionGroupPrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QActionGroupPrivate *QActionGroup::d_func()
+    address = self.uglySide.call('ritual_ZN12QActionGroup6d_funcEv')
+    from . import QActionGroupPrivate
+    return QActionGroupPrivate._cuteAt(address)
+
   @overload(QAction)
   @overload(NoneType)
   def addAction(self, a: Optional[QAction]) -> Optional[QAction]:
@@ -517,6 +541,46 @@ class QActionGroup(QObject):
     self.uglySide.call(
         'ritual_ZN12QActionGroup12removeActionEP7QAction',
         self._addressOf(a),
+    )
+
+  @overload(QAction)
+  @overload(NoneType)
+  def triggered(self, a0: Optional[QAction]) -> None:
+    """
+    Calls Qt's 'void QActionGroup::triggered(QAction *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qactiongroup.html#triggered
+
+    Parameters
+    ----------
+
+    a0 : Optional[QAction]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QActionGroup::triggered(QAction *a0)
+    self.uglySide.call(
+        'ritual_ZN12QActionGroup9triggeredEP7QAction', self._addressOf(a0),
+    )
+
+  @overload(QAction)
+  @overload(NoneType)
+  def hovered(self, a0: Optional[QAction]) -> None:
+    """
+    Calls Qt's 'void QActionGroup::hovered(QAction *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qactiongroup.html#hovered
+
+    Parameters
+    ----------
+
+    a0 : Optional[QAction]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QActionGroup::hovered(QAction *a0)
+    self.uglySide.call(
+        'ritual_ZN12QActionGroup7hoveredEP7QAction', self._addressOf(a0),
     )
 
   def _q_actionTriggered(self) -> None:

@@ -17,6 +17,8 @@ from ..occult import Rituals
 from ..QtCore import Qt
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Never
+
   from . import QBrush, QColor
 else:
   #  The cute classes this file names and is not built on. Each is brought in
@@ -52,18 +54,42 @@ class QPen(CuteMixin, metaclass=MetaCute):
 
   - Qt's 'QPen::~QPen()': the destructor: Python removes its C++ QPen by it,
     and has no other use for it.
+  - Qt's 'QPen &QPen::operator=(const QPen &pen)': assignment: Python binds a
+    name and has no operator for it.
+  - Qt's 'QPen::QPen(QPen &&other)': takes a type Python has no way to hand
+    over yet.
+  - Qt's 'QPen &QPen::operator=(QPen &&other)': assignment: Python binds a
+    name and has no operator for it.
+  - Qt's 'void QPen::swap(QPen &other)': takes a type Python has no way to
+    hand over yet.
+  - Qt's 'QPen &QPen::operator=(QColor color)': assignment: Python binds a
+    name and has no operator for it.
+  - Qt's 'QPen &QPen::operator=(Qt::PenStyle style)': assignment: Python
+    binds a name and has no operator for it.
+  - Qt's 'QList<qreal> QPen::dashPattern() const': gives a type Python has no
+    way to take yet.
+  - Qt's 'void QPen::setDashPattern(const QList<qreal> &pattern)': takes a
+    type Python has no way to hand over yet.
   - Qt's 'QVariant QPen::operator QVariant() const': an operator Python has
     no name for.
+  - Qt's 'QDataStream &operator>>(QDataStream &a0, QPen &a1)': an operator
+    between other classes, written inside this one.
+  - Qt's 'QDataStream &operator<<(QDataStream &a0, const QPen &a1)': takes a
+    type Python has no way to hand over yet.
   - Qt's 'bool operator==(const QColor &lhs, const QPen &rhs)': takes in
     Python what 'bool operator==(const QPen &lhs, const QColor &rhs)' takes.
   - Qt's 'bool operator!=(const QColor &lhs, const QPen &rhs)': takes in
     Python what 'bool operator!=(const QPen &lhs, const QColor &rhs)' takes.
-
-  What has no ritual
-  ------------------
-
-  15 of the 54 functions Qt declares: 15 takes or gives a type that cannot be
-  passed yet.
+  - Qt's 'bool operator==(const QPen &lhs, const Qt::PenStyle &rhs)': takes a
+    type Python has no way to hand over yet.
+  - Qt's 'bool operator!=(const QPen &lhs, const Qt::PenStyle &rhs)': takes a
+    type Python has no way to hand over yet.
+  - Qt's 'bool operator==(const Qt::PenStyle &lhs, const QPen &rhs)': takes a
+    type Python has no way to hand over yet.
+  - Qt's 'bool operator!=(const Qt::PenStyle &lhs, const QPen &rhs)': takes a
+    type Python has no way to hand over yet.
+  - Qt's 'DataPtr &QPen::data_ptr()': gives a type Python has no way to take
+    yet.
 
   What to expect
   --------------
@@ -76,6 +102,9 @@ class QPen(CuteMixin, metaclass=MetaCute):
     is as in C++.
   - A function giving a QPen back gives a copy the ritual made for Python, in
     a new cute QPen.
+  - Each name of Qt's QPen that has no cute function yet, 'dashPattern',
+    'data_ptr', 'setDashPattern', 'swap', holds a function that raises
+    'NotImplementedError', and its docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -722,3 +751,45 @@ class QPen(CuteMixin, metaclass=MetaCute):
     """
     #  void QPen::detach()
     self.uglySide.call('ritual_ZN4QPen6detachEv')
+
+  @staticmethod
+  def dashPattern(*__, **_) -> Never:
+    """
+    Qt's 'QList<qreal> QPen::dashPattern() const': gives a type Python has no
+    way to take yet.
+    """
+    raise NotImplementedError(
+        "'QPen.dashPattern' has no cute function yet. Qt's 'QList<qreal> "
+        "QPen::dashPattern() const': gives a type Python has no way to take "
+        "yet.")
+
+  @staticmethod
+  def data_ptr(*__, **_) -> Never:
+    """
+    Qt's 'DataPtr &QPen::data_ptr()': gives a type Python has no way to take
+    yet.
+    """
+    raise NotImplementedError(
+        "'QPen.data_ptr' has no cute function yet. Qt's 'DataPtr "
+        "&QPen::data_ptr()': gives a type Python has no way to take yet.")
+
+  @staticmethod
+  def setDashPattern(*__, **_) -> Never:
+    """
+    Qt's 'void QPen::setDashPattern(const QList<qreal> &pattern)': takes a
+    type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QPen.setDashPattern' has no cute function yet. Qt's 'void "
+        "QPen::setDashPattern(const QList<qreal> &pattern)': takes a type "
+        "Python has no way to hand over yet.")
+
+  @staticmethod
+  def swap(*__, **_) -> Never:
+    """
+    Qt's 'void QPen::swap(QPen &other)': takes a type Python has no way to
+    hand over yet.
+    """
+    raise NotImplementedError(
+        "'QPen.swap' has no cute function yet. Qt's 'void QPen::swap(QPen "
+        "&other)': takes a type Python has no way to hand over yet.")

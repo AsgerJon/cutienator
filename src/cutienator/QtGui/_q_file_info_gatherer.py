@@ -21,16 +21,17 @@ from ..occult import Rituals
 from ..QtCore import QObject, QStringList, QThread
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
-  from ..QtCore import QEvent, QMetaObject
-  from . import QAbstractFileIconProvider
+  from ..QtCore import QEvent, QFileInfo, QMetaObject
+  from . import QAbstractFileIconProvider, QExtendedInformation
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
   QAbstractFileIconProvider = WAIT['QAbstractFileIconProvider']
   QEvent = WAIT['QEvent']
+  QFileInfo = WAIT['QFileInfo']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -49,25 +50,36 @@ class QFileInfoGatherer(QThread):
   -----------
 
   Every function of Qt's QFileInfoGatherer that has a ritual and that Python
-  can call so far, 24 names in all: 'metaObject', 'tr', 'watchedFiles',
-  'watchedDirectories', 'watchPaths', 'unwatchPaths', 'isWatching',
-  'setWatching', 'clear', 'removePath', 'iconProvider', 'resolveSymlinks',
-  'requestAbort', 'list', 'fetchExtendedInformation', 'updateFile',
-  'setResolveSymlinks', 'setIconProvider', 'driveAdded', 'driveRemoved',
-  'event', 'run', 'getFileInfos', 'createWatcher'. It can be made from
-  Python, in 1 way; see '__init__'.
+  can call so far, 28 names in all: 'metaObject', 'tr', 'newListOfFiles',
+  'nameResolved', 'directoryLoaded', 'watchedFiles', 'watchedDirectories',
+  'watchPaths', 'unwatchPaths', 'isWatching', 'setWatching', 'clear',
+  'removePath', 'getInfo', 'iconProvider', 'resolveSymlinks', 'requestAbort',
+  'list', 'fetchExtendedInformation', 'updateFile', 'setResolveSymlinks',
+  'setIconProvider', 'driveAdded', 'driveRemoved', 'event', 'run',
+  'getFileInfos', 'createWatcher'. It can be made from Python, in 1 way; see
+  '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QFileInfoGatherer::qt_metacast(const char *a0)': one of Qt's
+    own inner workings.
+  - Qt's 'int QFileInfoGatherer::qt_metacall(QMetaObject::Call a0, int a1,
+    void **a2)': one of Qt's own inner workings.
+  - Qt's 'void QFileInfoGatherer::updates(const QString &directory, const
+    QList<std::pair<QString, QFileInfo>> &updates)': takes a type Python has
+    no way to hand over yet.
   - Qt's 'QFileInfoGatherer::~QFileInfoGatherer()': the destructor: Python
     never removes a C++ QFileInfoGatherer.
+  - Qt's 'void QFileInfoGatherer::fetch(const QFileInfo &info, QElapsedTimer
+    &base, bool &firstTime, QList<std::pair<QString, QFileInfo>>
+    &updatedFiles, const QString &path)': takes a type Python has no way to
+    hand over yet.
 
   What has no ritual
   ------------------
 
-  10 of the 36 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet; 4 a signal; 1 a template; 1 declared and nowhere to be found.
+  2 of the 36 functions Qt declares: 2 not a gap.
 
   What to expect
   --------------
@@ -83,6 +95,9 @@ class QFileInfoGatherer(QThread):
   - Qt tells when it has removed the C++ QFileInfoGatherer. Every call on the
     cute object, and every use of it as an argument, then raises
     'RuntimeError', and nothing reaches C++.
+  - Each name of Qt's QFileInfoGatherer that has no cute function yet,
+    'fetch', 'updates', holds a function that raises 'NotImplementedError',
+    and its docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -223,6 +238,37 @@ class QFileInfoGatherer(QThread):
     """
     #  bool QFileInfoGatherer::isWatching() const
     return self.uglySide.call('ritual_ZNK17QFileInfoGatherer10isWatchingEv')
+
+  @overload(QFileInfo)
+  def getInfo(self, info: QFileInfo) -> QExtendedInformation:
+    """
+    Calls Qt's 'QExtendedInformation QFileInfoGatherer::getInfo(const
+    QFileInfo &info) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfileinfogatherer.html#getInfo
+
+    Parameters
+    ----------
+
+    info : QFileInfo
+      Passed on as a value: Qt reads the C++ QFileInfo, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    QExtendedInformation
+      A new cute QExtendedInformation around the copy Qt gave back. Python
+      owns it.
+    """
+    #  QExtendedInformation QFileInfoGatherer::getInfo(const QFileInfo &info)
+    #      const
+    address = self.uglySide.call(
+        'ritual_ZNK17QFileInfoGatherer7getInfoERK9QFileInfo',
+        self._valueOf(info),
+    )
+    from . import QExtendedInformation
+    return QExtendedInformation._cuteOwning(address)
 
   def iconProvider(self) -> Optional[QAbstractFileIconProvider]:
     """
@@ -381,6 +427,79 @@ class QFileInfoGatherer(QThread):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(str, QStringList)
+  def newListOfFiles(self, directory: str, listOfFiles: QStringList) -> None:
+    """
+    Calls Qt's 'void QFileInfoGatherer::newListOfFiles(const QString
+    &directory, const QStringList &listOfFiles) const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qfileinfogatherer.html#newListOfFiles
+
+    Parameters
+    ----------
+
+    directory : str
+      Passed on as it is: a QString is made of it for the call.
+
+    listOfFiles : QStringList
+      Passed on as a list of Qt: Qt reads the C++ list, which stays Python's
+      own. A list or tuple of Python is made into one first, and refused when
+      an element does not fit.
+    """
+    #  void QFileInfoGatherer::newListOfFiles(const QString &directory, const
+    #      QStringList &listOfFiles) const
+    self.uglySide.call(
+        'ritual_ZNK17QFileInfoGatherer14newListOfFilesERK7QStringRK5QListIS'
+        '0_E',
+        directory, self._valueOf(listOfFiles),
+    )
+
+  @overload(str, str)
+  def nameResolved(self, fileName: str, resolvedName: str) -> None:
+    """
+    Calls Qt's 'void QFileInfoGatherer::nameResolved(const QString &fileName,
+    const QString &resolvedName) const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qfileinfogatherer.html#nameResolved
+
+    Parameters
+    ----------
+
+    fileName : str
+      Passed on as it is: a QString is made of it for the call.
+
+    resolvedName : str
+      Passed on as it is: a QString is made of it for the call.
+    """
+    #  void QFileInfoGatherer::nameResolved(const QString &fileName, const
+    #      QString &resolvedName) const
+    self.uglySide.call(
+        'ritual_ZNK17QFileInfoGatherer12nameResolvedERK7QStringS2_',
+        fileName, resolvedName,
+    )
+
+  @overload(str)
+  def directoryLoaded(self, path: str) -> None:
+    """
+    Calls Qt's 'void QFileInfoGatherer::directoryLoaded(const QString
+    &path)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qfileinfogatherer.html#directoryLoaded
+
+    Parameters
+    ----------
+
+    path : str
+      Passed on as it is: a QString is made of it for the call.
+    """
+    #  void QFileInfoGatherer::directoryLoaded(const QString &path)
+    self.uglySide.call(
+        'ritual_ZN17QFileInfoGatherer15directoryLoadedERK7QString', path,
+    )
 
   @overload(QStringList)
   def watchPaths(self, paths: QStringList) -> None:
@@ -616,3 +735,31 @@ class QFileInfoGatherer(QThread):
     """
     #  void QFileInfoGatherer::createWatcher()
     self.uglySide.call('ritual_ZN17QFileInfoGatherer13createWatcherEv')
+
+  @staticmethod
+  def fetch(*__, **_) -> Never:
+    """
+    Qt's 'void QFileInfoGatherer::fetch(const QFileInfo &info, QElapsedTimer
+    &base, bool &firstTime, QList<std::pair<QString, QFileInfo>>
+    &updatedFiles, const QString &path)': takes a type Python has no way to
+    hand over yet.
+    """
+    raise NotImplementedError(
+        "'QFileInfoGatherer.fetch' has no cute function yet. Qt's 'void "
+        "QFileInfoGatherer::fetch(const QFileInfo &info, QElapsedTimer "
+        "&base, bool &firstTime, QList<std::pair<QString, QFileInfo>> "
+        "&updatedFiles, const QString &path)': takes a type Python has no "
+        "way to hand over yet.")
+
+  @staticmethod
+  def updates(*__, **_) -> Never:
+    """
+    Qt's 'void QFileInfoGatherer::updates(const QString &directory, const
+    QList<std::pair<QString, QFileInfo>> &updates)': takes a type Python has
+    no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QFileInfoGatherer.updates' has no cute function yet. Qt's 'void "
+        "QFileInfoGatherer::updates(const QString &directory, const "
+        "QList<std::pair<QString, QFileInfo>> &updates)': takes a type "
+        "Python has no way to hand over yet.")

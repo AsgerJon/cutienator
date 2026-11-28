@@ -68,12 +68,15 @@ class QGraphicsPixmapItem(QGraphicsItem):
   - Qt's 'void QGraphicsPixmapItem::setExtension(Extension extension, const
     QVariant &variant)': names the enum 'QGraphicsItem::Extension', whose
     class cannot be named here.
+  - Qt's 'QGraphicsPixmapItemPrivate *QGraphicsPixmapItem::d_func()': gives
+    'QGraphicsPixmapItemPrivate', which has no cute class yet.
+  - Qt's 'const QGraphicsPixmapItemPrivate *QGraphicsPixmapItem::d_func()
+    const': gives 'QGraphicsPixmapItemPrivate', which has no cute class yet.
 
   What has no ritual
   ------------------
 
-  4 of the 26 functions Qt declares: 2 forbidden; 2 takes or gives a type
-  that cannot be passed yet.
+  2 of the 26 functions Qt declares: 2 forbidden.
 
   What to expect
   --------------
@@ -245,7 +248,7 @@ class QGraphicsPixmapItem(QGraphicsItem):
     ritual = 'ritual_ZNK19QGraphicsPixmapItem8containsERK7QPointF'
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZNK19QGraphicsPixmapItem8containsERK7QPointF'
-    return self.uglySide.call(ritual, self._valueOf(point))
+    return self.uglySide.call(ritual, self._valueOf(point, 'QPointF'))
 
   @overload(QGraphicsItem)
   @overload(NoneType)
@@ -418,7 +421,7 @@ class QGraphicsPixmapItem(QGraphicsItem):
     #  void QGraphicsPixmapItem::setOffset(const QPointF &offset)
     self.uglySide.call(
         'ritual_ZN19QGraphicsPixmapItem9setOffsetERK7QPointF',
-        self._valueOf(offset),
+        self._valueOf(offset, 'QPointF'),
     )
 
   @overload(float, float)

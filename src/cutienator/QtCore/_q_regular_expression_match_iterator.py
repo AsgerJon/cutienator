@@ -17,6 +17,8 @@ from ..occult import Rituals
 from . import QRegularExpression
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Never
+
   from . import QRegularExpressionMatch
 
 
@@ -45,12 +47,23 @@ class QRegularExpressionMatchIterator(CuteMixin, metaclass=MetaCute):
     'QRegularExpressionMatchIterator::~QRegularExpressionMatchIterator()':
     the destructor: Python removes its C++ QRegularExpressionMatchIterator by
     it, and has no other use for it.
-
-  What has no ritual
-  ------------------
-
-  5 of the 15 functions Qt declares: 5 takes or gives a type that cannot be
-  passed yet.
+  - Qt's 'QRegularExpressionMatchIterator::QRegularExpressionMatchIterator(
+    QRegularExpressionMatchIterator &&iterator)': takes a type Python has no
+    way to hand over yet.
+  - Qt's 'QRegularExpressionMatchIterator
+    &QRegularExpressionMatchIterator::operator=(const
+    QRegularExpressionMatchIterator &iterator)': assignment: Python binds a
+    name and has no operator for it.
+  - Qt's 'QRegularExpressionMatchIterator
+    &QRegularExpressionMatchIterator::operator=(
+    QRegularExpressionMatchIterator &&iterator)': assignment: Python binds a
+    name and has no operator for it.
+  - Qt's 'void
+    QRegularExpressionMatchIterator::swap(QRegularExpressionMatchIterator
+    &other)': takes a type Python has no way to hand over yet.
+  - Qt's 'QRegularExpressionMatchIterator::QRegularExpressionMatchIterator(
+    QRegularExpressionMatchIteratorPrivate &dd)': takes a type Python has no
+    way to hand over yet.
 
   What to expect
   --------------
@@ -64,6 +77,9 @@ class QRegularExpressionMatchIterator(CuteMixin, metaclass=MetaCute):
     is as in C++.
   - A function giving a QRegularExpressionMatchIterator back gives a copy the
     ritual made for Python, in a new cute QRegularExpressionMatchIterator.
+  - Each name of Qt's QRegularExpressionMatchIterator that has no cute
+    function yet, 'swap', holds a function that raises 'NotImplementedError',
+    and its docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -303,3 +319,16 @@ class QRegularExpressionMatchIterator(CuteMixin, metaclass=MetaCute):
     )
     from . import QRegularExpressionMatch
     return QRegularExpressionMatch._cuteOwning(address)
+
+  @staticmethod
+  def swap(*__, **_) -> Never:
+    """
+    Qt's 'void
+    QRegularExpressionMatchIterator::swap(QRegularExpressionMatchIterator
+    &other)': takes a type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QRegularExpressionMatchIterator.swap' has no cute function yet. "
+        "Qt's 'void "
+        "QRegularExpressionMatchIterator::swap(QRegularExpressionMatchIterat"
+        "or &other)': takes a type Python has no way to hand over yet.")

@@ -21,7 +21,7 @@ from ..QtCore import Qt
 from . import QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from ..QtCore import QDate, QEvent, QMetaObject
   from ..QtGui import QHideEvent, QMouseEvent
@@ -53,19 +53,28 @@ class QCalendarPopup(QWidget):
   -----------
 
   Every function of Qt's QCalendarPopup that has a ritual and that Python can
-  call so far, 12 names in all: 'metaObject', 'selectedDate', 'setDate',
+  call so far, 18 names in all: 'metaObject', 'selectedDate', 'setDate',
   'setDateRange', 'setFirstDayOfWeek', 'calendarWidget', 'setCalendarWidget',
-  'hideEvent', 'mousePressEvent', 'mouseReleaseEvent', 'event',
-  'verifyCalendarInstance'. None can be made from Python: one comes out of a
-  function of another class that gives one back.
+  'activated', 'newDateSelected', 'hidingCalendar', 'resetButton',
+  'dateSelected', 'dateSelectionChanged', 'hideEvent', 'mousePressEvent',
+  'mouseReleaseEvent', 'event', 'verifyCalendarInstance'. None can be made
+  from Python: one comes out of a function of another class that gives one
+  back.
+
+  What has a ritual and is left out, and why
+  ------------------------------------------
+
+  - Qt's 'void *QCalendarPopup::qt_metacast(const char *a0)': one of Qt's own
+    inner workings.
+  - Qt's 'int QCalendarPopup::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
 
   What has no ritual
   ------------------
 
-  14 of the 26 functions Qt declares: 5 leans on 'QCalendarPopup; 4 a signal;
-  2 takes or gives a type that cannot be passed yet; 1 a template; 1 declared
-  and nowhere to be found; 1 leans on 'vtable for QCalendarPopup', which Qt's
-  library does not offer and Qt's source has no code for that could be taken.
+  4 of the 24 functions Qt declares: 2 not a gap; 1 leans on 'QCalendarPopup;
+  1 leans on 'vtable for QCalendarPopup', which Qt's source does not mark for
+  use from outside Qt and has no code for that could be taken.
 
   What to expect
   --------------
@@ -81,6 +90,9 @@ class QCalendarPopup(QWidget):
   - Qt tells when it has removed the C++ QCalendarPopup. Every call on the
     cute object, and every use of it as an argument, then raises
     'RuntimeError', and nothing reaches C++.
+  - Each name of Qt's QCalendarPopup that has no cute function yet,
+    '__init__', holds a function that raises 'NotImplementedError', and its
+    docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -243,6 +255,21 @@ class QCalendarPopup(QWidget):
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  @staticmethod
+  def __init__(*__, **_) -> Never:
+    """
+    Qt's 'QCalendarPopup::QCalendarPopup(QWidget *parent, QCalendarWidget
+    *cw, QCalendar ca)': leans on 'vtable for QCalendarPopup', which Qt's
+    source does not mark for use from outside Qt and has no code for that
+    could be taken.
+    """
+    raise NotImplementedError(
+        "'QCalendarPopup.__init__' has no cute function yet. Qt's "
+        "'QCalendarPopup::QCalendarPopup(QWidget *parent, QCalendarWidget "
+        "*cw, QCalendar ca)': leans on 'vtable for QCalendarPopup', which "
+        "Qt's source does not mark for use from outside Qt and has no code "
+        "for that could be taken.")
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -279,6 +306,101 @@ class QCalendarPopup(QWidget):
     address = self.uglySide.call('ritual_ZN14QCalendarPopup12selectedDateEv')
     from ..QtCore import QDate
     return QDate._cuteOwning(address)
+
+  @overload(QDate)
+  def activated(self, date: QDate) -> None:
+    """
+    Calls Qt's 'void QCalendarPopup::activated(QDate date)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcalendarpopup.html#activated
+
+    Parameters
+    ----------
+
+    date : QDate
+      Passed on as a value: Qt reads the C++ QDate, which stays Python's own.
+    """
+    #  void QCalendarPopup::activated(QDate date)
+    self.uglySide.call(
+        'ritual_ZN14QCalendarPopup9activatedE5QDate', self._valueOf(date),
+    )
+
+  @overload(QDate)
+  def newDateSelected(self, newDate: QDate) -> None:
+    """
+    Calls Qt's 'void QCalendarPopup::newDateSelected(QDate newDate)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qcalendarpopup.html#newDateSelected
+
+    Parameters
+    ----------
+
+    newDate : QDate
+      Passed on as a value: Qt reads the C++ QDate, which stays Python's own.
+    """
+    #  void QCalendarPopup::newDateSelected(QDate newDate)
+    self.uglySide.call(
+        'ritual_ZN14QCalendarPopup15newDateSelectedE5QDate',
+        self._valueOf(newDate),
+    )
+
+  @overload(QDate)
+  def hidingCalendar(self, oldDate: QDate) -> None:
+    """
+    Calls Qt's 'void QCalendarPopup::hidingCalendar(QDate oldDate)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcalendarpopup.html#hidingCalendar
+
+    Parameters
+    ----------
+
+    oldDate : QDate
+      Passed on as a value: Qt reads the C++ QDate, which stays Python's own.
+    """
+    #  void QCalendarPopup::hidingCalendar(QDate oldDate)
+    self.uglySide.call(
+        'ritual_ZN14QCalendarPopup14hidingCalendarE5QDate',
+        self._valueOf(oldDate),
+    )
+
+  def resetButton(self) -> None:
+    """
+    Calls Qt's 'void QCalendarPopup::resetButton()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcalendarpopup.html#resetButton
+    """
+    #  void QCalendarPopup::resetButton()
+    self.uglySide.call('ritual_ZN14QCalendarPopup11resetButtonEv')
+
+  @overload(QDate)
+  def dateSelected(self, date: QDate) -> None:
+    """
+    Calls Qt's 'void QCalendarPopup::dateSelected(QDate date)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcalendarpopup.html#dateSelected
+
+    Parameters
+    ----------
+
+    date : QDate
+      Passed on as a value: Qt reads the C++ QDate, which stays Python's own.
+    """
+    #  void QCalendarPopup::dateSelected(QDate date)
+    self.uglySide.call(
+        'ritual_ZN14QCalendarPopup12dateSelectedE5QDate',
+        self._valueOf(date),
+    )
+
+  def dateSelectionChanged(self) -> None:
+    """
+    Calls Qt's 'void QCalendarPopup::dateSelectionChanged()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qcalendarpopup.html#dateSelectionChanged
+    """
+    #  void QCalendarPopup::dateSelectionChanged()
+    self.uglySide.call('ritual_ZN14QCalendarPopup20dateSelectionChangedEv')
 
   @overload(QHideEvent)
   @overload(NoneType)

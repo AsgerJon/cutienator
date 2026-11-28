@@ -17,13 +17,20 @@ from ..occult import Rituals
 from . import QFileDevice, QList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from . import QDateTime, QDir, QTimeZone
+  from typing import Never, Optional
+
+  from . import QDateTime, QDir, QFileInfoPrivate, QTimeZone
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
   QDir = WAIT['QDir']
+  QFileInfoPrivate = WAIT['QFileInfoPrivate']
   QTimeZone = WAIT['QTimeZone']
+
+#  The class of None, for a signature that takes None in the place of an
+#  object or of text.
+NoneType = type(None)
 
 
 class QFileInfo(CuteMixin, metaclass=MetaCute):
@@ -39,7 +46,7 @@ class QFileInfo(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QFileInfo that has a ritual and that Python can call
-  so far, 53 names in all: 'setFile', 'exists', 'refresh', 'filePath',
+  so far, 54 names in all: 'setFile', 'exists', 'refresh', 'filePath',
   'absoluteFilePath', 'canonicalFilePath', 'fileName', 'baseName',
   'completeBaseName', 'suffix', 'bundleName', 'completeSuffix', 'path',
   'absolutePath', 'canonicalPath', 'dir', 'absoluteDir', 'isReadable',
@@ -49,20 +56,57 @@ class QFileInfo(CuteMixin, metaclass=MetaCute):
   'isRoot', 'isBundle', 'symLinkTarget', 'readSymLink', 'junctionTarget',
   'owner', 'ownerId', 'group', 'groupId', 'permission', 'size', 'birthTime',
   'metadataChangeTime', 'lastModified', 'lastRead', 'caching', 'setCaching',
-  'stat', '__eq__', '__ne__'. It can be made from Python, in 4 ways; see
-  '__init__'.
+  'stat', '__eq__', '__ne__', 'd_func'. It can be made from Python, in 5
+  ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'QFileInfo::QFileInfo(const QFileDevice &file)': takes a type Python
+    has no way to hand over yet.
+  - Qt's 'QFileInfo::QFileInfo(QFileInfo &&other)': takes a type Python has
+    no way to hand over yet.
   - Qt's 'QFileInfo::~QFileInfo()': the destructor: Python removes its C++
     QFileInfo by it, and has no other use for it.
+  - Qt's 'QFileInfo &QFileInfo::operator=(const QFileInfo &fileinfo)':
+    assignment: Python binds a name and has no operator for it.
+  - Qt's 'QFileInfo &QFileInfo::operator=(QFileInfo &&other)': assignment:
+    Python binds a name and has no operator for it.
+  - Qt's 'void QFileInfo::swap(QFileInfo &other)': takes a type Python has no
+    way to hand over yet.
+  - Qt's 'void QFileInfo::setFile(const QFileDevice &file)': takes a type
+    Python has no way to hand over yet.
+  - Qt's 'std::filesystem::path QFileInfo::filesystemFilePath() const': gives
+    a type Python has no way to take yet.
+  - Qt's 'std::filesystem::path QFileInfo::filesystemAbsoluteFilePath()
+    const': gives a type Python has no way to take yet.
+  - Qt's 'std::filesystem::path QFileInfo::filesystemCanonicalFilePath()
+    const': gives a type Python has no way to take yet.
+  - Qt's 'std::filesystem::path QFileInfo::filesystemPath() const': gives a
+    type Python has no way to take yet.
+  - Qt's 'std::filesystem::path QFileInfo::filesystemAbsolutePath() const':
+    gives a type Python has no way to take yet.
+  - Qt's 'std::filesystem::path QFileInfo::filesystemCanonicalPath() const':
+    gives a type Python has no way to take yet.
+  - Qt's 'std::filesystem::path QFileInfo::filesystemSymLinkTarget() const':
+    gives a type Python has no way to take yet.
+  - Qt's 'std::filesystem::path QFileInfo::filesystemReadSymLink() const':
+    gives a type Python has no way to take yet.
+  - Qt's 'std::filesystem::path QFileInfo::filesystemJunctionTarget() const':
+    gives a type Python has no way to take yet.
+  - Qt's 'QFile::Permissions QFileInfo::permissions() const': gives a type
+    Python has no way to take yet.
+  - Qt's 'QDateTime QFileInfo::fileTime(QFile::FileTime time) const': takes a
+    type Python has no way to hand over yet.
+  - Qt's 'QDateTime QFileInfo::fileTime(QFile::FileTime time, const QTimeZone
+    &tz) const': takes a type Python has no way to hand over yet.
+  - Qt's 'const QFileInfoPrivate *QFileInfo::d_func() const': takes in Python
+    what 'QFileInfoPrivate *QFileInfo::d_func()' takes.
 
   What has no ritual
   ------------------
 
-  24 of the 88 functions Qt declares: 21 takes or gives a type that cannot be
-  passed yet; 3 a template.
+  3 of the 88 functions Qt declares: 3 a template.
 
   What to expect
   --------------
@@ -75,6 +119,13 @@ class QFileInfo(CuteMixin, metaclass=MetaCute):
     is as in C++.
   - A function giving a QFileInfo back gives a copy the ritual made for
     Python, in a new cute QFileInfo.
+  - Each name of Qt's QFileInfo that has no cute function yet, 'fileTime',
+    'filesystemAbsoluteFilePath', 'filesystemAbsolutePath',
+    'filesystemCanonicalFilePath', 'filesystemCanonicalPath',
+    'filesystemFilePath', 'filesystemJunctionTarget', 'filesystemPath',
+    'filesystemReadSymLink', 'filesystemSymLinkTarget', 'permissions',
+    'swap', holds a function that raises 'NotImplementedError', and its
+    docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -945,6 +996,27 @@ class QFileInfo(CuteMixin, metaclass=MetaCute):
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  @overload(QFileInfoPrivate)
+  @overload(NoneType)
+  def __init__(self, d: Optional[QFileInfoPrivate]) -> None:
+    """
+    Notes what was given, for Qt's 'QFileInfo::QFileInfo(QFileInfoPrivate
+    *d)', which is called at the first use.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfileinfo.html#QFileInfo
+
+    Parameters
+    ----------
+
+    d : Optional[QFileInfoPrivate]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  QFileInfo::QFileInfo(QFileInfoPrivate *d)
+    self._noteCreation(QFileInfo, lambda: Rituals.call(
+        'ritual_ZN9QFileInfoC1EP16QFileInfoPrivate', self._addressOf(d),
+    ))
+
   @overload()
   def __init__(self) -> None:
     """
@@ -1065,6 +1137,162 @@ class QFileInfo(CuteMixin, metaclass=MetaCute):
     """
     #  void QFileInfo::stat()
     self.uglySide.call('ritual_ZN9QFileInfo4statEv')
+
+  def d_func(self) -> Optional[QFileInfoPrivate]:
+    """
+    Calls Qt's 'QFileInfoPrivate *QFileInfo::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfileinfo.html#d_func
+
+    Returns
+    -------
+
+    Optional[QFileInfoPrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QFileInfoPrivate *QFileInfo::d_func()
+    address = self.uglySide.call('ritual_ZN9QFileInfo6d_funcEv')
+    from . import QFileInfoPrivate
+    return QFileInfoPrivate._cuteAt(address)
+
+  @staticmethod
+  def fileTime(*__, **_) -> Never:
+    """
+    - Qt's 'QDateTime QFileInfo::fileTime(QFile::FileTime time) const': takes
+      a type Python has no way to hand over yet.
+    - Qt's 'QDateTime QFileInfo::fileTime(QFile::FileTime time, const
+      QTimeZone &tz) const': takes a type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QFileInfo.fileTime' has no cute function yet. Qt's 'QDateTime "
+        "QFileInfo::fileTime(QFile::FileTime time) const': takes a type "
+        "Python has no way to hand over yet. Qt's 'QDateTime "
+        "QFileInfo::fileTime(QFile::FileTime time, const QTimeZone &tz) "
+        "const': takes a type Python has no way to hand over yet.")
+
+  @staticmethod
+  def filesystemAbsoluteFilePath(*__, **_) -> Never:
+    """
+    Qt's 'std::filesystem::path QFileInfo::filesystemAbsoluteFilePath()
+    const': gives a type Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QFileInfo.filesystemAbsoluteFilePath' has no cute function yet. "
+        "Qt's 'std::filesystem::path "
+        "QFileInfo::filesystemAbsoluteFilePath() const': gives a type "
+        "Python has no way to take yet.")
+
+  @staticmethod
+  def filesystemAbsolutePath(*__, **_) -> Never:
+    """
+    Qt's 'std::filesystem::path QFileInfo::filesystemAbsolutePath() const':
+    gives a type Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QFileInfo.filesystemAbsolutePath' has no cute function yet. Qt's "
+        "'std::filesystem::path QFileInfo::filesystemAbsolutePath() const': "
+        "gives a type Python has no way to take yet.")
+
+  @staticmethod
+  def filesystemCanonicalFilePath(*__, **_) -> Never:
+    """
+    Qt's 'std::filesystem::path QFileInfo::filesystemCanonicalFilePath()
+    const': gives a type Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QFileInfo.filesystemCanonicalFilePath' has no cute function yet. "
+        "Qt's 'std::filesystem::path "
+        "QFileInfo::filesystemCanonicalFilePath() const': gives a type "
+        "Python has no way to take yet.")
+
+  @staticmethod
+  def filesystemCanonicalPath(*__, **_) -> Never:
+    """
+    Qt's 'std::filesystem::path QFileInfo::filesystemCanonicalPath() const':
+    gives a type Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QFileInfo.filesystemCanonicalPath' has no cute function yet. Qt's "
+        "'std::filesystem::path QFileInfo::filesystemCanonicalPath() "
+        "const': gives a type Python has no way to take yet.")
+
+  @staticmethod
+  def filesystemFilePath(*__, **_) -> Never:
+    """
+    Qt's 'std::filesystem::path QFileInfo::filesystemFilePath() const': gives
+    a type Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QFileInfo.filesystemFilePath' has no cute function yet. Qt's "
+        "'std::filesystem::path QFileInfo::filesystemFilePath() const': "
+        "gives a type Python has no way to take yet.")
+
+  @staticmethod
+  def filesystemJunctionTarget(*__, **_) -> Never:
+    """
+    Qt's 'std::filesystem::path QFileInfo::filesystemJunctionTarget() const':
+    gives a type Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QFileInfo.filesystemJunctionTarget' has no cute function yet. "
+        "Qt's 'std::filesystem::path QFileInfo::filesystemJunctionTarget() "
+        "const': gives a type Python has no way to take yet.")
+
+  @staticmethod
+  def filesystemPath(*__, **_) -> Never:
+    """
+    Qt's 'std::filesystem::path QFileInfo::filesystemPath() const': gives a
+    type Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QFileInfo.filesystemPath' has no cute function yet. Qt's "
+        "'std::filesystem::path QFileInfo::filesystemPath() const': gives a "
+        "type Python has no way to take yet.")
+
+  @staticmethod
+  def filesystemReadSymLink(*__, **_) -> Never:
+    """
+    Qt's 'std::filesystem::path QFileInfo::filesystemReadSymLink() const':
+    gives a type Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QFileInfo.filesystemReadSymLink' has no cute function yet. Qt's "
+        "'std::filesystem::path QFileInfo::filesystemReadSymLink() const': "
+        "gives a type Python has no way to take yet.")
+
+  @staticmethod
+  def filesystemSymLinkTarget(*__, **_) -> Never:
+    """
+    Qt's 'std::filesystem::path QFileInfo::filesystemSymLinkTarget() const':
+    gives a type Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QFileInfo.filesystemSymLinkTarget' has no cute function yet. Qt's "
+        "'std::filesystem::path QFileInfo::filesystemSymLinkTarget() "
+        "const': gives a type Python has no way to take yet.")
+
+  @staticmethod
+  def permissions(*__, **_) -> Never:
+    """
+    Qt's 'QFile::Permissions QFileInfo::permissions() const': gives a type
+    Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QFileInfo.permissions' has no cute function yet. Qt's "
+        "'QFile::Permissions QFileInfo::permissions() const': gives a type "
+        "Python has no way to take yet.")
+
+  @staticmethod
+  def swap(*__, **_) -> Never:
+    """
+    Qt's 'void QFileInfo::swap(QFileInfo &other)': takes a type Python has no
+    way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QFileInfo.swap' has no cute function yet. Qt's 'void "
+        "QFileInfo::swap(QFileInfo &other)': takes a type Python has no way "
+        "to hand over yet.")
 
 
 #  Qt's 'QList<QFileInfo>': the list of QFileInfo, which 'QList[QFileInfo]'

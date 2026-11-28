@@ -18,7 +18,7 @@ from ..occult import Rituals
 from . import QList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from . import QByteArray, QCborArray, QCborMap, QCborParserError, QDateTime
   from . import QJsonValue, QLatin1String, QRegularExpression, QUrl, QUuid
@@ -72,6 +72,8 @@ class QCborValue(CuteMixin, metaclass=MetaCute):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'QCborValue::QCborValue(std::nullptr_t a0)': takes in Python what
+    'QCborValue::QCborValue()' takes.
   - Qt's 'QCborValue::QCborValue(unsigned int u)': takes in Python what
     'QCborValue::QCborValue(int i)' takes.
   - Qt's 'QCborValue::QCborValue(qint64 i)': takes in Python what
@@ -80,6 +82,10 @@ class QCborValue(CuteMixin, metaclass=MetaCute):
     'QCborSimpleType', whose class cannot be named here.
   - Qt's 'QCborValue::QCborValue(QStringView s)': takes in Python what
     'QCborValue::QCborValue(const QString &s)' takes.
+  - Qt's 'QCborValue::QCborValue(QCborArray &&a)': takes a type Python has no
+    way to hand over yet.
+  - Qt's 'QCborValue::QCborValue(QCborMap &&m)': takes a type Python has no
+    way to hand over yet.
   - Qt's 'QCborValue::QCborValue(QCborTag tag, const QCborValue
     &taggedValue)': names the enum 'QCborTag', whose class cannot be named
     here.
@@ -87,6 +93,14 @@ class QCborValue(CuteMixin, metaclass=MetaCute):
     names the enum 'QCborKnownTags', whose class cannot be named here.
   - Qt's 'QCborValue::~QCborValue()': the destructor: Python removes its C++
     QCborValue by it, and has no other use for it.
+  - Qt's 'QCborValue::QCborValue(QCborValue &&other)': takes a type Python
+    has no way to hand over yet.
+  - Qt's 'QCborValue &QCborValue::operator=(const QCborValue &other)':
+    assignment: Python binds a name and has no operator for it.
+  - Qt's 'QCborValue &QCborValue::operator=(QCborValue &&other)': assignment:
+    Python binds a name and has no operator for it.
+  - Qt's 'void QCborValue::swap(QCborValue &other)': takes a type Python has
+    no way to hand over yet.
   - Qt's 'bool QCborValue::isSimpleType(QCborSimpleType st) const': names the
     enum 'QCborSimpleType', whose class cannot be named here.
   - Qt's 'QCborSimpleType QCborValue::toSimpleType(QCborSimpleType
@@ -102,15 +116,19 @@ class QCborValue(CuteMixin, metaclass=MetaCute):
   - Qt's 'QCborValueRef QCborValue::operator[](const QString &key)': takes in
     Python what 'const QCborValue QCborValue::operator[](const QString &key)
     const' takes.
+  - Qt's 'QCborValue QCborValue::fromCbor(QCborStreamReader &reader)': takes
+    a type Python has no way to hand over yet.
+  - Qt's 'QCborValue QCborValue::fromCbor(const quint8 *data, qsizetype len,
+    QCborParserError *error)': names 'quint8', which has no cute class yet.
+  - Qt's 'void QCborValue::toCbor(QCborStreamWriter &writer, EncodingOptions
+    opt) const': takes a type Python has no way to hand over yet.
   - Qt's 'Type QCborValue::type_helper(QCborSimpleType st)': names the enum
     'QCborSimpleType', whose class cannot be named here.
 
   What has no ritual
   ------------------
 
-  14 of the 101 functions Qt declares: 10 takes or gives a type that cannot
-  be passed yet; 2 declared and nowhere to be found; 1 a template; 1
-  forbidden.
+  4 of the 101 functions Qt declares: 3 not a gap; 1 forbidden.
 
   What to expect
   --------------
@@ -123,6 +141,9 @@ class QCborValue(CuteMixin, metaclass=MetaCute):
     is as in C++.
   - A function giving a QCborValue back gives a copy the ritual made for
     Python, in a new cute QCborValue.
+  - Each name of Qt's QCborValue that has no cute function yet, 'swap',
+    'tag', 'toSimpleType', 'type_helper', holds a function that raises
+    'NotImplementedError', and its docstring says why.
   """
 
   #  The enums Qt writes inside QCborValue, each a class in here as in C++,
@@ -1716,6 +1737,52 @@ class QCborValue(CuteMixin, metaclass=MetaCute):
     """
     #  void QCborValue::dispose()
     self.uglySide.call('ritual_ZN10QCborValue7disposeEv')
+
+  @staticmethod
+  def swap(*__, **_) -> Never:
+    """
+    Qt's 'void QCborValue::swap(QCborValue &other)': takes a type Python has
+    no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QCborValue.swap' has no cute function yet. Qt's 'void "
+        "QCborValue::swap(QCborValue &other)': takes a type Python has no "
+        "way to hand over yet.")
+
+  @staticmethod
+  def tag(*__, **_) -> Never:
+    """
+    Qt's 'QCborTag QCborValue::tag(QCborTag defaultValue) const': names the
+    enum 'QCborTag', whose class cannot be named here.
+    """
+    raise NotImplementedError(
+        "'QCborValue.tag' has no cute function yet. Qt's 'QCborTag "
+        "QCborValue::tag(QCborTag defaultValue) const': names the enum "
+        "'QCborTag', whose class cannot be named here.")
+
+  @staticmethod
+  def toSimpleType(*__, **_) -> Never:
+    """
+    Qt's 'QCborSimpleType QCborValue::toSimpleType(QCborSimpleType
+    defaultValue) const': names the enum 'QCborSimpleType', whose class
+    cannot be named here.
+    """
+    raise NotImplementedError(
+        "'QCborValue.toSimpleType' has no cute function yet. Qt's "
+        "'QCborSimpleType QCborValue::toSimpleType(QCborSimpleType "
+        "defaultValue) const': names the enum 'QCborSimpleType', whose "
+        "class cannot be named here.")
+
+  @staticmethod
+  def type_helper(*__, **_) -> Never:
+    """
+    Qt's 'Type QCborValue::type_helper(QCborSimpleType st)': names the enum
+    'QCborSimpleType', whose class cannot be named here.
+    """
+    raise NotImplementedError(
+        "'QCborValue.type_helper' has no cute function yet. Qt's 'Type "
+        "QCborValue::type_helper(QCborSimpleType st)': names the enum "
+        "'QCborSimpleType', whose class cannot be named here.")
 
 
 #  Qt's 'QList<QCborValue>': the list of QCborValue, which

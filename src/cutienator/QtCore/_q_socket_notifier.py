@@ -19,12 +19,13 @@ from . import QObject
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from . import QEvent, QMetaObject
+  from . import QEvent, QMetaObject, QSocketDescriptor
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
   QEvent = WAIT['QEvent']
+  QSocketDescriptor = WAIT['QSocketDescriptor']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -43,22 +44,28 @@ class QSocketNotifier(QObject):
   -----------
 
   Every function of Qt's QSocketNotifier that has a ritual and that Python
-  can call so far, 9 names in all: 'metaObject', 'tr', 'setSocket', 'socket',
-  'type', 'isValid', 'isEnabled', 'setEnabled', 'event'. It can be made from
-  Python, in 2 ways; see '__init__'.
+  can call so far, 10 names in all: 'metaObject', 'tr', 'setSocket',
+  'socket', 'type', 'isValid', 'isEnabled', 'setEnabled', 'activated',
+  'event'. It can be made from Python, in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QSocketNotifier::qt_metacast(const char *a0)': one of Qt's
+    own inner workings.
+  - Qt's 'int QSocketNotifier::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
+  - Qt's 'QSocketNotifierPrivate *QSocketNotifier::d_func()': gives
+    'QSocketNotifierPrivate', which has no cute class yet.
+  - Qt's 'const QSocketNotifierPrivate *QSocketNotifier::d_func() const':
+    gives 'QSocketNotifierPrivate', which has no cute class yet.
   - Qt's 'QSocketNotifier::~QSocketNotifier()': the destructor: Python never
     removes a C++ QSocketNotifier.
 
   What has no ritual
   ------------------
 
-  9 of the 21 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet; 2 forbidden; 1 a template; 1 declared and nowhere to be found;
-  1 a signal.
+  4 of the 21 functions Qt declares: 2 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -353,6 +360,36 @@ class QSocketNotifier(QObject):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(QSocketDescriptor, Type)
+  def activated(
+      self,
+      socket: QSocketDescriptor,
+      activationEvent: Type,
+  ) -> None:
+    """
+    Calls Qt's 'void QSocketNotifier::activated(QSocketDescriptor socket,
+    QSocketNotifier::Type activationEvent, QPrivateSignal a2)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qsocketnotifier.html#activated
+
+    Parameters
+    ----------
+
+    socket : QSocketDescriptor
+      Passed on as a value: Qt reads the C++ QSocketDescriptor, which stays
+      Python's own.
+
+    activationEvent : Type
+      Passed on as its number.
+    """
+    #  void QSocketNotifier::activated(QSocketDescriptor socket,
+    #      QSocketNotifier::Type activationEvent, QPrivateSignal a2)
+    self.uglySide.call(
+        'ritual_ZN15QSocketNotifier9activatedE17QSocketDescriptorNS_4TypeEN'
+        'S_14QPrivateSignalE',
+        self._valueOf(socket), activationEvent.value,
+    )
 
   @overload(QEvent)
   @overload(NoneType)

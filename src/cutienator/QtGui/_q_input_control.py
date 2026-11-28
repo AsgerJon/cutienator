@@ -55,11 +55,20 @@ class QInputControl(QObject):
   'isCommonTextEditShortcut', 'selectionWrapper', 'mimeDataForInputEvent'. It
   can be made from Python, in 1 way; see '__init__'.
 
+  What has a ritual and is left out, and why
+  ------------------------------------------
+
+  - Qt's 'void *QInputControl::qt_metacast(const char *a0)': one of Qt's own
+    inner workings.
+  - Qt's 'int QInputControl::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
+  - Qt's 'QInputControl::QInputControl(Type type, QObjectPrivate &dd, QObject
+    *parent)': takes a type Python has no way to hand over yet.
+
   What has no ritual
   ------------------
 
-  5 of the 12 functions Qt declares: 3 takes or gives a type that cannot be
-  passed yet; 1 a template; 1 declared and nowhere to be found.
+  2 of the 12 functions Qt declares: 2 not a gap.
 
   What to expect
   --------------

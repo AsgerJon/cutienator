@@ -23,12 +23,12 @@ from ..QtCore import Qt, QObject
 from . import QCommonStyle, QStyle
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from ..QtCore import QEvent, QMargins, QMetaObject, QPoint, QRect, QSize
   from ..QtGui import QPainter
-  from . import QApplication, QStyleHintReturn, QStyleOption
-  from . import QStyleOptionComplex, QTileRules, QWidget
+  from . import QApplication, QPixmapStylePrivate, QStyleHintReturn
+  from . import QStyleOption, QStyleOptionComplex, QTileRules, QWidget
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -63,7 +63,7 @@ class QPixmapStyle(QCommonStyle):
   -----------
 
   Every function of Qt's QPixmapStyle that has a ritual and that Python can
-  call so far, 37 names in all: 'metaObject', 'tr', 'polish', 'unpolish',
+  call so far, 38 names in all: 'metaObject', 'tr', 'polish', 'unpolish',
   'drawPrimitive', 'drawControl', 'drawComplexControl', 'sizeFromContents',
   'subElementRect', 'subControlRect', 'pixelMetric', 'styleHint',
   'hitTestComplexControl', 'eventFilter', 'addDescriptor', 'copyDescriptor',
@@ -74,20 +74,35 @@ class QPixmapStyle(QCommonStyle):
   'drawComboBox', 'drawScrollBar', 'pushButtonSizeFromContents',
   'lineEditSizeFromContents', 'progressBarSizeFromContents',
   'sliderSizeFromContents', 'comboBoxSizeFromContents',
-  'itemViewSizeFromContents'. It can be made from Python, in 1 way; see
-  '__init__'.
+  'itemViewSizeFromContents', 'd_func'. It can be made from Python, in 1 way;
+  see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QPixmapStyle::qt_metacast(const char *a0)': one of Qt's own
+    inner workings.
+  - Qt's 'int QPixmapStyle::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
   - Qt's 'QPixmapStyle::~QPixmapStyle()': the destructor: Python never
     removes a C++ QPixmapStyle.
+  - Qt's 'void QPixmapStyle::polish(QPalette &palette)': takes a type Python
+    has no way to hand over yet.
+  - Qt's 'QRect QPixmapStyle::comboBoxSubControlRect(const
+    QStyleOptionComplex *option, QPixmapStyle::SubControl sc, const QWidget
+    *widget) const': takes a type Python has no way to hand over yet.
+  - Qt's 'QRect QPixmapStyle::scrollBarSubControlRect(const
+    QStyleOptionComplex *option, QPixmapStyle::SubControl sc, const QWidget
+    *widget) const': takes a type Python has no way to hand over yet.
+  - Qt's 'QPixmapStyle::QPixmapStyle(QPixmapStylePrivate &dd)': takes a type
+    Python has no way to hand over yet.
+  - Qt's 'const QPixmapStylePrivate *QPixmapStyle::d_func() const': takes in
+    Python what 'QPixmapStylePrivate *QPixmapStyle::d_func()' takes.
 
   What has no ritual
   ------------------
 
-  10 of the 51 functions Qt declares: 8 takes or gives a type that cannot be
-  passed yet; 1 a template; 1 declared and nowhere to be found.
+  2 of the 51 functions Qt declares: 2 not a gap.
 
   What to expect
   --------------
@@ -103,6 +118,9 @@ class QPixmapStyle(QCommonStyle):
   - Qt tells when it has removed the C++ QPixmapStyle. Every call on the cute
     object, and every use of it as an argument, then raises 'RuntimeError',
     and nothing reaches C++.
+  - Each name of Qt's QPixmapStyle that has no cute function yet,
+    'comboBoxSubControlRect', 'scrollBarSubControlRect', holds a function
+    that raises 'NotImplementedError', and its docstring says why.
   """
 
   #  The enums Qt writes inside QPixmapStyle, each a class in here as in C++,
@@ -1300,7 +1318,7 @@ class QPixmapStyle(QCommonStyle):
     self.uglySide.call(
         'ritual_ZN12QPixmapStyle13addDescriptorENS_17ControlDescriptorERK7Q'
         'String8QMargins10QTileRules',
-        control.value, fileName, self._valueOf(margins),
+        control.value, fileName, self._valueOf(margins, 'QMargins'),
         self._valueOf(tileRules),
     )
 
@@ -1402,7 +1420,7 @@ class QPixmapStyle(QCommonStyle):
     self.uglySide.call(
         'ritual_ZN12QPixmapStyle9addPixmapENS_13ControlPixmapERK7QString8QM'
         'argins',
-        control.value, fileName, self._valueOf(margins),
+        control.value, fileName, self._valueOf(margins, 'QMargins'),
     )
 
   @overload(ControlPixmap, ControlPixmap)
@@ -1960,3 +1978,49 @@ class QPixmapStyle(QCommonStyle):
         self._addressOf(option), self._addressOf(painter),
         self._addressOf(widget),
     )
+
+  def d_func(self) -> Optional[QPixmapStylePrivate]:
+    """
+    Calls Qt's 'QPixmapStylePrivate *QPixmapStyle::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpixmapstyle.html#d_func
+
+    Returns
+    -------
+
+    Optional[QPixmapStylePrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QPixmapStylePrivate *QPixmapStyle::d_func()
+    address = self.uglySide.call('ritual_ZN12QPixmapStyle6d_funcEv')
+    from . import QPixmapStylePrivate
+    return QPixmapStylePrivate._cuteAt(address)
+
+  @staticmethod
+  def comboBoxSubControlRect(*__, **_) -> Never:
+    """
+    Qt's 'QRect QPixmapStyle::comboBoxSubControlRect(const
+    QStyleOptionComplex *option, QPixmapStyle::SubControl sc, const QWidget
+    *widget) const': takes a type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QPixmapStyle.comboBoxSubControlRect' has no cute function yet. "
+        "Qt's 'QRect QPixmapStyle::comboBoxSubControlRect(const "
+        "QStyleOptionComplex *option, QPixmapStyle::SubControl sc, const "
+        "QWidget *widget) const': takes a type Python has no way to hand "
+        "over yet.")
+
+  @staticmethod
+  def scrollBarSubControlRect(*__, **_) -> Never:
+    """
+    Qt's 'QRect QPixmapStyle::scrollBarSubControlRect(const
+    QStyleOptionComplex *option, QPixmapStyle::SubControl sc, const QWidget
+    *widget) const': takes a type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QPixmapStyle.scrollBarSubControlRect' has no cute function yet. "
+        "Qt's 'QRect QPixmapStyle::scrollBarSubControlRect(const "
+        "QStyleOptionComplex *option, QPixmapStyle::SubControl sc, const "
+        "QWidget *widget) const': takes a type Python has no way to hand "
+        "over yet.")

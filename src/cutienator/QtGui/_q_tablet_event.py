@@ -54,14 +54,17 @@ class QTabletEvent(QSinglePointEvent):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'QTabletEvent::QTabletEvent(const QTabletEvent &a0)': takes a type
+    Python has no way to hand over yet.
+  - Qt's 'QTabletEvent &QTabletEvent::operator=(const QTabletEvent &other)':
+    assignment: Python binds a name and has no operator for it.
   - Qt's 'QTabletEvent::~QTabletEvent()': the destructor: Python never
     removes a C++ QTabletEvent.
 
   What has no ritual
   ------------------
 
-  4 of the 24 functions Qt declares: 2 takes or gives a type that cannot be
-  passed yet; 2 forbidden.
+  2 of the 24 functions Qt declares: 2 forbidden.
 
   What to expect
   --------------
@@ -417,9 +420,10 @@ class QTabletEvent(QSinglePointEvent):
         'ritual_ZN12QTabletEventC1EN6QEvent4TypeEPK15QPointingDeviceRK7QPoi'
         'ntFS7_dfffdf6QFlagsIN2Qt16KeyboardModifierEENS9_11MouseButtonES8_I'
         'SC_E',
-        t.value, self._addressOf(device), self._valueOf(pos),
-        self._valueOf(globalPos), pressure, xTilt, yTilt, tangentialPressure,
-        rotation, z, keyState.value, button.value, buttons.value,
+        t.value, self._addressOf(device), self._valueOf(pos, 'QPointF'),
+        self._valueOf(globalPos, 'QPointF'), pressure, xTilt, yTilt,
+        tangentialPressure, rotation, z, keyState.value, button.value,
+        buttons.value,
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

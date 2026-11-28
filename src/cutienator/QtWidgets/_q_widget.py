@@ -33,6 +33,7 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   from ..QtGui import QResizeEvent, QScreen, QShowEvent, QTabletEvent
   from ..QtGui import QWheelEvent, QWindow
   from . import QGraphicsEffect, QGraphicsProxyWidget, QLayout, QStyle
+  from . import QWidgetPrivate
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -98,7 +99,7 @@ class QWidget(QObject, QPaintDevice):
   -----------
 
   Every function of Qt's QWidget that has a ritual and that Python can call
-  so far, 271 names in all: 'metaObject', 'tr', 'devType', 'winId',
+  so far, 272 names in all: 'metaObject', 'tr', 'd_func', 'devType', 'winId',
   'createWinId', 'internalWinId', 'effectiveWinId', 'style', 'setStyle',
   'isTopLevel', 'isWindow', 'isModal', 'windowModality', 'setWindowModality',
   'isEnabled', 'isEnabledTo', 'setEnabled', 'setDisabled',
@@ -172,10 +173,8 @@ class QWidget(QObject, QPaintDevice):
     workings.
   - Qt's 'int QWidget::qt_metacall(QMetaObject::Call a0, int a1, void **a2)':
     one of Qt's own inner workings.
-  - Qt's 'QWidgetPrivate *QWidget::d_func()': gives 'QWidgetPrivate', which
-    has no cute class yet.
-  - Qt's 'const QWidgetPrivate *QWidget::d_func() const': gives
-    'QWidgetPrivate', which has no cute class yet.
+  - Qt's 'const QWidgetPrivate *QWidget::d_func() const': takes in Python
+    what 'QWidgetPrivate *QWidget::d_func()' takes.
   - Qt's 'QWidget::~QWidget()': the destructor: Python never removes a C++
     QWidget.
   - Qt's 'void QWidget::setTabOrder(std::initializer_list<QWidget *>
@@ -1152,7 +1151,8 @@ class QWidget(QObject, QPaintDevice):
     """
     #  QPointF QWidget::mapToGlobal(const QPointF &a0) const
     address = self.uglySide.call(
-        'ritual_ZNK7QWidget11mapToGlobalERK7QPointF', self._valueOf(a0),
+        'ritual_ZNK7QWidget11mapToGlobalERK7QPointF',
+        self._valueOf(a0, 'QPointF'),
     )
     from ..QtCore import QPointF
     return QPointF._cuteOwning(address)
@@ -1206,7 +1206,8 @@ class QWidget(QObject, QPaintDevice):
     """
     #  QPointF QWidget::mapFromGlobal(const QPointF &a0) const
     address = self.uglySide.call(
-        'ritual_ZNK7QWidget13mapFromGlobalERK7QPointF', self._valueOf(a0),
+        'ritual_ZNK7QWidget13mapFromGlobalERK7QPointF',
+        self._valueOf(a0, 'QPointF'),
     )
     from ..QtCore import QPointF
     return QPointF._cuteOwning(address)
@@ -1260,7 +1261,8 @@ class QWidget(QObject, QPaintDevice):
     """
     #  QPointF QWidget::mapToParent(const QPointF &a0) const
     address = self.uglySide.call(
-        'ritual_ZNK7QWidget11mapToParentERK7QPointF', self._valueOf(a0),
+        'ritual_ZNK7QWidget11mapToParentERK7QPointF',
+        self._valueOf(a0, 'QPointF'),
     )
     from ..QtCore import QPointF
     return QPointF._cuteOwning(address)
@@ -1314,7 +1316,8 @@ class QWidget(QObject, QPaintDevice):
     """
     #  QPointF QWidget::mapFromParent(const QPointF &a0) const
     address = self.uglySide.call(
-        'ritual_ZNK7QWidget13mapFromParentERK7QPointF', self._valueOf(a0),
+        'ritual_ZNK7QWidget13mapFromParentERK7QPointF',
+        self._valueOf(a0, 'QPointF'),
     )
     from ..QtCore import QPointF
     return QPointF._cuteOwning(address)
@@ -1375,7 +1378,7 @@ class QWidget(QObject, QPaintDevice):
     #  QPointF QWidget::mapTo(const QWidget *a0, const QPointF &a1) const
     address = self.uglySide.call(
         'ritual_ZNK7QWidget5mapToEPKS_RK7QPointF',
-        self._addressOf(a0), self._valueOf(a1),
+        self._addressOf(a0), self._valueOf(a1, 'QPointF'),
     )
     from ..QtCore import QPointF
     return QPointF._cuteOwning(address)
@@ -1443,7 +1446,7 @@ class QWidget(QObject, QPaintDevice):
     #  QPointF QWidget::mapFrom(const QWidget *a0, const QPointF &a1) const
     address = self.uglySide.call(
         'ritual_ZNK7QWidget7mapFromEPKS_RK7QPointF',
-        self._addressOf(a0), self._valueOf(a1),
+        self._addressOf(a0), self._valueOf(a1, 'QPointF'),
     )
     from ..QtCore import QPointF
     return QPointF._cuteOwning(address)
@@ -2544,7 +2547,7 @@ class QWidget(QObject, QPaintDevice):
     """
     #  QWidget *QWidget::childAt(const QPointF &p) const
     address = self.uglySide.call(
-        'ritual_ZNK7QWidget7childAtERK7QPointF', self._valueOf(p),
+        'ritual_ZNK7QWidget7childAtERK7QPointF', self._valueOf(p, 'QPointF'),
     )
     return QWidget._cuteAt(address)
 
@@ -3988,7 +3991,7 @@ class QWidget(QObject, QPaintDevice):
     #  void QWidget::setContentsMargins(const QMargins &margins)
     self.uglySide.call(
         'ritual_ZN7QWidget18setContentsMarginsERK8QMargins',
-        self._valueOf(margins),
+        self._valueOf(margins, 'QMargins'),
     )
 
   @overload(QLayout)
@@ -4277,6 +4280,24 @@ class QWidget(QObject, QPaintDevice):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  def d_func(self) -> Optional[QWidgetPrivate]:
+    """
+    Calls Qt's 'QWidgetPrivate *QWidget::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qwidget.html#d_func
+
+    Returns
+    -------
+
+    Optional[QWidgetPrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QWidgetPrivate *QWidget::d_func()
+    address = self.uglySide.call('ritual_ZN7QWidget6d_funcEv')
+    from . import QWidgetPrivate
+    return QWidgetPrivate._cuteAt(address)
 
   def createWinId(self) -> None:
     """

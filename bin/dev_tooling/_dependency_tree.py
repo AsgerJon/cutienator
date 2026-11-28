@@ -280,7 +280,8 @@ class DependencyTree:
     Gives the classes one part defines, under their names, as
     'tree["QtWidgets"]["QWidget"]'. Each is a dict: its 'partName',
     its 'headerPath', the classes it is built on as its header names
-    them, 'parents', and its 'number' in the reading of the part. A
+    them, 'parents', its 'number' in the reading of the part, and
+    'anonymousAt', as 'getAnonymousPlace' gives it. A
     name two parts define, as 'QBarSeries' of QtCharts and of QtGraphs,
     is under each of them, and each is a class of the tree.
 
@@ -509,7 +510,8 @@ class DependencyTree:
         #  of the tree, under its own part.
         byPart[partName][name] = dict(
             partName=partName, headerPath=entry['headerPath'],
-            parents=(*entry['bases'],), number=entryId)
+            parents=(*entry['bases'],), number=entryId,
+            anonymousAt=entry['anonymousAt'])
         if key in parents:
           infoSpec = """It is defined in full twice: in '%s' and in
           '%s'."""
@@ -984,6 +986,29 @@ class DependencyTree:
       The tree has no class of that name.
     """
     return self.getClassKey(className, partName)[0]
+
+  def getAnonymousPlace(
+      self,
+      className: str,
+      partName: str,
+  ) -> Optional[int]:
+    """
+    Gives, for a class Qt declares in an anonymous namespace, how many
+    words of its name come before that namespace: 0 for
+    'DecodedArchRequirements' of 'qplugin_p.h', whose namespace stands
+    in no named one. None for a class in no anonymous namespace. The
+    name leaves the anonymous namespace out, as C++ does; the
+    compiler's own names of the class's functions have '_GLOBAL__N_1'
+    at that place.
+
+    Raises
+    ------
+
+    LookupError
+      The tree has no class of that name.
+    """
+    holder, name = self.getClassKey(className, partName)
+    return self[holder][name]['anonymousAt']
 
   def getHeaderPath(self, className: str, partName: str) -> str:
     """
@@ -1749,11 +1774,18 @@ class DependencyTree:
       access: str,
       headerPath: str,
       found: Dict[str, Any],
+      anonymousAt: Optional[int] = None,
   ) -> None:
     """
     Notes down every declaration of a class in a record, also the ones
     inside a namespace or inside another class, and every namespace,
     enum and other name for a type met on the way.
+
+    An anonymous namespace, 'namespace { ... }', adds nothing to the
+    name of what it holds: C++ finds 'DecodedArchRequirements' of Qt's
+    'qplugin_p.h' by that name alone, and 'QtPrivate::X' for one inside
+    'QtPrivate'. The compiler's own names of what it holds name it
+    '_GLOBAL__N_1', so each class inside one notes where it stands.
 
     Parameters
     ----------
@@ -1785,16 +1817,28 @@ class DependencyTree:
       number type its declaration fixes for it, or None, and with its
       names and their numbers, whether C++ scopes it, who may use it
       and the header file it lies in.
+
+    anonymousAt : Optional[int]
+      Inside an anonymous namespace: how many words of the names come
+      before it, 0 for one standing in no named namespace. None
+      elsewhere. A class keeps it in its entry, as 'anonymousAt'.
     """
     if not isinstance(node, dict):
       return
     kind = node.get('kind')
     if kind == 'NamespaceDecl':
-      name = '%s%s' % (prefix, node.get('name', ''))
+      if node.get('name'):
+        name = '%s%s' % (prefix, node['name'])
+        inner, place = '%s::' % name, anonymousAt
+      else:
+        name, inner = prefix[:-2], prefix
+        place = len(prefix.split('::')) - 1 if prefix else 0
+        if anonymousAt is not None:
+          place = anonymousAt
       found['namespaces'][node['id']] = name
       for child in node.get('inner', ()):
         self._collectEntries(
-            child, '%s::' % name, None, 'public', headerPath, found,
+            child, inner, None, 'public', headerPath, found, place,
         )
       return
     if not node.get('name'):
@@ -1828,7 +1872,7 @@ class DependencyTree:
     entry = dict(
         ownName=node['name'], prefix=prefix, insideId=insideId,
         belongsToId=node.get('parentDeclContextId'), access=access,
-        complete=complete, headerPath=headerPath,
+        complete=complete, headerPath=headerPath, anonymousAt=anonymousAt,
     )
     found['entries'][node['id']] = entry
     if not complete:
@@ -1842,7 +1886,7 @@ class DependencyTree:
         inner = child['access']
         continue
       self._collectEntries(
-          child, prefix, node['id'], inner, headerPath, found,
+          child, prefix, node['id'], inner, headerPath, found, anonymousAt,
       )
 
   def _nameEntry(
@@ -1875,7 +1919,10 @@ class DependencyTree:
         return None
       name = '%s::%s' % (outer, entry['ownName'])
     elif owner in namespaces:
-      name = '%s::%s' % (namespaces[owner], entry['ownName'])
+      #  An anonymous namespace standing in no named one has the name ''.
+      outer = namespaces[owner]
+      name = '%s::%s' % (outer, entry['ownName']) if outer else entry[
+          'ownName']
     elif entry['belongsToId'] is not None and entry['insideId'] in entries:
       #  Named first inside a class, in what one of its functions takes,
       #  as 'void setStore(class QHstsStore *store);' in Qt's

@@ -16,7 +16,7 @@ from ..occult import Rituals
 from . import QPropertyObserverBase
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from . import QUntypedPropertyData
 else:
@@ -48,14 +48,22 @@ class QPropertyObserver(QPropertyObserverBase):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'QPropertyObserver::QPropertyObserver(QPropertyObserver &&other)':
+    takes a type Python has no way to hand over yet.
+  - Qt's 'QPropertyObserver &QPropertyObserver::operator=(QPropertyObserver
+    &&other)': assignment: Python binds a name and has no operator for it.
   - Qt's 'QPropertyObserver::~QPropertyObserver()': the destructor: Python
     never removes a C++ QPropertyObserver.
+  - Qt's 'void QPropertyObserver::setSource(const
+    QtPrivate::QPropertyBindingData &property)': takes a type Python has no
+    way to hand over yet.
+  - Qt's 'QPropertyObserver::QPropertyObserver(ChangeHandler changeHandler)':
+    takes a type Python has no way to hand over yet.
 
   What has no ritual
   ------------------
 
-  7 of the 11 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet; 2 forbidden; 1 a template.
+  3 of the 11 functions Qt declares: 2 forbidden; 1 a template.
 
   What to expect
   --------------
@@ -68,6 +76,9 @@ class QPropertyObserver(QPropertyObserverBase):
     has it, and is passed on as nothing. Whether Qt can do with nothing there
     is as in C++.
   - Python never removes the C++ QPropertyObserver.
+  - Each name of Qt's QPropertyObserver that has no cute function yet,
+    'setSource', holds a function that raises 'NotImplementedError', and its
+    docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -193,3 +204,19 @@ class QPropertyObserver(QPropertyObserverBase):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def setSource(*__, **_) -> Never:
+    """
+    - Qt's 'void QPropertyObserver::setSource(const
+      QtPrivate::QPropertyBindingData &property)': takes a type Python has no
+      way to hand over yet.
+    - Qt's 'QPropertyObserver::setSource': a template: a pattern and no
+      single function.
+    """
+    raise NotImplementedError(
+        "'QPropertyObserver.setSource' has no cute function yet. Qt's 'void "
+        "QPropertyObserver::setSource(const QtPrivate::QPropertyBindingData "
+        "&property)': takes a type Python has no way to hand over yet. Qt's "
+        "'QPropertyObserver::setSource': a template: a pattern and no "
+        "single function.")

@@ -18,6 +18,8 @@ from ..QtCore import QList
 from . import QFont
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Never
+
   from . import QFontVariableAxis
 
 
@@ -42,14 +44,16 @@ class QFontInfo(CuteMixin, metaclass=MetaCute):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'QFontInfo::QFontInfo(QFontInfo &&a0)': takes a type Python has no
+    way to hand over yet.
   - Qt's 'QFontInfo::~QFontInfo()': the destructor: Python removes its C++
     QFontInfo by it, and has no other use for it.
-
-  What has no ritual
-  ------------------
-
-  4 of the 24 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet.
+  - Qt's 'QFontInfo &QFontInfo::operator=(const QFontInfo &a0)': assignment:
+    Python binds a name and has no operator for it.
+  - Qt's 'QFontInfo &QFontInfo::operator=(QFontInfo &&other)': assignment:
+    Python binds a name and has no operator for it.
+  - Qt's 'void QFontInfo::swap(QFontInfo &other)': takes a type Python has no
+    way to hand over yet.
 
   What to expect
   --------------
@@ -62,6 +66,8 @@ class QFontInfo(CuteMixin, metaclass=MetaCute):
     is as in C++.
   - A function giving a QFontInfo back gives a copy the ritual made for
     Python, in a new cute QFontInfo.
+  - Each name of Qt's QFontInfo that has no cute function yet, 'swap', holds
+    a function that raises 'NotImplementedError', and its docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -357,3 +363,14 @@ class QFontInfo(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def swap(*__, **_) -> Never:
+    """
+    Qt's 'void QFontInfo::swap(QFontInfo &other)': takes a type Python has no
+    way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QFontInfo.swap' has no cute function yet. Qt's 'void "
+        "QFontInfo::swap(QFontInfo &other)': takes a type Python has no way "
+        "to hand over yet.")

@@ -17,9 +17,10 @@ from ..QtCore import Qt, QList, QObject
 from . import QKeySequence
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from ..QtCore import QEvent, QMetaObject
+  from . import QShortcutPrivate
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -43,22 +44,28 @@ class QShortcut(QObject):
   -----------
 
   Every function of Qt's QShortcut that has a ritual and that Python can call
-  so far, 16 names in all: 'metaObject', 'tr', 'setKey', 'key', 'setKeys',
-  'keys', 'setEnabled', 'isEnabled', 'setContext', 'context',
-  'setAutoRepeat', 'autoRepeat', 'id', 'setWhatsThis', 'whatsThis', 'event'.
-  It can be made from Python, in 3 ways; see '__init__'.
+  so far, 19 names in all: 'metaObject', 'tr', 'd_func', 'setKey', 'key',
+  'setKeys', 'keys', 'setEnabled', 'isEnabled', 'setContext', 'context',
+  'setAutoRepeat', 'autoRepeat', 'id', 'setWhatsThis', 'whatsThis',
+  'activated', 'activatedAmbiguously', 'event'. It can be made from Python,
+  in 3 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QShortcut::qt_metacast(const char *a0)': one of Qt's own
+    inner workings.
+  - Qt's 'int QShortcut::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
+  - Qt's 'const QShortcutPrivate *QShortcut::d_func() const': takes in Python
+    what 'QShortcutPrivate *QShortcut::d_func()' takes.
   - Qt's 'QShortcut::~QShortcut()': the destructor: Python never removes a
     C++ QShortcut.
 
   What has no ritual
   ------------------
 
-  17 of the 38 functions Qt declares: 10 a template; 4 takes or gives a type
-  that cannot be passed yet; 2 a signal; 1 declared and nowhere to be found.
+  11 of the 38 functions Qt declares: 9 a template; 2 not a gap.
 
   What to expect
   --------------
@@ -73,6 +80,9 @@ class QShortcut(QObject):
   - Qt tells when it has removed the C++ QShortcut. Every call on the cute
     object, and every use of it as an argument, then raises 'RuntimeError',
     and nothing reaches C++.
+  - Each name of Qt's QShortcut that has no cute function yet,
+    'parentWidget', holds a function that raises 'NotImplementedError', and
+    its docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -595,6 +605,43 @@ class QShortcut(QObject):
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  def d_func(self) -> Optional[QShortcutPrivate]:
+    """
+    Calls Qt's 'QShortcutPrivate *QShortcut::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qshortcut.html#d_func
+
+    Returns
+    -------
+
+    Optional[QShortcutPrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QShortcutPrivate *QShortcut::d_func()
+    address = self.uglySide.call('ritual_ZN9QShortcut6d_funcEv')
+    from . import QShortcutPrivate
+    return QShortcutPrivate._cuteAt(address)
+
+  def activated(self) -> None:
+    """
+    Calls Qt's 'void QShortcut::activated()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qshortcut.html#activated
+    """
+    #  void QShortcut::activated()
+    self.uglySide.call('ritual_ZN9QShortcut9activatedEv')
+
+  def activatedAmbiguously(self) -> None:
+    """
+    Calls Qt's 'void QShortcut::activatedAmbiguously()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qshortcut.html#activatedAmbiguously
+    """
+    #  void QShortcut::activatedAmbiguously()
+    self.uglySide.call('ritual_ZN9QShortcut20activatedAmbiguouslyEv')
+
   @overload(QEvent)
   @overload(NoneType)
   def event(self, e: Optional[QEvent]) -> bool:
@@ -615,3 +662,14 @@ class QShortcut(QObject):
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZN9QShortcut5eventEP6QEvent'
     return self.uglySide.call(ritual, self._addressOf(e))
+
+  @staticmethod
+  def parentWidget(*__, **_) -> Never:
+    """
+    Qt's 'QShortcut::parentWidget': a template: a pattern and no single
+    function.
+    """
+    raise NotImplementedError(
+        "'QShortcut.parentWidget' has no cute function yet. Qt's "
+        "'QShortcut::parentWidget': a template: a pattern and no single "
+        "function.")

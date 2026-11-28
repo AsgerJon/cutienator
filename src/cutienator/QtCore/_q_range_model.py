@@ -53,7 +53,7 @@ class QRangeModel(QAbstractItemModel):
   -----------
 
   Every function of Qt's QRangeModel that has a ritual and that Python can
-  call so far, 53 names in all: 'metaObject', 'tr', 'index', 'parent',
+  call so far, 59 names in all: 'metaObject', 'tr', 'index', 'parent',
   'sibling', 'rowCount', 'columnCount', 'flags', 'headerData',
   'setHeaderData', 'data', 'setData', 'itemData', 'setItemData',
   'clearItemData', 'insertColumns', 'removeColumns', 'moveColumns',
@@ -65,21 +65,30 @@ class QRangeModel(QAbstractItemModel):
   'supportedDragActions', 'setSupportedDragActions',
   'resetSupportedDragActions', 'supportedDropActions',
   'setSupportedDropActions', 'resetSupportedDropActions',
-  'autoConnectPolicy', 'setAutoConnectPolicy', 'resetInternalData', 'event',
-  'eventFilter'. It can be made from Python, in 1 way; see '__init__'.
+  'autoConnectPolicy', 'setAutoConnectPolicy', 'roleNamesChanged',
+  'autoConnectPolicyChanged', 'sortRoleChanged', 'sortCollatorChanged',
+  'supportedDragActionsChanged', 'supportedDropActionsChanged',
+  'resetInternalData', 'event', 'eventFilter'. It can be made from Python, in
+  1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QRangeModel::qt_metacast(const char *a0)': one of Qt's own
+    inner workings.
+  - Qt's 'int QRangeModel::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
   - Qt's 'QRangeModel::~QRangeModel()': the destructor: Python never removes
     a C++ QRangeModel.
+  - Qt's 'QRangeModelPrivate *QRangeModel::d_func()': gives
+    'QRangeModelPrivate', which has no cute class yet.
+  - Qt's 'const QRangeModelPrivate *QRangeModel::d_func() const': gives
+    'QRangeModelPrivate', which has no cute class yet.
 
   What has no ritual
   ------------------
 
-  19 of the 74 functions Qt declares: 6 a signal; 4 takes or gives a type
-  that cannot be passed yet; 4 a template; 4 forbidden; 1 declared and
-  nowhere to be found.
+  9 of the 74 functions Qt declares: 4 forbidden; 3 a template; 2 not a gap.
 
   What to expect
   --------------
@@ -1627,6 +1636,119 @@ class QRangeModel(QAbstractItemModel):
     """
     #  void QRangeModel::resetSupportedDropActions()
     self.uglySide.call('ritual_ZN11QRangeModel25resetSupportedDropActionsEv')
+
+  def roleNamesChanged(self) -> None:
+    """
+    Calls Qt's 'void QRangeModel::roleNamesChanged()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qrangemodel.html#roleNamesChanged
+    """
+    #  void QRangeModel::roleNamesChanged()
+    self.uglySide.call('ritual_ZN11QRangeModel16roleNamesChangedEv')
+
+  @overload(AutoConnectPolicy)
+  def autoConnectPolicyChanged(self, policy: AutoConnectPolicy) -> None:
+    """
+    Calls Qt's 'void QRangeModel::autoConnectPolicyChanged(AutoConnectPolicy
+    policy)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qrangemodel.html#autoConnectPolicyChanged
+
+    Parameters
+    ----------
+
+    policy : AutoConnectPolicy
+      Passed on as its number.
+    """
+    #  void QRangeModel::autoConnectPolicyChanged(AutoConnectPolicy policy)
+    self.uglySide.call(
+        'ritual_ZN11QRangeModel24autoConnectPolicyChangedENS_17AutoConnectP'
+        'olicyE',
+        policy.value,
+    )
+
+  @overload(int)
+  def sortRoleChanged(self, role: int) -> None:
+    """
+    Calls Qt's 'void QRangeModel::sortRoleChanged(int role)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qrangemodel.html#sortRoleChanged
+
+    Parameters
+    ----------
+
+    role : int
+      Passed on as it is.
+    """
+    #  void QRangeModel::sortRoleChanged(int role)
+    self.uglySide.call('ritual_ZN11QRangeModel15sortRoleChangedEi', role)
+
+  @overload(QCollator)
+  def sortCollatorChanged(self, collator: QCollator) -> None:
+    """
+    Calls Qt's 'void QRangeModel::sortCollatorChanged(const QCollator
+    &collator)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qrangemodel.html#sortCollatorChanged
+
+    Parameters
+    ----------
+
+    collator : QCollator
+      Passed on as a value: Qt reads the C++ QCollator, which stays Python's
+      own.
+    """
+    #  void QRangeModel::sortCollatorChanged(const QCollator &collator)
+    self.uglySide.call(
+        'ritual_ZN11QRangeModel19sortCollatorChangedERK9QCollator',
+        self._valueOf(collator),
+    )
+
+  @overload(Qt.DropActions)
+  def supportedDragActionsChanged(self, actions: Qt.DropActions) -> None:
+    """
+    Calls Qt's 'void QRangeModel::supportedDragActionsChanged(Qt::DropActions
+    actions)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qrangemodel.html#supportedDragActionsChanged
+
+    Parameters
+    ----------
+
+    actions : Qt.DropActions
+      Passed on as its number.
+    """
+    #  void QRangeModel::supportedDragActionsChanged(Qt::DropActions actions)
+    self.uglySide.call(
+        'ritual_ZN11QRangeModel27supportedDragActionsChangedE6QFlagsIN2Qt10'
+        'DropActionEE',
+        actions.value,
+    )
+
+  @overload(Qt.DropActions)
+  def supportedDropActionsChanged(self, actions: Qt.DropActions) -> None:
+    """
+    Calls Qt's 'void QRangeModel::supportedDropActionsChanged(Qt::DropActions
+    actions)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qrangemodel.html#supportedDropActionsChanged
+
+    Parameters
+    ----------
+
+    actions : Qt.DropActions
+      Passed on as its number.
+    """
+    #  void QRangeModel::supportedDropActionsChanged(Qt::DropActions actions)
+    self.uglySide.call(
+        'ritual_ZN11QRangeModel27supportedDropActionsChangedE6QFlagsIN2Qt10'
+        'DropActionEE',
+        actions.value,
+    )
 
   def resetInternalData(self) -> None:
     """

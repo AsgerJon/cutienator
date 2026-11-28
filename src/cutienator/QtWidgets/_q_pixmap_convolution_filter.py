@@ -22,7 +22,7 @@ from ..QtCore import QObject
 from . import QPixmapFilter
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from ..QtCore import QMetaObject, QPointF, QRectF
   from ..QtGui import QPainter, QPixmap
@@ -59,14 +59,28 @@ class QPixmapConvolutionFilter(QPixmapFilter):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QPixmapConvolutionFilter::qt_metacast(const char *a0)': one
+    of Qt's own inner workings.
+  - Qt's 'int QPixmapConvolutionFilter::qt_metacall(QMetaObject::Call a0, int
+    a1, void **a2)': one of Qt's own inner workings.
+  - Qt's 'QPixmapConvolutionFilterPrivate
+    *QPixmapConvolutionFilter::d_func()': gives
+    'QPixmapConvolutionFilterPrivate', which has no cute class yet.
+  - Qt's 'const QPixmapConvolutionFilterPrivate
+    *QPixmapConvolutionFilter::d_func() const': gives
+    'QPixmapConvolutionFilterPrivate', which has no cute class yet.
   - Qt's 'QPixmapConvolutionFilter::~QPixmapConvolutionFilter()': the
     destructor: Python never removes a C++ QPixmapConvolutionFilter.
+  - Qt's 'void QPixmapConvolutionFilter::setConvolutionKernel(const qreal
+    *matrix, int rows, int columns)': names 'qreal', which has no cute class
+    yet.
+  - Qt's 'const qreal *QPixmapConvolutionFilter::convolutionKernel() const':
+    gives 'double', which has no cute class yet.
 
   What has no ritual
   ------------------
 
-  8 of the 16 functions Qt declares: 6 takes or gives a type that cannot be
-  passed yet; 1 a template; 1 declared and nowhere to be found.
+  2 of the 16 functions Qt declares: 2 not a gap.
 
   What to expect
   --------------
@@ -82,6 +96,9 @@ class QPixmapConvolutionFilter(QPixmapFilter):
   - Qt tells when it has removed the C++ QPixmapConvolutionFilter. Every call
     on the cute object, and every use of it as an argument, then raises
     'RuntimeError', and nothing reaches C++.
+  - Each name of Qt's QPixmapConvolutionFilter that has no cute function yet,
+    'convolutionKernel', 'setConvolutionKernel', holds a function that raises
+    'NotImplementedError', and its docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -345,6 +362,32 @@ class QPixmapConvolutionFilter(QPixmapFilter):
           'tFRK7QPixmapRK6QRectF')
     self.uglySide.call(
         ritual,
-        self._addressOf(painter), self._valueOf(dest), self._valueOf(src),
-        self._valueOf(srcRect),
+        self._addressOf(painter), self._valueOf(dest, 'QPointF'),
+        self._valueOf(src), self._valueOf(srcRect),
     )
+
+  @staticmethod
+  def convolutionKernel(*__, **_) -> Never:
+    """
+    Qt's 'const qreal *QPixmapConvolutionFilter::convolutionKernel() const':
+    gives 'double', which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QPixmapConvolutionFilter.convolutionKernel' has no cute function "
+        "yet. Qt's 'const qreal "
+        "*QPixmapConvolutionFilter::convolutionKernel() const': gives "
+        "'double', which has no cute class yet.")
+
+  @staticmethod
+  def setConvolutionKernel(*__, **_) -> Never:
+    """
+    Qt's 'void QPixmapConvolutionFilter::setConvolutionKernel(const qreal
+    *matrix, int rows, int columns)': names 'qreal', which has no cute class
+    yet.
+    """
+    raise NotImplementedError(
+        "'QPixmapConvolutionFilter.setConvolutionKernel' has no cute "
+        "function yet. Qt's 'void "
+        "QPixmapConvolutionFilter::setConvolutionKernel(const qreal "
+        "*matrix, int rows, int columns)': names 'qreal', which has no cute "
+        "class yet.")

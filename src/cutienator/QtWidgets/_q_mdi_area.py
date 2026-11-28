@@ -22,7 +22,7 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
 
   from ..QtCore import QChildEvent, QEvent, QMetaObject, QSize, QTimerEvent
   from ..QtGui import QBrush, QPaintEvent, QResizeEvent, QShowEvent
-  from . import QMdiSubWindow
+  from . import QMdiAreaPrivate, QMdiSubWindow
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -53,31 +53,36 @@ class QMdiArea(QAbstractScrollArea):
   -----------
 
   Every function of Qt's QMdiArea that has a ritual and that Python can call
-  so far, 44 names in all: 'metaObject', 'tr', 'sizeHint', 'minimumSizeHint',
+  so far, 46 names in all: 'metaObject', 'tr', 'sizeHint', 'minimumSizeHint',
   'currentSubWindow', 'activeSubWindow', 'subWindowList', 'addSubWindow',
   'removeSubWindow', 'background', 'setBackground', 'activationOrder',
   'setActivationOrder', 'setOption', 'testOption', 'setViewMode', 'viewMode',
   'documentMode', 'setDocumentMode', 'setTabsClosable', 'tabsClosable',
   'setTabsMovable', 'tabsMovable', 'setTabShape', 'tabShape',
-  'setTabPosition', 'tabPosition', 'setActiveSubWindow', 'tileSubWindows',
-  'cascadeSubWindows', 'closeActiveSubWindow', 'closeAllSubWindows',
-  'activateNextSubWindow', 'activatePreviousSubWindow', 'setupViewport',
-  'event', 'eventFilter', 'paintEvent', 'childEvent', 'resizeEvent',
-  'timerEvent', 'showEvent', 'viewportEvent', 'scrollContentsBy'. It can be
-  made from Python, in 1 way; see '__init__'.
+  'setTabPosition', 'tabPosition', 'subWindowActivated',
+  'setActiveSubWindow', 'tileSubWindows', 'cascadeSubWindows',
+  'closeActiveSubWindow', 'closeAllSubWindows', 'activateNextSubWindow',
+  'activatePreviousSubWindow', 'setupViewport', 'event', 'eventFilter',
+  'paintEvent', 'childEvent', 'resizeEvent', 'timerEvent', 'showEvent',
+  'viewportEvent', 'scrollContentsBy', 'd_func'. It can be made from Python,
+  in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QMdiArea::qt_metacast(const char *a0)': one of Qt's own inner
+    workings.
+  - Qt's 'int QMdiArea::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
   - Qt's 'QMdiArea::~QMdiArea()': the destructor: Python never removes a C++
     QMdiArea.
+  - Qt's 'const QMdiAreaPrivate *QMdiArea::d_func() const': takes in Python
+    what 'QMdiAreaPrivate *QMdiArea::d_func()' takes.
 
   What has no ritual
   ------------------
 
-  9 of the 55 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet; 2 forbidden; 1 a template; 1 declared and nowhere to be found;
-  1 a signal.
+  4 of the 55 functions Qt declares: 2 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -768,6 +773,27 @@ class QMdiArea(QAbstractScrollArea):
         self._addressOf(widget),
     )
 
+  @overload(QMdiSubWindow)
+  @overload(NoneType)
+  def subWindowActivated(self, a0: Optional[QMdiSubWindow]) -> None:
+    """
+    Calls Qt's 'void QMdiArea::subWindowActivated(QMdiSubWindow *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmdiarea.html#subWindowActivated
+
+    Parameters
+    ----------
+
+    a0 : Optional[QMdiSubWindow]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QMdiArea::subWindowActivated(QMdiSubWindow *a0)
+    self.uglySide.call(
+        'ritual_ZN8QMdiArea18subWindowActivatedEP13QMdiSubWindow',
+        self._addressOf(a0),
+    )
+
   def tileSubWindows(self) -> None:
     """
     Calls Qt's 'void QMdiArea::tileSubWindows()'.
@@ -1046,3 +1072,21 @@ class QMdiArea(QAbstractScrollArea):
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZN8QMdiArea16scrollContentsByEii'
     self.uglySide.call(ritual, dx, dy)
+
+  def d_func(self) -> Optional[QMdiAreaPrivate]:
+    """
+    Calls Qt's 'QMdiAreaPrivate *QMdiArea::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmdiarea.html#d_func
+
+    Returns
+    -------
+
+    Optional[QMdiAreaPrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QMdiAreaPrivate *QMdiArea::d_func()
+    address = self.uglySide.call('ritual_ZN8QMdiArea6d_funcEv')
+    from . import QMdiAreaPrivate
+    return QMdiAreaPrivate._cuteAt(address)

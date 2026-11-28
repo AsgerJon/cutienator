@@ -15,6 +15,8 @@ from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Never
+
   from . import QVariant
 else:
   #  The cute classes this file names and is not built on. Each is brought in
@@ -28,10 +30,6 @@ class QAssociativeIterable(CuteMixin, metaclass=MetaCute):
   The cute side of Qt's QAssociativeIterable: a plain Python object standing
   in front of one C++ QAssociativeIterable.
 
-  C++ hands a QAssociativeIterable around as a copy, so every C++
-  QAssociativeIterable behind a cute one is Python's own: it is removed, by
-  the ritual named in '__delete_ritual__', when the cute object goes.
-
   What exists
   -----------
 
@@ -43,15 +41,41 @@ class QAssociativeIterable(CuteMixin, metaclass=MetaCute):
   What has a ritual and is left out, and why
   ------------------------------------------
 
-  - Qt's 'QAssociativeIterable::~QAssociativeIterable()': the destructor:
-    Python removes its C++ QAssociativeIterable by it, and has no other use
-    for it.
+  - Qt's 'QAssociativeIterable::QAssociativeIterable(const QMetaAssociation
+    &metaAssociation, const QMetaType &metaType, void *iterable)': names
+    'void', which has no cute class yet.
+  - Qt's 'QAssociativeIterable::QAssociativeIterable(const QMetaAssociation
+    &metaAssociation, const QMetaType &metaType, const void *iterable)':
+    names 'void', which has no cute class yet.
+  - Qt's
+    'QAssociativeIterable::QAssociativeIterable(QIterable<QMetaAssociation>
+    &&other)': takes a type Python has no way to hand over yet.
+  - Qt's 'QAssociativeIterable
+    &QAssociativeIterable::operator=(QIterable<QMetaAssociation> &&other)':
+    assignment: Python binds a name and has no operator for it.
+  - Qt's 'const_iterator QAssociativeIterable::begin() const': gives a type
+    Python has no way to take yet.
+  - Qt's 'const_iterator QAssociativeIterable::end() const': gives a type
+    Python has no way to take yet.
+  - Qt's 'const_iterator QAssociativeIterable::constBegin() const': gives a
+    type Python has no way to take yet.
+  - Qt's 'const_iterator QAssociativeIterable::constEnd() const': gives a
+    type Python has no way to take yet.
+  - Qt's 'iterator QAssociativeIterable::mutableBegin()': gives a type Python
+    has no way to take yet.
+  - Qt's 'iterator QAssociativeIterable::mutableEnd()': gives a type Python
+    has no way to take yet.
+  - Qt's 'const_iterator QAssociativeIterable::find(const QVariant &key)
+    const': gives a type Python has no way to take yet.
+  - Qt's 'const_iterator QAssociativeIterable::constFind(const QVariant &key)
+    const': gives a type Python has no way to take yet.
+  - Qt's 'iterator QAssociativeIterable::mutableFind(const QVariant &key)':
+    gives a type Python has no way to take yet.
 
   What has no ritual
   ------------------
 
-  16 of the 24 functions Qt declares: 13 takes or gives a type that cannot be
-  passed yet; 3 a template.
+  3 of the 23 functions Qt declares: 3 a template.
 
   What to expect
   --------------
@@ -63,8 +87,11 @@ class QAssociativeIterable(CuteMixin, metaclass=MetaCute):
   - None is taken wherever Qt takes an object by its address, or text as C
     has it, and is passed on as nothing. Whether Qt can do with nothing there
     is as in C++.
-  - A function giving a QAssociativeIterable back gives a copy the ritual
-    made for Python, in a new cute QAssociativeIterable.
+  - Python never removes the C++ QAssociativeIterable.
+  - Each name of Qt's QAssociativeIterable that has no cute function yet,
+    'begin', 'constBegin', 'constEnd', 'constFind', 'end', 'find',
+    'mutableBegin', 'mutableEnd', 'mutableFind', holds a function that raises
+    'NotImplementedError', and its docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -78,11 +105,6 @@ class QAssociativeIterable(CuteMixin, metaclass=MetaCute):
   #  Class Variables
   #  The class of Qt this class stands for.
   __qt_class__ = 'QAssociativeIterable'
-
-  #  Qt's '~QAssociativeIterable()'. Naming it makes this a value class:
-  #  Python owns every C++ QAssociativeIterable behind a cute one, and
-  #  removes it by this ritual.
-  __delete_ritual__ = 'ritual_ZN20QAssociativeIterableD1Ev'
 
   #  Fallback Variables
 
@@ -276,3 +298,102 @@ class QAssociativeIterable(CuteMixin, metaclass=MetaCute):
         'ritual_ZN20QAssociativeIterable9removeKeyERK8QVariant',
         self._valueOf(key),
     )
+
+  @staticmethod
+  def begin(*__, **_) -> Never:
+    """
+    Qt's 'const_iterator QAssociativeIterable::begin() const': gives a type
+    Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QAssociativeIterable.begin' has no cute function yet. Qt's "
+        "'const_iterator QAssociativeIterable::begin() const': gives a type "
+        "Python has no way to take yet.")
+
+  @staticmethod
+  def constBegin(*__, **_) -> Never:
+    """
+    Qt's 'const_iterator QAssociativeIterable::constBegin() const': gives a
+    type Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QAssociativeIterable.constBegin' has no cute function yet. Qt's "
+        "'const_iterator QAssociativeIterable::constBegin() const': gives a "
+        "type Python has no way to take yet.")
+
+  @staticmethod
+  def constEnd(*__, **_) -> Never:
+    """
+    Qt's 'const_iterator QAssociativeIterable::constEnd() const': gives a
+    type Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QAssociativeIterable.constEnd' has no cute function yet. Qt's "
+        "'const_iterator QAssociativeIterable::constEnd() const': gives a "
+        "type Python has no way to take yet.")
+
+  @staticmethod
+  def constFind(*__, **_) -> Never:
+    """
+    Qt's 'const_iterator QAssociativeIterable::constFind(const QVariant &key)
+    const': gives a type Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QAssociativeIterable.constFind' has no cute function yet. Qt's "
+        "'const_iterator QAssociativeIterable::constFind(const QVariant "
+        "&key) const': gives a type Python has no way to take yet.")
+
+  @staticmethod
+  def end(*__, **_) -> Never:
+    """
+    Qt's 'const_iterator QAssociativeIterable::end() const': gives a type
+    Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QAssociativeIterable.end' has no cute function yet. Qt's "
+        "'const_iterator QAssociativeIterable::end() const': gives a type "
+        "Python has no way to take yet.")
+
+  @staticmethod
+  def find(*__, **_) -> Never:
+    """
+    Qt's 'const_iterator QAssociativeIterable::find(const QVariant &key)
+    const': gives a type Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QAssociativeIterable.find' has no cute function yet. Qt's "
+        "'const_iterator QAssociativeIterable::find(const QVariant &key) "
+        "const': gives a type Python has no way to take yet.")
+
+  @staticmethod
+  def mutableBegin(*__, **_) -> Never:
+    """
+    Qt's 'iterator QAssociativeIterable::mutableBegin()': gives a type Python
+    has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QAssociativeIterable.mutableBegin' has no cute function yet. Qt's "
+        "'iterator QAssociativeIterable::mutableBegin()': gives a type "
+        "Python has no way to take yet.")
+
+  @staticmethod
+  def mutableEnd(*__, **_) -> Never:
+    """
+    Qt's 'iterator QAssociativeIterable::mutableEnd()': gives a type Python
+    has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QAssociativeIterable.mutableEnd' has no cute function yet. Qt's "
+        "'iterator QAssociativeIterable::mutableEnd()': gives a type Python "
+        "has no way to take yet.")
+
+  @staticmethod
+  def mutableFind(*__, **_) -> Never:
+    """
+    Qt's 'iterator QAssociativeIterable::mutableFind(const QVariant &key)':
+    gives a type Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QAssociativeIterable.mutableFind' has no cute function yet. Qt's "
+        "'iterator QAssociativeIterable::mutableFind(const QVariant &key)': "
+        "gives a type Python has no way to take yet.")

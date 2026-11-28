@@ -12,6 +12,8 @@ from typing import TYPE_CHECKING
 from ..cute import CuteMixin, MetaCute
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Never
+
   from . import QVariant
 
 
@@ -19,10 +21,6 @@ class QAssociativeIterator(CuteMixin, metaclass=MetaCute):
   """
   The cute side of Qt's QAssociativeIterator: a plain Python object standing
   in front of one C++ QAssociativeIterator.
-
-  C++ hands a QAssociativeIterator around as a copy, so every C++
-  QAssociativeIterator behind a cute one is Python's own: it is removed, by
-  the ritual named in '__delete_ritual__', when the cute object goes.
 
   What exists
   -----------
@@ -34,15 +32,16 @@ class QAssociativeIterator(CuteMixin, metaclass=MetaCute):
   What has a ritual and is left out, and why
   ------------------------------------------
 
-  - Qt's 'QAssociativeIterator::~QAssociativeIterator()': the destructor:
-    Python removes its C++ QAssociativeIterator by it, and has no other use
-    for it.
-
-  What has no ritual
-  ------------------
-
-  4 of the 6 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet.
+  - Qt's
+    'QAssociativeIterator::QAssociativeIterator(QIterator<QMetaAssociation>
+    &&it)': takes a type Python has no way to hand over yet.
+  - Qt's 'QVariantRef<QAssociativeIterator> QAssociativeIterator::value()
+    const': gives a type Python has no way to take yet.
+  - Qt's 'QVariantRef<QAssociativeIterator> QAssociativeIterator::operator*()
+    const': an operator Python has no name for.
+  - Qt's 'QVariantPointer<QAssociativeIterator>
+    QAssociativeIterator::operator->() const': an operator Python has no name
+    for.
 
   What to expect
   --------------
@@ -54,8 +53,10 @@ class QAssociativeIterator(CuteMixin, metaclass=MetaCute):
   - None is taken wherever Qt takes an object by its address, or text as C
     has it, and is passed on as nothing. Whether Qt can do with nothing there
     is as in C++.
-  - A function giving a QAssociativeIterator back gives a copy the ritual
-    made for Python, in a new cute QAssociativeIterator.
+  - Python never removes the C++ QAssociativeIterator.
+  - Each name of Qt's QAssociativeIterator that has no cute function yet,
+    '__init__', 'value', holds a function that raises 'NotImplementedError',
+    and its docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -69,11 +70,6 @@ class QAssociativeIterator(CuteMixin, metaclass=MetaCute):
   #  Class Variables
   #  The class of Qt this class stands for.
   __qt_class__ = 'QAssociativeIterator'
-
-  #  Qt's '~QAssociativeIterator()'. Naming it makes this a value class:
-  #  Python owns every C++ QAssociativeIterator behind a cute one, and
-  #  removes it by this ritual.
-  __delete_ritual__ = 'ritual_ZN20QAssociativeIteratorD1Ev'
 
   #  Fallback Variables
 
@@ -120,6 +116,18 @@ class QAssociativeIterator(CuteMixin, metaclass=MetaCute):
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  @staticmethod
+  def __init__(*__, **_) -> Never:
+    """
+    Qt's
+    'QAssociativeIterator::QAssociativeIterator(QIterator<QMetaAssociation>
+    &&it)': takes a type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QAssociativeIterator.__init__' has no cute function yet. Qt's "
+        "'QAssociativeIterator::QAssociativeIterator(QIterator<QMetaAssociat"
+        "ion> &&it)': takes a type Python has no way to hand over yet.")
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -139,3 +147,14 @@ class QAssociativeIterator(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def value(*__, **_) -> Never:
+    """
+    Qt's 'QVariantRef<QAssociativeIterator> QAssociativeIterator::value()
+    const': gives a type Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QAssociativeIterator.value' has no cute function yet. Qt's "
+        "'QVariantRef<QAssociativeIterator> QAssociativeIterator::value() "
+        "const': gives a type Python has no way to take yet.")

@@ -15,12 +15,19 @@ from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from . import QDeadlineTimer
+  from typing import Never, Optional
+
+  from . import QDeadlineTimer, QReadWriteLockPrivate
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
   QDeadlineTimer = WAIT['QDeadlineTimer']
+  QReadWriteLockPrivate = WAIT['QReadWriteLockPrivate']
+
+#  The class of None, for a signature that takes None in the place of an
+#  object or of text.
+NoneType = type(None)
 
 
 class QBasicReadWriteLock(CuteMixin, metaclass=MetaCute):
@@ -32,16 +39,28 @@ class QBasicReadWriteLock(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QBasicReadWriteLock that has a ritual and that
-  Python can call so far, 12 names in all: 'lockForRead', 'tryLockForRead',
+  Python can call so far, 13 names in all: 'lockForRead', 'tryLockForRead',
   'lockForWrite', 'tryLockForWrite', 'unlock', 'lock', 'lock_shared',
   'try_lock', 'try_lock_shared', 'unlock_shared', 'tryLockForReadInternal',
-  'tryLockForWriteInternal'. It can be made from Python, in 1 way; see
-  '__init__'.
+  'tryLockForWriteInternal', 'describeLockForTSan'. It can be made from
+  Python, in 2 ways; see '__init__'.
+
+  What has a ritual and is left out, and why
+  ------------------------------------------
+
+  - Qt's 'bool QBasicReadWriteLock::contendedTryLockForRead(QDeadlineTimer
+    timeout, void *dd)': names 'void', which has no cute class yet.
+  - Qt's 'bool QBasicReadWriteLock::contendedTryLockForWrite(QDeadlineTimer
+    timeout, void *dd)': names 'void', which has no cute class yet.
+  - Qt's 'void QBasicReadWriteLock::contendedUnlock(void *dd)': names 'void',
+    which has no cute class yet.
+  - Qt's 'quintptr QBasicReadWriteLock::describeLockInternal(void *dd)':
+    names 'void', which has no cute class yet.
 
   What has no ritual
   ------------------
 
-  10 of the 25 functions Qt declares: 8 takes or gives a type that cannot be
+  4 of the 25 functions Qt declares: 2 takes or gives a type that cannot be
   passed yet; 2 forbidden.
 
   What to expect
@@ -55,11 +74,51 @@ class QBasicReadWriteLock(CuteMixin, metaclass=MetaCute):
     has it, and is passed on as nothing. Whether Qt can do with nothing there
     is as in C++.
   - Python never removes the C++ QBasicReadWriteLock.
+  - Each name of Qt's QBasicReadWriteLock that has no cute function yet,
+    'contendedTryLockForRead', 'contendedTryLockForWrite', 'contendedUnlock',
+    'describeLockInternal', 'fastTryLockForRead', 'fastTryLockForWrite',
+    holds a function that raises 'NotImplementedError', and its docstring
+    says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  @overload(QReadWriteLockPrivate)
+  @overload(NoneType)
+  @overload(QReadWriteLockPrivate, int)
+  @overload(NoneType, int)
+  def describeLockForTSan(
+      d: Optional[QReadWriteLockPrivate],
+      flags: int = 0,
+  ) -> int:
+    """
+    Calls Qt's 'uint
+    QBasicReadWriteLock::describeLockForTSan(QReadWriteLockPrivate *d, uint
+    flags)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qbasicreadwritelock.html#describeLockForTSan
+
+    Parameters
+    ----------
+
+    d : Optional[QReadWriteLockPrivate]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    flags : int
+      Passed on as it is. May be left out, as in Qt: it is then 0.
+    """
+    #  uint QBasicReadWriteLock::describeLockForTSan(QReadWriteLockPrivate
+    #      *d, uint flags)
+    return Rituals.call(
+        'ritual_ZN19QBasicReadWriteLock19describeLockForTSanEP21QReadWriteL'
+        'ockPrivatej',
+        CuteMixin._addressOf(d), flags,
+    )
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -110,6 +169,30 @@ class QBasicReadWriteLock(CuteMixin, metaclass=MetaCute):
     #  QBasicReadWriteLock::QBasicReadWriteLock()
     self._noteCreation(QBasicReadWriteLock, lambda: Rituals.call(
         'ritual_ZN19QBasicReadWriteLockC1Ev',
+    ))
+
+  @overload(QReadWriteLockPrivate)
+  @overload(NoneType)
+  def __init__(self, d: Optional[QReadWriteLockPrivate]) -> None:
+    """
+    Notes what was given, for Qt's
+    'QBasicReadWriteLock::QBasicReadWriteLock(QReadWriteLockPrivate *d)',
+    which is called at the first use.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qbasicreadwritelock.html#QBasicReadWriteLock
+
+    Parameters
+    ----------
+
+    d : Optional[QReadWriteLockPrivate]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  QBasicReadWriteLock::QBasicReadWriteLock(QReadWriteLockPrivate *d)
+    self._noteCreation(QBasicReadWriteLock, lambda: Rituals.call(
+        'ritual_ZN19QBasicReadWriteLockC1EP21QReadWriteLockPrivate',
+        self._addressOf(d),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -344,3 +427,77 @@ class QBasicReadWriteLock(CuteMixin, metaclass=MetaCute):
         'eTimerj',
         self._valueOf(timeout), tsanFlags,
     )
+
+  @staticmethod
+  def contendedTryLockForRead(*__, **_) -> Never:
+    """
+    Qt's 'bool QBasicReadWriteLock::contendedTryLockForRead(QDeadlineTimer
+    timeout, void *dd)': names 'void', which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QBasicReadWriteLock.contendedTryLockForRead' has no cute function "
+        "yet. Qt's 'bool "
+        "QBasicReadWriteLock::contendedTryLockForRead(QDeadlineTimer "
+        "timeout, void *dd)': names 'void', which has no cute class yet.")
+
+  @staticmethod
+  def contendedTryLockForWrite(*__, **_) -> Never:
+    """
+    Qt's 'bool QBasicReadWriteLock::contendedTryLockForWrite(QDeadlineTimer
+    timeout, void *dd)': names 'void', which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QBasicReadWriteLock.contendedTryLockForWrite' has no cute "
+        "function yet. Qt's 'bool "
+        "QBasicReadWriteLock::contendedTryLockForWrite(QDeadlineTimer "
+        "timeout, void *dd)': names 'void', which has no cute class yet.")
+
+  @staticmethod
+  def contendedUnlock(*__, **_) -> Never:
+    """
+    Qt's 'void QBasicReadWriteLock::contendedUnlock(void *dd)': names 'void',
+    which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QBasicReadWriteLock.contendedUnlock' has no cute function yet. "
+        "Qt's 'void QBasicReadWriteLock::contendedUnlock(void *dd)': names "
+        "'void', which has no cute class yet.")
+
+  @staticmethod
+  def describeLockInternal(*__, **_) -> Never:
+    """
+    Qt's 'quintptr QBasicReadWriteLock::describeLockInternal(void *dd)':
+    names 'void', which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QBasicReadWriteLock.describeLockInternal' has no cute function "
+        "yet. Qt's 'quintptr QBasicReadWriteLock::describeLockInternal(void "
+        "*dd)': names 'void', which has no cute class yet.")
+
+  @staticmethod
+  def fastTryLockForRead(*__, **_) -> Never:
+    """
+    Qt's 'bool QBasicReadWriteLock::fastTryLockForRead(QReadWriteLockPrivate
+    *&d)': takes or gives a type that cannot be passed yet:
+    QReadWriteLockPrivate *&.
+    """
+    raise NotImplementedError(
+        "'QBasicReadWriteLock.fastTryLockForRead' has no cute function yet. "
+        "Qt's 'bool "
+        "QBasicReadWriteLock::fastTryLockForRead(QReadWriteLockPrivate "
+        "*&d)': takes or gives a type that cannot be passed yet: "
+        "QReadWriteLockPrivate *&.")
+
+  @staticmethod
+  def fastTryLockForWrite(*__, **_) -> Never:
+    """
+    Qt's 'bool QBasicReadWriteLock::fastTryLockForWrite(QReadWriteLockPrivate
+    *&d)': takes or gives a type that cannot be passed yet:
+    QReadWriteLockPrivate *&.
+    """
+    raise NotImplementedError(
+        "'QBasicReadWriteLock.fastTryLockForWrite' has no cute function "
+        "yet. Qt's 'bool "
+        "QBasicReadWriteLock::fastTryLockForWrite(QReadWriteLockPrivate "
+        "*&d)': takes or gives a type that cannot be passed yet: "
+        "QReadWriteLockPrivate *&.")

@@ -58,14 +58,21 @@ class QWindowContainer(QWidget):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QWindowContainer::qt_metacast(const char *a0)': one of Qt's
+    own inner workings.
+  - Qt's 'int QWindowContainer::qt_metacall(QMetaObject::Call a0, int a1,
+    void **a2)': one of Qt's own inner workings.
+  - Qt's 'QWindowContainerPrivate *QWindowContainer::d_func()': gives
+    'QWindowContainerPrivate', which has no cute class yet.
+  - Qt's 'const QWindowContainerPrivate *QWindowContainer::d_func() const':
+    gives 'QWindowContainerPrivate', which has no cute class yet.
   - Qt's 'QWindowContainer::~QWindowContainer()': the destructor: Python
     never removes a C++ QWindowContainer.
 
   What has no ritual
   ------------------
 
-  6 of the 19 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet; 1 a template; 1 declared and nowhere to be found.
+  2 of the 19 functions Qt declares: 2 not a gap.
 
   What to expect
   --------------

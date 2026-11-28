@@ -17,6 +17,8 @@ from ..occult import Rituals
 from . import QList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Never
+
   from . import QPoint
 else:
   #  The cute classes this file names and is not built on. Each is brought in
@@ -73,6 +75,9 @@ class QPointF(CuteMixin, metaclass=MetaCute):
     is as in C++.
   - A function giving a QPointF back gives a copy the ritual made for Python,
     in a new cute QPointF.
+  - Each name of Qt's QPointF that has no cute function yet, 'rx', 'ry',
+    holds a function that raises 'NotImplementedError', and its docstring
+    says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -102,7 +107,7 @@ class QPointF(CuteMixin, metaclass=MetaCute):
     #  qreal QPointF::dotProduct(const QPointF &p1, const QPointF &p2)
     return Rituals.call(
         'ritual_ZN7QPointF10dotProductERKS_S1_',
-        CuteMixin._valueOf(p1), CuteMixin._valueOf(p2),
+        CuteMixin._valueOf(p1, 'QPointF'), CuteMixin._valueOf(p2, 'QPointF'),
     )
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -136,7 +141,7 @@ class QPointF(CuteMixin, metaclass=MetaCute):
     Qt's own words: https://doc.qt.io/qt-6/qpointf.html#manhattanLength
     """
     #  qreal QPointF::manhattanLength() const
-    return self.uglySide.call('ritual_ZNK7QPointF15manhattanLengthEv')
+    return self._callAs('QPointF', 'ritual_ZNK7QPointF15manhattanLengthEv')
 
   def isNull(self) -> bool:
     """
@@ -145,7 +150,7 @@ class QPointF(CuteMixin, metaclass=MetaCute):
     Qt's own words: https://doc.qt.io/qt-6/qpointf.html#isNull
     """
     #  bool QPointF::isNull() const
-    return self.uglySide.call('ritual_ZNK7QPointF6isNullEv')
+    return self._callAs('QPointF', 'ritual_ZNK7QPointF6isNullEv')
 
   def x(self) -> float:
     """
@@ -154,7 +159,7 @@ class QPointF(CuteMixin, metaclass=MetaCute):
     Qt's own words: https://doc.qt.io/qt-6/qpointf.html#x
     """
     #  qreal QPointF::x() const
-    return self.uglySide.call('ritual_ZNK7QPointF1xEv')
+    return self._callAs('QPointF', 'ritual_ZNK7QPointF1xEv')
 
   def y(self) -> float:
     """
@@ -163,7 +168,7 @@ class QPointF(CuteMixin, metaclass=MetaCute):
     Qt's own words: https://doc.qt.io/qt-6/qpointf.html#y
     """
     #  qreal QPointF::y() const
-    return self.uglySide.call('ritual_ZNK7QPointF1yEv')
+    return self._callAs('QPointF', 'ritual_ZNK7QPointF1yEv')
 
   def transposed(self) -> QPointF:
     """
@@ -178,7 +183,7 @@ class QPointF(CuteMixin, metaclass=MetaCute):
       A new cute QPointF around the copy Qt gave back. Python owns it.
     """
     #  QPointF QPointF::transposed() const
-    address = self.uglySide.call('ritual_ZNK7QPointF10transposedEv')
+    address = self._callAs('QPointF', 'ritual_ZNK7QPointF10transposedEv')
     return QPointF._cuteOwning(address)
 
   def toPoint(self) -> QPoint:
@@ -194,7 +199,7 @@ class QPointF(CuteMixin, metaclass=MetaCute):
       A new cute QPoint around the copy Qt gave back. Python owns it.
     """
     #  QPoint QPointF::toPoint() const
-    address = self.uglySide.call('ritual_ZNK7QPointF7toPointEv')
+    address = self._callAs('QPointF', 'ritual_ZNK7QPointF7toPointEv')
     from . import QPoint
     return QPoint._cuteOwning(address)
 
@@ -216,7 +221,7 @@ class QPointF(CuteMixin, metaclass=MetaCute):
       Passed on as it is.
     """
     #  void QPointF::setX(qreal x)
-    self.uglySide.call('ritual_ZN7QPointF4setXEd', x)
+    self._callAs('QPointF', 'ritual_ZN7QPointF4setXEd', x)
 
   @overload(float)
   def setY(self, y: float) -> None:
@@ -232,7 +237,7 @@ class QPointF(CuteMixin, metaclass=MetaCute):
       Passed on as it is.
     """
     #  void QPointF::setY(qreal y)
-    self.uglySide.call('ritual_ZN7QPointF4setYEd', y)
+    self._callAs('QPointF', 'ritual_ZN7QPointF4setYEd', y)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NOTIFIERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -257,7 +262,9 @@ class QPointF(CuteMixin, metaclass=MetaCute):
       own.
     """
     #  QPointF &QPointF::operator+=(const QPointF &p)
-    self.uglySide.call('ritual_ZN7QPointFpLERKS_', self._valueOf(p))
+    self._callAs(
+        'QPointF', 'ritual_ZN7QPointFpLERKS_', self._valueOf(p, 'QPointF'),
+    )
     return self
 
   @overload.fallback
@@ -284,7 +291,9 @@ class QPointF(CuteMixin, metaclass=MetaCute):
       own.
     """
     #  QPointF &QPointF::operator-=(const QPointF &p)
-    self.uglySide.call('ritual_ZN7QPointFmIERKS_', self._valueOf(p))
+    self._callAs(
+        'QPointF', 'ritual_ZN7QPointFmIERKS_', self._valueOf(p, 'QPointF'),
+    )
     return self
 
   @overload.fallback
@@ -310,7 +319,7 @@ class QPointF(CuteMixin, metaclass=MetaCute):
       Passed on as it is.
     """
     #  QPointF &QPointF::operator*=(qreal c)
-    self.uglySide.call('ritual_ZN7QPointFmLEd', c)
+    self._callAs('QPointF', 'ritual_ZN7QPointFmLEd', c)
     return self
 
   @overload.fallback
@@ -336,7 +345,7 @@ class QPointF(CuteMixin, metaclass=MetaCute):
       Passed on as it is.
     """
     #  QPointF &QPointF::operator/=(qreal c)
-    self.uglySide.call('ritual_ZN7QPointFdVEd', c)
+    self._callAs('QPointF', 'ritual_ZN7QPointFdVEd', c)
     return self
 
   @overload.fallback
@@ -365,7 +374,8 @@ class QPointF(CuteMixin, metaclass=MetaCute):
     #  bool operator==(const QPointF &lhs, const QPointF &rhs)
     return Rituals.call(
         'ritual_ZeqRK7QPointFS1_',
-        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+        CuteMixin._valueOf(self, 'QPointF'), CuteMixin._valueOf(rhs,
+        'QPointF'),
     )
 
   @overload(QPoint)
@@ -385,7 +395,7 @@ class QPointF(CuteMixin, metaclass=MetaCute):
     #  bool operator==(const QPointF &lhs, const QPoint &rhs)
     return Rituals.call(
         'ritual_ZeqRK7QPointFRK6QPoint',
-        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+        CuteMixin._valueOf(self, 'QPointF'), CuteMixin._valueOf(rhs),
     )
 
   @overload.fallback
@@ -414,7 +424,8 @@ class QPointF(CuteMixin, metaclass=MetaCute):
     #  bool operator!=(const QPointF &lhs, const QPointF &rhs)
     return Rituals.call(
         'ritual_ZneRK7QPointFS1_',
-        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+        CuteMixin._valueOf(self, 'QPointF'), CuteMixin._valueOf(rhs,
+        'QPointF'),
     )
 
   @overload(QPoint)
@@ -434,7 +445,7 @@ class QPointF(CuteMixin, metaclass=MetaCute):
     #  bool operator!=(const QPointF &lhs, const QPoint &rhs)
     return Rituals.call(
         'ritual_ZneRK7QPointFRK6QPoint',
-        CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+        CuteMixin._valueOf(self, 'QPointF'), CuteMixin._valueOf(rhs),
     )
 
   @overload.fallback
@@ -469,7 +480,8 @@ class QPointF(CuteMixin, metaclass=MetaCute):
     #  QPointF operator+(const QPointF &p1, const QPointF &p2)
     address = Rituals.call(
         'ritual_ZplRK7QPointFS1_',
-        CuteMixin._valueOf(self), CuteMixin._valueOf(p2),
+        CuteMixin._valueOf(self, 'QPointF'), CuteMixin._valueOf(p2,
+        'QPointF'),
     )
     return QPointF._cuteOwning(address)
 
@@ -505,7 +517,8 @@ class QPointF(CuteMixin, metaclass=MetaCute):
     #  QPointF operator-(const QPointF &p1, const QPointF &p2)
     address = Rituals.call(
         'ritual_ZmiRK7QPointFS1_',
-        CuteMixin._valueOf(self), CuteMixin._valueOf(p2),
+        CuteMixin._valueOf(self, 'QPointF'), CuteMixin._valueOf(p2,
+        'QPointF'),
     )
     return QPointF._cuteOwning(address)
 
@@ -539,7 +552,7 @@ class QPointF(CuteMixin, metaclass=MetaCute):
     """
     #  QPointF operator*(const QPointF &p, qreal c)
     address = Rituals.call(
-        'ritual_ZmlRK7QPointFd', CuteMixin._valueOf(self), c,
+        'ritual_ZmlRK7QPointFd', CuteMixin._valueOf(self, 'QPointF'), c,
     )
     return QPointF._cuteOwning(address)
 
@@ -573,7 +586,7 @@ class QPointF(CuteMixin, metaclass=MetaCute):
     """
     #  QPointF operator*(qreal c, const QPointF &p)
     address = Rituals.call(
-        'ritual_ZmldRK7QPointF', c, CuteMixin._valueOf(self),
+        'ritual_ZmldRK7QPointF', c, CuteMixin._valueOf(self, 'QPointF'),
     )
     return QPointF._cuteOwning(address)
 
@@ -599,7 +612,9 @@ class QPointF(CuteMixin, metaclass=MetaCute):
       A new cute QPointF around the copy Qt gave back. Python owns it.
     """
     #  QPointF operator+(const QPointF &p)
-    address = Rituals.call('ritual_ZpsRK7QPointF', CuteMixin._valueOf(self))
+    address = Rituals.call(
+        'ritual_ZpsRK7QPointF', CuteMixin._valueOf(self, 'QPointF'),
+    )
     return QPointF._cuteOwning(address)
 
   def __neg__(self) -> QPointF:
@@ -615,7 +630,9 @@ class QPointF(CuteMixin, metaclass=MetaCute):
       A new cute QPointF around the copy Qt gave back. Python owns it.
     """
     #  QPointF operator-(const QPointF &p)
-    address = Rituals.call('ritual_ZngRK7QPointF', CuteMixin._valueOf(self))
+    address = Rituals.call(
+        'ritual_ZngRK7QPointF', CuteMixin._valueOf(self, 'QPointF'),
+    )
     return QPointF._cuteOwning(address)
 
   @overload(float)
@@ -639,7 +656,8 @@ class QPointF(CuteMixin, metaclass=MetaCute):
     """
     #  QPointF operator/(const QPointF &p, qreal divisor)
     address = Rituals.call(
-        'ritual_ZdvRK7QPointFd', CuteMixin._valueOf(self), divisor,
+        'ritual_ZdvRK7QPointFd',
+        CuteMixin._valueOf(self, 'QPointF'), divisor,
     )
     return QPointF._cuteOwning(address)
 
@@ -730,6 +748,28 @@ class QPointF(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def rx(*__, **_) -> Never:
+    """
+    Qt's 'qreal &QPointF::rx()': takes or gives a type that cannot be passed
+    yet: qreal &.
+    """
+    raise NotImplementedError(
+        "'QPointF.rx' has no cute function yet. Qt's 'qreal "
+        "&QPointF::rx()': takes or gives a type that cannot be passed yet: "
+        "qreal &.")
+
+  @staticmethod
+  def ry(*__, **_) -> Never:
+    """
+    Qt's 'qreal &QPointF::ry()': takes or gives a type that cannot be passed
+    yet: qreal &.
+    """
+    raise NotImplementedError(
+        "'QPointF.ry' has no cute function yet. Qt's 'qreal "
+        "&QPointF::ry()': takes or gives a type that cannot be passed yet: "
+        "qreal &.")
 
 
 #  Qt's 'QList<QPointF>': the list of QPointF, which 'QList[QPointF]' gives.

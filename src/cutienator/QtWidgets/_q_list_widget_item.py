@@ -18,7 +18,7 @@ from ..occult import Rituals
 from ..QtCore import Qt, QList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from ..QtCore import QSize, QVariant
   from ..QtGui import QBrush, QFont, QIcon
@@ -69,12 +69,12 @@ class QListWidgetItem(CuteMixin, metaclass=MetaCute):
   - Qt's 'void QListWidgetItem::setTextAlignment(Qt::Alignment alignment)':
     takes in Python what 'void
     QListWidgetItem::setTextAlignment(Qt::AlignmentFlag alignment)' takes.
-
-  What has no ritual
-  ------------------
-
-  3 of the 45 functions Qt declares: 3 takes or gives a type that cannot be
-  passed yet.
+  - Qt's 'void QListWidgetItem::read(QDataStream &in)': takes a type Python
+    has no way to hand over yet.
+  - Qt's 'void QListWidgetItem::write(QDataStream &out) const': takes a type
+    Python has no way to hand over yet.
+  - Qt's 'QListWidgetItem &QListWidgetItem::operator=(const QListWidgetItem
+    &other)': assignment: Python binds a name and has no operator for it.
 
   What to expect
   --------------
@@ -88,6 +88,9 @@ class QListWidgetItem(CuteMixin, metaclass=MetaCute):
     is as in C++.
   - A function giving a QListWidgetItem back gives a copy the ritual made for
     Python, in a new cute QListWidgetItem.
+  - Each name of Qt's QListWidgetItem that has no cute function yet, 'read',
+    'write', holds a function that raises 'NotImplementedError', and its
+    docstring says why.
   """
 
   #  The enums Qt writes inside QListWidgetItem, each a class in here as in
@@ -978,6 +981,28 @@ class QListWidgetItem(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def read(*__, **_) -> Never:
+    """
+    Qt's 'void QListWidgetItem::read(QDataStream &in)': takes a type Python
+    has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QListWidgetItem.read' has no cute function yet. Qt's 'void "
+        "QListWidgetItem::read(QDataStream &in)': takes a type Python has "
+        "no way to hand over yet.")
+
+  @staticmethod
+  def write(*__, **_) -> Never:
+    """
+    Qt's 'void QListWidgetItem::write(QDataStream &out) const': takes a type
+    Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QListWidgetItem.write' has no cute function yet. Qt's 'void "
+        "QListWidgetItem::write(QDataStream &out) const': takes a type "
+        "Python has no way to hand over yet.")
 
 
 #  Qt's 'QList<QListWidgetItem *>': the list of QListWidgetItem, which

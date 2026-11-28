@@ -18,7 +18,7 @@ from ..QtCore import Qt, QObject, QStringList
 from . import QDialog, QLineEdit, QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from ..QtCore import QMetaObject, QSize
 
@@ -39,7 +39,7 @@ class QInputDialog(QDialog):
   -----------
 
   Every function of Qt's QInputDialog that has a ritual and that Python can
-  call so far, 47 names in all: 'metaObject', 'tr', 'setInputMode',
+  call so far, 53 names in all: 'metaObject', 'tr', 'setInputMode',
   'inputMode', 'setLabelText', 'labelText', 'setOption', 'testOption',
   'setOptions', 'options', 'setTextValue', 'textValue', 'setTextEchoMode',
   'textEchoMode', 'setComboBoxEditable', 'isComboBoxEditable',
@@ -50,11 +50,21 @@ class QInputDialog(QDialog):
   'setDoubleRange', 'setDoubleDecimals', 'doubleDecimals', 'setOkButtonText',
   'okButtonText', 'setCancelButtonText', 'cancelButtonText', 'open',
   'minimumSizeHint', 'sizeHint', 'setVisible', 'setDoubleStep', 'doubleStep',
-  'done'. It can be made from Python, in 1 way; see '__init__'.
+  'textValueChanged', 'textValueSelected', 'intValueChanged',
+  'intValueSelected', 'doubleValueChanged', 'doubleValueSelected', 'done'. It
+  can be made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QInputDialog::qt_metacast(const char *a0)': one of Qt's own
+    inner workings.
+  - Qt's 'int QInputDialog::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
+  - Qt's 'QInputDialogPrivate *QInputDialog::d_func()': gives
+    'QInputDialogPrivate', which has no cute class yet.
+  - Qt's 'const QInputDialogPrivate *QInputDialog::d_func() const': gives
+    'QInputDialogPrivate', which has no cute class yet.
   - Qt's 'QInputDialog::~QInputDialog()': the destructor: Python never
     removes a C++ QInputDialog.
   - Qt's 'QString QInputDialog::getText(QWidget *parent, const QString
@@ -80,9 +90,7 @@ class QInputDialog(QDialog):
   What has no ritual
   ------------------
 
-  14 of the 68 functions Qt declares: 6 a signal; 4 takes or gives a type
-  that cannot be passed yet; 2 forbidden; 1 a template; 1 declared and
-  nowhere to be found.
+  4 of the 68 functions Qt declares: 2 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -98,6 +106,9 @@ class QInputDialog(QDialog):
   - Qt tells when it has removed the C++ QInputDialog. Every call on the cute
     object, and every use of it as an argument, then raises 'RuntimeError',
     and nothing reaches C++.
+  - Each name of Qt's QInputDialog that has no cute function yet,
+    'getDouble', 'getInt', 'getItem', 'getMultiLineText', 'getText', holds a
+    function that raises 'NotImplementedError', and its docstring says why.
   """
 
   #  The enums Qt writes inside QInputDialog, each a class in here as in C++,
@@ -997,6 +1008,113 @@ class QInputDialog(QDialog):
         self._addressOf(receiver, 'QObject'), self._bytesOf(member),
     )
 
+  @overload(str)
+  def textValueChanged(self, text: str) -> None:
+    """
+    Calls Qt's 'void QInputDialog::textValueChanged(const QString &text)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qinputdialog.html#textValueChanged
+
+    Parameters
+    ----------
+
+    text : str
+      Passed on as it is: a QString is made of it for the call.
+    """
+    #  void QInputDialog::textValueChanged(const QString &text)
+    self.uglySide.call(
+        'ritual_ZN12QInputDialog16textValueChangedERK7QString', text,
+    )
+
+  @overload(str)
+  def textValueSelected(self, text: str) -> None:
+    """
+    Calls Qt's 'void QInputDialog::textValueSelected(const QString &text)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qinputdialog.html#textValueSelected
+
+    Parameters
+    ----------
+
+    text : str
+      Passed on as it is: a QString is made of it for the call.
+    """
+    #  void QInputDialog::textValueSelected(const QString &text)
+    self.uglySide.call(
+        'ritual_ZN12QInputDialog17textValueSelectedERK7QString', text,
+    )
+
+  @overload(int)
+  def intValueChanged(self, value: int) -> None:
+    """
+    Calls Qt's 'void QInputDialog::intValueChanged(int value)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qinputdialog.html#intValueChanged
+
+    Parameters
+    ----------
+
+    value : int
+      Passed on as it is.
+    """
+    #  void QInputDialog::intValueChanged(int value)
+    self.uglySide.call('ritual_ZN12QInputDialog15intValueChangedEi', value)
+
+  @overload(int)
+  def intValueSelected(self, value: int) -> None:
+    """
+    Calls Qt's 'void QInputDialog::intValueSelected(int value)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qinputdialog.html#intValueSelected
+
+    Parameters
+    ----------
+
+    value : int
+      Passed on as it is.
+    """
+    #  void QInputDialog::intValueSelected(int value)
+    self.uglySide.call('ritual_ZN12QInputDialog16intValueSelectedEi', value)
+
+  @overload(float)
+  def doubleValueChanged(self, value: float) -> None:
+    """
+    Calls Qt's 'void QInputDialog::doubleValueChanged(double value)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qinputdialog.html#doubleValueChanged
+
+    Parameters
+    ----------
+
+    value : float
+      Passed on as it is.
+    """
+    #  void QInputDialog::doubleValueChanged(double value)
+    self.uglySide.call(
+        'ritual_ZN12QInputDialog18doubleValueChangedEd', value,
+    )
+
+  @overload(float)
+  def doubleValueSelected(self, value: float) -> None:
+    """
+    Calls Qt's 'void QInputDialog::doubleValueSelected(double value)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qinputdialog.html#doubleValueSelected
+
+    Parameters
+    ----------
+
+    value : float
+      Passed on as it is.
+    """
+    #  void QInputDialog::doubleValueSelected(double value)
+    self.uglySide.call(
+        'ritual_ZN12QInputDialog19doubleValueSelectedEd', value,
+    )
+
   @overload(int)
   def done(self, result: int) -> None:
     """
@@ -1015,3 +1133,77 @@ class QInputDialog(QDialog):
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZN12QInputDialog4doneEi'
     self.uglySide.call(ritual, result)
+
+  @staticmethod
+  def getDouble(*__, **_) -> Never:
+    """
+    Qt's 'double QInputDialog::getDouble(QWidget *parent, const QString
+    &title, const QString &label, double value, double minValue, double
+    maxValue, int decimals, bool *ok, Qt::WindowFlags flags, double step)':
+    takes a number to change where it is.
+    """
+    raise NotImplementedError(
+        "'QInputDialog.getDouble' has no cute function yet. Qt's 'double "
+        "QInputDialog::getDouble(QWidget *parent, const QString &title, "
+        "const QString &label, double value, double minValue, double "
+        "maxValue, int decimals, bool *ok, Qt::WindowFlags flags, double "
+        "step)': takes a number to change where it is.")
+
+  @staticmethod
+  def getInt(*__, **_) -> Never:
+    """
+    Qt's 'int QInputDialog::getInt(QWidget *parent, const QString &title,
+    const QString &label, int value, int minValue, int maxValue, int step,
+    bool *ok, Qt::WindowFlags flags)': takes a number to change where it is.
+    """
+    raise NotImplementedError(
+        "'QInputDialog.getInt' has no cute function yet. Qt's 'int "
+        "QInputDialog::getInt(QWidget *parent, const QString &title, const "
+        "QString &label, int value, int minValue, int maxValue, int step, "
+        "bool *ok, Qt::WindowFlags flags)': takes a number to change where "
+        "it is.")
+
+  @staticmethod
+  def getItem(*__, **_) -> Never:
+    """
+    Qt's 'QString QInputDialog::getItem(QWidget *parent, const QString
+    &title, const QString &label, const QStringList &items, int current, bool
+    editable, bool *ok, Qt::WindowFlags flags, Qt::InputMethodHints
+    inputMethodHints)': takes a number to change where it is.
+    """
+    raise NotImplementedError(
+        "'QInputDialog.getItem' has no cute function yet. Qt's 'QString "
+        "QInputDialog::getItem(QWidget *parent, const QString &title, const "
+        "QString &label, const QStringList &items, int current, bool "
+        "editable, bool *ok, Qt::WindowFlags flags, Qt::InputMethodHints "
+        "inputMethodHints)': takes a number to change where it is.")
+
+  @staticmethod
+  def getMultiLineText(*__, **_) -> Never:
+    """
+    Qt's 'QString QInputDialog::getMultiLineText(QWidget *parent, const
+    QString &title, const QString &label, const QString &text, bool *ok,
+    Qt::WindowFlags flags, Qt::InputMethodHints inputMethodHints)': takes a
+    number to change where it is.
+    """
+    raise NotImplementedError(
+        "'QInputDialog.getMultiLineText' has no cute function yet. Qt's "
+        "'QString QInputDialog::getMultiLineText(QWidget *parent, const "
+        "QString &title, const QString &label, const QString &text, bool "
+        "*ok, Qt::WindowFlags flags, Qt::InputMethodHints "
+        "inputMethodHints)': takes a number to change where it is.")
+
+  @staticmethod
+  def getText(*__, **_) -> Never:
+    """
+    Qt's 'QString QInputDialog::getText(QWidget *parent, const QString
+    &title, const QString &label, QLineEdit::EchoMode echo, const QString
+    &text, bool *ok, Qt::WindowFlags flags, Qt::InputMethodHints
+    inputMethodHints)': takes a number to change where it is.
+    """
+    raise NotImplementedError(
+        "'QInputDialog.getText' has no cute function yet. Qt's 'QString "
+        "QInputDialog::getText(QWidget *parent, const QString &title, const "
+        "QString &label, QLineEdit::EchoMode echo, const QString &text, "
+        "bool *ok, Qt::WindowFlags flags, Qt::InputMethodHints "
+        "inputMethodHints)': takes a number to change where it is.")

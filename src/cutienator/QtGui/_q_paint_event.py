@@ -46,14 +46,17 @@ class QPaintEvent(QEvent):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'QPaintEvent::QPaintEvent(const QPaintEvent &a0)': takes a type
+    Python has no way to hand over yet.
+  - Qt's 'QPaintEvent &QPaintEvent::operator=(const QPaintEvent &other)':
+    assignment: Python binds a name and has no operator for it.
   - Qt's 'QPaintEvent::~QPaintEvent()': the destructor: Python never removes
     a C++ QPaintEvent.
 
   What has no ritual
   ------------------
 
-  4 of the 10 functions Qt declares: 2 takes or gives a type that cannot be
-  passed yet; 2 forbidden.
+  2 of the 10 functions Qt declares: 2 forbidden.
 
   What to expect
   --------------

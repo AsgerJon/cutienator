@@ -18,6 +18,8 @@ from ..occult import Rituals
 from ..QtCore import Qt
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Never
+
   from . import QBrush, QColor
 else:
   #  The cute classes this file names and is not built on. Each is brought in
@@ -54,14 +56,23 @@ class QPalette(CuteMixin, metaclass=MetaCute):
 
   - Qt's 'QPalette::~QPalette()': the destructor: Python removes its C++
     QPalette by it, and has no other use for it.
+  - Qt's 'QPalette &QPalette::operator=(const QPalette &palette)':
+    assignment: Python binds a name and has no operator for it.
+  - Qt's 'QPalette::QPalette(QPalette &&other)': takes a type Python has no
+    way to hand over yet.
+  - Qt's 'QPalette &QPalette::operator=(QPalette &&other)': assignment:
+    Python binds a name and has no operator for it.
+  - Qt's 'void QPalette::swap(QPalette &other)': takes a type Python has no
+    way to hand over yet.
   - Qt's 'QVariant QPalette::operator QVariant() const': an operator Python
     has no name for.
+  - Qt's 'QDataStream &operator<<(QDataStream &s, const QPalette &p)': takes
+    a type Python has no way to hand over yet.
 
   What has no ritual
   ------------------
 
-  8 of the 62 functions Qt declares: 5 takes or gives a type that cannot be
-  passed yet; 2 declared and nowhere to be found; 1 a template.
+  3 of the 62 functions Qt declares: 3 not a gap.
 
   What to expect
   --------------
@@ -74,6 +85,8 @@ class QPalette(CuteMixin, metaclass=MetaCute):
     is as in C++.
   - A function giving a QPalette back gives a copy the ritual made for
     Python, in a new cute QPalette.
+  - Each name of Qt's QPalette that has no cute function yet, 'swap', holds a
+    function that raises 'NotImplementedError', and its docstring says why.
   """
 
   #  The enums Qt writes inside QPalette, each a class in here as in C++, and
@@ -1579,3 +1592,14 @@ class QPalette(CuteMixin, metaclass=MetaCute):
     """
     #  void QPalette::detach()
     self.uglySide.call('ritual_ZN8QPalette6detachEv')
+
+  @staticmethod
+  def swap(*__, **_) -> Never:
+    """
+    Qt's 'void QPalette::swap(QPalette &other)': takes a type Python has no
+    way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QPalette.swap' has no cute function yet. Qt's 'void "
+        "QPalette::swap(QPalette &other)': takes a type Python has no way "
+        "to hand over yet.")

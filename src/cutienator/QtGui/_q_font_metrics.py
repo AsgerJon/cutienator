@@ -17,7 +17,7 @@ from ..occult import Rituals
 from ..QtCore import Qt
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from ..QtCore import QChar, QRect
   from . import QFont, QPaintDevice, QTextOption
@@ -59,8 +59,16 @@ class QFontMetrics(CuteMixin, metaclass=MetaCute):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'QFontMetrics::QFontMetrics(QFontMetrics &&a0)': takes a type Python
+    has no way to hand over yet.
   - Qt's 'QFontMetrics::~QFontMetrics()': the destructor: Python removes its
     C++ QFontMetrics by it, and has no other use for it.
+  - Qt's 'QFontMetrics &QFontMetrics::operator=(const QFontMetrics &a0)':
+    assignment: Python binds a name and has no operator for it.
+  - Qt's 'QFontMetrics &QFontMetrics::operator=(QFontMetrics &&other)':
+    assignment: Python binds a name and has no operator for it.
+  - Qt's 'void QFontMetrics::swap(QFontMetrics &other)': takes a type Python
+    has no way to hand over yet.
   - Qt's 'QRect QFontMetrics::boundingRect(const QRect &r, int flags, const
     QString &text, int tabstops, int *tabarray) const': takes a number to
     change where it is.
@@ -69,12 +77,6 @@ class QFontMetrics(CuteMixin, metaclass=MetaCute):
     number to change where it is.
   - Qt's 'QSize QFontMetrics::size(int flags, const QString &str, int
     tabstops, int *tabarray) const': takes a number to change where it is.
-
-  What has no ritual
-  ------------------
-
-  4 of the 42 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet.
 
   What to expect
   --------------
@@ -88,6 +90,9 @@ class QFontMetrics(CuteMixin, metaclass=MetaCute):
     is as in C++.
   - A function giving a QFontMetrics back gives a copy the ritual made for
     Python, in a new cute QFontMetrics.
+  - Each name of Qt's QFontMetrics that has no cute function yet, 'size',
+    'swap', holds a function that raises 'NotImplementedError', and its
+    docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -752,3 +757,25 @@ class QFontMetrics(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def size(*__, **_) -> Never:
+    """
+    Qt's 'QSize QFontMetrics::size(int flags, const QString &str, int
+    tabstops, int *tabarray) const': takes a number to change where it is.
+    """
+    raise NotImplementedError(
+        "'QFontMetrics.size' has no cute function yet. Qt's 'QSize "
+        "QFontMetrics::size(int flags, const QString &str, int tabstops, "
+        "int *tabarray) const': takes a number to change where it is.")
+
+  @staticmethod
+  def swap(*__, **_) -> Never:
+    """
+    Qt's 'void QFontMetrics::swap(QFontMetrics &other)': takes a type Python
+    has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QFontMetrics.swap' has no cute function yet. Qt's 'void "
+        "QFontMetrics::swap(QFontMetrics &other)': takes a type Python has "
+        "no way to hand over yet.")

@@ -17,7 +17,7 @@ from ..cute import CuteMixin, CuteFlags, CuteNum, MetaCute
 from ..occult import Rituals
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -38,11 +38,22 @@ class QArrayData(CuteMixin, metaclass=MetaCute):
   None can be made from Python: one comes out of a function of another class
   that gives one back.
 
-  What has no ritual
-  ------------------
+  What has a ritual and is left out, and why
+  ------------------------------------------
 
-  4 of the 12 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet.
+  - Qt's 'void *QArrayData::allocate(QArrayData **pdata, qsizetype
+    objectSize, qsizetype alignment, qsizetype capacity, AllocationOption
+    option)': takes a type Python has no way to hand over yet.
+  - Qt's 'void *QArrayData::allocate1(QArrayData **pdata, qsizetype capacity,
+    AllocationOption option)': takes a type Python has no way to hand over
+    yet.
+  - Qt's 'void *QArrayData::allocate2(QArrayData **pdata, qsizetype capacity,
+    AllocationOption option)': takes a type Python has no way to hand over
+    yet.
+  - Qt's 'std::pair<QArrayData *, void *>
+    QArrayData::reallocateUnaligned(QArrayData *data, void *dataPointer,
+    qsizetype objectSize, qsizetype newCapacity, AllocationOption option)':
+    names 'void', which has no cute class yet.
 
   What to expect
   --------------
@@ -54,6 +65,9 @@ class QArrayData(CuteMixin, metaclass=MetaCute):
     has it, and is passed on as nothing. Whether Qt can do with nothing there
     is as in C++.
   - Python never removes the C++ QArrayData.
+  - Each name of Qt's QArrayData that has no cute function yet, 'allocate',
+    'allocate1', 'allocate2', 'reallocateUnaligned', holds a function that
+    raises 'NotImplementedError', and its docstring says why.
   """
 
   #  The enums Qt writes inside QArrayData, each a class in here as in C++,
@@ -257,3 +271,58 @@ class QArrayData(CuteMixin, metaclass=MetaCute):
     """
     #  bool QArrayData::needsDetach()
     return self.uglySide.call('ritual_ZN10QArrayData11needsDetachEv')
+
+  @staticmethod
+  def allocate(*__, **_) -> Never:
+    """
+    Qt's 'void *QArrayData::allocate(QArrayData **pdata, qsizetype
+    objectSize, qsizetype alignment, qsizetype capacity, AllocationOption
+    option)': takes a type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QArrayData.allocate' has no cute function yet. Qt's 'void "
+        "*QArrayData::allocate(QArrayData **pdata, qsizetype objectSize, "
+        "qsizetype alignment, qsizetype capacity, AllocationOption "
+        "option)': takes a type Python has no way to hand over yet.")
+
+  @staticmethod
+  def allocate1(*__, **_) -> Never:
+    """
+    Qt's 'void *QArrayData::allocate1(QArrayData **pdata, qsizetype capacity,
+    AllocationOption option)': takes a type Python has no way to hand over
+    yet.
+    """
+    raise NotImplementedError(
+        "'QArrayData.allocate1' has no cute function yet. Qt's 'void "
+        "*QArrayData::allocate1(QArrayData **pdata, qsizetype capacity, "
+        "AllocationOption option)': takes a type Python has no way to hand "
+        "over yet.")
+
+  @staticmethod
+  def allocate2(*__, **_) -> Never:
+    """
+    Qt's 'void *QArrayData::allocate2(QArrayData **pdata, qsizetype capacity,
+    AllocationOption option)': takes a type Python has no way to hand over
+    yet.
+    """
+    raise NotImplementedError(
+        "'QArrayData.allocate2' has no cute function yet. Qt's 'void "
+        "*QArrayData::allocate2(QArrayData **pdata, qsizetype capacity, "
+        "AllocationOption option)': takes a type Python has no way to hand "
+        "over yet.")
+
+  @staticmethod
+  def reallocateUnaligned(*__, **_) -> Never:
+    """
+    Qt's 'std::pair<QArrayData *, void *>
+    QArrayData::reallocateUnaligned(QArrayData *data, void *dataPointer,
+    qsizetype objectSize, qsizetype newCapacity, AllocationOption option)':
+    names 'void', which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QArrayData.reallocateUnaligned' has no cute function yet. Qt's "
+        "'std::pair<QArrayData *, void *> "
+        "QArrayData::reallocateUnaligned(QArrayData *data, void "
+        "*dataPointer, qsizetype objectSize, qsizetype newCapacity, "
+        "AllocationOption option)': names 'void', which has no cute class "
+        "yet.")

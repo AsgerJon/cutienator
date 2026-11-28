@@ -16,6 +16,9 @@ from worktoy.keenum import Kee
 from ..cute import CuteMixin, CuteNum, MetaCute
 from ..occult import Rituals
 
+if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Never
+
 
 class QNativeIpcKey(CuteMixin, metaclass=MetaCute):
   """
@@ -39,14 +42,25 @@ class QNativeIpcKey(CuteMixin, metaclass=MetaCute):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'QNativeIpcKey::QNativeIpcKey(QNativeIpcKey &&other)': takes a type
+    Python has no way to hand over yet.
   - Qt's 'QNativeIpcKey::~QNativeIpcKey()': the destructor: Python removes
     its C++ QNativeIpcKey by it, and has no other use for it.
+  - Qt's 'QNativeIpcKey &QNativeIpcKey::operator=(const QNativeIpcKey
+    &other)': assignment: Python binds a name and has no operator for it.
+  - Qt's 'QNativeIpcKey &QNativeIpcKey::operator=(QNativeIpcKey &&other)':
+    assignment: Python binds a name and has no operator for it.
+  - Qt's 'void QNativeIpcKey::swap(QNativeIpcKey &other)': takes a type
+    Python has no way to hand over yet.
+  - Qt's 'void QNativeIpcKey::move_internal(QNativeIpcKey &&other)': takes a
+    type Python has no way to hand over yet.
+  - Qt's 'QNativeIpcKey &QNativeIpcKey::assign_internal(const QNativeIpcKey
+    &other)': gives a type Python has no way to take yet.
 
   What has no ritual
   ------------------
 
-  9 of the 31 functions Qt declares: 6 takes or gives a type that cannot be
-  passed yet; 2 declared and nowhere to be found; 1 a template.
+  3 of the 31 functions Qt declares: 3 not a gap.
 
   What to expect
   --------------
@@ -60,6 +74,9 @@ class QNativeIpcKey(CuteMixin, metaclass=MetaCute):
     is as in C++.
   - A function giving a QNativeIpcKey back gives a copy the ritual made for
     Python, in a new cute QNativeIpcKey.
+  - Each name of Qt's QNativeIpcKey that has no cute function yet,
+    'assign_internal', 'move_internal', 'swap', holds a function that raises
+    'NotImplementedError', and its docstring says why.
   """
 
   #  The enums Qt writes inside QNativeIpcKey, each a class in here as in
@@ -529,3 +546,36 @@ class QNativeIpcKey(CuteMixin, metaclass=MetaCute):
     """
     #  void QNativeIpcKey::destroy_internal()
     self.uglySide.call('ritual_ZN13QNativeIpcKey16destroy_internalEv')
+
+  @staticmethod
+  def assign_internal(*__, **_) -> Never:
+    """
+    Qt's 'QNativeIpcKey &QNativeIpcKey::assign_internal(const QNativeIpcKey
+    &other)': gives a type Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QNativeIpcKey.assign_internal' has no cute function yet. Qt's "
+        "'QNativeIpcKey &QNativeIpcKey::assign_internal(const QNativeIpcKey "
+        "&other)': gives a type Python has no way to take yet.")
+
+  @staticmethod
+  def move_internal(*__, **_) -> Never:
+    """
+    Qt's 'void QNativeIpcKey::move_internal(QNativeIpcKey &&other)': takes a
+    type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QNativeIpcKey.move_internal' has no cute function yet. Qt's 'void "
+        "QNativeIpcKey::move_internal(QNativeIpcKey &&other)': takes a type "
+        "Python has no way to hand over yet.")
+
+  @staticmethod
+  def swap(*__, **_) -> Never:
+    """
+    Qt's 'void QNativeIpcKey::swap(QNativeIpcKey &other)': takes a type
+    Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QNativeIpcKey.swap' has no cute function yet. Qt's 'void "
+        "QNativeIpcKey::swap(QNativeIpcKey &other)': takes a type Python "
+        "has no way to hand over yet.")

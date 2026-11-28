@@ -65,12 +65,15 @@ class QGraphicsLineItem(QGraphicsItem):
   - Qt's 'void QGraphicsLineItem::setExtension(Extension extension, const
     QVariant &variant)': names the enum 'QGraphicsItem::Extension', whose
     class cannot be named here.
+  - Qt's 'QGraphicsLineItemPrivate *QGraphicsLineItem::d_func()': gives
+    'QGraphicsLineItemPrivate', which has no cute class yet.
+  - Qt's 'const QGraphicsLineItemPrivate *QGraphicsLineItem::d_func() const':
+    gives 'QGraphicsLineItemPrivate', which has no cute class yet.
 
   What has no ritual
   ------------------
 
-  4 of the 23 functions Qt declares: 2 forbidden; 2 takes or gives a type
-  that cannot be passed yet.
+  2 of the 23 functions Qt declares: 2 forbidden.
 
   What to expect
   --------------
@@ -208,7 +211,7 @@ class QGraphicsLineItem(QGraphicsItem):
     ritual = 'ritual_ZNK17QGraphicsLineItem8containsERK7QPointF'
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZNK17QGraphicsLineItem8containsERK7QPointF'
-    return self.uglySide.call(ritual, self._valueOf(point))
+    return self.uglySide.call(ritual, self._valueOf(point, 'QPointF'))
 
   @overload(QGraphicsItem)
   @overload(NoneType)

@@ -37,22 +37,28 @@ class QSignalMapper(QObject):
   -----------
 
   Every function of Qt's QSignalMapper that has a ritual and that Python can
-  call so far, 6 names in all: 'metaObject', 'tr', 'setMapping',
-  'removeMappings', 'mapping', 'map'. It can be made from Python, in 1 way;
-  see '__init__'.
+  call so far, 9 names in all: 'metaObject', 'tr', 'setMapping',
+  'removeMappings', 'mapping', 'mappedInt', 'mappedString', 'mappedObject',
+  'map'. It can be made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QSignalMapper::qt_metacast(const char *a0)': one of Qt's own
+    inner workings.
+  - Qt's 'int QSignalMapper::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
+  - Qt's 'QSignalMapperPrivate *QSignalMapper::d_func()': gives
+    'QSignalMapperPrivate', which has no cute class yet.
+  - Qt's 'const QSignalMapperPrivate *QSignalMapper::d_func() const': gives
+    'QSignalMapperPrivate', which has no cute class yet.
   - Qt's 'QSignalMapper::~QSignalMapper()': the destructor: Python never
     removes a C++ QSignalMapper.
 
   What has no ritual
   ------------------
 
-  11 of the 24 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet; 3 a signal; 2 forbidden; 1 a template; 1 declared and nowhere
-  to be found.
+  4 of the 24 functions Qt declares: 2 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -399,6 +405,61 @@ class QSignalMapper(QObject):
     self.uglySide.call(
         'ritual_ZN13QSignalMapper14removeMappingsEP7QObject',
         self._addressOf(sender, 'QObject'),
+    )
+
+  @overload(int)
+  def mappedInt(self, a0: int) -> None:
+    """
+    Calls Qt's 'void QSignalMapper::mappedInt(int a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qsignalmapper.html#mappedInt
+
+    Parameters
+    ----------
+
+    a0 : int
+      Passed on as it is.
+    """
+    #  void QSignalMapper::mappedInt(int a0)
+    self.uglySide.call('ritual_ZN13QSignalMapper9mappedIntEi', a0)
+
+  @overload(str)
+  def mappedString(self, a0: str) -> None:
+    """
+    Calls Qt's 'void QSignalMapper::mappedString(const QString &a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qsignalmapper.html#mappedString
+
+    Parameters
+    ----------
+
+    a0 : str
+      Passed on as it is: a QString is made of it for the call.
+    """
+    #  void QSignalMapper::mappedString(const QString &a0)
+    self.uglySide.call(
+        'ritual_ZN13QSignalMapper12mappedStringERK7QString', a0,
+    )
+
+  @overload(QObject)
+  @overload(NoneType)
+  def mappedObject(self, a0: Optional[QObject]) -> None:
+    """
+    Calls Qt's 'void QSignalMapper::mappedObject(QObject *a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qsignalmapper.html#mappedObject
+
+    Parameters
+    ----------
+
+    a0 : Optional[QObject]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QSignalMapper::mappedObject(QObject *a0)
+    self.uglySide.call(
+        'ritual_ZN13QSignalMapper12mappedObjectEP7QObject',
+        self._addressOf(a0, 'QObject'),
     )
 
   @overload()

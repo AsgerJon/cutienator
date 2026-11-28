@@ -18,7 +18,7 @@ from ..occult import Rituals
 from . import Qt, QList, QLocale
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from . import QByteArray, QByteArrayView, QDateTime, QDebug
 else:
@@ -58,14 +58,47 @@ class QTimeZone(CuteMixin, metaclass=MetaCute):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'QTimeZone::QTimeZone(ShortData sd)': takes a type Python has no way
+    to hand over yet.
+  - Qt's 'QTimeZone::QTimeZone(const QByteArray &zoneId, int offsetSeconds,
+    const QString &name, const QString &abbreviation, QLocale::Territory
+    territory, const QString &comment)': takes a type Python has no way to
+    hand over yet.
+  - Qt's 'QTimeZone::QTimeZone(QTimeZone &&other)': takes a type Python has
+    no way to hand over yet.
   - Qt's 'QTimeZone::~QTimeZone()': the destructor: Python removes its C++
     QTimeZone by it, and has no other use for it.
+  - Qt's 'QTimeZone &QTimeZone::operator=(const QTimeZone &other)':
+    assignment: Python binds a name and has no operator for it.
+  - Qt's 'QTimeZone &QTimeZone::operator=(QTimeZone &&other)': assignment:
+    Python binds a name and has no operator for it.
+  - Qt's 'void QTimeZone::swap(QTimeZone &other)': takes a type Python has no
+    way to hand over yet.
+  - Qt's 'QTimeZone QTimeZone::fromDurationAheadOfUtc(std::chrono::seconds
+    offset)': takes a type Python has no way to hand over yet.
+  - Qt's 'QLocale::Territory QTimeZone::territory() const': gives a type
+    Python has no way to take yet.
+  - Qt's 'OffsetDataList QTimeZone::transitions(const QDateTime
+    &fromDateTime, const QDateTime &toDateTime) const': gives a type Python
+    has no way to take yet.
+  - Qt's 'QList<QByteArray>
+    QTimeZone::availableTimeZoneIds(QLocale::Territory territory)': takes a
+    type Python has no way to hand over yet.
+  - Qt's 'QByteArray QTimeZone::windowsIdToDefaultIanaId(const QByteArray
+    &windowsId, QLocale::Territory territory)': takes a type Python has no
+    way to hand over yet.
+  - Qt's 'QList<QByteArray> QTimeZone::windowsIdToIanaIds(const QByteArray
+    &windowsId, QLocale::Territory territory)': takes a type Python has no
+    way to hand over yet.
+  - Qt's 'QDataStream &operator<<(QDataStream &ds, const QTimeZone &tz)':
+    takes a type Python has no way to hand over yet.
+  - Qt's 'QTimeZone::QTimeZone(QTimeZonePrivate &dd)': takes a type Python
+    has no way to hand over yet.
 
   What has no ritual
   ------------------
 
-  15 of the 56 functions Qt declares: 14 takes or gives a type that cannot be
-  passed yet; 1 forbidden.
+  1 of the 56 functions Qt declares: 1 forbidden.
 
   What to expect
   --------------
@@ -78,6 +111,9 @@ class QTimeZone(CuteMixin, metaclass=MetaCute):
     is as in C++.
   - A function giving a QTimeZone back gives a copy the ritual made for
     Python, in a new cute QTimeZone.
+  - Each name of Qt's QTimeZone that has no cute function yet,
+    'fromDurationAheadOfUtc', 'swap', 'territory', 'transitions', holds a
+    function that raises 'NotImplementedError', and its docstring says why.
   """
 
   #  The enums Qt writes inside QTimeZone, each a class in here as in C++,
@@ -1171,3 +1207,49 @@ class QTimeZone(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def fromDurationAheadOfUtc(*__, **_) -> Never:
+    """
+    Qt's 'QTimeZone QTimeZone::fromDurationAheadOfUtc(std::chrono::seconds
+    offset)': takes a type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QTimeZone.fromDurationAheadOfUtc' has no cute function yet. Qt's "
+        "'QTimeZone QTimeZone::fromDurationAheadOfUtc(std::chrono::seconds "
+        "offset)': takes a type Python has no way to hand over yet.")
+
+  @staticmethod
+  def swap(*__, **_) -> Never:
+    """
+    Qt's 'void QTimeZone::swap(QTimeZone &other)': takes a type Python has no
+    way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QTimeZone.swap' has no cute function yet. Qt's 'void "
+        "QTimeZone::swap(QTimeZone &other)': takes a type Python has no way "
+        "to hand over yet.")
+
+  @staticmethod
+  def territory(*__, **_) -> Never:
+    """
+    Qt's 'QLocale::Territory QTimeZone::territory() const': gives a type
+    Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QTimeZone.territory' has no cute function yet. Qt's "
+        "'QLocale::Territory QTimeZone::territory() const': gives a type "
+        "Python has no way to take yet.")
+
+  @staticmethod
+  def transitions(*__, **_) -> Never:
+    """
+    Qt's 'OffsetDataList QTimeZone::transitions(const QDateTime
+    &fromDateTime, const QDateTime &toDateTime) const': gives a type Python
+    has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QTimeZone.transitions' has no cute function yet. Qt's "
+        "'OffsetDataList QTimeZone::transitions(const QDateTime "
+        "&fromDateTime, const QDateTime &toDateTime) const': gives a type "
+        "Python has no way to take yet.")

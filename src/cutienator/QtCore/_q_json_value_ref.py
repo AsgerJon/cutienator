@@ -58,6 +58,10 @@ class QJsonValueRef(QJsonValueConstRef):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'QJsonValueRef &QJsonValueRef::operator=(const QJsonValue &val)':
+    assignment: Python binds a name and has no operator for it.
+  - Qt's 'QJsonValueRef &QJsonValueRef::operator=(const QJsonValueRef &val)':
+    assignment: Python binds a name and has no operator for it.
   - Qt's 'QJsonValue QJsonValueRef::operator QJsonValue() const': an operator
     Python has no name for.
   - Qt's 'bool operator==(const QJsonValueConstRef &lhs, const QJsonValueRef
@@ -68,12 +72,6 @@ class QJsonValueRef(QJsonValueConstRef):
     const QJsonValueConstRef &rhs)' takes.
   - Qt's 'QJsonValueRef::~QJsonValueRef()': the destructor: Python removes
     its C++ QJsonValueRef by it, and has no other use for it.
-
-  What has no ritual
-  ------------------
-
-  2 of the 35 functions Qt declares: 2 takes or gives a type that cannot be
-  passed yet.
 
   What to expect
   --------------

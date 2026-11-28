@@ -19,6 +19,7 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
   from ..QtCore import QEvent
+  from . import QGraphicsLayoutPrivate
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -42,11 +43,11 @@ class QGraphicsLayout(QGraphicsLayoutItem):
   -----------
 
   Every function of Qt's QGraphicsLayout that has a ritual and that Python
-  can call so far, 12 names in all: 'setContentsMargins', 'activate',
+  can call so far, 13 names in all: 'setContentsMargins', 'activate',
   'isActivated', 'invalidate', 'updateGeometry', 'widgetEvent', 'count',
   'itemAt', 'removeAt', 'setInstantInvalidatePropagation',
-  'instantInvalidatePropagation', 'addChildLayoutItem'. None can be made from
-  Python: one comes out of a function of another class that gives one back.
+  'instantInvalidatePropagation', 'addChildLayoutItem', 'd_func'. It can be
+  made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -56,12 +57,17 @@ class QGraphicsLayout(QGraphicsLayoutItem):
   - Qt's 'void QGraphicsLayout::getContentsMargins(qreal *left, qreal *top,
     qreal *right, qreal *bottom) const': takes a number to change where it
     is.
+  - Qt's 'QGraphicsLayout::QGraphicsLayout(QGraphicsLayoutPrivate &a0,
+    QGraphicsLayoutItem *a1)': takes a type Python has no way to hand over
+    yet.
+  - Qt's 'const QGraphicsLayoutPrivate *QGraphicsLayout::d_func() const':
+    takes in Python what 'QGraphicsLayoutPrivate *QGraphicsLayout::d_func()'
+    takes.
 
   What has no ritual
   ------------------
 
-  6 of the 20 functions Qt declares: 2 the class is abstract, so C++ cannot
-  make one; 2 forbidden; 2 takes or gives a type that cannot be passed yet.
+  2 of the 20 functions Qt declares: 2 forbidden.
 
   What to expect
   --------------
@@ -273,6 +279,31 @@ class QGraphicsLayout(QGraphicsLayoutItem):
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  @overload()
+  @overload(QGraphicsLayoutItem)
+  @overload(NoneType)
+  def __init__(self, parent: Optional[QGraphicsLayoutItem] = None) -> None:
+    """
+    Notes what was given, for Qt's
+    'QGraphicsLayout::QGraphicsLayout(QGraphicsLayoutItem *parent)', which is
+    called at the first use.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicslayout.html#QGraphicsLayout
+
+    Parameters
+    ----------
+
+    parent : Optional[QGraphicsLayoutItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object. May be left out, as in Qt: it is then None.
+    """
+    #  QGraphicsLayout::QGraphicsLayout(QGraphicsLayoutItem *parent)
+    self._noteCreation(QGraphicsLayout, lambda: Rituals.call(
+        'ritual_ZN15QGraphicsLayoutC1EP19QGraphicsLayoutItem',
+        self._addressOf(parent, 'QGraphicsLayoutItem'),
+    ))
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -391,3 +422,21 @@ class QGraphicsLayout(QGraphicsLayoutItem):
         'tem',
         self._addressOf(layoutItem, 'QGraphicsLayoutItem'),
     )
+
+  def d_func(self) -> Optional[QGraphicsLayoutPrivate]:
+    """
+    Calls Qt's 'QGraphicsLayoutPrivate *QGraphicsLayout::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicslayout.html#d_func
+
+    Returns
+    -------
+
+    Optional[QGraphicsLayoutPrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QGraphicsLayoutPrivate *QGraphicsLayout::d_func()
+    address = self.uglySide.call('ritual_ZN15QGraphicsLayout6d_funcEv')
+    from . import QGraphicsLayoutPrivate
+    return QGraphicsLayoutPrivate._cuteAt(address)

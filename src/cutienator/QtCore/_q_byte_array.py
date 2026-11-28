@@ -18,7 +18,7 @@ from ..occult import Rituals
 from . import Qt, QArrayData, QHash, QList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from . import QByteArrayView, QChar
 else:
@@ -68,16 +68,40 @@ class QByteArray(CuteMixin, metaclass=MetaCute):
     letter as C has it.
   - Qt's 'QByteArray::~QByteArray()': the destructor: Python removes its C++
     QByteArray by it, and has no other use for it.
+  - Qt's 'QByteArray &QByteArray::operator=(const QByteArray &a0)':
+    assignment: Python binds a name and has no operator for it.
+  - Qt's 'QByteArray &QByteArray::operator=(const char *str)': assignment:
+    Python binds a name and has no operator for it.
+  - Qt's 'QByteArray::QByteArray(QByteArray &&other)': takes a type Python
+    has no way to hand over yet.
+  - Qt's 'QByteArray &QByteArray::operator=(QByteArray &&other)': assignment:
+    Python binds a name and has no operator for it.
+  - Qt's 'void QByteArray::swap(QByteArray &other)': takes a type Python has
+    no way to hand over yet.
   - Qt's 'void QByteArray::resize(qsizetype size, char c)': takes a single
     letter as C has it.
+  - Qt's 'QByteArray &QByteArray::fill(char c, qsizetype size)': takes a
+    single letter as C has it.
   - Qt's 'const char *QByteArray::operator const char *() const': an operator
     Python has no name for.
+  - Qt's 'const void *QByteArray::operator const void *() const': an operator
+    Python has no name for.
+  - Qt's 'std::string_view QByteArray::operator basic_string_view() const':
+    an operator Python has no name for.
+  - Qt's 'char *QByteArray::data()': gives 'char', which has no cute class
+    yet.
   - Qt's 'char QByteArray::at(qsizetype i) const': gives a single letter as C
     has it.
   - Qt's 'char QByteArray::operator[](qsizetype i) const': gives a single
     letter as C has it.
+  - Qt's 'char &QByteArray::operator[](qsizetype i)': gives a type Python has
+    no way to take yet.
   - Qt's 'char QByteArray::front() const': gives a single letter as C has it.
+  - Qt's 'char &QByteArray::front()': gives a type Python has no way to take
+    yet.
   - Qt's 'char QByteArray::back() const': gives a single letter as C has it.
+  - Qt's 'char &QByteArray::back()': gives a type Python has no way to take
+    yet.
   - Qt's 'qsizetype QByteArray::indexOf(char c, qsizetype from) const': takes
     a single letter as C has it.
   - Qt's 'qsizetype QByteArray::lastIndexOf(char c, qsizetype from) const':
@@ -90,10 +114,76 @@ class QByteArray(CuteMixin, metaclass=MetaCute):
     as C has it.
   - Qt's 'bool QByteArray::endsWith(char c) const': takes a single letter as
     C has it.
+  - Qt's 'QByteArray &QByteArray::slice(qsizetype pos)': gives a type Python
+    has no way to take yet.
+  - Qt's 'QByteArray &QByteArray::slice(qsizetype pos, qsizetype n)': gives a
+    type Python has no way to take yet.
   - Qt's 'QByteArray QByteArray::leftJustified(qsizetype width, char fill,
     bool truncate) const': takes a single letter as C has it.
   - Qt's 'QByteArray QByteArray::rightJustified(qsizetype width, char fill,
     bool truncate) const': takes a single letter as C has it.
+  - Qt's 'QByteArray &QByteArray::prepend(char c)': takes a single letter as
+    C has it.
+  - Qt's 'QByteArray &QByteArray::prepend(qsizetype count, char c)': takes a
+    single letter as C has it.
+  - Qt's 'QByteArray &QByteArray::prepend(const char *s)': gives a type
+    Python has no way to take yet.
+  - Qt's 'QByteArray &QByteArray::prepend(const char *s, qsizetype len)':
+    gives a type Python has no way to take yet.
+  - Qt's 'QByteArray &QByteArray::prepend(const QByteArray &a)': gives a type
+    Python has no way to take yet.
+  - Qt's 'QByteArray &QByteArray::prepend(QByteArrayView a)': gives a type
+    Python has no way to take yet.
+  - Qt's 'QByteArray &QByteArray::append(char c)': takes a single letter as C
+    has it.
+  - Qt's 'QByteArray &QByteArray::append(qsizetype count, char c)': takes a
+    single letter as C has it.
+  - Qt's 'QByteArray &QByteArray::append(const char *s)': gives a type Python
+    has no way to take yet.
+  - Qt's 'QByteArray &QByteArray::append(const char *s, qsizetype len)':
+    gives a type Python has no way to take yet.
+  - Qt's 'QByteArray &QByteArray::append(const QByteArray &a)': gives a type
+    Python has no way to take yet.
+  - Qt's 'QByteArray &QByteArray::append(QByteArrayView a)': gives a type
+    Python has no way to take yet.
+  - Qt's 'QByteArray &QByteArray::assign(QByteArrayView v)': gives a type
+    Python has no way to take yet.
+  - Qt's 'QByteArray &QByteArray::assign(qsizetype n, char c)': takes a
+    single letter as C has it.
+  - Qt's 'QByteArray &QByteArray::insert(qsizetype i, QByteArrayView data)':
+    gives a type Python has no way to take yet.
+  - Qt's 'QByteArray &QByteArray::insert(qsizetype i, const char *s)': gives
+    a type Python has no way to take yet.
+  - Qt's 'QByteArray &QByteArray::insert(qsizetype i, const QByteArray
+    &data)': gives a type Python has no way to take yet.
+  - Qt's 'QByteArray &QByteArray::insert(qsizetype i, qsizetype count, char
+    c)': takes a single letter as C has it.
+  - Qt's 'QByteArray &QByteArray::insert(qsizetype i, char c)': takes a
+    single letter as C has it.
+  - Qt's 'QByteArray &QByteArray::insert(qsizetype i, const char *s,
+    qsizetype len)': gives a type Python has no way to take yet.
+  - Qt's 'QByteArray &QByteArray::remove(qsizetype index, qsizetype len)':
+    gives a type Python has no way to take yet.
+  - Qt's 'QByteArray &QByteArray::removeAt(qsizetype pos)': gives a type
+    Python has no way to take yet.
+  - Qt's 'QByteArray &QByteArray::removeFirst()': gives a type Python has no
+    way to take yet.
+  - Qt's 'QByteArray &QByteArray::removeLast()': gives a type Python has no
+    way to take yet.
+  - Qt's 'QByteArray &QByteArray::replace(qsizetype index, qsizetype len,
+    const char *s, qsizetype alen)': gives a type Python has no way to take
+    yet.
+  - Qt's 'QByteArray &QByteArray::replace(qsizetype index, qsizetype len,
+    QByteArrayView s)': gives a type Python has no way to take yet.
+  - Qt's 'QByteArray &QByteArray::replace(char before, QByteArrayView
+    after)': takes a single letter as C has it.
+  - Qt's 'QByteArray &QByteArray::replace(const char *before, qsizetype
+    bsize, const char *after, qsizetype asize)': gives a type Python has no
+    way to take yet.
+  - Qt's 'QByteArray &QByteArray::replace(QByteArrayView before,
+    QByteArrayView after)': gives a type Python has no way to take yet.
+  - Qt's 'QByteArray &QByteArray::replace(char before, char after)': takes a
+    single letter as C has it.
   - Qt's 'QByteArray &QByteArray::operator+=(char c)': takes a single letter
     as C has it.
   - Qt's 'QList<QByteArray> QByteArray::split(char sep) const': takes a
@@ -125,6 +215,28 @@ class QByteArray(CuteMixin, metaclass=MetaCute):
     C has it.
   - Qt's 'QByteArray QByteArray::percentDecoded(char percent) const': takes a
     single letter as C has it.
+  - Qt's 'QByteArray &QByteArray::setNum(short a0, int base)': gives a type
+    Python has no way to take yet.
+  - Qt's 'QByteArray &QByteArray::setNum(ushort a0, int base)': gives a type
+    Python has no way to take yet.
+  - Qt's 'QByteArray &QByteArray::setNum(int a0, int base)': gives a type
+    Python has no way to take yet.
+  - Qt's 'QByteArray &QByteArray::setNum(uint a0, int base)': gives a type
+    Python has no way to take yet.
+  - Qt's 'QByteArray &QByteArray::setNum(long a0, int base)': gives a type
+    Python has no way to take yet.
+  - Qt's 'QByteArray &QByteArray::setNum(ulong a0, int base)': gives a type
+    Python has no way to take yet.
+  - Qt's 'QByteArray &QByteArray::setNum(qlonglong a0, int base)': gives a
+    type Python has no way to take yet.
+  - Qt's 'QByteArray &QByteArray::setNum(qulonglong a0, int base)': gives a
+    type Python has no way to take yet.
+  - Qt's 'QByteArray &QByteArray::setNum(float a0, char format, int
+    precision)': takes a single letter as C has it.
+  - Qt's 'QByteArray &QByteArray::setNum(double a0, char format, int
+    precision)': takes a single letter as C has it.
+  - Qt's 'QByteArray &QByteArray::setRawData(const char *a, qsizetype n)':
+    gives a type Python has no way to take yet.
   - Qt's 'QByteArray QByteArray::number(uint a0, int base)': takes in Python
     what 'QByteArray QByteArray::number(int a0, int base)' takes.
   - Qt's 'QByteArray QByteArray::number(long a0, int base)': takes in Python
@@ -137,12 +249,51 @@ class QByteArray(CuteMixin, metaclass=MetaCute):
     Python what 'QByteArray QByteArray::number(int a0, int base)' takes.
   - Qt's 'QByteArray QByteArray::number(double a0, char format, int
     precision)': takes a single letter as C has it.
+  - Qt's 'FromBase64Result QByteArray::fromBase64Encoding(QByteArray
+    &&base64, Base64Options options)': takes a type Python has no way to hand
+    over yet.
   - Qt's 'QByteArray QByteArray::fromPercentEncoding(const QByteArray
     &pctEncoded, char percent)': takes a single letter as C has it.
+  - Qt's 'QByteArray QByteArray::fromPercentEncoding(QByteArray &&pctEncoded,
+    char percent)': takes a type Python has no way to hand over yet.
+  - Qt's 'iterator QByteArray::begin()': gives 'char', which has no cute
+    class yet.
+  - Qt's 'iterator QByteArray::end()': gives 'char', which has no cute class
+    yet.
+  - Qt's 'reverse_iterator QByteArray::rbegin()': gives a type Python has no
+    way to take yet.
+  - Qt's 'reverse_iterator QByteArray::rend()': gives a type Python has no
+    way to take yet.
+  - Qt's 'const_reverse_iterator QByteArray::rbegin() const': gives a type
+    Python has no way to take yet.
+  - Qt's 'const_reverse_iterator QByteArray::rend() const': gives a type
+    Python has no way to take yet.
+  - Qt's 'const_reverse_iterator QByteArray::crbegin() const': gives a type
+    Python has no way to take yet.
+  - Qt's 'const_reverse_iterator QByteArray::crend() const': gives a type
+    Python has no way to take yet.
   - Qt's 'void QByteArray::push_back(char c)': takes a single letter as C has
     it.
   - Qt's 'void QByteArray::push_front(char c)': takes a single letter as C
     has it.
+  - Qt's 'iterator QByteArray::erase(const_iterator first, const_iterator
+    last)': gives 'char', which has no cute class yet.
+  - Qt's 'iterator QByteArray::erase(const_iterator it)': gives 'char', which
+    has no cute class yet.
+  - Qt's 'QByteArray QByteArray::fromStdString(const std::string &s)': takes
+    a type Python has no way to hand over yet.
+  - Qt's 'std::string QByteArray::toStdString() const': gives a type Python
+    has no way to take yet.
+  - Qt's 'const DataPointer &QByteArray::data_ptr() const': gives a type
+    Python has no way to take yet.
+  - Qt's 'DataPointer &QByteArray::data_ptr()': gives a type Python has no
+    way to take yet.
+  - Qt's 'QByteArray::QByteArray(const DataPointer &dd)': takes a type Python
+    has no way to hand over yet.
+  - Qt's 'QByteArray::QByteArray(DataPointer &&dd)': takes a type Python has
+    no way to hand over yet.
+  - Qt's 'QByteArray &QByteArray::nullTerminate()': gives a type Python has
+    no way to take yet.
   - Qt's 'bool operator==(const QByteArray &lhs, const char &rhs)': takes a
     single letter as C has it.
   - Qt's 'bool operator!=(const QByteArray &lhs, const char &rhs)': takes a
@@ -167,6 +318,54 @@ class QByteArray(CuteMixin, metaclass=MetaCute):
     single letter as C has it.
   - Qt's 'bool operator>=(const char &lhs, const QByteArray &rhs)': takes a
     single letter as C has it.
+  - Qt's 'bool operator==(const QByteArray &lhs, const char *const &rhs)':
+    takes a type Python has no way to hand over yet.
+  - Qt's 'bool operator!=(const QByteArray &lhs, const char *const &rhs)':
+    takes a type Python has no way to hand over yet.
+  - Qt's 'bool operator<(const QByteArray &lhs, const char *const &rhs)':
+    takes a type Python has no way to hand over yet.
+  - Qt's 'bool operator>(const QByteArray &lhs, const char *const &rhs)':
+    takes a type Python has no way to hand over yet.
+  - Qt's 'bool operator<=(const QByteArray &lhs, const char *const &rhs)':
+    takes a type Python has no way to hand over yet.
+  - Qt's 'bool operator>=(const QByteArray &lhs, const char *const &rhs)':
+    takes a type Python has no way to hand over yet.
+  - Qt's 'bool operator==(const char *const &lhs, const QByteArray &rhs)':
+    takes a type Python has no way to hand over yet.
+  - Qt's 'bool operator!=(const char *const &lhs, const QByteArray &rhs)':
+    takes a type Python has no way to hand over yet.
+  - Qt's 'bool operator<(const char *const &lhs, const QByteArray &rhs)':
+    takes a type Python has no way to hand over yet.
+  - Qt's 'bool operator>(const char *const &lhs, const QByteArray &rhs)':
+    takes a type Python has no way to hand over yet.
+  - Qt's 'bool operator<=(const char *const &lhs, const QByteArray &rhs)':
+    takes a type Python has no way to hand over yet.
+  - Qt's 'bool operator>=(const char *const &lhs, const QByteArray &rhs)':
+    takes a type Python has no way to hand over yet.
+  - Qt's 'bool operator==(const QByteArray &lhs, const std::nullptr_t &rhs)':
+    an operator Python has no name for.
+  - Qt's 'bool operator!=(const QByteArray &lhs, const std::nullptr_t &rhs)':
+    an operator Python has no name for.
+  - Qt's 'bool operator<(const QByteArray &lhs, const std::nullptr_t &rhs)':
+    an operator Python has no name for.
+  - Qt's 'bool operator>(const QByteArray &lhs, const std::nullptr_t &rhs)':
+    an operator Python has no name for.
+  - Qt's 'bool operator<=(const QByteArray &lhs, const std::nullptr_t &rhs)':
+    an operator Python has no name for.
+  - Qt's 'bool operator>=(const QByteArray &lhs, const std::nullptr_t &rhs)':
+    an operator Python has no name for.
+  - Qt's 'bool operator==(const std::nullptr_t &lhs, const QByteArray &rhs)':
+    an operator Python has no name for.
+  - Qt's 'bool operator!=(const std::nullptr_t &lhs, const QByteArray &rhs)':
+    an operator Python has no name for.
+  - Qt's 'bool operator<(const std::nullptr_t &lhs, const QByteArray &rhs)':
+    an operator Python has no name for.
+  - Qt's 'bool operator>(const std::nullptr_t &lhs, const QByteArray &rhs)':
+    an operator Python has no name for.
+  - Qt's 'bool operator<=(const std::nullptr_t &lhs, const QByteArray &rhs)':
+    an operator Python has no name for.
+  - Qt's 'bool operator>=(const std::nullptr_t &lhs, const QByteArray &rhs)':
+    an operator Python has no name for.
   - Qt's 'bool operator==(const QChar &lhs, const QByteArray &rhs)': takes in
     Python what 'bool operator==(const QByteArray &lhs, const QChar &rhs)'
     takes.
@@ -185,13 +384,39 @@ class QByteArray(CuteMixin, metaclass=MetaCute):
   - Qt's 'bool operator>=(const QChar &lhs, const QByteArray &rhs)': takes in
     Python what 'bool operator<=(const QByteArray &lhs, const QChar &rhs)'
     takes.
+  - Qt's 'bool operator==(const char16_t &lhs, const QByteArray &rhs)': takes
+    in Python what 'bool operator==(const QByteArray &lhs, const char16_t
+    &rhs)' takes.
+  - Qt's 'bool operator!=(const char16_t &lhs, const QByteArray &rhs)': takes
+    in Python what 'bool operator!=(const QByteArray &lhs, const char16_t
+    &rhs)' takes.
+  - Qt's 'bool operator<(const char16_t &lhs, const QByteArray &rhs)': takes
+    in Python what 'bool operator>(const QByteArray &lhs, const char16_t
+    &rhs)' takes.
+  - Qt's 'bool operator>(const char16_t &lhs, const QByteArray &rhs)': takes
+    in Python what 'bool operator<(const QByteArray &lhs, const char16_t
+    &rhs)' takes.
+  - Qt's 'bool operator<=(const char16_t &lhs, const QByteArray &rhs)': takes
+    in Python what 'bool operator>=(const QByteArray &lhs, const char16_t
+    &rhs)' takes.
+  - Qt's 'bool operator>=(const char16_t &lhs, const QByteArray &rhs)': takes
+    in Python what 'bool operator<=(const QByteArray &lhs, const char16_t
+    &rhs)' takes.
+  - Qt's 'QByteArray QByteArray::sliced_helper(QByteArray &a, qsizetype pos,
+    qsizetype n)': takes a type Python has no way to hand over yet.
+  - Qt's 'QByteArray QByteArray::toLower_helper(QByteArray &a)': takes a type
+    Python has no way to hand over yet.
+  - Qt's 'QByteArray QByteArray::toUpper_helper(QByteArray &a)': takes a type
+    Python has no way to hand over yet.
+  - Qt's 'QByteArray QByteArray::trimmed_helper(QByteArray &a)': takes a type
+    Python has no way to hand over yet.
+  - Qt's 'QByteArray QByteArray::simplified_helper(QByteArray &a)': takes a
+    type Python has no way to hand over yet.
 
   What has no ritual
   ------------------
 
-  132 of the 283 functions Qt declares: 114 takes or gives a type that cannot
-  be passed yet; 14 can only be called on a value about to be thrown away; 3
-  a template; 1 Qt has it on some systems only.
+  17 of the 283 functions Qt declares: 14 not a gap; 3 a template.
 
   What to expect
   --------------
@@ -204,6 +429,17 @@ class QByteArray(CuteMixin, metaclass=MetaCute):
     is as in C++.
   - A function giving a QByteArray back gives a copy the ritual made for
     Python, in a new cute QByteArray.
+  - Each name of Qt's QByteArray that has no cute function yet, 'append',
+    'assign', 'at', 'back', 'crbegin', 'crend', 'data_ptr', 'erase', 'fill',
+    'fromPercentEncoding', 'fromStdString', 'front', 'insert',
+    'leftJustified', 'nullTerminate', 'percentDecoded', 'prepend', 'rbegin',
+    'remove', 'removeAt', 'removeFirst', 'removeIf', 'removeIf_helper',
+    'removeLast', 'rend', 'replace', 'rightJustified', 'setNum',
+    'setRawData', 'slice', 'sliced_helper', 'split', 'swap', 'toDouble',
+    'toFloat', 'toHex', 'toInt', 'toLong', 'toLongLong', 'toPercentEncoding',
+    'toShort', 'toStdString', 'toUInt', 'toULong', 'toULongLong', 'toUShort',
+    holds a function that raises 'NotImplementedError', and its docstring
+    says why.
   """
 
   #  The enums Qt writes inside QByteArray, each a class in here as in C++,
@@ -260,6 +496,11 @@ class QByteArray(CuteMixin, metaclass=MetaCute):
     What has a ritual and is left out, and why
     ------------------------------------------
 
+    - Qt's 'void
+      QByteArray::FromBase64Result::swap(QByteArray::FromBase64Result
+      &other)': takes a type Python has no way to hand over yet.
+    - Qt's 'QByteArray &QByteArray::FromBase64Result::operator*()': an
+      operator Python has no name for.
     - Qt's 'const QByteArray &QByteArray::FromBase64Result::operator*()
       const': an operator Python has no name for.
     - Qt's 'QByteArray::FromBase64Result::~FromBase64Result()': the
@@ -269,8 +510,7 @@ class QByteArray(CuteMixin, metaclass=MetaCute):
     What has no ritual
     ------------------
 
-    4 of the 9 functions Qt declares: 2 takes or gives a type that cannot be
-    passed yet; 2 can only be called on a value about to be thrown away.
+    2 of the 9 functions Qt declares: 2 not a gap.
 
     What to expect
     --------------
@@ -284,6 +524,9 @@ class QByteArray(CuteMixin, metaclass=MetaCute):
       there is as in C++.
     - A function giving a QByteArray::FromBase64Result back gives a copy the
       ritual made for Python, in a new cute QByteArray::FromBase64Result.
+    - Each name of Qt's QByteArray::FromBase64Result that has no cute
+      function yet, 'swap', holds a function that raises
+      'NotImplementedError', and its docstring says why.
     """
 
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -426,6 +669,19 @@ class QByteArray(CuteMixin, metaclass=MetaCute):
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    @staticmethod
+    def swap(*__, **_) -> Never:
+      """
+      Qt's 'void
+      QByteArray::FromBase64Result::swap(QByteArray::FromBase64Result
+      &other)': takes a type Python has no way to hand over yet.
+      """
+      raise NotImplementedError(
+          "'QByteArray.FromBase64Result.swap' has no cute function yet. "
+          "Qt's 'void "
+          "QByteArray::FromBase64Result::swap(QByteArray::FromBase64Result "
+          "&other)': takes a type Python has no way to hand over yet.")
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -1630,6 +1886,24 @@ class QByteArray(CuteMixin, metaclass=MetaCute):
         CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
     )
 
+  @overload(int)
+  def __eq__(self, rhs: int) -> bool:
+    """
+    Calls Qt's 'bool operator==(const QByteArray &lhs, const char16_t &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qbytearray.html#operator==
+
+    Parameters
+    ----------
+
+    rhs : int
+      Passed on as it is.
+    """
+    #  bool operator==(const QByteArray &lhs, const char16_t &rhs)
+    return Rituals.call(
+        'ritual_ZeqRK10QByteArrayRKDs', CuteMixin._valueOf(self), rhs,
+    )
+
   @overload.fallback
   def __eq__(self, *args: object) -> object:
     """
@@ -1677,6 +1951,24 @@ class QByteArray(CuteMixin, metaclass=MetaCute):
     return Rituals.call(
         'ritual_ZneRK10QByteArrayRK5QChar',
         CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload(int)
+  def __ne__(self, rhs: int) -> bool:
+    """
+    Calls Qt's 'bool operator!=(const QByteArray &lhs, const char16_t &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qbytearray.html#operator!=
+
+    Parameters
+    ----------
+
+    rhs : int
+      Passed on as it is.
+    """
+    #  bool operator!=(const QByteArray &lhs, const char16_t &rhs)
+    return Rituals.call(
+        'ritual_ZneRK10QByteArrayRKDs', CuteMixin._valueOf(self), rhs,
     )
 
   @overload.fallback
@@ -1728,6 +2020,24 @@ class QByteArray(CuteMixin, metaclass=MetaCute):
         CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
     )
 
+  @overload(int)
+  def __lt__(self, rhs: int) -> bool:
+    """
+    Calls Qt's 'bool operator<(const QByteArray &lhs, const char16_t &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qbytearray.html#operator<
+
+    Parameters
+    ----------
+
+    rhs : int
+      Passed on as it is.
+    """
+    #  bool operator<(const QByteArray &lhs, const char16_t &rhs)
+    return Rituals.call(
+        'ritual_ZltRK10QByteArrayRKDs', CuteMixin._valueOf(self), rhs,
+    )
+
   @overload.fallback
   def __lt__(self, *args: object) -> object:
     """
@@ -1775,6 +2085,24 @@ class QByteArray(CuteMixin, metaclass=MetaCute):
     return Rituals.call(
         'ritual_ZgtRK10QByteArrayRK5QChar',
         CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload(int)
+  def __gt__(self, rhs: int) -> bool:
+    """
+    Calls Qt's 'bool operator>(const QByteArray &lhs, const char16_t &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qbytearray.html#operator>
+
+    Parameters
+    ----------
+
+    rhs : int
+      Passed on as it is.
+    """
+    #  bool operator>(const QByteArray &lhs, const char16_t &rhs)
+    return Rituals.call(
+        'ritual_ZgtRK10QByteArrayRKDs', CuteMixin._valueOf(self), rhs,
     )
 
   @overload.fallback
@@ -1826,6 +2154,24 @@ class QByteArray(CuteMixin, metaclass=MetaCute):
         CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
     )
 
+  @overload(int)
+  def __le__(self, rhs: int) -> bool:
+    """
+    Calls Qt's 'bool operator<=(const QByteArray &lhs, const char16_t &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qbytearray.html#operator<=
+
+    Parameters
+    ----------
+
+    rhs : int
+      Passed on as it is.
+    """
+    #  bool operator<=(const QByteArray &lhs, const char16_t &rhs)
+    return Rituals.call(
+        'ritual_ZleRK10QByteArrayRKDs', CuteMixin._valueOf(self), rhs,
+    )
+
   @overload.fallback
   def __le__(self, *args: object) -> object:
     """
@@ -1873,6 +2219,24 @@ class QByteArray(CuteMixin, metaclass=MetaCute):
     return Rituals.call(
         'ritual_ZgeRK10QByteArrayRK5QChar',
         CuteMixin._valueOf(self), CuteMixin._valueOf(rhs),
+    )
+
+  @overload(int)
+  def __ge__(self, rhs: int) -> bool:
+    """
+    Calls Qt's 'bool operator>=(const QByteArray &lhs, const char16_t &rhs)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qbytearray.html#operator>=
+
+    Parameters
+    ----------
+
+    rhs : int
+      Passed on as it is.
+    """
+    #  bool operator>=(const QByteArray &lhs, const char16_t &rhs)
+    return Rituals.call(
+        'ritual_ZgeRK10QByteArrayRKDs', CuteMixin._valueOf(self), rhs,
     )
 
   @overload.fallback
@@ -2321,6 +2685,664 @@ class QByteArray(CuteMixin, metaclass=MetaCute):
     #  void QByteArray::verify(qsizetype pos, qsizetype n) const
     self.uglySide.call('ritual_ZNK10QByteArray6verifyExx', pos, n)
 
+  @staticmethod
+  def append(*__, **_) -> Never:
+    """
+    - Qt's 'QByteArray &QByteArray::append(char c)': takes a single letter as
+      C has it.
+    - Qt's 'QByteArray &QByteArray::append(qsizetype count, char c)': takes a
+      single letter as C has it.
+    - Qt's 'QByteArray &QByteArray::append(const char *s)': gives a type
+      Python has no way to take yet.
+    - Qt's 'QByteArray &QByteArray::append(const char *s, qsizetype len)':
+      gives a type Python has no way to take yet.
+    - Qt's 'QByteArray &QByteArray::append(const QByteArray &a)': gives a
+      type Python has no way to take yet.
+    - Qt's 'QByteArray &QByteArray::append(QByteArrayView a)': gives a type
+      Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QByteArray.append' has no cute function yet. Qt's 'QByteArray "
+        "&QByteArray::append(char c)': takes a single letter as C has it. "
+        "Qt's 'QByteArray &QByteArray::append(qsizetype count, char c)': "
+        "takes a single letter as C has it. Qt's 'QByteArray "
+        "&QByteArray::append(const char *s)': gives a type Python has no "
+        "way to take yet. Qt's 'QByteArray &QByteArray::append(const char "
+        "*s, qsizetype len)': gives a type Python has no way to take yet. "
+        "Qt's 'QByteArray &QByteArray::append(const QByteArray &a)': gives "
+        "a type Python has no way to take yet. Qt's 'QByteArray "
+        "&QByteArray::append(QByteArrayView a)': gives a type Python has no "
+        "way to take yet.")
+
+  @staticmethod
+  def assign(*__, **_) -> Never:
+    """
+    - Qt's 'QByteArray &QByteArray::assign(QByteArrayView v)': gives a type
+      Python has no way to take yet.
+    - Qt's 'QByteArray &QByteArray::assign(qsizetype n, char c)': takes a
+      single letter as C has it.
+    - Qt's 'QByteArray::assign': a template: a pattern and no single
+      function.
+    """
+    raise NotImplementedError(
+        "'QByteArray.assign' has no cute function yet. Qt's 'QByteArray "
+        "&QByteArray::assign(QByteArrayView v)': gives a type Python has no "
+        "way to take yet. Qt's 'QByteArray &QByteArray::assign(qsizetype n, "
+        "char c)': takes a single letter as C has it. Qt's "
+        "'QByteArray::assign': a template: a pattern and no single function."
+    )
+
+  @staticmethod
+  def at(*__, **_) -> Never:
+    """
+    Qt's 'char QByteArray::at(qsizetype i) const': gives a single letter as C
+    has it.
+    """
+    raise NotImplementedError(
+        "'QByteArray.at' has no cute function yet. Qt's 'char "
+        "QByteArray::at(qsizetype i) const': gives a single letter as C has "
+        "it.")
+
+  @staticmethod
+  def back(*__, **_) -> Never:
+    """
+    - Qt's 'char QByteArray::back() const': gives a single letter as C has
+      it.
+    - Qt's 'char &QByteArray::back()': gives a type Python has no way to take
+      yet.
+    """
+    raise NotImplementedError(
+        "'QByteArray.back' has no cute function yet. Qt's 'char "
+        "QByteArray::back() const': gives a single letter as C has it. Qt's "
+        "'char &QByteArray::back()': gives a type Python has no way to take "
+        "yet.")
+
+  @staticmethod
+  def crbegin(*__, **_) -> Never:
+    """
+    Qt's 'const_reverse_iterator QByteArray::crbegin() const': gives a type
+    Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QByteArray.crbegin' has no cute function yet. Qt's "
+        "'const_reverse_iterator QByteArray::crbegin() const': gives a type "
+        "Python has no way to take yet.")
+
+  @staticmethod
+  def crend(*__, **_) -> Never:
+    """
+    Qt's 'const_reverse_iterator QByteArray::crend() const': gives a type
+    Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QByteArray.crend' has no cute function yet. Qt's "
+        "'const_reverse_iterator QByteArray::crend() const': gives a type "
+        "Python has no way to take yet.")
+
+  @staticmethod
+  def data_ptr(*__, **_) -> Never:
+    """
+    - Qt's 'const DataPointer &QByteArray::data_ptr() const': gives a type
+      Python has no way to take yet.
+    - Qt's 'DataPointer &QByteArray::data_ptr()': gives a type Python has no
+      way to take yet.
+    """
+    raise NotImplementedError(
+        "'QByteArray.data_ptr' has no cute function yet. Qt's 'const "
+        "DataPointer &QByteArray::data_ptr() const': gives a type Python "
+        "has no way to take yet. Qt's 'DataPointer "
+        "&QByteArray::data_ptr()': gives a type Python has no way to take "
+        "yet.")
+
+  @staticmethod
+  def erase(*__, **_) -> Never:
+    """
+    - Qt's 'iterator QByteArray::erase(const_iterator first, const_iterator
+      last)': gives 'char', which has no cute class yet.
+    - Qt's 'iterator QByteArray::erase(const_iterator it)': gives 'char',
+      which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QByteArray.erase' has no cute function yet. Qt's 'iterator "
+        "QByteArray::erase(const_iterator first, const_iterator last)': "
+        "gives 'char', which has no cute class yet. Qt's 'iterator "
+        "QByteArray::erase(const_iterator it)': gives 'char', which has no "
+        "cute class yet.")
+
+  @staticmethod
+  def fill(*__, **_) -> Never:
+    """
+    Qt's 'QByteArray &QByteArray::fill(char c, qsizetype size)': takes a
+    single letter as C has it.
+    """
+    raise NotImplementedError(
+        "'QByteArray.fill' has no cute function yet. Qt's 'QByteArray "
+        "&QByteArray::fill(char c, qsizetype size)': takes a single letter "
+        "as C has it.")
+
+  @staticmethod
+  def fromPercentEncoding(*__, **_) -> Never:
+    """
+    - Qt's 'QByteArray QByteArray::fromPercentEncoding(const QByteArray
+      &pctEncoded, char percent)': takes a single letter as C has it.
+    - Qt's 'QByteArray QByteArray::fromPercentEncoding(QByteArray
+      &&pctEncoded, char percent)': takes a type Python has no way to hand
+      over yet.
+    """
+    raise NotImplementedError(
+        "'QByteArray.fromPercentEncoding' has no cute function yet. Qt's "
+        "'QByteArray QByteArray::fromPercentEncoding(const QByteArray "
+        "&pctEncoded, char percent)': takes a single letter as C has it. "
+        "Qt's 'QByteArray QByteArray::fromPercentEncoding(QByteArray "
+        "&&pctEncoded, char percent)': takes a type Python has no way to "
+        "hand over yet.")
+
+  @staticmethod
+  def fromStdString(*__, **_) -> Never:
+    """
+    Qt's 'QByteArray QByteArray::fromStdString(const std::string &s)': takes
+    a type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QByteArray.fromStdString' has no cute function yet. Qt's "
+        "'QByteArray QByteArray::fromStdString(const std::string &s)': "
+        "takes a type Python has no way to hand over yet.")
+
+  @staticmethod
+  def front(*__, **_) -> Never:
+    """
+    - Qt's 'char QByteArray::front() const': gives a single letter as C has
+      it.
+    - Qt's 'char &QByteArray::front()': gives a type Python has no way to
+      take yet.
+    """
+    raise NotImplementedError(
+        "'QByteArray.front' has no cute function yet. Qt's 'char "
+        "QByteArray::front() const': gives a single letter as C has it. "
+        "Qt's 'char &QByteArray::front()': gives a type Python has no way "
+        "to take yet.")
+
+  @staticmethod
+  def insert(*__, **_) -> Never:
+    """
+    - Qt's 'QByteArray &QByteArray::insert(qsizetype i, QByteArrayView
+      data)': gives a type Python has no way to take yet.
+    - Qt's 'QByteArray &QByteArray::insert(qsizetype i, const char *s)':
+      gives a type Python has no way to take yet.
+    - Qt's 'QByteArray &QByteArray::insert(qsizetype i, const QByteArray
+      &data)': gives a type Python has no way to take yet.
+    - Qt's 'QByteArray &QByteArray::insert(qsizetype i, qsizetype count, char
+      c)': takes a single letter as C has it.
+    - Qt's 'QByteArray &QByteArray::insert(qsizetype i, char c)': takes a
+      single letter as C has it.
+    - Qt's 'QByteArray &QByteArray::insert(qsizetype i, const char *s,
+      qsizetype len)': gives a type Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QByteArray.insert' has no cute function yet. Qt's 'QByteArray "
+        "&QByteArray::insert(qsizetype i, QByteArrayView data)': gives a "
+        "type Python has no way to take yet. Qt's 'QByteArray "
+        "&QByteArray::insert(qsizetype i, const char *s)': gives a type "
+        "Python has no way to take yet. Qt's 'QByteArray "
+        "&QByteArray::insert(qsizetype i, const QByteArray &data)': gives a "
+        "type Python has no way to take yet. Qt's 'QByteArray "
+        "&QByteArray::insert(qsizetype i, qsizetype count, char c)': takes "
+        "a single letter as C has it. Qt's 'QByteArray "
+        "&QByteArray::insert(qsizetype i, char c)': takes a single letter "
+        "as C has it. Qt's 'QByteArray &QByteArray::insert(qsizetype i, "
+        "const char *s, qsizetype len)': gives a type Python has no way to "
+        "take yet.")
+
+  @staticmethod
+  def leftJustified(*__, **_) -> Never:
+    """
+    Qt's 'QByteArray QByteArray::leftJustified(qsizetype width, char fill,
+    bool truncate) const': takes a single letter as C has it.
+    """
+    raise NotImplementedError(
+        "'QByteArray.leftJustified' has no cute function yet. Qt's "
+        "'QByteArray QByteArray::leftJustified(qsizetype width, char fill, "
+        "bool truncate) const': takes a single letter as C has it.")
+
+  @staticmethod
+  def nullTerminate(*__, **_) -> Never:
+    """
+    Qt's 'QByteArray &QByteArray::nullTerminate()': gives a type Python has
+    no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QByteArray.nullTerminate' has no cute function yet. Qt's "
+        "'QByteArray &QByteArray::nullTerminate()': gives a type Python has "
+        "no way to take yet.")
+
+  @staticmethod
+  def percentDecoded(*__, **_) -> Never:
+    """
+    Qt's 'QByteArray QByteArray::percentDecoded(char percent) const': takes a
+    single letter as C has it.
+    """
+    raise NotImplementedError(
+        "'QByteArray.percentDecoded' has no cute function yet. Qt's "
+        "'QByteArray QByteArray::percentDecoded(char percent) const': takes "
+        "a single letter as C has it.")
+
+  @staticmethod
+  def prepend(*__, **_) -> Never:
+    """
+    - Qt's 'QByteArray &QByteArray::prepend(char c)': takes a single letter
+      as C has it.
+    - Qt's 'QByteArray &QByteArray::prepend(qsizetype count, char c)': takes
+      a single letter as C has it.
+    - Qt's 'QByteArray &QByteArray::prepend(const char *s)': gives a type
+      Python has no way to take yet.
+    - Qt's 'QByteArray &QByteArray::prepend(const char *s, qsizetype len)':
+      gives a type Python has no way to take yet.
+    - Qt's 'QByteArray &QByteArray::prepend(const QByteArray &a)': gives a
+      type Python has no way to take yet.
+    - Qt's 'QByteArray &QByteArray::prepend(QByteArrayView a)': gives a type
+      Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QByteArray.prepend' has no cute function yet. Qt's 'QByteArray "
+        "&QByteArray::prepend(char c)': takes a single letter as C has it. "
+        "Qt's 'QByteArray &QByteArray::prepend(qsizetype count, char c)': "
+        "takes a single letter as C has it. Qt's 'QByteArray "
+        "&QByteArray::prepend(const char *s)': gives a type Python has no "
+        "way to take yet. Qt's 'QByteArray &QByteArray::prepend(const char "
+        "*s, qsizetype len)': gives a type Python has no way to take yet. "
+        "Qt's 'QByteArray &QByteArray::prepend(const QByteArray &a)': gives "
+        "a type Python has no way to take yet. Qt's 'QByteArray "
+        "&QByteArray::prepend(QByteArrayView a)': gives a type Python has "
+        "no way to take yet.")
+
+  @staticmethod
+  def rbegin(*__, **_) -> Never:
+    """
+    - Qt's 'reverse_iterator QByteArray::rbegin()': gives a type Python has
+      no way to take yet.
+    - Qt's 'const_reverse_iterator QByteArray::rbegin() const': gives a type
+      Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QByteArray.rbegin' has no cute function yet. Qt's "
+        "'reverse_iterator QByteArray::rbegin()': gives a type Python has "
+        "no way to take yet. Qt's 'const_reverse_iterator "
+        "QByteArray::rbegin() const': gives a type Python has no way to "
+        "take yet.")
+
+  @staticmethod
+  def remove(*__, **_) -> Never:
+    """
+    Qt's 'QByteArray &QByteArray::remove(qsizetype index, qsizetype len)':
+    gives a type Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QByteArray.remove' has no cute function yet. Qt's 'QByteArray "
+        "&QByteArray::remove(qsizetype index, qsizetype len)': gives a type "
+        "Python has no way to take yet.")
+
+  @staticmethod
+  def removeAt(*__, **_) -> Never:
+    """
+    Qt's 'QByteArray &QByteArray::removeAt(qsizetype pos)': gives a type
+    Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QByteArray.removeAt' has no cute function yet. Qt's 'QByteArray "
+        "&QByteArray::removeAt(qsizetype pos)': gives a type Python has no "
+        "way to take yet.")
+
+  @staticmethod
+  def removeFirst(*__, **_) -> Never:
+    """
+    Qt's 'QByteArray &QByteArray::removeFirst()': gives a type Python has no
+    way to take yet.
+    """
+    raise NotImplementedError(
+        "'QByteArray.removeFirst' has no cute function yet. Qt's "
+        "'QByteArray &QByteArray::removeFirst()': gives a type Python has "
+        "no way to take yet.")
+
+  @staticmethod
+  def removeIf(*__, **_) -> Never:
+    """
+    Qt's 'QByteArray::removeIf': a template: a pattern and no single
+    function.
+    """
+    raise NotImplementedError(
+        "'QByteArray.removeIf' has no cute function yet. Qt's "
+        "'QByteArray::removeIf': a template: a pattern and no single "
+        "function.")
+
+  @staticmethod
+  def removeIf_helper(*__, **_) -> Never:
+    """
+    Qt's 'QByteArray::removeIf_helper': a template: a pattern and no single
+    function.
+    """
+    raise NotImplementedError(
+        "'QByteArray.removeIf_helper' has no cute function yet. Qt's "
+        "'QByteArray::removeIf_helper': a template: a pattern and no single "
+        "function.")
+
+  @staticmethod
+  def removeLast(*__, **_) -> Never:
+    """
+    Qt's 'QByteArray &QByteArray::removeLast()': gives a type Python has no
+    way to take yet.
+    """
+    raise NotImplementedError(
+        "'QByteArray.removeLast' has no cute function yet. Qt's 'QByteArray "
+        "&QByteArray::removeLast()': gives a type Python has no way to take "
+        "yet.")
+
+  @staticmethod
+  def rend(*__, **_) -> Never:
+    """
+    - Qt's 'reverse_iterator QByteArray::rend()': gives a type Python has no
+      way to take yet.
+    - Qt's 'const_reverse_iterator QByteArray::rend() const': gives a type
+      Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QByteArray.rend' has no cute function yet. Qt's 'reverse_iterator "
+        "QByteArray::rend()': gives a type Python has no way to take yet. "
+        "Qt's 'const_reverse_iterator QByteArray::rend() const': gives a "
+        "type Python has no way to take yet.")
+
+  @staticmethod
+  def replace(*__, **_) -> Never:
+    """
+    - Qt's 'QByteArray &QByteArray::replace(qsizetype index, qsizetype len,
+      const char *s, qsizetype alen)': gives a type Python has no way to take
+      yet.
+    - Qt's 'QByteArray &QByteArray::replace(qsizetype index, qsizetype len,
+      QByteArrayView s)': gives a type Python has no way to take yet.
+    - Qt's 'QByteArray &QByteArray::replace(char before, QByteArrayView
+      after)': takes a single letter as C has it.
+    - Qt's 'QByteArray &QByteArray::replace(const char *before, qsizetype
+      bsize, const char *after, qsizetype asize)': gives a type Python has no
+      way to take yet.
+    - Qt's 'QByteArray &QByteArray::replace(QByteArrayView before,
+      QByteArrayView after)': gives a type Python has no way to take yet.
+    - Qt's 'QByteArray &QByteArray::replace(char before, char after)': takes
+      a single letter as C has it.
+    """
+    raise NotImplementedError(
+        "'QByteArray.replace' has no cute function yet. Qt's 'QByteArray "
+        "&QByteArray::replace(qsizetype index, qsizetype len, const char "
+        "*s, qsizetype alen)': gives a type Python has no way to take yet. "
+        "Qt's 'QByteArray &QByteArray::replace(qsizetype index, qsizetype "
+        "len, QByteArrayView s)': gives a type Python has no way to take "
+        "yet. Qt's 'QByteArray &QByteArray::replace(char before, "
+        "QByteArrayView after)': takes a single letter as C has it. Qt's "
+        "'QByteArray &QByteArray::replace(const char *before, qsizetype "
+        "bsize, const char *after, qsizetype asize)': gives a type Python "
+        "has no way to take yet. Qt's 'QByteArray "
+        "&QByteArray::replace(QByteArrayView before, QByteArrayView "
+        "after)': gives a type Python has no way to take yet. Qt's "
+        "'QByteArray &QByteArray::replace(char before, char after)': takes "
+        "a single letter as C has it.")
+
+  @staticmethod
+  def rightJustified(*__, **_) -> Never:
+    """
+    Qt's 'QByteArray QByteArray::rightJustified(qsizetype width, char fill,
+    bool truncate) const': takes a single letter as C has it.
+    """
+    raise NotImplementedError(
+        "'QByteArray.rightJustified' has no cute function yet. Qt's "
+        "'QByteArray QByteArray::rightJustified(qsizetype width, char fill, "
+        "bool truncate) const': takes a single letter as C has it.")
+
+  @staticmethod
+  def setNum(*__, **_) -> Never:
+    """
+    - Qt's 'QByteArray &QByteArray::setNum(short a0, int base)': gives a type
+      Python has no way to take yet.
+    - Qt's 'QByteArray &QByteArray::setNum(ushort a0, int base)': gives a
+      type Python has no way to take yet.
+    - Qt's 'QByteArray &QByteArray::setNum(int a0, int base)': gives a type
+      Python has no way to take yet.
+    - Qt's 'QByteArray &QByteArray::setNum(uint a0, int base)': gives a type
+      Python has no way to take yet.
+    - Qt's 'QByteArray &QByteArray::setNum(long a0, int base)': gives a type
+      Python has no way to take yet.
+    - Qt's 'QByteArray &QByteArray::setNum(ulong a0, int base)': gives a type
+      Python has no way to take yet.
+    - Qt's 'QByteArray &QByteArray::setNum(qlonglong a0, int base)': gives a
+      type Python has no way to take yet.
+    - Qt's 'QByteArray &QByteArray::setNum(qulonglong a0, int base)': gives a
+      type Python has no way to take yet.
+    - Qt's 'QByteArray &QByteArray::setNum(float a0, char format, int
+      precision)': takes a single letter as C has it.
+    - Qt's 'QByteArray &QByteArray::setNum(double a0, char format, int
+      precision)': takes a single letter as C has it.
+    """
+    raise NotImplementedError(
+        "'QByteArray.setNum' has no cute function yet. Qt's 'QByteArray "
+        "&QByteArray::setNum(short a0, int base)': gives a type Python has "
+        "no way to take yet. Qt's 'QByteArray &QByteArray::setNum(ushort "
+        "a0, int base)': gives a type Python has no way to take yet. Qt's "
+        "'QByteArray &QByteArray::setNum(int a0, int base)': gives a type "
+        "Python has no way to take yet. Qt's 'QByteArray "
+        "&QByteArray::setNum(uint a0, int base)': gives a type Python has "
+        "no way to take yet. Qt's 'QByteArray &QByteArray::setNum(long a0, "
+        "int base)': gives a type Python has no way to take yet. Qt's "
+        "'QByteArray &QByteArray::setNum(ulong a0, int base)': gives a type "
+        "Python has no way to take yet. Qt's 'QByteArray "
+        "&QByteArray::setNum(qlonglong a0, int base)': gives a type Python "
+        "has no way to take yet. Qt's 'QByteArray "
+        "&QByteArray::setNum(qulonglong a0, int base)': gives a type Python "
+        "has no way to take yet. Qt's 'QByteArray &QByteArray::setNum(float "
+        "a0, char format, int precision)': takes a single letter as C has "
+        "it. Qt's 'QByteArray &QByteArray::setNum(double a0, char format, "
+        "int precision)': takes a single letter as C has it.")
+
+  @staticmethod
+  def setRawData(*__, **_) -> Never:
+    """
+    Qt's 'QByteArray &QByteArray::setRawData(const char *a, qsizetype n)':
+    gives a type Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QByteArray.setRawData' has no cute function yet. Qt's 'QByteArray "
+        "&QByteArray::setRawData(const char *a, qsizetype n)': gives a type "
+        "Python has no way to take yet.")
+
+  @staticmethod
+  def slice(*__, **_) -> Never:
+    """
+    - Qt's 'QByteArray &QByteArray::slice(qsizetype pos)': gives a type
+      Python has no way to take yet.
+    - Qt's 'QByteArray &QByteArray::slice(qsizetype pos, qsizetype n)': gives
+      a type Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QByteArray.slice' has no cute function yet. Qt's 'QByteArray "
+        "&QByteArray::slice(qsizetype pos)': gives a type Python has no way "
+        "to take yet. Qt's 'QByteArray &QByteArray::slice(qsizetype pos, "
+        "qsizetype n)': gives a type Python has no way to take yet.")
+
+  @staticmethod
+  def sliced_helper(*__, **_) -> Never:
+    """
+    Qt's 'QByteArray QByteArray::sliced_helper(QByteArray &a, qsizetype pos,
+    qsizetype n)': takes a type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QByteArray.sliced_helper' has no cute function yet. Qt's "
+        "'QByteArray QByteArray::sliced_helper(QByteArray &a, qsizetype "
+        "pos, qsizetype n)': takes a type Python has no way to hand over "
+        "yet.")
+
+  @staticmethod
+  def split(*__, **_) -> Never:
+    """
+    Qt's 'QList<QByteArray> QByteArray::split(char sep) const': takes a
+    single letter as C has it.
+    """
+    raise NotImplementedError(
+        "'QByteArray.split' has no cute function yet. Qt's "
+        "'QList<QByteArray> QByteArray::split(char sep) const': takes a "
+        "single letter as C has it.")
+
+  @staticmethod
+  def swap(*__, **_) -> Never:
+    """
+    Qt's 'void QByteArray::swap(QByteArray &other)': takes a type Python has
+    no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QByteArray.swap' has no cute function yet. Qt's 'void "
+        "QByteArray::swap(QByteArray &other)': takes a type Python has no "
+        "way to hand over yet.")
+
+  @staticmethod
+  def toDouble(*__, **_) -> Never:
+    """
+    Qt's 'double QByteArray::toDouble(bool *ok) const': takes a number to
+    change where it is.
+    """
+    raise NotImplementedError(
+        "'QByteArray.toDouble' has no cute function yet. Qt's 'double "
+        "QByteArray::toDouble(bool *ok) const': takes a number to change "
+        "where it is.")
+
+  @staticmethod
+  def toFloat(*__, **_) -> Never:
+    """
+    Qt's 'float QByteArray::toFloat(bool *ok) const': takes a number to
+    change where it is.
+    """
+    raise NotImplementedError(
+        "'QByteArray.toFloat' has no cute function yet. Qt's 'float "
+        "QByteArray::toFloat(bool *ok) const': takes a number to change "
+        "where it is.")
+
+  @staticmethod
+  def toHex(*__, **_) -> Never:
+    """
+    Qt's 'QByteArray QByteArray::toHex(char separator) const': takes a single
+    letter as C has it.
+    """
+    raise NotImplementedError(
+        "'QByteArray.toHex' has no cute function yet. Qt's 'QByteArray "
+        "QByteArray::toHex(char separator) const': takes a single letter as "
+        "C has it.")
+
+  @staticmethod
+  def toInt(*__, **_) -> Never:
+    """
+    Qt's 'int QByteArray::toInt(bool *ok, int base) const': takes a number to
+    change where it is.
+    """
+    raise NotImplementedError(
+        "'QByteArray.toInt' has no cute function yet. Qt's 'int "
+        "QByteArray::toInt(bool *ok, int base) const': takes a number to "
+        "change where it is.")
+
+  @staticmethod
+  def toLong(*__, **_) -> Never:
+    """
+    Qt's 'long QByteArray::toLong(bool *ok, int base) const': takes a number
+    to change where it is.
+    """
+    raise NotImplementedError(
+        "'QByteArray.toLong' has no cute function yet. Qt's 'long "
+        "QByteArray::toLong(bool *ok, int base) const': takes a number to "
+        "change where it is.")
+
+  @staticmethod
+  def toLongLong(*__, **_) -> Never:
+    """
+    Qt's 'qlonglong QByteArray::toLongLong(bool *ok, int base) const': takes
+    a number to change where it is.
+    """
+    raise NotImplementedError(
+        "'QByteArray.toLongLong' has no cute function yet. Qt's 'qlonglong "
+        "QByteArray::toLongLong(bool *ok, int base) const': takes a number "
+        "to change where it is.")
+
+  @staticmethod
+  def toPercentEncoding(*__, **_) -> Never:
+    """
+    Qt's 'QByteArray QByteArray::toPercentEncoding(const QByteArray &exclude,
+    const QByteArray &include, char percent) const': takes a single letter as
+    C has it.
+    """
+    raise NotImplementedError(
+        "'QByteArray.toPercentEncoding' has no cute function yet. Qt's "
+        "'QByteArray QByteArray::toPercentEncoding(const QByteArray "
+        "&exclude, const QByteArray &include, char percent) const': takes a "
+        "single letter as C has it.")
+
+  @staticmethod
+  def toShort(*__, **_) -> Never:
+    """
+    Qt's 'short QByteArray::toShort(bool *ok, int base) const': takes a
+    number to change where it is.
+    """
+    raise NotImplementedError(
+        "'QByteArray.toShort' has no cute function yet. Qt's 'short "
+        "QByteArray::toShort(bool *ok, int base) const': takes a number to "
+        "change where it is.")
+
+  @staticmethod
+  def toStdString(*__, **_) -> Never:
+    """
+    Qt's 'std::string QByteArray::toStdString() const': gives a type Python
+    has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QByteArray.toStdString' has no cute function yet. Qt's "
+        "'std::string QByteArray::toStdString() const': gives a type Python "
+        "has no way to take yet.")
+
+  @staticmethod
+  def toUInt(*__, **_) -> Never:
+    """
+    Qt's 'uint QByteArray::toUInt(bool *ok, int base) const': takes a number
+    to change where it is.
+    """
+    raise NotImplementedError(
+        "'QByteArray.toUInt' has no cute function yet. Qt's 'uint "
+        "QByteArray::toUInt(bool *ok, int base) const': takes a number to "
+        "change where it is.")
+
+  @staticmethod
+  def toULong(*__, **_) -> Never:
+    """
+    Qt's 'ulong QByteArray::toULong(bool *ok, int base) const': takes a
+    number to change where it is.
+    """
+    raise NotImplementedError(
+        "'QByteArray.toULong' has no cute function yet. Qt's 'ulong "
+        "QByteArray::toULong(bool *ok, int base) const': takes a number to "
+        "change where it is.")
+
+  @staticmethod
+  def toULongLong(*__, **_) -> Never:
+    """
+    Qt's 'qulonglong QByteArray::toULongLong(bool *ok, int base) const':
+    takes a number to change where it is.
+    """
+    raise NotImplementedError(
+        "'QByteArray.toULongLong' has no cute function yet. Qt's "
+        "'qulonglong QByteArray::toULongLong(bool *ok, int base) const': "
+        "takes a number to change where it is.")
+
+  @staticmethod
+  def toUShort(*__, **_) -> Never:
+    """
+    Qt's 'ushort QByteArray::toUShort(bool *ok, int base) const': takes a
+    number to change where it is.
+    """
+    raise NotImplementedError(
+        "'QByteArray.toUShort' has no cute function yet. Qt's 'ushort "
+        "QByteArray::toUShort(bool *ok, int base) const': takes a number to "
+        "change where it is.")
+
 
 #  Qt's 'QList<QByteArray>': the list of QByteArray, which
 #  'QList[QByteArray]' gives. It is made here, so that there is one as soon
@@ -2338,9 +3360,10 @@ QByteArrayList = QList.createKind(
 
 #  Qt's 'QHash<int, QByteArray>': the QHash from a number to QByteArray,
 #  which 'QHash[int, QByteArray]' gives. It is completed here, in the file of
-#  the class of its values.
-QHash.createKind(
+#  the class of its values. Qt has a name of its own for it.
+QIntHash = QHash.createKind(
     int, QByteArray, 'value',
+    name='QIntHash',
     make='ritual_map_make_QHash_int_QByteArray',
     put='ritual_map_put_QHash_int_QByteArray',
     size='ritual_map_size_QHash_int_QByteArray',

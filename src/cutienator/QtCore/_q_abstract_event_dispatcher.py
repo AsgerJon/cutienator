@@ -16,10 +16,10 @@ from ..occult import Rituals
 from . import Qt, QEventLoop, QObject
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
-  from . import QAbstractNativeEventFilter, QMetaObject, QSocketNotifier
-  from . import QThread
+  from . import QAbstractEventDispatcherPrivate, QAbstractNativeEventFilter
+  from . import QMetaObject, QSocketNotifier, QThread
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -45,26 +45,50 @@ class QAbstractEventDispatcher(QObject):
   -----------
 
   Every function of Qt's QAbstractEventDispatcher that has a ritual and that
-  Python can call so far, 16 names in all: 'metaObject', 'tr', 'instance',
-  'processEvents', 'registerSocketNotifier', 'unregisterSocketNotifier',
-  'registerTimer', 'unregisterTimer', 'unregisterTimers', 'remainingTime',
-  'wakeUp', 'interrupt', 'startingUp', 'closingDown',
-  'installNativeEventFilter', 'removeNativeEventFilter'. None can be made
-  from Python: one comes out of a function of another class that gives one
-  back.
+  Python can call so far, 19 names in all: 'metaObject', 'tr', 'd_func',
+  'instance', 'processEvents', 'registerSocketNotifier',
+  'unregisterSocketNotifier', 'registerTimer', 'unregisterTimer',
+  'unregisterTimers', 'remainingTime', 'wakeUp', 'interrupt', 'startingUp',
+  'closingDown', 'installNativeEventFilter', 'removeNativeEventFilter',
+  'aboutToBlock', 'awake'. None can be made from Python: one comes out of a
+  function of another class that gives one back.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QAbstractEventDispatcher::qt_metacast(const char *a0)': one
+    of Qt's own inner workings.
+  - Qt's 'int QAbstractEventDispatcher::qt_metacall(QMetaObject::Call a0, int
+    a1, void **a2)': one of Qt's own inner workings.
+  - Qt's 'const QAbstractEventDispatcherPrivate
+    *QAbstractEventDispatcher::d_func() const': takes in Python what
+    'QAbstractEventDispatcherPrivate *QAbstractEventDispatcher::d_func()'
+    takes.
   - Qt's 'QAbstractEventDispatcher::~QAbstractEventDispatcher()': the
     destructor: Python never removes a C++ QAbstractEventDispatcher.
+  - Qt's 'Qt::TimerId QAbstractEventDispatcher::registerTimer(Duration
+    interval, Qt::TimerType timerType, QObject *object)': takes a type Python
+    has no way to hand over yet.
+  - Qt's 'QList<TimerInfo> QAbstractEventDispatcher::registeredTimers(QObject
+    *object) const': gives a type Python has no way to take yet.
+  - Qt's 'void QAbstractEventDispatcher::registerTimer(Qt::TimerId timerId,
+    Duration interval, Qt::TimerType timerType, QObject *object)': takes a
+    type Python has no way to hand over yet.
+  - Qt's 'QList<TimerInfoV2>
+    QAbstractEventDispatcher::timersForObject(QObject *object) const': gives
+    a type Python has no way to take yet.
+  - Qt's 'Duration QAbstractEventDispatcher::remainingTime(Qt::TimerId
+    timerId) const': gives a type Python has no way to take yet.
+  - Qt's 'bool QAbstractEventDispatcher::filterNativeEvent(const QByteArray
+    &eventType, void *message, qintptr *result)': names 'void', which has no
+    cute class yet.
 
   What has no ritual
   ------------------
 
-  16 of the 35 functions Qt declares: 10 takes or gives a type that cannot be
-  passed yet; 2 the class is abstract, so C++ cannot make one; 2 a signal; 1
-  a template; 1 declared and nowhere to be found.
+  4 of the 35 functions Qt declares: 2 not a gap; 2 the class is abstract, so
+  C++ cannot make one, and the C++ class of ours does not fill in every
+  function it leaves open.
 
   What to expect
   --------------
@@ -80,6 +104,10 @@ class QAbstractEventDispatcher(QObject):
   - Qt tells when it has removed the C++ QAbstractEventDispatcher. Every call
     on the cute object, and every use of it as an argument, then raises
     'RuntimeError', and nothing reaches C++.
+  - Each name of Qt's QAbstractEventDispatcher that has no cute function yet,
+    '__init__', 'filterNativeEvent', 'registeredTimers', 'timersForObject',
+    holds a function that raises 'NotImplementedError', and its docstring
+    says why.
   """
 
   #  The classes Qt writes inside QAbstractEventDispatcher, each a class in
@@ -584,6 +612,28 @@ class QAbstractEventDispatcher(QObject):
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  @staticmethod
+  def __init__(*__, **_) -> Never:
+    """
+    - Qt's 'QAbstractEventDispatcher::QAbstractEventDispatcher(QObject
+      *parent)': the class is abstract, so C++ cannot make one, and the C++
+      class of ours does not fill in every function it leaves open.
+    - Qt's 'QAbstractEventDispatcher::QAbstractEventDispatcher(
+      QAbstractEventDispatcherPrivate &a0, QObject *parent)': the class is
+      abstract, so C++ cannot make one, and the C++ class of ours does not
+      fill in every function it leaves open.
+    """
+    raise NotImplementedError(
+        "'QAbstractEventDispatcher.__init__' has no cute function yet. Qt's "
+        "'QAbstractEventDispatcher::QAbstractEventDispatcher(QObject "
+        "*parent)': the class is abstract, so C++ cannot make one, and the "
+        "C++ class of ours does not fill in every function it leaves open. "
+        "Qt's "
+        "'QAbstractEventDispatcher::QAbstractEventDispatcher(QAbstractEventD"
+        "ispatcherPrivate &a0, QObject *parent)': the class is abstract, so "
+        "C++ cannot make one, and the C++ class of ours does not fill in "
+        "every function it leaves open.")
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -603,6 +653,28 @@ class QAbstractEventDispatcher(QObject):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  def d_func(self) -> Optional[QAbstractEventDispatcherPrivate]:
+    """
+    Calls Qt's 'QAbstractEventDispatcherPrivate
+    *QAbstractEventDispatcher::d_func()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstracteventdispatcher.html#d_func
+
+    Returns
+    -------
+
+    Optional[QAbstractEventDispatcherPrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QAbstractEventDispatcherPrivate *QAbstractEventDispatcher::d_func()
+    address = self.uglySide.call(
+        'ritual_ZN24QAbstractEventDispatcher6d_funcEv',
+    )
+    from . import QAbstractEventDispatcherPrivate
+    return QAbstractEventDispatcherPrivate._cuteAt(address)
 
   @overload(QEventLoop.ProcessEventsFlags)
   def processEvents(self, flags: QEventLoop.ProcessEventsFlags) -> bool:
@@ -947,3 +1019,61 @@ class QAbstractEventDispatcher(QObject):
         'bstractNativeEventFilter',
         self._addressOf(filterObj),
     )
+
+  def aboutToBlock(self) -> None:
+    """
+    Calls Qt's 'void QAbstractEventDispatcher::aboutToBlock()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstracteventdispatcher.html#aboutToBlock
+    """
+    #  void QAbstractEventDispatcher::aboutToBlock()
+    self.uglySide.call('ritual_ZN24QAbstractEventDispatcher12aboutToBlockEv')
+
+  def awake(self) -> None:
+    """
+    Calls Qt's 'void QAbstractEventDispatcher::awake()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstracteventdispatcher.html#awake
+    """
+    #  void QAbstractEventDispatcher::awake()
+    self.uglySide.call('ritual_ZN24QAbstractEventDispatcher5awakeEv')
+
+  @staticmethod
+  def filterNativeEvent(*__, **_) -> Never:
+    """
+    Qt's 'bool QAbstractEventDispatcher::filterNativeEvent(const QByteArray
+    &eventType, void *message, qintptr *result)': names 'void', which has no
+    cute class yet.
+    """
+    raise NotImplementedError(
+        "'QAbstractEventDispatcher.filterNativeEvent' has no cute function "
+        "yet. Qt's 'bool QAbstractEventDispatcher::filterNativeEvent(const "
+        "QByteArray &eventType, void *message, qintptr *result)': names "
+        "'void', which has no cute class yet.")
+
+  @staticmethod
+  def registeredTimers(*__, **_) -> Never:
+    """
+    Qt's 'QList<TimerInfo> QAbstractEventDispatcher::registeredTimers(QObject
+    *object) const': gives a type Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QAbstractEventDispatcher.registeredTimers' has no cute function "
+        "yet. Qt's 'QList<TimerInfo> "
+        "QAbstractEventDispatcher::registeredTimers(QObject *object) "
+        "const': gives a type Python has no way to take yet.")
+
+  @staticmethod
+  def timersForObject(*__, **_) -> Never:
+    """
+    Qt's 'QList<TimerInfoV2>
+    QAbstractEventDispatcher::timersForObject(QObject *object) const': gives
+    a type Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QAbstractEventDispatcher.timersForObject' has no cute function "
+        "yet. Qt's 'QList<TimerInfoV2> "
+        "QAbstractEventDispatcher::timersForObject(QObject *object) const': "
+        "gives a type Python has no way to take yet.")

@@ -22,13 +22,17 @@ from ..occult import Rituals
 from ..QtCore import QObject
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from ..QtCore import QTimerEvent
+  from . import QFontDef, QFontEngine, QFontEngineData
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
+  QFontDef = WAIT['QFontDef']
+  QFontEngine = WAIT['QFontEngine']
+  QFontEngineData = WAIT['QFontEngineData']
   QTimerEvent = WAIT['QTimerEvent']
 
 #  The class of None, for a signature that takes None in the place of an
@@ -48,7 +52,8 @@ class QFontCache(QObject):
   -----------
 
   Every function of Qt's QFontCache that has a ritual and that Python can
-  call so far, 8 names in all: 'instance', 'cleanup', 'id', 'clear',
+  call so far, 12 names in all: 'instance', 'cleanup', 'id', 'clear',
+  'findEngineData', 'insertEngineData', 'findEngine', 'insertEngine',
   'increaseCost', 'decreaseCost', 'timerEvent', 'decreaseCache'. It can be
   made from Python, in 1 way; see '__init__'.
 
@@ -57,12 +62,8 @@ class QFontCache(QObject):
 
   - Qt's 'QFontCache::~QFontCache()': the destructor: Python never removes a
     C++ QFontCache.
-
-  What has no ritual
-  ------------------
-
-  5 of the 15 functions Qt declares: 5 takes or gives a type that cannot be
-  passed yet.
+  - Qt's 'void QFontCache::updateHitCountAndTimeStamp(Engine &value)': takes
+    a type Python has no way to hand over yet.
 
   What to expect
   --------------
@@ -77,6 +78,9 @@ class QFontCache(QObject):
   - Qt tells when it has removed the C++ QFontCache. Every call on the cute
     object, and every use of it as an argument, then raises 'RuntimeError',
     and nothing reaches C++.
+  - Each name of Qt's QFontCache that has no cute function yet,
+    'updateHitCountAndTimeStamp', holds a function that raises
+    'NotImplementedError', and its docstring says why.
   """
 
   #  The classes Qt writes inside QFontCache, each a class in here as in C++.
@@ -94,19 +98,13 @@ class QFontCache(QObject):
     -----------
 
     No function of Qt's QFontCache::Engine yet. It can be made from Python,
-    in 1 way; see '__init__'.
+    in 2 ways; see '__init__'.
 
     What has a ritual and is left out, and why
     ------------------------------------------
 
     - Qt's 'QFontCache::Engine::~Engine()': the destructor: Python removes
       its C++ QFontCache::Engine by it, and has no other use for it.
-
-    What has no ritual
-    ------------------
-
-    1 of the 3 functions Qt declares: 1 takes or gives a type that cannot be
-    passed yet.
 
     What to expect
     --------------
@@ -121,6 +119,12 @@ class QFontCache(QObject):
     - A function giving a QFontCache::Engine back gives a copy the ritual
       made for Python, in a new cute QFontCache::Engine.
     """
+
+    #  The cute classes this class names and is not built on. Each waits
+    #  until it is made; see 'WAIT'. A type checker reads the imports at the
+    #  top of the file instead.
+    if not TYPE_CHECKING:
+      QFontEngine = WAIT['QFontEngine']
 
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -180,6 +184,28 @@ class QFontCache(QObject):
           'ritual_ZN10QFontCache6EngineC1Ev',
       ))
 
+    @overload(QFontEngine)
+    @overload(NoneType)
+    def __init__(self, d: Optional[QFontEngine]) -> None:
+      """
+      Notes what was given, for Qt's 'QFontCache::Engine::Engine(QFontEngine
+      *d)', which is called at the first use.
+
+      Qt's own words: https://doc.qt.io/qt-6/qfontcache-engine.html#Engine
+
+      Parameters
+      ----------
+
+      d : Optional[QFontEngine]
+        Passed on as the address of its C++ object. None is passed on as no
+        object.
+      """
+      #  QFontCache::Engine::Engine(QFontEngine *d)
+      self._noteCreation(QFontCache.Engine, lambda: Rituals.call(
+          'ritual_ZN10QFontCache6EngineC1EP11QFontEngine',
+          self._addressOf(d),
+      ))
+
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # #
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -214,19 +240,13 @@ class QFontCache(QObject):
 
     Every function of Qt's QFontCache::Key that has a ritual and that Python
     can call so far, 2 names in all: '__lt__', '__eq__'. It can be made from
-    Python, in 1 way; see '__init__'.
+    Python, in 2 ways; see '__init__'.
 
     What has a ritual and is left out, and why
     ------------------------------------------
 
     - Qt's 'QFontCache::Key::~Key()': the destructor: Python removes its C++
       QFontCache::Key by it, and has no other use for it.
-
-    What has no ritual
-    ------------------
-
-    1 of the 5 functions Qt declares: 1 takes or gives a type that cannot be
-    passed yet.
 
     What to expect
     --------------
@@ -241,6 +261,12 @@ class QFontCache(QObject):
     - A function giving a QFontCache::Key back gives a copy the ritual made
       for Python, in a new cute QFontCache::Key.
     """
+
+    #  The cute classes this class names and is not built on. Each waits
+    #  until it is made; see 'WAIT'. A type checker reads the imports at the
+    #  top of the file instead.
+    if not TYPE_CHECKING:
+      QFontDef = WAIT['QFontDef']
 
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -356,6 +382,34 @@ class QFontCache(QObject):
           'ritual_ZN10QFontCache3KeyC1Ev',
       ))
 
+    @overload(QFontDef, int)
+    @overload(QFontDef, int, bool)
+    def __init__(self, d: QFontDef, c: int, m: bool = False) -> None:
+      """
+      Notes what was given, for Qt's 'QFontCache::Key::Key(const QFontDef &d,
+      uchar c, bool m)', which is called at the first use.
+
+      Qt's own words: https://doc.qt.io/qt-6/qfontcache-key.html#Key
+
+      Parameters
+      ----------
+
+      d : QFontDef
+        Passed on as a value: Qt reads the C++ QFontDef, which stays Python's
+        own.
+
+      c : int
+        Passed on as it is.
+
+      m : bool
+        Passed on as it is. May be left out, as in Qt: it is then False.
+      """
+      #  QFontCache::Key::Key(const QFontDef &d, uchar c, bool m)
+      self._noteCreation(QFontCache.Key, lambda: Rituals.call(
+          'ritual_ZN10QFontCache3KeyC1ERK8QFontDefhb',
+          self._valueOf(d), c, m,
+      ))
+
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # #
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -442,6 +496,36 @@ class QFontCache(QObject):
     #  int QFontCache::id() const
     return self.uglySide.call('ritual_ZNK10QFontCache2idEv')
 
+  @overload(QFontDef)
+  def findEngineData(self, def_: QFontDef) -> Optional[QFontEngineData]:
+    """
+    Calls Qt's 'QFontEngineData *QFontCache::findEngineData(const QFontDef
+    &def) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfontcache.html#findEngineData
+
+    Parameters
+    ----------
+
+    def_ : QFontDef
+      Passed on as a value: Qt reads the C++ QFontDef, which stays Python's
+      own.
+
+    Returns
+    -------
+
+    Optional[QFontEngineData]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QFontEngineData *QFontCache::findEngineData(const QFontDef &def) const
+    address = self.uglySide.call(
+        'ritual_ZNK10QFontCache14findEngineDataERK8QFontDef',
+        self._valueOf(def_),
+    )
+    from . import QFontEngineData
+    return QFontEngineData._cuteAt(address)
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -499,6 +583,103 @@ class QFontCache(QObject):
     """
     #  void QFontCache::clear()
     self.uglySide.call('ritual_ZN10QFontCache5clearEv')
+
+  @overload(QFontDef, QFontEngineData)
+  @overload(QFontDef, NoneType)
+  def insertEngineData(
+      self,
+      def_: QFontDef,
+      engineData: Optional[QFontEngineData],
+  ) -> None:
+    """
+    Calls Qt's 'void QFontCache::insertEngineData(const QFontDef &def,
+    QFontEngineData *engineData)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfontcache.html#insertEngineData
+
+    Parameters
+    ----------
+
+    def_ : QFontDef
+      Passed on as a value: Qt reads the C++ QFontDef, which stays Python's
+      own.
+
+    engineData : Optional[QFontEngineData]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QFontCache::insertEngineData(const QFontDef &def, QFontEngineData
+    #      *engineData)
+    self.uglySide.call(
+        'ritual_ZN10QFontCache16insertEngineDataERK8QFontDefP15QFontEngineD'
+        'ata',
+        self._valueOf(def_), self._addressOf(engineData),
+    )
+
+  @overload(Key)
+  def findEngine(self, key: Key) -> Optional[QFontEngine]:
+    """
+    Calls Qt's 'QFontEngine *QFontCache::findEngine(const Key &key)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfontcache.html#findEngine
+
+    Parameters
+    ----------
+
+    key : Key
+      Passed on as a value: Qt reads the C++ QFontCache::Key, which stays
+      Python's own.
+
+    Returns
+    -------
+
+    Optional[QFontEngine]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QFontEngine *QFontCache::findEngine(const Key &key)
+    address = self.uglySide.call(
+        'ritual_ZN10QFontCache10findEngineERKNS_3KeyE', self._valueOf(key),
+    )
+    from . import QFontEngine
+    return QFontEngine._cuteAt(address)
+
+  @overload(Key, QFontEngine)
+  @overload(Key, NoneType)
+  @overload(Key, QFontEngine, bool)
+  @overload(Key, NoneType, bool)
+  def insertEngine(
+      self,
+      key: Key,
+      engine: Optional[QFontEngine],
+      insertMulti: bool = False,
+  ) -> None:
+    """
+    Calls Qt's 'void QFontCache::insertEngine(const Key &key, QFontEngine
+    *engine, bool insertMulti)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfontcache.html#insertEngine
+
+    Parameters
+    ----------
+
+    key : Key
+      Passed on as a value: Qt reads the C++ QFontCache::Key, which stays
+      Python's own.
+
+    engine : Optional[QFontEngine]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    insertMulti : bool
+      Passed on as it is. May be left out, as in Qt: it is then False.
+    """
+    #  void QFontCache::insertEngine(const Key &key, QFontEngine *engine,
+    #      bool insertMulti)
+    self.uglySide.call(
+        'ritual_ZN10QFontCache12insertEngineERKNS_3KeyEP11QFontEngineb',
+        self._valueOf(key), self._addressOf(engine), insertMulti,
+    )
 
   @overload(int)
   def increaseCost(self, cost: int) -> None:
@@ -561,3 +742,14 @@ class QFontCache(QObject):
     """
     #  void QFontCache::decreaseCache()
     self.uglySide.call('ritual_ZN10QFontCache13decreaseCacheEv')
+
+  @staticmethod
+  def updateHitCountAndTimeStamp(*__, **_) -> Never:
+    """
+    Qt's 'void QFontCache::updateHitCountAndTimeStamp(Engine &value)': takes
+    a type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QFontCache.updateHitCountAndTimeStamp' has no cute function yet. "
+        "Qt's 'void QFontCache::updateHitCountAndTimeStamp(Engine &value)': "
+        "takes a type Python has no way to hand over yet.")

@@ -17,6 +17,9 @@ from ..occult import Rituals
 from ..QtCore import Qt
 from . import QTextFormat
 
+if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Never
+
 
 class QTextBlockFormat(QTextFormat):
   """
@@ -46,14 +49,17 @@ class QTextBlockFormat(QTextFormat):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void QTextBlockFormat::setTabPositions(const
+    QList<QTextOption::Tab> &tabs)': takes a type Python has no way to hand
+    over yet.
+  - Qt's 'QList<QTextOption::Tab> QTextBlockFormat::tabPositions() const':
+    gives a type Python has no way to take yet.
+  - Qt's 'QDataStream &operator<<(QDataStream &a0, const QTextBlockFormat
+    &a1)': takes a type Python has no way to hand over yet.
+  - Qt's 'QDataStream &operator>>(QDataStream &a0, QTextBlockFormat &a1)': an
+    operator between other classes, written inside this one.
   - Qt's 'QTextBlockFormat::~QTextBlockFormat()': the destructor: Python
     removes its C++ QTextBlockFormat by it, and has no other use for it.
-
-  What has no ritual
-  ------------------
-
-  4 of the 34 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet.
 
   What to expect
   --------------
@@ -67,6 +73,9 @@ class QTextBlockFormat(QTextFormat):
     is as in C++.
   - A function giving a QTextBlockFormat back gives a copy the ritual made
     for Python, in a new cute QTextBlockFormat.
+  - Each name of Qt's QTextBlockFormat that has no cute function yet,
+    'setTabPositions', 'tabPositions', holds a function that raises
+    'NotImplementedError', and its docstring says why.
   """
 
   #  The enums Qt writes inside QTextBlockFormat, each a class in here as in
@@ -609,3 +618,27 @@ class QTextBlockFormat(QTextFormat):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def setTabPositions(*__, **_) -> Never:
+    """
+    Qt's 'void QTextBlockFormat::setTabPositions(const
+    QList<QTextOption::Tab> &tabs)': takes a type Python has no way to hand
+    over yet.
+    """
+    raise NotImplementedError(
+        "'QTextBlockFormat.setTabPositions' has no cute function yet. Qt's "
+        "'void QTextBlockFormat::setTabPositions(const "
+        "QList<QTextOption::Tab> &tabs)': takes a type Python has no way to "
+        "hand over yet.")
+
+  @staticmethod
+  def tabPositions(*__, **_) -> Never:
+    """
+    Qt's 'QList<QTextOption::Tab> QTextBlockFormat::tabPositions() const':
+    gives a type Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QTextBlockFormat.tabPositions' has no cute function yet. Qt's "
+        "'QList<QTextOption::Tab> QTextBlockFormat::tabPositions() const': "
+        "gives a type Python has no way to take yet.")

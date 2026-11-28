@@ -58,8 +58,7 @@ class QCalendar(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  3 of the 35 functions Qt declares: 2 declared and nowhere to be found; 1 a
-  template.
+  3 of the 35 functions Qt declares: 3 not a gap.
 
   What to expect
   --------------
@@ -107,8 +106,8 @@ class QCalendar(CuteMixin, metaclass=MetaCute):
     -----------
 
     Every function of Qt's QCalendar::SystemId that has a ritual and that
-    Python can call so far, 2 names in all: 'isInEnum', 'isValid'. It can be
-    made from Python, in 2 ways; see '__init__'.
+    Python can call so far, 3 names in all: 'isInEnum', 'index', 'isValid'.
+    It can be made from Python, in 2 ways; see '__init__'.
 
     What has a ritual and is left out, and why
     ------------------------------------------
@@ -117,12 +116,6 @@ class QCalendar(CuteMixin, metaclass=MetaCute):
       enum 'QCalendar::System', whose class cannot be named here.
     - Qt's 'QCalendar::SystemId::~SystemId()': the destructor: Python removes
       its C++ QCalendar::SystemId by it, and has no other use for it.
-
-    What has no ritual
-    ------------------
-
-    1 of the 7 functions Qt declares: 1 takes or gives a type that cannot be
-    passed yet.
 
     What to expect
     --------------
@@ -175,6 +168,15 @@ class QCalendar(CuteMixin, metaclass=MetaCute):
       """
       #  bool QCalendar::SystemId::isInEnum() const
       return self.uglySide.call('ritual_ZNK9QCalendar8SystemId8isInEnumEv')
+
+    def index(self) -> int:
+      """
+      Calls Qt's 'size_t QCalendar::SystemId::index() const'.
+
+      Qt's own words: https://doc.qt.io/qt-6/qcalendar-systemid.html#index
+      """
+      #  size_t QCalendar::SystemId::index() const
+      return self.uglySide.call('ritual_ZNK9QCalendar8SystemId5indexEv')
 
     def isValid(self) -> bool:
       """

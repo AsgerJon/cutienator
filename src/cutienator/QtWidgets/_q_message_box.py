@@ -55,7 +55,7 @@ class QMessageBox(QDialog):
   -----------
 
   Every function of Qt's QMessageBox that has a ritual and that Python can
-  call so far, 53 names in all: 'metaObject', 'tr', 'addButton',
+  call so far, 54 names in all: 'metaObject', 'tr', 'addButton',
   'removeButton', 'open', 'buttons', 'buttonRole', 'setStandardButtons',
   'standardButtons', 'standardButton', 'button', 'defaultButton',
   'setDefaultButton', 'escapeButton', 'setEscapeButton', 'clickedButton',
@@ -65,13 +65,17 @@ class QMessageBox(QDialog):
   'testOption', 'setOptions', 'options', 'information', 'question',
   'warning', 'critical', 'about', 'aboutQt', 'buttonText', 'setButtonText',
   'informativeText', 'setInformativeText', 'detailedText', 'setDetailedText',
-  'setWindowTitle', 'setWindowModality', 'standardIcon', 'event',
-  'resizeEvent', 'showEvent', 'closeEvent', 'keyPressEvent', 'changeEvent'.
-  It can be made from Python, in 3 ways; see '__init__'.
+  'setWindowTitle', 'setWindowModality', 'standardIcon', 'buttonClicked',
+  'event', 'resizeEvent', 'showEvent', 'closeEvent', 'keyPressEvent',
+  'changeEvent'. It can be made from Python, in 3 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QMessageBox::qt_metacast(const char *a0)': one of Qt's own
+    inner workings.
+  - Qt's 'int QMessageBox::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
   - Qt's 'QMessageBox::~QMessageBox()': the destructor: Python never removes
     a C++ QMessageBox.
   - Qt's 'StandardButton QMessageBox::information(QWidget *parent, const
@@ -95,13 +99,15 @@ class QMessageBox(QDialog):
     takes in Python what 'StandardButton QMessageBox::critical(QWidget
     *parent, const QString &title, const QString &text, StandardButtons
     buttons, StandardButton defaultButton)' takes.
+  - Qt's 'QMessageBoxPrivate *QMessageBox::d_func()': gives
+    'QMessageBoxPrivate', which has no cute class yet.
+  - Qt's 'const QMessageBoxPrivate *QMessageBox::d_func() const': gives
+    'QMessageBoxPrivate', which has no cute class yet.
 
   What has no ritual
   ------------------
 
-  9 of the 82 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet; 2 forbidden; 1 a template; 1 declared and nowhere to be found;
-  1 a signal.
+  4 of the 82 functions Qt declares: 2 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -2137,6 +2143,27 @@ class QMessageBox(QDialog):
     self.uglySide.call(
         'ritual_ZN11QMessageBox4openEP7QObjectPKc',
         self._addressOf(receiver, 'QObject'), self._bytesOf(member),
+    )
+
+  @overload(QAbstractButton)
+  @overload(NoneType)
+  def buttonClicked(self, button: Optional[QAbstractButton]) -> None:
+    """
+    Calls Qt's 'void QMessageBox::buttonClicked(QAbstractButton *button)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmessagebox.html#buttonClicked
+
+    Parameters
+    ----------
+
+    button : Optional[QAbstractButton]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QMessageBox::buttonClicked(QAbstractButton *button)
+    self.uglySide.call(
+        'ritual_ZN11QMessageBox13buttonClickedEP15QAbstractButton',
+        self._addressOf(button),
     )
 
   @overload(QEvent)

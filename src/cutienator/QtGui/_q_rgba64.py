@@ -41,14 +41,10 @@ class QRgba64(CuteMixin, metaclass=MetaCute):
 
   - Qt's 'quint64 QRgba64::operator unsigned long long() const': an operator
     Python has no name for.
+  - Qt's 'QRgba64 &QRgba64::operator=(quint64 _rgba)': assignment: Python
+    binds a name and has no operator for it.
   - Qt's 'QRgba64::~QRgba64()': the destructor: Python removes its C++
     QRgba64 by it, and has no other use for it.
-
-  What has no ritual
-  ------------------
-
-  1 of the 32 functions Qt declares: 1 takes or gives a type that cannot be
-  passed yet.
 
   What to expect
   --------------

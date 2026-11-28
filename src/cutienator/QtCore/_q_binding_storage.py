@@ -13,11 +13,12 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
+from . import QtPrivate
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from . import QUntypedPropertyData
+  from . import QBindingStatus, QUntypedPropertyData
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -42,22 +43,16 @@ class QBindingStorage(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QBindingStorage that has a ritual and that Python
-  can call so far, 6 names in all: 'isEmpty', 'isValid',
-  'registerDependency', 'reinitAfterThreadMove', 'clear',
-  'registerDependency_helper'. It can be made from Python, in 1 way; see
-  '__init__'.
+  can call so far, 9 names in all: 'isEmpty', 'isValid', 'status',
+  'registerDependency', 'bindingData', 'reinitAfterThreadMove', 'clear',
+  'registerDependency_helper', 'bindingData_helper'. It can be made from
+  Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
   - Qt's 'QBindingStorage::~QBindingStorage()': the destructor: Python
     removes its C++ QBindingStorage by it, and has no other use for it.
-
-  What has no ritual
-  ------------------
-
-  5 of the 13 functions Qt declares: 5 takes or gives a type that cannot be
-  passed yet.
 
   What to expect
   --------------
@@ -110,6 +105,195 @@ class QBindingStorage(CuteMixin, metaclass=MetaCute):
     """
     #  bool QBindingStorage::isValid() const
     return self.uglySide.call('ritual_ZNK15QBindingStorage7isValidEv')
+
+  @overload(WAIT['QtPrivate.QBindingStatusAccessToken'])
+  def status(
+      self,
+      a0: QtPrivate.QBindingStatusAccessToken,
+  ) -> Optional[QBindingStatus]:
+    """
+    Calls Qt's 'const QBindingStatus
+    *QBindingStorage::status(QtPrivate::QBindingStatusAccessToken a0) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qbindingstorage.html#status
+
+    Parameters
+    ----------
+
+    a0 : QtPrivate.QBindingStatusAccessToken
+      Passed on as a value: Qt reads the C++
+      QtPrivate::QBindingStatusAccessToken, which stays Python's own.
+
+    Returns
+    -------
+
+    Optional[QBindingStatus]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  const QBindingStatus
+    #      *QBindingStorage::status(QtPrivate::QBindingStatusAccessToken a0)
+    #      const
+    address = self.uglySide.call(
+        'ritual_ZNK15QBindingStorage6statusEN9QtPrivate25QBindingStatusAcce'
+        'ssTokenE',
+        self._valueOf(a0),
+    )
+    from . import QBindingStatus
+    return QBindingStatus._cuteAt(address)
+
+  @overload(QUntypedPropertyData)
+  @overload(NoneType)
+  def bindingData(
+      self,
+      data: Optional[QUntypedPropertyData],
+  ) -> Optional[QtPrivate.QPropertyBindingData]:
+    """
+    Calls Qt's 'QtPrivate::QPropertyBindingData
+    *QBindingStorage::bindingData(const QUntypedPropertyData *data) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qbindingstorage.html#bindingData
+
+    Parameters
+    ----------
+
+    data : Optional[QUntypedPropertyData]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    Returns
+    -------
+
+    Optional[QtPrivate.QPropertyBindingData]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QtPrivate::QPropertyBindingData *QBindingStorage::bindingData(const
+    #      QUntypedPropertyData *data) const
+    address = self.uglySide.call(
+        'ritual_ZNK15QBindingStorage11bindingDataEPK20QUntypedPropertyData',
+        self._addressOf(data),
+    )
+    return QtPrivate.QPropertyBindingData._cuteAt(address)
+
+  @overload(QUntypedPropertyData, bool)
+  @overload(NoneType, bool)
+  def bindingData(
+      self,
+      data: Optional[QUntypedPropertyData],
+      create: bool,
+  ) -> Optional[QtPrivate.QPropertyBindingData]:
+    """
+    Calls Qt's 'QtPrivate::QPropertyBindingData
+    *QBindingStorage::bindingData(QUntypedPropertyData *data, bool create)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qbindingstorage.html#bindingData
+
+    Parameters
+    ----------
+
+    data : Optional[QUntypedPropertyData]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    create : bool
+      Passed on as it is.
+
+    Returns
+    -------
+
+    Optional[QtPrivate.QPropertyBindingData]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QtPrivate::QPropertyBindingData
+    #      *QBindingStorage::bindingData(QUntypedPropertyData *data, bool
+    #      create)
+    address = self.uglySide.call(
+        'ritual_ZN15QBindingStorage11bindingDataEP20QUntypedPropertyDatab',
+        self._addressOf(data), create,
+    )
+    return QtPrivate.QPropertyBindingData._cuteAt(address)
+
+  @overload(QUntypedPropertyData)
+  @overload(NoneType)
+  def bindingData_helper(
+      self,
+      data: Optional[QUntypedPropertyData],
+  ) -> Optional[QtPrivate.QPropertyBindingData]:
+    """
+    Calls Qt's 'QtPrivate::QPropertyBindingData
+    *QBindingStorage::bindingData_helper(const QUntypedPropertyData *data)
+    const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qbindingstorage.html#bindingData_helper
+
+    Parameters
+    ----------
+
+    data : Optional[QUntypedPropertyData]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    Returns
+    -------
+
+    Optional[QtPrivate.QPropertyBindingData]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QtPrivate::QPropertyBindingData
+    #      *QBindingStorage::bindingData_helper(const QUntypedPropertyData
+    #      *data) const
+    address = self.uglySide.call(
+        'ritual_ZNK15QBindingStorage18bindingData_helperEPK20QUntypedProper'
+        'tyData',
+        self._addressOf(data),
+    )
+    return QtPrivate.QPropertyBindingData._cuteAt(address)
+
+  @overload(QUntypedPropertyData, bool)
+  @overload(NoneType, bool)
+  def bindingData_helper(
+      self,
+      data: Optional[QUntypedPropertyData],
+      create: bool,
+  ) -> Optional[QtPrivate.QPropertyBindingData]:
+    """
+    Calls Qt's 'QtPrivate::QPropertyBindingData
+    *QBindingStorage::bindingData_helper(QUntypedPropertyData *data, bool
+    create)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qbindingstorage.html#bindingData_helper
+
+    Parameters
+    ----------
+
+    data : Optional[QUntypedPropertyData]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    create : bool
+      Passed on as it is.
+
+    Returns
+    -------
+
+    Optional[QtPrivate.QPropertyBindingData]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QtPrivate::QPropertyBindingData
+    #      *QBindingStorage::bindingData_helper(QUntypedPropertyData *data,
+    #      bool create)
+    address = self.uglySide.call(
+        'ritual_ZN15QBindingStorage18bindingData_helperEP20QUntypedProperty'
+        'Datab',
+        self._addressOf(data), create,
+    )
+    return QtPrivate.QPropertyBindingData._cuteAt(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

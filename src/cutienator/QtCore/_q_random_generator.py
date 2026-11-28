@@ -16,7 +16,7 @@ from ..cute import CuteMixin, MetaCute
 from ..occult import Rituals
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
 
 class QRandomGenerator(CuteMixin, metaclass=MetaCute):
@@ -40,6 +40,15 @@ class QRandomGenerator(CuteMixin, metaclass=MetaCute):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'QRandomGenerator::QRandomGenerator(const quint32 *seedBuffer,
+    qsizetype len)': names 'quint32', which has no cute class yet.
+  - Qt's 'QRandomGenerator::QRandomGenerator(std::seed_seq &sseq)': takes a
+    type Python has no way to hand over yet.
+  - Qt's 'QRandomGenerator::QRandomGenerator(const quint32 *begin, const
+    quint32 *end)': names 'quint32', which has no cute class yet.
+  - Qt's 'QRandomGenerator &QRandomGenerator::operator=(const
+    QRandomGenerator &other)': assignment: Python binds a name and has no
+    operator for it.
   - Qt's 'QRandomGenerator::~QRandomGenerator()': the destructor: Python
     removes its C++ QRandomGenerator by it, and has no other use for it.
   - Qt's 'int QRandomGenerator::bounded(int highest)': takes in Python what
@@ -71,14 +80,17 @@ class QRandomGenerator(CuteMixin, metaclass=MetaCute):
     QRandomGenerator::bounded(quint32 lowest, quint32 highest)' takes.
   - Qt's 'void QRandomGenerator::generate(quint32 *begin, quint32 *end)':
     takes a number to change where it is.
+  - Qt's 'void QRandomGenerator::seed(std::seed_seq &sseq)': takes a type
+    Python has no way to hand over yet.
   - Qt's 'QRandomGenerator::QRandomGenerator(System a0)': names the enum
     'QRandomGenerator::System', whose class cannot be named here.
+  - Qt's 'quint64 QRandomGenerator::_fillRange(void *buffer, qptrdiff
+    count)': names 'void', which has no cute class yet.
 
   What has no ritual
   ------------------
 
-  10 of the 41 functions Qt declares: 6 takes or gives a type that cannot be
-  passed yet; 4 a template.
+  4 of the 41 functions Qt declares: 4 a template.
 
   What to expect
   --------------
@@ -92,6 +104,9 @@ class QRandomGenerator(CuteMixin, metaclass=MetaCute):
     is as in C++.
   - A function giving a QRandomGenerator back gives a copy the ritual made
     for Python, in a new cute QRandomGenerator.
+  - Each name of Qt's QRandomGenerator that has no cute function yet,
+    '_fillRange', 'fillRange', holds a function that raises
+    'NotImplementedError', and its docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -468,3 +483,25 @@ class QRandomGenerator(CuteMixin, metaclass=MetaCute):
     """
     #  void QRandomGenerator::discard(unsigned long long z)
     self.uglySide.call('ritual_ZN16QRandomGenerator7discardEy', z)
+
+  @staticmethod
+  def _fillRange(*__, **_) -> Never:
+    """
+    Qt's 'quint64 QRandomGenerator::_fillRange(void *buffer, qptrdiff
+    count)': names 'void', which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QRandomGenerator._fillRange' has no cute function yet. Qt's "
+        "'quint64 QRandomGenerator::_fillRange(void *buffer, qptrdiff "
+        "count)': names 'void', which has no cute class yet.")
+
+  @staticmethod
+  def fillRange(*__, **_) -> Never:
+    """
+    Qt's 'QRandomGenerator::fillRange': a template: a pattern and no single
+    function.
+    """
+    raise NotImplementedError(
+        "'QRandomGenerator.fillRange' has no cute function yet. Qt's "
+        "'QRandomGenerator::fillRange': a template: a pattern and no single "
+        "function.")

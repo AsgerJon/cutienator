@@ -21,7 +21,7 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
 
   from ..QtCore import QEvent, QMetaObject, QRect
   from ..QtGui import QIcon
-  from . import QMenu
+  from . import QMenu, QSystemTrayIconPrivate
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -47,24 +47,29 @@ class QSystemTrayIcon(QObject):
   -----------
 
   Every function of Qt's QSystemTrayIcon that has a ritual and that Python
-  can call so far, 17 names in all: 'metaObject', 'tr', 'setContextMenu',
+  can call so far, 20 names in all: 'metaObject', 'tr', 'setContextMenu',
   'contextMenu', 'icon', 'setIcon', 'toolTip', 'setToolTip',
   'isSystemTrayAvailable', 'supportsMessages', 'geometry', 'isVisible',
-  'setVisible', 'show', 'hide', 'showMessage', 'event'. It can be made from
-  Python, in 2 ways; see '__init__'.
+  'setVisible', 'show', 'hide', 'showMessage', 'activated', 'messageClicked',
+  'event', 'd_func'. It can be made from Python, in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QSystemTrayIcon::qt_metacast(const char *a0)': one of Qt's
+    own inner workings.
+  - Qt's 'int QSystemTrayIcon::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
   - Qt's 'QSystemTrayIcon::~QSystemTrayIcon()': the destructor: Python never
     removes a C++ QSystemTrayIcon.
+  - Qt's 'const QSystemTrayIconPrivate *QSystemTrayIcon::d_func() const':
+    takes in Python what 'QSystemTrayIconPrivate *QSystemTrayIcon::d_func()'
+    takes.
 
   What has no ritual
   ------------------
 
-  10 of the 31 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet; 2 a signal; 2 forbidden; 1 a template; 1 declared and nowhere
-  to be found.
+  4 of the 31 functions Qt declares: 2 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -556,6 +561,37 @@ class QSystemTrayIcon(QObject):
         title, msg, icon.value, msecs,
     )
 
+  @overload(ActivationReason)
+  def activated(self, reason: ActivationReason) -> None:
+    """
+    Calls Qt's 'void
+    QSystemTrayIcon::activated(QSystemTrayIcon::ActivationReason reason)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qsystemtrayicon.html#activated
+
+    Parameters
+    ----------
+
+    reason : ActivationReason
+      Passed on as its number.
+    """
+    #  void QSystemTrayIcon::activated(QSystemTrayIcon::ActivationReason
+    #      reason)
+    self.uglySide.call(
+        'ritual_ZN15QSystemTrayIcon9activatedENS_16ActivationReasonE',
+        reason.value,
+    )
+
+  def messageClicked(self) -> None:
+    """
+    Calls Qt's 'void QSystemTrayIcon::messageClicked()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qsystemtrayicon.html#messageClicked
+    """
+    #  void QSystemTrayIcon::messageClicked()
+    self.uglySide.call('ritual_ZN15QSystemTrayIcon14messageClickedEv')
+
   @overload(QEvent)
   @overload(NoneType)
   def event(self, event: Optional[QEvent]) -> bool:
@@ -576,3 +612,21 @@ class QSystemTrayIcon(QObject):
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZN15QSystemTrayIcon5eventEP6QEvent'
     return self.uglySide.call(ritual, self._addressOf(event))
+
+  def d_func(self) -> Optional[QSystemTrayIconPrivate]:
+    """
+    Calls Qt's 'QSystemTrayIconPrivate *QSystemTrayIcon::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qsystemtrayicon.html#d_func
+
+    Returns
+    -------
+
+    Optional[QSystemTrayIconPrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QSystemTrayIconPrivate *QSystemTrayIcon::d_func()
+    address = self.uglySide.call('ritual_ZN15QSystemTrayIcon6d_funcEv')
+    from . import QSystemTrayIconPrivate
+    return QSystemTrayIconPrivate._cuteAt(address)

@@ -16,7 +16,7 @@ from ..occult import Rituals
 from . import Qt
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from . import QObject
 else:
@@ -47,12 +47,21 @@ class QBasicTimer(CuteMixin, metaclass=MetaCute):
 
   - Qt's 'QBasicTimer::~QBasicTimer()': the destructor: Python never removes
     a C++ QBasicTimer.
+  - Qt's 'QBasicTimer::QBasicTimer(QBasicTimer &&other)': takes a type Python
+    has no way to hand over yet.
+  - Qt's 'QBasicTimer &QBasicTimer::operator=(QBasicTimer &&other)':
+    assignment: Python binds a name and has no operator for it.
+  - Qt's 'void QBasicTimer::swap(QBasicTimer &other)': takes a type Python
+    has no way to hand over yet.
+  - Qt's 'void QBasicTimer::start(Duration duration, QObject *obj)': takes a
+    type Python has no way to hand over yet.
+  - Qt's 'void QBasicTimer::start(Duration duration, Qt::TimerType timerType,
+    QObject *obj)': takes a type Python has no way to hand over yet.
 
   What has no ritual
   ------------------
 
-  7 of the 15 functions Qt declares: 5 takes or gives a type that cannot be
-  passed yet; 2 forbidden.
+  2 of the 15 functions Qt declares: 2 forbidden.
 
   What to expect
   --------------
@@ -65,6 +74,9 @@ class QBasicTimer(CuteMixin, metaclass=MetaCute):
     has it, and is passed on as nothing. Whether Qt can do with nothing there
     is as in C++.
   - Python never removes the C++ QBasicTimer.
+  - Each name of Qt's QBasicTimer that has no cute function yet, 'swap',
+    holds a function that raises 'NotImplementedError', and its docstring
+    says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -241,3 +253,14 @@ class QBasicTimer(CuteMixin, metaclass=MetaCute):
     """
     #  void QBasicTimer::stop()
     self.uglySide.call('ritual_ZN11QBasicTimer4stopEv')
+
+  @staticmethod
+  def swap(*__, **_) -> Never:
+    """
+    Qt's 'void QBasicTimer::swap(QBasicTimer &other)': takes a type Python
+    has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QBasicTimer.swap' has no cute function yet. Qt's 'void "
+        "QBasicTimer::swap(QBasicTimer &other)': takes a type Python has no "
+        "way to hand over yet.")

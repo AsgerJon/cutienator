@@ -22,6 +22,7 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   from . import QByteArray, QIODevice, QXmlStreamAttributes
   from . import QXmlStreamEntityDeclaration, QXmlStreamEntityResolver
   from . import QXmlStreamNamespaceDeclaration, QXmlStreamNotationDeclaration
+  from . import QXmlStreamReaderPrivate
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -45,7 +46,7 @@ class QXmlStreamReader(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QXmlStreamReader that has a ritual and that Python
-  can call so far, 57 names in all: 'setDevice', 'device', 'addData',
+  can call so far, 58 names in all: 'setDevice', 'device', 'addData',
   'clear', 'atEnd', 'readNext', 'readNextStartElement', 'skipCurrentElement',
   'readRawInnerData', 'tokenType', 'tokenString', 'setNamespaceProcessing',
   'namespaceProcessing', 'isStartDocument', 'isEndDocument',
@@ -61,19 +62,25 @@ class QXmlStreamReader(CuteMixin, metaclass=MetaCute):
   'entityDeclarations', 'dtdName', 'dtdPublicId', 'dtdSystemId',
   'entityExpansionLimit', 'setEntityExpansionLimit', 'raiseError',
   'errorString', 'error', 'hasError', 'setEntityResolver', 'entityResolver',
-  'addDataImpl'. It can be made from Python, in 3 ways; see '__init__'.
+  'addDataImpl', 'd_func'. It can be made from Python, in 3 ways; see
+  '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
   - Qt's 'QXmlStreamReader::~QXmlStreamReader()': the destructor: Python
     never removes a C++ QXmlStreamReader.
+  - Qt's 'QXmlStreamReader::QXmlStreamReader(const QByteArray &data,
+    PrivateConstructorTag a1)': takes a type Python has no way to hand over
+    yet.
+  - Qt's 'const QXmlStreamReaderPrivate *QXmlStreamReader::d_func() const':
+    takes in Python what 'QXmlStreamReaderPrivate
+    *QXmlStreamReader::d_func()' takes.
 
   What has no ritual
   ------------------
 
-  7 of the 68 functions Qt declares: 3 takes or gives a type that cannot be
-  passed yet; 2 a template; 2 forbidden.
+  4 of the 68 functions Qt declares: 2 a template; 2 forbidden.
 
   What to expect
   --------------
@@ -1149,3 +1156,21 @@ class QXmlStreamReader(CuteMixin, metaclass=MetaCute):
         'ritual_ZN16QXmlStreamReader11addDataImplERK10QByteArray',
         self._valueOf(data),
     )
+
+  def d_func(self) -> Optional[QXmlStreamReaderPrivate]:
+    """
+    Calls Qt's 'QXmlStreamReaderPrivate *QXmlStreamReader::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qxmlstreamreader.html#d_func
+
+    Returns
+    -------
+
+    Optional[QXmlStreamReaderPrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QXmlStreamReaderPrivate *QXmlStreamReader::d_func()
+    address = self.uglySide.call('ritual_ZN16QXmlStreamReader6d_funcEv')
+    from . import QXmlStreamReaderPrivate
+    return QXmlStreamReaderPrivate._cuteAt(address)

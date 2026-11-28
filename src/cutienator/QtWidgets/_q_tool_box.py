@@ -46,25 +46,32 @@ class QToolBox(QFrame):
   -----------
 
   Every function of Qt's QToolBox that has a ritual and that Python can call
-  so far, 25 names in all: 'metaObject', 'tr', 'addItem', 'insertItem',
+  so far, 26 names in all: 'metaObject', 'tr', 'addItem', 'insertItem',
   'removeItem', 'setItemEnabled', 'isItemEnabled', 'setItemText', 'itemText',
   'setItemIcon', 'itemIcon', 'setItemToolTip', 'itemToolTip', 'currentIndex',
   'currentWidget', 'widget', 'indexOf', 'count', 'setCurrentIndex',
-  'setCurrentWidget', 'event', 'itemInserted', 'itemRemoved', 'showEvent',
-  'changeEvent'. It can be made from Python, in 1 way; see '__init__'.
+  'setCurrentWidget', 'currentChanged', 'event', 'itemInserted',
+  'itemRemoved', 'showEvent', 'changeEvent'. It can be made from Python, in 1
+  way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QToolBox::qt_metacast(const char *a0)': one of Qt's own inner
+    workings.
+  - Qt's 'int QToolBox::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
   - Qt's 'QToolBox::~QToolBox()': the destructor: Python never removes a C++
     QToolBox.
+  - Qt's 'QToolBoxPrivate *QToolBox::d_func()': gives 'QToolBoxPrivate',
+    which has no cute class yet.
+  - Qt's 'const QToolBoxPrivate *QToolBox::d_func() const': gives
+    'QToolBoxPrivate', which has no cute class yet.
 
   What has no ritual
   ------------------
 
-  9 of the 38 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet; 2 forbidden; 1 a template; 1 declared and nowhere to be found;
-  1 a signal.
+  4 of the 38 functions Qt declares: 2 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -691,6 +698,22 @@ class QToolBox(QFrame):
     """
     #  void QToolBox::removeItem(int index)
     self.uglySide.call('ritual_ZN8QToolBox10removeItemEi', index)
+
+  @overload(int)
+  def currentChanged(self, index: int) -> None:
+    """
+    Calls Qt's 'void QToolBox::currentChanged(int index)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtoolbox.html#currentChanged
+
+    Parameters
+    ----------
+
+    index : int
+      Passed on as it is.
+    """
+    #  void QToolBox::currentChanged(int index)
+    self.uglySide.call('ritual_ZN8QToolBox14currentChangedEi', index)
 
   @overload(QEvent)
   @overload(NoneType)

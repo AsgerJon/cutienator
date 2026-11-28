@@ -16,6 +16,11 @@ from typing import TYPE_CHECKING
 
 from . import QThread
 
+if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Never, Optional
+
+  from . import QThreadPrivate
+
 
 class QAdoptedThread(QThread):
   """
@@ -29,20 +34,22 @@ class QAdoptedThread(QThread):
   -----------
 
   Every function of Qt's QAdoptedThread that has a ritual and that Python can
-  call so far, 1 name in all: 'run'. None can be made from Python: one comes
-  out of a function of another class that gives one back.
+  call so far, 2 names in all: 'd_func', 'run'. None can be made from Python:
+  one comes out of a function of another class that gives one back.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'const QThreadPrivate *QAdoptedThread::d_func() const': takes in
+    Python what 'QThreadPrivate *QAdoptedThread::d_func()' takes.
   - Qt's 'QAdoptedThread::~QAdoptedThread()': the destructor: Python never
     removes a C++ QAdoptedThread.
 
   What has no ritual
   ------------------
 
-  4 of the 6 functions Qt declares: 3 takes or gives a type that cannot be
-  passed yet; 1 declared and nowhere to be found.
+  2 of the 6 functions Qt declares: 1 cannot be called and cannot be called
+  through the meta-object and cannot be copied; 1 leans on 'QAdoptedThread.
 
   What to expect
   --------------
@@ -58,6 +65,9 @@ class QAdoptedThread(QThread):
   - Qt tells when it has removed the C++ QAdoptedThread. Every call on the
     cute object, and every use of it as an argument, then raises
     'RuntimeError', and nothing reaches C++.
+  - Each name of Qt's QAdoptedThread that has no cute function yet,
+    '__init__', 'init', holds a function that raises 'NotImplementedError',
+    and its docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -105,6 +115,19 @@ class QAdoptedThread(QThread):
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  @staticmethod
+  def __init__(*__, **_) -> Never:
+    """
+    Qt's 'QAdoptedThread::QAdoptedThread(QThreadData *data)': leans on
+    'QAdoptedThread::init()', which Qt's source does not mark for use from
+    outside Qt and has no code for that could be taken.
+    """
+    raise NotImplementedError(
+        "'QAdoptedThread.__init__' has no cute function yet. Qt's "
+        "'QAdoptedThread::QAdoptedThread(QThreadData *data)': leans on "
+        "'QAdoptedThread::init()', which Qt's source does not mark for use "
+        "from outside Qt and has no code for that could be taken.")
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -125,6 +148,24 @@ class QAdoptedThread(QThread):
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  def d_func(self) -> Optional[QThreadPrivate]:
+    """
+    Calls Qt's 'QThreadPrivate *QAdoptedThread::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qadoptedthread.html#d_func
+
+    Returns
+    -------
+
+    Optional[QThreadPrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QThreadPrivate *QAdoptedThread::d_func()
+    address = self.uglySide.call('ritual_ZN14QAdoptedThread6d_funcEv')
+    from . import QThreadPrivate
+    return QThreadPrivate._cuteAt(address)
+
   def run(self) -> None:
     """
     Calls Qt's 'void QAdoptedThread::run()'.
@@ -136,3 +177,23 @@ class QAdoptedThread(QThread):
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZN14QAdoptedThread3runEv'
     self.uglySide.call(ritual)
+
+  @staticmethod
+  def init(*__, **_) -> Never:
+    """
+    Qt's 'void QAdoptedThread::init()': cannot be called and cannot be called
+    through the meta-object and cannot be copied: no header file has its
+    code, Qt's source does not mark it or its class for use from outside Qt
+    or writes it 'inline' or nowhere, and it is no signal, slot or invokable
+    function giving back nothing, of a class built on QObject, and Qt's
+    source has no code for it that could be told from the rest.
+    """
+    raise NotImplementedError(
+        "'QAdoptedThread.init' has no cute function yet. Qt's 'void "
+        "QAdoptedThread::init()': cannot be called and cannot be called "
+        "through the meta-object and cannot be copied: no header file has "
+        "its code, Qt's source does not mark it or its class for use from "
+        "outside Qt or writes it 'inline' or nowhere, and it is no signal, "
+        "slot or invokable function giving back nothing, of a class built "
+        "on QObject, and Qt's source has no code for it that could be told "
+        "from the rest.")

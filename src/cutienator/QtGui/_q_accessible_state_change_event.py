@@ -198,7 +198,7 @@ class QAccessibleStateChangeEvent(QAccessibleEvent):
     self._noteCreation(QAccessibleStateChangeEvent, lambda: Rituals.call(
         'ritual_ZN27QAccessibleStateChangeEventC1EP20QAccessibleInterfaceN1'
         '1QAccessible5StateE',
-        self._addressOf(iface), self._valueOf(state),
+        self._addressOf(iface, 'QAccessibleInterface'), self._valueOf(state),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

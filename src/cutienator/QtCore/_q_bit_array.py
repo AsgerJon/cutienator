@@ -17,7 +17,7 @@ from ..occult import Rituals
 from . import QSysInfo
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from . import QBitRef
 
@@ -48,19 +48,60 @@ class QBitArray(CuteMixin, metaclass=MetaCute):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'QBitArray operator&(QBitArray &&a1, const QBitArray &a2)': takes a
+    type Python has no way to hand over yet.
+  - Qt's 'QBitArray operator&(const QBitArray &a1, QBitArray &&a2)': takes a
+    type Python has no way to hand over yet.
+  - Qt's 'QBitArray operator&(QBitArray &&a1, QBitArray &&a2)': an operator
+    between other classes, written inside this one.
+  - Qt's 'QBitArray operator|(QBitArray &&a1, const QBitArray &a2)': takes a
+    type Python has no way to hand over yet.
+  - Qt's 'QBitArray operator|(const QBitArray &a1, QBitArray &&a2)': takes a
+    type Python has no way to hand over yet.
+  - Qt's 'QBitArray operator|(QBitArray &&a1, QBitArray &&a2)': an operator
+    between other classes, written inside this one.
+  - Qt's 'QBitArray operator^(QBitArray &&a1, const QBitArray &a2)': takes a
+    type Python has no way to hand over yet.
+  - Qt's 'QBitArray operator^(const QBitArray &a1, QBitArray &&a2)': takes a
+    type Python has no way to hand over yet.
+  - Qt's 'QBitArray operator^(QBitArray &&a1, QBitArray &&a2)': an operator
+    between other classes, written inside this one.
+  - Qt's 'QDataStream &operator<<(QDataStream &a0, const QBitArray &a1)':
+    takes a type Python has no way to hand over yet.
+  - Qt's 'QDataStream &operator>>(QDataStream &a0, QBitArray &a1)': an
+    operator between other classes, written inside this one.
+  - Qt's 'QBitArray::QBitArray(QByteArrayData &&dd)': takes a type Python has
+    no way to hand over yet.
+  - Qt's 'QBitArray &QBitArray::operator=(const QBitArray &other)':
+    assignment: Python binds a name and has no operator for it.
+  - Qt's 'QBitArray::QBitArray(QBitArray &&other)': takes a type Python has
+    no way to hand over yet.
+  - Qt's 'QBitArray &QBitArray::operator=(QBitArray &&other)': assignment:
+    Python binds a name and has no operator for it.
+  - Qt's 'void QBitArray::swap(QBitArray &other)': takes a type Python has no
+    way to hand over yet.
   - Qt's 'bool QBitArray::operator[](qsizetype i) const': takes in Python
     what 'QBitRef QBitArray::operator[](qsizetype i)' takes.
+  - Qt's 'QBitArray &QBitArray::operator&=(QBitArray &&a0)': takes a type
+    Python has no way to hand over yet.
+  - Qt's 'QBitArray &QBitArray::operator|=(QBitArray &&a0)': takes a type
+    Python has no way to hand over yet.
+  - Qt's 'QBitArray &QBitArray::operator^=(QBitArray &&a0)': takes a type
+    Python has no way to hand over yet.
   - Qt's 'quint32 QBitArray::toUInt32(QSysInfo::Endian endianness, bool *ok)
     const': takes a number to change where it is.
+  - Qt's 'DataPtr &QBitArray::data_ptr()': gives a type Python has no way to
+    take yet.
+  - Qt's 'const DataPtr &QBitArray::data_ptr() const': gives a type Python
+    has no way to take yet.
   - Qt's 'QBitArray::~QBitArray()': the destructor: Python removes its C++
     QBitArray by it, and has no other use for it.
 
   What has no ritual
   ------------------
 
-  23 of the 59 functions Qt declares: 21 takes or gives a type that cannot be
-  passed yet; 1 a template; 1 can only be called on a value about to be
-  thrown away.
+  2 of the 59 functions Qt declares: 1 a template; 1 can only be called on a
+  value about to be thrown away.
 
   What to expect
   --------------
@@ -73,6 +114,9 @@ class QBitArray(CuteMixin, metaclass=MetaCute):
     is as in C++.
   - A function giving a QBitArray back gives a copy the ritual made for
     Python, in a new cute QBitArray.
+  - Each name of Qt's QBitArray that has no cute function yet, 'bitLocation',
+    'data_ptr', 'inverted_inplace', 'swap', 'toUInt32', holds a function that
+    raises 'NotImplementedError', and its docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -785,3 +829,61 @@ class QBitArray(CuteMixin, metaclass=MetaCute):
     """
     #  void QBitArray::truncate(qsizetype pos)
     self.uglySide.call('ritual_ZN9QBitArray8truncateEx', pos)
+
+  @staticmethod
+  def bitLocation(*__, **_) -> Never:
+    """
+    Qt's 'QBitArray::bitLocation': a template: a pattern and no single
+    function.
+    """
+    raise NotImplementedError(
+        "'QBitArray.bitLocation' has no cute function yet. Qt's "
+        "'QBitArray::bitLocation': a template: a pattern and no single "
+        "function.")
+
+  @staticmethod
+  def data_ptr(*__, **_) -> Never:
+    """
+    - Qt's 'DataPtr &QBitArray::data_ptr()': gives a type Python has no way
+      to take yet.
+    - Qt's 'const DataPtr &QBitArray::data_ptr() const': gives a type Python
+      has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QBitArray.data_ptr' has no cute function yet. Qt's 'DataPtr "
+        "&QBitArray::data_ptr()': gives a type Python has no way to take "
+        "yet. Qt's 'const DataPtr &QBitArray::data_ptr() const': gives a "
+        "type Python has no way to take yet.")
+
+  @staticmethod
+  def inverted_inplace(*__, **_) -> Never:
+    """
+    Qt's 'QBitArray QBitArray::inverted_inplace()': can only be called on a
+    value about to be thrown away.
+    """
+    raise NotImplementedError(
+        "'QBitArray.inverted_inplace' has no cute function yet. Qt's "
+        "'QBitArray QBitArray::inverted_inplace()': can only be called on a "
+        "value about to be thrown away.")
+
+  @staticmethod
+  def swap(*__, **_) -> Never:
+    """
+    Qt's 'void QBitArray::swap(QBitArray &other)': takes a type Python has no
+    way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QBitArray.swap' has no cute function yet. Qt's 'void "
+        "QBitArray::swap(QBitArray &other)': takes a type Python has no way "
+        "to hand over yet.")
+
+  @staticmethod
+  def toUInt32(*__, **_) -> Never:
+    """
+    Qt's 'quint32 QBitArray::toUInt32(QSysInfo::Endian endianness, bool *ok)
+    const': takes a number to change where it is.
+    """
+    raise NotImplementedError(
+        "'QBitArray.toUInt32' has no cute function yet. Qt's 'quint32 "
+        "QBitArray::toUInt32(QSysInfo::Endian endianness, bool *ok) const': "
+        "takes a number to change where it is.")

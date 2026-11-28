@@ -57,6 +57,8 @@ class QCborStreamWriter(CuteMixin, metaclass=MetaCute):
     'void QCborStreamWriter::append(quint64 u)' takes.
   - Qt's 'void QCborStreamWriter::append(QCborNegativeInteger n)': names the
     enum 'QCborNegativeInteger', whose class cannot be named here.
+  - Qt's 'void QCborStreamWriter::append(QUtf8StringView str)': takes a type
+    Python has no way to hand over yet.
   - Qt's 'void QCborStreamWriter::append(QCborTag tag)': names the enum
     'QCborTag', whose class cannot be named here.
   - Qt's 'void QCborStreamWriter::append(QCborKnownTags tag)': names the enum
@@ -73,8 +75,7 @@ class QCborStreamWriter(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  5 of the 36 functions Qt declares: 2 forbidden; 2 takes or gives a type
-  that cannot be passed yet; 1 a template.
+  3 of the 36 functions Qt declares: 2 forbidden; 1 a template.
 
   What to expect
   --------------
@@ -308,6 +309,16 @@ class QCborStreamWriter(CuteMixin, metaclass=MetaCute):
     self.uglySide.call(
         'ritual_ZN17QCborStreamWriter6appendE11QStringView', str,
     )
+
+  @overload()
+  def append(self) -> None:
+    """
+    Calls Qt's 'void QCborStreamWriter::append(std::nullptr_t a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcborstreamwriter.html#append
+    """
+    #  void QCborStreamWriter::append(std::nullptr_t a0)
+    self.uglySide.call('ritual_ZN17QCborStreamWriter6appendEDn')
 
   @overload(qfloat16)
   def append(self, f: qfloat16) -> None:

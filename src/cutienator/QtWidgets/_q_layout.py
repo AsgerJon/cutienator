@@ -23,7 +23,7 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
 
   from ..QtCore import QChildEvent, QEvent, QMargins, QMetaObject, QRect
   from ..QtCore import QSize
-  from . import QWidget
+  from . import QLayoutPrivate, QWidget
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -54,10 +54,10 @@ class QLayout(QObject, QLayoutItem):
   -----------
 
   Every function of Qt's QLayout that has a ritual and that Python can call
-  so far, 54 names in all: 'metaObject', 'tr', 'spacing', 'setSpacing',
-  'setContentsMargins', 'unsetContentsMargins', 'contentsMargins',
-  'contentsRect', 'setAlignment', 'setSizeConstraint', 'sizeConstraint',
-  'setSizeConstraints', 'setHorizontalSizeConstraint',
+  so far, 55 names in all: 'metaObject', 'tr', 'd_func', 'spacing',
+  'setSpacing', 'setContentsMargins', 'unsetContentsMargins',
+  'contentsMargins', 'contentsRect', 'setAlignment', 'setSizeConstraint',
+  'sizeConstraint', 'setSizeConstraints', 'setHorizontalSizeConstraint',
   'horizontalSizeConstraint', 'setVerticalSizeConstraint',
   'verticalSizeConstraint', 'setMenuBar', 'menuBar', 'parentWidget',
   'invalidate', 'geometry', 'activate', 'update', 'addWidget', 'addItem',
@@ -78,10 +78,8 @@ class QLayout(QObject, QLayoutItem):
     workings.
   - Qt's 'int QLayout::qt_metacall(QMetaObject::Call a0, int a1, void **a2)':
     one of Qt's own inner workings.
-  - Qt's 'QLayoutPrivate *QLayout::d_func()': gives 'QLayoutPrivate', which
-    has no cute class yet.
-  - Qt's 'const QLayoutPrivate *QLayout::d_func() const': gives
-    'QLayoutPrivate', which has no cute class yet.
+  - Qt's 'const QLayoutPrivate *QLayout::d_func() const': takes in Python
+    what 'QLayoutPrivate *QLayout::d_func()' takes.
   - Qt's 'QLayout::~QLayout()': the destructor: Python never removes a C++
     QLayout.
   - Qt's 'void QLayout::getContentsMargins(int *left, int *top, int *right,
@@ -869,7 +867,7 @@ class QLayout(QObject, QLayoutItem):
     #  void QLayout::setContentsMargins(const QMargins &margins)
     self.uglySide.call(
         'ritual_ZN7QLayout18setContentsMarginsERK8QMargins',
-        self._valueOf(margins),
+        self._valueOf(margins, 'QMargins'),
     )
 
   @overload(QWidget, Qt.Alignment)
@@ -1128,6 +1126,24 @@ class QLayout(QObject, QLayoutItem):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  def d_func(self) -> Optional[QLayoutPrivate]:
+    """
+    Calls Qt's 'QLayoutPrivate *QLayout::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qlayout.html#d_func
+
+    Returns
+    -------
+
+    Optional[QLayoutPrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QLayoutPrivate *QLayout::d_func()
+    address = self.uglySide.call('ritual_ZN7QLayout6d_funcEv')
+    from . import QLayoutPrivate
+    return QLayoutPrivate._cuteAt(address)
 
   def unsetContentsMargins(self) -> None:
     """

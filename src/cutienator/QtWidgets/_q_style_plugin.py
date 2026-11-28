@@ -38,22 +38,23 @@ class QStylePlugin(QObject):
   -----------
 
   Every function of Qt's QStylePlugin that has a ritual and that Python can
-  call so far, 3 names in all: 'metaObject', 'tr', 'create'. None can be made
-  from Python: one comes out of a function of another class that gives one
-  back.
+  call so far, 3 names in all: 'metaObject', 'tr', 'create'. It can be made
+  from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QStylePlugin::qt_metacast(const char *a0)': one of Qt's own
+    inner workings.
+  - Qt's 'int QStylePlugin::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
   - Qt's 'QStylePlugin::~QStylePlugin()': the destructor: Python never
     removes a C++ QStylePlugin.
 
   What has no ritual
   ------------------
 
-  5 of the 9 functions Qt declares: 2 takes or gives a type that cannot be
-  passed yet; 1 a template; 1 declared and nowhere to be found; 1 the class
-  is abstract, so C++ cannot make one.
+  2 of the 9 functions Qt declares: 2 not a gap.
 
   What to expect
   --------------
@@ -190,6 +191,29 @@ class QStylePlugin(QObject):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload()
+  @overload(QObject)
+  @overload(NoneType)
+  def __init__(self, parent: Optional[QObject] = None) -> None:
+    """
+    Notes what was given, for Qt's 'QStylePlugin::QStylePlugin(QObject
+    *parent)', which is called at the first use.
+
+    Qt's own words: https://doc.qt.io/qt-6/qstyleplugin.html#QStylePlugin
+
+    Parameters
+    ----------
+
+    parent : Optional[QObject]
+      Passed on as the address of its C++ object. None is passed on as no
+      object. May be left out, as in Qt: it is then None.
+    """
+    #  QStylePlugin::QStylePlugin(QObject *parent)
+    self._noteCreation(QStylePlugin, lambda: Rituals.call(
+        'ritual_ZN12QStylePluginC1EP7QObject',
+        self._addressOf(parent, 'QObject'),
+    ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #

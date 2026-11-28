@@ -15,7 +15,7 @@ from ..cute import CuteMixin, MetaCute
 from ..occult import Rituals
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -39,12 +39,8 @@ class QStaticByteArrayMatcherBase(CuteMixin, metaclass=MetaCute):
 
   - Qt's 'QStaticByteArrayMatcherBase::~QStaticByteArrayMatcherBase()': the
     destructor: Python never removes a C++ QStaticByteArrayMatcherBase.
-
-  What has no ritual
-  ------------------
-
-  1 of the 4 functions Qt declares: 1 takes or gives a type that cannot be
-  passed yet.
+  - Qt's 'Skiptable QStaticByteArrayMatcherBase::generate(const char
+    *pattern, size_t n)': gives a type Python has no way to take yet.
 
   What to expect
   --------------
@@ -57,6 +53,9 @@ class QStaticByteArrayMatcherBase(CuteMixin, metaclass=MetaCute):
     has it, and is passed on as nothing. Whether Qt can do with nothing there
     is as in C++.
   - Python never removes the C++ QStaticByteArrayMatcherBase.
+  - Each name of Qt's QStaticByteArrayMatcherBase that has no cute function
+    yet, 'generate', holds a function that raises 'NotImplementedError', and
+    its docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -191,3 +190,14 @@ class QStaticByteArrayMatcherBase(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def generate(*__, **_) -> Never:
+    """
+    Qt's 'Skiptable QStaticByteArrayMatcherBase::generate(const char
+    *pattern, size_t n)': gives a type Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QStaticByteArrayMatcherBase.generate' has no cute function yet. "
+        "Qt's 'Skiptable QStaticByteArrayMatcherBase::generate(const char "
+        "*pattern, size_t n)': gives a type Python has no way to take yet.")

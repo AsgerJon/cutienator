@@ -17,6 +17,8 @@ from ..cute import CuteMixin, CuteNum, MetaCute, WAIT
 from ..occult import Rituals
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Never
+
   from ..QtCore import QByteArray, QDebug, QPointF
   from . import QColorTransform
 else:
@@ -52,16 +54,56 @@ class QColorSpace(CuteMixin, metaclass=MetaCute):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'QColorSpace::QColorSpace(QPointF whitePoint, const QList<uint16_t>
+    &transferFunctionTable)': takes a type Python has no way to hand over
+    yet.
+  - Qt's 'QColorSpace::QColorSpace(Primaries primaries, const QList<uint16_t>
+    &transferFunctionTable)': takes a type Python has no way to hand over
+    yet.
+  - Qt's 'QColorSpace::QColorSpace(const QPointF &whitePoint, const QPointF
+    &redPoint, const QPointF &greenPoint, const QPointF &bluePoint, const
+    QList<uint16_t> &transferFunctionTable)': takes a type Python has no way
+    to hand over yet.
+  - Qt's 'QColorSpace::QColorSpace(const QPointF &whitePoint, const QPointF
+    &redPoint, const QPointF &greenPoint, const QPointF &bluePoint, const
+    QList<uint16_t> &redTransferFunctionTable, const QList<uint16_t>
+    &greenTransferFunctionTable, const QList<uint16_t>
+    &blueTransferFunctionTable)': takes a type Python has no way to hand over
+    yet.
   - Qt's 'QColorSpace::~QColorSpace()': the destructor: Python removes its
     C++ QColorSpace by it, and has no other use for it.
+  - Qt's 'QColorSpace &QColorSpace::operator=(const QColorSpace
+    &colorSpace)': assignment: Python binds a name and has no operator for
+    it.
+  - Qt's 'QColorSpace::QColorSpace(QColorSpace &&colorSpace)': takes a type
+    Python has no way to hand over yet.
+  - Qt's 'QColorSpace &QColorSpace::operator=(QColorSpace &&other)':
+    assignment: Python binds a name and has no operator for it.
+  - Qt's 'void QColorSpace::swap(QColorSpace &colorSpace)': takes a type
+    Python has no way to hand over yet.
+  - Qt's 'void QColorSpace::setTransferFunction(const QList<uint16_t>
+    &transferFunctionTable)': takes a type Python has no way to hand over
+    yet.
+  - Qt's 'void QColorSpace::setTransferFunctions(const QList<uint16_t>
+    &redTransferFunctionTable, const QList<uint16_t>
+    &greenTransferFunctionTable, const QList<uint16_t>
+    &blueTransferFunctionTable)': takes a type Python has no way to hand over
+    yet.
+  - Qt's 'QColorSpace QColorSpace::withTransferFunction(const QList<uint16_t>
+    &transferFunctionTable) const': takes a type Python has no way to hand
+    over yet.
+  - Qt's 'QColorSpace QColorSpace::withTransferFunctions(const
+    QList<uint16_t> &redTransferFunctionTable, const QList<uint16_t>
+    &greenTransferFunctionTable, const QList<uint16_t>
+    &blueTransferFunctionTable) const': takes a type Python has no way to
+    hand over yet.
   - Qt's 'QVariant QColorSpace::operator QVariant() const': an operator
     Python has no name for.
 
   What has no ritual
   ------------------
 
-  15 of the 50 functions Qt declares: 12 takes or gives a type that cannot be
-  passed yet; 2 declared and nowhere to be found; 1 a template.
+  3 of the 50 functions Qt declares: 3 not a gap.
 
   What to expect
   --------------
@@ -75,6 +117,9 @@ class QColorSpace(CuteMixin, metaclass=MetaCute):
     is as in C++.
   - A function giving a QColorSpace back gives a copy the ritual made for
     Python, in a new cute QColorSpace.
+  - Each name of Qt's QColorSpace that has no cute function yet,
+    'setTransferFunctions', 'swap', 'withTransferFunctions', holds a function
+    that raises 'NotImplementedError', and its docstring says why.
   """
 
   #  The enums Qt writes inside QColorSpace, each a class in here as in C++,
@@ -190,6 +235,9 @@ class QColorSpace(CuteMixin, metaclass=MetaCute):
       there is as in C++.
     - A function giving a QColorSpace::PrimaryPoints back gives a copy the
       ritual made for Python, in a new cute QColorSpace::PrimaryPoints.
+    - Each name of Qt's QColorSpace::PrimaryPoints that has no cute function
+      yet, 'fromPrimaries', holds a function that raises
+      'NotImplementedError', and its docstring says why.
     """
 
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -268,6 +316,20 @@ class QColorSpace(CuteMixin, metaclass=MetaCute):
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    @staticmethod
+    def fromPrimaries(*__, **_) -> Never:
+      """
+      Qt's 'PrimaryPoints QColorSpace::PrimaryPoints::fromPrimaries(Primaries
+      primaries)': names the enum 'QColorSpace::Primaries', whose class
+      cannot be named here.
+      """
+      raise NotImplementedError(
+          "'QColorSpace.PrimaryPoints.fromPrimaries' has no cute function "
+          "yet. Qt's 'PrimaryPoints "
+          "QColorSpace::PrimaryPoints::fromPrimaries(Primaries primaries)': "
+          "names the enum 'QColorSpace::Primaries', whose class cannot be "
+          "named here.")
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -699,8 +761,9 @@ class QColorSpace(CuteMixin, metaclass=MetaCute):
     #      &bluePoint)
     self.uglySide.call(
         'ritual_ZN11QColorSpace12setPrimariesERK7QPointFS2_S2_S2_',
-        self._valueOf(whitePoint), self._valueOf(redPoint),
-        self._valueOf(greenPoint), self._valueOf(bluePoint),
+        self._valueOf(whitePoint, 'QPointF'), self._valueOf(redPoint,
+        'QPointF'), self._valueOf(greenPoint, 'QPointF'),
+        self._valueOf(bluePoint, 'QPointF'),
     )
 
   @overload(QPointF)
@@ -720,7 +783,7 @@ class QColorSpace(CuteMixin, metaclass=MetaCute):
     #  void QColorSpace::setWhitePoint(QPointF whitePoint)
     self.uglySide.call(
         'ritual_ZN11QColorSpace13setWhitePointE7QPointF',
-        self._valueOf(whitePoint),
+        self._valueOf(whitePoint, 'QPointF'),
     )
 
   @overload(PrimaryPoints)
@@ -921,7 +984,7 @@ class QColorSpace(CuteMixin, metaclass=MetaCute):
     #      transferFunction, float gamma)
     self._noteCreation(QColorSpace, lambda: Rituals.call(
         'ritual_ZN11QColorSpaceC1E7QPointFNS_16TransferFunctionEf',
-        self._valueOf(whitePoint), transferFunction.value, gamma,
+        self._valueOf(whitePoint, 'QPointF'), transferFunction.value, gamma,
     ))
 
   @overload(Primaries, TransferFunction)
@@ -1030,9 +1093,9 @@ class QColorSpace(CuteMixin, metaclass=MetaCute):
     self._noteCreation(QColorSpace, lambda: Rituals.call(
         'ritual_ZN11QColorSpaceC1ERK7QPointFS2_S2_S2_NS_16TransferFunctionE'
         'f',
-        self._valueOf(whitePoint), self._valueOf(redPoint),
-        self._valueOf(greenPoint), self._valueOf(bluePoint),
-        transferFunction.value, gamma,
+        self._valueOf(whitePoint, 'QPointF'), self._valueOf(redPoint,
+        'QPointF'), self._valueOf(greenPoint, 'QPointF'),
+        self._valueOf(bluePoint, 'QPointF'), transferFunction.value, gamma,
     ))
 
   @overload(PrimaryPoints, TransferFunction)
@@ -1119,3 +1182,48 @@ class QColorSpace(CuteMixin, metaclass=MetaCute):
     """
     #  void QColorSpace::detach()
     self.uglySide.call('ritual_ZN11QColorSpace6detachEv')
+
+  @staticmethod
+  def setTransferFunctions(*__, **_) -> Never:
+    """
+    Qt's 'void QColorSpace::setTransferFunctions(const QList<uint16_t>
+    &redTransferFunctionTable, const QList<uint16_t>
+    &greenTransferFunctionTable, const QList<uint16_t>
+    &blueTransferFunctionTable)': takes a type Python has no way to hand over
+    yet.
+    """
+    raise NotImplementedError(
+        "'QColorSpace.setTransferFunctions' has no cute function yet. Qt's "
+        "'void QColorSpace::setTransferFunctions(const QList<uint16_t> "
+        "&redTransferFunctionTable, const QList<uint16_t> "
+        "&greenTransferFunctionTable, const QList<uint16_t> "
+        "&blueTransferFunctionTable)': takes a type Python has no way to "
+        "hand over yet.")
+
+  @staticmethod
+  def swap(*__, **_) -> Never:
+    """
+    Qt's 'void QColorSpace::swap(QColorSpace &colorSpace)': takes a type
+    Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QColorSpace.swap' has no cute function yet. Qt's 'void "
+        "QColorSpace::swap(QColorSpace &colorSpace)': takes a type Python "
+        "has no way to hand over yet.")
+
+  @staticmethod
+  def withTransferFunctions(*__, **_) -> Never:
+    """
+    Qt's 'QColorSpace QColorSpace::withTransferFunctions(const
+    QList<uint16_t> &redTransferFunctionTable, const QList<uint16_t>
+    &greenTransferFunctionTable, const QList<uint16_t>
+    &blueTransferFunctionTable) const': takes a type Python has no way to
+    hand over yet.
+    """
+    raise NotImplementedError(
+        "'QColorSpace.withTransferFunctions' has no cute function yet. Qt's "
+        "'QColorSpace QColorSpace::withTransferFunctions(const "
+        "QList<uint16_t> &redTransferFunctionTable, const QList<uint16_t> "
+        "&greenTransferFunctionTable, const QList<uint16_t> "
+        "&blueTransferFunctionTable) const': takes a type Python has no way "
+        "to hand over yet.")

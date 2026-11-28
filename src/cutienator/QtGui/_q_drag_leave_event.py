@@ -36,14 +36,17 @@ class QDragLeaveEvent(QEvent):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'QDragLeaveEvent::QDragLeaveEvent(const QDragLeaveEvent &a0)': takes
+    a type Python has no way to hand over yet.
+  - Qt's 'QDragLeaveEvent &QDragLeaveEvent::operator=(const QDragLeaveEvent
+    &other)': assignment: Python binds a name and has no operator for it.
   - Qt's 'QDragLeaveEvent::~QDragLeaveEvent()': the destructor: Python never
     removes a C++ QDragLeaveEvent.
 
   What has no ritual
   ------------------
 
-  4 of the 7 functions Qt declares: 2 takes or gives a type that cannot be
-  passed yet; 2 forbidden.
+  2 of the 7 functions Qt declares: 2 forbidden.
 
   What to expect
   --------------

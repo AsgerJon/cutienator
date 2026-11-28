@@ -15,6 +15,9 @@ from worktoy.dispatch import overload
 from ..cute import CuteMixin, MetaCute
 from ..occult import Rituals
 
+if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Never
+
 
 class QCameraPermission(CuteMixin, metaclass=MetaCute):
   """
@@ -34,14 +37,17 @@ class QCameraPermission(CuteMixin, metaclass=MetaCute):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'QCameraPermission::QCameraPermission(QCameraPermission &&other)':
+    takes a type Python has no way to hand over yet.
   - Qt's 'QCameraPermission::~QCameraPermission()': the destructor: Python
     removes its C++ QCameraPermission by it, and has no other use for it.
-
-  What has no ritual
-  ------------------
-
-  4 of the 7 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet.
+  - Qt's 'QCameraPermission &QCameraPermission::operator=(const
+    QCameraPermission &other)': assignment: Python binds a name and has no
+    operator for it.
+  - Qt's 'QCameraPermission &QCameraPermission::operator=(QCameraPermission
+    &&other)': assignment: Python binds a name and has no operator for it.
+  - Qt's 'void QCameraPermission::swap(QCameraPermission &other)': takes a
+    type Python has no way to hand over yet.
 
   What to expect
   --------------
@@ -55,6 +61,9 @@ class QCameraPermission(CuteMixin, metaclass=MetaCute):
     is as in C++.
   - A function giving a QCameraPermission back gives a copy the ritual made
     for Python, in a new cute QCameraPermission.
+  - Each name of Qt's QCameraPermission that has no cute function yet,
+    'swap', holds a function that raises 'NotImplementedError', and its
+    docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -157,3 +166,14 @@ class QCameraPermission(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def swap(*__, **_) -> Never:
+    """
+    Qt's 'void QCameraPermission::swap(QCameraPermission &other)': takes a
+    type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QCameraPermission.swap' has no cute function yet. Qt's 'void "
+        "QCameraPermission::swap(QCameraPermission &other)': takes a type "
+        "Python has no way to hand over yet.")

@@ -13,12 +13,13 @@ from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, WAIT
 from ..occult import Rituals
-from . import Qt, QAbstractItemModel
+from . import Qt, QAbstractItemModel, QObject
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from . import QMetaObject, QMimeData, QModelIndex
+  from . import QAbstractItemModelPrivate, QMetaObject, QMimeData
+  from . import QModelIndex
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -43,23 +44,29 @@ class QAbstractListModel(QAbstractItemModel):
   -----------
 
   Every function of Qt's QAbstractListModel that has a ritual and that Python
-  can call so far, 9 names in all: 'metaObject', 'tr', 'index', 'sibling',
-  'dropMimeData', 'flags', 'parent', 'columnCount', 'hasChildren'. None can
-  be made from Python: one comes out of a function of another class that
-  gives one back.
+  can call so far, 10 names in all: 'metaObject', 'tr', 'index', 'sibling',
+  'dropMimeData', 'flags', 'd_func', 'parent', 'columnCount', 'hasChildren'.
+  It can be made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QAbstractListModel::qt_metacast(const char *a0)': one of Qt's
+    own inner workings.
+  - Qt's 'int QAbstractListModel::qt_metacall(QMetaObject::Call a0, int a1,
+    void **a2)': one of Qt's own inner workings.
   - Qt's 'QAbstractListModel::~QAbstractListModel()': the destructor: Python
     never removes a C++ QAbstractListModel.
+  - Qt's 'QAbstractListModel::QAbstractListModel(QAbstractItemModelPrivate
+    &dd, QObject *parent)': takes a type Python has no way to hand over yet.
+  - Qt's 'const QAbstractItemModelPrivate *QAbstractListModel::d_func()
+    const': takes in Python what 'QAbstractItemModelPrivate
+    *QAbstractListModel::d_func()' takes.
 
   What has no ritual
   ------------------
 
-  10 of the 20 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet; 2 the class is abstract, so C++ cannot make one; 2 forbidden; 1
-  a template; 1 declared and nowhere to be found.
+  4 of the 20 functions Qt declares: 2 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -371,6 +378,31 @@ class QAbstractListModel(QAbstractItemModel):
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  @overload()
+  @overload(QObject)
+  @overload(NoneType)
+  def __init__(self, parent: Optional[QObject] = None) -> None:
+    """
+    Notes what was given, for Qt's
+    'QAbstractListModel::QAbstractListModel(QObject *parent)', which is
+    called at the first use.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qabstractlistmodel.html#QAbstractListModel
+
+    Parameters
+    ----------
+
+    parent : Optional[QObject]
+      Passed on as the address of its C++ object. None is passed on as no
+      object. May be left out, as in Qt: it is then None.
+    """
+    #  QAbstractListModel::QAbstractListModel(QObject *parent)
+    self._noteCreation(QAbstractListModel, lambda: Rituals.call(
+        'ritual_ZN18QAbstractListModelC1EP7QObject',
+        self._addressOf(parent, 'QObject'),
+    ))
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -443,3 +475,21 @@ class QAbstractListModel(QAbstractItemModel):
         self._addressOf(data), action.value, row, column,
         self._valueOf(parent),
     )
+
+  def d_func(self) -> Optional[QAbstractItemModelPrivate]:
+    """
+    Calls Qt's 'QAbstractItemModelPrivate *QAbstractListModel::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qabstractlistmodel.html#d_func
+
+    Returns
+    -------
+
+    Optional[QAbstractItemModelPrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QAbstractItemModelPrivate *QAbstractListModel::d_func()
+    address = self.uglySide.call('ritual_ZN18QAbstractListModel6d_funcEv')
+    from . import QAbstractItemModelPrivate
+    return QAbstractItemModelPrivate._cuteAt(address)

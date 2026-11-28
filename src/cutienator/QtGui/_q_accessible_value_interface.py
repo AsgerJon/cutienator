@@ -12,6 +12,7 @@ from typing import TYPE_CHECKING
 from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, MetaCute, WAIT
+from ..occult import Rituals
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from ..QtCore import QVariant
@@ -32,8 +33,8 @@ class QAccessibleValueInterface(CuteMixin, metaclass=MetaCute):
 
   Every function of Qt's QAccessibleValueInterface that has a ritual and that
   Python can call so far, 5 names in all: 'currentValue', 'setCurrentValue',
-  'maximumValue', 'minimumValue', 'minimumStepSize'. None can be made from
-  Python: one comes out of a function of another class that gives one back.
+  'maximumValue', 'minimumValue', 'minimumStepSize'. It can be made from
+  Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -44,8 +45,7 @@ class QAccessibleValueInterface(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  5 of the 11 functions Qt declares: 4 forbidden; 1 the class is abstract, so
-  C++ cannot make one.
+  4 of the 11 functions Qt declares: 4 forbidden.
 
   What to expect
   --------------
@@ -137,7 +137,8 @@ class QAccessibleValueInterface(CuteMixin, metaclass=MetaCute):
       A new cute QVariant around the copy Qt gave back. Python owns it.
     """
     #  QVariant QAccessibleValueInterface::currentValue() const
-    address = self.uglySide.call(
+    address = self._callAs(
+        'QAccessibleValueInterface',
         'ritual_ZNK25QAccessibleValueInterface12currentValueEv',
     )
     from ..QtCore import QVariant
@@ -157,7 +158,8 @@ class QAccessibleValueInterface(CuteMixin, metaclass=MetaCute):
       A new cute QVariant around the copy Qt gave back. Python owns it.
     """
     #  QVariant QAccessibleValueInterface::maximumValue() const
-    address = self.uglySide.call(
+    address = self._callAs(
+        'QAccessibleValueInterface',
         'ritual_ZNK25QAccessibleValueInterface12maximumValueEv',
     )
     from ..QtCore import QVariant
@@ -177,7 +179,8 @@ class QAccessibleValueInterface(CuteMixin, metaclass=MetaCute):
       A new cute QVariant around the copy Qt gave back. Python owns it.
     """
     #  QVariant QAccessibleValueInterface::minimumValue() const
-    address = self.uglySide.call(
+    address = self._callAs(
+        'QAccessibleValueInterface',
         'ritual_ZNK25QAccessibleValueInterface12minimumValueEv',
     )
     from ..QtCore import QVariant
@@ -197,7 +200,8 @@ class QAccessibleValueInterface(CuteMixin, metaclass=MetaCute):
       A new cute QVariant around the copy Qt gave back. Python owns it.
     """
     #  QVariant QAccessibleValueInterface::minimumStepSize() const
-    address = self.uglySide.call(
+    address = self._callAs(
+        'QAccessibleValueInterface',
         'ritual_ZNK25QAccessibleValueInterface15minimumStepSizeEv',
     )
     from ..QtCore import QVariant
@@ -224,7 +228,8 @@ class QAccessibleValueInterface(CuteMixin, metaclass=MetaCute):
       own.
     """
     #  void QAccessibleValueInterface::setCurrentValue(const QVariant &value)
-    self.uglySide.call(
+    self._callAs(
+        'QAccessibleValueInterface',
         'ritual_ZN25QAccessibleValueInterface15setCurrentValueERK8QVariant',
         self._valueOf(value),
     )
@@ -240,6 +245,21 @@ class QAccessibleValueInterface(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload()
+  def __init__(self) -> None:
+    """
+    Notes what was given, for Qt's
+    'QAccessibleValueInterface::QAccessibleValueInterface()', which is called
+    at the first use.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qaccessiblevalueinterface.html
+    """
+    #  QAccessibleValueInterface::QAccessibleValueInterface()
+    self._noteCreation(QAccessibleValueInterface, lambda: Rituals.call(
+        'ritual_ZN25QAccessibleValueInterfaceC1Ev',
+    ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #

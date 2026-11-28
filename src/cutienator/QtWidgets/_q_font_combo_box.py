@@ -17,7 +17,7 @@ from ..QtGui import QFontDatabase
 from . import QComboBox, QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from ..QtCore import QEvent, QMetaObject, QSize
   from ..QtGui import QFont
@@ -45,25 +45,33 @@ class QFontComboBox(QComboBox):
   -----------
 
   Every function of Qt's QFontComboBox that has a ritual and that Python can
-  call so far, 15 names in all: 'metaObject', 'tr', 'setWritingSystem',
+  call so far, 16 names in all: 'metaObject', 'tr', 'setWritingSystem',
   'writingSystem', 'setFontFilters', 'fontFilters', 'currentFont',
   'sizeHint', 'setSampleTextForSystem', 'sampleTextForSystem',
   'setSampleTextForFont', 'sampleTextForFont', 'setDisplayFont',
-  'setCurrentFont', 'event'. It can be made from Python, in 1 way; see
-  '__init__'.
+  'setCurrentFont', 'currentFontChanged', 'event'. It can be made from
+  Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QFontComboBox::qt_metacast(const char *a0)': one of Qt's own
+    inner workings.
+  - Qt's 'int QFontComboBox::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
   - Qt's 'QFontComboBox::~QFontComboBox()': the destructor: Python never
     removes a C++ QFontComboBox.
+  - Qt's 'std::optional<QFont> QFontComboBox::displayFont(const QString
+    &fontFamily) const': gives a type Python has no way to take yet.
+  - Qt's 'QFontComboBoxPrivate *QFontComboBox::d_func()': gives
+    'QFontComboBoxPrivate', which has no cute class yet.
+  - Qt's 'const QFontComboBoxPrivate *QFontComboBox::d_func() const': gives
+    'QFontComboBoxPrivate', which has no cute class yet.
 
   What has no ritual
   ------------------
 
-  10 of the 27 functions Qt declares: 5 takes or gives a type that cannot be
-  passed yet; 2 forbidden; 1 a template; 1 declared and nowhere to be found;
-  1 a signal.
+  4 of the 27 functions Qt declares: 2 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -79,6 +87,9 @@ class QFontComboBox(QComboBox):
   - Qt tells when it has removed the C++ QFontComboBox. Every call on the
     cute object, and every use of it as an argument, then raises
     'RuntimeError', and nothing reaches C++.
+  - Each name of Qt's QFontComboBox that has no cute function yet,
+    'displayFont', holds a function that raises 'NotImplementedError', and
+    its docstring says why.
   """
 
   #  The enums Qt writes inside QFontComboBox, each a class in here as in
@@ -524,6 +535,26 @@ class QFontComboBox(QComboBox):
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  @overload(QFont)
+  def currentFontChanged(self, f: QFont) -> None:
+    """
+    Calls Qt's 'void QFontComboBox::currentFontChanged(const QFont &f)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qfontcombobox.html#currentFontChanged
+
+    Parameters
+    ----------
+
+    f : QFont
+      Passed on as a value: Qt reads the C++ QFont, which stays Python's own.
+    """
+    #  void QFontComboBox::currentFontChanged(const QFont &f)
+    self.uglySide.call(
+        'ritual_ZN13QFontComboBox18currentFontChangedERK5QFont',
+        self._valueOf(f),
+    )
+
   @overload(QEvent)
   @overload(NoneType)
   def event(self, e: Optional[QEvent]) -> bool:
@@ -544,3 +575,14 @@ class QFontComboBox(QComboBox):
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZN13QFontComboBox5eventEP6QEvent'
     return self.uglySide.call(ritual, self._addressOf(e))
+
+  @staticmethod
+  def displayFont(*__, **_) -> Never:
+    """
+    Qt's 'std::optional<QFont> QFontComboBox::displayFont(const QString
+    &fontFamily) const': gives a type Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QFontComboBox.displayFont' has no cute function yet. Qt's "
+        "'std::optional<QFont> QFontComboBox::displayFont(const QString "
+        "&fontFamily) const': gives a type Python has no way to take yet.")

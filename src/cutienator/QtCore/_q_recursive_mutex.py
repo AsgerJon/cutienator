@@ -15,7 +15,7 @@ from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from . import QDeadlineTimer
 else:
@@ -59,6 +59,9 @@ class QRecursiveMutex(CuteMixin, metaclass=MetaCute):
     has it, and is passed on as nothing. Whether Qt can do with nothing there
     is as in C++.
   - Python never removes the C++ QRecursiveMutex.
+  - Each name of Qt's QRecursiveMutex that has no cute function yet,
+    'try_lock_for', 'try_lock_until', holds a function that raises
+    'NotImplementedError', and its docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -204,3 +207,25 @@ class QRecursiveMutex(CuteMixin, metaclass=MetaCute):
     """
     #  bool QRecursiveMutex::try_lock()
     return self.uglySide.call('ritual_ZN15QRecursiveMutex8try_lockEv')
+
+  @staticmethod
+  def try_lock_for(*__, **_) -> Never:
+    """
+    Qt's 'QRecursiveMutex::try_lock_for': a template: a pattern and no single
+    function.
+    """
+    raise NotImplementedError(
+        "'QRecursiveMutex.try_lock_for' has no cute function yet. Qt's "
+        "'QRecursiveMutex::try_lock_for': a template: a pattern and no "
+        "single function.")
+
+  @staticmethod
+  def try_lock_until(*__, **_) -> Never:
+    """
+    Qt's 'QRecursiveMutex::try_lock_until': a template: a pattern and no
+    single function.
+    """
+    raise NotImplementedError(
+        "'QRecursiveMutex.try_lock_until' has no cute function yet. Qt's "
+        "'QRecursiveMutex::try_lock_until': a template: a pattern and no "
+        "single function.")

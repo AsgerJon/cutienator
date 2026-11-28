@@ -17,6 +17,9 @@ from ..cute import CuteMixin, CuteNum, MetaCute
 from ..occult import Rituals
 from . import QStringList
 
+if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Never
+
 
 class QProcessEnvironment(CuteMixin, metaclass=MetaCute):
   """
@@ -42,12 +45,14 @@ class QProcessEnvironment(CuteMixin, metaclass=MetaCute):
   - Qt's 'QProcessEnvironment::~QProcessEnvironment()': the destructor:
     Python removes its C++ QProcessEnvironment by it, and has no other use
     for it.
-
-  What has no ritual
-  ------------------
-
-  3 of the 20 functions Qt declares: 3 takes or gives a type that cannot be
-  passed yet.
+  - Qt's 'QProcessEnvironment
+    &QProcessEnvironment::operator=(QProcessEnvironment &&other)':
+    assignment: Python binds a name and has no operator for it.
+  - Qt's 'QProcessEnvironment &QProcessEnvironment::operator=(const
+    QProcessEnvironment &other)': assignment: Python binds a name and has no
+    operator for it.
+  - Qt's 'void QProcessEnvironment::swap(QProcessEnvironment &other)': takes
+    a type Python has no way to hand over yet.
 
   What to expect
   --------------
@@ -61,6 +66,9 @@ class QProcessEnvironment(CuteMixin, metaclass=MetaCute):
     is as in C++.
   - A function giving a QProcessEnvironment back gives a copy the ritual made
     for Python, in a new cute QProcessEnvironment.
+  - Each name of Qt's QProcessEnvironment that has no cute function yet,
+    'swap', holds a function that raises 'NotImplementedError', and its
+    docstring says why.
   """
 
   #  The enums Qt writes inside QProcessEnvironment, each a class in here as
@@ -460,3 +468,14 @@ class QProcessEnvironment(CuteMixin, metaclass=MetaCute):
     self.uglySide.call(
         'ritual_ZN19QProcessEnvironment6removeERK7QString', name,
     )
+
+  @staticmethod
+  def swap(*__, **_) -> Never:
+    """
+    Qt's 'void QProcessEnvironment::swap(QProcessEnvironment &other)': takes
+    a type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QProcessEnvironment.swap' has no cute function yet. Qt's 'void "
+        "QProcessEnvironment::swap(QProcessEnvironment &other)': takes a "
+        "type Python has no way to hand over yet.")

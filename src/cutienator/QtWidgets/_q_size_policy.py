@@ -45,14 +45,19 @@ class QSizePolicy(CuteMixin, metaclass=MetaCute):
 
   - Qt's 'QVariant QSizePolicy::operator QVariant() const': an operator
     Python has no name for.
+  - Qt's 'QDataStream &operator<<(QDataStream &a0, const QSizePolicy &a1)':
+    takes a type Python has no way to hand over yet.
+  - Qt's 'QDataStream &operator>>(QDataStream &a0, QSizePolicy &a1)': an
+    operator between other classes, written inside this one.
+  - Qt's 'QSizePolicy::QSizePolicy(Bits b)': takes a type Python has no way
+    to hand over yet.
   - Qt's 'QSizePolicy::~QSizePolicy()': the destructor: Python removes its
     C++ QSizePolicy by it, and has no other use for it.
 
   What has no ritual
   ------------------
 
-  6 of the 33 functions Qt declares: 3 takes or gives a type that cannot be
-  passed yet; 2 declared and nowhere to be found; 1 a template.
+  3 of the 33 functions Qt declares: 3 not a gap.
 
   What to expect
   --------------

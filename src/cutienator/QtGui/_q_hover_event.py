@@ -51,14 +51,17 @@ class QHoverEvent(QSinglePointEvent):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'QHoverEvent::QHoverEvent(const QHoverEvent &a0)': takes a type
+    Python has no way to hand over yet.
+  - Qt's 'QHoverEvent &QHoverEvent::operator=(const QHoverEvent &other)':
+    assignment: Python binds a name and has no operator for it.
   - Qt's 'QHoverEvent::~QHoverEvent()': the destructor: Python never removes
     a C++ QHoverEvent.
 
   What has no ritual
   ------------------
 
-  4 of the 13 functions Qt declares: 2 takes or gives a type that cannot be
-  passed yet; 2 forbidden.
+  2 of the 13 functions Qt declares: 2 forbidden.
 
   What to expect
   --------------
@@ -280,8 +283,9 @@ class QHoverEvent(QSinglePointEvent):
     self._noteCreation(QHoverEvent, lambda: Rituals.call(
         'ritual_ZN11QHoverEventC1EN6QEvent4TypeERK7QPointFS4_S4_6QFlagsIN2Q'
         't16KeyboardModifierEEPK15QPointingDevice',
-        type.value, self._valueOf(scenePos), self._valueOf(globalPos),
-        self._valueOf(oldPos), modifiers.value, self._addressOf(device),
+        type.value, self._valueOf(scenePos, 'QPointF'),
+        self._valueOf(globalPos, 'QPointF'), self._valueOf(oldPos,
+        'QPointF'), modifiers.value, self._addressOf(device),
     ))
 
   @overload(QEvent.Type, QPointF, QPointF)
@@ -337,8 +341,8 @@ class QHoverEvent(QSinglePointEvent):
     self._noteCreation(QHoverEvent, lambda: Rituals.call(
         'ritual_ZN11QHoverEventC1EN6QEvent4TypeERK7QPointFS4_6QFlagsIN2Qt16'
         'KeyboardModifierEEPK15QPointingDevice',
-        type.value, self._valueOf(pos), self._valueOf(oldPos),
-        modifiers.value, self._addressOf(device),
+        type.value, self._valueOf(pos, 'QPointF'), self._valueOf(oldPos,
+        'QPointF'), modifiers.value, self._addressOf(device),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

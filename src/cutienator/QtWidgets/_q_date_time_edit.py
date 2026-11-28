@@ -23,7 +23,7 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   from ..QtCore import QSize, QTime, QTimeZone, QVariant
   from ..QtGui import QFocusEvent, QKeyEvent, QMouseEvent, QPaintEvent
   from ..QtGui import QWheelEvent
-  from . import QCalendarWidget, QStyleOptionSpinBox
+  from . import QCalendarWidget, QDateTimeEditPrivate, QStyleOptionSpinBox
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -60,7 +60,7 @@ class QDateTimeEdit(QAbstractSpinBox):
   -----------
 
   Every function of Qt's QDateTimeEdit that has a ritual and that Python can
-  call so far, 64 names in all: 'metaObject', 'tr', 'dateTime', 'date',
+  call so far, 68 names in all: 'metaObject', 'tr', 'dateTime', 'date',
   'time', 'calendar', 'setCalendar', 'minimumDateTime',
   'clearMinimumDateTime', 'setMinimumDateTime', 'maximumDateTime',
   'clearMaximumDateTime', 'setMaximumDateTime', 'setDateTimeRange',
@@ -73,23 +73,32 @@ class QDateTimeEdit(QAbstractSpinBox):
   'sectionCount', 'setSelectedSection', 'sectionText', 'displayFormat',
   'setDisplayFormat', 'calendarPopup', 'setCalendarPopup', 'timeSpec',
   'setTimeSpec', 'timeZone', 'setTimeZone', 'sizeHint', 'clear', 'stepBy',
-  'event', 'setDateTime', 'setDate', 'setTime', 'keyPressEvent',
-  'wheelEvent', 'focusInEvent', 'focusNextPrevChild', 'dateTimeFromText',
-  'textFromDateTime', 'stepEnabled', 'mousePressEvent', 'paintEvent',
-  'initStyleOption'. It can be made from Python, in 5 ways; see '__init__'.
+  'event', 'dateTimeChanged', 'timeChanged', 'dateChanged', 'setDateTime',
+  'setDate', 'setTime', 'keyPressEvent', 'wheelEvent', 'focusInEvent',
+  'focusNextPrevChild', 'dateTimeFromText', 'textFromDateTime',
+  'stepEnabled', 'mousePressEvent', 'paintEvent', 'initStyleOption',
+  'd_func'. It can be made from Python, in 5 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QDateTimeEdit::qt_metacast(const char *a0)': one of Qt's own
+    inner workings.
+  - Qt's 'int QDateTimeEdit::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
   - Qt's 'QDateTimeEdit::~QDateTimeEdit()': the destructor: Python never
     removes a C++ QDateTimeEdit.
+  - Qt's 'QValidator::State QDateTimeEdit::validate(QString &input, int &pos)
+    const': takes a type Python has no way to hand over yet.
+  - Qt's 'void QDateTimeEdit::fixup(QString &input) const': takes a type
+    Python has no way to hand over yet.
+  - Qt's 'const QDateTimeEditPrivate *QDateTimeEdit::d_func() const': takes
+    in Python what 'QDateTimeEditPrivate *QDateTimeEdit::d_func()' takes.
 
   What has no ritual
   ------------------
 
-  13 of the 83 functions Qt declares: 6 takes or gives a type that cannot be
-  passed yet; 3 a signal; 2 forbidden; 1 a template; 1 declared and nowhere
-  to be found.
+  4 of the 83 functions Qt declares: 2 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -1412,6 +1421,63 @@ class QDateTimeEdit(QAbstractSpinBox):
       ritual = 'ritual_own_ZN13QDateTimeEdit5eventEP6QEvent'
     return self.uglySide.call(ritual, self._addressOf(event))
 
+  @overload(QDateTime)
+  def dateTimeChanged(self, dateTime: QDateTime) -> None:
+    """
+    Calls Qt's 'void QDateTimeEdit::dateTimeChanged(const QDateTime
+    &dateTime)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qdatetimeedit.html#dateTimeChanged
+
+    Parameters
+    ----------
+
+    dateTime : QDateTime
+      Passed on as a value: Qt reads the C++ QDateTime, which stays Python's
+      own.
+    """
+    #  void QDateTimeEdit::dateTimeChanged(const QDateTime &dateTime)
+    self.uglySide.call(
+        'ritual_ZN13QDateTimeEdit15dateTimeChangedERK9QDateTime',
+        self._valueOf(dateTime),
+    )
+
+  @overload(QTime)
+  def timeChanged(self, time: QTime) -> None:
+    """
+    Calls Qt's 'void QDateTimeEdit::timeChanged(QTime time)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qdatetimeedit.html#timeChanged
+
+    Parameters
+    ----------
+
+    time : QTime
+      Passed on as a value: Qt reads the C++ QTime, which stays Python's own.
+    """
+    #  void QDateTimeEdit::timeChanged(QTime time)
+    self.uglySide.call(
+        'ritual_ZN13QDateTimeEdit11timeChangedE5QTime', self._valueOf(time),
+    )
+
+  @overload(QDate)
+  def dateChanged(self, date: QDate) -> None:
+    """
+    Calls Qt's 'void QDateTimeEdit::dateChanged(QDate date)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qdatetimeedit.html#dateChanged
+
+    Parameters
+    ----------
+
+    date : QDate
+      Passed on as a value: Qt reads the C++ QDate, which stays Python's own.
+    """
+    #  void QDateTimeEdit::dateChanged(QDate date)
+    self.uglySide.call(
+        'ritual_ZN13QDateTimeEdit11dateChangedE5QDate', self._valueOf(date),
+    )
+
   @overload(QKeyEvent)
   @overload(NoneType)
   def keyPressEvent(self, event: Optional[QKeyEvent]) -> None:
@@ -1561,3 +1627,21 @@ class QDateTimeEdit(QAbstractSpinBox):
           'ritual_own_ZNK13QDateTimeEdit15initStyleOptionEP19QStyleOptionSp'
           'inBox')
     self.uglySide.call(ritual, self._addressOf(option))
+
+  def d_func(self) -> Optional[QDateTimeEditPrivate]:
+    """
+    Calls Qt's 'QDateTimeEditPrivate *QDateTimeEdit::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qdatetimeedit.html#d_func
+
+    Returns
+    -------
+
+    Optional[QDateTimeEditPrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QDateTimeEditPrivate *QDateTimeEdit::d_func()
+    address = self.uglySide.call('ritual_ZN13QDateTimeEdit6d_funcEv')
+    from . import QDateTimeEditPrivate
+    return QDateTimeEditPrivate._cuteAt(address)

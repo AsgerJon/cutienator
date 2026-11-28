@@ -52,6 +52,10 @@ class QKeyEvent(QInputEvent):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'QKeyEvent::QKeyEvent(const QKeyEvent &a0)': takes a type Python has
+    no way to hand over yet.
+  - Qt's 'QKeyEvent &QKeyEvent::operator=(const QKeyEvent &other)':
+    assignment: Python binds a name and has no operator for it.
   - Qt's 'QKeyEvent::~QKeyEvent()': the destructor: Python never removes a
     C++ QKeyEvent.
   - Qt's 'bool operator==(QKeyEvent *e, QKeySequence::StandardKey key)': an
@@ -62,8 +66,7 @@ class QKeyEvent(QInputEvent):
   What has no ritual
   ------------------
 
-  4 of the 20 functions Qt declares: 2 takes or gives a type that cannot be
-  passed yet; 2 forbidden.
+  2 of the 20 functions Qt declares: 2 forbidden.
 
   What to expect
   --------------

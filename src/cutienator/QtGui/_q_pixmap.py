@@ -18,11 +18,11 @@ from ..QtCore import Qt
 from . import QPaintDevice
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from ..QtCore import QByteArray, QIODevice, QRect, QSize, QSizeF
   from . import QBitmap, QColor, QImage, QImageReader, QImageWriter
-  from . import QPaintEngine, QRegion, QTransform
+  from . import QPaintEngine, QPlatformPixmap, QRegion, QTransform
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -34,6 +34,7 @@ else:
   QImage = WAIT['QImage']
   QImageReader = WAIT['QImageReader']
   QImageWriter = WAIT['QImageWriter']
+  QPlatformPixmap = WAIT['QPlatformPixmap']
   QRect = WAIT['QRect']
   QRegion = WAIT['QRegion']
   QSize = WAIT['QSize']
@@ -60,7 +61,7 @@ class QPixmap(QPaintDevice):
   -----------
 
   Every function of Qt's QPixmap that has a ritual and that Python can call
-  so far, 40 names in all: 'isNull', 'devType', 'width', 'height', 'size',
+  so far, 41 names in all: 'isNull', 'devType', 'width', 'height', 'size',
   'rect', 'depth', 'defaultDepth', 'fill', 'mask', 'setMask',
   'devicePixelRatio', 'setDevicePixelRatio', 'deviceIndependentSize',
   'hasAlpha', 'hasAlphaChannel', 'createHeuristicMask',
@@ -68,24 +69,45 @@ class QPixmap(QPaintDevice):
   'transformed', 'trueMatrix', 'toImage', 'fromImage', 'fromImageReader',
   'load', 'loadFromData', 'save', 'convertFromImage', 'copy', 'scroll',
   'cacheKey', 'isDetached', 'detach', 'isQBitmap', 'paintEngine', 'metric',
-  'doImageIO', 'doInit'. It can be made from Python, in 6 ways; see
+  'doImageIO', 'doInit', 'handle'. It can be made from Python, in 7 ways; see
   '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'QPixmap::QPixmap(const char *const *xpm)': names 'char *const',
+    which has no cute class yet.
+  - Qt's 'QPixmap::QPixmap(QPixmap &&other)': takes a type Python has no way
+    to hand over yet.
   - Qt's 'QPixmap::~QPixmap()': the destructor: Python removes its C++
     QPixmap by it, and has no other use for it.
+  - Qt's 'QPixmap &QPixmap::operator=(const QPixmap &a0)': assignment: Python
+    binds a name and has no operator for it.
+  - Qt's 'QPixmap &QPixmap::operator=(QPixmap &&other)': assignment: Python
+    binds a name and has no operator for it.
+  - Qt's 'void QPixmap::swap(QPixmap &other)': takes a type Python has no way
+    to hand over yet.
   - Qt's 'QVariant QPixmap::operator QVariant() const': an operator Python
     has no name for.
+  - Qt's 'QPixmap QPixmap::fromImage(QImage &&image, Qt::ImageConversionFlags
+    flags)': takes a type Python has no way to hand over yet.
+  - Qt's 'bool QPixmap::loadFromData(const uchar *buf, uint len, const char
+    *format, Qt::ImageConversionFlags flags)': names 'uchar', which has no
+    cute class yet.
   - Qt's 'bool QPixmap::operator!() const': an operator Python has no name
     for.
+  - Qt's 'QPixmap QPixmap::fromImageInPlace(QImage &image,
+    Qt::ImageConversionFlags flags)': takes a type Python has no way to hand
+    over yet.
+  - Qt's 'QDataStream &operator>>(QDataStream &a0, QPixmap &a1)': an operator
+    between other classes, written inside this one.
+  - Qt's 'DataPtr &QPixmap::data_ptr()': gives a type Python has no way to
+    take yet.
 
   What has no ritual
   ------------------
 
-  14 of the 67 functions Qt declares: 12 takes or gives a type that cannot be
-  passed yet; 2 forbidden.
+  2 of the 67 functions Qt declares: 2 forbidden.
 
   What to expect
   --------------
@@ -98,6 +120,9 @@ class QPixmap(QPaintDevice):
     is as in C++.
   - A function giving a QPixmap back gives a copy the ritual made for Python,
     in a new cute QPixmap.
+  - Each name of Qt's QPixmap that has no cute function yet, 'data_ptr',
+    'fromImageInPlace', 'swap', holds a function that raises
+    'NotImplementedError', and its docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -931,6 +956,24 @@ class QPixmap(QPaintDevice):
         self._addressOf(io), quality,
     )
 
+  def handle(self) -> Optional[QPlatformPixmap]:
+    """
+    Calls Qt's 'QPlatformPixmap *QPixmap::handle() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpixmap.html#handle
+
+    Returns
+    -------
+
+    Optional[QPlatformPixmap]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QPlatformPixmap *QPixmap::handle() const
+    address = self.uglySide.call('ritual_ZNK7QPixmap6handleEv')
+    from . import QPlatformPixmap
+    return QPlatformPixmap._cuteAt(address)
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -995,6 +1038,27 @@ class QPixmap(QPaintDevice):
     #  QPixmap::QPixmap()
     self._noteCreation(QPixmap, lambda: Rituals.call(
         'ritual_ZN7QPixmapC1Ev',
+    ))
+
+  @overload(QPlatformPixmap)
+  @overload(NoneType)
+  def __init__(self, data: Optional[QPlatformPixmap]) -> None:
+    """
+    Notes what was given, for Qt's 'QPixmap::QPixmap(QPlatformPixmap *data)',
+    which is called at the first use.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpixmap.html#QPixmap
+
+    Parameters
+    ----------
+
+    data : Optional[QPlatformPixmap]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  QPixmap::QPixmap(QPlatformPixmap *data)
+    self._noteCreation(QPixmap, lambda: Rituals.call(
+        'ritual_ZN7QPixmapC1EP15QPlatformPixmap', self._addressOf(data),
     ))
 
   @overload(int, int)
@@ -1395,3 +1459,36 @@ class QPixmap(QPaintDevice):
     """
     #  void QPixmap::doInit(int a0, int a1, int a2)
     self.uglySide.call('ritual_ZN7QPixmap6doInitEiii', a0, a1, a2)
+
+  @staticmethod
+  def data_ptr(*__, **_) -> Never:
+    """
+    Qt's 'DataPtr &QPixmap::data_ptr()': gives a type Python has no way to
+    take yet.
+    """
+    raise NotImplementedError(
+        "'QPixmap.data_ptr' has no cute function yet. Qt's 'DataPtr "
+        "&QPixmap::data_ptr()': gives a type Python has no way to take yet.")
+
+  @staticmethod
+  def fromImageInPlace(*__, **_) -> Never:
+    """
+    Qt's 'QPixmap QPixmap::fromImageInPlace(QImage &image,
+    Qt::ImageConversionFlags flags)': takes a type Python has no way to hand
+    over yet.
+    """
+    raise NotImplementedError(
+        "'QPixmap.fromImageInPlace' has no cute function yet. Qt's 'QPixmap "
+        "QPixmap::fromImageInPlace(QImage &image, Qt::ImageConversionFlags "
+        "flags)': takes a type Python has no way to hand over yet.")
+
+  @staticmethod
+  def swap(*__, **_) -> Never:
+    """
+    Qt's 'void QPixmap::swap(QPixmap &other)': takes a type Python has no way
+    to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QPixmap.swap' has no cute function yet. Qt's 'void "
+        "QPixmap::swap(QPixmap &other)': takes a type Python has no way to "
+        "hand over yet.")

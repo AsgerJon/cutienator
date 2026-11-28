@@ -18,7 +18,7 @@ from ..QtCore import Qt
 from . import QLayout, QLayoutItem
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from ..QtCore import QMetaObject, QRect, QSize
   from . import QWidget
@@ -62,14 +62,27 @@ class QFormLayout(QLayout):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QFormLayout::qt_metacast(const char *a0)': one of Qt's own
+    inner workings.
+  - Qt's 'int QFormLayout::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
+  - Qt's 'QFormLayoutPrivate *QFormLayout::d_func()': gives
+    'QFormLayoutPrivate', which has no cute class yet.
+  - Qt's 'const QFormLayoutPrivate *QFormLayout::d_func() const': gives
+    'QFormLayoutPrivate', which has no cute class yet.
   - Qt's 'QFormLayout::~QFormLayout()': the destructor: Python never removes
     a C++ QFormLayout.
+  - Qt's 'void QFormLayout::getItemPosition(int index, int *rowPtr, ItemRole
+    *rolePtr) const': takes a number to change where it is.
+  - Qt's 'void QFormLayout::getWidgetPosition(QWidget *widget, int *rowPtr,
+    ItemRole *rolePtr) const': takes a number to change where it is.
+  - Qt's 'void QFormLayout::getLayoutPosition(QLayout *layout, int *rowPtr,
+    ItemRole *rolePtr) const': takes a number to change where it is.
 
   What has no ritual
   ------------------
 
-  9 of the 73 functions Qt declares: 7 takes or gives a type that cannot be
-  passed yet; 1 a template; 1 declared and nowhere to be found.
+  2 of the 73 functions Qt declares: 2 not a gap.
 
   What to expect
   --------------
@@ -85,6 +98,9 @@ class QFormLayout(QLayout):
   - Qt tells when it has removed the C++ QFormLayout. Every call on the cute
     object, and every use of it as an argument, then raises 'RuntimeError',
     and nothing reaches C++.
+  - Each name of Qt's QFormLayout that has no cute function yet,
+    'getItemPosition', 'getLayoutPosition', 'getWidgetPosition', holds a
+    function that raises 'NotImplementedError', and its docstring says why.
   """
 
   #  The enums Qt writes inside QFormLayout, each a class in here as in C++,
@@ -1648,3 +1664,36 @@ class QFormLayout(QLayout):
     """
     #  void QFormLayout::resetFormAlignment()
     self.uglySide.call('ritual_ZN11QFormLayout18resetFormAlignmentEv')
+
+  @staticmethod
+  def getItemPosition(*__, **_) -> Never:
+    """
+    Qt's 'void QFormLayout::getItemPosition(int index, int *rowPtr, ItemRole
+    *rolePtr) const': takes a number to change where it is.
+    """
+    raise NotImplementedError(
+        "'QFormLayout.getItemPosition' has no cute function yet. Qt's 'void "
+        "QFormLayout::getItemPosition(int index, int *rowPtr, ItemRole "
+        "*rolePtr) const': takes a number to change where it is.")
+
+  @staticmethod
+  def getLayoutPosition(*__, **_) -> Never:
+    """
+    Qt's 'void QFormLayout::getLayoutPosition(QLayout *layout, int *rowPtr,
+    ItemRole *rolePtr) const': takes a number to change where it is.
+    """
+    raise NotImplementedError(
+        "'QFormLayout.getLayoutPosition' has no cute function yet. Qt's "
+        "'void QFormLayout::getLayoutPosition(QLayout *layout, int *rowPtr, "
+        "ItemRole *rolePtr) const': takes a number to change where it is.")
+
+  @staticmethod
+  def getWidgetPosition(*__, **_) -> Never:
+    """
+    Qt's 'void QFormLayout::getWidgetPosition(QWidget *widget, int *rowPtr,
+    ItemRole *rolePtr) const': takes a number to change where it is.
+    """
+    raise NotImplementedError(
+        "'QFormLayout.getWidgetPosition' has no cute function yet. Qt's "
+        "'void QFormLayout::getWidgetPosition(QWidget *widget, int *rowPtr, "
+        "ItemRole *rolePtr) const': takes a number to change where it is.")

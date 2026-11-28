@@ -46,25 +46,31 @@ class QStatusBar(QWidget):
   -----------
 
   Every function of Qt's QStatusBar that has a ritual and that Python can
-  call so far, 18 names in all: 'metaObject', 'tr', 'addWidget',
+  call so far, 19 names in all: 'metaObject', 'tr', 'addWidget',
   'insertWidget', 'addPermanentWidget', 'insertPermanentWidget',
   'removeWidget', 'setSizeGripEnabled', 'isSizeGripEnabled',
-  'currentMessage', 'showMessage', 'clearMessage', 'showEvent', 'paintEvent',
-  'resizeEvent', 'reformat', 'hideOrShow', 'event'. It can be made from
-  Python, in 1 way; see '__init__'.
+  'currentMessage', 'showMessage', 'clearMessage', 'messageChanged',
+  'showEvent', 'paintEvent', 'resizeEvent', 'reformat', 'hideOrShow',
+  'event'. It can be made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QStatusBar::qt_metacast(const char *a0)': one of Qt's own
+    inner workings.
+  - Qt's 'int QStatusBar::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
   - Qt's 'QStatusBar::~QStatusBar()': the destructor: Python never removes a
     C++ QStatusBar.
+  - Qt's 'QStatusBarPrivate *QStatusBar::d_func()': gives
+    'QStatusBarPrivate', which has no cute class yet.
+  - Qt's 'const QStatusBarPrivate *QStatusBar::d_func() const': gives
+    'QStatusBarPrivate', which has no cute class yet.
 
   What has no ritual
   ------------------
 
-  9 of the 29 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet; 2 forbidden; 1 a template; 1 declared and nowhere to be found;
-  1 a signal.
+  4 of the 29 functions Qt declares: 2 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -449,6 +455,24 @@ class QStatusBar(QWidget):
     """
     #  void QStatusBar::clearMessage()
     self.uglySide.call('ritual_ZN10QStatusBar12clearMessageEv')
+
+  @overload(str)
+  def messageChanged(self, text: str) -> None:
+    """
+    Calls Qt's 'void QStatusBar::messageChanged(const QString &text)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qstatusbar.html#messageChanged
+
+    Parameters
+    ----------
+
+    text : str
+      Passed on as it is: a QString is made of it for the call.
+    """
+    #  void QStatusBar::messageChanged(const QString &text)
+    self.uglySide.call(
+        'ritual_ZN10QStatusBar14messageChangedERK7QString', text,
+    )
 
   @overload(QShowEvent)
   @overload(NoneType)

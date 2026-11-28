@@ -6,9 +6,11 @@
 # whose ritual files changed since. Every other part built there with
 # nothing left out, so the run skips it. A part is joined whole, so it
 # is the smallest piece that can be built apart. Manual trigger only;
-# it releases nothing and changes nothing on 'main'. Each machine hands
-# over 'scrolls-short-linux' and so on: the libraries of the parts it
-# built with their left-out files, the report, and the folder 'demons'.
+# it releases nothing and changes nothing on 'main'. After the build,
+# 'bin/check_cute.py' brings in every cute class and makes a few objects
+# on each machine. Each machine hands over 'scrolls-short-linux' and so
+# on: the libraries of the parts it built with their left-out files, the
+# two reports, and the folder 'demons'.
 on:
   workflow_dispatch:
 
@@ -160,7 +162,25 @@ jobs:
           fi
           echo "parts: $parts"
           python -u -B bin/check_summon.py horsemen/report.txt $parts
-      # The head of the report and its verdict, on the page of the run,
+      # The Python side on this machine: 'bin/check_cute.py' brings in
+      # every cute class of every part, which runs no ritual, and then
+      # makes a QObject, a QSize, a QPoint, a QTimer, and a QWidget with
+      # a QPushButton under a QApplication, and uses them, against the
+      # target files of QtCore, QtGui and QtWidgets the step above
+      # built. Qt draws off screen. The step passes once the check ran
+      # to its end; its verdict says OK, GAPS or FAILED, and its report
+      # names every name that could not be brought in and every step
+      # that went wrong.
+      - name: Bring in every cute class, and make a few objects
+        if: ${{ always() }}
+        shell: bash
+        env:
+          PYTHONPATH: ${{ github.workspace }}/src
+          QT_QPA_PLATFORM: offscreen
+        run: |
+          mkdir -p horsemen
+          python -u -B bin/check_cute.py horsemen/cute.txt
+      # The head of each report and its verdict, on the page of the run,
       # one block for each machine, so that how each system did shows
       # without opening a log or an artifact.
       - name: Say how it went
@@ -175,6 +195,13 @@ jobs:
               grep -E '^(seconds|verdict):' horsemen/report.txt
             else
               echo 'no report: the check ended before it wrote one'
+            fi
+            echo 'the Python side:'
+            if [ -f horsemen/cute.txt ]; then
+              grep -E '^(parts|names|parts that|seconds|verdict)' horsemen/cute.txt
+              grep -E '^(GAP|RAISED|WRONG) ' horsemen/cute.txt || true
+            else
+              echo 'no report: the check of the cute classes did not run'
             fi
             echo '```'
           } >> "$GITHUB_STEP_SUMMARY"

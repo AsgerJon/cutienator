@@ -34,8 +34,7 @@ class QStandardPaths(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  5 of the 13 functions Qt declares: 4 declared and nowhere to be found; 1 a
-  template.
+  5 of the 13 functions Qt declares: 5 not a gap.
 
   What to expect
   --------------

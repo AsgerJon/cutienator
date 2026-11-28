@@ -21,7 +21,7 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
 
   from ..QtCore import QEvent, QMetaObject
   from ..QtGui import QAction, QCloseEvent, QPaintEvent
-  from . import QStyleOptionDockWidget
+  from . import QDockWidgetPrivate, QStyleOptionDockWidget
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -48,27 +48,33 @@ class QDockWidget(QWidget):
   -----------
 
   Every function of Qt's QDockWidget that has a ritual and that Python can
-  call so far, 21 names in all: 'metaObject', 'tr', 'widget', 'setWidget',
+  call so far, 27 names in all: 'metaObject', 'tr', 'widget', 'setWidget',
   'setFeatures', 'features', 'setFloating', 'isFloating', 'setAllowedAreas',
   'allowedAreas', 'setTitleBarWidget', 'titleBarWidget', 'setDockLocation',
-  'dockLocation', 'isAreaAllowed', 'toggleViewAction', 'changeEvent',
-  'closeEvent', 'paintEvent', 'event', 'initStyleOption'. It can be made from
-  Python, in 2 ways; see '__init__'.
+  'dockLocation', 'isAreaAllowed', 'toggleViewAction', 'featuresChanged',
+  'topLevelChanged', 'allowedAreasChanged', 'visibilityChanged',
+  'dockLocationChanged', 'changeEvent', 'closeEvent', 'paintEvent', 'event',
+  'initStyleOption', 'd_func'. It can be made from Python, in 2 ways; see
+  '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QDockWidget::qt_metacast(const char *a0)': one of Qt's own
+    inner workings.
+  - Qt's 'int QDockWidget::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
   - Qt's 'QDockWidget::~QDockWidget()': the destructor: Python never removes
     a C++ QDockWidget.
   - Qt's 'QDebug operator<<(QDebug dbg, const QDockWidget *dockWidget)': an
     operator between other classes, written inside this one.
+  - Qt's 'const QDockWidgetPrivate *QDockWidget::d_func() const': takes in
+    Python what 'QDockWidgetPrivate *QDockWidget::d_func()' takes.
 
   What has no ritual
   ------------------
 
-  13 of the 38 functions Qt declares: 5 a signal; 4 takes or gives a type
-  that cannot be passed yet; 2 forbidden; 1 a template; 1 declared and
-  nowhere to be found.
+  4 of the 38 functions Qt declares: 2 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -573,6 +579,106 @@ class QDockWidget(QWidget):
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  @overload(DockWidgetFeatures)
+  def featuresChanged(self, features: DockWidgetFeatures) -> None:
+    """
+    Calls Qt's 'void
+    QDockWidget::featuresChanged(QDockWidget::DockWidgetFeatures features)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qdockwidget.html#featuresChanged
+
+    Parameters
+    ----------
+
+    features : DockWidgetFeatures
+      Passed on as its number.
+    """
+    #  void QDockWidget::featuresChanged(QDockWidget::DockWidgetFeatures
+    #      features)
+    self.uglySide.call(
+        'ritual_ZN11QDockWidget15featuresChangedE6QFlagsINS_17DockWidgetFea'
+        'tureEE',
+        features.value,
+    )
+
+  @overload(bool)
+  def topLevelChanged(self, topLevel: bool) -> None:
+    """
+    Calls Qt's 'void QDockWidget::topLevelChanged(bool topLevel)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qdockwidget.html#topLevelChanged
+
+    Parameters
+    ----------
+
+    topLevel : bool
+      Passed on as it is.
+    """
+    #  void QDockWidget::topLevelChanged(bool topLevel)
+    self.uglySide.call('ritual_ZN11QDockWidget15topLevelChangedEb', topLevel)
+
+  @overload(Qt.DockWidgetAreas)
+  def allowedAreasChanged(self, allowedAreas: Qt.DockWidgetAreas) -> None:
+    """
+    Calls Qt's 'void QDockWidget::allowedAreasChanged(Qt::DockWidgetAreas
+    allowedAreas)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qdockwidget.html#allowedAreasChanged
+
+    Parameters
+    ----------
+
+    allowedAreas : Qt.DockWidgetAreas
+      Passed on as its number.
+    """
+    #  void QDockWidget::allowedAreasChanged(Qt::DockWidgetAreas
+    #      allowedAreas)
+    self.uglySide.call(
+        'ritual_ZN11QDockWidget19allowedAreasChangedE6QFlagsIN2Qt14DockWidg'
+        'etAreaEE',
+        allowedAreas.value,
+    )
+
+  @overload(bool)
+  def visibilityChanged(self, visible: bool) -> None:
+    """
+    Calls Qt's 'void QDockWidget::visibilityChanged(bool visible)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qdockwidget.html#visibilityChanged
+
+    Parameters
+    ----------
+
+    visible : bool
+      Passed on as it is.
+    """
+    #  void QDockWidget::visibilityChanged(bool visible)
+    self.uglySide.call(
+        'ritual_ZN11QDockWidget17visibilityChangedEb', visible,
+    )
+
+  @overload(Qt.DockWidgetArea)
+  def dockLocationChanged(self, area: Qt.DockWidgetArea) -> None:
+    """
+    Calls Qt's 'void QDockWidget::dockLocationChanged(Qt::DockWidgetArea
+    area)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qdockwidget.html#dockLocationChanged
+
+    Parameters
+    ----------
+
+    area : Qt.DockWidgetArea
+      Passed on as its number.
+    """
+    #  void QDockWidget::dockLocationChanged(Qt::DockWidgetArea area)
+    self.uglySide.call(
+        'ritual_ZN11QDockWidget19dockLocationChangedEN2Qt14DockWidgetAreaE',
+        area.value,
+    )
+
   @overload(QEvent)
   @overload(NoneType)
   def changeEvent(self, event: Optional[QEvent]) -> None:
@@ -685,6 +791,24 @@ class QDockWidget(QWidget):
           'ritual_own_ZNK11QDockWidget15initStyleOptionEP22QStyleOptionDock'
           'Widget')
     self.uglySide.call(ritual, self._addressOf(option))
+
+  def d_func(self) -> Optional[QDockWidgetPrivate]:
+    """
+    Calls Qt's 'QDockWidgetPrivate *QDockWidget::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qdockwidget.html#d_func
+
+    Returns
+    -------
+
+    Optional[QDockWidgetPrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QDockWidgetPrivate *QDockWidget::d_func()
+    address = self.uglySide.call('ritual_ZN11QDockWidget6d_funcEv')
+    from . import QDockWidgetPrivate
+    return QDockWidgetPrivate._cuteAt(address)
 
 
 #  Qt's 'QList<QDockWidget *>': the list of QDockWidget, which

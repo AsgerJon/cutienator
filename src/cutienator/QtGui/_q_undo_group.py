@@ -43,24 +43,32 @@ class QUndoGroup(QObject):
   -----------
 
   Every function of Qt's QUndoGroup that has a ritual and that Python can
-  call so far, 16 names in all: 'metaObject', 'tr', 'addStack',
+  call so far, 23 names in all: 'metaObject', 'tr', 'addStack',
   'removeStack', 'stacks', 'activeStack', 'createUndoAction',
   'createRedoAction', 'canUndo', 'canRedo', 'undoText', 'redoText',
-  'isClean', 'undo', 'redo', 'setActiveStack'. It can be made from Python, in
-  1 way; see '__init__'.
+  'isClean', 'undo', 'redo', 'setActiveStack', 'activeStackChanged',
+  'indexChanged', 'cleanChanged', 'canUndoChanged', 'canRedoChanged',
+  'undoTextChanged', 'redoTextChanged'. It can be made from Python, in 1 way;
+  see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QUndoGroup::qt_metacast(const char *a0)': one of Qt's own
+    inner workings.
+  - Qt's 'int QUndoGroup::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
+  - Qt's 'QUndoGroupPrivate *QUndoGroup::d_func()': gives
+    'QUndoGroupPrivate', which has no cute class yet.
+  - Qt's 'const QUndoGroupPrivate *QUndoGroup::d_func() const': gives
+    'QUndoGroupPrivate', which has no cute class yet.
   - Qt's 'QUndoGroup::~QUndoGroup()': the destructor: Python never removes a
     C++ QUndoGroup.
 
   What has no ritual
   ------------------
 
-  15 of the 33 functions Qt declares: 7 a signal; 4 takes or gives a type
-  that cannot be passed yet; 2 forbidden; 1 a template; 1 declared and
-  nowhere to be found.
+  4 of the 33 functions Qt declares: 2 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -481,3 +489,124 @@ class QUndoGroup(QObject):
     """
     #  void QUndoGroup::redo()
     self.uglySide.call('ritual_ZN10QUndoGroup4redoEv')
+
+  @overload(QUndoStack)
+  @overload(NoneType)
+  def activeStackChanged(self, stack: Optional[QUndoStack]) -> None:
+    """
+    Calls Qt's 'void QUndoGroup::activeStackChanged(QUndoStack *stack)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qundogroup.html#activeStackChanged
+
+    Parameters
+    ----------
+
+    stack : Optional[QUndoStack]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QUndoGroup::activeStackChanged(QUndoStack *stack)
+    self.uglySide.call(
+        'ritual_ZN10QUndoGroup18activeStackChangedEP10QUndoStack',
+        self._addressOf(stack),
+    )
+
+  @overload(int)
+  def indexChanged(self, idx: int) -> None:
+    """
+    Calls Qt's 'void QUndoGroup::indexChanged(int idx)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qundogroup.html#indexChanged
+
+    Parameters
+    ----------
+
+    idx : int
+      Passed on as it is.
+    """
+    #  void QUndoGroup::indexChanged(int idx)
+    self.uglySide.call('ritual_ZN10QUndoGroup12indexChangedEi', idx)
+
+  @overload(bool)
+  def cleanChanged(self, clean: bool) -> None:
+    """
+    Calls Qt's 'void QUndoGroup::cleanChanged(bool clean)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qundogroup.html#cleanChanged
+
+    Parameters
+    ----------
+
+    clean : bool
+      Passed on as it is.
+    """
+    #  void QUndoGroup::cleanChanged(bool clean)
+    self.uglySide.call('ritual_ZN10QUndoGroup12cleanChangedEb', clean)
+
+  @overload(bool)
+  def canUndoChanged(self, canUndo: bool) -> None:
+    """
+    Calls Qt's 'void QUndoGroup::canUndoChanged(bool canUndo)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qundogroup.html#canUndoChanged
+
+    Parameters
+    ----------
+
+    canUndo : bool
+      Passed on as it is.
+    """
+    #  void QUndoGroup::canUndoChanged(bool canUndo)
+    self.uglySide.call('ritual_ZN10QUndoGroup14canUndoChangedEb', canUndo)
+
+  @overload(bool)
+  def canRedoChanged(self, canRedo: bool) -> None:
+    """
+    Calls Qt's 'void QUndoGroup::canRedoChanged(bool canRedo)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qundogroup.html#canRedoChanged
+
+    Parameters
+    ----------
+
+    canRedo : bool
+      Passed on as it is.
+    """
+    #  void QUndoGroup::canRedoChanged(bool canRedo)
+    self.uglySide.call('ritual_ZN10QUndoGroup14canRedoChangedEb', canRedo)
+
+  @overload(str)
+  def undoTextChanged(self, undoText: str) -> None:
+    """
+    Calls Qt's 'void QUndoGroup::undoTextChanged(const QString &undoText)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qundogroup.html#undoTextChanged
+
+    Parameters
+    ----------
+
+    undoText : str
+      Passed on as it is: a QString is made of it for the call.
+    """
+    #  void QUndoGroup::undoTextChanged(const QString &undoText)
+    self.uglySide.call(
+        'ritual_ZN10QUndoGroup15undoTextChangedERK7QString', undoText,
+    )
+
+  @overload(str)
+  def redoTextChanged(self, redoText: str) -> None:
+    """
+    Calls Qt's 'void QUndoGroup::redoTextChanged(const QString &redoText)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qundogroup.html#redoTextChanged
+
+    Parameters
+    ----------
+
+    redoText : str
+      Passed on as it is: a QString is made of it for the call.
+    """
+    #  void QUndoGroup::redoTextChanged(const QString &redoText)
+    self.uglySide.call(
+        'ritual_ZN10QUndoGroup15redoTextChangedERK7QString', redoText,
+    )

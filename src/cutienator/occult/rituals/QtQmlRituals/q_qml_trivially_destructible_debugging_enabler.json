@@ -1,0 +1,14 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/qqmldebug.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "sigils": {
+    "ritual_ZN12_GLOBAL__N_141QQmlTriviallyDestructibleDebuggingEnablerC1Eb": [
+      "address", "bool"
+    ],
+    "ritual_ZN12_GLOBAL__N_141QQmlTriviallyDestructibleDebuggingEnablerD1Ev": [
+      "nothing", "address"
+    ]
+  }
+}

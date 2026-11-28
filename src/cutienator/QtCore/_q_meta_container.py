@@ -11,8 +11,16 @@ from typing import TYPE_CHECKING
 
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin, MetaCute
+from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
+from . import QtMetaContainerPrivate
+
+if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Never, Optional
+
+#  The class of None, for a signature that takes None in the place of an
+#  object or of text.
+NoneType = type(None)
 
 
 class QMetaContainer(CuteMixin, metaclass=MetaCute):
@@ -31,19 +39,45 @@ class QMetaContainer(CuteMixin, metaclass=MetaCute):
   call so far, 8 names in all: 'hasInputIterator', 'hasForwardIterator',
   'hasBidirectionalIterator', 'hasRandomAccessIterator', 'hasSize',
   'canClear', 'hasIterator', 'hasConstIterator'. It can be made from Python,
-  in 1 way; see '__init__'.
+  in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'qsizetype QMetaContainer::size(const void *container) const': names
+    'void', which has no cute class yet.
+  - Qt's 'void QMetaContainer::clear(void *container) const': names 'void',
+    which has no cute class yet.
+  - Qt's 'void *QMetaContainer::begin(void *container) const': names 'void',
+    which has no cute class yet.
+  - Qt's 'void *QMetaContainer::end(void *container) const': names 'void',
+    which has no cute class yet.
+  - Qt's 'void QMetaContainer::destroyIterator(const void *iterator) const':
+    names 'void', which has no cute class yet.
+  - Qt's 'bool QMetaContainer::compareIterator(const void *i, const void *j)
+    const': names 'void', which has no cute class yet.
+  - Qt's 'void QMetaContainer::copyIterator(void *target, const void *source)
+    const': names 'void', which has no cute class yet.
+  - Qt's 'void QMetaContainer::advanceIterator(void *iterator, qsizetype
+    step) const': names 'void', which has no cute class yet.
+  - Qt's 'qsizetype QMetaContainer::diffIterator(const void *i, const void
+    *j) const': names 'void', which has no cute class yet.
+  - Qt's 'void *QMetaContainer::constBegin(const void *container) const':
+    names 'void', which has no cute class yet.
+  - Qt's 'void *QMetaContainer::constEnd(const void *container) const': names
+    'void', which has no cute class yet.
+  - Qt's 'void QMetaContainer::destroyConstIterator(const void *iterator)
+    const': names 'void', which has no cute class yet.
+  - Qt's 'bool QMetaContainer::compareConstIterator(const void *i, const void
+    *j) const': names 'void', which has no cute class yet.
+  - Qt's 'void QMetaContainer::copyConstIterator(void *target, const void
+    *source) const': names 'void', which has no cute class yet.
+  - Qt's 'void QMetaContainer::advanceConstIterator(void *iterator, qsizetype
+    step) const': names 'void', which has no cute class yet.
+  - Qt's 'qsizetype QMetaContainer::diffConstIterator(const void *i, const
+    void *j) const': names 'void', which has no cute class yet.
   - Qt's 'QMetaContainer::~QMetaContainer()': the destructor: Python removes
     its C++ QMetaContainer by it, and has no other use for it.
-
-  What has no ritual
-  ------------------
-
-  17 of the 27 functions Qt declares: 17 takes or gives a type that cannot be
-  passed yet.
 
   What to expect
   --------------
@@ -57,6 +91,13 @@ class QMetaContainer(CuteMixin, metaclass=MetaCute):
     is as in C++.
   - A function giving a QMetaContainer back gives a copy the ritual made for
     Python, in a new cute QMetaContainer.
+  - Each name of Qt's QMetaContainer that has no cute function yet,
+    'advanceConstIterator', 'advanceIterator', 'begin', 'clear',
+    'compareConstIterator', 'compareIterator', 'constBegin', 'constEnd',
+    'copyConstIterator', 'copyIterator', 'destroyConstIterator',
+    'destroyIterator', 'diffConstIterator', 'diffIterator', 'end', 'size',
+    holds a function that raises 'NotImplementedError', and its docstring
+    says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -204,6 +245,34 @@ class QMetaContainer(CuteMixin, metaclass=MetaCute):
         'ritual_ZN14QMetaContainerC1Ev',
     ))
 
+  @overload(WAIT['QtMetaContainerPrivate.QMetaContainerInterface'])
+  @overload(NoneType)
+  def __init__(
+      self,
+      d: Optional[QtMetaContainerPrivate.QMetaContainerInterface],
+  ) -> None:
+    """
+    Notes what was given, for Qt's 'QMetaContainer::QMetaContainer(const
+    QtMetaContainerPrivate::QMetaContainerInterface *d)', which is called at
+    the first use.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmetacontainer.html#QMetaContainer
+
+    Parameters
+    ----------
+
+    d : Optional[QtMetaContainerPrivate.QMetaContainerInterface]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  QMetaContainer::QMetaContainer(const
+    #      QtMetaContainerPrivate::QMetaContainerInterface *d)
+    self._noteCreation(QMetaContainer, lambda: Rituals.call(
+        'ritual_ZN14QMetaContainerC1EPKN22QtMetaContainerPrivate23QMetaCont'
+        'ainerInterfaceE',
+        self._addressOf(d),
+    ))
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -223,3 +292,179 @@ class QMetaContainer(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def advanceConstIterator(*__, **_) -> Never:
+    """
+    Qt's 'void QMetaContainer::advanceConstIterator(void *iterator, qsizetype
+    step) const': names 'void', which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QMetaContainer.advanceConstIterator' has no cute function yet. "
+        "Qt's 'void QMetaContainer::advanceConstIterator(void *iterator, "
+        "qsizetype step) const': names 'void', which has no cute class yet.")
+
+  @staticmethod
+  def advanceIterator(*__, **_) -> Never:
+    """
+    Qt's 'void QMetaContainer::advanceIterator(void *iterator, qsizetype
+    step) const': names 'void', which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QMetaContainer.advanceIterator' has no cute function yet. Qt's "
+        "'void QMetaContainer::advanceIterator(void *iterator, qsizetype "
+        "step) const': names 'void', which has no cute class yet.")
+
+  @staticmethod
+  def begin(*__, **_) -> Never:
+    """
+    Qt's 'void *QMetaContainer::begin(void *container) const': names 'void',
+    which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QMetaContainer.begin' has no cute function yet. Qt's 'void "
+        "*QMetaContainer::begin(void *container) const': names 'void', "
+        "which has no cute class yet.")
+
+  @staticmethod
+  def clear(*__, **_) -> Never:
+    """
+    Qt's 'void QMetaContainer::clear(void *container) const': names 'void',
+    which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QMetaContainer.clear' has no cute function yet. Qt's 'void "
+        "QMetaContainer::clear(void *container) const': names 'void', which "
+        "has no cute class yet.")
+
+  @staticmethod
+  def compareConstIterator(*__, **_) -> Never:
+    """
+    Qt's 'bool QMetaContainer::compareConstIterator(const void *i, const void
+    *j) const': names 'void', which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QMetaContainer.compareConstIterator' has no cute function yet. "
+        "Qt's 'bool QMetaContainer::compareConstIterator(const void *i, "
+        "const void *j) const': names 'void', which has no cute class yet.")
+
+  @staticmethod
+  def compareIterator(*__, **_) -> Never:
+    """
+    Qt's 'bool QMetaContainer::compareIterator(const void *i, const void *j)
+    const': names 'void', which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QMetaContainer.compareIterator' has no cute function yet. Qt's "
+        "'bool QMetaContainer::compareIterator(const void *i, const void "
+        "*j) const': names 'void', which has no cute class yet.")
+
+  @staticmethod
+  def constBegin(*__, **_) -> Never:
+    """
+    Qt's 'void *QMetaContainer::constBegin(const void *container) const':
+    names 'void', which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QMetaContainer.constBegin' has no cute function yet. Qt's 'void "
+        "*QMetaContainer::constBegin(const void *container) const': names "
+        "'void', which has no cute class yet.")
+
+  @staticmethod
+  def constEnd(*__, **_) -> Never:
+    """
+    Qt's 'void *QMetaContainer::constEnd(const void *container) const': names
+    'void', which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QMetaContainer.constEnd' has no cute function yet. Qt's 'void "
+        "*QMetaContainer::constEnd(const void *container) const': names "
+        "'void', which has no cute class yet.")
+
+  @staticmethod
+  def copyConstIterator(*__, **_) -> Never:
+    """
+    Qt's 'void QMetaContainer::copyConstIterator(void *target, const void
+    *source) const': names 'void', which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QMetaContainer.copyConstIterator' has no cute function yet. Qt's "
+        "'void QMetaContainer::copyConstIterator(void *target, const void "
+        "*source) const': names 'void', which has no cute class yet.")
+
+  @staticmethod
+  def copyIterator(*__, **_) -> Never:
+    """
+    Qt's 'void QMetaContainer::copyIterator(void *target, const void *source)
+    const': names 'void', which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QMetaContainer.copyIterator' has no cute function yet. Qt's 'void "
+        "QMetaContainer::copyIterator(void *target, const void *source) "
+        "const': names 'void', which has no cute class yet.")
+
+  @staticmethod
+  def destroyConstIterator(*__, **_) -> Never:
+    """
+    Qt's 'void QMetaContainer::destroyConstIterator(const void *iterator)
+    const': names 'void', which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QMetaContainer.destroyConstIterator' has no cute function yet. "
+        "Qt's 'void QMetaContainer::destroyConstIterator(const void "
+        "*iterator) const': names 'void', which has no cute class yet.")
+
+  @staticmethod
+  def destroyIterator(*__, **_) -> Never:
+    """
+    Qt's 'void QMetaContainer::destroyIterator(const void *iterator) const':
+    names 'void', which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QMetaContainer.destroyIterator' has no cute function yet. Qt's "
+        "'void QMetaContainer::destroyIterator(const void *iterator) "
+        "const': names 'void', which has no cute class yet.")
+
+  @staticmethod
+  def diffConstIterator(*__, **_) -> Never:
+    """
+    Qt's 'qsizetype QMetaContainer::diffConstIterator(const void *i, const
+    void *j) const': names 'void', which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QMetaContainer.diffConstIterator' has no cute function yet. Qt's "
+        "'qsizetype QMetaContainer::diffConstIterator(const void *i, const "
+        "void *j) const': names 'void', which has no cute class yet.")
+
+  @staticmethod
+  def diffIterator(*__, **_) -> Never:
+    """
+    Qt's 'qsizetype QMetaContainer::diffIterator(const void *i, const void
+    *j) const': names 'void', which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QMetaContainer.diffIterator' has no cute function yet. Qt's "
+        "'qsizetype QMetaContainer::diffIterator(const void *i, const void "
+        "*j) const': names 'void', which has no cute class yet.")
+
+  @staticmethod
+  def end(*__, **_) -> Never:
+    """
+    Qt's 'void *QMetaContainer::end(void *container) const': names 'void',
+    which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QMetaContainer.end' has no cute function yet. Qt's 'void "
+        "*QMetaContainer::end(void *container) const': names 'void', which "
+        "has no cute class yet.")
+
+  @staticmethod
+  def size(*__, **_) -> Never:
+    """
+    Qt's 'qsizetype QMetaContainer::size(const void *container) const': names
+    'void', which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QMetaContainer.size' has no cute function yet. Qt's 'qsizetype "
+        "QMetaContainer::size(const void *container) const': names 'void', "
+        "which has no cute class yet.")

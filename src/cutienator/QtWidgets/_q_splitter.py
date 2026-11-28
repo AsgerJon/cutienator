@@ -17,11 +17,11 @@ from ..QtCore import Qt
 from . import QFrame, QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from ..QtCore import QByteArray, QChildEvent, QEvent, QMetaObject, QSize
   from ..QtGui import QResizeEvent
-  from . import QSplitterHandle
+  from . import QSplitterHandle, QSplitterPrivate
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -48,30 +48,39 @@ class QSplitter(QFrame):
   -----------
 
   Every function of Qt's QSplitter that has a ritual and that Python can call
-  so far, 33 names in all: 'metaObject', 'tr', 'addWidget', 'insertWidget',
+  so far, 35 names in all: 'metaObject', 'tr', 'addWidget', 'insertWidget',
   'replaceWidget', 'setOrientation', 'orientation', 'setChildrenCollapsible',
   'childrenCollapsible', 'setCollapsible', 'isCollapsible',
   'setOpaqueResize', 'opaqueResize', 'refresh', 'sizeHint',
   'minimumSizeHint', 'saveState', 'restoreState', 'handleWidth',
   'setHandleWidth', 'indexOf', 'widget', 'count', 'handle',
-  'setStretchFactor', 'createHandle', 'childEvent', 'event', 'resizeEvent',
-  'changeEvent', 'moveSplitter', 'setRubberBand', 'closestLegalPosition'. It
-  can be made from Python, in 2 ways; see '__init__'.
+  'setStretchFactor', 'splitterMoved', 'createHandle', 'childEvent', 'event',
+  'resizeEvent', 'changeEvent', 'moveSplitter', 'setRubberBand',
+  'closestLegalPosition', 'd_func'. It can be made from Python, in 2 ways;
+  see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QSplitter::qt_metacast(const char *a0)': one of Qt's own
+    inner workings.
+  - Qt's 'int QSplitter::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
   - Qt's 'QSplitter::~QSplitter()': the destructor: Python never removes a
     C++ QSplitter.
+  - Qt's 'QList<int> QSplitter::sizes() const': gives a type Python has no
+    way to take yet.
+  - Qt's 'void QSplitter::setSizes(const QList<int> &list)': takes a type
+    Python has no way to hand over yet.
   - Qt's 'void QSplitter::getRange(int index, int *a1, int *a2) const': takes
     a number to change where it is.
+  - Qt's 'const QSplitterPrivate *QSplitter::d_func() const': takes in Python
+    what 'QSplitterPrivate *QSplitter::d_func()' takes.
 
   What has no ritual
   ------------------
 
-  11 of the 48 functions Qt declares: 6 takes or gives a type that cannot be
-  passed yet; 2 forbidden; 1 a template; 1 declared and nowhere to be found;
-  1 a signal.
+  4 of the 48 functions Qt declares: 2 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -86,6 +95,9 @@ class QSplitter(QFrame):
   - Qt tells when it has removed the C++ QSplitter. Every call on the cute
     object, and every use of it as an argument, then raises 'RuntimeError',
     and nothing reaches C++.
+  - Each name of Qt's QSplitter that has no cute function yet, 'getRange',
+    'setSizes', 'sizes', holds a function that raises 'NotImplementedError',
+    and its docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -708,6 +720,25 @@ class QSplitter(QFrame):
         self._valueOf(state),
     )
 
+  @overload(int, int)
+  def splitterMoved(self, pos: int, index: int) -> None:
+    """
+    Calls Qt's 'void QSplitter::splitterMoved(int pos, int index)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qsplitter.html#splitterMoved
+
+    Parameters
+    ----------
+
+    pos : int
+      Passed on as it is.
+
+    index : int
+      Passed on as it is.
+    """
+    #  void QSplitter::splitterMoved(int pos, int index)
+    self.uglySide.call('ritual_ZN9QSplitter13splitterMovedEii', pos, index)
+
   def createHandle(self) -> Optional[QSplitterHandle]:
     """
     Calls Qt's 'QSplitterHandle *QSplitter::createHandle()'.
@@ -853,3 +884,54 @@ class QSplitter(QFrame):
     return self.uglySide.call(
         'ritual_ZN9QSplitter20closestLegalPositionEii', a0, a1,
     )
+
+  def d_func(self) -> Optional[QSplitterPrivate]:
+    """
+    Calls Qt's 'QSplitterPrivate *QSplitter::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qsplitter.html#d_func
+
+    Returns
+    -------
+
+    Optional[QSplitterPrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QSplitterPrivate *QSplitter::d_func()
+    address = self.uglySide.call('ritual_ZN9QSplitter6d_funcEv')
+    from . import QSplitterPrivate
+    return QSplitterPrivate._cuteAt(address)
+
+  @staticmethod
+  def getRange(*__, **_) -> Never:
+    """
+    Qt's 'void QSplitter::getRange(int index, int *a1, int *a2) const': takes
+    a number to change where it is.
+    """
+    raise NotImplementedError(
+        "'QSplitter.getRange' has no cute function yet. Qt's 'void "
+        "QSplitter::getRange(int index, int *a1, int *a2) const': takes a "
+        "number to change where it is.")
+
+  @staticmethod
+  def setSizes(*__, **_) -> Never:
+    """
+    Qt's 'void QSplitter::setSizes(const QList<int> &list)': takes a type
+    Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QSplitter.setSizes' has no cute function yet. Qt's 'void "
+        "QSplitter::setSizes(const QList<int> &list)': takes a type Python "
+        "has no way to hand over yet.")
+
+  @staticmethod
+  def sizes(*__, **_) -> Never:
+    """
+    Qt's 'QList<int> QSplitter::sizes() const': gives a type Python has no
+    way to take yet.
+    """
+    raise NotImplementedError(
+        "'QSplitter.sizes' has no cute function yet. Qt's 'QList<int> "
+        "QSplitter::sizes() const': gives a type Python has no way to take "
+        "yet.")

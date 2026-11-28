@@ -18,6 +18,8 @@ from ..QtCore import QStringList
 from . import QFont, QTextFormat
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Never
+
   from ..QtCore import QVariant
   from . import QColor, QPen
 else:
@@ -69,14 +71,22 @@ class QTextCharFormat(QTextFormat):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void QTextCharFormat::setFontFeatures(const QMap<QFont::Tag,
+    quint32> &fontFeatures)': takes a type Python has no way to hand over
+    yet.
+  - Qt's 'QMap<QFont::Tag, quint32> QTextCharFormat::fontFeatures() const':
+    gives a type Python has no way to take yet.
+  - Qt's 'void QTextCharFormat::setFontVariableAxes(const QMap<QFont::Tag,
+    float> &fontVariableAxes)': takes a type Python has no way to hand over
+    yet.
+  - Qt's 'QMap<QFont::Tag, float> QTextCharFormat::fontVariableAxes() const':
+    gives a type Python has no way to take yet.
+  - Qt's 'QDataStream &operator<<(QDataStream &a0, const QTextCharFormat
+    &a1)': takes a type Python has no way to hand over yet.
+  - Qt's 'QDataStream &operator>>(QDataStream &a0, QTextCharFormat &a1)': an
+    operator between other classes, written inside this one.
   - Qt's 'QTextCharFormat::~QTextCharFormat()': the destructor: Python
     removes its C++ QTextCharFormat by it, and has no other use for it.
-
-  What has no ritual
-  ------------------
-
-  6 of the 76 functions Qt declares: 6 takes or gives a type that cannot be
-  passed yet.
 
   What to expect
   --------------
@@ -90,6 +100,10 @@ class QTextCharFormat(QTextFormat):
     is as in C++.
   - A function giving a QTextCharFormat back gives a copy the ritual made for
     Python, in a new cute QTextCharFormat.
+  - Each name of Qt's QTextCharFormat that has no cute function yet,
+    'fontFeatures', 'fontVariableAxes', 'setFontFeatures',
+    'setFontVariableAxes', holds a function that raises
+    'NotImplementedError', and its docstring says why.
   """
 
   #  The enums Qt writes inside QTextCharFormat, each a class in here as in
@@ -1413,3 +1427,51 @@ class QTextCharFormat(QTextFormat):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def fontFeatures(*__, **_) -> Never:
+    """
+    Qt's 'QMap<QFont::Tag, quint32> QTextCharFormat::fontFeatures() const':
+    gives a type Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QTextCharFormat.fontFeatures' has no cute function yet. Qt's "
+        "'QMap<QFont::Tag, quint32> QTextCharFormat::fontFeatures() const': "
+        "gives a type Python has no way to take yet.")
+
+  @staticmethod
+  def fontVariableAxes(*__, **_) -> Never:
+    """
+    Qt's 'QMap<QFont::Tag, float> QTextCharFormat::fontVariableAxes() const':
+    gives a type Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QTextCharFormat.fontVariableAxes' has no cute function yet. Qt's "
+        "'QMap<QFont::Tag, float> QTextCharFormat::fontVariableAxes() "
+        "const': gives a type Python has no way to take yet.")
+
+  @staticmethod
+  def setFontFeatures(*__, **_) -> Never:
+    """
+    Qt's 'void QTextCharFormat::setFontFeatures(const QMap<QFont::Tag,
+    quint32> &fontFeatures)': takes a type Python has no way to hand over
+    yet.
+    """
+    raise NotImplementedError(
+        "'QTextCharFormat.setFontFeatures' has no cute function yet. Qt's "
+        "'void QTextCharFormat::setFontFeatures(const QMap<QFont::Tag, "
+        "quint32> &fontFeatures)': takes a type Python has no way to hand "
+        "over yet.")
+
+  @staticmethod
+  def setFontVariableAxes(*__, **_) -> Never:
+    """
+    Qt's 'void QTextCharFormat::setFontVariableAxes(const QMap<QFont::Tag,
+    float> &fontVariableAxes)': takes a type Python has no way to hand over
+    yet.
+    """
+    raise NotImplementedError(
+        "'QTextCharFormat.setFontVariableAxes' has no cute function yet. "
+        "Qt's 'void QTextCharFormat::setFontVariableAxes(const "
+        "QMap<QFont::Tag, float> &fontVariableAxes)': takes a type Python "
+        "has no way to hand over yet.")

@@ -130,7 +130,7 @@ class QSharedData(CuteMixin, metaclass=MetaCute):
     """
     #  QSharedData::QSharedData(const QSharedData &a0)
     self._noteCreation(QSharedData, lambda: Rituals.call(
-        'ritual_ZN11QSharedDataC1ERKS_', self._valueOf(a0),
+        'ritual_ZN11QSharedDataC1ERKS_', self._valueOf(a0, 'QSharedData'),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

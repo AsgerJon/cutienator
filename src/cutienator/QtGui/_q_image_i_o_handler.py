@@ -17,7 +17,7 @@ from ..occult import Rituals
 from . import QImage
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from ..QtCore import QByteArray, QIODevice, QRect, QSize, QVariant
 else:
@@ -47,23 +47,27 @@ class QImageIOHandler(CuteMixin, metaclass=MetaCute):
   'format', 'canRead', 'read', 'write', 'option', 'setOption',
   'supportsOption', 'jumpToNextImage', 'jumpToImage', 'loopCount',
   'imageCount', 'nextImageDelay', 'currentImageNumber', 'currentImageRect',
-  'allocateImage'. None can be made from Python: one comes out of a function
-  of another class that gives one back.
+  'allocateImage'. It can be made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'QImageIOHandlerPrivate *QImageIOHandler::d_func()': gives
+    'QImageIOHandlerPrivate', which has no cute class yet.
+  - Qt's 'const QImageIOHandlerPrivate *QImageIOHandler::d_func() const':
+    gives 'QImageIOHandlerPrivate', which has no cute class yet.
   - Qt's 'QImageIOHandler::~QImageIOHandler()': the destructor: Python never
     removes a C++ QImageIOHandler.
   - Qt's 'void QImageIOHandler::setFormat(const QByteArray &format) const':
     takes in Python what 'void QImageIOHandler::setFormat(const QByteArray
     &format)' takes.
+  - Qt's 'QImageIOHandler::QImageIOHandler(QImageIOHandlerPrivate &dd)':
+    takes a type Python has no way to hand over yet.
 
   What has no ritual
   ------------------
 
-  6 of the 26 functions Qt declares: 2 takes or gives a type that cannot be
-  passed yet; 2 the class is abstract, so C++ cannot make one; 2 forbidden.
+  2 of the 26 functions Qt declares: 2 forbidden.
 
   What to expect
   --------------
@@ -76,6 +80,9 @@ class QImageIOHandler(CuteMixin, metaclass=MetaCute):
     has it, and is passed on as nothing. Whether Qt can do with nothing there
     is as in C++.
   - Python never removes the C++ QImageIOHandler.
+  - Each name of Qt's QImageIOHandler that has no cute function yet,
+    'd_func', holds a function that raises 'NotImplementedError', and its
+    docstring says why.
   """
 
   #  The enums Qt writes inside QImageIOHandler, each a class in here as in
@@ -524,6 +531,20 @@ class QImageIOHandler(CuteMixin, metaclass=MetaCute):
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  @overload()
+  def __init__(self) -> None:
+    """
+    Notes what was given, for Qt's 'QImageIOHandler::QImageIOHandler()',
+    which is called at the first use.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qimageiohandler.html#QImageIOHandler
+    """
+    #  QImageIOHandler::QImageIOHandler()
+    self._noteCreation(QImageIOHandler, lambda: Rituals.call(
+        'ritual_ZN15QImageIOHandlerC1Ev',
+    ))
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -615,3 +636,18 @@ class QImageIOHandler(CuteMixin, metaclass=MetaCute):
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZN15QImageIOHandler11jumpToImageEi'
     return self.uglySide.call(ritual, imageNumber)
+
+  @staticmethod
+  def d_func(*__, **_) -> Never:
+    """
+    - Qt's 'QImageIOHandlerPrivate *QImageIOHandler::d_func()': gives
+      'QImageIOHandlerPrivate', which has no cute class yet.
+    - Qt's 'const QImageIOHandlerPrivate *QImageIOHandler::d_func() const':
+      gives 'QImageIOHandlerPrivate', which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QImageIOHandler.d_func' has no cute function yet. Qt's "
+        "'QImageIOHandlerPrivate *QImageIOHandler::d_func()': gives "
+        "'QImageIOHandlerPrivate', which has no cute class yet. Qt's 'const "
+        "QImageIOHandlerPrivate *QImageIOHandler::d_func() const': gives "
+        "'QImageIOHandlerPrivate', which has no cute class yet.")

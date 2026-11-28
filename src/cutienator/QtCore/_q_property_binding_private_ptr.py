@@ -12,8 +12,12 @@ from typing import TYPE_CHECKING
 from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
 
-from ..cute import CuteMixin, MetaCute
+from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
+from . import QtPrivate
+
+if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Never, Optional
 
 
 class QPropertyBindingPrivatePtr(CuteMixin, metaclass=MetaCute):
@@ -30,24 +34,61 @@ class QPropertyBindingPrivatePtr(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QPropertyBindingPrivatePtr that has a ritual and
-  that Python can call so far, 4 names in all: 'destroyAndFreeMemory',
-  '__bool__', '__eq__', '__ne__'. It can be made from Python, in 2 ways; see
-  '__init__'.
+  that Python can call so far, 8 names in all: 'data', 'get', 'constData',
+  'take', 'destroyAndFreeMemory', '__bool__', '__eq__', '__ne__'. It can be
+  made from Python, in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'T &QPropertyBindingPrivatePtr::operator*() const': an operator
+    Python has no name for.
+  - Qt's 'T *QPropertyBindingPrivatePtr::operator->()': an operator Python
+    has no name for.
+  - Qt's 'T *QPropertyBindingPrivatePtr::operator->() const': an operator
+    Python has no name for.
+  - Qt's 'T *QPropertyBindingPrivatePtr::operator QtPrivate::RefCounted *()':
+    an operator Python has no name for.
+  - Qt's 'const T *QPropertyBindingPrivatePtr::operator const
+    QtPrivate::RefCounted *() const': an operator Python has no name for.
   - Qt's 'QPropertyBindingPrivatePtr::~QPropertyBindingPrivatePtr()': the
     destructor: Python removes its C++ QPropertyBindingPrivatePtr by it, and
     has no other use for it.
+  - Qt's 'QPropertyBindingPrivatePtr::QPropertyBindingPrivatePtr(T *data)':
+    names 'QPropertyBindingPrivatePtr::T', which has no cute class yet.
+  - Qt's 'void QPropertyBindingPrivatePtr::reset(T *ptr)': names
+    'QPropertyBindingPrivatePtr::T', which has no cute class yet.
+  - Qt's 'QPropertyBindingPrivatePtr
+    &QPropertyBindingPrivatePtr::operator=(const QPropertyBindingPrivatePtr
+    &o)': assignment: Python binds a name and has no operator for it.
+  - Qt's 'QPropertyBindingPrivatePtr &QPropertyBindingPrivatePtr::operator=(T
+    *o)': assignment: Python binds a name and has no operator for it.
+  - Qt's 'QPropertyBindingPrivatePtr::QPropertyBindingPrivatePtr(
+    QPropertyBindingPrivatePtr &&o)': takes a type Python has no way to hand
+    over yet.
+  - Qt's 'QPropertyBindingPrivatePtr
+    &QPropertyBindingPrivatePtr::operator=(QPropertyBindingPrivatePtr
+    &&other)': assignment: Python binds a name and has no operator for it.
   - Qt's 'bool QPropertyBindingPrivatePtr::operator!() const': an operator
     Python has no name for.
-
-  What has no ritual
-  ------------------
-
-  24 of the 32 functions Qt declares: 24 takes or gives a type that cannot be
-  passed yet.
+  - Qt's 'void QPropertyBindingPrivatePtr::swap(QPropertyBindingPrivatePtr
+    &other)': takes a type Python has no way to hand over yet.
+  - Qt's 'bool operator==(const QPropertyBindingPrivatePtr &lhs, T *const
+    &rhs)': takes a type Python has no way to hand over yet.
+  - Qt's 'bool operator!=(const QPropertyBindingPrivatePtr &lhs, T *const
+    &rhs)': takes a type Python has no way to hand over yet.
+  - Qt's 'bool operator==(T *const &lhs, const QPropertyBindingPrivatePtr
+    &rhs)': takes a type Python has no way to hand over yet.
+  - Qt's 'bool operator!=(T *const &lhs, const QPropertyBindingPrivatePtr
+    &rhs)': takes a type Python has no way to hand over yet.
+  - Qt's 'bool operator==(const QPropertyBindingPrivatePtr &lhs, const
+    std::nullptr_t &rhs)': an operator Python has no name for.
+  - Qt's 'bool operator!=(const QPropertyBindingPrivatePtr &lhs, const
+    std::nullptr_t &rhs)': an operator Python has no name for.
+  - Qt's 'bool operator==(const std::nullptr_t &lhs, const
+    QPropertyBindingPrivatePtr &rhs)': an operator Python has no name for.
+  - Qt's 'bool operator!=(const std::nullptr_t &lhs, const
+    QPropertyBindingPrivatePtr &rhs)': an operator Python has no name for.
 
   What to expect
   --------------
@@ -61,6 +102,9 @@ class QPropertyBindingPrivatePtr(CuteMixin, metaclass=MetaCute):
     is as in C++.
   - A function giving a QPropertyBindingPrivatePtr back gives a copy the
     ritual made for Python, in a new cute QPropertyBindingPrivatePtr.
+  - Each name of Qt's QPropertyBindingPrivatePtr that has no cute function
+    yet, 'reset', 'swap', holds a function that raises 'NotImplementedError',
+    and its docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -91,6 +135,66 @@ class QPropertyBindingPrivatePtr(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  GETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  def data(self) -> Optional[QtPrivate.RefCounted]:
+    """
+    Calls Qt's 'T *QPropertyBindingPrivatePtr::data() const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qpropertybindingprivateptr.html#data
+
+    Returns
+    -------
+
+    Optional[QtPrivate.RefCounted]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  T *QPropertyBindingPrivatePtr::data() const
+    address = self.uglySide.call(
+        'ritual_ZNK26QPropertyBindingPrivatePtr4dataEv',
+    )
+    return QtPrivate.RefCounted._cuteAt(address)
+
+  def get(self) -> Optional[QtPrivate.RefCounted]:
+    """
+    Calls Qt's 'T *QPropertyBindingPrivatePtr::get() const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qpropertybindingprivateptr.html#get
+
+    Returns
+    -------
+
+    Optional[QtPrivate.RefCounted]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  T *QPropertyBindingPrivatePtr::get() const
+    address = self.uglySide.call(
+        'ritual_ZNK26QPropertyBindingPrivatePtr3getEv',
+    )
+    return QtPrivate.RefCounted._cuteAt(address)
+
+  def constData(self) -> Optional[QtPrivate.RefCounted]:
+    """
+    Calls Qt's 'const T *QPropertyBindingPrivatePtr::constData() const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qpropertybindingprivateptr.html#constData
+
+    Returns
+    -------
+
+    Optional[QtPrivate.RefCounted]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  const T *QPropertyBindingPrivatePtr::constData() const
+    address = self.uglySide.call(
+        'ritual_ZNK26QPropertyBindingPrivatePtr9constDataEv',
+    )
+    return QtPrivate.RefCounted._cuteAt(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -240,6 +344,26 @@ class QPropertyBindingPrivatePtr(CuteMixin, metaclass=MetaCute):
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  def take(self) -> Optional[QtPrivate.RefCounted]:
+    """
+    Calls Qt's 'T *QPropertyBindingPrivatePtr::take()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qpropertybindingprivateptr.html#take
+
+    Returns
+    -------
+
+    Optional[QtPrivate.RefCounted]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  T *QPropertyBindingPrivatePtr::take()
+    address = self.uglySide.call(
+        'ritual_ZN26QPropertyBindingPrivatePtr4takeEv',
+    )
+    return QtPrivate.RefCounted._cuteAt(address)
+
   def destroyAndFreeMemory(self) -> None:
     """
     Calls Qt's 'void QPropertyBindingPrivatePtr::destroyAndFreeMemory()'.
@@ -251,3 +375,25 @@ class QPropertyBindingPrivatePtr(CuteMixin, metaclass=MetaCute):
     self.uglySide.call(
         'ritual_ZN26QPropertyBindingPrivatePtr20destroyAndFreeMemoryEv',
     )
+
+  @staticmethod
+  def reset(*__, **_) -> Never:
+    """
+    Qt's 'void QPropertyBindingPrivatePtr::reset(T *ptr)': names
+    'QPropertyBindingPrivatePtr::T', which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QPropertyBindingPrivatePtr.reset' has no cute function yet. Qt's "
+        "'void QPropertyBindingPrivatePtr::reset(T *ptr)': names "
+        "'QPropertyBindingPrivatePtr::T', which has no cute class yet.")
+
+  @staticmethod
+  def swap(*__, **_) -> Never:
+    """
+    Qt's 'void QPropertyBindingPrivatePtr::swap(QPropertyBindingPrivatePtr
+    &other)': takes a type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QPropertyBindingPrivatePtr.swap' has no cute function yet. Qt's "
+        "'void QPropertyBindingPrivatePtr::swap(QPropertyBindingPrivatePtr "
+        "&other)': takes a type Python has no way to hand over yet.")

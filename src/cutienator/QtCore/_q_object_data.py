@@ -12,7 +12,7 @@ from typing import TYPE_CHECKING
 from ..cute import CuteMixin, MetaCute
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from . import QMetaObject
 
@@ -39,7 +39,8 @@ class QObjectData(CuteMixin, metaclass=MetaCute):
   ------------------
 
   3 of the 5 functions Qt declares: 2 forbidden; 1 the class is abstract, so
-  C++ cannot make one.
+  C++ cannot make one, and the C++ class of ours does not fill in every
+  function it leaves open.
 
   What to expect
   --------------
@@ -52,6 +53,9 @@ class QObjectData(CuteMixin, metaclass=MetaCute):
     has it, and is passed on as nothing. Whether Qt can do with nothing there
     is as in C++.
   - Python never removes the C++ QObjectData.
+  - Each name of Qt's QObjectData that has no cute function yet, '__init__',
+    holds a function that raises 'NotImplementedError', and its docstring
+    says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -92,8 +96,8 @@ class QObjectData(CuteMixin, metaclass=MetaCute):
       no object.
     """
     #  const QMetaObject *QObjectData::dynamicMetaObject() const
-    address = self.uglySide.call(
-        'ritual_ZNK11QObjectData17dynamicMetaObjectEv',
+    address = self._callAs(
+        'QObjectData', 'ritual_ZNK11QObjectData17dynamicMetaObjectEv',
     )
     from . import QMetaObject
     return QMetaObject._cuteAt(address)
@@ -113,6 +117,19 @@ class QObjectData(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def __init__(*__, **_) -> Never:
+    """
+    Qt's 'QObjectData::QObjectData()': the class is abstract, so C++ cannot
+    make one, and the C++ class of ours does not fill in every function it
+    leaves open.
+    """
+    raise NotImplementedError(
+        "'QObjectData.__init__' has no cute function yet. Qt's "
+        "'QObjectData::QObjectData()': the class is abstract, so C++ cannot "
+        "make one, and the C++ class of ours does not fill in every "
+        "function it leaves open.")
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #

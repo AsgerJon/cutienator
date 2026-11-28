@@ -20,7 +20,7 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
   from ..QtCore import QLocale, QMetaObject, QRectF, QVariant
-  from . import QTransform
+  from . import QInputMethodPrivate, QTransform
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -46,26 +46,34 @@ class QInputMethod(QObject):
   -----------
 
   Every function of Qt's QInputMethod that has a ritual and that Python can
-  call so far, 22 names in all: 'metaObject', 'tr', 'inputItemTransform',
-  'setInputItemTransform', 'inputItemRectangle', 'setInputItemRectangle',
-  'cursorRectangle', 'anchorRectangle', 'keyboardRectangle',
-  'inputItemClipRectangle', 'isVisible', 'setVisible', 'isAnimating',
-  'locale', 'inputDirection', 'queryFocusObject', 'show', 'hide', 'update',
-  'reset', 'commit', 'invokeAction'. It can be made from Python, in 1 way;
-  see '__init__'.
+  call so far, 31 names in all: 'metaObject', 'tr', 'd_func',
+  'inputItemTransform', 'setInputItemTransform', 'inputItemRectangle',
+  'setInputItemRectangle', 'cursorRectangle', 'anchorRectangle',
+  'keyboardRectangle', 'inputItemClipRectangle', 'isVisible', 'setVisible',
+  'isAnimating', 'locale', 'inputDirection', 'queryFocusObject', 'show',
+  'hide', 'update', 'reset', 'commit', 'invokeAction',
+  'cursorRectangleChanged', 'anchorRectangleChanged',
+  'keyboardRectangleChanged', 'inputItemClipRectangleChanged',
+  'visibleChanged', 'animatingChanged', 'localeChanged',
+  'inputDirectionChanged'. It can be made from Python, in 1 way; see
+  '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QInputMethod::qt_metacast(const char *a0)': one of Qt's own
+    inner workings.
+  - Qt's 'int QInputMethod::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
+  - Qt's 'const QInputMethodPrivate *QInputMethod::d_func() const': takes in
+    Python what 'QInputMethodPrivate *QInputMethod::d_func()' takes.
   - Qt's 'QInputMethod::~QInputMethod()': the destructor: Python never
     removes a C++ QInputMethod.
 
   What has no ritual
   ------------------
 
-  14 of the 38 functions Qt declares: 8 a signal; 4 takes or gives a type
-  that cannot be passed yet; 1 a template; 1 declared and nowhere to be
-  found.
+  2 of the 38 functions Qt declares: 2 not a gap.
 
   What to expect
   --------------
@@ -498,6 +506,24 @@ class QInputMethod(QObject):
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  def d_func(self) -> Optional[QInputMethodPrivate]:
+    """
+    Calls Qt's 'QInputMethodPrivate *QInputMethod::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qinputmethod.html#d_func
+
+    Returns
+    -------
+
+    Optional[QInputMethodPrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QInputMethodPrivate *QInputMethod::d_func()
+    address = self.uglySide.call('ritual_ZN12QInputMethod6d_funcEv')
+    from . import QInputMethodPrivate
+    return QInputMethodPrivate._cuteAt(address)
+
   def show(self) -> None:
     """
     Calls Qt's 'void QInputMethod::show()'.
@@ -574,4 +600,96 @@ class QInputMethod(QObject):
     self.uglySide.call(
         'ritual_ZN12QInputMethod12invokeActionENS_6ActionEi',
         a.value, cursorPosition,
+    )
+
+  def cursorRectangleChanged(self) -> None:
+    """
+    Calls Qt's 'void QInputMethod::cursorRectangleChanged()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qinputmethod.html#cursorRectangleChanged
+    """
+    #  void QInputMethod::cursorRectangleChanged()
+    self.uglySide.call('ritual_ZN12QInputMethod22cursorRectangleChangedEv')
+
+  def anchorRectangleChanged(self) -> None:
+    """
+    Calls Qt's 'void QInputMethod::anchorRectangleChanged()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qinputmethod.html#anchorRectangleChanged
+    """
+    #  void QInputMethod::anchorRectangleChanged()
+    self.uglySide.call('ritual_ZN12QInputMethod22anchorRectangleChangedEv')
+
+  def keyboardRectangleChanged(self) -> None:
+    """
+    Calls Qt's 'void QInputMethod::keyboardRectangleChanged()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qinputmethod.html#keyboardRectangleChanged
+    """
+    #  void QInputMethod::keyboardRectangleChanged()
+    self.uglySide.call('ritual_ZN12QInputMethod24keyboardRectangleChangedEv')
+
+  def inputItemClipRectangleChanged(self) -> None:
+    """
+    Calls Qt's 'void QInputMethod::inputItemClipRectangleChanged()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qinputmethod.html#inputItemClipRectangleChanged
+    """
+    #  void QInputMethod::inputItemClipRectangleChanged()
+    self.uglySide.call(
+        'ritual_ZN12QInputMethod29inputItemClipRectangleChangedEv',
+    )
+
+  def visibleChanged(self) -> None:
+    """
+    Calls Qt's 'void QInputMethod::visibleChanged()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qinputmethod.html#visibleChanged
+    """
+    #  void QInputMethod::visibleChanged()
+    self.uglySide.call('ritual_ZN12QInputMethod14visibleChangedEv')
+
+  def animatingChanged(self) -> None:
+    """
+    Calls Qt's 'void QInputMethod::animatingChanged()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qinputmethod.html#animatingChanged
+    """
+    #  void QInputMethod::animatingChanged()
+    self.uglySide.call('ritual_ZN12QInputMethod16animatingChangedEv')
+
+  def localeChanged(self) -> None:
+    """
+    Calls Qt's 'void QInputMethod::localeChanged()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qinputmethod.html#localeChanged
+    """
+    #  void QInputMethod::localeChanged()
+    self.uglySide.call('ritual_ZN12QInputMethod13localeChangedEv')
+
+  @overload(Qt.LayoutDirection)
+  def inputDirectionChanged(self, newDirection: Qt.LayoutDirection) -> None:
+    """
+    Calls Qt's 'void QInputMethod::inputDirectionChanged(Qt::LayoutDirection
+    newDirection)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qinputmethod.html#inputDirectionChanged
+
+    Parameters
+    ----------
+
+    newDirection : Qt.LayoutDirection
+      Passed on as its number.
+    """
+    #  void QInputMethod::inputDirectionChanged(Qt::LayoutDirection
+    #      newDirection)
+    self.uglySide.call(
+        'ritual_ZN12QInputMethod21inputDirectionChangedEN2Qt15LayoutDirecti'
+        'onE',
+        newDirection.value,
     )

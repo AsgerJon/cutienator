@@ -13,7 +13,7 @@ from worktoy.dispatch import overload
 
 from ..cute import WAIT
 from ..occult import Rituals
-from ..QtCore import Qt, QEvent
+from ..QtCore import Qt, QEvent, QList
 from . import QSinglePointEvent
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
@@ -52,14 +52,17 @@ class QMouseEvent(QSinglePointEvent):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'QMouseEvent::QMouseEvent(const QMouseEvent &a0)': takes a type
+    Python has no way to hand over yet.
+  - Qt's 'QMouseEvent &QMouseEvent::operator=(const QMouseEvent &other)':
+    assignment: Python binds a name and has no operator for it.
   - Qt's 'QMouseEvent::~QMouseEvent()': the destructor: Python never removes
     a C++ QMouseEvent.
 
   What has no ritual
   ------------------
 
-  4 of the 21 functions Qt declares: 2 takes or gives a type that cannot be
-  passed yet; 2 forbidden.
+  2 of the 21 functions Qt declares: 2 forbidden.
 
   What to expect
   --------------
@@ -358,8 +361,8 @@ class QMouseEvent(QSinglePointEvent):
     self._noteCreation(QMouseEvent, lambda: Rituals.call(
         'ritual_ZN11QMouseEventC1EN6QEvent4TypeERK7QPointFN2Qt11MouseButton'
         'E6QFlagsIS6_ES7_INS5_16KeyboardModifierEEPK15QPointingDevice',
-        type.value, self._valueOf(localPos), button.value, buttons.value,
-        modifiers.value, self._addressOf(device),
+        type.value, self._valueOf(localPos, 'QPointF'), button.value,
+        buttons.value, modifiers.value, self._addressOf(device),
     ))
 
   @overload(
@@ -430,9 +433,9 @@ class QMouseEvent(QSinglePointEvent):
     self._noteCreation(QMouseEvent, lambda: Rituals.call(
         'ritual_ZN11QMouseEventC1EN6QEvent4TypeERK7QPointFS4_N2Qt11MouseBut'
         'tonE6QFlagsIS6_ES7_INS5_16KeyboardModifierEEPK15QPointingDevice',
-        type.value, self._valueOf(localPos), self._valueOf(globalPos),
-        button.value, buttons.value, modifiers.value,
-        self._addressOf(device),
+        type.value, self._valueOf(localPos, 'QPointF'),
+        self._valueOf(globalPos, 'QPointF'), button.value, buttons.value,
+        modifiers.value, self._addressOf(device),
     ))
 
   @overload(
@@ -509,9 +512,10 @@ class QMouseEvent(QSinglePointEvent):
     self._noteCreation(QMouseEvent, lambda: Rituals.call(
         'ritual_ZN11QMouseEventC1EN6QEvent4TypeERK7QPointFS4_S4_N2Qt11Mouse'
         'ButtonE6QFlagsIS6_ES7_INS5_16KeyboardModifierEEPK15QPointingDevice',
-        type.value, self._valueOf(localPos), self._valueOf(scenePos),
-        self._valueOf(globalPos), button.value, buttons.value,
-        modifiers.value, self._addressOf(device),
+        type.value, self._valueOf(localPos, 'QPointF'),
+        self._valueOf(scenePos, 'QPointF'), self._valueOf(globalPos,
+        'QPointF'), button.value, buttons.value, modifiers.value,
+        self._addressOf(device),
     ))
 
   @overload(
@@ -594,9 +598,10 @@ class QMouseEvent(QSinglePointEvent):
         'ritual_ZN11QMouseEventC1EN6QEvent4TypeERK7QPointFS4_S4_N2Qt11Mouse'
         'ButtonE6QFlagsIS6_ES7_INS5_16KeyboardModifierEENS5_16MouseEventSou'
         'rceEPK15QPointingDevice',
-        type.value, self._valueOf(localPos), self._valueOf(scenePos),
-        self._valueOf(globalPos), button.value, buttons.value,
-        modifiers.value, source.value, self._addressOf(device),
+        type.value, self._valueOf(localPos, 'QPointF'),
+        self._valueOf(scenePos, 'QPointF'), self._valueOf(globalPos,
+        'QPointF'), button.value, buttons.value, modifiers.value,
+        source.value, self._addressOf(device),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -618,3 +623,16 @@ class QMouseEvent(QSinglePointEvent):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+
+#  Qt's 'QList<QMouseEvent *>': the list of QMouseEvent, which
+#  'QList[QMouseEvent]' gives. It is made here, so that there is one as soon
+#  as there can be a QMouseEvent.
+QList.createKind(
+    QMouseEvent, 'address',
+    make='ritual_list_make_QMouseEvent_ptr',
+    add='ritual_list_add_QMouseEvent_ptr',
+    size='ritual_list_size_QMouseEvent_ptr',
+    at='ritual_list_at_QMouseEvent_ptr',
+    drop='ritual_list_drop_QMouseEvent_ptr',
+)

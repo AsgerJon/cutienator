@@ -25,8 +25,8 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   from ..QtGui import QContextMenuEvent, QFocusEvent, QHideEvent, QIcon
   from ..QtGui import QInputMethodEvent, QKeyEvent, QMouseEvent, QPaintEvent
   from ..QtGui import QResizeEvent, QShowEvent, QValidator, QWheelEvent
-  from . import QAbstractItemDelegate, QAbstractItemView, QCompleter
-  from . import QLineEdit, QStyleOptionComboBox
+  from . import QAbstractItemDelegate, QAbstractItemView, QComboBoxPrivate
+  from . import QCompleter, QLineEdit, QStyleOptionComboBox
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -71,7 +71,7 @@ class QComboBox(QWidget):
   -----------
 
   Every function of Qt's QComboBox that has a ritual and that Python can call
-  so far, 84 names in all: 'metaObject', 'tr', 'maxVisibleItems',
+  so far, 92 names in all: 'metaObject', 'tr', 'maxVisibleItems',
   'setMaxVisibleItems', 'count', 'setMaxCount', 'maxCount',
   'duplicatesEnabled', 'setDuplicatesEnabled', 'setFrame', 'hasFrame',
   'findText', 'findData', 'insertPolicy', 'setInsertPolicy',
@@ -87,24 +87,32 @@ class QComboBox(QWidget):
   'setItemText', 'setItemIcon', 'setItemData', 'view', 'setView', 'sizeHint',
   'minimumSizeHint', 'showPopup', 'hidePopup', 'event', 'inputMethodQuery',
   'clear', 'clearEditText', 'setEditText', 'setCurrentIndex',
-  'setCurrentText', 'focusInEvent', 'focusOutEvent', 'changeEvent',
+  'setCurrentText', 'editTextChanged', 'activated', 'textActivated',
+  'highlighted', 'textHighlighted', 'currentIndexChanged',
+  'currentTextChanged', 'focusInEvent', 'focusOutEvent', 'changeEvent',
   'resizeEvent', 'paintEvent', 'showEvent', 'hideEvent', 'mousePressEvent',
   'mouseReleaseEvent', 'keyPressEvent', 'keyReleaseEvent', 'wheelEvent',
-  'contextMenuEvent', 'inputMethodEvent', 'initStyleOption'. It can be made
-  from Python, in 1 way; see '__init__'.
+  'contextMenuEvent', 'inputMethodEvent', 'initStyleOption', 'd_func'. It can
+  be made from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QComboBox::qt_metacast(const char *a0)': one of Qt's own
+    inner workings.
+  - Qt's 'int QComboBox::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
   - Qt's 'QComboBox::~QComboBox()': the destructor: Python never removes a
     C++ QComboBox.
+  - Qt's 'QComboBox::QComboBox(QComboBoxPrivate &a0, QWidget *a1)': takes a
+    type Python has no way to hand over yet.
+  - Qt's 'const QComboBoxPrivate *QComboBox::d_func() const': takes in Python
+    what 'QComboBoxPrivate *QComboBox::d_func()' takes.
 
   What has no ritual
   ------------------
 
-  16 of the 105 functions Qt declares: 7 a signal; 5 takes or gives a type
-  that cannot be passed yet; 2 forbidden; 1 a template; 1 declared and
-  nowhere to be found.
+  4 of the 105 functions Qt declares: 2 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -1702,6 +1710,120 @@ class QComboBox(QWidget):
     #  void QComboBox::clearEditText()
     self.uglySide.call('ritual_ZN9QComboBox13clearEditTextEv')
 
+  @overload(str)
+  def editTextChanged(self, a0: str) -> None:
+    """
+    Calls Qt's 'void QComboBox::editTextChanged(const QString &a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcombobox.html#editTextChanged
+
+    Parameters
+    ----------
+
+    a0 : str
+      Passed on as it is: a QString is made of it for the call.
+    """
+    #  void QComboBox::editTextChanged(const QString &a0)
+    self.uglySide.call('ritual_ZN9QComboBox15editTextChangedERK7QString', a0)
+
+  @overload(int)
+  def activated(self, index: int) -> None:
+    """
+    Calls Qt's 'void QComboBox::activated(int index)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcombobox.html#activated
+
+    Parameters
+    ----------
+
+    index : int
+      Passed on as it is.
+    """
+    #  void QComboBox::activated(int index)
+    self.uglySide.call('ritual_ZN9QComboBox9activatedEi', index)
+
+  @overload(str)
+  def textActivated(self, a0: str) -> None:
+    """
+    Calls Qt's 'void QComboBox::textActivated(const QString &a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcombobox.html#textActivated
+
+    Parameters
+    ----------
+
+    a0 : str
+      Passed on as it is: a QString is made of it for the call.
+    """
+    #  void QComboBox::textActivated(const QString &a0)
+    self.uglySide.call('ritual_ZN9QComboBox13textActivatedERK7QString', a0)
+
+  @overload(int)
+  def highlighted(self, index: int) -> None:
+    """
+    Calls Qt's 'void QComboBox::highlighted(int index)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcombobox.html#highlighted
+
+    Parameters
+    ----------
+
+    index : int
+      Passed on as it is.
+    """
+    #  void QComboBox::highlighted(int index)
+    self.uglySide.call('ritual_ZN9QComboBox11highlightedEi', index)
+
+  @overload(str)
+  def textHighlighted(self, a0: str) -> None:
+    """
+    Calls Qt's 'void QComboBox::textHighlighted(const QString &a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcombobox.html#textHighlighted
+
+    Parameters
+    ----------
+
+    a0 : str
+      Passed on as it is: a QString is made of it for the call.
+    """
+    #  void QComboBox::textHighlighted(const QString &a0)
+    self.uglySide.call('ritual_ZN9QComboBox15textHighlightedERK7QString', a0)
+
+  @overload(int)
+  def currentIndexChanged(self, index: int) -> None:
+    """
+    Calls Qt's 'void QComboBox::currentIndexChanged(int index)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcombobox.html#currentIndexChanged
+
+    Parameters
+    ----------
+
+    index : int
+      Passed on as it is.
+    """
+    #  void QComboBox::currentIndexChanged(int index)
+    self.uglySide.call('ritual_ZN9QComboBox19currentIndexChangedEi', index)
+
+  @overload(str)
+  def currentTextChanged(self, a0: str) -> None:
+    """
+    Calls Qt's 'void QComboBox::currentTextChanged(const QString &a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcombobox.html#currentTextChanged
+
+    Parameters
+    ----------
+
+    a0 : str
+      Passed on as it is: a QString is made of it for the call.
+    """
+    #  void QComboBox::currentTextChanged(const QString &a0)
+    self.uglySide.call(
+        'ritual_ZN9QComboBox18currentTextChangedERK7QString', a0,
+    )
+
   @overload(QFocusEvent)
   @overload(NoneType)
   def focusInEvent(self, e: Optional[QFocusEvent]) -> None:
@@ -2021,3 +2143,21 @@ class QComboBox(QWidget):
           'ritual_own_ZNK9QComboBox15initStyleOptionEP20QStyleOptionComboBo'
           'x')
     self.uglySide.call(ritual, self._addressOf(option))
+
+  def d_func(self) -> Optional[QComboBoxPrivate]:
+    """
+    Calls Qt's 'QComboBoxPrivate *QComboBox::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qcombobox.html#d_func
+
+    Returns
+    -------
+
+    Optional[QComboBoxPrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QComboBoxPrivate *QComboBox::d_func()
+    address = self.uglySide.call('ritual_ZN9QComboBox6d_funcEv')
+    from . import QComboBoxPrivate
+    return QComboBoxPrivate._cuteAt(address)

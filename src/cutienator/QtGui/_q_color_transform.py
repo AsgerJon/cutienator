@@ -16,6 +16,8 @@ from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Never
+
   from . import QColor, QRgba64
 else:
   #  The cute classes this file names and is not built on. Each is brought in
@@ -46,12 +48,18 @@ class QColorTransform(CuteMixin, metaclass=MetaCute):
 
   - Qt's 'QColorTransform::~QColorTransform()': the destructor: Python
     removes its C++ QColorTransform by it, and has no other use for it.
-
-  What has no ritual
-  ------------------
-
-  6 of the 16 functions Qt declares: 6 takes or gives a type that cannot be
-  passed yet.
+  - Qt's 'QColorTransform::QColorTransform(QColorTransform
+    &&colorTransform)': takes a type Python has no way to hand over yet.
+  - Qt's 'QColorTransform &QColorTransform::operator=(const QColorTransform
+    &other)': assignment: Python binds a name and has no operator for it.
+  - Qt's 'QColorTransform &QColorTransform::operator=(QColorTransform
+    &&other)': assignment: Python binds a name and has no operator for it.
+  - Qt's 'void QColorTransform::swap(QColorTransform &other)': takes a type
+    Python has no way to hand over yet.
+  - Qt's 'QRgbaFloat16 QColorTransform::map(QRgbaFloat16 rgbafp16) const':
+    takes a type Python has no way to hand over yet.
+  - Qt's 'QRgbaFloat32 QColorTransform::map(QRgbaFloat32 rgbafp32) const':
+    takes a type Python has no way to hand over yet.
 
   What to expect
   --------------
@@ -65,6 +73,9 @@ class QColorTransform(CuteMixin, metaclass=MetaCute):
     is as in C++.
   - A function giving a QColorTransform back gives a copy the ritual made for
     Python, in a new cute QColorTransform.
+  - Each name of Qt's QColorTransform that has no cute function yet, 'swap',
+    holds a function that raises 'NotImplementedError', and its docstring
+    says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -328,3 +339,14 @@ class QColorTransform(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def swap(*__, **_) -> Never:
+    """
+    Qt's 'void QColorTransform::swap(QColorTransform &other)': takes a type
+    Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QColorTransform.swap' has no cute function yet. Qt's 'void "
+        "QColorTransform::swap(QColorTransform &other)': takes a type "
+        "Python has no way to hand over yet.")

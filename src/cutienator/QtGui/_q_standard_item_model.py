@@ -17,11 +17,11 @@ from ..QtCore import Qt, QAbstractItemModel, QHash, QList, QMap, QObject
 from ..QtCore import QStringList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from ..QtCore import QByteArray, QMetaObject, QMimeData, QModelIndex
   from ..QtCore import QModelRoleDataSpan, QVariant
-  from . import QStandardItem
+  from . import QStandardItem, QStandardItemModelPrivate
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -50,7 +50,7 @@ class QStandardItemModel(QAbstractItemModel):
   -----------
 
   Every function of Qt's QStandardItemModel that has a ritual and that Python
-  can call so far, 55 names in all: 'metaObject', 'tr', 'setItemRoleNames',
+  can call so far, 57 names in all: 'metaObject', 'tr', 'setItemRoleNames',
   'roleNames', 'index', 'parent', 'rowCount', 'columnCount', 'hasChildren',
   'data', 'multiData', 'setData', 'clearItemData', 'headerData',
   'setHeaderData', 'insertRows', 'insertColumns', 'removeRows',
@@ -62,21 +62,31 @@ class QStandardItemModel(QAbstractItemModel):
   'setColumnCount', 'appendRow', 'appendColumn', 'insertRow', 'insertColumn',
   'takeItem', 'takeRow', 'takeColumn', 'takeHorizontalHeaderItem',
   'takeVerticalHeaderItem', 'itemPrototype', 'setItemPrototype', 'findItems',
-  'sortRole', 'setSortRole', 'mimeTypes', 'mimeData', 'dropMimeData'. It can
-  be made from Python, in 2 ways; see '__init__'.
+  'sortRole', 'setSortRole', 'mimeTypes', 'mimeData', 'dropMimeData',
+  'itemChanged', 'd_func'. It can be made from Python, in 2 ways; see
+  '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QStandardItemModel::qt_metacast(const char *a0)': one of Qt's
+    own inner workings.
+  - Qt's 'int QStandardItemModel::qt_metacall(QMetaObject::Call a0, int a1,
+    void **a2)': one of Qt's own inner workings.
   - Qt's 'QStandardItemModel::~QStandardItemModel()': the destructor: Python
     never removes a C++ QStandardItemModel.
+  - Qt's 'QBindable<int> QStandardItemModel::bindableSortRole()': gives a
+    type Python has no way to take yet.
+  - Qt's 'QStandardItemModel::QStandardItemModel(QStandardItemModelPrivate
+    &dd, QObject *parent)': takes a type Python has no way to hand over yet.
+  - Qt's 'const QStandardItemModelPrivate *QStandardItemModel::d_func()
+    const': takes in Python what 'QStandardItemModelPrivate
+    *QStandardItemModel::d_func()' takes.
 
   What has no ritual
   ------------------
 
-  11 of the 74 functions Qt declares: 6 takes or gives a type that cannot be
-  passed yet; 2 forbidden; 1 a template; 1 declared and nowhere to be found;
-  1 a signal.
+  4 of the 74 functions Qt declares: 2 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -92,6 +102,9 @@ class QStandardItemModel(QAbstractItemModel):
   - Qt tells when it has removed the C++ QStandardItemModel. Every call on
     the cute object, and every use of it as an argument, then raises
     'RuntimeError', and nothing reaches C++.
+  - Each name of Qt's QStandardItemModel that has no cute function yet,
+    'bindableSortRole', holds a function that raises 'NotImplementedError',
+    and its docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -1981,3 +1994,54 @@ class QStandardItemModel(QAbstractItemModel):
         self._addressOf(data), action.value, row, column,
         self._valueOf(parent),
     )
+
+  @overload(QStandardItem)
+  @overload(NoneType)
+  def itemChanged(self, item: Optional[QStandardItem]) -> None:
+    """
+    Calls Qt's 'void QStandardItemModel::itemChanged(QStandardItem *item)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qstandarditemmodel.html#itemChanged
+
+    Parameters
+    ----------
+
+    item : Optional[QStandardItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QStandardItemModel::itemChanged(QStandardItem *item)
+    self.uglySide.call(
+        'ritual_ZN18QStandardItemModel11itemChangedEP13QStandardItem',
+        self._addressOf(item),
+    )
+
+  def d_func(self) -> Optional[QStandardItemModelPrivate]:
+    """
+    Calls Qt's 'QStandardItemModelPrivate *QStandardItemModel::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qstandarditemmodel.html#d_func
+
+    Returns
+    -------
+
+    Optional[QStandardItemModelPrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QStandardItemModelPrivate *QStandardItemModel::d_func()
+    address = self.uglySide.call('ritual_ZN18QStandardItemModel6d_funcEv')
+    from . import QStandardItemModelPrivate
+    return QStandardItemModelPrivate._cuteAt(address)
+
+  @staticmethod
+  def bindableSortRole(*__, **_) -> Never:
+    """
+    Qt's 'QBindable<int> QStandardItemModel::bindableSortRole()': gives a
+    type Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QStandardItemModel.bindableSortRole' has no cute function yet. "
+        "Qt's 'QBindable<int> QStandardItemModel::bindableSortRole()': "
+        "gives a type Python has no way to take yet.")

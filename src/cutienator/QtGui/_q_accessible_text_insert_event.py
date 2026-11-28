@@ -212,7 +212,7 @@ class QAccessibleTextInsertEvent(QAccessibleTextCursorEvent):
     self._noteCreation(QAccessibleTextInsertEvent, lambda: Rituals.call(
         'ritual_ZN26QAccessibleTextInsertEventC1EP20QAccessibleInterfaceiRK'
         '7QString',
-        self._addressOf(iface), position, text,
+        self._addressOf(iface, 'QAccessibleInterface'), position, text,
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

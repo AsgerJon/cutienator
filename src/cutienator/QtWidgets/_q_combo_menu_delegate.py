@@ -20,12 +20,12 @@ from ..cute import WAIT
 from . import QAbstractItemDelegate
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from ..QtCore import QAbstractItemModel, QEvent, QMetaObject, QModelIndex
   from ..QtCore import QSize
   from ..QtGui import QPainter
-  from . import QStyleOptionViewItem
+  from . import QStyleOptionMenuItem, QStyleOptionViewItem
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -53,17 +53,25 @@ class QComboMenuDelegate(QAbstractItemDelegate):
   -----------
 
   Every function of Qt's QComboMenuDelegate that has a ritual and that Python
-  can call so far, 4 names in all: 'metaObject', 'paint', 'sizeHint',
-  'editorEvent'. None can be made from Python: one comes out of a function of
-  another class that gives one back.
+  can call so far, 5 names in all: 'metaObject', 'paint', 'sizeHint',
+  'editorEvent', 'getStyleOption'. None can be made from Python: one comes
+  out of a function of another class that gives one back.
+
+  What has a ritual and is left out, and why
+  ------------------------------------------
+
+  - Qt's 'void *QComboMenuDelegate::qt_metacast(const char *a0)': one of Qt's
+    own inner workings.
+  - Qt's 'int QComboMenuDelegate::qt_metacall(QMetaObject::Call a0, int a1,
+    void **a2)': one of Qt's own inner workings.
+  - Qt's 'QComboMenuDelegate::~QComboMenuDelegate()': the destructor: Python
+    never removes a C++ QComboMenuDelegate.
 
   What has no ritual
   ------------------
 
-  10 of the 14 functions Qt declares: 4 leans on 'QComboMenuDelegate; 2 takes
-  or gives a type that cannot be passed yet; 2 declared and nowhere to be
-  found; 1 a template; 1 Qt's library has no name for it, and its code in
-  Qt's source does not compile apart from its file.
+  4 of the 12 functions Qt declares: 2 not a gap; 2 leans on
+  'QComboMenuDelegate.
 
   What to expect
   --------------
@@ -79,6 +87,9 @@ class QComboMenuDelegate(QAbstractItemDelegate):
   - Qt tells when it has removed the C++ QComboMenuDelegate. Every call on
     the cute object, and every use of it as an argument, then raises
     'RuntimeError', and nothing reaches C++.
+  - Each name of Qt's QComboMenuDelegate that has no cute function yet,
+    '__init__', holds a function that raises 'NotImplementedError', and its
+    docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -161,13 +172,59 @@ class QComboMenuDelegate(QAbstractItemDelegate):
     """
     #  QSize QComboMenuDelegate::sizeHint(const QStyleOptionViewItem &option,
     #      const QModelIndex &index) const
-    address = self.uglySide.call(
+    ritual = (
         'ritual_ZNK18QComboMenuDelegate8sizeHintERK20QStyleOptionViewItemRK'
-        '11QModelIndex',
-        self._valueOf(option), self._valueOf(index),
+        '11QModelIndex')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK18QComboMenuDelegate8sizeHintERK20QStyleOptionView'
+          'ItemRK11QModelIndex')
+    address = self.uglySide.call(
+        ritual, self._valueOf(option), self._valueOf(index),
     )
     from ..QtCore import QSize
     return QSize._cuteOwning(address)
+
+  @overload(QStyleOptionViewItem, QModelIndex)
+  def getStyleOption(
+      self,
+      option: QStyleOptionViewItem,
+      index: QModelIndex,
+  ) -> QStyleOptionMenuItem:
+    """
+    Calls Qt's 'QStyleOptionMenuItem QComboMenuDelegate::getStyleOption(const
+    QStyleOptionViewItem &option, const QModelIndex &index) const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qcombomenudelegate.html#getStyleOption
+
+    Parameters
+    ----------
+
+    option : QStyleOptionViewItem
+      Passed on as a value: Qt reads the C++ QStyleOptionViewItem, which
+      stays Python's own.
+
+    index : QModelIndex
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own.
+
+    Returns
+    -------
+
+    QStyleOptionMenuItem
+      A new cute QStyleOptionMenuItem around the copy Qt gave back. Python
+      owns it.
+    """
+    #  QStyleOptionMenuItem QComboMenuDelegate::getStyleOption(const
+    #      QStyleOptionViewItem &option, const QModelIndex &index) const
+    address = self.uglySide.call(
+        'ritual_ZNK18QComboMenuDelegate14getStyleOptionERK20QStyleOptionVie'
+        'wItemRK11QModelIndex',
+        self._valueOf(option), self._valueOf(index),
+    )
+    from . import QStyleOptionMenuItem
+    return QStyleOptionMenuItem._cuteOwning(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -184,6 +241,22 @@ class QComboMenuDelegate(QAbstractItemDelegate):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def __init__(*__, **_) -> Never:
+    """
+    Qt's 'QComboMenuDelegate::QComboMenuDelegate(QObject *parent, QComboBox
+    *cmb)': leans on 'QComboMenuDelegate::qt_metacall(QMetaObject::Call, int,
+    void**)', which Qt's source does not mark for use from outside Qt and has
+    no code for that could be taken.
+    """
+    raise NotImplementedError(
+        "'QComboMenuDelegate.__init__' has no cute function yet. Qt's "
+        "'QComboMenuDelegate::QComboMenuDelegate(QObject *parent, QComboBox "
+        "*cmb)': leans on "
+        "'QComboMenuDelegate::qt_metacall(QMetaObject::Call, int, void**)', "
+        "which Qt's source does not mark for use from outside Qt and has no "
+        "code for that could be taken.")
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -236,9 +309,15 @@ class QComboMenuDelegate(QAbstractItemDelegate):
     """
     #  void QComboMenuDelegate::paint(QPainter *painter, const
     #      QStyleOptionViewItem &option, const QModelIndex &index) const
-    self.uglySide.call(
+    ritual = (
         'ritual_ZNK18QComboMenuDelegate5paintEP8QPainterRK20QStyleOptionVie'
-        'wItemRK11QModelIndex',
+        'wItemRK11QModelIndex')
+    if self.uglySide.isOurs():
+      ritual = (
+          'ritual_own_ZNK18QComboMenuDelegate5paintEP8QPainterRK20QStyleOpt'
+          'ionViewItemRK11QModelIndex')
+    self.uglySide.call(
+        ritual,
         self._addressOf(painter), self._valueOf(option),
         self._valueOf(index),
     )

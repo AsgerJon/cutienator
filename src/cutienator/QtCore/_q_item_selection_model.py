@@ -16,9 +16,10 @@ from ..occult import Rituals
 from . import QList, QObject
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
-  from . import QAbstractItemModel, QItemSelection, QMetaObject, QModelIndex
+  from . import QAbstractItemModel, QItemSelection
+  from . import QItemSelectionModelPrivate, QMetaObject, QModelIndex
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -44,29 +45,42 @@ class QItemSelectionModel(QObject):
   -----------
 
   Every function of Qt's QItemSelectionModel that has a ritual and that
-  Python can call so far, 22 names in all: 'metaObject', 'tr',
+  Python can call so far, 28 names in all: 'metaObject', 'tr', 'd_func',
   'currentIndex', 'isSelected', 'isRowSelected', 'isColumnSelected',
   'rowIntersectsSelection', 'columnIntersectsSelection', 'hasSelection',
   'selectedIndexes', 'selectedRows', 'selectedColumns', 'selection', 'model',
   'setModel', 'setCurrentIndex', 'select', 'clear', 'reset',
-  'clearSelection', 'clearCurrentIndex', 'emitSelectionChanged'. It can be
-  made from Python, in 2 ways; see '__init__'.
+  'clearSelection', 'clearCurrentIndex', 'selectionChanged',
+  'currentChanged', 'currentRowChanged', 'currentColumnChanged',
+  'modelChanged', 'emitSelectionChanged'. It can be made from Python, in 2
+  ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QItemSelectionModel::qt_metacast(const char *a0)': one of
+    Qt's own inner workings.
+  - Qt's 'int QItemSelectionModel::qt_metacall(QMetaObject::Call a0, int a1,
+    void **a2)': one of Qt's own inner workings.
+  - Qt's 'const QItemSelectionModelPrivate *QItemSelectionModel::d_func()
+    const': takes in Python what 'QItemSelectionModelPrivate
+    *QItemSelectionModel::d_func()' takes.
   - Qt's 'QItemSelectionModel::~QItemSelectionModel()': the destructor:
     Python never removes a C++ QItemSelectionModel.
   - Qt's 'QAbstractItemModel *QItemSelectionModel::model()': takes in Python
     what 'const QAbstractItemModel *QItemSelectionModel::model() const'
     takes.
+  - Qt's 'QBindable<QAbstractItemModel *>
+    QItemSelectionModel::bindableModel()': gives a type Python has no way to
+    take yet.
+  - Qt's 'QItemSelectionModel::QItemSelectionModel(QItemSelectionModelPrivate
+    &dd, QAbstractItemModel *model)': takes a type Python has no way to hand
+    over yet.
 
   What has no ritual
   ------------------
 
-  15 of the 42 functions Qt declares: 6 takes or gives a type that cannot be
-  passed yet; 5 a signal; 2 forbidden; 1 a template; 1 declared and nowhere
-  to be found.
+  4 of the 42 functions Qt declares: 2 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -82,6 +96,9 @@ class QItemSelectionModel(QObject):
   - Qt tells when it has removed the C++ QItemSelectionModel. Every call on
     the cute object, and every use of it as an argument, then raises
     'RuntimeError', and nothing reaches C++.
+  - Each name of Qt's QItemSelectionModel that has no cute function yet,
+    'bindableModel', holds a function that raises 'NotImplementedError', and
+    its docstring says why.
   """
 
   #  The enums Qt writes inside QItemSelectionModel, each a class in here as
@@ -713,6 +730,24 @@ class QItemSelectionModel(QObject):
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  def d_func(self) -> Optional[QItemSelectionModelPrivate]:
+    """
+    Calls Qt's 'QItemSelectionModelPrivate *QItemSelectionModel::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qitemselectionmodel.html#d_func
+
+    Returns
+    -------
+
+    Optional[QItemSelectionModelPrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QItemSelectionModelPrivate *QItemSelectionModel::d_func()
+    address = self.uglySide.call('ritual_ZN19QItemSelectionModel6d_funcEv')
+    from . import QItemSelectionModelPrivate
+    return QItemSelectionModelPrivate._cuteAt(address)
+
   @overload(QModelIndex, SelectionFlags)
   def select(self, index: QModelIndex, command: SelectionFlags) -> None:
     """
@@ -823,6 +858,156 @@ class QItemSelectionModel(QObject):
     self.uglySide.call(ritual)
 
   @overload(QItemSelection, QItemSelection)
+  def selectionChanged(
+      self,
+      selected: QItemSelection,
+      deselected: QItemSelection,
+  ) -> None:
+    """
+    Calls Qt's 'void QItemSelectionModel::selectionChanged(const
+    QItemSelection &selected, const QItemSelection &deselected)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qitemselectionmodel.html#selectionChanged
+
+    Parameters
+    ----------
+
+    selected : QItemSelection
+      Passed on as a value: Qt reads the C++ QItemSelection, which stays
+      Python's own.
+
+    deselected : QItemSelection
+      Passed on as a value: Qt reads the C++ QItemSelection, which stays
+      Python's own.
+    """
+    #  void QItemSelectionModel::selectionChanged(const QItemSelection
+    #      &selected, const QItemSelection &deselected)
+    self.uglySide.call(
+        'ritual_ZN19QItemSelectionModel16selectionChangedERK14QItemSelectio'
+        'nS2_',
+        self._valueOf(selected), self._valueOf(deselected),
+    )
+
+  @overload(QModelIndex, QModelIndex)
+  def currentChanged(
+      self,
+      current: QModelIndex,
+      previous: QModelIndex,
+  ) -> None:
+    """
+    Calls Qt's 'void QItemSelectionModel::currentChanged(const QModelIndex
+    &current, const QModelIndex &previous)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qitemselectionmodel.html#currentChanged
+
+    Parameters
+    ----------
+
+    current : QModelIndex
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own.
+
+    previous : QModelIndex
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own.
+    """
+    #  void QItemSelectionModel::currentChanged(const QModelIndex &current,
+    #      const QModelIndex &previous)
+    self.uglySide.call(
+        'ritual_ZN19QItemSelectionModel14currentChangedERK11QModelIndexS2_',
+        self._valueOf(current), self._valueOf(previous),
+    )
+
+  @overload(QModelIndex, QModelIndex)
+  def currentRowChanged(
+      self,
+      current: QModelIndex,
+      previous: QModelIndex,
+  ) -> None:
+    """
+    Calls Qt's 'void QItemSelectionModel::currentRowChanged(const QModelIndex
+    &current, const QModelIndex &previous)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qitemselectionmodel.html#currentRowChanged
+
+    Parameters
+    ----------
+
+    current : QModelIndex
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own.
+
+    previous : QModelIndex
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own.
+    """
+    #  void QItemSelectionModel::currentRowChanged(const QModelIndex
+    #      &current, const QModelIndex &previous)
+    self.uglySide.call(
+        'ritual_ZN19QItemSelectionModel17currentRowChangedERK11QModelIndexS'
+        '2_',
+        self._valueOf(current), self._valueOf(previous),
+    )
+
+  @overload(QModelIndex, QModelIndex)
+  def currentColumnChanged(
+      self,
+      current: QModelIndex,
+      previous: QModelIndex,
+  ) -> None:
+    """
+    Calls Qt's 'void QItemSelectionModel::currentColumnChanged(const
+    QModelIndex &current, const QModelIndex &previous)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qitemselectionmodel.html#currentColumnChanged
+
+    Parameters
+    ----------
+
+    current : QModelIndex
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own.
+
+    previous : QModelIndex
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own.
+    """
+    #  void QItemSelectionModel::currentColumnChanged(const QModelIndex
+    #      &current, const QModelIndex &previous)
+    self.uglySide.call(
+        'ritual_ZN19QItemSelectionModel20currentColumnChangedERK11QModelInd'
+        'exS2_',
+        self._valueOf(current), self._valueOf(previous),
+    )
+
+  @overload(QAbstractItemModel)
+  @overload(NoneType)
+  def modelChanged(self, model: Optional[QAbstractItemModel]) -> None:
+    """
+    Calls Qt's 'void QItemSelectionModel::modelChanged(QAbstractItemModel
+    *model)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qitemselectionmodel.html#modelChanged
+
+    Parameters
+    ----------
+
+    model : Optional[QAbstractItemModel]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QItemSelectionModel::modelChanged(QAbstractItemModel *model)
+    self.uglySide.call(
+        'ritual_ZN19QItemSelectionModel12modelChangedEP18QAbstractItemModel',
+        self._addressOf(model),
+    )
+
+  @overload(QItemSelection, QItemSelection)
   def emitSelectionChanged(
       self,
       newSelection: QItemSelection,
@@ -853,3 +1038,16 @@ class QItemSelectionModel(QObject):
         'ctionS2_',
         self._valueOf(newSelection), self._valueOf(oldSelection),
     )
+
+  @staticmethod
+  def bindableModel(*__, **_) -> Never:
+    """
+    Qt's 'QBindable<QAbstractItemModel *>
+    QItemSelectionModel::bindableModel()': gives a type Python has no way to
+    take yet.
+    """
+    raise NotImplementedError(
+        "'QItemSelectionModel.bindableModel' has no cute function yet. Qt's "
+        "'QBindable<QAbstractItemModel *> "
+        "QItemSelectionModel::bindableModel()': gives a type Python has no "
+        "way to take yet.")

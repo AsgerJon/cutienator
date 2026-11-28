@@ -17,7 +17,7 @@ from ..occult import Rituals
 from . import QCryptographicHash
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from . import QByteArray, QByteArrayView, QIODevice
 else:
@@ -48,14 +48,46 @@ class QMessageAuthenticationCode(CuteMixin, metaclass=MetaCute):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'QMessageAuthenticationCode::QMessageAuthenticationCode(
+    QMessageAuthenticationCode &&other)': takes a type Python has no way to
+    hand over yet.
   - Qt's 'QMessageAuthenticationCode::~QMessageAuthenticationCode()': the
     destructor: Python never removes a C++ QMessageAuthenticationCode.
+  - Qt's 'QMessageAuthenticationCode
+    &QMessageAuthenticationCode::operator=(QMessageAuthenticationCode
+    &&other)': assignment: Python binds a name and has no operator for it.
+  - Qt's 'void QMessageAuthenticationCode::swap(QMessageAuthenticationCode
+    &other)': takes a type Python has no way to hand over yet.
+  - Qt's 'QByteArrayView QMessageAuthenticationCode::hashInto(QSpan<char>
+    buffer, QByteArrayView message, QByteArrayView key,
+    QCryptographicHash::Algorithm method)': takes a type Python has no way to
+    hand over yet.
+  - Qt's 'QByteArrayView QMessageAuthenticationCode::hashInto(QSpan<uchar>
+    buffer, QByteArrayView message, QByteArrayView key,
+    QCryptographicHash::Algorithm method)': takes a type Python has no way to
+    hand over yet.
+  - Qt's 'QByteArrayView
+    QMessageAuthenticationCode::hashInto(QSpan<std::byte> buffer,
+    QByteArrayView message, QByteArrayView key, QCryptographicHash::Algorithm
+    method)': takes a type Python has no way to hand over yet.
+  - Qt's 'QByteArrayView QMessageAuthenticationCode::hashInto(QSpan<char>
+    buffer, QSpan<const QByteArrayView> messageParts, QByteArrayView key,
+    QCryptographicHash::Algorithm method)': takes a type Python has no way to
+    hand over yet.
+  - Qt's 'QByteArrayView QMessageAuthenticationCode::hashInto(QSpan<uchar>
+    buffer, QSpan<const QByteArrayView> messageParts, QByteArrayView key,
+    QCryptographicHash::Algorithm method)': takes a type Python has no way to
+    hand over yet.
+  - Qt's 'QByteArrayView
+    QMessageAuthenticationCode::hashInto(QSpan<std::byte> buffer, QSpan<const
+    QByteArrayView> message, QByteArrayView key,
+    QCryptographicHash::Algorithm method)': takes a type Python has no way to
+    hand over yet.
 
   What has no ritual
   ------------------
 
-  11 of the 21 functions Qt declares: 9 takes or gives a type that cannot be
-  passed yet; 2 forbidden.
+  2 of the 21 functions Qt declares: 2 forbidden.
 
   What to expect
   --------------
@@ -68,6 +100,9 @@ class QMessageAuthenticationCode(CuteMixin, metaclass=MetaCute):
     has it, and is passed on as nothing. Whether Qt can do with nothing there
     is as in C++.
   - Python never removes the C++ QMessageAuthenticationCode.
+  - Each name of Qt's QMessageAuthenticationCode that has no cute function
+    yet, 'hashInto', 'swap', holds a function that raises
+    'NotImplementedError', and its docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -353,3 +388,72 @@ class QMessageAuthenticationCode(CuteMixin, metaclass=MetaCute):
         'ritual_ZN26QMessageAuthenticationCode7addDataEP9QIODevice',
         self._addressOf(device),
     )
+
+  @staticmethod
+  def hashInto(*__, **_) -> Never:
+    """
+    - Qt's 'QByteArrayView QMessageAuthenticationCode::hashInto(QSpan<char>
+      buffer, QByteArrayView message, QByteArrayView key,
+      QCryptographicHash::Algorithm method)': takes a type Python has no way
+      to hand over yet.
+    - Qt's 'QByteArrayView QMessageAuthenticationCode::hashInto(QSpan<uchar>
+      buffer, QByteArrayView message, QByteArrayView key,
+      QCryptographicHash::Algorithm method)': takes a type Python has no way
+      to hand over yet.
+    - Qt's 'QByteArrayView
+      QMessageAuthenticationCode::hashInto(QSpan<std::byte> buffer,
+      QByteArrayView message, QByteArrayView key,
+      QCryptographicHash::Algorithm method)': takes a type Python has no way
+      to hand over yet.
+    - Qt's 'QByteArrayView QMessageAuthenticationCode::hashInto(QSpan<char>
+      buffer, QSpan<const QByteArrayView> messageParts, QByteArrayView key,
+      QCryptographicHash::Algorithm method)': takes a type Python has no way
+      to hand over yet.
+    - Qt's 'QByteArrayView QMessageAuthenticationCode::hashInto(QSpan<uchar>
+      buffer, QSpan<const QByteArrayView> messageParts, QByteArrayView key,
+      QCryptographicHash::Algorithm method)': takes a type Python has no way
+      to hand over yet.
+    - Qt's 'QByteArrayView
+      QMessageAuthenticationCode::hashInto(QSpan<std::byte> buffer,
+      QSpan<const QByteArrayView> message, QByteArrayView key,
+      QCryptographicHash::Algorithm method)': takes a type Python has no way
+      to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QMessageAuthenticationCode.hashInto' has no cute function yet. "
+        "Qt's 'QByteArrayView "
+        "QMessageAuthenticationCode::hashInto(QSpan<char> buffer, "
+        "QByteArrayView message, QByteArrayView key, "
+        "QCryptographicHash::Algorithm method)': takes a type Python has no "
+        "way to hand over yet. Qt's 'QByteArrayView "
+        "QMessageAuthenticationCode::hashInto(QSpan<uchar> buffer, "
+        "QByteArrayView message, QByteArrayView key, "
+        "QCryptographicHash::Algorithm method)': takes a type Python has no "
+        "way to hand over yet. Qt's 'QByteArrayView "
+        "QMessageAuthenticationCode::hashInto(QSpan<std::byte> buffer, "
+        "QByteArrayView message, QByteArrayView key, "
+        "QCryptographicHash::Algorithm method)': takes a type Python has no "
+        "way to hand over yet. Qt's 'QByteArrayView "
+        "QMessageAuthenticationCode::hashInto(QSpan<char> buffer, "
+        "QSpan<const QByteArrayView> messageParts, QByteArrayView key, "
+        "QCryptographicHash::Algorithm method)': takes a type Python has no "
+        "way to hand over yet. Qt's 'QByteArrayView "
+        "QMessageAuthenticationCode::hashInto(QSpan<uchar> buffer, "
+        "QSpan<const QByteArrayView> messageParts, QByteArrayView key, "
+        "QCryptographicHash::Algorithm method)': takes a type Python has no "
+        "way to hand over yet. Qt's 'QByteArrayView "
+        "QMessageAuthenticationCode::hashInto(QSpan<std::byte> buffer, "
+        "QSpan<const QByteArrayView> message, QByteArrayView key, "
+        "QCryptographicHash::Algorithm method)': takes a type Python has no "
+        "way to hand over yet.")
+
+  @staticmethod
+  def swap(*__, **_) -> Never:
+    """
+    Qt's 'void QMessageAuthenticationCode::swap(QMessageAuthenticationCode
+    &other)': takes a type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QMessageAuthenticationCode.swap' has no cute function yet. Qt's "
+        "'void QMessageAuthenticationCode::swap(QMessageAuthenticationCode "
+        "&other)': takes a type Python has no way to hand over yet.")

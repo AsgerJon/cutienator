@@ -22,7 +22,7 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   from ..QtCore import QAbstractItemModel, QEvent, QMetaObject, QMimeData
   from ..QtCore import QModelIndex, QPoint, QRect
   from ..QtGui import QDropEvent
-  from . import QTreeWidgetItem
+  from . import QTreeWidgetItem, QTreeWidgetPrivate
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -52,7 +52,7 @@ class QTreeWidget(QTreeView):
   -----------
 
   Every function of Qt's QTreeWidget that has a ritual and that Python can
-  call so far, 51 names in all: 'metaObject', 'tr', 'columnCount',
+  call so far, 62 names in all: 'metaObject', 'tr', 'columnCount',
   'setColumnCount', 'invisibleRootItem', 'topLevelItem', 'topLevelItemCount',
   'insertTopLevelItem', 'addTopLevelItem', 'takeTopLevelItem',
   'indexOfTopLevelItem', 'insertTopLevelItems', 'addTopLevelItems',
@@ -63,23 +63,29 @@ class QTreeWidget(QTreeView):
   'itemWidget', 'setItemWidget', 'removeItemWidget', 'selectedItems',
   'findItems', 'itemAbove', 'itemBelow', 'indexFromItem', 'itemFromIndex',
   'setSelectionModel', 'supportedDragActions', 'setSupportedDragActions',
-  'scrollToItem', 'expandItem', 'collapseItem', 'clear', 'event',
-  'mimeTypes', 'mimeData', 'dropMimeData', 'supportedDropActions',
-  'dropEvent', 'setModel'. It can be made from Python, in 1 way; see
-  '__init__'.
+  'scrollToItem', 'expandItem', 'collapseItem', 'clear', 'itemPressed',
+  'itemClicked', 'itemDoubleClicked', 'itemActivated', 'itemEntered',
+  'itemChanged', 'itemExpanded', 'itemCollapsed', 'currentItemChanged',
+  'itemSelectionChanged', 'event', 'mimeTypes', 'mimeData', 'dropMimeData',
+  'supportedDropActions', 'dropEvent', 'setModel', 'd_func'. It can be made
+  from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QTreeWidget::qt_metacast(const char *a0)': one of Qt's own
+    inner workings.
+  - Qt's 'int QTreeWidget::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
   - Qt's 'QTreeWidget::~QTreeWidget()': the destructor: Python never removes
     a C++ QTreeWidget.
+  - Qt's 'const QTreeWidgetPrivate *QTreeWidget::d_func() const': takes in
+    Python what 'QTreeWidgetPrivate *QTreeWidget::d_func()' takes.
 
   What has no ritual
   ------------------
 
-  18 of the 74 functions Qt declares: 10 a signal; 4 takes or gives a type
-  that cannot be passed yet; 2 forbidden; 1 a template; 1 declared and
-  nowhere to be found.
+  4 of the 74 functions Qt declares: 2 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -1507,6 +1513,266 @@ class QTreeWidget(QTreeView):
     #  void QTreeWidget::clear()
     self.uglySide.call('ritual_ZN11QTreeWidget5clearEv')
 
+  @overload(QTreeWidgetItem, int)
+  @overload(NoneType, int)
+  def itemPressed(
+      self,
+      item: Optional[QTreeWidgetItem],
+      column: int,
+  ) -> None:
+    """
+    Calls Qt's 'void QTreeWidget::itemPressed(QTreeWidgetItem *item, int
+    column)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtreewidget.html#itemPressed
+
+    Parameters
+    ----------
+
+    item : Optional[QTreeWidgetItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    column : int
+      Passed on as it is.
+    """
+    #  void QTreeWidget::itemPressed(QTreeWidgetItem *item, int column)
+    self.uglySide.call(
+        'ritual_ZN11QTreeWidget11itemPressedEP15QTreeWidgetItemi',
+        self._addressOf(item), column,
+    )
+
+  @overload(QTreeWidgetItem, int)
+  @overload(NoneType, int)
+  def itemClicked(
+      self,
+      item: Optional[QTreeWidgetItem],
+      column: int,
+  ) -> None:
+    """
+    Calls Qt's 'void QTreeWidget::itemClicked(QTreeWidgetItem *item, int
+    column)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtreewidget.html#itemClicked
+
+    Parameters
+    ----------
+
+    item : Optional[QTreeWidgetItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    column : int
+      Passed on as it is.
+    """
+    #  void QTreeWidget::itemClicked(QTreeWidgetItem *item, int column)
+    self.uglySide.call(
+        'ritual_ZN11QTreeWidget11itemClickedEP15QTreeWidgetItemi',
+        self._addressOf(item), column,
+    )
+
+  @overload(QTreeWidgetItem, int)
+  @overload(NoneType, int)
+  def itemDoubleClicked(
+      self,
+      item: Optional[QTreeWidgetItem],
+      column: int,
+  ) -> None:
+    """
+    Calls Qt's 'void QTreeWidget::itemDoubleClicked(QTreeWidgetItem *item,
+    int column)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtreewidget.html#itemDoubleClicked
+
+    Parameters
+    ----------
+
+    item : Optional[QTreeWidgetItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    column : int
+      Passed on as it is.
+    """
+    #  void QTreeWidget::itemDoubleClicked(QTreeWidgetItem *item, int column)
+    self.uglySide.call(
+        'ritual_ZN11QTreeWidget17itemDoubleClickedEP15QTreeWidgetItemi',
+        self._addressOf(item), column,
+    )
+
+  @overload(QTreeWidgetItem, int)
+  @overload(NoneType, int)
+  def itemActivated(
+      self,
+      item: Optional[QTreeWidgetItem],
+      column: int,
+  ) -> None:
+    """
+    Calls Qt's 'void QTreeWidget::itemActivated(QTreeWidgetItem *item, int
+    column)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtreewidget.html#itemActivated
+
+    Parameters
+    ----------
+
+    item : Optional[QTreeWidgetItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    column : int
+      Passed on as it is.
+    """
+    #  void QTreeWidget::itemActivated(QTreeWidgetItem *item, int column)
+    self.uglySide.call(
+        'ritual_ZN11QTreeWidget13itemActivatedEP15QTreeWidgetItemi',
+        self._addressOf(item), column,
+    )
+
+  @overload(QTreeWidgetItem, int)
+  @overload(NoneType, int)
+  def itemEntered(
+      self,
+      item: Optional[QTreeWidgetItem],
+      column: int,
+  ) -> None:
+    """
+    Calls Qt's 'void QTreeWidget::itemEntered(QTreeWidgetItem *item, int
+    column)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtreewidget.html#itemEntered
+
+    Parameters
+    ----------
+
+    item : Optional[QTreeWidgetItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    column : int
+      Passed on as it is.
+    """
+    #  void QTreeWidget::itemEntered(QTreeWidgetItem *item, int column)
+    self.uglySide.call(
+        'ritual_ZN11QTreeWidget11itemEnteredEP15QTreeWidgetItemi',
+        self._addressOf(item), column,
+    )
+
+  @overload(QTreeWidgetItem, int)
+  @overload(NoneType, int)
+  def itemChanged(
+      self,
+      item: Optional[QTreeWidgetItem],
+      column: int,
+  ) -> None:
+    """
+    Calls Qt's 'void QTreeWidget::itemChanged(QTreeWidgetItem *item, int
+    column)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtreewidget.html#itemChanged
+
+    Parameters
+    ----------
+
+    item : Optional[QTreeWidgetItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    column : int
+      Passed on as it is.
+    """
+    #  void QTreeWidget::itemChanged(QTreeWidgetItem *item, int column)
+    self.uglySide.call(
+        'ritual_ZN11QTreeWidget11itemChangedEP15QTreeWidgetItemi',
+        self._addressOf(item), column,
+    )
+
+  @overload(QTreeWidgetItem)
+  @overload(NoneType)
+  def itemExpanded(self, item: Optional[QTreeWidgetItem]) -> None:
+    """
+    Calls Qt's 'void QTreeWidget::itemExpanded(QTreeWidgetItem *item)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtreewidget.html#itemExpanded
+
+    Parameters
+    ----------
+
+    item : Optional[QTreeWidgetItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QTreeWidget::itemExpanded(QTreeWidgetItem *item)
+    self.uglySide.call(
+        'ritual_ZN11QTreeWidget12itemExpandedEP15QTreeWidgetItem',
+        self._addressOf(item),
+    )
+
+  @overload(QTreeWidgetItem)
+  @overload(NoneType)
+  def itemCollapsed(self, item: Optional[QTreeWidgetItem]) -> None:
+    """
+    Calls Qt's 'void QTreeWidget::itemCollapsed(QTreeWidgetItem *item)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtreewidget.html#itemCollapsed
+
+    Parameters
+    ----------
+
+    item : Optional[QTreeWidgetItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QTreeWidget::itemCollapsed(QTreeWidgetItem *item)
+    self.uglySide.call(
+        'ritual_ZN11QTreeWidget13itemCollapsedEP15QTreeWidgetItem',
+        self._addressOf(item),
+    )
+
+  @overload(QTreeWidgetItem, QTreeWidgetItem)
+  @overload(QTreeWidgetItem, NoneType)
+  @overload(NoneType, QTreeWidgetItem)
+  @overload(NoneType, NoneType)
+  def currentItemChanged(
+      self,
+      current: Optional[QTreeWidgetItem],
+      previous: Optional[QTreeWidgetItem],
+  ) -> None:
+    """
+    Calls Qt's 'void QTreeWidget::currentItemChanged(QTreeWidgetItem
+    *current, QTreeWidgetItem *previous)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qtreewidget.html#currentItemChanged
+
+    Parameters
+    ----------
+
+    current : Optional[QTreeWidgetItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    previous : Optional[QTreeWidgetItem]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QTreeWidget::currentItemChanged(QTreeWidgetItem *current,
+    #      QTreeWidgetItem *previous)
+    self.uglySide.call(
+        'ritual_ZN11QTreeWidget18currentItemChangedEP15QTreeWidgetItemS1_',
+        self._addressOf(current), self._addressOf(previous),
+    )
+
+  def itemSelectionChanged(self) -> None:
+    """
+    Calls Qt's 'void QTreeWidget::itemSelectionChanged()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qtreewidget.html#itemSelectionChanged
+    """
+    #  void QTreeWidget::itemSelectionChanged()
+    self.uglySide.call('ritual_ZN11QTreeWidget20itemSelectionChangedEv')
+
   @overload(QEvent)
   @overload(NoneType)
   def event(self, e: Optional[QEvent]) -> bool:
@@ -1596,3 +1862,21 @@ class QTreeWidget(QTreeView):
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZN11QTreeWidget9dropEventEP10QDropEvent'
     self.uglySide.call(ritual, self._addressOf(event))
+
+  def d_func(self) -> Optional[QTreeWidgetPrivate]:
+    """
+    Calls Qt's 'QTreeWidgetPrivate *QTreeWidget::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtreewidget.html#d_func
+
+    Returns
+    -------
+
+    Optional[QTreeWidgetPrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QTreeWidgetPrivate *QTreeWidget::d_func()
+    address = self.uglySide.call('ritual_ZN11QTreeWidget6d_funcEv')
+    from . import QTreeWidgetPrivate
+    return QTreeWidgetPrivate._cuteAt(address)

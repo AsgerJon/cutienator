@@ -23,8 +23,8 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   from ..QtCore import QEvent, QMetaObject, QPoint, QRect, QSize, QTimerEvent
   from ..QtGui import QAction, QActionEvent, QEnterEvent, QHideEvent, QIcon
   from ..QtGui import QKeyEvent, QKeySequence, QMouseEvent, QPaintEvent
-  from ..QtGui import QWheelEvent
-  from . import QStyleOptionMenuItem
+  from ..QtGui import QPlatformMenu, QWheelEvent
+  from . import QMenuPrivate, QStyleOptionMenuItem
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -39,6 +39,7 @@ else:
   QKeySequence = WAIT['QKeySequence']
   QMouseEvent = WAIT['QMouseEvent']
   QPaintEvent = WAIT['QPaintEvent']
+  QPlatformMenu = WAIT['QPlatformMenu']
   QPoint = WAIT['QPoint']
   QStyleOptionMenuItem = WAIT['QStyleOptionMenuItem']
   QTimerEvent = WAIT['QTimerEvent']
@@ -61,32 +62,39 @@ class QMenu(QWidget):
   -----------
 
   Every function of Qt's QMenu that has a ritual and that Python can call so
-  far, 53 names in all: 'metaObject', 'tr', 'addAction', 'addMenu',
+  far, 60 names in all: 'metaObject', 'tr', 'd_func', 'addAction', 'addMenu',
   'addSeparator', 'addSection', 'insertMenu', 'insertSeparator',
   'insertSection', 'isEmpty', 'clear', 'setTearOffEnabled',
   'isTearOffEnabled', 'isTearOffMenuVisible', 'showTearOffMenu',
   'hideTearOffMenu', 'setDefaultAction', 'defaultAction', 'setActiveAction',
   'activeAction', 'popup', 'exec', 'sizeHint', 'actionGeometry', 'actionAt',
   'menuAction', 'menuInAction', 'title', 'setTitle', 'icon', 'setIcon',
-  'setNoReplayFor', 'separatorsCollapsible', 'setSeparatorsCollapsible',
-  'toolTipsVisible', 'setToolTipsVisible', 'columnCount', 'changeEvent',
-  'keyPressEvent', 'mouseReleaseEvent', 'mousePressEvent', 'mouseMoveEvent',
-  'wheelEvent', 'enterEvent', 'leaveEvent', 'hideEvent', 'paintEvent',
-  'actionEvent', 'timerEvent', 'event', 'focusNextPrevChild',
-  'initStyleOption', 'internalDelayedPopup'. It can be made from Python, in 2
-  ways; see '__init__'.
+  'setNoReplayFor', 'platformMenu', 'setPlatformMenu',
+  'separatorsCollapsible', 'setSeparatorsCollapsible', 'toolTipsVisible',
+  'setToolTipsVisible', 'aboutToShow', 'aboutToHide', 'triggered', 'hovered',
+  'columnCount', 'changeEvent', 'keyPressEvent', 'mouseReleaseEvent',
+  'mousePressEvent', 'mouseMoveEvent', 'wheelEvent', 'enterEvent',
+  'leaveEvent', 'hideEvent', 'paintEvent', 'actionEvent', 'timerEvent',
+  'event', 'focusNextPrevChild', 'initStyleOption', 'internalDelayedPopup'.
+  It can be made from Python, in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QMenu::qt_metacast(const char *a0)': one of Qt's own inner
+    workings.
+  - Qt's 'int QMenu::qt_metacall(QMetaObject::Call a0, int a1, void **a2)':
+    one of Qt's own inner workings.
+  - Qt's 'const QMenuPrivate *QMenu::d_func() const': takes in Python what
+    'QMenuPrivate *QMenu::d_func()' takes.
   - Qt's 'QMenu::~QMenu()': the destructor: Python never removes a C++ QMenu.
+  - Qt's 'QMenu::QMenu(QMenuPrivate &dd, QWidget *parent)': takes a type
+    Python has no way to hand over yet.
 
   What has no ritual
   ------------------
 
-  19 of the 83 functions Qt declares: 7 takes or gives a type that cannot be
-  passed yet; 5 a template; 4 a signal; 2 forbidden; 1 declared and nowhere
-  to be found.
+  8 of the 83 functions Qt declares: 4 a template; 2 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -567,6 +575,27 @@ class QMenu(QWidget):
         'ritual_ZN5QMenu14setNoReplayForEP7QWidget', self._addressOf(widget),
     )
 
+  @overload(QPlatformMenu)
+  @overload(NoneType)
+  def setPlatformMenu(self, platformMenu: Optional[QPlatformMenu]) -> None:
+    """
+    Calls Qt's 'void QMenu::setPlatformMenu(QPlatformMenu *platformMenu)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmenu.html#setPlatformMenu
+
+    Parameters
+    ----------
+
+    platformMenu : Optional[QPlatformMenu]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QMenu::setPlatformMenu(QPlatformMenu *platformMenu)
+    self.uglySide.call(
+        'ritual_ZN5QMenu15setPlatformMenuEP13QPlatformMenu',
+        self._addressOf(platformMenu),
+    )
+
   @overload(bool)
   def setSeparatorsCollapsible(self, collapse: bool) -> None:
     """
@@ -681,6 +710,24 @@ class QMenu(QWidget):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  def d_func(self) -> Optional[QMenuPrivate]:
+    """
+    Calls Qt's 'QMenuPrivate *QMenu::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmenu.html#d_func
+
+    Returns
+    -------
+
+    Optional[QMenuPrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QMenuPrivate *QMenu::d_func()
+    address = self.uglySide.call('ritual_ZN5QMenu6d_funcEv')
+    from . import QMenuPrivate
+    return QMenuPrivate._cuteAt(address)
 
   @overload(str, QObject, str, QKeySequence)
   @overload(str, QObject, NoneType, QKeySequence)
@@ -1290,6 +1337,82 @@ class QMenu(QWidget):
     )
     from ..QtGui import QAction
     return QAction._cuteAt(address)
+
+  def platformMenu(self) -> Optional[QPlatformMenu]:
+    """
+    Calls Qt's 'QPlatformMenu *QMenu::platformMenu()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmenu.html#platformMenu
+
+    Returns
+    -------
+
+    Optional[QPlatformMenu]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QPlatformMenu *QMenu::platformMenu()
+    address = self.uglySide.call('ritual_ZN5QMenu12platformMenuEv')
+    from ..QtGui import QPlatformMenu
+    return QPlatformMenu._cuteAt(address)
+
+  def aboutToShow(self) -> None:
+    """
+    Calls Qt's 'void QMenu::aboutToShow()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmenu.html#aboutToShow
+    """
+    #  void QMenu::aboutToShow()
+    self.uglySide.call('ritual_ZN5QMenu11aboutToShowEv')
+
+  def aboutToHide(self) -> None:
+    """
+    Calls Qt's 'void QMenu::aboutToHide()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmenu.html#aboutToHide
+    """
+    #  void QMenu::aboutToHide()
+    self.uglySide.call('ritual_ZN5QMenu11aboutToHideEv')
+
+  @overload(QAction)
+  @overload(NoneType)
+  def triggered(self, action: Optional[QAction]) -> None:
+    """
+    Calls Qt's 'void QMenu::triggered(QAction *action)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmenu.html#triggered
+
+    Parameters
+    ----------
+
+    action : Optional[QAction]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QMenu::triggered(QAction *action)
+    self.uglySide.call(
+        'ritual_ZN5QMenu9triggeredEP7QAction', self._addressOf(action),
+    )
+
+  @overload(QAction)
+  @overload(NoneType)
+  def hovered(self, action: Optional[QAction]) -> None:
+    """
+    Calls Qt's 'void QMenu::hovered(QAction *action)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmenu.html#hovered
+
+    Parameters
+    ----------
+
+    action : Optional[QAction]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QMenu::hovered(QAction *action)
+    self.uglySide.call(
+        'ritual_ZN5QMenu7hoveredEP7QAction', self._addressOf(action),
+    )
 
   @overload(QEvent)
   @overload(NoneType)

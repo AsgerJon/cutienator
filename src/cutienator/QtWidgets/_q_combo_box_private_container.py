@@ -24,7 +24,7 @@ from . import QFrame
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
-  from ..QtCore import QEvent, QMetaObject, QTimerEvent
+  from ..QtCore import QEvent, QMetaObject, QModelIndex, QTimerEvent
   from ..QtGui import QHideEvent, QMouseEvent, QPaintEvent, QResizeEvent
   from ..QtGui import QShowEvent
   from . import QAbstractItemView, QComboBox, QStyleOptionComboBox
@@ -36,6 +36,7 @@ else:
   QComboBox = WAIT['QComboBox']
   QEvent = WAIT['QEvent']
   QHideEvent = WAIT['QHideEvent']
+  QModelIndex = WAIT['QModelIndex']
   QMouseEvent = WAIT['QMouseEvent']
   QPaintEvent = WAIT['QPaintEvent']
   QResizeEvent = WAIT['QResizeEvent']
@@ -59,25 +60,29 @@ class QComboBoxPrivateContainer(QFrame):
   -----------
 
   Every function of Qt's QComboBoxPrivateContainer that has a ritual and that
-  Python can call so far, 23 names in all: 'metaObject', 'tr', 'itemView',
+  Python can call so far, 25 names in all: 'metaObject', 'tr', 'itemView',
   'setItemView', 'spacing', 'topMargin', 'bottomMargin',
   'updateTopBottomMargin', 'updateStyleSettings', 'scrollItemView',
   'hideScrollers', 'updateScrollers', 'viewDestroyed', 'changeEvent',
   'eventFilter', 'mousePressEvent', 'mouseReleaseEvent', 'showEvent',
-  'hideEvent', 'timerEvent', 'resizeEvent', 'paintEvent', 'comboStyleOption'.
-  It can be made from Python, in 1 way; see '__init__'.
+  'hideEvent', 'timerEvent', 'resizeEvent', 'paintEvent', 'comboStyleOption',
+  'itemSelected', 'resetButton'. It can be made from Python, in 1 way; see
+  '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QComboBoxPrivateContainer::qt_metacast(const char *a0)': one
+    of Qt's own inner workings.
+  - Qt's 'int QComboBoxPrivateContainer::qt_metacall(QMetaObject::Call a0,
+    int a1, void **a2)': one of Qt's own inner workings.
   - Qt's 'QComboBoxPrivateContainer::~QComboBoxPrivateContainer()': the
     destructor: Python never removes a C++ QComboBoxPrivateContainer.
 
   What has no ritual
   ------------------
 
-  6 of the 31 functions Qt declares: 2 takes or gives a type that cannot be
-  passed yet; 2 a signal; 1 a template; 1 declared and nowhere to be found.
+  2 of the 31 functions Qt declares: 2 not a gap.
 
   What to expect
   --------------
@@ -681,3 +686,35 @@ class QComboBoxPrivateContainer(QFrame):
           'ritual_own_ZN25QComboBoxPrivateContainer10paintEventEP11QPaintEv'
           'ent')
     self.uglySide.call(ritual, self._addressOf(e))
+
+  @overload(QModelIndex)
+  def itemSelected(self, a0: QModelIndex) -> None:
+    """
+    Calls Qt's 'void QComboBoxPrivateContainer::itemSelected(const
+    QModelIndex &a0)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qcomboboxprivatecontainer.html#itemSelected
+
+    Parameters
+    ----------
+
+    a0 : QModelIndex
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own.
+    """
+    #  void QComboBoxPrivateContainer::itemSelected(const QModelIndex &a0)
+    self.uglySide.call(
+        'ritual_ZN25QComboBoxPrivateContainer12itemSelectedERK11QModelIndex',
+        self._valueOf(a0),
+    )
+
+  def resetButton(self) -> None:
+    """
+    Calls Qt's 'void QComboBoxPrivateContainer::resetButton()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qcomboboxprivatecontainer.html#resetButton
+    """
+    #  void QComboBoxPrivateContainer::resetButton()
+    self.uglySide.call('ritual_ZN25QComboBoxPrivateContainer11resetButtonEv')

@@ -18,6 +18,8 @@ from ..occult import Rituals
 from ..QtCore import Qt, QList, QMap
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Never
+
   from ..QtCore import QVariant
   from . import QBrush, QColor, QPen, QTextBlockFormat, QTextCharFormat
   from . import QTextFrameFormat, QTextImageFormat, QTextLength
@@ -61,16 +63,23 @@ class QTextFormat(CuteMixin, metaclass=MetaCute):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'QTextFormat &QTextFormat::operator=(const QTextFormat &rhs)':
+    assignment: Python binds a name and has no operator for it.
   - Qt's 'QTextFormat::~QTextFormat()': the destructor: Python removes its
     C++ QTextFormat by it, and has no other use for it.
+  - Qt's 'void QTextFormat::swap(QTextFormat &other)': takes a type Python
+    has no way to hand over yet.
   - Qt's 'QVariant QTextFormat::operator QVariant() const': an operator
     Python has no name for.
+  - Qt's 'QDataStream &operator<<(QDataStream &a0, const QTextFormat &a1)':
+    takes a type Python has no way to hand over yet.
+  - Qt's 'QDataStream &operator>>(QDataStream &a0, QTextFormat &a1)': an
+    operator between other classes, written inside this one.
 
   What has no ritual
   ------------------
 
-  7 of the 60 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet; 2 declared and nowhere to be found; 1 a template.
+  3 of the 60 functions Qt declares: 3 not a gap.
 
   What to expect
   --------------
@@ -84,6 +93,9 @@ class QTextFormat(CuteMixin, metaclass=MetaCute):
     is as in C++.
   - A function giving a QTextFormat back gives a copy the ritual made for
     Python, in a new cute QTextFormat.
+  - Each name of Qt's QTextFormat that has no cute function yet, 'swap',
+    holds a function that raises 'NotImplementedError', and its docstring
+    says why.
   """
 
   #  The enums Qt writes inside QTextFormat, each a class in here as in C++,
@@ -1192,6 +1204,17 @@ class QTextFormat(CuteMixin, metaclass=MetaCute):
     """
     #  void QTextFormat::clearForeground()
     self.uglySide.call('ritual_ZN11QTextFormat15clearForegroundEv')
+
+  @staticmethod
+  def swap(*__, **_) -> Never:
+    """
+    Qt's 'void QTextFormat::swap(QTextFormat &other)': takes a type Python
+    has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QTextFormat.swap' has no cute function yet. Qt's 'void "
+        "QTextFormat::swap(QTextFormat &other)': takes a type Python has no "
+        "way to hand over yet.")
 
 
 #  Qt's 'QList<QTextFormat>': the list of QTextFormat, which

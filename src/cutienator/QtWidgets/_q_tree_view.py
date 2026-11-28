@@ -24,7 +24,7 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   from ..QtCore import QTimerEvent
   from ..QtGui import QDragMoveEvent, QKeyEvent, QMouseEvent, QPaintEvent
   from ..QtGui import QPainter, QRegion
-  from . import QHeaderView, QStyleOptionViewItem
+  from . import QHeaderView, QStyleOptionViewItem, QTreeViewPrivate
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -62,7 +62,7 @@ class QTreeView(QAbstractItemView):
   -----------
 
   Every function of Qt's QTreeView that has a ritual and that Python can call
-  so far, 101 names in all: 'metaObject', 'tr', 'setModel', 'setRootIndex',
+  so far, 104 names in all: 'metaObject', 'tr', 'setModel', 'setRootIndex',
   'setSelectionModel', 'header', 'setHeader', 'autoExpandDelay',
   'setAutoExpandDelay', 'indentation', 'setIndentation', 'resetIndentation',
   'rootIsDecorated', 'setRootIsDecorated', 'uniformRowHeights',
@@ -76,36 +76,46 @@ class QTreeView(QAbstractItemView):
   'allColumnsShowFocus', 'setWordWrap', 'wordWrap', 'setTreePosition',
   'treePosition', 'keyboardSearch', 'visualRect', 'itemDecorationRect',
   'scrollTo', 'indexAt', 'indexAbove', 'indexBelow', 'doItemsLayout',
-  'reset', 'selectAll', 'hideColumn', 'showColumn', 'expand', 'collapse',
-  'resizeColumnToContents', 'sortByColumn', 'expandAll', 'expandRecursively',
-  'collapseAll', 'expandToDepth', 'columnResized', 'columnCountChanged',
-  'columnMoved', 'reexpand', 'rowsRemoved', 'verticalScrollbarValueChanged',
-  'scrollContentsBy', 'rowsInserted', 'rowsAboutToBeRemoved',
-  'horizontalOffset', 'verticalOffset', 'setSelection',
-  'visualRegionForSelection', 'selectedIndexes', 'changeEvent', 'timerEvent',
-  'paintEvent', 'drawTree', 'drawRow', 'drawBranches', 'mousePressEvent',
-  'mouseReleaseEvent', 'mouseDoubleClickEvent', 'mouseMoveEvent',
-  'keyPressEvent', 'dragMoveEvent', 'viewportEvent', 'updateGeometries',
-  'viewportSizeHint', 'sizeHintForColumn', 'indexRowSizeHint', 'rowHeight',
+  'reset', 'selectAll', 'expanded', 'collapsed', 'hideColumn', 'showColumn',
+  'expand', 'collapse', 'resizeColumnToContents', 'sortByColumn',
+  'expandAll', 'expandRecursively', 'collapseAll', 'expandToDepth',
+  'columnResized', 'columnCountChanged', 'columnMoved', 'reexpand',
+  'rowsRemoved', 'verticalScrollbarValueChanged', 'scrollContentsBy',
+  'rowsInserted', 'rowsAboutToBeRemoved', 'horizontalOffset',
+  'verticalOffset', 'setSelection', 'visualRegionForSelection',
+  'selectedIndexes', 'changeEvent', 'timerEvent', 'paintEvent', 'drawTree',
+  'drawRow', 'drawBranches', 'mousePressEvent', 'mouseReleaseEvent',
+  'mouseDoubleClickEvent', 'mouseMoveEvent', 'keyPressEvent',
+  'dragMoveEvent', 'viewportEvent', 'updateGeometries', 'viewportSizeHint',
+  'sizeHintForColumn', 'indexRowSizeHint', 'rowHeight',
   'horizontalScrollbarAction', 'isIndexHidden', 'selectionChanged',
-  'currentChanged', 'visualIndex'. It can be made from Python, in 1 way; see
-  '__init__'.
+  'currentChanged', 'visualIndex', 'd_func'. It can be made from Python, in 1
+  way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QTreeView::qt_metacast(const char *a0)': one of Qt's own
+    inner workings.
+  - Qt's 'int QTreeView::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
   - Qt's 'QTreeView::~QTreeView()': the destructor: Python never removes a
     C++ QTreeView.
+  - Qt's 'void QTreeView::dataChanged(const QModelIndex &topLeft, const
+    QModelIndex &bottomRight, const QList<int> &roles)': takes a type Python
+    has no way to hand over yet.
+  - Qt's 'QTreeView::QTreeView(QTreeViewPrivate &dd, QWidget *parent)': takes
+    a type Python has no way to hand over yet.
   - Qt's 'QModelIndex QTreeView::moveCursor(CursorAction cursorAction,
     Qt::KeyboardModifiers modifiers)': names the enum
     'QAbstractItemView::CursorAction', whose class cannot be named here.
+  - Qt's 'const QTreeViewPrivate *QTreeView::d_func() const': takes in Python
+    what 'QTreeViewPrivate *QTreeView::d_func()' takes.
 
   What has no ritual
   ------------------
 
-  12 of the 116 functions Qt declares: 6 takes or gives a type that cannot be
-  passed yet; 2 a signal; 2 forbidden; 1 a template; 1 declared and nowhere
-  to be found.
+  4 of the 116 functions Qt declares: 2 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -1451,6 +1461,45 @@ class QTreeView(QAbstractItemView):
       ritual = 'ritual_own_ZN9QTreeView9selectAllEv'
     self.uglySide.call(ritual)
 
+  @overload(QModelIndex)
+  def expanded(self, index: QModelIndex) -> None:
+    """
+    Calls Qt's 'void QTreeView::expanded(const QModelIndex &index)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtreeview.html#expanded
+
+    Parameters
+    ----------
+
+    index : QModelIndex
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own.
+    """
+    #  void QTreeView::expanded(const QModelIndex &index)
+    self.uglySide.call(
+        'ritual_ZN9QTreeView8expandedERK11QModelIndex', self._valueOf(index),
+    )
+
+  @overload(QModelIndex)
+  def collapsed(self, index: QModelIndex) -> None:
+    """
+    Calls Qt's 'void QTreeView::collapsed(const QModelIndex &index)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtreeview.html#collapsed
+
+    Parameters
+    ----------
+
+    index : QModelIndex
+      Passed on as a value: Qt reads the C++ QModelIndex, which stays
+      Python's own.
+    """
+    #  void QTreeView::collapsed(const QModelIndex &index)
+    self.uglySide.call(
+        'ritual_ZN9QTreeView9collapsedERK11QModelIndex',
+        self._valueOf(index),
+    )
+
   @overload(int)
   def hideColumn(self, column: int) -> None:
     """
@@ -2241,3 +2290,21 @@ class QTreeView(QAbstractItemView):
     self.uglySide.call(
         ritual, self._valueOf(current), self._valueOf(previous),
     )
+
+  def d_func(self) -> Optional[QTreeViewPrivate]:
+    """
+    Calls Qt's 'QTreeViewPrivate *QTreeView::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtreeview.html#d_func
+
+    Returns
+    -------
+
+    Optional[QTreeViewPrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QTreeViewPrivate *QTreeView::d_func()
+    address = self.uglySide.call('ritual_ZN9QTreeView6d_funcEv')
+    from . import QTreeViewPrivate
+    return QTreeViewPrivate._cuteAt(address)

@@ -21,11 +21,14 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
   from ..QtCore import QMetaObject
+  from . import QEventPoint, QPointerEvent, QPointingDevicePrivate
   from . import QPointingDeviceUniqueId
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
+  QEventPoint = WAIT['QEventPoint']
+  QPointerEvent = WAIT['QPointerEvent']
   QPointingDeviceUniqueId = WAIT['QPointingDeviceUniqueId']
 
 #  The class of None, for a signature that takes None in the place of an
@@ -45,23 +48,32 @@ class QPointingDevice(QInputDevice):
   -----------
 
   Every function of Qt's QPointingDevice that has a ritual and that Python
-  can call so far, 10 names in all: 'metaObject', 'tr', 'setType',
+  can call so far, 12 names in all: 'metaObject', 'tr', 'd_func', 'setType',
   'setCapabilities', 'setMaximumTouchPoints', 'pointerType', 'maximumPoints',
-  'buttonCount', 'uniqueId', 'primaryPointingDevice'. It can be made from
-  Python, in 2 ways; see '__init__'.
+  'buttonCount', 'uniqueId', 'primaryPointingDevice', 'grabChanged'. It can
+  be made from Python, in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QPointingDevice::qt_metacast(const char *a0)': one of Qt's
+    own inner workings.
+  - Qt's 'int QPointingDevice::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
+  - Qt's 'const QPointingDevicePrivate *QPointingDevice::d_func() const':
+    takes in Python what 'QPointingDevicePrivate *QPointingDevice::d_func()'
+    takes.
   - Qt's 'QPointingDevice::~QPointingDevice()': the destructor: Python never
     removes a C++ QPointingDevice.
+  - Qt's 'bool QPointingDevice::operator==(const QPointingDevice &other)
+    const': takes a type Python has no way to hand over yet.
+  - Qt's 'QPointingDevice::QPointingDevice(QPointingDevicePrivate &d, QObject
+    *parent)': takes a type Python has no way to hand over yet.
 
   What has no ritual
   ------------------
 
-  13 of the 26 functions Qt declares: 6 takes or gives a type that cannot be
-  passed yet; 4 forbidden; 1 a template; 1 declared and nowhere to be found;
-  1 a signal.
+  6 of the 26 functions Qt declares: 4 forbidden; 2 not a gap.
 
   What to expect
   --------------
@@ -510,3 +522,67 @@ class QPointingDevice(QInputDevice):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  def d_func(self) -> Optional[QPointingDevicePrivate]:
+    """
+    Calls Qt's 'QPointingDevicePrivate *QPointingDevice::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpointingdevice.html#d_func
+
+    Returns
+    -------
+
+    Optional[QPointingDevicePrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QPointingDevicePrivate *QPointingDevice::d_func()
+    address = self.uglySide.call('ritual_ZN15QPointingDevice6d_funcEv')
+    from . import QPointingDevicePrivate
+    return QPointingDevicePrivate._cuteAt(address)
+
+  @overload(QObject, GrabTransition, QPointerEvent, QEventPoint)
+  @overload(QObject, GrabTransition, NoneType, QEventPoint)
+  @overload(NoneType, GrabTransition, QPointerEvent, QEventPoint)
+  @overload(NoneType, GrabTransition, NoneType, QEventPoint)
+  def grabChanged(
+      self,
+      grabber: Optional[QObject],
+      transition: GrabTransition,
+      event: Optional[QPointerEvent],
+      point: QEventPoint,
+  ) -> None:
+    """
+    Calls Qt's 'void QPointingDevice::grabChanged(QObject *grabber,
+    GrabTransition transition, const QPointerEvent *event, const QEventPoint
+    &point) const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpointingdevice.html#grabChanged
+
+    Parameters
+    ----------
+
+    grabber : Optional[QObject]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    transition : GrabTransition
+      Passed on as its number.
+
+    event : Optional[QPointerEvent]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+
+    point : QEventPoint
+      Passed on as a value: Qt reads the C++ QEventPoint, which stays
+      Python's own.
+    """
+    #  void QPointingDevice::grabChanged(QObject *grabber, GrabTransition
+    #      transition, const QPointerEvent *event, const QEventPoint &point)
+    #      const
+    self.uglySide.call(
+        'ritual_ZNK15QPointingDevice11grabChangedEP7QObjectNS_14GrabTransit'
+        'ionEPK13QPointerEventRK11QEventPoint',
+        self._addressOf(grabber, 'QObject'), transition.value,
+        self._addressOf(event), self._valueOf(point),
+    )

@@ -16,14 +16,15 @@ from ..occult import Rituals
 from . import QFileDevice, QIODeviceBase, QObject
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
-  from . import QByteArray, QMetaObject
+  from . import QByteArray, QFilePrivate, QMetaObject, QString
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
   QByteArray = WAIT['QByteArray']
+  QString = WAIT['QString']
 
 #  The class of None, for a signature that takes None in the place of an
 #  object or of text.
@@ -42,24 +43,42 @@ class QFile(QFileDevice):
   -----------
 
   Every function of Qt's QFile that has a ritual and that Python can call so
-  far, 18 names in all: 'metaObject', 'tr', 'fileName', 'setFileName',
-  'encodeName', 'decodeName', 'exists', 'symLinkTarget', 'remove',
-  'supportsMoveToTrash', 'moveToTrash', 'rename', 'link', 'open', 'size',
-  'resize', 'permissions', 'setPermissions'. It can be made from Python, in 4
-  ways; see '__init__'.
+  far, 19 names in all: 'metaObject', 'tr', 'd_func', 'fileName',
+  'setFileName', 'encodeName', 'decodeName', 'exists', 'symLinkTarget',
+  'remove', 'supportsMoveToTrash', 'moveToTrash', 'rename', 'link', 'open',
+  'size', 'resize', 'permissions', 'setPermissions'. It can be made from
+  Python, in 4 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QFile::qt_metacast(const char *a0)': one of Qt's own inner
+    workings.
+  - Qt's 'int QFile::qt_metacall(QMetaObject::Call a0, int a1, void **a2)':
+    one of Qt's own inner workings.
+  - Qt's 'const QFilePrivate *QFile::d_func() const': takes in Python what
+    'QFilePrivate *QFile::d_func()' takes.
   - Qt's 'QFile::~QFile()': the destructor: Python never removes a C++ QFile.
-  - Qt's 'bool QFile::moveToTrash(const QString &fileName, QString
-    *pathInTrash)': names 'QString', which has no cute class yet.
+  - Qt's 'std::filesystem::path QFile::filesystemFileName() const': gives a
+    type Python has no way to take yet.
+  - Qt's 'std::filesystem::path QFile::filesystemSymLinkTarget() const':
+    gives a type Python has no way to take yet.
+  - Qt's 'bool QFile::copy(const QString &newName,
+    std::optional<QFileDevice::Permissions> perm)': takes a type Python has
+    no way to hand over yet.
+  - Qt's 'bool QFile::copy(const QString &fileName, const QString &newName,
+    std::optional<QFileDevice::Permissions> perm)': takes a type Python has
+    no way to hand over yet.
+  - Qt's 'bool QFile::open(FILE *f, OpenMode ioFlags, FileHandleFlags
+    handleFlags)': names 'FILE', which has no cute class yet.
+  - Qt's 'QFile::QFile(QFilePrivate &dd, QObject *parent)': takes a type
+    Python has no way to hand over yet.
 
   What has no ritual
   ------------------
 
-  29 of the 64 functions Qt declares: 16 a template; 10 takes or gives a type
-  that cannot be passed yet; 2 forbidden; 1 declared and nowhere to be found.
+  19 of the 64 functions Qt declares: 15 a template; 2 not a gap; 2
+  forbidden.
 
   What to expect
   --------------
@@ -74,6 +93,9 @@ class QFile(QFileDevice):
   - Qt tells when it has removed the C++ QFile. Every call on the cute
     object, and every use of it as an argument, then raises 'RuntimeError',
     and nothing reaches C++.
+  - Each name of Qt's QFile that has no cute function yet, 'copy',
+    'filesystemFileName', 'filesystemSymLinkTarget', holds a function that
+    raises 'NotImplementedError', and its docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -577,6 +599,24 @@ class QFile(QFileDevice):
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  def d_func(self) -> Optional[QFilePrivate]:
+    """
+    Calls Qt's 'QFilePrivate *QFile::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfile.html#d_func
+
+    Returns
+    -------
+
+    Optional[QFilePrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QFilePrivate *QFile::d_func()
+    address = self.uglySide.call('ritual_ZN5QFile6d_funcEv')
+    from . import QFilePrivate
+    return QFilePrivate._cuteAt(address)
+
   @overload()
   def remove(self) -> bool:
     """
@@ -604,6 +644,7 @@ class QFile(QFileDevice):
     #  bool QFile::remove(const QString &fileName)
     return Rituals.call('ritual_ZN5QFile6removeERK7QString', fileName)
 
+  @overload()
   def moveToTrash(self) -> bool:
     """
     Calls Qt's 'bool QFile::moveToTrash()'.
@@ -612,6 +653,36 @@ class QFile(QFileDevice):
     """
     #  bool QFile::moveToTrash()
     return self.uglySide.call('ritual_ZN5QFile11moveToTrashEv')
+
+  @staticmethod
+  @overload(str)
+  @overload(str, QString)
+  @overload(str, NoneType)
+  def moveToTrash(
+      fileName: str,
+      pathInTrash: Optional[QString] = None,
+  ) -> bool:
+    """
+    Calls Qt's 'bool QFile::moveToTrash(const QString &fileName, QString
+    *pathInTrash)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfile.html#moveToTrash
+
+    Parameters
+    ----------
+
+    fileName : str
+      Passed on as it is: a QString is made of it for the call.
+
+    pathInTrash : Optional[QString]
+      Passed on as the address of its C++ object. None is passed on as no
+      object. May be left out, as in Qt: it is then None.
+    """
+    #  bool QFile::moveToTrash(const QString &fileName, QString *pathInTrash)
+    return Rituals.call(
+        'ritual_ZN5QFile11moveToTrashERK7QStringPS0_',
+        fileName, CuteMixin._addressOf(pathInTrash),
+    )
 
   @overload(str)
   def rename(self, newName: str) -> bool:
@@ -813,3 +884,50 @@ class QFile(QFileDevice):
     """
     #  bool QFile::resize(const QString &filename, qint64 sz)
     return Rituals.call('ritual_ZN5QFile6resizeERK7QStringx', filename, sz)
+
+  @staticmethod
+  def copy(*__, **_) -> Never:
+    """
+    - Qt's 'bool QFile::copy(const QString &newName,
+      std::optional<QFileDevice::Permissions> perm)': takes a type Python has
+      no way to hand over yet.
+    - Qt's 'bool QFile::copy(const QString &fileName, const QString &newName,
+      std::optional<QFileDevice::Permissions> perm)': takes a type Python has
+      no way to hand over yet.
+    - Qt's 'QFile::copy': a template: a pattern and no single function.
+    """
+    raise NotImplementedError(
+        "'QFile.copy' has no cute function yet. Qt's 'bool "
+        "QFile::copy(const QString &newName, "
+        "std::optional<QFileDevice::Permissions> perm)': takes a type "
+        "Python has no way to hand over yet. Qt's 'bool QFile::copy(const "
+        "QString &fileName, const QString &newName, "
+        "std::optional<QFileDevice::Permissions> perm)': takes a type "
+        "Python has no way to hand over yet. Qt's 'QFile::copy': a "
+        "template: a pattern and no single function.")
+
+  @staticmethod
+  def filesystemFileName(*__, **_) -> Never:
+    """
+    Qt's 'std::filesystem::path QFile::filesystemFileName() const': gives a
+    type Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QFile.filesystemFileName' has no cute function yet. Qt's "
+        "'std::filesystem::path QFile::filesystemFileName() const': gives a "
+        "type Python has no way to take yet.")
+
+  @staticmethod
+  def filesystemSymLinkTarget(*__, **_) -> Never:
+    """
+    - Qt's 'std::filesystem::path QFile::filesystemSymLinkTarget() const':
+      gives a type Python has no way to take yet.
+    - Qt's 'QFile::filesystemSymLinkTarget': a template: a pattern and no
+      single function.
+    """
+    raise NotImplementedError(
+        "'QFile.filesystemSymLinkTarget' has no cute function yet. Qt's "
+        "'std::filesystem::path QFile::filesystemSymLinkTarget() const': "
+        "gives a type Python has no way to take yet. Qt's "
+        "'QFile::filesystemSymLinkTarget': a template: a pattern and no "
+        "single function.")

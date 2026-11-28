@@ -65,23 +65,28 @@ class QGraphicsTextItem(QGraphicsObject):
   -----------
 
   Every function of Qt's QGraphicsTextItem that has a ritual and that Python
-  can call so far, 50 names in all: 'metaObject', 'tr', 'toHtml', 'setHtml',
+  can call so far, 52 names in all: 'metaObject', 'tr', 'toHtml', 'setHtml',
   'toPlainText', 'setPlainText', 'font', 'setFont', 'setDefaultTextColor',
   'defaultTextColor', 'boundingRect', 'shape', 'contains', 'paint',
   'isObscuredBy', 'opaqueArea', 'type', 'setTextWidth', 'textWidth',
   'adjustSize', 'setDocument', 'document', 'setTextInteractionFlags',
   'textInteractionFlags', 'setTabChangesFocus', 'tabChangesFocus',
   'setOpenExternalLinks', 'openExternalLinks', 'setTextCursor', 'textCursor',
-  'sceneEvent', 'mousePressEvent', 'mouseMoveEvent', 'mouseReleaseEvent',
-  'mouseDoubleClickEvent', 'contextMenuEvent', 'keyPressEvent',
-  'keyReleaseEvent', 'focusInEvent', 'focusOutEvent', 'dragEnterEvent',
-  'dragLeaveEvent', 'dragMoveEvent', 'dropEvent', 'inputMethodEvent',
-  'hoverEnterEvent', 'hoverMoveEvent', 'hoverLeaveEvent', 'inputMethodQuery',
-  'extension'. It can be made from Python, in 2 ways; see '__init__'.
+  'linkActivated', 'linkHovered', 'sceneEvent', 'mousePressEvent',
+  'mouseMoveEvent', 'mouseReleaseEvent', 'mouseDoubleClickEvent',
+  'contextMenuEvent', 'keyPressEvent', 'keyReleaseEvent', 'focusInEvent',
+  'focusOutEvent', 'dragEnterEvent', 'dragLeaveEvent', 'dragMoveEvent',
+  'dropEvent', 'inputMethodEvent', 'hoverEnterEvent', 'hoverMoveEvent',
+  'hoverLeaveEvent', 'inputMethodQuery', 'extension'. It can be made from
+  Python, in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QGraphicsTextItem::qt_metacast(const char *a0)': one of Qt's
+    own inner workings.
+  - Qt's 'int QGraphicsTextItem::qt_metacall(QMetaObject::Call a0, int a1,
+    void **a2)': one of Qt's own inner workings.
   - Qt's 'QGraphicsTextItem::~QGraphicsTextItem()': the destructor: Python
     never removes a C++ QGraphicsTextItem.
   - Qt's 'bool QGraphicsTextItem::supportsExtension(Extension extension)
@@ -94,9 +99,7 @@ class QGraphicsTextItem(QGraphicsObject):
   What has no ritual
   ------------------
 
-  8 of the 63 functions Qt declares: 2 takes or gives a type that cannot be
-  passed yet; 2 a signal; 2 forbidden; 1 a template; 1 declared and nowhere
-  to be found.
+  4 of the 63 functions Qt declares: 2 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -333,7 +336,7 @@ class QGraphicsTextItem(QGraphicsObject):
     ritual = 'ritual_ZNK17QGraphicsTextItem8containsERK7QPointF'
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZNK17QGraphicsTextItem8containsERK7QPointF'
-    return self.uglySide.call(ritual, self._valueOf(point))
+    return self.uglySide.call(ritual, self._valueOf(point, 'QPointF'))
 
   @overload(QGraphicsItem)
   @overload(NoneType)
@@ -897,6 +900,43 @@ class QGraphicsTextItem(QGraphicsObject):
     """
     #  void QGraphicsTextItem::adjustSize()
     self.uglySide.call('ritual_ZN17QGraphicsTextItem10adjustSizeEv')
+
+  @overload(str)
+  def linkActivated(self, a0: str) -> None:
+    """
+    Calls Qt's 'void QGraphicsTextItem::linkActivated(const QString &a0)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qgraphicstextitem.html#linkActivated
+
+    Parameters
+    ----------
+
+    a0 : str
+      Passed on as it is: a QString is made of it for the call.
+    """
+    #  void QGraphicsTextItem::linkActivated(const QString &a0)
+    self.uglySide.call(
+        'ritual_ZN17QGraphicsTextItem13linkActivatedERK7QString', a0,
+    )
+
+  @overload(str)
+  def linkHovered(self, a0: str) -> None:
+    """
+    Calls Qt's 'void QGraphicsTextItem::linkHovered(const QString &a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicstextitem.html#linkHovered
+
+    Parameters
+    ----------
+
+    a0 : str
+      Passed on as it is: a QString is made of it for the call.
+    """
+    #  void QGraphicsTextItem::linkHovered(const QString &a0)
+    self.uglySide.call(
+        'ritual_ZN17QGraphicsTextItem11linkHoveredERK7QString', a0,
+    )
 
   @overload(QEvent)
   @overload(NoneType)

@@ -42,20 +42,23 @@ class QTimeEdit(QDateTimeEdit):
   -----------
 
   Every function of Qt's QTimeEdit that has a ritual and that Python can call
-  so far, 2 names in all: 'metaObject', 'tr'. It can be made from Python, in
-  2 ways; see '__init__'.
+  so far, 3 names in all: 'metaObject', 'tr', 'userTimeChanged'. It can be
+  made from Python, in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QTimeEdit::qt_metacast(const char *a0)': one of Qt's own
+    inner workings.
+  - Qt's 'int QTimeEdit::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
   - Qt's 'QTimeEdit::~QTimeEdit()': the destructor: Python never removes a
     C++ QTimeEdit.
 
   What has no ritual
   ------------------
 
-  5 of the 10 functions Qt declares: 2 takes or gives a type that cannot be
-  passed yet; 1 a template; 1 declared and nowhere to be found; 1 a signal.
+  2 of the 10 functions Qt declares: 2 not a gap.
 
   What to expect
   --------------
@@ -244,3 +247,21 @@ class QTimeEdit(QDateTimeEdit):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(QTime)
+  def userTimeChanged(self, time: QTime) -> None:
+    """
+    Calls Qt's 'void QTimeEdit::userTimeChanged(QTime time)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtimeedit.html#userTimeChanged
+
+    Parameters
+    ----------
+
+    time : QTime
+      Passed on as a value: Qt reads the C++ QTime, which stays Python's own.
+    """
+    #  void QTimeEdit::userTimeChanged(QTime time)
+    self.uglySide.call(
+        'ritual_ZN9QTimeEdit15userTimeChangedE5QTime', self._valueOf(time),
+    )

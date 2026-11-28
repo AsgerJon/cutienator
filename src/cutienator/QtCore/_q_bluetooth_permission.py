@@ -15,6 +15,9 @@ from worktoy.dispatch import overload
 from ..cute import CuteMixin, CuteFlags, MetaCute
 from ..occult import Rituals
 
+if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Never
+
 
 class QBluetoothPermission(CuteMixin, metaclass=MetaCute):
   """
@@ -36,15 +39,24 @@ class QBluetoothPermission(CuteMixin, metaclass=MetaCute):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'QBluetoothPermission::QBluetoothPermission(QBluetoothPermission
+    &&other)': takes a type Python has no way to hand over yet.
   - Qt's 'QBluetoothPermission::~QBluetoothPermission()': the destructor:
     Python removes its C++ QBluetoothPermission by it, and has no other use
     for it.
+  - Qt's 'QBluetoothPermission &QBluetoothPermission::operator=(const
+    QBluetoothPermission &other)': assignment: Python binds a name and has no
+    operator for it.
+  - Qt's 'QBluetoothPermission
+    &QBluetoothPermission::operator=(QBluetoothPermission &&other)':
+    assignment: Python binds a name and has no operator for it.
+  - Qt's 'void QBluetoothPermission::swap(QBluetoothPermission &other)':
+    takes a type Python has no way to hand over yet.
 
   What has no ritual
   ------------------
 
-  7 of the 12 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet; 2 declared and nowhere to be found; 1 a template.
+  3 of the 12 functions Qt declares: 3 not a gap.
 
   What to expect
   --------------
@@ -58,6 +70,9 @@ class QBluetoothPermission(CuteMixin, metaclass=MetaCute):
     is as in C++.
   - A function giving a QBluetoothPermission back gives a copy the ritual
     made for Python, in a new cute QBluetoothPermission.
+  - Each name of Qt's QBluetoothPermission that has no cute function yet,
+    'swap', holds a function that raises 'NotImplementedError', and its
+    docstring says why.
   """
 
   #  The enums Qt writes inside QBluetoothPermission, each a class in here as
@@ -220,3 +235,14 @@ class QBluetoothPermission(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def swap(*__, **_) -> Never:
+    """
+    Qt's 'void QBluetoothPermission::swap(QBluetoothPermission &other)':
+    takes a type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QBluetoothPermission.swap' has no cute function yet. Qt's 'void "
+        "QBluetoothPermission::swap(QBluetoothPermission &other)': takes a "
+        "type Python has no way to hand over yet.")

@@ -22,7 +22,7 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   from ..QtCore import QEvent, QMetaObject, QPoint, QSize, QTimerEvent
   from ..QtGui import QFocusEvent, QIcon, QKeyEvent, QKeySequence
   from ..QtGui import QMouseEvent, QPaintEvent
-  from . import QButtonGroup
+  from . import QAbstractButtonPrivate, QButtonGroup
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -55,7 +55,7 @@ class QAbstractButton(QWidget):
   -----------
 
   Every function of Qt's QAbstractButton that has a ritual and that Python
-  can call so far, 46 names in all: 'metaObject', 'tr', 'setText', 'text',
+  can call so far, 47 names in all: 'metaObject', 'tr', 'setText', 'text',
   'setIcon', 'icon', 'iconSize', 'setShortcut', 'shortcut', 'setCheckable',
   'isCheckable', 'isChecked', 'setDown', 'isDown', 'setAutoRepeat',
   'autoRepeat', 'setAutoRepeatDelay', 'autoRepeatDelay',
@@ -65,7 +65,8 @@ class QAbstractButton(QWidget):
   'hitButton', 'checkStateSet', 'nextCheckState', 'event', 'keyPressEvent',
   'keyReleaseEvent', 'mousePressEvent', 'mouseReleaseEvent',
   'mouseMoveEvent', 'focusInEvent', 'focusOutEvent', 'changeEvent',
-  'timerEvent'. It can be made from Python, in 1 way; see '__init__'.
+  'timerEvent', 'd_func'. It can be made from Python, in 1 way; see
+  '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -78,10 +79,9 @@ class QAbstractButton(QWidget):
     removes a C++ QAbstractButton.
   - Qt's 'QAbstractButton::QAbstractButton(QAbstractButtonPrivate &dd,
     QWidget *parent)': takes a type Python has no way to hand over yet.
-  - Qt's 'QAbstractButtonPrivate *QAbstractButton::d_func()': gives
-    'QAbstractButtonPrivate', which has no cute class yet.
   - Qt's 'const QAbstractButtonPrivate *QAbstractButton::d_func() const':
-    gives 'QAbstractButtonPrivate', which has no cute class yet.
+    takes in Python what 'QAbstractButtonPrivate *QAbstractButton::d_func()'
+    takes.
 
   What has no ritual
   ------------------
@@ -982,6 +982,24 @@ class QAbstractButton(QWidget):
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZN15QAbstractButton10timerEventEP11QTimerEvent'
     self.uglySide.call(ritual, self._addressOf(e))
+
+  def d_func(self) -> Optional[QAbstractButtonPrivate]:
+    """
+    Calls Qt's 'QAbstractButtonPrivate *QAbstractButton::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qabstractbutton.html#d_func
+
+    Returns
+    -------
+
+    Optional[QAbstractButtonPrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QAbstractButtonPrivate *QAbstractButton::d_func()
+    address = self.uglySide.call('ritual_ZN15QAbstractButton6d_funcEv')
+    from . import QAbstractButtonPrivate
+    return QAbstractButtonPrivate._cuteAt(address)
 
 
 #  Qt's 'QList<QAbstractButton *>': the list of QAbstractButton, which

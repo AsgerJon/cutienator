@@ -19,7 +19,7 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
   from ..QtCore import QMetaObject
-  from . import QAction, QUndoCommand
+  from . import QAction, QUndoCommand, QUndoStackPrivate
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -43,25 +43,31 @@ class QUndoStack(QObject):
   -----------
 
   Every function of Qt's QUndoStack that has a ritual and that Python can
-  call so far, 27 names in all: 'metaObject', 'tr', 'clear', 'push',
-  'canUndo', 'canRedo', 'undoText', 'redoText', 'count', 'index', 'text',
-  'createUndoAction', 'createRedoAction', 'isActive', 'isClean',
+  call so far, 34 names in all: 'metaObject', 'tr', 'd_func', 'clear',
+  'push', 'canUndo', 'canRedo', 'undoText', 'redoText', 'count', 'index',
+  'text', 'createUndoAction', 'createRedoAction', 'isActive', 'isClean',
   'cleanIndex', 'beginMacro', 'endMacro', 'setUndoLimit', 'undoLimit',
   'command', 'setClean', 'resetClean', 'setIndex', 'undo', 'redo',
-  'setActive'. It can be made from Python, in 1 way; see '__init__'.
+  'setActive', 'indexChanged', 'cleanChanged', 'canUndoChanged',
+  'canRedoChanged', 'undoTextChanged', 'redoTextChanged'. It can be made from
+  Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QUndoStack::qt_metacast(const char *a0)': one of Qt's own
+    inner workings.
+  - Qt's 'int QUndoStack::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
+  - Qt's 'const QUndoStackPrivate *QUndoStack::d_func() const': takes in
+    Python what 'QUndoStackPrivate *QUndoStack::d_func()' takes.
   - Qt's 'QUndoStack::~QUndoStack()': the destructor: Python never removes a
     C++ QUndoStack.
 
   What has no ritual
   ------------------
 
-  14 of the 43 functions Qt declares: 6 a signal; 4 takes or gives a type
-  that cannot be passed yet; 2 forbidden; 1 a template; 1 declared and
-  nowhere to be found.
+  4 of the 43 functions Qt declares: 2 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -517,6 +523,24 @@ class QUndoStack(QObject):
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  def d_func(self) -> Optional[QUndoStackPrivate]:
+    """
+    Calls Qt's 'QUndoStackPrivate *QUndoStack::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qundostack.html#d_func
+
+    Returns
+    -------
+
+    Optional[QUndoStackPrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QUndoStackPrivate *QUndoStack::d_func()
+    address = self.uglySide.call('ritual_ZN10QUndoStack6d_funcEv')
+    from . import QUndoStackPrivate
+    return QUndoStackPrivate._cuteAt(address)
+
   def clear(self) -> None:
     """
     Calls Qt's 'void QUndoStack::clear()'.
@@ -597,6 +621,106 @@ class QUndoStack(QObject):
     """
     #  void QUndoStack::redo()
     self.uglySide.call('ritual_ZN10QUndoStack4redoEv')
+
+  @overload(int)
+  def indexChanged(self, idx: int) -> None:
+    """
+    Calls Qt's 'void QUndoStack::indexChanged(int idx)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qundostack.html#indexChanged
+
+    Parameters
+    ----------
+
+    idx : int
+      Passed on as it is.
+    """
+    #  void QUndoStack::indexChanged(int idx)
+    self.uglySide.call('ritual_ZN10QUndoStack12indexChangedEi', idx)
+
+  @overload(bool)
+  def cleanChanged(self, clean: bool) -> None:
+    """
+    Calls Qt's 'void QUndoStack::cleanChanged(bool clean)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qundostack.html#cleanChanged
+
+    Parameters
+    ----------
+
+    clean : bool
+      Passed on as it is.
+    """
+    #  void QUndoStack::cleanChanged(bool clean)
+    self.uglySide.call('ritual_ZN10QUndoStack12cleanChangedEb', clean)
+
+  @overload(bool)
+  def canUndoChanged(self, canUndo: bool) -> None:
+    """
+    Calls Qt's 'void QUndoStack::canUndoChanged(bool canUndo)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qundostack.html#canUndoChanged
+
+    Parameters
+    ----------
+
+    canUndo : bool
+      Passed on as it is.
+    """
+    #  void QUndoStack::canUndoChanged(bool canUndo)
+    self.uglySide.call('ritual_ZN10QUndoStack14canUndoChangedEb', canUndo)
+
+  @overload(bool)
+  def canRedoChanged(self, canRedo: bool) -> None:
+    """
+    Calls Qt's 'void QUndoStack::canRedoChanged(bool canRedo)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qundostack.html#canRedoChanged
+
+    Parameters
+    ----------
+
+    canRedo : bool
+      Passed on as it is.
+    """
+    #  void QUndoStack::canRedoChanged(bool canRedo)
+    self.uglySide.call('ritual_ZN10QUndoStack14canRedoChangedEb', canRedo)
+
+  @overload(str)
+  def undoTextChanged(self, undoText: str) -> None:
+    """
+    Calls Qt's 'void QUndoStack::undoTextChanged(const QString &undoText)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qundostack.html#undoTextChanged
+
+    Parameters
+    ----------
+
+    undoText : str
+      Passed on as it is: a QString is made of it for the call.
+    """
+    #  void QUndoStack::undoTextChanged(const QString &undoText)
+    self.uglySide.call(
+        'ritual_ZN10QUndoStack15undoTextChangedERK7QString', undoText,
+    )
+
+  @overload(str)
+  def redoTextChanged(self, redoText: str) -> None:
+    """
+    Calls Qt's 'void QUndoStack::redoTextChanged(const QString &redoText)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qundostack.html#redoTextChanged
+
+    Parameters
+    ----------
+
+    redoText : str
+      Passed on as it is: a QString is made of it for the call.
+    """
+    #  void QUndoStack::redoTextChanged(const QString &redoText)
+    self.uglySide.call(
+        'ritual_ZN10QUndoStack15redoTextChangedERK7QString', redoText,
+    )
 
 
 #  Qt's 'QList<QUndoStack *>': the list of QUndoStack, which

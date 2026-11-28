@@ -16,7 +16,7 @@ from ..occult import Rituals
 from . import QStringConverter, QStringConverterBase
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from . import QByteArrayView, QChar
 else:
@@ -47,11 +47,26 @@ class QStringDecoder(QStringConverter):
   'invalidateAndReturnNull', 'decodeAsStringImpl', 'decodeAsString'. It can
   be made from Python, in 3 ways; see '__init__'.
 
+  What has a ritual and is left out, and why
+  ------------------------------------------
+
+  - Qt's 'QStringDecoder::QStringDecoder(const Interface *i)': names
+    'QStringConverter::Interface', which has no cute class yet.
+  - Qt's 'FinalizeResultQChar QStringDecoder::finalize(QChar *out, qsizetype
+    maxlen)': gives a type Python has no way to take yet.
+  - Qt's 'FinalizeResult QStringDecoder::finalize(char16_t *out, qsizetype
+    maxlen)': takes a number to change where it is.
+  - Qt's 'FinalizeResult QStringDecoder::finalize()': gives a type Python has
+    no way to take yet.
+  - Qt's 'QStringDecoder QStringDecoder::decoderForHtml(QByteArrayView
+    data)': gives a type Python has no way to take yet.
+
   What has no ritual
   ------------------
 
-  10 of the 18 functions Qt declares: 8 takes or gives a type that cannot be
-  passed yet; 2 a template.
+  5 of the 18 functions Qt declares: 2 a template; 2 the compiler refuses its
+  ritual as it would be written here; 1 takes or gives a type that cannot be
+  passed yet.
 
   What to expect
   --------------
@@ -64,6 +79,9 @@ class QStringDecoder(QStringConverter):
     has it, and is passed on as nothing. Whether Qt can do with nothing there
     is as in C++.
   - Python never removes the C++ QStringDecoder.
+  - Each name of Qt's QStringDecoder that has no cute function yet, 'decode',
+    'decoderForHtml', 'finalize', holds a function that raises
+    'NotImplementedError', and its docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -329,3 +347,51 @@ class QStringDecoder(QStringConverter):
         'ritual_ZN14QStringDecoder14decodeAsStringE14QByteArrayView',
         self._valueOf(in_),
     )
+
+  @staticmethod
+  def decode(*__, **_) -> Never:
+    """
+    - Qt's 'QStringDecoder::decode': a template: a pattern and no single
+      function.
+    - Qt's 'EncodedData<QByteArrayView> QStringDecoder::decode(QByteArrayView
+      ba)': the compiler refuses its ritual as it would be written here: no
+      template named 'EncodedData'; did you mean
+      'QStringDecoder::EncodedData'?.
+    """
+    raise NotImplementedError(
+        "'QStringDecoder.decode' has no cute function yet. Qt's "
+        "'QStringDecoder::decode': a template: a pattern and no single "
+        "function. Qt's 'EncodedData<QByteArrayView> "
+        "QStringDecoder::decode(QByteArrayView ba)': the compiler refuses "
+        "its ritual as it would be written here: no template named "
+        "'EncodedData'; did you mean 'QStringDecoder::EncodedData'?.")
+
+  @staticmethod
+  def decoderForHtml(*__, **_) -> Never:
+    """
+    Qt's 'QStringDecoder QStringDecoder::decoderForHtml(QByteArrayView
+    data)': gives a type Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QStringDecoder.decoderForHtml' has no cute function yet. Qt's "
+        "'QStringDecoder QStringDecoder::decoderForHtml(QByteArrayView "
+        "data)': gives a type Python has no way to take yet.")
+
+  @staticmethod
+  def finalize(*__, **_) -> Never:
+    """
+    - Qt's 'FinalizeResultQChar QStringDecoder::finalize(QChar *out,
+      qsizetype maxlen)': gives a type Python has no way to take yet.
+    - Qt's 'FinalizeResult QStringDecoder::finalize(char16_t *out, qsizetype
+      maxlen)': takes a number to change where it is.
+    - Qt's 'FinalizeResult QStringDecoder::finalize()': gives a type Python
+      has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QStringDecoder.finalize' has no cute function yet. Qt's "
+        "'FinalizeResultQChar QStringDecoder::finalize(QChar *out, "
+        "qsizetype maxlen)': gives a type Python has no way to take yet. "
+        "Qt's 'FinalizeResult QStringDecoder::finalize(char16_t *out, "
+        "qsizetype maxlen)': takes a number to change where it is. Qt's "
+        "'FinalizeResult QStringDecoder::finalize()': gives a type Python "
+        "has no way to take yet.")

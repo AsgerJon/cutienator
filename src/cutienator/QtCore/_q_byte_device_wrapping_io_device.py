@@ -20,7 +20,7 @@ from worktoy.dispatch import overload
 from . import QIODevice
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from . import QMetaObject
 
@@ -45,12 +45,23 @@ class QByteDeviceWrappingIoDevice(QIODevice):
   'atEnd', 'reset', 'size', 'writeData'. None can be made from Python: one
   comes out of a function of another class that gives one back.
 
+  What has a ritual and is left out, and why
+  ------------------------------------------
+
+  - Qt's 'void *QByteDeviceWrappingIoDevice::qt_metacast(const char *a0)':
+    one of Qt's own inner workings.
+  - Qt's 'int QByteDeviceWrappingIoDevice::qt_metacall(QMetaObject::Call a0,
+    int a1, void **a2)': one of Qt's own inner workings.
+  - Qt's 'QByteDeviceWrappingIoDevice::~QByteDeviceWrappingIoDevice()': the
+    destructor: Python never removes a C++ QByteDeviceWrappingIoDevice.
+  - Qt's 'qint64 QByteDeviceWrappingIoDevice::readData(char *data, qint64
+    maxSize)': names 'char', which has no cute class yet.
+
   What has no ritual
   ------------------
 
-  8 of the 14 functions Qt declares: 3 takes or gives a type that cannot be
-  passed yet; 2 declared and nowhere to be found; 2 leans on
-  'QByteDeviceWrappingIoDevice; 1 a template.
+  4 of the 14 functions Qt declares: 2 not a gap; 2 leans on
+  'QByteDeviceWrappingIoDevice.
 
   What to expect
   --------------
@@ -66,6 +77,9 @@ class QByteDeviceWrappingIoDevice(QIODevice):
   - Qt tells when it has removed the C++ QByteDeviceWrappingIoDevice. Every
     call on the cute object, and every use of it as an argument, then raises
     'RuntimeError', and nothing reaches C++.
+  - Each name of Qt's QByteDeviceWrappingIoDevice that has no cute function
+    yet, '__init__', holds a function that raises 'NotImplementedError', and
+    its docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -173,6 +187,24 @@ class QByteDeviceWrappingIoDevice(QIODevice):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def __init__(*__, **_) -> Never:
+    """
+    Qt's 'QByteDeviceWrappingIoDevice::QByteDeviceWrappingIoDevice(
+    QNonContiguousByteDevice *bd)': leans on
+    'QByteDeviceWrappingIoDevice::qt_metacall(QMetaObject::Call, int,
+    void**)', which Qt's source does not mark for use from outside Qt and has
+    no code for that could be taken.
+    """
+    raise NotImplementedError(
+        "'QByteDeviceWrappingIoDevice.__init__' has no cute function yet. "
+        "Qt's "
+        "'QByteDeviceWrappingIoDevice::QByteDeviceWrappingIoDevice(QNonConti"
+        "guousByteDevice *bd)': leans on "
+        "'QByteDeviceWrappingIoDevice::qt_metacall(QMetaObject::Call, int, "
+        "void**)', which Qt's source does not mark for use from outside Qt "
+        "and has no code for that could be taken.")
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #

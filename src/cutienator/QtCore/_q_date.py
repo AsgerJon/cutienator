@@ -17,6 +17,8 @@ from ..occult import Rituals
 from . import Qt
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Never
+
   from . import QCalendar, QDateTime, QTimeZone
 else:
   #  The cute classes this file names and is not built on. Each is brought in
@@ -85,14 +87,20 @@ class QDate(CuteMixin, metaclass=MetaCute):
     &format, int baseYear, QCalendar cal)': takes in Python what 'QDate
     QDate::fromString(QStringView string, QStringView format, int baseYear,
     QCalendar cal)' takes.
+  - Qt's 'QDate &operator++(QDate &date)': an operator Python has no name
+    for.
+  - Qt's 'QDate &operator--(QDate &date)': an operator Python has no name
+    for.
+  - Qt's 'QDate operator++(QDate &date, int a1)': an operator Python has no
+    name for.
+  - Qt's 'QDate operator--(QDate &date, int a1)': an operator Python has no
+    name for.
+  - Qt's 'QDataStream &operator<<(QDataStream &a0, QDate a1)': takes a type
+    Python has no way to hand over yet.
+  - Qt's 'QDataStream &operator>>(QDataStream &a0, QDate &a1)': an operator
+    between other classes, written inside this one.
   - Qt's 'QDate::~QDate()': the destructor: Python removes its C++ QDate by
     it, and has no other use for it.
-
-  What has no ritual
-  ------------------
-
-  6 of the 74 functions Qt declares: 6 takes or gives a type that cannot be
-  passed yet.
 
   What to expect
   --------------
@@ -105,6 +113,9 @@ class QDate(CuteMixin, metaclass=MetaCute):
     is as in C++.
   - A function giving a QDate back gives a copy the ritual made for Python,
     in a new cute QDate.
+  - Each name of Qt's QDate that has no cute function yet, 'getDate',
+    'weekNumber', holds a function that raises 'NotImplementedError', and its
+    docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -1360,3 +1371,25 @@ class QDate(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def getDate(*__, **_) -> Never:
+    """
+    Qt's 'void QDate::getDate(int *year, int *month, int *day) const': takes
+    a number to change where it is.
+    """
+    raise NotImplementedError(
+        "'QDate.getDate' has no cute function yet. Qt's 'void "
+        "QDate::getDate(int *year, int *month, int *day) const': takes a "
+        "number to change where it is.")
+
+  @staticmethod
+  def weekNumber(*__, **_) -> Never:
+    """
+    Qt's 'int QDate::weekNumber(int *yearNum) const': takes a number to
+    change where it is.
+    """
+    raise NotImplementedError(
+        "'QDate.weekNumber' has no cute function yet. Qt's 'int "
+        "QDate::weekNumber(int *yearNum) const': takes a number to change "
+        "where it is.")

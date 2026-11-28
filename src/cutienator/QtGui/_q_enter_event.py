@@ -51,14 +51,17 @@ class QEnterEvent(QSinglePointEvent):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'QEnterEvent::QEnterEvent(const QEnterEvent &a0)': takes a type
+    Python has no way to hand over yet.
+  - Qt's 'QEnterEvent &QEnterEvent::operator=(const QEnterEvent &other)':
+    assignment: Python binds a name and has no operator for it.
   - Qt's 'QEnterEvent::~QEnterEvent()': the destructor: Python never removes
     a C++ QEnterEvent.
 
   What has no ritual
   ------------------
 
-  4 of the 16 functions Qt declares: 2 takes or gives a type that cannot be
-  passed yet; 2 forbidden.
+  2 of the 16 functions Qt declares: 2 forbidden.
 
   What to expect
   --------------
@@ -304,8 +307,9 @@ class QEnterEvent(QSinglePointEvent):
       device = QPointingDevice.primaryPointingDevice()
     self._noteCreation(QEnterEvent, lambda: Rituals.call(
         'ritual_ZN11QEnterEventC1ERK7QPointFS2_S2_PK15QPointingDevice',
-        self._valueOf(localPos), self._valueOf(scenePos),
-        self._valueOf(globalPos), self._addressOf(device),
+        self._valueOf(localPos, 'QPointF'), self._valueOf(scenePos,
+        'QPointF'), self._valueOf(globalPos, 'QPointF'),
+        self._addressOf(device),
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

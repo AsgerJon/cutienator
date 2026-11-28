@@ -15,9 +15,10 @@ from worktoy.keenum import Kee
 
 from ..cute import CuteMixin, CuteNum, MetaCute, WAIT
 from ..occult import Rituals
+from . import QtPrivate
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from . import QException, QRunnable, QThreadPool
 else:
@@ -46,7 +47,7 @@ class QFutureInterfaceBase(CuteMixin, metaclass=MetaCute):
   -----------
 
   Every function of Qt's QFutureInterfaceBase that has a ritual and that
-  Python can call so far, 61 names in all: 'reportStarted', 'reportFinished',
+  Python can call so far, 62 names in all: 'reportStarted', 'reportFinished',
   'reportCanceled', 'reportException', 'reportResultsReady', 'setRunnable',
   'setThreadPool', 'threadPool', 'setFilterMode', 'setProgressRange',
   'progressMinimum', 'progressMaximum', 'isProgressUpdateNeeded',
@@ -59,18 +60,43 @@ class QFutureInterfaceBase(CuteMixin, metaclass=MetaCute):
   'setAddResultsIfCanceledEnabled', 'isAddResultsIfCanceledEnabled',
   'setSuspended', 'toggleSuspended', 'reportSuspended', 'setThrottled',
   'waitForFinished', 'waitForNextResult', 'waitForResult', 'waitForResume',
-  'suspendIfRequested', 'hasException', '__eq__', '__ne__',
-  'isChainCanceled', 'refT', 'derefT', 'reset', 'rethrowPossibleException',
-  'cleanContinuation', 'runContinuation', 'setLaunchAsync', 'launchAsync',
-  'isRunningOrPending'. It can be made from Python, in 2 ways; see
-  '__init__'.
+  'suspendIfRequested', 'hasException', 'resultStoreBase', '__eq__',
+  '__ne__', 'isChainCanceled', 'refT', 'derefT', 'reset',
+  'rethrowPossibleException', 'cleanContinuation', 'runContinuation',
+  'setLaunchAsync', 'launchAsync', 'isRunningOrPending'. It can be made from
+  Python, in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'QFutureInterfaceBase::QFutureInterfaceBase(QFutureInterfaceBase
+    &&other)': takes a type Python has no way to hand over yet.
+  - Qt's 'QFutureInterfaceBase &QFutureInterfaceBase::operator=(const
+    QFutureInterfaceBase &other)': assignment: Python binds a name and has no
+    operator for it.
+  - Qt's 'QFutureInterfaceBase
+    &QFutureInterfaceBase::operator=(QFutureInterfaceBase &&other)':
+    assignment: Python binds a name and has no operator for it.
   - Qt's 'QFutureInterfaceBase::~QFutureInterfaceBase()': the destructor:
     Python removes its C++ QFutureInterfaceBase by it, and has no other use
     for it.
+  - Qt's 'void QFutureInterfaceBase::reportException(std::exception_ptr e)':
+    takes a type Python has no way to hand over yet.
+  - Qt's 'QMutex &QFutureInterfaceBase::mutex() const': gives a type Python
+    has no way to take yet.
+  - Qt's 'QtPrivate::ExceptionStore &QFutureInterfaceBase::exceptionStore()':
+    gives a type Python has no way to take yet.
+  - Qt's 'QtPrivate::ResultStoreBase
+    &QFutureInterfaceBase::resultStoreBase()': gives a type Python has no way
+    to take yet.
+  - Qt's 'void QFutureInterfaceBase::swap(QFutureInterfaceBase &other)':
+    takes a type Python has no way to hand over yet.
+  - Qt's 'void QFutureInterfaceBase::setContinuation(std::function<void
+    (const QFutureInterfaceBase &)> func, void *continuationFutureData,
+    ContinuationType type)': takes a type Python has no way to hand over yet.
+  - Qt's 'void QFutureInterfaceBase::setContinuation(const QObject *context,
+    std::function<void ()> func, const QVariant &continuationFuture,
+    ContinuationType type)': takes a type Python has no way to hand over yet.
   - Qt's 'void QFutureInterfaceBase::cancel(CancelMode mode)': names the enum
     'QFutureInterfaceBase::CancelMode', whose class cannot be named here.
   - Qt's 'void QFutureInterfaceBase::cancelChain(CancelMode mode)': names the
@@ -80,8 +106,7 @@ class QFutureInterfaceBase(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  12 of the 78 functions Qt declares: 11 takes or gives a type that cannot be
-  passed yet; 1 a template.
+  1 of the 78 functions Qt declares: 1 a template.
 
   What to expect
   --------------
@@ -95,6 +120,9 @@ class QFutureInterfaceBase(CuteMixin, metaclass=MetaCute):
     is as in C++.
   - A function giving a QFutureInterfaceBase back gives a copy the ritual
     made for Python, in a new cute QFutureInterfaceBase.
+  - Each name of Qt's QFutureInterfaceBase that has no cute function yet,
+    'exceptionStore', 'get', 'mutex', 'setContinuation', 'swap', holds a
+    function that raises 'NotImplementedError', and its docstring says why.
   """
 
   #  The enums Qt writes inside QFutureInterfaceBase, each a class in here as
@@ -416,6 +444,28 @@ class QFutureInterfaceBase(CuteMixin, metaclass=MetaCute):
         'ritual_ZNK20QFutureInterfaceBase12hasExceptionEv',
     )
 
+  def resultStoreBase(self) -> QtPrivate.ResultStoreBase:
+    """
+    Calls Qt's 'const QtPrivate::ResultStoreBase
+    &QFutureInterfaceBase::resultStoreBase() const'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qfutureinterfacebase.html#resultStoreBase
+
+    Returns
+    -------
+
+    QtPrivate.ResultStoreBase
+      A new cute QtPrivate::ResultStoreBase around the copy Qt gave back.
+      Python owns it.
+    """
+    #  const QtPrivate::ResultStoreBase
+    #      &QFutureInterfaceBase::resultStoreBase() const
+    address = self.uglySide.call(
+        'ritual_ZNK20QFutureInterfaceBase15resultStoreBaseEv',
+    )
+    return QtPrivate.ResultStoreBase._cuteOwning(address)
+
   def isChainCanceled(self) -> bool:
     """
     Calls Qt's 'bool QFutureInterfaceBase::isChainCanceled() const'.
@@ -493,7 +543,7 @@ class QFutureInterfaceBase(CuteMixin, metaclass=MetaCute):
     #  void QFutureInterfaceBase::setRunnable(QRunnable *runnable)
     self.uglySide.call(
         'ritual_ZN20QFutureInterfaceBase11setRunnableEP9QRunnable',
-        self._addressOf(runnable),
+        self._addressOf(runnable, 'QRunnable'),
     )
 
   @overload(QThreadPool)
@@ -1120,3 +1170,71 @@ class QFutureInterfaceBase(CuteMixin, metaclass=MetaCute):
     """
     #  void QFutureInterfaceBase::runContinuation() const
     self.uglySide.call('ritual_ZNK20QFutureInterfaceBase15runContinuationEv')
+
+  @staticmethod
+  def exceptionStore(*__, **_) -> Never:
+    """
+    Qt's 'QtPrivate::ExceptionStore &QFutureInterfaceBase::exceptionStore()':
+    gives a type Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QFutureInterfaceBase.exceptionStore' has no cute function yet. "
+        "Qt's 'QtPrivate::ExceptionStore "
+        "&QFutureInterfaceBase::exceptionStore()': gives a type Python has "
+        "no way to take yet.")
+
+  @staticmethod
+  def get(*__, **_) -> Never:
+    """
+    Qt's 'QFutureInterfaceBase::get': a template: a pattern and no single
+    function.
+    """
+    raise NotImplementedError(
+        "'QFutureInterfaceBase.get' has no cute function yet. Qt's "
+        "'QFutureInterfaceBase::get': a template: a pattern and no single "
+        "function.")
+
+  @staticmethod
+  def mutex(*__, **_) -> Never:
+    """
+    Qt's 'QMutex &QFutureInterfaceBase::mutex() const': gives a type Python
+    has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QFutureInterfaceBase.mutex' has no cute function yet. Qt's "
+        "'QMutex &QFutureInterfaceBase::mutex() const': gives a type Python "
+        "has no way to take yet.")
+
+  @staticmethod
+  def setContinuation(*__, **_) -> Never:
+    """
+    - Qt's 'void QFutureInterfaceBase::setContinuation(std::function<void
+      (const QFutureInterfaceBase &)> func, void *continuationFutureData,
+      ContinuationType type)': takes a type Python has no way to hand over
+      yet.
+    - Qt's 'void QFutureInterfaceBase::setContinuation(const QObject
+      *context, std::function<void ()> func, const QVariant
+      &continuationFuture, ContinuationType type)': takes a type Python has
+      no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QFutureInterfaceBase.setContinuation' has no cute function yet. "
+        "Qt's 'void "
+        "QFutureInterfaceBase::setContinuation(std::function<void (const "
+        "QFutureInterfaceBase &)> func, void *continuationFutureData, "
+        "ContinuationType type)': takes a type Python has no way to hand "
+        "over yet. Qt's 'void QFutureInterfaceBase::setContinuation(const "
+        "QObject *context, std::function<void ()> func, const QVariant "
+        "&continuationFuture, ContinuationType type)': takes a type Python "
+        "has no way to hand over yet.")
+
+  @staticmethod
+  def swap(*__, **_) -> Never:
+    """
+    Qt's 'void QFutureInterfaceBase::swap(QFutureInterfaceBase &other)':
+    takes a type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QFutureInterfaceBase.swap' has no cute function yet. Qt's 'void "
+        "QFutureInterfaceBase::swap(QFutureInterfaceBase &other)': takes a "
+        "type Python has no way to hand over yet.")

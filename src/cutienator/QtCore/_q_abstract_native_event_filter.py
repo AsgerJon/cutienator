@@ -12,6 +12,9 @@ from typing import TYPE_CHECKING
 
 from ..cute import CuteMixin, MetaCute
 
+if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Never
+
 
 class QAbstractNativeEventFilter(CuteMixin, metaclass=MetaCute):
   """
@@ -29,12 +32,16 @@ class QAbstractNativeEventFilter(CuteMixin, metaclass=MetaCute):
 
   - Qt's 'QAbstractNativeEventFilter::~QAbstractNativeEventFilter()': the
     destructor: Python never removes a C++ QAbstractNativeEventFilter.
+  - Qt's 'bool QAbstractNativeEventFilter::nativeEventFilter(const QByteArray
+    &eventType, void *message, qintptr *result)': names 'void', which has no
+    cute class yet.
 
   What has no ritual
   ------------------
 
-  4 of the 5 functions Qt declares: 2 forbidden; 1 the class is abstract, so
-  C++ cannot make one; 1 takes or gives a type that cannot be passed yet.
+  3 of the 5 functions Qt declares: 2 forbidden; 1 the class is abstract, so
+  C++ cannot make one, and the C++ class of ours does not fill in every
+  function it leaves open.
 
   What to expect
   --------------
@@ -47,6 +54,9 @@ class QAbstractNativeEventFilter(CuteMixin, metaclass=MetaCute):
     has it, and is passed on as nothing. Whether Qt can do with nothing there
     is as in C++.
   - Python never removes the C++ QAbstractNativeEventFilter.
+  - Each name of Qt's QAbstractNativeEventFilter that has no cute function
+    yet, '__init__', 'nativeEventFilter', holds a function that raises
+    'NotImplementedError', and its docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -101,6 +111,19 @@ class QAbstractNativeEventFilter(CuteMixin, metaclass=MetaCute):
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  @staticmethod
+  def __init__(*__, **_) -> Never:
+    """
+    Qt's 'QAbstractNativeEventFilter::QAbstractNativeEventFilter()': the
+    class is abstract, so C++ cannot make one, and the C++ class of ours does
+    not fill in every function it leaves open.
+    """
+    raise NotImplementedError(
+        "'QAbstractNativeEventFilter.__init__' has no cute function yet. "
+        "Qt's 'QAbstractNativeEventFilter::QAbstractNativeEventFilter()': "
+        "the class is abstract, so C++ cannot make one, and the C++ class "
+        "of ours does not fill in every function it leaves open.")
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -120,3 +143,17 @@ class QAbstractNativeEventFilter(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def nativeEventFilter(*__, **_) -> Never:
+    """
+    Qt's 'bool QAbstractNativeEventFilter::nativeEventFilter(const QByteArray
+    &eventType, void *message, qintptr *result)': names 'void', which has no
+    cute class yet.
+    """
+    raise NotImplementedError(
+        "'QAbstractNativeEventFilter.nativeEventFilter' has no cute "
+        "function yet. Qt's 'bool "
+        "QAbstractNativeEventFilter::nativeEventFilter(const QByteArray "
+        "&eventType, void *message, qintptr *result)': names 'void', which "
+        "has no cute class yet.")

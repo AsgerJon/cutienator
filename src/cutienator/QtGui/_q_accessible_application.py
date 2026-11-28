@@ -142,7 +142,9 @@ class QAccessibleApplication(QAccessibleObject):
       ritual = (
           'ritual_own_ZNK22QAccessibleApplication12indexOfChildEPK20QAccess'
           'ibleInterface')
-    return self.uglySide.call(ritual, self._addressOf(a0))
+    return self.uglySide.call(
+        ritual, self._addressOf(a0, 'QAccessibleInterface'),
+    )
 
   def focusChild(self) -> Optional[QAccessibleInterface]:
     """

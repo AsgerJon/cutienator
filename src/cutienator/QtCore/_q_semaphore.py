@@ -15,6 +15,8 @@ from ..cute import CuteMixin, MetaCute, WAIT
 from ..occult import Rituals
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Never
+
   from . import QDeadlineTimer
 else:
   #  The cute classes this file names and is not built on. Each is brought in
@@ -57,6 +59,9 @@ class QSemaphore(CuteMixin, metaclass=MetaCute):
     has it, and is passed on as nothing. Whether Qt can do with nothing there
     is as in C++.
   - Python never removes the C++ QSemaphore.
+  - Each name of Qt's QSemaphore that has no cute function yet,
+    'try_acquire_for', 'try_acquire_until', holds a function that raises
+    'NotImplementedError', and its docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -251,3 +256,25 @@ class QSemaphore(CuteMixin, metaclass=MetaCute):
     """
     #  bool QSemaphore::try_acquire()
     return self.uglySide.call('ritual_ZN10QSemaphore11try_acquireEv')
+
+  @staticmethod
+  def try_acquire_for(*__, **_) -> Never:
+    """
+    Qt's 'QSemaphore::try_acquire_for': a template: a pattern and no single
+    function.
+    """
+    raise NotImplementedError(
+        "'QSemaphore.try_acquire_for' has no cute function yet. Qt's "
+        "'QSemaphore::try_acquire_for': a template: a pattern and no single "
+        "function.")
+
+  @staticmethod
+  def try_acquire_until(*__, **_) -> Never:
+    """
+    Qt's 'QSemaphore::try_acquire_until': a template: a pattern and no single
+    function.
+    """
+    raise NotImplementedError(
+        "'QSemaphore.try_acquire_until' has no cute function yet. Qt's "
+        "'QSemaphore::try_acquire_until': a template: a pattern and no "
+        "single function.")

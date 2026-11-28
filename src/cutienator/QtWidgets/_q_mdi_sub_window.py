@@ -23,7 +23,7 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   from ..QtGui import QCloseEvent, QContextMenuEvent, QFocusEvent, QHideEvent
   from ..QtGui import QKeyEvent, QMouseEvent, QMoveEvent, QPaintEvent
   from ..QtGui import QResizeEvent, QShowEvent
-  from . import QMdiArea, QMenu
+  from . import QMdiArea, QMdiSubWindowPrivate, QMenu
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -60,30 +60,35 @@ class QMdiSubWindow(QWidget):
   -----------
 
   Every function of Qt's QMdiSubWindow that has a ritual and that Python can
-  call so far, 40 names in all: 'metaObject', 'tr', 'sizeHint',
+  call so far, 43 names in all: 'metaObject', 'tr', 'sizeHint',
   'minimumSizeHint', 'setWidget', 'widget', 'maximizedButtonsWidget',
   'maximizedSystemMenuIconWidget', 'isShaded', 'setOption', 'testOption',
   'setKeyboardSingleStep', 'keyboardSingleStep', 'setKeyboardPageStep',
   'keyboardPageStep', 'setSystemMenu', 'systemMenu', 'mdiArea',
-  'showSystemMenu', 'showShaded', 'eventFilter', 'event', 'showEvent',
-  'hideEvent', 'changeEvent', 'closeEvent', 'leaveEvent', 'resizeEvent',
-  'timerEvent', 'moveEvent', 'paintEvent', 'mousePressEvent',
-  'mouseDoubleClickEvent', 'mouseReleaseEvent', 'mouseMoveEvent',
-  'keyPressEvent', 'contextMenuEvent', 'focusInEvent', 'focusOutEvent',
-  'childEvent'. It can be made from Python, in 1 way; see '__init__'.
+  'windowStateChanged', 'aboutToActivate', 'showSystemMenu', 'showShaded',
+  'eventFilter', 'event', 'showEvent', 'hideEvent', 'changeEvent',
+  'closeEvent', 'leaveEvent', 'resizeEvent', 'timerEvent', 'moveEvent',
+  'paintEvent', 'mousePressEvent', 'mouseDoubleClickEvent',
+  'mouseReleaseEvent', 'mouseMoveEvent', 'keyPressEvent', 'contextMenuEvent',
+  'focusInEvent', 'focusOutEvent', 'childEvent', 'd_func'. It can be made
+  from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QMdiSubWindow::qt_metacast(const char *a0)': one of Qt's own
+    inner workings.
+  - Qt's 'int QMdiSubWindow::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
   - Qt's 'QMdiSubWindow::~QMdiSubWindow()': the destructor: Python never
     removes a C++ QMdiSubWindow.
+  - Qt's 'const QMdiSubWindowPrivate *QMdiSubWindow::d_func() const': takes
+    in Python what 'QMdiSubWindowPrivate *QMdiSubWindow::d_func()' takes.
 
   What has no ritual
   ------------------
 
-  10 of the 52 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet; 2 a signal; 2 forbidden; 1 a template; 1 declared and nowhere
-  to be found.
+  4 of the 52 functions Qt declares: 2 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -567,6 +572,45 @@ class QMdiSubWindow(QWidget):
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  @overload(Qt.WindowStates, Qt.WindowStates)
+  def windowStateChanged(
+      self,
+      oldState: Qt.WindowStates,
+      newState: Qt.WindowStates,
+  ) -> None:
+    """
+    Calls Qt's 'void QMdiSubWindow::windowStateChanged(Qt::WindowStates
+    oldState, Qt::WindowStates newState)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qmdisubwindow.html#windowStateChanged
+
+    Parameters
+    ----------
+
+    oldState : Qt.WindowStates
+      Passed on as its number.
+
+    newState : Qt.WindowStates
+      Passed on as its number.
+    """
+    #  void QMdiSubWindow::windowStateChanged(Qt::WindowStates oldState,
+    #      Qt::WindowStates newState)
+    self.uglySide.call(
+        'ritual_ZN13QMdiSubWindow18windowStateChangedE6QFlagsIN2Qt11WindowS'
+        'tateEES3_',
+        oldState.value, newState.value,
+    )
+
+  def aboutToActivate(self) -> None:
+    """
+    Calls Qt's 'void QMdiSubWindow::aboutToActivate()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmdisubwindow.html#aboutToActivate
+    """
+    #  void QMdiSubWindow::aboutToActivate()
+    self.uglySide.call('ritual_ZN13QMdiSubWindow15aboutToActivateEv')
+
   def showSystemMenu(self) -> None:
     """
     Calls Qt's 'void QMdiSubWindow::showSystemMenu()'.
@@ -1035,6 +1079,24 @@ class QMdiSubWindow(QWidget):
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZN13QMdiSubWindow10childEventEP11QChildEvent'
     self.uglySide.call(ritual, self._addressOf(childEvent))
+
+  def d_func(self) -> Optional[QMdiSubWindowPrivate]:
+    """
+    Calls Qt's 'QMdiSubWindowPrivate *QMdiSubWindow::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmdisubwindow.html#d_func
+
+    Returns
+    -------
+
+    Optional[QMdiSubWindowPrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QMdiSubWindowPrivate *QMdiSubWindow::d_func()
+    address = self.uglySide.call('ritual_ZN13QMdiSubWindow6d_funcEv')
+    from . import QMdiSubWindowPrivate
+    return QMdiSubWindowPrivate._cuteAt(address)
 
 
 #  Qt's 'QList<QMdiSubWindow *>': the list of QMdiSubWindow, which

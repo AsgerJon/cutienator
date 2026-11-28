@@ -17,10 +17,11 @@ from ..QtCore import QObject
 from . import QDialog, QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from ..QtCore import QEvent, QMetaObject
   from ..QtGui import QFont
+  from . import QFontDialogPrivate
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -45,14 +46,21 @@ class QFontDialog(QDialog):
   -----------
 
   Every function of Qt's QFontDialog that has a ritual and that Python can
-  call so far, 14 names in all: 'metaObject', 'tr', 'setCurrentFont',
-  'currentFont', 'selectedFont', 'setOption', 'testOption', 'setOptions',
-  'options', 'open', 'setVisible', 'changeEvent', 'done', 'eventFilter'. It
-  can be made from Python, in 2 ways; see '__init__'.
+  call so far, 17 names in all: 'metaObject', 'tr', 'd_func',
+  'setCurrentFont', 'currentFont', 'selectedFont', 'setOption', 'testOption',
+  'setOptions', 'options', 'open', 'setVisible', 'currentFontChanged',
+  'fontSelected', 'changeEvent', 'done', 'eventFilter'. It can be made from
+  Python, in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QFontDialog::qt_metacast(const char *a0)': one of Qt's own
+    inner workings.
+  - Qt's 'int QFontDialog::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
+  - Qt's 'const QFontDialogPrivate *QFontDialog::d_func() const': takes in
+    Python what 'QFontDialogPrivate *QFontDialog::d_func()' takes.
   - Qt's 'QFontDialog::~QFontDialog()': the destructor: Python never removes
     a C++ QFontDialog.
   - Qt's 'QFont QFontDialog::getFont(bool *ok, QWidget *parent)': takes a
@@ -64,9 +72,7 @@ class QFontDialog(QDialog):
   What has no ritual
   ------------------
 
-  10 of the 29 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet; 2 a signal; 2 forbidden; 1 a template; 1 declared and nowhere
-  to be found.
+  4 of the 29 functions Qt declares: 2 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -82,6 +88,9 @@ class QFontDialog(QDialog):
   - Qt tells when it has removed the C++ QFontDialog. Every call on the cute
     object, and every use of it as an argument, then raises 'RuntimeError',
     and nothing reaches C++.
+  - Each name of Qt's QFontDialog that has no cute function yet, 'getFont',
+    holds a function that raises 'NotImplementedError', and its docstring
+    says why.
   """
 
   #  The enums Qt writes inside QFontDialog, each a class in here as in C++,
@@ -432,6 +441,24 @@ class QFontDialog(QDialog):
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  def d_func(self) -> Optional[QFontDialogPrivate]:
+    """
+    Calls Qt's 'QFontDialogPrivate *QFontDialog::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfontdialog.html#d_func
+
+    Returns
+    -------
+
+    Optional[QFontDialogPrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QFontDialogPrivate *QFontDialog::d_func()
+    address = self.uglySide.call('ritual_ZN11QFontDialog6d_funcEv')
+    from . import QFontDialogPrivate
+    return QFontDialogPrivate._cuteAt(address)
+
   @overload(QObject, str)
   @overload(QObject, NoneType)
   @overload(NoneType, str)
@@ -457,6 +484,44 @@ class QFontDialog(QDialog):
     self.uglySide.call(
         'ritual_ZN11QFontDialog4openEP7QObjectPKc',
         self._addressOf(receiver, 'QObject'), self._bytesOf(member),
+    )
+
+  @overload(QFont)
+  def currentFontChanged(self, font: QFont) -> None:
+    """
+    Calls Qt's 'void QFontDialog::currentFontChanged(const QFont &font)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qfontdialog.html#currentFontChanged
+
+    Parameters
+    ----------
+
+    font : QFont
+      Passed on as a value: Qt reads the C++ QFont, which stays Python's own.
+    """
+    #  void QFontDialog::currentFontChanged(const QFont &font)
+    self.uglySide.call(
+        'ritual_ZN11QFontDialog18currentFontChangedERK5QFont',
+        self._valueOf(font),
+    )
+
+  @overload(QFont)
+  def fontSelected(self, font: QFont) -> None:
+    """
+    Calls Qt's 'void QFontDialog::fontSelected(const QFont &font)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfontdialog.html#fontSelected
+
+    Parameters
+    ----------
+
+    font : QFont
+      Passed on as a value: Qt reads the C++ QFont, which stays Python's own.
+    """
+    #  void QFontDialog::fontSelected(const QFont &font)
+    self.uglySide.call(
+        'ritual_ZN11QFontDialog12fontSelectedERK5QFont', self._valueOf(font),
     )
 
   @overload(QEvent)
@@ -532,3 +597,19 @@ class QFontDialog(QDialog):
     return self.uglySide.call(
         ritual, self._addressOf(object, 'QObject'), self._addressOf(event),
     )
+
+  @staticmethod
+  def getFont(*__, **_) -> Never:
+    """
+    - Qt's 'QFont QFontDialog::getFont(bool *ok, QWidget *parent)': takes a
+      number to change where it is.
+    - Qt's 'QFont QFontDialog::getFont(bool *ok, const QFont &initial,
+      QWidget *parent, const QString &title, FontDialogOptions options)':
+      takes a number to change where it is.
+    """
+    raise NotImplementedError(
+        "'QFontDialog.getFont' has no cute function yet. Qt's 'QFont "
+        "QFontDialog::getFont(bool *ok, QWidget *parent)': takes a number "
+        "to change where it is. Qt's 'QFont QFontDialog::getFont(bool *ok, "
+        "const QFont &initial, QWidget *parent, const QString &title, "
+        "FontDialogOptions options)': takes a number to change where it is.")

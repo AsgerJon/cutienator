@@ -12,11 +12,18 @@ from typing import TYPE_CHECKING
 from worktoy.core.sentinels import THIS
 from worktoy.dispatch import overload
 
+from ..cute import WAIT
 from ..occult import Rituals
-from . import QMetaContainer
+from . import QMetaContainer, QtMetaContainerPrivate
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Never, Optional
+
   from . import QMetaType
+
+#  The class of None, for a signature that takes None in the place of an
+#  object or of text.
+NoneType = type(None)
 
 
 class QMetaSequence(QMetaContainer):
@@ -35,26 +42,56 @@ class QMetaSequence(QMetaContainer):
   -----------
 
   Every function of Qt's QMetaSequence that has a ritual and that Python can
-  call so far, 18 names in all: 'valueMetaType', 'isSortable',
+  call so far, 20 names in all: 'valueMetaType', 'isSortable',
   'canAddValueAtBegin', 'canAddValueAtEnd', 'canRemoveValueAtBegin',
   'canRemoveValueAtEnd', 'canGetValueAtIndex', 'canSetValueAtIndex',
   'canAddValue', 'canRemoveValue', 'canGetValueAtIterator',
   'canSetValueAtIterator', 'canInsertValueAtIterator',
   'canEraseValueAtIterator', 'canEraseRangeAtIterator',
-  'canGetValueAtConstIterator', '__eq__', '__ne__'. It can be made from
-  Python, in 1 way; see '__init__'.
+  'canGetValueAtConstIterator', 'iface', '__eq__', '__ne__', 'd'. It can be
+  made from Python, in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void QMetaSequence::addValueAtBegin(void *container, const void
+    *value) const': names 'void', which has no cute class yet.
+  - Qt's 'void QMetaSequence::addValueAtEnd(void *container, const void
+    *value) const': names 'void', which has no cute class yet.
+  - Qt's 'void QMetaSequence::removeValueAtBegin(void *container) const':
+    names 'void', which has no cute class yet.
+  - Qt's 'void QMetaSequence::removeValueAtEnd(void *container) const': names
+    'void', which has no cute class yet.
+  - Qt's 'void QMetaSequence::valueAtIndex(const void *container, qsizetype
+    index, void *result) const': names 'void', which has no cute class yet.
+  - Qt's 'void QMetaSequence::setValueAtIndex(void *container, qsizetype
+    index, const void *value) const': names 'void', which has no cute class
+    yet.
+  - Qt's 'void QMetaSequence::addValue(void *container, const void *value)
+    const': names 'void', which has no cute class yet.
+  - Qt's 'void QMetaSequence::removeValue(void *container) const': names
+    'void', which has no cute class yet.
+  - Qt's 'void QMetaSequence::valueAtIterator(const void *iterator, void
+    *result) const': names 'void', which has no cute class yet.
+  - Qt's 'void QMetaSequence::setValueAtIterator(const void *iterator, const
+    void *value) const': names 'void', which has no cute class yet.
+  - Qt's 'void QMetaSequence::insertValueAtIterator(void *container, const
+    void *iterator, const void *value) const': names 'void', which has no
+    cute class yet.
+  - Qt's 'void QMetaSequence::eraseValueAtIterator(void *container, const
+    void *iterator) const': names 'void', which has no cute class yet.
+  - Qt's 'void QMetaSequence::eraseRangeAtIterator(void *container, const
+    void *iterator1, const void *iterator2) const': names 'void', which has
+    no cute class yet.
+  - Qt's 'void QMetaSequence::valueAtConstIterator(const void *iterator, void
+    *result) const': names 'void', which has no cute class yet.
   - Qt's 'QMetaSequence::~QMetaSequence()': the destructor: Python removes
     its C++ QMetaSequence by it, and has no other use for it.
 
   What has no ritual
   ------------------
 
-  18 of the 38 functions Qt declares: 17 takes or gives a type that cannot be
-  passed yet; 1 a template.
+  1 of the 38 functions Qt declares: 1 a template.
 
   What to expect
   --------------
@@ -68,6 +105,13 @@ class QMetaSequence(QMetaContainer):
     is as in C++.
   - A function giving a QMetaSequence back gives a copy the ritual made for
     Python, in a new cute QMetaSequence.
+  - Each name of Qt's QMetaSequence that has no cute function yet,
+    'addValue', 'addValueAtBegin', 'addValueAtEnd', 'eraseRangeAtIterator',
+    'eraseValueAtIterator', 'fromContainer', 'insertValueAtIterator',
+    'removeValue', 'removeValueAtBegin', 'removeValueAtEnd',
+    'setValueAtIndex', 'setValueAtIterator', 'valueAtConstIterator',
+    'valueAtIndex', 'valueAtIterator', holds a function that raises
+    'NotImplementedError', and its docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -289,6 +333,44 @@ class QMetaSequence(QMetaContainer):
         'ritual_ZNK13QMetaSequence26canGetValueAtConstIteratorEv',
     )
 
+  def iface(self) -> Optional[QtMetaContainerPrivate.QMetaSequenceInterface]:
+    """
+    Calls Qt's 'const QtMetaContainerPrivate::QMetaSequenceInterface
+    *QMetaSequence::iface() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmetasequence.html#iface
+
+    Returns
+    -------
+
+    Optional[QtMetaContainerPrivate.QMetaSequenceInterface]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  const QtMetaContainerPrivate::QMetaSequenceInterface
+    #      *QMetaSequence::iface() const
+    address = self.uglySide.call('ritual_ZNK13QMetaSequence5ifaceEv')
+    return QtMetaContainerPrivate.QMetaSequenceInterface._cuteAt(address)
+
+  def d(self) -> Optional[QtMetaContainerPrivate.QMetaSequenceInterface]:
+    """
+    Calls Qt's 'const QtMetaContainerPrivate::QMetaSequenceInterface
+    *QMetaSequence::d() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmetasequence.html#d
+
+    Returns
+    -------
+
+    Optional[QtMetaContainerPrivate.QMetaSequenceInterface]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  const QtMetaContainerPrivate::QMetaSequenceInterface
+    #      *QMetaSequence::d() const
+    address = self.uglySide.call('ritual_ZNK13QMetaSequence1dEv')
+    return QtMetaContainerPrivate.QMetaSequenceInterface._cuteAt(address)
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -378,6 +460,34 @@ class QMetaSequence(QMetaContainer):
         'ritual_ZN13QMetaSequenceC1Ev',
     ))
 
+  @overload(WAIT['QtMetaContainerPrivate.QMetaSequenceInterface'])
+  @overload(NoneType)
+  def __init__(
+      self,
+      d: Optional[QtMetaContainerPrivate.QMetaSequenceInterface],
+  ) -> None:
+    """
+    Notes what was given, for Qt's 'QMetaSequence::QMetaSequence(const
+    QtMetaContainerPrivate::QMetaSequenceInterface *d)', which is called at
+    the first use.
+
+    Qt's own words: https://doc.qt.io/qt-6/qmetasequence.html#QMetaSequence
+
+    Parameters
+    ----------
+
+    d : Optional[QtMetaContainerPrivate.QMetaSequenceInterface]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  QMetaSequence::QMetaSequence(const
+    #      QtMetaContainerPrivate::QMetaSequenceInterface *d)
+    self._noteCreation(QMetaSequence, lambda: Rituals.call(
+        'ritual_ZN13QMetaSequenceC1EPKN22QtMetaContainerPrivate22QMetaSeque'
+        'nceInterfaceE',
+        self._addressOf(d),
+    ))
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -397,3 +507,178 @@ class QMetaSequence(QMetaContainer):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def addValue(*__, **_) -> Never:
+    """
+    Qt's 'void QMetaSequence::addValue(void *container, const void *value)
+    const': names 'void', which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QMetaSequence.addValue' has no cute function yet. Qt's 'void "
+        "QMetaSequence::addValue(void *container, const void *value) "
+        "const': names 'void', which has no cute class yet.")
+
+  @staticmethod
+  def addValueAtBegin(*__, **_) -> Never:
+    """
+    Qt's 'void QMetaSequence::addValueAtBegin(void *container, const void
+    *value) const': names 'void', which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QMetaSequence.addValueAtBegin' has no cute function yet. Qt's "
+        "'void QMetaSequence::addValueAtBegin(void *container, const void "
+        "*value) const': names 'void', which has no cute class yet.")
+
+  @staticmethod
+  def addValueAtEnd(*__, **_) -> Never:
+    """
+    Qt's 'void QMetaSequence::addValueAtEnd(void *container, const void
+    *value) const': names 'void', which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QMetaSequence.addValueAtEnd' has no cute function yet. Qt's 'void "
+        "QMetaSequence::addValueAtEnd(void *container, const void *value) "
+        "const': names 'void', which has no cute class yet.")
+
+  @staticmethod
+  def eraseRangeAtIterator(*__, **_) -> Never:
+    """
+    Qt's 'void QMetaSequence::eraseRangeAtIterator(void *container, const
+    void *iterator1, const void *iterator2) const': names 'void', which has
+    no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QMetaSequence.eraseRangeAtIterator' has no cute function yet. "
+        "Qt's 'void QMetaSequence::eraseRangeAtIterator(void *container, "
+        "const void *iterator1, const void *iterator2) const': names "
+        "'void', which has no cute class yet.")
+
+  @staticmethod
+  def eraseValueAtIterator(*__, **_) -> Never:
+    """
+    Qt's 'void QMetaSequence::eraseValueAtIterator(void *container, const
+    void *iterator) const': names 'void', which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QMetaSequence.eraseValueAtIterator' has no cute function yet. "
+        "Qt's 'void QMetaSequence::eraseValueAtIterator(void *container, "
+        "const void *iterator) const': names 'void', which has no cute "
+        "class yet.")
+
+  @staticmethod
+  def fromContainer(*__, **_) -> Never:
+    """
+    Qt's 'QMetaSequence::fromContainer': a template: a pattern and no single
+    function.
+    """
+    raise NotImplementedError(
+        "'QMetaSequence.fromContainer' has no cute function yet. Qt's "
+        "'QMetaSequence::fromContainer': a template: a pattern and no "
+        "single function.")
+
+  @staticmethod
+  def insertValueAtIterator(*__, **_) -> Never:
+    """
+    Qt's 'void QMetaSequence::insertValueAtIterator(void *container, const
+    void *iterator, const void *value) const': names 'void', which has no
+    cute class yet.
+    """
+    raise NotImplementedError(
+        "'QMetaSequence.insertValueAtIterator' has no cute function yet. "
+        "Qt's 'void QMetaSequence::insertValueAtIterator(void *container, "
+        "const void *iterator, const void *value) const': names 'void', "
+        "which has no cute class yet.")
+
+  @staticmethod
+  def removeValue(*__, **_) -> Never:
+    """
+    Qt's 'void QMetaSequence::removeValue(void *container) const': names
+    'void', which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QMetaSequence.removeValue' has no cute function yet. Qt's 'void "
+        "QMetaSequence::removeValue(void *container) const': names 'void', "
+        "which has no cute class yet.")
+
+  @staticmethod
+  def removeValueAtBegin(*__, **_) -> Never:
+    """
+    Qt's 'void QMetaSequence::removeValueAtBegin(void *container) const':
+    names 'void', which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QMetaSequence.removeValueAtBegin' has no cute function yet. Qt's "
+        "'void QMetaSequence::removeValueAtBegin(void *container) const': "
+        "names 'void', which has no cute class yet.")
+
+  @staticmethod
+  def removeValueAtEnd(*__, **_) -> Never:
+    """
+    Qt's 'void QMetaSequence::removeValueAtEnd(void *container) const': names
+    'void', which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QMetaSequence.removeValueAtEnd' has no cute function yet. Qt's "
+        "'void QMetaSequence::removeValueAtEnd(void *container) const': "
+        "names 'void', which has no cute class yet.")
+
+  @staticmethod
+  def setValueAtIndex(*__, **_) -> Never:
+    """
+    Qt's 'void QMetaSequence::setValueAtIndex(void *container, qsizetype
+    index, const void *value) const': names 'void', which has no cute class
+    yet.
+    """
+    raise NotImplementedError(
+        "'QMetaSequence.setValueAtIndex' has no cute function yet. Qt's "
+        "'void QMetaSequence::setValueAtIndex(void *container, qsizetype "
+        "index, const void *value) const': names 'void', which has no cute "
+        "class yet.")
+
+  @staticmethod
+  def setValueAtIterator(*__, **_) -> Never:
+    """
+    Qt's 'void QMetaSequence::setValueAtIterator(const void *iterator, const
+    void *value) const': names 'void', which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QMetaSequence.setValueAtIterator' has no cute function yet. Qt's "
+        "'void QMetaSequence::setValueAtIterator(const void *iterator, "
+        "const void *value) const': names 'void', which has no cute class "
+        "yet.")
+
+  @staticmethod
+  def valueAtConstIterator(*__, **_) -> Never:
+    """
+    Qt's 'void QMetaSequence::valueAtConstIterator(const void *iterator, void
+    *result) const': names 'void', which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QMetaSequence.valueAtConstIterator' has no cute function yet. "
+        "Qt's 'void QMetaSequence::valueAtConstIterator(const void "
+        "*iterator, void *result) const': names 'void', which has no cute "
+        "class yet.")
+
+  @staticmethod
+  def valueAtIndex(*__, **_) -> Never:
+    """
+    Qt's 'void QMetaSequence::valueAtIndex(const void *container, qsizetype
+    index, void *result) const': names 'void', which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QMetaSequence.valueAtIndex' has no cute function yet. Qt's 'void "
+        "QMetaSequence::valueAtIndex(const void *container, qsizetype "
+        "index, void *result) const': names 'void', which has no cute class "
+        "yet.")
+
+  @staticmethod
+  def valueAtIterator(*__, **_) -> Never:
+    """
+    Qt's 'void QMetaSequence::valueAtIterator(const void *iterator, void
+    *result) const': names 'void', which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QMetaSequence.valueAtIterator' has no cute function yet. Qt's "
+        "'void QMetaSequence::valueAtIterator(const void *iterator, void "
+        "*result) const': names 'void', which has no cute class yet.")

@@ -48,14 +48,17 @@ class QModelRoleDataSpan(CuteMixin, metaclass=MetaCute):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'QModelRoleDataSpan::QModelRoleDataSpan(QModelRoleData
+    &modelRoleData)': takes a type Python has no way to hand over yet.
+  - Qt's 'QModelRoleData &QModelRoleDataSpan::operator[](qsizetype index)
+    const': gives a type Python has no way to take yet.
   - Qt's 'QModelRoleDataSpan::~QModelRoleDataSpan()': the destructor: Python
     removes its C++ QModelRoleDataSpan by it, and has no other use for it.
 
   What has no ritual
   ------------------
 
-  3 of the 12 functions Qt declares: 2 takes or gives a type that cannot be
-  passed yet; 1 a template.
+  1 of the 12 functions Qt declares: 1 a template.
 
   What to expect
   --------------

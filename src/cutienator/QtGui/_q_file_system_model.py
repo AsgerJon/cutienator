@@ -18,12 +18,12 @@ from ..QtCore import Qt, QAbstractItemModel, QDir, QHash, QList, QObject
 from ..QtCore import QStringList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from ..QtCore import QByteArray, QDateTime, QEvent, QFileInfo, QMetaObject
   from ..QtCore import QMimeData, QModelIndex, QTimeZone, QTimerEvent
   from ..QtCore import QVariant
-  from . import QAbstractFileIconProvider, QIcon
+  from . import QAbstractFileIconProvider, QFileSystemModelPrivate, QIcon
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -53,31 +53,41 @@ class QFileSystemModel(QAbstractItemModel):
   -----------
 
   Every function of Qt's QFileSystemModel that has a ritual and that Python
-  can call so far, 53 names in all: 'metaObject', 'tr', 'index', 'parent',
-  'sibling', 'hasChildren', 'canFetchMore', 'fetchMore', 'rowCount',
-  'columnCount', 'myComputer', 'data', 'setData', 'headerData', 'flags',
-  'sort', 'mimeTypes', 'mimeData', 'dropMimeData', 'supportedDropActions',
+  can call so far, 57 names in all: 'metaObject', 'tr', 'rootPathChanged',
+  'fileRenamed', 'directoryLoaded', 'index', 'parent', 'sibling',
+  'hasChildren', 'canFetchMore', 'fetchMore', 'rowCount', 'columnCount',
+  'myComputer', 'data', 'setData', 'headerData', 'flags', 'sort',
+  'mimeTypes', 'mimeData', 'dropMimeData', 'supportedDropActions',
   'roleNames', 'setRootPath', 'rootPath', 'rootDirectory', 'setIconProvider',
   'iconProvider', 'setFilter', 'filter', 'setResolveSymlinks',
   'resolveSymlinks', 'setReadOnly', 'isReadOnly', 'setNameFilterDisables',
   'nameFilterDisables', 'setNameFilters', 'nameFilters', 'setOption',
   'testOption', 'setOptions', 'options', 'filePath', 'isDir', 'size', 'type',
   'lastModified', 'mkdir', 'rmdir', 'fileName', 'fileIcon', 'fileInfo',
-  'remove', 'timerEvent', 'event'. It can be made from Python, in 1 way; see
-  '__init__'.
+  'remove', 'timerEvent', 'event', 'd_func'. It can be made from Python, in 1
+  way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QFileSystemModel::qt_metacast(const char *a0)': one of Qt's
+    own inner workings.
+  - Qt's 'int QFileSystemModel::qt_metacall(QMetaObject::Call a0, int a1,
+    void **a2)': one of Qt's own inner workings.
   - Qt's 'QFileSystemModel::~QFileSystemModel()': the destructor: Python
     never removes a C++ QFileSystemModel.
+  - Qt's 'QFile::Permissions QFileSystemModel::permissions(const QModelIndex
+    &index) const': gives a type Python has no way to take yet.
+  - Qt's 'QFileSystemModel::QFileSystemModel(QFileSystemModelPrivate &a0,
+    QObject *parent)': takes a type Python has no way to hand over yet.
+  - Qt's 'const QFileSystemModelPrivate *QFileSystemModel::d_func() const':
+    takes in Python what 'QFileSystemModelPrivate
+    *QFileSystemModel::d_func()' takes.
 
   What has no ritual
   ------------------
 
-  13 of the 70 functions Qt declares: 6 takes or gives a type that cannot be
-  passed yet; 3 a signal; 2 forbidden; 1 a template; 1 declared and nowhere
-  to be found.
+  4 of the 70 functions Qt declares: 2 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -93,6 +103,9 @@ class QFileSystemModel(QAbstractItemModel):
   - Qt tells when it has removed the C++ QFileSystemModel. Every call on the
     cute object, and every use of it as an argument, then raises
     'RuntimeError', and nothing reaches C++.
+  - Each name of Qt's QFileSystemModel that has no cute function yet,
+    'permissions', holds a function that raises 'NotImplementedError', and
+    its docstring says why.
   """
 
   #  The enums Qt writes inside QFileSystemModel, each a class in here as in
@@ -1374,6 +1387,72 @@ class QFileSystemModel(QAbstractItemModel):
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  @overload(str)
+  def rootPathChanged(self, newPath: str) -> None:
+    """
+    Calls Qt's 'void QFileSystemModel::rootPathChanged(const QString
+    &newPath)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qfilesystemmodel.html#rootPathChanged
+
+    Parameters
+    ----------
+
+    newPath : str
+      Passed on as it is: a QString is made of it for the call.
+    """
+    #  void QFileSystemModel::rootPathChanged(const QString &newPath)
+    self.uglySide.call(
+        'ritual_ZN16QFileSystemModel15rootPathChangedERK7QString', newPath,
+    )
+
+  @overload(str, str, str)
+  def fileRenamed(self, path: str, oldName: str, newName: str) -> None:
+    """
+    Calls Qt's 'void QFileSystemModel::fileRenamed(const QString &path, const
+    QString &oldName, const QString &newName)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfilesystemmodel.html#fileRenamed
+
+    Parameters
+    ----------
+
+    path : str
+      Passed on as it is: a QString is made of it for the call.
+
+    oldName : str
+      Passed on as it is: a QString is made of it for the call.
+
+    newName : str
+      Passed on as it is: a QString is made of it for the call.
+    """
+    #  void QFileSystemModel::fileRenamed(const QString &path, const QString
+    #      &oldName, const QString &newName)
+    self.uglySide.call(
+        'ritual_ZN16QFileSystemModel11fileRenamedERK7QStringS2_S2_',
+        path, oldName, newName,
+    )
+
+  @overload(str)
+  def directoryLoaded(self, path: str) -> None:
+    """
+    Calls Qt's 'void QFileSystemModel::directoryLoaded(const QString &path)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qfilesystemmodel.html#directoryLoaded
+
+    Parameters
+    ----------
+
+    path : str
+      Passed on as it is: a QString is made of it for the call.
+    """
+    #  void QFileSystemModel::directoryLoaded(const QString &path)
+    self.uglySide.call(
+        'ritual_ZN16QFileSystemModel15directoryLoadedERK7QString', path,
+    )
+
   @overload(QModelIndex)
   def fetchMore(self, parent: QModelIndex) -> None:
     """
@@ -1589,3 +1668,33 @@ class QFileSystemModel(QAbstractItemModel):
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZN16QFileSystemModel5eventEP6QEvent'
     return self.uglySide.call(ritual, self._addressOf(event))
+
+  def d_func(self) -> Optional[QFileSystemModelPrivate]:
+    """
+    Calls Qt's 'QFileSystemModelPrivate *QFileSystemModel::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfilesystemmodel.html#d_func
+
+    Returns
+    -------
+
+    Optional[QFileSystemModelPrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QFileSystemModelPrivate *QFileSystemModel::d_func()
+    address = self.uglySide.call('ritual_ZN16QFileSystemModel6d_funcEv')
+    from . import QFileSystemModelPrivate
+    return QFileSystemModelPrivate._cuteAt(address)
+
+  @staticmethod
+  def permissions(*__, **_) -> Never:
+    """
+    Qt's 'QFile::Permissions QFileSystemModel::permissions(const QModelIndex
+    &index) const': gives a type Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QFileSystemModel.permissions' has no cute function yet. Qt's "
+        "'QFile::Permissions QFileSystemModel::permissions(const "
+        "QModelIndex &index) const': gives a type Python has no way to take "
+        "yet.")

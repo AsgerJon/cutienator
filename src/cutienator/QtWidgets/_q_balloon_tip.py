@@ -20,7 +20,7 @@ from ..cute import WAIT
 from . import QWidget
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from ..QtCore import QMetaObject, QTimerEvent
   from ..QtGui import QMouseEvent, QPaintEvent, QResizeEvent
@@ -54,15 +54,22 @@ class QBalloonTip(QWidget):
   'mousePressEvent', 'timerEvent'. None can be made from Python: one comes
   out of a function of another class that gives one back.
 
+  What has a ritual and is left out, and why
+  ------------------------------------------
+
+  - Qt's 'void *QBalloonTip::qt_metacast(const char *a0)': one of Qt's own
+    inner workings.
+  - Qt's 'int QBalloonTip::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
+
   What has no ritual
   ------------------
 
-  12 of the 17 functions Qt declares: 6 Qt's library has no name for it, and
-  its code in Qt's source does not compile apart from its file; 2 takes or
-  gives a type that cannot be passed yet; 1 a template; 1 declared and
-  nowhere to be found; 1 leans on 'QBalloonTip; 1 leans on 'vtable for
-  QBalloonTip', which Qt's library does not offer and Qt's source has no code
-  for that could be taken.
+  10 of the 17 functions Qt declares: 6 Qt's library has no name for it, and
+  its code in Qt's source does not compile apart from its file; 2 not a gap;
+  1 leans on 'QBalloonTip; 1 leans on 'vtable for QBalloonTip', which Qt's
+  source does not mark for use from outside Qt and has no code for that could
+  be taken.
 
   What to expect
   --------------
@@ -78,6 +85,10 @@ class QBalloonTip(QWidget):
   - Qt tells when it has removed the C++ QBalloonTip. Every call on the cute
     object, and every use of it as an argument, then raises 'RuntimeError',
     and nothing reaches C++.
+  - Each name of Qt's QBalloonTip that has no cute function yet, '__init__',
+    'balloon', 'hideBalloon', 'isBalloonVisible', 'showBalloon',
+    'updateBalloonPosition', holds a function that raises
+    'NotImplementedError', and its docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -137,6 +148,21 @@ class QBalloonTip(QWidget):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def __init__(*__, **_) -> Never:
+    """
+    Qt's 'QBalloonTip::QBalloonTip(const QIcon &icon, const QString &title,
+    const QString &msg, QSystemTrayIcon *trayIcon)': leans on 'vtable for
+    QBalloonTip', which Qt's source does not mark for use from outside Qt and
+    has no code for that could be taken.
+    """
+    raise NotImplementedError(
+        "'QBalloonTip.__init__' has no cute function yet. Qt's "
+        "'QBalloonTip::QBalloonTip(const QIcon &icon, const QString &title, "
+        "const QString &msg, QSystemTrayIcon *trayIcon)': leans on 'vtable "
+        "for QBalloonTip', which Qt's source does not mark for use from "
+        "outside Qt and has no code for that could be taken.")
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -241,3 +267,78 @@ class QBalloonTip(QWidget):
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZN11QBalloonTip10timerEventEP11QTimerEvent'
     self.uglySide.call(ritual, self._addressOf(e))
+
+  @staticmethod
+  def balloon(*__, **_) -> Never:
+    """
+    Qt's 'void QBalloonTip::balloon(const QPoint &a0, int a1, bool a2)': Qt's
+    library has no name for it, and its code in Qt's source does not compile
+    apart from its file: no matching literal operator for call to
+    'operator""ms' with argument of type 'unsigned long long' or 'const char
+    *', and no matching literal operator template.
+    """
+    raise NotImplementedError(
+        "'QBalloonTip.balloon' has no cute function yet. Qt's 'void "
+        "QBalloonTip::balloon(const QPoint &a0, int a1, bool a2)': Qt's "
+        "library has no name for it, and its code in Qt's source does not "
+        "compile apart from its file: no matching literal operator for call "
+        "to 'operator\"\"ms' with argument of type 'unsigned long long' or "
+        "'const char *', and no matching literal operator template.")
+
+  @staticmethod
+  def hideBalloon(*__, **_) -> Never:
+    """
+    Qt's 'void QBalloonTip::hideBalloon()': Qt's library has no name for it,
+    and its code in Qt's source does not compile apart from its file: use of
+    undeclared identifier 'theSolitaryBalloonTip'.
+    """
+    raise NotImplementedError(
+        "'QBalloonTip.hideBalloon' has no cute function yet. Qt's 'void "
+        "QBalloonTip::hideBalloon()': Qt's library has no name for it, and "
+        "its code in Qt's source does not compile apart from its file: use "
+        "of undeclared identifier 'theSolitaryBalloonTip'.")
+
+  @staticmethod
+  def isBalloonVisible(*__, **_) -> Never:
+    """
+    Qt's 'bool QBalloonTip::isBalloonVisible()': Qt's library has no name for
+    it, and its code in Qt's source does not compile apart from its file: use
+    of undeclared identifier 'theSolitaryBalloonTip'.
+    """
+    raise NotImplementedError(
+        "'QBalloonTip.isBalloonVisible' has no cute function yet. Qt's "
+        "'bool QBalloonTip::isBalloonVisible()': Qt's library has no name "
+        "for it, and its code in Qt's source does not compile apart from "
+        "its file: use of undeclared identifier 'theSolitaryBalloonTip'.")
+
+  @staticmethod
+  def showBalloon(*__, **_) -> Never:
+    """
+    Qt's 'void QBalloonTip::showBalloon(const QIcon &icon, const QString
+    &title, const QString &msg, QSystemTrayIcon *trayIcon, const QPoint &pos,
+    int timeout, bool showArrow)': Qt's library has no name for it, and its
+    code in Qt's source does not compile apart from its file: use of
+    undeclared identifier 'theSolitaryBalloonTip'.
+    """
+    raise NotImplementedError(
+        "'QBalloonTip.showBalloon' has no cute function yet. Qt's 'void "
+        "QBalloonTip::showBalloon(const QIcon &icon, const QString &title, "
+        "const QString &msg, QSystemTrayIcon *trayIcon, const QPoint &pos, "
+        "int timeout, bool showArrow)': Qt's library has no name for it, "
+        "and its code in Qt's source does not compile apart from its file: "
+        "use of undeclared identifier 'theSolitaryBalloonTip'.")
+
+  @staticmethod
+  def updateBalloonPosition(*__, **_) -> Never:
+    """
+    Qt's 'void QBalloonTip::updateBalloonPosition(const QPoint &pos)': Qt's
+    library has no name for it, and its code in Qt's source does not compile
+    apart from its file: use of undeclared identifier
+    'theSolitaryBalloonTip'.
+    """
+    raise NotImplementedError(
+        "'QBalloonTip.updateBalloonPosition' has no cute function yet. Qt's "
+        "'void QBalloonTip::updateBalloonPosition(const QPoint &pos)': Qt's "
+        "library has no name for it, and its code in Qt's source does not "
+        "compile apart from its file: use of undeclared identifier "
+        "'theSolitaryBalloonTip'.")

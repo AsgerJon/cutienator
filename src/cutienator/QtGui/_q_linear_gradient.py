@@ -13,6 +13,7 @@ from worktoy.dispatch import overload
 
 from ..cute import WAIT
 from ..occult import Rituals
+from ..QtCore import QList
 from . import QGradient
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
@@ -147,7 +148,7 @@ class QLinearGradient(QGradient):
     #  void QLinearGradient::setStart(const QPointF &start)
     self.uglySide.call(
         'ritual_ZN15QLinearGradient8setStartERK7QPointF',
-        self._valueOf(start),
+        self._valueOf(start, 'QPointF'),
     )
 
   @overload(float, float)
@@ -186,7 +187,7 @@ class QLinearGradient(QGradient):
     #  void QLinearGradient::setFinalStop(const QPointF &stop)
     self.uglySide.call(
         'ritual_ZN15QLinearGradient12setFinalStopERK7QPointF',
-        self._valueOf(stop),
+        self._valueOf(stop, 'QPointF'),
     )
 
   @overload(float, float)
@@ -259,7 +260,7 @@ class QLinearGradient(QGradient):
     #      &finalStop)
     self._noteCreation(QLinearGradient, lambda: Rituals.call(
         'ritual_ZN15QLinearGradientC1ERK7QPointFS2_',
-        self._valueOf(start), self._valueOf(finalStop),
+        self._valueOf(start, 'QPointF'), self._valueOf(finalStop, 'QPointF'),
     ))
 
   @overload(float, float, float, float)
@@ -319,3 +320,16 @@ class QLinearGradient(QGradient):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+
+#  Qt's 'QList<QLinearGradient>': the list of QLinearGradient, which
+#  'QList[QLinearGradient]' gives. It is made here, so that there is one as
+#  soon as there can be a QLinearGradient.
+QList.createKind(
+    QLinearGradient, 'value',
+    make='ritual_list_make_QLinearGradient',
+    add='ritual_list_add_QLinearGradient',
+    size='ritual_list_size_QLinearGradient',
+    at='ritual_list_at_QLinearGradient',
+    drop='ritual_list_drop_QLinearGradient',
+)

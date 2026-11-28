@@ -66,12 +66,16 @@ class QGraphicsSimpleTextItem(QAbstractGraphicsShapeItem):
   - Qt's 'void QGraphicsSimpleTextItem::setExtension(Extension extension,
     const QVariant &variant)': names the enum 'QGraphicsItem::Extension',
     whose class cannot be named here.
+  - Qt's 'QGraphicsSimpleTextItemPrivate *QGraphicsSimpleTextItem::d_func()':
+    gives 'QGraphicsSimpleTextItemPrivate', which has no cute class yet.
+  - Qt's 'const QGraphicsSimpleTextItemPrivate
+    *QGraphicsSimpleTextItem::d_func() const': gives
+    'QGraphicsSimpleTextItemPrivate', which has no cute class yet.
 
   What has no ritual
   ------------------
 
-  4 of the 21 functions Qt declares: 2 forbidden; 2 takes or gives a type
-  that cannot be passed yet.
+  2 of the 21 functions Qt declares: 2 forbidden.
 
   What to expect
   --------------
@@ -210,7 +214,7 @@ class QGraphicsSimpleTextItem(QAbstractGraphicsShapeItem):
     ritual = 'ritual_ZNK23QGraphicsSimpleTextItem8containsERK7QPointF'
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZNK23QGraphicsSimpleTextItem8containsERK7QPointF'
-    return self.uglySide.call(ritual, self._valueOf(point))
+    return self.uglySide.call(ritual, self._valueOf(point, 'QPointF'))
 
   @overload(QGraphicsItem)
   @overload(NoneType)

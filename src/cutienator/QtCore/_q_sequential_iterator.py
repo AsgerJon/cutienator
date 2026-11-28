@@ -11,15 +11,14 @@ from typing import TYPE_CHECKING
 
 from ..cute import CuteMixin, MetaCute
 
+if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Never
+
 
 class QSequentialIterator(CuteMixin, metaclass=MetaCute):
   """
   The cute side of Qt's QSequentialIterator: a plain Python object standing
   in front of one C++ QSequentialIterator.
-
-  C++ hands a QSequentialIterator around as a copy, so every C++
-  QSequentialIterator behind a cute one is Python's own: it is removed, by
-  the ritual named in '__delete_ritual__', when the cute object goes.
 
   What exists
   -----------
@@ -30,15 +29,13 @@ class QSequentialIterator(CuteMixin, metaclass=MetaCute):
   What has a ritual and is left out, and why
   ------------------------------------------
 
-  - Qt's 'QSequentialIterator::~QSequentialIterator()': the destructor:
-    Python removes its C++ QSequentialIterator by it, and has no other use
-    for it.
-
-  What has no ritual
-  ------------------
-
-  3 of the 4 functions Qt declares: 3 takes or gives a type that cannot be
-  passed yet.
+  - Qt's 'QSequentialIterator::QSequentialIterator(QIterator<QMetaSequence>
+    &&it)': takes a type Python has no way to hand over yet.
+  - Qt's 'QVariantRef<QSequentialIterator> QSequentialIterator::operator*()
+    const': an operator Python has no name for.
+  - Qt's 'QVariantPointer<QSequentialIterator>
+    QSequentialIterator::operator->() const': an operator Python has no name
+    for.
 
   What to expect
   --------------
@@ -50,8 +47,10 @@ class QSequentialIterator(CuteMixin, metaclass=MetaCute):
   - None is taken wherever Qt takes an object by its address, or text as C
     has it, and is passed on as nothing. Whether Qt can do with nothing there
     is as in C++.
-  - A function giving a QSequentialIterator back gives a copy the ritual made
-    for Python, in a new cute QSequentialIterator.
+  - Python never removes the C++ QSequentialIterator.
+  - Each name of Qt's QSequentialIterator that has no cute function yet,
+    '__init__', holds a function that raises 'NotImplementedError', and its
+    docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -65,11 +64,6 @@ class QSequentialIterator(CuteMixin, metaclass=MetaCute):
   #  Class Variables
   #  The class of Qt this class stands for.
   __qt_class__ = 'QSequentialIterator'
-
-  #  Qt's '~QSequentialIterator()'. Naming it makes this a value class:
-  #  Python owns every C++ QSequentialIterator behind a cute one, and removes
-  #  it by this ritual.
-  __delete_ritual__ = 'ritual_ZN19QSequentialIteratorD1Ev'
 
   #  Fallback Variables
 
@@ -98,6 +92,17 @@ class QSequentialIterator(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def __init__(*__, **_) -> Never:
+    """
+    Qt's 'QSequentialIterator::QSequentialIterator(QIterator<QMetaSequence>
+    &&it)': takes a type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QSequentialIterator.__init__' has no cute function yet. Qt's "
+        "'QSequentialIterator::QSequentialIterator(QIterator<QMetaSequence> "
+        "&&it)': takes a type Python has no way to hand over yet.")
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #

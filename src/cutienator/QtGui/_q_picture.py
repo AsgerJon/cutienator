@@ -17,10 +17,10 @@ from ..occult import Rituals
 from . import QPaintDevice
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from ..QtCore import QIODevice, QRect
-  from . import QPaintEngine, QPainter
+  from . import QPaintEngine, QPainter, QPicturePrivate
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -50,22 +50,34 @@ class QPicture(QPaintDevice):
   -----------
 
   Every function of Qt's QPicture that has a ritual and that Python can call
-  so far, 14 names in all: 'isNull', 'devType', 'size', 'data', 'setData',
-  'play', 'load', 'save', 'boundingRect', 'setBoundingRect', 'detach',
-  'isDetached', 'paintEngine', 'metric'. It can be made from Python, in 2
-  ways; see '__init__'.
+  so far, 15 names in all: 'd_func', 'isNull', 'devType', 'size', 'data',
+  'setData', 'play', 'load', 'save', 'boundingRect', 'setBoundingRect',
+  'detach', 'isDetached', 'paintEngine', 'metric'. It can be made from
+  Python, in 2 ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'const QPicturePrivate *QPicture::d_func() const': takes in Python
+    what 'QPicturePrivate *QPicture::d_func()' takes.
   - Qt's 'QPicture::~QPicture()': the destructor: Python removes its C++
     QPicture by it, and has no other use for it.
-
-  What has no ritual
-  ------------------
-
-  10 of the 29 functions Qt declares: 10 takes or gives a type that cannot be
-  passed yet.
+  - Qt's 'QPicture &QPicture::operator=(const QPicture &p)': assignment:
+    Python binds a name and has no operator for it.
+  - Qt's 'QPicture &QPicture::operator=(QPicture &&other)': assignment:
+    Python binds a name and has no operator for it.
+  - Qt's 'void QPicture::swap(QPicture &other)': takes a type Python has no
+    way to hand over yet.
+  - Qt's 'QDataStream &operator<<(QDataStream &in, const QPicture &p)': takes
+    a type Python has no way to hand over yet.
+  - Qt's 'QDataStream &operator>>(QDataStream &in, QPicture &p)': an operator
+    between other classes, written inside this one.
+  - Qt's 'QPicture::QPicture(QPicturePrivate &data)': takes a type Python has
+    no way to hand over yet.
+  - Qt's 'bool QPicture::exec(QPainter *p, QDataStream &ds, int i)': takes a
+    type Python has no way to hand over yet.
+  - Qt's 'DataPtr &QPicture::data_ptr()': gives a type Python has no way to
+    take yet.
 
   What to expect
   --------------
@@ -78,6 +90,9 @@ class QPicture(QPaintDevice):
     is as in C++.
   - A function giving a QPicture back gives a copy the ritual made for
     Python, in a new cute QPicture.
+  - Each name of Qt's QPicture that has no cute function yet, 'data_ptr',
+    'exec', 'swap', holds a function that raises 'NotImplementedError', and
+    its docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -353,6 +368,24 @@ class QPicture(QPaintDevice):
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  def d_func(self) -> Optional[QPicturePrivate]:
+    """
+    Calls Qt's 'QPicturePrivate *QPicture::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qpicture.html#d_func
+
+    Returns
+    -------
+
+    Optional[QPicturePrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QPicturePrivate *QPicture::d_func()
+    address = self.uglySide.call('ritual_ZN8QPicture6d_funcEv')
+    from . import QPicturePrivate
+    return QPicturePrivate._cuteAt(address)
+
   @overload(QPainter)
   @overload(NoneType)
   def play(self, p: Optional[QPainter]) -> bool:
@@ -453,3 +486,36 @@ class QPicture(QPaintDevice):
     """
     #  void QPicture::detach()
     self.uglySide.call('ritual_ZN8QPicture6detachEv')
+
+  @staticmethod
+  def data_ptr(*__, **_) -> Never:
+    """
+    Qt's 'DataPtr &QPicture::data_ptr()': gives a type Python has no way to
+    take yet.
+    """
+    raise NotImplementedError(
+        "'QPicture.data_ptr' has no cute function yet. Qt's 'DataPtr "
+        "&QPicture::data_ptr()': gives a type Python has no way to take yet."
+    )
+
+  @staticmethod
+  def exec(*__, **_) -> Never:
+    """
+    Qt's 'bool QPicture::exec(QPainter *p, QDataStream &ds, int i)': takes a
+    type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QPicture.exec' has no cute function yet. Qt's 'bool "
+        "QPicture::exec(QPainter *p, QDataStream &ds, int i)': takes a type "
+        "Python has no way to hand over yet.")
+
+  @staticmethod
+  def swap(*__, **_) -> Never:
+    """
+    Qt's 'void QPicture::swap(QPicture &other)': takes a type Python has no
+    way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QPicture.swap' has no cute function yet. Qt's 'void "
+        "QPicture::swap(QPicture &other)': takes a type Python has no way "
+        "to hand over yet.")

@@ -21,7 +21,10 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Optional
 
   from ..QtCore import QEvent, QMetaObject, QSize
-  from ..QtGui import QImage, QPaintEvent, QResizeEvent
+  from ..QtGui import QImage, QPaintEvent, QResizeEvent, QRhi
+  from ..QtGui import QRhiCommandBuffer, QRhiRenderBuffer, QRhiRenderTarget
+  from ..QtGui import QRhiTexture
+  from . import QRhiWidgetPrivate
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -29,6 +32,7 @@ else:
   QEvent = WAIT['QEvent']
   QPaintEvent = WAIT['QPaintEvent']
   QResizeEvent = WAIT['QResizeEvent']
+  QRhiCommandBuffer = WAIT['QRhiCommandBuffer']
   QSize = WAIT['QSize']
 
 #  The class of None, for a signature that takes None in the place of an
@@ -48,26 +52,37 @@ class QRhiWidget(QWidget):
   -----------
 
   Every function of Qt's QRhiWidget that has a ritual and that Python can
-  call so far, 21 names in all: 'metaObject', 'tr', 'api', 'setApi',
-  'isDebugLayerEnabled', 'setDebugLayerEnabled', 'sampleCount',
+  call so far, 36 names in all: 'metaObject', 'tr', 'd_func', 'api',
+  'setApi', 'isDebugLayerEnabled', 'setDebugLayerEnabled', 'sampleCount',
   'setSampleCount', 'colorBufferFormat', 'setColorBufferFormat',
   'fixedColorBufferSize', 'setFixedColorBufferSize',
   'isMirrorVerticallyEnabled', 'setMirrorVertically', 'grabFramebuffer',
-  'isAutoRenderTargetEnabled', 'setAutoRenderTarget', 'releaseResources',
-  'resizeEvent', 'paintEvent', 'event'. It can be made from Python, in 1 way;
-  see '__init__'.
+  'isAutoRenderTargetEnabled', 'setAutoRenderTarget', 'initialize', 'render',
+  'releaseResources', 'rhi', 'colorTexture', 'msaaColorBuffer',
+  'resolveTexture', 'depthStencilBuffer', 'renderTarget', 'resizeEvent',
+  'paintEvent', 'event', 'frameSubmitted', 'renderFailed',
+  'sampleCountChanged', 'colorBufferFormatChanged',
+  'fixedColorBufferSizeChanged', 'mirrorVerticallyChanged'. It can be made
+  from Python, in 1 way; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QRhiWidget::qt_metacast(const char *a0)': one of Qt's own
+    inner workings.
+  - Qt's 'int QRhiWidget::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
+  - Qt's 'const QRhiWidgetPrivate *QRhiWidget::d_func() const': takes in
+    Python what 'QRhiWidgetPrivate *QRhiWidget::d_func()' takes.
   - Qt's 'QRhiWidget::~QRhiWidget()': the destructor: Python never removes a
     C++ QRhiWidget.
+  - Qt's 'QRhiWidget::QRhiWidget(QRhiWidgetPrivate &dd, QWidget *parent,
+    Qt::WindowFlags f)': takes a type Python has no way to hand over yet.
 
   What has no ritual
   ------------------
 
-  21 of the 45 functions Qt declares: 13 takes or gives a type that cannot be
-  passed yet; 6 a signal; 1 a template; 1 declared and nowhere to be found.
+  2 of the 45 functions Qt declares: 2 not a gap.
 
   What to expect
   --------------
@@ -172,24 +187,25 @@ class QRhiWidget(QWidget):
   #  'CuteMixin._takeOver'.
   __take_ritual__ = 'ritual_take_QRhiWidget'
 
-  #  The functions Qt calls itself that QRhiWidget is the first to declare
-  #  and that cannot be handed to Python yet, each as Qt declares it. A class
-  #  of a program that writes one of them anew is refused, since Qt would
-  #  never call what it wrote; see 'CuteMixin._refuseLeftOut'.
-  __virtual_left_out__ = {
-      'initialize': (
-          'void QRhiWidget::initialize(QRhiCommandBuffer *)',
-      ),
-      'render': (
-          'void QRhiWidget::render(QRhiCommandBuffer *)',
-      ),
-  }
-
   #  The functions Qt calls itself that QRhiWidget is the first to declare. A
   #  class of a program built on it can write one anew, and Qt then calls
   #  that. For each name: the key C++ knows the function by, what it gives,
   #  and what it takes.
   __virtual_functions__ = {
+      'initialize': (
+          ('_ZN10QRhiWidget10initializeEP17QRhiCommandBuffer',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'address', 'QtGui:QRhiCommandBuffer'),
+           )),
+      ),
+      'render': (
+          ('_ZN10QRhiWidget6renderEP17QRhiCommandBuffer',
+           ('nothing', 'nothing', ''),
+           (
+               ('address', 'address', 'QtGui:QRhiCommandBuffer'),
+           )),
+      ),
       'releaseResources': (
           ('_ZN10QRhiWidget16releaseResourcesEv',
            ('nothing', 'nothing', ''),
@@ -343,6 +359,116 @@ class QRhiWidget(QWidget):
     return self.uglySide.call(
         'ritual_ZNK10QRhiWidget25isAutoRenderTargetEnabledEv',
     )
+
+  def rhi(self) -> Optional[QRhi]:
+    """
+    Calls Qt's 'QRhi *QRhiWidget::rhi() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qrhiwidget.html#rhi
+
+    Returns
+    -------
+
+    Optional[QRhi]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QRhi *QRhiWidget::rhi() const
+    address = self.uglySide.call('ritual_ZNK10QRhiWidget3rhiEv')
+    from ..QtGui import QRhi
+    return QRhi._cuteAt(address)
+
+  def colorTexture(self) -> Optional[QRhiTexture]:
+    """
+    Calls Qt's 'QRhiTexture *QRhiWidget::colorTexture() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qrhiwidget.html#colorTexture
+
+    Returns
+    -------
+
+    Optional[QRhiTexture]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QRhiTexture *QRhiWidget::colorTexture() const
+    address = self.uglySide.call('ritual_ZNK10QRhiWidget12colorTextureEv')
+    from ..QtGui import QRhiTexture
+    return QRhiTexture._cuteAt(address)
+
+  def msaaColorBuffer(self) -> Optional[QRhiRenderBuffer]:
+    """
+    Calls Qt's 'QRhiRenderBuffer *QRhiWidget::msaaColorBuffer() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qrhiwidget.html#msaaColorBuffer
+
+    Returns
+    -------
+
+    Optional[QRhiRenderBuffer]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QRhiRenderBuffer *QRhiWidget::msaaColorBuffer() const
+    address = self.uglySide.call('ritual_ZNK10QRhiWidget15msaaColorBufferEv')
+    from ..QtGui import QRhiRenderBuffer
+    return QRhiRenderBuffer._cuteAt(address)
+
+  def resolveTexture(self) -> Optional[QRhiTexture]:
+    """
+    Calls Qt's 'QRhiTexture *QRhiWidget::resolveTexture() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qrhiwidget.html#resolveTexture
+
+    Returns
+    -------
+
+    Optional[QRhiTexture]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QRhiTexture *QRhiWidget::resolveTexture() const
+    address = self.uglySide.call('ritual_ZNK10QRhiWidget14resolveTextureEv')
+    from ..QtGui import QRhiTexture
+    return QRhiTexture._cuteAt(address)
+
+  def depthStencilBuffer(self) -> Optional[QRhiRenderBuffer]:
+    """
+    Calls Qt's 'QRhiRenderBuffer *QRhiWidget::depthStencilBuffer() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qrhiwidget.html#depthStencilBuffer
+
+    Returns
+    -------
+
+    Optional[QRhiRenderBuffer]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QRhiRenderBuffer *QRhiWidget::depthStencilBuffer() const
+    address = self.uglySide.call(
+        'ritual_ZNK10QRhiWidget18depthStencilBufferEv',
+    )
+    from ..QtGui import QRhiRenderBuffer
+    return QRhiRenderBuffer._cuteAt(address)
+
+  def renderTarget(self) -> Optional[QRhiRenderTarget]:
+    """
+    Calls Qt's 'QRhiRenderTarget *QRhiWidget::renderTarget() const'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qrhiwidget.html#renderTarget
+
+    Returns
+    -------
+
+    Optional[QRhiRenderTarget]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QRhiRenderTarget *QRhiWidget::renderTarget() const
+    address = self.uglySide.call('ritual_ZNK10QRhiWidget12renderTargetEv')
+    from ..QtGui import QRhiRenderTarget
+    return QRhiRenderTarget._cuteAt(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  SETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -564,6 +690,66 @@ class QRhiWidget(QWidget):
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  def d_func(self) -> Optional[QRhiWidgetPrivate]:
+    """
+    Calls Qt's 'QRhiWidgetPrivate *QRhiWidget::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qrhiwidget.html#d_func
+
+    Returns
+    -------
+
+    Optional[QRhiWidgetPrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QRhiWidgetPrivate *QRhiWidget::d_func()
+    address = self.uglySide.call('ritual_ZN10QRhiWidget6d_funcEv')
+    from . import QRhiWidgetPrivate
+    return QRhiWidgetPrivate._cuteAt(address)
+
+  @overload(QRhiCommandBuffer)
+  @overload(NoneType)
+  def initialize(self, cb: Optional[QRhiCommandBuffer]) -> None:
+    """
+    Calls Qt's 'void QRhiWidget::initialize(QRhiCommandBuffer *cb)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qrhiwidget.html#initialize
+
+    Parameters
+    ----------
+
+    cb : Optional[QRhiCommandBuffer]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QRhiWidget::initialize(QRhiCommandBuffer *cb)
+    ritual = 'ritual_ZN10QRhiWidget10initializeEP17QRhiCommandBuffer'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN10QRhiWidget10initializeEP17QRhiCommandBuffer'
+    self.uglySide.call(ritual, self._addressOf(cb))
+
+  @overload(QRhiCommandBuffer)
+  @overload(NoneType)
+  def render(self, cb: Optional[QRhiCommandBuffer]) -> None:
+    """
+    Calls Qt's 'void QRhiWidget::render(QRhiCommandBuffer *cb)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qrhiwidget.html#render
+
+    Parameters
+    ----------
+
+    cb : Optional[QRhiCommandBuffer]
+      Passed on as the address of its C++ object. None is passed on as no
+      object.
+    """
+    #  void QRhiWidget::render(QRhiCommandBuffer *cb)
+    ritual = 'ritual_ZN10QRhiWidget6renderEP17QRhiCommandBuffer'
+    if self.uglySide.isOurs():
+      ritual = 'ritual_own_ZN10QRhiWidget6renderEP17QRhiCommandBuffer'
+    self.uglySide.call(ritual, self._addressOf(cb))
+
   def releaseResources(self) -> None:
     """
     Calls Qt's 'void QRhiWidget::releaseResources()'.
@@ -638,3 +824,101 @@ class QRhiWidget(QWidget):
     if self.uglySide.isOurs():
       ritual = 'ritual_own_ZN10QRhiWidget5eventEP6QEvent'
     return self.uglySide.call(ritual, self._addressOf(e))
+
+  def frameSubmitted(self) -> None:
+    """
+    Calls Qt's 'void QRhiWidget::frameSubmitted()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qrhiwidget.html#frameSubmitted
+    """
+    #  void QRhiWidget::frameSubmitted()
+    self.uglySide.call('ritual_ZN10QRhiWidget14frameSubmittedEv')
+
+  def renderFailed(self) -> None:
+    """
+    Calls Qt's 'void QRhiWidget::renderFailed()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qrhiwidget.html#renderFailed
+    """
+    #  void QRhiWidget::renderFailed()
+    self.uglySide.call('ritual_ZN10QRhiWidget12renderFailedEv')
+
+  @overload(int)
+  def sampleCountChanged(self, samples: int) -> None:
+    """
+    Calls Qt's 'void QRhiWidget::sampleCountChanged(int samples)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qrhiwidget.html#sampleCountChanged
+
+    Parameters
+    ----------
+
+    samples : int
+      Passed on as it is.
+    """
+    #  void QRhiWidget::sampleCountChanged(int samples)
+    self.uglySide.call(
+        'ritual_ZN10QRhiWidget18sampleCountChangedEi', samples,
+    )
+
+  @overload(TextureFormat)
+  def colorBufferFormatChanged(self, format: TextureFormat) -> None:
+    """
+    Calls Qt's 'void QRhiWidget::colorBufferFormatChanged(TextureFormat
+    format)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qrhiwidget.html#colorBufferFormatChanged
+
+    Parameters
+    ----------
+
+    format : TextureFormat
+      Passed on as its number.
+    """
+    #  void QRhiWidget::colorBufferFormatChanged(TextureFormat format)
+    self.uglySide.call(
+        'ritual_ZN10QRhiWidget24colorBufferFormatChangedENS_13TextureFormat'
+        'E',
+        format.value,
+    )
+
+  @overload(QSize)
+  def fixedColorBufferSizeChanged(self, pixelSize: QSize) -> None:
+    """
+    Calls Qt's 'void QRhiWidget::fixedColorBufferSizeChanged(const QSize
+    &pixelSize)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qrhiwidget.html#fixedColorBufferSizeChanged
+
+    Parameters
+    ----------
+
+    pixelSize : QSize
+      Passed on as a value: Qt reads the C++ QSize, which stays Python's own.
+    """
+    #  void QRhiWidget::fixedColorBufferSizeChanged(const QSize &pixelSize)
+    self.uglySide.call(
+        'ritual_ZN10QRhiWidget27fixedColorBufferSizeChangedERK5QSize',
+        self._valueOf(pixelSize),
+    )
+
+  @overload(bool)
+  def mirrorVerticallyChanged(self, enabled: bool) -> None:
+    """
+    Calls Qt's 'void QRhiWidget::mirrorVerticallyChanged(bool enabled)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qrhiwidget.html#mirrorVerticallyChanged
+
+    Parameters
+    ----------
+
+    enabled : bool
+      Passed on as it is.
+    """
+    #  void QRhiWidget::mirrorVerticallyChanged(bool enabled)
+    self.uglySide.call(
+        'ritual_ZN10QRhiWidget23mirrorVerticallyChangedEb', enabled,
+    )

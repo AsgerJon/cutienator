@@ -18,18 +18,18 @@ from worktoy.dispatch import overload
 
 from ..cute import WAIT
 from ..QtCore import Qt, QList, QObject
+from . import QGraphicsItem
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from ..QtCore import QMetaObject, QPointF, QRectF
   from ..QtGui import QPainterPath, QPolygonF, QTransform
-  from . import QGraphicsItem, QGraphicsScene
+  from . import QGraphicsScene, QGraphicsSceneIndexPrivate
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
   #  see 'WAIT'.
-  QGraphicsItem = WAIT['QGraphicsItem']
   QPainterPath = WAIT['QPainterPath']
   QPointF = WAIT['QPointF']
   QPolygonF = WAIT['QPolygonF']
@@ -53,25 +53,34 @@ class QGraphicsSceneIndex(QObject):
   -----------
 
   Every function of Qt's QGraphicsSceneIndex that has a ritual and that
-  Python can call so far, 11 names in all: 'metaObject', 'scene', 'items',
+  Python can call so far, 12 names in all: 'metaObject', 'scene', 'items',
   'estimateItems', 'estimateTopLevelItems', 'updateSceneRect', 'clear',
-  'addItem', 'removeItem', 'deleteItem', 'prepareBoundingRectChange'. None
-  can be made from Python: one comes out of a function of another class that
-  gives one back.
+  'addItem', 'removeItem', 'deleteItem', 'prepareBoundingRectChange',
+  'd_func'. None can be made from Python: one comes out of a function of
+  another class that gives one back.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QGraphicsSceneIndex::qt_metacast(const char *a0)': one of
+    Qt's own inner workings.
+  - Qt's 'int QGraphicsSceneIndex::qt_metacall(QMetaObject::Call a0, int a1,
+    void **a2)': one of Qt's own inner workings.
   - Qt's 'QGraphicsSceneIndex::~QGraphicsSceneIndex()': the destructor:
     Python never removes a C++ QGraphicsSceneIndex.
+  - Qt's 'void QGraphicsSceneIndex::itemChange(const QGraphicsItem *item,
+    QGraphicsItem::GraphicsItemChange a1, const void *const value)': takes a
+    type Python has no way to hand over yet.
+  - Qt's 'const QGraphicsSceneIndexPrivate *QGraphicsSceneIndex::d_func()
+    const': takes in Python what 'QGraphicsSceneIndexPrivate
+    *QGraphicsSceneIndex::d_func()' takes.
 
   What has no ritual
   ------------------
 
-  14 of the 31 functions Qt declares: 5 takes or gives a type that cannot be
-  passed yet; 4 forbidden; 2 the class is abstract, so C++ cannot make one; 1
-  a template; 1 declared and nowhere to be found; 1 leans on
-  'QGraphicsSceneIndex.
+  9 of the 31 functions Qt declares: 4 forbidden; 2 not a gap; 2 the class is
+  abstract, so C++ cannot make one, and the C++ class of ours does not fill
+  in every function it leaves open; 1 leans on 'QGraphicsSceneIndex.
 
   What to expect
   --------------
@@ -87,6 +96,9 @@ class QGraphicsSceneIndex(QObject):
   - Qt tells when it has removed the C++ QGraphicsSceneIndex. Every call on
     the cute object, and every use of it as an argument, then raises
     'RuntimeError', and nothing reaches C++.
+  - Each name of Qt's QGraphicsSceneIndex that has no cute function yet,
+    '__init__', 'itemChange', holds a function that raises
+    'NotImplementedError', and its docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -273,7 +285,6 @@ class QGraphicsSceneIndex(QObject):
     address = self.uglySide.call(
         'ritual_ZNK19QGraphicsSceneIndex5itemsEN2Qt9SortOrderE', order.value,
     )
-    from . import QGraphicsItem
     return QList[QGraphicsItem]._cuteOwning(address)
 
   @overload(QPointF, Qt.ItemSelectionMode, Qt.SortOrder)
@@ -324,10 +335,9 @@ class QGraphicsSceneIndex(QObject):
     address = self.uglySide.call(
         'ritual_ZNK19QGraphicsSceneIndex5itemsERK7QPointFN2Qt17ItemSelectio'
         'nModeENS3_9SortOrderERK10QTransform',
-        self._valueOf(pos), mode.value, order.value,
+        self._valueOf(pos, 'QPointF'), mode.value, order.value,
         self._valueOf(deviceTransform),
     )
-    from . import QGraphicsItem
     return QList[QGraphicsItem]._cuteOwning(address)
 
   @overload(QRectF, Qt.ItemSelectionMode, Qt.SortOrder)
@@ -381,7 +391,6 @@ class QGraphicsSceneIndex(QObject):
         self._valueOf(rect), mode.value, order.value,
         self._valueOf(deviceTransform),
     )
-    from . import QGraphicsItem
     return QList[QGraphicsItem]._cuteOwning(address)
 
   @overload(QPolygonF, Qt.ItemSelectionMode, Qt.SortOrder)
@@ -435,7 +444,6 @@ class QGraphicsSceneIndex(QObject):
         self._valueOf(polygon), mode.value, order.value,
         self._valueOf(deviceTransform),
     )
-    from . import QGraphicsItem
     return QList[QGraphicsItem]._cuteOwning(address)
 
   @overload(QPainterPath, Qt.ItemSelectionMode, Qt.SortOrder)
@@ -489,7 +497,6 @@ class QGraphicsSceneIndex(QObject):
         self._valueOf(path), mode.value, order.value,
         self._valueOf(deviceTransform),
     )
-    from . import QGraphicsItem
     return QList[QGraphicsItem]._cuteOwning(address)
 
   @overload(QPointF, Qt.SortOrder)
@@ -527,9 +534,8 @@ class QGraphicsSceneIndex(QObject):
     address = self.uglySide.call(
         'ritual_ZNK19QGraphicsSceneIndex13estimateItemsERK7QPointFN2Qt9Sort'
         'OrderE',
-        self._valueOf(point), order.value,
+        self._valueOf(point, 'QPointF'), order.value,
     )
-    from . import QGraphicsItem
     return QList[QGraphicsItem]._cuteOwning(address)
 
   @overload(QRectF, Qt.SortOrder)
@@ -569,7 +575,6 @@ class QGraphicsSceneIndex(QObject):
         'rderE',
         self._valueOf(rect), order.value,
     )
-    from . import QGraphicsItem
     return QList[QGraphicsItem]._cuteOwning(address)
 
   @overload(QRectF, Qt.SortOrder)
@@ -610,7 +615,6 @@ class QGraphicsSceneIndex(QObject):
         'Qt9SortOrderE',
         self._valueOf(a0), order.value,
     )
-    from . import QGraphicsItem
     return QList[QGraphicsItem]._cuteOwning(address)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -628,6 +632,28 @@ class QGraphicsSceneIndex(QObject):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def __init__(*__, **_) -> Never:
+    """
+    - Qt's 'QGraphicsSceneIndex::QGraphicsSceneIndex(QGraphicsScene *scene)':
+      the class is abstract, so C++ cannot make one, and the C++ class of
+      ours does not fill in every function it leaves open.
+    - Qt's
+      'QGraphicsSceneIndex::QGraphicsSceneIndex(QGraphicsSceneIndexPrivate
+      &dd, QGraphicsScene *scene)': the class is abstract, so C++ cannot make
+      one, and the C++ class of ours does not fill in every function it
+      leaves open.
+    """
+    raise NotImplementedError(
+        "'QGraphicsSceneIndex.__init__' has no cute function yet. Qt's "
+        "'QGraphicsSceneIndex::QGraphicsSceneIndex(QGraphicsScene *scene)': "
+        "the class is abstract, so C++ cannot make one, and the C++ class "
+        "of ours does not fill in every function it leaves open. Qt's "
+        "'QGraphicsSceneIndex::QGraphicsSceneIndex(QGraphicsSceneIndexPrivat"
+        "e &dd, QGraphicsScene *scene)': the class is abstract, so C++ "
+        "cannot make one, and the C++ class of ours does not fill in every "
+        "function it leaves open.")
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -777,3 +803,34 @@ class QGraphicsSceneIndex(QObject):
           'ritual_own_ZN19QGraphicsSceneIndex25prepareBoundingRectChangeEPK'
           '13QGraphicsItem')
     self.uglySide.call(ritual, self._addressOf(item, 'QGraphicsItem'))
+
+  def d_func(self) -> Optional[QGraphicsSceneIndexPrivate]:
+    """
+    Calls Qt's 'QGraphicsSceneIndexPrivate *QGraphicsSceneIndex::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qgraphicssceneindex.html#d_func
+
+    Returns
+    -------
+
+    Optional[QGraphicsSceneIndexPrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QGraphicsSceneIndexPrivate *QGraphicsSceneIndex::d_func()
+    address = self.uglySide.call('ritual_ZN19QGraphicsSceneIndex6d_funcEv')
+    from . import QGraphicsSceneIndexPrivate
+    return QGraphicsSceneIndexPrivate._cuteAt(address)
+
+  @staticmethod
+  def itemChange(*__, **_) -> Never:
+    """
+    Qt's 'void QGraphicsSceneIndex::itemChange(const QGraphicsItem *item,
+    QGraphicsItem::GraphicsItemChange a1, const void *const value)': takes a
+    type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QGraphicsSceneIndex.itemChange' has no cute function yet. Qt's "
+        "'void QGraphicsSceneIndex::itemChange(const QGraphicsItem *item, "
+        "QGraphicsItem::GraphicsItemChange a1, const void *const value)': "
+        "takes a type Python has no way to hand over yet.")

@@ -17,7 +17,7 @@ from ..occult import Rituals
 from . import Qt
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from . import QChar, QCollatorSortKey, QLocale
 else:
@@ -56,18 +56,20 @@ class QCollator(CuteMixin, metaclass=MetaCute):
 
   - Qt's 'QCollator::~QCollator()': the destructor: Python removes its C++
     QCollator by it, and has no other use for it.
+  - Qt's 'QCollator &QCollator::operator=(const QCollator &a0)': assignment:
+    Python binds a name and has no operator for it.
+  - Qt's 'QCollator::QCollator(QCollator &&other)': takes a type Python has
+    no way to hand over yet.
+  - Qt's 'QCollator &QCollator::operator=(QCollator &&other)': assignment:
+    Python binds a name and has no operator for it.
+  - Qt's 'void QCollator::swap(QCollator &other)': takes a type Python has no
+    way to hand over yet.
   - Qt's 'int QCollator::compare(QStringView s1, QStringView s2) const':
     takes in Python what 'int QCollator::compare(const QString &s1, const
     QString &s2) const' takes.
   - Qt's 'bool QCollator::operator()(QStringView s1, QStringView s2) const':
     takes in Python what 'bool QCollator::operator()(const QString &s1, const
     QString &s2) const' takes.
-
-  What has no ritual
-  ------------------
-
-  4 of the 27 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet.
 
   What to expect
   --------------
@@ -80,6 +82,8 @@ class QCollator(CuteMixin, metaclass=MetaCute):
     is as in C++.
   - A function giving a QCollator back gives a copy the ritual made for
     Python, in a new cute QCollator.
+  - Each name of Qt's QCollator that has no cute function yet, 'swap', holds
+    a function that raises 'NotImplementedError', and its docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -552,3 +556,14 @@ class QCollator(CuteMixin, metaclass=MetaCute):
     """
     #  void QCollator::detach()
     self.uglySide.call('ritual_ZN9QCollator6detachEv')
+
+  @staticmethod
+  def swap(*__, **_) -> Never:
+    """
+    Qt's 'void QCollator::swap(QCollator &other)': takes a type Python has no
+    way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QCollator.swap' has no cute function yet. Qt's 'void "
+        "QCollator::swap(QCollator &other)': takes a type Python has no way "
+        "to hand over yet.")

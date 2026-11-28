@@ -20,7 +20,7 @@ from ..cute import CuteNum
 from ..QtCore import QObject
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from ..QtCore import QMetaObject
 
@@ -41,14 +41,21 @@ class QWidgetAnimator(QObject):
   made from Python: one comes out of a function of another class that gives
   one back.
 
+  What has a ritual and is left out, and why
+  ------------------------------------------
+
+  - Qt's 'void *QWidgetAnimator::qt_metacast(const char *a0)': one of Qt's
+    own inner workings.
+  - Qt's 'int QWidgetAnimator::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
+
   What has no ritual
   ------------------
 
-  8 of the 10 functions Qt declares: 2 takes or gives a type that cannot be
-  passed yet; 2 leans on 'QToolBarLayout; 1 a template; 1 declared and
-  nowhere to be found; 1 leans on 'QWidgetAnimator; 1 leans on 'vtable for
-  QWidgetAnimator', which Qt's library does not offer and Qt's source has no
-  code for that could be taken.
+  6 of the 10 functions Qt declares: 2 not a gap; 2 leans on 'QToolBarLayout;
+  1 leans on 'QWidgetAnimator; 1 leans on 'vtable for QWidgetAnimator', which
+  Qt's source does not mark for use from outside Qt and has no code for that
+  could be taken.
 
   What to expect
   --------------
@@ -64,6 +71,9 @@ class QWidgetAnimator(QObject):
   - Qt tells when it has removed the C++ QWidgetAnimator. Every call on the
     cute object, and every use of it as an argument, then raises
     'RuntimeError', and nothing reaches C++.
+  - Each name of Qt's QWidgetAnimator that has no cute function yet,
+    '__init__', 'abort', 'animate', holds a function that raises
+    'NotImplementedError', and its docstring says why.
   """
 
   #  The enums Qt writes inside QWidgetAnimator, each a class in here as in
@@ -146,6 +156,20 @@ class QWidgetAnimator(QObject):
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  @staticmethod
+  def __init__(*__, **_) -> Never:
+    """
+    Qt's 'QWidgetAnimator::QWidgetAnimator(QMainWindowLayout *layout)': leans
+    on 'vtable for QWidgetAnimator', which Qt's source does not mark for use
+    from outside Qt and has no code for that could be taken.
+    """
+    raise NotImplementedError(
+        "'QWidgetAnimator.__init__' has no cute function yet. Qt's "
+        "'QWidgetAnimator::QWidgetAnimator(QMainWindowLayout *layout)': "
+        "leans on 'vtable for QWidgetAnimator', which Qt's source does not "
+        "mark for use from outside Qt and has no code for that could be "
+        "taken.")
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -165,3 +189,33 @@ class QWidgetAnimator(QObject):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def abort(*__, **_) -> Never:
+    """
+    Qt's 'void QWidgetAnimator::abort(QWidget *widget)': leans on
+    'QToolBarLayout::staticMetaObject', which Qt's source does not mark for
+    use from outside Qt and has no code for that could be taken.
+    """
+    raise NotImplementedError(
+        "'QWidgetAnimator.abort' has no cute function yet. Qt's 'void "
+        "QWidgetAnimator::abort(QWidget *widget)': leans on "
+        "'QToolBarLayout::staticMetaObject', which Qt's source does not "
+        "mark for use from outside Qt and has no code for that could be "
+        "taken.")
+
+  @staticmethod
+  def animate(*__, **_) -> Never:
+    """
+    Qt's 'void QWidgetAnimator::animate(QWidget *widget, const QRect
+    &final_geometry, AnimationRule rule)': leans on
+    'QToolBarLayout::staticMetaObject', which Qt's source does not mark for
+    use from outside Qt and has no code for that could be taken.
+    """
+    raise NotImplementedError(
+        "'QWidgetAnimator.animate' has no cute function yet. Qt's 'void "
+        "QWidgetAnimator::animate(QWidget *widget, const QRect "
+        "&final_geometry, AnimationRule rule)': leans on "
+        "'QToolBarLayout::staticMetaObject', which Qt's source does not "
+        "mark for use from outside Qt and has no code for that could be "
+        "taken.")

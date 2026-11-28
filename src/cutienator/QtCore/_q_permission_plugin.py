@@ -20,6 +20,8 @@ from ..cute import WAIT
 from . import Qt, QObject
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Never
+
   from . import QPermission
 else:
   #  The cute classes this file names and is not built on. Each is brought in
@@ -48,12 +50,9 @@ class QPermissionPlugin(QObject):
 
   - Qt's 'QPermissionPlugin::~QPermissionPlugin()': the destructor: Python
     never removes a C++ QPermissionPlugin.
-
-  What has no ritual
-  ------------------
-
-  1 of the 3 functions Qt declares: 1 takes or gives a type that cannot be
-  passed yet.
+  - Qt's 'void QPermissionPlugin::requestPermission(const QPermission
+    &permission, const QPermissions::Private::PermissionCallback &callback)':
+    takes a type Python has no way to hand over yet.
 
   What to expect
   --------------
@@ -69,6 +68,9 @@ class QPermissionPlugin(QObject):
   - Qt tells when it has removed the C++ QPermissionPlugin. Every call on the
     cute object, and every use of it as an argument, then raises
     'RuntimeError', and nothing reaches C++.
+  - Each name of Qt's QPermissionPlugin that has no cute function yet,
+    'requestPermission', holds a function that raises 'NotImplementedError',
+    and its docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -191,3 +193,16 @@ class QPermissionPlugin(QObject):
         'ritual_ZN17QPermissionPlugin15checkPermissionERK11QPermission',
         self._valueOf(permission),
     ))
+
+  @staticmethod
+  def requestPermission(*__, **_) -> Never:
+    """
+    Qt's 'void QPermissionPlugin::requestPermission(const QPermission
+    &permission, const QPermissions::Private::PermissionCallback &callback)':
+    takes a type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QPermissionPlugin.requestPermission' has no cute function yet. "
+        "Qt's 'void QPermissionPlugin::requestPermission(const QPermission "
+        "&permission, const QPermissions::Private::PermissionCallback "
+        "&callback)': takes a type Python has no way to hand over yet.")

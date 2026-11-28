@@ -14,10 +14,12 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING
 
-from . import QObject
+from worktoy.dispatch import overload
+
+from . import QObject, QStringList
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from . import QMetaObject
 
@@ -34,16 +36,30 @@ class QFileSystemWatcherEngine(QObject):
   -----------
 
   Every function of Qt's QFileSystemWatcherEngine that has a ritual and that
-  Python can call so far, 1 name in all: 'metaObject'. None can be made from
-  Python: one comes out of a function of another class that gives one back.
+  Python can call so far, 3 names in all: 'metaObject', 'fileChanged',
+  'directoryChanged'. None can be made from Python: one comes out of a
+  function of another class that gives one back.
+
+  What has a ritual and is left out, and why
+  ------------------------------------------
+
+  - Qt's 'void *QFileSystemWatcherEngine::qt_metacast(const char *a0)': one
+    of Qt's own inner workings.
+  - Qt's 'int QFileSystemWatcherEngine::qt_metacall(QMetaObject::Call a0, int
+    a1, void **a2)': one of Qt's own inner workings.
+  - Qt's 'QStringList QFileSystemWatcherEngine::addPaths(const QStringList
+    &paths, QStringList *files, QStringList *directories)': names
+    'QStringList', which has no cute class yet.
+  - Qt's 'QStringList QFileSystemWatcherEngine::removePaths(const QStringList
+    &paths, QStringList *files, QStringList *directories)': names
+    'QStringList', which has no cute class yet.
 
   What has no ritual
   ------------------
 
-  10 of the 11 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet; 2 a signal; 1 a template; 1 declared and nowhere to be found; 1
-  the class is abstract, so C++ cannot make one; 1 leans on
-  'QFileSystemWatcherEngine.
+  4 of the 11 functions Qt declares: 2 not a gap; 1 the class is abstract, so
+  C++ cannot make one, and the C++ class of ours does not fill in every
+  function it leaves open; 1 leans on 'QFileSystemWatcherEngine.
 
   What to expect
   --------------
@@ -59,6 +75,9 @@ class QFileSystemWatcherEngine(QObject):
   - Qt tells when it has removed the C++ QFileSystemWatcherEngine. Every call
     on the cute object, and every use of it as an argument, then raises
     'RuntimeError', and nothing reaches C++.
+  - Each name of Qt's QFileSystemWatcherEngine that has no cute function yet,
+    '__init__', 'addPaths', 'removePaths', holds a function that raises
+    'NotImplementedError', and its docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -143,6 +162,19 @@ class QFileSystemWatcherEngine(QObject):
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  @staticmethod
+  def __init__(*__, **_) -> Never:
+    """
+    Qt's 'QFileSystemWatcherEngine::QFileSystemWatcherEngine(QObject
+    *parent)': the class is abstract, so C++ cannot make one, and the C++
+    class of ours does not fill in every function it leaves open.
+    """
+    raise NotImplementedError(
+        "'QFileSystemWatcherEngine.__init__' has no cute function yet. Qt's "
+        "'QFileSystemWatcherEngine::QFileSystemWatcherEngine(QObject "
+        "*parent)': the class is abstract, so C++ cannot make one, and the "
+        "C++ class of ours does not fill in every function it leaves open.")
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -162,3 +194,79 @@ class QFileSystemWatcherEngine(QObject):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @overload(str, bool)
+  def fileChanged(self, path: str, removed: bool) -> None:
+    """
+    Calls Qt's 'void QFileSystemWatcherEngine::fileChanged(const QString
+    &path, bool removed)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qfilesystemwatcherengine.html#fileChanged
+
+    Parameters
+    ----------
+
+    path : str
+      Passed on as it is: a QString is made of it for the call.
+
+    removed : bool
+      Passed on as it is.
+    """
+    #  void QFileSystemWatcherEngine::fileChanged(const QString &path, bool
+    #      removed)
+    self.uglySide.call(
+        'ritual_ZN24QFileSystemWatcherEngine11fileChangedERK7QStringb',
+        path, removed,
+    )
+
+  @overload(str, bool)
+  def directoryChanged(self, path: str, removed: bool) -> None:
+    """
+    Calls Qt's 'void QFileSystemWatcherEngine::directoryChanged(const QString
+    &path, bool removed)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qfilesystemwatcherengine.html#directoryChanged
+
+    Parameters
+    ----------
+
+    path : str
+      Passed on as it is: a QString is made of it for the call.
+
+    removed : bool
+      Passed on as it is.
+    """
+    #  void QFileSystemWatcherEngine::directoryChanged(const QString &path,
+    #      bool removed)
+    self.uglySide.call(
+        'ritual_ZN24QFileSystemWatcherEngine16directoryChangedERK7QStringb',
+        path, removed,
+    )
+
+  @staticmethod
+  def addPaths(*__, **_) -> Never:
+    """
+    Qt's 'QStringList QFileSystemWatcherEngine::addPaths(const QStringList
+    &paths, QStringList *files, QStringList *directories)': names
+    'QStringList', which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QFileSystemWatcherEngine.addPaths' has no cute function yet. Qt's "
+        "'QStringList QFileSystemWatcherEngine::addPaths(const QStringList "
+        "&paths, QStringList *files, QStringList *directories)': names "
+        "'QStringList', which has no cute class yet.")
+
+  @staticmethod
+  def removePaths(*__, **_) -> Never:
+    """
+    Qt's 'QStringList QFileSystemWatcherEngine::removePaths(const QStringList
+    &paths, QStringList *files, QStringList *directories)': names
+    'QStringList', which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QFileSystemWatcherEngine.removePaths' has no cute function yet. "
+        "Qt's 'QStringList QFileSystemWatcherEngine::removePaths(const "
+        "QStringList &paths, QStringList *files, QStringList "
+        "*directories)': names 'QStringList', which has no cute class yet.")

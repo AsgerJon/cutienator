@@ -12,6 +12,7 @@ from typing import TYPE_CHECKING
 from worktoy.dispatch import overload
 
 from ..cute import CuteMixin, MetaCute
+from ..occult import Rituals
 
 
 class QAccessibleEditableTextInterface(CuteMixin, metaclass=MetaCute):
@@ -24,8 +25,8 @@ class QAccessibleEditableTextInterface(CuteMixin, metaclass=MetaCute):
 
   Every function of Qt's QAccessibleEditableTextInterface that has a ritual
   and that Python can call so far, 3 names in all: 'deleteText',
-  'insertText', 'replaceText'. None can be made from Python: one comes out of
-  a function of another class that gives one back.
+  'insertText', 'replaceText'. It can be made from Python, in 1 way; see
+  '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
@@ -38,8 +39,7 @@ class QAccessibleEditableTextInterface(CuteMixin, metaclass=MetaCute):
   What has no ritual
   ------------------
 
-  5 of the 9 functions Qt declares: 4 forbidden; 1 the class is abstract, so
-  C++ cannot make one.
+  4 of the 9 functions Qt declares: 4 forbidden.
 
   What to expect
   --------------
@@ -131,6 +131,22 @@ class QAccessibleEditableTextInterface(CuteMixin, metaclass=MetaCute):
   #  CONSTRUCTORS   # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  @overload()
+  def __init__(self) -> None:
+    """
+    Notes what was given, for Qt's
+    'QAccessibleEditableTextInterface::QAccessibleEditableTextInterface()',
+    which is called at the first use.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qaccessibleeditabletextinterface.html
+    """
+    #  QAccessibleEditableTextInterface::QAccessibleEditableTextInterface()
+    self._noteCreation(
+        QAccessibleEditableTextInterface, lambda: Rituals.call(
+            'ritual_ZN32QAccessibleEditableTextInterfaceC1Ev',
+        ))
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -171,7 +187,8 @@ class QAccessibleEditableTextInterface(CuteMixin, metaclass=MetaCute):
     """
     #  void QAccessibleEditableTextInterface::deleteText(int startOffset, int
     #      endOffset)
-    self.uglySide.call(
+    self._callAs(
+        'QAccessibleEditableTextInterface',
         'ritual_ZN32QAccessibleEditableTextInterface10deleteTextEii',
         startOffset, endOffset,
     )
@@ -196,7 +213,8 @@ class QAccessibleEditableTextInterface(CuteMixin, metaclass=MetaCute):
     """
     #  void QAccessibleEditableTextInterface::insertText(int offset, const
     #      QString &text)
-    self.uglySide.call(
+    self._callAs(
+        'QAccessibleEditableTextInterface',
         'ritual_ZN32QAccessibleEditableTextInterface10insertTextEiRK7QStrin'
         'g',
         offset, text,
@@ -225,7 +243,8 @@ class QAccessibleEditableTextInterface(CuteMixin, metaclass=MetaCute):
     """
     #  void QAccessibleEditableTextInterface::replaceText(int startOffset,
     #      int endOffset, const QString &text)
-    self.uglySide.call(
+    self._callAs(
+        'QAccessibleEditableTextInterface',
         'ritual_ZN32QAccessibleEditableTextInterface11replaceTextEiiRK7QStr'
         'ing',
         startOffset, endOffset, text,

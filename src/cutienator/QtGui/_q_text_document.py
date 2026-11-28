@@ -17,13 +17,14 @@ from ..occult import Rituals
 from ..QtCore import Qt, QList, QObject
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from ..QtCore import QChar, QMetaObject, QRectF, QRegularExpression, QSizeF
   from ..QtCore import QUrl, QVariant
   from . import QAbstractTextDocumentLayout, QAbstractUndoItem, QFont
   from . import QPagedPaintDevice, QPainter, QTextBlock, QTextCursor
-  from . import QTextFormat, QTextFrame, QTextObject, QTextOption
+  from . import QTextDocumentPrivate, QTextFormat, QTextFrame, QTextObject
+  from . import QTextOption
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -59,7 +60,7 @@ class QTextDocument(QObject):
   -----------
 
   Every function of Qt's QTextDocument that has a ritual and that Python can
-  call so far, 87 names in all: 'metaObject', 'tr', 'clone', 'isEmpty',
+  call so far, 98 names in all: 'metaObject', 'tr', 'clone', 'isEmpty',
   'clear', 'setUndoRedoEnabled', 'isUndoRedoEnabled', 'isUndoAvailable',
   'isRedoAvailable', 'availableUndoSteps', 'availableRedoSteps', 'revision',
   'setDocumentLayout', 'documentLayout', 'setMetaInformation',
@@ -79,22 +80,41 @@ class QTextDocument(QObject):
   'undo', 'redo', 'clearUndoRedoStacks', 'maximumBlockCount',
   'setMaximumBlockCount', 'defaultTextOption', 'setDefaultTextOption',
   'baseUrl', 'setBaseUrl', 'defaultCursorMoveStyle',
-  'setDefaultCursorMoveStyle', 'appendUndoItem', 'setModified',
-  'createObject', 'loadResource'. It can be made from Python, in 2 ways; see
-  '__init__'.
+  'setDefaultCursorMoveStyle', 'contentsChange', 'contentsChanged',
+  'undoAvailable', 'redoAvailable', 'undoCommandAdded',
+  'modificationChanged', 'cursorPositionChanged', 'blockCountChanged',
+  'baseUrlChanged', 'documentLayoutChanged', 'appendUndoItem', 'setModified',
+  'createObject', 'loadResource', 'd_func'. It can be made from Python, in 2
+  ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QTextDocument::qt_metacast(const char *a0)': one of Qt's own
+    inner workings.
+  - Qt's 'int QTextDocument::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
   - Qt's 'QTextDocument::~QTextDocument()': the destructor: Python never
     removes a C++ QTextDocument.
+  - Qt's 'QTextDocument::ResourceProvider QTextDocument::resourceProvider()
+    const': gives a type Python has no way to take yet.
+  - Qt's 'void QTextDocument::setResourceProvider(const ResourceProvider
+    &provider)': takes a type Python has no way to hand over yet.
+  - Qt's 'QTextDocument::ResourceProvider
+    QTextDocument::defaultResourceProvider()': gives a type Python has no way
+    to take yet.
+  - Qt's 'void QTextDocument::setDefaultResourceProvider(const
+    ResourceProvider &provider)': takes a type Python has no way to hand over
+    yet.
+  - Qt's 'QTextDocument::QTextDocument(QTextDocumentPrivate &dd, QObject
+    *parent)': takes a type Python has no way to hand over yet.
+  - Qt's 'const QTextDocumentPrivate *QTextDocument::d_func() const': takes
+    in Python what 'QTextDocumentPrivate *QTextDocument::d_func()' takes.
 
   What has no ritual
   ------------------
 
-  23 of the 118 functions Qt declares: 10 a signal; 9 takes or gives a type
-  that cannot be passed yet; 2 forbidden; 1 a template; 1 declared and
-  nowhere to be found.
+  4 of the 118 functions Qt declares: 2 not a gap; 2 forbidden.
 
   What to expect
   --------------
@@ -110,6 +130,10 @@ class QTextDocument(QObject):
   - Qt tells when it has removed the C++ QTextDocument. Every call on the
     cute object, and every use of it as an argument, then raises
     'RuntimeError', and nothing reaches C++.
+  - Each name of Qt's QTextDocument that has no cute function yet,
+    'defaultResourceProvider', 'resourceProvider',
+    'setDefaultResourceProvider', 'setResourceProvider', holds a function
+    that raises 'NotImplementedError', and its docstring says why.
   """
 
   #  The enums Qt writes inside QTextDocument, each a class in here as in
@@ -2034,6 +2058,176 @@ class QTextDocument(QObject):
         historyToClear.value,
     )
 
+  @overload(int, int, int)
+  def contentsChange(
+      self,
+      from_: int,
+      charsRemoved: int,
+      charsAdded: int,
+  ) -> None:
+    """
+    Calls Qt's 'void QTextDocument::contentsChange(int from, int
+    charsRemoved, int charsAdded)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtextdocument.html#contentsChange
+
+    Parameters
+    ----------
+
+    from_ : int
+      Passed on as it is.
+
+    charsRemoved : int
+      Passed on as it is.
+
+    charsAdded : int
+      Passed on as it is.
+    """
+    #  void QTextDocument::contentsChange(int from, int charsRemoved, int
+    #      charsAdded)
+    self.uglySide.call(
+        'ritual_ZN13QTextDocument14contentsChangeEiii',
+        from_, charsRemoved, charsAdded,
+    )
+
+  def contentsChanged(self) -> None:
+    """
+    Calls Qt's 'void QTextDocument::contentsChanged()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtextdocument.html#contentsChanged
+    """
+    #  void QTextDocument::contentsChanged()
+    self.uglySide.call('ritual_ZN13QTextDocument15contentsChangedEv')
+
+  @overload(bool)
+  def undoAvailable(self, a0: bool) -> None:
+    """
+    Calls Qt's 'void QTextDocument::undoAvailable(bool a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtextdocument.html#undoAvailable
+
+    Parameters
+    ----------
+
+    a0 : bool
+      Passed on as it is.
+    """
+    #  void QTextDocument::undoAvailable(bool a0)
+    self.uglySide.call('ritual_ZN13QTextDocument13undoAvailableEb', a0)
+
+  @overload(bool)
+  def redoAvailable(self, a0: bool) -> None:
+    """
+    Calls Qt's 'void QTextDocument::redoAvailable(bool a0)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtextdocument.html#redoAvailable
+
+    Parameters
+    ----------
+
+    a0 : bool
+      Passed on as it is.
+    """
+    #  void QTextDocument::redoAvailable(bool a0)
+    self.uglySide.call('ritual_ZN13QTextDocument13redoAvailableEb', a0)
+
+  def undoCommandAdded(self) -> None:
+    """
+    Calls Qt's 'void QTextDocument::undoCommandAdded()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qtextdocument.html#undoCommandAdded
+    """
+    #  void QTextDocument::undoCommandAdded()
+    self.uglySide.call('ritual_ZN13QTextDocument16undoCommandAddedEv')
+
+  @overload(bool)
+  def modificationChanged(self, m: bool) -> None:
+    """
+    Calls Qt's 'void QTextDocument::modificationChanged(bool m)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qtextdocument.html#modificationChanged
+
+    Parameters
+    ----------
+
+    m : bool
+      Passed on as it is.
+    """
+    #  void QTextDocument::modificationChanged(bool m)
+    self.uglySide.call('ritual_ZN13QTextDocument19modificationChangedEb', m)
+
+  @overload(QTextCursor)
+  def cursorPositionChanged(self, cursor: QTextCursor) -> None:
+    """
+    Calls Qt's 'void QTextDocument::cursorPositionChanged(const QTextCursor
+    &cursor)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qtextdocument.html#cursorPositionChanged
+
+    Parameters
+    ----------
+
+    cursor : QTextCursor
+      Passed on as a value: Qt reads the C++ QTextCursor, which stays
+      Python's own.
+    """
+    #  void QTextDocument::cursorPositionChanged(const QTextCursor &cursor)
+    self.uglySide.call(
+        'ritual_ZN13QTextDocument21cursorPositionChangedERK11QTextCursor',
+        self._valueOf(cursor),
+    )
+
+  @overload(int)
+  def blockCountChanged(self, newBlockCount: int) -> None:
+    """
+    Calls Qt's 'void QTextDocument::blockCountChanged(int newBlockCount)'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qtextdocument.html#blockCountChanged
+
+    Parameters
+    ----------
+
+    newBlockCount : int
+      Passed on as it is.
+    """
+    #  void QTextDocument::blockCountChanged(int newBlockCount)
+    self.uglySide.call(
+        'ritual_ZN13QTextDocument17blockCountChangedEi', newBlockCount,
+    )
+
+  @overload(QUrl)
+  def baseUrlChanged(self, url: QUrl) -> None:
+    """
+    Calls Qt's 'void QTextDocument::baseUrlChanged(const QUrl &url)'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtextdocument.html#baseUrlChanged
+
+    Parameters
+    ----------
+
+    url : QUrl
+      Passed on as a value: Qt reads the C++ QUrl, which stays Python's own.
+    """
+    #  void QTextDocument::baseUrlChanged(const QUrl &url)
+    self.uglySide.call(
+        'ritual_ZN13QTextDocument14baseUrlChangedERK4QUrl',
+        self._valueOf(url),
+    )
+
+  def documentLayoutChanged(self) -> None:
+    """
+    Calls Qt's 'void QTextDocument::documentLayoutChanged()'.
+
+    Qt's own words:
+    https://doc.qt.io/qt-6/qtextdocument.html#documentLayoutChanged
+    """
+    #  void QTextDocument::documentLayoutChanged()
+    self.uglySide.call('ritual_ZN13QTextDocument21documentLayoutChangedEv')
+
   @overload(QAbstractUndoItem)
   @overload(NoneType)
   def appendUndoItem(self, a0: Optional[QAbstractUndoItem]) -> None:
@@ -2115,3 +2309,69 @@ class QTextDocument(QObject):
     address = self.uglySide.call(ritual, type, self._valueOf(name))
     from ..QtCore import QVariant
     return QVariant._cuteOwning(address)
+
+  def d_func(self) -> Optional[QTextDocumentPrivate]:
+    """
+    Calls Qt's 'QTextDocumentPrivate *QTextDocument::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qtextdocument.html#d_func
+
+    Returns
+    -------
+
+    Optional[QTextDocumentPrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QTextDocumentPrivate *QTextDocument::d_func()
+    address = self.uglySide.call('ritual_ZN13QTextDocument6d_funcEv')
+    from . import QTextDocumentPrivate
+    return QTextDocumentPrivate._cuteAt(address)
+
+  @staticmethod
+  def defaultResourceProvider(*__, **_) -> Never:
+    """
+    Qt's 'QTextDocument::ResourceProvider
+    QTextDocument::defaultResourceProvider()': gives a type Python has no way
+    to take yet.
+    """
+    raise NotImplementedError(
+        "'QTextDocument.defaultResourceProvider' has no cute function yet. "
+        "Qt's 'QTextDocument::ResourceProvider "
+        "QTextDocument::defaultResourceProvider()': gives a type Python has "
+        "no way to take yet.")
+
+  @staticmethod
+  def resourceProvider(*__, **_) -> Never:
+    """
+    Qt's 'QTextDocument::ResourceProvider QTextDocument::resourceProvider()
+    const': gives a type Python has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QTextDocument.resourceProvider' has no cute function yet. Qt's "
+        "'QTextDocument::ResourceProvider QTextDocument::resourceProvider() "
+        "const': gives a type Python has no way to take yet.")
+
+  @staticmethod
+  def setDefaultResourceProvider(*__, **_) -> Never:
+    """
+    Qt's 'void QTextDocument::setDefaultResourceProvider(const
+    ResourceProvider &provider)': takes a type Python has no way to hand over
+    yet.
+    """
+    raise NotImplementedError(
+        "'QTextDocument.setDefaultResourceProvider' has no cute function "
+        "yet. Qt's 'void QTextDocument::setDefaultResourceProvider(const "
+        "ResourceProvider &provider)': takes a type Python has no way to "
+        "hand over yet.")
+
+  @staticmethod
+  def setResourceProvider(*__, **_) -> Never:
+    """
+    Qt's 'void QTextDocument::setResourceProvider(const ResourceProvider
+    &provider)': takes a type Python has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QTextDocument.setResourceProvider' has no cute function yet. Qt's "
+        "'void QTextDocument::setResourceProvider(const ResourceProvider "
+        "&provider)': takes a type Python has no way to hand over yet.")

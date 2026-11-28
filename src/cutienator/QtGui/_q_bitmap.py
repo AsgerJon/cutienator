@@ -17,7 +17,7 @@ from ..QtCore import Qt
 from . import QPixmap
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from ..QtCore import QSize
   from . import QImage, QTransform
@@ -58,14 +58,16 @@ class QBitmap(QPixmap):
 
   - Qt's 'QBitmap::~QBitmap()': the destructor: Python removes its C++
     QBitmap by it, and has no other use for it.
+  - Qt's 'QBitmap &QBitmap::operator=(const QPixmap &a0)': assignment: Python
+    binds a name and has no operator for it.
+  - Qt's 'void QBitmap::swap(QBitmap &other)': takes a type Python has no way
+    to hand over yet.
   - Qt's 'QVariant QBitmap::operator QVariant() const': an operator Python
     has no name for.
-
-  What has no ritual
-  ------------------
-
-  4 of the 15 functions Qt declares: 4 takes or gives a type that cannot be
-  passed yet.
+  - Qt's 'QBitmap QBitmap::fromImage(QImage &&image, Qt::ImageConversionFlags
+    flags)': takes a type Python has no way to hand over yet.
+  - Qt's 'QBitmap QBitmap::fromData(const QSize &size, const uchar *bits,
+    QImage::Format monoFormat)': names 'uchar', which has no cute class yet.
 
   What to expect
   --------------
@@ -78,6 +80,9 @@ class QBitmap(QPixmap):
     is as in C++.
   - A function giving a QBitmap back gives a copy the ritual made for Python,
     in a new cute QBitmap.
+  - Each name of Qt's QBitmap that has no cute function yet, 'fromData',
+    holds a function that raises 'NotImplementedError', and its docstring
+    says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -351,3 +356,15 @@ class QBitmap(QPixmap):
     """
     #  void QBitmap::clear()
     self.uglySide.call('ritual_ZN7QBitmap5clearEv')
+
+  @staticmethod
+  def fromData(*__, **_) -> Never:
+    """
+    Qt's 'QBitmap QBitmap::fromData(const QSize &size, const uchar *bits,
+    QImage::Format monoFormat)': names 'uchar', which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QBitmap.fromData' has no cute function yet. Qt's 'QBitmap "
+        "QBitmap::fromData(const QSize &size, const uchar *bits, "
+        "QImage::Format monoFormat)': names 'uchar', which has no cute "
+        "class yet.")

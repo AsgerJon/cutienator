@@ -212,7 +212,7 @@ class QAccessibleTextRemoveEvent(QAccessibleTextCursorEvent):
     self._noteCreation(QAccessibleTextRemoveEvent, lambda: Rituals.call(
         'ritual_ZN26QAccessibleTextRemoveEventC1EP20QAccessibleInterfaceiRK'
         '7QString',
-        self._addressOf(iface), position, text,
+        self._addressOf(iface, 'QAccessibleInterface'), position, text,
     ))
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

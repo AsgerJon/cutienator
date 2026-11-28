@@ -16,6 +16,8 @@ from ..occult import Rituals
 from . import Qt
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
+  from typing import Never
+
   from . import QDebug, QMetaType
 else:
   #  The cute classes this file names and is not built on. Each is brought in
@@ -43,14 +45,15 @@ class QPermission(CuteMixin, metaclass=MetaCute):
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'const void *QPermission::data(QMetaType id) const': gives 'void',
+    which has no cute class yet.
   - Qt's 'QPermission::~QPermission()': the destructor: Python removes its
     C++ QPermission by it, and has no other use for it.
 
   What has no ritual
   ------------------
 
-  3 of the 8 functions Qt declares: 2 a template; 1 takes or gives a type
-  that cannot be passed yet.
+  2 of the 8 functions Qt declares: 2 a template.
 
   What to expect
   --------------
@@ -64,6 +67,9 @@ class QPermission(CuteMixin, metaclass=MetaCute):
     is as in C++.
   - A function giving a QPermission back gives a copy the ritual made for
     Python, in a new cute QPermission.
+  - Each name of Qt's QPermission that has no cute function yet, 'data',
+    'value', holds a function that raises 'NotImplementedError', and its
+    docstring says why.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -215,3 +221,24 @@ class QPermission(CuteMixin, metaclass=MetaCute):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @staticmethod
+  def data(*__, **_) -> Never:
+    """
+    Qt's 'const void *QPermission::data(QMetaType id) const': gives 'void',
+    which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QPermission.data' has no cute function yet. Qt's 'const void "
+        "*QPermission::data(QMetaType id) const': gives 'void', which has "
+        "no cute class yet.")
+
+  @staticmethod
+  def value(*__, **_) -> Never:
+    """
+    Qt's 'QPermission::value': a template: a pattern and no single function.
+    """
+    raise NotImplementedError(
+        "'QPermission.value' has no cute function yet. Qt's "
+        "'QPermission::value': a template: a pattern and no single function."
+    )

@@ -17,9 +17,9 @@ from ..occult import Rituals
 from . import QIODevice, QObject
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
-  from . import QDateTime, QMetaObject
+  from . import QDateTime, QFileDevicePrivate, QMetaObject
 else:
   #  The cute classes this file names and is not built on. Each is brought in
   #  by the program that uses it, and a signature naming it waits until then;
@@ -43,25 +43,37 @@ class QFileDevice(QIODevice):
   -----------
 
   Every function of Qt's QFileDevice that has a ritual and that Python can
-  call so far, 19 names in all: 'metaObject', 'tr', 'error', 'unsetError',
-  'close', 'isSequential', 'handle', 'fileName', 'pos', 'seek', 'atEnd',
-  'flush', 'size', 'resize', 'permissions', 'setPermissions', 'fileTime',
-  'setFileTime', 'writeData'. It can be made from Python, in 2 ways; see
-  '__init__'.
+  call so far, 20 names in all: 'metaObject', 'tr', 'd_func', 'error',
+  'unsetError', 'close', 'isSequential', 'handle', 'fileName', 'pos', 'seek',
+  'atEnd', 'flush', 'size', 'resize', 'permissions', 'setPermissions',
+  'fileTime', 'setFileTime', 'writeData'. It can be made from Python, in 2
+  ways; see '__init__'.
 
   What has a ritual and is left out, and why
   ------------------------------------------
 
+  - Qt's 'void *QFileDevice::qt_metacast(const char *a0)': one of Qt's own
+    inner workings.
+  - Qt's 'int QFileDevice::qt_metacall(QMetaObject::Call a0, int a1, void
+    **a2)': one of Qt's own inner workings.
+  - Qt's 'const QFileDevicePrivate *QFileDevice::d_func() const': takes in
+    Python what 'QFileDevicePrivate *QFileDevice::d_func()' takes.
   - Qt's 'QFileDevice::~QFileDevice()': the destructor: Python never removes
     a C++ QFileDevice.
   - Qt's 'bool QFileDevice::unmap(uchar *address)': takes a number to change
     where it is.
+  - Qt's 'QFileDevice::QFileDevice(QFileDevicePrivate &dd, QObject *parent)':
+    takes a type Python has no way to hand over yet.
+  - Qt's 'qint64 QFileDevice::readData(char *data, qint64 maxlen)': names
+    'char', which has no cute class yet.
+  - Qt's 'qint64 QFileDevice::readLineData(char *data, qint64 maxlen)': names
+    'char', which has no cute class yet.
 
   What has no ritual
   ------------------
 
-  12 of the 35 functions Qt declares: 8 takes or gives a type that cannot be
-  passed yet; 2 forbidden; 1 a template; 1 declared and nowhere to be found.
+  5 of the 35 functions Qt declares: 2 not a gap; 2 forbidden; 1 takes or
+  gives a type that cannot be passed yet.
 
   What to expect
   --------------
@@ -77,6 +89,9 @@ class QFileDevice(QIODevice):
   - Qt tells when it has removed the C++ QFileDevice. Every call on the cute
     object, and every use of it as an argument, then raises 'RuntimeError',
     and nothing reaches C++.
+  - Each name of Qt's QFileDevice that has no cute function yet, 'map',
+    'unmap', holds a function that raises 'NotImplementedError', and its
+    docstring says why.
   """
 
   #  The enums Qt writes inside QFileDevice, each a class in here as in C++,
@@ -538,6 +553,24 @@ class QFileDevice(QIODevice):
   #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  def d_func(self) -> Optional[QFileDevicePrivate]:
+    """
+    Calls Qt's 'QFileDevicePrivate *QFileDevice::d_func()'.
+
+    Qt's own words: https://doc.qt.io/qt-6/qfiledevice.html#d_func
+
+    Returns
+    -------
+
+    Optional[QFileDevicePrivate]
+      The cute object standing for what Qt gave back. None when Qt gave back
+      no object.
+    """
+    #  QFileDevicePrivate *QFileDevice::d_func()
+    address = self.uglySide.call('ritual_ZN11QFileDevice6d_funcEv')
+    from . import QFileDevicePrivate
+    return QFileDevicePrivate._cuteAt(address)
+
   def unsetError(self) -> None:
     """
     Calls Qt's 'void QFileDevice::unsetError()'.
@@ -627,3 +660,25 @@ class QFileDevice(QIODevice):
     return self.uglySide.call(
         'ritual_ZN11QFileDevice9writeDataEPKcx', self._bytesOf(data), len,
     )
+
+  @staticmethod
+  def map(*__, **_) -> Never:
+    """
+    Qt's 'uchar *QFileDevice::map(qint64 offset, qint64 size, MemoryMapFlags
+    flags)': takes or gives a type that cannot be passed yet: uchar *.
+    """
+    raise NotImplementedError(
+        "'QFileDevice.map' has no cute function yet. Qt's 'uchar "
+        "*QFileDevice::map(qint64 offset, qint64 size, MemoryMapFlags "
+        "flags)': takes or gives a type that cannot be passed yet: uchar *.")
+
+  @staticmethod
+  def unmap(*__, **_) -> Never:
+    """
+    Qt's 'bool QFileDevice::unmap(uchar *address)': takes a number to change
+    where it is.
+    """
+    raise NotImplementedError(
+        "'QFileDevice.unmap' has no cute function yet. Qt's 'bool "
+        "QFileDevice::unmap(uchar *address)': takes a number to change "
+        "where it is.")

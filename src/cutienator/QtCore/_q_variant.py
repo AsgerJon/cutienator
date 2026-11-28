@@ -15,10 +15,10 @@ from worktoy.keenum import Kee
 
 from ..cute import CuteMixin, CuteNum, MetaCute, WAIT
 from ..occult import Rituals
-from . import QHash, QList, QMap, QStringList
+from . import QHash, QList, QMap, QStringList, QtPrivate
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Optional
+  from typing import Never, Optional
 
   from . import QBitArray, QByteArray, QChar, QDate, QDateTime, QDebug
   from . import QEasingCurve, QJsonArray, QJsonDocument, QJsonObject
@@ -94,6 +94,8 @@ class QVariant(CuteMixin, metaclass=MetaCute):
 
   - Qt's 'QVariant::~QVariant()': the destructor: Python removes its C++
     QVariant by it, and has no other use for it.
+  - Qt's 'QVariant::QVariant(QMetaType type, const void *copy)': names
+    'void', which has no cute class yet.
   - Qt's 'QVariant::QVariant(uint ui)': takes in Python what
     'QVariant::QVariant(int i)' takes.
   - Qt's 'QVariant::QVariant(qlonglong ll)': takes in Python what
@@ -102,6 +104,48 @@ class QVariant(CuteMixin, metaclass=MetaCute):
     'QVariant::QVariant(int i)' takes.
   - Qt's 'QVariant::QVariant(float f)': takes in Python what
     'QVariant::QVariant(double d)' takes.
+  - Qt's 'QVariant::QVariant(QBitArray &&bitarray)': takes a type Python has
+    no way to hand over yet.
+  - Qt's 'QVariant::QVariant(QByteArray &&bytearray)': takes a type Python
+    has no way to hand over yet.
+  - Qt's 'QVariant::QVariant(QDateTime &&datetime)': takes a type Python has
+    no way to hand over yet.
+  - Qt's 'QVariant::QVariant(QHash<QString, QVariant> &&hash)': takes a type
+    Python has no way to hand over yet.
+  - Qt's 'QVariant::QVariant(QJsonArray &&jsonArray)': takes a type Python
+    has no way to hand over yet.
+  - Qt's 'QVariant::QVariant(QJsonObject &&jsonObject)': takes a type Python
+    has no way to hand over yet.
+  - Qt's 'QVariant::QVariant(QList<QVariant> &&list)': takes a type Python
+    has no way to hand over yet.
+  - Qt's 'QVariant::QVariant(QLocale &&locale)': takes a type Python has no
+    way to hand over yet.
+  - Qt's 'QVariant::QVariant(QMap<QString, QVariant> &&map)': takes a type
+    Python has no way to hand over yet.
+  - Qt's 'QVariant::QVariant(QRegularExpression &&re)': takes a type Python
+    has no way to hand over yet.
+  - Qt's 'QVariant::QVariant(QString &&string)': takes a type Python has no
+    way to hand over yet.
+  - Qt's 'QVariant::QVariant(QStringList &&stringlist)': takes a type Python
+    has no way to hand over yet.
+  - Qt's 'QVariant::QVariant(QUrl &&url)': takes a type Python has no way to
+    hand over yet.
+  - Qt's 'QVariant::QVariant(QJsonValue &&jsonValue)': takes a type Python
+    has no way to hand over yet.
+  - Qt's 'QVariant::QVariant(QEasingCurve &&easing)': takes a type Python has
+    no way to hand over yet.
+  - Qt's 'QVariant::QVariant(QJsonDocument &&jsonDocument)': takes a type
+    Python has no way to hand over yet.
+  - Qt's 'QVariant::QVariant(QPersistentModelIndex &&modelIndex)': takes a
+    type Python has no way to hand over yet.
+  - Qt's 'QVariant &QVariant::operator=(const QVariant &other)': assignment:
+    Python binds a name and has no operator for it.
+  - Qt's 'QVariant::QVariant(QVariant &&other)': takes a type Python has no
+    way to hand over yet.
+  - Qt's 'QVariant &QVariant::operator=(QVariant &&other)': assignment:
+    Python binds a name and has no operator for it.
+  - Qt's 'void QVariant::swap(QVariant &other)': takes a type Python has no
+    way to hand over yet.
   - Qt's 'int QVariant::toInt(bool *ok) const': takes a number to change
     where it is.
   - Qt's 'uint QVariant::toUInt(bool *ok) const': takes a number to change
@@ -116,12 +160,44 @@ class QVariant(CuteMixin, metaclass=MetaCute):
     where it is.
   - Qt's 'qreal QVariant::toReal(bool *ok) const': takes a number to change
     where it is.
+  - Qt's 'void QVariant::load(QDataStream &ds)': takes a type Python has no
+    way to hand over yet.
+  - Qt's 'void QVariant::save(QDataStream &ds) const': takes a type Python
+    has no way to hand over yet.
+  - Qt's 'void *QVariant::data()': gives 'void', which has no cute class yet.
+  - Qt's 'const void *QVariant::constData() const': gives 'void', which has
+    no cute class yet.
+  - Qt's 'const void *QVariant::data() const': gives 'void', which has no
+    cute class yet.
+  - Qt's 'void QVariant::setValue(QVariant &&avalue)': takes a type Python
+    has no way to hand over yet.
+  - Qt's 'QVariant QVariant::fromMetaType(QMetaType type, const void *copy)':
+    names 'void', which has no cute class yet.
+  - Qt's 'QVariant QVariant::moveConstruct(QMetaType type, void *data)':
+    names 'void', which has no cute class yet.
+  - Qt's 'QVariant QVariant::copyConstruct(QMetaType type, const void
+    *data)': names 'void', which has no cute class yet.
+  - Qt's 'void QVariant::create(int type, const void *copy)': names 'void',
+    which has no cute class yet.
+  - Qt's 'void QVariant::create(QMetaType type, const void *copy)': names
+    'void', which has no cute class yet.
+  - Qt's 'bool QVariant::convert(int type, void *ptr) const': names 'void',
+    which has no cute class yet.
+  - Qt's 'bool QVariant::view(int type, void *ptr)': names 'void', which has
+    no cute class yet.
+  - Qt's 'QVariant::QVariant(std::in_place_t a0, QMetaType type)': takes a
+    type Python has no way to hand over yet.
+  - Qt's 'void *QVariant::prepareForEmplace(QMetaType type)': gives 'void',
+    which has no cute class yet.
+  - Qt's 'DataPtr &QVariant::data_ptr()': gives a type Python has no way to
+    take yet.
+  - Qt's 'const DataPtr &QVariant::data_ptr() const': gives a type Python has
+    no way to take yet.
 
   What has no ritual
   ------------------
 
-  66 of the 170 functions Qt declares: 39 takes or gives a type that cannot
-  be passed yet; 21 a template; 6 forbidden.
+  27 of the 170 functions Qt declares: 21 a template; 6 forbidden.
 
   What to expect
   --------------
@@ -134,6 +210,14 @@ class QVariant(CuteMixin, metaclass=MetaCute):
     is as in C++.
   - A function giving a QVariant back gives a copy the ritual made for
     Python, in a new cute QVariant.
+  - Each name of Qt's QVariant that has no cute function yet,
+    'canGetTypeFromVariant', 'constData', 'copyConstruct', 'create', 'data',
+    'data_ptr', 'emplace', 'emplaceImpl', 'fromMetaType', 'fromStdVariant',
+    'fromStdVariantImpl', 'fromValue', 'load', 'moveConstruct',
+    'prepareForEmplace', 'save', 'swap', 'toDouble', 'toFloat', 'toInt',
+    'toLongLong', 'toReal', 'toUInt', 'toULongLong', 'typedData', 'value',
+    'verifySuitableForEmplace', 'view', holds a function that raises
+    'NotImplementedError', and its docstring says why.
   """
 
   #  The enums Qt writes inside QVariant, each a class in here as in C++, and
@@ -218,20 +302,22 @@ class QVariant(CuteMixin, metaclass=MetaCute):
     -----------
 
     Every function of Qt's QVariant::Private that has a ritual and that
-    Python can call so far, 1 name in all: 'type'. It can be made from
-    Python, in 1 way; see '__init__'.
+    Python can call so far, 3 names in all: 'canUseInternalSpace',
+    'typeInterface', 'type'. It can be made from Python, in 2 ways; see
+    '__init__'.
 
     What has a ritual and is left out, and why
     ------------------------------------------
 
+    - Qt's 'const void *QVariant::Private::storage() const': gives 'void',
+      which has no cute class yet.
     - Qt's 'QVariant::Private::~Private()': the destructor: Python removes
       its C++ QVariant::Private by it, and has no other use for it.
 
     What has no ritual
     ------------------
 
-    8 of the 11 functions Qt declares: 4 takes or gives a type that cannot be
-    passed yet; 4 a template.
+    4 of the 11 functions Qt declares: 4 a template.
 
     What to expect
     --------------
@@ -245,11 +331,42 @@ class QVariant(CuteMixin, metaclass=MetaCute):
       there is as in C++.
     - A function giving a QVariant::Private back gives a copy the ritual made
       for Python, in a new cute QVariant::Private.
+    - Each name of Qt's QVariant::Private that has no cute function yet,
+      'get', 'hasAlwaysBeenAbleToUseInternalSpace', 'storage', holds a
+      function that raises 'NotImplementedError', and its docstring says why.
     """
 
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    @staticmethod
+    @overload(WAIT['QtPrivate.QMetaTypeInterface'])
+    @overload(NoneType)
+    def canUseInternalSpace(
+        type: Optional[QtPrivate.QMetaTypeInterface],
+    ) -> bool:
+      """
+      Calls Qt's 'bool QVariant::Private::canUseInternalSpace(const
+      QtPrivate::QMetaTypeInterface *type)'.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qvariant-private.html#canUseInternalSpace
+
+      Parameters
+      ----------
+
+      type : Optional[QtPrivate.QMetaTypeInterface]
+        Passed on as the address of its C++ object. None is passed on as no
+        object.
+      """
+      #  bool QVariant::Private::canUseInternalSpace(const
+      #      QtPrivate::QMetaTypeInterface *type)
+      return Rituals.call(
+          'ritual_ZN8QVariant7Private19canUseInternalSpaceEPKN9QtPrivate18Q'
+          'MetaTypeInterfaceE',
+          CuteMixin._addressOf(type),
+      )
 
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -275,6 +392,28 @@ class QVariant(CuteMixin, metaclass=MetaCute):
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     #  GETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    def typeInterface(self) -> Optional[QtPrivate.QMetaTypeInterface]:
+      """
+      Calls Qt's 'const QtPrivate::QMetaTypeInterface
+      *QVariant::Private::typeInterface() const'.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qvariant-private.html#typeInterface
+
+      Returns
+      -------
+
+      Optional[QtPrivate.QMetaTypeInterface]
+        The cute object standing for what Qt gave back. None when Qt gave
+        back no object.
+      """
+      #  const QtPrivate::QMetaTypeInterface
+      #      *QVariant::Private::typeInterface() const
+      address = self.uglySide.call(
+          'ritual_ZNK8QVariant7Private13typeInterfaceEv',
+      )
+      return QtPrivate.QMetaTypeInterface._cuteAt(address)
 
     def type(self) -> QMetaType:
       """
@@ -322,6 +461,33 @@ class QVariant(CuteMixin, metaclass=MetaCute):
           'ritual_ZN8QVariant7PrivateC1Ev',
       ))
 
+    @overload(WAIT['QtPrivate.QMetaTypeInterface'])
+    @overload(NoneType)
+    def __init__(
+        self,
+        iface: Optional[QtPrivate.QMetaTypeInterface],
+    ) -> None:
+      """
+      Notes what was given, for Qt's 'QVariant::Private::Private(const
+      QtPrivate::QMetaTypeInterface *iface)', which is called at the first
+      use.
+
+      Qt's own words: https://doc.qt.io/qt-6/qvariant-private.html#Private
+
+      Parameters
+      ----------
+
+      iface : Optional[QtPrivate.QMetaTypeInterface]
+        Passed on as the address of its C++ object. None is passed on as no
+        object.
+      """
+      #  QVariant::Private::Private(const QtPrivate::QMetaTypeInterface
+      #      *iface)
+      self._noteCreation(QVariant.Private, lambda: Rituals.call(
+          'ritual_ZN8QVariant7PrivateC1EPKN9QtPrivate18QMetaTypeInterfaceE',
+          self._addressOf(iface),
+      ))
+
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # #
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -342,6 +508,40 @@ class QVariant(CuteMixin, metaclass=MetaCute):
     #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+    @staticmethod
+    def get(*__, **_) -> Never:
+      """
+      Qt's 'QVariant::Private::get': a template: a pattern and no single
+      function.
+      """
+      raise NotImplementedError(
+          "'QVariant.Private.get' has no cute function yet. Qt's "
+          "'QVariant::Private::get': a template: a pattern and no single "
+          "function.")
+
+    @staticmethod
+    def hasAlwaysBeenAbleToUseInternalSpace(*__, **_) -> Never:
+      """
+      Qt's 'QVariant::Private::hasAlwaysBeenAbleToUseInternalSpace': a
+      template: a pattern and no single function.
+      """
+      raise NotImplementedError(
+          "'QVariant.Private.hasAlwaysBeenAbleToUseInternalSpace' has no "
+          "cute function yet. Qt's "
+          "'QVariant::Private::hasAlwaysBeenAbleToUseInternalSpace': a "
+          "template: a pattern and no single function.")
+
+    @staticmethod
+    def storage(*__, **_) -> Never:
+      """
+      Qt's 'const void *QVariant::Private::storage() const': gives 'void',
+      which has no cute class yet.
+      """
+      raise NotImplementedError(
+          "'QVariant.Private.storage' has no cute function yet. Qt's 'const "
+          "void *QVariant::Private::storage() const': gives 'void', which "
+          "has no cute class yet.")
+
   class PrivateShared(CuteMixin, metaclass=MetaCute):
     """
     The cute side of Qt's QVariant::PrivateShared: a plain Python object
@@ -355,21 +555,20 @@ class QVariant(CuteMixin, metaclass=MetaCute):
     -----------
 
     Every function of Qt's QVariant::PrivateShared that has a ritual and that
-    Python can call so far, 3 names in all: 'computeOffset', 'create',
-    'free'. It can be made from Python, in 1 way; see '__init__'.
+    Python can call so far, 4 names in all: 'computeOffset',
+    'computeAllocationSize', 'create', 'free'. It can be made from Python, in
+    1 way; see '__init__'.
 
     What has a ritual and is left out, and why
     ------------------------------------------
 
+    - Qt's 'const void *QVariant::PrivateShared::data() const': gives 'void',
+      which has no cute class yet.
+    - Qt's 'void *QVariant::PrivateShared::data()': gives 'void', which has
+      no cute class yet.
     - Qt's 'QVariant::PrivateShared::~PrivateShared()': the destructor:
       Python removes its C++ QVariant::PrivateShared by it, and has no other
       use for it.
-
-    What has no ritual
-    ------------------
-
-    3 of the 8 functions Qt declares: 3 takes or gives a type that cannot be
-    passed yet.
 
     What to expect
     --------------
@@ -383,6 +582,9 @@ class QVariant(CuteMixin, metaclass=MetaCute):
       there is as in C++.
     - A function giving a QVariant::PrivateShared back gives a copy the
       ritual made for Python, in a new cute QVariant::PrivateShared.
+    - Each name of Qt's QVariant::PrivateShared that has no cute function
+      yet, 'data', holds a function that raises 'NotImplementedError', and
+      its docstring says why.
     """
 
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -418,6 +620,33 @@ class QVariant(CuteMixin, metaclass=MetaCute):
       return Rituals.call(
           'ritual_ZN8QVariant13PrivateShared13computeOffsetEPS0_m',
           CuteMixin._addressOf(ps), align,
+      )
+
+    @staticmethod
+    @overload(int, int)
+    def computeAllocationSize(size: int, align: int) -> int:
+      """
+      Calls Qt's 'size_t
+      QVariant::PrivateShared::computeAllocationSize(size_t size, size_t
+      align)'.
+
+      Qt's own words:
+      https://doc.qt.io/qt-6/qvariant-privateshared.html
+
+      Parameters
+      ----------
+
+      size : int
+        Passed on as it is.
+
+      align : int
+        Passed on as it is.
+      """
+      #  size_t QVariant::PrivateShared::computeAllocationSize(size_t size,
+      #      size_t align)
+      return Rituals.call(
+          'ritual_ZN8QVariant13PrivateShared21computeAllocationSizeEmm',
+          size, align,
       )
 
     @staticmethod
@@ -550,6 +779,21 @@ class QVariant(CuteMixin, metaclass=MetaCute):
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
     #  PUBLIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # #
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    @staticmethod
+    def data(*__, **_) -> Never:
+      """
+      - Qt's 'const void *QVariant::PrivateShared::data() const': gives
+        'void', which has no cute class yet.
+      - Qt's 'void *QVariant::PrivateShared::data()': gives 'void', which has
+        no cute class yet.
+      """
+      raise NotImplementedError(
+          "'QVariant.PrivateShared.data' has no cute function yet. Qt's "
+          "'const void *QVariant::PrivateShared::data() const': gives "
+          "'void', which has no cute class yet. Qt's 'void "
+          "*QVariant::PrivateShared::data()': gives 'void', which has no "
+          "cute class yet.")
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  STATIC METHODS   # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -2021,7 +2265,7 @@ class QVariant(CuteMixin, metaclass=MetaCute):
     """
     #  QVariant::QVariant(QPointF pt)
     self._noteCreation(QVariant, lambda: Rituals.call(
-        'ritual_ZN8QVariantC1E7QPointF', self._valueOf(pt),
+        'ritual_ZN8QVariantC1E7QPointF', self._valueOf(pt, 'QPointF'),
     ))
 
   @overload(QLine)
@@ -2295,6 +2539,319 @@ class QVariant(CuteMixin, metaclass=MetaCute):
     #  void QVariant::detach()
     self.uglySide.call('ritual_ZN8QVariant6detachEv')
 
+  @staticmethod
+  def canGetTypeFromVariant(*__, **_) -> Never:
+    """
+    Qt's 'QVariant::canGetTypeFromVariant': a template: a pattern and no
+    single function.
+    """
+    raise NotImplementedError(
+        "'QVariant.canGetTypeFromVariant' has no cute function yet. Qt's "
+        "'QVariant::canGetTypeFromVariant': a template: a pattern and no "
+        "single function.")
+
+  @staticmethod
+  def constData(*__, **_) -> Never:
+    """
+    Qt's 'const void *QVariant::constData() const': gives 'void', which has
+    no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QVariant.constData' has no cute function yet. Qt's 'const void "
+        "*QVariant::constData() const': gives 'void', which has no cute "
+        "class yet.")
+
+  @staticmethod
+  def copyConstruct(*__, **_) -> Never:
+    """
+    Qt's 'QVariant QVariant::copyConstruct(QMetaType type, const void
+    *data)': names 'void', which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QVariant.copyConstruct' has no cute function yet. Qt's 'QVariant "
+        "QVariant::copyConstruct(QMetaType type, const void *data)': names "
+        "'void', which has no cute class yet.")
+
+  @staticmethod
+  def create(*__, **_) -> Never:
+    """
+    - Qt's 'void QVariant::create(int type, const void *copy)': names 'void',
+      which has no cute class yet.
+    - Qt's 'void QVariant::create(QMetaType type, const void *copy)': names
+      'void', which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QVariant.create' has no cute function yet. Qt's 'void "
+        "QVariant::create(int type, const void *copy)': names 'void', which "
+        "has no cute class yet. Qt's 'void QVariant::create(QMetaType type, "
+        "const void *copy)': names 'void', which has no cute class yet.")
+
+  @staticmethod
+  def data(*__, **_) -> Never:
+    """
+    - Qt's 'void *QVariant::data()': gives 'void', which has no cute class
+      yet.
+    - Qt's 'const void *QVariant::data() const': gives 'void', which has no
+      cute class yet.
+    """
+    raise NotImplementedError(
+        "'QVariant.data' has no cute function yet. Qt's 'void "
+        "*QVariant::data()': gives 'void', which has no cute class yet. "
+        "Qt's 'const void *QVariant::data() const': gives 'void', which has "
+        "no cute class yet.")
+
+  @staticmethod
+  def data_ptr(*__, **_) -> Never:
+    """
+    - Qt's 'DataPtr &QVariant::data_ptr()': gives a type Python has no way to
+      take yet.
+    - Qt's 'const DataPtr &QVariant::data_ptr() const': gives a type Python
+      has no way to take yet.
+    """
+    raise NotImplementedError(
+        "'QVariant.data_ptr' has no cute function yet. Qt's 'DataPtr "
+        "&QVariant::data_ptr()': gives a type Python has no way to take "
+        "yet. Qt's 'const DataPtr &QVariant::data_ptr() const': gives a "
+        "type Python has no way to take yet.")
+
+  @staticmethod
+  def emplace(*__, **_) -> Never:
+    """
+    Qt's 'QVariant::emplace': a template: a pattern and no single function.
+    """
+    raise NotImplementedError(
+        "'QVariant.emplace' has no cute function yet. Qt's "
+        "'QVariant::emplace': a template: a pattern and no single function.")
+
+  @staticmethod
+  def emplaceImpl(*__, **_) -> Never:
+    """
+    Qt's 'QVariant::emplaceImpl': a template: a pattern and no single
+    function.
+    """
+    raise NotImplementedError(
+        "'QVariant.emplaceImpl' has no cute function yet. Qt's "
+        "'QVariant::emplaceImpl': a template: a pattern and no single "
+        "function.")
+
+  @staticmethod
+  def fromMetaType(*__, **_) -> Never:
+    """
+    Qt's 'QVariant QVariant::fromMetaType(QMetaType type, const void *copy)':
+    names 'void', which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QVariant.fromMetaType' has no cute function yet. Qt's 'QVariant "
+        "QVariant::fromMetaType(QMetaType type, const void *copy)': names "
+        "'void', which has no cute class yet.")
+
+  @staticmethod
+  def fromStdVariant(*__, **_) -> Never:
+    """
+    Qt's 'QVariant::fromStdVariant': a template: a pattern and no single
+    function.
+    """
+    raise NotImplementedError(
+        "'QVariant.fromStdVariant' has no cute function yet. Qt's "
+        "'QVariant::fromStdVariant': a template: a pattern and no single "
+        "function.")
+
+  @staticmethod
+  def fromStdVariantImpl(*__, **_) -> Never:
+    """
+    Qt's 'QVariant::fromStdVariantImpl': a template: a pattern and no single
+    function.
+    """
+    raise NotImplementedError(
+        "'QVariant.fromStdVariantImpl' has no cute function yet. Qt's "
+        "'QVariant::fromStdVariantImpl': a template: a pattern and no "
+        "single function.")
+
+  @staticmethod
+  def fromValue(*__, **_) -> Never:
+    """
+    Qt's 'QVariant::fromValue': a template: a pattern and no single function.
+    """
+    raise NotImplementedError(
+        "'QVariant.fromValue' has no cute function yet. Qt's "
+        "'QVariant::fromValue': a template: a pattern and no single "
+        "function.")
+
+  @staticmethod
+  def load(*__, **_) -> Never:
+    """
+    Qt's 'void QVariant::load(QDataStream &ds)': takes a type Python has no
+    way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QVariant.load' has no cute function yet. Qt's 'void "
+        "QVariant::load(QDataStream &ds)': takes a type Python has no way "
+        "to hand over yet.")
+
+  @staticmethod
+  def moveConstruct(*__, **_) -> Never:
+    """
+    Qt's 'QVariant QVariant::moveConstruct(QMetaType type, void *data)':
+    names 'void', which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QVariant.moveConstruct' has no cute function yet. Qt's 'QVariant "
+        "QVariant::moveConstruct(QMetaType type, void *data)': names "
+        "'void', which has no cute class yet.")
+
+  @staticmethod
+  def prepareForEmplace(*__, **_) -> Never:
+    """
+    Qt's 'void *QVariant::prepareForEmplace(QMetaType type)': gives 'void',
+    which has no cute class yet.
+    """
+    raise NotImplementedError(
+        "'QVariant.prepareForEmplace' has no cute function yet. Qt's 'void "
+        "*QVariant::prepareForEmplace(QMetaType type)': gives 'void', which "
+        "has no cute class yet.")
+
+  @staticmethod
+  def save(*__, **_) -> Never:
+    """
+    Qt's 'void QVariant::save(QDataStream &ds) const': takes a type Python
+    has no way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QVariant.save' has no cute function yet. Qt's 'void "
+        "QVariant::save(QDataStream &ds) const': takes a type Python has no "
+        "way to hand over yet.")
+
+  @staticmethod
+  def swap(*__, **_) -> Never:
+    """
+    Qt's 'void QVariant::swap(QVariant &other)': takes a type Python has no
+    way to hand over yet.
+    """
+    raise NotImplementedError(
+        "'QVariant.swap' has no cute function yet. Qt's 'void "
+        "QVariant::swap(QVariant &other)': takes a type Python has no way "
+        "to hand over yet.")
+
+  @staticmethod
+  def toDouble(*__, **_) -> Never:
+    """
+    Qt's 'double QVariant::toDouble(bool *ok) const': takes a number to
+    change where it is.
+    """
+    raise NotImplementedError(
+        "'QVariant.toDouble' has no cute function yet. Qt's 'double "
+        "QVariant::toDouble(bool *ok) const': takes a number to change "
+        "where it is.")
+
+  @staticmethod
+  def toFloat(*__, **_) -> Never:
+    """
+    Qt's 'float QVariant::toFloat(bool *ok) const': takes a number to change
+    where it is.
+    """
+    raise NotImplementedError(
+        "'QVariant.toFloat' has no cute function yet. Qt's 'float "
+        "QVariant::toFloat(bool *ok) const': takes a number to change where "
+        "it is.")
+
+  @staticmethod
+  def toInt(*__, **_) -> Never:
+    """
+    Qt's 'int QVariant::toInt(bool *ok) const': takes a number to change
+    where it is.
+    """
+    raise NotImplementedError(
+        "'QVariant.toInt' has no cute function yet. Qt's 'int "
+        "QVariant::toInt(bool *ok) const': takes a number to change where "
+        "it is.")
+
+  @staticmethod
+  def toLongLong(*__, **_) -> Never:
+    """
+    Qt's 'qlonglong QVariant::toLongLong(bool *ok) const': takes a number to
+    change where it is.
+    """
+    raise NotImplementedError(
+        "'QVariant.toLongLong' has no cute function yet. Qt's 'qlonglong "
+        "QVariant::toLongLong(bool *ok) const': takes a number to change "
+        "where it is.")
+
+  @staticmethod
+  def toReal(*__, **_) -> Never:
+    """
+    Qt's 'qreal QVariant::toReal(bool *ok) const': takes a number to change
+    where it is.
+    """
+    raise NotImplementedError(
+        "'QVariant.toReal' has no cute function yet. Qt's 'qreal "
+        "QVariant::toReal(bool *ok) const': takes a number to change where "
+        "it is.")
+
+  @staticmethod
+  def toUInt(*__, **_) -> Never:
+    """
+    Qt's 'uint QVariant::toUInt(bool *ok) const': takes a number to change
+    where it is.
+    """
+    raise NotImplementedError(
+        "'QVariant.toUInt' has no cute function yet. Qt's 'uint "
+        "QVariant::toUInt(bool *ok) const': takes a number to change where "
+        "it is.")
+
+  @staticmethod
+  def toULongLong(*__, **_) -> Never:
+    """
+    Qt's 'qulonglong QVariant::toULongLong(bool *ok) const': takes a number
+    to change where it is.
+    """
+    raise NotImplementedError(
+        "'QVariant.toULongLong' has no cute function yet. Qt's 'qulonglong "
+        "QVariant::toULongLong(bool *ok) const': takes a number to change "
+        "where it is.")
+
+  @staticmethod
+  def typedData(*__, **_) -> Never:
+    """
+    Qt's 'QVariant::typedData': a template: a pattern and no single function.
+    """
+    raise NotImplementedError(
+        "'QVariant.typedData' has no cute function yet. Qt's "
+        "'QVariant::typedData': a template: a pattern and no single "
+        "function.")
+
+  @staticmethod
+  def value(*__, **_) -> Never:
+    """
+    Qt's 'QVariant::value': a template: a pattern and no single function.
+    """
+    raise NotImplementedError(
+        "'QVariant.value' has no cute function yet. Qt's 'QVariant::value': "
+        "a template: a pattern and no single function.")
+
+  @staticmethod
+  def verifySuitableForEmplace(*__, **_) -> Never:
+    """
+    Qt's 'QVariant::verifySuitableForEmplace': a template: a pattern and no
+    single function.
+    """
+    raise NotImplementedError(
+        "'QVariant.verifySuitableForEmplace' has no cute function yet. Qt's "
+        "'QVariant::verifySuitableForEmplace': a template: a pattern and no "
+        "single function.")
+
+  @staticmethod
+  def view(*__, **_) -> Never:
+    """
+    - Qt's 'bool QVariant::view(int type, void *ptr)': names 'void', which
+      has no cute class yet.
+    - Qt's 'QVariant::view': a template: a pattern and no single function.
+    """
+    raise NotImplementedError(
+        "'QVariant.view' has no cute function yet. Qt's 'bool "
+        "QVariant::view(int type, void *ptr)': names 'void', which has no "
+        "cute class yet. Qt's 'QVariant::view': a template: a pattern and "
+        "no single function.")
+
 
 #  Qt's 'QList<QVariant>': the list of QVariant, which 'QList[QVariant]'
 #  gives. It is made here, so that there is one as soon as there can be a
@@ -2307,23 +2864,6 @@ QVariantList = QList.createKind(
     size='ritual_list_size_QVariant',
     at='ritual_list_at_QVariant',
     drop='ritual_list_drop_QVariant',
-)
-
-
-#  Qt's 'QMap<QString, QVariant>': the QMap from text to QVariant, which
-#  'QMap[str, QVariant]' gives. It is completed here, in the file of the
-#  class of its values. Qt has a name of its own for it.
-QVariantMap = QMap.createKind(
-    str, QVariant, 'value',
-    name='QVariantMap',
-    make='ritual_map_make_QMap_QString_QVariant',
-    put='ritual_map_put_QMap_QString_QVariant',
-    size='ritual_map_size_QMap_QString_QVariant',
-    key='ritual_map_key_QMap_QString_QVariant',
-    value='ritual_map_value_QMap_QString_QVariant',
-    has='ritual_map_has_QMap_QString_QVariant',
-    get='ritual_map_get_QMap_QString_QVariant',
-    drop='ritual_map_drop_QMap_QString_QVariant',
 )
 
 
@@ -2341,6 +2881,23 @@ QVariantHash = QHash.createKind(
     has='ritual_map_has_QHash_QString_QVariant',
     get='ritual_map_get_QHash_QString_QVariant',
     drop='ritual_map_drop_QHash_QString_QVariant',
+)
+
+
+#  Qt's 'QMap<QString, QVariant>': the QMap from text to QVariant, which
+#  'QMap[str, QVariant]' gives. It is completed here, in the file of the
+#  class of its values. Qt has a name of its own for it.
+QVariantMap = QMap.createKind(
+    str, QVariant, 'value',
+    name='QVariantMap',
+    make='ritual_map_make_QMap_QString_QVariant',
+    put='ritual_map_put_QMap_QString_QVariant',
+    size='ritual_map_size_QMap_QString_QVariant',
+    key='ritual_map_key_QMap_QString_QVariant',
+    value='ritual_map_value_QMap_QString_QVariant',
+    has='ritual_map_has_QMap_QString_QVariant',
+    get='ritual_map_get_QMap_QString_QVariant',
+    drop='ritual_map_drop_QMap_QString_QVariant',
 )
 
 
