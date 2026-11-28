@@ -30,7 +30,15 @@
 # Linux also QtGui and QtWidgets: 'bin/check_cute.py', which the short
 # run now runs after the build, makes objects of QtCore and QtWidgets,
 # and needs their target files and that of QtGui on every machine.
-linux: QtCore QtGui QtQml QtWidgets
-mac: QtBluetooth QtCore QtGui QtMultimedia QtNetwork QtPrintSupport QtQml QtQuick QtQuickNativeStyle QtSerialPort QtSpatialAudio QtWidgets
-intel-mac: QtBluetooth QtCore QtGui QtMultimedia QtNetwork QtPrintSupport QtQml QtQuick QtQuickNativeStyle QtSerialPort QtWidgets
-windows: Qt3DExtras QtCore QtGraphs QtGui QtQml QtQmlModels QtQuickNativeStyle QtRemoteObjects QtWebSockets QtWidgets
+#
+# 2026-11-28, after the short run on 4fbfa33d: every part these lines
+# named built on its machine, QtCore and QtQml with their new files
+# too, and what was left out is what run 7 left out, nothing new. So
+# nothing is to see again, and each line names only what
+# 'bin/check_cute.py' makes objects of: QtCore, QtGui and QtWidgets.
+# A part whose ritual files change goes back on the line of every
+# machine until a run builds it.
+linux: QtCore QtGui QtWidgets
+mac: QtCore QtGui QtWidgets
+intel-mac: QtCore QtGui QtWidgets
+windows: QtCore QtGui QtWidgets
